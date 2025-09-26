@@ -2199,6 +2199,13 @@ public final class StorageFunctions {
      * }
      * </pre>
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Storage` - 2023-05-01
+     * 
      */
     public static Output<GetQueueResult> getQueue(GetQueueArgs args) {
         return getQueue(args, InvokeOptions.Empty);
@@ -2239,6 +2246,13 @@ public final class StorageFunctions {
      * }
      * }
      * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Storage` - 2023-05-01
      * 
      */
     public static CompletableFuture<GetQueueResult> getQueuePlain(GetQueuePlainArgs args) {
@@ -2281,6 +2295,13 @@ public final class StorageFunctions {
      * }
      * </pre>
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Storage` - 2023-05-01
+     * 
      */
     public static Output<GetQueueResult> getQueue(GetQueueArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:storage/getQueue:getQueue", TypeShape.of(GetQueueResult.class), args, Utilities.withVersion(options));
@@ -2322,6 +2343,13 @@ public final class StorageFunctions {
      * }
      * </pre>
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Storage` - 2023-05-01
+     * 
      */
     public static Output<GetQueueResult> getQueue(GetQueueArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:storage/getQueue:getQueue", TypeShape.of(GetQueueResult.class), args, Utilities.withVersion(options));
@@ -2362,6 +2390,13 @@ public final class StorageFunctions {
      * }
      * }
      * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Storage` - 2023-05-01
      * 
      */
     public static CompletableFuture<GetQueueResult> getQueuePlain(GetQueuePlainArgs args, InvokeOptions options) {

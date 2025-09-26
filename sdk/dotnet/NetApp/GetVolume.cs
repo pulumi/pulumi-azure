@@ -44,7 +44,7 @@ namespace Pulumi.Azure.NetApp
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.NetApp` - 2025-01-01
+        /// * `Microsoft.NetApp` - 2025-06-01
         /// </summary>
         public static Task<GetVolumeResult> InvokeAsync(GetVolumeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("azure:netapp/getVolume:getVolume", args ?? new GetVolumeArgs(), options.WithDefaults());
@@ -82,7 +82,7 @@ namespace Pulumi.Azure.NetApp
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.NetApp` - 2025-01-01
+        /// * `Microsoft.NetApp` - 2025-06-01
         /// </summary>
         public static Output<GetVolumeResult> Invoke(GetVolumeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("azure:netapp/getVolume:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithDefaults());
@@ -120,7 +120,7 @@ namespace Pulumi.Azure.NetApp
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.NetApp` - 2025-01-01
+        /// * `Microsoft.NetApp` - 2025-06-01
         /// </summary>
         public static Output<GetVolumeResult> Invoke(GetVolumeInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("azure:netapp/getVolume:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithDefaults());
@@ -207,6 +207,10 @@ namespace Pulumi.Azure.NetApp
     [OutputType]
     public sealed class GetVolumeResult
     {
+        /// <summary>
+        /// The accept grow capacity pool for short term clone split property.
+        /// </summary>
+        public readonly string AcceptGrowCapacityPoolForShortTermCloneSplit;
         public readonly string AccountName;
         /// <summary>
         /// A data protecion backup policy block
@@ -280,6 +284,8 @@ namespace Pulumi.Azure.NetApp
 
         [OutputConstructor]
         private GetVolumeResult(
+            string acceptGrowCapacityPoolForShortTermCloneSplit,
+
             string accountName,
 
             ImmutableArray<Outputs.GetVolumeDataProtectionBackupPolicyResult> dataProtectionBackupPolicies,
@@ -324,6 +330,7 @@ namespace Pulumi.Azure.NetApp
 
             string zone)
         {
+            AcceptGrowCapacityPoolForShortTermCloneSplit = acceptGrowCapacityPoolForShortTermCloneSplit;
             AccountName = accountName;
             DataProtectionBackupPolicies = dataProtectionBackupPolicies;
             DataProtectionReplications = dataProtectionReplications;

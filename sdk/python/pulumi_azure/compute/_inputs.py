@@ -1554,15 +1554,11 @@ if not MYPY:
         """
         The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
         """
-        storage_account_type: pulumi.Input[_builtins.str]
-        """
-        The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
-        """
         diff_disk_settings: NotRequired[pulumi.Input['LinuxVirtualMachineOsDiskDiffDiskSettingsArgsDict']]
         """
         A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
 
-        > **NOTE:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment)
+        > **NOTE:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment). Additionally, this property cannot be set when an existing Managed Disk is used to create the Virtual Machine by setting `os_managed_disk_id`.
         """
         disk_encryption_set_id: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -1583,6 +1579,8 @@ if not MYPY:
         name: NotRequired[pulumi.Input[_builtins.str]]
         """
         The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
+
+        > **Note:** a value for `name` cannot be specified if/when the Virtual Machine is/has been created using an existing Managed Disk for the OS by setting `os_managed_disk_id`.
         """
         secure_vm_disk_encryption_set_id: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -1598,6 +1596,12 @@ if not MYPY:
 
         > **NOTE:** `encryption_at_host_enabled` cannot be set to `true` when `security_encryption_type` is set to `DiskWithVMGuestState`.
         """
+        storage_account_type: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+
+        > **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+        """
         write_accelerator_enabled: NotRequired[pulumi.Input[_builtins.bool]]
         """
         Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
@@ -1611,7 +1615,6 @@ elif False:
 class LinuxVirtualMachineOsDiskArgs:
     def __init__(__self__, *,
                  caching: pulumi.Input[_builtins.str],
-                 storage_account_type: pulumi.Input[_builtins.str],
                  diff_disk_settings: Optional[pulumi.Input['LinuxVirtualMachineOsDiskDiffDiskSettingsArgs']] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[_builtins.str]] = None,
                  disk_size_gb: Optional[pulumi.Input[_builtins.int]] = None,
@@ -1619,13 +1622,13 @@ class LinuxVirtualMachineOsDiskArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  secure_vm_disk_encryption_set_id: Optional[pulumi.Input[_builtins.str]] = None,
                  security_encryption_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_account_type: Optional[pulumi.Input[_builtins.str]] = None,
                  write_accelerator_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] caching: The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
-        :param pulumi.Input[_builtins.str] storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
         :param pulumi.Input['LinuxVirtualMachineOsDiskDiffDiskSettingsArgs'] diff_disk_settings: A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
                
-               > **NOTE:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment)
+               > **NOTE:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment). Additionally, this property cannot be set when an existing Managed Disk is used to create the Virtual Machine by setting `os_managed_disk_id`.
         :param pulumi.Input[_builtins.str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
                
                > **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
@@ -1634,6 +1637,8 @@ class LinuxVirtualMachineOsDiskArgs:
                > **NOTE:** If specified this must be equal to or larger than the size of the Image the Virtual Machine is based on. When creating a larger disk than exists in the image you'll need to repartition the disk to use the remaining space.
         :param pulumi.Input[_builtins.str] id: The ID of the OS disk.
         :param pulumi.Input[_builtins.str] name: The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
+               
+               > **Note:** a value for `name` cannot be specified if/when the Virtual Machine is/has been created using an existing Managed Disk for the OS by setting `os_managed_disk_id`.
         :param pulumi.Input[_builtins.str] secure_vm_disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
                
                > **NOTE:** `secure_vm_disk_encryption_set_id` can only be specified when `security_encryption_type` is set to `DiskWithVMGuestState`.
@@ -1642,12 +1647,14 @@ class LinuxVirtualMachineOsDiskArgs:
                > **NOTE:** `vtpm_enabled` must be set to `true` when `security_encryption_type` is specified.
                
                > **NOTE:** `encryption_at_host_enabled` cannot be set to `true` when `security_encryption_type` is set to `DiskWithVMGuestState`.
+        :param pulumi.Input[_builtins.str] storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+               
+               > **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
         :param pulumi.Input[_builtins.bool] write_accelerator_enabled: Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
                
                > **NOTE:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
         """
         pulumi.set(__self__, "caching", caching)
-        pulumi.set(__self__, "storage_account_type", storage_account_type)
         if diff_disk_settings is not None:
             pulumi.set(__self__, "diff_disk_settings", diff_disk_settings)
         if disk_encryption_set_id is not None:
@@ -1662,6 +1669,8 @@ class LinuxVirtualMachineOsDiskArgs:
             pulumi.set(__self__, "secure_vm_disk_encryption_set_id", secure_vm_disk_encryption_set_id)
         if security_encryption_type is not None:
             pulumi.set(__self__, "security_encryption_type", security_encryption_type)
+        if storage_account_type is not None:
+            pulumi.set(__self__, "storage_account_type", storage_account_type)
         if write_accelerator_enabled is not None:
             pulumi.set(__self__, "write_accelerator_enabled", write_accelerator_enabled)
 
@@ -1678,24 +1687,12 @@ class LinuxVirtualMachineOsDiskArgs:
         pulumi.set(self, "caching", value)
 
     @_builtins.property
-    @pulumi.getter(name="storageAccountType")
-    def storage_account_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "storage_account_type")
-
-    @storage_account_type.setter
-    def storage_account_type(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "storage_account_type", value)
-
-    @_builtins.property
     @pulumi.getter(name="diffDiskSettings")
     def diff_disk_settings(self) -> Optional[pulumi.Input['LinuxVirtualMachineOsDiskDiffDiskSettingsArgs']]:
         """
         A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
 
-        > **NOTE:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment)
+        > **NOTE:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment). Additionally, this property cannot be set when an existing Managed Disk is used to create the Virtual Machine by setting `os_managed_disk_id`.
         """
         return pulumi.get(self, "diff_disk_settings")
 
@@ -1748,6 +1745,8 @@ class LinuxVirtualMachineOsDiskArgs:
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
+
+        > **Note:** a value for `name` cannot be specified if/when the Virtual Machine is/has been created using an existing Managed Disk for the OS by setting `os_managed_disk_id`.
         """
         return pulumi.get(self, "name")
 
@@ -1786,6 +1785,20 @@ class LinuxVirtualMachineOsDiskArgs:
         pulumi.set(self, "security_encryption_type", value)
 
     @_builtins.property
+    @pulumi.getter(name="storageAccountType")
+    def storage_account_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+
+        > **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+        """
+        return pulumi.get(self, "storage_account_type")
+
+    @storage_account_type.setter
+    def storage_account_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "storage_account_type", value)
+
+    @_builtins.property
     @pulumi.getter(name="writeAcceleratorEnabled")
     def write_accelerator_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
@@ -1808,7 +1821,9 @@ if not MYPY:
         """
         placement: NotRequired[pulumi.Input[_builtins.str]]
         """
-        Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+        Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+
+        > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `source_image_reference`. More information can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks)
         """
 elif False:
     LinuxVirtualMachineOsDiskDiffDiskSettingsArgsDict: TypeAlias = Mapping[str, Any]
@@ -1820,7 +1835,9 @@ class LinuxVirtualMachineOsDiskDiffDiskSettingsArgs:
                  placement: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] option: Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] placement: Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] placement: Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+               
+               > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `source_image_reference`. More information can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks)
         """
         pulumi.set(__self__, "option", option)
         if placement is not None:
@@ -1842,7 +1859,9 @@ class LinuxVirtualMachineOsDiskDiffDiskSettingsArgs:
     @pulumi.getter
     def placement(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+        Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+
+        > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `source_image_reference`. More information can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks)
         """
         return pulumi.get(self, "placement")
 
@@ -12904,15 +12923,11 @@ if not MYPY:
         """
         The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
         """
-        storage_account_type: pulumi.Input[_builtins.str]
-        """
-        The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
-        """
         diff_disk_settings: NotRequired[pulumi.Input['WindowsVirtualMachineOsDiskDiffDiskSettingsArgsDict']]
         """
         A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
 
-        > **NOTE:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment)
+        > **NOTE:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment). Additionally, this property cannot be set when an existing Managed Disk is used to create the Virtual Machine by setting `os_managed_disk_id`.
         """
         disk_encryption_set_id: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -12933,6 +12948,8 @@ if not MYPY:
         name: NotRequired[pulumi.Input[_builtins.str]]
         """
         The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
+
+        > **Note:** a value for `name` cannot be specified if/when the Virtual Machine has been created using an existing Managed Disk for the OS by setting `os_managed_disk_id`.
         """
         secure_vm_disk_encryption_set_id: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -12948,6 +12965,12 @@ if not MYPY:
 
         > **NOTE:** `encryption_at_host_enabled` cannot be set to `true` when `security_encryption_type` is set to `DiskWithVMGuestState`.
         """
+        storage_account_type: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+
+        > **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+        """
         write_accelerator_enabled: NotRequired[pulumi.Input[_builtins.bool]]
         """
         Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
@@ -12961,7 +12984,6 @@ elif False:
 class WindowsVirtualMachineOsDiskArgs:
     def __init__(__self__, *,
                  caching: pulumi.Input[_builtins.str],
-                 storage_account_type: pulumi.Input[_builtins.str],
                  diff_disk_settings: Optional[pulumi.Input['WindowsVirtualMachineOsDiskDiffDiskSettingsArgs']] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[_builtins.str]] = None,
                  disk_size_gb: Optional[pulumi.Input[_builtins.int]] = None,
@@ -12969,13 +12991,13 @@ class WindowsVirtualMachineOsDiskArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  secure_vm_disk_encryption_set_id: Optional[pulumi.Input[_builtins.str]] = None,
                  security_encryption_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_account_type: Optional[pulumi.Input[_builtins.str]] = None,
                  write_accelerator_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] caching: The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
-        :param pulumi.Input[_builtins.str] storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
         :param pulumi.Input['WindowsVirtualMachineOsDiskDiffDiskSettingsArgs'] diff_disk_settings: A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
                
-               > **NOTE:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment)
+               > **NOTE:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment). Additionally, this property cannot be set when an existing Managed Disk is used to create the Virtual Machine by setting `os_managed_disk_id`.
         :param pulumi.Input[_builtins.str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
                
                > **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
@@ -12984,6 +13006,8 @@ class WindowsVirtualMachineOsDiskArgs:
                > **NOTE:** If specified this must be equal to or larger than the size of the Image the Virtual Machine is based on. When creating a larger disk than exists in the image you'll need to repartition the disk to use the remaining space.
         :param pulumi.Input[_builtins.str] id: The ID of the OS disk.
         :param pulumi.Input[_builtins.str] name: The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
+               
+               > **Note:** a value for `name` cannot be specified if/when the Virtual Machine has been created using an existing Managed Disk for the OS by setting `os_managed_disk_id`.
         :param pulumi.Input[_builtins.str] secure_vm_disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
                
                > **NOTE:** `secure_vm_disk_encryption_set_id` can only be specified when `security_encryption_type` is set to `DiskWithVMGuestState`.
@@ -12992,12 +13016,14 @@ class WindowsVirtualMachineOsDiskArgs:
                > **NOTE:** `vtpm_enabled` must be set to `true` when `security_encryption_type` is specified.
                
                > **NOTE:** `encryption_at_host_enabled` cannot be set to `true` when `security_encryption_type` is set to `DiskWithVMGuestState`.
+        :param pulumi.Input[_builtins.str] storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+               
+               > **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
         :param pulumi.Input[_builtins.bool] write_accelerator_enabled: Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
                
                > **NOTE:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
         """
         pulumi.set(__self__, "caching", caching)
-        pulumi.set(__self__, "storage_account_type", storage_account_type)
         if diff_disk_settings is not None:
             pulumi.set(__self__, "diff_disk_settings", diff_disk_settings)
         if disk_encryption_set_id is not None:
@@ -13012,6 +13038,8 @@ class WindowsVirtualMachineOsDiskArgs:
             pulumi.set(__self__, "secure_vm_disk_encryption_set_id", secure_vm_disk_encryption_set_id)
         if security_encryption_type is not None:
             pulumi.set(__self__, "security_encryption_type", security_encryption_type)
+        if storage_account_type is not None:
+            pulumi.set(__self__, "storage_account_type", storage_account_type)
         if write_accelerator_enabled is not None:
             pulumi.set(__self__, "write_accelerator_enabled", write_accelerator_enabled)
 
@@ -13028,24 +13056,12 @@ class WindowsVirtualMachineOsDiskArgs:
         pulumi.set(self, "caching", value)
 
     @_builtins.property
-    @pulumi.getter(name="storageAccountType")
-    def storage_account_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "storage_account_type")
-
-    @storage_account_type.setter
-    def storage_account_type(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "storage_account_type", value)
-
-    @_builtins.property
     @pulumi.getter(name="diffDiskSettings")
     def diff_disk_settings(self) -> Optional[pulumi.Input['WindowsVirtualMachineOsDiskDiffDiskSettingsArgs']]:
         """
         A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
 
-        > **NOTE:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment)
+        > **NOTE:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment). Additionally, this property cannot be set when an existing Managed Disk is used to create the Virtual Machine by setting `os_managed_disk_id`.
         """
         return pulumi.get(self, "diff_disk_settings")
 
@@ -13098,6 +13114,8 @@ class WindowsVirtualMachineOsDiskArgs:
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
+
+        > **Note:** a value for `name` cannot be specified if/when the Virtual Machine has been created using an existing Managed Disk for the OS by setting `os_managed_disk_id`.
         """
         return pulumi.get(self, "name")
 
@@ -13134,6 +13152,20 @@ class WindowsVirtualMachineOsDiskArgs:
     @security_encryption_type.setter
     def security_encryption_type(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "security_encryption_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageAccountType")
+    def storage_account_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+
+        > **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+        """
+        return pulumi.get(self, "storage_account_type")
+
+    @storage_account_type.setter
+    def storage_account_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "storage_account_type", value)
 
     @_builtins.property
     @pulumi.getter(name="writeAcceleratorEnabled")

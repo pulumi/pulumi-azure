@@ -203,6 +203,10 @@ __all__ = [
     'GetManagedDiskEncryptionSettingResult',
     'GetManagedDiskEncryptionSettingDiskEncryptionKeyResult',
     'GetManagedDiskEncryptionSettingKeyEncryptionKeyResult',
+    'GetManagedDisksDiskResult',
+    'GetManagedDisksDiskEncryptionSettingResult',
+    'GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyResult',
+    'GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyResult',
     'GetOrchestratedVirtualMachineScaleSetIdentityResult',
     'GetOrchestratedVirtualMachineScaleSetNetworkInterfaceResult',
     'GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationResult',
@@ -1179,9 +1183,7 @@ class LinuxVirtualMachineOsDisk(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "storageAccountType":
-            suggest = "storage_account_type"
-        elif key == "diffDiskSettings":
+        if key == "diffDiskSettings":
             suggest = "diff_disk_settings"
         elif key == "diskEncryptionSetId":
             suggest = "disk_encryption_set_id"
@@ -1191,6 +1193,8 @@ class LinuxVirtualMachineOsDisk(dict):
             suggest = "secure_vm_disk_encryption_set_id"
         elif key == "securityEncryptionType":
             suggest = "security_encryption_type"
+        elif key == "storageAccountType":
+            suggest = "storage_account_type"
         elif key == "writeAcceleratorEnabled":
             suggest = "write_accelerator_enabled"
 
@@ -1207,7 +1211,6 @@ class LinuxVirtualMachineOsDisk(dict):
 
     def __init__(__self__, *,
                  caching: _builtins.str,
-                 storage_account_type: _builtins.str,
                  diff_disk_settings: Optional['outputs.LinuxVirtualMachineOsDiskDiffDiskSettings'] = None,
                  disk_encryption_set_id: Optional[_builtins.str] = None,
                  disk_size_gb: Optional[_builtins.int] = None,
@@ -1215,13 +1218,13 @@ class LinuxVirtualMachineOsDisk(dict):
                  name: Optional[_builtins.str] = None,
                  secure_vm_disk_encryption_set_id: Optional[_builtins.str] = None,
                  security_encryption_type: Optional[_builtins.str] = None,
+                 storage_account_type: Optional[_builtins.str] = None,
                  write_accelerator_enabled: Optional[_builtins.bool] = None):
         """
         :param _builtins.str caching: The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
-        :param _builtins.str storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
         :param 'LinuxVirtualMachineOsDiskDiffDiskSettingsArgs' diff_disk_settings: A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
                
-               > **NOTE:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment)
+               > **NOTE:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment). Additionally, this property cannot be set when an existing Managed Disk is used to create the Virtual Machine by setting `os_managed_disk_id`.
         :param _builtins.str disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
                
                > **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
@@ -1230,6 +1233,8 @@ class LinuxVirtualMachineOsDisk(dict):
                > **NOTE:** If specified this must be equal to or larger than the size of the Image the Virtual Machine is based on. When creating a larger disk than exists in the image you'll need to repartition the disk to use the remaining space.
         :param _builtins.str id: The ID of the OS disk.
         :param _builtins.str name: The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
+               
+               > **Note:** a value for `name` cannot be specified if/when the Virtual Machine is/has been created using an existing Managed Disk for the OS by setting `os_managed_disk_id`.
         :param _builtins.str secure_vm_disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
                
                > **NOTE:** `secure_vm_disk_encryption_set_id` can only be specified when `security_encryption_type` is set to `DiskWithVMGuestState`.
@@ -1238,12 +1243,14 @@ class LinuxVirtualMachineOsDisk(dict):
                > **NOTE:** `vtpm_enabled` must be set to `true` when `security_encryption_type` is specified.
                
                > **NOTE:** `encryption_at_host_enabled` cannot be set to `true` when `security_encryption_type` is set to `DiskWithVMGuestState`.
+        :param _builtins.str storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+               
+               > **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
         :param _builtins.bool write_accelerator_enabled: Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
                
                > **NOTE:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
         """
         pulumi.set(__self__, "caching", caching)
-        pulumi.set(__self__, "storage_account_type", storage_account_type)
         if diff_disk_settings is not None:
             pulumi.set(__self__, "diff_disk_settings", diff_disk_settings)
         if disk_encryption_set_id is not None:
@@ -1258,6 +1265,8 @@ class LinuxVirtualMachineOsDisk(dict):
             pulumi.set(__self__, "secure_vm_disk_encryption_set_id", secure_vm_disk_encryption_set_id)
         if security_encryption_type is not None:
             pulumi.set(__self__, "security_encryption_type", security_encryption_type)
+        if storage_account_type is not None:
+            pulumi.set(__self__, "storage_account_type", storage_account_type)
         if write_accelerator_enabled is not None:
             pulumi.set(__self__, "write_accelerator_enabled", write_accelerator_enabled)
 
@@ -1270,20 +1279,12 @@ class LinuxVirtualMachineOsDisk(dict):
         return pulumi.get(self, "caching")
 
     @_builtins.property
-    @pulumi.getter(name="storageAccountType")
-    def storage_account_type(self) -> _builtins.str:
-        """
-        The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "storage_account_type")
-
-    @_builtins.property
     @pulumi.getter(name="diffDiskSettings")
     def diff_disk_settings(self) -> Optional['outputs.LinuxVirtualMachineOsDiskDiffDiskSettings']:
         """
         A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
 
-        > **NOTE:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment)
+        > **NOTE:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment). Additionally, this property cannot be set when an existing Managed Disk is used to create the Virtual Machine by setting `os_managed_disk_id`.
         """
         return pulumi.get(self, "diff_disk_settings")
 
@@ -1320,6 +1321,8 @@ class LinuxVirtualMachineOsDisk(dict):
     def name(self) -> Optional[_builtins.str]:
         """
         The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
+
+        > **Note:** a value for `name` cannot be specified if/when the Virtual Machine is/has been created using an existing Managed Disk for the OS by setting `os_managed_disk_id`.
         """
         return pulumi.get(self, "name")
 
@@ -1346,6 +1349,16 @@ class LinuxVirtualMachineOsDisk(dict):
         return pulumi.get(self, "security_encryption_type")
 
     @_builtins.property
+    @pulumi.getter(name="storageAccountType")
+    def storage_account_type(self) -> Optional[_builtins.str]:
+        """
+        The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+
+        > **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+        """
+        return pulumi.get(self, "storage_account_type")
+
+    @_builtins.property
     @pulumi.getter(name="writeAcceleratorEnabled")
     def write_accelerator_enabled(self) -> Optional[_builtins.bool]:
         """
@@ -1363,7 +1376,9 @@ class LinuxVirtualMachineOsDiskDiffDiskSettings(dict):
                  placement: Optional[_builtins.str] = None):
         """
         :param _builtins.str option: Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
-        :param _builtins.str placement: Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+        :param _builtins.str placement: Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+               
+               > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `source_image_reference`. More information can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks)
         """
         pulumi.set(__self__, "option", option)
         if placement is not None:
@@ -1381,7 +1396,9 @@ class LinuxVirtualMachineOsDiskDiffDiskSettings(dict):
     @pulumi.getter
     def placement(self) -> Optional[_builtins.str]:
         """
-        Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+        Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+
+        > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `source_image_reference`. More information can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks)
         """
         return pulumi.get(self, "placement")
 
@@ -9965,9 +9982,7 @@ class WindowsVirtualMachineOsDisk(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "storageAccountType":
-            suggest = "storage_account_type"
-        elif key == "diffDiskSettings":
+        if key == "diffDiskSettings":
             suggest = "diff_disk_settings"
         elif key == "diskEncryptionSetId":
             suggest = "disk_encryption_set_id"
@@ -9977,6 +9992,8 @@ class WindowsVirtualMachineOsDisk(dict):
             suggest = "secure_vm_disk_encryption_set_id"
         elif key == "securityEncryptionType":
             suggest = "security_encryption_type"
+        elif key == "storageAccountType":
+            suggest = "storage_account_type"
         elif key == "writeAcceleratorEnabled":
             suggest = "write_accelerator_enabled"
 
@@ -9993,7 +10010,6 @@ class WindowsVirtualMachineOsDisk(dict):
 
     def __init__(__self__, *,
                  caching: _builtins.str,
-                 storage_account_type: _builtins.str,
                  diff_disk_settings: Optional['outputs.WindowsVirtualMachineOsDiskDiffDiskSettings'] = None,
                  disk_encryption_set_id: Optional[_builtins.str] = None,
                  disk_size_gb: Optional[_builtins.int] = None,
@@ -10001,13 +10017,13 @@ class WindowsVirtualMachineOsDisk(dict):
                  name: Optional[_builtins.str] = None,
                  secure_vm_disk_encryption_set_id: Optional[_builtins.str] = None,
                  security_encryption_type: Optional[_builtins.str] = None,
+                 storage_account_type: Optional[_builtins.str] = None,
                  write_accelerator_enabled: Optional[_builtins.bool] = None):
         """
         :param _builtins.str caching: The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
-        :param _builtins.str storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
         :param 'WindowsVirtualMachineOsDiskDiffDiskSettingsArgs' diff_disk_settings: A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
                
-               > **NOTE:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment)
+               > **NOTE:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment). Additionally, this property cannot be set when an existing Managed Disk is used to create the Virtual Machine by setting `os_managed_disk_id`.
         :param _builtins.str disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
                
                > **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
@@ -10016,6 +10032,8 @@ class WindowsVirtualMachineOsDisk(dict):
                > **NOTE:** If specified this must be equal to or larger than the size of the Image the Virtual Machine is based on. When creating a larger disk than exists in the image you'll need to repartition the disk to use the remaining space.
         :param _builtins.str id: The ID of the OS disk.
         :param _builtins.str name: The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
+               
+               > **Note:** a value for `name` cannot be specified if/when the Virtual Machine has been created using an existing Managed Disk for the OS by setting `os_managed_disk_id`.
         :param _builtins.str secure_vm_disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
                
                > **NOTE:** `secure_vm_disk_encryption_set_id` can only be specified when `security_encryption_type` is set to `DiskWithVMGuestState`.
@@ -10024,12 +10042,14 @@ class WindowsVirtualMachineOsDisk(dict):
                > **NOTE:** `vtpm_enabled` must be set to `true` when `security_encryption_type` is specified.
                
                > **NOTE:** `encryption_at_host_enabled` cannot be set to `true` when `security_encryption_type` is set to `DiskWithVMGuestState`.
+        :param _builtins.str storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+               
+               > **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
         :param _builtins.bool write_accelerator_enabled: Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
                
                > **NOTE:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
         """
         pulumi.set(__self__, "caching", caching)
-        pulumi.set(__self__, "storage_account_type", storage_account_type)
         if diff_disk_settings is not None:
             pulumi.set(__self__, "diff_disk_settings", diff_disk_settings)
         if disk_encryption_set_id is not None:
@@ -10044,6 +10064,8 @@ class WindowsVirtualMachineOsDisk(dict):
             pulumi.set(__self__, "secure_vm_disk_encryption_set_id", secure_vm_disk_encryption_set_id)
         if security_encryption_type is not None:
             pulumi.set(__self__, "security_encryption_type", security_encryption_type)
+        if storage_account_type is not None:
+            pulumi.set(__self__, "storage_account_type", storage_account_type)
         if write_accelerator_enabled is not None:
             pulumi.set(__self__, "write_accelerator_enabled", write_accelerator_enabled)
 
@@ -10056,20 +10078,12 @@ class WindowsVirtualMachineOsDisk(dict):
         return pulumi.get(self, "caching")
 
     @_builtins.property
-    @pulumi.getter(name="storageAccountType")
-    def storage_account_type(self) -> _builtins.str:
-        """
-        The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "storage_account_type")
-
-    @_builtins.property
     @pulumi.getter(name="diffDiskSettings")
     def diff_disk_settings(self) -> Optional['outputs.WindowsVirtualMachineOsDiskDiffDiskSettings']:
         """
         A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
 
-        > **NOTE:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment)
+        > **NOTE:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment). Additionally, this property cannot be set when an existing Managed Disk is used to create the Virtual Machine by setting `os_managed_disk_id`.
         """
         return pulumi.get(self, "diff_disk_settings")
 
@@ -10106,6 +10120,8 @@ class WindowsVirtualMachineOsDisk(dict):
     def name(self) -> Optional[_builtins.str]:
         """
         The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
+
+        > **Note:** a value for `name` cannot be specified if/when the Virtual Machine has been created using an existing Managed Disk for the OS by setting `os_managed_disk_id`.
         """
         return pulumi.get(self, "name")
 
@@ -10130,6 +10146,16 @@ class WindowsVirtualMachineOsDisk(dict):
         > **NOTE:** `encryption_at_host_enabled` cannot be set to `true` when `security_encryption_type` is set to `DiskWithVMGuestState`.
         """
         return pulumi.get(self, "security_encryption_type")
+
+    @_builtins.property
+    @pulumi.getter(name="storageAccountType")
+    def storage_account_type(self) -> Optional[_builtins.str]:
+        """
+        The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+
+        > **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+        """
+        return pulumi.get(self, "storage_account_type")
 
     @_builtins.property
     @pulumi.getter(name="writeAcceleratorEnabled")
@@ -12890,6 +12916,308 @@ class GetManagedDiskEncryptionSettingDiskEncryptionKeyResult(dict):
 
 @pulumi.output_type
 class GetManagedDiskEncryptionSettingKeyEncryptionKeyResult(dict):
+    def __init__(__self__, *,
+                 key_url: _builtins.str,
+                 source_vault_id: _builtins.str):
+        """
+        :param _builtins.str key_url: The URL to the Key Vault Key used as the Key Encryption Key.
+        :param _builtins.str source_vault_id: The ID of the source Key Vault.
+        """
+        pulumi.set(__self__, "key_url", key_url)
+        pulumi.set(__self__, "source_vault_id", source_vault_id)
+
+    @_builtins.property
+    @pulumi.getter(name="keyUrl")
+    def key_url(self) -> _builtins.str:
+        """
+        The URL to the Key Vault Key used as the Key Encryption Key.
+        """
+        return pulumi.get(self, "key_url")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceVaultId")
+    def source_vault_id(self) -> _builtins.str:
+        """
+        The ID of the source Key Vault.
+        """
+        return pulumi.get(self, "source_vault_id")
+
+
+@pulumi.output_type
+class GetManagedDisksDiskResult(dict):
+    def __init__(__self__, *,
+                 create_option: _builtins.str,
+                 disk_access_id: _builtins.str,
+                 disk_encryption_set_id: _builtins.str,
+                 disk_iops_read_write: _builtins.int,
+                 disk_mbps_read_write: _builtins.int,
+                 disk_size_in_gb: _builtins.int,
+                 encryption_settings: Sequence['outputs.GetManagedDisksDiskEncryptionSettingResult'],
+                 id: _builtins.str,
+                 image_reference_id: _builtins.str,
+                 location: _builtins.str,
+                 name: _builtins.str,
+                 network_access_policy: _builtins.str,
+                 os_type: _builtins.str,
+                 source_resource_id: _builtins.str,
+                 source_uri: _builtins.str,
+                 storage_account_id: _builtins.str,
+                 storage_account_type: _builtins.str,
+                 tags: Mapping[str, _builtins.str],
+                 zones: Sequence[_builtins.str]):
+        """
+        :param _builtins.str disk_access_id: The ID of the disk access resource for using private endpoints on disks.
+        :param _builtins.str disk_encryption_set_id: The ID of the Disk Encryption Set used to encrypt this Managed Disk.
+        :param _builtins.int disk_iops_read_write: The number of IOPS allowed for this disk, where one operation can transfer between 4k and 256k bytes.
+        :param _builtins.int disk_mbps_read_write: The bandwidth allowed for this disk.
+        :param _builtins.int disk_size_in_gb: The size of the Managed Disk in gigabytes.
+        :param Sequence['GetManagedDisksDiskEncryptionSettingArgs'] encryption_settings: An `encryption_settings` block as defined below.
+        :param _builtins.str image_reference_id: The ID of the source image used for creating this Managed Disk.
+        :param _builtins.str location: The Azure location of the Managed Disk.
+        :param _builtins.str name: The name of the Managed Disk.
+        :param _builtins.str network_access_policy: Policy for accessing the disk via network.
+        :param _builtins.str os_type: The operating system used for this Managed Disk.
+        :param _builtins.str source_resource_id: The ID of an existing Managed Disk which this Disk was created from.
+        :param _builtins.str source_uri: The Source URI for this Managed Disk.
+        :param _builtins.str storage_account_id: The ID of the Storage Account where the `source_uri` is located.
+        :param _builtins.str storage_account_type: The storage account type for the Managed Disk.
+        :param Mapping[str, _builtins.str] tags: A mapping of tags assigned to the resource.
+        :param Sequence[_builtins.str] zones: A list of Availability Zones where the Managed Disk exists.
+        """
+        pulumi.set(__self__, "create_option", create_option)
+        pulumi.set(__self__, "disk_access_id", disk_access_id)
+        pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+        pulumi.set(__self__, "disk_iops_read_write", disk_iops_read_write)
+        pulumi.set(__self__, "disk_mbps_read_write", disk_mbps_read_write)
+        pulumi.set(__self__, "disk_size_in_gb", disk_size_in_gb)
+        pulumi.set(__self__, "encryption_settings", encryption_settings)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "image_reference_id", image_reference_id)
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "network_access_policy", network_access_policy)
+        pulumi.set(__self__, "os_type", os_type)
+        pulumi.set(__self__, "source_resource_id", source_resource_id)
+        pulumi.set(__self__, "source_uri", source_uri)
+        pulumi.set(__self__, "storage_account_id", storage_account_id)
+        pulumi.set(__self__, "storage_account_type", storage_account_type)
+        pulumi.set(__self__, "tags", tags)
+        pulumi.set(__self__, "zones", zones)
+
+    @_builtins.property
+    @pulumi.getter(name="createOption")
+    def create_option(self) -> _builtins.str:
+        return pulumi.get(self, "create_option")
+
+    @_builtins.property
+    @pulumi.getter(name="diskAccessId")
+    def disk_access_id(self) -> _builtins.str:
+        """
+        The ID of the disk access resource for using private endpoints on disks.
+        """
+        return pulumi.get(self, "disk_access_id")
+
+    @_builtins.property
+    @pulumi.getter(name="diskEncryptionSetId")
+    def disk_encryption_set_id(self) -> _builtins.str:
+        """
+        The ID of the Disk Encryption Set used to encrypt this Managed Disk.
+        """
+        return pulumi.get(self, "disk_encryption_set_id")
+
+    @_builtins.property
+    @pulumi.getter(name="diskIopsReadWrite")
+    def disk_iops_read_write(self) -> _builtins.int:
+        """
+        The number of IOPS allowed for this disk, where one operation can transfer between 4k and 256k bytes.
+        """
+        return pulumi.get(self, "disk_iops_read_write")
+
+    @_builtins.property
+    @pulumi.getter(name="diskMbpsReadWrite")
+    def disk_mbps_read_write(self) -> _builtins.int:
+        """
+        The bandwidth allowed for this disk.
+        """
+        return pulumi.get(self, "disk_mbps_read_write")
+
+    @_builtins.property
+    @pulumi.getter(name="diskSizeInGb")
+    def disk_size_in_gb(self) -> _builtins.int:
+        """
+        The size of the Managed Disk in gigabytes.
+        """
+        return pulumi.get(self, "disk_size_in_gb")
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionSettings")
+    def encryption_settings(self) -> Sequence['outputs.GetManagedDisksDiskEncryptionSettingResult']:
+        """
+        An `encryption_settings` block as defined below.
+        """
+        return pulumi.get(self, "encryption_settings")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="imageReferenceId")
+    def image_reference_id(self) -> _builtins.str:
+        """
+        The ID of the source image used for creating this Managed Disk.
+        """
+        return pulumi.get(self, "image_reference_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def location(self) -> _builtins.str:
+        """
+        The Azure location of the Managed Disk.
+        """
+        return pulumi.get(self, "location")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the Managed Disk.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="networkAccessPolicy")
+    def network_access_policy(self) -> _builtins.str:
+        """
+        Policy for accessing the disk via network.
+        """
+        return pulumi.get(self, "network_access_policy")
+
+    @_builtins.property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> _builtins.str:
+        """
+        The operating system used for this Managed Disk.
+        """
+        return pulumi.get(self, "os_type")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceResourceId")
+    def source_resource_id(self) -> _builtins.str:
+        """
+        The ID of an existing Managed Disk which this Disk was created from.
+        """
+        return pulumi.get(self, "source_resource_id")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceUri")
+    def source_uri(self) -> _builtins.str:
+        """
+        The Source URI for this Managed Disk.
+        """
+        return pulumi.get(self, "source_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> _builtins.str:
+        """
+        The ID of the Storage Account where the `source_uri` is located.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+    @_builtins.property
+    @pulumi.getter(name="storageAccountType")
+    def storage_account_type(self) -> _builtins.str:
+        """
+        The storage account type for the Managed Disk.
+        """
+        return pulumi.get(self, "storage_account_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, _builtins.str]:
+        """
+        A mapping of tags assigned to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter
+    def zones(self) -> Sequence[_builtins.str]:
+        """
+        A list of Availability Zones where the Managed Disk exists.
+        """
+        return pulumi.get(self, "zones")
+
+
+@pulumi.output_type
+class GetManagedDisksDiskEncryptionSettingResult(dict):
+    def __init__(__self__, *,
+                 disk_encryption_keys: Sequence['outputs.GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyResult'],
+                 enabled: _builtins.bool,
+                 key_encryption_keys: Sequence['outputs.GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyResult']):
+        """
+        :param Sequence['GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyArgs'] disk_encryption_keys: A `disk_encryption_key` block as defined above.
+        :param Sequence['GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyArgs'] key_encryption_keys: A `key_encryption_key` block as defined below.
+        """
+        pulumi.set(__self__, "disk_encryption_keys", disk_encryption_keys)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "key_encryption_keys", key_encryption_keys)
+
+    @_builtins.property
+    @pulumi.getter(name="diskEncryptionKeys")
+    def disk_encryption_keys(self) -> Sequence['outputs.GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyResult']:
+        """
+        A `disk_encryption_key` block as defined above.
+        """
+        return pulumi.get(self, "disk_encryption_keys")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="keyEncryptionKeys")
+    def key_encryption_keys(self) -> Sequence['outputs.GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyResult']:
+        """
+        A `key_encryption_key` block as defined below.
+        """
+        return pulumi.get(self, "key_encryption_keys")
+
+
+@pulumi.output_type
+class GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyResult(dict):
+    def __init__(__self__, *,
+                 secret_url: _builtins.str,
+                 source_vault_id: _builtins.str):
+        """
+        :param _builtins.str secret_url: The URL to the Key Vault Secret used as the Disk Encryption Key.
+        :param _builtins.str source_vault_id: The ID of the source Key Vault.
+        """
+        pulumi.set(__self__, "secret_url", secret_url)
+        pulumi.set(__self__, "source_vault_id", source_vault_id)
+
+    @_builtins.property
+    @pulumi.getter(name="secretUrl")
+    def secret_url(self) -> _builtins.str:
+        """
+        The URL to the Key Vault Secret used as the Disk Encryption Key.
+        """
+        return pulumi.get(self, "secret_url")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceVaultId")
+    def source_vault_id(self) -> _builtins.str:
+        """
+        The ID of the source Key Vault.
+        """
+        return pulumi.get(self, "source_vault_id")
+
+
+@pulumi.output_type
+class GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyResult(dict):
     def __init__(__self__, *,
                  key_url: _builtins.str,
                  source_vault_id: _builtins.str):

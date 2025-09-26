@@ -23,6 +23,13 @@ public final class FrontdoorFirewallPolicyArgs extends com.pulumi.resources.Reso
 
     public static final FrontdoorFirewallPolicyArgs Empty = new FrontdoorFirewallPolicyArgs();
 
+    @Import(name="captchaCookieExpirationInMinutes")
+    private @Nullable Output<Integer> captchaCookieExpirationInMinutes;
+
+    public Optional<Output<Integer>> captchaCookieExpirationInMinutes() {
+        return Optional.ofNullable(this.captchaCookieExpirationInMinutes);
+    }
+
     /**
      * If a `custom_rule` block&#39;s action type is `block`, this is the response body. The body must be specified in base64 encoding.
      * 
@@ -83,25 +90,9 @@ public final class FrontdoorFirewallPolicyArgs extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.enabled);
     }
 
-    /**
-     * Specifies the JavaScript challenge cookie lifetime in minutes, after which the user will be revalidated. Possible values are between `5` to `1440` minutes. Defaults to `30` minutes.
-     * 
-     * &gt; **Note:** The `js_challenge_cookie_expiration_in_minutes` field can only be set on `Premium_AzureFrontDoor` sku&#39;s. Please see the [Product Documentation](https://learn.microsoft.com/azure/web-application-firewall/waf-javascript-challenge) for more information.
-     * 
-     * !&gt; **Note:** Setting the`js_challenge_cookie_expiration_in_minutes` policy is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-     * 
-     */
     @Import(name="jsChallengeCookieExpirationInMinutes")
     private @Nullable Output<Integer> jsChallengeCookieExpirationInMinutes;
 
-    /**
-     * @return Specifies the JavaScript challenge cookie lifetime in minutes, after which the user will be revalidated. Possible values are between `5` to `1440` minutes. Defaults to `30` minutes.
-     * 
-     * &gt; **Note:** The `js_challenge_cookie_expiration_in_minutes` field can only be set on `Premium_AzureFrontDoor` sku&#39;s. Please see the [Product Documentation](https://learn.microsoft.com/azure/web-application-firewall/waf-javascript-challenge) for more information.
-     * 
-     * !&gt; **Note:** Setting the`js_challenge_cookie_expiration_in_minutes` policy is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-     * 
-     */
     public Optional<Output<Integer>> jsChallengeCookieExpirationInMinutes() {
         return Optional.ofNullable(this.jsChallengeCookieExpirationInMinutes);
     }
@@ -256,6 +247,7 @@ public final class FrontdoorFirewallPolicyArgs extends com.pulumi.resources.Reso
     private FrontdoorFirewallPolicyArgs() {}
 
     private FrontdoorFirewallPolicyArgs(FrontdoorFirewallPolicyArgs $) {
+        this.captchaCookieExpirationInMinutes = $.captchaCookieExpirationInMinutes;
         this.customBlockResponseBody = $.customBlockResponseBody;
         this.customBlockResponseStatusCode = $.customBlockResponseStatusCode;
         this.customRules = $.customRules;
@@ -288,6 +280,15 @@ public final class FrontdoorFirewallPolicyArgs extends com.pulumi.resources.Reso
 
         public Builder(FrontdoorFirewallPolicyArgs defaults) {
             $ = new FrontdoorFirewallPolicyArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder captchaCookieExpirationInMinutes(@Nullable Output<Integer> captchaCookieExpirationInMinutes) {
+            $.captchaCookieExpirationInMinutes = captchaCookieExpirationInMinutes;
+            return this;
+        }
+
+        public Builder captchaCookieExpirationInMinutes(Integer captchaCookieExpirationInMinutes) {
+            return captchaCookieExpirationInMinutes(Output.of(captchaCookieExpirationInMinutes));
         }
 
         /**
@@ -384,31 +385,11 @@ public final class FrontdoorFirewallPolicyArgs extends com.pulumi.resources.Reso
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param jsChallengeCookieExpirationInMinutes Specifies the JavaScript challenge cookie lifetime in minutes, after which the user will be revalidated. Possible values are between `5` to `1440` minutes. Defaults to `30` minutes.
-         * 
-         * &gt; **Note:** The `js_challenge_cookie_expiration_in_minutes` field can only be set on `Premium_AzureFrontDoor` sku&#39;s. Please see the [Product Documentation](https://learn.microsoft.com/azure/web-application-firewall/waf-javascript-challenge) for more information.
-         * 
-         * !&gt; **Note:** Setting the`js_challenge_cookie_expiration_in_minutes` policy is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jsChallengeCookieExpirationInMinutes(@Nullable Output<Integer> jsChallengeCookieExpirationInMinutes) {
             $.jsChallengeCookieExpirationInMinutes = jsChallengeCookieExpirationInMinutes;
             return this;
         }
 
-        /**
-         * @param jsChallengeCookieExpirationInMinutes Specifies the JavaScript challenge cookie lifetime in minutes, after which the user will be revalidated. Possible values are between `5` to `1440` minutes. Defaults to `30` minutes.
-         * 
-         * &gt; **Note:** The `js_challenge_cookie_expiration_in_minutes` field can only be set on `Premium_AzureFrontDoor` sku&#39;s. Please see the [Product Documentation](https://learn.microsoft.com/azure/web-application-firewall/waf-javascript-challenge) for more information.
-         * 
-         * !&gt; **Note:** Setting the`js_challenge_cookie_expiration_in_minutes` policy is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jsChallengeCookieExpirationInMinutes(Integer jsChallengeCookieExpirationInMinutes) {
             return jsChallengeCookieExpirationInMinutes(Output.of(jsChallengeCookieExpirationInMinutes));
         }

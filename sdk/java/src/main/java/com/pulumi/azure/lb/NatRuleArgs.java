@@ -49,33 +49,56 @@ public final class NatRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Are the Floating IPs enabled for this Load Balancer Rule? A &#34;floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+     * @deprecated
+     * This field is deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider.
      * 
      */
+    @Deprecated /* This field is deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider. */
     @Import(name="enableFloatingIp")
     private @Nullable Output<Boolean> enableFloatingIp;
 
     /**
-     * @return Are the Floating IPs enabled for this Load Balancer Rule? A &#34;floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+     * @deprecated
+     * This field is deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider.
      * 
      */
+    @Deprecated /* This field is deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider. */
     public Optional<Output<Boolean>> enableFloatingIp() {
         return Optional.ofNullable(this.enableFloatingIp);
     }
 
     /**
-     * Is TCP Reset enabled for this Load Balancer Rule?
+     * @deprecated
+     * This field is deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider.
      * 
      */
+    @Deprecated /* This field is deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider. */
     @Import(name="enableTcpReset")
     private @Nullable Output<Boolean> enableTcpReset;
 
     /**
-     * @return Is TCP Reset enabled for this Load Balancer Rule?
+     * @deprecated
+     * This field is deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider.
      * 
      */
+    @Deprecated /* This field is deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider. */
     public Optional<Output<Boolean>> enableTcpReset() {
         return Optional.ofNullable(this.enableTcpReset);
+    }
+
+    /**
+     * Are the Floating IPs enabled for this Load Balancer Rule? A &#34;floating&#34; IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+     * 
+     */
+    @Import(name="floatingIpEnabled")
+    private @Nullable Output<Boolean> floatingIpEnabled;
+
+    /**
+     * @return Are the Floating IPs enabled for this Load Balancer Rule? A &#34;floating&#34; IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> floatingIpEnabled() {
+        return Optional.ofNullable(this.floatingIpEnabled);
     }
 
     /**
@@ -213,6 +236,21 @@ public final class NatRuleArgs extends com.pulumi.resources.ResourceArgs {
         return this.resourceGroupName;
     }
 
+    /**
+     * Is TCP Reset enabled for this Load Balancer Rule?
+     * 
+     */
+    @Import(name="tcpResetEnabled")
+    private @Nullable Output<Boolean> tcpResetEnabled;
+
+    /**
+     * @return Is TCP Reset enabled for this Load Balancer Rule?
+     * 
+     */
+    public Optional<Output<Boolean>> tcpResetEnabled() {
+        return Optional.ofNullable(this.tcpResetEnabled);
+    }
+
     private NatRuleArgs() {}
 
     private NatRuleArgs(NatRuleArgs $) {
@@ -220,6 +258,7 @@ public final class NatRuleArgs extends com.pulumi.resources.ResourceArgs {
         this.backendPort = $.backendPort;
         this.enableFloatingIp = $.enableFloatingIp;
         this.enableTcpReset = $.enableTcpReset;
+        this.floatingIpEnabled = $.floatingIpEnabled;
         this.frontendIpConfigurationName = $.frontendIpConfigurationName;
         this.frontendPort = $.frontendPort;
         this.frontendPortEnd = $.frontendPortEnd;
@@ -229,6 +268,7 @@ public final class NatRuleArgs extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.protocol = $.protocol;
         this.resourceGroupName = $.resourceGroupName;
+        this.tcpResetEnabled = $.tcpResetEnabled;
     }
 
     public static Builder builder() {
@@ -292,45 +332,74 @@ public final class NatRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableFloatingIp Are the Floating IPs enabled for this Load Balancer Rule? A &#34;floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * This field is deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider.
+         * 
          */
+        @Deprecated /* This field is deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider. */
         public Builder enableFloatingIp(@Nullable Output<Boolean> enableFloatingIp) {
             $.enableFloatingIp = enableFloatingIp;
             return this;
         }
 
         /**
-         * @param enableFloatingIp Are the Floating IPs enabled for this Load Balancer Rule? A &#34;floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * This field is deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider.
+         * 
          */
+        @Deprecated /* This field is deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider. */
         public Builder enableFloatingIp(Boolean enableFloatingIp) {
             return enableFloatingIp(Output.of(enableFloatingIp));
         }
 
         /**
-         * @param enableTcpReset Is TCP Reset enabled for this Load Balancer Rule?
-         * 
          * @return builder
          * 
+         * @deprecated
+         * This field is deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider.
+         * 
          */
+        @Deprecated /* This field is deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider. */
         public Builder enableTcpReset(@Nullable Output<Boolean> enableTcpReset) {
             $.enableTcpReset = enableTcpReset;
             return this;
         }
 
         /**
-         * @param enableTcpReset Is TCP Reset enabled for this Load Balancer Rule?
+         * @return builder
+         * 
+         * @deprecated
+         * This field is deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider.
+         * 
+         */
+        @Deprecated /* This field is deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider. */
+        public Builder enableTcpReset(Boolean enableTcpReset) {
+            return enableTcpReset(Output.of(enableTcpReset));
+        }
+
+        /**
+         * @param floatingIpEnabled Are the Floating IPs enabled for this Load Balancer Rule? A &#34;floating&#34; IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
          * 
          * @return builder
          * 
          */
-        public Builder enableTcpReset(Boolean enableTcpReset) {
-            return enableTcpReset(Output.of(enableTcpReset));
+        public Builder floatingIpEnabled(@Nullable Output<Boolean> floatingIpEnabled) {
+            $.floatingIpEnabled = floatingIpEnabled;
+            return this;
+        }
+
+        /**
+         * @param floatingIpEnabled Are the Floating IPs enabled for this Load Balancer Rule? A &#34;floating&#34; IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder floatingIpEnabled(Boolean floatingIpEnabled) {
+            return floatingIpEnabled(Output.of(floatingIpEnabled));
         }
 
         /**
@@ -520,6 +589,27 @@ public final class NatRuleArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder resourceGroupName(String resourceGroupName) {
             return resourceGroupName(Output.of(resourceGroupName));
+        }
+
+        /**
+         * @param tcpResetEnabled Is TCP Reset enabled for this Load Balancer Rule?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tcpResetEnabled(@Nullable Output<Boolean> tcpResetEnabled) {
+            $.tcpResetEnabled = tcpResetEnabled;
+            return this;
+        }
+
+        /**
+         * @param tcpResetEnabled Is TCP Reset enabled for this Load Balancer Rule?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tcpResetEnabled(Boolean tcpResetEnabled) {
+            return tcpResetEnabled(Output.of(tcpResetEnabled));
         }
 
         public NatRuleArgs build() {

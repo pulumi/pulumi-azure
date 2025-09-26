@@ -83,7 +83,7 @@ namespace Pulumi.Azure.MachineLearning
     ///     {
     ///         Name = "example-datastore",
     ///         WorkspaceId = exampleWorkspace.Id,
-    ///         StorageContainerId = exampleContainer.ResourceManagerId,
+    ///         StorageContainerId = exampleContainer.Id,
     ///         AccountKey = exampleAccount.PrimaryAccessKey,
     ///     });
     /// 

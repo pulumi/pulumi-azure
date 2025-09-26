@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.NetApp` - 2025-01-01
+ * * `Microsoft.NetApp` - 2025-06-01
  */
 export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -72,6 +72,10 @@ export interface GetVolumeArgs {
  * A collection of values returned by getVolume.
  */
 export interface GetVolumeResult {
+    /**
+     * The accept grow capacity pool for short term clone split property.
+     */
+    readonly acceptGrowCapacityPoolForShortTermCloneSplit: string;
     readonly accountName: string;
     /**
      * A data protecion backup policy block
@@ -166,7 +170,7 @@ export interface GetVolumeResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.NetApp` - 2025-01-01
+ * * `Microsoft.NetApp` - 2025-06-01
  */
 export function getVolumeOutput(args: GetVolumeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVolumeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

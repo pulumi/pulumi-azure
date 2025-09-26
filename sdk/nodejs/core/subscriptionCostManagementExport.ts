@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  *     recurrencePeriodEndDate: "2020-09-18T00:00:00Z",
  *     fileFormat: "Csv",
  *     exportDataStorageLocation: {
- *         containerId: exampleContainer.resourceManagerId,
+ *         containerId: exampleContainer.id,
  *         rootFolderPath: "/root/updated",
  *     },
  *     exportDataOptions: {

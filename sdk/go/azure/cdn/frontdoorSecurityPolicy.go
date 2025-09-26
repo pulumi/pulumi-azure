@@ -147,7 +147,7 @@ type FrontdoorSecurityPolicy struct {
 	CdnFrontdoorProfileId pulumi.StringOutput `pulumi:"cdnFrontdoorProfileId"`
 	// The name which should be used for this Front Door Security Policy. Possible values must not be an empty string. Changing this forces a new Front Door Security Policy to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// An `securityPolicies` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+	// An `securityPolicies` block as defined below.
 	SecurityPolicies FrontdoorSecurityPolicySecurityPoliciesOutput `pulumi:"securityPolicies"`
 }
 
@@ -191,7 +191,7 @@ type frontdoorSecurityPolicyState struct {
 	CdnFrontdoorProfileId *string `pulumi:"cdnFrontdoorProfileId"`
 	// The name which should be used for this Front Door Security Policy. Possible values must not be an empty string. Changing this forces a new Front Door Security Policy to be created.
 	Name *string `pulumi:"name"`
-	// An `securityPolicies` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+	// An `securityPolicies` block as defined below.
 	SecurityPolicies *FrontdoorSecurityPolicySecurityPolicies `pulumi:"securityPolicies"`
 }
 
@@ -200,7 +200,7 @@ type FrontdoorSecurityPolicyState struct {
 	CdnFrontdoorProfileId pulumi.StringPtrInput
 	// The name which should be used for this Front Door Security Policy. Possible values must not be an empty string. Changing this forces a new Front Door Security Policy to be created.
 	Name pulumi.StringPtrInput
-	// An `securityPolicies` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+	// An `securityPolicies` block as defined below.
 	SecurityPolicies FrontdoorSecurityPolicySecurityPoliciesPtrInput
 }
 
@@ -213,7 +213,7 @@ type frontdoorSecurityPolicyArgs struct {
 	CdnFrontdoorProfileId string `pulumi:"cdnFrontdoorProfileId"`
 	// The name which should be used for this Front Door Security Policy. Possible values must not be an empty string. Changing this forces a new Front Door Security Policy to be created.
 	Name *string `pulumi:"name"`
-	// An `securityPolicies` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+	// An `securityPolicies` block as defined below.
 	SecurityPolicies FrontdoorSecurityPolicySecurityPolicies `pulumi:"securityPolicies"`
 }
 
@@ -223,7 +223,7 @@ type FrontdoorSecurityPolicyArgs struct {
 	CdnFrontdoorProfileId pulumi.StringInput
 	// The name which should be used for this Front Door Security Policy. Possible values must not be an empty string. Changing this forces a new Front Door Security Policy to be created.
 	Name pulumi.StringPtrInput
-	// An `securityPolicies` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+	// An `securityPolicies` block as defined below.
 	SecurityPolicies FrontdoorSecurityPolicySecurityPoliciesInput
 }
 
@@ -324,7 +324,7 @@ func (o FrontdoorSecurityPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrontdoorSecurityPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// An `securityPolicies` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+// An `securityPolicies` block as defined below.
 func (o FrontdoorSecurityPolicyOutput) SecurityPolicies() FrontdoorSecurityPolicySecurityPoliciesOutput {
 	return o.ApplyT(func(v *FrontdoorSecurityPolicy) FrontdoorSecurityPolicySecurityPoliciesOutput {
 		return v.SecurityPolicies

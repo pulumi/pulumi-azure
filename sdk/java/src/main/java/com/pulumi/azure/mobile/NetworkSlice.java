@@ -11,6 +11,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
 import java.util.Optional;
@@ -34,7 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.mobile.NetworkArgs;
  * import com.pulumi.azure.mobile.NetworkSlice;
  * import com.pulumi.azure.mobile.NetworkSliceArgs;
- * import com.pulumi.azure.mobile.inputs.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -66,9 +66,7 @@ import javax.annotation.Nullable;
  *             .mobileNetworkId(exampleNetwork.id())
  *             .location(example.location())
  *             .description("an example slice")
- *             .singleNetworkSliceSelectionAssistanceInformation(NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs.builder()
- *                 .sliceServiceType(1)
- *                 .build())
+ *             .sliceServiceType(1)
  *             .tags(Map.of("key", "value"))
  *             .build());
  * 
@@ -152,18 +150,44 @@ public class NetworkSlice extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A `single_network_slice_selection_assistance_information` block as defined below. Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+     * @deprecated
+     * `single_network_slice_selection_assistance_information` has been deprecated and its properties, `slice_differentiator` and `slice_service_type` have been moved to the top level. The `single_network_slice_selection_assistance_information` block will be removed in v5.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* `single_network_slice_selection_assistance_information` has been deprecated and its properties, `slice_differentiator` and `slice_service_type` have been moved to the top level. The `single_network_slice_selection_assistance_information` block will be removed in v5.0 of the AzureRM Provider. */
     @Export(name="singleNetworkSliceSelectionAssistanceInformation", refs={NetworkSliceSingleNetworkSliceSelectionAssistanceInformation.class}, tree="[0]")
     private Output<NetworkSliceSingleNetworkSliceSelectionAssistanceInformation> singleNetworkSliceSelectionAssistanceInformation;
 
-    /**
-     * @return A `single_network_slice_selection_assistance_information` block as defined below. Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
-     * 
-     */
     public Output<NetworkSliceSingleNetworkSliceSelectionAssistanceInformation> singleNetworkSliceSelectionAssistanceInformation() {
         return this.singleNetworkSliceSelectionAssistanceInformation;
+    }
+    /**
+     * Slice differentiator (SD). Must be a 6 digit hex string. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+     * 
+     */
+    @Export(name="sliceDifferentiator", refs={String.class}, tree="[0]")
+    private Output<String> sliceDifferentiator;
+
+    /**
+     * @return Slice differentiator (SD). Must be a 6 digit hex string. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+     * 
+     */
+    public Output<String> sliceDifferentiator() {
+        return this.sliceDifferentiator;
+    }
+    /**
+     * Slice/service type (SST). Must be between `0` and `255`. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+     * 
+     */
+    @Export(name="sliceServiceType", refs={Integer.class}, tree="[0]")
+    private Output<Integer> sliceServiceType;
+
+    /**
+     * @return Slice/service type (SST). Must be between `0` and `255`. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+     * 
+     */
+    public Output<Integer> sliceServiceType() {
+        return this.sliceServiceType;
     }
     /**
      * A mapping of tags which should be assigned to the Mobile Network Slice.

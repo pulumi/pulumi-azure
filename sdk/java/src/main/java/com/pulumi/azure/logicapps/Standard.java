@@ -253,14 +253,14 @@ public class Standard extends com.pulumi.resources.CustomResource {
         return this.clientAffinityEnabled;
     }
     /**
-     * The mode of the Logic App&#39;s client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
+     * The mode of the Logic App&#39;s client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
      * 
      */
     @Export(name="clientCertificateMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientCertificateMode;
 
     /**
-     * @return The mode of the Logic App&#39;s client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
+     * @return The mode of the Logic App&#39;s client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
      * 
      */
     public Output<Optional<String>> clientCertificateMode() {

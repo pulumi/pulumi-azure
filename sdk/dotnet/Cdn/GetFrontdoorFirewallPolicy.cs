@@ -133,6 +133,10 @@ namespace Pulumi.Azure.Cdn
     public sealed class GetFrontdoorFirewallPolicyResult
     {
         /// <summary>
+        /// The Front Door Firewall Policy Captcha cookie lifetime in minutes.
+        /// </summary>
+        public readonly int CaptchaCookieExpirationInMinutes;
+        /// <summary>
         /// The enabled state of the Front Door Firewall Policy.
         /// </summary>
         public readonly bool Enabled;
@@ -165,6 +169,8 @@ namespace Pulumi.Azure.Cdn
 
         [OutputConstructor]
         private GetFrontdoorFirewallPolicyResult(
+            int captchaCookieExpirationInMinutes,
+
             bool enabled,
 
             ImmutableArray<string> frontendEndpointIds,
@@ -183,6 +189,7 @@ namespace Pulumi.Azure.Cdn
 
             string skuName)
         {
+            CaptchaCookieExpirationInMinutes = captchaCookieExpirationInMinutes;
             Enabled = enabled;
             FrontendEndpointIds = frontendEndpointIds;
             Id = id;

@@ -208,6 +208,25 @@ public final class EndpointCosmosdbAccountArgs extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.secondaryKey);
     }
 
+    /**
+     * The subscription ID for the endpoint.
+     * 
+     * &gt; **Note:** When `subscription_id` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
+     * 
+     */
+    @Import(name="subscriptionId")
+    private @Nullable Output<String> subscriptionId;
+
+    /**
+     * @return The subscription ID for the endpoint.
+     * 
+     * &gt; **Note:** When `subscription_id` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
+     * 
+     */
+    public Optional<Output<String>> subscriptionId() {
+        return Optional.ofNullable(this.subscriptionId);
+    }
+
     private EndpointCosmosdbAccountArgs() {}
 
     private EndpointCosmosdbAccountArgs(EndpointCosmosdbAccountArgs $) {
@@ -223,6 +242,7 @@ public final class EndpointCosmosdbAccountArgs extends com.pulumi.resources.Reso
         this.primaryKey = $.primaryKey;
         this.resourceGroupName = $.resourceGroupName;
         this.secondaryKey = $.secondaryKey;
+        this.subscriptionId = $.subscriptionId;
     }
 
     public static Builder builder() {
@@ -505,6 +525,31 @@ public final class EndpointCosmosdbAccountArgs extends com.pulumi.resources.Reso
          */
         public Builder secondaryKey(String secondaryKey) {
             return secondaryKey(Output.of(secondaryKey));
+        }
+
+        /**
+         * @param subscriptionId The subscription ID for the endpoint.
+         * 
+         * &gt; **Note:** When `subscription_id` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder subscriptionId(@Nullable Output<String> subscriptionId) {
+            $.subscriptionId = subscriptionId;
+            return this;
+        }
+
+        /**
+         * @param subscriptionId The subscription ID for the endpoint.
+         * 
+         * &gt; **Note:** When `subscription_id` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder subscriptionId(String subscriptionId) {
+            return subscriptionId(Output.of(subscriptionId));
         }
 
         public EndpointCosmosdbAccountArgs build() {

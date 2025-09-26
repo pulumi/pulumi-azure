@@ -490,6 +490,10 @@ type Workspace struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `serverlessCompute` block as defined below.
 	ServerlessCompute WorkspaceServerlessComputePtrOutput `pulumi:"serverlessCompute"`
+	// Whether to enable service-side encryption with customer-managed keys (CMK). Default to `false`. Changing this forces a new resource to be created.
+	//
+	// !> **Note:** Setting `serviceSideEncryptionEnabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
+	ServiceSideEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"serviceSideEncryptionEnabled"`
 	// SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
 	SkuName pulumi.StringPtrOutput `pulumi:"skuName"`
 	// The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
@@ -591,6 +595,10 @@ type workspaceState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `serverlessCompute` block as defined below.
 	ServerlessCompute *WorkspaceServerlessCompute `pulumi:"serverlessCompute"`
+	// Whether to enable service-side encryption with customer-managed keys (CMK). Default to `false`. Changing this forces a new resource to be created.
+	//
+	// !> **Note:** Setting `serviceSideEncryptionEnabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
+	ServiceSideEncryptionEnabled *bool `pulumi:"serviceSideEncryptionEnabled"`
 	// SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
 	SkuName *string `pulumi:"skuName"`
 	// The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
@@ -648,6 +656,10 @@ type WorkspaceState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A `serverlessCompute` block as defined below.
 	ServerlessCompute WorkspaceServerlessComputePtrInput
+	// Whether to enable service-side encryption with customer-managed keys (CMK). Default to `false`. Changing this forces a new resource to be created.
+	//
+	// !> **Note:** Setting `serviceSideEncryptionEnabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
+	ServiceSideEncryptionEnabled pulumi.BoolPtrInput
 	// SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
 	SkuName pulumi.StringPtrInput
 	// The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
@@ -707,6 +719,10 @@ type workspaceArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `serverlessCompute` block as defined below.
 	ServerlessCompute *WorkspaceServerlessCompute `pulumi:"serverlessCompute"`
+	// Whether to enable service-side encryption with customer-managed keys (CMK). Default to `false`. Changing this forces a new resource to be created.
+	//
+	// !> **Note:** Setting `serviceSideEncryptionEnabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
+	ServiceSideEncryptionEnabled *bool `pulumi:"serviceSideEncryptionEnabled"`
 	// SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
 	SkuName *string `pulumi:"skuName"`
 	// The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
@@ -761,6 +777,10 @@ type WorkspaceArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A `serverlessCompute` block as defined below.
 	ServerlessCompute WorkspaceServerlessComputePtrInput
+	// Whether to enable service-side encryption with customer-managed keys (CMK). Default to `false`. Changing this forces a new resource to be created.
+	//
+	// !> **Note:** Setting `serviceSideEncryptionEnabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
+	ServiceSideEncryptionEnabled pulumi.BoolPtrInput
 	// SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
 	SkuName pulumi.StringPtrInput
 	// The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
@@ -957,6 +977,13 @@ func (o WorkspaceOutput) ResourceGroupName() pulumi.StringOutput {
 // A `serverlessCompute` block as defined below.
 func (o WorkspaceOutput) ServerlessCompute() WorkspaceServerlessComputePtrOutput {
 	return o.ApplyT(func(v *Workspace) WorkspaceServerlessComputePtrOutput { return v.ServerlessCompute }).(WorkspaceServerlessComputePtrOutput)
+}
+
+// Whether to enable service-side encryption with customer-managed keys (CMK). Default to `false`. Changing this forces a new resource to be created.
+//
+// !> **Note:** Setting `serviceSideEncryptionEnabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
+func (o WorkspaceOutput) ServiceSideEncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.BoolPtrOutput { return v.ServiceSideEncryptionEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.

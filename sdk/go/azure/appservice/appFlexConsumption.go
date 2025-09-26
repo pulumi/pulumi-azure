@@ -136,6 +136,10 @@ type AppFlexConsumption struct {
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The ID of the App Service Environment used by Function App.
 	HostingEnvironmentId pulumi.StringOutput `pulumi:"hostingEnvironmentId"`
+	// The Http concurrency of the instances on which your app runs. The supported value are from `1` to `1000`.
+	//
+	// > **Note:** A value will be assigned by the system if `httpConcurrency` is not specified.
+	HttpConcurrency pulumi.IntPtrOutput `pulumi:"httpConcurrency"`
 	// Is Https Connection enforced to the function app. Defaults to `false`
 	HttpsOnly pulumi.BoolPtrOutput `pulumi:"httpsOnly"`
 	// A `identity` block as defined below.
@@ -284,6 +288,10 @@ type appFlexConsumptionState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The ID of the App Service Environment used by Function App.
 	HostingEnvironmentId *string `pulumi:"hostingEnvironmentId"`
+	// The Http concurrency of the instances on which your app runs. The supported value are from `1` to `1000`.
+	//
+	// > **Note:** A value will be assigned by the system if `httpConcurrency` is not specified.
+	HttpConcurrency *int `pulumi:"httpConcurrency"`
 	// Is Https Connection enforced to the function app. Defaults to `false`
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// A `identity` block as defined below.
@@ -374,6 +382,10 @@ type AppFlexConsumptionState struct {
 	Enabled pulumi.BoolPtrInput
 	// The ID of the App Service Environment used by Function App.
 	HostingEnvironmentId pulumi.StringPtrInput
+	// The Http concurrency of the instances on which your app runs. The supported value are from `1` to `1000`.
+	//
+	// > **Note:** A value will be assigned by the system if `httpConcurrency` is not specified.
+	HttpConcurrency pulumi.IntPtrInput
 	// Is Https Connection enforced to the function app. Defaults to `false`
 	HttpsOnly pulumi.BoolPtrInput
 	// A `identity` block as defined below.
@@ -462,6 +474,10 @@ type appFlexConsumptionArgs struct {
 	ConnectionStrings []AppFlexConsumptionConnectionString `pulumi:"connectionStrings"`
 	// Is the Function App enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// The Http concurrency of the instances on which your app runs. The supported value are from `1` to `1000`.
+	//
+	// > **Note:** A value will be assigned by the system if `httpConcurrency` is not specified.
+	HttpConcurrency *int `pulumi:"httpConcurrency"`
 	// Is Https Connection enforced to the function app. Defaults to `false`
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// A `identity` block as defined below.
@@ -535,6 +551,10 @@ type AppFlexConsumptionArgs struct {
 	ConnectionStrings AppFlexConsumptionConnectionStringArrayInput
 	// Is the Function App enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
+	// The Http concurrency of the instances on which your app runs. The supported value are from `1` to `1000`.
+	//
+	// > **Note:** A value will be assigned by the system if `httpConcurrency` is not specified.
+	HttpConcurrency pulumi.IntPtrInput
 	// Is Https Connection enforced to the function app. Defaults to `false`
 	HttpsOnly pulumi.BoolPtrInput
 	// A `identity` block as defined below.
@@ -733,6 +753,13 @@ func (o AppFlexConsumptionOutput) Enabled() pulumi.BoolPtrOutput {
 // The ID of the App Service Environment used by Function App.
 func (o AppFlexConsumptionOutput) HostingEnvironmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppFlexConsumption) pulumi.StringOutput { return v.HostingEnvironmentId }).(pulumi.StringOutput)
+}
+
+// The Http concurrency of the instances on which your app runs. The supported value are from `1` to `1000`.
+//
+// > **Note:** A value will be assigned by the system if `httpConcurrency` is not specified.
+func (o AppFlexConsumptionOutput) HttpConcurrency() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AppFlexConsumption) pulumi.IntPtrOutput { return v.HttpConcurrency }).(pulumi.IntPtrOutput)
 }
 
 // Is Https Connection enforced to the function app. Defaults to `false`

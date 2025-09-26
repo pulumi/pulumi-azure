@@ -31,9 +31,7 @@ import * as utilities from "../utilities";
  *     mobileNetworkId: exampleNetwork.id,
  *     location: example.location,
  *     description: "an example slice",
- *     singleNetworkSliceSelectionAssistanceInformation: {
- *         sliceServiceType: 1,
- *     },
+ *     sliceServiceType: 1,
  *     tags: {
  *         key: "value",
  *     },
@@ -100,9 +98,17 @@ export class NetworkSlice extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * A `singleNetworkSliceSelectionAssistanceInformation` block as defined below. Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+     * @deprecated `singleNetworkSliceSelectionAssistanceInformation` has been deprecated and its properties, `sliceDifferentiator` and `sliceServiceType` have been moved to the top level. The `singleNetworkSliceSelectionAssistanceInformation` block will be removed in v5.0 of the AzureRM Provider.
      */
     declare public readonly singleNetworkSliceSelectionAssistanceInformation: pulumi.Output<outputs.mobile.NetworkSliceSingleNetworkSliceSelectionAssistanceInformation>;
+    /**
+     * Slice differentiator (SD). Must be a 6 digit hex string. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+     */
+    declare public readonly sliceDifferentiator: pulumi.Output<string>;
+    /**
+     * Slice/service type (SST). Must be between `0` and `255`. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+     */
+    declare public readonly sliceServiceType: pulumi.Output<number>;
     /**
      * A mapping of tags which should be assigned to the Mobile Network Slice.
      */
@@ -126,20 +132,21 @@ export class NetworkSlice extends pulumi.CustomResource {
             resourceInputs["mobileNetworkId"] = state?.mobileNetworkId;
             resourceInputs["name"] = state?.name;
             resourceInputs["singleNetworkSliceSelectionAssistanceInformation"] = state?.singleNetworkSliceSelectionAssistanceInformation;
+            resourceInputs["sliceDifferentiator"] = state?.sliceDifferentiator;
+            resourceInputs["sliceServiceType"] = state?.sliceServiceType;
             resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as NetworkSliceArgs | undefined;
             if (args?.mobileNetworkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mobileNetworkId'");
             }
-            if (args?.singleNetworkSliceSelectionAssistanceInformation === undefined && !opts.urn) {
-                throw new Error("Missing required property 'singleNetworkSliceSelectionAssistanceInformation'");
-            }
             resourceInputs["description"] = args?.description;
             resourceInputs["location"] = args?.location;
             resourceInputs["mobileNetworkId"] = args?.mobileNetworkId;
             resourceInputs["name"] = args?.name;
             resourceInputs["singleNetworkSliceSelectionAssistanceInformation"] = args?.singleNetworkSliceSelectionAssistanceInformation;
+            resourceInputs["sliceDifferentiator"] = args?.sliceDifferentiator;
+            resourceInputs["sliceServiceType"] = args?.sliceServiceType;
             resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -168,9 +175,17 @@ export interface NetworkSliceState {
      */
     name?: pulumi.Input<string>;
     /**
-     * A `singleNetworkSliceSelectionAssistanceInformation` block as defined below. Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+     * @deprecated `singleNetworkSliceSelectionAssistanceInformation` has been deprecated and its properties, `sliceDifferentiator` and `sliceServiceType` have been moved to the top level. The `singleNetworkSliceSelectionAssistanceInformation` block will be removed in v5.0 of the AzureRM Provider.
      */
     singleNetworkSliceSelectionAssistanceInformation?: pulumi.Input<inputs.mobile.NetworkSliceSingleNetworkSliceSelectionAssistanceInformation>;
+    /**
+     * Slice differentiator (SD). Must be a 6 digit hex string. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+     */
+    sliceDifferentiator?: pulumi.Input<string>;
+    /**
+     * Slice/service type (SST). Must be between `0` and `255`. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+     */
+    sliceServiceType?: pulumi.Input<number>;
     /**
      * A mapping of tags which should be assigned to the Mobile Network Slice.
      */
@@ -198,9 +213,17 @@ export interface NetworkSliceArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A `singleNetworkSliceSelectionAssistanceInformation` block as defined below. Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+     * @deprecated `singleNetworkSliceSelectionAssistanceInformation` has been deprecated and its properties, `sliceDifferentiator` and `sliceServiceType` have been moved to the top level. The `singleNetworkSliceSelectionAssistanceInformation` block will be removed in v5.0 of the AzureRM Provider.
      */
-    singleNetworkSliceSelectionAssistanceInformation: pulumi.Input<inputs.mobile.NetworkSliceSingleNetworkSliceSelectionAssistanceInformation>;
+    singleNetworkSliceSelectionAssistanceInformation?: pulumi.Input<inputs.mobile.NetworkSliceSingleNetworkSliceSelectionAssistanceInformation>;
+    /**
+     * Slice differentiator (SD). Must be a 6 digit hex string. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+     */
+    sliceDifferentiator?: pulumi.Input<string>;
+    /**
+     * Slice/service type (SST). Must be between `0` and `255`. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+     */
+    sliceServiceType?: pulumi.Input<number>;
     /**
      * A mapping of tags which should be assigned to the Mobile Network Slice.
      */

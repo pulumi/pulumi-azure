@@ -33,6 +33,12 @@ namespace Pulumi.Azure.MySql.Inputs
         public Input<string>? KeyVaultKeyId { get; set; }
 
         /// <summary>
+        /// The ID of the Managed HSM Key.
+        /// </summary>
+        [Input("managedHsmKeyId")]
+        public Input<string>? ManagedHsmKeyId { get; set; }
+
+        /// <summary>
         /// Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identity_ids`.
         /// </summary>
         [Input("primaryUserAssignedIdentityId")]

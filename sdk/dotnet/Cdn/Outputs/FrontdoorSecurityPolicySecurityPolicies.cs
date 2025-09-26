@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Cdn.Outputs
     public sealed class FrontdoorSecurityPolicySecurityPolicies
     {
         /// <summary>
-        /// An `firewall` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+        /// An `firewall` block as defined below.
         /// </summary>
         public readonly Outputs.FrontdoorSecurityPolicySecurityPoliciesFirewall Firewall;
 

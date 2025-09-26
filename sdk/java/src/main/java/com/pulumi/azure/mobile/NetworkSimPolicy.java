@@ -42,7 +42,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.mobile.inputs.NetworkServicePccRuleArgs;
  * import com.pulumi.azure.mobile.NetworkSlice;
  * import com.pulumi.azure.mobile.NetworkSliceArgs;
- * import com.pulumi.azure.mobile.inputs.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs;
  * import com.pulumi.azure.mobile.NetworkSimPolicy;
  * import com.pulumi.azure.mobile.NetworkSimPolicyArgs;
  * import com.pulumi.azure.mobile.inputs.NetworkSimPolicySliceArgs;
@@ -102,9 +101,7 @@ import javax.annotation.Nullable;
  *             .name("example-mns")
  *             .mobileNetworkId(exampleNetwork.id())
  *             .location(example.location())
- *             .singleNetworkSliceSelectionAssistanceInformation(NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs.builder()
- *                 .sliceServiceType(1)
- *                 .build())
+ *             .sliceServiceType(1)
  *             .build());
  * 
  *         var exampleNetworkSimPolicy = new NetworkSimPolicy("exampleNetworkSimPolicy", NetworkSimPolicyArgs.builder()

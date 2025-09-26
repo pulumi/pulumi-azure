@@ -1850,7 +1850,7 @@ if not MYPY:
         """
         expiration_action: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The SAS expiration action. The only possible value is `Log` at this moment. Defaults to `Log`.
+        The SAS expiration action. Possible values are `Log` and `Block`. Defaults to `Log`.
         """
 elif False:
     AccountSasPolicyArgsDict: TypeAlias = Mapping[str, Any]
@@ -1862,7 +1862,7 @@ class AccountSasPolicyArgs:
                  expiration_action: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] expiration_period: The SAS expiration period in format of `DD.HH:MM:SS`.
-        :param pulumi.Input[_builtins.str] expiration_action: The SAS expiration action. The only possible value is `Log` at this moment. Defaults to `Log`.
+        :param pulumi.Input[_builtins.str] expiration_action: The SAS expiration action. Possible values are `Log` and `Block`. Defaults to `Log`.
         """
         pulumi.set(__self__, "expiration_period", expiration_period)
         if expiration_action is not None:
@@ -1884,7 +1884,7 @@ class AccountSasPolicyArgs:
     @pulumi.getter(name="expirationAction")
     def expiration_action(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The SAS expiration action. The only possible value is `Log` at this moment. Defaults to `Log`.
+        The SAS expiration action. Possible values are `Log` and `Block`. Defaults to `Log`.
         """
         return pulumi.get(self, "expiration_action")
 

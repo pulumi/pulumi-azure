@@ -817,6 +817,246 @@ func (o GetAdbsNationalCharacterSetsCharacterSetArrayOutput) Index(i pulumi.IntI
 	}).(GetAdbsNationalCharacterSetsCharacterSetOutput)
 }
 
+type GetAutonomousDatabaseBackupsAutonomousDatabaseBackup struct {
+	// Indicates whether the backup is user-initiated or automatic.
+	Automatic bool `pulumi:"automatic"`
+	// The backup OCID.
+	AutonomousDatabaseBackupOcid string `pulumi:"autonomousDatabaseBackupOcid"`
+	// The OCID of the Autonomous Database OCID.
+	AutonomousDatabaseOcid  string  `pulumi:"autonomousDatabaseOcid"`
+	DatabaseBackupSizeInTbs float64 `pulumi:"databaseBackupSizeInTbs"`
+	// The Oracle Database version of the Autonomous Database at the time the backup was taken.
+	DatabaseVersion string `pulumi:"databaseVersion"`
+	// The user-friendly name of the backup.
+	DisplayName string `pulumi:"displayName"`
+	// The ID of the Autonomous Database Backup.
+	Id string `pulumi:"id"`
+	// Information about the current lifecycle state of the backup.
+	LifecycleDetails string `pulumi:"lifecycleDetails"`
+	// The current state of the backup.
+	LifecycleState string `pulumi:"lifecycleState"`
+	// `- The Azure Region where the Autonomous Database Backup exists.
+	Location string `pulumi:"location"`
+	// The current provisioning state of the Autonomous Database Backup.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Indicates whether the backup can be used to restore the Autonomous Database.
+	Restorable bool `pulumi:"restorable"`
+	// The retention period in days for the Autonomous Database Backup.
+	RetentionPeriodInDays int `pulumi:"retentionPeriodInDays"`
+	// The date and time the backup will become unusable.
+	TimeAvailableTil string `pulumi:"timeAvailableTil"`
+	// The date and time the backup was completed.
+	TimeEnded string `pulumi:"timeEnded"`
+	// The date and time the backup started.
+	TimeStarted string `pulumi:"timeStarted"`
+	// The type of backup.
+	Type string `pulumi:"type"`
+}
+
+// GetAutonomousDatabaseBackupsAutonomousDatabaseBackupInput is an input type that accepts GetAutonomousDatabaseBackupsAutonomousDatabaseBackupArgs and GetAutonomousDatabaseBackupsAutonomousDatabaseBackupOutput values.
+// You can construct a concrete instance of `GetAutonomousDatabaseBackupsAutonomousDatabaseBackupInput` via:
+//
+//	GetAutonomousDatabaseBackupsAutonomousDatabaseBackupArgs{...}
+type GetAutonomousDatabaseBackupsAutonomousDatabaseBackupInput interface {
+	pulumi.Input
+
+	ToGetAutonomousDatabaseBackupsAutonomousDatabaseBackupOutput() GetAutonomousDatabaseBackupsAutonomousDatabaseBackupOutput
+	ToGetAutonomousDatabaseBackupsAutonomousDatabaseBackupOutputWithContext(context.Context) GetAutonomousDatabaseBackupsAutonomousDatabaseBackupOutput
+}
+
+type GetAutonomousDatabaseBackupsAutonomousDatabaseBackupArgs struct {
+	// Indicates whether the backup is user-initiated or automatic.
+	Automatic pulumi.BoolInput `pulumi:"automatic"`
+	// The backup OCID.
+	AutonomousDatabaseBackupOcid pulumi.StringInput `pulumi:"autonomousDatabaseBackupOcid"`
+	// The OCID of the Autonomous Database OCID.
+	AutonomousDatabaseOcid  pulumi.StringInput  `pulumi:"autonomousDatabaseOcid"`
+	DatabaseBackupSizeInTbs pulumi.Float64Input `pulumi:"databaseBackupSizeInTbs"`
+	// The Oracle Database version of the Autonomous Database at the time the backup was taken.
+	DatabaseVersion pulumi.StringInput `pulumi:"databaseVersion"`
+	// The user-friendly name of the backup.
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// The ID of the Autonomous Database Backup.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Information about the current lifecycle state of the backup.
+	LifecycleDetails pulumi.StringInput `pulumi:"lifecycleDetails"`
+	// The current state of the backup.
+	LifecycleState pulumi.StringInput `pulumi:"lifecycleState"`
+	// `- The Azure Region where the Autonomous Database Backup exists.
+	Location pulumi.StringInput `pulumi:"location"`
+	// The current provisioning state of the Autonomous Database Backup.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// Indicates whether the backup can be used to restore the Autonomous Database.
+	Restorable pulumi.BoolInput `pulumi:"restorable"`
+	// The retention period in days for the Autonomous Database Backup.
+	RetentionPeriodInDays pulumi.IntInput `pulumi:"retentionPeriodInDays"`
+	// The date and time the backup will become unusable.
+	TimeAvailableTil pulumi.StringInput `pulumi:"timeAvailableTil"`
+	// The date and time the backup was completed.
+	TimeEnded pulumi.StringInput `pulumi:"timeEnded"`
+	// The date and time the backup started.
+	TimeStarted pulumi.StringInput `pulumi:"timeStarted"`
+	// The type of backup.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetAutonomousDatabaseBackupsAutonomousDatabaseBackupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAutonomousDatabaseBackupsAutonomousDatabaseBackup)(nil)).Elem()
+}
+
+func (i GetAutonomousDatabaseBackupsAutonomousDatabaseBackupArgs) ToGetAutonomousDatabaseBackupsAutonomousDatabaseBackupOutput() GetAutonomousDatabaseBackupsAutonomousDatabaseBackupOutput {
+	return i.ToGetAutonomousDatabaseBackupsAutonomousDatabaseBackupOutputWithContext(context.Background())
+}
+
+func (i GetAutonomousDatabaseBackupsAutonomousDatabaseBackupArgs) ToGetAutonomousDatabaseBackupsAutonomousDatabaseBackupOutputWithContext(ctx context.Context) GetAutonomousDatabaseBackupsAutonomousDatabaseBackupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAutonomousDatabaseBackupsAutonomousDatabaseBackupOutput)
+}
+
+// GetAutonomousDatabaseBackupsAutonomousDatabaseBackupArrayInput is an input type that accepts GetAutonomousDatabaseBackupsAutonomousDatabaseBackupArray and GetAutonomousDatabaseBackupsAutonomousDatabaseBackupArrayOutput values.
+// You can construct a concrete instance of `GetAutonomousDatabaseBackupsAutonomousDatabaseBackupArrayInput` via:
+//
+//	GetAutonomousDatabaseBackupsAutonomousDatabaseBackupArray{ GetAutonomousDatabaseBackupsAutonomousDatabaseBackupArgs{...} }
+type GetAutonomousDatabaseBackupsAutonomousDatabaseBackupArrayInput interface {
+	pulumi.Input
+
+	ToGetAutonomousDatabaseBackupsAutonomousDatabaseBackupArrayOutput() GetAutonomousDatabaseBackupsAutonomousDatabaseBackupArrayOutput
+	ToGetAutonomousDatabaseBackupsAutonomousDatabaseBackupArrayOutputWithContext(context.Context) GetAutonomousDatabaseBackupsAutonomousDatabaseBackupArrayOutput
+}
+
+type GetAutonomousDatabaseBackupsAutonomousDatabaseBackupArray []GetAutonomousDatabaseBackupsAutonomousDatabaseBackupInput
+
+func (GetAutonomousDatabaseBackupsAutonomousDatabaseBackupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAutonomousDatabaseBackupsAutonomousDatabaseBackup)(nil)).Elem()
+}
+
+func (i GetAutonomousDatabaseBackupsAutonomousDatabaseBackupArray) ToGetAutonomousDatabaseBackupsAutonomousDatabaseBackupArrayOutput() GetAutonomousDatabaseBackupsAutonomousDatabaseBackupArrayOutput {
+	return i.ToGetAutonomousDatabaseBackupsAutonomousDatabaseBackupArrayOutputWithContext(context.Background())
+}
+
+func (i GetAutonomousDatabaseBackupsAutonomousDatabaseBackupArray) ToGetAutonomousDatabaseBackupsAutonomousDatabaseBackupArrayOutputWithContext(ctx context.Context) GetAutonomousDatabaseBackupsAutonomousDatabaseBackupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAutonomousDatabaseBackupsAutonomousDatabaseBackupArrayOutput)
+}
+
+type GetAutonomousDatabaseBackupsAutonomousDatabaseBackupOutput struct{ *pulumi.OutputState }
+
+func (GetAutonomousDatabaseBackupsAutonomousDatabaseBackupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAutonomousDatabaseBackupsAutonomousDatabaseBackup)(nil)).Elem()
+}
+
+func (o GetAutonomousDatabaseBackupsAutonomousDatabaseBackupOutput) ToGetAutonomousDatabaseBackupsAutonomousDatabaseBackupOutput() GetAutonomousDatabaseBackupsAutonomousDatabaseBackupOutput {
+	return o
+}
+
+func (o GetAutonomousDatabaseBackupsAutonomousDatabaseBackupOutput) ToGetAutonomousDatabaseBackupsAutonomousDatabaseBackupOutputWithContext(ctx context.Context) GetAutonomousDatabaseBackupsAutonomousDatabaseBackupOutput {
+	return o
+}
+
+// Indicates whether the backup is user-initiated or automatic.
+func (o GetAutonomousDatabaseBackupsAutonomousDatabaseBackupOutput) Automatic() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetAutonomousDatabaseBackupsAutonomousDatabaseBackup) bool { return v.Automatic }).(pulumi.BoolOutput)
+}
+
+// The backup OCID.
+func (o GetAutonomousDatabaseBackupsAutonomousDatabaseBackupOutput) AutonomousDatabaseBackupOcid() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutonomousDatabaseBackupsAutonomousDatabaseBackup) string {
+		return v.AutonomousDatabaseBackupOcid
+	}).(pulumi.StringOutput)
+}
+
+// The OCID of the Autonomous Database OCID.
+func (o GetAutonomousDatabaseBackupsAutonomousDatabaseBackupOutput) AutonomousDatabaseOcid() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutonomousDatabaseBackupsAutonomousDatabaseBackup) string { return v.AutonomousDatabaseOcid }).(pulumi.StringOutput)
+}
+
+func (o GetAutonomousDatabaseBackupsAutonomousDatabaseBackupOutput) DatabaseBackupSizeInTbs() pulumi.Float64Output {
+	return o.ApplyT(func(v GetAutonomousDatabaseBackupsAutonomousDatabaseBackup) float64 { return v.DatabaseBackupSizeInTbs }).(pulumi.Float64Output)
+}
+
+// The Oracle Database version of the Autonomous Database at the time the backup was taken.
+func (o GetAutonomousDatabaseBackupsAutonomousDatabaseBackupOutput) DatabaseVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutonomousDatabaseBackupsAutonomousDatabaseBackup) string { return v.DatabaseVersion }).(pulumi.StringOutput)
+}
+
+// The user-friendly name of the backup.
+func (o GetAutonomousDatabaseBackupsAutonomousDatabaseBackupOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutonomousDatabaseBackupsAutonomousDatabaseBackup) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// The ID of the Autonomous Database Backup.
+func (o GetAutonomousDatabaseBackupsAutonomousDatabaseBackupOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutonomousDatabaseBackupsAutonomousDatabaseBackup) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Information about the current lifecycle state of the backup.
+func (o GetAutonomousDatabaseBackupsAutonomousDatabaseBackupOutput) LifecycleDetails() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutonomousDatabaseBackupsAutonomousDatabaseBackup) string { return v.LifecycleDetails }).(pulumi.StringOutput)
+}
+
+// The current state of the backup.
+func (o GetAutonomousDatabaseBackupsAutonomousDatabaseBackupOutput) LifecycleState() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutonomousDatabaseBackupsAutonomousDatabaseBackup) string { return v.LifecycleState }).(pulumi.StringOutput)
+}
+
+// `- The Azure Region where the Autonomous Database Backup exists.
+func (o GetAutonomousDatabaseBackupsAutonomousDatabaseBackupOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutonomousDatabaseBackupsAutonomousDatabaseBackup) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The current provisioning state of the Autonomous Database Backup.
+func (o GetAutonomousDatabaseBackupsAutonomousDatabaseBackupOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutonomousDatabaseBackupsAutonomousDatabaseBackup) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Indicates whether the backup can be used to restore the Autonomous Database.
+func (o GetAutonomousDatabaseBackupsAutonomousDatabaseBackupOutput) Restorable() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetAutonomousDatabaseBackupsAutonomousDatabaseBackup) bool { return v.Restorable }).(pulumi.BoolOutput)
+}
+
+// The retention period in days for the Autonomous Database Backup.
+func (o GetAutonomousDatabaseBackupsAutonomousDatabaseBackupOutput) RetentionPeriodInDays() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAutonomousDatabaseBackupsAutonomousDatabaseBackup) int { return v.RetentionPeriodInDays }).(pulumi.IntOutput)
+}
+
+// The date and time the backup will become unusable.
+func (o GetAutonomousDatabaseBackupsAutonomousDatabaseBackupOutput) TimeAvailableTil() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutonomousDatabaseBackupsAutonomousDatabaseBackup) string { return v.TimeAvailableTil }).(pulumi.StringOutput)
+}
+
+// The date and time the backup was completed.
+func (o GetAutonomousDatabaseBackupsAutonomousDatabaseBackupOutput) TimeEnded() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutonomousDatabaseBackupsAutonomousDatabaseBackup) string { return v.TimeEnded }).(pulumi.StringOutput)
+}
+
+// The date and time the backup started.
+func (o GetAutonomousDatabaseBackupsAutonomousDatabaseBackupOutput) TimeStarted() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutonomousDatabaseBackupsAutonomousDatabaseBackup) string { return v.TimeStarted }).(pulumi.StringOutput)
+}
+
+// The type of backup.
+func (o GetAutonomousDatabaseBackupsAutonomousDatabaseBackupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutonomousDatabaseBackupsAutonomousDatabaseBackup) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetAutonomousDatabaseBackupsAutonomousDatabaseBackupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAutonomousDatabaseBackupsAutonomousDatabaseBackupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAutonomousDatabaseBackupsAutonomousDatabaseBackup)(nil)).Elem()
+}
+
+func (o GetAutonomousDatabaseBackupsAutonomousDatabaseBackupArrayOutput) ToGetAutonomousDatabaseBackupsAutonomousDatabaseBackupArrayOutput() GetAutonomousDatabaseBackupsAutonomousDatabaseBackupArrayOutput {
+	return o
+}
+
+func (o GetAutonomousDatabaseBackupsAutonomousDatabaseBackupArrayOutput) ToGetAutonomousDatabaseBackupsAutonomousDatabaseBackupArrayOutputWithContext(ctx context.Context) GetAutonomousDatabaseBackupsAutonomousDatabaseBackupArrayOutput {
+	return o
+}
+
+func (o GetAutonomousDatabaseBackupsAutonomousDatabaseBackupArrayOutput) Index(i pulumi.IntInput) GetAutonomousDatabaseBackupsAutonomousDatabaseBackupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAutonomousDatabaseBackupsAutonomousDatabaseBackup {
+		return vs[0].([]GetAutonomousDatabaseBackupsAutonomousDatabaseBackup)[vs[1].(int)]
+	}).(GetAutonomousDatabaseBackupsAutonomousDatabaseBackupOutput)
+}
+
 type GetAutonomousDatabaseLongTermBackupSchedule struct {
 	// A boolean value that indicates if long term backup is enabled/disabled.
 	Enabled bool `pulumi:"enabled"`
@@ -2670,6 +2910,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAdbsCharacterSetsCharacterSetArrayInput)(nil)).Elem(), GetAdbsCharacterSetsCharacterSetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAdbsNationalCharacterSetsCharacterSetInput)(nil)).Elem(), GetAdbsNationalCharacterSetsCharacterSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAdbsNationalCharacterSetsCharacterSetArrayInput)(nil)).Elem(), GetAdbsNationalCharacterSetsCharacterSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAutonomousDatabaseBackupsAutonomousDatabaseBackupInput)(nil)).Elem(), GetAutonomousDatabaseBackupsAutonomousDatabaseBackupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAutonomousDatabaseBackupsAutonomousDatabaseBackupArrayInput)(nil)).Elem(), GetAutonomousDatabaseBackupsAutonomousDatabaseBackupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAutonomousDatabaseLongTermBackupScheduleInput)(nil)).Elem(), GetAutonomousDatabaseLongTermBackupScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAutonomousDatabaseLongTermBackupScheduleArrayInput)(nil)).Elem(), GetAutonomousDatabaseLongTermBackupScheduleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudVmClusterDataCollectionOptionInput)(nil)).Elem(), GetCloudVmClusterDataCollectionOptionArgs{})
@@ -2704,6 +2946,8 @@ func init() {
 	pulumi.RegisterOutputType(GetAdbsCharacterSetsCharacterSetArrayOutput{})
 	pulumi.RegisterOutputType(GetAdbsNationalCharacterSetsCharacterSetOutput{})
 	pulumi.RegisterOutputType(GetAdbsNationalCharacterSetsCharacterSetArrayOutput{})
+	pulumi.RegisterOutputType(GetAutonomousDatabaseBackupsAutonomousDatabaseBackupOutput{})
+	pulumi.RegisterOutputType(GetAutonomousDatabaseBackupsAutonomousDatabaseBackupArrayOutput{})
 	pulumi.RegisterOutputType(GetAutonomousDatabaseLongTermBackupScheduleOutput{})
 	pulumi.RegisterOutputType(GetAutonomousDatabaseLongTermBackupScheduleArrayOutput{})
 	pulumi.RegisterOutputType(GetCloudVmClusterDataCollectionOptionOutput{})

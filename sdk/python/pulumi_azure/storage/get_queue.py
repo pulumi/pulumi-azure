@@ -26,7 +26,7 @@ class GetQueueResult:
     """
     A collection of values returned by getQueue.
     """
-    def __init__(__self__, id=None, metadata=None, name=None, resource_manager_id=None, storage_account_name=None):
+    def __init__(__self__, id=None, metadata=None, name=None, resource_manager_id=None, storage_account_id=None, storage_account_name=None, url=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -39,9 +39,15 @@ class GetQueueResult:
         if resource_manager_id and not isinstance(resource_manager_id, str):
             raise TypeError("Expected argument 'resource_manager_id' to be a str")
         pulumi.set(__self__, "resource_manager_id", resource_manager_id)
+        if storage_account_id and not isinstance(storage_account_id, str):
+            raise TypeError("Expected argument 'storage_account_id' to be a str")
+        pulumi.set(__self__, "storage_account_id", storage_account_id)
         if storage_account_name and not isinstance(storage_account_name, str):
             raise TypeError("Expected argument 'storage_account_name' to be a str")
         pulumi.set(__self__, "storage_account_name", storage_account_name)
+        if url and not isinstance(url, str):
+            raise TypeError("Expected argument 'url' to be a str")
+        pulumi.set(__self__, "url", url)
 
     @_builtins.property
     @pulumi.getter
@@ -66,6 +72,7 @@ class GetQueueResult:
 
     @_builtins.property
     @pulumi.getter(name="resourceManagerId")
+    @_utilities.deprecated("""the `resource_manager_id` property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.""")
     def resource_manager_id(self) -> _builtins.str:
         """
         The Resource Manager ID of this Storage Queue.
@@ -73,9 +80,23 @@ class GetQueueResult:
         return pulumi.get(self, "resource_manager_id")
 
     @_builtins.property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "storage_account_id")
+
+    @_builtins.property
     @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> _builtins.str:
+    @_utilities.deprecated("""the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider.""")
+    def storage_account_name(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "storage_account_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def url(self) -> _builtins.str:
+        """
+        The data plane URL of the Storage Queue in the format of `<storage queue endpoint>/<queue name>`. E.g. `https://example.queue.core.windows.net/queue1`.
+        """
+        return pulumi.get(self, "url")
 
 
 class AwaitableGetQueueResult(GetQueueResult):
@@ -88,11 +109,14 @@ class AwaitableGetQueueResult(GetQueueResult):
             metadata=self.metadata,
             name=self.name,
             resource_manager_id=self.resource_manager_id,
-            storage_account_name=self.storage_account_name)
+            storage_account_id=self.storage_account_id,
+            storage_account_name=self.storage_account_name,
+            url=self.url)
 
 
 def get_queue(metadata: Optional[Mapping[str, _builtins.str]] = None,
               name: Optional[_builtins.str] = None,
+              storage_account_id: Optional[_builtins.str] = None,
               storage_account_name: Optional[_builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetQueueResult:
     """
@@ -108,14 +132,25 @@ def get_queue(metadata: Optional[Mapping[str, _builtins.str]] = None,
         storage_account_name="example-storage-account-name")
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Storage` - 2023-05-01
+
 
     :param Mapping[str, _builtins.str] metadata: A mapping of MetaData for this Queue.
     :param _builtins.str name: The name of the Queue.
-    :param _builtins.str storage_account_name: The name of the Storage Account where the Queue exists.
+    :param _builtins.str storage_account_id: The name of the Storage Account where the Queue exists. This property will become Required in version 5.0 of the Provider.
+           
+           > **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+    :param _builtins.str storage_account_name: The name of the Storage Account where the Queue exists. This property is deprecated in favour of `storage_account_id`.
     """
     __args__ = dict()
     __args__['metadata'] = metadata
     __args__['name'] = name
+    __args__['storageAccountId'] = storage_account_id
     __args__['storageAccountName'] = storage_account_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure:storage/getQueue:getQueue', __args__, opts=opts, typ=GetQueueResult).value
@@ -125,10 +160,13 @@ def get_queue(metadata: Optional[Mapping[str, _builtins.str]] = None,
         metadata=pulumi.get(__ret__, 'metadata'),
         name=pulumi.get(__ret__, 'name'),
         resource_manager_id=pulumi.get(__ret__, 'resource_manager_id'),
-        storage_account_name=pulumi.get(__ret__, 'storage_account_name'))
+        storage_account_id=pulumi.get(__ret__, 'storage_account_id'),
+        storage_account_name=pulumi.get(__ret__, 'storage_account_name'),
+        url=pulumi.get(__ret__, 'url'))
 def get_queue_output(metadata: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                      name: Optional[pulumi.Input[_builtins.str]] = None,
-                     storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                     storage_account_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                     storage_account_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQueueResult]:
     """
     Use this data source to access information about an existing Storage Queue.
@@ -143,14 +181,25 @@ def get_queue_output(metadata: Optional[pulumi.Input[Optional[Mapping[str, _buil
         storage_account_name="example-storage-account-name")
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Storage` - 2023-05-01
+
 
     :param Mapping[str, _builtins.str] metadata: A mapping of MetaData for this Queue.
     :param _builtins.str name: The name of the Queue.
-    :param _builtins.str storage_account_name: The name of the Storage Account where the Queue exists.
+    :param _builtins.str storage_account_id: The name of the Storage Account where the Queue exists. This property will become Required in version 5.0 of the Provider.
+           
+           > **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+    :param _builtins.str storage_account_name: The name of the Storage Account where the Queue exists. This property is deprecated in favour of `storage_account_id`.
     """
     __args__ = dict()
     __args__['metadata'] = metadata
     __args__['name'] = name
+    __args__['storageAccountId'] = storage_account_id
     __args__['storageAccountName'] = storage_account_name
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:storage/getQueue:getQueue', __args__, opts=opts, typ=GetQueueResult)
@@ -159,4 +208,6 @@ def get_queue_output(metadata: Optional[pulumi.Input[Optional[Mapping[str, _buil
         metadata=pulumi.get(__response__, 'metadata'),
         name=pulumi.get(__response__, 'name'),
         resource_manager_id=pulumi.get(__response__, 'resource_manager_id'),
-        storage_account_name=pulumi.get(__response__, 'storage_account_name')))
+        storage_account_id=pulumi.get(__response__, 'storage_account_id'),
+        storage_account_name=pulumi.get(__response__, 'storage_account_name'),
+        url=pulumi.get(__response__, 'url')))

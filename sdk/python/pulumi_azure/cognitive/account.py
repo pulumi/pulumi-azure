@@ -52,7 +52,7 @@ class AccountArgs:
                
                > **Note:** You must create your first Face, Text Analytics, or Computer Vision resources from the Azure portal to review and acknowledge the terms and conditions. In Azure Portal, the checkbox to accept terms and conditions is only displayed when a US region is selected. More information on [Prerequisites](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows#prerequisites).
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] sku_name: Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, `P2`, `E0` and `DC0`.
+        :param pulumi.Input[_builtins.str] sku_name: Specifies the SKU Name for this Cognitive Service Account. Possible values are `C2`, `C3`, `C4`, `D3`, `DC0`, `E0`, `F0`, `F1`, `P0`, `P1`, `P2`, `S`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5` and `S6`.
                
                > **Note:** SKU `DC0` is the commitment tier for Cognitive Services containers running in disconnected environments. You must obtain approval from Microsoft by submitting the [request form](https://aka.ms/csdisconnectedcontainers) first, before you can use this SKU. More information on [Purchase a commitment plan to use containers in disconnected environments](https://learn.microsoft.com/en-us/azure/cognitive-services/containers/disconnected-containers?tabs=stt#purchase-a-commitment-plan-to-use-containers-in-disconnected-environments).
         :param pulumi.Input[_builtins.str] custom_question_answering_search_service_id: If `kind` is `TextAnalytics` this specifies the ID of the Search service.
@@ -156,7 +156,7 @@ class AccountArgs:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, `P2`, `E0` and `DC0`.
+        Specifies the SKU Name for this Cognitive Service Account. Possible values are `C2`, `C3`, `C4`, `D3`, `DC0`, `E0`, `F0`, `F1`, `P0`, `P1`, `P2`, `S`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5` and `S6`.
 
         > **Note:** SKU `DC0` is the commitment tier for Cognitive Services containers running in disconnected environments. You must obtain approval from Microsoft by submitting the [request form](https://aka.ms/csdisconnectedcontainers) first, before you can use this SKU. More information on [Purchase a commitment plan to use containers in disconnected environments](https://learn.microsoft.com/en-us/azure/cognitive-services/containers/disconnected-containers?tabs=stt#purchase-a-commitment-plan-to-use-containers-in-disconnected-environments).
         """
@@ -473,7 +473,7 @@ class _AccountState:
         :param pulumi.Input[_builtins.str] qna_runtime_endpoint: A URL to link a QnAMaker cognitive account to a QnA runtime.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] secondary_access_key: The secondary access key which can be used to connect to the Cognitive Service Account.
-        :param pulumi.Input[_builtins.str] sku_name: Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, `P2`, `E0` and `DC0`.
+        :param pulumi.Input[_builtins.str] sku_name: Specifies the SKU Name for this Cognitive Service Account. Possible values are `C2`, `C3`, `C4`, `D3`, `DC0`, `E0`, `F0`, `F1`, `P0`, `P1`, `P2`, `S`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5` and `S6`.
                
                > **Note:** SKU `DC0` is the commitment tier for Cognitive Services containers running in disconnected environments. You must obtain approval from Microsoft by submitting the [request form](https://aka.ms/csdisconnectedcontainers) first, before you can use this SKU. More information on [Purchase a commitment plan to use containers in disconnected environments](https://learn.microsoft.com/en-us/azure/cognitive-services/containers/disconnected-containers?tabs=stt#purchase-a-commitment-plan-to-use-containers-in-disconnected-environments).
         :param pulumi.Input[Sequence[pulumi.Input['AccountStorageArgs']]] storages: A `storage` block as defined below.
@@ -820,7 +820,7 @@ class _AccountState:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, `P2`, `E0` and `DC0`.
+        Specifies the SKU Name for this Cognitive Service Account. Possible values are `C2`, `C3`, `C4`, `D3`, `DC0`, `E0`, `F0`, `F1`, `P0`, `P1`, `P2`, `S`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5` and `S6`.
 
         > **Note:** SKU `DC0` is the commitment tier for Cognitive Services containers running in disconnected environments. You must obtain approval from Microsoft by submitting the [request form](https://aka.ms/csdisconnectedcontainers) first, before you can use this SKU. More information on [Purchase a commitment plan to use containers in disconnected environments](https://learn.microsoft.com/en-us/azure/cognitive-services/containers/disconnected-containers?tabs=stt#purchase-a-commitment-plan-to-use-containers-in-disconnected-environments).
         """
@@ -955,7 +955,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
         :param pulumi.Input[_builtins.str] qna_runtime_endpoint: A URL to link a QnAMaker cognitive account to a QnA runtime.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] sku_name: Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, `P2`, `E0` and `DC0`.
+        :param pulumi.Input[_builtins.str] sku_name: Specifies the SKU Name for this Cognitive Service Account. Possible values are `C2`, `C3`, `C4`, `D3`, `DC0`, `E0`, `F0`, `F1`, `P0`, `P1`, `P2`, `S`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5` and `S6`.
                
                > **Note:** SKU `DC0` is the commitment tier for Cognitive Services containers running in disconnected environments. You must obtain approval from Microsoft by submitting the [request form](https://aka.ms/csdisconnectedcontainers) first, before you can use this SKU. More information on [Purchase a commitment plan to use containers in disconnected environments](https://learn.microsoft.com/en-us/azure/cognitive-services/containers/disconnected-containers?tabs=stt#purchase-a-commitment-plan-to-use-containers-in-disconnected-environments).
         :param pulumi.Input[Sequence[pulumi.Input[Union['AccountStorageArgs', 'AccountStorageArgsDict']]]] storages: A `storage` block as defined below.
@@ -1162,7 +1162,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] qna_runtime_endpoint: A URL to link a QnAMaker cognitive account to a QnA runtime.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] secondary_access_key: The secondary access key which can be used to connect to the Cognitive Service Account.
-        :param pulumi.Input[_builtins.str] sku_name: Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, `P2`, `E0` and `DC0`.
+        :param pulumi.Input[_builtins.str] sku_name: Specifies the SKU Name for this Cognitive Service Account. Possible values are `C2`, `C3`, `C4`, `D3`, `DC0`, `E0`, `F0`, `F1`, `P0`, `P1`, `P2`, `S`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5` and `S6`.
                
                > **Note:** SKU `DC0` is the commitment tier for Cognitive Services containers running in disconnected environments. You must obtain approval from Microsoft by submitting the [request form](https://aka.ms/csdisconnectedcontainers) first, before you can use this SKU. More information on [Purchase a commitment plan to use containers in disconnected environments](https://learn.microsoft.com/en-us/azure/cognitive-services/containers/disconnected-containers?tabs=stt#purchase-a-commitment-plan-to-use-containers-in-disconnected-environments).
         :param pulumi.Input[Sequence[pulumi.Input[Union['AccountStorageArgs', 'AccountStorageArgsDict']]]] storages: A `storage` block as defined below.
@@ -1396,7 +1396,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, `P2`, `E0` and `DC0`.
+        Specifies the SKU Name for this Cognitive Service Account. Possible values are `C2`, `C3`, `C4`, `D3`, `DC0`, `E0`, `F0`, `F1`, `P0`, `P1`, `P2`, `S`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5` and `S6`.
 
         > **Note:** SKU `DC0` is the commitment tier for Cognitive Services containers running in disconnected environments. You must obtain approval from Microsoft by submitting the [request form](https://aka.ms/csdisconnectedcontainers) first, before you can use this SKU. More information on [Purchase a commitment plan to use containers in disconnected environments](https://learn.microsoft.com/en-us/azure/cognitive-services/containers/disconnected-containers?tabs=stt#purchase-a-commitment-plan-to-use-containers-in-disconnected-environments).
         """

@@ -24,13 +24,13 @@ namespace Pulumi.Azure.Kusto
     /// {
     ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
-    ///         Name = "my-kusto-cluster-rg",
+    ///         Name = "example",
     ///         Location = "West Europe",
     ///     });
     /// 
     ///     var exampleCluster = new Azure.Kusto.Cluster("example", new()
     ///     {
-    ///         Name = "kustocluster",
+    ///         Name = "example",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
@@ -66,7 +66,7 @@ namespace Pulumi.Azure.Kusto
     public partial class Cluster : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+        /// List of allowed FQDNs (Fully Qualified Domain Name) for egress from Cluster.
         /// </summary>
         [Output("allowedFqdns")]
         public Output<ImmutableArray<string>> AllowedFqdns { get; private set; } = null!;
@@ -90,7 +90,7 @@ namespace Pulumi.Azure.Kusto
         public Output<string> DataIngestionUri { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if the cluster's disks are encrypted.
+        /// Specifies if the cluster's disks are encrypted. Defaults to `false`.
         /// </summary>
         [Output("diskEncryptionEnabled")]
         public Output<bool?> DiskEncryptionEnabled { get; private set; } = null!;
@@ -108,10 +108,11 @@ namespace Pulumi.Azure.Kusto
         public Output<Outputs.ClusterIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
-        /// 
-        /// &gt; **Note:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
+        /// A `language_extension` block as defined below.
         /// </summary>
+        [Output("languageExtension")]
+        public Output<ImmutableArray<Outputs.ClusterLanguageExtension>> LanguageExtension { get; private set; } = null!;
+
         [Output("languageExtensions")]
         public Output<ImmutableArray<Outputs.ClusterLanguageExtension>> LanguageExtensions { get; private set; } = null!;
 
@@ -134,7 +135,7 @@ namespace Pulumi.Azure.Kusto
         public Output<Outputs.ClusterOptimizedAutoScale?> OptimizedAutoScale { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
+        /// Whether to restrict outbound network access. Defaults to `false`.
         /// </summary>
         [Output("outboundNetworkAccessRestricted")]
         public Output<bool?> OutboundNetworkAccessRestricted { get; private set; } = null!;
@@ -152,7 +153,7 @@ namespace Pulumi.Azure.Kusto
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if the purge operations are enabled.
+        /// Specifies if the purge operations are enabled. Defaults to `false`.
         /// </summary>
         [Output("purgeEnabled")]
         public Output<bool?> PurgeEnabled { get; private set; } = null!;
@@ -170,7 +171,7 @@ namespace Pulumi.Azure.Kusto
         public Output<Outputs.ClusterSku> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if the streaming ingest is enabled.
+        /// Specifies if the streaming ingest is enabled. Defaults to `false`.
         /// </summary>
         [Output("streamingIngestionEnabled")]
         public Output<bool?> StreamingIngestionEnabled { get; private set; } = null!;
@@ -254,7 +255,7 @@ namespace Pulumi.Azure.Kusto
         private InputList<string>? _allowedFqdns;
 
         /// <summary>
-        /// List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+        /// List of allowed FQDNs (Fully Qualified Domain Name) for egress from Cluster.
         /// </summary>
         public InputList<string> AllowedFqdns
         {
@@ -281,7 +282,7 @@ namespace Pulumi.Azure.Kusto
         public Input<bool>? AutoStopEnabled { get; set; }
 
         /// <summary>
-        /// Specifies if the cluster's disks are encrypted.
+        /// Specifies if the cluster's disks are encrypted. Defaults to `false`.
         /// </summary>
         [Input("diskEncryptionEnabled")]
         public Input<bool>? DiskEncryptionEnabled { get; set; }
@@ -298,14 +299,21 @@ namespace Pulumi.Azure.Kusto
         [Input("identity")]
         public Input<Inputs.ClusterIdentityArgs>? Identity { get; set; }
 
-        [Input("languageExtensions")]
-        private InputList<Inputs.ClusterLanguageExtensionArgs>? _languageExtensions;
+        [Input("languageExtension")]
+        private InputList<Inputs.ClusterLanguageExtensionArgs>? _languageExtension;
 
         /// <summary>
-        /// An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
-        /// 
-        /// &gt; **Note:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
+        /// A `language_extension` block as defined below.
         /// </summary>
+        public InputList<Inputs.ClusterLanguageExtensionArgs> LanguageExtension
+        {
+            get => _languageExtension ?? (_languageExtension = new InputList<Inputs.ClusterLanguageExtensionArgs>());
+            set => _languageExtension = value;
+        }
+
+        [Input("languageExtensions")]
+        private InputList<Inputs.ClusterLanguageExtensionArgs>? _languageExtensions;
+        [Obsolete(@"`language_extensions` has been deprecated in favour of `language_extension` and will be removed in v5.0 of the AzureRM provider")]
         public InputList<Inputs.ClusterLanguageExtensionArgs> LanguageExtensions
         {
             get => _languageExtensions ?? (_languageExtensions = new InputList<Inputs.ClusterLanguageExtensionArgs>());
@@ -331,7 +339,7 @@ namespace Pulumi.Azure.Kusto
         public Input<Inputs.ClusterOptimizedAutoScaleArgs>? OptimizedAutoScale { get; set; }
 
         /// <summary>
-        /// Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
+        /// Whether to restrict outbound network access. Defaults to `false`.
         /// </summary>
         [Input("outboundNetworkAccessRestricted")]
         public Input<bool>? OutboundNetworkAccessRestricted { get; set; }
@@ -349,7 +357,7 @@ namespace Pulumi.Azure.Kusto
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
-        /// Specifies if the purge operations are enabled.
+        /// Specifies if the purge operations are enabled. Defaults to `false`.
         /// </summary>
         [Input("purgeEnabled")]
         public Input<bool>? PurgeEnabled { get; set; }
@@ -367,7 +375,7 @@ namespace Pulumi.Azure.Kusto
         public Input<Inputs.ClusterSkuArgs> Sku { get; set; } = null!;
 
         /// <summary>
-        /// Specifies if the streaming ingest is enabled.
+        /// Specifies if the streaming ingest is enabled. Defaults to `false`.
         /// </summary>
         [Input("streamingIngestionEnabled")]
         public Input<bool>? StreamingIngestionEnabled { get; set; }
@@ -425,7 +433,7 @@ namespace Pulumi.Azure.Kusto
         private InputList<string>? _allowedFqdns;
 
         /// <summary>
-        /// List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+        /// List of allowed FQDNs (Fully Qualified Domain Name) for egress from Cluster.
         /// </summary>
         public InputList<string> AllowedFqdns
         {
@@ -458,7 +466,7 @@ namespace Pulumi.Azure.Kusto
         public Input<string>? DataIngestionUri { get; set; }
 
         /// <summary>
-        /// Specifies if the cluster's disks are encrypted.
+        /// Specifies if the cluster's disks are encrypted. Defaults to `false`.
         /// </summary>
         [Input("diskEncryptionEnabled")]
         public Input<bool>? DiskEncryptionEnabled { get; set; }
@@ -475,14 +483,21 @@ namespace Pulumi.Azure.Kusto
         [Input("identity")]
         public Input<Inputs.ClusterIdentityGetArgs>? Identity { get; set; }
 
-        [Input("languageExtensions")]
-        private InputList<Inputs.ClusterLanguageExtensionGetArgs>? _languageExtensions;
+        [Input("languageExtension")]
+        private InputList<Inputs.ClusterLanguageExtensionGetArgs>? _languageExtension;
 
         /// <summary>
-        /// An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
-        /// 
-        /// &gt; **Note:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
+        /// A `language_extension` block as defined below.
         /// </summary>
+        public InputList<Inputs.ClusterLanguageExtensionGetArgs> LanguageExtension
+        {
+            get => _languageExtension ?? (_languageExtension = new InputList<Inputs.ClusterLanguageExtensionGetArgs>());
+            set => _languageExtension = value;
+        }
+
+        [Input("languageExtensions")]
+        private InputList<Inputs.ClusterLanguageExtensionGetArgs>? _languageExtensions;
+        [Obsolete(@"`language_extensions` has been deprecated in favour of `language_extension` and will be removed in v5.0 of the AzureRM provider")]
         public InputList<Inputs.ClusterLanguageExtensionGetArgs> LanguageExtensions
         {
             get => _languageExtensions ?? (_languageExtensions = new InputList<Inputs.ClusterLanguageExtensionGetArgs>());
@@ -508,7 +523,7 @@ namespace Pulumi.Azure.Kusto
         public Input<Inputs.ClusterOptimizedAutoScaleGetArgs>? OptimizedAutoScale { get; set; }
 
         /// <summary>
-        /// Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
+        /// Whether to restrict outbound network access. Defaults to `false`.
         /// </summary>
         [Input("outboundNetworkAccessRestricted")]
         public Input<bool>? OutboundNetworkAccessRestricted { get; set; }
@@ -526,7 +541,7 @@ namespace Pulumi.Azure.Kusto
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
-        /// Specifies if the purge operations are enabled.
+        /// Specifies if the purge operations are enabled. Defaults to `false`.
         /// </summary>
         [Input("purgeEnabled")]
         public Input<bool>? PurgeEnabled { get; set; }
@@ -544,7 +559,7 @@ namespace Pulumi.Azure.Kusto
         public Input<Inputs.ClusterSkuGetArgs>? Sku { get; set; }
 
         /// <summary>
-        /// Specifies if the streaming ingest is enabled.
+        /// Specifies if the streaming ingest is enabled. Defaults to `false`.
         /// </summary>
         [Input("streamingIngestionEnabled")]
         public Input<bool>? StreamingIngestionEnabled { get; set; }

@@ -85,12 +85,9 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// How often the AKS Cluster should be re-evaluated for scale up/down. Defaults to `10s`.
         /// </summary>
         public readonly string? ScanInterval;
-        /// <summary>
-        /// If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `true`.
-        /// </summary>
         public readonly bool? SkipNodesWithLocalStorage;
         /// <summary>
-        /// If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `false`. &lt;!-- defaults to `false` in code, not in Schema --&gt;
+        /// If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
         /// </summary>
         public readonly bool? SkipNodesWithSystemPods;
 

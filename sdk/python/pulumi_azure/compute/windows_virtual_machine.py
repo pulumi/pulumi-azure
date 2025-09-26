@@ -21,15 +21,16 @@ __all__ = ['WindowsVirtualMachineArgs', 'WindowsVirtualMachine']
 @pulumi.input_type
 class WindowsVirtualMachineArgs:
     def __init__(__self__, *,
-                 admin_password: pulumi.Input[_builtins.str],
-                 admin_username: pulumi.Input[_builtins.str],
                  network_interface_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  os_disk: pulumi.Input['WindowsVirtualMachineOsDiskArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  size: pulumi.Input[_builtins.str],
                  additional_capabilities: Optional[pulumi.Input['WindowsVirtualMachineAdditionalCapabilitiesArgs']] = None,
                  additional_unattend_contents: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineAdditionalUnattendContentArgs']]]] = None,
+                 admin_password: Optional[pulumi.Input[_builtins.str]] = None,
+                 admin_username: Optional[pulumi.Input[_builtins.str]] = None,
                  allow_extension_operations: Optional[pulumi.Input[_builtins.bool]] = None,
+                 automatic_updates_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  availability_set_id: Optional[pulumi.Input[_builtins.str]] = None,
                  boot_diagnostics: Optional[pulumi.Input['WindowsVirtualMachineBootDiagnosticsArgs']] = None,
                  bypass_platform_safety_checks_on_user_schedule_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -52,6 +53,7 @@ class WindowsVirtualMachineArgs:
                  max_bid_price: Optional[pulumi.Input[_builtins.float]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  os_image_notification: Optional[pulumi.Input['WindowsVirtualMachineOsImageNotificationArgs']] = None,
+                 os_managed_disk_id: Optional[pulumi.Input[_builtins.str]] = None,
                  patch_assessment_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  patch_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  plan: Optional[pulumi.Input['WindowsVirtualMachinePlanArgs']] = None,
@@ -75,14 +77,18 @@ class WindowsVirtualMachineArgs:
                  zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WindowsVirtualMachine resource.
-        :param pulumi.Input[_builtins.str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] admin_username: The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_interface_ids: . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
         :param pulumi.Input['WindowsVirtualMachineOsDiskArgs'] os_disk: An `os_disk` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which the Windows Virtual Machine should be exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] size: The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
         :param pulumi.Input['WindowsVirtualMachineAdditionalCapabilitiesArgs'] additional_capabilities: A `additional_capabilities` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineAdditionalUnattendContentArgs']]] additional_unattend_contents: One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+               
+               > **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+        :param pulumi.Input[_builtins.str] admin_username: The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
+               
+               > **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
         :param pulumi.Input[_builtins.bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
         :param pulumi.Input[_builtins.str] availability_set_id: Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['WindowsVirtualMachineBootDiagnosticsArgs'] boot_diagnostics: A `boot_diagnostics` block as defined below.
@@ -118,6 +124,9 @@ class WindowsVirtualMachineArgs:
                > **NOTE:** This can only be configured when `priority` is set to `Spot`.
         :param pulumi.Input[_builtins.str] name: The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input['WindowsVirtualMachineOsImageNotificationArgs'] os_image_notification: A `os_image_notification` block as defined below.
+        :param pulumi.Input[_builtins.str] os_managed_disk_id: The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine.
+               
+               > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `admin_username`, `admin_password`, `bypass_platform_safety_checks_on_user_schedule_enabled`, `computer_name`, `custom_data`, `provision_vm_agent`, `patch_mode`, `patch_assessment_mode`, or `reboot_setting`.
         :param pulumi.Input[_builtins.str] patch_assessment_mode: Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
                
                > **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
@@ -158,8 +167,6 @@ class WindowsVirtualMachineArgs:
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineWinrmListenerArgs']]] winrm_listeners: One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] zone: * `zones` - (Optional) Specifies the Availability Zone in which this Windows Virtual Machine should be located. Changing this forces a new Windows Virtual Machine to be created.
         """
-        pulumi.set(__self__, "admin_password", admin_password)
-        pulumi.set(__self__, "admin_username", admin_username)
         pulumi.set(__self__, "network_interface_ids", network_interface_ids)
         pulumi.set(__self__, "os_disk", os_disk)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -168,8 +175,14 @@ class WindowsVirtualMachineArgs:
             pulumi.set(__self__, "additional_capabilities", additional_capabilities)
         if additional_unattend_contents is not None:
             pulumi.set(__self__, "additional_unattend_contents", additional_unattend_contents)
+        if admin_password is not None:
+            pulumi.set(__self__, "admin_password", admin_password)
+        if admin_username is not None:
+            pulumi.set(__self__, "admin_username", admin_username)
         if allow_extension_operations is not None:
             pulumi.set(__self__, "allow_extension_operations", allow_extension_operations)
+        if automatic_updates_enabled is not None:
+            pulumi.set(__self__, "automatic_updates_enabled", automatic_updates_enabled)
         if availability_set_id is not None:
             pulumi.set(__self__, "availability_set_id", availability_set_id)
         if boot_diagnostics is not None:
@@ -190,6 +203,9 @@ class WindowsVirtualMachineArgs:
             pulumi.set(__self__, "disk_controller_type", disk_controller_type)
         if edge_zone is not None:
             pulumi.set(__self__, "edge_zone", edge_zone)
+        if enable_automatic_updates is not None:
+            warnings.warn("""this property has been deprecated in favour of automatic_updates_enabled and will be removed in 5.0 of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""enable_automatic_updates is deprecated: this property has been deprecated in favour of automatic_updates_enabled and will be removed in 5.0 of the provider.""")
         if enable_automatic_updates is not None:
             pulumi.set(__self__, "enable_automatic_updates", enable_automatic_updates)
         if encryption_at_host_enabled is not None:
@@ -214,6 +230,8 @@ class WindowsVirtualMachineArgs:
             pulumi.set(__self__, "name", name)
         if os_image_notification is not None:
             pulumi.set(__self__, "os_image_notification", os_image_notification)
+        if os_managed_disk_id is not None:
+            pulumi.set(__self__, "os_managed_disk_id", os_managed_disk_id)
         if patch_assessment_mode is not None:
             pulumi.set(__self__, "patch_assessment_mode", patch_assessment_mode)
         if patch_mode is not None:
@@ -259,30 +277,6 @@ class WindowsVirtualMachineArgs:
             pulumi.set(__self__, "winrm_listeners", winrm_listeners)
         if zone is not None:
             pulumi.set(__self__, "zone", zone)
-
-    @_builtins.property
-    @pulumi.getter(name="adminPassword")
-    def admin_password(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "admin_password")
-
-    @admin_password.setter
-    def admin_password(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "admin_password", value)
-
-    @_builtins.property
-    @pulumi.getter(name="adminUsername")
-    def admin_username(self) -> pulumi.Input[_builtins.str]:
-        """
-        The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "admin_username")
-
-    @admin_username.setter
-    def admin_username(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "admin_username", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaceIds")
@@ -357,6 +351,34 @@ class WindowsVirtualMachineArgs:
         pulumi.set(self, "additional_unattend_contents", value)
 
     @_builtins.property
+    @pulumi.getter(name="adminPassword")
+    def admin_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+
+        > **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+        """
+        return pulumi.get(self, "admin_password")
+
+    @admin_password.setter
+    def admin_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "admin_password", value)
+
+    @_builtins.property
+    @pulumi.getter(name="adminUsername")
+    def admin_username(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
+
+        > **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+        """
+        return pulumi.get(self, "admin_username")
+
+    @admin_username.setter
+    def admin_username(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "admin_username", value)
+
+    @_builtins.property
     @pulumi.getter(name="allowExtensionOperations")
     def allow_extension_operations(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
@@ -367,6 +389,15 @@ class WindowsVirtualMachineArgs:
     @allow_extension_operations.setter
     def allow_extension_operations(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "allow_extension_operations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="automaticUpdatesEnabled")
+    def automatic_updates_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "automatic_updates_enabled")
+
+    @automatic_updates_enabled.setter
+    def automatic_updates_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "automatic_updates_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilitySetId")
@@ -494,6 +525,7 @@ class WindowsVirtualMachineArgs:
 
     @_builtins.property
     @pulumi.getter(name="enableAutomaticUpdates")
+    @_utilities.deprecated("""this property has been deprecated in favour of automatic_updates_enabled and will be removed in 5.0 of the provider.""")
     def enable_automatic_updates(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
@@ -643,6 +675,20 @@ class WindowsVirtualMachineArgs:
     @os_image_notification.setter
     def os_image_notification(self, value: Optional[pulumi.Input['WindowsVirtualMachineOsImageNotificationArgs']]):
         pulumi.set(self, "os_image_notification", value)
+
+    @_builtins.property
+    @pulumi.getter(name="osManagedDiskId")
+    def os_managed_disk_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine.
+
+        > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `admin_username`, `admin_password`, `bypass_platform_safety_checks_on_user_schedule_enabled`, `computer_name`, `custom_data`, `provision_vm_agent`, `patch_mode`, `patch_assessment_mode`, or `reboot_setting`.
+        """
+        return pulumi.get(self, "os_managed_disk_id")
+
+    @os_managed_disk_id.setter
+    def os_managed_disk_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "os_managed_disk_id", value)
 
     @_builtins.property
     @pulumi.getter(name="patchAssessmentMode")
@@ -924,6 +970,7 @@ class _WindowsVirtualMachineState:
                  admin_password: Optional[pulumi.Input[_builtins.str]] = None,
                  admin_username: Optional[pulumi.Input[_builtins.str]] = None,
                  allow_extension_operations: Optional[pulumi.Input[_builtins.bool]] = None,
+                 automatic_updates_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  availability_set_id: Optional[pulumi.Input[_builtins.str]] = None,
                  boot_diagnostics: Optional[pulumi.Input['WindowsVirtualMachineBootDiagnosticsArgs']] = None,
                  bypass_platform_safety_checks_on_user_schedule_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -948,6 +995,7 @@ class _WindowsVirtualMachineState:
                  network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  os_disk: Optional[pulumi.Input['WindowsVirtualMachineOsDiskArgs']] = None,
                  os_image_notification: Optional[pulumi.Input['WindowsVirtualMachineOsImageNotificationArgs']] = None,
+                 os_managed_disk_id: Optional[pulumi.Input[_builtins.str]] = None,
                  patch_assessment_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  patch_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  plan: Optional[pulumi.Input['WindowsVirtualMachinePlanArgs']] = None,
@@ -981,7 +1029,11 @@ class _WindowsVirtualMachineState:
         :param pulumi.Input['WindowsVirtualMachineAdditionalCapabilitiesArgs'] additional_capabilities: A `additional_capabilities` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineAdditionalUnattendContentArgs']]] additional_unattend_contents: One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+               
+               > **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
         :param pulumi.Input[_builtins.str] admin_username: The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
+               
+               > **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
         :param pulumi.Input[_builtins.bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
         :param pulumi.Input[_builtins.str] availability_set_id: Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['WindowsVirtualMachineBootDiagnosticsArgs'] boot_diagnostics: A `boot_diagnostics` block as defined below.
@@ -1019,6 +1071,9 @@ class _WindowsVirtualMachineState:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_interface_ids: . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
         :param pulumi.Input['WindowsVirtualMachineOsDiskArgs'] os_disk: An `os_disk` block as defined below.
         :param pulumi.Input['WindowsVirtualMachineOsImageNotificationArgs'] os_image_notification: A `os_image_notification` block as defined below.
+        :param pulumi.Input[_builtins.str] os_managed_disk_id: The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine.
+               
+               > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `admin_username`, `admin_password`, `bypass_platform_safety_checks_on_user_schedule_enabled`, `computer_name`, `custom_data`, `provision_vm_agent`, `patch_mode`, `patch_assessment_mode`, or `reboot_setting`.
         :param pulumi.Input[_builtins.str] patch_assessment_mode: Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
                
                > **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
@@ -1076,6 +1131,8 @@ class _WindowsVirtualMachineState:
             pulumi.set(__self__, "admin_username", admin_username)
         if allow_extension_operations is not None:
             pulumi.set(__self__, "allow_extension_operations", allow_extension_operations)
+        if automatic_updates_enabled is not None:
+            pulumi.set(__self__, "automatic_updates_enabled", automatic_updates_enabled)
         if availability_set_id is not None:
             pulumi.set(__self__, "availability_set_id", availability_set_id)
         if boot_diagnostics is not None:
@@ -1096,6 +1153,9 @@ class _WindowsVirtualMachineState:
             pulumi.set(__self__, "disk_controller_type", disk_controller_type)
         if edge_zone is not None:
             pulumi.set(__self__, "edge_zone", edge_zone)
+        if enable_automatic_updates is not None:
+            warnings.warn("""this property has been deprecated in favour of automatic_updates_enabled and will be removed in 5.0 of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""enable_automatic_updates is deprecated: this property has been deprecated in favour of automatic_updates_enabled and will be removed in 5.0 of the provider.""")
         if enable_automatic_updates is not None:
             pulumi.set(__self__, "enable_automatic_updates", enable_automatic_updates)
         if encryption_at_host_enabled is not None:
@@ -1124,6 +1184,8 @@ class _WindowsVirtualMachineState:
             pulumi.set(__self__, "os_disk", os_disk)
         if os_image_notification is not None:
             pulumi.set(__self__, "os_image_notification", os_image_notification)
+        if os_managed_disk_id is not None:
+            pulumi.set(__self__, "os_managed_disk_id", os_managed_disk_id)
         if patch_assessment_mode is not None:
             pulumi.set(__self__, "patch_assessment_mode", patch_assessment_mode)
         if patch_mode is not None:
@@ -1213,6 +1275,8 @@ class _WindowsVirtualMachineState:
     def admin_password(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+
+        > **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
         """
         return pulumi.get(self, "admin_password")
 
@@ -1225,6 +1289,8 @@ class _WindowsVirtualMachineState:
     def admin_username(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
+
+        > **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
         """
         return pulumi.get(self, "admin_username")
 
@@ -1243,6 +1309,15 @@ class _WindowsVirtualMachineState:
     @allow_extension_operations.setter
     def allow_extension_operations(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "allow_extension_operations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="automaticUpdatesEnabled")
+    def automatic_updates_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "automatic_updates_enabled")
+
+    @automatic_updates_enabled.setter
+    def automatic_updates_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "automatic_updates_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilitySetId")
@@ -1370,6 +1445,7 @@ class _WindowsVirtualMachineState:
 
     @_builtins.property
     @pulumi.getter(name="enableAutomaticUpdates")
+    @_utilities.deprecated("""this property has been deprecated in favour of automatic_updates_enabled and will be removed in 5.0 of the provider.""")
     def enable_automatic_updates(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
@@ -1543,6 +1619,20 @@ class _WindowsVirtualMachineState:
     @os_image_notification.setter
     def os_image_notification(self, value: Optional[pulumi.Input['WindowsVirtualMachineOsImageNotificationArgs']]):
         pulumi.set(self, "os_image_notification", value)
+
+    @_builtins.property
+    @pulumi.getter(name="osManagedDiskId")
+    def os_managed_disk_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine.
+
+        > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `admin_username`, `admin_password`, `bypass_platform_safety_checks_on_user_schedule_enabled`, `computer_name`, `custom_data`, `provision_vm_agent`, `patch_mode`, `patch_assessment_mode`, or `reboot_setting`.
+        """
+        return pulumi.get(self, "os_managed_disk_id")
+
+    @os_managed_disk_id.setter
+    def os_managed_disk_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "os_managed_disk_id", value)
 
     @_builtins.property
     @pulumi.getter(name="patchAssessmentMode")
@@ -1911,6 +2001,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                  admin_password: Optional[pulumi.Input[_builtins.str]] = None,
                  admin_username: Optional[pulumi.Input[_builtins.str]] = None,
                  allow_extension_operations: Optional[pulumi.Input[_builtins.bool]] = None,
+                 automatic_updates_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  availability_set_id: Optional[pulumi.Input[_builtins.str]] = None,
                  boot_diagnostics: Optional[pulumi.Input[Union['WindowsVirtualMachineBootDiagnosticsArgs', 'WindowsVirtualMachineBootDiagnosticsArgsDict']]] = None,
                  bypass_platform_safety_checks_on_user_schedule_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -1935,6 +2026,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                  network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  os_disk: Optional[pulumi.Input[Union['WindowsVirtualMachineOsDiskArgs', 'WindowsVirtualMachineOsDiskArgsDict']]] = None,
                  os_image_notification: Optional[pulumi.Input[Union['WindowsVirtualMachineOsImageNotificationArgs', 'WindowsVirtualMachineOsImageNotificationArgsDict']]] = None,
+                 os_managed_disk_id: Optional[pulumi.Input[_builtins.str]] = None,
                  patch_assessment_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  patch_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  plan: Optional[pulumi.Input[Union['WindowsVirtualMachinePlanArgs', 'WindowsVirtualMachinePlanArgsDict']]] = None,
@@ -2044,7 +2136,11 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[Union['WindowsVirtualMachineAdditionalCapabilitiesArgs', 'WindowsVirtualMachineAdditionalCapabilitiesArgsDict']] additional_capabilities: A `additional_capabilities` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineAdditionalUnattendContentArgs', 'WindowsVirtualMachineAdditionalUnattendContentArgsDict']]]] additional_unattend_contents: One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+               
+               > **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
         :param pulumi.Input[_builtins.str] admin_username: The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
+               
+               > **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
         :param pulumi.Input[_builtins.bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
         :param pulumi.Input[_builtins.str] availability_set_id: Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['WindowsVirtualMachineBootDiagnosticsArgs', 'WindowsVirtualMachineBootDiagnosticsArgsDict']] boot_diagnostics: A `boot_diagnostics` block as defined below.
@@ -2082,6 +2178,9 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_interface_ids: . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
         :param pulumi.Input[Union['WindowsVirtualMachineOsDiskArgs', 'WindowsVirtualMachineOsDiskArgsDict']] os_disk: An `os_disk` block as defined below.
         :param pulumi.Input[Union['WindowsVirtualMachineOsImageNotificationArgs', 'WindowsVirtualMachineOsImageNotificationArgsDict']] os_image_notification: A `os_image_notification` block as defined below.
+        :param pulumi.Input[_builtins.str] os_managed_disk_id: The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine.
+               
+               > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `admin_username`, `admin_password`, `bypass_platform_safety_checks_on_user_schedule_enabled`, `computer_name`, `custom_data`, `provision_vm_agent`, `patch_mode`, `patch_assessment_mode`, or `reboot_setting`.
         :param pulumi.Input[_builtins.str] patch_assessment_mode: Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
                
                > **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
@@ -2230,6 +2329,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                  admin_password: Optional[pulumi.Input[_builtins.str]] = None,
                  admin_username: Optional[pulumi.Input[_builtins.str]] = None,
                  allow_extension_operations: Optional[pulumi.Input[_builtins.bool]] = None,
+                 automatic_updates_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  availability_set_id: Optional[pulumi.Input[_builtins.str]] = None,
                  boot_diagnostics: Optional[pulumi.Input[Union['WindowsVirtualMachineBootDiagnosticsArgs', 'WindowsVirtualMachineBootDiagnosticsArgsDict']]] = None,
                  bypass_platform_safety_checks_on_user_schedule_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -2254,6 +2354,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                  network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  os_disk: Optional[pulumi.Input[Union['WindowsVirtualMachineOsDiskArgs', 'WindowsVirtualMachineOsDiskArgsDict']]] = None,
                  os_image_notification: Optional[pulumi.Input[Union['WindowsVirtualMachineOsImageNotificationArgs', 'WindowsVirtualMachineOsImageNotificationArgsDict']]] = None,
+                 os_managed_disk_id: Optional[pulumi.Input[_builtins.str]] = None,
                  patch_assessment_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  patch_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  plan: Optional[pulumi.Input[Union['WindowsVirtualMachinePlanArgs', 'WindowsVirtualMachinePlanArgsDict']]] = None,
@@ -2288,13 +2389,10 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
             __props__.__dict__["additional_capabilities"] = additional_capabilities
             __props__.__dict__["additional_unattend_contents"] = additional_unattend_contents
-            if admin_password is None and not opts.urn:
-                raise TypeError("Missing required property 'admin_password'")
             __props__.__dict__["admin_password"] = None if admin_password is None else pulumi.Output.secret(admin_password)
-            if admin_username is None and not opts.urn:
-                raise TypeError("Missing required property 'admin_username'")
             __props__.__dict__["admin_username"] = admin_username
             __props__.__dict__["allow_extension_operations"] = allow_extension_operations
+            __props__.__dict__["automatic_updates_enabled"] = automatic_updates_enabled
             __props__.__dict__["availability_set_id"] = availability_set_id
             __props__.__dict__["boot_diagnostics"] = boot_diagnostics
             __props__.__dict__["bypass_platform_safety_checks_on_user_schedule_enabled"] = bypass_platform_safety_checks_on_user_schedule_enabled
@@ -2323,6 +2421,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                 raise TypeError("Missing required property 'os_disk'")
             __props__.__dict__["os_disk"] = os_disk
             __props__.__dict__["os_image_notification"] = os_image_notification
+            __props__.__dict__["os_managed_disk_id"] = os_managed_disk_id
             __props__.__dict__["patch_assessment_mode"] = patch_assessment_mode
             __props__.__dict__["patch_mode"] = patch_mode
             __props__.__dict__["plan"] = plan
@@ -2372,6 +2471,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             admin_password: Optional[pulumi.Input[_builtins.str]] = None,
             admin_username: Optional[pulumi.Input[_builtins.str]] = None,
             allow_extension_operations: Optional[pulumi.Input[_builtins.bool]] = None,
+            automatic_updates_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             availability_set_id: Optional[pulumi.Input[_builtins.str]] = None,
             boot_diagnostics: Optional[pulumi.Input[Union['WindowsVirtualMachineBootDiagnosticsArgs', 'WindowsVirtualMachineBootDiagnosticsArgsDict']]] = None,
             bypass_platform_safety_checks_on_user_schedule_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -2396,6 +2496,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             os_disk: Optional[pulumi.Input[Union['WindowsVirtualMachineOsDiskArgs', 'WindowsVirtualMachineOsDiskArgsDict']]] = None,
             os_image_notification: Optional[pulumi.Input[Union['WindowsVirtualMachineOsImageNotificationArgs', 'WindowsVirtualMachineOsImageNotificationArgsDict']]] = None,
+            os_managed_disk_id: Optional[pulumi.Input[_builtins.str]] = None,
             patch_assessment_mode: Optional[pulumi.Input[_builtins.str]] = None,
             patch_mode: Optional[pulumi.Input[_builtins.str]] = None,
             plan: Optional[pulumi.Input[Union['WindowsVirtualMachinePlanArgs', 'WindowsVirtualMachinePlanArgsDict']]] = None,
@@ -2434,7 +2535,11 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[Union['WindowsVirtualMachineAdditionalCapabilitiesArgs', 'WindowsVirtualMachineAdditionalCapabilitiesArgsDict']] additional_capabilities: A `additional_capabilities` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineAdditionalUnattendContentArgs', 'WindowsVirtualMachineAdditionalUnattendContentArgsDict']]]] additional_unattend_contents: One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+               
+               > **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
         :param pulumi.Input[_builtins.str] admin_username: The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
+               
+               > **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
         :param pulumi.Input[_builtins.bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
         :param pulumi.Input[_builtins.str] availability_set_id: Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['WindowsVirtualMachineBootDiagnosticsArgs', 'WindowsVirtualMachineBootDiagnosticsArgsDict']] boot_diagnostics: A `boot_diagnostics` block as defined below.
@@ -2472,6 +2577,9 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_interface_ids: . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
         :param pulumi.Input[Union['WindowsVirtualMachineOsDiskArgs', 'WindowsVirtualMachineOsDiskArgsDict']] os_disk: An `os_disk` block as defined below.
         :param pulumi.Input[Union['WindowsVirtualMachineOsImageNotificationArgs', 'WindowsVirtualMachineOsImageNotificationArgsDict']] os_image_notification: A `os_image_notification` block as defined below.
+        :param pulumi.Input[_builtins.str] os_managed_disk_id: The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine.
+               
+               > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `admin_username`, `admin_password`, `bypass_platform_safety_checks_on_user_schedule_enabled`, `computer_name`, `custom_data`, `provision_vm_agent`, `patch_mode`, `patch_assessment_mode`, or `reboot_setting`.
         :param pulumi.Input[_builtins.str] patch_assessment_mode: Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
                
                > **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
@@ -2528,6 +2636,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         __props__.__dict__["admin_password"] = admin_password
         __props__.__dict__["admin_username"] = admin_username
         __props__.__dict__["allow_extension_operations"] = allow_extension_operations
+        __props__.__dict__["automatic_updates_enabled"] = automatic_updates_enabled
         __props__.__dict__["availability_set_id"] = availability_set_id
         __props__.__dict__["boot_diagnostics"] = boot_diagnostics
         __props__.__dict__["bypass_platform_safety_checks_on_user_schedule_enabled"] = bypass_platform_safety_checks_on_user_schedule_enabled
@@ -2552,6 +2661,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         __props__.__dict__["network_interface_ids"] = network_interface_ids
         __props__.__dict__["os_disk"] = os_disk
         __props__.__dict__["os_image_notification"] = os_image_notification
+        __props__.__dict__["os_managed_disk_id"] = os_managed_disk_id
         __props__.__dict__["patch_assessment_mode"] = patch_assessment_mode
         __props__.__dict__["patch_mode"] = patch_mode
         __props__.__dict__["plan"] = plan
@@ -2600,27 +2710,36 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="adminPassword")
-    def admin_password(self) -> pulumi.Output[_builtins.str]:
+    def admin_password(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+
+        > **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
         """
         return pulumi.get(self, "admin_password")
 
     @_builtins.property
     @pulumi.getter(name="adminUsername")
-    def admin_username(self) -> pulumi.Output[_builtins.str]:
+    def admin_username(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
+
+        > **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
         """
         return pulumi.get(self, "admin_username")
 
     @_builtins.property
     @pulumi.getter(name="allowExtensionOperations")
-    def allow_extension_operations(self) -> pulumi.Output[Optional[_builtins.bool]]:
+    def allow_extension_operations(self) -> pulumi.Output[_builtins.bool]:
         """
         Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
         """
         return pulumi.get(self, "allow_extension_operations")
+
+    @_builtins.property
+    @pulumi.getter(name="automaticUpdatesEnabled")
+    def automatic_updates_enabled(self) -> pulumi.Output[_builtins.bool]:
+        return pulumi.get(self, "automatic_updates_enabled")
 
     @_builtins.property
     @pulumi.getter(name="availabilitySetId")
@@ -2708,7 +2827,8 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="enableAutomaticUpdates")
-    def enable_automatic_updates(self) -> pulumi.Output[Optional[_builtins.bool]]:
+    @_utilities.deprecated("""this property has been deprecated in favour of automatic_updates_enabled and will be removed in 5.0 of the provider.""")
+    def enable_automatic_updates(self) -> pulumi.Output[_builtins.bool]:
         """
         Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
         """
@@ -2752,7 +2872,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="hotpatchingEnabled")
-    def hotpatching_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+    def hotpatching_enabled(self) -> pulumi.Output[_builtins.bool]:
         """
         Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
 
@@ -2827,8 +2947,18 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         return pulumi.get(self, "os_image_notification")
 
     @_builtins.property
+    @pulumi.getter(name="osManagedDiskId")
+    def os_managed_disk_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine.
+
+        > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `admin_username`, `admin_password`, `bypass_platform_safety_checks_on_user_schedule_enabled`, `computer_name`, `custom_data`, `provision_vm_agent`, `patch_mode`, `patch_assessment_mode`, or `reboot_setting`.
+        """
+        return pulumi.get(self, "os_managed_disk_id")
+
+    @_builtins.property
     @pulumi.getter(name="patchAssessmentMode")
-    def patch_assessment_mode(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def patch_assessment_mode(self) -> pulumi.Output[_builtins.str]:
         """
         Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
 
@@ -2838,7 +2968,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="patchMode")
-    def patch_mode(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def patch_mode(self) -> pulumi.Output[_builtins.str]:
         """
         Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 
@@ -2888,7 +3018,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="provisionVmAgent")
-    def provision_vm_agent(self) -> pulumi.Output[Optional[_builtins.bool]]:
+    def provision_vm_agent(self) -> pulumi.Output[_builtins.bool]:
         """
         Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
 

@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.ContainerService` - 2025-02-01
+ * * `Microsoft.ContainerService` - 2025-05-01
  */
 export function getClusterNodePool(args: GetClusterNodePoolArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterNodePoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -69,6 +69,7 @@ export interface GetClusterNodePoolResult {
      * The eviction policy used for Virtual Machines in the Virtual Machine Scale Set, when `priority` is set to `Spot`.
      */
     readonly evictionPolicy: string;
+    readonly gpuDriver: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -183,7 +184,7 @@ export interface GetClusterNodePoolResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.ContainerService` - 2025-02-01
+ * * `Microsoft.ContainerService` - 2025-05-01
  */
 export function getClusterNodePoolOutput(args: GetClusterNodePoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClusterNodePoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

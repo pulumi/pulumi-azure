@@ -17,6 +17,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVolumeResult {
+    /**
+     * @return The accept grow capacity pool for short term clone split property.
+     * 
+     */
+    private String acceptGrowCapacityPoolForShortTermCloneSplit;
     private String accountName;
     /**
      * @return A data protecion backup policy block
@@ -105,6 +110,13 @@ public final class GetVolumeResult {
     private String zone;
 
     private GetVolumeResult() {}
+    /**
+     * @return The accept grow capacity pool for short term clone split property.
+     * 
+     */
+    public String acceptGrowCapacityPoolForShortTermCloneSplit() {
+        return this.acceptGrowCapacityPoolForShortTermCloneSplit;
+    }
     public String accountName() {
         return this.accountName;
     }
@@ -245,6 +257,7 @@ public final class GetVolumeResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String acceptGrowCapacityPoolForShortTermCloneSplit;
         private String accountName;
         private List<GetVolumeDataProtectionBackupPolicy> dataProtectionBackupPolicies;
         private List<GetVolumeDataProtectionReplication> dataProtectionReplications;
@@ -270,6 +283,7 @@ public final class GetVolumeResult {
         public Builder() {}
         public Builder(GetVolumeResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.acceptGrowCapacityPoolForShortTermCloneSplit = defaults.acceptGrowCapacityPoolForShortTermCloneSplit;
     	      this.accountName = defaults.accountName;
     	      this.dataProtectionBackupPolicies = defaults.dataProtectionBackupPolicies;
     	      this.dataProtectionReplications = defaults.dataProtectionReplications;
@@ -294,6 +308,14 @@ public final class GetVolumeResult {
     	      this.zone = defaults.zone;
         }
 
+        @CustomType.Setter
+        public Builder acceptGrowCapacityPoolForShortTermCloneSplit(String acceptGrowCapacityPoolForShortTermCloneSplit) {
+            if (acceptGrowCapacityPoolForShortTermCloneSplit == null) {
+              throw new MissingRequiredPropertyException("GetVolumeResult", "acceptGrowCapacityPoolForShortTermCloneSplit");
+            }
+            this.acceptGrowCapacityPoolForShortTermCloneSplit = acceptGrowCapacityPoolForShortTermCloneSplit;
+            return this;
+        }
         @CustomType.Setter
         public Builder accountName(String accountName) {
             if (accountName == null) {
@@ -482,6 +504,7 @@ public final class GetVolumeResult {
         }
         public GetVolumeResult build() {
             final var _resultValue = new GetVolumeResult();
+            _resultValue.acceptGrowCapacityPoolForShortTermCloneSplit = acceptGrowCapacityPoolForShortTermCloneSplit;
             _resultValue.accountName = accountName;
             _resultValue.dataProtectionBackupPolicies = dataProtectionBackupPolicies;
             _resultValue.dataProtectionReplications = dataProtectionReplications;

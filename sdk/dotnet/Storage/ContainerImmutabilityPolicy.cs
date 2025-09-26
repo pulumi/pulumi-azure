@@ -50,7 +50,7 @@ namespace Pulumi.Azure.Storage
     /// 
     ///     var exampleContainerImmutabilityPolicy = new Azure.Storage.ContainerImmutabilityPolicy("example", new()
     ///     {
-    ///         StorageContainerResourceManagerId = exampleContainer.ResourceManagerId,
+    ///         StorageContainerResourceManagerId = exampleContainer.Id,
     ///         ImmutabilityPeriodInDays = 14,
     ///         ProtectedAppendWritesAllEnabled = false,
     ///         ProtectedAppendWritesEnabled = true,

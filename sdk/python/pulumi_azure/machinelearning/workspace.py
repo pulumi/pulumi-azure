@@ -40,6 +40,7 @@ class WorkspaceArgs:
                  primary_user_assigned_identity: Optional[pulumi.Input[_builtins.str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  serverless_compute: Optional[pulumi.Input['WorkspaceServerlessComputeArgs']] = None,
+                 service_side_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  sku_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  v1_legacy_mode_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
@@ -70,6 +71,9 @@ class WorkspaceArgs:
                
                > **Note:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
         :param pulumi.Input['WorkspaceServerlessComputeArgs'] serverless_compute: A `serverless_compute` block as defined below.
+        :param pulumi.Input[_builtins.bool] service_side_encryption_enabled: Whether to enable service-side encryption with customer-managed keys (CMK). Default to `false`. Changing this forces a new resource to be created.
+               
+               !> **Note:** Setting `service_side_encryption_enabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
         :param pulumi.Input[_builtins.str] sku_name: SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.bool] v1_legacy_mode_enabled: Enable V1 API features, enabling `v1_legacy_mode` may prevent you from using features provided by the v2 API. Defaults to `false`.
@@ -107,6 +111,8 @@ class WorkspaceArgs:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if serverless_compute is not None:
             pulumi.set(__self__, "serverless_compute", serverless_compute)
+        if service_side_encryption_enabled is not None:
+            pulumi.set(__self__, "service_side_encryption_enabled", service_side_encryption_enabled)
         if sku_name is not None:
             pulumi.set(__self__, "sku_name", sku_name)
         if tags is not None:
@@ -349,6 +355,20 @@ class WorkspaceArgs:
         pulumi.set(self, "serverless_compute", value)
 
     @_builtins.property
+    @pulumi.getter(name="serviceSideEncryptionEnabled")
+    def service_side_encryption_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether to enable service-side encryption with customer-managed keys (CMK). Default to `false`. Changing this forces a new resource to be created.
+
+        !> **Note:** Setting `service_side_encryption_enabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
+        """
+        return pulumi.get(self, "service_side_encryption_enabled")
+
+    @service_side_encryption_enabled.setter
+    def service_side_encryption_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "service_side_encryption_enabled", value)
+
+    @_builtins.property
     @pulumi.getter(name="skuName")
     def sku_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -407,6 +427,7 @@ class _WorkspaceState:
                  public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  serverless_compute: Optional[pulumi.Input['WorkspaceServerlessComputeArgs']] = None,
+                 service_side_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  sku_name: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -437,6 +458,9 @@ class _WorkspaceState:
                > **Note:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['WorkspaceServerlessComputeArgs'] serverless_compute: A `serverless_compute` block as defined below.
+        :param pulumi.Input[_builtins.bool] service_side_encryption_enabled: Whether to enable service-side encryption with customer-managed keys (CMK). Default to `false`. Changing this forces a new resource to be created.
+               
+               !> **Note:** Setting `service_side_encryption_enabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
         :param pulumi.Input[_builtins.str] sku_name: SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
         :param pulumi.Input[_builtins.str] storage_account_id: The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
                
@@ -483,6 +507,8 @@ class _WorkspaceState:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if serverless_compute is not None:
             pulumi.set(__self__, "serverless_compute", serverless_compute)
+        if service_side_encryption_enabled is not None:
+            pulumi.set(__self__, "service_side_encryption_enabled", service_side_encryption_enabled)
         if sku_name is not None:
             pulumi.set(__self__, "sku_name", sku_name)
         if storage_account_id is not None:
@@ -727,6 +753,20 @@ class _WorkspaceState:
         pulumi.set(self, "serverless_compute", value)
 
     @_builtins.property
+    @pulumi.getter(name="serviceSideEncryptionEnabled")
+    def service_side_encryption_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether to enable service-side encryption with customer-managed keys (CMK). Default to `false`. Changing this forces a new resource to be created.
+
+        !> **Note:** Setting `service_side_encryption_enabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
+        """
+        return pulumi.get(self, "service_side_encryption_enabled")
+
+    @service_side_encryption_enabled.setter
+    def service_side_encryption_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "service_side_encryption_enabled", value)
+
+    @_builtins.property
     @pulumi.getter(name="skuName")
     def sku_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -813,6 +853,7 @@ class Workspace(pulumi.CustomResource):
                  public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  serverless_compute: Optional[pulumi.Input[Union['WorkspaceServerlessComputeArgs', 'WorkspaceServerlessComputeArgsDict']]] = None,
+                 service_side_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  sku_name: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -1112,6 +1153,9 @@ class Workspace(pulumi.CustomResource):
                > **Note:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['WorkspaceServerlessComputeArgs', 'WorkspaceServerlessComputeArgsDict']] serverless_compute: A `serverless_compute` block as defined below.
+        :param pulumi.Input[_builtins.bool] service_side_encryption_enabled: Whether to enable service-side encryption with customer-managed keys (CMK). Default to `false`. Changing this forces a new resource to be created.
+               
+               !> **Note:** Setting `service_side_encryption_enabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
         :param pulumi.Input[_builtins.str] sku_name: SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
         :param pulumi.Input[_builtins.str] storage_account_id: The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
                
@@ -1428,6 +1472,7 @@ class Workspace(pulumi.CustomResource):
                  public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  serverless_compute: Optional[pulumi.Input[Union['WorkspaceServerlessComputeArgs', 'WorkspaceServerlessComputeArgsDict']]] = None,
+                 service_side_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  sku_name: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -1467,6 +1512,7 @@ class Workspace(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["serverless_compute"] = serverless_compute
+            __props__.__dict__["service_side_encryption_enabled"] = service_side_encryption_enabled
             __props__.__dict__["sku_name"] = sku_name
             if storage_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_id'")
@@ -1504,6 +1550,7 @@ class Workspace(pulumi.CustomResource):
             public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
             serverless_compute: Optional[pulumi.Input[Union['WorkspaceServerlessComputeArgs', 'WorkspaceServerlessComputeArgsDict']]] = None,
+            service_side_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             sku_name: Optional[pulumi.Input[_builtins.str]] = None,
             storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -1539,6 +1586,9 @@ class Workspace(pulumi.CustomResource):
                > **Note:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['WorkspaceServerlessComputeArgs', 'WorkspaceServerlessComputeArgsDict']] serverless_compute: A `serverless_compute` block as defined below.
+        :param pulumi.Input[_builtins.bool] service_side_encryption_enabled: Whether to enable service-side encryption with customer-managed keys (CMK). Default to `false`. Changing this forces a new resource to be created.
+               
+               !> **Note:** Setting `service_side_encryption_enabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
         :param pulumi.Input[_builtins.str] sku_name: SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
         :param pulumi.Input[_builtins.str] storage_account_id: The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
                
@@ -1570,6 +1620,7 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["serverless_compute"] = serverless_compute
+        __props__.__dict__["service_side_encryption_enabled"] = service_side_encryption_enabled
         __props__.__dict__["sku_name"] = sku_name
         __props__.__dict__["storage_account_id"] = storage_account_id
         __props__.__dict__["tags"] = tags
@@ -1732,6 +1783,16 @@ class Workspace(pulumi.CustomResource):
         A `serverless_compute` block as defined below.
         """
         return pulumi.get(self, "serverless_compute")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceSideEncryptionEnabled")
+    def service_side_encryption_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether to enable service-side encryption with customer-managed keys (CMK). Default to `false`. Changing this forces a new resource to be created.
+
+        !> **Note:** Setting `service_side_encryption_enabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
+        """
+        return pulumi.get(self, "service_side_encryption_enabled")
 
     @_builtins.property
     @pulumi.getter(name="skuName")

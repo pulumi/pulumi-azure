@@ -77,6 +77,14 @@ namespace Pulumi.Azure.Iot
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// The subscription ID for the endpoint.
+        /// 
+        /// &gt; **Note:** When `subscription_id` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+        /// </summary>
+        [Output("subscriptionId")]
+        public Output<string> SubscriptionId { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a EndpointServicebusQueue resource with the given unique name, arguments, and options.
@@ -187,6 +195,14 @@ namespace Pulumi.Azure.Iot
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// The subscription ID for the endpoint.
+        /// 
+        /// &gt; **Note:** When `subscription_id` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+        /// </summary>
+        [Input("subscriptionId")]
+        public Input<string>? SubscriptionId { get; set; }
+
         public EndpointServicebusQueueArgs()
         {
         }
@@ -254,6 +270,14 @@ namespace Pulumi.Azure.Iot
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// The subscription ID for the endpoint.
+        /// 
+        /// &gt; **Note:** When `subscription_id` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+        /// </summary>
+        [Input("subscriptionId")]
+        public Input<string>? SubscriptionId { get; set; }
 
         public EndpointServicebusQueueState()
         {

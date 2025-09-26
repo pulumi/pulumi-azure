@@ -417,6 +417,12 @@ export class Workspace extends pulumi.CustomResource {
      */
     declare public readonly serverlessCompute: pulumi.Output<outputs.machinelearning.WorkspaceServerlessCompute | undefined>;
     /**
+     * Whether to enable service-side encryption with customer-managed keys (CMK). Default to `false`. Changing this forces a new resource to be created.
+     *
+     * !> **Note:** Setting `serviceSideEncryptionEnabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
+     */
+    declare public readonly serviceSideEncryptionEnabled: pulumi.Output<boolean | undefined>;
+    /**
      * SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
      */
     declare public readonly skuName: pulumi.Output<string | undefined>;
@@ -471,6 +477,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
             resourceInputs["resourceGroupName"] = state?.resourceGroupName;
             resourceInputs["serverlessCompute"] = state?.serverlessCompute;
+            resourceInputs["serviceSideEncryptionEnabled"] = state?.serviceSideEncryptionEnabled;
             resourceInputs["skuName"] = state?.skuName;
             resourceInputs["storageAccountId"] = state?.storageAccountId;
             resourceInputs["tags"] = state?.tags;
@@ -511,6 +518,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["publicNetworkAccessEnabled"] = args?.publicNetworkAccessEnabled;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["serverlessCompute"] = args?.serverlessCompute;
+            resourceInputs["serviceSideEncryptionEnabled"] = args?.serviceSideEncryptionEnabled;
             resourceInputs["skuName"] = args?.skuName;
             resourceInputs["storageAccountId"] = args?.storageAccountId;
             resourceInputs["tags"] = args?.tags;
@@ -607,6 +615,12 @@ export interface WorkspaceState {
      * A `serverlessCompute` block as defined below.
      */
     serverlessCompute?: pulumi.Input<inputs.machinelearning.WorkspaceServerlessCompute>;
+    /**
+     * Whether to enable service-side encryption with customer-managed keys (CMK). Default to `false`. Changing this forces a new resource to be created.
+     *
+     * !> **Note:** Setting `serviceSideEncryptionEnabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
+     */
+    serviceSideEncryptionEnabled?: pulumi.Input<boolean>;
     /**
      * SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
      */
@@ -711,6 +725,12 @@ export interface WorkspaceArgs {
      * A `serverlessCompute` block as defined below.
      */
     serverlessCompute?: pulumi.Input<inputs.machinelearning.WorkspaceServerlessCompute>;
+    /**
+     * Whether to enable service-side encryption with customer-managed keys (CMK). Default to `false`. Changing this forces a new resource to be created.
+     *
+     * !> **Note:** Setting `serviceSideEncryptionEnabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
+     */
+    serviceSideEncryptionEnabled?: pulumi.Input<boolean>;
     /**
      * SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
      */

@@ -146,18 +146,16 @@ public class OutboundRule extends com.pulumi.resources.CustomResource {
         return this.backendAddressPoolId;
     }
     /**
-     * Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
+     * @deprecated
+     * This property is being deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider.
      * 
      */
+    @Deprecated /* This property is being deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider. */
     @Export(name="enableTcpReset", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> enableTcpReset;
+    private Output<Boolean> enableTcpReset;
 
-    /**
-     * @return Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
-     * 
-     */
-    public Output<Optional<Boolean>> enableTcpReset() {
-        return Codegen.optional(this.enableTcpReset);
+    public Output<Boolean> enableTcpReset() {
+        return this.enableTcpReset;
     }
     /**
      * One or more `frontend_ip_configuration` blocks as defined below.
@@ -228,6 +226,20 @@ public class OutboundRule extends com.pulumi.resources.CustomResource {
      */
     public Output<String> protocol() {
         return this.protocol;
+    }
+    /**
+     * Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
+     * 
+     */
+    @Export(name="tcpResetEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> tcpResetEnabled;
+
+    /**
+     * @return Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
+     * 
+     */
+    public Output<Boolean> tcpResetEnabled() {
+        return this.tcpResetEnabled;
     }
 
     /**

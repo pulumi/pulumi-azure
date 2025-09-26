@@ -173,6 +173,7 @@ namespace Pulumi.Azure.Lb
         /// The ID of the Backend Address Pool. Outbound traffic is randomly load balanced across IPs in the backend IPs.
         /// </summary>
         public readonly string BackendAddressPoolId;
+        public readonly bool EnableTcpReset;
         /// <summary>
         /// A `frontend_ip_configuration` block as defined below.
         /// </summary>
@@ -205,6 +206,8 @@ namespace Pulumi.Azure.Lb
 
             string backendAddressPoolId,
 
+            bool enableTcpReset,
+
             ImmutableArray<Outputs.GetLBOutboundRuleFrontendIpConfigurationResult> frontendIpConfigurations,
 
             string id,
@@ -221,6 +224,7 @@ namespace Pulumi.Azure.Lb
         {
             AllocatedOutboundPorts = allocatedOutboundPorts;
             BackendAddressPoolId = backendAddressPoolId;
+            EnableTcpReset = enableTcpReset;
             FrontendIpConfigurations = frontendIpConfigurations;
             Id = id;
             IdleTimeoutInMinutes = idleTimeoutInMinutes;

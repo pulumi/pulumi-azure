@@ -12,21 +12,15 @@ namespace Pulumi.Azure.KeyVault.Inputs
 
     public sealed class KeyVaultContactGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// E-mail address of the contact.
-        /// </summary>
         [Input("email", required: true)]
         public Input<string> Email { get; set; } = null!;
 
         /// <summary>
-        /// Name of the contact.
+        /// Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Phone number of the contact.
-        /// </summary>
         [Input("phone")]
         public Input<string>? Phone { get; set; }
 

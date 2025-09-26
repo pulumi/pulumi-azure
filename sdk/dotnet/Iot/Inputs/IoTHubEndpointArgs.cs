@@ -99,6 +99,14 @@ namespace Pulumi.Azure.Iot.Inputs
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
+        /// The subscription ID for the endpoint.
+        /// 
+        /// &gt; **Note:** When `subscription_id` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+        /// </summary>
+        [Input("subscriptionId")]
+        public Input<string>? SubscriptionId { get; set; }
+
+        /// <summary>
         /// The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
         /// </summary>
         [Input("type", required: true)]

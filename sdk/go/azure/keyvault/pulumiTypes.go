@@ -4033,11 +4033,9 @@ func (o KeyVaultAccessPolicyArrayOutput) Index(i pulumi.IntInput) KeyVaultAccess
 }
 
 type KeyVaultContact struct {
-	// E-mail address of the contact.
 	Email string `pulumi:"email"`
-	// Name of the contact.
-	Name *string `pulumi:"name"`
-	// Phone number of the contact.
+	// Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
+	Name  *string `pulumi:"name"`
 	Phone *string `pulumi:"phone"`
 }
 
@@ -4053,11 +4051,9 @@ type KeyVaultContactInput interface {
 }
 
 type KeyVaultContactArgs struct {
-	// E-mail address of the contact.
 	Email pulumi.StringInput `pulumi:"email"`
-	// Name of the contact.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Phone number of the contact.
+	// Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
+	Name  pulumi.StringPtrInput `pulumi:"name"`
 	Phone pulumi.StringPtrInput `pulumi:"phone"`
 }
 
@@ -4112,17 +4108,15 @@ func (o KeyVaultContactOutput) ToKeyVaultContactOutputWithContext(ctx context.Co
 	return o
 }
 
-// E-mail address of the contact.
 func (o KeyVaultContactOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultContact) string { return v.Email }).(pulumi.StringOutput)
 }
 
-// Name of the contact.
+// Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
 func (o KeyVaultContactOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultContact) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Phone number of the contact.
 func (o KeyVaultContactOutput) Phone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultContact) *string { return v.Phone }).(pulumi.StringPtrOutput)
 }

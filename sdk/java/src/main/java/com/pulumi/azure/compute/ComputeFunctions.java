@@ -24,6 +24,8 @@ import com.pulumi.azure.compute.inputs.GetImagesArgs;
 import com.pulumi.azure.compute.inputs.GetImagesPlainArgs;
 import com.pulumi.azure.compute.inputs.GetManagedDiskArgs;
 import com.pulumi.azure.compute.inputs.GetManagedDiskPlainArgs;
+import com.pulumi.azure.compute.inputs.GetManagedDisksArgs;
+import com.pulumi.azure.compute.inputs.GetManagedDisksPlainArgs;
 import com.pulumi.azure.compute.inputs.GetOrchestratedVirtualMachineScaleSetArgs;
 import com.pulumi.azure.compute.inputs.GetOrchestratedVirtualMachineScaleSetPlainArgs;
 import com.pulumi.azure.compute.inputs.GetPlatformImageArgs;
@@ -54,6 +56,7 @@ import com.pulumi.azure.compute.outputs.GetDiskEncryptionSetResult;
 import com.pulumi.azure.compute.outputs.GetImageResult;
 import com.pulumi.azure.compute.outputs.GetImagesResult;
 import com.pulumi.azure.compute.outputs.GetManagedDiskResult;
+import com.pulumi.azure.compute.outputs.GetManagedDisksResult;
 import com.pulumi.azure.compute.outputs.GetOrchestratedVirtualMachineScaleSetResult;
 import com.pulumi.azure.compute.outputs.GetPlatformImageResult;
 import com.pulumi.azure.compute.outputs.GetSharedImageGalleryResult;
@@ -2516,6 +2519,246 @@ public final class ComputeFunctions {
      */
     public static CompletableFuture<GetManagedDiskResult> getManagedDiskPlain(GetManagedDiskPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:compute/getManagedDisk:getManagedDisk", TypeShape.of(GetManagedDiskResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Managed Disk.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetManagedDisksArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var existing = ComputeFunctions.getManagedDisks(GetManagedDisksArgs.builder()
+     *             .resourceGroupName("example-resources")
+     *             .build());
+     * 
+     *         ctx.export("firstDiskId", existingAzurermManagedDisk.disk()[0].id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute` - 2023-04-02
+     * 
+     */
+    public static Output<GetManagedDisksResult> getManagedDisks(GetManagedDisksArgs args) {
+        return getManagedDisks(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Managed Disk.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetManagedDisksArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var existing = ComputeFunctions.getManagedDisks(GetManagedDisksArgs.builder()
+     *             .resourceGroupName("example-resources")
+     *             .build());
+     * 
+     *         ctx.export("firstDiskId", existingAzurermManagedDisk.disk()[0].id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute` - 2023-04-02
+     * 
+     */
+    public static CompletableFuture<GetManagedDisksResult> getManagedDisksPlain(GetManagedDisksPlainArgs args) {
+        return getManagedDisksPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Managed Disk.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetManagedDisksArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var existing = ComputeFunctions.getManagedDisks(GetManagedDisksArgs.builder()
+     *             .resourceGroupName("example-resources")
+     *             .build());
+     * 
+     *         ctx.export("firstDiskId", existingAzurermManagedDisk.disk()[0].id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute` - 2023-04-02
+     * 
+     */
+    public static Output<GetManagedDisksResult> getManagedDisks(GetManagedDisksArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:compute/getManagedDisks:getManagedDisks", TypeShape.of(GetManagedDisksResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Managed Disk.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetManagedDisksArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var existing = ComputeFunctions.getManagedDisks(GetManagedDisksArgs.builder()
+     *             .resourceGroupName("example-resources")
+     *             .build());
+     * 
+     *         ctx.export("firstDiskId", existingAzurermManagedDisk.disk()[0].id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute` - 2023-04-02
+     * 
+     */
+    public static Output<GetManagedDisksResult> getManagedDisks(GetManagedDisksArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:compute/getManagedDisks:getManagedDisks", TypeShape.of(GetManagedDisksResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Managed Disk.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetManagedDisksArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var existing = ComputeFunctions.getManagedDisks(GetManagedDisksArgs.builder()
+     *             .resourceGroupName("example-resources")
+     *             .build());
+     * 
+     *         ctx.export("firstDiskId", existingAzurermManagedDisk.disk()[0].id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Compute` - 2023-04-02
+     * 
+     */
+    public static CompletableFuture<GetManagedDisksResult> getManagedDisksPlain(GetManagedDisksPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:compute/getManagedDisks:getManagedDisks", TypeShape.of(GetManagedDisksResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Orchestrated Virtual Machine Scale Set.

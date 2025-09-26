@@ -130,6 +130,46 @@ import javax.annotation.Nullable;
  *             .netappAccountId(exampleAccount.id())
  *             .userAssignedIdentityId(exampleUserAssignedIdentity.id())
  *             .encryptionKey(exampleKey.versionlessId())
+ *             .federatedClientId(exampleUserAssignedIdentity.clientId())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## Cross-Tenant Usage
+ * 
+ * For scenarios where the key vault is in a different Entra ID tenant:
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.netapp.AccountEncryption;
+ * import com.pulumi.azure.netapp.AccountEncryptionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var crossTenant = new AccountEncryption("crossTenant", AccountEncryptionArgs.builder()
+ *             .netappAccountId(example.id())
+ *             .userAssignedIdentityId(exampleAzurermUserAssignedIdentity.id())
+ *             .encryptionKey("https://keyvault-in-other-tenant.vault.azure.net/keys/encryption-key")
+ *             .federatedClientId("12345678-1234-1234-1234-123456789012")
+ *             .crossTenantKeyVaultResourceId("/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/remote-rg/providers/Microsoft.KeyVault/vaults/keyvault-in-other-tenant")
  *             .build());
  * 
  *     }
@@ -142,7 +182,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.NetApp` - 2025-01-01
+ * * `Microsoft.NetApp` - 2025-06-01
  * 
  * ## Import
  * 
@@ -156,6 +196,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:netapp/accountEncryption:AccountEncryption")
 public class AccountEncryption extends com.pulumi.resources.CustomResource {
     /**
+     * The full resource ID of the cross-tenant key vault. This is recommended when using `federated_client_id` for cross-tenant scenarios to ensure proper validation by Azure APIs.
+     * 
+     */
+    @Export(name="crossTenantKeyVaultResourceId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> crossTenantKeyVaultResourceId;
+
+    /**
+     * @return The full resource ID of the cross-tenant key vault. This is recommended when using `federated_client_id` for cross-tenant scenarios to ensure proper validation by Azure APIs.
+     * 
+     */
+    public Output<Optional<String>> crossTenantKeyVaultResourceId() {
+        return Codegen.optional(this.crossTenantKeyVaultResourceId);
+    }
+    /**
      * Specify the versionless ID of the encryption key.
      * 
      */
@@ -168,6 +222,20 @@ public class AccountEncryption extends com.pulumi.resources.CustomResource {
      */
     public Output<String> encryptionKey() {
         return this.encryptionKey;
+    }
+    /**
+     * The Client ID of the multi-tenant Entra ID application used to access cross-tenant key vaults. This is only required when accessing a key vault in a different tenant than the NetApp account.
+     * 
+     */
+    @Export(name="federatedClientId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> federatedClientId;
+
+    /**
+     * @return The Client ID of the multi-tenant Entra ID application used to access cross-tenant key vaults. This is only required when accessing a key vault in a different tenant than the NetApp account.
+     * 
+     */
+    public Output<Optional<String>> federatedClientId() {
+        return Codegen.optional(this.federatedClientId);
     }
     /**
      * The ID of the NetApp account where volume under it will have customer managed keys-based encryption enabled.

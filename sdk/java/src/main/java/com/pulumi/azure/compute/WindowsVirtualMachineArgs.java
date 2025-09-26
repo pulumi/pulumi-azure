@@ -66,31 +66,39 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
     /**
      * The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+     * 
      */
-    @Import(name="adminPassword", required=true)
-    private Output<String> adminPassword;
+    @Import(name="adminPassword")
+    private @Nullable Output<String> adminPassword;
 
     /**
      * @return The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+     * 
      */
-    public Output<String> adminPassword() {
-        return this.adminPassword;
+    public Optional<Output<String>> adminPassword() {
+        return Optional.ofNullable(this.adminPassword);
     }
 
     /**
      * The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+     * 
      */
-    @Import(name="adminUsername", required=true)
-    private Output<String> adminUsername;
+    @Import(name="adminUsername")
+    private @Nullable Output<String> adminUsername;
 
     /**
      * @return The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+     * 
      */
-    public Output<String> adminUsername() {
-        return this.adminUsername;
+    public Optional<Output<String>> adminUsername() {
+        return Optional.ofNullable(this.adminUsername);
     }
 
     /**
@@ -106,6 +114,13 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
      */
     public Optional<Output<Boolean>> allowExtensionOperations() {
         return Optional.ofNullable(this.allowExtensionOperations);
+    }
+
+    @Import(name="automaticUpdatesEnabled")
+    private @Nullable Output<Boolean> automaticUpdatesEnabled;
+
+    public Optional<Output<Boolean>> automaticUpdatesEnabled() {
+        return Optional.ofNullable(this.automaticUpdatesEnabled);
     }
 
     /**
@@ -269,14 +284,22 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
     /**
      * Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
      * 
+     * @deprecated
+     * this property has been deprecated in favour of automatic_updates_enabled and will be removed in 5.0 of the provider.
+     * 
      */
+    @Deprecated /* this property has been deprecated in favour of automatic_updates_enabled and will be removed in 5.0 of the provider. */
     @Import(name="enableAutomaticUpdates")
     private @Nullable Output<Boolean> enableAutomaticUpdates;
 
     /**
      * @return Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
      * 
+     * @deprecated
+     * this property has been deprecated in favour of automatic_updates_enabled and will be removed in 5.0 of the provider.
+     * 
      */
+    @Deprecated /* this property has been deprecated in favour of automatic_updates_enabled and will be removed in 5.0 of the provider. */
     public Optional<Output<Boolean>> enableAutomaticUpdates() {
         return Optional.ofNullable(this.enableAutomaticUpdates);
     }
@@ -490,6 +513,25 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
      */
     public Optional<Output<WindowsVirtualMachineOsImageNotificationArgs>> osImageNotification() {
         return Optional.ofNullable(this.osImageNotification);
+    }
+
+    /**
+     * The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine.
+     * 
+     * &gt; **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `admin_username`, `admin_password`, `bypass_platform_safety_checks_on_user_schedule_enabled`, `computer_name`, `custom_data`, `provision_vm_agent`, `patch_mode`, `patch_assessment_mode`, or `reboot_setting`.
+     * 
+     */
+    @Import(name="osManagedDiskId")
+    private @Nullable Output<String> osManagedDiskId;
+
+    /**
+     * @return The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine.
+     * 
+     * &gt; **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `admin_username`, `admin_password`, `bypass_platform_safety_checks_on_user_schedule_enabled`, `computer_name`, `custom_data`, `provision_vm_agent`, `patch_mode`, `patch_assessment_mode`, or `reboot_setting`.
+     * 
+     */
+    public Optional<Output<String>> osManagedDiskId() {
+        return Optional.ofNullable(this.osManagedDiskId);
     }
 
     /**
@@ -889,6 +931,7 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
         this.adminPassword = $.adminPassword;
         this.adminUsername = $.adminUsername;
         this.allowExtensionOperations = $.allowExtensionOperations;
+        this.automaticUpdatesEnabled = $.automaticUpdatesEnabled;
         this.availabilitySetId = $.availabilitySetId;
         this.bootDiagnostics = $.bootDiagnostics;
         this.bypassPlatformSafetyChecksOnUserScheduleEnabled = $.bypassPlatformSafetyChecksOnUserScheduleEnabled;
@@ -913,6 +956,7 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
         this.networkInterfaceIds = $.networkInterfaceIds;
         this.osDisk = $.osDisk;
         this.osImageNotification = $.osImageNotification;
+        this.osManagedDiskId = $.osManagedDiskId;
         this.patchAssessmentMode = $.patchAssessmentMode;
         this.patchMode = $.patchMode;
         this.plan = $.plan;
@@ -1011,16 +1055,20 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
         /**
          * @param adminPassword The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+         * 
          * @return builder
          * 
          */
-        public Builder adminPassword(Output<String> adminPassword) {
+        public Builder adminPassword(@Nullable Output<String> adminPassword) {
             $.adminPassword = adminPassword;
             return this;
         }
 
         /**
          * @param adminPassword The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
          * 
          * @return builder
          * 
@@ -1032,16 +1080,20 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
         /**
          * @param adminUsername The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+         * 
          * @return builder
          * 
          */
-        public Builder adminUsername(Output<String> adminUsername) {
+        public Builder adminUsername(@Nullable Output<String> adminUsername) {
             $.adminUsername = adminUsername;
             return this;
         }
 
         /**
          * @param adminUsername The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
          * 
          * @return builder
          * 
@@ -1069,6 +1121,15 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
          */
         public Builder allowExtensionOperations(Boolean allowExtensionOperations) {
             return allowExtensionOperations(Output.of(allowExtensionOperations));
+        }
+
+        public Builder automaticUpdatesEnabled(@Nullable Output<Boolean> automaticUpdatesEnabled) {
+            $.automaticUpdatesEnabled = automaticUpdatesEnabled;
+            return this;
+        }
+
+        public Builder automaticUpdatesEnabled(Boolean automaticUpdatesEnabled) {
+            return automaticUpdatesEnabled(Output.of(automaticUpdatesEnabled));
         }
 
         /**
@@ -1294,7 +1355,11 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
          * 
          * @return builder
          * 
+         * @deprecated
+         * this property has been deprecated in favour of automatic_updates_enabled and will be removed in 5.0 of the provider.
+         * 
          */
+        @Deprecated /* this property has been deprecated in favour of automatic_updates_enabled and will be removed in 5.0 of the provider. */
         public Builder enableAutomaticUpdates(@Nullable Output<Boolean> enableAutomaticUpdates) {
             $.enableAutomaticUpdates = enableAutomaticUpdates;
             return this;
@@ -1305,7 +1370,11 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
          * 
          * @return builder
          * 
+         * @deprecated
+         * this property has been deprecated in favour of automatic_updates_enabled and will be removed in 5.0 of the provider.
+         * 
          */
+        @Deprecated /* this property has been deprecated in favour of automatic_updates_enabled and will be removed in 5.0 of the provider. */
         public Builder enableAutomaticUpdates(Boolean enableAutomaticUpdates) {
             return enableAutomaticUpdates(Output.of(enableAutomaticUpdates));
         }
@@ -1619,6 +1688,31 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
          */
         public Builder osImageNotification(WindowsVirtualMachineOsImageNotificationArgs osImageNotification) {
             return osImageNotification(Output.of(osImageNotification));
+        }
+
+        /**
+         * @param osManagedDiskId The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine.
+         * 
+         * &gt; **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `admin_username`, `admin_password`, `bypass_platform_safety_checks_on_user_schedule_enabled`, `computer_name`, `custom_data`, `provision_vm_agent`, `patch_mode`, `patch_assessment_mode`, or `reboot_setting`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder osManagedDiskId(@Nullable Output<String> osManagedDiskId) {
+            $.osManagedDiskId = osManagedDiskId;
+            return this;
+        }
+
+        /**
+         * @param osManagedDiskId The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine.
+         * 
+         * &gt; **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `admin_username`, `admin_password`, `bypass_platform_safety_checks_on_user_schedule_enabled`, `computer_name`, `custom_data`, `provision_vm_agent`, `patch_mode`, `patch_assessment_mode`, or `reboot_setting`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder osManagedDiskId(String osManagedDiskId) {
+            return osManagedDiskId(Output.of(osManagedDiskId));
         }
 
         /**
@@ -2169,12 +2263,6 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
         }
 
         public WindowsVirtualMachineArgs build() {
-            if ($.adminPassword == null) {
-                throw new MissingRequiredPropertyException("WindowsVirtualMachineArgs", "adminPassword");
-            }
-            if ($.adminUsername == null) {
-                throw new MissingRequiredPropertyException("WindowsVirtualMachineArgs", "adminUsername");
-            }
             if ($.networkInterfaceIds == null) {
                 throw new MissingRequiredPropertyException("WindowsVirtualMachineArgs", "networkInterfaceIds");
             }

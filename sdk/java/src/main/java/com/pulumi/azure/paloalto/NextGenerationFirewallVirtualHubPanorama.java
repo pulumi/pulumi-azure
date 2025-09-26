@@ -113,7 +113,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `PaloAltoNetworks.Cloudngfw` - 2023-09-01
+ * * `PaloAltoNetworks.Cloudngfw` - 2025-05-23
  * 
  * ## Import
  * 

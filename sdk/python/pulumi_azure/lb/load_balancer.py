@@ -26,8 +26,10 @@ class LoadBalancerArgs:
                  frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerFrontendIpConfigurationArgs']]]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 public_ip_address_id: Optional[pulumi.Input[_builtins.str]] = None,
                  sku: Optional[pulumi.Input[_builtins.str]] = None,
                  sku_tier: Optional[pulumi.Input[_builtins.str]] = None,
+                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LoadBalancer resource.
@@ -36,10 +38,12 @@ class LoadBalancerArgs:
         :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerFrontendIpConfigurationArgs']]] frontend_ip_configurations: One or more `frontend_ip_configuration` blocks as documented below.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure Region where the Load Balancer should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] public_ip_address_id: The ID of a Public IP Address which is associated with this Load Balancer.
         :param pulumi.Input[_builtins.str] sku: The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Standard`. Changing this forces a new resource to be created.
                
                > **Note:** The `Microsoft.Network/AllowGatewayLoadBalancer` feature is required to be registered in order to use the `Gateway` SKU. The feature can only be registered by the Azure service team, please submit an [Azure support ticket](https://azure.microsoft.com/en-us/support/create-ticket/) for that.
         :param pulumi.Input[_builtins.str] sku_tier: `sku_tier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] subnet_id: The ID of the Subnet which is associated with the IP Configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -51,10 +55,14 @@ class LoadBalancerArgs:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if public_ip_address_id is not None:
+            pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if sku_tier is not None:
             pulumi.set(__self__, "sku_tier", sku_tier)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -119,6 +127,18 @@ class LoadBalancerArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="publicIpAddressId")
+    def public_ip_address_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ID of a Public IP Address which is associated with this Load Balancer.
+        """
+        return pulumi.get(self, "public_ip_address_id")
+
+    @public_ip_address_id.setter
+    def public_ip_address_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "public_ip_address_id", value)
+
+    @_builtins.property
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -145,6 +165,18 @@ class LoadBalancerArgs:
         pulumi.set(self, "sku_tier", value)
 
     @_builtins.property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ID of the Subnet which is associated with the IP Configuration.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "subnet_id", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -166,9 +198,11 @@ class _LoadBalancerState:
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  private_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
                  private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 public_ip_address_id: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  sku: Optional[pulumi.Input[_builtins.str]] = None,
                  sku_tier: Optional[pulumi.Input[_builtins.str]] = None,
+                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering LoadBalancer resources.
@@ -178,11 +212,13 @@ class _LoadBalancerState:
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] private_ip_address: Private IP Address to assign to the Load Balancer.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] private_ip_addresses: The list of private IP address assigned to the load balancer in `frontend_ip_configuration` blocks, if any.
+        :param pulumi.Input[_builtins.str] public_ip_address_id: The ID of a Public IP Address which is associated with this Load Balancer.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which to create the Load Balancer. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku: The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Standard`. Changing this forces a new resource to be created.
                
                > **Note:** The `Microsoft.Network/AllowGatewayLoadBalancer` feature is required to be registered in order to use the `Gateway` SKU. The feature can only be registered by the Azure service team, please submit an [Azure support ticket](https://azure.microsoft.com/en-us/support/create-ticket/) for that.
         :param pulumi.Input[_builtins.str] sku_tier: `sku_tier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] subnet_id: The ID of the Subnet which is associated with the IP Configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         if edge_zone is not None:
@@ -197,12 +233,16 @@ class _LoadBalancerState:
             pulumi.set(__self__, "private_ip_address", private_ip_address)
         if private_ip_addresses is not None:
             pulumi.set(__self__, "private_ip_addresses", private_ip_addresses)
+        if public_ip_address_id is not None:
+            pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if sku_tier is not None:
             pulumi.set(__self__, "sku_tier", sku_tier)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -279,6 +319,18 @@ class _LoadBalancerState:
         pulumi.set(self, "private_ip_addresses", value)
 
     @_builtins.property
+    @pulumi.getter(name="publicIpAddressId")
+    def public_ip_address_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ID of a Public IP Address which is associated with this Load Balancer.
+        """
+        return pulumi.get(self, "public_ip_address_id")
+
+    @public_ip_address_id.setter
+    def public_ip_address_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "public_ip_address_id", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -317,6 +369,18 @@ class _LoadBalancerState:
         pulumi.set(self, "sku_tier", value)
 
     @_builtins.property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ID of the Subnet which is associated with the IP Configuration.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "subnet_id", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -339,9 +403,11 @@ class LoadBalancer(pulumi.CustomResource):
                  frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerFrontendIpConfigurationArgs', 'LoadBalancerFrontendIpConfigurationArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 public_ip_address_id: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  sku: Optional[pulumi.Input[_builtins.str]] = None,
                  sku_tier: Optional[pulumi.Input[_builtins.str]] = None,
+                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -392,11 +458,13 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerFrontendIpConfigurationArgs', 'LoadBalancerFrontendIpConfigurationArgsDict']]]] frontend_ip_configurations: One or more `frontend_ip_configuration` blocks as documented below.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure Region where the Load Balancer should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] public_ip_address_id: The ID of a Public IP Address which is associated with this Load Balancer.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which to create the Load Balancer. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku: The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Standard`. Changing this forces a new resource to be created.
                
                > **Note:** The `Microsoft.Network/AllowGatewayLoadBalancer` feature is required to be registered in order to use the `Gateway` SKU. The feature can only be registered by the Azure service team, please submit an [Azure support ticket](https://azure.microsoft.com/en-us/support/create-ticket/) for that.
         :param pulumi.Input[_builtins.str] sku_tier: `sku_tier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] subnet_id: The ID of the Subnet which is associated with the IP Configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
@@ -466,9 +534,11 @@ class LoadBalancer(pulumi.CustomResource):
                  frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerFrontendIpConfigurationArgs', 'LoadBalancerFrontendIpConfigurationArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 public_ip_address_id: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  sku: Optional[pulumi.Input[_builtins.str]] = None,
                  sku_tier: Optional[pulumi.Input[_builtins.str]] = None,
+                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -483,11 +553,13 @@ class LoadBalancer(pulumi.CustomResource):
             __props__.__dict__["frontend_ip_configurations"] = frontend_ip_configurations
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
+            __props__.__dict__["public_ip_address_id"] = public_ip_address_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["sku"] = sku
             __props__.__dict__["sku_tier"] = sku_tier
+            __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["private_ip_address"] = None
             __props__.__dict__["private_ip_addresses"] = None
@@ -507,9 +579,11 @@ class LoadBalancer(pulumi.CustomResource):
             name: Optional[pulumi.Input[_builtins.str]] = None,
             private_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
             private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            public_ip_address_id: Optional[pulumi.Input[_builtins.str]] = None,
             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
             sku: Optional[pulumi.Input[_builtins.str]] = None,
             sku_tier: Optional[pulumi.Input[_builtins.str]] = None,
+            subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'LoadBalancer':
         """
         Get an existing LoadBalancer resource's state with the given name, id, and optional extra
@@ -524,11 +598,13 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] private_ip_address: Private IP Address to assign to the Load Balancer.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] private_ip_addresses: The list of private IP address assigned to the load balancer in `frontend_ip_configuration` blocks, if any.
+        :param pulumi.Input[_builtins.str] public_ip_address_id: The ID of a Public IP Address which is associated with this Load Balancer.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which to create the Load Balancer. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku: The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Standard`. Changing this forces a new resource to be created.
                
                > **Note:** The `Microsoft.Network/AllowGatewayLoadBalancer` feature is required to be registered in order to use the `Gateway` SKU. The feature can only be registered by the Azure service team, please submit an [Azure support ticket](https://azure.microsoft.com/en-us/support/create-ticket/) for that.
         :param pulumi.Input[_builtins.str] sku_tier: `sku_tier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] subnet_id: The ID of the Subnet which is associated with the IP Configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -541,9 +617,11 @@ class LoadBalancer(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["private_ip_address"] = private_ip_address
         __props__.__dict__["private_ip_addresses"] = private_ip_addresses
+        __props__.__dict__["public_ip_address_id"] = public_ip_address_id
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["sku"] = sku
         __props__.__dict__["sku_tier"] = sku_tier
+        __props__.__dict__["subnet_id"] = subnet_id
         __props__.__dict__["tags"] = tags
         return LoadBalancer(resource_name, opts=opts, __props__=__props__)
 
@@ -596,6 +674,14 @@ class LoadBalancer(pulumi.CustomResource):
         return pulumi.get(self, "private_ip_addresses")
 
     @_builtins.property
+    @pulumi.getter(name="publicIpAddressId")
+    def public_ip_address_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The ID of a Public IP Address which is associated with this Load Balancer.
+        """
+        return pulumi.get(self, "public_ip_address_id")
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[_builtins.str]:
         """
@@ -620,6 +706,14 @@ class LoadBalancer(pulumi.CustomResource):
         `sku_tier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku_tier")
+
+    @_builtins.property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The ID of the Subnet which is associated with the IP Configuration.
+        """
+        return pulumi.get(self, "subnet_id")
 
     @_builtins.property
     @pulumi.getter

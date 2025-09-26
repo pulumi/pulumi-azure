@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.NetApp` - 2025-01-01
+ * * `Microsoft.NetApp` - 2025-06-01
  */
 export function getBackupVault(args: GetBackupVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupVaultResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -91,7 +91,7 @@ export interface GetBackupVaultResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.NetApp` - 2025-01-01
+ * * `Microsoft.NetApp` - 2025-06-01
  */
 export function getBackupVaultOutput(args: GetBackupVaultOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBackupVaultResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

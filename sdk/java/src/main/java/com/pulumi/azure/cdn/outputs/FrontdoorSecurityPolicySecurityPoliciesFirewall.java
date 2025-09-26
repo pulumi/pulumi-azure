@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class FrontdoorSecurityPolicySecurityPoliciesFirewall {
     /**
-     * @return An `association` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+     * @return An `association` block as defined below.
      * 
      */
     private FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation association;
@@ -24,7 +24,7 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewall {
 
     private FrontdoorSecurityPolicySecurityPoliciesFirewall() {}
     /**
-     * @return An `association` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+     * @return An `association` block as defined below.
      * 
      */
     public FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation association() {

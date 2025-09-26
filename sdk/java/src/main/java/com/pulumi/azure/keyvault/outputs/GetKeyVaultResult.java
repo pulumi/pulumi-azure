@@ -23,7 +23,11 @@ public final class GetKeyVaultResult {
     /**
      * @return Is Role Based Access Control (RBAC) for authorization of data actions enabled on this Key Vault?
      * 
+     * @deprecated
+     * the `enable_rbac_authorization` property is deprecated in favour of `rbac_authorization_enabled` and will be removed in v5.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* the `enable_rbac_authorization` property is deprecated in favour of `rbac_authorization_enabled` and will be removed in v5.0 of the AzureRM Provider. */
     private Boolean enableRbacAuthorization;
     /**
      * @return Can Azure Virtual Machines retrieve certificates stored as secrets from the Key Vault?
@@ -62,6 +66,7 @@ public final class GetKeyVaultResult {
      * 
      */
     private Boolean purgeProtectionEnabled;
+    private Boolean rbacAuthorizationEnabled;
     private String resourceGroupName;
     /**
      * @return The Name of the SKU used for this Key Vault.
@@ -95,7 +100,11 @@ public final class GetKeyVaultResult {
     /**
      * @return Is Role Based Access Control (RBAC) for authorization of data actions enabled on this Key Vault?
      * 
+     * @deprecated
+     * the `enable_rbac_authorization` property is deprecated in favour of `rbac_authorization_enabled` and will be removed in v5.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* the `enable_rbac_authorization` property is deprecated in favour of `rbac_authorization_enabled` and will be removed in v5.0 of the AzureRM Provider. */
     public Boolean enableRbacAuthorization() {
         return this.enableRbacAuthorization;
     }
@@ -154,6 +163,9 @@ public final class GetKeyVaultResult {
     public Boolean purgeProtectionEnabled() {
         return this.purgeProtectionEnabled;
     }
+    public Boolean rbacAuthorizationEnabled() {
+        return this.rbacAuthorizationEnabled;
+    }
     public String resourceGroupName() {
         return this.resourceGroupName;
     }
@@ -206,6 +218,7 @@ public final class GetKeyVaultResult {
         private List<GetKeyVaultNetworkAcl> networkAcls;
         private Boolean publicNetworkAccessEnabled;
         private Boolean purgeProtectionEnabled;
+        private Boolean rbacAuthorizationEnabled;
         private String resourceGroupName;
         private String skuName;
         private Map<String,String> tags;
@@ -225,6 +238,7 @@ public final class GetKeyVaultResult {
     	      this.networkAcls = defaults.networkAcls;
     	      this.publicNetworkAccessEnabled = defaults.publicNetworkAccessEnabled;
     	      this.purgeProtectionEnabled = defaults.purgeProtectionEnabled;
+    	      this.rbacAuthorizationEnabled = defaults.rbacAuthorizationEnabled;
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.skuName = defaults.skuName;
     	      this.tags = defaults.tags;
@@ -327,6 +341,14 @@ public final class GetKeyVaultResult {
             return this;
         }
         @CustomType.Setter
+        public Builder rbacAuthorizationEnabled(Boolean rbacAuthorizationEnabled) {
+            if (rbacAuthorizationEnabled == null) {
+              throw new MissingRequiredPropertyException("GetKeyVaultResult", "rbacAuthorizationEnabled");
+            }
+            this.rbacAuthorizationEnabled = rbacAuthorizationEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             if (resourceGroupName == null) {
               throw new MissingRequiredPropertyException("GetKeyVaultResult", "resourceGroupName");
@@ -379,6 +401,7 @@ public final class GetKeyVaultResult {
             _resultValue.networkAcls = networkAcls;
             _resultValue.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
             _resultValue.purgeProtectionEnabled = purgeProtectionEnabled;
+            _resultValue.rbacAuthorizationEnabled = rbacAuthorizationEnabled;
             _resultValue.resourceGroupName = resourceGroupName;
             _resultValue.skuName = skuName;
             _resultValue.tags = tags;

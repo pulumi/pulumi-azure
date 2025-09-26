@@ -38,78 +38,12 @@ public final class PrivateLinkAssociationState extends com.pulumi.resources.Reso
     /**
      * Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignore_changes` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
      * 
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.management.PrivateLinkAssociation;
-     * import com.pulumi.azure.management.PrivateLinkAssociationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         var example = new PrivateLinkAssociation("example", PrivateLinkAssociationArgs.builder()
-     *             .managementGroupId(exampleAzurermManagementGroup.id())
-     *             .resourceManagementPrivateLinkId(exampleAzurermResourceManagementPrivateLink.id())
-     *             .publicNetworkAccessEnabled(true)
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
      * @return Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignore_changes` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
-     * 
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.management.PrivateLinkAssociation;
-     * import com.pulumi.azure.management.PrivateLinkAssociationArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         var example = new PrivateLinkAssociation("example", PrivateLinkAssociationArgs.builder()
-     *             .managementGroupId(exampleAzurermManagementGroup.id())
-     *             .resourceManagementPrivateLinkId(exampleAzurermResourceManagementPrivateLink.id())
-     *             .publicNetworkAccessEnabled(true)
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * 
      */
     public Optional<Output<String>> name() {
@@ -217,39 +151,6 @@ public final class PrivateLinkAssociationState extends com.pulumi.resources.Reso
         /**
          * @param name Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignore_changes` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
          * 
-         * <pre>
-         * {@code
-         * package generated_program;
-         * 
-         * import com.pulumi.Context;
-         * import com.pulumi.Pulumi;
-         * import com.pulumi.core.Output;
-         * import com.pulumi.azure.management.PrivateLinkAssociation;
-         * import com.pulumi.azure.management.PrivateLinkAssociationArgs;
-         * import java.util.List;
-         * import java.util.ArrayList;
-         * import java.util.Map;
-         * import java.io.File;
-         * import java.nio.file.Files;
-         * import java.nio.file.Paths;
-         * 
-         * public class App {
-         *     public static void main(String[] args) {
-         *         Pulumi.run(App::stack);
-         *     }
-         * 
-         *     public static void stack(Context ctx) {
-         *         var example = new PrivateLinkAssociation("example", PrivateLinkAssociationArgs.builder()
-         *             .managementGroupId(exampleAzurermManagementGroup.id())
-         *             .resourceManagementPrivateLinkId(exampleAzurermResourceManagementPrivateLink.id())
-         *             .publicNetworkAccessEnabled(true)
-         *             .build());
-         * 
-         *     }
-         * }
-         * }
-         * </pre>
-         * 
          * @return builder
          * 
          */
@@ -260,39 +161,6 @@ public final class PrivateLinkAssociationState extends com.pulumi.resources.Reso
 
         /**
          * @param name Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignore_changes` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
-         * 
-         * <pre>
-         * {@code
-         * package generated_program;
-         * 
-         * import com.pulumi.Context;
-         * import com.pulumi.Pulumi;
-         * import com.pulumi.core.Output;
-         * import com.pulumi.azure.management.PrivateLinkAssociation;
-         * import com.pulumi.azure.management.PrivateLinkAssociationArgs;
-         * import java.util.List;
-         * import java.util.ArrayList;
-         * import java.util.Map;
-         * import java.io.File;
-         * import java.nio.file.Files;
-         * import java.nio.file.Paths;
-         * 
-         * public class App {
-         *     public static void main(String[] args) {
-         *         Pulumi.run(App::stack);
-         *     }
-         * 
-         *     public static void stack(Context ctx) {
-         *         var example = new PrivateLinkAssociation("example", PrivateLinkAssociationArgs.builder()
-         *             .managementGroupId(exampleAzurermManagementGroup.id())
-         *             .resourceManagementPrivateLinkId(exampleAzurermResourceManagementPrivateLink.id())
-         *             .publicNetworkAccessEnabled(true)
-         *             .build());
-         * 
-         *     }
-         * }
-         * }
-         * </pre>
          * 
          * @return builder
          * 

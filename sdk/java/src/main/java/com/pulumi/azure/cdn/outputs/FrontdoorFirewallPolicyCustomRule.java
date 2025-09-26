@@ -17,9 +17,9 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FrontdoorFirewallPolicyCustomRule {
     /**
-     * @return The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, `Redirect`, or `JSChallenge`.
+     * @return The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, `Redirect`, `JSChallenge`, or `CAPTCHA`.
      * 
-     * !&gt; **Note:** Setting the `action` field to `JSChallenge` is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+     * !&gt; **Note:** Setting the `action` field to `JSChallenge` or `CAPTCHA` is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
      * 
      */
     private String action;
@@ -61,9 +61,9 @@ public final class FrontdoorFirewallPolicyCustomRule {
 
     private FrontdoorFirewallPolicyCustomRule() {}
     /**
-     * @return The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, `Redirect`, or `JSChallenge`.
+     * @return The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, `Redirect`, `JSChallenge`, or `CAPTCHA`.
      * 
-     * !&gt; **Note:** Setting the `action` field to `JSChallenge` is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+     * !&gt; **Note:** Setting the `action` field to `JSChallenge` or `CAPTCHA` is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
      * 
      */
     public String action() {

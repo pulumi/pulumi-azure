@@ -25,9 +25,9 @@ class FlexibleServerFirewallRuleArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FlexibleServerFirewallRule resource.
-        :param pulumi.Input[_builtins.str] end_ip_address: The End IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
+        :param pulumi.Input[_builtins.str] end_ip_address: The IPv4 Address defining the end of the range of addresses associated with this PostgreSQL Flexible Server Firewall Rule.
         :param pulumi.Input[_builtins.str] server_id: The ID of the PostgreSQL Flexible Server from which to create this PostgreSQL Flexible Server Firewall Rule. Changing this forces a new PostgreSQL Flexible Server Firewall Rule to be created.
-        :param pulumi.Input[_builtins.str] start_ip_address: The Start IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
+        :param pulumi.Input[_builtins.str] start_ip_address: The IPv4 Address defining the start of the range of addresses associated with this PostgreSQL Flexible Server Firewall Rule.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this PostgreSQL Flexible Server Firewall Rule. Changing this forces a new PostgreSQL Flexible Server Firewall Rule to be created.
         """
         pulumi.set(__self__, "end_ip_address", end_ip_address)
@@ -40,7 +40,7 @@ class FlexibleServerFirewallRuleArgs:
     @pulumi.getter(name="endIpAddress")
     def end_ip_address(self) -> pulumi.Input[_builtins.str]:
         """
-        The End IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
+        The IPv4 Address defining the end of the range of addresses associated with this PostgreSQL Flexible Server Firewall Rule.
         """
         return pulumi.get(self, "end_ip_address")
 
@@ -64,7 +64,7 @@ class FlexibleServerFirewallRuleArgs:
     @pulumi.getter(name="startIpAddress")
     def start_ip_address(self) -> pulumi.Input[_builtins.str]:
         """
-        The Start IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
+        The IPv4 Address defining the start of the range of addresses associated with this PostgreSQL Flexible Server Firewall Rule.
         """
         return pulumi.get(self, "start_ip_address")
 
@@ -94,10 +94,10 @@ class _FlexibleServerFirewallRuleState:
                  start_ip_address: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FlexibleServerFirewallRule resources.
-        :param pulumi.Input[_builtins.str] end_ip_address: The End IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
+        :param pulumi.Input[_builtins.str] end_ip_address: The IPv4 Address defining the end of the range of addresses associated with this PostgreSQL Flexible Server Firewall Rule.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this PostgreSQL Flexible Server Firewall Rule. Changing this forces a new PostgreSQL Flexible Server Firewall Rule to be created.
         :param pulumi.Input[_builtins.str] server_id: The ID of the PostgreSQL Flexible Server from which to create this PostgreSQL Flexible Server Firewall Rule. Changing this forces a new PostgreSQL Flexible Server Firewall Rule to be created.
-        :param pulumi.Input[_builtins.str] start_ip_address: The Start IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
+        :param pulumi.Input[_builtins.str] start_ip_address: The IPv4 Address defining the start of the range of addresses associated with this PostgreSQL Flexible Server Firewall Rule.
         """
         if end_ip_address is not None:
             pulumi.set(__self__, "end_ip_address", end_ip_address)
@@ -112,7 +112,7 @@ class _FlexibleServerFirewallRuleState:
     @pulumi.getter(name="endIpAddress")
     def end_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The End IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
+        The IPv4 Address defining the end of the range of addresses associated with this PostgreSQL Flexible Server Firewall Rule.
         """
         return pulumi.get(self, "end_ip_address")
 
@@ -148,7 +148,7 @@ class _FlexibleServerFirewallRuleState:
     @pulumi.getter(name="startIpAddress")
     def start_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The Start IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
+        The IPv4 Address defining the start of the range of addresses associated with this PostgreSQL Flexible Server Firewall Rule.
         """
         return pulumi.get(self, "start_ip_address")
 
@@ -213,10 +213,10 @@ class FlexibleServerFirewallRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] end_ip_address: The End IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
+        :param pulumi.Input[_builtins.str] end_ip_address: The IPv4 Address defining the end of the range of addresses associated with this PostgreSQL Flexible Server Firewall Rule.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this PostgreSQL Flexible Server Firewall Rule. Changing this forces a new PostgreSQL Flexible Server Firewall Rule to be created.
         :param pulumi.Input[_builtins.str] server_id: The ID of the PostgreSQL Flexible Server from which to create this PostgreSQL Flexible Server Firewall Rule. Changing this forces a new PostgreSQL Flexible Server Firewall Rule to be created.
-        :param pulumi.Input[_builtins.str] start_ip_address: The Start IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
+        :param pulumi.Input[_builtins.str] start_ip_address: The IPv4 Address defining the start of the range of addresses associated with this PostgreSQL Flexible Server Firewall Rule.
         """
         ...
     @overload
@@ -326,10 +326,10 @@ class FlexibleServerFirewallRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] end_ip_address: The End IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
+        :param pulumi.Input[_builtins.str] end_ip_address: The IPv4 Address defining the end of the range of addresses associated with this PostgreSQL Flexible Server Firewall Rule.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this PostgreSQL Flexible Server Firewall Rule. Changing this forces a new PostgreSQL Flexible Server Firewall Rule to be created.
         :param pulumi.Input[_builtins.str] server_id: The ID of the PostgreSQL Flexible Server from which to create this PostgreSQL Flexible Server Firewall Rule. Changing this forces a new PostgreSQL Flexible Server Firewall Rule to be created.
-        :param pulumi.Input[_builtins.str] start_ip_address: The Start IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
+        :param pulumi.Input[_builtins.str] start_ip_address: The IPv4 Address defining the start of the range of addresses associated with this PostgreSQL Flexible Server Firewall Rule.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -345,7 +345,7 @@ class FlexibleServerFirewallRule(pulumi.CustomResource):
     @pulumi.getter(name="endIpAddress")
     def end_ip_address(self) -> pulumi.Output[_builtins.str]:
         """
-        The End IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
+        The IPv4 Address defining the end of the range of addresses associated with this PostgreSQL Flexible Server Firewall Rule.
         """
         return pulumi.get(self, "end_ip_address")
 
@@ -369,7 +369,7 @@ class FlexibleServerFirewallRule(pulumi.CustomResource):
     @pulumi.getter(name="startIpAddress")
     def start_ip_address(self) -> pulumi.Output[_builtins.str]:
         """
-        The Start IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
+        The IPv4 Address defining the start of the range of addresses associated with this PostgreSQL Flexible Server Firewall Rule.
         """
         return pulumi.get(self, "start_ip_address")
 

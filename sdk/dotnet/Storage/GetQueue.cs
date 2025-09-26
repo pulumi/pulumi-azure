@@ -32,6 +32,13 @@ namespace Pulumi.Azure.Storage
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Storage` - 2023-05-01
         /// </summary>
         public static Task<GetQueueResult> InvokeAsync(GetQueueArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetQueueResult>("azure:storage/getQueue:getQueue", args ?? new GetQueueArgs(), options.WithDefaults());
@@ -57,6 +64,13 @@ namespace Pulumi.Azure.Storage
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Storage` - 2023-05-01
         /// </summary>
         public static Output<GetQueueResult> Invoke(GetQueueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetQueueResult>("azure:storage/getQueue:getQueue", args ?? new GetQueueInvokeArgs(), options.WithDefaults());
@@ -82,6 +96,13 @@ namespace Pulumi.Azure.Storage
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Storage` - 2023-05-01
         /// </summary>
         public static Output<GetQueueResult> Invoke(GetQueueInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetQueueResult>("azure:storage/getQueue:getQueue", args ?? new GetQueueInvokeArgs(), options.WithDefaults());
@@ -109,10 +130,18 @@ namespace Pulumi.Azure.Storage
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Storage Account where the Queue exists.
+        /// The name of the Storage Account where the Queue exists. This property will become Required in version 5.0 of the Provider.
+        /// 
+        /// &gt; **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
         /// </summary>
-        [Input("storageAccountName", required: true)]
-        public string StorageAccountName { get; set; } = null!;
+        [Input("storageAccountId")]
+        public string? StorageAccountId { get; set; }
+
+        /// <summary>
+        /// The name of the Storage Account where the Queue exists. This property is deprecated in favour of `storage_account_id`.
+        /// </summary>
+        [Input("storageAccountName")]
+        public string? StorageAccountName { get; set; }
 
         public GetQueueArgs()
         {
@@ -141,10 +170,18 @@ namespace Pulumi.Azure.Storage
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Storage Account where the Queue exists.
+        /// The name of the Storage Account where the Queue exists. This property will become Required in version 5.0 of the Provider.
+        /// 
+        /// &gt; **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
         /// </summary>
-        [Input("storageAccountName", required: true)]
-        public Input<string> StorageAccountName { get; set; } = null!;
+        [Input("storageAccountId")]
+        public Input<string>? StorageAccountId { get; set; }
+
+        /// <summary>
+        /// The name of the Storage Account where the Queue exists. This property is deprecated in favour of `storage_account_id`.
+        /// </summary>
+        [Input("storageAccountName")]
+        public Input<string>? StorageAccountName { get; set; }
 
         public GetQueueInvokeArgs()
         {
@@ -169,7 +206,12 @@ namespace Pulumi.Azure.Storage
         /// The Resource Manager ID of this Storage Queue.
         /// </summary>
         public readonly string ResourceManagerId;
-        public readonly string StorageAccountName;
+        public readonly string? StorageAccountId;
+        public readonly string? StorageAccountName;
+        /// <summary>
+        /// The data plane URL of the Storage Queue in the format of `&lt;storage queue endpoint&gt;/&lt;queue name&gt;`. E.g. `https://example.queue.core.windows.net/queue1`.
+        /// </summary>
+        public readonly string Url;
 
         [OutputConstructor]
         private GetQueueResult(
@@ -181,13 +223,19 @@ namespace Pulumi.Azure.Storage
 
             string resourceManagerId,
 
-            string storageAccountName)
+            string? storageAccountId,
+
+            string? storageAccountName,
+
+            string url)
         {
             Id = id;
             Metadata = metadata;
             Name = name;
             ResourceManagerId = resourceManagerId;
+            StorageAccountId = storageAccountId;
             StorageAccountName = storageAccountName;
+            Url = url;
         }
     }
 }

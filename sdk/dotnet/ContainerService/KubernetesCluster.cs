@@ -67,7 +67,7 @@ namespace Pulumi.Azure.ContainerService
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.ContainerService` - 2025-02-01
+    /// * `Microsoft.ContainerService` - 2025-05-01
     /// 
     /// ## Import
     /// 
@@ -119,6 +119,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Output("azurePolicyEnabled")]
         public Output<bool?> AzurePolicyEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// A `bootstrap_profile` block as defined below.
+        /// </summary>
+        [Output("bootstrapProfile")]
+        public Output<Outputs.KubernetesClusterBootstrapProfile> BootstrapProfile { get; private set; } = null!;
 
         /// <summary>
         /// A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
@@ -665,6 +671,12 @@ namespace Pulumi.Azure.ContainerService
         public Input<bool>? AzurePolicyEnabled { get; set; }
 
         /// <summary>
+        /// A `bootstrap_profile` block as defined below.
+        /// </summary>
+        [Input("bootstrapProfile")]
+        public Input<Inputs.KubernetesClusterBootstrapProfileArgs>? BootstrapProfile { get; set; }
+
+        /// <summary>
         /// A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
         /// </summary>
         [Input("confidentialComputing")]
@@ -1108,6 +1120,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("azurePolicyEnabled")]
         public Input<bool>? AzurePolicyEnabled { get; set; }
+
+        /// <summary>
+        /// A `bootstrap_profile` block as defined below.
+        /// </summary>
+        [Input("bootstrapProfile")]
+        public Input<Inputs.KubernetesClusterBootstrapProfileGetArgs>? BootstrapProfile { get; set; }
 
         /// <summary>
         /// A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)

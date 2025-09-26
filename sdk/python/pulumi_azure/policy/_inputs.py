@@ -258,6 +258,8 @@ if not MYPY:
         content_hash: NotRequired[pulumi.Input[_builtins.str]]
         """
         The content hash for the Guest Configuration package.
+
+        > **Note:** The value for `content_hash` should be the SH256SUM for the zip file in the `content_uri` and must be in upper case.
         """
         content_uri: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -287,6 +289,8 @@ class VirtualMachineConfigurationAssignmentConfigurationArgs:
         """
         :param pulumi.Input[_builtins.str] assignment_type: The assignment type for the Guest Configuration Assignment. Possible values are `Audit`, `ApplyAndAutoCorrect`, `ApplyAndMonitor` and `DeployAndAutoCorrect`.
         :param pulumi.Input[_builtins.str] content_hash: The content hash for the Guest Configuration package.
+               
+               > **Note:** The value for `content_hash` should be the SH256SUM for the zip file in the `content_uri` and must be in upper case.
         :param pulumi.Input[_builtins.str] content_uri: The content URI where the Guest Configuration package is stored.
                
                > **Note:** When deploying a Custom Guest Configuration package the `content_hash` and `content_uri` fields must be defined. For Built-in Guest Configuration packages, such as the `AzureWindowsBaseline` package, the `content_hash` and `content_uri` should not be defined, rather these fields will be returned after the Built-in Guest Configuration package has been provisioned. For more information on guest configuration assignments please see the [product documentation](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration-assignments).
@@ -321,6 +325,8 @@ class VirtualMachineConfigurationAssignmentConfigurationArgs:
     def content_hash(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The content hash for the Guest Configuration package.
+
+        > **Note:** The value for `content_hash` should be the SH256SUM for the zip file in the `content_uri` and must be in upper case.
         """
         return pulumi.get(self, "content_hash")
 

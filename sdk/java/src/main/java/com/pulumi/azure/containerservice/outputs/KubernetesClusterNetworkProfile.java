@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.containerservice.outputs;
 
+import com.pulumi.azure.containerservice.outputs.KubernetesClusterNetworkProfileAdvancedNetworking;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterNetworkProfileLoadBalancerProfile;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterNetworkProfileNatGatewayProfile;
 import com.pulumi.core.annotations.CustomType;
@@ -15,6 +16,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class KubernetesClusterNetworkProfile {
+    /**
+     * @return An `advanced_networking` block as defined below. This can only be specified when `network_plugin` is set to `azure` and `network_data_plane` is set to `cilium`.
+     * 
+     */
+    private @Nullable KubernetesClusterNetworkProfileAdvancedNetworking advancedNetworking;
     /**
      * @return IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
      * 
@@ -86,7 +92,9 @@ public final class KubernetesClusterNetworkProfile {
      */
     private @Nullable String networkPolicy;
     /**
-     * @return The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outbound_type` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
+     * @return The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway`, `userAssignedNATGateway` and `none`. Defaults to `loadBalancer`.
+     * 
+     * &gt; **Note:** For more information on supported `outbound_type` migration paths please see the product [documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
      * 
      */
     private @Nullable String outboundType;
@@ -114,6 +122,13 @@ public final class KubernetesClusterNetworkProfile {
     private @Nullable List<String> serviceCidrs;
 
     private KubernetesClusterNetworkProfile() {}
+    /**
+     * @return An `advanced_networking` block as defined below. This can only be specified when `network_plugin` is set to `azure` and `network_data_plane` is set to `cilium`.
+     * 
+     */
+    public Optional<KubernetesClusterNetworkProfileAdvancedNetworking> advancedNetworking() {
+        return Optional.ofNullable(this.advancedNetworking);
+    }
     /**
      * @return IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
      * 
@@ -205,7 +220,9 @@ public final class KubernetesClusterNetworkProfile {
         return Optional.ofNullable(this.networkPolicy);
     }
     /**
-     * @return The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outbound_type` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
+     * @return The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway`, `userAssignedNATGateway` and `none`. Defaults to `loadBalancer`.
+     * 
+     * &gt; **Note:** For more information on supported `outbound_type` migration paths please see the product [documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
      * 
      */
     public Optional<String> outboundType() {
@@ -251,6 +268,7 @@ public final class KubernetesClusterNetworkProfile {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable KubernetesClusterNetworkProfileAdvancedNetworking advancedNetworking;
         private @Nullable String dnsServiceIp;
         private @Nullable List<String> ipVersions;
         private @Nullable KubernetesClusterNetworkProfileLoadBalancerProfile loadBalancerProfile;
@@ -269,6 +287,7 @@ public final class KubernetesClusterNetworkProfile {
         public Builder() {}
         public Builder(KubernetesClusterNetworkProfile defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.advancedNetworking = defaults.advancedNetworking;
     	      this.dnsServiceIp = defaults.dnsServiceIp;
     	      this.ipVersions = defaults.ipVersions;
     	      this.loadBalancerProfile = defaults.loadBalancerProfile;
@@ -286,6 +305,12 @@ public final class KubernetesClusterNetworkProfile {
     	      this.serviceCidrs = defaults.serviceCidrs;
         }
 
+        @CustomType.Setter
+        public Builder advancedNetworking(@Nullable KubernetesClusterNetworkProfileAdvancedNetworking advancedNetworking) {
+
+            this.advancedNetworking = advancedNetworking;
+            return this;
+        }
         @CustomType.Setter
         public Builder dnsServiceIp(@Nullable String dnsServiceIp) {
 
@@ -389,6 +414,7 @@ public final class KubernetesClusterNetworkProfile {
         }
         public KubernetesClusterNetworkProfile build() {
             final var _resultValue = new KubernetesClusterNetworkProfile();
+            _resultValue.advancedNetworking = advancedNetworking;
             _resultValue.dnsServiceIp = dnsServiceIp;
             _resultValue.ipVersions = ipVersions;
             _resultValue.loadBalancerProfile = loadBalancerProfile;

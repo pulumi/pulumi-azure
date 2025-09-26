@@ -154,7 +154,7 @@ export class Service extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `None`.
+     * Whether to allow trusted Azure services to access a network restricted Search Service? Possible values are `None` and `AzureServices`. Defaults to `None`.
      */
     declare public readonly networkRuleBypassOption: pulumi.Output<string | undefined>;
     /**
@@ -322,7 +322,7 @@ export interface ServiceState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `None`.
+     * Whether to allow trusted Azure services to access a network restricted Search Service? Possible values are `None` and `AzureServices`. Defaults to `None`.
      */
     networkRuleBypassOption?: pulumi.Input<string>;
     /**
@@ -418,7 +418,7 @@ export interface ServiceArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `None`.
+     * Whether to allow trusted Azure services to access a network restricted Search Service? Possible values are `None` and `AzureServices`. Defaults to `None`.
      */
     networkRuleBypassOption?: pulumi.Input<string>;
     /**

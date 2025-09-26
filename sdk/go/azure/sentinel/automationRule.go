@@ -90,6 +90,8 @@ import (
 type AutomationRule struct {
 	pulumi.CustomResourceState
 
+	// One or more `actionIncidentTask` blocks as defined below.
+	ActionIncidentTasks AutomationRuleActionIncidentTaskArrayOutput `pulumi:"actionIncidentTasks"`
 	// One or more `actionIncident` blocks as defined below.
 	ActionIncidents AutomationRuleActionIncidentArrayOutput `pulumi:"actionIncidents"`
 	// One or more `actionPlaybook` blocks as defined below.
@@ -161,6 +163,8 @@ func GetAutomationRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AutomationRule resources.
 type automationRuleState struct {
+	// One or more `actionIncidentTask` blocks as defined below.
+	ActionIncidentTasks []AutomationRuleActionIncidentTask `pulumi:"actionIncidentTasks"`
 	// One or more `actionIncident` blocks as defined below.
 	ActionIncidents []AutomationRuleActionIncident `pulumi:"actionIncidents"`
 	// One or more `actionPlaybook` blocks as defined below.
@@ -188,6 +192,8 @@ type automationRuleState struct {
 }
 
 type AutomationRuleState struct {
+	// One or more `actionIncidentTask` blocks as defined below.
+	ActionIncidentTasks AutomationRuleActionIncidentTaskArrayInput
 	// One or more `actionIncident` blocks as defined below.
 	ActionIncidents AutomationRuleActionIncidentArrayInput
 	// One or more `actionPlaybook` blocks as defined below.
@@ -219,6 +225,8 @@ func (AutomationRuleState) ElementType() reflect.Type {
 }
 
 type automationRuleArgs struct {
+	// One or more `actionIncidentTask` blocks as defined below.
+	ActionIncidentTasks []AutomationRuleActionIncidentTask `pulumi:"actionIncidentTasks"`
 	// One or more `actionIncident` blocks as defined below.
 	ActionIncidents []AutomationRuleActionIncident `pulumi:"actionIncidents"`
 	// One or more `actionPlaybook` blocks as defined below.
@@ -247,6 +255,8 @@ type automationRuleArgs struct {
 
 // The set of arguments for constructing a AutomationRule resource.
 type AutomationRuleArgs struct {
+	// One or more `actionIncidentTask` blocks as defined below.
+	ActionIncidentTasks AutomationRuleActionIncidentTaskArrayInput
 	// One or more `actionIncident` blocks as defined below.
 	ActionIncidents AutomationRuleActionIncidentArrayInput
 	// One or more `actionPlaybook` blocks as defined below.
@@ -358,6 +368,11 @@ func (o AutomationRuleOutput) ToAutomationRuleOutput() AutomationRuleOutput {
 
 func (o AutomationRuleOutput) ToAutomationRuleOutputWithContext(ctx context.Context) AutomationRuleOutput {
 	return o
+}
+
+// One or more `actionIncidentTask` blocks as defined below.
+func (o AutomationRuleOutput) ActionIncidentTasks() AutomationRuleActionIncidentTaskArrayOutput {
+	return o.ApplyT(func(v *AutomationRule) AutomationRuleActionIncidentTaskArrayOutput { return v.ActionIncidentTasks }).(AutomationRuleActionIncidentTaskArrayOutput)
 }
 
 // One or more `actionIncident` blocks as defined below.

@@ -15,14 +15,14 @@ public final class FrontdoorSecurityPolicySecurityPoliciesArgs extends com.pulum
     public static final FrontdoorSecurityPolicySecurityPoliciesArgs Empty = new FrontdoorSecurityPolicySecurityPoliciesArgs();
 
     /**
-     * An `firewall` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+     * An `firewall` block as defined below.
      * 
      */
     @Import(name="firewall", required=true)
     private Output<FrontdoorSecurityPolicySecurityPoliciesFirewallArgs> firewall;
 
     /**
-     * @return An `firewall` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+     * @return An `firewall` block as defined below.
      * 
      */
     public Output<FrontdoorSecurityPolicySecurityPoliciesFirewallArgs> firewall() {
@@ -54,7 +54,7 @@ public final class FrontdoorSecurityPolicySecurityPoliciesArgs extends com.pulum
         }
 
         /**
-         * @param firewall An `firewall` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+         * @param firewall An `firewall` block as defined below.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class FrontdoorSecurityPolicySecurityPoliciesArgs extends com.pulum
         }
 
         /**
-         * @param firewall An `firewall` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+         * @param firewall An `firewall` block as defined below.
          * 
          * @return builder
          * 

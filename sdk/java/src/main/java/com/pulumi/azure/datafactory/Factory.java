@@ -89,28 +89,28 @@ public class Factory extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="customerManagedKeyId", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> customerManagedKeyId;
+    private Output<String> customerManagedKeyId;
 
     /**
      * @return Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
      * 
      */
-    public Output<Optional<String>> customerManagedKeyId() {
-        return Codegen.optional(this.customerManagedKeyId);
+    public Output<String> customerManagedKeyId() {
+        return this.customerManagedKeyId;
     }
     /**
      * Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customer_managed_key_id` is set.
      * 
      */
     @Export(name="customerManagedKeyIdentityId", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> customerManagedKeyIdentityId;
+    private Output<String> customerManagedKeyIdentityId;
 
     /**
      * @return Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customer_managed_key_id` is set.
      * 
      */
-    public Output<Optional<String>> customerManagedKeyIdentityId() {
-        return Codegen.optional(this.customerManagedKeyIdentityId);
+    public Output<String> customerManagedKeyIdentityId() {
+        return this.customerManagedKeyIdentityId;
     }
     /**
      * A `github_configuration` block as defined below.

@@ -59,6 +59,8 @@ type LookupFrontdoorFirewallPolicyArgs struct {
 
 // A collection of values returned by getFrontdoorFirewallPolicy.
 type LookupFrontdoorFirewallPolicyResult struct {
+	// The Front Door Firewall Policy Captcha cookie lifetime in minutes.
+	CaptchaCookieExpirationInMinutes int `pulumi:"captchaCookieExpirationInMinutes"`
 	// The enabled state of the Front Door Firewall Policy.
 	Enabled bool `pulumi:"enabled"`
 	// The Front Door Profiles frontend endpoints associated with this Front Door Firewall Policy.
@@ -111,6 +113,11 @@ func (o LookupFrontdoorFirewallPolicyResultOutput) ToLookupFrontdoorFirewallPoli
 
 func (o LookupFrontdoorFirewallPolicyResultOutput) ToLookupFrontdoorFirewallPolicyResultOutputWithContext(ctx context.Context) LookupFrontdoorFirewallPolicyResultOutput {
 	return o
+}
+
+// The Front Door Firewall Policy Captcha cookie lifetime in minutes.
+func (o LookupFrontdoorFirewallPolicyResultOutput) CaptchaCookieExpirationInMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupFrontdoorFirewallPolicyResult) int { return v.CaptchaCookieExpirationInMinutes }).(pulumi.IntOutput)
 }
 
 // The enabled state of the Front Door Firewall Policy.

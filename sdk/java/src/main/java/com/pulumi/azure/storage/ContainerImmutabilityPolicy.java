@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleContainerImmutabilityPolicy = new ContainerImmutabilityPolicy("exampleContainerImmutabilityPolicy", ContainerImmutabilityPolicyArgs.builder()
- *             .storageContainerResourceManagerId(exampleContainer.resourceManagerId())
+ *             .storageContainerResourceManagerId(exampleContainer.id())
  *             .immutabilityPeriodInDays(14)
  *             .protectedAppendWritesAllEnabled(false)
  *             .protectedAppendWritesEnabled(true)

@@ -17,14 +17,14 @@ public final class NetworkManagerRoutingConfigurationArgs extends com.pulumi.res
     public static final NetworkManagerRoutingConfigurationArgs Empty = new NetworkManagerRoutingConfigurationArgs();
 
     /**
-     * The description of the Network Manager.
+     * The description of the Network Manager Routing Configuration.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the Network Manager.
+     * @return The description of the Network Manager Routing Configuration.
      * 
      */
     public Optional<Output<String>> description() {
@@ -88,7 +88,7 @@ public final class NetworkManagerRoutingConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param description The description of the Network Manager.
+         * @param description The description of the Network Manager Routing Configuration.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class NetworkManagerRoutingConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param description The description of the Network Manager.
+         * @param description The description of the Network Manager Routing Configuration.
          * 
          * @return builder
          * 

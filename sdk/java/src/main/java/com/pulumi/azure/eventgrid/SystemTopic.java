@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  *             .name("example-topic")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .sourceArmResourceId(exampleAccount.id())
+ *             .sourceResourceId(exampleAccount.id())
  *             .topicType("Microsoft.Storage.StorageAccounts")
  *             .build());
  * 
@@ -79,7 +79,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.EventGrid` - 2022-06-15
+ * * `Microsoft.EventGrid` - 2025-02-15
  * 
  * ## Import
  * 
@@ -120,19 +120,25 @@ public class SystemTopic extends com.pulumi.resources.CustomResource {
     public Output<String> location() {
         return this.location;
     }
-    /**
-     * The Metric ARM Resource ID of the Event Grid System Topic.
-     * 
-     */
     @Export(name="metricArmResourceId", refs={String.class}, tree="[0]")
     private Output<String> metricArmResourceId;
 
-    /**
-     * @return The Metric ARM Resource ID of the Event Grid System Topic.
-     * 
-     */
     public Output<String> metricArmResourceId() {
         return this.metricArmResourceId;
+    }
+    /**
+     * The Metric Resource ID of the Event Grid System Topic.
+     * 
+     */
+    @Export(name="metricResourceId", refs={String.class}, tree="[0]")
+    private Output<String> metricResourceId;
+
+    /**
+     * @return The Metric Resource ID of the Event Grid System Topic.
+     * 
+     */
+    public Output<String> metricResourceId() {
+        return this.metricResourceId;
     }
     /**
      * The name which should be used for this Event Grid System Topic. Changing this forces a new Event Grid System Topic to be created.
@@ -163,18 +169,30 @@ public class SystemTopic extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
+     * @deprecated
+     * the `source_arm_resource_id` property has been deprecated in favour of `source_resource_id` and will be removed in version 5.0 of the Provider.
+     * 
+     */
+    @Deprecated /* the `source_arm_resource_id` property has been deprecated in favour of `source_resource_id` and will be removed in version 5.0 of the Provider. */
+    @Export(name="sourceArmResourceId", refs={String.class}, tree="[0]")
+    private Output<String> sourceArmResourceId;
+
+    public Output<String> sourceArmResourceId() {
+        return this.sourceArmResourceId;
+    }
+    /**
      * The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
      * 
      */
-    @Export(name="sourceArmResourceId", refs={String.class}, tree="[0]")
-    private Output<String> sourceArmResourceId;
+    @Export(name="sourceResourceId", refs={String.class}, tree="[0]")
+    private Output<String> sourceResourceId;
 
     /**
      * @return The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
      * 
      */
-    public Output<String> sourceArmResourceId() {
-        return this.sourceArmResourceId;
+    public Output<String> sourceResourceId() {
+        return this.sourceResourceId;
     }
     /**
      * A mapping of tags which should be assigned to the Event Grid System Topic.

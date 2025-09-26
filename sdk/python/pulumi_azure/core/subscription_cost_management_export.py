@@ -362,7 +362,7 @@ class SubscriptionCostManagementExport(pulumi.CustomResource):
             recurrence_period_end_date="2020-09-18T00:00:00Z",
             file_format="Csv",
             export_data_storage_location={
-                "container_id": example_container.resource_manager_id,
+                "container_id": example_container.id,
                 "root_folder_path": "/root/updated",
             },
             export_data_options={
@@ -434,7 +434,7 @@ class SubscriptionCostManagementExport(pulumi.CustomResource):
             recurrence_period_end_date="2020-09-18T00:00:00Z",
             file_format="Csv",
             export_data_storage_location={
-                "container_id": example_container.resource_manager_id,
+                "container_id": example_container.id,
                 "root_folder_path": "/root/updated",
             },
             export_data_options={

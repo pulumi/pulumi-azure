@@ -26,7 +26,10 @@ class GetFrontdoorFirewallPolicyResult:
     """
     A collection of values returned by getFrontdoorFirewallPolicy.
     """
-    def __init__(__self__, enabled=None, frontend_endpoint_ids=None, id=None, js_challenge_cookie_expiration_in_minutes=None, mode=None, name=None, redirect_url=None, resource_group_name=None, sku_name=None):
+    def __init__(__self__, captcha_cookie_expiration_in_minutes=None, enabled=None, frontend_endpoint_ids=None, id=None, js_challenge_cookie_expiration_in_minutes=None, mode=None, name=None, redirect_url=None, resource_group_name=None, sku_name=None):
+        if captcha_cookie_expiration_in_minutes and not isinstance(captcha_cookie_expiration_in_minutes, int):
+            raise TypeError("Expected argument 'captcha_cookie_expiration_in_minutes' to be a int")
+        pulumi.set(__self__, "captcha_cookie_expiration_in_minutes", captcha_cookie_expiration_in_minutes)
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         pulumi.set(__self__, "enabled", enabled)
@@ -54,6 +57,14 @@ class GetFrontdoorFirewallPolicyResult:
         if sku_name and not isinstance(sku_name, str):
             raise TypeError("Expected argument 'sku_name' to be a str")
         pulumi.set(__self__, "sku_name", sku_name)
+
+    @_builtins.property
+    @pulumi.getter(name="captchaCookieExpirationInMinutes")
+    def captcha_cookie_expiration_in_minutes(self) -> _builtins.int:
+        """
+        The Front Door Firewall Policy Captcha cookie lifetime in minutes.
+        """
+        return pulumi.get(self, "captcha_cookie_expiration_in_minutes")
 
     @_builtins.property
     @pulumi.getter
@@ -128,6 +139,7 @@ class AwaitableGetFrontdoorFirewallPolicyResult(GetFrontdoorFirewallPolicyResult
         if False:
             yield self
         return GetFrontdoorFirewallPolicyResult(
+            captcha_cookie_expiration_in_minutes=self.captcha_cookie_expiration_in_minutes,
             enabled=self.enabled,
             frontend_endpoint_ids=self.frontend_endpoint_ids,
             id=self.id,
@@ -166,6 +178,7 @@ def get_frontdoor_firewall_policy(name: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('azure:cdn/getFrontdoorFirewallPolicy:getFrontdoorFirewallPolicy', __args__, opts=opts, typ=GetFrontdoorFirewallPolicyResult).value
 
     return AwaitableGetFrontdoorFirewallPolicyResult(
+        captcha_cookie_expiration_in_minutes=pulumi.get(__ret__, 'captcha_cookie_expiration_in_minutes'),
         enabled=pulumi.get(__ret__, 'enabled'),
         frontend_endpoint_ids=pulumi.get(__ret__, 'frontend_endpoint_ids'),
         id=pulumi.get(__ret__, 'id'),
@@ -201,6 +214,7 @@ def get_frontdoor_firewall_policy_output(name: Optional[pulumi.Input[_builtins.s
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:cdn/getFrontdoorFirewallPolicy:getFrontdoorFirewallPolicy', __args__, opts=opts, typ=GetFrontdoorFirewallPolicyResult)
     return __ret__.apply(lambda __response__: GetFrontdoorFirewallPolicyResult(
+        captcha_cookie_expiration_in_minutes=pulumi.get(__response__, 'captcha_cookie_expiration_in_minutes'),
         enabled=pulumi.get(__response__, 'enabled'),
         frontend_endpoint_ids=pulumi.get(__response__, 'frontend_endpoint_ids'),
         id=pulumi.get(__response__, 'id'),

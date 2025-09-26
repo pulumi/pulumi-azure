@@ -49,31 +49,81 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
     /**
      * The Resource Manager ID of this Storage Queue.
      * 
+     * @deprecated
+     * the `resource_manager_id` property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
+     * 
      */
+    @Deprecated /* the `resource_manager_id` property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider. */
     @Import(name="resourceManagerId")
     private @Nullable Output<String> resourceManagerId;
 
     /**
      * @return The Resource Manager ID of this Storage Queue.
      * 
+     * @deprecated
+     * the `resource_manager_id` property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
+     * 
      */
+    @Deprecated /* the `resource_manager_id` property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider. */
     public Optional<Output<String>> resourceManagerId() {
         return Optional.ofNullable(this.resourceManagerId);
     }
 
     /**
-     * Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
+     * The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
      * 
      */
+    @Import(name="storageAccountId")
+    private @Nullable Output<String> storageAccountId;
+
+    /**
+     * @return The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+     * 
+     */
+    public Optional<Output<String>> storageAccountId() {
+        return Optional.ofNullable(this.storageAccountId);
+    }
+
+    /**
+     * The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
+     * 
+     * @deprecated
+     * the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider.
+     * 
+     */
+    @Deprecated /* the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider. */
     @Import(name="storageAccountName")
     private @Nullable Output<String> storageAccountName;
 
     /**
-     * @return Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
+     * @return The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
+     * 
+     * @deprecated
+     * the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider.
      * 
      */
+    @Deprecated /* the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider. */
     public Optional<Output<String>> storageAccountName() {
         return Optional.ofNullable(this.storageAccountName);
+    }
+
+    /**
+     * The data plane URL of the Storage Queue in the format of `&lt;storage queue endpoint&gt;/&lt;queue name&gt;`. E.g. `https://example.queue.core.windows.net/queue1`.
+     * 
+     */
+    @Import(name="url")
+    private @Nullable Output<String> url;
+
+    /**
+     * @return The data plane URL of the Storage Queue in the format of `&lt;storage queue endpoint&gt;/&lt;queue name&gt;`. E.g. `https://example.queue.core.windows.net/queue1`.
+     * 
+     */
+    public Optional<Output<String>> url() {
+        return Optional.ofNullable(this.url);
     }
 
     private QueueState() {}
@@ -82,7 +132,9 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
         this.metadata = $.metadata;
         this.name = $.name;
         this.resourceManagerId = $.resourceManagerId;
+        this.storageAccountId = $.storageAccountId;
         this.storageAccountName = $.storageAccountName;
+        this.url = $.url;
     }
 
     public static Builder builder() {
@@ -150,7 +202,11 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * the `resource_manager_id` property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
+         * 
          */
+        @Deprecated /* the `resource_manager_id` property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider. */
         public Builder resourceManagerId(@Nullable Output<String> resourceManagerId) {
             $.resourceManagerId = resourceManagerId;
             return this;
@@ -161,30 +217,88 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * the `resource_manager_id` property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
+         * 
          */
+        @Deprecated /* the `resource_manager_id` property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider. */
         public Builder resourceManagerId(String resourceManagerId) {
             return resourceManagerId(Output.of(resourceManagerId));
         }
 
         /**
-         * @param storageAccountName Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
+         * @param storageAccountId The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
          * 
          * @return builder
          * 
          */
+        public Builder storageAccountId(@Nullable Output<String> storageAccountId) {
+            $.storageAccountId = storageAccountId;
+            return this;
+        }
+
+        /**
+         * @param storageAccountId The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageAccountId(String storageAccountId) {
+            return storageAccountId(Output.of(storageAccountId));
+        }
+
+        /**
+         * @param storageAccountName The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider.
+         * 
+         */
+        @Deprecated /* the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider. */
         public Builder storageAccountName(@Nullable Output<String> storageAccountName) {
             $.storageAccountName = storageAccountName;
             return this;
         }
 
         /**
-         * @param storageAccountName Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
+         * @param storageAccountName The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider.
+         * 
+         */
+        @Deprecated /* the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider. */
+        public Builder storageAccountName(String storageAccountName) {
+            return storageAccountName(Output.of(storageAccountName));
+        }
+
+        /**
+         * @param url The data plane URL of the Storage Queue in the format of `&lt;storage queue endpoint&gt;/&lt;queue name&gt;`. E.g. `https://example.queue.core.windows.net/queue1`.
          * 
          * @return builder
          * 
          */
-        public Builder storageAccountName(String storageAccountName) {
-            return storageAccountName(Output.of(storageAccountName));
+        public Builder url(@Nullable Output<String> url) {
+            $.url = url;
+            return this;
+        }
+
+        /**
+         * @param url The data plane URL of the Storage Queue in the format of `&lt;storage queue endpoint&gt;/&lt;queue name&gt;`. E.g. `https://example.queue.core.windows.net/queue1`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder url(String url) {
+            return url(Output.of(url));
         }
 
         public QueueState build() {

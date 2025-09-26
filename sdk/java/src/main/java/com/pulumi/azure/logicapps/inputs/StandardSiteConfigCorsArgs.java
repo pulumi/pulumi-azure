@@ -5,7 +5,6 @@ package com.pulumi.azure.logicapps.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -22,15 +21,15 @@ public final class StandardSiteConfigCorsArgs extends com.pulumi.resources.Resou
      * A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
      * 
      */
-    @Import(name="allowedOrigins", required=true)
-    private Output<List<String>> allowedOrigins;
+    @Import(name="allowedOrigins")
+    private @Nullable Output<List<String>> allowedOrigins;
 
     /**
      * @return A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
      * 
      */
-    public Output<List<String>> allowedOrigins() {
-        return this.allowedOrigins;
+    public Optional<Output<List<String>>> allowedOrigins() {
+        return Optional.ofNullable(this.allowedOrigins);
     }
 
     /**
@@ -79,7 +78,7 @@ public final class StandardSiteConfigCorsArgs extends com.pulumi.resources.Resou
          * @return builder
          * 
          */
-        public Builder allowedOrigins(Output<List<String>> allowedOrigins) {
+        public Builder allowedOrigins(@Nullable Output<List<String>> allowedOrigins) {
             $.allowedOrigins = allowedOrigins;
             return this;
         }
@@ -126,9 +125,6 @@ public final class StandardSiteConfigCorsArgs extends com.pulumi.resources.Resou
         }
 
         public StandardSiteConfigCorsArgs build() {
-            if ($.allowedOrigins == null) {
-                throw new MissingRequiredPropertyException("StandardSiteConfigCorsArgs", "allowedOrigins");
-            }
             return $;
         }
     }

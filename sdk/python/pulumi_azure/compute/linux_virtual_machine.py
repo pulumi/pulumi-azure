@@ -21,7 +21,6 @@ __all__ = ['LinuxVirtualMachineArgs', 'LinuxVirtualMachine']
 @pulumi.input_type
 class LinuxVirtualMachineArgs:
     def __init__(__self__, *,
-                 admin_username: pulumi.Input[_builtins.str],
                  network_interface_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  os_disk: pulumi.Input['LinuxVirtualMachineOsDiskArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
@@ -29,6 +28,7 @@ class LinuxVirtualMachineArgs:
                  additional_capabilities: Optional[pulumi.Input['LinuxVirtualMachineAdditionalCapabilitiesArgs']] = None,
                  admin_password: Optional[pulumi.Input[_builtins.str]] = None,
                  admin_ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineAdminSshKeyArgs']]]] = None,
+                 admin_username: Optional[pulumi.Input[_builtins.str]] = None,
                  allow_extension_operations: Optional[pulumi.Input[_builtins.bool]] = None,
                  availability_set_id: Optional[pulumi.Input[_builtins.str]] = None,
                  boot_diagnostics: Optional[pulumi.Input['LinuxVirtualMachineBootDiagnosticsArgs']] = None,
@@ -51,6 +51,7 @@ class LinuxVirtualMachineArgs:
                  max_bid_price: Optional[pulumi.Input[_builtins.float]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  os_image_notification: Optional[pulumi.Input['LinuxVirtualMachineOsImageNotificationArgs']] = None,
+                 os_managed_disk_id: Optional[pulumi.Input[_builtins.str]] = None,
                  patch_assessment_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  patch_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  plan: Optional[pulumi.Input['LinuxVirtualMachinePlanArgs']] = None,
@@ -72,7 +73,6 @@ class LinuxVirtualMachineArgs:
                  zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LinuxVirtualMachine resource.
-        :param pulumi.Input[_builtins.str] admin_username: The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_interface_ids: . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
         :param pulumi.Input['LinuxVirtualMachineOsDiskArgs'] os_disk: A `os_disk` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which the Linux Virtual Machine should be exist. Changing this forces a new resource to be created.
@@ -85,6 +85,9 @@ class LinuxVirtualMachineArgs:
         :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineAdminSshKeyArgs']]] admin_ssh_keys: One or more `admin_ssh_key` blocks as defined below. Changing this forces a new resource to be created.
                
                > **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
+        :param pulumi.Input[_builtins.str] admin_username: The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
+               
+               > **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
         :param pulumi.Input[_builtins.bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
         :param pulumi.Input[_builtins.str] availability_set_id: Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['LinuxVirtualMachineBootDiagnosticsArgs'] boot_diagnostics: A `boot_diagnostics` block as defined below.
@@ -121,6 +124,9 @@ class LinuxVirtualMachineArgs:
                > **NOTE:** This can only be configured when `priority` is set to `Spot`.
         :param pulumi.Input[_builtins.str] name: The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input['LinuxVirtualMachineOsImageNotificationArgs'] os_image_notification: A `os_image_notification` block as defined below.
+        :param pulumi.Input[_builtins.str] os_managed_disk_id: The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine. 
+               
+               > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `admin_username`, `admin_password`, `bypass_platform_safety_checks_on_user_schedule_enabled`, `computer_name`, `custom_data`, `provision_vm_agent`, `patch_mode`, `patch_assessment_mode`, or `reboot_setting`.
         :param pulumi.Input[_builtins.str] patch_assessment_mode: Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
                
                > **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
@@ -159,7 +165,6 @@ class LinuxVirtualMachineArgs:
         :param pulumi.Input[_builtins.bool] vtpm_enabled: Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] zone: Specifies the Availability Zones in which this Linux Virtual Machine should be located. Changing this forces a new Linux Virtual Machine to be created.
         """
-        pulumi.set(__self__, "admin_username", admin_username)
         pulumi.set(__self__, "network_interface_ids", network_interface_ids)
         pulumi.set(__self__, "os_disk", os_disk)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -170,6 +175,8 @@ class LinuxVirtualMachineArgs:
             pulumi.set(__self__, "admin_password", admin_password)
         if admin_ssh_keys is not None:
             pulumi.set(__self__, "admin_ssh_keys", admin_ssh_keys)
+        if admin_username is not None:
+            pulumi.set(__self__, "admin_username", admin_username)
         if allow_extension_operations is not None:
             pulumi.set(__self__, "allow_extension_operations", allow_extension_operations)
         if availability_set_id is not None:
@@ -214,6 +221,8 @@ class LinuxVirtualMachineArgs:
             pulumi.set(__self__, "name", name)
         if os_image_notification is not None:
             pulumi.set(__self__, "os_image_notification", os_image_notification)
+        if os_managed_disk_id is not None:
+            pulumi.set(__self__, "os_managed_disk_id", os_managed_disk_id)
         if patch_assessment_mode is not None:
             pulumi.set(__self__, "patch_assessment_mode", patch_assessment_mode)
         if patch_mode is not None:
@@ -255,18 +264,6 @@ class LinuxVirtualMachineArgs:
             pulumi.set(__self__, "vtpm_enabled", vtpm_enabled)
         if zone is not None:
             pulumi.set(__self__, "zone", zone)
-
-    @_builtins.property
-    @pulumi.getter(name="adminUsername")
-    def admin_username(self) -> pulumi.Input[_builtins.str]:
-        """
-        The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "admin_username")
-
-    @admin_username.setter
-    def admin_username(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "admin_username", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaceIds")
@@ -356,6 +353,20 @@ class LinuxVirtualMachineArgs:
     @admin_ssh_keys.setter
     def admin_ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineAdminSshKeyArgs']]]]):
         pulumi.set(self, "admin_ssh_keys", value)
+
+    @_builtins.property
+    @pulumi.getter(name="adminUsername")
+    def admin_username(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
+
+        > **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+        """
+        return pulumi.get(self, "admin_username")
+
+    @admin_username.setter
+    def admin_username(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "admin_username", value)
 
     @_builtins.property
     @pulumi.getter(name="allowExtensionOperations")
@@ -636,6 +647,20 @@ class LinuxVirtualMachineArgs:
         pulumi.set(self, "os_image_notification", value)
 
     @_builtins.property
+    @pulumi.getter(name="osManagedDiskId")
+    def os_managed_disk_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine. 
+
+        > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `admin_username`, `admin_password`, `bypass_platform_safety_checks_on_user_schedule_enabled`, `computer_name`, `custom_data`, `provision_vm_agent`, `patch_mode`, `patch_assessment_mode`, or `reboot_setting`.
+        """
+        return pulumi.get(self, "os_managed_disk_id")
+
+    @os_managed_disk_id.setter
+    def os_managed_disk_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "os_managed_disk_id", value)
+
+    @_builtins.property
     @pulumi.getter(name="patchAssessmentMode")
     def patch_assessment_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -914,6 +939,7 @@ class _LinuxVirtualMachineState:
                  network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  os_disk: Optional[pulumi.Input['LinuxVirtualMachineOsDiskArgs']] = None,
                  os_image_notification: Optional[pulumi.Input['LinuxVirtualMachineOsImageNotificationArgs']] = None,
+                 os_managed_disk_id: Optional[pulumi.Input[_builtins.str]] = None,
                  patch_assessment_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  patch_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  plan: Optional[pulumi.Input['LinuxVirtualMachinePlanArgs']] = None,
@@ -951,6 +977,8 @@ class _LinuxVirtualMachineState:
                
                > **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
         :param pulumi.Input[_builtins.str] admin_username: The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
+               
+               > **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
         :param pulumi.Input[_builtins.bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
         :param pulumi.Input[_builtins.str] availability_set_id: Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['LinuxVirtualMachineBootDiagnosticsArgs'] boot_diagnostics: A `boot_diagnostics` block as defined below.
@@ -989,6 +1017,9 @@ class _LinuxVirtualMachineState:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_interface_ids: . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
         :param pulumi.Input['LinuxVirtualMachineOsDiskArgs'] os_disk: A `os_disk` block as defined below.
         :param pulumi.Input['LinuxVirtualMachineOsImageNotificationArgs'] os_image_notification: A `os_image_notification` block as defined below.
+        :param pulumi.Input[_builtins.str] os_managed_disk_id: The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine. 
+               
+               > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `admin_username`, `admin_password`, `bypass_platform_safety_checks_on_user_schedule_enabled`, `computer_name`, `custom_data`, `provision_vm_agent`, `patch_mode`, `patch_assessment_mode`, or `reboot_setting`.
         :param pulumi.Input[_builtins.str] patch_assessment_mode: Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
                
                > **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
@@ -1090,6 +1121,8 @@ class _LinuxVirtualMachineState:
             pulumi.set(__self__, "os_disk", os_disk)
         if os_image_notification is not None:
             pulumi.set(__self__, "os_image_notification", os_image_notification)
+        if os_managed_disk_id is not None:
+            pulumi.set(__self__, "os_managed_disk_id", os_managed_disk_id)
         if patch_assessment_mode is not None:
             pulumi.set(__self__, "patch_assessment_mode", patch_assessment_mode)
         if patch_mode is not None:
@@ -1192,6 +1225,8 @@ class _LinuxVirtualMachineState:
     def admin_username(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
+
+        > **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
         """
         return pulumi.get(self, "admin_username")
 
@@ -1500,6 +1535,20 @@ class _LinuxVirtualMachineState:
     @os_image_notification.setter
     def os_image_notification(self, value: Optional[pulumi.Input['LinuxVirtualMachineOsImageNotificationArgs']]):
         pulumi.set(self, "os_image_notification", value)
+
+    @_builtins.property
+    @pulumi.getter(name="osManagedDiskId")
+    def os_managed_disk_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine. 
+
+        > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `admin_username`, `admin_password`, `bypass_platform_safety_checks_on_user_schedule_enabled`, `computer_name`, `custom_data`, `provision_vm_agent`, `patch_mode`, `patch_assessment_mode`, or `reboot_setting`.
+        """
+        return pulumi.get(self, "os_managed_disk_id")
+
+    @os_managed_disk_id.setter
+    def os_managed_disk_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "os_managed_disk_id", value)
 
     @_builtins.property
     @pulumi.getter(name="patchAssessmentMode")
@@ -1867,6 +1916,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                  network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  os_disk: Optional[pulumi.Input[Union['LinuxVirtualMachineOsDiskArgs', 'LinuxVirtualMachineOsDiskArgsDict']]] = None,
                  os_image_notification: Optional[pulumi.Input[Union['LinuxVirtualMachineOsImageNotificationArgs', 'LinuxVirtualMachineOsImageNotificationArgsDict']]] = None,
+                 os_managed_disk_id: Optional[pulumi.Input[_builtins.str]] = None,
                  patch_assessment_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  patch_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  plan: Optional[pulumi.Input[Union['LinuxVirtualMachinePlanArgs', 'LinuxVirtualMachinePlanArgsDict']]] = None,
@@ -1984,6 +2034,8 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                
                > **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
         :param pulumi.Input[_builtins.str] admin_username: The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
+               
+               > **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
         :param pulumi.Input[_builtins.bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
         :param pulumi.Input[_builtins.str] availability_set_id: Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['LinuxVirtualMachineBootDiagnosticsArgs', 'LinuxVirtualMachineBootDiagnosticsArgsDict']] boot_diagnostics: A `boot_diagnostics` block as defined below.
@@ -2022,6 +2074,9 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_interface_ids: . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
         :param pulumi.Input[Union['LinuxVirtualMachineOsDiskArgs', 'LinuxVirtualMachineOsDiskArgsDict']] os_disk: A `os_disk` block as defined below.
         :param pulumi.Input[Union['LinuxVirtualMachineOsImageNotificationArgs', 'LinuxVirtualMachineOsImageNotificationArgsDict']] os_image_notification: A `os_image_notification` block as defined below.
+        :param pulumi.Input[_builtins.str] os_managed_disk_id: The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine. 
+               
+               > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `admin_username`, `admin_password`, `bypass_platform_safety_checks_on_user_schedule_enabled`, `computer_name`, `custom_data`, `provision_vm_agent`, `patch_mode`, `patch_assessment_mode`, or `reboot_setting`.
         :param pulumi.Input[_builtins.str] patch_assessment_mode: Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
                
                > **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
@@ -2195,6 +2250,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                  network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  os_disk: Optional[pulumi.Input[Union['LinuxVirtualMachineOsDiskArgs', 'LinuxVirtualMachineOsDiskArgsDict']]] = None,
                  os_image_notification: Optional[pulumi.Input[Union['LinuxVirtualMachineOsImageNotificationArgs', 'LinuxVirtualMachineOsImageNotificationArgsDict']]] = None,
+                 os_managed_disk_id: Optional[pulumi.Input[_builtins.str]] = None,
                  patch_assessment_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  patch_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  plan: Optional[pulumi.Input[Union['LinuxVirtualMachinePlanArgs', 'LinuxVirtualMachinePlanArgsDict']]] = None,
@@ -2228,8 +2284,6 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             __props__.__dict__["additional_capabilities"] = additional_capabilities
             __props__.__dict__["admin_password"] = None if admin_password is None else pulumi.Output.secret(admin_password)
             __props__.__dict__["admin_ssh_keys"] = admin_ssh_keys
-            if admin_username is None and not opts.urn:
-                raise TypeError("Missing required property 'admin_username'")
             __props__.__dict__["admin_username"] = admin_username
             __props__.__dict__["allow_extension_operations"] = allow_extension_operations
             __props__.__dict__["availability_set_id"] = availability_set_id
@@ -2259,6 +2313,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                 raise TypeError("Missing required property 'os_disk'")
             __props__.__dict__["os_disk"] = os_disk
             __props__.__dict__["os_image_notification"] = os_image_notification
+            __props__.__dict__["os_managed_disk_id"] = os_managed_disk_id
             __props__.__dict__["patch_assessment_mode"] = patch_assessment_mode
             __props__.__dict__["patch_mode"] = patch_mode
             __props__.__dict__["plan"] = plan
@@ -2329,6 +2384,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             os_disk: Optional[pulumi.Input[Union['LinuxVirtualMachineOsDiskArgs', 'LinuxVirtualMachineOsDiskArgsDict']]] = None,
             os_image_notification: Optional[pulumi.Input[Union['LinuxVirtualMachineOsImageNotificationArgs', 'LinuxVirtualMachineOsImageNotificationArgsDict']]] = None,
+            os_managed_disk_id: Optional[pulumi.Input[_builtins.str]] = None,
             patch_assessment_mode: Optional[pulumi.Input[_builtins.str]] = None,
             patch_mode: Optional[pulumi.Input[_builtins.str]] = None,
             plan: Optional[pulumi.Input[Union['LinuxVirtualMachinePlanArgs', 'LinuxVirtualMachinePlanArgsDict']]] = None,
@@ -2371,6 +2427,8 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                
                > **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
         :param pulumi.Input[_builtins.str] admin_username: The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
+               
+               > **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
         :param pulumi.Input[_builtins.bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
         :param pulumi.Input[_builtins.str] availability_set_id: Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['LinuxVirtualMachineBootDiagnosticsArgs', 'LinuxVirtualMachineBootDiagnosticsArgsDict']] boot_diagnostics: A `boot_diagnostics` block as defined below.
@@ -2409,6 +2467,9 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_interface_ids: . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
         :param pulumi.Input[Union['LinuxVirtualMachineOsDiskArgs', 'LinuxVirtualMachineOsDiskArgsDict']] os_disk: A `os_disk` block as defined below.
         :param pulumi.Input[Union['LinuxVirtualMachineOsImageNotificationArgs', 'LinuxVirtualMachineOsImageNotificationArgsDict']] os_image_notification: A `os_image_notification` block as defined below.
+        :param pulumi.Input[_builtins.str] os_managed_disk_id: The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine. 
+               
+               > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `admin_username`, `admin_password`, `bypass_platform_safety_checks_on_user_schedule_enabled`, `computer_name`, `custom_data`, `provision_vm_agent`, `patch_mode`, `patch_assessment_mode`, or `reboot_setting`.
         :param pulumi.Input[_builtins.str] patch_assessment_mode: Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
                
                > **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
@@ -2486,6 +2547,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         __props__.__dict__["network_interface_ids"] = network_interface_ids
         __props__.__dict__["os_disk"] = os_disk
         __props__.__dict__["os_image_notification"] = os_image_notification
+        __props__.__dict__["os_managed_disk_id"] = os_managed_disk_id
         __props__.__dict__["patch_assessment_mode"] = patch_assessment_mode
         __props__.__dict__["patch_mode"] = patch_mode
         __props__.__dict__["plan"] = plan
@@ -2545,15 +2607,17 @@ class LinuxVirtualMachine(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="adminUsername")
-    def admin_username(self) -> pulumi.Output[_builtins.str]:
+    def admin_username(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
+
+        > **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
         """
         return pulumi.get(self, "admin_username")
 
     @_builtins.property
     @pulumi.getter(name="allowExtensionOperations")
-    def allow_extension_operations(self) -> pulumi.Output[Optional[_builtins.bool]]:
+    def allow_extension_operations(self) -> pulumi.Output[_builtins.bool]:
         """
         Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
         """
@@ -2629,7 +2693,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="disablePasswordAuthentication")
-    def disable_password_authentication(self) -> pulumi.Output[Optional[_builtins.bool]]:
+    def disable_password_authentication(self) -> pulumi.Output[_builtins.bool]:
         """
         Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
 
@@ -2758,8 +2822,18 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         return pulumi.get(self, "os_image_notification")
 
     @_builtins.property
+    @pulumi.getter(name="osManagedDiskId")
+    def os_managed_disk_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine. 
+
+        > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `admin_username`, `admin_password`, `bypass_platform_safety_checks_on_user_schedule_enabled`, `computer_name`, `custom_data`, `provision_vm_agent`, `patch_mode`, `patch_assessment_mode`, or `reboot_setting`.
+        """
+        return pulumi.get(self, "os_managed_disk_id")
+
+    @_builtins.property
     @pulumi.getter(name="patchAssessmentMode")
-    def patch_assessment_mode(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def patch_assessment_mode(self) -> pulumi.Output[_builtins.str]:
         """
         Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
 
@@ -2769,7 +2843,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="patchMode")
-    def patch_mode(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def patch_mode(self) -> pulumi.Output[_builtins.str]:
         """
         Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 
@@ -2819,7 +2893,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="provisionVmAgent")
-    def provision_vm_agent(self) -> pulumi.Output[Optional[_builtins.bool]]:
+    def provision_vm_agent(self) -> pulumi.Output[_builtins.bool]:
         """
         Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
 

@@ -35,12 +35,16 @@ public final class VirtualMachineConfigurationAssignmentConfigurationArgs extend
     /**
      * The content hash for the Guest Configuration package.
      * 
+     * &gt; **Note:** The value for `content_hash` should be the SH256SUM for the zip file in the `content_uri` and must be in upper case.
+     * 
      */
     @Import(name="contentHash")
     private @Nullable Output<String> contentHash;
 
     /**
      * @return The content hash for the Guest Configuration package.
+     * 
+     * &gt; **Note:** The value for `content_hash` should be the SH256SUM for the zip file in the `content_uri` and must be in upper case.
      * 
      */
     public Optional<Output<String>> contentHash() {
@@ -148,6 +152,8 @@ public final class VirtualMachineConfigurationAssignmentConfigurationArgs extend
         /**
          * @param contentHash The content hash for the Guest Configuration package.
          * 
+         * &gt; **Note:** The value for `content_hash` should be the SH256SUM for the zip file in the `content_uri` and must be in upper case.
+         * 
          * @return builder
          * 
          */
@@ -158,6 +164,8 @@ public final class VirtualMachineConfigurationAssignmentConfigurationArgs extend
 
         /**
          * @param contentHash The content hash for the Guest Configuration package.
+         * 
+         * &gt; **Note:** The value for `content_hash` should be the SH256SUM for the zip file in the `content_uri` and must be in upper case.
          * 
          * @return builder
          * 

@@ -34,6 +34,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.dataprotection.BackupVaultArgs;
  * import com.pulumi.azure.dataprotection.BackupPolicyBlobStorage;
  * import com.pulumi.azure.dataprotection.BackupPolicyBlobStorageArgs;
+ * import com.pulumi.azure.dataprotection.inputs.BackupPolicyBlobStorageRetentionRuleArgs;
+ * import com.pulumi.azure.dataprotection.inputs.BackupPolicyBlobStorageRetentionRuleLifeCycleArgs;
+ * import com.pulumi.azure.dataprotection.inputs.BackupPolicyBlobStorageRetentionRuleCriteriaArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -64,6 +67,42 @@ import javax.annotation.Nullable;
  *             .name("example-backup-policy")
  *             .vaultId(exampleBackupVault.id())
  *             .operationalDefaultRetentionDuration("P30D")
+ *             .vaultDefaultRetentionDuration("P7D")
+ *             .retentionRules(            
+ *                 BackupPolicyBlobStorageRetentionRuleArgs.builder()
+ *                     .name("Weekly")
+ *                     .priority(20)
+ *                     .lifeCycle(BackupPolicyBlobStorageRetentionRuleLifeCycleArgs.builder()
+ *                         .duration("P90D")
+ *                         .dataStoreType("VaultStore")
+ *                         .build())
+ *                     .criteria(BackupPolicyBlobStorageRetentionRuleCriteriaArgs.builder()
+ *                         .daysOfWeeks("Monday")
+ *                         .build())
+ *                     .build(),
+ *                 BackupPolicyBlobStorageRetentionRuleArgs.builder()
+ *                     .name("Monthly")
+ *                     .priority(10)
+ *                     .lifeCycle(BackupPolicyBlobStorageRetentionRuleLifeCycleArgs.builder()
+ *                         .duration("P180D")
+ *                         .dataStoreType("VaultStore")
+ *                         .build())
+ *                     .criteria(BackupPolicyBlobStorageRetentionRuleCriteriaArgs.builder()
+ *                         .daysOfMonths(1)
+ *                         .build())
+ *                     .build(),
+ *                 BackupPolicyBlobStorageRetentionRuleArgs.builder()
+ *                     .name("Yearly")
+ *                     .priority(5)
+ *                     .lifeCycle(BackupPolicyBlobStorageRetentionRuleLifeCycleArgs.builder()
+ *                         .duration("P365D")
+ *                         .dataStoreType("VaultStore")
+ *                         .build())
+ *                     .criteria(BackupPolicyBlobStorageRetentionRuleCriteriaArgs.builder()
+ *                         .monthsOfYears("January")
+ *                         .daysOfMonths(1)
+ *                         .build())
+ *                     .build())
  *             .build());
  * 
  *     }

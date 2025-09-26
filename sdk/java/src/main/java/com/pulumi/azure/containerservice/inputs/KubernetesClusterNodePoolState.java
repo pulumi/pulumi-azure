@@ -94,6 +94,21 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
     }
 
     /**
+     * Specifies whether to install the GPU Driver for the nodes. Possible values are `Install` and `None`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="gpuDriver")
+    private @Nullable Output<String> gpuDriver;
+
+    /**
+     * @return Specifies whether to install the GPU Driver for the nodes. Possible values are `Install` and `None`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> gpuDriver() {
+        return Optional.ofNullable(this.gpuDriver);
+    }
+
+    /**
      * Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
      * 
      */
@@ -682,6 +697,7 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
         this.capacityReservationGroupId = $.capacityReservationGroupId;
         this.evictionPolicy = $.evictionPolicy;
         this.fipsEnabled = $.fipsEnabled;
+        this.gpuDriver = $.gpuDriver;
         this.gpuInstance = $.gpuInstance;
         this.hostEncryptionEnabled = $.hostEncryptionEnabled;
         this.hostGroupId = $.hostGroupId;
@@ -830,6 +846,27 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
          */
         public Builder fipsEnabled(Boolean fipsEnabled) {
             return fipsEnabled(Output.of(fipsEnabled));
+        }
+
+        /**
+         * @param gpuDriver Specifies whether to install the GPU Driver for the nodes. Possible values are `Install` and `None`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder gpuDriver(@Nullable Output<String> gpuDriver) {
+            $.gpuDriver = gpuDriver;
+            return this;
+        }
+
+        /**
+         * @param gpuDriver Specifies whether to install the GPU Driver for the nodes. Possible values are `Install` and `None`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder gpuDriver(String gpuDriver) {
+            return gpuDriver(Output.of(gpuDriver));
         }
 
         /**

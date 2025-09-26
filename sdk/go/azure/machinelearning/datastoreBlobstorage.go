@@ -99,7 +99,7 @@ import (
 //			_, err = machinelearning.NewDatastoreBlobstorage(ctx, "example", &machinelearning.DatastoreBlobstorageArgs{
 //				Name:               pulumi.String("example-datastore"),
 //				WorkspaceId:        exampleWorkspace.ID(),
-//				StorageContainerId: exampleContainer.ResourceManagerId,
+//				StorageContainerId: exampleContainer.ID(),
 //				AccountKey:         exampleAccount.PrimaryAccessKey,
 //			})
 //			if err != nil {

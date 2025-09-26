@@ -95,6 +95,8 @@ __all__ = [
     'KubernetesClusterAutoScalerProfileArgsDict',
     'KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs',
     'KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgsDict',
+    'KubernetesClusterBootstrapProfileArgs',
+    'KubernetesClusterBootstrapProfileArgsDict',
     'KubernetesClusterConfidentialComputingArgs',
     'KubernetesClusterConfidentialComputingArgsDict',
     'KubernetesClusterDefaultNodePoolArgs',
@@ -159,6 +161,8 @@ __all__ = [
     'KubernetesClusterMonitorMetricsArgsDict',
     'KubernetesClusterNetworkProfileArgs',
     'KubernetesClusterNetworkProfileArgsDict',
+    'KubernetesClusterNetworkProfileAdvancedNetworkingArgs',
+    'KubernetesClusterNetworkProfileAdvancedNetworkingArgsDict',
     'KubernetesClusterNetworkProfileLoadBalancerProfileArgs',
     'KubernetesClusterNetworkProfileLoadBalancerProfileArgsDict',
     'KubernetesClusterNetworkProfileNatGatewayProfileArgs',
@@ -4012,18 +4016,34 @@ if not MYPY:
         """
         Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
         """
+        subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The ID of the Subnet where the API server endpoint is delegated to.
+        """
+        virtual_network_integration_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Whether to enable virtual network integration for the API Server. Defaults to `false`.
+        """
 elif False:
     KubernetesClusterApiServerAccessProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KubernetesClusterApiServerAccessProfileArgs:
     def __init__(__self__, *,
-                 authorized_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 authorized_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 virtual_network_integration_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authorized_ip_ranges: Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
+        :param pulumi.Input[_builtins.str] subnet_id: The ID of the Subnet where the API server endpoint is delegated to.
+        :param pulumi.Input[_builtins.bool] virtual_network_integration_enabled: Whether to enable virtual network integration for the API Server. Defaults to `false`.
         """
         if authorized_ip_ranges is not None:
             pulumi.set(__self__, "authorized_ip_ranges", authorized_ip_ranges)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+        if virtual_network_integration_enabled is not None:
+            pulumi.set(__self__, "virtual_network_integration_enabled", virtual_network_integration_enabled)
 
     @_builtins.property
     @pulumi.getter(name="authorizedIpRanges")
@@ -4036,6 +4056,30 @@ class KubernetesClusterApiServerAccessProfileArgs:
     @authorized_ip_ranges.setter
     def authorized_ip_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "authorized_ip_ranges", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ID of the Subnet where the API server endpoint is delegated to.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "subnet_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="virtualNetworkIntegrationEnabled")
+    def virtual_network_integration_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether to enable virtual network integration for the API Server. Defaults to `false`.
+        """
+        return pulumi.get(self, "virtual_network_integration_enabled")
+
+    @virtual_network_integration_enabled.setter
+    def virtual_network_integration_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "virtual_network_integration_enabled", value)
 
 
 if not MYPY:
@@ -4113,12 +4157,9 @@ if not MYPY:
         How often the AKS Cluster should be re-evaluated for scale up/down. Defaults to `10s`.
         """
         skip_nodes_with_local_storage: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `true`.
-        """
         skip_nodes_with_system_pods: NotRequired[pulumi.Input[_builtins.bool]]
         """
-        If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `false`. <!-- defaults to `false` in code, not in Schema -->
+        If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
         """
 elif False:
     KubernetesClusterAutoScalerProfileArgsDict: TypeAlias = Mapping[str, Any]
@@ -4165,8 +4206,7 @@ class KubernetesClusterAutoScalerProfileArgs:
         :param pulumi.Input[_builtins.str] scale_down_unready: How long an unready node should be unneeded before it is eligible for scale down. Defaults to `20m`.
         :param pulumi.Input[_builtins.str] scale_down_utilization_threshold: Node utilization level, defined as sum of requested resources divided by capacity, below which a node can be considered for scale down. Defaults to `0.5`.
         :param pulumi.Input[_builtins.str] scan_interval: How often the AKS Cluster should be re-evaluated for scale up/down. Defaults to `10s`.
-        :param pulumi.Input[_builtins.bool] skip_nodes_with_local_storage: If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `true`.
-        :param pulumi.Input[_builtins.bool] skip_nodes_with_system_pods: If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `false`. <!-- defaults to `false` in code, not in Schema -->
+        :param pulumi.Input[_builtins.bool] skip_nodes_with_system_pods: If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
         """
         if balance_similar_node_groups is not None:
             pulumi.set(__self__, "balance_similar_node_groups", balance_similar_node_groups)
@@ -4428,9 +4468,6 @@ class KubernetesClusterAutoScalerProfileArgs:
     @_builtins.property
     @pulumi.getter(name="skipNodesWithLocalStorage")
     def skip_nodes_with_local_storage(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `true`.
-        """
         return pulumi.get(self, "skip_nodes_with_local_storage")
 
     @skip_nodes_with_local_storage.setter
@@ -4441,7 +4478,7 @@ class KubernetesClusterAutoScalerProfileArgs:
     @pulumi.getter(name="skipNodesWithSystemPods")
     def skip_nodes_with_system_pods(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `false`. <!-- defaults to `false` in code, not in Schema -->
+        If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
         """
         return pulumi.get(self, "skip_nodes_with_system_pods")
 
@@ -4523,6 +4560,70 @@ class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs:
 
 
 if not MYPY:
+    class KubernetesClusterBootstrapProfileArgsDict(TypedDict):
+        artifact_source: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The artifact source. The source where the artifacts are downloaded from. Possible values are `Cache` and `Direct`. Defaults to `Direct`.
+
+        > **Note:** If the `artifact_source` is set to `Cache` and the `outbound_type` has been specified, the managed ACR and related resources will **not** be automatically deleted and must be removed manually. Please see the product [documentation](https://learn.microsoft.com/azure/aks/concepts-network-isolated#how-a-network-isolated-cluster-works) for more information.
+        """
+        container_registry_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The resource Id of Azure Container Registry.
+
+        > **Note:** The `container_registry_id` requires an ACR with a private link to the cluster. You must manage permissions, cache rules, the associated private link and the private endpoint. Please see the product [documentation](https://learn.microsoft.com/azure/container-registry/container-registry-private-link) for more information on configuring an ACR with a private endpoint.
+        """
+elif False:
+    KubernetesClusterBootstrapProfileArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class KubernetesClusterBootstrapProfileArgs:
+    def __init__(__self__, *,
+                 artifact_source: Optional[pulumi.Input[_builtins.str]] = None,
+                 container_registry_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] artifact_source: The artifact source. The source where the artifacts are downloaded from. Possible values are `Cache` and `Direct`. Defaults to `Direct`.
+               
+               > **Note:** If the `artifact_source` is set to `Cache` and the `outbound_type` has been specified, the managed ACR and related resources will **not** be automatically deleted and must be removed manually. Please see the product [documentation](https://learn.microsoft.com/azure/aks/concepts-network-isolated#how-a-network-isolated-cluster-works) for more information.
+        :param pulumi.Input[_builtins.str] container_registry_id: The resource Id of Azure Container Registry.
+               
+               > **Note:** The `container_registry_id` requires an ACR with a private link to the cluster. You must manage permissions, cache rules, the associated private link and the private endpoint. Please see the product [documentation](https://learn.microsoft.com/azure/container-registry/container-registry-private-link) for more information on configuring an ACR with a private endpoint.
+        """
+        if artifact_source is not None:
+            pulumi.set(__self__, "artifact_source", artifact_source)
+        if container_registry_id is not None:
+            pulumi.set(__self__, "container_registry_id", container_registry_id)
+
+    @_builtins.property
+    @pulumi.getter(name="artifactSource")
+    def artifact_source(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The artifact source. The source where the artifacts are downloaded from. Possible values are `Cache` and `Direct`. Defaults to `Direct`.
+
+        > **Note:** If the `artifact_source` is set to `Cache` and the `outbound_type` has been specified, the managed ACR and related resources will **not** be automatically deleted and must be removed manually. Please see the product [documentation](https://learn.microsoft.com/azure/aks/concepts-network-isolated#how-a-network-isolated-cluster-works) for more information.
+        """
+        return pulumi.get(self, "artifact_source")
+
+    @artifact_source.setter
+    def artifact_source(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "artifact_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="containerRegistryId")
+    def container_registry_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The resource Id of Azure Container Registry.
+
+        > **Note:** The `container_registry_id` requires an ACR with a private link to the cluster. You must manage permissions, cache rules, the associated private link and the private endpoint. Please see the product [documentation](https://learn.microsoft.com/azure/container-registry/container-registry-private-link) for more information on configuring an ACR with a private endpoint.
+        """
+        return pulumi.get(self, "container_registry_id")
+
+    @container_registry_id.setter
+    def container_registry_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "container_registry_id", value)
+
+
+if not MYPY:
     class KubernetesClusterConfidentialComputingArgsDict(TypedDict):
         sgx_quote_helper_enabled: pulumi.Input[_builtins.bool]
         """
@@ -4575,6 +4676,7 @@ if not MYPY:
         """
         Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporary_name_for_rotation` must be specified when changing this block.
         """
+        gpu_driver: NotRequired[pulumi.Input[_builtins.str]]
         gpu_instance: NotRequired[pulumi.Input[_builtins.str]]
         """
         Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
@@ -4716,6 +4818,7 @@ class KubernetesClusterDefaultNodePoolArgs:
                  auto_scaling_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  capacity_reservation_group_id: Optional[pulumi.Input[_builtins.str]] = None,
                  fips_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 gpu_driver: Optional[pulumi.Input[_builtins.str]] = None,
                  gpu_instance: Optional[pulumi.Input[_builtins.str]] = None,
                  host_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  host_group_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -4806,6 +4909,8 @@ class KubernetesClusterDefaultNodePoolArgs:
             pulumi.set(__self__, "capacity_reservation_group_id", capacity_reservation_group_id)
         if fips_enabled is not None:
             pulumi.set(__self__, "fips_enabled", fips_enabled)
+        if gpu_driver is not None:
+            pulumi.set(__self__, "gpu_driver", gpu_driver)
         if gpu_instance is not None:
             pulumi.set(__self__, "gpu_instance", gpu_instance)
         if host_encryption_enabled is not None:
@@ -4922,6 +5027,15 @@ class KubernetesClusterDefaultNodePoolArgs:
     @fips_enabled.setter
     def fips_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "fips_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="gpuDriver")
+    def gpu_driver(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "gpu_driver")
+
+    @gpu_driver.setter
+    def gpu_driver(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "gpu_driver", value)
 
     @_builtins.property
     @pulumi.getter(name="gpuInstance")
@@ -8418,6 +8532,10 @@ if not MYPY:
 
         > **Note:** When `network_plugin` is set to `azure` - the `pod_cidr` field must not be set, unless specifying `network_plugin_mode` to `overlay`.
         """
+        advanced_networking: NotRequired[pulumi.Input['KubernetesClusterNetworkProfileAdvancedNetworkingArgsDict']]
+        """
+        An `advanced_networking` block as defined below. This can only be specified when `network_plugin` is set to `azure` and `network_data_plane` is set to `cilium`.
+        """
         dns_service_ip: NotRequired[pulumi.Input[_builtins.str]]
         """
         IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
@@ -8474,7 +8592,9 @@ if not MYPY:
         """
         outbound_type: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outbound_type` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
+        The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway`, `userAssignedNATGateway` and `none`. Defaults to `loadBalancer`.
+
+        > **Note:** For more information on supported `outbound_type` migration paths please see the product [documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
         """
         pod_cidr: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -8501,6 +8621,7 @@ elif False:
 class KubernetesClusterNetworkProfileArgs:
     def __init__(__self__, *,
                  network_plugin: pulumi.Input[_builtins.str],
+                 advanced_networking: Optional[pulumi.Input['KubernetesClusterNetworkProfileAdvancedNetworkingArgs']] = None,
                  dns_service_ip: Optional[pulumi.Input[_builtins.str]] = None,
                  ip_versions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  load_balancer_profile: Optional[pulumi.Input['KubernetesClusterNetworkProfileLoadBalancerProfileArgs']] = None,
@@ -8519,6 +8640,7 @@ class KubernetesClusterNetworkProfileArgs:
         :param pulumi.Input[_builtins.str] network_plugin: Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
                
                > **Note:** When `network_plugin` is set to `azure` - the `pod_cidr` field must not be set, unless specifying `network_plugin_mode` to `overlay`.
+        :param pulumi.Input['KubernetesClusterNetworkProfileAdvancedNetworkingArgs'] advanced_networking: An `advanced_networking` block as defined below. This can only be specified when `network_plugin` is set to `azure` and `network_data_plane` is set to `cilium`.
         :param pulumi.Input[_builtins.str] dns_service_ip: IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_versions: Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
                
@@ -8546,7 +8668,9 @@ class KubernetesClusterNetworkProfileArgs:
                > **Note:** When `network_policy` is set to `azure`, the `network_plugin` field can only be set to `azure`.
                
                > **Note:** When `network_policy` is set to `cilium`, the `network_data_plane` field must be set to `cilium`.
-        :param pulumi.Input[_builtins.str] outbound_type: The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outbound_type` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
+        :param pulumi.Input[_builtins.str] outbound_type: The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway`, `userAssignedNATGateway` and `none`. Defaults to `loadBalancer`.
+               
+               > **Note:** For more information on supported `outbound_type` migration paths please see the product [documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
         :param pulumi.Input[_builtins.str] pod_cidr: The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet` or `network_plugin_mode` is set to `overlay`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] pod_cidrs: A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] service_cidr: The Network Range used by the Kubernetes service. Changing this forces a new resource to be created.
@@ -8555,6 +8679,8 @@ class KubernetesClusterNetworkProfileArgs:
                > **Note:** This range should not be used by any network element on or connected to this VNet. Service address CIDR must be smaller than /12. `docker_bridge_cidr`, `dns_service_ip` and `service_cidr` should all be empty or all should be set.
         """
         pulumi.set(__self__, "network_plugin", network_plugin)
+        if advanced_networking is not None:
+            pulumi.set(__self__, "advanced_networking", advanced_networking)
         if dns_service_ip is not None:
             pulumi.set(__self__, "dns_service_ip", dns_service_ip)
         if ip_versions is not None:
@@ -8597,6 +8723,18 @@ class KubernetesClusterNetworkProfileArgs:
     @network_plugin.setter
     def network_plugin(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "network_plugin", value)
+
+    @_builtins.property
+    @pulumi.getter(name="advancedNetworking")
+    def advanced_networking(self) -> Optional[pulumi.Input['KubernetesClusterNetworkProfileAdvancedNetworkingArgs']]:
+        """
+        An `advanced_networking` block as defined below. This can only be specified when `network_plugin` is set to `azure` and `network_data_plane` is set to `cilium`.
+        """
+        return pulumi.get(self, "advanced_networking")
+
+    @advanced_networking.setter
+    def advanced_networking(self, value: Optional[pulumi.Input['KubernetesClusterNetworkProfileAdvancedNetworkingArgs']]):
+        pulumi.set(self, "advanced_networking", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsServiceIp")
@@ -8728,7 +8866,9 @@ class KubernetesClusterNetworkProfileArgs:
     @pulumi.getter(name="outboundType")
     def outbound_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outbound_type` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
+        The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway`, `userAssignedNATGateway` and `none`. Defaults to `loadBalancer`.
+
+        > **Note:** For more information on supported `outbound_type` migration paths please see the product [documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
         """
         return pulumi.get(self, "outbound_type")
 
@@ -8785,6 +8925,58 @@ class KubernetesClusterNetworkProfileArgs:
     @service_cidrs.setter
     def service_cidrs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "service_cidrs", value)
+
+
+if not MYPY:
+    class KubernetesClusterNetworkProfileAdvancedNetworkingArgsDict(TypedDict):
+        observability_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Is observability enabled? Defaults to `false`.
+        """
+        security_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Is security enabled? Defaults to `false`.
+        """
+elif False:
+    KubernetesClusterNetworkProfileAdvancedNetworkingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class KubernetesClusterNetworkProfileAdvancedNetworkingArgs:
+    def __init__(__self__, *,
+                 observability_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 security_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] observability_enabled: Is observability enabled? Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] security_enabled: Is security enabled? Defaults to `false`.
+        """
+        if observability_enabled is not None:
+            pulumi.set(__self__, "observability_enabled", observability_enabled)
+        if security_enabled is not None:
+            pulumi.set(__self__, "security_enabled", security_enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="observabilityEnabled")
+    def observability_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Is observability enabled? Defaults to `false`.
+        """
+        return pulumi.get(self, "observability_enabled")
+
+    @observability_enabled.setter
+    def observability_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "observability_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="securityEnabled")
+    def security_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Is security enabled? Defaults to `false`.
+        """
+        return pulumi.get(self, "security_enabled")
+
+    @security_enabled.setter
+    def security_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "security_enabled", value)
 
 
 if not MYPY:
@@ -10372,7 +10564,7 @@ if not MYPY:
         """
         revisions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
         """
-        Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-20"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-20", "asm-1-21"]`. To roll back the canary upgrade, revert to `["asm-1-20"]`. To confirm the upgrade, change to `["asm-1-21"]`.
+        Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-25"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-25", "asm-1-26"]`. To roll back the canary upgrade, revert to `["asm-1-25"]`. To confirm the upgrade, change to `["asm-1-26"]`.
 
         > **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
         """
@@ -10403,7 +10595,7 @@ class KubernetesClusterServiceMeshProfileArgs:
                  internal_ingress_gateway_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] mode: The mode of the service mesh. Possible value is `Istio`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] revisions: Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-20"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-20", "asm-1-21"]`. To roll back the canary upgrade, revert to `["asm-1-20"]`. To confirm the upgrade, change to `["asm-1-21"]`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] revisions: Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-25"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-25", "asm-1-26"]`. To roll back the canary upgrade, revert to `["asm-1-25"]`. To confirm the upgrade, change to `["asm-1-26"]`.
                
                > **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
         :param pulumi.Input['KubernetesClusterServiceMeshProfileCertificateAuthorityArgs'] certificate_authority: A `certificate_authority` block as defined below. When this property is specified, `key_vault_secrets_provider` is also required to be set. This configuration allows you to bring your own root certificate and keys for Istio CA in the Istio-based service mesh add-on for Azure Kubernetes Service.
@@ -10437,7 +10629,7 @@ class KubernetesClusterServiceMeshProfileArgs:
     @pulumi.getter
     def revisions(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-20"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-20", "asm-1-21"]`. To roll back the canary upgrade, revert to `["asm-1-20"]`. To confirm the upgrade, change to `["asm-1-21"]`.
+        Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-25"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-25", "asm-1-26"]`. To roll back the canary upgrade, revert to `["asm-1-25"]`. To confirm the upgrade, change to `["asm-1-26"]`.
 
         > **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
         """

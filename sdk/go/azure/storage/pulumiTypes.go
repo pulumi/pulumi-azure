@@ -3587,7 +3587,7 @@ func (o AccountRoutingPtrOutput) PublishMicrosoftEndpoints() pulumi.BoolPtrOutpu
 }
 
 type AccountSasPolicy struct {
-	// The SAS expiration action. The only possible value is `Log` at this moment. Defaults to `Log`.
+	// The SAS expiration action. Possible values are `Log` and `Block`. Defaults to `Log`.
 	ExpirationAction *string `pulumi:"expirationAction"`
 	// The SAS expiration period in format of `DD.HH:MM:SS`.
 	ExpirationPeriod string `pulumi:"expirationPeriod"`
@@ -3605,7 +3605,7 @@ type AccountSasPolicyInput interface {
 }
 
 type AccountSasPolicyArgs struct {
-	// The SAS expiration action. The only possible value is `Log` at this moment. Defaults to `Log`.
+	// The SAS expiration action. Possible values are `Log` and `Block`. Defaults to `Log`.
 	ExpirationAction pulumi.StringPtrInput `pulumi:"expirationAction"`
 	// The SAS expiration period in format of `DD.HH:MM:SS`.
 	ExpirationPeriod pulumi.StringInput `pulumi:"expirationPeriod"`
@@ -3688,7 +3688,7 @@ func (o AccountSasPolicyOutput) ToAccountSasPolicyPtrOutputWithContext(ctx conte
 	}).(AccountSasPolicyPtrOutput)
 }
 
-// The SAS expiration action. The only possible value is `Log` at this moment. Defaults to `Log`.
+// The SAS expiration action. Possible values are `Log` and `Block`. Defaults to `Log`.
 func (o AccountSasPolicyOutput) ExpirationAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountSasPolicy) *string { return v.ExpirationAction }).(pulumi.StringPtrOutput)
 }
@@ -3722,7 +3722,7 @@ func (o AccountSasPolicyPtrOutput) Elem() AccountSasPolicyOutput {
 	}).(AccountSasPolicyOutput)
 }
 
-// The SAS expiration action. The only possible value is `Log` at this moment. Defaults to `Log`.
+// The SAS expiration action. Possible values are `Log` and `Block`. Defaults to `Log`.
 func (o AccountSasPolicyPtrOutput) ExpirationAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountSasPolicy) *string {
 		if v == nil {

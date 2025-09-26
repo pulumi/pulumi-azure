@@ -85,7 +85,7 @@ import javax.annotation.Nullable;
  *             .name("example-system-topic")
  *             .location("Global")
  *             .resourceGroupName(example.name())
- *             .sourceArmResourceId(example.id())
+ *             .sourceResourceId(example.id())
  *             .topicType("Microsoft.Resources.ResourceGroups")
  *             .build());
  * 
@@ -109,7 +109,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.EventGrid` - 2022-06-15
+ * * `Microsoft.EventGrid` - 2025-02-15
  * 
  * ## Import
  * 

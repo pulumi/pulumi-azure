@@ -226,7 +226,7 @@ type FlexibleServer struct {
 	StorageTier pulumi.StringOutput `pulumi:"storageTier"`
 	// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `createMode` is `Default`.
+	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15`, `16` and `17`. Required when `createMode` is `Default`.
 	//
 	// > **Note:** Downgrading `version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
 	//
@@ -345,7 +345,7 @@ type flexibleServerState struct {
 	StorageTier *string `pulumi:"storageTier"`
 	// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
 	Tags map[string]string `pulumi:"tags"`
-	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `createMode` is `Default`.
+	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15`, `16` and `17`. Required when `createMode` is `Default`.
 	//
 	// > **Note:** Downgrading `version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
 	//
@@ -425,7 +425,7 @@ type FlexibleServerState struct {
 	StorageTier pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
 	Tags pulumi.StringMapInput
-	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `createMode` is `Default`.
+	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15`, `16` and `17`. Required when `createMode` is `Default`.
 	//
 	// > **Note:** Downgrading `version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
 	//
@@ -507,7 +507,7 @@ type flexibleServerArgs struct {
 	StorageTier *string `pulumi:"storageTier"`
 	// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
 	Tags map[string]string `pulumi:"tags"`
-	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `createMode` is `Default`.
+	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15`, `16` and `17`. Required when `createMode` is `Default`.
 	//
 	// > **Note:** Downgrading `version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
 	//
@@ -586,7 +586,7 @@ type FlexibleServerArgs struct {
 	StorageTier pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
 	Tags pulumi.StringMapInput
-	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `createMode` is `Default`.
+	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15`, `16` and `17`. Required when `createMode` is `Default`.
 	//
 	// > **Note:** Downgrading `version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
 	//
@@ -830,7 +830,7 @@ func (o FlexibleServerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `createMode` is `Default`.
+// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15`, `16` and `17`. Required when `createMode` is `Default`.
 //
 // > **Note:** Downgrading `version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
 //

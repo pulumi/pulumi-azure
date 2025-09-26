@@ -17,7 +17,8 @@ public final class ClusterSku {
      * @return Specifies the node count for the cluster. Boundaries depend on the SKU name.
      * 
      * &gt; **Note:** If no `optimized_auto_scale` block is defined, then the capacity is required.
-     * **Note:** If an `optimized_auto_scale` block is defined and no capacity is set, then the capacity is initially set to the value of `minimum_instances`.
+     * 
+     * &gt; **Note:** If an `optimized_auto_scale` block is defined and no capacity is set, then the capacity is initially set to the value of `minimum_instances`.
      * 
      */
     private @Nullable Integer capacity;
@@ -32,7 +33,8 @@ public final class ClusterSku {
      * @return Specifies the node count for the cluster. Boundaries depend on the SKU name.
      * 
      * &gt; **Note:** If no `optimized_auto_scale` block is defined, then the capacity is required.
-     * **Note:** If an `optimized_auto_scale` block is defined and no capacity is set, then the capacity is initially set to the value of `minimum_instances`.
+     * 
+     * &gt; **Note:** If an `optimized_auto_scale` block is defined and no capacity is set, then the capacity is initially set to the value of `minimum_instances`.
      * 
      */
     public Optional<Integer> capacity() {

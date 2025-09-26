@@ -93,7 +93,7 @@ class FlexibleServerArgs:
                
                > **Note:** The `storage_tier` can be scaled once every 12 hours, this restriction is in place to ensure stability and performance after any changes to your PostgreSQL Flexible Server's configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
-        :param pulumi.Input[_builtins.str] version: The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `create_mode` is `Default`.
+        :param pulumi.Input[_builtins.str] version: The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15`, `16` and `17`. Required when `create_mode` is `Default`.
                
                > **Note:** Downgrading `version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
                
@@ -475,7 +475,7 @@ class FlexibleServerArgs:
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `create_mode` is `Default`.
+        The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15`, `16` and `17`. Required when `create_mode` is `Default`.
 
         > **Note:** Downgrading `version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
 
@@ -574,7 +574,7 @@ class _FlexibleServerState:
                
                > **Note:** The `storage_tier` can be scaled once every 12 hours, this restriction is in place to ensure stability and performance after any changes to your PostgreSQL Flexible Server's configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
-        :param pulumi.Input[_builtins.str] version: The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `create_mode` is `Default`.
+        :param pulumi.Input[_builtins.str] version: The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15`, `16` and `17`. Required when `create_mode` is `Default`.
                
                > **Note:** Downgrading `version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
                
@@ -971,7 +971,7 @@ class _FlexibleServerState:
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `create_mode` is `Default`.
+        The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15`, `16` and `17`. Required when `create_mode` is `Default`.
 
         > **Note:** Downgrading `version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
 
@@ -1164,7 +1164,7 @@ class FlexibleServer(pulumi.CustomResource):
                
                > **Note:** The `storage_tier` can be scaled once every 12 hours, this restriction is in place to ensure stability and performance after any changes to your PostgreSQL Flexible Server's configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
-        :param pulumi.Input[_builtins.str] version: The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `create_mode` is `Default`.
+        :param pulumi.Input[_builtins.str] version: The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15`, `16` and `17`. Required when `create_mode` is `Default`.
                
                > **Note:** Downgrading `version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
                
@@ -1440,7 +1440,7 @@ class FlexibleServer(pulumi.CustomResource):
                
                > **Note:** The `storage_tier` can be scaled once every 12 hours, this restriction is in place to ensure stability and performance after any changes to your PostgreSQL Flexible Server's configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
-        :param pulumi.Input[_builtins.str] version: The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `create_mode` is `Default`.
+        :param pulumi.Input[_builtins.str] version: The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15`, `16` and `17`. Required when `create_mode` is `Default`.
                
                > **Note:** Downgrading `version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
                
@@ -1710,7 +1710,7 @@ class FlexibleServer(pulumi.CustomResource):
     @pulumi.getter
     def version(self) -> pulumi.Output[_builtins.str]:
         """
-        The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `create_mode` is `Default`.
+        The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15`, `16` and `17`. Required when `create_mode` is `Default`.
 
         > **Note:** Downgrading `version` isn't supported and will force a new PostgreSQL Flexible Server to be created.
 

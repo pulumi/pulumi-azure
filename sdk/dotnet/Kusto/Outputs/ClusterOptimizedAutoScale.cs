@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Kusto.Outputs
     public sealed class ClusterOptimizedAutoScale
     {
         /// <summary>
-        /// The maximum number of allowed instances. Must between `0` and `1000`.
+        /// The maximum number of allowed instances. Possible values range between `0` and `1000`.
         /// </summary>
         public readonly int MaximumInstances;
         /// <summary>
-        /// The minimum number of allowed instances. Must between `0` and `1000`.
+        /// The minimum number of allowed instances. Possible values range between `0` and `1000`.
         /// </summary>
         public readonly int MinimumInstances;
 

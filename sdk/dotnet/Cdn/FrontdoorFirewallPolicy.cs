@@ -45,21 +45,6 @@ namespace Pulumi.Azure.Cdn
     ///         RedirectUrl = "https://www.contoso.com",
     ///         CustomBlockResponseStatusCode = 403,
     ///         CustomBlockResponseBody = "PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
-    ///         JsChallengeCookieExpirationInMinutes = 45,
-    ///         LogScrubbing = new Azure.Cdn.Inputs.FrontdoorFirewallPolicyLogScrubbingArgs
-    ///         {
-    ///             Enabled = true,
-    ///             ScrubbingRules = new[]
-    ///             {
-    ///                 new Azure.Cdn.Inputs.FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     MatchVariable = "RequestCookieNames",
-    ///                     Operator = "Equals",
-    ///                     Selector = "ChocolateChip",
-    ///                 },
-    ///             },
-    ///         },
     ///         CustomRules = new[]
     ///         {
     ///             new Azure.Cdn.Inputs.FrontdoorFirewallPolicyCustomRuleArgs
@@ -121,29 +106,6 @@ namespace Pulumi.Azure.Cdn
     ///                         {
     ///                             "Lowercase",
     ///                             "Trim",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///             new Azure.Cdn.Inputs.FrontdoorFirewallPolicyCustomRuleArgs
-    ///             {
-    ///                 Name = "CustomJSChallenge",
-    ///                 Enabled = true,
-    ///                 Priority = 100,
-    ///                 RateLimitDurationInMinutes = 1,
-    ///                 RateLimitThreshold = 10,
-    ///                 Type = "MatchRule",
-    ///                 Action = "JSChallenge",
-    ///                 MatchConditions = new[]
-    ///                 {
-    ///                     new Azure.Cdn.Inputs.FrontdoorFirewallPolicyCustomRuleMatchConditionArgs
-    ///                     {
-    ///                         MatchVariable = "RemoteAddr",
-    ///                         Operator = "IPMatch",
-    ///                         NegationCondition = false,
-    ///                         MatchValues = new[]
-    ///                         {
-    ///                             "192.168.1.0/24",
     ///                         },
     ///                     },
     ///                 },
@@ -217,22 +179,6 @@ namespace Pulumi.Azure.Cdn
     ///                 Type = "Microsoft_BotManagerRuleSet",
     ///                 Version = "1.1",
     ///                 Action = "Log",
-    ///                 Overrides = new[]
-    ///                 {
-    ///                     new Azure.Cdn.Inputs.FrontdoorFirewallPolicyManagedRuleOverrideArgs
-    ///                     {
-    ///                         RuleGroupName = "BadBots",
-    ///                         Rules = new[]
-    ///                         {
-    ///                             new Azure.Cdn.Inputs.FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs
-    ///                             {
-    ///                                 Action = "JSChallenge",
-    ///                                 Enabled = true,
-    ///                                 RuleId = "Bot100200",
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
     ///             },
     ///         },
     ///     });
@@ -267,6 +213,9 @@ namespace Pulumi.Azure.Cdn
     [AzureResourceType("azure:cdn/frontdoorFirewallPolicy:FrontdoorFirewallPolicy")]
     public partial class FrontdoorFirewallPolicy : global::Pulumi.CustomResource
     {
+        [Output("captchaCookieExpirationInMinutes")]
+        public Output<int> CaptchaCookieExpirationInMinutes { get; private set; } = null!;
+
         /// <summary>
         /// If a `custom_rule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
         /// </summary>
@@ -297,13 +246,6 @@ namespace Pulumi.Azure.Cdn
         [Output("frontendEndpointIds")]
         public Output<ImmutableArray<string>> FrontendEndpointIds { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the JavaScript challenge cookie lifetime in minutes, after which the user will be revalidated. Possible values are between `5` to `1440` minutes. Defaults to `30` minutes.
-        /// 
-        /// &gt; **Note:** The `js_challenge_cookie_expiration_in_minutes` field can only be set on `Premium_AzureFrontDoor` sku's. Please see the [Product Documentation](https://learn.microsoft.com/azure/web-application-firewall/waf-javascript-challenge) for more information.
-        /// 
-        /// !&gt; **Note:** Setting the`js_challenge_cookie_expiration_in_minutes` policy is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-        /// </summary>
         [Output("jsChallengeCookieExpirationInMinutes")]
         public Output<int> JsChallengeCookieExpirationInMinutes { get; private set; } = null!;
 
@@ -413,6 +355,9 @@ namespace Pulumi.Azure.Cdn
 
     public sealed class FrontdoorFirewallPolicyArgs : global::Pulumi.ResourceArgs
     {
+        [Input("captchaCookieExpirationInMinutes")]
+        public Input<int>? CaptchaCookieExpirationInMinutes { get; set; }
+
         /// <summary>
         /// If a `custom_rule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
         /// </summary>
@@ -443,13 +388,6 @@ namespace Pulumi.Azure.Cdn
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// Specifies the JavaScript challenge cookie lifetime in minutes, after which the user will be revalidated. Possible values are between `5` to `1440` minutes. Defaults to `30` minutes.
-        /// 
-        /// &gt; **Note:** The `js_challenge_cookie_expiration_in_minutes` field can only be set on `Premium_AzureFrontDoor` sku's. Please see the [Product Documentation](https://learn.microsoft.com/azure/web-application-firewall/waf-javascript-challenge) for more information.
-        /// 
-        /// !&gt; **Note:** Setting the`js_challenge_cookie_expiration_in_minutes` policy is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-        /// </summary>
         [Input("jsChallengeCookieExpirationInMinutes")]
         public Input<int>? JsChallengeCookieExpirationInMinutes { get; set; }
 
@@ -533,6 +471,9 @@ namespace Pulumi.Azure.Cdn
 
     public sealed class FrontdoorFirewallPolicyState : global::Pulumi.ResourceArgs
     {
+        [Input("captchaCookieExpirationInMinutes")]
+        public Input<int>? CaptchaCookieExpirationInMinutes { get; set; }
+
         /// <summary>
         /// If a `custom_rule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
         /// </summary>
@@ -575,13 +516,6 @@ namespace Pulumi.Azure.Cdn
             set => _frontendEndpointIds = value;
         }
 
-        /// <summary>
-        /// Specifies the JavaScript challenge cookie lifetime in minutes, after which the user will be revalidated. Possible values are between `5` to `1440` minutes. Defaults to `30` minutes.
-        /// 
-        /// &gt; **Note:** The `js_challenge_cookie_expiration_in_minutes` field can only be set on `Premium_AzureFrontDoor` sku's. Please see the [Product Documentation](https://learn.microsoft.com/azure/web-application-firewall/waf-javascript-challenge) for more information.
-        /// 
-        /// !&gt; **Note:** Setting the`js_challenge_cookie_expiration_in_minutes` policy is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-        /// </summary>
         [Input("jsChallengeCookieExpirationInMinutes")]
         public Input<int>? JsChallengeCookieExpirationInMinutes { get; set; }
 

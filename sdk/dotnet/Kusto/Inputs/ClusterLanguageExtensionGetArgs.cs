@@ -12,6 +12,9 @@ namespace Pulumi.Azure.Kusto.Inputs
 
     public sealed class ClusterLanguageExtensionGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The language extension image. Possible values are `Python3_11_7`, `Python3_11_7_DL`, `Python3_10_8`, `Python3_10_8_DL`, `Python3_6_5`, `PythonCustomImage`, and `R`.
+        /// </summary>
         [Input("image", required: true)]
         public Input<string> Image { get; set; } = null!;
 

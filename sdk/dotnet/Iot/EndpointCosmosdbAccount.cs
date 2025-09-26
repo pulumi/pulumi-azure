@@ -103,6 +103,14 @@ namespace Pulumi.Azure.Iot
         [Output("secondaryKey")]
         public Output<string?> SecondaryKey { get; private set; } = null!;
 
+        /// <summary>
+        /// The subscription ID for the endpoint.
+        /// 
+        /// &gt; **Note:** When `subscription_id` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+        /// </summary>
+        [Output("subscriptionId")]
+        public Output<string> SubscriptionId { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a EndpointCosmosdbAccount resource with the given unique name, arguments, and options.
@@ -252,6 +260,14 @@ namespace Pulumi.Azure.Iot
             }
         }
 
+        /// <summary>
+        /// The subscription ID for the endpoint.
+        /// 
+        /// &gt; **Note:** When `subscription_id` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+        /// </summary>
+        [Input("subscriptionId")]
+        public Input<string>? SubscriptionId { get; set; }
+
         public EndpointCosmosdbAccountArgs()
         {
         }
@@ -357,6 +373,14 @@ namespace Pulumi.Azure.Iot
                 _secondaryKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// The subscription ID for the endpoint.
+        /// 
+        /// &gt; **Note:** When `subscription_id` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+        /// </summary>
+        [Input("subscriptionId")]
+        public Input<string>? SubscriptionId { get; set; }
 
         public EndpointCosmosdbAccountState()
         {

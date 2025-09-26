@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -59,12 +58,27 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Storage` - 2023-05-01
+//
 // ## Import
 //
 // Storage Queue's can be imported using the `resource id`, e.g.
 //
+// If `storage_account_name` is used:
+//
 // ```sh
 // $ pulumi import azure:storage/queue:Queue queue1 https://example.queue.core.windows.net/queue1
+// ```
+//
+// If `storage_account_id` is used:
+//
+// ```sh
+// $ pulumi import azure:storage/queue:Queue queue1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myaccount/queueServices/default/queues
 // ```
 type Queue struct {
 	pulumi.CustomResourceState
@@ -74,21 +88,28 @@ type Queue struct {
 	// The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Resource Manager ID of this Storage Queue.
+	//
+	// Deprecated: the `resourceManagerId` property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
 	ResourceManagerId pulumi.StringOutput `pulumi:"resourceManagerId"`
-	// Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
-	StorageAccountName pulumi.StringOutput `pulumi:"storageAccountName"`
+	// The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created.
+	//
+	// > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+	StorageAccountId pulumi.StringPtrOutput `pulumi:"storageAccountId"`
+	// The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
+	//
+	// Deprecated: the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
+	StorageAccountName pulumi.StringPtrOutput `pulumi:"storageAccountName"`
+	// The data plane URL of the Storage Queue in the format of `<storage queue endpoint>/<queue name>`. E.g. `https://example.queue.core.windows.net/queue1`.
+	Url pulumi.StringOutput `pulumi:"url"`
 }
 
 // NewQueue registers a new resource with the given unique name, arguments, and options.
 func NewQueue(ctx *pulumi.Context,
 	name string, args *QueueArgs, opts ...pulumi.ResourceOption) (*Queue, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &QueueArgs{}
 	}
 
-	if args.StorageAccountName == nil {
-		return nil, errors.New("invalid value for required argument 'StorageAccountName'")
-	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Queue
 	err := ctx.RegisterResource("azure:storage/queue:Queue", name, args, &resource, opts...)
@@ -117,9 +138,19 @@ type queueState struct {
 	// The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The Resource Manager ID of this Storage Queue.
+	//
+	// Deprecated: the `resourceManagerId` property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
 	ResourceManagerId *string `pulumi:"resourceManagerId"`
-	// Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
+	// The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created.
+	//
+	// > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+	StorageAccountId *string `pulumi:"storageAccountId"`
+	// The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
+	//
+	// Deprecated: the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
 	StorageAccountName *string `pulumi:"storageAccountName"`
+	// The data plane URL of the Storage Queue in the format of `<storage queue endpoint>/<queue name>`. E.g. `https://example.queue.core.windows.net/queue1`.
+	Url *string `pulumi:"url"`
 }
 
 type QueueState struct {
@@ -128,9 +159,19 @@ type QueueState struct {
 	// The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The Resource Manager ID of this Storage Queue.
+	//
+	// Deprecated: the `resourceManagerId` property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
 	ResourceManagerId pulumi.StringPtrInput
-	// Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
+	// The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created.
+	//
+	// > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+	StorageAccountId pulumi.StringPtrInput
+	// The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
+	//
+	// Deprecated: the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
 	StorageAccountName pulumi.StringPtrInput
+	// The data plane URL of the Storage Queue in the format of `<storage queue endpoint>/<queue name>`. E.g. `https://example.queue.core.windows.net/queue1`.
+	Url pulumi.StringPtrInput
 }
 
 func (QueueState) ElementType() reflect.Type {
@@ -142,8 +183,14 @@ type queueArgs struct {
 	Metadata map[string]string `pulumi:"metadata"`
 	// The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
-	StorageAccountName string `pulumi:"storageAccountName"`
+	// The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created.
+	//
+	// > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+	StorageAccountId *string `pulumi:"storageAccountId"`
+	// The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
+	//
+	// Deprecated: the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
+	StorageAccountName *string `pulumi:"storageAccountName"`
 }
 
 // The set of arguments for constructing a Queue resource.
@@ -152,8 +199,14 @@ type QueueArgs struct {
 	Metadata pulumi.StringMapInput
 	// The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
-	StorageAccountName pulumi.StringInput
+	// The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created.
+	//
+	// > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+	StorageAccountId pulumi.StringPtrInput
+	// The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
+	//
+	// Deprecated: the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
+	StorageAccountName pulumi.StringPtrInput
 }
 
 func (QueueArgs) ElementType() reflect.Type {
@@ -254,13 +307,29 @@ func (o QueueOutput) Name() pulumi.StringOutput {
 }
 
 // The Resource Manager ID of this Storage Queue.
+//
+// Deprecated: the `resourceManagerId` property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
 func (o QueueOutput) ResourceManagerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.ResourceManagerId }).(pulumi.StringOutput)
 }
 
-// Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
-func (o QueueOutput) StorageAccountName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.StorageAccountName }).(pulumi.StringOutput)
+// The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created.
+//
+// > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+func (o QueueOutput) StorageAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Queue) pulumi.StringPtrOutput { return v.StorageAccountId }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
+//
+// Deprecated: the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
+func (o QueueOutput) StorageAccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Queue) pulumi.StringPtrOutput { return v.StorageAccountName }).(pulumi.StringPtrOutput)
+}
+
+// The data plane URL of the Storage Queue in the format of `<storage queue endpoint>/<queue name>`. E.g. `https://example.queue.core.windows.net/queue1`.
+func (o QueueOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
 }
 
 type QueueArrayOutput struct{ *pulumi.OutputState }

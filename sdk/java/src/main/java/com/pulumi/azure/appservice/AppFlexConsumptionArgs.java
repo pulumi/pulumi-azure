@@ -163,6 +163,25 @@ public final class AppFlexConsumptionArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * The Http concurrency of the instances on which your app runs. The supported value are from `1` to `1000`.
+     * 
+     * &gt; **Note:** A value will be assigned by the system if `http_concurrency` is not specified.
+     * 
+     */
+    @Import(name="httpConcurrency")
+    private @Nullable Output<Integer> httpConcurrency;
+
+    /**
+     * @return The Http concurrency of the instances on which your app runs. The supported value are from `1` to `1000`.
+     * 
+     * &gt; **Note:** A value will be assigned by the system if `http_concurrency` is not specified.
+     * 
+     */
+    public Optional<Output<Integer>> httpConcurrency() {
+        return Optional.ofNullable(this.httpConcurrency);
+    }
+
+    /**
      * Is Https Connection enforced to the function app. Defaults to `false`
      * 
      */
@@ -512,6 +531,7 @@ public final class AppFlexConsumptionArgs extends com.pulumi.resources.ResourceA
         this.clientCertificateMode = $.clientCertificateMode;
         this.connectionStrings = $.connectionStrings;
         this.enabled = $.enabled;
+        this.httpConcurrency = $.httpConcurrency;
         this.httpsOnly = $.httpsOnly;
         this.identity = $.identity;
         this.instanceMemoryInMb = $.instanceMemoryInMb;
@@ -761,6 +781,31 @@ public final class AppFlexConsumptionArgs extends com.pulumi.resources.ResourceA
          */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
+        }
+
+        /**
+         * @param httpConcurrency The Http concurrency of the instances on which your app runs. The supported value are from `1` to `1000`.
+         * 
+         * &gt; **Note:** A value will be assigned by the system if `http_concurrency` is not specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder httpConcurrency(@Nullable Output<Integer> httpConcurrency) {
+            $.httpConcurrency = httpConcurrency;
+            return this;
+        }
+
+        /**
+         * @param httpConcurrency The Http concurrency of the instances on which your app runs. The supported value are from `1` to `1000`.
+         * 
+         * &gt; **Note:** A value will be assigned by the system if `http_concurrency` is not specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder httpConcurrency(Integer httpConcurrency) {
+            return httpConcurrency(Output.of(httpConcurrency));
         }
 
         /**

@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.EventGrid` - 2022-06-15
+ * * `Microsoft.EventGrid` - 2025-02-15
  */
 export function getPartnerNamespace(args: GetPartnerNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerNamespaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -115,7 +115,7 @@ export interface GetPartnerNamespaceResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.EventGrid` - 2022-06-15
+ * * `Microsoft.EventGrid` - 2025-02-15
  */
 export function getPartnerNamespaceOutput(args: GetPartnerNamespaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPartnerNamespaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

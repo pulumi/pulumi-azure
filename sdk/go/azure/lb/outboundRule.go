@@ -110,8 +110,8 @@ type OutboundRule struct {
 	AllocatedOutboundPorts pulumi.IntPtrOutput `pulumi:"allocatedOutboundPorts"`
 	// The ID of the Backend Address Pool. Outbound traffic is randomly load balanced across IPs in the backend IPs.
 	BackendAddressPoolId pulumi.StringOutput `pulumi:"backendAddressPoolId"`
-	// Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
-	EnableTcpReset pulumi.BoolPtrOutput `pulumi:"enableTcpReset"`
+	// Deprecated: This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
+	EnableTcpReset pulumi.BoolOutput `pulumi:"enableTcpReset"`
 	// One or more `frontendIpConfiguration` blocks as defined below.
 	FrontendIpConfigurations OutboundRuleFrontendIpConfigurationArrayOutput `pulumi:"frontendIpConfigurations"`
 	// The timeout for the TCP idle connection Defaults to `4`.
@@ -122,6 +122,8 @@ type OutboundRule struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
 	Protocol pulumi.StringOutput `pulumi:"protocol"`
+	// Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
+	TcpResetEnabled pulumi.BoolOutput `pulumi:"tcpResetEnabled"`
 }
 
 // NewOutboundRule registers a new resource with the given unique name, arguments, and options.
@@ -167,7 +169,7 @@ type outboundRuleState struct {
 	AllocatedOutboundPorts *int `pulumi:"allocatedOutboundPorts"`
 	// The ID of the Backend Address Pool. Outbound traffic is randomly load balanced across IPs in the backend IPs.
 	BackendAddressPoolId *string `pulumi:"backendAddressPoolId"`
-	// Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
+	// Deprecated: This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
 	EnableTcpReset *bool `pulumi:"enableTcpReset"`
 	// One or more `frontendIpConfiguration` blocks as defined below.
 	FrontendIpConfigurations []OutboundRuleFrontendIpConfiguration `pulumi:"frontendIpConfigurations"`
@@ -179,6 +181,8 @@ type outboundRuleState struct {
 	Name *string `pulumi:"name"`
 	// The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
 	Protocol *string `pulumi:"protocol"`
+	// Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
+	TcpResetEnabled *bool `pulumi:"tcpResetEnabled"`
 }
 
 type OutboundRuleState struct {
@@ -186,7 +190,7 @@ type OutboundRuleState struct {
 	AllocatedOutboundPorts pulumi.IntPtrInput
 	// The ID of the Backend Address Pool. Outbound traffic is randomly load balanced across IPs in the backend IPs.
 	BackendAddressPoolId pulumi.StringPtrInput
-	// Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
+	// Deprecated: This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
 	EnableTcpReset pulumi.BoolPtrInput
 	// One or more `frontendIpConfiguration` blocks as defined below.
 	FrontendIpConfigurations OutboundRuleFrontendIpConfigurationArrayInput
@@ -198,6 +202,8 @@ type OutboundRuleState struct {
 	Name pulumi.StringPtrInput
 	// The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
 	Protocol pulumi.StringPtrInput
+	// Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
+	TcpResetEnabled pulumi.BoolPtrInput
 }
 
 func (OutboundRuleState) ElementType() reflect.Type {
@@ -209,7 +215,7 @@ type outboundRuleArgs struct {
 	AllocatedOutboundPorts *int `pulumi:"allocatedOutboundPorts"`
 	// The ID of the Backend Address Pool. Outbound traffic is randomly load balanced across IPs in the backend IPs.
 	BackendAddressPoolId string `pulumi:"backendAddressPoolId"`
-	// Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
+	// Deprecated: This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
 	EnableTcpReset *bool `pulumi:"enableTcpReset"`
 	// One or more `frontendIpConfiguration` blocks as defined below.
 	FrontendIpConfigurations []OutboundRuleFrontendIpConfiguration `pulumi:"frontendIpConfigurations"`
@@ -221,6 +227,8 @@ type outboundRuleArgs struct {
 	Name *string `pulumi:"name"`
 	// The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
 	Protocol string `pulumi:"protocol"`
+	// Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
+	TcpResetEnabled *bool `pulumi:"tcpResetEnabled"`
 }
 
 // The set of arguments for constructing a OutboundRule resource.
@@ -229,7 +237,7 @@ type OutboundRuleArgs struct {
 	AllocatedOutboundPorts pulumi.IntPtrInput
 	// The ID of the Backend Address Pool. Outbound traffic is randomly load balanced across IPs in the backend IPs.
 	BackendAddressPoolId pulumi.StringInput
-	// Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
+	// Deprecated: This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
 	EnableTcpReset pulumi.BoolPtrInput
 	// One or more `frontendIpConfiguration` blocks as defined below.
 	FrontendIpConfigurations OutboundRuleFrontendIpConfigurationArrayInput
@@ -241,6 +249,8 @@ type OutboundRuleArgs struct {
 	Name pulumi.StringPtrInput
 	// The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
 	Protocol pulumi.StringInput
+	// Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
+	TcpResetEnabled pulumi.BoolPtrInput
 }
 
 func (OutboundRuleArgs) ElementType() reflect.Type {
@@ -340,9 +350,9 @@ func (o OutboundRuleOutput) BackendAddressPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *OutboundRule) pulumi.StringOutput { return v.BackendAddressPoolId }).(pulumi.StringOutput)
 }
 
-// Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
-func (o OutboundRuleOutput) EnableTcpReset() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *OutboundRule) pulumi.BoolPtrOutput { return v.EnableTcpReset }).(pulumi.BoolPtrOutput)
+// Deprecated: This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
+func (o OutboundRuleOutput) EnableTcpReset() pulumi.BoolOutput {
+	return o.ApplyT(func(v *OutboundRule) pulumi.BoolOutput { return v.EnableTcpReset }).(pulumi.BoolOutput)
 }
 
 // One or more `frontendIpConfiguration` blocks as defined below.
@@ -370,6 +380,11 @@ func (o OutboundRuleOutput) Name() pulumi.StringOutput {
 // The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
 func (o OutboundRuleOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v *OutboundRule) pulumi.StringOutput { return v.Protocol }).(pulumi.StringOutput)
+}
+
+// Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
+func (o OutboundRuleOutput) TcpResetEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *OutboundRule) pulumi.BoolOutput { return v.TcpResetEnabled }).(pulumi.BoolOutput)
 }
 
 type OutboundRuleArrayOutput struct{ *pulumi.OutputState }

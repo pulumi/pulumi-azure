@@ -19,78 +19,28 @@ __all__ = ['QueueArgs', 'Queue']
 @pulumi.input_type
 class QueueArgs:
     def __init__(__self__, *,
-                 storage_account_name: pulumi.Input[_builtins.str],
-                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        The set of arguments for constructing a Queue resource.
-        :param pulumi.Input[_builtins.str] storage_account_name: Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: A mapping of MetaData which should be assigned to this Storage Queue.
-        :param pulumi.Input[_builtins.str] name: The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
-        """
-        pulumi.set(__self__, "storage_account_name", storage_account_name)
-        if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-
-    @_builtins.property
-    @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "storage_account_name")
-
-    @storage_account_name.setter
-    def storage_account_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "storage_account_name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        A mapping of MetaData which should be assigned to this Storage Queue.
-        """
-        return pulumi.get(self, "metadata")
-
-    @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "metadata", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "name", value)
-
-
-@pulumi.input_type
-class _QueueState:
-    def __init__(__self__, *,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_manager_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_account_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        Input properties used for looking up and filtering Queue resources.
+        The set of arguments for constructing a Queue resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: A mapping of MetaData which should be assigned to this Storage Queue.
         :param pulumi.Input[_builtins.str] name: The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] resource_manager_id: The Resource Manager ID of this Storage Queue.
-        :param pulumi.Input[_builtins.str] storage_account_name: Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] storage_account_id: The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created.
+               
+               > **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+        :param pulumi.Input[_builtins.str] storage_account_name: The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
         """
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if resource_manager_id is not None:
-            pulumi.set(__self__, "resource_manager_id", resource_manager_id)
+        if storage_account_id is not None:
+            pulumi.set(__self__, "storage_account_id", storage_account_id)
+        if storage_account_name is not None:
+            warnings.warn("""the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider.""", DeprecationWarning)
+            pulumi.log.warn("""storage_account_name is deprecated: the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider.""")
         if storage_account_name is not None:
             pulumi.set(__self__, "storage_account_name", storage_account_name)
 
@@ -119,7 +69,99 @@ class _QueueState:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created.
+
+        > **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+    @storage_account_id.setter
+    def storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "storage_account_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageAccountName")
+    @_utilities.deprecated("""the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider.""")
+    def storage_account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @storage_account_name.setter
+    def storage_account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "storage_account_name", value)
+
+
+@pulumi.input_type
+class _QueueState:
+    def __init__(__self__, *,
+                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_manager_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 url: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Input properties used for looking up and filtering Queue resources.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: A mapping of MetaData which should be assigned to this Storage Queue.
+        :param pulumi.Input[_builtins.str] name: The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] resource_manager_id: The Resource Manager ID of this Storage Queue.
+        :param pulumi.Input[_builtins.str] storage_account_id: The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created.
+               
+               > **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+        :param pulumi.Input[_builtins.str] storage_account_name: The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
+        :param pulumi.Input[_builtins.str] url: The data plane URL of the Storage Queue in the format of `<storage queue endpoint>/<queue name>`. E.g. `https://example.queue.core.windows.net/queue1`.
+        """
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if resource_manager_id is not None:
+            warnings.warn("""the `resource_manager_id` property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.""", DeprecationWarning)
+            pulumi.log.warn("""resource_manager_id is deprecated: the `resource_manager_id` property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.""")
+        if resource_manager_id is not None:
+            pulumi.set(__self__, "resource_manager_id", resource_manager_id)
+        if storage_account_id is not None:
+            pulumi.set(__self__, "storage_account_id", storage_account_id)
+        if storage_account_name is not None:
+            warnings.warn("""the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider.""", DeprecationWarning)
+            pulumi.log.warn("""storage_account_name is deprecated: the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider.""")
+        if storage_account_name is not None:
+            pulumi.set(__self__, "storage_account_name", storage_account_name)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @_builtins.property
+    @pulumi.getter
+    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        A mapping of MetaData which should be assigned to this Storage Queue.
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "metadata", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceManagerId")
+    @_utilities.deprecated("""the `resource_manager_id` property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.""")
     def resource_manager_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The Resource Manager ID of this Storage Queue.
@@ -131,16 +173,43 @@ class _QueueState:
         pulumi.set(self, "resource_manager_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created.
+
+        > **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+    @storage_account_id.setter
+    def storage_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "storage_account_id", value)
+
+    @_builtins.property
     @pulumi.getter(name="storageAccountName")
+    @_utilities.deprecated("""the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider.""")
     def storage_account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
+        The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
         """
         return pulumi.get(self, "storage_account_name")
 
     @storage_account_name.setter
     def storage_account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "storage_account_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The data plane URL of the Storage Queue in the format of `<storage queue endpoint>/<queue name>`. E.g. `https://example.queue.core.windows.net/queue1`.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "url", value)
 
 
 @pulumi.type_token("azure:storage/queue:Queue")
@@ -151,6 +220,7 @@ class Queue(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
@@ -176,25 +246,43 @@ class Queue(pulumi.CustomResource):
             storage_account_name=example_account.name)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Storage` - 2023-05-01
+
         ## Import
 
         Storage Queue's can be imported using the `resource id`, e.g.
 
+        If `storage_account_name` is used:
+
         ```sh
         $ pulumi import azure:storage/queue:Queue queue1 https://example.queue.core.windows.net/queue1
+        ```
+
+        If `storage_account_id` is used:
+
+        ```sh
+        $ pulumi import azure:storage/queue:Queue queue1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myaccount/queueServices/default/queues
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: A mapping of MetaData which should be assigned to this Storage Queue.
         :param pulumi.Input[_builtins.str] name: The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] storage_account_name: Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] storage_account_id: The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created.
+               
+               > **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+        :param pulumi.Input[_builtins.str] storage_account_name: The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: QueueArgs,
+                 args: Optional[QueueArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Queue within an Azure Storage Account.
@@ -219,12 +307,27 @@ class Queue(pulumi.CustomResource):
             storage_account_name=example_account.name)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Storage` - 2023-05-01
+
         ## Import
 
         Storage Queue's can be imported using the `resource id`, e.g.
 
+        If `storage_account_name` is used:
+
         ```sh
         $ pulumi import azure:storage/queue:Queue queue1 https://example.queue.core.windows.net/queue1
+        ```
+
+        If `storage_account_id` is used:
+
+        ```sh
+        $ pulumi import azure:storage/queue:Queue queue1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myaccount/queueServices/default/queues
         ```
 
         :param str resource_name: The name of the resource.
@@ -244,6 +347,7 @@ class Queue(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -256,10 +360,10 @@ class Queue(pulumi.CustomResource):
 
             __props__.__dict__["metadata"] = metadata
             __props__.__dict__["name"] = name
-            if storage_account_name is None and not opts.urn:
-                raise TypeError("Missing required property 'storage_account_name'")
+            __props__.__dict__["storage_account_id"] = storage_account_id
             __props__.__dict__["storage_account_name"] = storage_account_name
             __props__.__dict__["resource_manager_id"] = None
+            __props__.__dict__["url"] = None
         super(Queue, __self__).__init__(
             'azure:storage/queue:Queue',
             resource_name,
@@ -273,7 +377,9 @@ class Queue(pulumi.CustomResource):
             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
             resource_manager_id: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_account_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'Queue':
+            storage_account_id: Optional[pulumi.Input[_builtins.str]] = None,
+            storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+            url: Optional[pulumi.Input[_builtins.str]] = None) -> 'Queue':
         """
         Get an existing Queue resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -284,7 +390,11 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: A mapping of MetaData which should be assigned to this Storage Queue.
         :param pulumi.Input[_builtins.str] name: The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_manager_id: The Resource Manager ID of this Storage Queue.
-        :param pulumi.Input[_builtins.str] storage_account_name: Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] storage_account_id: The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created.
+               
+               > **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+        :param pulumi.Input[_builtins.str] storage_account_name: The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
+        :param pulumi.Input[_builtins.str] url: The data plane URL of the Storage Queue in the format of `<storage queue endpoint>/<queue name>`. E.g. `https://example.queue.core.windows.net/queue1`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -293,7 +403,9 @@ class Queue(pulumi.CustomResource):
         __props__.__dict__["metadata"] = metadata
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_manager_id"] = resource_manager_id
+        __props__.__dict__["storage_account_id"] = storage_account_id
         __props__.__dict__["storage_account_name"] = storage_account_name
+        __props__.__dict__["url"] = url
         return Queue(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -314,6 +426,7 @@ class Queue(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="resourceManagerId")
+    @_utilities.deprecated("""the `resource_manager_id` property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.""")
     def resource_manager_id(self) -> pulumi.Output[_builtins.str]:
         """
         The Resource Manager ID of this Storage Queue.
@@ -321,10 +434,29 @@ class Queue(pulumi.CustomResource):
         return pulumi.get(self, "resource_manager_id")
 
     @_builtins.property
-    @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> pulumi.Output[_builtins.str]:
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
+        The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created.
+
+        > **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+    @_builtins.property
+    @pulumi.getter(name="storageAccountName")
+    @_utilities.deprecated("""the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider.""")
+    def storage_account_name(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
         """
         return pulumi.get(self, "storage_account_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def url(self) -> pulumi.Output[_builtins.str]:
+        """
+        The data plane URL of the Storage Queue in the format of `<storage queue endpoint>/<queue name>`. E.g. `https://example.queue.core.windows.net/queue1`.
+        """
+        return pulumi.get(self, "url")
 

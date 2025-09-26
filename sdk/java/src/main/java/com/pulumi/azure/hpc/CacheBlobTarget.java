@@ -122,7 +122,7 @@ import javax.annotation.Nullable;
  *             .name("examplehpccblobtarget")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .cacheName(exampleCache.name())
- *             .storageContainerId(exampleContainer.resourceManagerId())
+ *             .storageContainerId(exampleContainer.id())
  *             .namespacePath("/blob_storage")
  *             .build());
  * 

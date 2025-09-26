@@ -82,6 +82,10 @@ export class AutomationRule extends pulumi.CustomResource {
     }
 
     /**
+     * One or more `actionIncidentTask` blocks as defined below.
+     */
+    declare public readonly actionIncidentTasks: pulumi.Output<outputs.sentinel.AutomationRuleActionIncidentTask[] | undefined>;
+    /**
      * One or more `actionIncident` blocks as defined below.
      */
     declare public readonly actionIncidents: pulumi.Output<outputs.sentinel.AutomationRuleActionIncident[] | undefined>;
@@ -141,6 +145,7 @@ export class AutomationRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AutomationRuleState | undefined;
+            resourceInputs["actionIncidentTasks"] = state?.actionIncidentTasks;
             resourceInputs["actionIncidents"] = state?.actionIncidents;
             resourceInputs["actionPlaybooks"] = state?.actionPlaybooks;
             resourceInputs["conditionJson"] = state?.conditionJson;
@@ -163,6 +168,7 @@ export class AutomationRule extends pulumi.CustomResource {
             if (args?.order === undefined && !opts.urn) {
                 throw new Error("Missing required property 'order'");
             }
+            resourceInputs["actionIncidentTasks"] = args?.actionIncidentTasks;
             resourceInputs["actionIncidents"] = args?.actionIncidents;
             resourceInputs["actionPlaybooks"] = args?.actionPlaybooks;
             resourceInputs["conditionJson"] = args?.conditionJson;
@@ -186,6 +192,10 @@ export class AutomationRule extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AutomationRule resources.
  */
 export interface AutomationRuleState {
+    /**
+     * One or more `actionIncidentTask` blocks as defined below.
+     */
+    actionIncidentTasks?: pulumi.Input<pulumi.Input<inputs.sentinel.AutomationRuleActionIncidentTask>[]>;
     /**
      * One or more `actionIncident` blocks as defined below.
      */
@@ -238,6 +248,10 @@ export interface AutomationRuleState {
  * The set of arguments for constructing a AutomationRule resource.
  */
 export interface AutomationRuleArgs {
+    /**
+     * One or more `actionIncidentTask` blocks as defined below.
+     */
+    actionIncidentTasks?: pulumi.Input<pulumi.Input<inputs.sentinel.AutomationRuleActionIncidentTask>[]>;
     /**
      * One or more `actionIncident` blocks as defined below.
      */

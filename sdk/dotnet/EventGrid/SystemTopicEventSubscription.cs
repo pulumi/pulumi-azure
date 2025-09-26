@@ -52,7 +52,7 @@ namespace Pulumi.Azure.EventGrid
     ///         Name = "example-system-topic",
     ///         Location = "Global",
     ///         ResourceGroupName = example.Name,
-    ///         SourceArmResourceId = example.Id,
+    ///         SourceResourceId = example.Id,
     ///         TopicType = "Microsoft.Resources.ResourceGroups",
     ///     });
     /// 
@@ -76,7 +76,7 @@ namespace Pulumi.Azure.EventGrid
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.EventGrid` - 2022-06-15
+    /// * `Microsoft.EventGrid` - 2025-02-15
     /// 
     /// ## Import
     /// 

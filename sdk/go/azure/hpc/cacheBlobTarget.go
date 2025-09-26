@@ -120,7 +120,7 @@ import (
 //				Name:               pulumi.String("examplehpccblobtarget"),
 //				ResourceGroupName:  exampleResourceGroup.Name,
 //				CacheName:          exampleCache.Name,
-//				StorageContainerId: exampleContainer.ResourceManagerId,
+//				StorageContainerId: exampleContainer.ID(),
 //				NamespacePath:      pulumi.String("/blob_storage"),
 //			})
 //			if err != nil {

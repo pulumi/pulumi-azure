@@ -203,6 +203,29 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The sharing scope of the subnet. Possible value is `Tenant`.
+     * 
+     * &gt; **Note:** This property cannot be set if `default_outbound_access_enabled` is set to `true`.
+     * 
+     * !&gt; **Note:** The `sharing_scope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
+     * 
+     */
+    @Import(name="sharingScope")
+    private @Nullable Output<String> sharingScope;
+
+    /**
+     * @return The sharing scope of the subnet. Possible value is `Tenant`.
+     * 
+     * &gt; **Note:** This property cannot be set if `default_outbound_access_enabled` is set to `true`.
+     * 
+     * !&gt; **Note:** The `sharing_scope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
+     * 
+     */
+    public Optional<Output<String>> sharingScope() {
+        return Optional.ofNullable(this.sharingScope);
+    }
+
+    /**
      * The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
      * 
      */
@@ -230,6 +253,7 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
         this.resourceGroupName = $.resourceGroupName;
         this.serviceEndpointPolicyIds = $.serviceEndpointPolicyIds;
         this.serviceEndpoints = $.serviceEndpoints;
+        this.sharingScope = $.sharingScope;
         this.virtualNetworkName = $.virtualNetworkName;
     }
 
@@ -537,6 +561,35 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder serviceEndpoints(String... serviceEndpoints) {
             return serviceEndpoints(List.of(serviceEndpoints));
+        }
+
+        /**
+         * @param sharingScope The sharing scope of the subnet. Possible value is `Tenant`.
+         * 
+         * &gt; **Note:** This property cannot be set if `default_outbound_access_enabled` is set to `true`.
+         * 
+         * !&gt; **Note:** The `sharing_scope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sharingScope(@Nullable Output<String> sharingScope) {
+            $.sharingScope = sharingScope;
+            return this;
+        }
+
+        /**
+         * @param sharingScope The sharing scope of the subnet. Possible value is `Tenant`.
+         * 
+         * &gt; **Note:** This property cannot be set if `default_outbound_access_enabled` is set to `true`.
+         * 
+         * !&gt; **Note:** The `sharing_scope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sharingScope(String sharingScope) {
+            return sharingScope(Output.of(sharingScope));
         }
 
         /**

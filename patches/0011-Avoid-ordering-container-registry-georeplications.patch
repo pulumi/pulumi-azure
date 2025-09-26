@@ -6,18 +6,18 @@ Subject: [PATCH] Avoid ordering container registry georeplications
 This looks like it might have been removed in error due to a bad merge at some point.
 
 diff --git a/internal/services/containers/container_registry_resource.go b/internal/services/containers/container_registry_resource.go
-index adec69cec1..59001dd0cc 100644
+index b8217c43e8..c4d3516c66 100644
 --- a/internal/services/containers/container_registry_resource.go
 +++ b/internal/services/containers/container_registry_resource.go
-@@ -7,7 +7,6 @@ import (
- 	"context"
+@@ -8,7 +8,6 @@ import (
+ 	"errors"
  	"fmt"
  	"log"
 -	"sort"
  	"strings"
  	"time"
  
-@@ -922,11 +921,6 @@ func resourceContainerRegistryRead(d *pluginsdk.ResourceData, meta interface{})
+@@ -923,11 +922,6 @@ func resourceContainerRegistryRead(d *pluginsdk.ResourceData, meta interface{})
  		}
  	}
  

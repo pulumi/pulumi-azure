@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         private InputList<Inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs>? _domains;
 
         /// <summary>
-        /// One or more `domain` blocks as defined below. Changing this forces a new Front Door Security Policy to be created.
+        /// One or more `domain` blocks as defined below.
         /// </summary>
         public InputList<Inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs> Domains
         {

@@ -24,17 +24,9 @@ public final class ResourceGroupPolicyAssignmentResourceSelectorSelectorArgs ext
         return Optional.ofNullable(this.ins);
     }
 
-    /**
-     * Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
-     * 
-     */
     @Import(name="kind", required=true)
     private Output<String> kind;
 
-    /**
-     * @return Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
-     * 
-     */
     public Output<String> kind() {
         return this.kind;
     }
@@ -85,23 +77,11 @@ public final class ResourceGroupPolicyAssignmentResourceSelectorSelectorArgs ext
             return ins(List.of(ins));
         }
 
-        /**
-         * @param kind Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kind(Output<String> kind) {
             $.kind = kind;
             return this;
         }
 
-        /**
-         * @param kind Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kind(String kind) {
             return kind(Output.of(kind));
         }

@@ -104,7 +104,7 @@ namespace Pulumi.Azure.Hpc
     ///         Name = "examplehpccblobtarget",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         CacheName = exampleCache.Name,
-    ///         StorageContainerId = exampleContainer.ResourceManagerId,
+    ///         StorageContainerId = exampleContainer.Id,
     ///         NamespacePath = "/blob_storage",
     ///     });
     /// 

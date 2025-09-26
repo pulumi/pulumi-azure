@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class ClusterOptimizedAutoScale {
     /**
-     * @return The maximum number of allowed instances. Must between `0` and `1000`.
+     * @return The maximum number of allowed instances. Possible values range between `0` and `1000`.
      * 
      */
     private Integer maximumInstances;
     /**
-     * @return The minimum number of allowed instances. Must between `0` and `1000`.
+     * @return The minimum number of allowed instances. Possible values range between `0` and `1000`.
      * 
      */
     private Integer minimumInstances;
 
     private ClusterOptimizedAutoScale() {}
     /**
-     * @return The maximum number of allowed instances. Must between `0` and `1000`.
+     * @return The maximum number of allowed instances. Possible values range between `0` and `1000`.
      * 
      */
     public Integer maximumInstances() {
         return this.maximumInstances;
     }
     /**
-     * @return The minimum number of allowed instances. Must between `0` and `1000`.
+     * @return The minimum number of allowed instances. Possible values range between `0` and `1000`.
      * 
      */
     public Integer minimumInstances() {

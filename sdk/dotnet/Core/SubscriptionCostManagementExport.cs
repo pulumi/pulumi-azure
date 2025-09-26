@@ -55,7 +55,7 @@ namespace Pulumi.Azure.Core
     ///         FileFormat = "Csv",
     ///         ExportDataStorageLocation = new Azure.Core.Inputs.SubscriptionCostManagementExportExportDataStorageLocationArgs
     ///         {
-    ///             ContainerId = exampleContainer.ResourceManagerId,
+    ///             ContainerId = exampleContainer.Id,
     ///             RootFolderPath = "/root/updated",
     ///         },
     ///         ExportDataOptions = new Azure.Core.Inputs.SubscriptionCostManagementExportExportDataOptionsArgs

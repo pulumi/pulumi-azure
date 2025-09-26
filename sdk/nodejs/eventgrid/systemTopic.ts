@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  *     name: "example-topic",
  *     resourceGroupName: example.name,
  *     location: example.location,
- *     sourceArmResourceId: exampleAccount.id,
+ *     sourceResourceId: exampleAccount.id,
  *     topicType: "Microsoft.Storage.StorageAccounts",
  * });
  * ```
@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.EventGrid` - 2022-06-15
+ * * `Microsoft.EventGrid` - 2025-02-15
  *
  * ## Import
  *
@@ -89,10 +89,11 @@ export class SystemTopic extends pulumi.CustomResource {
      * The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
      */
     declare public readonly location: pulumi.Output<string>;
-    /**
-     * The Metric ARM Resource ID of the Event Grid System Topic.
-     */
     declare public /*out*/ readonly metricArmResourceId: pulumi.Output<string>;
+    /**
+     * The Metric Resource ID of the Event Grid System Topic.
+     */
+    declare public /*out*/ readonly metricResourceId: pulumi.Output<string>;
     /**
      * The name which should be used for this Event Grid System Topic. Changing this forces a new Event Grid System Topic to be created.
      */
@@ -102,9 +103,13 @@ export class SystemTopic extends pulumi.CustomResource {
      */
     declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
-     * The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
+     * @deprecated the `sourceArmResourceId` property has been deprecated in favour of `sourceResourceId` and will be removed in version 5.0 of the Provider.
      */
     declare public readonly sourceArmResourceId: pulumi.Output<string>;
+    /**
+     * The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
+     */
+    declare public readonly sourceResourceId: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Event Grid System Topic.
      */
@@ -134,18 +139,17 @@ export class SystemTopic extends pulumi.CustomResource {
             resourceInputs["identity"] = state?.identity;
             resourceInputs["location"] = state?.location;
             resourceInputs["metricArmResourceId"] = state?.metricArmResourceId;
+            resourceInputs["metricResourceId"] = state?.metricResourceId;
             resourceInputs["name"] = state?.name;
             resourceInputs["resourceGroupName"] = state?.resourceGroupName;
             resourceInputs["sourceArmResourceId"] = state?.sourceArmResourceId;
+            resourceInputs["sourceResourceId"] = state?.sourceResourceId;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["topicType"] = state?.topicType;
         } else {
             const args = argsOrState as SystemTopicArgs | undefined;
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if (args?.sourceArmResourceId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'sourceArmResourceId'");
             }
             if (args?.topicType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'topicType'");
@@ -155,9 +159,11 @@ export class SystemTopic extends pulumi.CustomResource {
             resourceInputs["name"] = args?.name;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["sourceArmResourceId"] = args?.sourceArmResourceId;
+            resourceInputs["sourceResourceId"] = args?.sourceResourceId;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["topicType"] = args?.topicType;
             resourceInputs["metricArmResourceId"] = undefined /*out*/;
+            resourceInputs["metricResourceId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SystemTopic.__pulumiType, name, resourceInputs, opts);
@@ -176,10 +182,11 @@ export interface SystemTopicState {
      * The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
      */
     location?: pulumi.Input<string>;
-    /**
-     * The Metric ARM Resource ID of the Event Grid System Topic.
-     */
     metricArmResourceId?: pulumi.Input<string>;
+    /**
+     * The Metric Resource ID of the Event Grid System Topic.
+     */
+    metricResourceId?: pulumi.Input<string>;
     /**
      * The name which should be used for this Event Grid System Topic. Changing this forces a new Event Grid System Topic to be created.
      */
@@ -189,9 +196,13 @@ export interface SystemTopicState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
+     * @deprecated the `sourceArmResourceId` property has been deprecated in favour of `sourceResourceId` and will be removed in version 5.0 of the Provider.
      */
     sourceArmResourceId?: pulumi.Input<string>;
+    /**
+     * The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
+     */
+    sourceResourceId?: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Event Grid System Topic.
      */
@@ -227,9 +238,13 @@ export interface SystemTopicArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
+     * @deprecated the `sourceArmResourceId` property has been deprecated in favour of `sourceResourceId` and will be removed in version 5.0 of the Provider.
+     */
+    sourceArmResourceId?: pulumi.Input<string>;
+    /**
      * The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
      */
-    sourceArmResourceId: pulumi.Input<string>;
+    sourceResourceId?: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Event Grid System Topic.
      */

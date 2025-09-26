@@ -37,7 +37,7 @@ public final class WindowsVirtualMachineOsDiskArgs extends com.pulumi.resources.
     /**
      * A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment)
+     * &gt; **NOTE:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment). Additionally, this property cannot be set when an existing Managed Disk is used to create the Virtual Machine by setting `os_managed_disk_id`.
      * 
      */
     @Import(name="diffDiskSettings")
@@ -46,7 +46,7 @@ public final class WindowsVirtualMachineOsDiskArgs extends com.pulumi.resources.
     /**
      * @return A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment)
+     * &gt; **NOTE:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment). Additionally, this property cannot be set when an existing Managed Disk is used to create the Virtual Machine by setting `os_managed_disk_id`.
      * 
      */
     public Optional<Output<WindowsVirtualMachineOsDiskDiffDiskSettingsArgs>> diffDiskSettings() {
@@ -109,12 +109,16 @@ public final class WindowsVirtualMachineOsDiskArgs extends com.pulumi.resources.
     /**
      * The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** a value for `name` cannot be specified if/when the Virtual Machine has been created using an existing Managed Disk for the OS by setting `os_managed_disk_id`.
+     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
      * @return The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** a value for `name` cannot be specified if/when the Virtual Machine has been created using an existing Managed Disk for the OS by setting `os_managed_disk_id`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -166,16 +170,20 @@ public final class WindowsVirtualMachineOsDiskArgs extends com.pulumi.resources.
     /**
      * The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+     * 
      */
-    @Import(name="storageAccountType", required=true)
-    private Output<String> storageAccountType;
+    @Import(name="storageAccountType")
+    private @Nullable Output<String> storageAccountType;
 
     /**
      * @return The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+     * 
      */
-    public Output<String> storageAccountType() {
-        return this.storageAccountType;
+    public Optional<Output<String>> storageAccountType() {
+        return Optional.ofNullable(this.storageAccountType);
     }
 
     /**
@@ -254,7 +262,7 @@ public final class WindowsVirtualMachineOsDiskArgs extends com.pulumi.resources.
         /**
          * @param diffDiskSettings A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment)
+         * &gt; **NOTE:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment). Additionally, this property cannot be set when an existing Managed Disk is used to create the Virtual Machine by setting `os_managed_disk_id`.
          * 
          * @return builder
          * 
@@ -267,7 +275,7 @@ public final class WindowsVirtualMachineOsDiskArgs extends com.pulumi.resources.
         /**
          * @param diffDiskSettings A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment)
+         * &gt; **NOTE:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment). Additionally, this property cannot be set when an existing Managed Disk is used to create the Virtual Machine by setting `os_managed_disk_id`.
          * 
          * @return builder
          * 
@@ -350,6 +358,8 @@ public final class WindowsVirtualMachineOsDiskArgs extends com.pulumi.resources.
         /**
          * @param name The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** a value for `name` cannot be specified if/when the Virtual Machine has been created using an existing Managed Disk for the OS by setting `os_managed_disk_id`.
+         * 
          * @return builder
          * 
          */
@@ -360,6 +370,8 @@ public final class WindowsVirtualMachineOsDiskArgs extends com.pulumi.resources.
 
         /**
          * @param name The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** a value for `name` cannot be specified if/when the Virtual Machine has been created using an existing Managed Disk for the OS by setting `os_managed_disk_id`.
          * 
          * @return builder
          * 
@@ -425,16 +437,20 @@ public final class WindowsVirtualMachineOsDiskArgs extends com.pulumi.resources.
         /**
          * @param storageAccountType The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+         * 
          * @return builder
          * 
          */
-        public Builder storageAccountType(Output<String> storageAccountType) {
+        public Builder storageAccountType(@Nullable Output<String> storageAccountType) {
             $.storageAccountType = storageAccountType;
             return this;
         }
 
         /**
          * @param storageAccountType The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
          * 
          * @return builder
          * 
@@ -471,9 +487,6 @@ public final class WindowsVirtualMachineOsDiskArgs extends com.pulumi.resources.
         public WindowsVirtualMachineOsDiskArgs build() {
             if ($.caching == null) {
                 throw new MissingRequiredPropertyException("WindowsVirtualMachineOsDiskArgs", "caching");
-            }
-            if ($.storageAccountType == null) {
-                throw new MissingRequiredPropertyException("WindowsVirtualMachineOsDiskArgs", "storageAccountType");
             }
             return $;
         }

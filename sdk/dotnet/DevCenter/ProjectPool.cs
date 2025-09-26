@@ -171,6 +171,12 @@ namespace Pulumi.Azure.DevCenter
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies whether Dev Boxes in the Pool will have SSO enabled or disabled. Defaults to `false`.
+        /// </summary>
+        [Output("singleSignOnEnabled")]
+        public Output<bool?> SingleSignOnEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The specified time in minutes to wait before stopping a Dev Center Dev Box once disconnect is detected. Possible values are between `60` and `480`.
         /// </summary>
         [Output("stopOnDisconnectGracePeriodMinutes")]
@@ -273,6 +279,12 @@ namespace Pulumi.Azure.DevCenter
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Specifies whether Dev Boxes in the Pool will have SSO enabled or disabled. Defaults to `false`.
+        /// </summary>
+        [Input("singleSignOnEnabled")]
+        public Input<bool>? SingleSignOnEnabled { get; set; }
+
+        /// <summary>
         /// The specified time in minutes to wait before stopping a Dev Center Dev Box once disconnect is detected. Possible values are between `60` and `480`.
         /// </summary>
         [Input("stopOnDisconnectGracePeriodMinutes")]
@@ -341,6 +353,12 @@ namespace Pulumi.Azure.DevCenter
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Specifies whether Dev Boxes in the Pool will have SSO enabled or disabled. Defaults to `false`.
+        /// </summary>
+        [Input("singleSignOnEnabled")]
+        public Input<bool>? SingleSignOnEnabled { get; set; }
 
         /// <summary>
         /// The specified time in minutes to wait before stopping a Dev Center Dev Box once disconnect is detected. Possible values are between `60` and `480`.

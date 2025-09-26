@@ -49,7 +49,7 @@ namespace Pulumi.Azure.NetApp
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.NetApp` - 2025-01-01
+        /// * `Microsoft.NetApp` - 2025-06-01
         /// </summary>
         public static Task<GetSnapshotPolicyResult> InvokeAsync(GetSnapshotPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotPolicyResult>("azure:netapp/getSnapshotPolicy:getSnapshotPolicy", args ?? new GetSnapshotPolicyArgs(), options.WithDefaults());
@@ -92,7 +92,7 @@ namespace Pulumi.Azure.NetApp
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.NetApp` - 2025-01-01
+        /// * `Microsoft.NetApp` - 2025-06-01
         /// </summary>
         public static Output<GetSnapshotPolicyResult> Invoke(GetSnapshotPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSnapshotPolicyResult>("azure:netapp/getSnapshotPolicy:getSnapshotPolicy", args ?? new GetSnapshotPolicyInvokeArgs(), options.WithDefaults());
@@ -135,7 +135,7 @@ namespace Pulumi.Azure.NetApp
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.NetApp` - 2025-01-01
+        /// * `Microsoft.NetApp` - 2025-06-01
         /// </summary>
         public static Output<GetSnapshotPolicyResult> Invoke(GetSnapshotPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSnapshotPolicyResult>("azure:netapp/getSnapshotPolicy:getSnapshotPolicy", args ?? new GetSnapshotPolicyInvokeArgs(), options.WithDefaults());

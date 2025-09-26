@@ -30,13 +30,22 @@ public final class GetLBRuleResult {
     /**
      * @return If Floating IPs are enabled for this Load Balancer Rule
      * 
+     * @deprecated
+     * The property `enable_floating_ip` has been deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider
+     * 
      */
+    @Deprecated /* The property `enable_floating_ip` has been deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider */
     private Boolean enableFloatingIp;
     /**
      * @return If TCP Reset is enabled for this Load Balancer Rule.
      * 
+     * @deprecated
+     * The property `enable_tcp_reset` has been deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider
+     * 
      */
+    @Deprecated /* The property `enable_tcp_reset` has been deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider */
     private Boolean enableTcpReset;
+    private Boolean floatingIpEnabled;
     /**
      * @return The name of the frontend IP configuration to which the rule is associated.
      * 
@@ -74,6 +83,7 @@ public final class GetLBRuleResult {
      * 
      */
     private String protocol;
+    private Boolean tcpResetEnabled;
 
     private GetLBRuleResult() {}
     /**
@@ -100,16 +110,27 @@ public final class GetLBRuleResult {
     /**
      * @return If Floating IPs are enabled for this Load Balancer Rule
      * 
+     * @deprecated
+     * The property `enable_floating_ip` has been deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider
+     * 
      */
+    @Deprecated /* The property `enable_floating_ip` has been deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider */
     public Boolean enableFloatingIp() {
         return this.enableFloatingIp;
     }
     /**
      * @return If TCP Reset is enabled for this Load Balancer Rule.
      * 
+     * @deprecated
+     * The property `enable_tcp_reset` has been deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider
+     * 
      */
+    @Deprecated /* The property `enable_tcp_reset` has been deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider */
     public Boolean enableTcpReset() {
         return this.enableTcpReset;
+    }
+    public Boolean floatingIpEnabled() {
+        return this.floatingIpEnabled;
     }
     /**
      * @return The name of the frontend IP configuration to which the rule is associated.
@@ -166,6 +187,9 @@ public final class GetLBRuleResult {
     public String protocol() {
         return this.protocol;
     }
+    public Boolean tcpResetEnabled() {
+        return this.tcpResetEnabled;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -181,6 +205,7 @@ public final class GetLBRuleResult {
         private Boolean disableOutboundSnat;
         private Boolean enableFloatingIp;
         private Boolean enableTcpReset;
+        private Boolean floatingIpEnabled;
         private String frontendIpConfigurationName;
         private Integer frontendPort;
         private String id;
@@ -190,6 +215,7 @@ public final class GetLBRuleResult {
         private String name;
         private String probeId;
         private String protocol;
+        private Boolean tcpResetEnabled;
         public Builder() {}
         public Builder(GetLBRuleResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -198,6 +224,7 @@ public final class GetLBRuleResult {
     	      this.disableOutboundSnat = defaults.disableOutboundSnat;
     	      this.enableFloatingIp = defaults.enableFloatingIp;
     	      this.enableTcpReset = defaults.enableTcpReset;
+    	      this.floatingIpEnabled = defaults.floatingIpEnabled;
     	      this.frontendIpConfigurationName = defaults.frontendIpConfigurationName;
     	      this.frontendPort = defaults.frontendPort;
     	      this.id = defaults.id;
@@ -207,6 +234,7 @@ public final class GetLBRuleResult {
     	      this.name = defaults.name;
     	      this.probeId = defaults.probeId;
     	      this.protocol = defaults.protocol;
+    	      this.tcpResetEnabled = defaults.tcpResetEnabled;
         }
 
         @CustomType.Setter
@@ -247,6 +275,14 @@ public final class GetLBRuleResult {
               throw new MissingRequiredPropertyException("GetLBRuleResult", "enableTcpReset");
             }
             this.enableTcpReset = enableTcpReset;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder floatingIpEnabled(Boolean floatingIpEnabled) {
+            if (floatingIpEnabled == null) {
+              throw new MissingRequiredPropertyException("GetLBRuleResult", "floatingIpEnabled");
+            }
+            this.floatingIpEnabled = floatingIpEnabled;
             return this;
         }
         @CustomType.Setter
@@ -321,6 +357,14 @@ public final class GetLBRuleResult {
             this.protocol = protocol;
             return this;
         }
+        @CustomType.Setter
+        public Builder tcpResetEnabled(Boolean tcpResetEnabled) {
+            if (tcpResetEnabled == null) {
+              throw new MissingRequiredPropertyException("GetLBRuleResult", "tcpResetEnabled");
+            }
+            this.tcpResetEnabled = tcpResetEnabled;
+            return this;
+        }
         public GetLBRuleResult build() {
             final var _resultValue = new GetLBRuleResult();
             _resultValue.backendAddressPoolId = backendAddressPoolId;
@@ -328,6 +372,7 @@ public final class GetLBRuleResult {
             _resultValue.disableOutboundSnat = disableOutboundSnat;
             _resultValue.enableFloatingIp = enableFloatingIp;
             _resultValue.enableTcpReset = enableTcpReset;
+            _resultValue.floatingIpEnabled = floatingIpEnabled;
             _resultValue.frontendIpConfigurationName = frontendIpConfigurationName;
             _resultValue.frontendPort = frontendPort;
             _resultValue.id = id;
@@ -337,6 +382,7 @@ public final class GetLBRuleResult {
             _resultValue.name = name;
             _resultValue.probeId = probeId;
             _resultValue.protocol = protocol;
+            _resultValue.tcpResetEnabled = tcpResetEnabled;
             return _resultValue;
         }
     }

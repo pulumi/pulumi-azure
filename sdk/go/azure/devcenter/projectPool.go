@@ -162,6 +162,8 @@ type ProjectPool struct {
 	ManagedVirtualNetworkRegions pulumi.StringPtrOutput `pulumi:"managedVirtualNetworkRegions"`
 	// Specifies the name of this Dev Center Project Pool. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Specifies whether Dev Boxes in the Pool will have SSO enabled or disabled. Defaults to `false`.
+	SingleSignOnEnabled pulumi.BoolPtrOutput `pulumi:"singleSignOnEnabled"`
 	// The specified time in minutes to wait before stopping a Dev Center Dev Box once disconnect is detected. Possible values are between `60` and `480`.
 	StopOnDisconnectGracePeriodMinutes pulumi.IntPtrOutput `pulumi:"stopOnDisconnectGracePeriodMinutes"`
 	// A mapping of tags which should be assigned to the Dev Center Project Pool.
@@ -226,6 +228,8 @@ type projectPoolState struct {
 	ManagedVirtualNetworkRegions *string `pulumi:"managedVirtualNetworkRegions"`
 	// Specifies the name of this Dev Center Project Pool. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Specifies whether Dev Boxes in the Pool will have SSO enabled or disabled. Defaults to `false`.
+	SingleSignOnEnabled *bool `pulumi:"singleSignOnEnabled"`
 	// The specified time in minutes to wait before stopping a Dev Center Dev Box once disconnect is detected. Possible values are between `60` and `480`.
 	StopOnDisconnectGracePeriodMinutes *int `pulumi:"stopOnDisconnectGracePeriodMinutes"`
 	// A mapping of tags which should be assigned to the Dev Center Project Pool.
@@ -249,6 +253,8 @@ type ProjectPoolState struct {
 	ManagedVirtualNetworkRegions pulumi.StringPtrInput
 	// Specifies the name of this Dev Center Project Pool. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Specifies whether Dev Boxes in the Pool will have SSO enabled or disabled. Defaults to `false`.
+	SingleSignOnEnabled pulumi.BoolPtrInput
 	// The specified time in minutes to wait before stopping a Dev Center Dev Box once disconnect is detected. Possible values are between `60` and `480`.
 	StopOnDisconnectGracePeriodMinutes pulumi.IntPtrInput
 	// A mapping of tags which should be assigned to the Dev Center Project Pool.
@@ -276,6 +282,8 @@ type projectPoolArgs struct {
 	ManagedVirtualNetworkRegions *string `pulumi:"managedVirtualNetworkRegions"`
 	// Specifies the name of this Dev Center Project Pool. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Specifies whether Dev Boxes in the Pool will have SSO enabled or disabled. Defaults to `false`.
+	SingleSignOnEnabled *bool `pulumi:"singleSignOnEnabled"`
 	// The specified time in minutes to wait before stopping a Dev Center Dev Box once disconnect is detected. Possible values are between `60` and `480`.
 	StopOnDisconnectGracePeriodMinutes *int `pulumi:"stopOnDisconnectGracePeriodMinutes"`
 	// A mapping of tags which should be assigned to the Dev Center Project Pool.
@@ -300,6 +308,8 @@ type ProjectPoolArgs struct {
 	ManagedVirtualNetworkRegions pulumi.StringPtrInput
 	// Specifies the name of this Dev Center Project Pool. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Specifies whether Dev Boxes in the Pool will have SSO enabled or disabled. Defaults to `false`.
+	SingleSignOnEnabled pulumi.BoolPtrInput
 	// The specified time in minutes to wait before stopping a Dev Center Dev Box once disconnect is detected. Possible values are between `60` and `480`.
 	StopOnDisconnectGracePeriodMinutes pulumi.IntPtrInput
 	// A mapping of tags which should be assigned to the Dev Center Project Pool.
@@ -428,6 +438,11 @@ func (o ProjectPoolOutput) ManagedVirtualNetworkRegions() pulumi.StringPtrOutput
 // Specifies the name of this Dev Center Project Pool. Changing this forces a new resource to be created.
 func (o ProjectPoolOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProjectPool) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies whether Dev Boxes in the Pool will have SSO enabled or disabled. Defaults to `false`.
+func (o ProjectPoolOutput) SingleSignOnEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProjectPool) pulumi.BoolPtrOutput { return v.SingleSignOnEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The specified time in minutes to wait before stopping a Dev Center Dev Box once disconnect is detected. Possible values are between `60` and `480`.

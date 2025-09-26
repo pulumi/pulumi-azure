@@ -17,11 +17,26 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
         /// </summary>
         public readonly ImmutableArray<string> AuthorizedIpRanges;
+        /// <summary>
+        /// The ID of the Subnet where the API server endpoint is delegated to.
+        /// </summary>
+        public readonly string? SubnetId;
+        /// <summary>
+        /// Whether to enable virtual network integration for the API Server. Defaults to `false`.
+        /// </summary>
+        public readonly bool? VirtualNetworkIntegrationEnabled;
 
         [OutputConstructor]
-        private KubernetesClusterApiServerAccessProfile(ImmutableArray<string> authorizedIpRanges)
+        private KubernetesClusterApiServerAccessProfile(
+            ImmutableArray<string> authorizedIpRanges,
+
+            string? subnetId,
+
+            bool? virtualNetworkIntegrationEnabled)
         {
             AuthorizedIpRanges = authorizedIpRanges;
+            SubnetId = subnetId;
+            VirtualNetworkIntegrationEnabled = virtualNetworkIntegrationEnabled;
         }
     }
 }

@@ -41,6 +41,11 @@ public final class GetProjectPoolResult {
     private String location;
     private String name;
     /**
+     * @return Specifies whether Dev Boxes in the Pool will have SSO enabled or disabled.
+     * 
+     */
+    private Boolean singleSignOnEnabled;
+    /**
      * @return The specified time in minutes to wait before stopping a Dev Center Dev Box once disconnect is detected.
      * 
      */
@@ -94,6 +99,13 @@ public final class GetProjectPoolResult {
         return this.name;
     }
     /**
+     * @return Specifies whether Dev Boxes in the Pool will have SSO enabled or disabled.
+     * 
+     */
+    public Boolean singleSignOnEnabled() {
+        return this.singleSignOnEnabled;
+    }
+    /**
      * @return The specified time in minutes to wait before stopping a Dev Center Dev Box once disconnect is detected.
      * 
      */
@@ -124,6 +136,7 @@ public final class GetProjectPoolResult {
         private Boolean localAdministratorEnabled;
         private String location;
         private String name;
+        private Boolean singleSignOnEnabled;
         private Integer stopOnDisconnectGracePeriodMinutes;
         private Map<String,String> tags;
         public Builder() {}
@@ -136,6 +149,7 @@ public final class GetProjectPoolResult {
     	      this.localAdministratorEnabled = defaults.localAdministratorEnabled;
     	      this.location = defaults.location;
     	      this.name = defaults.name;
+    	      this.singleSignOnEnabled = defaults.singleSignOnEnabled;
     	      this.stopOnDisconnectGracePeriodMinutes = defaults.stopOnDisconnectGracePeriodMinutes;
     	      this.tags = defaults.tags;
         }
@@ -197,6 +211,14 @@ public final class GetProjectPoolResult {
             return this;
         }
         @CustomType.Setter
+        public Builder singleSignOnEnabled(Boolean singleSignOnEnabled) {
+            if (singleSignOnEnabled == null) {
+              throw new MissingRequiredPropertyException("GetProjectPoolResult", "singleSignOnEnabled");
+            }
+            this.singleSignOnEnabled = singleSignOnEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder stopOnDisconnectGracePeriodMinutes(Integer stopOnDisconnectGracePeriodMinutes) {
             if (stopOnDisconnectGracePeriodMinutes == null) {
               throw new MissingRequiredPropertyException("GetProjectPoolResult", "stopOnDisconnectGracePeriodMinutes");
@@ -221,6 +243,7 @@ public final class GetProjectPoolResult {
             _resultValue.localAdministratorEnabled = localAdministratorEnabled;
             _resultValue.location = location;
             _resultValue.name = name;
+            _resultValue.singleSignOnEnabled = singleSignOnEnabled;
             _resultValue.stopOnDisconnectGracePeriodMinutes = stopOnDisconnectGracePeriodMinutes;
             _resultValue.tags = tags;
             return _resultValue;

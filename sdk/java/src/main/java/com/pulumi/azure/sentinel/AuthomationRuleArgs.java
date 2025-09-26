@@ -4,6 +4,7 @@
 package com.pulumi.azure.sentinel;
 
 import com.pulumi.azure.sentinel.inputs.AuthomationRuleActionIncidentArgs;
+import com.pulumi.azure.sentinel.inputs.AuthomationRuleActionIncidentTaskArgs;
 import com.pulumi.azure.sentinel.inputs.AuthomationRuleActionPlaybookArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -20,6 +21,21 @@ import javax.annotation.Nullable;
 public final class AuthomationRuleArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final AuthomationRuleArgs Empty = new AuthomationRuleArgs();
+
+    /**
+     * One or more `action_incident_task` blocks as defined below.
+     * 
+     */
+    @Import(name="actionIncidentTasks")
+    private @Nullable Output<List<AuthomationRuleActionIncidentTaskArgs>> actionIncidentTasks;
+
+    /**
+     * @return One or more `action_incident_task` blocks as defined below.
+     * 
+     */
+    public Optional<Output<List<AuthomationRuleActionIncidentTaskArgs>>> actionIncidentTasks() {
+        return Optional.ofNullable(this.actionIncidentTasks);
+    }
 
     /**
      * One or more `action_incident` blocks as defined below.
@@ -193,6 +209,7 @@ public final class AuthomationRuleArgs extends com.pulumi.resources.ResourceArgs
     private AuthomationRuleArgs() {}
 
     private AuthomationRuleArgs(AuthomationRuleArgs $) {
+        this.actionIncidentTasks = $.actionIncidentTasks;
         this.actionIncidents = $.actionIncidents;
         this.actionPlaybooks = $.actionPlaybooks;
         this.conditionJson = $.conditionJson;
@@ -222,6 +239,37 @@ public final class AuthomationRuleArgs extends com.pulumi.resources.ResourceArgs
 
         public Builder(AuthomationRuleArgs defaults) {
             $ = new AuthomationRuleArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param actionIncidentTasks One or more `action_incident_task` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder actionIncidentTasks(@Nullable Output<List<AuthomationRuleActionIncidentTaskArgs>> actionIncidentTasks) {
+            $.actionIncidentTasks = actionIncidentTasks;
+            return this;
+        }
+
+        /**
+         * @param actionIncidentTasks One or more `action_incident_task` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder actionIncidentTasks(List<AuthomationRuleActionIncidentTaskArgs> actionIncidentTasks) {
+            return actionIncidentTasks(Output.of(actionIncidentTasks));
+        }
+
+        /**
+         * @param actionIncidentTasks One or more `action_incident_task` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder actionIncidentTasks(AuthomationRuleActionIncidentTaskArgs... actionIncidentTasks) {
+            return actionIncidentTasks(List.of(actionIncidentTasks));
         }
 
         /**

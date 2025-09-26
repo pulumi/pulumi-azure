@@ -78,6 +78,13 @@ public final class IoTHubEndpoint {
      */
     private @Nullable String resourceGroupName;
     /**
+     * @return The subscription ID for the endpoint.
+     * 
+     * &gt; **Note:** When `subscription_id` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
+     * 
+     */
+    private @Nullable String subscriptionId;
+    /**
      * @return The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
      * 
      */
@@ -173,6 +180,15 @@ public final class IoTHubEndpoint {
         return Optional.ofNullable(this.resourceGroupName);
     }
     /**
+     * @return The subscription ID for the endpoint.
+     * 
+     * &gt; **Note:** When `subscription_id` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
+     * 
+     */
+    public Optional<String> subscriptionId() {
+        return Optional.ofNullable(this.subscriptionId);
+    }
+    /**
      * @return The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
      * 
      */
@@ -201,6 +217,7 @@ public final class IoTHubEndpoint {
         private @Nullable Integer maxChunkSizeInBytes;
         private String name;
         private @Nullable String resourceGroupName;
+        private @Nullable String subscriptionId;
         private String type;
         public Builder() {}
         public Builder(IoTHubEndpoint defaults) {
@@ -217,6 +234,7 @@ public final class IoTHubEndpoint {
     	      this.maxChunkSizeInBytes = defaults.maxChunkSizeInBytes;
     	      this.name = defaults.name;
     	      this.resourceGroupName = defaults.resourceGroupName;
+    	      this.subscriptionId = defaults.subscriptionId;
     	      this.type = defaults.type;
         }
 
@@ -295,6 +313,12 @@ public final class IoTHubEndpoint {
             return this;
         }
         @CustomType.Setter
+        public Builder subscriptionId(@Nullable String subscriptionId) {
+
+            this.subscriptionId = subscriptionId;
+            return this;
+        }
+        @CustomType.Setter
         public Builder type(String type) {
             if (type == null) {
               throw new MissingRequiredPropertyException("IoTHubEndpoint", "type");
@@ -316,6 +340,7 @@ public final class IoTHubEndpoint {
             _resultValue.maxChunkSizeInBytes = maxChunkSizeInBytes;
             _resultValue.name = name;
             _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.subscriptionId = subscriptionId;
             _resultValue.type = type;
             return _resultValue;
         }

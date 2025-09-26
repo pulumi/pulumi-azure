@@ -730,6 +730,24 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.serverlessCompute);
     }
     /**
+     * Whether to enable service-side encryption with customer-managed keys (CMK). Default to `false`. Changing this forces a new resource to be created.
+     * 
+     * !&gt; **Note:** Setting `service_side_encryption_enabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
+     * 
+     */
+    @Export(name="serviceSideEncryptionEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> serviceSideEncryptionEnabled;
+
+    /**
+     * @return Whether to enable service-side encryption with customer-managed keys (CMK). Default to `false`. Changing this forces a new resource to be created.
+     * 
+     * !&gt; **Note:** Setting `service_side_encryption_enabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
+     * 
+     */
+    public Output<Optional<Boolean>> serviceSideEncryptionEnabled() {
+        return Codegen.optional(this.serviceSideEncryptionEnabled);
+    }
+    /**
      * SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
      * 
      */

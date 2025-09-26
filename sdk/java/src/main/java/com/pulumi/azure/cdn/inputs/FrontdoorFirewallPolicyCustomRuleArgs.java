@@ -21,18 +21,18 @@ public final class FrontdoorFirewallPolicyCustomRuleArgs extends com.pulumi.reso
     public static final FrontdoorFirewallPolicyCustomRuleArgs Empty = new FrontdoorFirewallPolicyCustomRuleArgs();
 
     /**
-     * The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, `Redirect`, or `JSChallenge`.
+     * The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, `Redirect`, `JSChallenge`, or `CAPTCHA`.
      * 
-     * !&gt; **Note:** Setting the `action` field to `JSChallenge` is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+     * !&gt; **Note:** Setting the `action` field to `JSChallenge` or `CAPTCHA` is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
      * 
      */
     @Import(name="action", required=true)
     private Output<String> action;
 
     /**
-     * @return The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, `Redirect`, or `JSChallenge`.
+     * @return The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, `Redirect`, `JSChallenge`, or `CAPTCHA`.
      * 
-     * !&gt; **Note:** Setting the `action` field to `JSChallenge` is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+     * !&gt; **Note:** Setting the `action` field to `JSChallenge` or `CAPTCHA` is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
      * 
      */
     public Output<String> action() {
@@ -176,9 +176,9 @@ public final class FrontdoorFirewallPolicyCustomRuleArgs extends com.pulumi.reso
         }
 
         /**
-         * @param action The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, `Redirect`, or `JSChallenge`.
+         * @param action The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, `Redirect`, `JSChallenge`, or `CAPTCHA`.
          * 
-         * !&gt; **Note:** Setting the `action` field to `JSChallenge` is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+         * !&gt; **Note:** Setting the `action` field to `JSChallenge` or `CAPTCHA` is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
          * 
          * @return builder
          * 
@@ -189,9 +189,9 @@ public final class FrontdoorFirewallPolicyCustomRuleArgs extends com.pulumi.reso
         }
 
         /**
-         * @param action The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, `Redirect`, or `JSChallenge`.
+         * @param action The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, `Redirect`, `JSChallenge`, or `CAPTCHA`.
          * 
-         * !&gt; **Note:** Setting the `action` field to `JSChallenge` is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+         * !&gt; **Note:** Setting the `action` field to `JSChallenge` or `CAPTCHA` is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
          * 
          * @return builder
          * 

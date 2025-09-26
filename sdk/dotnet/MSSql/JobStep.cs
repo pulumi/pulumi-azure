@@ -57,8 +57,8 @@ namespace Pulumi.Azure.MSSql
     ///     {
     ///         Name = "example-job-credential",
     ///         JobAgentId = exampleJobAgent.Id,
-    ///         Username = "testusername",
-    ///         Password = "testpassword",
+    ///         Username = "exampleusername",
+    ///         Password = "examplepassword",
     ///     });
     /// 
     ///     var exampleJobTargetGroup = new Azure.MSSql.JobTargetGroup("example", new()
@@ -180,7 +180,7 @@ namespace Pulumi.Azure.MSSql
         public Output<int?> RetryAttempts { get; private set; } = null!;
 
         /// <summary>
-        /// The multiplier for time between retries. Defaults to `2`.
+        /// The multiplier for time between retries. Defaults to `2.0`.
         /// </summary>
         [Output("retryIntervalBackoffMultiplier")]
         public Output<double?> RetryIntervalBackoffMultiplier { get; private set; } = null!;
@@ -306,7 +306,7 @@ namespace Pulumi.Azure.MSSql
         public Input<int>? RetryAttempts { get; set; }
 
         /// <summary>
-        /// The multiplier for time between retries. Defaults to `2`.
+        /// The multiplier for time between retries. Defaults to `2.0`.
         /// </summary>
         [Input("retryIntervalBackoffMultiplier")]
         public Input<double>? RetryIntervalBackoffMultiplier { get; set; }
@@ -394,7 +394,7 @@ namespace Pulumi.Azure.MSSql
         public Input<int>? RetryAttempts { get; set; }
 
         /// <summary>
-        /// The multiplier for time between retries. Defaults to `2`.
+        /// The multiplier for time between retries. Defaults to `2.0`.
         /// </summary>
         [Input("retryIntervalBackoffMultiplier")]
         public Input<double>? RetryIntervalBackoffMultiplier { get; set; }

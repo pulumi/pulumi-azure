@@ -104,17 +104,17 @@ namespace Pulumi.Azure.Lb
         [Output("disableOutboundSnat")]
         public Output<bool?> DisableOutboundSnat { get; private set; } = null!;
 
-        /// <summary>
-        /// Are the Floating IPs enabled for this Load Balancer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
-        /// </summary>
         [Output("enableFloatingIp")]
-        public Output<bool?> EnableFloatingIp { get; private set; } = null!;
+        public Output<bool> EnableFloatingIp { get; private set; } = null!;
+
+        [Output("enableTcpReset")]
+        public Output<bool> EnableTcpReset { get; private set; } = null!;
 
         /// <summary>
-        /// Is TCP Reset enabled for this Load Balancer Rule?
+        /// Are the Floating IPs enabled for this Load Balancer Rule? A "floating" IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
         /// </summary>
-        [Output("enableTcpReset")]
-        public Output<bool?> EnableTcpReset { get; private set; } = null!;
+        [Output("floatingIpEnabled")]
+        public Output<bool> FloatingIpEnabled { get; private set; } = null!;
 
         [Output("frontendIpConfigurationId")]
         public Output<string> FrontendIpConfigurationId { get; private set; } = null!;
@@ -166,6 +166,12 @@ namespace Pulumi.Azure.Lb
         /// </summary>
         [Output("protocol")]
         public Output<string> Protocol { get; private set; } = null!;
+
+        /// <summary>
+        /// Is TCP Reset enabled for this Load Balancer Rule?
+        /// </summary>
+        [Output("tcpResetEnabled")]
+        public Output<bool> TcpResetEnabled { get; private set; } = null!;
 
 
         /// <summary>
@@ -239,17 +245,17 @@ namespace Pulumi.Azure.Lb
         [Input("disableOutboundSnat")]
         public Input<bool>? DisableOutboundSnat { get; set; }
 
-        /// <summary>
-        /// Are the Floating IPs enabled for this Load Balancer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
-        /// </summary>
         [Input("enableFloatingIp")]
         public Input<bool>? EnableFloatingIp { get; set; }
 
-        /// <summary>
-        /// Is TCP Reset enabled for this Load Balancer Rule?
-        /// </summary>
         [Input("enableTcpReset")]
         public Input<bool>? EnableTcpReset { get; set; }
+
+        /// <summary>
+        /// Are the Floating IPs enabled for this Load Balancer Rule? A "floating" IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+        /// </summary>
+        [Input("floatingIpEnabled")]
+        public Input<bool>? FloatingIpEnabled { get; set; }
 
         /// <summary>
         /// The name of the frontend IP configuration to which the rule is associated.
@@ -299,6 +305,12 @@ namespace Pulumi.Azure.Lb
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
 
+        /// <summary>
+        /// Is TCP Reset enabled for this Load Balancer Rule?
+        /// </summary>
+        [Input("tcpResetEnabled")]
+        public Input<bool>? TcpResetEnabled { get; set; }
+
         public RuleArgs()
         {
         }
@@ -333,17 +345,17 @@ namespace Pulumi.Azure.Lb
         [Input("disableOutboundSnat")]
         public Input<bool>? DisableOutboundSnat { get; set; }
 
-        /// <summary>
-        /// Are the Floating IPs enabled for this Load Balancer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
-        /// </summary>
         [Input("enableFloatingIp")]
         public Input<bool>? EnableFloatingIp { get; set; }
 
-        /// <summary>
-        /// Is TCP Reset enabled for this Load Balancer Rule?
-        /// </summary>
         [Input("enableTcpReset")]
         public Input<bool>? EnableTcpReset { get; set; }
+
+        /// <summary>
+        /// Are the Floating IPs enabled for this Load Balancer Rule? A "floating" IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+        /// </summary>
+        [Input("floatingIpEnabled")]
+        public Input<bool>? FloatingIpEnabled { get; set; }
 
         [Input("frontendIpConfigurationId")]
         public Input<string>? FrontendIpConfigurationId { get; set; }
@@ -395,6 +407,12 @@ namespace Pulumi.Azure.Lb
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
+
+        /// <summary>
+        /// Is TCP Reset enabled for this Load Balancer Rule?
+        /// </summary>
+        [Input("tcpResetEnabled")]
+        public Input<bool>? TcpResetEnabled { get; set; }
 
         public RuleState()
         {

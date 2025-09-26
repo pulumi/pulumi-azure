@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  *             .recurrencePeriodEndDate("2020-09-18T00:00:00Z")
  *             .fileFormat("Csv")
  *             .exportDataStorageLocation(SubscriptionCostManagementExportExportDataStorageLocationArgs.builder()
- *                 .containerId(exampleContainer.resourceManagerId())
+ *                 .containerId(exampleContainer.id())
  *                 .rootFolderPath("/root/updated")
  *                 .build())
  *             .exportDataOptions(SubscriptionCostManagementExportExportDataOptionsArgs.builder()

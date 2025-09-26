@@ -49,10 +49,7 @@ namespace Pulumi.Azure.Mobile
     ///         Name = "example-slice",
     ///         MobileNetworkId = exampleNetwork.Id,
     ///         Location = example.Location,
-    ///         SingleNetworkSliceSelectionAssistanceInformation = new Azure.Mobile.Inputs.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs
-    ///         {
-    ///             SliceServiceType = 1,
-    ///         },
+    ///         SliceServiceType = 1,
     ///     });
     /// 
     ///     var exampleNetworkAttachedDataNetwork = new Azure.Mobile.NetworkAttachedDataNetwork("example", new()

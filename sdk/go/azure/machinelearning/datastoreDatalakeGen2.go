@@ -97,7 +97,7 @@ import (
 //			_, err = machinelearning.NewDatastoreDatalakeGen2(ctx, "example", &machinelearning.DatastoreDatalakeGen2Args{
 //				Name:               pulumi.String("example-datastore"),
 //				WorkspaceId:        exampleWorkspace.ID(),
-//				StorageContainerId: exampleContainer.ResourceManagerId,
+//				StorageContainerId: exampleContainer.ID(),
 //			})
 //			if err != nil {
 //				return err

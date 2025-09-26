@@ -125,6 +125,10 @@ type EndpointStorageContainer struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group under which the Storage Container has been created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// The subscription ID for the endpoint.
+	//
+	// > **Note:** When `subscriptionId` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+	SubscriptionId pulumi.StringOutput `pulumi:"subscriptionId"`
 }
 
 // NewEndpointStorageContainer registers a new resource with the given unique name, arguments, and options.
@@ -199,6 +203,10 @@ type endpointStorageContainerState struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group under which the Storage Container has been created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// The subscription ID for the endpoint.
+	//
+	// > **Note:** When `subscriptionId` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+	SubscriptionId *string `pulumi:"subscriptionId"`
 }
 
 type EndpointStorageContainerState struct {
@@ -228,6 +236,10 @@ type EndpointStorageContainerState struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group under which the Storage Container has been created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// The subscription ID for the endpoint.
+	//
+	// > **Note:** When `subscriptionId` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+	SubscriptionId pulumi.StringPtrInput
 }
 
 func (EndpointStorageContainerState) ElementType() reflect.Type {
@@ -261,6 +273,10 @@ type endpointStorageContainerArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group under which the Storage Container has been created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The subscription ID for the endpoint.
+	//
+	// > **Note:** When `subscriptionId` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+	SubscriptionId *string `pulumi:"subscriptionId"`
 }
 
 // The set of arguments for constructing a EndpointStorageContainer resource.
@@ -291,6 +307,10 @@ type EndpointStorageContainerArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group under which the Storage Container has been created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	// The subscription ID for the endpoint.
+	//
+	// > **Note:** When `subscriptionId` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+	SubscriptionId pulumi.StringPtrInput
 }
 
 func (EndpointStorageContainerArgs) ElementType() reflect.Type {
@@ -440,6 +460,13 @@ func (o EndpointStorageContainerOutput) Name() pulumi.StringOutput {
 // The name of the resource group under which the Storage Container has been created. Changing this forces a new resource to be created.
 func (o EndpointStorageContainerOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *EndpointStorageContainer) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The subscription ID for the endpoint.
+//
+// > **Note:** When `subscriptionId` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+func (o EndpointStorageContainerOutput) SubscriptionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *EndpointStorageContainer) pulumi.StringOutput { return v.SubscriptionId }).(pulumi.StringOutput)
 }
 
 type EndpointStorageContainerArrayOutput struct{ *pulumi.OutputState }

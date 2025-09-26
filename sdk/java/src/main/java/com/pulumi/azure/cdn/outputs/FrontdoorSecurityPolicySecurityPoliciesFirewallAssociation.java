@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation {
     /**
-     * @return One or more `domain` blocks as defined below. Changing this forces a new Front Door Security Policy to be created.
+     * @return One or more `domain` blocks as defined below.
      * 
      */
     private List<FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain> domains;
@@ -25,7 +25,7 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation {
 
     private FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation() {}
     /**
-     * @return One or more `domain` blocks as defined below. Changing this forces a new Front Door Security Policy to be created.
+     * @return One or more `domain` blocks as defined below.
      * 
      */
     public List<FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain> domains() {

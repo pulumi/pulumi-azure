@@ -39,9 +39,14 @@ type GetLBRuleResult struct {
 	// If outbound SNAT is enabled for this Load Balancer Rule.
 	DisableOutboundSnat bool `pulumi:"disableOutboundSnat"`
 	// If Floating IPs are enabled for this Load Balancer Rule
+	//
+	// Deprecated: The property `enableFloatingIp` has been deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider
 	EnableFloatingIp bool `pulumi:"enableFloatingIp"`
 	// If TCP Reset is enabled for this Load Balancer Rule.
-	EnableTcpReset bool `pulumi:"enableTcpReset"`
+	//
+	// Deprecated: The property `enableTcpReset` has been deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider
+	EnableTcpReset    bool `pulumi:"enableTcpReset"`
+	FloatingIpEnabled bool `pulumi:"floatingIpEnabled"`
 	// The name of the frontend IP configuration to which the rule is associated.
 	FrontendIpConfigurationName string `pulumi:"frontendIpConfigurationName"`
 	// The port for the external endpoint.
@@ -57,7 +62,8 @@ type GetLBRuleResult struct {
 	// A reference to a Probe used by this Load Balancing Rule.
 	ProbeId string `pulumi:"probeId"`
 	// The transport protocol for the external endpoint.
-	Protocol string `pulumi:"protocol"`
+	Protocol        string `pulumi:"protocol"`
+	TcpResetEnabled bool   `pulumi:"tcpResetEnabled"`
 }
 
 func GetLBRuleOutput(ctx *pulumi.Context, args GetLBRuleOutputArgs, opts ...pulumi.InvokeOption) GetLBRuleResultOutput {
@@ -112,13 +118,21 @@ func (o GetLBRuleResultOutput) DisableOutboundSnat() pulumi.BoolOutput {
 }
 
 // If Floating IPs are enabled for this Load Balancer Rule
+//
+// Deprecated: The property `enableFloatingIp` has been deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider
 func (o GetLBRuleResultOutput) EnableFloatingIp() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetLBRuleResult) bool { return v.EnableFloatingIp }).(pulumi.BoolOutput)
 }
 
 // If TCP Reset is enabled for this Load Balancer Rule.
+//
+// Deprecated: The property `enableTcpReset` has been deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider
 func (o GetLBRuleResultOutput) EnableTcpReset() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetLBRuleResult) bool { return v.EnableTcpReset }).(pulumi.BoolOutput)
+}
+
+func (o GetLBRuleResultOutput) FloatingIpEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLBRuleResult) bool { return v.FloatingIpEnabled }).(pulumi.BoolOutput)
 }
 
 // The name of the frontend IP configuration to which the rule is associated.
@@ -162,6 +176,10 @@ func (o GetLBRuleResultOutput) ProbeId() pulumi.StringOutput {
 // The transport protocol for the external endpoint.
 func (o GetLBRuleResultOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLBRuleResult) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+func (o GetLBRuleResultOutput) TcpResetEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLBRuleResult) bool { return v.TcpResetEnabled }).(pulumi.BoolOutput)
 }
 
 func init() {

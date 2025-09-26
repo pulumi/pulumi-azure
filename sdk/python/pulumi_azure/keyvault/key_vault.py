@@ -35,6 +35,7 @@ class KeyVaultArgs:
                  network_acls: Optional[pulumi.Input['KeyVaultNetworkAclsArgs']] = None,
                  public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  purge_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 rbac_authorization_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  soft_delete_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
@@ -45,9 +46,6 @@ class KeyVaultArgs:
         :param pulumi.Input[Sequence[pulumi.Input['KeyVaultAccessPolicyArgs']]] access_policies: A list of up to 1024 objects describing access policies, as described below.
                
                > **Note:** Since `access_policy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
-        :param pulumi.Input[_builtins.bool] enable_rbac_authorization: Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
-               
-               > **Note:** Changing the permission model requires unrestricted (no conditions on the role assignment) `Microsoft.Authorization/roleAssignments/write` permission, which is part of the `Owner` and `User Access Administrator` roles. Classic subscription administrator roles like `Service Administrator` and `Co-Administrator`, or restricted `Key Vault Data Access Administrator` cannot be used to change the permission model. For more information, please see the [product documentation](https://learn.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault:~:text=Enable%20Azure%20RBAC,change%20permission%20model).
         :param pulumi.Input[_builtins.bool] enabled_for_deployment: Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
         :param pulumi.Input[_builtins.bool] enabled_for_disk_encryption: Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
         :param pulumi.Input[_builtins.bool] enabled_for_template_deployment: Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
@@ -58,6 +56,9 @@ class KeyVaultArgs:
         :param pulumi.Input[_builtins.bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault? 
                
                !> **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
+        :param pulumi.Input[_builtins.bool] rbac_authorization_enabled: Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
+               
+               > **Note:** Changing the permission model requires unrestricted (no conditions on the role assignment) `Microsoft.Authorization/roleAssignments/write` permission, which is part of the `Owner` and `User Access Administrator` roles. Classic subscription administrator roles like `Service Administrator` and `Co-Administrator`, or restricted `Key Vault Data Access Administrator` cannot be used to change the permission model. For more information, please see the [product documentation](https://learn.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault:~:text=Enable%20Azure%20RBAC,change%20permission%20model).
         :param pulumi.Input[_builtins.int] soft_delete_retention_days: The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
                
                > **Note:** This field can only be configured one time and cannot be updated.
@@ -69,10 +70,13 @@ class KeyVaultArgs:
         if access_policies is not None:
             pulumi.set(__self__, "access_policies", access_policies)
         if contacts is not None:
-            warnings.warn("""As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.""", DeprecationWarning)
-            pulumi.log.warn("""contacts is deprecated: As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.""")
+            warnings.warn("""As the `contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""contacts is deprecated: As the `contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider.""")
         if contacts is not None:
             pulumi.set(__self__, "contacts", contacts)
+        if enable_rbac_authorization is not None:
+            warnings.warn("""This property has been renamed to `rbac_authorization_enabled` and will be removed in v5.0 of the provider""", DeprecationWarning)
+            pulumi.log.warn("""enable_rbac_authorization is deprecated: This property has been renamed to `rbac_authorization_enabled` and will be removed in v5.0 of the provider""")
         if enable_rbac_authorization is not None:
             pulumi.set(__self__, "enable_rbac_authorization", enable_rbac_authorization)
         if enabled_for_deployment is not None:
@@ -91,6 +95,8 @@ class KeyVaultArgs:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if purge_protection_enabled is not None:
             pulumi.set(__self__, "purge_protection_enabled", purge_protection_enabled)
+        if rbac_authorization_enabled is not None:
+            pulumi.set(__self__, "rbac_authorization_enabled", rbac_authorization_enabled)
         if soft_delete_retention_days is not None:
             pulumi.set(__self__, "soft_delete_retention_days", soft_delete_retention_days)
         if tags is not None:
@@ -148,7 +154,7 @@ class KeyVaultArgs:
 
     @_builtins.property
     @pulumi.getter
-    @_utilities.deprecated("""As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.""")
+    @_utilities.deprecated("""As the `contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider.""")
     def contacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultContactArgs']]]]:
         return pulumi.get(self, "contacts")
 
@@ -158,12 +164,8 @@ class KeyVaultArgs:
 
     @_builtins.property
     @pulumi.getter(name="enableRbacAuthorization")
+    @_utilities.deprecated("""This property has been renamed to `rbac_authorization_enabled` and will be removed in v5.0 of the provider""")
     def enable_rbac_authorization(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
-
-        > **Note:** Changing the permission model requires unrestricted (no conditions on the role assignment) `Microsoft.Authorization/roleAssignments/write` permission, which is part of the `Owner` and `User Access Administrator` roles. Classic subscription administrator roles like `Service Administrator` and `Co-Administrator`, or restricted `Key Vault Data Access Administrator` cannot be used to change the permission model. For more information, please see the [product documentation](https://learn.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault:~:text=Enable%20Azure%20RBAC,change%20permission%20model).
-        """
         return pulumi.get(self, "enable_rbac_authorization")
 
     @enable_rbac_authorization.setter
@@ -267,6 +269,20 @@ class KeyVaultArgs:
     @purge_protection_enabled.setter
     def purge_protection_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "purge_protection_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="rbacAuthorizationEnabled")
+    def rbac_authorization_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
+
+        > **Note:** Changing the permission model requires unrestricted (no conditions on the role assignment) `Microsoft.Authorization/roleAssignments/write` permission, which is part of the `Owner` and `User Access Administrator` roles. Classic subscription administrator roles like `Service Administrator` and `Co-Administrator`, or restricted `Key Vault Data Access Administrator` cannot be used to change the permission model. For more information, please see the [product documentation](https://learn.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault:~:text=Enable%20Azure%20RBAC,change%20permission%20model).
+        """
+        return pulumi.get(self, "rbac_authorization_enabled")
+
+    @rbac_authorization_enabled.setter
+    def rbac_authorization_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "rbac_authorization_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="softDeleteRetentionDays")
@@ -309,6 +325,7 @@ class _KeyVaultState:
                  network_acls: Optional[pulumi.Input['KeyVaultNetworkAclsArgs']] = None,
                  public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  purge_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 rbac_authorization_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  sku_name: Optional[pulumi.Input[_builtins.str]] = None,
                  soft_delete_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
@@ -320,9 +337,6 @@ class _KeyVaultState:
         :param pulumi.Input[Sequence[pulumi.Input['KeyVaultAccessPolicyArgs']]] access_policies: A list of up to 1024 objects describing access policies, as described below.
                
                > **Note:** Since `access_policy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
-        :param pulumi.Input[_builtins.bool] enable_rbac_authorization: Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
-               
-               > **Note:** Changing the permission model requires unrestricted (no conditions on the role assignment) `Microsoft.Authorization/roleAssignments/write` permission, which is part of the `Owner` and `User Access Administrator` roles. Classic subscription administrator roles like `Service Administrator` and `Co-Administrator`, or restricted `Key Vault Data Access Administrator` cannot be used to change the permission model. For more information, please see the [product documentation](https://learn.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault:~:text=Enable%20Azure%20RBAC,change%20permission%20model).
         :param pulumi.Input[_builtins.bool] enabled_for_deployment: Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
         :param pulumi.Input[_builtins.bool] enabled_for_disk_encryption: Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
         :param pulumi.Input[_builtins.bool] enabled_for_template_deployment: Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
@@ -333,6 +347,9 @@ class _KeyVaultState:
         :param pulumi.Input[_builtins.bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault? 
                
                !> **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
+        :param pulumi.Input[_builtins.bool] rbac_authorization_enabled: Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
+               
+               > **Note:** Changing the permission model requires unrestricted (no conditions on the role assignment) `Microsoft.Authorization/roleAssignments/write` permission, which is part of the `Owner` and `User Access Administrator` roles. Classic subscription administrator roles like `Service Administrator` and `Co-Administrator`, or restricted `Key Vault Data Access Administrator` cannot be used to change the permission model. For more information, please see the [product documentation](https://learn.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault:~:text=Enable%20Azure%20RBAC,change%20permission%20model).
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku_name: The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
         :param pulumi.Input[_builtins.int] soft_delete_retention_days: The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
@@ -345,10 +362,13 @@ class _KeyVaultState:
         if access_policies is not None:
             pulumi.set(__self__, "access_policies", access_policies)
         if contacts is not None:
-            warnings.warn("""As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.""", DeprecationWarning)
-            pulumi.log.warn("""contacts is deprecated: As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.""")
+            warnings.warn("""As the `contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""contacts is deprecated: As the `contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider.""")
         if contacts is not None:
             pulumi.set(__self__, "contacts", contacts)
+        if enable_rbac_authorization is not None:
+            warnings.warn("""This property has been renamed to `rbac_authorization_enabled` and will be removed in v5.0 of the provider""", DeprecationWarning)
+            pulumi.log.warn("""enable_rbac_authorization is deprecated: This property has been renamed to `rbac_authorization_enabled` and will be removed in v5.0 of the provider""")
         if enable_rbac_authorization is not None:
             pulumi.set(__self__, "enable_rbac_authorization", enable_rbac_authorization)
         if enabled_for_deployment is not None:
@@ -367,6 +387,8 @@ class _KeyVaultState:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if purge_protection_enabled is not None:
             pulumi.set(__self__, "purge_protection_enabled", purge_protection_enabled)
+        if rbac_authorization_enabled is not None:
+            pulumi.set(__self__, "rbac_authorization_enabled", rbac_authorization_enabled)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if sku_name is not None:
@@ -396,7 +418,7 @@ class _KeyVaultState:
 
     @_builtins.property
     @pulumi.getter
-    @_utilities.deprecated("""As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.""")
+    @_utilities.deprecated("""As the `contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider.""")
     def contacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultContactArgs']]]]:
         return pulumi.get(self, "contacts")
 
@@ -406,12 +428,8 @@ class _KeyVaultState:
 
     @_builtins.property
     @pulumi.getter(name="enableRbacAuthorization")
+    @_utilities.deprecated("""This property has been renamed to `rbac_authorization_enabled` and will be removed in v5.0 of the provider""")
     def enable_rbac_authorization(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
-
-        > **Note:** Changing the permission model requires unrestricted (no conditions on the role assignment) `Microsoft.Authorization/roleAssignments/write` permission, which is part of the `Owner` and `User Access Administrator` roles. Classic subscription administrator roles like `Service Administrator` and `Co-Administrator`, or restricted `Key Vault Data Access Administrator` cannot be used to change the permission model. For more information, please see the [product documentation](https://learn.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault:~:text=Enable%20Azure%20RBAC,change%20permission%20model).
-        """
         return pulumi.get(self, "enable_rbac_authorization")
 
     @enable_rbac_authorization.setter
@@ -515,6 +533,20 @@ class _KeyVaultState:
     @purge_protection_enabled.setter
     def purge_protection_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "purge_protection_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="rbacAuthorizationEnabled")
+    def rbac_authorization_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
+
+        > **Note:** Changing the permission model requires unrestricted (no conditions on the role assignment) `Microsoft.Authorization/roleAssignments/write` permission, which is part of the `Owner` and `User Access Administrator` roles. Classic subscription administrator roles like `Service Administrator` and `Co-Administrator`, or restricted `Key Vault Data Access Administrator` cannot be used to change the permission model. For more information, please see the [product documentation](https://learn.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault:~:text=Enable%20Azure%20RBAC,change%20permission%20model).
+        """
+        return pulumi.get(self, "rbac_authorization_enabled")
+
+    @rbac_authorization_enabled.setter
+    def rbac_authorization_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "rbac_authorization_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -608,6 +640,7 @@ class KeyVault(pulumi.CustomResource):
                  network_acls: Optional[pulumi.Input[Union['KeyVaultNetworkAclsArgs', 'KeyVaultNetworkAclsArgsDict']]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  purge_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 rbac_authorization_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  sku_name: Optional[pulumi.Input[_builtins.str]] = None,
                  soft_delete_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
@@ -664,9 +697,6 @@ class KeyVault(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['KeyVaultAccessPolicyArgs', 'KeyVaultAccessPolicyArgsDict']]]] access_policies: A list of up to 1024 objects describing access policies, as described below.
                
                > **Note:** Since `access_policy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
-        :param pulumi.Input[_builtins.bool] enable_rbac_authorization: Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
-               
-               > **Note:** Changing the permission model requires unrestricted (no conditions on the role assignment) `Microsoft.Authorization/roleAssignments/write` permission, which is part of the `Owner` and `User Access Administrator` roles. Classic subscription administrator roles like `Service Administrator` and `Co-Administrator`, or restricted `Key Vault Data Access Administrator` cannot be used to change the permission model. For more information, please see the [product documentation](https://learn.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault:~:text=Enable%20Azure%20RBAC,change%20permission%20model).
         :param pulumi.Input[_builtins.bool] enabled_for_deployment: Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
         :param pulumi.Input[_builtins.bool] enabled_for_disk_encryption: Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
         :param pulumi.Input[_builtins.bool] enabled_for_template_deployment: Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
@@ -677,6 +707,9 @@ class KeyVault(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault? 
                
                !> **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
+        :param pulumi.Input[_builtins.bool] rbac_authorization_enabled: Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
+               
+               > **Note:** Changing the permission model requires unrestricted (no conditions on the role assignment) `Microsoft.Authorization/roleAssignments/write` permission, which is part of the `Owner` and `User Access Administrator` roles. Classic subscription administrator roles like `Service Administrator` and `Co-Administrator`, or restricted `Key Vault Data Access Administrator` cannot be used to change the permission model. For more information, please see the [product documentation](https://learn.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault:~:text=Enable%20Azure%20RBAC,change%20permission%20model).
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku_name: The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
         :param pulumi.Input[_builtins.int] soft_delete_retention_days: The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
@@ -762,6 +795,7 @@ class KeyVault(pulumi.CustomResource):
                  network_acls: Optional[pulumi.Input[Union['KeyVaultNetworkAclsArgs', 'KeyVaultNetworkAclsArgsDict']]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  purge_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 rbac_authorization_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  sku_name: Optional[pulumi.Input[_builtins.str]] = None,
                  soft_delete_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
@@ -787,6 +821,7 @@ class KeyVault(pulumi.CustomResource):
             __props__.__dict__["network_acls"] = network_acls
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             __props__.__dict__["purge_protection_enabled"] = purge_protection_enabled
+            __props__.__dict__["rbac_authorization_enabled"] = rbac_authorization_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -820,6 +855,7 @@ class KeyVault(pulumi.CustomResource):
             network_acls: Optional[pulumi.Input[Union['KeyVaultNetworkAclsArgs', 'KeyVaultNetworkAclsArgsDict']]] = None,
             public_network_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             purge_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+            rbac_authorization_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
             sku_name: Optional[pulumi.Input[_builtins.str]] = None,
             soft_delete_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
@@ -836,9 +872,6 @@ class KeyVault(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['KeyVaultAccessPolicyArgs', 'KeyVaultAccessPolicyArgsDict']]]] access_policies: A list of up to 1024 objects describing access policies, as described below.
                
                > **Note:** Since `access_policy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
-        :param pulumi.Input[_builtins.bool] enable_rbac_authorization: Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
-               
-               > **Note:** Changing the permission model requires unrestricted (no conditions on the role assignment) `Microsoft.Authorization/roleAssignments/write` permission, which is part of the `Owner` and `User Access Administrator` roles. Classic subscription administrator roles like `Service Administrator` and `Co-Administrator`, or restricted `Key Vault Data Access Administrator` cannot be used to change the permission model. For more information, please see the [product documentation](https://learn.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault:~:text=Enable%20Azure%20RBAC,change%20permission%20model).
         :param pulumi.Input[_builtins.bool] enabled_for_deployment: Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
         :param pulumi.Input[_builtins.bool] enabled_for_disk_encryption: Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
         :param pulumi.Input[_builtins.bool] enabled_for_template_deployment: Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
@@ -849,6 +882,9 @@ class KeyVault(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault? 
                
                !> **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
+        :param pulumi.Input[_builtins.bool] rbac_authorization_enabled: Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
+               
+               > **Note:** Changing the permission model requires unrestricted (no conditions on the role assignment) `Microsoft.Authorization/roleAssignments/write` permission, which is part of the `Owner` and `User Access Administrator` roles. Classic subscription administrator roles like `Service Administrator` and `Co-Administrator`, or restricted `Key Vault Data Access Administrator` cannot be used to change the permission model. For more information, please see the [product documentation](https://learn.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault:~:text=Enable%20Azure%20RBAC,change%20permission%20model).
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku_name: The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
         :param pulumi.Input[_builtins.int] soft_delete_retention_days: The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
@@ -873,6 +909,7 @@ class KeyVault(pulumi.CustomResource):
         __props__.__dict__["network_acls"] = network_acls
         __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["purge_protection_enabled"] = purge_protection_enabled
+        __props__.__dict__["rbac_authorization_enabled"] = rbac_authorization_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["sku_name"] = sku_name
         __props__.__dict__["soft_delete_retention_days"] = soft_delete_retention_days
@@ -893,18 +930,14 @@ class KeyVault(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    @_utilities.deprecated("""As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.""")
+    @_utilities.deprecated("""As the `contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider.""")
     def contacts(self) -> pulumi.Output[Sequence['outputs.KeyVaultContact']]:
         return pulumi.get(self, "contacts")
 
     @_builtins.property
     @pulumi.getter(name="enableRbacAuthorization")
-    def enable_rbac_authorization(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
-
-        > **Note:** Changing the permission model requires unrestricted (no conditions on the role assignment) `Microsoft.Authorization/roleAssignments/write` permission, which is part of the `Owner` and `User Access Administrator` roles. Classic subscription administrator roles like `Service Administrator` and `Co-Administrator`, or restricted `Key Vault Data Access Administrator` cannot be used to change the permission model. For more information, please see the [product documentation](https://learn.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault:~:text=Enable%20Azure%20RBAC,change%20permission%20model).
-        """
+    @_utilities.deprecated("""This property has been renamed to `rbac_authorization_enabled` and will be removed in v5.0 of the provider""")
+    def enable_rbac_authorization(self) -> pulumi.Output[_builtins.bool]:
         return pulumi.get(self, "enable_rbac_authorization")
 
     @_builtins.property
@@ -972,6 +1005,16 @@ class KeyVault(pulumi.CustomResource):
         !> **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
         """
         return pulumi.get(self, "purge_protection_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="rbacAuthorizationEnabled")
+    def rbac_authorization_enabled(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
+
+        > **Note:** Changing the permission model requires unrestricted (no conditions on the role assignment) `Microsoft.Authorization/roleAssignments/write` permission, which is part of the `Owner` and `User Access Administrator` roles. Classic subscription administrator roles like `Service Administrator` and `Co-Administrator`, or restricted `Key Vault Data Access Administrator` cannot be used to change the permission model. For more information, please see the [product documentation](https://learn.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault:~:text=Enable%20Azure%20RBAC,change%20permission%20model).
+        """
+        return pulumi.get(self, "rbac_authorization_enabled")
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")

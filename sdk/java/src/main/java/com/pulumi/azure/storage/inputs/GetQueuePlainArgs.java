@@ -47,18 +47,45 @@ public final class GetQueuePlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The name of the Storage Account where the Queue exists.
+     * The name of the Storage Account where the Queue exists. This property will become Required in version 5.0 of the Provider.
+     * 
+     * &gt; **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
      * 
      */
-    @Import(name="storageAccountName", required=true)
-    private String storageAccountName;
+    @Import(name="storageAccountId")
+    private @Nullable String storageAccountId;
 
     /**
-     * @return The name of the Storage Account where the Queue exists.
+     * @return The name of the Storage Account where the Queue exists. This property will become Required in version 5.0 of the Provider.
+     * 
+     * &gt; **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
      * 
      */
-    public String storageAccountName() {
-        return this.storageAccountName;
+    public Optional<String> storageAccountId() {
+        return Optional.ofNullable(this.storageAccountId);
+    }
+
+    /**
+     * The name of the Storage Account where the Queue exists. This property is deprecated in favour of `storage_account_id`.
+     * 
+     * @deprecated
+     * the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider.
+     * 
+     */
+    @Deprecated /* the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider. */
+    @Import(name="storageAccountName")
+    private @Nullable String storageAccountName;
+
+    /**
+     * @return The name of the Storage Account where the Queue exists. This property is deprecated in favour of `storage_account_id`.
+     * 
+     * @deprecated
+     * the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider.
+     * 
+     */
+    @Deprecated /* the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider. */
+    public Optional<String> storageAccountName() {
+        return Optional.ofNullable(this.storageAccountName);
     }
 
     private GetQueuePlainArgs() {}
@@ -66,6 +93,7 @@ public final class GetQueuePlainArgs extends com.pulumi.resources.InvokeArgs {
     private GetQueuePlainArgs(GetQueuePlainArgs $) {
         this.metadata = $.metadata;
         this.name = $.name;
+        this.storageAccountId = $.storageAccountId;
         this.storageAccountName = $.storageAccountName;
     }
 
@@ -110,12 +138,29 @@ public final class GetQueuePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param storageAccountName The name of the Storage Account where the Queue exists.
+         * @param storageAccountId The name of the Storage Account where the Queue exists. This property will become Required in version 5.0 of the Provider.
+         * 
+         * &gt; **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
          * 
          * @return builder
          * 
          */
-        public Builder storageAccountName(String storageAccountName) {
+        public Builder storageAccountId(@Nullable String storageAccountId) {
+            $.storageAccountId = storageAccountId;
+            return this;
+        }
+
+        /**
+         * @param storageAccountName The name of the Storage Account where the Queue exists. This property is deprecated in favour of `storage_account_id`.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider.
+         * 
+         */
+        @Deprecated /* the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider. */
+        public Builder storageAccountName(@Nullable String storageAccountName) {
             $.storageAccountName = storageAccountName;
             return this;
         }
@@ -123,9 +168,6 @@ public final class GetQueuePlainArgs extends com.pulumi.resources.InvokeArgs {
         public GetQueuePlainArgs build() {
             if ($.name == null) {
                 throw new MissingRequiredPropertyException("GetQueuePlainArgs", "name");
-            }
-            if ($.storageAccountName == null) {
-                throw new MissingRequiredPropertyException("GetQueuePlainArgs", "storageAccountName");
             }
             return $;
         }

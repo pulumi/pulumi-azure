@@ -168,6 +168,16 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableArray<string>> ServiceEndpoints { get; private set; } = null!;
 
         /// <summary>
+        /// The sharing scope of the subnet. Possible value is `Tenant`.
+        /// 
+        /// &gt; **Note:** This property cannot be set if `default_outbound_access_enabled` is set to `true`.
+        /// 
+        /// !&gt; **Note:** The `sharing_scope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
+        /// </summary>
+        [Output("sharingScope")]
+        public Output<string?> SharingScope { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
         /// </summary>
         [Output("virtualNetworkName")]
@@ -320,6 +330,16 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
+        /// The sharing scope of the subnet. Possible value is `Tenant`.
+        /// 
+        /// &gt; **Note:** This property cannot be set if `default_outbound_access_enabled` is set to `true`.
+        /// 
+        /// !&gt; **Note:** The `sharing_scope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
+        /// </summary>
+        [Input("sharingScope")]
+        public Input<string>? SharingScope { get; set; }
+
+        /// <summary>
         /// The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
         /// </summary>
         [Input("virtualNetworkName", required: true)]
@@ -432,6 +452,16 @@ namespace Pulumi.Azure.Network
             get => _serviceEndpoints ?? (_serviceEndpoints = new InputList<string>());
             set => _serviceEndpoints = value;
         }
+
+        /// <summary>
+        /// The sharing scope of the subnet. Possible value is `Tenant`.
+        /// 
+        /// &gt; **Note:** This property cannot be set if `default_outbound_access_enabled` is set to `true`.
+        /// 
+        /// !&gt; **Note:** The `sharing_scope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
+        /// </summary>
+        [Input("sharingScope")]
+        public Input<string>? SharingScope { get; set; }
 
         /// <summary>
         /// The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.

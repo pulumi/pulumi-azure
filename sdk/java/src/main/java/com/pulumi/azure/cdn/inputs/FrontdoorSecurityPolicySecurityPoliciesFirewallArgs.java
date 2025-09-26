@@ -16,14 +16,14 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallArgs extends c
     public static final FrontdoorSecurityPolicySecurityPoliciesFirewallArgs Empty = new FrontdoorSecurityPolicySecurityPoliciesFirewallArgs();
 
     /**
-     * An `association` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+     * An `association` block as defined below.
      * 
      */
     @Import(name="association", required=true)
     private Output<FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs> association;
 
     /**
-     * @return An `association` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+     * @return An `association` block as defined below.
      * 
      */
     public Output<FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs> association() {
@@ -71,7 +71,7 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallArgs extends c
         }
 
         /**
-         * @param association An `association` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+         * @param association An `association` block as defined below.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallArgs extends c
         }
 
         /**
-         * @param association An `association` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+         * @param association An `association` block as defined below.
          * 
          * @return builder
          * 

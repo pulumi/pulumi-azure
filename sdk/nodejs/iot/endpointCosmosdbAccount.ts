@@ -99,6 +99,12 @@ export class EndpointCosmosdbAccount extends pulumi.CustomResource {
      * > **Note:** `secondaryKey` must and can only be specified when `authenticationType` is `keyBased`.
      */
     declare public readonly secondaryKey: pulumi.Output<string | undefined>;
+    /**
+     * The subscription ID for the endpoint.
+     *
+     * > **Note:** When `subscriptionId` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+     */
+    declare public readonly subscriptionId: pulumi.Output<string>;
 
     /**
      * Create a EndpointCosmosdbAccount resource with the given unique name, arguments, and options.
@@ -125,6 +131,7 @@ export class EndpointCosmosdbAccount extends pulumi.CustomResource {
             resourceInputs["primaryKey"] = state?.primaryKey;
             resourceInputs["resourceGroupName"] = state?.resourceGroupName;
             resourceInputs["secondaryKey"] = state?.secondaryKey;
+            resourceInputs["subscriptionId"] = state?.subscriptionId;
         } else {
             const args = argsOrState as EndpointCosmosdbAccountArgs | undefined;
             if (args?.containerName === undefined && !opts.urn) {
@@ -154,6 +161,7 @@ export class EndpointCosmosdbAccount extends pulumi.CustomResource {
             resourceInputs["primaryKey"] = args?.primaryKey ? pulumi.secret(args.primaryKey) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["secondaryKey"] = args?.secondaryKey ? pulumi.secret(args.secondaryKey) : undefined;
+            resourceInputs["subscriptionId"] = args?.subscriptionId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["primaryKey", "secondaryKey"] };
@@ -220,6 +228,12 @@ export interface EndpointCosmosdbAccountState {
      * > **Note:** `secondaryKey` must and can only be specified when `authenticationType` is `keyBased`.
      */
     secondaryKey?: pulumi.Input<string>;
+    /**
+     * The subscription ID for the endpoint.
+     *
+     * > **Note:** When `subscriptionId` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+     */
+    subscriptionId?: pulumi.Input<string>;
 }
 
 /**
@@ -280,4 +294,10 @@ export interface EndpointCosmosdbAccountArgs {
      * > **Note:** `secondaryKey` must and can only be specified when `authenticationType` is `keyBased`.
      */
     secondaryKey?: pulumi.Input<string>;
+    /**
+     * The subscription ID for the endpoint.
+     *
+     * > **Note:** When `subscriptionId` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+     */
+    subscriptionId?: pulumi.Input<string>;
 }

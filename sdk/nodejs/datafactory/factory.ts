@@ -72,11 +72,11 @@ export class Factory extends pulumi.CustomResource {
     /**
      * Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
      */
-    declare public readonly customerManagedKeyId: pulumi.Output<string | undefined>;
+    declare public readonly customerManagedKeyId: pulumi.Output<string>;
     /**
      * Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customerManagedKeyId` is set.
      */
-    declare public readonly customerManagedKeyIdentityId: pulumi.Output<string | undefined>;
+    declare public readonly customerManagedKeyIdentityId: pulumi.Output<string>;
     /**
      * A `githubConfiguration` block as defined below.
      */

@@ -78,7 +78,7 @@ export class NetworkManagerRoutingConfiguration extends pulumi.CustomResource {
     }
 
     /**
-     * The description of the Network Manager.
+     * The description of the Network Manager Routing Configuration.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
@@ -125,7 +125,7 @@ export class NetworkManagerRoutingConfiguration extends pulumi.CustomResource {
  */
 export interface NetworkManagerRoutingConfigurationState {
     /**
-     * The description of the Network Manager.
+     * The description of the Network Manager Routing Configuration.
      */
     description?: pulumi.Input<string>;
     /**
@@ -143,7 +143,7 @@ export interface NetworkManagerRoutingConfigurationState {
  */
 export interface NetworkManagerRoutingConfigurationArgs {
     /**
-     * The description of the Network Manager.
+     * The description of the Network Manager Routing Configuration.
      */
     description?: pulumi.Input<string>;
     /**

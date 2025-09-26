@@ -26,6 +26,7 @@ class ProjectPoolArgs:
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  managed_virtual_network_regions: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 single_sign_on_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  stop_on_disconnect_grace_period_minutes: Optional[pulumi.Input[_builtins.int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
@@ -39,6 +40,7 @@ class ProjectPoolArgs:
                
                > **Note:** Currently only one region can be specified for `managed_virtual_network_regions`.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Dev Center Project Pool. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.bool] single_sign_on_enabled: Specifies whether Dev Boxes in the Pool will have SSO enabled or disabled. Defaults to `false`.
         :param pulumi.Input[_builtins.int] stop_on_disconnect_grace_period_minutes: The specified time in minutes to wait before stopping a Dev Center Dev Box once disconnect is detected. Possible values are between `60` and `480`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Dev Center Project Pool.
         """
@@ -52,6 +54,8 @@ class ProjectPoolArgs:
             pulumi.set(__self__, "managed_virtual_network_regions", managed_virtual_network_regions)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if single_sign_on_enabled is not None:
+            pulumi.set(__self__, "single_sign_on_enabled", single_sign_on_enabled)
         if stop_on_disconnect_grace_period_minutes is not None:
             pulumi.set(__self__, "stop_on_disconnect_grace_period_minutes", stop_on_disconnect_grace_period_minutes)
         if tags is not None:
@@ -144,6 +148,18 @@ class ProjectPoolArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="singleSignOnEnabled")
+    def single_sign_on_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Specifies whether Dev Boxes in the Pool will have SSO enabled or disabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "single_sign_on_enabled")
+
+    @single_sign_on_enabled.setter
+    def single_sign_on_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "single_sign_on_enabled", value)
+
+    @_builtins.property
     @pulumi.getter(name="stopOnDisconnectGracePeriodMinutes")
     def stop_on_disconnect_grace_period_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
@@ -178,6 +194,7 @@ class _ProjectPoolState:
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  managed_virtual_network_regions: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 single_sign_on_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  stop_on_disconnect_grace_period_minutes: Optional[pulumi.Input[_builtins.int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
@@ -191,6 +208,7 @@ class _ProjectPoolState:
                
                > **Note:** Currently only one region can be specified for `managed_virtual_network_regions`.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Dev Center Project Pool. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.bool] single_sign_on_enabled: Specifies whether Dev Boxes in the Pool will have SSO enabled or disabled. Defaults to `false`.
         :param pulumi.Input[_builtins.int] stop_on_disconnect_grace_period_minutes: The specified time in minutes to wait before stopping a Dev Center Dev Box once disconnect is detected. Possible values are between `60` and `480`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Dev Center Project Pool.
         """
@@ -208,6 +226,8 @@ class _ProjectPoolState:
             pulumi.set(__self__, "managed_virtual_network_regions", managed_virtual_network_regions)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if single_sign_on_enabled is not None:
+            pulumi.set(__self__, "single_sign_on_enabled", single_sign_on_enabled)
         if stop_on_disconnect_grace_period_minutes is not None:
             pulumi.set(__self__, "stop_on_disconnect_grace_period_minutes", stop_on_disconnect_grace_period_minutes)
         if tags is not None:
@@ -300,6 +320,18 @@ class _ProjectPoolState:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="singleSignOnEnabled")
+    def single_sign_on_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Specifies whether Dev Boxes in the Pool will have SSO enabled or disabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "single_sign_on_enabled")
+
+    @single_sign_on_enabled.setter
+    def single_sign_on_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "single_sign_on_enabled", value)
+
+    @_builtins.property
     @pulumi.getter(name="stopOnDisconnectGracePeriodMinutes")
     def stop_on_disconnect_grace_period_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
@@ -337,6 +369,7 @@ class ProjectPool(pulumi.CustomResource):
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  managed_virtual_network_regions: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 single_sign_on_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  stop_on_disconnect_grace_period_minutes: Optional[pulumi.Input[_builtins.int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -426,6 +459,7 @@ class ProjectPool(pulumi.CustomResource):
                
                > **Note:** Currently only one region can be specified for `managed_virtual_network_regions`.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Dev Center Project Pool. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.bool] single_sign_on_enabled: Specifies whether Dev Boxes in the Pool will have SSO enabled or disabled. Defaults to `false`.
         :param pulumi.Input[_builtins.int] stop_on_disconnect_grace_period_minutes: The specified time in minutes to wait before stopping a Dev Center Dev Box once disconnect is detected. Possible values are between `60` and `480`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Dev Center Project Pool.
         """
@@ -532,6 +566,7 @@ class ProjectPool(pulumi.CustomResource):
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  managed_virtual_network_regions: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 single_sign_on_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  stop_on_disconnect_grace_period_minutes: Optional[pulumi.Input[_builtins.int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -558,6 +593,7 @@ class ProjectPool(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["managed_virtual_network_regions"] = managed_virtual_network_regions
             __props__.__dict__["name"] = name
+            __props__.__dict__["single_sign_on_enabled"] = single_sign_on_enabled
             __props__.__dict__["stop_on_disconnect_grace_period_minutes"] = stop_on_disconnect_grace_period_minutes
             __props__.__dict__["tags"] = tags
         super(ProjectPool, __self__).__init__(
@@ -577,6 +613,7 @@ class ProjectPool(pulumi.CustomResource):
             location: Optional[pulumi.Input[_builtins.str]] = None,
             managed_virtual_network_regions: Optional[pulumi.Input[_builtins.str]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
+            single_sign_on_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             stop_on_disconnect_grace_period_minutes: Optional[pulumi.Input[_builtins.int]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'ProjectPool':
         """
@@ -595,6 +632,7 @@ class ProjectPool(pulumi.CustomResource):
                
                > **Note:** Currently only one region can be specified for `managed_virtual_network_regions`.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Dev Center Project Pool. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.bool] single_sign_on_enabled: Specifies whether Dev Boxes in the Pool will have SSO enabled or disabled. Defaults to `false`.
         :param pulumi.Input[_builtins.int] stop_on_disconnect_grace_period_minutes: The specified time in minutes to wait before stopping a Dev Center Dev Box once disconnect is detected. Possible values are between `60` and `480`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Dev Center Project Pool.
         """
@@ -609,6 +647,7 @@ class ProjectPool(pulumi.CustomResource):
         __props__.__dict__["location"] = location
         __props__.__dict__["managed_virtual_network_regions"] = managed_virtual_network_regions
         __props__.__dict__["name"] = name
+        __props__.__dict__["single_sign_on_enabled"] = single_sign_on_enabled
         __props__.__dict__["stop_on_disconnect_grace_period_minutes"] = stop_on_disconnect_grace_period_minutes
         __props__.__dict__["tags"] = tags
         return ProjectPool(resource_name, opts=opts, __props__=__props__)
@@ -670,6 +709,14 @@ class ProjectPool(pulumi.CustomResource):
         Specifies the name of this Dev Center Project Pool. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="singleSignOnEnabled")
+    def single_sign_on_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Specifies whether Dev Boxes in the Pool will have SSO enabled or disabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "single_sign_on_enabled")
 
     @_builtins.property
     @pulumi.getter(name="stopOnDisconnectGracePeriodMinutes")

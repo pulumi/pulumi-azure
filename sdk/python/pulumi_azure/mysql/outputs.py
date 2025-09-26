@@ -36,6 +36,8 @@ class FlexibleServerCustomerManagedKey(dict):
             suggest = "geo_backup_user_assigned_identity_id"
         elif key == "keyVaultKeyId":
             suggest = "key_vault_key_id"
+        elif key == "managedHsmKeyId":
+            suggest = "managed_hsm_key_id"
         elif key == "primaryUserAssignedIdentityId":
             suggest = "primary_user_assigned_identity_id"
 
@@ -54,6 +56,7 @@ class FlexibleServerCustomerManagedKey(dict):
                  geo_backup_key_vault_key_id: Optional[_builtins.str] = None,
                  geo_backup_user_assigned_identity_id: Optional[_builtins.str] = None,
                  key_vault_key_id: Optional[_builtins.str] = None,
+                 managed_hsm_key_id: Optional[_builtins.str] = None,
                  primary_user_assigned_identity_id: Optional[_builtins.str] = None):
         """
         :param _builtins.str geo_backup_key_vault_key_id: The ID of the geo backup Key Vault Key. It can't cross region and need Customer Managed Key in same region as geo backup.
@@ -61,6 +64,7 @@ class FlexibleServerCustomerManagedKey(dict):
                
                > **Note:** `primary_user_assigned_identity_id` or `geo_backup_user_assigned_identity_id` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param _builtins.str key_vault_key_id: The ID of the Key Vault Key.
+        :param _builtins.str managed_hsm_key_id: The ID of the Managed HSM Key.
         :param _builtins.str primary_user_assigned_identity_id: Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identity_ids`.
         """
         if geo_backup_key_vault_key_id is not None:
@@ -69,6 +73,8 @@ class FlexibleServerCustomerManagedKey(dict):
             pulumi.set(__self__, "geo_backup_user_assigned_identity_id", geo_backup_user_assigned_identity_id)
         if key_vault_key_id is not None:
             pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        if managed_hsm_key_id is not None:
+            pulumi.set(__self__, "managed_hsm_key_id", managed_hsm_key_id)
         if primary_user_assigned_identity_id is not None:
             pulumi.set(__self__, "primary_user_assigned_identity_id", primary_user_assigned_identity_id)
 
@@ -97,6 +103,14 @@ class FlexibleServerCustomerManagedKey(dict):
         The ID of the Key Vault Key.
         """
         return pulumi.get(self, "key_vault_key_id")
+
+    @_builtins.property
+    @pulumi.getter(name="managedHsmKeyId")
+    def managed_hsm_key_id(self) -> Optional[_builtins.str]:
+        """
+        The ID of the Managed HSM Key.
+        """
+        return pulumi.get(self, "managed_hsm_key_id")
 
     @_builtins.property
     @pulumi.getter(name="primaryUserAssignedIdentityId")

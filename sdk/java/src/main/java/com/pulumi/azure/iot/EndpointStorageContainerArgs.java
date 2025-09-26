@@ -201,6 +201,25 @@ public final class EndpointStorageContainerArgs extends com.pulumi.resources.Res
         return this.resourceGroupName;
     }
 
+    /**
+     * The subscription ID for the endpoint.
+     * 
+     * &gt; **Note:** When `subscription_id` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
+     * 
+     */
+    @Import(name="subscriptionId")
+    private @Nullable Output<String> subscriptionId;
+
+    /**
+     * @return The subscription ID for the endpoint.
+     * 
+     * &gt; **Note:** When `subscription_id` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
+     * 
+     */
+    public Optional<Output<String>> subscriptionId() {
+        return Optional.ofNullable(this.subscriptionId);
+    }
+
     private EndpointStorageContainerArgs() {}
 
     private EndpointStorageContainerArgs(EndpointStorageContainerArgs $) {
@@ -216,6 +235,7 @@ public final class EndpointStorageContainerArgs extends com.pulumi.resources.Res
         this.maxChunkSizeInBytes = $.maxChunkSizeInBytes;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
+        this.subscriptionId = $.subscriptionId;
     }
 
     public static Builder builder() {
@@ -490,6 +510,31 @@ public final class EndpointStorageContainerArgs extends com.pulumi.resources.Res
          */
         public Builder resourceGroupName(String resourceGroupName) {
             return resourceGroupName(Output.of(resourceGroupName));
+        }
+
+        /**
+         * @param subscriptionId The subscription ID for the endpoint.
+         * 
+         * &gt; **Note:** When `subscription_id` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder subscriptionId(@Nullable Output<String> subscriptionId) {
+            $.subscriptionId = subscriptionId;
+            return this;
+        }
+
+        /**
+         * @param subscriptionId The subscription ID for the endpoint.
+         * 
+         * &gt; **Note:** When `subscription_id` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder subscriptionId(String subscriptionId) {
+            return subscriptionId(Output.of(subscriptionId));
         }
 
         public EndpointStorageContainerArgs build() {

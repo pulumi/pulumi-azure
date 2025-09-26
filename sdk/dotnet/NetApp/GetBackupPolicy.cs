@@ -43,7 +43,7 @@ namespace Pulumi.Azure.NetApp
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.NetApp` - 2025-01-01
+        /// * `Microsoft.NetApp` - 2025-06-01
         /// </summary>
         public static Task<GetBackupPolicyResult> InvokeAsync(GetBackupPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBackupPolicyResult>("azure:netapp/getBackupPolicy:getBackupPolicy", args ?? new GetBackupPolicyArgs(), options.WithDefaults());
@@ -80,7 +80,7 @@ namespace Pulumi.Azure.NetApp
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.NetApp` - 2025-01-01
+        /// * `Microsoft.NetApp` - 2025-06-01
         /// </summary>
         public static Output<GetBackupPolicyResult> Invoke(GetBackupPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBackupPolicyResult>("azure:netapp/getBackupPolicy:getBackupPolicy", args ?? new GetBackupPolicyInvokeArgs(), options.WithDefaults());
@@ -117,7 +117,7 @@ namespace Pulumi.Azure.NetApp
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.NetApp` - 2025-01-01
+        /// * `Microsoft.NetApp` - 2025-06-01
         /// </summary>
         public static Output<GetBackupPolicyResult> Invoke(GetBackupPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBackupPolicyResult>("azure:netapp/getBackupPolicy:getBackupPolicy", args ?? new GetBackupPolicyInvokeArgs(), options.WithDefaults());

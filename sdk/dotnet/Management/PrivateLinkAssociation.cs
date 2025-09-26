@@ -84,24 +84,6 @@ namespace Pulumi.Azure.Management
 
         /// <summary>
         /// Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignore_changes` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = new Azure.Management.PrivateLinkAssociation("example", new()
-        ///     {
-        ///         ManagementGroupId = exampleAzurermManagementGroup.Id,
-        ///         ResourceManagementPrivateLinkId = exampleAzurermResourceManagementPrivateLink.Id,
-        ///         PublicNetworkAccessEnabled = true,
-        ///     });
-        /// 
-        /// });
-        /// ```
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -180,24 +162,6 @@ namespace Pulumi.Azure.Management
 
         /// <summary>
         /// Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignore_changes` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = new Azure.Management.PrivateLinkAssociation("example", new()
-        ///     {
-        ///         ManagementGroupId = exampleAzurermManagementGroup.Id,
-        ///         ResourceManagementPrivateLinkId = exampleAzurermResourceManagementPrivateLink.Id,
-        ///         PublicNetworkAccessEnabled = true,
-        ///     });
-        /// 
-        /// });
-        /// ```
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -232,24 +196,6 @@ namespace Pulumi.Azure.Management
 
         /// <summary>
         /// Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignore_changes` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = new Azure.Management.PrivateLinkAssociation("example", new()
-        ///     {
-        ///         ManagementGroupId = exampleAzurermManagementGroup.Id,
-        ///         ResourceManagementPrivateLinkId = exampleAzurermResourceManagementPrivateLink.Id,
-        ///         PublicNetworkAccessEnabled = true,
-        ///     });
-        /// 
-        /// });
-        /// ```
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

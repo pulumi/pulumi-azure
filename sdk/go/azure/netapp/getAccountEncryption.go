@@ -45,7 +45,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.NetApp` - 2025-01-01
+// * `Microsoft.NetApp` - 2025-06-01
 func LookupAccountEncryption(ctx *pulumi.Context, args *LookupAccountEncryptionArgs, opts ...pulumi.InvokeOption) (*LookupAccountEncryptionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAccountEncryptionResult
@@ -64,7 +64,9 @@ type LookupAccountEncryptionArgs struct {
 
 // A collection of values returned by getAccountEncryption.
 type LookupAccountEncryptionResult struct {
-	EncryptionKey string `pulumi:"encryptionKey"`
+	CrossTenantKeyVaultResourceId string `pulumi:"crossTenantKeyVaultResourceId"`
+	EncryptionKey                 string `pulumi:"encryptionKey"`
+	FederatedClientId             string `pulumi:"federatedClientId"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                                string `pulumi:"id"`
 	NetappAccountId                   string `pulumi:"netappAccountId"`
@@ -106,8 +108,16 @@ func (o LookupAccountEncryptionResultOutput) ToLookupAccountEncryptionResultOutp
 	return o
 }
 
+func (o LookupAccountEncryptionResultOutput) CrossTenantKeyVaultResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountEncryptionResult) string { return v.CrossTenantKeyVaultResourceId }).(pulumi.StringOutput)
+}
+
 func (o LookupAccountEncryptionResultOutput) EncryptionKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountEncryptionResult) string { return v.EncryptionKey }).(pulumi.StringOutput)
+}
+
+func (o LookupAccountEncryptionResultOutput) FederatedClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountEncryptionResult) string { return v.FederatedClientId }).(pulumi.StringOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

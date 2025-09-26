@@ -1515,7 +1515,7 @@ class AccountSasPolicy(dict):
                  expiration_action: Optional[_builtins.str] = None):
         """
         :param _builtins.str expiration_period: The SAS expiration period in format of `DD.HH:MM:SS`.
-        :param _builtins.str expiration_action: The SAS expiration action. The only possible value is `Log` at this moment. Defaults to `Log`.
+        :param _builtins.str expiration_action: The SAS expiration action. Possible values are `Log` and `Block`. Defaults to `Log`.
         """
         pulumi.set(__self__, "expiration_period", expiration_period)
         if expiration_action is not None:
@@ -1533,7 +1533,7 @@ class AccountSasPolicy(dict):
     @pulumi.getter(name="expirationAction")
     def expiration_action(self) -> Optional[_builtins.str]:
         """
-        The SAS expiration action. The only possible value is `Log` at this moment. Defaults to `Log`.
+        The SAS expiration action. Possible values are `Log` and `Block`. Defaults to `Log`.
         """
         return pulumi.get(self, "expiration_action")
 

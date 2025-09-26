@@ -76,6 +76,10 @@ export interface GetProjectPoolResult {
     readonly location: string;
     readonly name: string;
     /**
+     * Specifies whether Dev Boxes in the Pool will have SSO enabled or disabled.
+     */
+    readonly singleSignOnEnabled: boolean;
+    /**
      * The specified time in minutes to wait before stopping a Dev Center Dev Box once disconnect is detected.
      */
     readonly stopOnDisconnectGracePeriodMinutes: number;

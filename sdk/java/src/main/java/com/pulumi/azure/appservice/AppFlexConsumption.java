@@ -302,6 +302,24 @@ public class AppFlexConsumption extends com.pulumi.resources.CustomResource {
         return this.hostingEnvironmentId;
     }
     /**
+     * The Http concurrency of the instances on which your app runs. The supported value are from `1` to `1000`.
+     * 
+     * &gt; **Note:** A value will be assigned by the system if `http_concurrency` is not specified.
+     * 
+     */
+    @Export(name="httpConcurrency", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> httpConcurrency;
+
+    /**
+     * @return The Http concurrency of the instances on which your app runs. The supported value are from `1` to `1000`.
+     * 
+     * &gt; **Note:** A value will be assigned by the system if `http_concurrency` is not specified.
+     * 
+     */
+    public Output<Optional<Integer>> httpConcurrency() {
+        return Codegen.optional(this.httpConcurrency);
+    }
+    /**
      * Is Https Connection enforced to the function app. Defaults to `false`
      * 
      */

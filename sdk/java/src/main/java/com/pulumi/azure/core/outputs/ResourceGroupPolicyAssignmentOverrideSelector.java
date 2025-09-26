@@ -13,10 +13,6 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ResourceGroupPolicyAssignmentOverrideSelector {
     private @Nullable List<String> ins;
-    /**
-     * @return Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
-     * 
-     */
     private @Nullable String kind;
     private @Nullable List<String> notIns;
 
@@ -24,10 +20,6 @@ public final class ResourceGroupPolicyAssignmentOverrideSelector {
     public List<String> ins() {
         return this.ins == null ? List.of() : this.ins;
     }
-    /**
-     * @return Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
-     * 
-     */
     public Optional<String> kind() {
         return Optional.ofNullable(this.kind);
     }

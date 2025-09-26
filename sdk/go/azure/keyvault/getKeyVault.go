@@ -63,6 +63,8 @@ type LookupKeyVaultResult struct {
 	// One or more `accessPolicy` blocks as defined below.
 	AccessPolicies []GetKeyVaultAccessPolicy `pulumi:"accessPolicies"`
 	// Is Role Based Access Control (RBAC) for authorization of data actions enabled on this Key Vault?
+	//
+	// Deprecated: the `enableRbacAuthorization` property is deprecated in favour of `rbacAuthorizationEnabled` and will be removed in v5.0 of the AzureRM Provider.
 	EnableRbacAuthorization bool `pulumi:"enableRbacAuthorization"`
 	// Can Azure Virtual Machines retrieve certificates stored as secrets from the Key Vault?
 	EnabledForDeployment bool `pulumi:"enabledForDeployment"`
@@ -79,8 +81,9 @@ type LookupKeyVaultResult struct {
 	// Is public network access enabled on this Key Vault?
 	PublicNetworkAccessEnabled bool `pulumi:"publicNetworkAccessEnabled"`
 	// Is purge protection enabled on this Key Vault?
-	PurgeProtectionEnabled bool   `pulumi:"purgeProtectionEnabled"`
-	ResourceGroupName      string `pulumi:"resourceGroupName"`
+	PurgeProtectionEnabled   bool   `pulumi:"purgeProtectionEnabled"`
+	RbacAuthorizationEnabled bool   `pulumi:"rbacAuthorizationEnabled"`
+	ResourceGroupName        string `pulumi:"resourceGroupName"`
 	// The Name of the SKU used for this Key Vault.
 	SkuName string `pulumi:"skuName"`
 	// A mapping of tags assigned to the Key Vault.
@@ -133,6 +136,8 @@ func (o LookupKeyVaultResultOutput) AccessPolicies() GetKeyVaultAccessPolicyArra
 }
 
 // Is Role Based Access Control (RBAC) for authorization of data actions enabled on this Key Vault?
+//
+// Deprecated: the `enableRbacAuthorization` property is deprecated in favour of `rbacAuthorizationEnabled` and will be removed in v5.0 of the AzureRM Provider.
 func (o LookupKeyVaultResultOutput) EnableRbacAuthorization() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupKeyVaultResult) bool { return v.EnableRbacAuthorization }).(pulumi.BoolOutput)
 }
@@ -178,6 +183,10 @@ func (o LookupKeyVaultResultOutput) PublicNetworkAccessEnabled() pulumi.BoolOutp
 // Is purge protection enabled on this Key Vault?
 func (o LookupKeyVaultResultOutput) PurgeProtectionEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupKeyVaultResult) bool { return v.PurgeProtectionEnabled }).(pulumi.BoolOutput)
+}
+
+func (o LookupKeyVaultResultOutput) RbacAuthorizationEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupKeyVaultResult) bool { return v.RbacAuthorizationEnabled }).(pulumi.BoolOutput)
 }
 
 func (o LookupKeyVaultResultOutput) ResourceGroupName() pulumi.StringOutput {

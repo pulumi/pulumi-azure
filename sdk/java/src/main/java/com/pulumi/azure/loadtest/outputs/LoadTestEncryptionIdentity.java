@@ -13,6 +13,8 @@ public final class LoadTestEncryptionIdentity {
     /**
      * @return The User Assigned Identity ID that should be assigned to this Load Test Encryption. Changing this forces a new Load Test to be created.
      * 
+     * &gt; **Note:** The User Assigned Identity ID specified here must also exist in `identity.identity_ids`.
+     * 
      */
     private String identityId;
     /**
@@ -24,6 +26,8 @@ public final class LoadTestEncryptionIdentity {
     private LoadTestEncryptionIdentity() {}
     /**
      * @return The User Assigned Identity ID that should be assigned to this Load Test Encryption. Changing this forces a new Load Test to be created.
+     * 
+     * &gt; **Note:** The User Assigned Identity ID specified here must also exist in `identity.identity_ids`.
      * 
      */
     public String identityId() {

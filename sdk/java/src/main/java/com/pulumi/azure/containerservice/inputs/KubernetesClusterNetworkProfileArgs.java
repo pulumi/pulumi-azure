@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.containerservice.inputs;
 
+import com.pulumi.azure.containerservice.inputs.KubernetesClusterNetworkProfileAdvancedNetworkingArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterNetworkProfileLoadBalancerProfileArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterNetworkProfileNatGatewayProfileArgs;
 import com.pulumi.core.Output;
@@ -18,6 +19,21 @@ import javax.annotation.Nullable;
 public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final KubernetesClusterNetworkProfileArgs Empty = new KubernetesClusterNetworkProfileArgs();
+
+    /**
+     * An `advanced_networking` block as defined below. This can only be specified when `network_plugin` is set to `azure` and `network_data_plane` is set to `cilium`.
+     * 
+     */
+    @Import(name="advancedNetworking")
+    private @Nullable Output<KubernetesClusterNetworkProfileAdvancedNetworkingArgs> advancedNetworking;
+
+    /**
+     * @return An `advanced_networking` block as defined below. This can only be specified when `network_plugin` is set to `azure` and `network_data_plane` is set to `cilium`.
+     * 
+     */
+    public Optional<Output<KubernetesClusterNetworkProfileAdvancedNetworkingArgs>> advancedNetworking() {
+        return Optional.ofNullable(this.advancedNetworking);
+    }
 
     /**
      * IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
@@ -210,14 +226,18 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
     }
 
     /**
-     * The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outbound_type` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
+     * The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway`, `userAssignedNATGateway` and `none`. Defaults to `loadBalancer`.
+     * 
+     * &gt; **Note:** For more information on supported `outbound_type` migration paths please see the product [documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
      * 
      */
     @Import(name="outboundType")
     private @Nullable Output<String> outboundType;
 
     /**
-     * @return The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outbound_type` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
+     * @return The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway`, `userAssignedNATGateway` and `none`. Defaults to `loadBalancer`.
+     * 
+     * &gt; **Note:** For more information on supported `outbound_type` migration paths please see the product [documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
      * 
      */
     public Optional<Output<String>> outboundType() {
@@ -291,6 +311,7 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
     private KubernetesClusterNetworkProfileArgs() {}
 
     private KubernetesClusterNetworkProfileArgs(KubernetesClusterNetworkProfileArgs $) {
+        this.advancedNetworking = $.advancedNetworking;
         this.dnsServiceIp = $.dnsServiceIp;
         this.ipVersions = $.ipVersions;
         this.loadBalancerProfile = $.loadBalancerProfile;
@@ -324,6 +345,27 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
 
         public Builder(KubernetesClusterNetworkProfileArgs defaults) {
             $ = new KubernetesClusterNetworkProfileArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param advancedNetworking An `advanced_networking` block as defined below. This can only be specified when `network_plugin` is set to `azure` and `network_data_plane` is set to `cilium`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder advancedNetworking(@Nullable Output<KubernetesClusterNetworkProfileAdvancedNetworkingArgs> advancedNetworking) {
+            $.advancedNetworking = advancedNetworking;
+            return this;
+        }
+
+        /**
+         * @param advancedNetworking An `advanced_networking` block as defined below. This can only be specified when `network_plugin` is set to `azure` and `network_data_plane` is set to `cilium`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder advancedNetworking(KubernetesClusterNetworkProfileAdvancedNetworkingArgs advancedNetworking) {
+            return advancedNetworking(Output.of(advancedNetworking));
         }
 
         /**
@@ -591,7 +633,9 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
         }
 
         /**
-         * @param outboundType The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outbound_type` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
+         * @param outboundType The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway`, `userAssignedNATGateway` and `none`. Defaults to `loadBalancer`.
+         * 
+         * &gt; **Note:** For more information on supported `outbound_type` migration paths please see the product [documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
          * 
          * @return builder
          * 
@@ -602,7 +646,9 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
         }
 
         /**
-         * @param outboundType The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outbound_type` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
+         * @param outboundType The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway`, `userAssignedNATGateway` and `none`. Defaults to `loadBalancer`.
+         * 
+         * &gt; **Note:** For more information on supported `outbound_type` migration paths please see the product [documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
          * 
          * @return builder
          * 

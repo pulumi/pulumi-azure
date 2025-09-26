@@ -26,7 +26,8 @@ class EndpointEventhubArgs:
                  endpoint_uri: Optional[pulumi.Input[_builtins.str]] = None,
                  entity_path: Optional[pulumi.Input[_builtins.str]] = None,
                  identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EndpointEventhub resource.
         :param pulumi.Input[_builtins.str] iothub_id: The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
@@ -39,6 +40,9 @@ class EndpointEventhubArgs:
                
                > **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
         :param pulumi.Input[_builtins.str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] subscription_id: The subscription ID for the endpoint.
+               
+               > **Note:** When `subscription_id` isn't specified it will be set to the subscription ID of the IoT Hub resource.
         """
         pulumi.set(__self__, "iothub_id", iothub_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -54,6 +58,8 @@ class EndpointEventhubArgs:
             pulumi.set(__self__, "identity_id", identity_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if subscription_id is not None:
+            pulumi.set(__self__, "subscription_id", subscription_id)
 
     @_builtins.property
     @pulumi.getter(name="iothubId")
@@ -153,6 +159,20 @@ class EndpointEventhubArgs:
     def name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @_builtins.property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The subscription ID for the endpoint.
+
+        > **Note:** When `subscription_id` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @subscription_id.setter
+    def subscription_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "subscription_id", value)
+
 
 @pulumi.input_type
 class _EndpointEventhubState:
@@ -164,7 +184,8 @@ class _EndpointEventhubState:
                  identity_id: Optional[pulumi.Input[_builtins.str]] = None,
                  iothub_id: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EndpointEventhub resources.
         :param pulumi.Input[_builtins.str] authentication_type: Type used to authenticate against the Event Hub endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
@@ -177,6 +198,9 @@ class _EndpointEventhubState:
         :param pulumi.Input[_builtins.str] iothub_id: The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group under which the Event Hub has been created. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] subscription_id: The subscription ID for the endpoint.
+               
+               > **Note:** When `subscription_id` isn't specified it will be set to the subscription ID of the IoT Hub resource.
         """
         if authentication_type is not None:
             pulumi.set(__self__, "authentication_type", authentication_type)
@@ -194,6 +218,8 @@ class _EndpointEventhubState:
             pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if subscription_id is not None:
+            pulumi.set(__self__, "subscription_id", subscription_id)
 
     @_builtins.property
     @pulumi.getter(name="authenticationType")
@@ -293,6 +319,20 @@ class _EndpointEventhubState:
     def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
+    @_builtins.property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The subscription ID for the endpoint.
+
+        > **Note:** When `subscription_id` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @subscription_id.setter
+    def subscription_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "subscription_id", value)
+
 
 @pulumi.type_token("azure:iot/endpointEventhub:EndpointEventhub")
 class EndpointEventhub(pulumi.CustomResource):
@@ -308,6 +348,7 @@ class EndpointEventhub(pulumi.CustomResource):
                  iothub_id: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an IotHub EventHub Endpoint
@@ -380,6 +421,9 @@ class EndpointEventhub(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] iothub_id: The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group under which the Event Hub has been created. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] subscription_id: The subscription ID for the endpoint.
+               
+               > **Note:** When `subscription_id` isn't specified it will be set to the subscription ID of the IoT Hub resource.
         """
         ...
     @overload
@@ -469,6 +513,7 @@ class EndpointEventhub(pulumi.CustomResource):
                  iothub_id: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -490,6 +535,7 @@ class EndpointEventhub(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["subscription_id"] = subscription_id
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["connectionString"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(EndpointEventhub, __self__).__init__(
@@ -509,7 +555,8 @@ class EndpointEventhub(pulumi.CustomResource):
             identity_id: Optional[pulumi.Input[_builtins.str]] = None,
             iothub_id: Optional[pulumi.Input[_builtins.str]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'EndpointEventhub':
+            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+            subscription_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'EndpointEventhub':
         """
         Get an existing EndpointEventhub resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -527,6 +574,9 @@ class EndpointEventhub(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] iothub_id: The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group under which the Event Hub has been created. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] subscription_id: The subscription ID for the endpoint.
+               
+               > **Note:** When `subscription_id` isn't specified it will be set to the subscription ID of the IoT Hub resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -540,6 +590,7 @@ class EndpointEventhub(pulumi.CustomResource):
         __props__.__dict__["iothub_id"] = iothub_id
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["subscription_id"] = subscription_id
         return EndpointEventhub(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -607,4 +658,14 @@ class EndpointEventhub(pulumi.CustomResource):
         The name of the resource group under which the Event Hub has been created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
+
+    @_builtins.property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The subscription ID for the endpoint.
+
+        > **Note:** When `subscription_id` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+        """
+        return pulumi.get(self, "subscription_id")
 

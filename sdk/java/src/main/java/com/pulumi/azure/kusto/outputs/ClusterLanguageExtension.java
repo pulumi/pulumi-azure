@@ -10,6 +10,10 @@ import java.util.Objects;
 
 @CustomType
 public final class ClusterLanguageExtension {
+    /**
+     * @return The language extension image. Possible values are `Python3_11_7`, `Python3_11_7_DL`, `Python3_10_8`, `Python3_10_8_DL`, `Python3_6_5`, `PythonCustomImage`, and `R`.
+     * 
+     */
     private String image;
     /**
      * @return The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
@@ -18,6 +22,10 @@ public final class ClusterLanguageExtension {
     private String name;
 
     private ClusterLanguageExtension() {}
+    /**
+     * @return The language extension image. Possible values are `Python3_11_7`, `Python3_11_7_DL`, `Python3_10_8`, `Python3_10_8_DL`, `Python3_6_5`, `PythonCustomImage`, and `R`.
+     * 
+     */
     public String image() {
         return this.image;
     }

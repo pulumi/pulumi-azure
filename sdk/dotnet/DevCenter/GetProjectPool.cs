@@ -188,6 +188,10 @@ namespace Pulumi.Azure.DevCenter
         public readonly string Location;
         public readonly string Name;
         /// <summary>
+        /// Specifies whether Dev Boxes in the Pool will have SSO enabled or disabled.
+        /// </summary>
+        public readonly bool SingleSignOnEnabled;
+        /// <summary>
         /// The specified time in minutes to wait before stopping a Dev Center Dev Box once disconnect is detected.
         /// </summary>
         public readonly int StopOnDisconnectGracePeriodMinutes;
@@ -212,6 +216,8 @@ namespace Pulumi.Azure.DevCenter
 
             string name,
 
+            bool singleSignOnEnabled,
+
             int stopOnDisconnectGracePeriodMinutes,
 
             ImmutableDictionary<string, string> tags)
@@ -223,6 +229,7 @@ namespace Pulumi.Azure.DevCenter
             LocalAdministratorEnabled = localAdministratorEnabled;
             Location = location;
             Name = name;
+            SingleSignOnEnabled = singleSignOnEnabled;
             StopOnDisconnectGracePeriodMinutes = stopOnDisconnectGracePeriodMinutes;
             Tags = tags;
         }

@@ -58,7 +58,7 @@ import (
 //				return err
 //			}
 //			_, err = storage.NewContainerImmutabilityPolicy(ctx, "example", &storage.ContainerImmutabilityPolicyArgs{
-//				StorageContainerResourceManagerId: exampleContainer.ResourceManagerId,
+//				StorageContainerResourceManagerId: exampleContainer.ID(),
 //				ImmutabilityPeriodInDays:          pulumi.Int(14),
 //				ProtectedAppendWritesAllEnabled:   pulumi.Bool(false),
 //				ProtectedAppendWritesEnabled:      pulumi.Bool(true),

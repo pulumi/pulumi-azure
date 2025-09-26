@@ -118,6 +118,31 @@ namespace Pulumi.Azure.NetApp
     ///         NetappAccountId = exampleAccount.Id,
     ///         UserAssignedIdentityId = exampleUserAssignedIdentity.Id,
     ///         EncryptionKey = exampleKey.VersionlessId,
+    ///         FederatedClientId = exampleUserAssignedIdentity.ClientId,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Cross-Tenant Usage
+    /// 
+    /// For scenarios where the key vault is in a different Entra ID tenant:
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var crossTenant = new Azure.NetApp.AccountEncryption("cross_tenant", new()
+    ///     {
+    ///         NetappAccountId = example.Id,
+    ///         UserAssignedIdentityId = exampleAzurermUserAssignedIdentity.Id,
+    ///         EncryptionKey = "https://keyvault-in-other-tenant.vault.azure.net/keys/encryption-key",
+    ///         FederatedClientId = "12345678-1234-1234-1234-123456789012",
+    ///         CrossTenantKeyVaultResourceId = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/remote-rg/providers/Microsoft.KeyVault/vaults/keyvault-in-other-tenant",
     ///     });
     /// 
     /// });
@@ -128,7 +153,7 @@ namespace Pulumi.Azure.NetApp
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.NetApp` - 2025-01-01
+    /// * `Microsoft.NetApp` - 2025-06-01
     /// 
     /// ## Import
     /// 
@@ -142,10 +167,22 @@ namespace Pulumi.Azure.NetApp
     public partial class AccountEncryption : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The full resource ID of the cross-tenant key vault. This is recommended when using `federated_client_id` for cross-tenant scenarios to ensure proper validation by Azure APIs.
+        /// </summary>
+        [Output("crossTenantKeyVaultResourceId")]
+        public Output<string?> CrossTenantKeyVaultResourceId { get; private set; } = null!;
+
+        /// <summary>
         /// Specify the versionless ID of the encryption key.
         /// </summary>
         [Output("encryptionKey")]
         public Output<string> EncryptionKey { get; private set; } = null!;
+
+        /// <summary>
+        /// The Client ID of the multi-tenant Entra ID application used to access cross-tenant key vaults. This is only required when accessing a key vault in a different tenant than the NetApp account.
+        /// </summary>
+        [Output("federatedClientId")]
+        public Output<string?> FederatedClientId { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the NetApp account where volume under it will have customer managed keys-based encryption enabled.
@@ -212,10 +249,22 @@ namespace Pulumi.Azure.NetApp
     public sealed class AccountEncryptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The full resource ID of the cross-tenant key vault. This is recommended when using `federated_client_id` for cross-tenant scenarios to ensure proper validation by Azure APIs.
+        /// </summary>
+        [Input("crossTenantKeyVaultResourceId")]
+        public Input<string>? CrossTenantKeyVaultResourceId { get; set; }
+
+        /// <summary>
         /// Specify the versionless ID of the encryption key.
         /// </summary>
         [Input("encryptionKey", required: true)]
         public Input<string> EncryptionKey { get; set; } = null!;
+
+        /// <summary>
+        /// The Client ID of the multi-tenant Entra ID application used to access cross-tenant key vaults. This is only required when accessing a key vault in a different tenant than the NetApp account.
+        /// </summary>
+        [Input("federatedClientId")]
+        public Input<string>? FederatedClientId { get; set; }
 
         /// <summary>
         /// The ID of the NetApp account where volume under it will have customer managed keys-based encryption enabled.
@@ -244,10 +293,22 @@ namespace Pulumi.Azure.NetApp
     public sealed class AccountEncryptionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The full resource ID of the cross-tenant key vault. This is recommended when using `federated_client_id` for cross-tenant scenarios to ensure proper validation by Azure APIs.
+        /// </summary>
+        [Input("crossTenantKeyVaultResourceId")]
+        public Input<string>? CrossTenantKeyVaultResourceId { get; set; }
+
+        /// <summary>
         /// Specify the versionless ID of the encryption key.
         /// </summary>
         [Input("encryptionKey")]
         public Input<string>? EncryptionKey { get; set; }
+
+        /// <summary>
+        /// The Client ID of the multi-tenant Entra ID application used to access cross-tenant key vaults. This is only required when accessing a key vault in a different tenant than the NetApp account.
+        /// </summary>
+        [Input("federatedClientId")]
+        public Input<string>? FederatedClientId { get; set; }
 
         /// <summary>
         /// The ID of the NetApp account where volume under it will have customer managed keys-based encryption enabled.

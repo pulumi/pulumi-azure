@@ -147,6 +147,12 @@ export class AppFlexConsumption extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly hostingEnvironmentId: pulumi.Output<string>;
     /**
+     * The Http concurrency of the instances on which your app runs. The supported value are from `1` to `1000`.
+     *
+     * > **Note:** A value will be assigned by the system if `httpConcurrency` is not specified.
+     */
+    declare public readonly httpConcurrency: pulumi.Output<number | undefined>;
+    /**
      * Is Https Connection enforced to the function app. Defaults to `false`
      */
     declare public readonly httpsOnly: pulumi.Output<boolean | undefined>;
@@ -289,6 +295,7 @@ export class AppFlexConsumption extends pulumi.CustomResource {
             resourceInputs["defaultHostname"] = state?.defaultHostname;
             resourceInputs["enabled"] = state?.enabled;
             resourceInputs["hostingEnvironmentId"] = state?.hostingEnvironmentId;
+            resourceInputs["httpConcurrency"] = state?.httpConcurrency;
             resourceInputs["httpsOnly"] = state?.httpsOnly;
             resourceInputs["identity"] = state?.identity;
             resourceInputs["instanceMemoryInMb"] = state?.instanceMemoryInMb;
@@ -352,6 +359,7 @@ export class AppFlexConsumption extends pulumi.CustomResource {
             resourceInputs["clientCertificateMode"] = args?.clientCertificateMode;
             resourceInputs["connectionStrings"] = args?.connectionStrings;
             resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["httpConcurrency"] = args?.httpConcurrency;
             resourceInputs["httpsOnly"] = args?.httpsOnly;
             resourceInputs["identity"] = args?.identity;
             resourceInputs["instanceMemoryInMb"] = args?.instanceMemoryInMb;
@@ -443,6 +451,12 @@ export interface AppFlexConsumptionState {
      * The ID of the App Service Environment used by Function App.
      */
     hostingEnvironmentId?: pulumi.Input<string>;
+    /**
+     * The Http concurrency of the instances on which your app runs. The supported value are from `1` to `1000`.
+     *
+     * > **Note:** A value will be assigned by the system if `httpConcurrency` is not specified.
+     */
+    httpConcurrency?: pulumi.Input<number>;
     /**
      * Is Https Connection enforced to the function app. Defaults to `false`
      */
@@ -602,6 +616,12 @@ export interface AppFlexConsumptionArgs {
      * Is the Function App enabled? Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * The Http concurrency of the instances on which your app runs. The supported value are from `1` to `1000`.
+     *
+     * > **Note:** A value will be assigned by the system if `httpConcurrency` is not specified.
+     */
+    httpConcurrency?: pulumi.Input<number>;
     /**
      * Is Https Connection enforced to the function app. Defaults to `false`
      */

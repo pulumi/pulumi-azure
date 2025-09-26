@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.ContainerService` - 2025-02-01
+ * * `Microsoft.ContainerService` - 2025-05-01
  */
 export function getKubernetesNodePoolSnapshot(args: GetKubernetesNodePoolSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetKubernetesNodePoolSnapshotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -84,7 +84,7 @@ export interface GetKubernetesNodePoolSnapshotResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.ContainerService` - 2025-02-01
+ * * `Microsoft.ContainerService` - 2025-05-01
  */
 export function getKubernetesNodePoolSnapshotOutput(args: GetKubernetesNodePoolSnapshotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKubernetesNodePoolSnapshotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

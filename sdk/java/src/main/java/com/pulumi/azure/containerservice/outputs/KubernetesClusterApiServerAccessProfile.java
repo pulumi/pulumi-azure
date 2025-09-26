@@ -4,9 +4,11 @@
 package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -16,6 +18,16 @@ public final class KubernetesClusterApiServerAccessProfile {
      * 
      */
     private @Nullable List<String> authorizedIpRanges;
+    /**
+     * @return The ID of the Subnet where the API server endpoint is delegated to.
+     * 
+     */
+    private @Nullable String subnetId;
+    /**
+     * @return Whether to enable virtual network integration for the API Server. Defaults to `false`.
+     * 
+     */
+    private @Nullable Boolean virtualNetworkIntegrationEnabled;
 
     private KubernetesClusterApiServerAccessProfile() {}
     /**
@@ -24,6 +36,20 @@ public final class KubernetesClusterApiServerAccessProfile {
      */
     public List<String> authorizedIpRanges() {
         return this.authorizedIpRanges == null ? List.of() : this.authorizedIpRanges;
+    }
+    /**
+     * @return The ID of the Subnet where the API server endpoint is delegated to.
+     * 
+     */
+    public Optional<String> subnetId() {
+        return Optional.ofNullable(this.subnetId);
+    }
+    /**
+     * @return Whether to enable virtual network integration for the API Server. Defaults to `false`.
+     * 
+     */
+    public Optional<Boolean> virtualNetworkIntegrationEnabled() {
+        return Optional.ofNullable(this.virtualNetworkIntegrationEnabled);
     }
 
     public static Builder builder() {
@@ -36,10 +62,14 @@ public final class KubernetesClusterApiServerAccessProfile {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> authorizedIpRanges;
+        private @Nullable String subnetId;
+        private @Nullable Boolean virtualNetworkIntegrationEnabled;
         public Builder() {}
         public Builder(KubernetesClusterApiServerAccessProfile defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authorizedIpRanges = defaults.authorizedIpRanges;
+    	      this.subnetId = defaults.subnetId;
+    	      this.virtualNetworkIntegrationEnabled = defaults.virtualNetworkIntegrationEnabled;
         }
 
         @CustomType.Setter
@@ -51,9 +81,23 @@ public final class KubernetesClusterApiServerAccessProfile {
         public Builder authorizedIpRanges(String... authorizedIpRanges) {
             return authorizedIpRanges(List.of(authorizedIpRanges));
         }
+        @CustomType.Setter
+        public Builder subnetId(@Nullable String subnetId) {
+
+            this.subnetId = subnetId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder virtualNetworkIntegrationEnabled(@Nullable Boolean virtualNetworkIntegrationEnabled) {
+
+            this.virtualNetworkIntegrationEnabled = virtualNetworkIntegrationEnabled;
+            return this;
+        }
         public KubernetesClusterApiServerAccessProfile build() {
             final var _resultValue = new KubernetesClusterApiServerAccessProfile();
             _resultValue.authorizedIpRanges = authorizedIpRanges;
+            _resultValue.subnetId = subnetId;
+            _resultValue.virtualNetworkIntegrationEnabled = virtualNetworkIntegrationEnabled;
             return _resultValue;
         }
     }

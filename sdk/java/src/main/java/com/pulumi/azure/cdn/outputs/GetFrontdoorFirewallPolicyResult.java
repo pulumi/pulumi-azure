@@ -14,6 +14,11 @@ import java.util.Objects;
 @CustomType
 public final class GetFrontdoorFirewallPolicyResult {
     /**
+     * @return The Front Door Firewall Policy Captcha cookie lifetime in minutes.
+     * 
+     */
+    private Integer captchaCookieExpirationInMinutes;
+    /**
      * @return The enabled state of the Front Door Firewall Policy.
      * 
      */
@@ -52,6 +57,13 @@ public final class GetFrontdoorFirewallPolicyResult {
     private String skuName;
 
     private GetFrontdoorFirewallPolicyResult() {}
+    /**
+     * @return The Front Door Firewall Policy Captcha cookie lifetime in minutes.
+     * 
+     */
+    public Integer captchaCookieExpirationInMinutes() {
+        return this.captchaCookieExpirationInMinutes;
+    }
     /**
      * @return The enabled state of the Front Door Firewall Policy.
      * 
@@ -117,6 +129,7 @@ public final class GetFrontdoorFirewallPolicyResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private Integer captchaCookieExpirationInMinutes;
         private Boolean enabled;
         private List<String> frontendEndpointIds;
         private String id;
@@ -129,6 +142,7 @@ public final class GetFrontdoorFirewallPolicyResult {
         public Builder() {}
         public Builder(GetFrontdoorFirewallPolicyResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.captchaCookieExpirationInMinutes = defaults.captchaCookieExpirationInMinutes;
     	      this.enabled = defaults.enabled;
     	      this.frontendEndpointIds = defaults.frontendEndpointIds;
     	      this.id = defaults.id;
@@ -140,6 +154,14 @@ public final class GetFrontdoorFirewallPolicyResult {
     	      this.skuName = defaults.skuName;
         }
 
+        @CustomType.Setter
+        public Builder captchaCookieExpirationInMinutes(Integer captchaCookieExpirationInMinutes) {
+            if (captchaCookieExpirationInMinutes == null) {
+              throw new MissingRequiredPropertyException("GetFrontdoorFirewallPolicyResult", "captchaCookieExpirationInMinutes");
+            }
+            this.captchaCookieExpirationInMinutes = captchaCookieExpirationInMinutes;
+            return this;
+        }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             if (enabled == null) {
@@ -217,6 +239,7 @@ public final class GetFrontdoorFirewallPolicyResult {
         }
         public GetFrontdoorFirewallPolicyResult build() {
             final var _resultValue = new GetFrontdoorFirewallPolicyResult();
+            _resultValue.captchaCookieExpirationInMinutes = captchaCookieExpirationInMinutes;
             _resultValue.enabled = enabled;
             _resultValue.frontendEndpointIds = frontendEndpointIds;
             _resultValue.id = id;

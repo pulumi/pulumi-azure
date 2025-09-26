@@ -22,6 +22,8 @@ type FlexibleServerCustomerManagedKey struct {
 	GeoBackupUserAssignedIdentityId *string `pulumi:"geoBackupUserAssignedIdentityId"`
 	// The ID of the Key Vault Key.
 	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
+	// The ID of the Managed HSM Key.
+	ManagedHsmKeyId *string `pulumi:"managedHsmKeyId"`
 	// Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identityIds`.
 	PrimaryUserAssignedIdentityId *string `pulumi:"primaryUserAssignedIdentityId"`
 }
@@ -46,6 +48,8 @@ type FlexibleServerCustomerManagedKeyArgs struct {
 	GeoBackupUserAssignedIdentityId pulumi.StringPtrInput `pulumi:"geoBackupUserAssignedIdentityId"`
 	// The ID of the Key Vault Key.
 	KeyVaultKeyId pulumi.StringPtrInput `pulumi:"keyVaultKeyId"`
+	// The ID of the Managed HSM Key.
+	ManagedHsmKeyId pulumi.StringPtrInput `pulumi:"managedHsmKeyId"`
 	// Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identityIds`.
 	PrimaryUserAssignedIdentityId pulumi.StringPtrInput `pulumi:"primaryUserAssignedIdentityId"`
 }
@@ -144,6 +148,11 @@ func (o FlexibleServerCustomerManagedKeyOutput) KeyVaultKeyId() pulumi.StringPtr
 	return o.ApplyT(func(v FlexibleServerCustomerManagedKey) *string { return v.KeyVaultKeyId }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Managed HSM Key.
+func (o FlexibleServerCustomerManagedKeyOutput) ManagedHsmKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlexibleServerCustomerManagedKey) *string { return v.ManagedHsmKeyId }).(pulumi.StringPtrOutput)
+}
+
 // Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identityIds`.
 func (o FlexibleServerCustomerManagedKeyOutput) PrimaryUserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlexibleServerCustomerManagedKey) *string { return v.PrimaryUserAssignedIdentityId }).(pulumi.StringPtrOutput)
@@ -202,6 +211,16 @@ func (o FlexibleServerCustomerManagedKeyPtrOutput) KeyVaultKeyId() pulumi.String
 			return nil
 		}
 		return v.KeyVaultKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Managed HSM Key.
+func (o FlexibleServerCustomerManagedKeyPtrOutput) ManagedHsmKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlexibleServerCustomerManagedKey) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedHsmKeyId
 	}).(pulumi.StringPtrOutput)
 }
 

@@ -18,7 +18,9 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string Option;
         /// <summary>
-        /// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+        /// Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `source_image_reference`. More information can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks)
         /// </summary>
         public readonly string? Placement;
 

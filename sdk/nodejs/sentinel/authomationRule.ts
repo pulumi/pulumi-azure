@@ -85,6 +85,10 @@ export class AuthomationRule extends pulumi.CustomResource {
     }
 
     /**
+     * One or more `actionIncidentTask` blocks as defined below.
+     */
+    declare public readonly actionIncidentTasks: pulumi.Output<outputs.sentinel.AuthomationRuleActionIncidentTask[] | undefined>;
+    /**
      * One or more `actionIncident` blocks as defined below.
      */
     declare public readonly actionIncidents: pulumi.Output<outputs.sentinel.AuthomationRuleActionIncident[] | undefined>;
@@ -147,6 +151,7 @@ export class AuthomationRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AuthomationRuleState | undefined;
+            resourceInputs["actionIncidentTasks"] = state?.actionIncidentTasks;
             resourceInputs["actionIncidents"] = state?.actionIncidents;
             resourceInputs["actionPlaybooks"] = state?.actionPlaybooks;
             resourceInputs["conditionJson"] = state?.conditionJson;
@@ -169,6 +174,7 @@ export class AuthomationRule extends pulumi.CustomResource {
             if (args?.order === undefined && !opts.urn) {
                 throw new Error("Missing required property 'order'");
             }
+            resourceInputs["actionIncidentTasks"] = args?.actionIncidentTasks;
             resourceInputs["actionIncidents"] = args?.actionIncidents;
             resourceInputs["actionPlaybooks"] = args?.actionPlaybooks;
             resourceInputs["conditionJson"] = args?.conditionJson;
@@ -190,6 +196,10 @@ export class AuthomationRule extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AuthomationRule resources.
  */
 export interface AuthomationRuleState {
+    /**
+     * One or more `actionIncidentTask` blocks as defined below.
+     */
+    actionIncidentTasks?: pulumi.Input<pulumi.Input<inputs.sentinel.AuthomationRuleActionIncidentTask>[]>;
     /**
      * One or more `actionIncident` blocks as defined below.
      */
@@ -242,6 +252,10 @@ export interface AuthomationRuleState {
  * The set of arguments for constructing a AuthomationRule resource.
  */
 export interface AuthomationRuleArgs {
+    /**
+     * One or more `actionIncidentTask` blocks as defined below.
+     */
+    actionIncidentTasks?: pulumi.Input<pulumi.Input<inputs.sentinel.AuthomationRuleActionIncidentTask>[]>;
     /**
      * One or more `actionIncident` blocks as defined below.
      */

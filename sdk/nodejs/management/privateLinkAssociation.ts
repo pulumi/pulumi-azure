@@ -87,17 +87,6 @@ export class PrivateLinkAssociation extends pulumi.CustomResource {
     declare public readonly managementGroupId: pulumi.Output<string>;
     /**
      * Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignoreChanges` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
-     *
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * import * as azure from "@pulumi/azure";
-     *
-     * const example = new azure.management.PrivateLinkAssociation("example", {
-     *     managementGroupId: exampleAzurermManagementGroup.id,
-     *     resourceManagementPrivateLinkId: exampleAzurermResourceManagementPrivateLink.id,
-     *     publicNetworkAccessEnabled: true,
-     * });
-     * ```
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -165,17 +154,6 @@ export interface PrivateLinkAssociationState {
     managementGroupId?: pulumi.Input<string>;
     /**
      * Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignoreChanges` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
-     *
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * import * as azure from "@pulumi/azure";
-     *
-     * const example = new azure.management.PrivateLinkAssociation("example", {
-     *     managementGroupId: exampleAzurermManagementGroup.id,
-     *     resourceManagementPrivateLinkId: exampleAzurermResourceManagementPrivateLink.id,
-     *     publicNetworkAccessEnabled: true,
-     * });
-     * ```
      */
     name?: pulumi.Input<string>;
     /**
@@ -204,17 +182,6 @@ export interface PrivateLinkAssociationArgs {
     managementGroupId: pulumi.Input<string>;
     /**
      * Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignoreChanges` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
-     *
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * import * as azure from "@pulumi/azure";
-     *
-     * const example = new azure.management.PrivateLinkAssociation("example", {
-     *     managementGroupId: exampleAzurermManagementGroup.id,
-     *     resourceManagementPrivateLinkId: exampleAzurermResourceManagementPrivateLink.id,
-     *     publicNetworkAccessEnabled: true,
-     * });
-     * ```
      */
     name?: pulumi.Input<string>;
     /**

@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.NetApp` - 2025-01-01
+ * * `Microsoft.NetApp` - 2025-06-01
  */
 export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -109,7 +109,7 @@ export interface GetSnapshotResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.NetApp` - 2025-01-01
+ * * `Microsoft.NetApp` - 2025-06-01
  */
 export function getSnapshotOutput(args: GetSnapshotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSnapshotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

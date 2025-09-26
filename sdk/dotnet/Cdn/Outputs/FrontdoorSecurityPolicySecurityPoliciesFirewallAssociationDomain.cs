@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Cdn.Outputs
         /// </summary>
         public readonly bool? Active;
         /// <summary>
-        /// The Resource Id of the **Front Door Custom Domain** or **Front Door Endpoint** that should be bound to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
+        /// The Resource Id of the **Front Door Custom Domain** or **Front Door Endpoint** that should be bound to this Front Door Security Policy.
         /// </summary>
         public readonly string CdnFrontdoorDomainId;
 

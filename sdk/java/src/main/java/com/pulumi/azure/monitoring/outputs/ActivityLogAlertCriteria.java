@@ -43,17 +43,19 @@ public final class ActivityLogAlertCriteria {
      */
     private @Nullable String operationName;
     /**
-     * @return The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence`, `HighAvailability` and `Performance`. It is only allowed when `category` is `Recommendation`.
+     * @return The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence`, `HighAvailability`, `Performance` and `Security`.
      * 
      */
     private @Nullable String recommendationCategory;
     /**
-     * @return The recommendation impact of the event. Possible values are `High`, `Medium` and `Low`. It is only allowed when `category` is `Recommendation`.
+     * @return The recommendation impact of the event. Possible values are `High`, `Medium` and `Low`.
+     * 
+     * &gt; **Note:** The `recommendation_type`, `recommendation_category`, and `recommendation_impact` fields can only be defined if the `category` field has been set to `Recommendation`.
      * 
      */
     private @Nullable String recommendationImpact;
     /**
-     * @return The recommendation type of the event. It is only allowed when `category` is `Recommendation`.
+     * @return The recommendation type of the event.
      * 
      */
     private @Nullable String recommendationType;
@@ -179,21 +181,23 @@ public final class ActivityLogAlertCriteria {
         return Optional.ofNullable(this.operationName);
     }
     /**
-     * @return The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence`, `HighAvailability` and `Performance`. It is only allowed when `category` is `Recommendation`.
+     * @return The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence`, `HighAvailability`, `Performance` and `Security`.
      * 
      */
     public Optional<String> recommendationCategory() {
         return Optional.ofNullable(this.recommendationCategory);
     }
     /**
-     * @return The recommendation impact of the event. Possible values are `High`, `Medium` and `Low`. It is only allowed when `category` is `Recommendation`.
+     * @return The recommendation impact of the event. Possible values are `High`, `Medium` and `Low`.
+     * 
+     * &gt; **Note:** The `recommendation_type`, `recommendation_category`, and `recommendation_impact` fields can only be defined if the `category` field has been set to `Recommendation`.
      * 
      */
     public Optional<String> recommendationImpact() {
         return Optional.ofNullable(this.recommendationImpact);
     }
     /**
-     * @return The recommendation type of the event. It is only allowed when `category` is `Recommendation`.
+     * @return The recommendation type of the event.
      * 
      */
     public Optional<String> recommendationType() {

@@ -23,7 +23,7 @@ public final class WindowsVirtualMachineOsDisk {
     /**
      * @return A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment)
+     * &gt; **NOTE:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment). Additionally, this property cannot be set when an existing Managed Disk is used to create the Virtual Machine by setting `os_managed_disk_id`.
      * 
      */
     private @Nullable WindowsVirtualMachineOsDiskDiffDiskSettings diffDiskSettings;
@@ -49,6 +49,8 @@ public final class WindowsVirtualMachineOsDisk {
     /**
      * @return The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** a value for `name` cannot be specified if/when the Virtual Machine has been created using an existing Managed Disk for the OS by setting `os_managed_disk_id`.
+     * 
      */
     private @Nullable String name;
     /**
@@ -70,8 +72,10 @@ public final class WindowsVirtualMachineOsDisk {
     /**
      * @return The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+     * 
      */
-    private String storageAccountType;
+    private @Nullable String storageAccountType;
     /**
      * @return Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
      * 
@@ -91,7 +95,7 @@ public final class WindowsVirtualMachineOsDisk {
     /**
      * @return A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment)
+     * &gt; **NOTE:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment). Additionally, this property cannot be set when an existing Managed Disk is used to create the Virtual Machine by setting `os_managed_disk_id`.
      * 
      */
     public Optional<WindowsVirtualMachineOsDiskDiffDiskSettings> diffDiskSettings() {
@@ -125,6 +129,8 @@ public final class WindowsVirtualMachineOsDisk {
     /**
      * @return The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** a value for `name` cannot be specified if/when the Virtual Machine has been created using an existing Managed Disk for the OS by setting `os_managed_disk_id`.
+     * 
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
@@ -152,9 +158,11 @@ public final class WindowsVirtualMachineOsDisk {
     /**
      * @return The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+     * 
      */
-    public String storageAccountType() {
-        return this.storageAccountType;
+    public Optional<String> storageAccountType() {
+        return Optional.ofNullable(this.storageAccountType);
     }
     /**
      * @return Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
@@ -183,7 +191,7 @@ public final class WindowsVirtualMachineOsDisk {
         private @Nullable String name;
         private @Nullable String secureVmDiskEncryptionSetId;
         private @Nullable String securityEncryptionType;
-        private String storageAccountType;
+        private @Nullable String storageAccountType;
         private @Nullable Boolean writeAcceleratorEnabled;
         public Builder() {}
         public Builder(WindowsVirtualMachineOsDisk defaults) {
@@ -251,10 +259,8 @@ public final class WindowsVirtualMachineOsDisk {
             return this;
         }
         @CustomType.Setter
-        public Builder storageAccountType(String storageAccountType) {
-            if (storageAccountType == null) {
-              throw new MissingRequiredPropertyException("WindowsVirtualMachineOsDisk", "storageAccountType");
-            }
+        public Builder storageAccountType(@Nullable String storageAccountType) {
+
             this.storageAccountType = storageAccountType;
             return this;
         }
