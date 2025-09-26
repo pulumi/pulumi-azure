@@ -5,7 +5,7 @@ Subject: [PATCH] Update-documentation
 
 
 diff --git a/website/docs/d/function_app_host_keys.html.markdown b/website/docs/d/function_app_host_keys.html.markdown
-index 42abf58915..d25dde2fa2 100644
+index cdaa7d7293..d19e4ce0da 100644
 --- a/website/docs/d/function_app_host_keys.html.markdown
 +++ b/website/docs/d/function_app_host_keys.html.markdown
 @@ -19,8 +19,6 @@ data "azurerm_function_app_host_keys" "example" {
@@ -18,7 +18,7 @@ index 42abf58915..d25dde2fa2 100644
  
  The following arguments are supported:
 diff --git a/website/docs/d/key_vault_certificate.html.markdown b/website/docs/d/key_vault_certificate.html.markdown
-index a603ba9023..df455ca425 100644
+index f4707bb000..a0a6ee05e6 100644
 --- a/website/docs/d/key_vault_certificate.html.markdown
 +++ b/website/docs/d/key_vault_certificate.html.markdown
 @@ -10,9 +10,6 @@ description: |-
@@ -32,7 +32,7 @@ index a603ba9023..df455ca425 100644
  
  ```hcl
 diff --git a/website/docs/d/key_vault_certificate_data.html.markdown b/website/docs/d/key_vault_certificate_data.html.markdown
-index 2da1fdf715..16d66c4b99 100644
+index 64402d942d..10012281eb 100644
 --- a/website/docs/d/key_vault_certificate_data.html.markdown
 +++ b/website/docs/d/key_vault_certificate_data.html.markdown
 @@ -10,9 +10,6 @@ description: |-
@@ -46,7 +46,7 @@ index 2da1fdf715..16d66c4b99 100644
  
  ## Example Usage
 diff --git a/website/docs/d/key_vault_key.html.markdown b/website/docs/d/key_vault_key.html.markdown
-index 8da70010a7..32b9c261a4 100644
+index e29e89ab16..b7d78b01ac 100644
 --- a/website/docs/d/key_vault_key.html.markdown
 +++ b/website/docs/d/key_vault_key.html.markdown
 @@ -11,9 +11,6 @@ description: |-
@@ -60,7 +60,7 @@ index 8da70010a7..32b9c261a4 100644
  
  ```hcl
 diff --git a/website/docs/d/key_vault_secret.html.markdown b/website/docs/d/key_vault_secret.html.markdown
-index 9f531cd890..1fe6395eca 100644
+index 527c8739c7..c9165483f2 100644
 --- a/website/docs/d/key_vault_secret.html.markdown
 +++ b/website/docs/d/key_vault_secret.html.markdown
 @@ -10,9 +10,6 @@ description: |-
@@ -74,7 +74,7 @@ index 9f531cd890..1fe6395eca 100644
  
  ```hcl
 diff --git a/website/docs/d/kubernetes_cluster.html.markdown b/website/docs/d/kubernetes_cluster.html.markdown
-index 4c816b043d..4c1d5c9cd7 100644
+index c59de8398c..b912a4821e 100644
 --- a/website/docs/d/kubernetes_cluster.html.markdown
 +++ b/website/docs/d/kubernetes_cluster.html.markdown
 @@ -10,9 +10,6 @@ description: |-
@@ -117,7 +117,7 @@ index 4c816b043d..4c1d5c9cd7 100644
  
  A `linux_profile` block exports the following:
 @@ -401,7 +385,6 @@ A `certificate_authority` block exports the following:
- The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
+ The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `read` - (Defaults to 5 minutes) Used when retrieving the Managed Kubernetes Cluster (AKS).
 -
@@ -125,7 +125,7 @@ index 4c816b043d..4c1d5c9cd7 100644
  <!-- This section is generated, changes will be overwritten -->
  This data source uses the following Azure API Providers:
 diff --git a/website/docs/d/management_group.html.markdown b/website/docs/d/management_group.html.markdown
-index 1bd1c1f08f..a50f39844d 100644
+index 852645bd85..d60ad9162f 100644
 --- a/website/docs/d/management_group.html.markdown
 +++ b/website/docs/d/management_group.html.markdown
 @@ -30,7 +30,7 @@ The following arguments are supported:
@@ -138,7 +138,7 @@ index 1bd1c1f08f..a50f39844d 100644
  ## Attributes Reference
  
 @@ -55,7 +55,6 @@ The following attributes are exported:
- The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
+ The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `read` - (Defaults to 5 minutes) Used when retrieving the Management Group.
 -
@@ -146,7 +146,7 @@ index 1bd1c1f08f..a50f39844d 100644
  <!-- This section is generated, changes will be overwritten -->
  This data source uses the following Azure API Providers:
 diff --git a/website/docs/d/monitor_action_group.html.markdown b/website/docs/d/monitor_action_group.html.markdown
-index cc605310cd..29aa7d317a 100644
+index c1b2793e41..88c9b4777a 100644
 --- a/website/docs/d/monitor_action_group.html.markdown
 +++ b/website/docs/d/monitor_action_group.html.markdown
 @@ -14,7 +14,7 @@ Use this data source to access the properties of an Action Group.
@@ -159,7 +159,7 @@ index cc605310cd..29aa7d317a 100644
  }
  
 diff --git a/website/docs/d/monitor_scheduled_query_rules_alert.html.markdown b/website/docs/d/monitor_scheduled_query_rules_alert.html.markdown
-index 534d61c7e5..d5d9d2d0d6 100644
+index 73461b4891..d64b89bdac 100644
 --- a/website/docs/d/monitor_scheduled_query_rules_alert.html.markdown
 +++ b/website/docs/d/monitor_scheduled_query_rules_alert.html.markdown
 @@ -14,7 +14,7 @@ Use this data source to access the properties of an AlertingAction scheduled que
@@ -172,7 +172,7 @@ index 534d61c7e5..d5d9d2d0d6 100644
  }
  
 diff --git a/website/docs/d/monitor_scheduled_query_rules_log.html.markdown b/website/docs/d/monitor_scheduled_query_rules_log.html.markdown
-index 8dd2ea23dc..8e34005615 100644
+index edbaaba1dc..da6a36ed52 100644
 --- a/website/docs/d/monitor_scheduled_query_rules_log.html.markdown
 +++ b/website/docs/d/monitor_scheduled_query_rules_log.html.markdown
 @@ -14,7 +14,7 @@ Use this data source to access the properties of a LogToMetricAction scheduled q
@@ -185,7 +185,7 @@ index 8dd2ea23dc..8e34005615 100644
  }
  
 diff --git a/website/docs/d/notification_hub.html.markdown b/website/docs/d/notification_hub.html.markdown
-index e1cb1744d1..cda28dcf80 100644
+index d59d7a38ac..144feb8c90 100644
 --- a/website/docs/d/notification_hub.html.markdown
 +++ b/website/docs/d/notification_hub.html.markdown
 @@ -50,7 +50,7 @@ A `apns_credential` block exports:
@@ -198,7 +198,7 @@ index e1cb1744d1..cda28dcf80 100644
  * `key_id` - The Apple Push Notifications Service (APNS) Key.
  
 diff --git a/website/docs/d/policy_set_definition.html.markdown b/website/docs/d/policy_set_definition.html.markdown
-index b7664e4f50..8d6316a6e8 100644
+index 21d6cd116a..306a17d8b5 100644
 --- a/website/docs/d/policy_set_definition.html.markdown
 +++ b/website/docs/d/policy_set_definition.html.markdown
 @@ -28,7 +28,7 @@ output "id" {
@@ -220,14 +220,14 @@ index b7664e4f50..8d6316a6e8 100644
  
  * `parameter_values` - The parameter values for the referenced policy rule. This field is a JSON object.
 diff --git a/website/docs/d/redis_cache.html.markdown b/website/docs/d/redis_cache.html.markdown
-index a971783fee..f865db30fe 100644
+index 91fb8bd61b..c846d36ffb 100644
 --- a/website/docs/d/redis_cache.html.markdown
 +++ b/website/docs/d/redis_cache.html.markdown
 @@ -110,10 +110,10 @@ A `redis_configuration` block exports the following:
  
  * `rdb_storage_connection_string` - The Connection String to the Storage Account. Only supported for Premium SKUs.
  
--~> **Note:** There's a bug in the Redis API where the original storage connection string isn't being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignore_changes` attribute to ignore changes to this field](https://www.terraform.io/language/meta-arguments/lifecycle#ignore_changess) e.g.:
+-~> **Note:** There's a bug in the Redis API where the original storage connection string isn't being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037).
 -
  * `storage_account_subscription_id` - The ID of the Subscription containing the Storage Account.
  
@@ -235,9 +235,9 @@ index a971783fee..f865db30fe 100644
 +
  ## Timeouts
  
- The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
+ The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
 diff --git a/website/docs/d/storage_account_blob_container_sas.html.markdown b/website/docs/d/storage_account_blob_container_sas.html.markdown
-index a95e1470ff..f7803a24d2 100644
+index 8048c22aeb..dbfd2786f7 100644
 --- a/website/docs/d/storage_account_blob_container_sas.html.markdown
 +++ b/website/docs/d/storage_account_blob_container_sas.html.markdown
 @@ -68,7 +68,7 @@ output "sas_url_query_string" {
@@ -250,7 +250,7 @@ index a95e1470ff..f7803a24d2 100644
  * `container_name` - Name of the container.
  
 diff --git a/website/docs/d/storage_account_sas.html.markdown b/website/docs/d/storage_account_sas.html.markdown
-index bd31d950c8..ff46183779 100644
+index 0cabe15e65..69c89740ec 100644
 --- a/website/docs/d/storage_account_sas.html.markdown
 +++ b/website/docs/d/storage_account_sas.html.markdown
 @@ -78,7 +78,7 @@ output "sas_url_query_string" {
@@ -283,7 +283,7 @@ index 349edd1b80..6abbff68c7 100644
  
  The deprecated field `start_task.environment` will be removed in favour of the `start_task.common_environment_properties` properties.
 diff --git a/website/docs/r/api_management.html.markdown b/website/docs/r/api_management.html.markdown
-index 433e059b47..d87174cb80 100644
+index 017afccd67..e7111d4ac2 100644
 --- a/website/docs/r/api_management.html.markdown
 +++ b/website/docs/r/api_management.html.markdown
 @@ -31,7 +31,7 @@ resource "azurerm_api_management" "example" {
@@ -296,7 +296,7 @@ index 433e059b47..d87174cb80 100644
    sku_name = "Developer_1"
  }
 diff --git a/website/docs/r/api_management_api.html.markdown b/website/docs/r/api_management_api.html.markdown
-index 9b89b27a90..b9e3555e26 100644
+index ce51c73fb0..8142aced42 100644
 --- a/website/docs/r/api_management_api.html.markdown
 +++ b/website/docs/r/api_management_api.html.markdown
 @@ -23,7 +23,7 @@ resource "azurerm_api_management" "example" {
@@ -327,7 +327,7 @@ index 9b89b27a90..b9e3555e26 100644
  * `bearer_token_sending_methods` - (Optional) How to send token to the server. A list of zero or more methods. Valid values are `authorizationHeader` and `query`.
  
 diff --git a/website/docs/r/api_management_api_diagnostic.html.markdown b/website/docs/r/api_management_api_diagnostic.html.markdown
-index cb2ba5ee73..4fd314c246 100644
+index fc42cce69f..1d96259acb 100644
 --- a/website/docs/r/api_management_api_diagnostic.html.markdown
 +++ b/website/docs/r/api_management_api_diagnostic.html.markdown
 @@ -34,7 +34,7 @@ resource "azurerm_api_management" "example" {
@@ -340,7 +340,7 @@ index cb2ba5ee73..4fd314c246 100644
  }
  
 diff --git a/website/docs/r/api_management_api_policy.html.markdown b/website/docs/r/api_management_api_policy.html.markdown
-index 48b2ca9662..030595ba15 100644
+index c39e0d8d4f..714f78e9f8 100644
 --- a/website/docs/r/api_management_api_policy.html.markdown
 +++ b/website/docs/r/api_management_api_policy.html.markdown
 @@ -45,8 +45,7 @@ The following arguments are supported:
@@ -354,7 +354,7 @@ index 48b2ca9662..030595ba15 100644
  * `xml_link` - (Optional) A link to a Policy XML Document, which must be publicly available.
  
 diff --git a/website/docs/r/api_management_backend.html.markdown b/website/docs/r/api_management_backend.html.markdown
-index 56fd10ddcf..ba56587112 100644
+index 9136224365..4791448d1d 100644
 --- a/website/docs/r/api_management_backend.html.markdown
 +++ b/website/docs/r/api_management_backend.html.markdown
 @@ -23,7 +23,7 @@ resource "azurerm_api_management" "example" {
@@ -367,7 +367,7 @@ index 56fd10ddcf..ba56587112 100644
    sku_name = "Developer_1"
  }
 diff --git a/website/docs/r/api_management_certificate.html.markdown b/website/docs/r/api_management_certificate.html.markdown
-index f79e752f63..f97f715417 100644
+index c8e08ab213..0e9a71411d 100644
 --- a/website/docs/r/api_management_certificate.html.markdown
 +++ b/website/docs/r/api_management_certificate.html.markdown
 @@ -27,7 +27,7 @@ resource "azurerm_api_management" "example" {
@@ -380,7 +380,7 @@ index f79e752f63..f97f715417 100644
    sku_name = "Developer_1"
  }
 diff --git a/website/docs/r/api_management_custom_domain.html.markdown b/website/docs/r/api_management_custom_domain.html.markdown
-index 4c72451e2d..72f22361b6 100644
+index 51569c4943..3f571570f7 100644
 --- a/website/docs/r/api_management_custom_domain.html.markdown
 +++ b/website/docs/r/api_management_custom_domain.html.markdown
 @@ -3,16 +3,16 @@ subcategory: "API Management"
@@ -472,7 +472,7 @@ index 4c72451e2d..72f22361b6 100644
  
 @@ -176,10 +176,10 @@ In addition to the Arguments listed above - the following Attributes are exporte
  
- The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
+ The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
 -* `create` - (Defaults to 1 hour) Used when creating the API Management Custom Domain.
 +* `create` - (Defaults to 60 minutes) Used when creating the API Management Custom Domain.
@@ -493,7 +493,7 @@ index 4c72451e2d..72f22361b6 100644
  <!-- This section is generated, changes will be overwritten -->
  This resource uses the following Azure API Providers:
 diff --git a/website/docs/r/api_management_diagnostic.html.markdown b/website/docs/r/api_management_diagnostic.html.markdown
-index 96cf7bdb29..31c9048e9b 100644
+index 85d2d8b929..11670e02e8 100644
 --- a/website/docs/r/api_management_diagnostic.html.markdown
 +++ b/website/docs/r/api_management_diagnostic.html.markdown
 @@ -34,7 +34,7 @@ resource "azurerm_api_management" "example" {
@@ -506,7 +506,7 @@ index 96cf7bdb29..31c9048e9b 100644
  }
  resource "azurerm_api_management_logger" "example" {
 diff --git a/website/docs/r/api_management_identity_provider_aad.html.markdown b/website/docs/r/api_management_identity_provider_aad.html.markdown
-index f5e0b6e302..5c8cf79751 100644
+index 3bdc91fd4a..7bfab78b55 100644
 --- a/website/docs/r/api_management_identity_provider_aad.html.markdown
 +++ b/website/docs/r/api_management_identity_provider_aad.html.markdown
 @@ -23,7 +23,7 @@ resource "azurerm_api_management" "example" {
@@ -519,7 +519,7 @@ index f5e0b6e302..5c8cf79751 100644
  }
  
 diff --git a/website/docs/r/api_management_identity_provider_facebook.html.markdown b/website/docs/r/api_management_identity_provider_facebook.html.markdown
-index 7af79d3241..cce95430ed 100644
+index 7c734f469d..b1f8a81d71 100644
 --- a/website/docs/r/api_management_identity_provider_facebook.html.markdown
 +++ b/website/docs/r/api_management_identity_provider_facebook.html.markdown
 @@ -23,7 +23,7 @@ resource "azurerm_api_management" "example" {
@@ -532,7 +532,7 @@ index 7af79d3241..cce95430ed 100644
  }
  
 diff --git a/website/docs/r/api_management_identity_provider_google.html.markdown b/website/docs/r/api_management_identity_provider_google.html.markdown
-index 0eb72d68e8..bec792eff6 100644
+index b169b3456a..5d6e34de2d 100644
 --- a/website/docs/r/api_management_identity_provider_google.html.markdown
 +++ b/website/docs/r/api_management_identity_provider_google.html.markdown
 @@ -23,7 +23,7 @@ resource "azurerm_api_management" "example" {
@@ -545,7 +545,7 @@ index 0eb72d68e8..bec792eff6 100644
  }
  
 diff --git a/website/docs/r/api_management_identity_provider_microsoft.html.markdown b/website/docs/r/api_management_identity_provider_microsoft.html.markdown
-index 9e16229ecc..a532be57d8 100644
+index de809fe663..8c864e1c56 100644
 --- a/website/docs/r/api_management_identity_provider_microsoft.html.markdown
 +++ b/website/docs/r/api_management_identity_provider_microsoft.html.markdown
 @@ -23,7 +23,7 @@ resource "azurerm_api_management" "example" {
@@ -558,7 +558,7 @@ index 9e16229ecc..a532be57d8 100644
  }
  
 diff --git a/website/docs/r/api_management_identity_provider_twitter.html.markdown b/website/docs/r/api_management_identity_provider_twitter.html.markdown
-index 857e3837a9..ebe300e8b2 100644
+index fd198a71ac..605ec752ba 100644
 --- a/website/docs/r/api_management_identity_provider_twitter.html.markdown
 +++ b/website/docs/r/api_management_identity_provider_twitter.html.markdown
 @@ -23,7 +23,7 @@ resource "azurerm_api_management" "example" {
@@ -571,7 +571,7 @@ index 857e3837a9..ebe300e8b2 100644
  }
  
 diff --git a/website/docs/r/api_management_logger.html.markdown b/website/docs/r/api_management_logger.html.markdown
-index fb9e798390..8c80b29ec3 100644
+index 75f09554a7..3706f062ed 100644
 --- a/website/docs/r/api_management_logger.html.markdown
 +++ b/website/docs/r/api_management_logger.html.markdown
 @@ -30,7 +30,7 @@ resource "azurerm_api_management" "example" {
@@ -584,7 +584,7 @@ index fb9e798390..8c80b29ec3 100644
    sku_name = "Developer_1"
  }
 diff --git a/website/docs/r/api_management_named_value.html.markdown b/website/docs/r/api_management_named_value.html.markdown
-index c49dcce1b0..274fcd231e 100644
+index f7e7762f58..ab6e71f062 100644
 --- a/website/docs/r/api_management_named_value.html.markdown
 +++ b/website/docs/r/api_management_named_value.html.markdown
 @@ -55,7 +55,7 @@ The following arguments are supported:
@@ -597,7 +597,7 @@ index c49dcce1b0..274fcd231e 100644
  * `tags` - (Optional) A list of tags to be applied to the API Management Named Value.
  
 @@ -78,8 +78,8 @@ In addition to the Arguments listed above - the following Attributes are exporte
- The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
+ The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 30 minutes) Used when creating the API Management Named Value.
 -* `read` - (Defaults to 5 minutes) Used when retrieving the API Management Named Value.
@@ -615,7 +615,7 @@ index c49dcce1b0..274fcd231e 100644
  <!-- This section is generated, changes will be overwritten -->
  This resource uses the following Azure API Providers:
 diff --git a/website/docs/r/api_management_openid_connect_provider.html.markdown b/website/docs/r/api_management_openid_connect_provider.html.markdown
-index b40d7438d1..e907f5449f 100644
+index 3da21e11a5..f321c78813 100644
 --- a/website/docs/r/api_management_openid_connect_provider.html.markdown
 +++ b/website/docs/r/api_management_openid_connect_provider.html.markdown
 @@ -23,7 +23,7 @@ resource "azurerm_api_management" "example" {
@@ -628,7 +628,7 @@ index b40d7438d1..e907f5449f 100644
    sku_name = "Developer_1"
  }
 diff --git a/website/docs/r/api_management_policy.html.markdown b/website/docs/r/api_management_policy.html.markdown
-index aacfd78de2..fd503b3001 100644
+index f9d2192e8b..859789468a 100644
 --- a/website/docs/r/api_management_policy.html.markdown
 +++ b/website/docs/r/api_management_policy.html.markdown
 @@ -52,7 +52,7 @@ The following arguments are supported:
@@ -641,7 +641,7 @@ index aacfd78de2..fd503b3001 100644
  * `xml_link` - (Optional) A link to a Policy XML Document, which must be publicly available.
  
 diff --git a/website/docs/r/api_management_product.html.markdown b/website/docs/r/api_management_product.html.markdown
-index 8ffb91c080..89cf53e97f 100644
+index 7b675ab563..230c3a1069 100644
 --- a/website/docs/r/api_management_product.html.markdown
 +++ b/website/docs/r/api_management_product.html.markdown
 @@ -23,7 +23,7 @@ resource "azurerm_api_management" "example" {
@@ -654,7 +654,7 @@ index 8ffb91c080..89cf53e97f 100644
    sku_name = "Developer_1"
  }
 diff --git a/website/docs/r/api_management_user.html.markdown b/website/docs/r/api_management_user.html.markdown
-index 04fbc512a9..6fcaf40abc 100644
+index e288d5a90b..3bb9fb5267 100644
 --- a/website/docs/r/api_management_user.html.markdown
 +++ b/website/docs/r/api_management_user.html.markdown
 @@ -23,7 +23,7 @@ resource "azurerm_api_management" "example" {
@@ -676,7 +676,7 @@ index 04fbc512a9..6fcaf40abc 100644
  }
  ```
 diff --git a/website/docs/r/app_service.html.markdown b/website/docs/r/app_service.html.markdown
-index b372d00d98..7007acc30b 100644
+index 1d724046e3..89189fcf09 100644
 --- a/website/docs/r/app_service.html.markdown
 +++ b/website/docs/r/app_service.html.markdown
 @@ -17,7 +17,7 @@ Manages an App Service (within an App Service Plan).
@@ -688,7 +688,7 @@ index b372d00d98..7007acc30b 100644
  
  ```hcl
  resource "azurerm_resource_group" "example" {
-@@ -217,7 +217,7 @@ A `site_config` block supports the following:
+@@ -219,7 +219,7 @@ A `site_config` block supports the following:
  
  * `http2_enabled` - (Optional) Is HTTP2 Enabled on this App Service? Defaults to `false`.
  
@@ -697,7 +697,7 @@ index b372d00d98..7007acc30b 100644
  
  -> **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
  
-@@ -237,7 +237,7 @@ A `site_config` block supports the following:
+@@ -239,7 +239,7 @@ A `site_config` block supports the following:
  
  * `local_mysql_enabled` - (Optional) Is "MySQL In App" Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
  
@@ -706,7 +706,7 @@ index b372d00d98..7007acc30b 100644
  
  * `linux_fx_version` - (Optional) Linux App Framework and version for the App Service. Possible options are a Docker container (`DOCKER|<user/image:tag>`), a base-64 encoded Docker Compose file (`COMPOSE|${filebase64("compose.yml")}`) or a base-64 encoded Kubernetes Manifest (`KUBE|${filebase64("kubernetes.yml")}`).
  
-@@ -245,8 +245,6 @@ A `site_config` block supports the following:
+@@ -247,8 +247,6 @@ A `site_config` block supports the following:
  
  * `windows_fx_version` - (Optional) The Windows Docker container image (`DOCKER|<user/image:tag>`)
  
@@ -716,7 +716,7 @@ index b372d00d98..7007acc30b 100644
  
  * `min_tls_version` - (Optional) The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
 diff --git a/website/docs/r/app_service_certificate.html.markdown b/website/docs/r/app_service_certificate.html.markdown
-index 05e05fb47e..ee52bfdf44 100644
+index 798c453431..9a0ddfc8a6 100644
 --- a/website/docs/r/app_service_certificate.html.markdown
 +++ b/website/docs/r/app_service_certificate.html.markdown
 @@ -13,7 +13,7 @@ Manages an App Service certificate.
@@ -775,7 +775,7 @@ index 05e05fb47e..ee52bfdf44 100644
  * `tags` - (Optional) A mapping of tags to assign to the resource.
  
 @@ -95,8 +95,8 @@ In addition to the Arguments listed above - the following Attributes are exporte
- The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
+ The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 30 minutes) Used when creating the App Service Certificate.
 -* `read` - (Defaults to 5 minutes) Used when retrieving the App Service Certificate.
@@ -785,7 +785,7 @@ index 05e05fb47e..ee52bfdf44 100644
  
  ## Import
 diff --git a/website/docs/r/app_service_slot.html.markdown b/website/docs/r/app_service_slot.html.markdown
-index 92f5dd4131..f2005c1659 100644
+index 890b54826f..b9c9230d17 100644
 --- a/website/docs/r/app_service_slot.html.markdown
 +++ b/website/docs/r/app_service_slot.html.markdown
 @@ -235,7 +235,7 @@ A `site_config` block supports the following:
@@ -807,11 +807,11 @@ index 92f5dd4131..f2005c1659 100644
  * `linux_fx_version` - (Optional) Linux App Framework and version for the App Service Slot. Possible options are a Docker container (`DOCKER|<user/image:tag>`), a base-64 encoded Docker Compose file (`COMPOSE|${filebase64("compose.yml")}`) or a base-64 encoded Kubernetes Manifest (`KUBE|${filebase64("kubernetes.yml")}`).
  
 diff --git a/website/docs/r/application_insights_analytics_item.html.markdown b/website/docs/r/application_insights_analytics_item.html.markdown
-index 5b982e33ca..699978d09a 100644
+index 019757047f..2f6e3bbe4e 100644
 --- a/website/docs/r/application_insights_analytics_item.html.markdown
 +++ b/website/docs/r/application_insights_analytics_item.html.markdown
 @@ -67,8 +67,8 @@ In addition to the Arguments listed above - the following Attributes are exporte
- The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
+ The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 30 minutes) Used when creating the Application Insights Analytics Item.
 -* `read` - (Defaults to 5 minutes) Used when retrieving the Application Insights Analytics Item.
@@ -837,7 +837,7 @@ index 5b982e33ca..699978d09a 100644
  <!-- This section is generated, changes will be overwritten -->
  This resource uses the following Azure API Providers:
 diff --git a/website/docs/r/automation_job_schedule.html.markdown b/website/docs/r/automation_job_schedule.html.markdown
-index d7cd341699..f927cd7cf6 100644
+index c7c1ca730d..50c301a2e7 100644
 --- a/website/docs/r/automation_job_schedule.html.markdown
 +++ b/website/docs/r/automation_job_schedule.html.markdown
 @@ -14,7 +14,7 @@ Links an Automation Runbook and Schedule.
@@ -850,7 +850,7 @@ index d7cd341699..f927cd7cf6 100644
  ```hcl
  resource "azurerm_automation_job_schedule" "example" {
 diff --git a/website/docs/r/automation_variable_string.html.markdown b/website/docs/r/automation_variable_string.html.markdown
-index 327aa1a8d5..41bc79aa67 100644
+index a732542c24..fdc9e63df9 100644
 --- a/website/docs/r/automation_variable_string.html.markdown
 +++ b/website/docs/r/automation_variable_string.html.markdown
 @@ -29,7 +29,7 @@ resource "azurerm_automation_variable_string" "example" {
@@ -946,7 +946,7 @@ index 0000000000..067d552662
 +
 +-> **NOTE:** This ID format is unique to this provider and is composed of the Service Principal's Object ID and the Service Principal Password's Key ID in the format `{ServicePrincipalObjectId}/{ServicePrincipalPasswordKeyId}`.
 diff --git a/website/docs/r/batch_account.html.markdown b/website/docs/r/batch_account.html.markdown
-index 0c0fafed54..ff91afe33e 100644
+index db156e5e36..43a069b9fb 100644
 --- a/website/docs/r/batch_account.html.markdown
 +++ b/website/docs/r/batch_account.html.markdown
 @@ -49,7 +49,7 @@ The following arguments are supported:
@@ -1010,7 +1010,7 @@ index 0c0fafed54..ff91afe33e 100644
  ---
  
 @@ -169,8 +169,8 @@ An `identity` block exports the following:
- The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
+ The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 30 minutes) Used when creating the Batch Account.
 -* `read` - (Defaults to 5 minutes) Used when retrieving the Batch Account.
@@ -1028,7 +1028,7 @@ index 0c0fafed54..ff91afe33e 100644
  <!-- This section is generated, changes will be overwritten -->
  This resource uses the following Azure API Providers:
 diff --git a/website/docs/r/batch_certificate.html.markdown b/website/docs/r/batch_certificate.html.markdown
-index 09eee6603e..c025818799 100644
+index 70d4cebc4e..c919ff2418 100644
 --- a/website/docs/r/batch_certificate.html.markdown
 +++ b/website/docs/r/batch_certificate.html.markdown
 @@ -45,7 +45,7 @@ resource "azurerm_batch_certificate" "example" {
@@ -1041,7 +1041,7 @@ index 09eee6603e..c025818799 100644
    thumbprint_algorithm = "SHA1"
  }
 diff --git a/website/docs/r/blueprint_assignment.html.markdown b/website/docs/r/blueprint_assignment.html.markdown
-index 80c743eb35..8db61ee3ca 100644
+index ccc558a800..12180b56b5 100644
 --- a/website/docs/r/blueprint_assignment.html.markdown
 +++ b/website/docs/r/blueprint_assignment.html.markdown
 @@ -10,9 +10,9 @@ description: |-
@@ -1071,7 +1071,7 @@ index 80c743eb35..8db61ee3ca 100644
  * `lock_mode` - (Optional) The locking mode of the Blueprint Assignment. One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `None`.
  
 @@ -153,8 +153,8 @@ An `identity` block supports the following:
- The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
+ The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 30 minutes) Used when creating the Blueprint Assignment.
 -* `read` - (Defaults to 5 minutes) Used when retrieving the Blueprint Assignment.
@@ -1278,7 +1278,7 @@ index 0000000000..2789c4e8a4
 +terraform import azurerm_connection_monitor.monitor1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkWatchers/watcher1/connectionMonitors/monitor1
 +```
 diff --git a/website/docs/r/container_group.html.markdown b/website/docs/r/container_group.html.markdown
-index 08f3b44a03..7db66fd7a5 100644
+index d6e4a3191a..ed29d869ed 100644
 --- a/website/docs/r/container_group.html.markdown
 +++ b/website/docs/r/container_group.html.markdown
 @@ -12,7 +12,7 @@ Manages as an Azure Container Group instance.
@@ -1300,7 +1300,7 @@ index 08f3b44a03..7db66fd7a5 100644
  ---
  
 diff --git a/website/docs/r/container_registry.html.markdown b/website/docs/r/container_registry.html.markdown
-index cdada8adf0..fcd407795f 100644
+index 5bbfeffe2a..f31b264703 100644
 --- a/website/docs/r/container_registry.html.markdown
 +++ b/website/docs/r/container_registry.html.markdown
 @@ -11,9 +11,6 @@ description: |-
@@ -1314,7 +1314,7 @@ index cdada8adf0..fcd407795f 100644
  
  ```hcl
 diff --git a/website/docs/r/cosmosdb_account.html.markdown b/website/docs/r/cosmosdb_account.html.markdown
-index a5253ce419..02d5ec5fcd 100644
+index 6cdbfed6b0..72503d1b77 100644
 --- a/website/docs/r/cosmosdb_account.html.markdown
 +++ b/website/docs/r/cosmosdb_account.html.markdown
 @@ -13,9 +13,9 @@ Manages a CosmosDB (formally DocumentDB) Account.
@@ -1331,7 +1331,7 @@ index a5253ce419..02d5ec5fcd 100644
  
  resource "random_integer" "ri" {
 diff --git a/website/docs/r/cosmosdb_cassandra_keyspace.html.markdown b/website/docs/r/cosmosdb_cassandra_keyspace.html.markdown
-index 0ad75a0a70..a241d01443 100644
+index 9c0f038e49..2aa11ab308 100644
 --- a/website/docs/r/cosmosdb_cassandra_keyspace.html.markdown
 +++ b/website/docs/r/cosmosdb_cassandra_keyspace.html.markdown
 @@ -56,13 +56,13 @@ The following arguments are supported:
@@ -1353,7 +1353,7 @@ index 0ad75a0a70..a241d01443 100644
  ---
  
 diff --git a/website/docs/r/cosmosdb_cassandra_table.html.markdown b/website/docs/r/cosmosdb_cassandra_table.html.markdown
-index 2326f4f02a..785df45652 100644
+index b0bf91b322..7ee57c3894 100644
 --- a/website/docs/r/cosmosdb_cassandra_table.html.markdown
 +++ b/website/docs/r/cosmosdb_cassandra_table.html.markdown
 @@ -87,7 +87,7 @@ The following arguments are supported:
@@ -1366,7 +1366,7 @@ index 2326f4f02a..785df45652 100644
  ---
  
 diff --git a/website/docs/r/cosmosdb_gremlin_database.html.markdown b/website/docs/r/cosmosdb_gremlin_database.html.markdown
-index daf6c705f9..1fe3d48d97 100644
+index 0032eff41c..293aebaa1c 100644
 --- a/website/docs/r/cosmosdb_gremlin_database.html.markdown
 +++ b/website/docs/r/cosmosdb_gremlin_database.html.markdown
 @@ -36,13 +36,13 @@ The following arguments are supported:
@@ -1387,7 +1387,7 @@ index daf6c705f9..1fe3d48d97 100644
  ---
  
 diff --git a/website/docs/r/cosmosdb_gremlin_graph.html.markdown b/website/docs/r/cosmosdb_gremlin_graph.html.markdown
-index 3a22fe241c..211322ad43 100644
+index 740cb7a275..9b6fd1c8e5 100644
 --- a/website/docs/r/cosmosdb_gremlin_graph.html.markdown
 +++ b/website/docs/r/cosmosdb_gremlin_graph.html.markdown
 @@ -68,7 +68,7 @@ The following arguments are supported:
@@ -1409,7 +1409,7 @@ index 3a22fe241c..211322ad43 100644
  * `index_policy` - (Optional) The configuration of the indexing policy. One or more `index_policy` blocks as defined below.
  
 diff --git a/website/docs/r/cosmosdb_mongo_collection.html.markdown b/website/docs/r/cosmosdb_mongo_collection.html.markdown
-index c3e168aa7f..12eccc8328 100644
+index 86da738d55..2defc108f4 100644
 --- a/website/docs/r/cosmosdb_mongo_collection.html.markdown
 +++ b/website/docs/r/cosmosdb_mongo_collection.html.markdown
 @@ -56,7 +56,7 @@ The following arguments are supported:
@@ -1422,7 +1422,7 @@ index c3e168aa7f..12eccc8328 100644
  ---
  
 diff --git a/website/docs/r/cosmosdb_mongo_database.html.markdown b/website/docs/r/cosmosdb_mongo_database.html.markdown
-index 1216c6df84..c9bfd3ed4e 100644
+index 8ab3b7c033..047afe7073 100644
 --- a/website/docs/r/cosmosdb_mongo_database.html.markdown
 +++ b/website/docs/r/cosmosdb_mongo_database.html.markdown
 @@ -36,13 +36,13 @@ The following arguments are supported:
@@ -1443,7 +1443,7 @@ index 1216c6df84..c9bfd3ed4e 100644
  ---
  
 diff --git a/website/docs/r/cosmosdb_sql_container.html.markdown b/website/docs/r/cosmosdb_sql_container.html.markdown
-index 36ff218df7..48be04b2b9 100644
+index d718527a8f..db84c72d16 100644
 --- a/website/docs/r/cosmosdb_sql_container.html.markdown
 +++ b/website/docs/r/cosmosdb_sql_container.html.markdown
 @@ -77,11 +77,11 @@ The following arguments are supported:
@@ -1462,7 +1462,7 @@ index 36ff218df7..48be04b2b9 100644
  * `indexing_policy` - (Optional) An `indexing_policy` block as defined below.
  
 diff --git a/website/docs/r/cosmosdb_sql_database.html.markdown b/website/docs/r/cosmosdb_sql_database.html.markdown
-index 161a45a2c2..fcbb2c2554 100644
+index 81bdf84860..519059efc3 100644
 --- a/website/docs/r/cosmosdb_sql_database.html.markdown
 +++ b/website/docs/r/cosmosdb_sql_database.html.markdown
 @@ -40,9 +40,9 @@ The following arguments are supported:
@@ -1478,7 +1478,7 @@ index 161a45a2c2..fcbb2c2554 100644
  ---
  
 diff --git a/website/docs/r/cosmosdb_table.html.markdown b/website/docs/r/cosmosdb_table.html.markdown
-index f994458381..f46656064f 100644
+index 92e4461cea..649579ccf9 100644
 --- a/website/docs/r/cosmosdb_table.html.markdown
 +++ b/website/docs/r/cosmosdb_table.html.markdown
 @@ -36,13 +36,13 @@ The following arguments are supported:
@@ -1499,7 +1499,7 @@ index f994458381..f46656064f 100644
  ---
  
 diff --git a/website/docs/r/data_factory_integration_runtime_self_hosted.html.markdown b/website/docs/r/data_factory_integration_runtime_self_hosted.html.markdown
-index 72294d65a8..6f7cdc0efd 100644
+index 7af7cbe757..fa04b47d6a 100644
 --- a/website/docs/r/data_factory_integration_runtime_self_hosted.html.markdown
 +++ b/website/docs/r/data_factory_integration_runtime_self_hosted.html.markdown
 @@ -52,7 +52,7 @@ A `rbac_authorization` block supports the following:
@@ -1512,7 +1512,7 @@ index 72294d65a8..6f7cdc0efd 100644
  For more information on the configuration, please check out the [Azure documentation](https://docs.microsoft.com/rest/api/datafactory/integrationruntimes/createorupdate#linkedintegrationruntimerbacauthorization)
  
 diff --git a/website/docs/r/data_factory_linked_service_azure_blob_storage.html.markdown b/website/docs/r/data_factory_linked_service_azure_blob_storage.html.markdown
-index 8c5adeaa72..fd18b291ed 100644
+index 0aed23505d..f963f4f10f 100644
 --- a/website/docs/r/data_factory_linked_service_azure_blob_storage.html.markdown
 +++ b/website/docs/r/data_factory_linked_service_azure_blob_storage.html.markdown
 @@ -10,8 +10,6 @@ description: |-
@@ -1525,7 +1525,7 @@ index 8c5adeaa72..fd18b291ed 100644
  
  ```hcl
 diff --git a/website/docs/r/data_factory_linked_service_azure_file_storage.html.markdown b/website/docs/r/data_factory_linked_service_azure_file_storage.html.markdown
-index 21fe484a38..4ca547c91b 100644
+index 7e58e9fbd9..147e3364d4 100644
 --- a/website/docs/r/data_factory_linked_service_azure_file_storage.html.markdown
 +++ b/website/docs/r/data_factory_linked_service_azure_file_storage.html.markdown
 @@ -10,8 +10,6 @@ description: |-
@@ -1538,7 +1538,7 @@ index 21fe484a38..4ca547c91b 100644
  
  ```hcl
 diff --git a/website/docs/r/data_factory_linked_service_azure_function.html.markdown b/website/docs/r/data_factory_linked_service_azure_function.html.markdown
-index 5108d905e1..fb52e9efbd 100644
+index 8c18af50df..90bb9d35aa 100644
 --- a/website/docs/r/data_factory_linked_service_azure_function.html.markdown
 +++ b/website/docs/r/data_factory_linked_service_azure_function.html.markdown
 @@ -10,7 +10,6 @@ description: |-
@@ -1550,7 +1550,7 @@ index 5108d905e1..fb52e9efbd 100644
  ## Example Usage
  
 diff --git a/website/docs/r/data_factory_linked_service_azure_sql_database.html.markdown b/website/docs/r/data_factory_linked_service_azure_sql_database.html.markdown
-index 89bbedb7ce..2d224659b2 100644
+index 794f13440f..de0017d65d 100644
 --- a/website/docs/r/data_factory_linked_service_azure_sql_database.html.markdown
 +++ b/website/docs/r/data_factory_linked_service_azure_sql_database.html.markdown
 @@ -10,7 +10,6 @@ description: |-
@@ -1562,7 +1562,7 @@ index 89bbedb7ce..2d224659b2 100644
  ## Example Usage
  
 diff --git a/website/docs/r/data_factory_linked_service_azure_table_storage.html.markdown b/website/docs/r/data_factory_linked_service_azure_table_storage.html.markdown
-index 8b8acd1abb..d2c0d0254c 100644
+index d7079bdb0f..5831f11709 100644
 --- a/website/docs/r/data_factory_linked_service_azure_table_storage.html.markdown
 +++ b/website/docs/r/data_factory_linked_service_azure_table_storage.html.markdown
 @@ -10,7 +10,6 @@ description: |-
@@ -1574,7 +1574,7 @@ index 8b8acd1abb..d2c0d0254c 100644
  ## Example Usage
  
 diff --git a/website/docs/r/data_factory_linked_service_cosmosdb.html.markdown b/website/docs/r/data_factory_linked_service_cosmosdb.html.markdown
-index cb88c793c0..0b0a1918f5 100644
+index 8bf9b60577..34a4510a3d 100644
 --- a/website/docs/r/data_factory_linked_service_cosmosdb.html.markdown
 +++ b/website/docs/r/data_factory_linked_service_cosmosdb.html.markdown
 @@ -10,7 +10,6 @@ description: |-
@@ -1586,7 +1586,7 @@ index cb88c793c0..0b0a1918f5 100644
  ## Example Usage
  
 diff --git a/website/docs/r/data_factory_linked_service_data_lake_storage_gen2.html.markdown b/website/docs/r/data_factory_linked_service_data_lake_storage_gen2.html.markdown
-index b12fe3022f..99a5aafaa8 100644
+index 738c756750..c0d30e3c82 100644
 --- a/website/docs/r/data_factory_linked_service_data_lake_storage_gen2.html.markdown
 +++ b/website/docs/r/data_factory_linked_service_data_lake_storage_gen2.html.markdown
 @@ -10,8 +10,6 @@ description: |-
@@ -1599,7 +1599,7 @@ index b12fe3022f..99a5aafaa8 100644
  
  ```hcl
 diff --git a/website/docs/r/data_factory_linked_service_mysql.html.markdown b/website/docs/r/data_factory_linked_service_mysql.html.markdown
-index 024ac9bb3c..fcf14e525a 100644
+index 1d729af83b..d814b01391 100644
 --- a/website/docs/r/data_factory_linked_service_mysql.html.markdown
 +++ b/website/docs/r/data_factory_linked_service_mysql.html.markdown
 @@ -10,8 +10,6 @@ description: |-
@@ -1612,7 +1612,7 @@ index 024ac9bb3c..fcf14e525a 100644
  
  ```hcl
 diff --git a/website/docs/r/data_factory_linked_service_postgresql.html.markdown b/website/docs/r/data_factory_linked_service_postgresql.html.markdown
-index c4f926699a..c38e30ab91 100644
+index 6b7c91a95a..96c84fe527 100644
 --- a/website/docs/r/data_factory_linked_service_postgresql.html.markdown
 +++ b/website/docs/r/data_factory_linked_service_postgresql.html.markdown
 @@ -10,8 +10,6 @@ description: |-
@@ -1625,7 +1625,7 @@ index c4f926699a..c38e30ab91 100644
  
  ```hcl
 diff --git a/website/docs/r/data_factory_linked_service_sftp.html.markdown b/website/docs/r/data_factory_linked_service_sftp.html.markdown
-index 0fde590300..3841fc683d 100644
+index 6e0a9ba674..68af90cc88 100644
 --- a/website/docs/r/data_factory_linked_service_sftp.html.markdown
 +++ b/website/docs/r/data_factory_linked_service_sftp.html.markdown
 @@ -10,7 +10,6 @@ description: |-
@@ -1637,7 +1637,7 @@ index 0fde590300..3841fc683d 100644
  ## Example Usage
  
 diff --git a/website/docs/r/data_factory_linked_service_snowflake.html.markdown b/website/docs/r/data_factory_linked_service_snowflake.html.markdown
-index b59170430a..d5d3c4eb7d 100644
+index 00233cbe11..7722df422d 100644
 --- a/website/docs/r/data_factory_linked_service_snowflake.html.markdown
 +++ b/website/docs/r/data_factory_linked_service_snowflake.html.markdown
 @@ -10,7 +10,6 @@ description: |-
@@ -1649,7 +1649,7 @@ index b59170430a..d5d3c4eb7d 100644
  ## Example Usage
  
 diff --git a/website/docs/r/data_factory_linked_service_sql_server.html.markdown b/website/docs/r/data_factory_linked_service_sql_server.html.markdown
-index 466e026f65..e297d3613d 100644
+index 5744167133..27733bb4a6 100644
 --- a/website/docs/r/data_factory_linked_service_sql_server.html.markdown
 +++ b/website/docs/r/data_factory_linked_service_sql_server.html.markdown
 @@ -10,8 +10,6 @@ description: |-
@@ -1662,7 +1662,7 @@ index 466e026f65..e297d3613d 100644
  
  ```hcl
 diff --git a/website/docs/r/data_factory_linked_service_synapse.html.markdown b/website/docs/r/data_factory_linked_service_synapse.html.markdown
-index 514a059818..b4a908f931 100644
+index afb2cc6634..eacf14e85e 100644
 --- a/website/docs/r/data_factory_linked_service_synapse.html.markdown
 +++ b/website/docs/r/data_factory_linked_service_synapse.html.markdown
 @@ -10,7 +10,6 @@ description: |-
@@ -1674,7 +1674,7 @@ index 514a059818..b4a908f931 100644
  ## Example Usage
  
 diff --git a/website/docs/r/data_factory_linked_service_web.html.markdown b/website/docs/r/data_factory_linked_service_web.html.markdown
-index 377921ebe8..326cd164f5 100644
+index daa4208d47..f5fda2f80a 100644
 --- a/website/docs/r/data_factory_linked_service_web.html.markdown
 +++ b/website/docs/r/data_factory_linked_service_web.html.markdown
 @@ -10,7 +10,6 @@ description: |-
@@ -1686,7 +1686,7 @@ index 377921ebe8..326cd164f5 100644
  ## Example Usage
  
 diff --git a/website/docs/r/database_migration_project.html.markdown b/website/docs/r/database_migration_project.html.markdown
-index de7d68bcf8..852307d714 100644
+index 4648b473c0..62fbe62f86 100644
 --- a/website/docs/r/database_migration_project.html.markdown
 +++ b/website/docs/r/database_migration_project.html.markdown
 @@ -10,7 +10,7 @@ description: |-
@@ -1699,7 +1699,7 @@ index de7d68bcf8..852307d714 100644
  ## Example Usage
  
 @@ -81,8 +81,8 @@ In addition to the Arguments listed above - the following Attributes are exporte
- The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
+ The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 30 minutes) Used when creating the API Management API.
 -* `read` - (Defaults to 5 minutes) Used when retrieving the API Management API.
@@ -1709,7 +1709,7 @@ index de7d68bcf8..852307d714 100644
  
  ## Import
 diff --git a/website/docs/r/database_migration_service.html.markdown b/website/docs/r/database_migration_service.html.markdown
-index 82f011d3d0..b57ef40239 100644
+index c020f02b1a..5a018e05ae 100644
 --- a/website/docs/r/database_migration_service.html.markdown
 +++ b/website/docs/r/database_migration_service.html.markdown
 @@ -10,7 +10,7 @@ description: |-
@@ -1722,7 +1722,7 @@ index 82f011d3d0..b57ef40239 100644
  ## Example Usage
  
 @@ -74,8 +74,8 @@ In addition to the Arguments listed above - the following Attributes are exporte
- The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
+ The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 30 minutes) Used when creating the API Management API.
 -* `read` - (Defaults to 5 minutes) Used when retrieving the API Management API.
@@ -1732,7 +1732,7 @@ index 82f011d3d0..b57ef40239 100644
  
  ## Import
 diff --git a/website/docs/r/dev_test_global_vm_shutdown_schedule.html.markdown b/website/docs/r/dev_test_global_vm_shutdown_schedule.html.markdown
-index 476e59763d..a29e0d93c7 100644
+index e7257e4599..b71663ea0c 100644
 --- a/website/docs/r/dev_test_global_vm_shutdown_schedule.html.markdown
 +++ b/website/docs/r/dev_test_global_vm_shutdown_schedule.html.markdown
 @@ -10,7 +10,7 @@ description: |-
@@ -1745,7 +1745,7 @@ index 476e59763d..a29e0d93c7 100644
  ## Example Usage
  
 diff --git a/website/docs/r/disk_encryption_set.html.markdown b/website/docs/r/disk_encryption_set.html.markdown
-index 340d8e6ec4..eee6d4e763 100644
+index 8c10612107..a0bdafef75 100644
 --- a/website/docs/r/disk_encryption_set.html.markdown
 +++ b/website/docs/r/disk_encryption_set.html.markdown
 @@ -10,6 +10,8 @@ description: |-
@@ -1758,7 +1758,7 @@ index 340d8e6ec4..eee6d4e763 100644
  
  ```hcl
 diff --git a/website/docs/r/dns_caa_record.html.markdown b/website/docs/r/dns_caa_record.html.markdown
-index 2e62f4cc7f..5c394287f6 100644
+index 2e8e0877c2..7ef61becbf 100644
 --- a/website/docs/r/dns_caa_record.html.markdown
 +++ b/website/docs/r/dns_caa_record.html.markdown
 @@ -52,7 +52,7 @@ resource "azurerm_dns_caa_record" "example" {
@@ -1771,7 +1771,7 @@ index 2e62f4cc7f..5c394287f6 100644
  
    tags = {
 diff --git a/website/docs/r/frontdoor.html.markdown b/website/docs/r/frontdoor.html.markdown
-index 396f6ab5ca..8631e48ced 100644
+index 0d5e7a2119..71800d8017 100644
 --- a/website/docs/r/frontdoor.html.markdown
 +++ b/website/docs/r/frontdoor.html.markdown
 @@ -8,7 +8,7 @@ description: |-
@@ -1820,7 +1820,7 @@ index 396f6ab5ca..8631e48ced 100644
  * `backend_pool_health_probes` - A map/dictionary of Backend Pool Health Probe Names (key) to the Backend Pool Health Probe ID (value)
  * `backend_pool_load_balancing_settings` - A map/dictionary of Backend Pool Load Balancing Setting Names (key) to the Backend Pool Load Balancing Setting ID (value)
 @@ -306,8 +306,8 @@ In addition to the Arguments listed above - the following Attributes are exporte
- The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
+ The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 6 hours) Used when creating the FrontDoor.
 -* `read` - (Defaults to 5 minutes) Used when retrieving the FrontDoor.
@@ -1830,7 +1830,7 @@ index 396f6ab5ca..8631e48ced 100644
  
  ## Import
 diff --git a/website/docs/r/function_app.html.markdown b/website/docs/r/function_app.html.markdown
-index ee0131e664..3a3c5fdbec 100644
+index 7b101221d3..00a49a706b 100644
 --- a/website/docs/r/function_app.html.markdown
 +++ b/website/docs/r/function_app.html.markdown
 @@ -237,7 +237,7 @@ The following arguments are supported:
@@ -1843,7 +1843,7 @@ index ee0131e664..3a3c5fdbec 100644
  ~> **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
  
 diff --git a/website/docs/r/function_app_slot.html.markdown b/website/docs/r/function_app_slot.html.markdown
-index b88cc5d709..090510bb2d 100644
+index 39700f62e6..d8945b692d 100644
 --- a/website/docs/r/function_app_slot.html.markdown
 +++ b/website/docs/r/function_app_slot.html.markdown
 @@ -80,7 +80,7 @@ The following arguments are supported:
@@ -1856,7 +1856,7 @@ index b88cc5d709..090510bb2d 100644
  ~> **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn't be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
  
 diff --git a/website/docs/r/hdinsight_hadoop_cluster.html.markdown b/website/docs/r/hdinsight_hadoop_cluster.html.markdown
-index 704d31d459..ffa209f8a5 100644
+index add7620e59..78eea46ecb 100644
 --- a/website/docs/r/hdinsight_hadoop_cluster.html.markdown
 +++ b/website/docs/r/hdinsight_hadoop_cluster.html.markdown
 @@ -45,7 +45,7 @@ resource "azurerm_hdinsight_hadoop_cluster" "example" {
@@ -1869,7 +1869,7 @@ index 704d31d459..ffa209f8a5 100644
  
    storage_account {
 diff --git a/website/docs/r/hdinsight_hbase_cluster.html.markdown b/website/docs/r/hdinsight_hbase_cluster.html.markdown
-index 02a479c43b..9d5e730fd0 100644
+index 9c4dd6f9d9..3f54eea0c6 100644
 --- a/website/docs/r/hdinsight_hbase_cluster.html.markdown
 +++ b/website/docs/r/hdinsight_hbase_cluster.html.markdown
 @@ -45,7 +45,7 @@ resource "azurerm_hdinsight_hbase_cluster" "example" {
@@ -1882,7 +1882,7 @@ index 02a479c43b..9d5e730fd0 100644
  
    storage_account {
 diff --git a/website/docs/r/hdinsight_interactive_query_cluster.html.markdown b/website/docs/r/hdinsight_interactive_query_cluster.html.markdown
-index c02f665312..b5856be8c3 100644
+index 621c06caba..39e991bfdf 100644
 --- a/website/docs/r/hdinsight_interactive_query_cluster.html.markdown
 +++ b/website/docs/r/hdinsight_interactive_query_cluster.html.markdown
 @@ -45,7 +45,7 @@ resource "azurerm_hdinsight_interactive_query_cluster" "example" {
@@ -1895,7 +1895,7 @@ index c02f665312..b5856be8c3 100644
  
    storage_account {
 diff --git a/website/docs/r/hdinsight_kafka_cluster.html.markdown b/website/docs/r/hdinsight_kafka_cluster.html.markdown
-index 3ad01e0db7..28aa6ae5ca 100644
+index 394a9c8180..908b9d54a0 100644
 --- a/website/docs/r/hdinsight_kafka_cluster.html.markdown
 +++ b/website/docs/r/hdinsight_kafka_cluster.html.markdown
 @@ -45,7 +45,7 @@ resource "azurerm_hdinsight_kafka_cluster" "example" {
@@ -1908,7 +1908,7 @@ index 3ad01e0db7..28aa6ae5ca 100644
  
    storage_account {
 diff --git a/website/docs/r/hdinsight_spark_cluster.html.markdown b/website/docs/r/hdinsight_spark_cluster.html.markdown
-index 706fcdc1c7..702fada07a 100644
+index f6422365bd..4bf4f5f92a 100644
 --- a/website/docs/r/hdinsight_spark_cluster.html.markdown
 +++ b/website/docs/r/hdinsight_spark_cluster.html.markdown
 @@ -45,7 +45,7 @@ resource "azurerm_hdinsight_spark_cluster" "example" {
@@ -1921,7 +1921,7 @@ index 706fcdc1c7..702fada07a 100644
  
    storage_account {
 diff --git a/website/docs/r/healthcare_service.html.markdown b/website/docs/r/healthcare_service.html.markdown
-index 4ad7a80c2c..f982ee5a41 100644
+index 26d461d793..a93ce41230 100644
 --- a/website/docs/r/healthcare_service.html.markdown
 +++ b/website/docs/r/healthcare_service.html.markdown
 @@ -84,9 +84,9 @@ An `identity` block supports the following:
@@ -1938,7 +1938,7 @@ index 4ad7a80c2c..f982ee5a41 100644
  
  ---
 diff --git a/website/docs/r/iothub.html.markdown b/website/docs/r/iothub.html.markdown
-index 003e2dc8b8..ce349d8fef 100644
+index 8bdb389f33..1ebdc2f9e3 100644
 --- a/website/docs/r/iothub.html.markdown
 +++ b/website/docs/r/iothub.html.markdown
 @@ -161,6 +161,10 @@ The following arguments are supported:
@@ -1952,7 +1952,7 @@ index 003e2dc8b8..ce349d8fef 100644
  * `route` - (Optional) A `route` block as defined below.
  
  * `enrichment` - (Optional) A `enrichment` block as defined below.
-@@ -251,6 +255,26 @@ A `ip_rule` block supports the following:
+@@ -255,6 +259,26 @@ A `ip_rule` block supports the following:
  
  ---
  
@@ -1980,7 +1980,7 @@ index 003e2dc8b8..ce349d8fef 100644
  
  * `name` - (Required) The name of the route.
 diff --git a/website/docs/r/iothub_consumer_group.html.markdown b/website/docs/r/iothub_consumer_group.html.markdown
-index d9c71a1023..c1c041691e 100644
+index fdb0c3d002..d3081ecf89 100644
 --- a/website/docs/r/iothub_consumer_group.html.markdown
 +++ b/website/docs/r/iothub_consumer_group.html.markdown
 @@ -34,7 +34,7 @@ resource "azurerm_iothub" "example" {
@@ -1993,7 +1993,7 @@ index d9c71a1023..c1c041691e 100644
    eventhub_endpoint_name = "events"
    resource_group_name    = azurerm_resource_group.example.name
 diff --git a/website/docs/r/key_vault.html.markdown b/website/docs/r/key_vault.html.markdown
-index d1dffa232d..ea229162ff 100644
+index 4ef6594ce8..7ad0522bb5 100644
 --- a/website/docs/r/key_vault.html.markdown
 +++ b/website/docs/r/key_vault.html.markdown
 @@ -12,9 +12,9 @@ Manages a Key Vault.
@@ -2027,7 +2027,7 @@ index d1dffa232d..ea229162ff 100644
  * `public_network_access_enabled` - (Optional) Whether public network access is allowed for this Key Vault. Defaults to `true`.
  
 diff --git a/website/docs/r/key_vault_access_policy.html.markdown b/website/docs/r/key_vault_access_policy.html.markdown
-index beaaef575e..e46bf51e6c 100644
+index 29b7554151..a39e451ece 100644
 --- a/website/docs/r/key_vault_access_policy.html.markdown
 +++ b/website/docs/r/key_vault_access_policy.html.markdown
 @@ -10,9 +10,9 @@ description: |-
@@ -2051,7 +2051,7 @@ index beaaef575e..e46bf51e6c 100644
  
  ## Timeouts
  
- The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
+ The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 30 minutes) Used when creating the Key Vault Access Policy.
 -* `read` - (Defaults to 5 minutes) Used when retrieving the Key Vault Access Policy.
@@ -2067,7 +2067,7 @@ index beaaef575e..e46bf51e6c 100644
 --> **Note:** Both Identifiers are unique to Terraform and don't map to an existing object within Azure.
 +-> **NOTE:** Both Identifiers are unique to this provider and don't map to an existing object within Azure.
 diff --git a/website/docs/r/key_vault_certificate.html.markdown b/website/docs/r/key_vault_certificate.html.markdown
-index b6d72ca2c5..f2ec1a778a 100644
+index f5c720b144..2dcb049f72 100644
 --- a/website/docs/r/key_vault_certificate.html.markdown
 +++ b/website/docs/r/key_vault_certificate.html.markdown
 @@ -11,8 +11,6 @@ description: |-
@@ -2108,7 +2108,7 @@ index b6d72ca2c5..f2ec1a778a 100644
  ```shell
 @@ -375,9 +373,9 @@ A `certificate_attribute` block exports the following:
  
- The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
+ The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
 -* `create` - (Defaults to 1 hour) Used when creating the Key Vault Certificate.
 -* `read` - (Defaults to 30 minutes) Used when retrieving the Key Vault Certificate.
@@ -2119,7 +2119,7 @@ index b6d72ca2c5..f2ec1a778a 100644
  
  ## Import
 diff --git a/website/docs/r/key_vault_secret.html.markdown b/website/docs/r/key_vault_secret.html.markdown
-index a3e77a0f61..096e44351e 100644
+index b7b8cf6fc2..f664c9e771 100644
 --- a/website/docs/r/key_vault_secret.html.markdown
 +++ b/website/docs/r/key_vault_secret.html.markdown
 @@ -11,11 +11,6 @@ description: |-
@@ -2135,7 +2135,7 @@ index a3e77a0f61..096e44351e 100644
  
  ```hcl
 diff --git a/website/docs/r/kubernetes_cluster.html.markdown b/website/docs/r/kubernetes_cluster.html.markdown
-index 5db6e49e16..53fb4675ca 100644
+index 53fd04f4a9..ffc8acbed5 100644
 --- a/website/docs/r/kubernetes_cluster.html.markdown
 +++ b/website/docs/r/kubernetes_cluster.html.markdown
 @@ -10,17 +10,11 @@ description: |-
@@ -2158,7 +2158,7 @@ index 5db6e49e16..53fb4675ca 100644
  
  ```hcl
  resource "azurerm_resource_group" "example" {
-@@ -372,7 +366,7 @@ A `default_node_pool` block supports the following:
+@@ -379,7 +373,7 @@ A `default_node_pool` block supports the following:
  
  -> **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
  
@@ -2167,25 +2167,25 @@ index 5db6e49e16..53fb4675ca 100644
  
  * `host_encryption_enabled` - (Optional) Should the nodes in the Default Node Pool have host encryption enabled? `temporary_name_for_rotation` must be specified when changing this property.
  
-@@ -428,7 +422,7 @@ A `default_node_pool` block supports the following:
+@@ -435,7 +429,7 @@ A `default_node_pool` block supports the following:
  
  * `tags` - (Optional) A mapping of tags to assign to the Node Pool.
  
--~> **Note:** At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you [may wish to use Terraform's `ignore_changes` functionality to ignore changes to the casing](https://www.terraform.io/language/meta-arguments/lifecycle#ignore_changess) until this is fixed in the AKS API.
+-~> **Note:** At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you [may wish to use Terraform's `ignore_changes` functionality to ignore changes to the casing](https://developer.hashicorp.com/terraform/language/block/resource#ignore_changes) until this is fixed in the AKS API.
 +~> At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
  
  * `ultra_ssd_enabled` - (Optional) Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. `temporary_name_for_rotation` must be specified when attempting a change.
  
-@@ -452,7 +446,7 @@ If `auto_scaling_enabled` is set to `true`, then the following fields can also b
+@@ -459,7 +453,7 @@ If `auto_scaling_enabled` is set to `true`, then the following fields can also b
  
  * `node_count` - (Optional) The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
  
---> **Note:** If specified you may wish to use [Terraform's `ignore_changes` functionality](https://www.terraform.io/language/meta-arguments/lifecycle#ignore_changess) to ignore changes to this field.
+--> **Note:** If specified you may wish to use [Terraform's `ignore_changes` functionality](https://developer.hashicorp.com/terraform/language/block/resource#ignore_changes) to ignore changes to this field.
 +-> **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
  
  -> **Note:** If `auto_scaling_enabled` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
  
-@@ -683,13 +677,11 @@ A `network_profile` block supports the following:
+@@ -692,13 +686,11 @@ A `network_profile` block supports the following:
  
  ~> **Note:** This range should not be used by any network element on or connected to this VNet. Service address CIDR must be smaller than /12. `docker_bridge_cidr`, `dns_service_ip` and `service_cidr` should all be empty or all should be set.
  
@@ -2201,7 +2201,7 @@ index 5db6e49e16..53fb4675ca 100644
  
  * `load_balancer_sku` - (Optional) Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`. Changing this forces a new resource to be created.
  
-@@ -751,7 +743,7 @@ An `ingress_application_gateway` block supports the following:
+@@ -782,7 +774,7 @@ An `ingress_application_gateway` block supports the following:
  
  * `subnet_id` - (Optional) The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
  
@@ -2210,9 +2210,9 @@ index 5db6e49e16..53fb4675ca 100644
  
  -> **Note:** If specifying `ingress_application_gateway` in conjunction with `only_critical_addons_enabled`, the AGIC pod will fail to start. A separate `azurerm_kubernetes_cluster_node_pool` is required to run the AGIC pod successfully. This is because AGIC is classed as a "non-critical addon".
  
-@@ -763,13 +755,13 @@ A `service_mesh_profile` block supports the following:
+@@ -794,13 +786,13 @@ A `service_mesh_profile` block supports the following:
  
- * `revisions` - (Required) Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-20"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-20", "asm-1-21"]`. To roll back the canary upgrade, revert to `["asm-1-20"]`. To confirm the upgrade, change to `["asm-1-21"]`.
+ * `revisions` - (Required) Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-25"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-25", "asm-1-26"]`. To roll back the canary upgrade, revert to `["asm-1-25"]`. To confirm the upgrade, change to `["asm-1-26"]`.
  
 --> **Note:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
 +-> **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
@@ -2226,7 +2226,7 @@ index 5db6e49e16..53fb4675ca 100644
  
  * `certificate_authority` - (Optional) A `certificate_authority` block as defined below. When this property is specified, `key_vault_secrets_provider` is also required to be set. This configuration allows you to bring your own root certificate and keys for Istio CA in the Istio-based service mesh add-on for Azure Kubernetes Service.
  
-@@ -819,7 +811,7 @@ A `storage_profile` block supports the following:
+@@ -850,7 +842,7 @@ A `storage_profile` block supports the following:
  
  A `sysctl_config` block supports the following:
  
@@ -2235,7 +2235,7 @@ index 5db6e49e16..53fb4675ca 100644
  
  * `fs_aio_max_nr` - (Optional) The sysctl setting fs.aio-max-nr. Must be between `65536` and `6553500`.
  
-@@ -1067,19 +1059,6 @@ The `kube_admin_config` and `kube_config` blocks export the following:
+@@ -1098,19 +1090,6 @@ The `kube_admin_config` and `kube_config` blocks export the following:
  
  * `password` - A password or token used to authenticate to the Kubernetes cluster.
  
@@ -2255,8 +2255,8 @@ index 5db6e49e16..53fb4675ca 100644
  ---
  
  The `ingress_application_gateway` block exports the following:
-@@ -1153,8 +1132,8 @@ The `web_app_routing_identity` block exports the following:
- The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
+@@ -1184,8 +1163,8 @@ The `web_app_routing_identity` block exports the following:
+ The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 90 minutes) Used when creating the Kubernetes Cluster.
 -* `read` - (Defaults to 5 minutes) Used when retrieving the Kubernetes Cluster.
@@ -2265,7 +2265,7 @@ index 5db6e49e16..53fb4675ca 100644
  * `delete` - (Defaults to 90 minutes) Used when deleting the Kubernetes Cluster.
  
  ## Import
-@@ -1164,7 +1143,6 @@ Managed Kubernetes Clusters can be imported using the `resource id`, e.g.
+@@ -1195,7 +1174,6 @@ Managed Kubernetes Clusters can be imported using the `resource id`, e.g.
  ```shell
  terraform import azurerm_kubernetes_cluster.cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ContainerService/managedClusters/cluster1
  ```
@@ -2274,7 +2274,7 @@ index 5db6e49e16..53fb4675ca 100644
  <!-- This section is generated, changes will be overwritten -->
  This resource uses the following Azure API Providers:
 diff --git a/website/docs/r/kubernetes_cluster_node_pool.html.markdown b/website/docs/r/kubernetes_cluster_node_pool.html.markdown
-index 5ab18d5d05..864b161828 100644
+index da091d2cc8..38edfba280 100644
 --- a/website/docs/r/kubernetes_cluster_node_pool.html.markdown
 +++ b/website/docs/r/kubernetes_cluster_node_pool.html.markdown
 @@ -10,15 +10,13 @@ description: |-
@@ -2318,16 +2318,16 @@ index 5ab18d5d05..864b161828 100644
  
  * `node_public_ip_enabled` - (Optional) Should each node have a Public IP Address? Changing this property requires specifying `temporary_name_for_rotation`.
  
-@@ -140,7 +138,7 @@ The following arguments are supported:
+@@ -142,7 +140,7 @@ The following arguments are supported:
  
  * `tags` - (Optional) A mapping of tags to assign to the resource.
  
--~> **Note:** At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you [may wish to use Terraform's `ignore_changes` functionality to ignore changes to the casing](https://www.terraform.io/language/meta-arguments/lifecycle#ignore_changess) until this is fixed in the AKS API.
+-~> **Note:** At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you [may wish to use Terraform's `ignore_changes` functionality to ignore changes to the casing](https://developer.hashicorp.com/terraform/language/block/resource#ignore_changes) until this is fixed in the AKS API.
 +~> At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) functionality to ignore changes to the casing until this is fixed in the AKS API.
  
  * `scale_down_mode` - (Optional) Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
  
-@@ -152,7 +150,7 @@ The following arguments are supported:
+@@ -154,7 +152,7 @@ The following arguments are supported:
  
  * `vnet_subnet_id` - (Optional) The ID of the Subnet where this Node Pool should exist. Changing this property requires specifying `temporary_name_for_rotation`.
  
@@ -2336,16 +2336,16 @@ index 5ab18d5d05..864b161828 100644
  
  * `windows_profile` - (Optional) A `windows_profile` block as documented below. Changing this forces a new resource to be created.
  
-@@ -172,7 +170,7 @@ If `auto_scaling_enabled` is set to `true`, then the following fields can also b
+@@ -174,7 +172,7 @@ If `auto_scaling_enabled` is set to `true`, then the following fields can also b
  
  * `node_count` - (Optional) The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools and must be a value in the range `min_count` - `max_count`.
  
---> **Note:** If you're specifying an initial number of nodes you may wish to use [Terraform's `ignore_changes` functionality](https://www.terraform.io/language/meta-arguments/lifecycle#ignore_changess) to ignore changes to this field.
+--> **Note:** If you're specifying an initial number of nodes you may wish to use [Terraform's `ignore_changes` functionality](https://developer.hashicorp.com/terraform/language/block/resource#ignore_changes) to ignore changes to this field.
 +-> **NOTE:** If you're specifying an initial number of nodes you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
  
  If `auto_scaling_enabled` is set to `false`, then the following fields can also be configured:
  
-@@ -240,7 +238,7 @@ An `allowed_host_ports` block supports the following:
+@@ -242,7 +240,7 @@ An `allowed_host_ports` block supports the following:
  
  A `sysctl_config` block supports the following:
  
@@ -2354,9 +2354,9 @@ index 5ab18d5d05..864b161828 100644
  
  * `fs_aio_max_nr` - (Optional) The sysctl setting fs.aio-max-nr. Must be between `65536` and `6553500`.
  
-@@ -328,10 +326,10 @@ In addition to the Arguments listed above - the following Attributes are exporte
+@@ -330,10 +328,10 @@ In addition to the Arguments listed above - the following Attributes are exporte
  
- The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
+ The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
 -* `create` - (Defaults to 1 hour) Used when creating the Kubernetes Cluster Node Pool.
 +* `create` - (Defaults to 60 minutes) Used when creating the Kubernetes Cluster Node Pool.
@@ -2368,7 +2368,7 @@ index 5ab18d5d05..864b161828 100644
  
  ## Import
  
-@@ -340,7 +338,6 @@ Kubernetes Cluster Node Pools can be imported using the `resource id`, e.g.
+@@ -342,7 +340,6 @@ Kubernetes Cluster Node Pools can be imported using the `resource id`, e.g.
  ```shell
  terraform import azurerm_kubernetes_cluster_node_pool.pool1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ContainerService/managedClusters/cluster1/agentPools/pool1
  ```
@@ -2377,7 +2377,7 @@ index 5ab18d5d05..864b161828 100644
  <!-- This section is generated, changes will be overwritten -->
  This resource uses the following Azure API Providers:
 diff --git a/website/docs/r/lighthouse_definition.html.markdown b/website/docs/r/lighthouse_definition.html.markdown
-index badda3dfd5..3881a90019 100644
+index 0816987c5c..741b97a13e 100644
 --- a/website/docs/r/lighthouse_definition.html.markdown
 +++ b/website/docs/r/lighthouse_definition.html.markdown
 @@ -20,7 +20,7 @@ data "azurerm_role_definition" "contributor" {
@@ -2390,7 +2390,7 @@ index badda3dfd5..3881a90019 100644
    scope              = "/subscriptions/00000000-0000-0000-0000-000000000000"
  
 diff --git a/website/docs/r/linux_virtual_machine.html.markdown b/website/docs/r/linux_virtual_machine.html.markdown
-index e25fff4553..cb3def23cb 100644
+index c4af667ce3..0748e5c66c 100644
 --- a/website/docs/r/linux_virtual_machine.html.markdown
 +++ b/website/docs/r/linux_virtual_machine.html.markdown
 @@ -12,21 +12,19 @@ Manages a Linux Virtual Machine.
@@ -2421,7 +2421,7 @@ index e25fff4553..cb3def23cb 100644
  
  ```hcl
  resource "azurerm_resource_group" "example" {
-@@ -115,12 +113,12 @@ The following arguments are supported:
+@@ -117,12 +115,12 @@ The following arguments are supported:
  
  * `admin_password` - (Optional) The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
  
@@ -2437,7 +2437,7 @@ index e25fff4553..cb3def23cb 100644
  
  * `allow_extension_operations` - (Optional) Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
  
-@@ -130,11 +128,11 @@ The following arguments are supported:
+@@ -132,11 +130,11 @@ The following arguments are supported:
  
  * `bypass_platform_safety_checks_on_user_schedule_enabled` - (Optional) Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
  
@@ -2451,7 +2451,7 @@ index e25fff4553..cb3def23cb 100644
  
  * `computer_name` - (Optional) Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.
  
-@@ -146,9 +144,9 @@ The following arguments are supported:
+@@ -148,9 +146,9 @@ The following arguments are supported:
  
  * `disable_password_authentication` - (Optional) Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
  
@@ -2463,7 +2463,7 @@ index e25fff4553..cb3def23cb 100644
  
  * `disk_controller_type` - (Optional) Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
  
-@@ -158,27 +156,27 @@ The following arguments are supported:
+@@ -160,27 +158,27 @@ The following arguments are supported:
  
  * `eviction_policy` - (Optional) Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
  
@@ -2496,7 +2496,7 @@ index e25fff4553..cb3def23cb 100644
  
  * `plan` - (Optional) A `plan` block as defined below. Changing this forces a new resource to be created.
  
-@@ -188,13 +186,13 @@ The following arguments are supported:
+@@ -190,13 +188,13 @@ The following arguments are supported:
  
  * `provision_vm_agent` - (Optional) Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
  
@@ -2512,7 +2512,7 @@ index e25fff4553..cb3def23cb 100644
  
  * `secret` - (Optional) One or more `secret` blocks as defined below.
  
-@@ -202,11 +200,11 @@ The following arguments are supported:
+@@ -204,11 +202,11 @@ The following arguments are supported:
  
  * `source_image_id` - (Optional) The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
  
@@ -2526,7 +2526,7 @@ index e25fff4553..cb3def23cb 100644
  
  * `tags` - (Optional) A mapping of tags which should be assigned to this Virtual Machine.
  
-@@ -216,15 +214,17 @@ The following arguments are supported:
+@@ -222,15 +220,17 @@ The following arguments are supported:
  
  * `user_data` - (Optional) The Base64-Encoded User Data which should be used for this Virtual Machine.
  
@@ -2547,7 +2547,7 @@ index e25fff4553..cb3def23cb 100644
  
  * `zone` - (Optional) Specifies the Availability Zones in which this Linux Virtual Machine should be located. Changing this forces a new Linux Virtual Machine to be created.
  
-@@ -244,7 +244,7 @@ A `admin_ssh_key` block supports the following:
+@@ -250,7 +250,7 @@ A `admin_ssh_key` block supports the following:
  
  * `username` - (Required) The Username for which this Public SSH Key should be configured. Changing this forces a new resource to be created.
  
@@ -2556,7 +2556,7 @@ index e25fff4553..cb3def23cb 100644
  
  ---
  
-@@ -252,7 +252,7 @@ A `boot_diagnostics` block supports the following:
+@@ -258,7 +258,7 @@ A `boot_diagnostics` block supports the following:
  
  * `storage_account_uri` - (Optional) The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
  
@@ -2565,7 +2565,7 @@ index e25fff4553..cb3def23cb 100644
  
  ---
  
-@@ -260,7 +260,7 @@ A `certificate` block supports the following:
+@@ -266,7 +266,7 @@ A `certificate` block supports the following:
  
  * `url` - (Required) The Secret URL of a Key Vault Certificate.
  
@@ -2574,7 +2574,7 @@ index e25fff4553..cb3def23cb 100644
  
  ---
  
-@@ -294,7 +294,7 @@ An `identity` block supports the following:
+@@ -302,7 +302,7 @@ An `identity` block supports the following:
  
  * `identity_ids` - (Optional) Specifies a list of User Assigned Managed Identity IDs to be assigned to this Linux Virtual Machine.
  
@@ -2583,12 +2583,12 @@ index e25fff4553..cb3def23cb 100644
  
  ---
  
-@@ -306,31 +306,31 @@ A `os_disk` block supports the following:
+@@ -316,15 +316,15 @@ A `os_disk` block supports the following:
  
  * `diff_disk_settings` - (Optional) A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
  
---> **Note:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment)
-+-> **NOTE:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment)
+--> **Note:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment). Additionally, this property cannot be set when an existing Managed Disk is used to create the Virtual Machine by setting `os_managed_disk_id`.
++-> **NOTE:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment). Additionally, this property cannot be set when an existing Managed Disk is used to create the Virtual Machine by setting `os_managed_disk_id`.
  
  * `disk_encryption_set_id` - (Optional) The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
  
@@ -2601,6 +2601,8 @@ index e25fff4553..cb3def23cb 100644
 +-> **NOTE:** If specified this must be equal to or larger than the size of the Image the Virtual Machine is based on. When creating a larger disk than exists in the image you'll need to repartition the disk to use the remaining space.
  
  * `name` - (Optional) The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
+ 
+@@ -332,17 +332,17 @@ A `os_disk` block supports the following:
  
  * `secure_vm_disk_encryption_set_id` - (Optional) The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
  
@@ -2622,7 +2624,7 @@ index e25fff4553..cb3def23cb 100644
  
  ---
  
-@@ -376,7 +376,7 @@ A `termination_notification` block supports the following:
+@@ -388,7 +388,7 @@ A `termination_notification` block supports the following:
  
  * `timeout` - (Optional) Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
  
@@ -2631,7 +2633,7 @@ index e25fff4553..cb3def23cb 100644
  
  ## Attributes Reference
  
-@@ -398,8 +398,6 @@ In addition to the Arguments listed above - the following Attributes are exporte
+@@ -410,8 +410,6 @@ In addition to the Arguments listed above - the following Attributes are exporte
  
  * `virtual_machine_id` - A 128-bit identifier which uniquely identifies this Virtual Machine.
  
@@ -2640,8 +2642,8 @@ index e25fff4553..cb3def23cb 100644
  ---
  
  An `identity` block exports the following:
-@@ -419,9 +417,9 @@ An `os_disk` block exports the following:
- The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
+@@ -431,9 +429,9 @@ An `os_disk` block exports the following:
+ The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 45 minutes) Used when creating the Linux Virtual Machine.
 -* `read` - (Defaults to 5 minutes) Used when retrieving the Linux Virtual Machine.
@@ -2652,7 +2654,7 @@ index e25fff4553..cb3def23cb 100644
  ## Import
  
 diff --git a/website/docs/r/linux_virtual_machine_scale_set.html.markdown b/website/docs/r/linux_virtual_machine_scale_set.html.markdown
-index c80cc5bb08..518d56416e 100644
+index 5bf9cc1f4b..11dd038012 100644
 --- a/website/docs/r/linux_virtual_machine_scale_set.html.markdown
 +++ b/website/docs/r/linux_virtual_machine_scale_set.html.markdown
 @@ -13,14 +13,11 @@ Manages a Linux Virtual Machine Scale Set.
@@ -2676,7 +2678,7 @@ index c80cc5bb08..518d56416e 100644
  
  * `instances` - (Optional) The number of Virtual Machines in the Scale Set. Defaults to `0`.
  
---> **Note:** If you are using AutoScaling, you may wish to use [Terraform's `ignore_changes` functionality](https://www.terraform.io/language/meta-arguments/lifecycle#ignore_changess) to ignore changes to this field.
+--> **Note:** If you are using AutoScaling, you may wish to use [Terraform's `ignore_changes` functionality](https://developer.hashicorp.com/terraform/language/block/resource#ignore_changes) to ignore changes to this field.
 +-> **NOTE:** If you're using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
  
  * `sku` - (Required) The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
@@ -2700,7 +2702,7 @@ index c80cc5bb08..518d56416e 100644
  
  A `gallery_application` block supports the following:
 diff --git a/website/docs/r/logic_app_action_custom.html.markdown b/website/docs/r/logic_app_action_custom.html.markdown
-index 8fc18a12d0..3d311ae7c2 100644
+index 22d6133740..1c3db7a134 100644
 --- a/website/docs/r/logic_app_action_custom.html.markdown
 +++ b/website/docs/r/logic_app_action_custom.html.markdown
 @@ -54,14 +54,12 @@ The following arguments are supported:
@@ -2720,7 +2722,7 @@ index 8fc18a12d0..3d311ae7c2 100644
  
  In addition to the Arguments listed above - the following Attributes are exported:
 @@ -73,8 +71,8 @@ In addition to the Arguments listed above - the following Attributes are exporte
- The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
+ The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 30 minutes) Used when creating the Logic App Custom Action.
 -* `read` - (Defaults to 5 minutes) Used when retrieving the Logic App Custom Action.
@@ -2736,7 +2738,7 @@ index 8fc18a12d0..3d311ae7c2 100644
 --> **Note:** This ID is unique to Terraform and doesn't directly match to any other resource. To compose this ID, you can take the ID Logic App Workflow and append `/actions/{name of the action}`.
 +-> **NOTE:** This ID is unique to this provider and doesn't directly match to any other resource. To compose this ID, you can take the ID Logic App Workflow and append `/actions/{name of the action}`.
 diff --git a/website/docs/r/logic_app_action_http.html.markdown b/website/docs/r/logic_app_action_http.html.markdown
-index 81d45da2db..bfdcbc15c1 100644
+index 20fe4324b2..3d2b809263 100644
 --- a/website/docs/r/logic_app_action_http.html.markdown
 +++ b/website/docs/r/logic_app_action_http.html.markdown
 @@ -38,7 +38,7 @@ The following arguments are supported:
@@ -2749,7 +2751,7 @@ index 81d45da2db..bfdcbc15c1 100644
  * `logic_app_id` - (Required) Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
  
 @@ -73,8 +73,8 @@ In addition to the Arguments listed above - the following Attributes are exporte
- The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
+ The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 30 minutes) Used when creating the Logic App HTTP Action.
 -* `read` - (Defaults to 5 minutes) Used when retrieving the Logic App HTTP Action.
@@ -2765,7 +2767,7 @@ index 81d45da2db..bfdcbc15c1 100644
 --> **Note:** This ID is unique to Terraform and doesn't directly match to any other resource. To compose this ID, you can take the ID Logic App Workflow and append `/actions/{name of the action}`.
 +-> **NOTE:** This ID is unique to this provider and doesn't directly match to any other resource. To compose this ID, you can take the ID Logic App Workflow and append `/actions/{name of the action}`.
 diff --git a/website/docs/r/logic_app_trigger_custom.html.markdown b/website/docs/r/logic_app_trigger_custom.html.markdown
-index c0d1dfb37a..1955ac8b8e 100644
+index 0599288f9b..91c6bd5e22 100644
 --- a/website/docs/r/logic_app_trigger_custom.html.markdown
 +++ b/website/docs/r/logic_app_trigger_custom.html.markdown
 @@ -47,14 +47,12 @@ The following arguments are supported:
@@ -2793,7 +2795,7 @@ index c0d1dfb37a..1955ac8b8e 100644
  
  ## Timeouts
  
- The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
+ The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 30 minutes) Used when creating the Logic App Custom Trigger.
 -* `read` - (Defaults to 5 minutes) Used when retrieving the Logic App Custom Trigger.
@@ -2809,7 +2811,7 @@ index c0d1dfb37a..1955ac8b8e 100644
 --> **Note:** This ID is unique to Terraform and doesn't directly match to any other resource. To compose this ID, you can take the ID Logic App Workflow and append `/triggers/{name of the trigger}`.
 +-> **NOTE:** This ID is unique to this provider and doesn't directly match to any other resource. To compose this ID, you can take the ID Logic App Workflow and append `/triggers/{name of the trigger}`.
 diff --git a/website/docs/r/logic_app_trigger_http_request.html.markdown b/website/docs/r/logic_app_trigger_http_request.html.markdown
-index 97ab46cfc7..f4550adc31 100644
+index 9cfc61bc42..fa6262a6b4 100644
 --- a/website/docs/r/logic_app_trigger_http_request.html.markdown
 +++ b/website/docs/r/logic_app_trigger_http_request.html.markdown
 @@ -48,19 +48,17 @@ The following arguments are supported:
@@ -2835,7 +2837,7 @@ index 97ab46cfc7..f4550adc31 100644
  ## Attributes Reference
  
 @@ -75,8 +73,8 @@ In addition to the Arguments listed above - the following Attributes are exporte
- The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
+ The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 30 minutes) Used when creating the Logic App HTTP Request Trigger.
 -* `read` - (Defaults to 5 minutes) Used when retrieving the Logic App HTTP Request Trigger.
@@ -2851,7 +2853,7 @@ index 97ab46cfc7..f4550adc31 100644
 --> **Note:** This ID is unique to Terraform and doesn't directly match to any other resource. To compose this ID, you can take the ID Logic App Workflow and append `/triggers/{name of the trigger}`.
 +-> **NOTE:** This ID is unique to this provider and doesn't directly match to any other resource. To compose this ID, you can take the ID Logic App Workflow and append `/triggers/{name of the trigger}`.
 diff --git a/website/docs/r/logic_app_trigger_recurrence.html.markdown b/website/docs/r/logic_app_trigger_recurrence.html.markdown
-index b5f7ae0a33..7349e0e1e2 100644
+index 632d720653..1d0d29b2d7 100644
 --- a/website/docs/r/logic_app_trigger_recurrence.html.markdown
 +++ b/website/docs/r/logic_app_trigger_recurrence.html.markdown
 @@ -38,7 +38,7 @@ The following arguments are supported:
@@ -2864,7 +2866,7 @@ index b5f7ae0a33..7349e0e1e2 100644
  * `logic_app_id` - (Required) Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
  
 @@ -73,8 +73,8 @@ In addition to the Arguments listed above - the following Attributes are exporte
- The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
+ The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 30 minutes) Used when creating the Logic App Recurrence Trigger.
 -* `read` - (Defaults to 5 minutes) Used when retrieving the Logic App Recurrence Trigger.
@@ -2880,7 +2882,7 @@ index b5f7ae0a33..7349e0e1e2 100644
 --> **Note:** This ID is unique to Terraform and doesn't directly match to any other resource. To compose this ID, you can take the ID Logic App Workflow and append `/triggers/{name of the trigger}`.
 +-> **NOTE:** This ID is unique to this provider and doesn't directly match to any other resource. To compose this ID, you can take the ID Logic App Workflow and append `/triggers/{name of the trigger}`.
 diff --git a/website/docs/r/managed_disk.html.markdown b/website/docs/r/managed_disk.html.markdown
-index 5ea9a548e4..0b44a5cc00 100644
+index ca11de84d2..e606f34b8a 100644
 --- a/website/docs/r/managed_disk.html.markdown
 +++ b/website/docs/r/managed_disk.html.markdown
 @@ -82,15 +82,22 @@ The following arguments are supported:
@@ -2971,7 +2973,7 @@ index 5ea9a548e4..0b44a5cc00 100644
  * `on_demand_bursting_enabled` - (Optional) Specifies if On-Demand Bursting is enabled for the Managed Disk.
  
 @@ -220,8 +227,8 @@ In addition to the Arguments listed above - the following Attributes are exporte
- The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
+ The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 30 minutes) Used when creating the Managed Disk.
 -* `read` - (Defaults to 5 minutes) Used when retrieving the Managed Disk.
@@ -2981,7 +2983,7 @@ index 5ea9a548e4..0b44a5cc00 100644
  
  ## Import
 diff --git a/website/docs/r/monitor_activity_log_alert.html.markdown b/website/docs/r/monitor_activity_log_alert.html.markdown
-index 68b08aea90..93fab74049 100644
+index f91423c023..4c30790e8b 100644
 --- a/website/docs/r/monitor_activity_log_alert.html.markdown
 +++ b/website/docs/r/monitor_activity_log_alert.html.markdown
 @@ -54,7 +54,7 @@ resource "azurerm_monitor_activity_log_alert" "main" {
@@ -2994,7 +2996,7 @@ index 68b08aea90..93fab74049 100644
    }
  }
 diff --git a/website/docs/r/monitor_diagnostic_setting.html.markdown b/website/docs/r/monitor_diagnostic_setting.html.markdown
-index 2fd1315c25..1d78469bc4 100644
+index 2b93ca8340..8c56cf347a 100644
 --- a/website/docs/r/monitor_diagnostic_setting.html.markdown
 +++ b/website/docs/r/monitor_diagnostic_setting.html.markdown
 @@ -60,19 +60,19 @@ The following arguments are supported:
@@ -3076,7 +3078,7 @@ index 2fd1315c25..1d78469bc4 100644
  ## Attributes Reference
  
 @@ -131,9 +131,9 @@ In addition to the Arguments listed above - the following Attributes are exporte
- The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
+ The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 30 minutes) Used when creating the Diagnostics Setting.
 -* `read` - (Defaults to 5 minutes) Used when retrieving the Diagnostics Setting.
@@ -3097,7 +3099,7 @@ index 2fd1315c25..1d78469bc4 100644
  ## API Providers
  <!-- This section is generated, changes will be overwritten -->
 diff --git a/website/docs/r/mssql_server.html.markdown b/website/docs/r/mssql_server.html.markdown
-index 951bc640ee..aab915def4 100644
+index 0175006dbf..52430a184f 100644
 --- a/website/docs/r/mssql_server.html.markdown
 +++ b/website/docs/r/mssql_server.html.markdown
 @@ -11,9 +11,6 @@ description: |-
@@ -3111,7 +3113,7 @@ index 951bc640ee..aab915def4 100644
  
  ```hcl
 diff --git a/website/docs/r/mssql_virtual_machine.html.markdown b/website/docs/r/mssql_virtual_machine.html.markdown
-index 50d2179e9e..0b3967a053 100644
+index 0acc94d867..292ac069ff 100644
 --- a/website/docs/r/mssql_virtual_machine.html.markdown
 +++ b/website/docs/r/mssql_virtual_machine.html.markdown
 @@ -12,7 +12,7 @@ Manages a Microsoft SQL Virtual Machine
@@ -3124,7 +3126,7 @@ index 50d2179e9e..0b3967a053 100644
  ```hcl
  data "azurerm_virtual_machine" "example" {
 diff --git a/website/docs/r/nat_gateway_public_ip_association.html.markdown b/website/docs/r/nat_gateway_public_ip_association.html.markdown
-index 6582a05eaf..432d93edfc 100644
+index 7b0542c346..7a1db6706a 100644
 --- a/website/docs/r/nat_gateway_public_ip_association.html.markdown
 +++ b/website/docs/r/nat_gateway_public_ip_association.html.markdown
 @@ -52,7 +52,7 @@ The following arguments are supported:
@@ -3146,7 +3148,7 @@ index 6582a05eaf..432d93edfc 100644
  ## API Providers
  <!-- This section is generated, changes will be overwritten -->
 diff --git a/website/docs/r/network_connection_monitor.html.markdown b/website/docs/r/network_connection_monitor.html.markdown
-index a7c213453c..dde099f137 100644
+index f10003a306..af16f9b5e8 100644
 --- a/website/docs/r/network_connection_monitor.html.markdown
 +++ b/website/docs/r/network_connection_monitor.html.markdown
 @@ -10,7 +10,7 @@ description: |-
@@ -3168,7 +3170,7 @@ index a7c213453c..dde099f137 100644
  
    test_configuration {
 diff --git a/website/docs/r/network_interface_application_gateway_backend_address_pool_association.html.markdown b/website/docs/r/network_interface_application_gateway_backend_address_pool_association.html.markdown
-index 639d777104..0410f9027f 100644
+index 8de6a28eb6..910c157e62 100644
 --- a/website/docs/r/network_interface_application_gateway_backend_address_pool_association.html.markdown
 +++ b/website/docs/r/network_interface_application_gateway_backend_address_pool_association.html.markdown
 @@ -145,7 +145,7 @@ The following arguments are supported:
@@ -3190,7 +3192,7 @@ index 639d777104..0410f9027f 100644
  ## API Providers
  <!-- This section is generated, changes will be overwritten -->
 diff --git a/website/docs/r/network_interface_application_security_group_association.html.markdown b/website/docs/r/network_interface_application_security_group_association.html.markdown
-index bb1fef2210..8511193c20 100644
+index 0c6bce1d37..d10932a8c2 100644
 --- a/website/docs/r/network_interface_application_security_group_association.html.markdown
 +++ b/website/docs/r/network_interface_application_security_group_association.html.markdown
 @@ -69,7 +69,7 @@ The following arguments are supported:
@@ -3212,7 +3214,7 @@ index bb1fef2210..8511193c20 100644
  ## API Providers
  <!-- This section is generated, changes will be overwritten -->
 diff --git a/website/docs/r/network_interface_backend_address_pool_association.html.markdown b/website/docs/r/network_interface_backend_address_pool_association.html.markdown
-index 07fe91cab6..660b94b3be 100644
+index 65536da0ca..fe32f03db3 100644
 --- a/website/docs/r/network_interface_backend_address_pool_association.html.markdown
 +++ b/website/docs/r/network_interface_backend_address_pool_association.html.markdown
 @@ -89,7 +89,7 @@ The following arguments are supported:
@@ -3234,7 +3236,7 @@ index 07fe91cab6..660b94b3be 100644
  ## API Providers
  <!-- This section is generated, changes will be overwritten -->
 diff --git a/website/docs/r/network_interface_nat_rule_association.html.markdown b/website/docs/r/network_interface_nat_rule_association.html.markdown
-index 47bfdfeba1..72c98bf5a8 100644
+index d9e4c8209e..1c727a9809 100644
 --- a/website/docs/r/network_interface_nat_rule_association.html.markdown
 +++ b/website/docs/r/network_interface_nat_rule_association.html.markdown
 @@ -94,7 +94,7 @@ The following arguments are supported:
@@ -3256,7 +3258,7 @@ index 47bfdfeba1..72c98bf5a8 100644
  ## API Providers
  <!-- This section is generated, changes will be overwritten -->
 diff --git a/website/docs/r/network_interface_security_group_association.html.markdown b/website/docs/r/network_interface_security_group_association.html.markdown
-index b87b91d23b..e6ad72370a 100644
+index 0ee3b53cf6..4699473f10 100644
 --- a/website/docs/r/network_interface_security_group_association.html.markdown
 +++ b/website/docs/r/network_interface_security_group_association.html.markdown
 @@ -69,7 +69,7 @@ The following arguments are supported:
@@ -3278,7 +3280,7 @@ index b87b91d23b..e6ad72370a 100644
  ## API Providers
  <!-- This section is generated, changes will be overwritten -->
 diff --git a/website/docs/r/network_security_group.html.markdown b/website/docs/r/network_security_group.html.markdown
-index 7b5e7b03ec..dccd996179 100644
+index 6e0c8ab75d..d6c34abbce 100644
 --- a/website/docs/r/network_security_group.html.markdown
 +++ b/website/docs/r/network_security_group.html.markdown
 @@ -11,7 +11,7 @@ description: |-
@@ -3303,7 +3305,7 @@ index 7b5e7b03ec..dccd996179 100644
  * `tags` - (Optional) A mapping of tags to assign to the resource.
  
 @@ -109,8 +109,8 @@ In addition to the Arguments listed above - the following Attributes are exporte
- The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
+ The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 30 minutes) Used when creating the Network Security Group.
 -* `read` - (Defaults to 5 minutes) Used when retrieving the Network Security Group.
@@ -3313,7 +3315,7 @@ index 7b5e7b03ec..dccd996179 100644
  
  ## Import
 diff --git a/website/docs/r/network_security_rule.html.markdown b/website/docs/r/network_security_rule.html.markdown
-index 61ae114647..a7e7c87c0d 100644
+index cfd8fa6bb0..50f6f95e55 100644
 --- a/website/docs/r/network_security_rule.html.markdown
 +++ b/website/docs/r/network_security_rule.html.markdown
 @@ -11,7 +11,7 @@ description: |-
@@ -3326,7 +3328,7 @@ index 61ae114647..a7e7c87c0d 100644
  At this time you cannot use a Network Security Group with in-line Network Security Rules in conjunction with any Network Security Rule resources. Doing so will cause a conflict of rule settings and will overwrite rules.
  
 @@ -99,8 +99,8 @@ In addition to the Arguments listed above - the following Attributes are exporte
- The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
+ The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 30 minutes) Used when creating the Network Security Rule.
 -* `read` - (Defaults to 5 minutes) Used when retrieving the Network Security Rule.
@@ -3336,7 +3338,7 @@ index 61ae114647..a7e7c87c0d 100644
  
  ## Import
 diff --git a/website/docs/r/notification_hub.html.markdown b/website/docs/r/notification_hub.html.markdown
-index 3b55f39e97..38055ee7b7 100644
+index 5a013c326d..256e1642b3 100644
 --- a/website/docs/r/notification_hub.html.markdown
 +++ b/website/docs/r/notification_hub.html.markdown
 @@ -66,7 +66,7 @@ A `apns_credential` supports the following:
@@ -3349,7 +3351,7 @@ index 3b55f39e97..38055ee7b7 100644
  * `key_id` - (Required) The Apple Push Notifications Service (APNS) Key.
  
 diff --git a/website/docs/r/private_endpoint.html.markdown b/website/docs/r/private_endpoint.html.markdown
-index 005d1aa34b..dd4dc2af26 100644
+index 9b9d63d016..fd96b51a96 100644
 --- a/website/docs/r/private_endpoint.html.markdown
 +++ b/website/docs/r/private_endpoint.html.markdown
 @@ -344,7 +344,7 @@ A `record_sets` block exports:
@@ -3362,7 +3364,7 @@ index 005d1aa34b..dd4dc2af26 100644
  * How to connect a `Private Endpoint` to a [Cosmos PostgreSQL](https://github.com/hashicorp/terraform-provider-azurerm/tree/main/examples/private-endpoint/cosmos-db/postgresql)
  * How to connect a `Private Endpoint` to a [PostgreSQL Server](https://github.com/hashicorp/terraform-provider-azurerm/tree/main/examples/private-endpoint/postgresql)
 diff --git a/website/docs/r/public_ip.html.markdown b/website/docs/r/public_ip.html.markdown
-index e01c739e5f..d10991a454 100644
+index 02afa01f8d..339bc06934 100644
 --- a/website/docs/r/public_ip.html.markdown
 +++ b/website/docs/r/public_ip.html.markdown
 @@ -10,7 +10,7 @@ description: |-
@@ -3421,7 +3423,7 @@ index e01c739e5f..d10991a454 100644
  * `fqdn` - Fully qualified domain name of the A DNS record associated with the public IP. `domain_name_label` must be specified to get the `fqdn`. This is the concatenation of the `domain_name_label` and the regionalized DNS zone
  
 @@ -105,8 +105,8 @@ In addition to the Arguments listed above - the following Attributes are exporte
- The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
+ The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 30 minutes) Used when creating the Public IP.
 -* `read` - (Defaults to 5 minutes) Used when retrieving the Public IP.
@@ -3431,7 +3433,7 @@ index e01c739e5f..d10991a454 100644
  
  ## Import
 diff --git a/website/docs/r/recovery_services_vault.html.markdown b/website/docs/r/recovery_services_vault.html.markdown
-index def61472f6..ea8d650b3b 100644
+index a5db687fde..c4ed07e758 100644
 --- a/website/docs/r/recovery_services_vault.html.markdown
 +++ b/website/docs/r/recovery_services_vault.html.markdown
 @@ -51,6 +51,7 @@ The following arguments are supported:
@@ -3443,7 +3445,7 @@ index def61472f6..ea8d650b3b 100644
  * `cross_region_restore_enabled` - (Optional) Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
  
 diff --git a/website/docs/r/redis_cache.html.markdown b/website/docs/r/redis_cache.html.markdown
-index 329ced2e2d..5d522a2cfd 100644
+index 5a020a95c4..d1bd6f5173 100644
 --- a/website/docs/r/redis_cache.html.markdown
 +++ b/website/docs/r/redis_cache.html.markdown
 @@ -15,7 +15,7 @@ Manages a Redis Cache.
@@ -3520,12 +3522,12 @@ index 329ced2e2d..5d522a2cfd 100644
  * `rdb_backup_max_snapshot_count` - (Optional) The maximum number of snapshots to create as a backup. Only supported for Premium SKUs.
  * `rdb_storage_connection_string` - (Optional) The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
  
--~> **Note:** There's a bug in the Redis API where the original storage connection string isn't being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignore_changes` attribute to ignore changes to this field](https://www.terraform.io/language/meta-arguments/lifecycle#ignore_changess) e.g.:
+-~> **Note:** There's a bug in the Redis API where the original storage connection string isn't being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignore_changes` attribute to ignore changes to this field](https://developer.hashicorp.com/terraform/language/block/resource#ignore_changes)
 +~> **NOTE:** There's a bug in the Redis API where the original storage connection string isn't being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignoreChanges` attribute to ignore changes to this field](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) e.g.:
  
  * `storage_account_subscription_id` - (Optional) The ID of the Subscription containing the Storage Account.
  
-@@ -193,7 +193,7 @@ redis_configuration {
+@@ -186,7 +186,7 @@ redis_configuration {
  | maxmemory_delta                 | 2            | 50           | 200          |
  | maxmemory_policy                | volatile-lru | volatile-lru | volatile-lru |
  
@@ -3534,9 +3536,9 @@ index 329ced2e2d..5d522a2cfd 100644
  
  ## Attributes Reference
  
-@@ -232,10 +232,10 @@ A `redis_configuration` block exports the following:
+@@ -225,10 +225,10 @@ A `redis_configuration` block exports the following:
  
-  The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
+  The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
 -* `create` - (Defaults to 3 hours) Used when creating the Redis Cache.
 +* `create` - (Defaults to 180 minutes) Used when creating the Redis Cache.
@@ -3548,7 +3550,7 @@ index 329ced2e2d..5d522a2cfd 100644
  
  ## Import
  
-@@ -244,7 +244,6 @@ Redis Cache's can be imported using the `resource id`, e.g.
+@@ -237,7 +237,6 @@ Redis Cache's can be imported using the `resource id`, e.g.
  ```shell
  terraform import azurerm_redis_cache.cache1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Cache/redis/cache1
  ```
@@ -3557,7 +3559,7 @@ index 329ced2e2d..5d522a2cfd 100644
  <!-- This section is generated, changes will be overwritten -->
  This resource uses the following Azure API Providers:
 diff --git a/website/docs/r/relay_hybrid_connection.html.markdown b/website/docs/r/relay_hybrid_connection.html.markdown
-index ec7e203ee1..e6d546adc3 100644
+index a1f656c736..7e3f93148a 100644
 --- a/website/docs/r/relay_hybrid_connection.html.markdown
 +++ b/website/docs/r/relay_hybrid_connection.html.markdown
 @@ -27,7 +27,7 @@ resource "azurerm_relay_namespace" "example" {
@@ -3570,7 +3572,7 @@ index ec7e203ee1..e6d546adc3 100644
  }
  
 diff --git a/website/docs/r/relay_namespace.html.markdown b/website/docs/r/relay_namespace.html.markdown
-index 0030885c7b..cceb89d98d 100644
+index 8f3784737f..42b6aa24b5 100644
 --- a/website/docs/r/relay_namespace.html.markdown
 +++ b/website/docs/r/relay_namespace.html.markdown
 @@ -27,7 +27,7 @@ resource "azurerm_relay_namespace" "example" {
@@ -3583,7 +3585,7 @@ index 0030885c7b..cceb89d98d 100644
  }
  ```
 diff --git a/website/docs/r/resource_group_template_deployment.html.markdown b/website/docs/r/resource_group_template_deployment.html.markdown
-index 359d8b1379..443e0b5c2f 100644
+index c0a391f986..7fe54419ed 100644
 --- a/website/docs/r/resource_group_template_deployment.html.markdown
 +++ b/website/docs/r/resource_group_template_deployment.html.markdown
 @@ -111,7 +111,7 @@ The following arguments are supported:
@@ -3605,7 +3607,7 @@ index 359d8b1379..443e0b5c2f 100644
  ## Timeouts
  
 diff --git a/website/docs/r/resource_provider_registration.html.markdown b/website/docs/r/resource_provider_registration.html.markdown
-index f51cf80ce4..8dd3a25b0f 100644
+index 298a1623f4..1750e5f847 100644
 --- a/website/docs/r/resource_provider_registration.html.markdown
 +++ b/website/docs/r/resource_provider_registration.html.markdown
 @@ -12,7 +12,7 @@ Manages the registration of a Resource Provider - which allows access to the API
@@ -3618,7 +3620,7 @@ index f51cf80ce4..8dd3a25b0f 100644
  -> **Note:** Adding or Removing a Preview Feature will re-register the Resource Provider.
  
 diff --git a/website/docs/r/role_definition.html.markdown b/website/docs/r/role_definition.html.markdown
-index 92484f3a64..c0330e4894 100644
+index 362b840566..cecfaa1a38 100644
 --- a/website/docs/r/role_definition.html.markdown
 +++ b/website/docs/r/role_definition.html.markdown
 @@ -20,7 +20,7 @@ data "azurerm_subscription" "primary" {
@@ -3640,7 +3642,7 @@ index 92484f3a64..c0330e4894 100644
  ---
  
 @@ -108,8 +108,8 @@ In addition to the Arguments listed above - the following Attributes are exporte
- The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
+ The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 30 minutes) Used when creating the Role Definition.
 +* `update` - (Defaults to 60 minutes) Used when updating the Role Definition.
@@ -3659,7 +3661,7 @@ index 92484f3a64..c0330e4894 100644
  ## API Providers
  <!-- This section is generated, changes will be overwritten -->
 diff --git a/website/docs/r/route.html.markdown b/website/docs/r/route.html.markdown
-index b3950cf3ef..b9f19a59f4 100644
+index ca5c7dcc82..69ea6165d4 100644
 --- a/website/docs/r/route.html.markdown
 +++ b/website/docs/r/route.html.markdown
 @@ -10,7 +10,7 @@ description: |-
@@ -3672,7 +3674,7 @@ index b3950cf3ef..b9f19a59f4 100644
  At this time you cannot use a Route Table with in-line Routes in conjunction with any Route resources. Doing so will cause a conflict of Route configurations and will overwrite Routes.
  
 @@ -64,8 +64,8 @@ In addition to the Arguments listed above - the following Attributes are exporte
- The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
+ The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 30 minutes) Used when creating the Route.
 -* `read` - (Defaults to 5 minutes) Used when retrieving the Route.
@@ -3682,7 +3684,7 @@ index b3950cf3ef..b9f19a59f4 100644
  
  ## Import
 diff --git a/website/docs/r/route_table.html.markdown b/website/docs/r/route_table.html.markdown
-index 4b5c4ec62e..09413aa51d 100644
+index 2b162987f3..311d8f9f05 100644
 --- a/website/docs/r/route_table.html.markdown
 +++ b/website/docs/r/route_table.html.markdown
 @@ -11,8 +11,7 @@ description: |-
@@ -3708,7 +3710,7 @@ index 4b5c4ec62e..09413aa51d 100644
  * `bgp_route_propagation_enabled` - (Optional) Boolean flag which controls propagation of routes learned by BGP on that route table. Defaults to `true`.
  
 @@ -82,8 +81,8 @@ In addition to the Arguments listed above - the following Attributes are exporte
- The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
+ The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 30 minutes) Used when creating the Route Table.
 -* `read` - (Defaults to 5 minutes) Used when retrieving the Route Table.
@@ -3718,7 +3720,7 @@ index 4b5c4ec62e..09413aa51d 100644
  
  ## Import
 diff --git a/website/docs/r/servicebus_namespace.html.markdown b/website/docs/r/servicebus_namespace.html.markdown
-index 3d8bb9feff..64a25799e1 100644
+index 7eadca78f0..e8d68d97f9 100644
 --- a/website/docs/r/servicebus_namespace.html.markdown
 +++ b/website/docs/r/servicebus_namespace.html.markdown
 @@ -18,7 +18,7 @@ provider "azurerm" {
@@ -3740,7 +3742,7 @@ index 3d8bb9feff..64a25799e1 100644
  }
  ```
 diff --git a/website/docs/r/servicebus_namespace_authorization_rule.html.markdown b/website/docs/r/servicebus_namespace_authorization_rule.html.markdown
-index 402de8c1df..a3d6f4a7e6 100644
+index 5c8f7bd346..50d61b5437 100644
 --- a/website/docs/r/servicebus_namespace_authorization_rule.html.markdown
 +++ b/website/docs/r/servicebus_namespace_authorization_rule.html.markdown
 @@ -14,8 +14,8 @@ Manages a ServiceBus Namespace authorization Rule within a ServiceBus.
@@ -3764,7 +3766,7 @@ index 402de8c1df..a3d6f4a7e6 100644
  }
  
 diff --git a/website/docs/r/servicebus_queue.html.markdown b/website/docs/r/servicebus_queue.html.markdown
-index 67461dba47..b8e99e9d40 100644
+index 04e0370606..f11efbc83d 100644
 --- a/website/docs/r/servicebus_queue.html.markdown
 +++ b/website/docs/r/servicebus_queue.html.markdown
 @@ -14,7 +14,7 @@ Manages a ServiceBus Queue.
@@ -3786,7 +3788,7 @@ index 67461dba47..b8e99e9d40 100644
  }
  
 diff --git a/website/docs/r/servicebus_queue_authorization_rule.html.markdown b/website/docs/r/servicebus_queue_authorization_rule.html.markdown
-index 942a44de3e..2aaa23cedf 100644
+index eb99d70e0f..eb07067cfb 100644
 --- a/website/docs/r/servicebus_queue_authorization_rule.html.markdown
 +++ b/website/docs/r/servicebus_queue_authorization_rule.html.markdown
 @@ -14,8 +14,8 @@ Manages an Authorization Rule for a ServiceBus Queue.
@@ -3810,7 +3812,7 @@ index 942a44de3e..2aaa23cedf 100644
  }
  
 diff --git a/website/docs/r/servicebus_subscription.html.markdown b/website/docs/r/servicebus_subscription.html.markdown
-index 2802f36283..16995f713c 100644
+index 4630a5e71b..d448d65cfc 100644
 --- a/website/docs/r/servicebus_subscription.html.markdown
 +++ b/website/docs/r/servicebus_subscription.html.markdown
 @@ -25,7 +25,7 @@ resource "azurerm_servicebus_namespace" "example" {
@@ -3823,7 +3825,7 @@ index 2802f36283..16995f713c 100644
  }
  
 diff --git a/website/docs/r/servicebus_subscription_rule.html.markdown b/website/docs/r/servicebus_subscription_rule.html.markdown
-index c31985eaac..9ea640d573 100644
+index 3ebff94c04..3afdef5549 100644
 --- a/website/docs/r/servicebus_subscription_rule.html.markdown
 +++ b/website/docs/r/servicebus_subscription_rule.html.markdown
 @@ -25,7 +25,7 @@ resource "azurerm_servicebus_namespace" "example" {
@@ -3845,7 +3847,7 @@ index c31985eaac..9ea640d573 100644
  }
  
 diff --git a/website/docs/r/servicebus_topic.html.markdown b/website/docs/r/servicebus_topic.html.markdown
-index d1b9ca1204..92f6dae0e7 100644
+index 3b7e06e80c..1c65c89d2f 100644
 --- a/website/docs/r/servicebus_topic.html.markdown
 +++ b/website/docs/r/servicebus_topic.html.markdown
 @@ -27,7 +27,7 @@ resource "azurerm_servicebus_namespace" "example" {
@@ -3858,7 +3860,7 @@ index d1b9ca1204..92f6dae0e7 100644
  }
  
 diff --git a/website/docs/r/servicebus_topic_authorization_rule.html.markdown b/website/docs/r/servicebus_topic_authorization_rule.html.markdown
-index 75d8a10a96..8677f99f5e 100644
+index 8ea55a722a..e2bce509e7 100644
 --- a/website/docs/r/servicebus_topic_authorization_rule.html.markdown
 +++ b/website/docs/r/servicebus_topic_authorization_rule.html.markdown
 @@ -25,7 +25,7 @@ resource "azurerm_servicebus_namespace" "example" {
@@ -3871,7 +3873,7 @@ index 75d8a10a96..8677f99f5e 100644
  }
  
 diff --git a/website/docs/r/shared_image_version.html.markdown b/website/docs/r/shared_image_version.html.markdown
-index 9a8603ff15..46bb9033a0 100644
+index 960691a04c..5ae0d15874 100644
 --- a/website/docs/r/shared_image_version.html.markdown
 +++ b/website/docs/r/shared_image_version.html.markdown
 @@ -59,9 +59,9 @@ The following arguments are supported:
@@ -3913,7 +3915,7 @@ index 9a8603ff15..46bb9033a0 100644
  * `tags` - (Optional) A collection of tags which should be applied to this resource.
  
 @@ -112,8 +112,8 @@ In addition to the Arguments listed above - the following Attributes are exporte
- The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
+ The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 30 minutes) Used when creating the Shared Image Version.
 -* `read` - (Defaults to 5 minutes) Used when retrieving the Shared Image Version.
@@ -3923,7 +3925,7 @@ index 9a8603ff15..46bb9033a0 100644
  
  ## Import
 diff --git a/website/docs/r/signalr_service.html.markdown b/website/docs/r/signalr_service.html.markdown
-index f9cf23fe2e..35525fdab8 100644
+index 0e678e2c5d..57d0715a7c 100644
 --- a/website/docs/r/signalr_service.html.markdown
 +++ b/website/docs/r/signalr_service.html.markdown
 @@ -14,8 +14,8 @@ Manages an Azure SignalR service.
@@ -3938,7 +3940,7 @@ index f9cf23fe2e..35525fdab8 100644
  
  resource "azurerm_signalr_service" "example" {
 diff --git a/website/docs/r/storage_blob.html.markdown b/website/docs/r/storage_blob.html.markdown
-index d654370f7a..94ae3e44c2 100644
+index 6d30f26f96..004fe42237 100644
 --- a/website/docs/r/storage_blob.html.markdown
 +++ b/website/docs/r/storage_blob.html.markdown
 @@ -65,8 +65,6 @@ The following arguments are supported:
@@ -3960,7 +3962,7 @@ index d654370f7a..94ae3e44c2 100644
  * `metadata` - (Optional) A map of custom blob metadata.
  
 @@ -93,8 +91,8 @@ In addition to the Arguments listed above - the following Attributes are exporte
- The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
+ The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 30 minutes) Used when creating the Storage Blob.
 -* `read` - (Defaults to 5 minutes) Used when retrieving the Storage Blob.
@@ -3970,7 +3972,7 @@ index d654370f7a..94ae3e44c2 100644
  
  ## Import
 diff --git a/website/docs/r/storage_data_lake_gen2_path.html.markdown b/website/docs/r/storage_data_lake_gen2_path.html.markdown
-index 113fabc672..150d213923 100644
+index b58c18ed66..d9fbdd95c1 100644
 --- a/website/docs/r/storage_data_lake_gen2_path.html.markdown
 +++ b/website/docs/r/storage_data_lake_gen2_path.html.markdown
 @@ -14,7 +14,7 @@ Manages a Data Lake Gen2 Path in a File System within an Azure Storage Account.
@@ -3983,7 +3985,7 @@ index 113fabc672..150d213923 100644
    name     = "example-resources"
    location = "West Europe"
 diff --git a/website/docs/r/subnet.html.markdown b/website/docs/r/subnet.html.markdown
-index 2954009587..63f58d36f3 100644
+index d3fb49d74a..da6c721700 100644
 --- a/website/docs/r/subnet.html.markdown
 +++ b/website/docs/r/subnet.html.markdown
 @@ -11,7 +11,7 @@ description: |-
@@ -4004,7 +4006,7 @@ index 2954009587..63f58d36f3 100644
  
  -> **Note:** Exactly one of `address_prefixes` or `ip_address_pool` must be specified.
  
-@@ -75,19 +75,19 @@ The following arguments are supported:
+@@ -75,15 +75,15 @@ The following arguments are supported:
  
  * `private_endpoint_network_policies` - (Optional) Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
  
@@ -4022,6 +4024,10 @@ index 2954009587..63f58d36f3 100644
 --> **Note:** When configuring Azure Private Link service, the explicit setting `private_link_service_network_policies_enabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `azurerm_subnet_network_security_group_association` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
 +-> **NOTE:** When configuring Azure Private Link service, the explicit setting `private_link_service_network_policies_enabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `azurerm_subnet_network_security_group_association` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
  
+ * `sharing_scope` - (Optional) The sharing scope of the subnet. Possible value is `Tenant`.
+ 
+@@ -93,7 +93,7 @@ The following arguments are supported:
+ 
  * `service_endpoints` - (Optional) The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
  
 --> **Note:** In order to use `Microsoft.Storage.Global` service endpoint (which allows access to virtual networks in other regions), you must enable the `AllowGlobalTagsForStorage` feature in your subscription. This is currently a preview feature, please see the [official documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-cli#enabling-access-to-virtual-networks-in-other-regions-preview) for more information.
@@ -4029,7 +4035,7 @@ index 2954009587..63f58d36f3 100644
  
  * `service_endpoint_policy_ids` - (Optional) The list of IDs of Service Endpoint Policies to associate with the subnet.
  
-@@ -113,13 +113,13 @@ An `ip_address_pool` block supports the following:
+@@ -119,13 +119,13 @@ An `ip_address_pool` block supports the following:
  
  A `service_delegation` block supports the following:
  
@@ -4046,8 +4052,8 @@ index 2954009587..63f58d36f3 100644
  
  ## Attributes Reference
  
-@@ -140,8 +140,8 @@ The `ip_address_pool` block exports:
- The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
+@@ -146,8 +146,8 @@ The `ip_address_pool` block exports:
+ The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 30 minutes) Used when creating the Subnet.
 -* `read` - (Defaults to 5 minutes) Used when retrieving the Subnet.
@@ -4057,7 +4063,7 @@ index 2954009587..63f58d36f3 100644
  
  ## Import
 diff --git a/website/docs/r/subscription.html.markdown b/website/docs/r/subscription.html.markdown
-index 00670bf1fa..d665805306 100644
+index 9e6cf31273..b9aaf425f8 100644
 --- a/website/docs/r/subscription.html.markdown
 +++ b/website/docs/r/subscription.html.markdown
 @@ -8,17 +8,17 @@ description: |-
@@ -4113,7 +4119,7 @@ index 00670bf1fa..d665805306 100644
  ## API Providers
  <!-- This section is generated, changes will be overwritten -->
 diff --git a/website/docs/r/synapse_role_assignment.html.markdown b/website/docs/r/synapse_role_assignment.html.markdown
-index 2949037026..8cdbb9f9bd 100644
+index 5efe3c15c8..c892ed811b 100644
 --- a/website/docs/r/synapse_role_assignment.html.markdown
 +++ b/website/docs/r/synapse_role_assignment.html.markdown
 @@ -72,19 +72,19 @@ The following arguments are supported:
@@ -4147,12 +4153,12 @@ index 2949037026..8cdbb9f9bd 100644
 --> **Note:** This ID is specific to Terraform - and is of the format `{synapseScope}|{synapseRoleAssignmentId}`.
 +-> **NOTE:** This ID is specific to this provider - and is of the format `{synapseScope}|{synapseRoleAssignmentId}`.
 diff --git a/website/docs/r/virtual_desktop_workspace_application_group_association.html.markdown b/website/docs/r/virtual_desktop_workspace_application_group_association.html.markdown
-index cf243d8fd3..6d2544c101 100644
+index d4f4746f90..663d1118ea 100644
 --- a/website/docs/r/virtual_desktop_workspace_application_group_association.html.markdown
 +++ b/website/docs/r/virtual_desktop_workspace_application_group_association.html.markdown
 @@ -68,9 +68,9 @@ In addition to the Arguments listed above - the following Attributes are exporte
  
- The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
+ The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
 -* `create` - (Defaults to 1 hour) Used when creating the Virtual Desktop Workspace.
 +* `create` - (Defaults to 60 minutes) Used when creating the Virtual Desktop Workspace.
@@ -4172,7 +4178,7 @@ index cf243d8fd3..6d2544c101 100644
  ## API Providers
  <!-- This section is generated, changes will be overwritten -->
 diff --git a/website/docs/r/virtual_machine.html.markdown b/website/docs/r/virtual_machine.html.markdown
-index 5274ee8063..39bdeef5bb 100644
+index 4ce7876166..ab0ec3cbee 100644
 --- a/website/docs/r/virtual_machine.html.markdown
 +++ b/website/docs/r/virtual_machine.html.markdown
 @@ -12,13 +12,13 @@ Manages a Virtual Machine.
@@ -4342,7 +4348,7 @@ index 5274ee8063..39bdeef5bb 100644
  
  ## Timeouts
  
- The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
+ The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
 -* `create` - (Defaults to 1 hour) Used when creating the Virtual Machine.
 +* `create` - (Defaults to 60 minutes) Used when creating the Virtual Machine.
@@ -4355,7 +4361,7 @@ index 5274ee8063..39bdeef5bb 100644
  ## Import
  
 diff --git a/website/docs/r/virtual_machine_data_disk_attachment.html.markdown b/website/docs/r/virtual_machine_data_disk_attachment.html.markdown
-index 011b0e1c09..5619178bb6 100644
+index d15cb6d034..94f35e386d 100644
 --- a/website/docs/r/virtual_machine_data_disk_attachment.html.markdown
 +++ b/website/docs/r/virtual_machine_data_disk_attachment.html.markdown
 @@ -10,9 +10,9 @@ description: |-
@@ -4371,7 +4377,7 @@ index 011b0e1c09..5619178bb6 100644
  ## Example Usage
  
 @@ -132,8 +132,8 @@ In addition to the Arguments listed above - the following Attributes are exporte
- The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
+ The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 30 minutes) Used when creating the Virtual Machine Data Disk Attachment.
 -* `read` - (Defaults to 5 minutes) Used when retrieving the Virtual Machine Data Disk Attachment.
@@ -4390,7 +4396,7 @@ index 011b0e1c09..5619178bb6 100644
  ## API Providers
  <!-- This section is generated, changes will be overwritten -->
 diff --git a/website/docs/r/virtual_machine_scale_set.html.markdown b/website/docs/r/virtual_machine_scale_set.html.markdown
-index a5bd7a72a8..d40e2da58d 100644
+index b34d76a123..0e044b8063 100644
 --- a/website/docs/r/virtual_machine_scale_set.html.markdown
 +++ b/website/docs/r/virtual_machine_scale_set.html.markdown
 @@ -10,12 +10,6 @@ description: |-
@@ -4481,7 +4487,7 @@ index a5bd7a72a8..d40e2da58d 100644
  
 @@ -591,10 +585,10 @@ In addition to the Arguments listed above - the following Attributes are exporte
  
- The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
+ The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
 -* `create` - (Defaults to 1 hour) Used when creating the Virtual Machine Scale Set.
 +* `create` - (Defaults to 60 minutes) Used when creating the Virtual Machine Scale Set.
@@ -4494,7 +4500,7 @@ index a5bd7a72a8..d40e2da58d 100644
  ## Import
  
 diff --git a/website/docs/r/virtual_network.html.markdown b/website/docs/r/virtual_network.html.markdown
-index 6df0093676..d50938253f 100644
+index a2ea408e24..e973c4ddc6 100644
 --- a/website/docs/r/virtual_network.html.markdown
 +++ b/website/docs/r/virtual_network.html.markdown
 @@ -11,10 +11,10 @@ description: |-
@@ -4567,7 +4573,7 @@ index 6df0093676..d50938253f 100644
  * `actions` - (Optional) A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action`, and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
  
 @@ -206,8 +206,8 @@ The `subnet` block exports:
- The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
+ The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 30 minutes) Used when creating the Virtual Network.
 -* `read` - (Defaults to 5 minutes) Used when retrieving the Virtual Network.
@@ -4577,7 +4583,7 @@ index 6df0093676..d50938253f 100644
  
  ## Import
 diff --git a/website/docs/r/windows_virtual_machine.html.markdown b/website/docs/r/windows_virtual_machine.html.markdown
-index a6b287dd46..b1cb6e1a14 100644
+index f916142334..f0674f7f94 100644
 --- a/website/docs/r/windows_virtual_machine.html.markdown
 +++ b/website/docs/r/windows_virtual_machine.html.markdown
 @@ -12,21 +12,19 @@ Manages a Windows Virtual Machine.
@@ -4608,7 +4614,7 @@ index a6b287dd46..b1cb6e1a14 100644
  
  ```hcl
  provider "azurerm" {
-@@ -123,11 +121,11 @@ The following arguments are supported:
+@@ -127,11 +125,11 @@ The following arguments are supported:
  
  * `bypass_platform_safety_checks_on_user_schedule_enabled` - (Optional) Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
  
@@ -4622,7 +4628,7 @@ index a6b287dd46..b1cb6e1a14 100644
  
  * `computer_name` - (Optional) Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.
  
-@@ -147,17 +145,17 @@ The following arguments are supported:
+@@ -151,17 +149,17 @@ The following arguments are supported:
  
  * `eviction_policy` - (Optional) Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
  
@@ -4643,7 +4649,7 @@ index a6b287dd46..b1cb6e1a14 100644
  
  * `identity` - (Optional) An `identity` block as defined below.
  
-@@ -165,15 +163,15 @@ The following arguments are supported:
+@@ -169,15 +167,15 @@ The following arguments are supported:
  
  * `max_bid_price` - (Optional) The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
  
@@ -4662,7 +4668,7 @@ index a6b287dd46..b1cb6e1a14 100644
  
  * `plan` - (Optional) A `plan` block as defined below. Changing this forces a new resource to be created.
  
-@@ -183,13 +181,13 @@ The following arguments are supported:
+@@ -187,13 +185,13 @@ The following arguments are supported:
  
  * `provision_vm_agent` - (Optional) Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
  
@@ -4678,7 +4684,7 @@ index a6b287dd46..b1cb6e1a14 100644
  
  * `secret` - (Optional) One or more `secret` blocks as defined below.
  
-@@ -197,11 +195,11 @@ The following arguments are supported:
+@@ -201,11 +199,11 @@ The following arguments are supported:
  
  * `source_image_id` - (Optional) The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
  
@@ -4692,24 +4698,24 @@ index a6b287dd46..b1cb6e1a14 100644
  
  * `tags` - (Optional) A mapping of tags which should be assigned to this Virtual Machine.
  
-@@ -215,11 +213,13 @@ The following arguments are supported:
+@@ -223,11 +221,13 @@ The following arguments are supported:
  
  * `virtual_machine_scale_set_id` - (Optional) Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
  
 --> **Note:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
 +-> **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
- 
--~> **Note:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azurerm_orchestrated_virtual_machine_scale_set` resource](/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
++
 +~> **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azurerm_orchestrated_virtual_machine_scale_set` resource](/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
  
--~> **Note:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
+-~> **Note:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azurerm_orchestrated_virtual_machine_scale_set` resource](/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
 +~> **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
-+
+ 
+-~> **Note:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
 +* `vm_agent_platform_updates_enabled` - (Optional) Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
  
  * `vtpm_enabled` - (Optional) Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
  
-@@ -249,7 +249,7 @@ A `boot_diagnostics` block supports the following:
+@@ -257,7 +257,7 @@ A `boot_diagnostics` block supports the following:
  
  * `storage_account_uri` - (Optional) The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
  
@@ -4718,7 +4724,7 @@ index a6b287dd46..b1cb6e1a14 100644
  
  ---
  
-@@ -259,7 +259,7 @@ A `certificate` block supports the following:
+@@ -267,7 +267,7 @@ A `certificate` block supports the following:
  
  * `url` - (Required) The Secret URL of a Key Vault Certificate.
  
@@ -4727,7 +4733,7 @@ index a6b287dd46..b1cb6e1a14 100644
  
  ---
  
-@@ -295,7 +295,7 @@ An `identity` block supports the following:
+@@ -303,7 +303,7 @@ An `identity` block supports the following:
  
  * `identity_ids` - (Optional) Specifies a list of User Assigned Managed Identity IDs to be assigned to this Windows Virtual Machine.
  
@@ -4736,12 +4742,12 @@ index a6b287dd46..b1cb6e1a14 100644
  
  ---
  
-@@ -307,31 +307,31 @@ A `os_disk` block supports the following:
+@@ -318,15 +318,15 @@ A `os_disk` block supports the following:
  
  * `diff_disk_settings` - (Optional) A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
  
---> **Note:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment)
-+-> **NOTE:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment)
+--> **Note:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment). Additionally, this property cannot be set when an existing Managed Disk is used to create the Virtual Machine by setting `os_managed_disk_id`.
++-> **NOTE:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment). Additionally, this property cannot be set when an existing Managed Disk is used to create the Virtual Machine by setting `os_managed_disk_id`.
  
  * `disk_encryption_set_id` - (Optional) The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
  
@@ -4754,6 +4760,8 @@ index a6b287dd46..b1cb6e1a14 100644
 +-> **NOTE:** If specified this must be equal to or larger than the size of the Image the Virtual Machine is based on. When creating a larger disk than exists in the image you'll need to repartition the disk to use the remaining space.
  
  * `name` - (Optional) The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
+ 
+@@ -334,17 +334,17 @@ A `os_disk` block supports the following:
  
  * `secure_vm_disk_encryption_set_id` - (Optional) The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
  
@@ -4775,7 +4783,7 @@ index a6b287dd46..b1cb6e1a14 100644
  
  ---
  
-@@ -343,7 +343,7 @@ A `plan` block supports the following:
+@@ -356,7 +356,7 @@ A `plan` block supports the following:
  
  * `publisher` - (Required) Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
  
@@ -4784,7 +4792,7 @@ index a6b287dd46..b1cb6e1a14 100644
  
  ---
  
-@@ -379,7 +379,7 @@ A `termination_notification` block supports the following:
+@@ -392,7 +392,7 @@ A `termination_notification` block supports the following:
  
  * `timeout` - (Optional) Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
  
@@ -4793,7 +4801,7 @@ index a6b287dd46..b1cb6e1a14 100644
  
  ---
  
-@@ -409,8 +409,6 @@ In addition to the Arguments listed above - the following Attributes are exporte
+@@ -422,8 +422,6 @@ In addition to the Arguments listed above - the following Attributes are exporte
  
  * `virtual_machine_id` - A 128-bit identifier which uniquely identifies this Virtual Machine.
  
@@ -4802,8 +4810,8 @@ index a6b287dd46..b1cb6e1a14 100644
  ---
  
  An `identity` block exports the following:
-@@ -430,9 +428,9 @@ An `os_disk` block exports the following:
- The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
+@@ -443,9 +441,9 @@ An `os_disk` block exports the following:
+ The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 45 minutes) Used when creating the Windows Virtual Machine.
 -* `read` - (Defaults to 5 minutes) Used when retrieving the Windows Virtual Machine.
@@ -4814,7 +4822,7 @@ index a6b287dd46..b1cb6e1a14 100644
  ## Import
  
 diff --git a/website/docs/r/windows_virtual_machine_scale_set.html.markdown b/website/docs/r/windows_virtual_machine_scale_set.html.markdown
-index 103ffa169c..f6b3c24fb2 100644
+index 3ce0ff6e2d..54c145e3da 100644
 --- a/website/docs/r/windows_virtual_machine_scale_set.html.markdown
 +++ b/website/docs/r/windows_virtual_machine_scale_set.html.markdown
 @@ -12,17 +12,17 @@ Manages a Windows Virtual Machine Scale Set.
@@ -4842,7 +4850,7 @@ index 103ffa169c..f6b3c24fb2 100644
  
  * `instances` - (Required) The number of Virtual Machines in the Scale Set.
  
---> **Note:** If you're using AutoScaling, you may wish to use [Terraform's `ignore_changes` functionality](https://www.terraform.io/language/meta-arguments/lifecycle#ignore_changess) to ignore changes to this field.
+--> **Note:** If you're using AutoScaling, you may wish to use [Terraform's `ignore_changes` functionality](https://developer.hashicorp.com/terraform/language/block/resource#ignore_changes) to ignore changes to this field.
 +-> **NOTE:** If you're using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
  
  * `sku` - (Required) The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.

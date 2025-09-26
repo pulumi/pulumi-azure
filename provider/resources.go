@@ -3117,6 +3117,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_platform_image":           {Tok: azureDataSource(azureCompute, "getPlatformImage")},
 			"azurerm_managed_disk":             {Tok: azureDataSource(azureCompute, "getManagedDisk")},
+			"azurerm_managed_disks":            {Tok: azureDataSource(azureCompute, "getManagedDisks")},
 			"azurerm_shared_image_versions":    {Tok: azureDataSource(azureCompute, "getSharedImageVersions")},
 			"azurerm_backup_policy_vm":         {Tok: azureDataSource(azureBackup, "getPolicyVM")},
 			"azurerm_backup_policy_file_share": {Tok: azureDataSource(azureBackup, "getPolicyFileshare")},

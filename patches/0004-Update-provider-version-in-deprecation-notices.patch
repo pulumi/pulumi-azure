@@ -6,7 +6,7 @@ Subject: [PATCH] Update provider version in deprecation notices
 We want to include the deprecation notices, but need them to match our version number which is not the same at the upstream version number.
 
 diff --git a/website/docs/d/app_service.html.markdown b/website/docs/d/app_service.html.markdown
-index 6cad9dae5e..b6241a9e4a 100644
+index 5ad2aef18c..5a0bfaae66 100644
 --- a/website/docs/d/app_service.html.markdown
 +++ b/website/docs/d/app_service.html.markdown
 @@ -10,7 +10,7 @@ description: |-
@@ -19,7 +19,7 @@ index 6cad9dae5e..b6241a9e4a 100644
  ## Example Usage
  
 diff --git a/website/docs/d/app_service_plan.html.markdown b/website/docs/d/app_service_plan.html.markdown
-index 77af5f66f1..bf486120dd 100644
+index 605f775c7c..b0c7115241 100644
 --- a/website/docs/d/app_service_plan.html.markdown
 +++ b/website/docs/d/app_service_plan.html.markdown
 @@ -10,7 +10,7 @@ description: |-
@@ -32,7 +32,7 @@ index 77af5f66f1..bf486120dd 100644
  ## Example Usage
  
 diff --git a/website/docs/d/function_app.html.markdown b/website/docs/d/function_app.html.markdown
-index f6b9bbf0b5..b8753db13f 100644
+index a106968f00..5e53106812 100644
 --- a/website/docs/d/function_app.html.markdown
 +++ b/website/docs/d/function_app.html.markdown
 @@ -11,7 +11,7 @@ description: |-
@@ -45,7 +45,7 @@ index f6b9bbf0b5..b8753db13f 100644
  ## Example Usage
  
 diff --git a/website/docs/r/app_service.html.markdown b/website/docs/r/app_service.html.markdown
-index 0843291912..b372d00d98 100644
+index 094474464a..1d724046e3 100644
 --- a/website/docs/r/app_service.html.markdown
 +++ b/website/docs/r/app_service.html.markdown
 @@ -11,7 +11,7 @@ description: |-
@@ -66,7 +66,7 @@ index 0843291912..b372d00d98 100644
  
  * `identity_ids` - (Optional) Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
  
-@@ -193,11 +193,11 @@ A `site_config` block supports the following:
+@@ -195,11 +195,11 @@ A `site_config` block supports the following:
  
  * `acr_user_managed_identity_client_id` - (Optional) If using User Managed Identity, the User Managed Identity Client Id
  
@@ -80,7 +80,7 @@ index 0843291912..b372d00d98 100644
  
  * `app_command_line` - (Optional) App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
  
-@@ -219,15 +219,15 @@ A `site_config` block supports the following:
+@@ -221,15 +221,15 @@ A `site_config` block supports the following:
  
  * `ip_restriction` - (Optional) A list of `ip_restriction` objects representing IP restrictions as defined below.
  
@@ -99,7 +99,7 @@ index 0843291912..b372d00d98 100644
  
  * `java_version` - (Optional) The version of Java to use. If specified `java_container` and `java_container_version` must also be specified. Possible values are `1.7`, `1.8` and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
  
-@@ -237,11 +237,11 @@ A `site_config` block supports the following:
+@@ -239,11 +239,11 @@ A `site_config` block supports the following:
  
  * `local_mysql_enabled` - (Optional) Is "MySQL In App" Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
  
@@ -113,7 +113,7 @@ index 0843291912..b372d00d98 100644
  
  * `windows_fx_version` - (Optional) The Windows Docker container image (`DOCKER|<user/image:tag>`)
  
-@@ -263,11 +263,11 @@ Additional examples of how to run Containers via the `azurerm_app_service` resou
+@@ -265,11 +265,11 @@ Additional examples of how to run Containers via the `azurerm_app_service` resou
  
  * `use_32_bit_worker_process` - (Optional) Should the App Service run in 32 bit mode, rather than 64 bit mode?
  
@@ -127,7 +127,7 @@ index 0843291912..b372d00d98 100644
  
  * `websockets_enabled` - (Optional) Should WebSockets be enabled?
  
-@@ -293,7 +293,7 @@ A `auth_settings` block supports the following:
+@@ -295,7 +295,7 @@ A `auth_settings` block supports the following:
  
  * `default_provider` - (Optional) The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
  
@@ -136,7 +136,7 @@ index 0843291912..b372d00d98 100644
  
  * `facebook` - (Optional) A `facebook` block as defined below.
  
-@@ -361,7 +361,7 @@ A `ip_restriction` block supports the following:
+@@ -363,7 +363,7 @@ A `ip_restriction` block supports the following:
  
  * `virtual_network_subnet_id` - (Optional) The Virtual Network Subnet ID used for this IP Restriction.
  
@@ -145,7 +145,7 @@ index 0843291912..b372d00d98 100644
  
  * `name` - (Optional) The name for this IP Restriction.
  
-@@ -381,7 +381,7 @@ A `scm_ip_restriction` block supports the following:
+@@ -383,7 +383,7 @@ A `scm_ip_restriction` block supports the following:
  
  * `virtual_network_subnet_id` - (Optional) The Virtual Network Subnet ID used for this IP Restriction.
  
@@ -154,7 +154,7 @@ index 0843291912..b372d00d98 100644
  
  * `name` - (Optional) The name for this IP Restriction.
  
-@@ -485,7 +485,7 @@ A `identity` block exports the following:
+@@ -487,7 +487,7 @@ A `identity` block exports the following:
  
  * `tenant_id` - The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
  
@@ -163,7 +163,7 @@ index 0843291912..b372d00d98 100644
  
  ---
  
-@@ -495,7 +495,7 @@ A `site_credential` block exports the following:
+@@ -497,7 +497,7 @@ A `site_credential` block exports the following:
  
  * `password` - The password associated with the username, which can be used to publish to this App Service.
  
@@ -172,8 +172,8 @@ index 0843291912..b372d00d98 100644
  
  ---
  
-@@ -509,8 +509,8 @@ A `source_control` block exports the following:
- The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
+@@ -511,8 +511,8 @@ A `source_control` block exports the following:
+ The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 30 minutes) Used when creating the App Service.
 -* `read` - (Defaults to 5 minutes) Used when retrieving the App Service.
@@ -183,7 +183,7 @@ index 0843291912..b372d00d98 100644
  
  ## Import
 diff --git a/website/docs/r/app_service_active_slot.html.markdown b/website/docs/r/app_service_active_slot.html.markdown
-index b75638bbf9..df779e6192 100644
+index 521e43054b..4b431a3334 100644
 --- a/website/docs/r/app_service_active_slot.html.markdown
 +++ b/website/docs/r/app_service_active_slot.html.markdown
 @@ -11,7 +11,7 @@ description: |-
@@ -196,7 +196,7 @@ index b75638bbf9..df779e6192 100644
  -> **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `azurerm_app_service` resource will be overwritten when promoting a Slot using the `azurerm_app_service_active_slot` resource.
  
 @@ -60,6 +60,6 @@ The following arguments are supported:
- The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
+ The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 30 minutes) Used when creating the App Service Active Slot.
 -* `read` - (Defaults to 5 minutes) Used when retrieving the App Service Active Slot.
@@ -204,7 +204,7 @@ index b75638bbf9..df779e6192 100644
 +* `read` - (Defaults to 5 minutes) Used when retrieving the App Service Active Slot.
  * `delete` - (Defaults to 30 minutes) Used when deleting the App Service Active Slot.
 diff --git a/website/docs/r/app_service_hybrid_connection.html.markdown b/website/docs/r/app_service_hybrid_connection.html.markdown
-index dfdf5af710..f8dff63f34 100644
+index 73f6d96bcf..91970307cb 100644
 --- a/website/docs/r/app_service_hybrid_connection.html.markdown
 +++ b/website/docs/r/app_service_hybrid_connection.html.markdown
 @@ -11,7 +11,7 @@ description: |-
@@ -218,7 +218,7 @@ index dfdf5af710..f8dff63f34 100644
  
 @@ -101,8 +101,8 @@ In addition to the Arguments listed above - the following Attributes are exporte
  
- The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
+ The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
 -* `create` - (Defaults to 30 minutes) Used when creating the App Service Hybrid Connection.
  * `read` - (Defaults to 5 minutes) Used when retrieving the App Service Hybrid Connection.
@@ -227,7 +227,7 @@ index dfdf5af710..f8dff63f34 100644
  * `delete` - (Defaults to 30 minutes) Used when deleting the App Service Hybrid Connection.
  
 diff --git a/website/docs/r/app_service_plan.html.markdown b/website/docs/r/app_service_plan.html.markdown
-index a77fd8d9f9..a0c2593b2e 100644
+index 3803162c4b..2335b63419 100644
 --- a/website/docs/r/app_service_plan.html.markdown
 +++ b/website/docs/r/app_service_plan.html.markdown
 @@ -10,7 +10,7 @@ description: |-
@@ -268,7 +268,7 @@ index a77fd8d9f9..a0c2593b2e 100644
  
 @@ -152,10 +152,10 @@ In addition to the Arguments listed above - the following Attributes are exporte
  
- The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
+ The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
 -* `create` - (Defaults to 1 hour) Used when creating the App Service Plan.
 +* `create` - (Defaults to 60 minutes) Used when creating the App Service Plan.
@@ -281,7 +281,7 @@ index a77fd8d9f9..a0c2593b2e 100644
  ## Import
  
 diff --git a/website/docs/r/app_service_slot.html.markdown b/website/docs/r/app_service_slot.html.markdown
-index 9d01090ed2..92f5dd4131 100644
+index 23f583a76a..890b54826f 100644
 --- a/website/docs/r/app_service_slot.html.markdown
 +++ b/website/docs/r/app_service_slot.html.markdown
 @@ -11,7 +11,7 @@ description: |-
@@ -390,7 +390,7 @@ index 9d01090ed2..92f5dd4131 100644
  
  * `identity_ids` - (Optional) Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
  
-@@ -507,7 +507,7 @@ A `identity` block exports the following:
+@@ -509,7 +509,7 @@ A `identity` block exports the following:
  
  * `tenant_id` - The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
  
@@ -399,8 +399,8 @@ index 9d01090ed2..92f5dd4131 100644
  
  ---
  
-@@ -521,8 +521,8 @@ The `site_credential` block exports the following:
- The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
+@@ -523,8 +523,8 @@ The `site_credential` block exports the following:
+ The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 30 minutes) Used when creating the App Service Slot.
 -* `read` - (Defaults to 5 minutes) Used when retrieving the App Service Slot.
@@ -410,7 +410,7 @@ index 9d01090ed2..92f5dd4131 100644
  
  ## Import
 diff --git a/website/docs/r/app_service_source_control_token.html.markdown b/website/docs/r/app_service_source_control_token.html.markdown
-index 8a0ca16359..9a5f9adac7 100644
+index e535174e48..22f8a6eaca 100644
 --- a/website/docs/r/app_service_source_control_token.html.markdown
 +++ b/website/docs/r/app_service_source_control_token.html.markdown
 @@ -11,9 +11,9 @@ description: |-
@@ -426,7 +426,7 @@ index 8a0ca16359..9a5f9adac7 100644
  ## Example Usage
  
 @@ -39,8 +39,8 @@ The following arguments are supported:
- The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
+ The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 30 minutes) Used when creating the App Service Source Control Token.
 -* `read` - (Defaults to 5 minutes) Used when retrieving the App Service Source Control Token.
@@ -436,7 +436,7 @@ index 8a0ca16359..9a5f9adac7 100644
  
  ## Import
 diff --git a/website/docs/r/function_app.html.markdown b/website/docs/r/function_app.html.markdown
-index 03a6ea1551..ee0131e664 100644
+index 458d0600d8..7b101221d3 100644
 --- a/website/docs/r/function_app.html.markdown
 +++ b/website/docs/r/function_app.html.markdown
 @@ -11,7 +11,7 @@ description: |-
@@ -565,7 +565,7 @@ index 03a6ea1551..ee0131e664 100644
  ---
  
 @@ -524,8 +524,8 @@ The `site_credential` block exports the following:
- The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
+ The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 30 minutes) Used when creating the Function App.
 -* `read` - (Defaults to 5 minutes) Used when retrieving the Function App.
@@ -575,7 +575,7 @@ index 03a6ea1551..ee0131e664 100644
  
  ## Import
 diff --git a/website/docs/r/function_app_slot.html.markdown b/website/docs/r/function_app_slot.html.markdown
-index e655be6ca0..b88cc5d709 100644
+index f688787d0a..39700f62e6 100644
 --- a/website/docs/r/function_app_slot.html.markdown
 +++ b/website/docs/r/function_app_slot.html.markdown
 @@ -11,7 +11,7 @@ description: |-
@@ -664,7 +664,7 @@ index e655be6ca0..b88cc5d709 100644
  * `name` - (Optional) The name for this IP Restriction.
  
 @@ -360,8 +360,8 @@ The `site_credential` block exports the following:
- The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
+ The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 30 minutes) Used when creating the Function App Deployment Slot.
 -* `read` - (Defaults to 5 minutes) Used when retrieving the Function App Deployment Slot.
