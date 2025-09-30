@@ -45,7 +45,7 @@ let vm = new azure.compute.VirtualMachine("webservervm", {
     storageImageReference: {
         publisher: "canonical",
         offer: "UbuntuServer",
-        sku: "16.04-LTS",
+        sku: "24.04-LTS",
         version: "latest",
     },
 });

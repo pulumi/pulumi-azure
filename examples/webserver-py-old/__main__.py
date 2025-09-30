@@ -46,6 +46,6 @@ vm = compute.VirtualMachine(
     storage_image_reference={
         "publisher": "canonical",
         "offer": "UbuntuServer",
-        "sku": "16.04-LTS",
+        "sku": "24.04-LTS",
         "version": "latest",
     })
