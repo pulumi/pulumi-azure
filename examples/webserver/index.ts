@@ -43,9 +43,9 @@ let vm = new azure.compute.VirtualMachine("webservervm", {
         name: "myosdisk1",
     },
     storageImageReference: {
-        publisher: "canonical",
-        offer: "UbuntuServer",
-        sku: "16.04-LTS",
-        version: "latest",
+        publisher: "Canonical",
+        offer: "ubuntu",
+        sku: "24_04-lts",
+        version: "minimal:latest",
     },
 });

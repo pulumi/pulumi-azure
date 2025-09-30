@@ -38,8 +38,8 @@ const exampleLinuxVirtualMachine = new azure.compute.LinuxVirtualMachine("exampl
     },
     sourceImageReference: {
         publisher: "Canonical",
-        offer: "UbuntuServer",
-        sku: "16.04-LTS",
-        version: "latest",
+        offer: "ubuntu",
+        sku: "24_04-lts",
+        version: "minimal:latest",
     },
 });
