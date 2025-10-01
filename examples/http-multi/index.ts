@@ -20,6 +20,7 @@ const warmer = new azure.appservice.TimerFunction("Warmer", {
 // Create a Function App containing multiple functions
 const app = new azure.appservice.MultiCallbackFunctionApp("http-multi", {
     resourceGroupName: resourceGroup.name,
+    nodeVersion: "~22",
     functions: [ ...http, warmer],
 });
 

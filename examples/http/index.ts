@@ -4,6 +4,7 @@ const resourceGroup = new azure.core.ResourceGroup('example');
 
 const greeting = new azure.appservice.HttpEventSubscription('greeting', {
   resourceGroup,
+  nodeVersion: "~22",
   callback: async (context, args) => {
     return {
       status: 200,
