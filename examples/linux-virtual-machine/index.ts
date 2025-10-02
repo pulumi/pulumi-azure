@@ -25,7 +25,7 @@ const exampleNetworkInterface = new azure.network.NetworkInterface("exampleNetwo
 const exampleLinuxVirtualMachine = new azure.compute.LinuxVirtualMachine("exampleLinuxVirtualMachine", {
     resourceGroupName: exampleResourceGroup.name,
     location: exampleResourceGroup.location,
-    size: "Standard_F2",
+    size: "Standard_A1_v2",
     adminUsername: "adminuser",
     networkInterfaceIds: [exampleNetworkInterface.id],
     adminSshKeys: [{
