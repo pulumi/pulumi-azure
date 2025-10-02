@@ -19,6 +19,7 @@ const values = new azure.storage.Table("values", {
 // HTTP Function gets the value from the store
 const getFunc = new azure.appservice.HttpEventSubscription('get-value', {
     resourceGroup,
+    nodeVersion: "~22",
     route: "{key}",
     inputs: [
         values.input("entry", { partitionKey: "test", rowKey: "{key}" }),
@@ -34,6 +35,7 @@ const getFunc = new azure.appservice.HttpEventSubscription('get-value', {
 // HTTP Function adds the value to the store
 const addFunc = new azure.appservice.HttpEventSubscription('add-value', {
     resourceGroup,
+    nodeVersion: "~22",
     methods: ["POST"],
     outputs: [
         values.output("entry"),
