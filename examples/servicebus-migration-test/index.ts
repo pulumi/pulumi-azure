@@ -24,10 +24,7 @@ const serviceBusQueue = new azure.eventhub.Queue("example", {
     namespaceId: exampleNamespace.id,
 });
 
-serviceBusQueue.onEvent("Test", {
-    nodeVersion: "~22",
-    calback: async (context, arg) => {
-        console.log("ctx: " + JSON.stringify(context, null, 4));
-        console.log("arg: " + JSON.stringify(arg, null, 4));
-    },
+serviceBusQueue.onEvent("Test", async (context, arg) => {
+    console.log("ctx: " + JSON.stringify(context, null, 4));
+    console.log("arg: " + JSON.stringify(arg, null, 4));
 });
