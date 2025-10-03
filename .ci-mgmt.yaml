@@ -6,6 +6,7 @@ generate-nightly-test-workflow: true
 providerVersion: github.com/hashicorp/terraform-provider-azurerm/version.ProviderVersion
 freeDiskSpaceBeforeTest: true
 freeDiskSpaceBeforeBuild: true
+freeDiskSpaceBeforeSdkBuild: true
 esc:
   enabled: true
 env:

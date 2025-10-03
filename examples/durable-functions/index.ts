@@ -7,6 +7,7 @@ const resourceGroup = new azure.core.ResourceGroup("durable-example");
 
 var app = new azure.appservice.MultiCallbackFunctionApp("durable", {
     resourceGroup,
+    nodeVersion: "~22",
     functions: [
         new azure.appservice.DurableActivityFunction("SayHello", {
             activityInputName: "name",

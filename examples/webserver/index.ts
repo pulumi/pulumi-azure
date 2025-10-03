@@ -27,7 +27,7 @@ let networkInterface = new azure.network.NetworkInterface(name, {
 let vm = new azure.compute.VirtualMachine("webservervm", {
     resourceGroupName: resourceGroup.name,
     networkInterfaceIds: [networkInterface.id],
-    vmSize: "Standard_A0",
+    vmSize: "Standard_DS1_v2",
     deleteDataDisksOnTermination: true,
     deleteOsDiskOnTermination: true,
     osProfile: {
@@ -43,9 +43,9 @@ let vm = new azure.compute.VirtualMachine("webservervm", {
         name: "myosdisk1",
     },
     storageImageReference: {
-        publisher: "canonical",
-        offer: "UbuntuServer",
-        sku: "16.04-LTS",
+        publisher: "Canonical",
+        offer: "ubuntu-24_04-lts",
+        sku: "minimal",
         version: "latest",
     },
 });

@@ -17,7 +17,10 @@ const eventHub = new eventhub.EventHub("test", {
     messageRetention: 7,
 });
 
-eventHub.onEvent("test", async (context, arg) => {
-    console.log("ctx: " + JSON.stringify(context, null, 4));
-    console.log("arg: " + JSON.stringify(arg, null, 4));
+eventHub.onEvent("test", {
+    nodeVersion: "~22",
+    callback: async (context, arg) => {
+        console.log("ctx: " + JSON.stringify(context, null, 4));
+        console.log("arg: " + JSON.stringify(arg, null, 4));
+    },
 });
