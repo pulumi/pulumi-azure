@@ -27,7 +27,7 @@ let networkInterface = new azure.network.NetworkInterface(name, {
 let vm = new azure.compute.VirtualMachine("webservervm", {
     resourceGroupName: resourceGroup.name,
     networkInterfaceIds: [networkInterface.id],
-    vmSize: "Standard_B2ts_v2",
+    vmSize: "Standard_DS1_v2",
     deleteDataDisksOnTermination: true,
     deleteOsDiskOnTermination: true,
     osProfile: {
