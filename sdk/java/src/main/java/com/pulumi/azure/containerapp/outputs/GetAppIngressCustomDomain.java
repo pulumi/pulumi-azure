@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetAppIngressCustomDomain {
     /**
-     * @return The Binding type. Possible values include `Disabled` and `SniEnabled`. Defaults to `Disabled`.
+     * @return The Binding type.
      * 
      */
     private String certificateBindingType;
@@ -28,7 +28,7 @@ public final class GetAppIngressCustomDomain {
 
     private GetAppIngressCustomDomain() {}
     /**
-     * @return The Binding type. Possible values include `Disabled` and `SniEnabled`. Defaults to `Disabled`.
+     * @return The Binding type.
      * 
      */
     public String certificateBindingType() {

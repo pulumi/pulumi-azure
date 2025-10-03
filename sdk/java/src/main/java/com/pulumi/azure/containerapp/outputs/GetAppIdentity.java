@@ -12,21 +12,21 @@ import java.util.Objects;
 @CustomType
 public final class GetAppIdentity {
     /**
-     * @return A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+     * @return A list of one or more Resource IDs for User Assigned Managed identities to assign.
      * 
      */
     private List<String> identityIds;
     private String principalId;
     private String tenantId;
     /**
-     * @return The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+     * @return The type of managed identity to assign.
      * 
      */
     private String type;
 
     private GetAppIdentity() {}
     /**
-     * @return A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+     * @return A list of one or more Resource IDs for User Assigned Managed identities to assign.
      * 
      */
     public List<String> identityIds() {
@@ -39,7 +39,7 @@ public final class GetAppIdentity {
         return this.tenantId;
     }
     /**
-     * @return The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+     * @return The type of managed identity to assign.
      * 
      */
     public String type() {

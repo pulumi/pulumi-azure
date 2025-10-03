@@ -243,10 +243,10 @@ class JobJobStorageAccount(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "accountKey":
-            suggest = "account_key"
-        elif key == "accountName":
+        if key == "accountName":
             suggest = "account_name"
+        elif key == "accountKey":
+            suggest = "account_key"
         elif key == "authenticationMode":
             suggest = "authentication_mode"
 
@@ -262,26 +262,19 @@ class JobJobStorageAccount(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 account_key: _builtins.str,
                  account_name: _builtins.str,
+                 account_key: Optional[_builtins.str] = None,
                  authentication_mode: Optional[_builtins.str] = None):
         """
-        :param _builtins.str account_key: The account key for the Azure storage account.
         :param _builtins.str account_name: The name of the Azure storage account.
-        :param _builtins.str authentication_mode: The authentication mode of the storage account. The only supported value is `ConnectionString`. Defaults to `ConnectionString`.
+        :param _builtins.str account_key: The account key for the Azure storage account.
+        :param _builtins.str authentication_mode: The authentication mode of the storage account. Possible values are `ConnectionString` and `Msi`. Defaults to `ConnectionString`.
         """
-        pulumi.set(__self__, "account_key", account_key)
         pulumi.set(__self__, "account_name", account_name)
+        if account_key is not None:
+            pulumi.set(__self__, "account_key", account_key)
         if authentication_mode is not None:
             pulumi.set(__self__, "authentication_mode", authentication_mode)
-
-    @_builtins.property
-    @pulumi.getter(name="accountKey")
-    def account_key(self) -> _builtins.str:
-        """
-        The account key for the Azure storage account.
-        """
-        return pulumi.get(self, "account_key")
 
     @_builtins.property
     @pulumi.getter(name="accountName")
@@ -292,10 +285,18 @@ class JobJobStorageAccount(dict):
         return pulumi.get(self, "account_name")
 
     @_builtins.property
+    @pulumi.getter(name="accountKey")
+    def account_key(self) -> Optional[_builtins.str]:
+        """
+        The account key for the Azure storage account.
+        """
+        return pulumi.get(self, "account_key")
+
+    @_builtins.property
     @pulumi.getter(name="authenticationMode")
     def authentication_mode(self) -> Optional[_builtins.str]:
         """
-        The authentication mode of the storage account. The only supported value is `ConnectionString`. Defaults to `ConnectionString`.
+        The authentication mode of the storage account. Possible values are `ConnectionString` and `Msi`. Defaults to `ConnectionString`.
         """
         return pulumi.get(self, "authentication_mode")
 

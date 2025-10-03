@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
     public sealed class GetAppTemplateContainerLivenessProbeResult
     {
         /// <summary>
-        /// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
+        /// The number of consecutive failures required to consider this probe as failed.
         /// </summary>
         public readonly int FailureCountThreshold;
         /// <summary>
@@ -22,15 +22,15 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAppTemplateContainerLivenessProbeHeaderResult> Headers;
         /// <summary>
-        /// The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+        /// The value for the host header which should be sent with this probe.
         /// </summary>
         public readonly string Host;
         /// <summary>
-        /// The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+        /// The number of seconds elapsed after the container has started before the probe is initiated.
         /// </summary>
         public readonly int InitialDelay;
         /// <summary>
-        /// How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+        /// How often, in seconds, the probe should run.
         /// </summary>
         public readonly int IntervalSeconds;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly string Path;
         /// <summary>
-        /// The port number on which to connect. Possible values are between `1` and `65535`.
+        /// The port number on which to connect.
         /// </summary>
         public readonly int Port;
         /// <summary>
@@ -46,11 +46,11 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly int TerminationGracePeriodSeconds;
         /// <summary>
-        /// Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+        /// Time in seconds after which the probe times out.
         /// </summary>
         public readonly int Timeout;
         /// <summary>
-        /// The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+        /// The transport method for the Ingress.
         /// </summary>
         public readonly string Transport;
 

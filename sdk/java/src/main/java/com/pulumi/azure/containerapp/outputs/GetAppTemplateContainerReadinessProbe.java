@@ -14,7 +14,7 @@ import java.util.Objects;
 @CustomType
 public final class GetAppTemplateContainerReadinessProbe {
     /**
-     * @return The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
+     * @return The number of consecutive failures required to consider this probe as failed.
      * 
      */
     private Integer failureCountThreshold;
@@ -24,17 +24,17 @@ public final class GetAppTemplateContainerReadinessProbe {
      */
     private List<GetAppTemplateContainerReadinessProbeHeader> headers;
     /**
-     * @return The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+     * @return The value for the host header which should be sent with this probe.
      * 
      */
     private String host;
     /**
-     * @return The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+     * @return The number of seconds elapsed after the container has started before the probe is initiated.
      * 
      */
     private Integer initialDelay;
     /**
-     * @return How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+     * @return How often, in seconds, the probe should run.
      * 
      */
     private Integer intervalSeconds;
@@ -44,29 +44,29 @@ public final class GetAppTemplateContainerReadinessProbe {
      */
     private String path;
     /**
-     * @return The port number on which to connect. Possible values are between `1` and `65535`.
+     * @return The port number on which to connect.
      * 
      */
     private Integer port;
     /**
-     * @return The number of consecutive successful responses required to consider this probe as successful. Possible values are between `1` and `10`. Defaults to `3`.
+     * @return The number of consecutive successful responses required to consider this probe as successful.
      * 
      */
     private Integer successCountThreshold;
     /**
-     * @return Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+     * @return Time in seconds after which the probe times out.
      * 
      */
     private Integer timeout;
     /**
-     * @return The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+     * @return The transport method for the Ingress.
      * 
      */
     private String transport;
 
     private GetAppTemplateContainerReadinessProbe() {}
     /**
-     * @return The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
+     * @return The number of consecutive failures required to consider this probe as failed.
      * 
      */
     public Integer failureCountThreshold() {
@@ -80,21 +80,21 @@ public final class GetAppTemplateContainerReadinessProbe {
         return this.headers;
     }
     /**
-     * @return The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+     * @return The value for the host header which should be sent with this probe.
      * 
      */
     public String host() {
         return this.host;
     }
     /**
-     * @return The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+     * @return The number of seconds elapsed after the container has started before the probe is initiated.
      * 
      */
     public Integer initialDelay() {
         return this.initialDelay;
     }
     /**
-     * @return How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+     * @return How often, in seconds, the probe should run.
      * 
      */
     public Integer intervalSeconds() {
@@ -108,28 +108,28 @@ public final class GetAppTemplateContainerReadinessProbe {
         return this.path;
     }
     /**
-     * @return The port number on which to connect. Possible values are between `1` and `65535`.
+     * @return The port number on which to connect.
      * 
      */
     public Integer port() {
         return this.port;
     }
     /**
-     * @return The number of consecutive successful responses required to consider this probe as successful. Possible values are between `1` and `10`. Defaults to `3`.
+     * @return The number of consecutive successful responses required to consider this probe as successful.
      * 
      */
     public Integer successCountThreshold() {
         return this.successCountThreshold;
     }
     /**
-     * @return Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+     * @return Time in seconds after which the probe times out.
      * 
      */
     public Integer timeout() {
         return this.timeout;
     }
     /**
-     * @return The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+     * @return The transport method for the Ingress.
      * 
      */
     public String transport() {

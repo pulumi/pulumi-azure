@@ -17,7 +17,7 @@ public final class AccountNetworkAcls {
     /**
      * @return Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
      * 
-     * &gt; **Note:** `bypass` can only be set when `kind` is set to `OpenAI`
+     * &gt; **Note:** `bypass` can only be set when `kind` is set to `OpenAI` or `AIServices`.
      * 
      */
     private @Nullable String bypass;
@@ -41,7 +41,7 @@ public final class AccountNetworkAcls {
     /**
      * @return Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
      * 
-     * &gt; **Note:** `bypass` can only be set when `kind` is set to `OpenAI`
+     * &gt; **Note:** `bypass` can only be set when `kind` is set to `OpenAI` or `AIServices`.
      * 
      */
     public Optional<String> bypass() {

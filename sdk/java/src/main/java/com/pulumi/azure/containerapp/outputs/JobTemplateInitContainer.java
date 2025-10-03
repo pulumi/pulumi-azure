@@ -27,9 +27,9 @@ public final class JobTemplateInitContainer {
      */
     private @Nullable List<String> commands;
     /**
-     * @return The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+     * @return The amount of vCPU to allocate to the container.
      * 
-     * &gt; **Note:** `cpu` and `memory` must be specified in `0.25&#39;/&#39;0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+     * &gt; **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
      * 
      */
     private @Nullable Double cpu;
@@ -51,9 +51,9 @@ public final class JobTemplateInitContainer {
      */
     private String image;
     /**
-     * @return The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
+     * @return The amount of memory to allocate to the container.
      * 
-     * &gt; **Note:** `cpu` and `memory` must be specified in `0.25&#39;/&#39;0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+     * &gt; **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
      * 
      */
     private @Nullable String memory;
@@ -84,9 +84,9 @@ public final class JobTemplateInitContainer {
         return this.commands == null ? List.of() : this.commands;
     }
     /**
-     * @return The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+     * @return The amount of vCPU to allocate to the container.
      * 
-     * &gt; **Note:** `cpu` and `memory` must be specified in `0.25&#39;/&#39;0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+     * &gt; **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
      * 
      */
     public Optional<Double> cpu() {
@@ -116,9 +116,9 @@ public final class JobTemplateInitContainer {
         return this.image;
     }
     /**
-     * @return The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
+     * @return The amount of memory to allocate to the container.
      * 
-     * &gt; **Note:** `cpu` and `memory` must be specified in `0.25&#39;/&#39;0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+     * &gt; **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
      * 
      */
     public Optional<String> memory() {

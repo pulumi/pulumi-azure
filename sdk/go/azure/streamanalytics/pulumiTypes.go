@@ -695,10 +695,10 @@ func (o JobIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 
 type JobJobStorageAccount struct {
 	// The account key for the Azure storage account.
-	AccountKey string `pulumi:"accountKey"`
+	AccountKey *string `pulumi:"accountKey"`
 	// The name of the Azure storage account.
 	AccountName string `pulumi:"accountName"`
-	// The authentication mode of the storage account. The only supported value is `ConnectionString`. Defaults to `ConnectionString`.
+	// The authentication mode of the storage account. Possible values are `ConnectionString` and `Msi`. Defaults to `ConnectionString`.
 	AuthenticationMode *string `pulumi:"authenticationMode"`
 }
 
@@ -715,10 +715,10 @@ type JobJobStorageAccountInput interface {
 
 type JobJobStorageAccountArgs struct {
 	// The account key for the Azure storage account.
-	AccountKey pulumi.StringInput `pulumi:"accountKey"`
+	AccountKey pulumi.StringPtrInput `pulumi:"accountKey"`
 	// The name of the Azure storage account.
 	AccountName pulumi.StringInput `pulumi:"accountName"`
-	// The authentication mode of the storage account. The only supported value is `ConnectionString`. Defaults to `ConnectionString`.
+	// The authentication mode of the storage account. Possible values are `ConnectionString` and `Msi`. Defaults to `ConnectionString`.
 	AuthenticationMode pulumi.StringPtrInput `pulumi:"authenticationMode"`
 }
 
@@ -774,8 +774,8 @@ func (o JobJobStorageAccountOutput) ToJobJobStorageAccountOutputWithContext(ctx 
 }
 
 // The account key for the Azure storage account.
-func (o JobJobStorageAccountOutput) AccountKey() pulumi.StringOutput {
-	return o.ApplyT(func(v JobJobStorageAccount) string { return v.AccountKey }).(pulumi.StringOutput)
+func (o JobJobStorageAccountOutput) AccountKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobJobStorageAccount) *string { return v.AccountKey }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Azure storage account.
@@ -783,7 +783,7 @@ func (o JobJobStorageAccountOutput) AccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v JobJobStorageAccount) string { return v.AccountName }).(pulumi.StringOutput)
 }
 
-// The authentication mode of the storage account. The only supported value is `ConnectionString`. Defaults to `ConnectionString`.
+// The authentication mode of the storage account. Possible values are `ConnectionString` and `Msi`. Defaults to `ConnectionString`.
 func (o JobJobStorageAccountOutput) AuthenticationMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobJobStorageAccount) *string { return v.AuthenticationMode }).(pulumi.StringPtrOutput)
 }

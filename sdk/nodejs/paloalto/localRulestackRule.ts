@@ -136,7 +136,7 @@ export class LocalRulestackRule extends pulumi.CustomResource {
      */
     declare public readonly negateSource: pulumi.Output<boolean | undefined>;
     /**
-     * The Priority of this rule. Rules are executed in numerical order. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
+     * The Priority of this rule. Rules are executed in numerical order. Possible values are between 1 and 1000000. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
      *
      * > **Note:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
      */
@@ -298,7 +298,7 @@ export interface LocalRulestackRuleState {
      */
     negateSource?: pulumi.Input<boolean>;
     /**
-     * The Priority of this rule. Rules are executed in numerical order. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
+     * The Priority of this rule. Rules are executed in numerical order. Possible values are between 1 and 1000000. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
      *
      * > **Note:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
      */
@@ -384,7 +384,7 @@ export interface LocalRulestackRuleArgs {
      */
     negateSource?: pulumi.Input<boolean>;
     /**
-     * The Priority of this rule. Rules are executed in numerical order. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
+     * The Priority of this rule. Rules are executed in numerical order. Possible values are between 1 and 1000000. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
      *
      * > **Note:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
      */

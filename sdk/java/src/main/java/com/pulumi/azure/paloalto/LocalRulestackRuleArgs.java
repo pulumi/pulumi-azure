@@ -219,7 +219,7 @@ public final class LocalRulestackRuleArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The Priority of this rule. Rules are executed in numerical order. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
+     * The Priority of this rule. Rules are executed in numerical order. Possible values are between 1 and 1000000. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
      * 
      * &gt; **Note:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
      * 
@@ -228,7 +228,7 @@ public final class LocalRulestackRuleArgs extends com.pulumi.resources.ResourceA
     private Output<Integer> priority;
 
     /**
-     * @return The Priority of this rule. Rules are executed in numerical order. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
+     * @return The Priority of this rule. Rules are executed in numerical order. Possible values are between 1 and 1000000. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
      * 
      * &gt; **Note:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
      * 
@@ -642,7 +642,7 @@ public final class LocalRulestackRuleArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param priority The Priority of this rule. Rules are executed in numerical order. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
+         * @param priority The Priority of this rule. Rules are executed in numerical order. Possible values are between 1 and 1000000. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
          * 
          * &gt; **Note:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
          * 
@@ -655,7 +655,7 @@ public final class LocalRulestackRuleArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param priority The Priority of this rule. Rules are executed in numerical order. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
+         * @param priority The Priority of this rule. Rules are executed in numerical order. Possible values are between 1 and 1000000. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
          * 
          * &gt; **Note:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
          * 

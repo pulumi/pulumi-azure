@@ -16,14 +16,14 @@ public final class JobJobStorageAccount {
      * @return The account key for the Azure storage account.
      * 
      */
-    private String accountKey;
+    private @Nullable String accountKey;
     /**
      * @return The name of the Azure storage account.
      * 
      */
     private String accountName;
     /**
-     * @return The authentication mode of the storage account. The only supported value is `ConnectionString`. Defaults to `ConnectionString`.
+     * @return The authentication mode of the storage account. Possible values are `ConnectionString` and `Msi`. Defaults to `ConnectionString`.
      * 
      */
     private @Nullable String authenticationMode;
@@ -33,8 +33,8 @@ public final class JobJobStorageAccount {
      * @return The account key for the Azure storage account.
      * 
      */
-    public String accountKey() {
-        return this.accountKey;
+    public Optional<String> accountKey() {
+        return Optional.ofNullable(this.accountKey);
     }
     /**
      * @return The name of the Azure storage account.
@@ -44,7 +44,7 @@ public final class JobJobStorageAccount {
         return this.accountName;
     }
     /**
-     * @return The authentication mode of the storage account. The only supported value is `ConnectionString`. Defaults to `ConnectionString`.
+     * @return The authentication mode of the storage account. Possible values are `ConnectionString` and `Msi`. Defaults to `ConnectionString`.
      * 
      */
     public Optional<String> authenticationMode() {
@@ -60,7 +60,7 @@ public final class JobJobStorageAccount {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String accountKey;
+        private @Nullable String accountKey;
         private String accountName;
         private @Nullable String authenticationMode;
         public Builder() {}
@@ -72,10 +72,8 @@ public final class JobJobStorageAccount {
         }
 
         @CustomType.Setter
-        public Builder accountKey(String accountKey) {
-            if (accountKey == null) {
-              throw new MissingRequiredPropertyException("JobJobStorageAccount", "accountKey");
-            }
+        public Builder accountKey(@Nullable String accountKey) {
+
             this.accountKey = accountKey;
             return this;
         }

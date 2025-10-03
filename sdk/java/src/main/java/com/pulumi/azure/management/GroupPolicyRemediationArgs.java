@@ -20,14 +20,14 @@ public final class GroupPolicyRemediationArgs extends com.pulumi.resources.Resou
     public static final GroupPolicyRemediationArgs Empty = new GroupPolicyRemediationArgs();
 
     /**
-     * A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+     * The percentage failure threshold. Possible values range between `0.0` and `1.0`. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
      * 
      */
     @Import(name="failurePercentage")
     private @Nullable Output<Double> failurePercentage;
 
     /**
-     * @return A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+     * @return The percentage failure threshold. Possible values range between `0.0` and `1.0`. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
      * 
      */
     public Optional<Output<Double>> failurePercentage() {
@@ -171,7 +171,7 @@ public final class GroupPolicyRemediationArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param failurePercentage A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+         * @param failurePercentage The percentage failure threshold. Possible values range between `0.0` and `1.0`. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class GroupPolicyRemediationArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param failurePercentage A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+         * @param failurePercentage The percentage failure threshold. Possible values range between `0.0` and `1.0`. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
          * 
          * @return builder
          * 

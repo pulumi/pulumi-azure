@@ -18,7 +18,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly string Identity;
         /// <summary>
-        /// The name of the Secret Reference containing the password value for this user on the Container Registry, `username` must also be supplied.
+        /// The name of the Secret Reference containing the password value for the user on the Container Registry.
         /// </summary>
         public readonly string PasswordSecretName;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly string Server;
         /// <summary>
-        /// The username to use for this Container Registry, `password_secret_name` must also be supplied..
+        /// The username used for this Container Registry.
         /// </summary>
         public readonly string Username;
 

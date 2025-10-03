@@ -18,17 +18,17 @@ import java.util.Objects;
 @CustomType
 public final class GetAppTemplateContainer {
     /**
-     * @return A list of extra arguments to pass to the container.
+     * @return A list of extra arguments passed to the container.
      * 
      */
     private List<String> args;
     /**
-     * @return A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+     * @return A command passed to the container to override the default. This is provided as a list of command line elements without spaces.
      * 
      */
     private List<String> commands;
     /**
-     * @return The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+     * @return The amount of vCPU allocated to the container.
      * 
      */
     private Double cpu;
@@ -53,7 +53,7 @@ public final class GetAppTemplateContainer {
      */
     private List<GetAppTemplateContainerLivenessProbe> livenessProbes;
     /**
-     * @return The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi`, and `4Gi`.
+     * @return The amount of memory allocated to the container.
      * 
      */
     private String memory;
@@ -80,21 +80,21 @@ public final class GetAppTemplateContainer {
 
     private GetAppTemplateContainer() {}
     /**
-     * @return A list of extra arguments to pass to the container.
+     * @return A list of extra arguments passed to the container.
      * 
      */
     public List<String> args() {
         return this.args;
     }
     /**
-     * @return A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+     * @return A command passed to the container to override the default. This is provided as a list of command line elements without spaces.
      * 
      */
     public List<String> commands() {
         return this.commands;
     }
     /**
-     * @return The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+     * @return The amount of vCPU allocated to the container.
      * 
      */
     public Double cpu() {
@@ -129,7 +129,7 @@ public final class GetAppTemplateContainer {
         return this.livenessProbes;
     }
     /**
-     * @return The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi`, and `4Gi`.
+     * @return The amount of memory allocated to the container.
      * 
      */
     public String memory() {

@@ -15,6 +15,8 @@ public final class AccountCustomerManagedKey {
     /**
      * @return The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there&#39;re multiple identities attached to the Cognitive Account.
      * 
+     * &gt; **Note:** When `project_management_enabled` is set to `true`, removing this block forces a new resource to be created.
+     * 
      */
     private @Nullable String identityClientId;
     /**
@@ -26,6 +28,8 @@ public final class AccountCustomerManagedKey {
     private AccountCustomerManagedKey() {}
     /**
      * @return The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there&#39;re multiple identities attached to the Cognitive Account.
+     * 
+     * &gt; **Note:** When `project_management_enabled` is set to `true`, removing this block forces a new resource to be created.
      * 
      */
     public Optional<String> identityClientId() {

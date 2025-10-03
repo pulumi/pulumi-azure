@@ -1511,9 +1511,9 @@ if not MYPY:
     class AppTemplateContainerArgsDict(TypedDict):
         cpu: pulumi.Input[_builtins.float]
         """
-        The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`. When there's a workload profile specified, there's no such constraint.
+        The amount of vCPU to allocate to the container.
 
-        > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+        > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
         """
         image: pulumi.Input[_builtins.str]
         """
@@ -1521,9 +1521,9 @@ if not MYPY:
         """
         memory: pulumi.Input[_builtins.str]
         """
-        The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`. When there's a workload profile specified, there's no such constraint.
+        The amount of memory to allocate to the container.
 
-        > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+        > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
         """
         name: pulumi.Input[_builtins.str]
         """
@@ -1582,13 +1582,13 @@ class AppTemplateContainerArgs:
                  startup_probes: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerStartupProbeArgs']]]] = None,
                  volume_mounts: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerVolumeMountArgs']]]] = None):
         """
-        :param pulumi.Input[_builtins.float] cpu: The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`. When there's a workload profile specified, there's no such constraint.
+        :param pulumi.Input[_builtins.float] cpu: The amount of vCPU to allocate to the container.
                
-               > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+               > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
         :param pulumi.Input[_builtins.str] image: The image to use to create the container.
-        :param pulumi.Input[_builtins.str] memory: The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`. When there's a workload profile specified, there's no such constraint.
+        :param pulumi.Input[_builtins.str] memory: The amount of memory to allocate to the container.
                
-               > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+               > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
         :param pulumi.Input[_builtins.str] name: The name of the container
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] args: A list of extra arguments to pass to the container.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] commands: A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
@@ -1626,9 +1626,9 @@ class AppTemplateContainerArgs:
     @pulumi.getter
     def cpu(self) -> pulumi.Input[_builtins.float]:
         """
-        The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`. When there's a workload profile specified, there's no such constraint.
+        The amount of vCPU to allocate to the container.
 
-        > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+        > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
         """
         return pulumi.get(self, "cpu")
 
@@ -1652,9 +1652,9 @@ class AppTemplateContainerArgs:
     @pulumi.getter
     def memory(self) -> pulumi.Input[_builtins.str]:
         """
-        The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`. When there's a workload profile specified, there's no such constraint.
+        The amount of memory to allocate to the container.
 
-        > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+        > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
         """
         return pulumi.get(self, "memory")
 
@@ -2980,9 +2980,9 @@ if not MYPY:
         """
         cpu: NotRequired[pulumi.Input[_builtins.float]]
         """
-        The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`. When there's a workload profile specified, there's no such constraint.
+        The amount of vCPU to allocate to the container.
 
-        > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+        > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
         """
         envs: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppTemplateInitContainerEnvArgsDict']]]]
         """
@@ -2996,9 +2996,9 @@ if not MYPY:
         """
         memory: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`. When there's a workload profile specified, there's no such constraint.
+        The amount of memory to allocate to the container.
 
-        > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+        > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
         """
         volume_mounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppTemplateInitContainerVolumeMountArgsDict']]]]
         """
@@ -3024,16 +3024,16 @@ class AppTemplateInitContainerArgs:
         :param pulumi.Input[_builtins.str] name: The name of the container
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] args: A list of extra arguments to pass to the container.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] commands: A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
-        :param pulumi.Input[_builtins.float] cpu: The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`. When there's a workload profile specified, there's no such constraint.
+        :param pulumi.Input[_builtins.float] cpu: The amount of vCPU to allocate to the container.
                
-               > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+               > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
         :param pulumi.Input[Sequence[pulumi.Input['AppTemplateInitContainerEnvArgs']]] envs: One or more `env` blocks as detailed below.
         :param pulumi.Input[_builtins.str] ephemeral_storage: The amount of ephemeral storage available to the Container App.
                
                > **Note:** `ephemeral_storage` is currently in preview and not configurable at this time.
-        :param pulumi.Input[_builtins.str] memory: The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`. When there's a workload profile specified, there's no such constraint.
+        :param pulumi.Input[_builtins.str] memory: The amount of memory to allocate to the container.
                
-               > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+               > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
         :param pulumi.Input[Sequence[pulumi.Input['AppTemplateInitContainerVolumeMountArgs']]] volume_mounts: A `volume_mounts` block as detailed below.
         """
         pulumi.set(__self__, "image", image)
@@ -3105,9 +3105,9 @@ class AppTemplateInitContainerArgs:
     @pulumi.getter
     def cpu(self) -> Optional[pulumi.Input[_builtins.float]]:
         """
-        The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`. When there's a workload profile specified, there's no such constraint.
+        The amount of vCPU to allocate to the container.
 
-        > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+        > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
         """
         return pulumi.get(self, "cpu")
 
@@ -3145,9 +3145,9 @@ class AppTemplateInitContainerArgs:
     @pulumi.getter
     def memory(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`. When there's a workload profile specified, there's no such constraint.
+        The amount of memory to allocate to the container.
 
-        > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+        > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
         """
         return pulumi.get(self, "memory")
 
@@ -4660,9 +4660,9 @@ if not MYPY:
     class JobTemplateContainerArgsDict(TypedDict):
         cpu: pulumi.Input[_builtins.float]
         """
-        The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+        The amount of vCPU to allocate to the container.
 
-        > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+        > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
         """
         image: pulumi.Input[_builtins.str]
         """
@@ -4670,9 +4670,9 @@ if not MYPY:
         """
         memory: pulumi.Input[_builtins.str]
         """
-        The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
+        The amount of memory to allocate to the container.
 
-        > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+        > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
         """
         name: pulumi.Input[_builtins.str]
         """
@@ -4731,13 +4731,13 @@ class JobTemplateContainerArgs:
                  startup_probes: Optional[pulumi.Input[Sequence[pulumi.Input['JobTemplateContainerStartupProbeArgs']]]] = None,
                  volume_mounts: Optional[pulumi.Input[Sequence[pulumi.Input['JobTemplateContainerVolumeMountArgs']]]] = None):
         """
-        :param pulumi.Input[_builtins.float] cpu: The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+        :param pulumi.Input[_builtins.float] cpu: The amount of vCPU to allocate to the container.
                
-               > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+               > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
         :param pulumi.Input[_builtins.str] image: The image to use to create the container.
-        :param pulumi.Input[_builtins.str] memory: The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
+        :param pulumi.Input[_builtins.str] memory: The amount of memory to allocate to the container.
                
-               > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+               > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
         :param pulumi.Input[_builtins.str] name: The name of the container.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] args: A list of extra arguments to pass to the container.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] commands: A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
@@ -4775,9 +4775,9 @@ class JobTemplateContainerArgs:
     @pulumi.getter
     def cpu(self) -> pulumi.Input[_builtins.float]:
         """
-        The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+        The amount of vCPU to allocate to the container.
 
-        > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+        > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
         """
         return pulumi.get(self, "cpu")
 
@@ -4801,9 +4801,9 @@ class JobTemplateContainerArgs:
     @pulumi.getter
     def memory(self) -> pulumi.Input[_builtins.str]:
         """
-        The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
+        The amount of memory to allocate to the container.
 
-        > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+        > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
         """
         return pulumi.get(self, "memory")
 
@@ -5863,9 +5863,9 @@ if not MYPY:
         """
         cpu: NotRequired[pulumi.Input[_builtins.float]]
         """
-        The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+        The amount of vCPU to allocate to the container.
 
-        > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+        > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
         """
         envs: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobTemplateInitContainerEnvArgsDict']]]]
         """
@@ -5879,9 +5879,9 @@ if not MYPY:
         """
         memory: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
+        The amount of memory to allocate to the container.
 
-        > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+        > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
         """
         volume_mounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobTemplateInitContainerVolumeMountArgsDict']]]]
         """
@@ -5907,16 +5907,16 @@ class JobTemplateInitContainerArgs:
         :param pulumi.Input[_builtins.str] name: The name of the container.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] args: A list of extra arguments to pass to the container.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] commands: A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
-        :param pulumi.Input[_builtins.float] cpu: The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+        :param pulumi.Input[_builtins.float] cpu: The amount of vCPU to allocate to the container.
                
-               > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+               > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
         :param pulumi.Input[Sequence[pulumi.Input['JobTemplateInitContainerEnvArgs']]] envs: One or more `env` blocks as detailed below.
         :param pulumi.Input[_builtins.str] ephemeral_storage: The amount of ephemeral storage available to the Container App.
                
                > **Note:** `ephemeral_storage` is currently in preview and not configurable at this time.
-        :param pulumi.Input[_builtins.str] memory: The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
+        :param pulumi.Input[_builtins.str] memory: The amount of memory to allocate to the container.
                
-               > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+               > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
         :param pulumi.Input[Sequence[pulumi.Input['JobTemplateInitContainerVolumeMountArgs']]] volume_mounts: A `volume_mounts` block as detailed below.
         """
         pulumi.set(__self__, "image", image)
@@ -5988,9 +5988,9 @@ class JobTemplateInitContainerArgs:
     @pulumi.getter
     def cpu(self) -> Optional[pulumi.Input[_builtins.float]]:
         """
-        The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+        The amount of vCPU to allocate to the container.
 
-        > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+        > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
         """
         return pulumi.get(self, "cpu")
 
@@ -6028,9 +6028,9 @@ class JobTemplateInitContainerArgs:
     @pulumi.getter
     def memory(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
+        The amount of memory to allocate to the container.
 
-        > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+        > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
         """
         return pulumi.get(self, "memory")
 

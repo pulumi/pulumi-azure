@@ -19,12 +19,16 @@ public final class AccountCustomerManagedKeyArgs extends com.pulumi.resources.Re
     /**
      * The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there&#39;re multiple identities attached to the Cognitive Account.
      * 
+     * &gt; **Note:** When `project_management_enabled` is set to `true`, removing this block forces a new resource to be created.
+     * 
      */
     @Import(name="identityClientId")
     private @Nullable Output<String> identityClientId;
 
     /**
      * @return The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there&#39;re multiple identities attached to the Cognitive Account.
+     * 
+     * &gt; **Note:** When `project_management_enabled` is set to `true`, removing this block forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> identityClientId() {
@@ -74,6 +78,8 @@ public final class AccountCustomerManagedKeyArgs extends com.pulumi.resources.Re
         /**
          * @param identityClientId The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there&#39;re multiple identities attached to the Cognitive Account.
          * 
+         * &gt; **Note:** When `project_management_enabled` is set to `true`, removing this block forces a new resource to be created.
+         * 
          * @return builder
          * 
          */
@@ -84,6 +90,8 @@ public final class AccountCustomerManagedKeyArgs extends com.pulumi.resources.Re
 
         /**
          * @param identityClientId The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there&#39;re multiple identities attached to the Cognitive Account.
+         * 
+         * &gt; **Note:** When `project_management_enabled` is set to `true`, removing this block forces a new resource to be created.
          * 
          * @return builder
          * 

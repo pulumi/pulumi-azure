@@ -885,6 +885,10 @@
                 "current": "azure:apimanagement/workspace:Workspace",
                 "majorVersion": 6
             },
+            "azurerm_api_management_workspace_policy": {
+                "current": "azure:apimanagement/workspacePolicy:WorkspacePolicy",
+                "majorVersion": 6
+            },
             "azurerm_app_configuration": {
                 "current": "azure:appconfiguration/configurationStore:ConfigurationStore",
                 "majorVersion": 6,
@@ -3756,6 +3760,9 @@
                                 }
                             }
                         }
+                    },
+                    "network_injection": {
+                        "maxItemsOne": true
                     },
                     "storage": {
                         "maxItemsOne": false
@@ -32190,6 +32197,11 @@
             "azurerm_stack_hci_logical_network": {
                 "maxItemsOneOverrides": {
                     "subnet.$.route": false
+                }
+            },
+            "azurerm_stream_analytics_job": {
+                "maxItemsOneOverrides": {
+                    "job_storage_account": false
                 }
             },
             "azurerm_virtual_machine_restore_point_collection": {

@@ -25415,6 +25415,8 @@ export namespace cognitive {
     export interface AccountCustomerManagedKey {
         /**
          * The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account.
+         *
+         * > **Note:** When `projectManagementEnabled` is set to `true`, removing this block forces a new resource to be created.
          */
         identityClientId?: string;
         /**
@@ -25448,7 +25450,7 @@ export namespace cognitive {
         /**
          * Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
          *
-         * > **Note:** `bypass` can only be set when `kind` is set to `OpenAI`
+         * > **Note:** `bypass` can only be set when `kind` is set to `OpenAI` or `AIServices`.
          */
         bypass?: string;
         /**
@@ -25467,11 +25469,24 @@ export namespace cognitive {
 
     export interface AccountNetworkAclsVirtualNetworkRule {
         /**
-         * Whether ignore missing vnet service endpoint or not. Default to `false`.
+         * Whether ignore missing vnet service endpoint or not. Defaults to `false`.
          */
         ignoreMissingVnetServiceEndpoint?: boolean;
         /**
          * The ID of the subnet which should be able to access this Cognitive Account.
+         */
+        subnetId: string;
+    }
+
+    export interface AccountNetworkInjection {
+        /**
+         * Specifies what features network injection applies to. The only possible value is `agent`.
+         */
+        scenario: string;
+        /**
+         * The ID of the subnet which the Agent Client is injected into.
+         *
+         * > **Note:** The agent subnet must use an address space in the 172.* or 192.* ranges.
          */
         subnetId: string;
     }
@@ -30889,9 +30904,9 @@ export namespace containerapp {
          */
         commands?: string[];
         /**
-         * The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`. When there's a workload profile specified, there's no such constraint.
+         * The amount of vCPU to allocate to the container.
          *
-         * > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+         * > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
          */
         cpu: number;
         /**
@@ -30913,9 +30928,9 @@ export namespace containerapp {
          */
         livenessProbes?: outputs.containerapp.AppTemplateContainerLivenessProbe[];
         /**
-         * The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`. When there's a workload profile specified, there's no such constraint.
+         * The amount of memory to allocate to the container.
          *
-         * > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+         * > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
          */
         memory: string;
         /**
@@ -31196,9 +31211,9 @@ export namespace containerapp {
          */
         commands?: string[];
         /**
-         * The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`. When there's a workload profile specified, there's no such constraint.
+         * The amount of vCPU to allocate to the container.
          *
-         * > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+         * > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
          */
         cpu?: number;
         /**
@@ -31216,9 +31231,9 @@ export namespace containerapp {
          */
         image: string;
         /**
-         * The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`. When there's a workload profile specified, there's no such constraint.
+         * The amount of memory to allocate to the container.
          *
-         * > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+         * > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
          */
         memory?: string;
         /**
@@ -31388,20 +31403,20 @@ export namespace containerapp {
          */
         appPort: number;
         /**
-         * The protocol for the app. Possible values include `http` and `grpc`. Defaults to `http`.
+         * The protocol for the app.
          */
         appProtocol: string;
     }
 
     export interface GetAppIdentity {
         /**
-         * A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+         * A list of one or more Resource IDs for User Assigned Managed identities to assign.
          */
         identityIds: string[];
         principalId: string;
         tenantId: string;
         /**
-         * The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+         * The type of managed identity to assign.
          */
         type: string;
     }
@@ -31448,7 +31463,7 @@ export namespace containerapp {
          */
         trafficWeights: outputs.containerapp.GetAppIngressTrafficWeight[];
         /**
-         * The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+         * The transport method for the Ingress.
          */
         transport: string;
     }
@@ -31482,7 +31497,7 @@ export namespace containerapp {
 
     export interface GetAppIngressCustomDomain {
         /**
-         * The Binding type. Possible values include `Disabled` and `SniEnabled`. Defaults to `Disabled`.
+         * The Binding type.
          */
         certificateBindingType: string;
         /**
@@ -31539,7 +31554,7 @@ export namespace containerapp {
          */
         identity: string;
         /**
-         * The name of the Secret Reference containing the password value for this user on the Container Registry, `username` must also be supplied.
+         * The name of the Secret Reference containing the password value for the user on the Container Registry.
          */
         passwordSecretName: string;
         /**
@@ -31547,7 +31562,7 @@ export namespace containerapp {
          */
         server: string;
         /**
-         * The username to use for this Container Registry, `passwordSecretName` must also be supplied..
+         * The username used for this Container Registry.
          */
         username: string;
     }
@@ -31626,15 +31641,15 @@ export namespace containerapp {
 
     export interface GetAppTemplateContainer {
         /**
-         * A list of extra arguments to pass to the container.
+         * A list of extra arguments passed to the container.
          */
         args: string[];
         /**
-         * A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+         * A command passed to the container to override the default. This is provided as a list of command line elements without spaces.
          */
         commands: string[];
         /**
-         * The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+         * The amount of vCPU allocated to the container.
          */
         cpu: number;
         /**
@@ -31654,7 +31669,7 @@ export namespace containerapp {
          */
         livenessProbes: outputs.containerapp.GetAppTemplateContainerLivenessProbe[];
         /**
-         * The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi`, and `4Gi`.
+         * The amount of memory allocated to the container.
          */
         memory: string;
         /**
@@ -31692,7 +31707,7 @@ export namespace containerapp {
 
     export interface GetAppTemplateContainerLivenessProbe {
         /**
-         * The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
+         * The number of consecutive failures required to consider this probe as failed.
          */
         failureCountThreshold: number;
         /**
@@ -31700,15 +31715,15 @@ export namespace containerapp {
          */
         headers: outputs.containerapp.GetAppTemplateContainerLivenessProbeHeader[];
         /**
-         * The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+         * The value for the host header which should be sent with this probe.
          */
         host: string;
         /**
-         * The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+         * The number of seconds elapsed after the container has started before the probe is initiated.
          */
         initialDelay: number;
         /**
-         * How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+         * How often, in seconds, the probe should run.
          */
         intervalSeconds: number;
         /**
@@ -31716,7 +31731,7 @@ export namespace containerapp {
          */
         path: string;
         /**
-         * The port number on which to connect. Possible values are between `1` and `65535`.
+         * The port number on which to connect.
          */
         port: number;
         /**
@@ -31724,11 +31739,11 @@ export namespace containerapp {
          */
         terminationGracePeriodSeconds: number;
         /**
-         * Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+         * Time in seconds after which the probe times out.
          */
         timeout: number;
         /**
-         * The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+         * The transport method for the Ingress.
          */
         transport: string;
     }
@@ -31746,7 +31761,7 @@ export namespace containerapp {
 
     export interface GetAppTemplateContainerReadinessProbe {
         /**
-         * The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
+         * The number of consecutive failures required to consider this probe as failed.
          */
         failureCountThreshold: number;
         /**
@@ -31754,15 +31769,15 @@ export namespace containerapp {
          */
         headers: outputs.containerapp.GetAppTemplateContainerReadinessProbeHeader[];
         /**
-         * The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+         * The value for the host header which should be sent with this probe.
          */
         host: string;
         /**
-         * The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+         * The number of seconds elapsed after the container has started before the probe is initiated.
          */
         initialDelay: number;
         /**
-         * How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+         * How often, in seconds, the probe should run.
          */
         intervalSeconds: number;
         /**
@@ -31770,19 +31785,19 @@ export namespace containerapp {
          */
         path: string;
         /**
-         * The port number on which to connect. Possible values are between `1` and `65535`.
+         * The port number on which to connect.
          */
         port: number;
         /**
-         * The number of consecutive successful responses required to consider this probe as successful. Possible values are between `1` and `10`. Defaults to `3`.
+         * The number of consecutive successful responses required to consider this probe as successful.
          */
         successCountThreshold: number;
         /**
-         * Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+         * Time in seconds after which the probe times out.
          */
         timeout: number;
         /**
-         * The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+         * The transport method for the Ingress.
          */
         transport: string;
     }
@@ -31800,7 +31815,7 @@ export namespace containerapp {
 
     export interface GetAppTemplateContainerStartupProbe {
         /**
-         * The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
+         * The number of consecutive failures required to consider this probe as failed.
          */
         failureCountThreshold: number;
         /**
@@ -31808,15 +31823,15 @@ export namespace containerapp {
          */
         headers: outputs.containerapp.GetAppTemplateContainerStartupProbeHeader[];
         /**
-         * The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+         * The value for the host header which should be sent with this probe.
          */
         host: string;
         /**
-         * The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+         * The number of seconds elapsed after the container has started before the probe is initiated.
          */
         initialDelay: number;
         /**
-         * How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+         * How often, in seconds, the probe should run.
          */
         intervalSeconds: number;
         /**
@@ -31824,7 +31839,7 @@ export namespace containerapp {
          */
         path: string;
         /**
-         * The port number on which to connect. Possible values are between `1` and `65535`.
+         * The port number on which to connect.
          */
         port: number;
         /**
@@ -31832,11 +31847,11 @@ export namespace containerapp {
          */
         terminationGracePeriodSeconds: number;
         /**
-         * Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+         * Time in seconds after which the probe times out.
          */
         timeout: number;
         /**
-         * The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+         * The transport method for the Ingress.
          */
         transport: string;
     }
@@ -31904,15 +31919,15 @@ export namespace containerapp {
 
     export interface GetAppTemplateInitContainer {
         /**
-         * A list of extra arguments to pass to the container.
+         * A list of extra arguments passed to the container.
          */
         args: string[];
         /**
-         * A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+         * A command passed to the container to override the default. This is provided as a list of command line elements without spaces.
          */
         commands: string[];
         /**
-         * The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+         * The amount of vCPU allocated to the container.
          */
         cpu: number;
         /**
@@ -31928,7 +31943,7 @@ export namespace containerapp {
          */
         image: string;
         /**
-         * The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi`, and `4Gi`.
+         * The amount of memory allocated to the container.
          */
         memory: string;
         /**
@@ -32002,7 +32017,7 @@ export namespace containerapp {
          */
         storageName: string;
         /**
-         * The type of storage volume. Possible values include `AzureFile` and `EmptyDir`. Defaults to `EmptyDir`.
+         * The type of storage volume.
          */
         storageType: string;
     }
@@ -32185,9 +32200,9 @@ export namespace containerapp {
          */
         commands?: string[];
         /**
-         * The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+         * The amount of vCPU to allocate to the container.
          *
-         * > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+         * > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
          */
         cpu: number;
         /**
@@ -32209,9 +32224,9 @@ export namespace containerapp {
          */
         livenessProbes?: outputs.containerapp.JobTemplateContainerLivenessProbe[];
         /**
-         * The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
+         * The amount of memory to allocate to the container.
          *
-         * > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+         * > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
          */
         memory: string;
         /**
@@ -32434,9 +32449,9 @@ export namespace containerapp {
          */
         commands?: string[];
         /**
-         * The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+         * The amount of vCPU to allocate to the container.
          *
-         * > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+         * > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
          */
         cpu?: number;
         /**
@@ -32454,9 +32469,9 @@ export namespace containerapp {
          */
         image: string;
         /**
-         * The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
+         * The amount of memory to allocate to the container.
          *
-         * > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+         * > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
          */
         memory?: string;
         /**
@@ -68620,13 +68635,13 @@ export namespace streamanalytics {
         /**
          * The account key for the Azure storage account.
          */
-        accountKey: string;
+        accountKey?: string;
         /**
          * The name of the Azure storage account.
          */
         accountName: string;
         /**
-         * The authentication mode of the storage account. The only supported value is `ConnectionString`. Defaults to `ConnectionString`.
+         * The authentication mode of the storage account. Possible values are `ConnectionString` and `Msi`. Defaults to `ConnectionString`.
          */
         authenticationMode?: string;
     }

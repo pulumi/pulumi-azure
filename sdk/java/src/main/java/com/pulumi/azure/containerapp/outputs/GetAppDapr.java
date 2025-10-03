@@ -22,7 +22,7 @@ public final class GetAppDapr {
      */
     private Integer appPort;
     /**
-     * @return The protocol for the app. Possible values include `http` and `grpc`. Defaults to `http`.
+     * @return The protocol for the app.
      * 
      */
     private String appProtocol;
@@ -43,7 +43,7 @@ public final class GetAppDapr {
         return this.appPort;
     }
     /**
-     * @return The protocol for the app. Possible values include `http` and `grpc`. Defaults to `http`.
+     * @return The protocol for the app.
      * 
      */
     public String appProtocol() {
