@@ -8,51 +8,51 @@ freeDiskSpaceBeforeTest: true
 freeDiskSpaceBeforeBuild: true
 freeDiskSpaceBeforeSdkBuild: true
 esc:
-  enabled: true
+    enabled: true
 env:
-  ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
-  ARM_ENVIRONMENT: "public"
-  ARM_LOCATION: "westus2"
-  ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
-  ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
-  ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
-  PULUMI_MISSING_DOCS_ERROR: true
-  # Would rather fail the build to force listing dependencies manually under plugins: than
-  # auto-install a floating dependency which may influence example generation and cause
-  # non-deterministic builds later on.
-  #
-  # Unfortunately this does not work yet because of e2e tests (example-based tests). Need to find a
-  # way to scope this env var so that it does not configure tests.
-  #
-  #     TestAccFrontdoor: no resource plugin 'pulumi-resource-random' found in the workspace at version v4.15.1 or on your $PATH
-  #     Test_sql/e2e: Error: error resolving type of resource random: internal error loading package "random": no resource plugin
-  #         'pulumi-resource-random' found in the workspace or on your $PATH
-  #
-  # PULUMI_DISABLE_AUTOMATIC_PLUGIN_ACQUISITION: true
+    ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+    ARM_ENVIRONMENT: "public"
+    ARM_LOCATION: "westus2"
+    ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+    ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+    ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+    PULUMI_MISSING_DOCS_ERROR: true
+    # Would rather fail the build to force listing dependencies manually under plugins: than
+    # auto-install a floating dependency which may influence example generation and cause
+    # non-deterministic builds later on.
+    #
+    # Unfortunately this does not work yet because of e2e tests (example-based tests). Need to find a
+    # way to scope this env var so that it does not configure tests.
+    #
+    #     TestAccFrontdoor: no resource plugin 'pulumi-resource-random' found in the workspace at version v4.15.1 or on your $PATH
+    #     Test_sql/e2e: Error: error resolving type of resource random: internal error loading package "random": no resource plugin
+    #         'pulumi-resource-random' found in the workspace or on your $PATH
+    #
+    # PULUMI_DISABLE_AUTOMATIC_PLUGIN_ACQUISITION: true
 upstream-provider-repo: terraform-provider-azurerm
 makeTemplate: bridged
 plugins:
-  - name: random
-    version: "4.16.1"
-  - name: azuread
-    version: "5.48.0"
-  - name: time
-    version: "0.0.17"
-  - name: local
-    version: "0.0.1"
-  - name: std
-    version: "1.6.2"
-  - name: terraform
-    kind: converter
-    version: "1.0.16"
+    - name: random
+      version: "4.16.1"
+    - name: azuread
+      version: "5.48.0"
+    - name: time
+      version: "0.0.17"
+    - name: local
+      version: "0.0.1"
+    - name: std
+      version: "1.6.2"
+    - name: terraform
+      kind: converter
+      version: "1.0.16"
 goBuildParallelism: 2
 pulumiConvert: 1
 releaseVerification:
-  nodejs: examples/topic
-  # Disable python until https://github.com/pulumi/verify-provider-release/issues/39 is addressed
-  # python: examples/eventhub-py
-  dotnet: examples/appservice-cs
-  go: examples/network-go
+    nodejs: examples/topic
+    # Disable python until https://github.com/pulumi/verify-provider-release/issues/39 is addressed
+    # python: examples/eventhub-py
+    dotnet: examples/appservice-cs
+    go: examples/network-go
 allowMissingDocs: false
 integrationTestProvider: true
 autoMergeProviderUpgrades: false
