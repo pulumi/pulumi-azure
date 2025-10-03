@@ -44,8 +44,8 @@ vm = compute.VirtualMachine(
         name="myosdisk1",
     ),
     storage_image_reference=compute.VirtualMachineStorageImageReferenceArgs(
-        publisher="canonical",
-        offer="UbuntuServer",
-        sku="16.04-LTS",
+        publisher="Canonical",
+        offer="ubuntu-24_04-lts",
+        sku="minimal",
         version="latest",
     ))

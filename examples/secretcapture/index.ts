@@ -7,6 +7,7 @@ const secret = pulumi.secret("s3cr3t");
 
 const greeting = new azure.appservice.HttpEventSubscription('greeting', {
   resourceGroup,
+  nodeVersion: "~22",
   callback: async (context, args) => {
     console.log(secret.get());
     return {

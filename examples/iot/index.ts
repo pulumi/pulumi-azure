@@ -19,7 +19,10 @@ const iotHub = new iot.IoTHub("test", {
     },
 });
 
-iotHub.onEvent("test", async (context, message) => {
-    console.log("ctx: " + JSON.stringify(context, null, 4));
-    console.log("arg: " + message);
+iotHub.onEvent("test", {
+    nodeVersion: "~22",
+    callback: async (context, message) => {
+        console.log("ctx: " + JSON.stringify(context, null, 4));
+        console.log("arg: " + message);
+    },
 });

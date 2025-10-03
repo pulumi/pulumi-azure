@@ -6,6 +6,7 @@ const resourceGroup = new azure.core.ResourceGroup('example');
 // Create a Function App implemented in PowerShell with source code from 'funcapp' folder
 const app = new azure.appservice.ArchiveFunctionApp("http-ps", {
     resourceGroupName: resourceGroup.name,
+    nodeVersion: "~22",
     archive: new pulumi.asset.FileArchive("./funcapp"),
     appSettings: {
       "runtime": "powershell",
