@@ -20,15 +20,15 @@ public final class JobJobStorageAccountArgs extends com.pulumi.resources.Resourc
      * The account key for the Azure storage account.
      * 
      */
-    @Import(name="accountKey", required=true)
-    private Output<String> accountKey;
+    @Import(name="accountKey")
+    private @Nullable Output<String> accountKey;
 
     /**
      * @return The account key for the Azure storage account.
      * 
      */
-    public Output<String> accountKey() {
-        return this.accountKey;
+    public Optional<Output<String>> accountKey() {
+        return Optional.ofNullable(this.accountKey);
     }
 
     /**
@@ -47,14 +47,14 @@ public final class JobJobStorageAccountArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The authentication mode of the storage account. The only supported value is `ConnectionString`. Defaults to `ConnectionString`.
+     * The authentication mode of the storage account. Possible values are `ConnectionString` and `Msi`. Defaults to `ConnectionString`.
      * 
      */
     @Import(name="authenticationMode")
     private @Nullable Output<String> authenticationMode;
 
     /**
-     * @return The authentication mode of the storage account. The only supported value is `ConnectionString`. Defaults to `ConnectionString`.
+     * @return The authentication mode of the storage account. Possible values are `ConnectionString` and `Msi`. Defaults to `ConnectionString`.
      * 
      */
     public Optional<Output<String>> authenticationMode() {
@@ -93,7 +93,7 @@ public final class JobJobStorageAccountArgs extends com.pulumi.resources.Resourc
          * @return builder
          * 
          */
-        public Builder accountKey(Output<String> accountKey) {
+        public Builder accountKey(@Nullable Output<String> accountKey) {
             $.accountKey = accountKey;
             return this;
         }
@@ -130,7 +130,7 @@ public final class JobJobStorageAccountArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param authenticationMode The authentication mode of the storage account. The only supported value is `ConnectionString`. Defaults to `ConnectionString`.
+         * @param authenticationMode The authentication mode of the storage account. Possible values are `ConnectionString` and `Msi`. Defaults to `ConnectionString`.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class JobJobStorageAccountArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param authenticationMode The authentication mode of the storage account. The only supported value is `ConnectionString`. Defaults to `ConnectionString`.
+         * @param authenticationMode The authentication mode of the storage account. Possible values are `ConnectionString` and `Msi`. Defaults to `ConnectionString`.
          * 
          * @return builder
          * 
@@ -151,9 +151,6 @@ public final class JobJobStorageAccountArgs extends com.pulumi.resources.Resourc
         }
 
         public JobJobStorageAccountArgs build() {
-            if ($.accountKey == null) {
-                throw new MissingRequiredPropertyException("JobJobStorageAccountArgs", "accountKey");
-            }
             if ($.accountName == null) {
                 throw new MissingRequiredPropertyException("JobJobStorageAccountArgs", "accountName");
             }

@@ -16,7 +16,7 @@ public final class GetAppRegistry {
      */
     private String identity;
     /**
-     * @return The name of the Secret Reference containing the password value for this user on the Container Registry, `username` must also be supplied.
+     * @return The name of the Secret Reference containing the password value for the user on the Container Registry.
      * 
      */
     private String passwordSecretName;
@@ -26,7 +26,7 @@ public final class GetAppRegistry {
      */
     private String server;
     /**
-     * @return The username to use for this Container Registry, `password_secret_name` must also be supplied..
+     * @return The username used for this Container Registry.
      * 
      */
     private String username;
@@ -40,7 +40,7 @@ public final class GetAppRegistry {
         return this.identity;
     }
     /**
-     * @return The name of the Secret Reference containing the password value for this user on the Container Registry, `username` must also be supplied.
+     * @return The name of the Secret Reference containing the password value for the user on the Container Registry.
      * 
      */
     public String passwordSecretName() {
@@ -54,7 +54,7 @@ public final class GetAppRegistry {
         return this.server;
     }
     /**
-     * @return The username to use for this Container Registry, `password_secret_name` must also be supplied..
+     * @return The username used for this Container Registry.
      * 
      */
     public String username() {

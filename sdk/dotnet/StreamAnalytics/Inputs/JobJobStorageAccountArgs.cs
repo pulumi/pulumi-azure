@@ -12,7 +12,7 @@ namespace Pulumi.Azure.StreamAnalytics.Inputs
 
     public sealed class JobJobStorageAccountArgs : global::Pulumi.ResourceArgs
     {
-        [Input("accountKey", required: true)]
+        [Input("accountKey")]
         private Input<string>? _accountKey;
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace Pulumi.Azure.StreamAnalytics.Inputs
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The authentication mode of the storage account. The only supported value is `ConnectionString`. Defaults to `ConnectionString`.
+        /// The authentication mode of the storage account. Possible values are `ConnectionString` and `Msi`. Defaults to `ConnectionString`.
         /// </summary>
         [Input("authenticationMode")]
         public Input<string>? AuthenticationMode { get; set; }

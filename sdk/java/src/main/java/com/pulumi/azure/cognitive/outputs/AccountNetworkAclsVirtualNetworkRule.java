@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AccountNetworkAclsVirtualNetworkRule {
     /**
-     * @return Whether ignore missing vnet service endpoint or not. Default to `false`.
+     * @return Whether ignore missing vnet service endpoint or not. Defaults to `false`.
      * 
      */
     private @Nullable Boolean ignoreMissingVnetServiceEndpoint;
@@ -26,7 +26,7 @@ public final class AccountNetworkAclsVirtualNetworkRule {
 
     private AccountNetworkAclsVirtualNetworkRule() {}
     /**
-     * @return Whether ignore missing vnet service endpoint or not. Default to `false`.
+     * @return Whether ignore missing vnet service endpoint or not. Defaults to `false`.
      * 
      */
     public Optional<Boolean> ignoreMissingVnetServiceEndpoint() {

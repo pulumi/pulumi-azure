@@ -19219,6 +19219,8 @@ export namespace cognitive {
     export interface AccountCustomerManagedKey {
         /**
          * The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account.
+         *
+         * > **Note:** When `projectManagementEnabled` is set to `true`, removing this block forces a new resource to be created.
          */
         identityClientId?: pulumi.Input<string>;
         /**
@@ -19252,7 +19254,7 @@ export namespace cognitive {
         /**
          * Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
          *
-         * > **Note:** `bypass` can only be set when `kind` is set to `OpenAI`
+         * > **Note:** `bypass` can only be set when `kind` is set to `OpenAI` or `AIServices`.
          */
         bypass?: pulumi.Input<string>;
         /**
@@ -19271,11 +19273,24 @@ export namespace cognitive {
 
     export interface AccountNetworkAclsVirtualNetworkRule {
         /**
-         * Whether ignore missing vnet service endpoint or not. Default to `false`.
+         * Whether ignore missing vnet service endpoint or not. Defaults to `false`.
          */
         ignoreMissingVnetServiceEndpoint?: pulumi.Input<boolean>;
         /**
          * The ID of the subnet which should be able to access this Cognitive Account.
+         */
+        subnetId: pulumi.Input<string>;
+    }
+
+    export interface AccountNetworkInjection {
+        /**
+         * Specifies what features network injection applies to. The only possible value is `agent`.
+         */
+        scenario: pulumi.Input<string>;
+        /**
+         * The ID of the subnet which the Agent Client is injected into.
+         *
+         * > **Note:** The agent subnet must use an address space in the 172.* or 192.* ranges.
          */
         subnetId: pulumi.Input<string>;
     }
@@ -23486,9 +23501,9 @@ export namespace containerapp {
          */
         commands?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`. When there's a workload profile specified, there's no such constraint.
+         * The amount of vCPU to allocate to the container.
          *
-         * > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+         * > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
          */
         cpu: pulumi.Input<number>;
         /**
@@ -23510,9 +23525,9 @@ export namespace containerapp {
          */
         livenessProbes?: pulumi.Input<pulumi.Input<inputs.containerapp.AppTemplateContainerLivenessProbe>[]>;
         /**
-         * The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`. When there's a workload profile specified, there's no such constraint.
+         * The amount of memory to allocate to the container.
          *
-         * > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+         * > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
          */
         memory: pulumi.Input<string>;
         /**
@@ -23793,9 +23808,9 @@ export namespace containerapp {
          */
         commands?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`. When there's a workload profile specified, there's no such constraint.
+         * The amount of vCPU to allocate to the container.
          *
-         * > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+         * > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
          */
         cpu?: pulumi.Input<number>;
         /**
@@ -23813,9 +23828,9 @@ export namespace containerapp {
          */
         image: pulumi.Input<string>;
         /**
-         * The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`. When there's a workload profile specified, there's no such constraint.
+         * The amount of memory to allocate to the container.
          *
-         * > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+         * > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
          */
         memory?: pulumi.Input<string>;
         /**
@@ -24153,9 +24168,9 @@ export namespace containerapp {
          */
         commands?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+         * The amount of vCPU to allocate to the container.
          *
-         * > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+         * > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
          */
         cpu: pulumi.Input<number>;
         /**
@@ -24177,9 +24192,9 @@ export namespace containerapp {
          */
         livenessProbes?: pulumi.Input<pulumi.Input<inputs.containerapp.JobTemplateContainerLivenessProbe>[]>;
         /**
-         * The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
+         * The amount of memory to allocate to the container.
          *
-         * > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+         * > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
          */
         memory: pulumi.Input<string>;
         /**
@@ -24402,9 +24417,9 @@ export namespace containerapp {
          */
         commands?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+         * The amount of vCPU to allocate to the container.
          *
-         * > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+         * > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
          */
         cpu?: pulumi.Input<number>;
         /**
@@ -24422,9 +24437,9 @@ export namespace containerapp {
          */
         image: pulumi.Input<string>;
         /**
-         * The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
+         * The amount of memory to allocate to the container.
          *
-         * > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+         * > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
          */
         memory?: pulumi.Input<string>;
         /**
@@ -52859,13 +52874,13 @@ export namespace streamanalytics {
         /**
          * The account key for the Azure storage account.
          */
-        accountKey: pulumi.Input<string>;
+        accountKey?: pulumi.Input<string>;
         /**
          * The name of the Azure storage account.
          */
         accountName: pulumi.Input<string>;
         /**
-         * The authentication mode of the storage account. The only supported value is `ConnectionString`. Defaults to `ConnectionString`.
+         * The authentication mode of the storage account. Possible values are `ConnectionString` and `Msi`. Defaults to `ConnectionString`.
          */
         authenticationMode?: pulumi.Input<string>;
     }

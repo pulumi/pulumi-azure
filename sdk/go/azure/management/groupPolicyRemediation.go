@@ -94,7 +94,7 @@ import (
 type GroupPolicyRemediation struct {
 	pulumi.CustomResourceState
 
-	// A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+	// The percentage failure threshold. Possible values range between `0.0` and `1.0`. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
 	FailurePercentage pulumi.Float64PtrOutput `pulumi:"failurePercentage"`
 	// A list of the resource locations that will be remediated.
 	LocationFilters pulumi.StringArrayOutput `pulumi:"locationFilters"`
@@ -148,7 +148,7 @@ func GetGroupPolicyRemediation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GroupPolicyRemediation resources.
 type groupPolicyRemediationState struct {
-	// A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+	// The percentage failure threshold. Possible values range between `0.0` and `1.0`. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
 	FailurePercentage *float64 `pulumi:"failurePercentage"`
 	// A list of the resource locations that will be remediated.
 	LocationFilters []string `pulumi:"locationFilters"`
@@ -167,7 +167,7 @@ type groupPolicyRemediationState struct {
 }
 
 type GroupPolicyRemediationState struct {
-	// A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+	// The percentage failure threshold. Possible values range between `0.0` and `1.0`. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
 	FailurePercentage pulumi.Float64PtrInput
 	// A list of the resource locations that will be remediated.
 	LocationFilters pulumi.StringArrayInput
@@ -190,7 +190,7 @@ func (GroupPolicyRemediationState) ElementType() reflect.Type {
 }
 
 type groupPolicyRemediationArgs struct {
-	// A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+	// The percentage failure threshold. Possible values range between `0.0` and `1.0`. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
 	FailurePercentage *float64 `pulumi:"failurePercentage"`
 	// A list of the resource locations that will be remediated.
 	LocationFilters []string `pulumi:"locationFilters"`
@@ -210,7 +210,7 @@ type groupPolicyRemediationArgs struct {
 
 // The set of arguments for constructing a GroupPolicyRemediation resource.
 type GroupPolicyRemediationArgs struct {
-	// A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+	// The percentage failure threshold. Possible values range between `0.0` and `1.0`. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
 	FailurePercentage pulumi.Float64PtrInput
 	// A list of the resource locations that will be remediated.
 	LocationFilters pulumi.StringArrayInput
@@ -315,7 +315,7 @@ func (o GroupPolicyRemediationOutput) ToGroupPolicyRemediationOutputWithContext(
 	return o
 }
 
-// A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+// The percentage failure threshold. Possible values range between `0.0` and `1.0`. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
 func (o GroupPolicyRemediationOutput) FailurePercentage() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *GroupPolicyRemediation) pulumi.Float64PtrOutput { return v.FailurePercentage }).(pulumi.Float64PtrOutput)
 }

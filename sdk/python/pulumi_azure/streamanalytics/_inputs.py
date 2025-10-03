@@ -306,17 +306,17 @@ class JobIdentityArgs:
 
 if not MYPY:
     class JobJobStorageAccountArgsDict(TypedDict):
-        account_key: pulumi.Input[_builtins.str]
-        """
-        The account key for the Azure storage account.
-        """
         account_name: pulumi.Input[_builtins.str]
         """
         The name of the Azure storage account.
         """
+        account_key: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The account key for the Azure storage account.
+        """
         authentication_mode: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The authentication mode of the storage account. The only supported value is `ConnectionString`. Defaults to `ConnectionString`.
+        The authentication mode of the storage account. Possible values are `ConnectionString` and `Msi`. Defaults to `ConnectionString`.
         """
 elif False:
     JobJobStorageAccountArgsDict: TypeAlias = Mapping[str, Any]
@@ -324,30 +324,19 @@ elif False:
 @pulumi.input_type
 class JobJobStorageAccountArgs:
     def __init__(__self__, *,
-                 account_key: pulumi.Input[_builtins.str],
                  account_name: pulumi.Input[_builtins.str],
+                 account_key: Optional[pulumi.Input[_builtins.str]] = None,
                  authentication_mode: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] account_key: The account key for the Azure storage account.
         :param pulumi.Input[_builtins.str] account_name: The name of the Azure storage account.
-        :param pulumi.Input[_builtins.str] authentication_mode: The authentication mode of the storage account. The only supported value is `ConnectionString`. Defaults to `ConnectionString`.
+        :param pulumi.Input[_builtins.str] account_key: The account key for the Azure storage account.
+        :param pulumi.Input[_builtins.str] authentication_mode: The authentication mode of the storage account. Possible values are `ConnectionString` and `Msi`. Defaults to `ConnectionString`.
         """
-        pulumi.set(__self__, "account_key", account_key)
         pulumi.set(__self__, "account_name", account_name)
+        if account_key is not None:
+            pulumi.set(__self__, "account_key", account_key)
         if authentication_mode is not None:
             pulumi.set(__self__, "authentication_mode", authentication_mode)
-
-    @_builtins.property
-    @pulumi.getter(name="accountKey")
-    def account_key(self) -> pulumi.Input[_builtins.str]:
-        """
-        The account key for the Azure storage account.
-        """
-        return pulumi.get(self, "account_key")
-
-    @account_key.setter
-    def account_key(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "account_key", value)
 
     @_builtins.property
     @pulumi.getter(name="accountName")
@@ -362,10 +351,22 @@ class JobJobStorageAccountArgs:
         pulumi.set(self, "account_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="accountKey")
+    def account_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The account key for the Azure storage account.
+        """
+        return pulumi.get(self, "account_key")
+
+    @account_key.setter
+    def account_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "account_key", value)
+
+    @_builtins.property
     @pulumi.getter(name="authenticationMode")
     def authentication_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The authentication mode of the storage account. The only supported value is `ConnectionString`. Defaults to `ConnectionString`.
+        The authentication mode of the storage account. Possible values are `ConnectionString` and `Msi`. Defaults to `ConnectionString`.
         """
         return pulumi.get(self, "authentication_mode")
 

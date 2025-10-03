@@ -78,7 +78,7 @@ export class GroupPolicyRemediation extends pulumi.CustomResource {
     }
 
     /**
-     * A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+     * The percentage failure threshold. Possible values range between `0.0` and `1.0`. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
      */
     declare public readonly failurePercentage: pulumi.Output<number | undefined>;
     /**
@@ -158,7 +158,7 @@ export class GroupPolicyRemediation extends pulumi.CustomResource {
  */
 export interface GroupPolicyRemediationState {
     /**
-     * A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+     * The percentage failure threshold. Possible values range between `0.0` and `1.0`. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
      */
     failurePercentage?: pulumi.Input<number>;
     /**
@@ -196,7 +196,7 @@ export interface GroupPolicyRemediationState {
  */
 export interface GroupPolicyRemediationArgs {
     /**
-     * A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+     * The percentage failure threshold. Possible values range between `0.0` and `1.0`. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
      */
     failurePercentage?: pulumi.Input<number>;
     /**

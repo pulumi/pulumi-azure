@@ -2172,9 +2172,9 @@ type AppTemplateContainer struct {
 	Args []string `pulumi:"args"`
 	// A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
 	Commands []string `pulumi:"commands"`
-	// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`. When there's a workload profile specified, there's no such constraint.
+	// The amount of vCPU to allocate to the container.
 	//
-	// > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+	// > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
 	Cpu float64 `pulumi:"cpu"`
 	// One or more `env` blocks as detailed below.
 	Envs []AppTemplateContainerEnv `pulumi:"envs"`
@@ -2186,9 +2186,9 @@ type AppTemplateContainer struct {
 	Image string `pulumi:"image"`
 	// A `livenessProbe` block as detailed below.
 	LivenessProbes []AppTemplateContainerLivenessProbe `pulumi:"livenessProbes"`
-	// The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`. When there's a workload profile specified, there's no such constraint.
+	// The amount of memory to allocate to the container.
 	//
-	// > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+	// > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
 	Memory string `pulumi:"memory"`
 	// The name of the container
 	Name string `pulumi:"name"`
@@ -2216,9 +2216,9 @@ type AppTemplateContainerArgs struct {
 	Args pulumi.StringArrayInput `pulumi:"args"`
 	// A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
 	Commands pulumi.StringArrayInput `pulumi:"commands"`
-	// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`. When there's a workload profile specified, there's no such constraint.
+	// The amount of vCPU to allocate to the container.
 	//
-	// > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+	// > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
 	Cpu pulumi.Float64Input `pulumi:"cpu"`
 	// One or more `env` blocks as detailed below.
 	Envs AppTemplateContainerEnvArrayInput `pulumi:"envs"`
@@ -2230,9 +2230,9 @@ type AppTemplateContainerArgs struct {
 	Image pulumi.StringInput `pulumi:"image"`
 	// A `livenessProbe` block as detailed below.
 	LivenessProbes AppTemplateContainerLivenessProbeArrayInput `pulumi:"livenessProbes"`
-	// The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`. When there's a workload profile specified, there's no such constraint.
+	// The amount of memory to allocate to the container.
 	//
-	// > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+	// > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
 	Memory pulumi.StringInput `pulumi:"memory"`
 	// The name of the container
 	Name pulumi.StringInput `pulumi:"name"`
@@ -2305,9 +2305,9 @@ func (o AppTemplateContainerOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AppTemplateContainer) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
 
-// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`. When there's a workload profile specified, there's no such constraint.
+// The amount of vCPU to allocate to the container.
 //
-// > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+// > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
 func (o AppTemplateContainerOutput) Cpu() pulumi.Float64Output {
 	return o.ApplyT(func(v AppTemplateContainer) float64 { return v.Cpu }).(pulumi.Float64Output)
 }
@@ -2334,9 +2334,9 @@ func (o AppTemplateContainerOutput) LivenessProbes() AppTemplateContainerLivenes
 	return o.ApplyT(func(v AppTemplateContainer) []AppTemplateContainerLivenessProbe { return v.LivenessProbes }).(AppTemplateContainerLivenessProbeArrayOutput)
 }
 
-// The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`. When there's a workload profile specified, there's no such constraint.
+// The amount of memory to allocate to the container.
 //
-// > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+// > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
 func (o AppTemplateContainerOutput) Memory() pulumi.StringOutput {
 	return o.ApplyT(func(v AppTemplateContainer) string { return v.Memory }).(pulumi.StringOutput)
 }
@@ -3929,9 +3929,9 @@ type AppTemplateInitContainer struct {
 	Args []string `pulumi:"args"`
 	// A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
 	Commands []string `pulumi:"commands"`
-	// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`. When there's a workload profile specified, there's no such constraint.
+	// The amount of vCPU to allocate to the container.
 	//
-	// > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+	// > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
 	Cpu *float64 `pulumi:"cpu"`
 	// One or more `env` blocks as detailed below.
 	Envs []AppTemplateInitContainerEnv `pulumi:"envs"`
@@ -3941,9 +3941,9 @@ type AppTemplateInitContainer struct {
 	EphemeralStorage *string `pulumi:"ephemeralStorage"`
 	// The image to use to create the container.
 	Image string `pulumi:"image"`
-	// The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`. When there's a workload profile specified, there's no such constraint.
+	// The amount of memory to allocate to the container.
 	//
-	// > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+	// > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
 	Memory *string `pulumi:"memory"`
 	// The name of the container
 	Name string `pulumi:"name"`
@@ -3967,9 +3967,9 @@ type AppTemplateInitContainerArgs struct {
 	Args pulumi.StringArrayInput `pulumi:"args"`
 	// A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
 	Commands pulumi.StringArrayInput `pulumi:"commands"`
-	// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`. When there's a workload profile specified, there's no such constraint.
+	// The amount of vCPU to allocate to the container.
 	//
-	// > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+	// > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
 	Cpu pulumi.Float64PtrInput `pulumi:"cpu"`
 	// One or more `env` blocks as detailed below.
 	Envs AppTemplateInitContainerEnvArrayInput `pulumi:"envs"`
@@ -3979,9 +3979,9 @@ type AppTemplateInitContainerArgs struct {
 	EphemeralStorage pulumi.StringPtrInput `pulumi:"ephemeralStorage"`
 	// The image to use to create the container.
 	Image pulumi.StringInput `pulumi:"image"`
-	// The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`. When there's a workload profile specified, there's no such constraint.
+	// The amount of memory to allocate to the container.
 	//
-	// > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+	// > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
 	Memory pulumi.StringPtrInput `pulumi:"memory"`
 	// The name of the container
 	Name pulumi.StringInput `pulumi:"name"`
@@ -4050,9 +4050,9 @@ func (o AppTemplateInitContainerOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AppTemplateInitContainer) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
 
-// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`. When there's a workload profile specified, there's no such constraint.
+// The amount of vCPU to allocate to the container.
 //
-// > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+// > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
 func (o AppTemplateInitContainerOutput) Cpu() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v AppTemplateInitContainer) *float64 { return v.Cpu }).(pulumi.Float64PtrOutput)
 }
@@ -4074,9 +4074,9 @@ func (o AppTemplateInitContainerOutput) Image() pulumi.StringOutput {
 	return o.ApplyT(func(v AppTemplateInitContainer) string { return v.Image }).(pulumi.StringOutput)
 }
 
-// The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`. When there's a workload profile specified, there's no such constraint.
+// The amount of memory to allocate to the container.
 //
-// > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+// > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
 func (o AppTemplateInitContainerOutput) Memory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppTemplateInitContainer) *string { return v.Memory }).(pulumi.StringPtrOutput)
 }
@@ -6755,9 +6755,9 @@ type JobTemplateContainer struct {
 	Args []string `pulumi:"args"`
 	// A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
 	Commands []string `pulumi:"commands"`
-	// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+	// The amount of vCPU to allocate to the container.
 	//
-	// > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+	// > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
 	Cpu float64 `pulumi:"cpu"`
 	// One or more `env` blocks as detailed below.
 	Envs []JobTemplateContainerEnv `pulumi:"envs"`
@@ -6769,9 +6769,9 @@ type JobTemplateContainer struct {
 	Image string `pulumi:"image"`
 	// A `livenessProbe` block as detailed below.
 	LivenessProbes []JobTemplateContainerLivenessProbe `pulumi:"livenessProbes"`
-	// The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
+	// The amount of memory to allocate to the container.
 	//
-	// > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+	// > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
 	Memory string `pulumi:"memory"`
 	// The name of the container.
 	Name string `pulumi:"name"`
@@ -6799,9 +6799,9 @@ type JobTemplateContainerArgs struct {
 	Args pulumi.StringArrayInput `pulumi:"args"`
 	// A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
 	Commands pulumi.StringArrayInput `pulumi:"commands"`
-	// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+	// The amount of vCPU to allocate to the container.
 	//
-	// > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+	// > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
 	Cpu pulumi.Float64Input `pulumi:"cpu"`
 	// One or more `env` blocks as detailed below.
 	Envs JobTemplateContainerEnvArrayInput `pulumi:"envs"`
@@ -6813,9 +6813,9 @@ type JobTemplateContainerArgs struct {
 	Image pulumi.StringInput `pulumi:"image"`
 	// A `livenessProbe` block as detailed below.
 	LivenessProbes JobTemplateContainerLivenessProbeArrayInput `pulumi:"livenessProbes"`
-	// The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
+	// The amount of memory to allocate to the container.
 	//
-	// > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+	// > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
 	Memory pulumi.StringInput `pulumi:"memory"`
 	// The name of the container.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -6888,9 +6888,9 @@ func (o JobTemplateContainerOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v JobTemplateContainer) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
 
-// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+// The amount of vCPU to allocate to the container.
 //
-// > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+// > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
 func (o JobTemplateContainerOutput) Cpu() pulumi.Float64Output {
 	return o.ApplyT(func(v JobTemplateContainer) float64 { return v.Cpu }).(pulumi.Float64Output)
 }
@@ -6917,9 +6917,9 @@ func (o JobTemplateContainerOutput) LivenessProbes() JobTemplateContainerLivenes
 	return o.ApplyT(func(v JobTemplateContainer) []JobTemplateContainerLivenessProbe { return v.LivenessProbes }).(JobTemplateContainerLivenessProbeArrayOutput)
 }
 
-// The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
+// The amount of memory to allocate to the container.
 //
-// > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+// > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
 func (o JobTemplateContainerOutput) Memory() pulumi.StringOutput {
 	return o.ApplyT(func(v JobTemplateContainer) string { return v.Memory }).(pulumi.StringOutput)
 }
@@ -8053,9 +8053,9 @@ type JobTemplateInitContainer struct {
 	Args []string `pulumi:"args"`
 	// A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
 	Commands []string `pulumi:"commands"`
-	// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+	// The amount of vCPU to allocate to the container.
 	//
-	// > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+	// > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
 	Cpu *float64 `pulumi:"cpu"`
 	// One or more `env` blocks as detailed below.
 	Envs []JobTemplateInitContainerEnv `pulumi:"envs"`
@@ -8065,9 +8065,9 @@ type JobTemplateInitContainer struct {
 	EphemeralStorage *string `pulumi:"ephemeralStorage"`
 	// The image to use to create the container.
 	Image string `pulumi:"image"`
-	// The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
+	// The amount of memory to allocate to the container.
 	//
-	// > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+	// > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
 	Memory *string `pulumi:"memory"`
 	// The name of the container.
 	Name string `pulumi:"name"`
@@ -8091,9 +8091,9 @@ type JobTemplateInitContainerArgs struct {
 	Args pulumi.StringArrayInput `pulumi:"args"`
 	// A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
 	Commands pulumi.StringArrayInput `pulumi:"commands"`
-	// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+	// The amount of vCPU to allocate to the container.
 	//
-	// > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+	// > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
 	Cpu pulumi.Float64PtrInput `pulumi:"cpu"`
 	// One or more `env` blocks as detailed below.
 	Envs JobTemplateInitContainerEnvArrayInput `pulumi:"envs"`
@@ -8103,9 +8103,9 @@ type JobTemplateInitContainerArgs struct {
 	EphemeralStorage pulumi.StringPtrInput `pulumi:"ephemeralStorage"`
 	// The image to use to create the container.
 	Image pulumi.StringInput `pulumi:"image"`
-	// The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
+	// The amount of memory to allocate to the container.
 	//
-	// > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+	// > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
 	Memory pulumi.StringPtrInput `pulumi:"memory"`
 	// The name of the container.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -8174,9 +8174,9 @@ func (o JobTemplateInitContainerOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v JobTemplateInitContainer) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
 
-// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+// The amount of vCPU to allocate to the container.
 //
-// > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+// > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
 func (o JobTemplateInitContainerOutput) Cpu() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v JobTemplateInitContainer) *float64 { return v.Cpu }).(pulumi.Float64PtrOutput)
 }
@@ -8198,9 +8198,9 @@ func (o JobTemplateInitContainerOutput) Image() pulumi.StringOutput {
 	return o.ApplyT(func(v JobTemplateInitContainer) string { return v.Image }).(pulumi.StringOutput)
 }
 
-// The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
+// The amount of memory to allocate to the container.
 //
-// > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+// > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
 func (o JobTemplateInitContainerOutput) Memory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobTemplateInitContainer) *string { return v.Memory }).(pulumi.StringPtrOutput)
 }
@@ -8594,7 +8594,7 @@ type GetAppDapr struct {
 	AppId string `pulumi:"appId"`
 	// The port which the application is listening on. This is the same as the `ingress` port.
 	AppPort int `pulumi:"appPort"`
-	// The protocol for the app. Possible values include `http` and `grpc`. Defaults to `http`.
+	// The protocol for the app.
 	AppProtocol string `pulumi:"appProtocol"`
 }
 
@@ -8614,7 +8614,7 @@ type GetAppDaprArgs struct {
 	AppId pulumi.StringInput `pulumi:"appId"`
 	// The port which the application is listening on. This is the same as the `ingress` port.
 	AppPort pulumi.IntInput `pulumi:"appPort"`
-	// The protocol for the app. Possible values include `http` and `grpc`. Defaults to `http`.
+	// The protocol for the app.
 	AppProtocol pulumi.StringInput `pulumi:"appProtocol"`
 }
 
@@ -8679,7 +8679,7 @@ func (o GetAppDaprOutput) AppPort() pulumi.IntOutput {
 	return o.ApplyT(func(v GetAppDapr) int { return v.AppPort }).(pulumi.IntOutput)
 }
 
-// The protocol for the app. Possible values include `http` and `grpc`. Defaults to `http`.
+// The protocol for the app.
 func (o GetAppDaprOutput) AppProtocol() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppDapr) string { return v.AppProtocol }).(pulumi.StringOutput)
 }
@@ -8705,11 +8705,11 @@ func (o GetAppDaprArrayOutput) Index(i pulumi.IntInput) GetAppDaprOutput {
 }
 
 type GetAppIdentity struct {
-	// A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+	// A list of one or more Resource IDs for User Assigned Managed identities to assign.
 	IdentityIds []string `pulumi:"identityIds"`
 	PrincipalId string   `pulumi:"principalId"`
 	TenantId    string   `pulumi:"tenantId"`
-	// The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+	// The type of managed identity to assign.
 	Type string `pulumi:"type"`
 }
 
@@ -8725,11 +8725,11 @@ type GetAppIdentityInput interface {
 }
 
 type GetAppIdentityArgs struct {
-	// A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+	// A list of one or more Resource IDs for User Assigned Managed identities to assign.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	PrincipalId pulumi.StringInput      `pulumi:"principalId"`
 	TenantId    pulumi.StringInput      `pulumi:"tenantId"`
-	// The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+	// The type of managed identity to assign.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -8784,7 +8784,7 @@ func (o GetAppIdentityOutput) ToGetAppIdentityOutputWithContext(ctx context.Cont
 	return o
 }
 
-// A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+// A list of one or more Resource IDs for User Assigned Managed identities to assign.
 func (o GetAppIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAppIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -8797,7 +8797,7 @@ func (o GetAppIdentityOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppIdentity) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+// The type of managed identity to assign.
 func (o GetAppIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -8843,7 +8843,7 @@ type GetAppIngress struct {
 	TargetPort int `pulumi:"targetPort"`
 	// A `trafficWeight` block as detailed below.
 	TrafficWeights []GetAppIngressTrafficWeight `pulumi:"trafficWeights"`
-	// The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+	// The transport method for the Ingress.
 	Transport string `pulumi:"transport"`
 }
 
@@ -8879,7 +8879,7 @@ type GetAppIngressArgs struct {
 	TargetPort pulumi.IntInput `pulumi:"targetPort"`
 	// A `trafficWeight` block as detailed below.
 	TrafficWeights GetAppIngressTrafficWeightArrayInput `pulumi:"trafficWeights"`
-	// The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+	// The transport method for the Ingress.
 	Transport pulumi.StringInput `pulumi:"transport"`
 }
 
@@ -8984,7 +8984,7 @@ func (o GetAppIngressOutput) TrafficWeights() GetAppIngressTrafficWeightArrayOut
 	return o.ApplyT(func(v GetAppIngress) []GetAppIngressTrafficWeight { return v.TrafficWeights }).(GetAppIngressTrafficWeightArrayOutput)
 }
 
-// The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+// The transport method for the Ingress.
 func (o GetAppIngressOutput) Transport() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppIngress) string { return v.Transport }).(pulumi.StringOutput)
 }
@@ -9152,7 +9152,7 @@ func (o GetAppIngressCorArrayOutput) Index(i pulumi.IntInput) GetAppIngressCorOu
 }
 
 type GetAppIngressCustomDomain struct {
-	// The Binding type. Possible values include `Disabled` and `SniEnabled`. Defaults to `Disabled`.
+	// The Binding type.
 	CertificateBindingType string `pulumi:"certificateBindingType"`
 	// The ID of the Container App Environment Certificate.
 	CertificateId string `pulumi:"certificateId"`
@@ -9172,7 +9172,7 @@ type GetAppIngressCustomDomainInput interface {
 }
 
 type GetAppIngressCustomDomainArgs struct {
-	// The Binding type. Possible values include `Disabled` and `SniEnabled`. Defaults to `Disabled`.
+	// The Binding type.
 	CertificateBindingType pulumi.StringInput `pulumi:"certificateBindingType"`
 	// The ID of the Container App Environment Certificate.
 	CertificateId pulumi.StringInput `pulumi:"certificateId"`
@@ -9231,7 +9231,7 @@ func (o GetAppIngressCustomDomainOutput) ToGetAppIngressCustomDomainOutputWithCo
 	return o
 }
 
-// The Binding type. Possible values include `Disabled` and `SniEnabled`. Defaults to `Disabled`.
+// The Binding type.
 func (o GetAppIngressCustomDomainOutput) CertificateBindingType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppIngressCustomDomain) string { return v.CertificateBindingType }).(pulumi.StringOutput)
 }
@@ -9517,11 +9517,11 @@ func (o GetAppIngressTrafficWeightArrayOutput) Index(i pulumi.IntInput) GetAppIn
 type GetAppRegistry struct {
 	// Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
 	Identity string `pulumi:"identity"`
-	// The name of the Secret Reference containing the password value for this user on the Container Registry, `username` must also be supplied.
+	// The name of the Secret Reference containing the password value for the user on the Container Registry.
 	PasswordSecretName string `pulumi:"passwordSecretName"`
 	// The hostname for the Container Registry.
 	Server string `pulumi:"server"`
-	// The username to use for this Container Registry, `passwordSecretName` must also be supplied..
+	// The username used for this Container Registry.
 	Username string `pulumi:"username"`
 }
 
@@ -9539,11 +9539,11 @@ type GetAppRegistryInput interface {
 type GetAppRegistryArgs struct {
 	// Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
 	Identity pulumi.StringInput `pulumi:"identity"`
-	// The name of the Secret Reference containing the password value for this user on the Container Registry, `username` must also be supplied.
+	// The name of the Secret Reference containing the password value for the user on the Container Registry.
 	PasswordSecretName pulumi.StringInput `pulumi:"passwordSecretName"`
 	// The hostname for the Container Registry.
 	Server pulumi.StringInput `pulumi:"server"`
-	// The username to use for this Container Registry, `passwordSecretName` must also be supplied..
+	// The username used for this Container Registry.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -9603,7 +9603,7 @@ func (o GetAppRegistryOutput) Identity() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppRegistry) string { return v.Identity }).(pulumi.StringOutput)
 }
 
-// The name of the Secret Reference containing the password value for this user on the Container Registry, `username` must also be supplied.
+// The name of the Secret Reference containing the password value for the user on the Container Registry.
 func (o GetAppRegistryOutput) PasswordSecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppRegistry) string { return v.PasswordSecretName }).(pulumi.StringOutput)
 }
@@ -9613,7 +9613,7 @@ func (o GetAppRegistryOutput) Server() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppRegistry) string { return v.Server }).(pulumi.StringOutput)
 }
 
-// The username to use for this Container Registry, `passwordSecretName` must also be supplied..
+// The username used for this Container Registry.
 func (o GetAppRegistryOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppRegistry) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -10158,11 +10158,11 @@ func (o GetAppTemplateAzureQueueScaleRuleAuthenticationArrayOutput) Index(i pulu
 }
 
 type GetAppTemplateContainer struct {
-	// A list of extra arguments to pass to the container.
+	// A list of extra arguments passed to the container.
 	Args []string `pulumi:"args"`
-	// A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+	// A command passed to the container to override the default. This is provided as a list of command line elements without spaces.
 	Commands []string `pulumi:"commands"`
-	// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+	// The amount of vCPU allocated to the container.
 	Cpu float64 `pulumi:"cpu"`
 	// One or more `env` blocks as detailed below.
 	Envs []GetAppTemplateContainerEnv `pulumi:"envs"`
@@ -10172,7 +10172,7 @@ type GetAppTemplateContainer struct {
 	Image string `pulumi:"image"`
 	// A `livenessProbe` block as detailed below.
 	LivenessProbes []GetAppTemplateContainerLivenessProbe `pulumi:"livenessProbes"`
-	// The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi`, and `4Gi`.
+	// The amount of memory allocated to the container.
 	Memory string `pulumi:"memory"`
 	// The name of the Container App.
 	Name string `pulumi:"name"`
@@ -10196,11 +10196,11 @@ type GetAppTemplateContainerInput interface {
 }
 
 type GetAppTemplateContainerArgs struct {
-	// A list of extra arguments to pass to the container.
+	// A list of extra arguments passed to the container.
 	Args pulumi.StringArrayInput `pulumi:"args"`
-	// A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+	// A command passed to the container to override the default. This is provided as a list of command line elements without spaces.
 	Commands pulumi.StringArrayInput `pulumi:"commands"`
-	// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+	// The amount of vCPU allocated to the container.
 	Cpu pulumi.Float64Input `pulumi:"cpu"`
 	// One or more `env` blocks as detailed below.
 	Envs GetAppTemplateContainerEnvArrayInput `pulumi:"envs"`
@@ -10210,7 +10210,7 @@ type GetAppTemplateContainerArgs struct {
 	Image pulumi.StringInput `pulumi:"image"`
 	// A `livenessProbe` block as detailed below.
 	LivenessProbes GetAppTemplateContainerLivenessProbeArrayInput `pulumi:"livenessProbes"`
-	// The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi`, and `4Gi`.
+	// The amount of memory allocated to the container.
 	Memory pulumi.StringInput `pulumi:"memory"`
 	// The name of the Container App.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -10273,17 +10273,17 @@ func (o GetAppTemplateContainerOutput) ToGetAppTemplateContainerOutputWithContex
 	return o
 }
 
-// A list of extra arguments to pass to the container.
+// A list of extra arguments passed to the container.
 func (o GetAppTemplateContainerOutput) Args() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAppTemplateContainer) []string { return v.Args }).(pulumi.StringArrayOutput)
 }
 
-// A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+// A command passed to the container to override the default. This is provided as a list of command line elements without spaces.
 func (o GetAppTemplateContainerOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAppTemplateContainer) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
 
-// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+// The amount of vCPU allocated to the container.
 func (o GetAppTemplateContainerOutput) Cpu() pulumi.Float64Output {
 	return o.ApplyT(func(v GetAppTemplateContainer) float64 { return v.Cpu }).(pulumi.Float64Output)
 }
@@ -10308,7 +10308,7 @@ func (o GetAppTemplateContainerOutput) LivenessProbes() GetAppTemplateContainerL
 	return o.ApplyT(func(v GetAppTemplateContainer) []GetAppTemplateContainerLivenessProbe { return v.LivenessProbes }).(GetAppTemplateContainerLivenessProbeArrayOutput)
 }
 
-// The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi`, and `4Gi`.
+// The amount of memory allocated to the container.
 func (o GetAppTemplateContainerOutput) Memory() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppTemplateContainer) string { return v.Memory }).(pulumi.StringOutput)
 }
@@ -10469,25 +10469,25 @@ func (o GetAppTemplateContainerEnvArrayOutput) Index(i pulumi.IntInput) GetAppTe
 }
 
 type GetAppTemplateContainerLivenessProbe struct {
-	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
+	// The number of consecutive failures required to consider this probe as failed.
 	FailureCountThreshold int `pulumi:"failureCountThreshold"`
 	// A `header` block as detailed below.
 	Headers []GetAppTemplateContainerLivenessProbeHeader `pulumi:"headers"`
-	// The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+	// The value for the host header which should be sent with this probe.
 	Host string `pulumi:"host"`
-	// The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+	// The number of seconds elapsed after the container has started before the probe is initiated.
 	InitialDelay int `pulumi:"initialDelay"`
-	// How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+	// How often, in seconds, the probe should run.
 	IntervalSeconds int `pulumi:"intervalSeconds"`
 	// The path in the container at which to mount this volume.
 	Path string `pulumi:"path"`
-	// The port number on which to connect. Possible values are between `1` and `65535`.
+	// The port number on which to connect.
 	Port int `pulumi:"port"`
 	// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
 	TerminationGracePeriodSeconds int `pulumi:"terminationGracePeriodSeconds"`
-	// Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+	// Time in seconds after which the probe times out.
 	Timeout int `pulumi:"timeout"`
-	// The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+	// The transport method for the Ingress.
 	Transport string `pulumi:"transport"`
 }
 
@@ -10503,25 +10503,25 @@ type GetAppTemplateContainerLivenessProbeInput interface {
 }
 
 type GetAppTemplateContainerLivenessProbeArgs struct {
-	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
+	// The number of consecutive failures required to consider this probe as failed.
 	FailureCountThreshold pulumi.IntInput `pulumi:"failureCountThreshold"`
 	// A `header` block as detailed below.
 	Headers GetAppTemplateContainerLivenessProbeHeaderArrayInput `pulumi:"headers"`
-	// The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+	// The value for the host header which should be sent with this probe.
 	Host pulumi.StringInput `pulumi:"host"`
-	// The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+	// The number of seconds elapsed after the container has started before the probe is initiated.
 	InitialDelay pulumi.IntInput `pulumi:"initialDelay"`
-	// How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+	// How often, in seconds, the probe should run.
 	IntervalSeconds pulumi.IntInput `pulumi:"intervalSeconds"`
 	// The path in the container at which to mount this volume.
 	Path pulumi.StringInput `pulumi:"path"`
-	// The port number on which to connect. Possible values are between `1` and `65535`.
+	// The port number on which to connect.
 	Port pulumi.IntInput `pulumi:"port"`
 	// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
 	TerminationGracePeriodSeconds pulumi.IntInput `pulumi:"terminationGracePeriodSeconds"`
-	// Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+	// Time in seconds after which the probe times out.
 	Timeout pulumi.IntInput `pulumi:"timeout"`
-	// The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+	// The transport method for the Ingress.
 	Transport pulumi.StringInput `pulumi:"transport"`
 }
 
@@ -10576,7 +10576,7 @@ func (o GetAppTemplateContainerLivenessProbeOutput) ToGetAppTemplateContainerLiv
 	return o
 }
 
-// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
+// The number of consecutive failures required to consider this probe as failed.
 func (o GetAppTemplateContainerLivenessProbeOutput) FailureCountThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v GetAppTemplateContainerLivenessProbe) int { return v.FailureCountThreshold }).(pulumi.IntOutput)
 }
@@ -10588,17 +10588,17 @@ func (o GetAppTemplateContainerLivenessProbeOutput) Headers() GetAppTemplateCont
 	}).(GetAppTemplateContainerLivenessProbeHeaderArrayOutput)
 }
 
-// The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+// The value for the host header which should be sent with this probe.
 func (o GetAppTemplateContainerLivenessProbeOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppTemplateContainerLivenessProbe) string { return v.Host }).(pulumi.StringOutput)
 }
 
-// The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+// The number of seconds elapsed after the container has started before the probe is initiated.
 func (o GetAppTemplateContainerLivenessProbeOutput) InitialDelay() pulumi.IntOutput {
 	return o.ApplyT(func(v GetAppTemplateContainerLivenessProbe) int { return v.InitialDelay }).(pulumi.IntOutput)
 }
 
-// How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+// How often, in seconds, the probe should run.
 func (o GetAppTemplateContainerLivenessProbeOutput) IntervalSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v GetAppTemplateContainerLivenessProbe) int { return v.IntervalSeconds }).(pulumi.IntOutput)
 }
@@ -10608,7 +10608,7 @@ func (o GetAppTemplateContainerLivenessProbeOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppTemplateContainerLivenessProbe) string { return v.Path }).(pulumi.StringOutput)
 }
 
-// The port number on which to connect. Possible values are between `1` and `65535`.
+// The port number on which to connect.
 func (o GetAppTemplateContainerLivenessProbeOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetAppTemplateContainerLivenessProbe) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -10618,12 +10618,12 @@ func (o GetAppTemplateContainerLivenessProbeOutput) TerminationGracePeriodSecond
 	return o.ApplyT(func(v GetAppTemplateContainerLivenessProbe) int { return v.TerminationGracePeriodSeconds }).(pulumi.IntOutput)
 }
 
-// Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+// Time in seconds after which the probe times out.
 func (o GetAppTemplateContainerLivenessProbeOutput) Timeout() pulumi.IntOutput {
 	return o.ApplyT(func(v GetAppTemplateContainerLivenessProbe) int { return v.Timeout }).(pulumi.IntOutput)
 }
 
-// The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+// The transport method for the Ingress.
 func (o GetAppTemplateContainerLivenessProbeOutput) Transport() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppTemplateContainerLivenessProbe) string { return v.Transport }).(pulumi.StringOutput)
 }
@@ -10755,25 +10755,25 @@ func (o GetAppTemplateContainerLivenessProbeHeaderArrayOutput) Index(i pulumi.In
 }
 
 type GetAppTemplateContainerReadinessProbe struct {
-	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
+	// The number of consecutive failures required to consider this probe as failed.
 	FailureCountThreshold int `pulumi:"failureCountThreshold"`
 	// A `header` block as detailed below.
 	Headers []GetAppTemplateContainerReadinessProbeHeader `pulumi:"headers"`
-	// The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+	// The value for the host header which should be sent with this probe.
 	Host string `pulumi:"host"`
-	// The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+	// The number of seconds elapsed after the container has started before the probe is initiated.
 	InitialDelay int `pulumi:"initialDelay"`
-	// How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+	// How often, in seconds, the probe should run.
 	IntervalSeconds int `pulumi:"intervalSeconds"`
 	// The path in the container at which to mount this volume.
 	Path string `pulumi:"path"`
-	// The port number on which to connect. Possible values are between `1` and `65535`.
+	// The port number on which to connect.
 	Port int `pulumi:"port"`
-	// The number of consecutive successful responses required to consider this probe as successful. Possible values are between `1` and `10`. Defaults to `3`.
+	// The number of consecutive successful responses required to consider this probe as successful.
 	SuccessCountThreshold int `pulumi:"successCountThreshold"`
-	// Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+	// Time in seconds after which the probe times out.
 	Timeout int `pulumi:"timeout"`
-	// The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+	// The transport method for the Ingress.
 	Transport string `pulumi:"transport"`
 }
 
@@ -10789,25 +10789,25 @@ type GetAppTemplateContainerReadinessProbeInput interface {
 }
 
 type GetAppTemplateContainerReadinessProbeArgs struct {
-	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
+	// The number of consecutive failures required to consider this probe as failed.
 	FailureCountThreshold pulumi.IntInput `pulumi:"failureCountThreshold"`
 	// A `header` block as detailed below.
 	Headers GetAppTemplateContainerReadinessProbeHeaderArrayInput `pulumi:"headers"`
-	// The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+	// The value for the host header which should be sent with this probe.
 	Host pulumi.StringInput `pulumi:"host"`
-	// The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+	// The number of seconds elapsed after the container has started before the probe is initiated.
 	InitialDelay pulumi.IntInput `pulumi:"initialDelay"`
-	// How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+	// How often, in seconds, the probe should run.
 	IntervalSeconds pulumi.IntInput `pulumi:"intervalSeconds"`
 	// The path in the container at which to mount this volume.
 	Path pulumi.StringInput `pulumi:"path"`
-	// The port number on which to connect. Possible values are between `1` and `65535`.
+	// The port number on which to connect.
 	Port pulumi.IntInput `pulumi:"port"`
-	// The number of consecutive successful responses required to consider this probe as successful. Possible values are between `1` and `10`. Defaults to `3`.
+	// The number of consecutive successful responses required to consider this probe as successful.
 	SuccessCountThreshold pulumi.IntInput `pulumi:"successCountThreshold"`
-	// Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+	// Time in seconds after which the probe times out.
 	Timeout pulumi.IntInput `pulumi:"timeout"`
-	// The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+	// The transport method for the Ingress.
 	Transport pulumi.StringInput `pulumi:"transport"`
 }
 
@@ -10862,7 +10862,7 @@ func (o GetAppTemplateContainerReadinessProbeOutput) ToGetAppTemplateContainerRe
 	return o
 }
 
-// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
+// The number of consecutive failures required to consider this probe as failed.
 func (o GetAppTemplateContainerReadinessProbeOutput) FailureCountThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v GetAppTemplateContainerReadinessProbe) int { return v.FailureCountThreshold }).(pulumi.IntOutput)
 }
@@ -10874,17 +10874,17 @@ func (o GetAppTemplateContainerReadinessProbeOutput) Headers() GetAppTemplateCon
 	}).(GetAppTemplateContainerReadinessProbeHeaderArrayOutput)
 }
 
-// The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+// The value for the host header which should be sent with this probe.
 func (o GetAppTemplateContainerReadinessProbeOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppTemplateContainerReadinessProbe) string { return v.Host }).(pulumi.StringOutput)
 }
 
-// The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+// The number of seconds elapsed after the container has started before the probe is initiated.
 func (o GetAppTemplateContainerReadinessProbeOutput) InitialDelay() pulumi.IntOutput {
 	return o.ApplyT(func(v GetAppTemplateContainerReadinessProbe) int { return v.InitialDelay }).(pulumi.IntOutput)
 }
 
-// How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+// How often, in seconds, the probe should run.
 func (o GetAppTemplateContainerReadinessProbeOutput) IntervalSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v GetAppTemplateContainerReadinessProbe) int { return v.IntervalSeconds }).(pulumi.IntOutput)
 }
@@ -10894,22 +10894,22 @@ func (o GetAppTemplateContainerReadinessProbeOutput) Path() pulumi.StringOutput 
 	return o.ApplyT(func(v GetAppTemplateContainerReadinessProbe) string { return v.Path }).(pulumi.StringOutput)
 }
 
-// The port number on which to connect. Possible values are between `1` and `65535`.
+// The port number on which to connect.
 func (o GetAppTemplateContainerReadinessProbeOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetAppTemplateContainerReadinessProbe) int { return v.Port }).(pulumi.IntOutput)
 }
 
-// The number of consecutive successful responses required to consider this probe as successful. Possible values are between `1` and `10`. Defaults to `3`.
+// The number of consecutive successful responses required to consider this probe as successful.
 func (o GetAppTemplateContainerReadinessProbeOutput) SuccessCountThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v GetAppTemplateContainerReadinessProbe) int { return v.SuccessCountThreshold }).(pulumi.IntOutput)
 }
 
-// Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+// Time in seconds after which the probe times out.
 func (o GetAppTemplateContainerReadinessProbeOutput) Timeout() pulumi.IntOutput {
 	return o.ApplyT(func(v GetAppTemplateContainerReadinessProbe) int { return v.Timeout }).(pulumi.IntOutput)
 }
 
-// The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+// The transport method for the Ingress.
 func (o GetAppTemplateContainerReadinessProbeOutput) Transport() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppTemplateContainerReadinessProbe) string { return v.Transport }).(pulumi.StringOutput)
 }
@@ -11041,25 +11041,25 @@ func (o GetAppTemplateContainerReadinessProbeHeaderArrayOutput) Index(i pulumi.I
 }
 
 type GetAppTemplateContainerStartupProbe struct {
-	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
+	// The number of consecutive failures required to consider this probe as failed.
 	FailureCountThreshold int `pulumi:"failureCountThreshold"`
 	// A `header` block as detailed below.
 	Headers []GetAppTemplateContainerStartupProbeHeader `pulumi:"headers"`
-	// The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+	// The value for the host header which should be sent with this probe.
 	Host string `pulumi:"host"`
-	// The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+	// The number of seconds elapsed after the container has started before the probe is initiated.
 	InitialDelay int `pulumi:"initialDelay"`
-	// How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+	// How often, in seconds, the probe should run.
 	IntervalSeconds int `pulumi:"intervalSeconds"`
 	// The path in the container at which to mount this volume.
 	Path string `pulumi:"path"`
-	// The port number on which to connect. Possible values are between `1` and `65535`.
+	// The port number on which to connect.
 	Port int `pulumi:"port"`
 	// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
 	TerminationGracePeriodSeconds int `pulumi:"terminationGracePeriodSeconds"`
-	// Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+	// Time in seconds after which the probe times out.
 	Timeout int `pulumi:"timeout"`
-	// The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+	// The transport method for the Ingress.
 	Transport string `pulumi:"transport"`
 }
 
@@ -11075,25 +11075,25 @@ type GetAppTemplateContainerStartupProbeInput interface {
 }
 
 type GetAppTemplateContainerStartupProbeArgs struct {
-	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
+	// The number of consecutive failures required to consider this probe as failed.
 	FailureCountThreshold pulumi.IntInput `pulumi:"failureCountThreshold"`
 	// A `header` block as detailed below.
 	Headers GetAppTemplateContainerStartupProbeHeaderArrayInput `pulumi:"headers"`
-	// The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+	// The value for the host header which should be sent with this probe.
 	Host pulumi.StringInput `pulumi:"host"`
-	// The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+	// The number of seconds elapsed after the container has started before the probe is initiated.
 	InitialDelay pulumi.IntInput `pulumi:"initialDelay"`
-	// How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+	// How often, in seconds, the probe should run.
 	IntervalSeconds pulumi.IntInput `pulumi:"intervalSeconds"`
 	// The path in the container at which to mount this volume.
 	Path pulumi.StringInput `pulumi:"path"`
-	// The port number on which to connect. Possible values are between `1` and `65535`.
+	// The port number on which to connect.
 	Port pulumi.IntInput `pulumi:"port"`
 	// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
 	TerminationGracePeriodSeconds pulumi.IntInput `pulumi:"terminationGracePeriodSeconds"`
-	// Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+	// Time in seconds after which the probe times out.
 	Timeout pulumi.IntInput `pulumi:"timeout"`
-	// The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+	// The transport method for the Ingress.
 	Transport pulumi.StringInput `pulumi:"transport"`
 }
 
@@ -11148,7 +11148,7 @@ func (o GetAppTemplateContainerStartupProbeOutput) ToGetAppTemplateContainerStar
 	return o
 }
 
-// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
+// The number of consecutive failures required to consider this probe as failed.
 func (o GetAppTemplateContainerStartupProbeOutput) FailureCountThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v GetAppTemplateContainerStartupProbe) int { return v.FailureCountThreshold }).(pulumi.IntOutput)
 }
@@ -11160,17 +11160,17 @@ func (o GetAppTemplateContainerStartupProbeOutput) Headers() GetAppTemplateConta
 	}).(GetAppTemplateContainerStartupProbeHeaderArrayOutput)
 }
 
-// The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+// The value for the host header which should be sent with this probe.
 func (o GetAppTemplateContainerStartupProbeOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppTemplateContainerStartupProbe) string { return v.Host }).(pulumi.StringOutput)
 }
 
-// The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
+// The number of seconds elapsed after the container has started before the probe is initiated.
 func (o GetAppTemplateContainerStartupProbeOutput) InitialDelay() pulumi.IntOutput {
 	return o.ApplyT(func(v GetAppTemplateContainerStartupProbe) int { return v.InitialDelay }).(pulumi.IntOutput)
 }
 
-// How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+// How often, in seconds, the probe should run.
 func (o GetAppTemplateContainerStartupProbeOutput) IntervalSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v GetAppTemplateContainerStartupProbe) int { return v.IntervalSeconds }).(pulumi.IntOutput)
 }
@@ -11180,7 +11180,7 @@ func (o GetAppTemplateContainerStartupProbeOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppTemplateContainerStartupProbe) string { return v.Path }).(pulumi.StringOutput)
 }
 
-// The port number on which to connect. Possible values are between `1` and `65535`.
+// The port number on which to connect.
 func (o GetAppTemplateContainerStartupProbeOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetAppTemplateContainerStartupProbe) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -11190,12 +11190,12 @@ func (o GetAppTemplateContainerStartupProbeOutput) TerminationGracePeriodSeconds
 	return o.ApplyT(func(v GetAppTemplateContainerStartupProbe) int { return v.TerminationGracePeriodSeconds }).(pulumi.IntOutput)
 }
 
-// Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+// Time in seconds after which the probe times out.
 func (o GetAppTemplateContainerStartupProbeOutput) Timeout() pulumi.IntOutput {
 	return o.ApplyT(func(v GetAppTemplateContainerStartupProbe) int { return v.Timeout }).(pulumi.IntOutput)
 }
 
-// The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+// The transport method for the Ingress.
 func (o GetAppTemplateContainerStartupProbeOutput) Transport() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppTemplateContainerStartupProbe) string { return v.Transport }).(pulumi.StringOutput)
 }
@@ -11876,11 +11876,11 @@ func (o GetAppTemplateHttpScaleRuleAuthenticationArrayOutput) Index(i pulumi.Int
 }
 
 type GetAppTemplateInitContainer struct {
-	// A list of extra arguments to pass to the container.
+	// A list of extra arguments passed to the container.
 	Args []string `pulumi:"args"`
-	// A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+	// A command passed to the container to override the default. This is provided as a list of command line elements without spaces.
 	Commands []string `pulumi:"commands"`
-	// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+	// The amount of vCPU allocated to the container.
 	Cpu float64 `pulumi:"cpu"`
 	// One or more `env` blocks as detailed below.
 	Envs []GetAppTemplateInitContainerEnv `pulumi:"envs"`
@@ -11888,7 +11888,7 @@ type GetAppTemplateInitContainer struct {
 	EphemeralStorage string `pulumi:"ephemeralStorage"`
 	// The image to use to create the container.
 	Image string `pulumi:"image"`
-	// The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi`, and `4Gi`.
+	// The amount of memory allocated to the container.
 	Memory string `pulumi:"memory"`
 	// The name of the Container App.
 	Name string `pulumi:"name"`
@@ -11908,11 +11908,11 @@ type GetAppTemplateInitContainerInput interface {
 }
 
 type GetAppTemplateInitContainerArgs struct {
-	// A list of extra arguments to pass to the container.
+	// A list of extra arguments passed to the container.
 	Args pulumi.StringArrayInput `pulumi:"args"`
-	// A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+	// A command passed to the container to override the default. This is provided as a list of command line elements without spaces.
 	Commands pulumi.StringArrayInput `pulumi:"commands"`
-	// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+	// The amount of vCPU allocated to the container.
 	Cpu pulumi.Float64Input `pulumi:"cpu"`
 	// One or more `env` blocks as detailed below.
 	Envs GetAppTemplateInitContainerEnvArrayInput `pulumi:"envs"`
@@ -11920,7 +11920,7 @@ type GetAppTemplateInitContainerArgs struct {
 	EphemeralStorage pulumi.StringInput `pulumi:"ephemeralStorage"`
 	// The image to use to create the container.
 	Image pulumi.StringInput `pulumi:"image"`
-	// The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi`, and `4Gi`.
+	// The amount of memory allocated to the container.
 	Memory pulumi.StringInput `pulumi:"memory"`
 	// The name of the Container App.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -11979,17 +11979,17 @@ func (o GetAppTemplateInitContainerOutput) ToGetAppTemplateInitContainerOutputWi
 	return o
 }
 
-// A list of extra arguments to pass to the container.
+// A list of extra arguments passed to the container.
 func (o GetAppTemplateInitContainerOutput) Args() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAppTemplateInitContainer) []string { return v.Args }).(pulumi.StringArrayOutput)
 }
 
-// A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+// A command passed to the container to override the default. This is provided as a list of command line elements without spaces.
 func (o GetAppTemplateInitContainerOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAppTemplateInitContainer) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
 
-// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+// The amount of vCPU allocated to the container.
 func (o GetAppTemplateInitContainerOutput) Cpu() pulumi.Float64Output {
 	return o.ApplyT(func(v GetAppTemplateInitContainer) float64 { return v.Cpu }).(pulumi.Float64Output)
 }
@@ -12009,7 +12009,7 @@ func (o GetAppTemplateInitContainerOutput) Image() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppTemplateInitContainer) string { return v.Image }).(pulumi.StringOutput)
 }
 
-// The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi`, and `4Gi`.
+// The amount of memory allocated to the container.
 func (o GetAppTemplateInitContainerOutput) Memory() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppTemplateInitContainer) string { return v.Memory }).(pulumi.StringOutput)
 }
@@ -12495,7 +12495,7 @@ type GetAppTemplateVolume struct {
 	Name string `pulumi:"name"`
 	// The name of the `AzureFile` storage.
 	StorageName string `pulumi:"storageName"`
-	// The type of storage volume. Possible values include `AzureFile` and `EmptyDir`. Defaults to `EmptyDir`.
+	// The type of storage volume.
 	StorageType string `pulumi:"storageType"`
 }
 
@@ -12517,7 +12517,7 @@ type GetAppTemplateVolumeArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the `AzureFile` storage.
 	StorageName pulumi.StringInput `pulumi:"storageName"`
-	// The type of storage volume. Possible values include `AzureFile` and `EmptyDir`. Defaults to `EmptyDir`.
+	// The type of storage volume.
 	StorageType pulumi.StringInput `pulumi:"storageType"`
 }
 
@@ -12587,7 +12587,7 @@ func (o GetAppTemplateVolumeOutput) StorageName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppTemplateVolume) string { return v.StorageName }).(pulumi.StringOutput)
 }
 
-// The type of storage volume. Possible values include `AzureFile` and `EmptyDir`. Defaults to `EmptyDir`.
+// The type of storage volume.
 func (o GetAppTemplateVolumeOutput) StorageType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppTemplateVolume) string { return v.StorageType }).(pulumi.StringOutput)
 }

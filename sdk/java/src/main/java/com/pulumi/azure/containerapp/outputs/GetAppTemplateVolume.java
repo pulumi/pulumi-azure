@@ -26,7 +26,7 @@ public final class GetAppTemplateVolume {
      */
     private String storageName;
     /**
-     * @return The type of storage volume. Possible values include `AzureFile` and `EmptyDir`. Defaults to `EmptyDir`.
+     * @return The type of storage volume.
      * 
      */
     private String storageType;
@@ -54,7 +54,7 @@ public final class GetAppTemplateVolume {
         return this.storageName;
     }
     /**
-     * @return The type of storage volume. Possible values include `AzureFile` and `EmptyDir`. Defaults to `EmptyDir`.
+     * @return The type of storage volume.
      * 
      */
     public String storageType() {

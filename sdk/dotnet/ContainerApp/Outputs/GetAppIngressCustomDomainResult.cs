@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
     public sealed class GetAppIngressCustomDomainResult
     {
         /// <summary>
-        /// The Binding type. Possible values include `Disabled` and `SniEnabled`. Defaults to `Disabled`.
+        /// The Binding type.
         /// </summary>
         public readonly string CertificateBindingType;
         /// <summary>

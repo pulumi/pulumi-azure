@@ -14,7 +14,9 @@ import (
 
 // Manages a Cognitive Services Account.
 //
-// > **Note:** Version v2.65.0 of the Azure Provider and later will attempt to Purge the Cognitive Account during deletion. This feature can be disabled using the `features` block within the `provider` block, see the provider documentation on the features block for more information.
+// > **Note:** The Cognitive Services Account manages the resource type for various Azure AI resource implementations, including Azure AI Foundry, Azure OpenAI, Azure Speech, Azure Vision and others. Each service shares the same control plane but exposes a different subset of developer APIs. Azure AI Foundry (kind = `AIServices`) provides the superset of capabilities. For more information, please see [Azure AI Foundry architecture](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/architecture).
+//
+// > **Note:** The Azure Provider will attempt to Purge the Cognitive Services Account during deletion. This feature can be disabled using the `features` block within the `provider` block, see the provider documentation on the features block for more information.
 //
 // ## Example Usage
 //
@@ -64,6 +66,8 @@ import (
 //
 // * `Microsoft.CognitiveServices` - 2025-06-01
 //
+// * `Microsoft.Network` - 2024-05-01
+//
 // ## Import
 //
 // Cognitive Service Accounts can be imported using the `resource id`, e.g.
@@ -80,11 +84,13 @@ type Account struct {
 	//
 	// > **Note:** `customQuestionAnsweringSearchServiceId` and `customQuestionAnsweringSearchServiceKey` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qnaRuntimeEndpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
 	CustomQuestionAnsweringSearchServiceKey pulumi.StringPtrOutput `pulumi:"customQuestionAnsweringSearchServiceKey"`
-	// The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. This property is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://<custom_subdomain_name>.openai.azure.com/`.  Changing this forces a new resource to be created.
+	// The subdomain name used for Entra ID token-based authentication. This attribute is required when `networkAcls` is specified. This attribute is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://<custom_subdomain_name>.openai.azure.com/`. This can be specified during creation or added later, but once set changing this forces a new resource to be created.
+	//
+	// > **Note:** If you do not specify a `customSubdomainName` then you will not be able to attach a Private Endpoint to the resource. Moreover, functionality that requires Entra ID authentication, including Agent service, will not be accessible.
 	CustomSubdomainName pulumi.StringPtrOutput `pulumi:"customSubdomainName"`
 	// A `customerManagedKey` block as documented below.
 	CustomerManagedKey AccountCustomerManagedKeyTypePtrOutput `pulumi:"customerManagedKey"`
-	// Whether to enable the dynamic throttling for this Cognitive Service Account.
+	// Whether to enable the dynamic throttling for this Cognitive Service Account. This attribute cannot be set when the `kind` is `OpenAI` or `AIServices`.
 	DynamicThrottlingEnabled pulumi.BoolPtrOutput `pulumi:"dynamicThrottlingEnabled"`
 	// The endpoint used to connect to the Cognitive Service Account.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
@@ -92,7 +98,7 @@ type Account struct {
 	Fqdns pulumi.StringArrayOutput `pulumi:"fqdns"`
 	// An `identity` block as defined below.
 	Identity AccountIdentityPtrOutput `pulumi:"identity"`
-	// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `ContentSafety`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`, `FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `MetricsAdvisor`, `OpenAI`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
+	// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AIServices`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `ContentSafety`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`, `FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `MetricsAdvisor`, `OpenAI`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** New Bing Search resources cannot be created as their APIs are moving from Cognitive Services Platform to new surface area under Microsoft.com. Starting from October 30, 2020, existing instances of Bing Search APIs provisioned via Cognitive Services will be continuously supported for next 3 years or till the end of respective Enterprise Agreement, whichever happens first.
 	//
@@ -116,10 +122,14 @@ type Account struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `networkAcls` block as defined below. When this property is specified, `customSubdomainName` is also required to be set.
 	NetworkAcls AccountNetworkAclsPtrOutput `pulumi:"networkAcls"`
+	// A `networkInjection` block as defined below. Only applicable if the `kind` is set to `AIServices`.
+	NetworkInjection AccountNetworkInjectionPtrOutput `pulumi:"networkInjection"`
 	// Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
 	OutboundNetworkAccessRestricted pulumi.BoolPtrOutput `pulumi:"outboundNetworkAccessRestricted"`
 	// A primary access key which can be used to connect to the Cognitive Service Account.
 	PrimaryAccessKey pulumi.StringOutput `pulumi:"primaryAccessKey"`
+	// Whether project management is enabled when the `kind` is set to `AIServices`. Once enabled, `projectManagementEnabled` cannot be disabled. Changing this forces a new resource to be created. Defaults to `false`.
+	ProjectManagementEnabled pulumi.BoolPtrOutput `pulumi:"projectManagementEnabled"`
 	// Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// A URL to link a QnAMaker cognitive account to a QnA runtime.
@@ -192,11 +202,13 @@ type accountState struct {
 	//
 	// > **Note:** `customQuestionAnsweringSearchServiceId` and `customQuestionAnsweringSearchServiceKey` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qnaRuntimeEndpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
 	CustomQuestionAnsweringSearchServiceKey *string `pulumi:"customQuestionAnsweringSearchServiceKey"`
-	// The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. This property is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://<custom_subdomain_name>.openai.azure.com/`.  Changing this forces a new resource to be created.
+	// The subdomain name used for Entra ID token-based authentication. This attribute is required when `networkAcls` is specified. This attribute is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://<custom_subdomain_name>.openai.azure.com/`. This can be specified during creation or added later, but once set changing this forces a new resource to be created.
+	//
+	// > **Note:** If you do not specify a `customSubdomainName` then you will not be able to attach a Private Endpoint to the resource. Moreover, functionality that requires Entra ID authentication, including Agent service, will not be accessible.
 	CustomSubdomainName *string `pulumi:"customSubdomainName"`
 	// A `customerManagedKey` block as documented below.
 	CustomerManagedKey *AccountCustomerManagedKeyType `pulumi:"customerManagedKey"`
-	// Whether to enable the dynamic throttling for this Cognitive Service Account.
+	// Whether to enable the dynamic throttling for this Cognitive Service Account. This attribute cannot be set when the `kind` is `OpenAI` or `AIServices`.
 	DynamicThrottlingEnabled *bool `pulumi:"dynamicThrottlingEnabled"`
 	// The endpoint used to connect to the Cognitive Service Account.
 	Endpoint *string `pulumi:"endpoint"`
@@ -204,7 +216,7 @@ type accountState struct {
 	Fqdns []string `pulumi:"fqdns"`
 	// An `identity` block as defined below.
 	Identity *AccountIdentity `pulumi:"identity"`
-	// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `ContentSafety`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`, `FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `MetricsAdvisor`, `OpenAI`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
+	// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AIServices`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `ContentSafety`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`, `FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `MetricsAdvisor`, `OpenAI`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** New Bing Search resources cannot be created as their APIs are moving from Cognitive Services Platform to new surface area under Microsoft.com. Starting from October 30, 2020, existing instances of Bing Search APIs provisioned via Cognitive Services will be continuously supported for next 3 years or till the end of respective Enterprise Agreement, whichever happens first.
 	//
@@ -228,10 +240,14 @@ type accountState struct {
 	Name *string `pulumi:"name"`
 	// A `networkAcls` block as defined below. When this property is specified, `customSubdomainName` is also required to be set.
 	NetworkAcls *AccountNetworkAcls `pulumi:"networkAcls"`
+	// A `networkInjection` block as defined below. Only applicable if the `kind` is set to `AIServices`.
+	NetworkInjection *AccountNetworkInjection `pulumi:"networkInjection"`
 	// Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
 	OutboundNetworkAccessRestricted *bool `pulumi:"outboundNetworkAccessRestricted"`
 	// A primary access key which can be used to connect to the Cognitive Service Account.
 	PrimaryAccessKey *string `pulumi:"primaryAccessKey"`
+	// Whether project management is enabled when the `kind` is set to `AIServices`. Once enabled, `projectManagementEnabled` cannot be disabled. Changing this forces a new resource to be created. Defaults to `false`.
+	ProjectManagementEnabled *bool `pulumi:"projectManagementEnabled"`
 	// Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// A URL to link a QnAMaker cognitive account to a QnA runtime.
@@ -257,11 +273,13 @@ type AccountState struct {
 	//
 	// > **Note:** `customQuestionAnsweringSearchServiceId` and `customQuestionAnsweringSearchServiceKey` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qnaRuntimeEndpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
 	CustomQuestionAnsweringSearchServiceKey pulumi.StringPtrInput
-	// The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. This property is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://<custom_subdomain_name>.openai.azure.com/`.  Changing this forces a new resource to be created.
+	// The subdomain name used for Entra ID token-based authentication. This attribute is required when `networkAcls` is specified. This attribute is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://<custom_subdomain_name>.openai.azure.com/`. This can be specified during creation or added later, but once set changing this forces a new resource to be created.
+	//
+	// > **Note:** If you do not specify a `customSubdomainName` then you will not be able to attach a Private Endpoint to the resource. Moreover, functionality that requires Entra ID authentication, including Agent service, will not be accessible.
 	CustomSubdomainName pulumi.StringPtrInput
 	// A `customerManagedKey` block as documented below.
 	CustomerManagedKey AccountCustomerManagedKeyTypePtrInput
-	// Whether to enable the dynamic throttling for this Cognitive Service Account.
+	// Whether to enable the dynamic throttling for this Cognitive Service Account. This attribute cannot be set when the `kind` is `OpenAI` or `AIServices`.
 	DynamicThrottlingEnabled pulumi.BoolPtrInput
 	// The endpoint used to connect to the Cognitive Service Account.
 	Endpoint pulumi.StringPtrInput
@@ -269,7 +287,7 @@ type AccountState struct {
 	Fqdns pulumi.StringArrayInput
 	// An `identity` block as defined below.
 	Identity AccountIdentityPtrInput
-	// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `ContentSafety`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`, `FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `MetricsAdvisor`, `OpenAI`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
+	// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AIServices`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `ContentSafety`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`, `FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `MetricsAdvisor`, `OpenAI`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** New Bing Search resources cannot be created as their APIs are moving from Cognitive Services Platform to new surface area under Microsoft.com. Starting from October 30, 2020, existing instances of Bing Search APIs provisioned via Cognitive Services will be continuously supported for next 3 years or till the end of respective Enterprise Agreement, whichever happens first.
 	//
@@ -293,10 +311,14 @@ type AccountState struct {
 	Name pulumi.StringPtrInput
 	// A `networkAcls` block as defined below. When this property is specified, `customSubdomainName` is also required to be set.
 	NetworkAcls AccountNetworkAclsPtrInput
+	// A `networkInjection` block as defined below. Only applicable if the `kind` is set to `AIServices`.
+	NetworkInjection AccountNetworkInjectionPtrInput
 	// Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
 	OutboundNetworkAccessRestricted pulumi.BoolPtrInput
 	// A primary access key which can be used to connect to the Cognitive Service Account.
 	PrimaryAccessKey pulumi.StringPtrInput
+	// Whether project management is enabled when the `kind` is set to `AIServices`. Once enabled, `projectManagementEnabled` cannot be disabled. Changing this forces a new resource to be created. Defaults to `false`.
+	ProjectManagementEnabled pulumi.BoolPtrInput
 	// Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// A URL to link a QnAMaker cognitive account to a QnA runtime.
@@ -326,17 +348,19 @@ type accountArgs struct {
 	//
 	// > **Note:** `customQuestionAnsweringSearchServiceId` and `customQuestionAnsweringSearchServiceKey` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qnaRuntimeEndpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
 	CustomQuestionAnsweringSearchServiceKey *string `pulumi:"customQuestionAnsweringSearchServiceKey"`
-	// The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. This property is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://<custom_subdomain_name>.openai.azure.com/`.  Changing this forces a new resource to be created.
+	// The subdomain name used for Entra ID token-based authentication. This attribute is required when `networkAcls` is specified. This attribute is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://<custom_subdomain_name>.openai.azure.com/`. This can be specified during creation or added later, but once set changing this forces a new resource to be created.
+	//
+	// > **Note:** If you do not specify a `customSubdomainName` then you will not be able to attach a Private Endpoint to the resource. Moreover, functionality that requires Entra ID authentication, including Agent service, will not be accessible.
 	CustomSubdomainName *string `pulumi:"customSubdomainName"`
 	// A `customerManagedKey` block as documented below.
 	CustomerManagedKey *AccountCustomerManagedKeyType `pulumi:"customerManagedKey"`
-	// Whether to enable the dynamic throttling for this Cognitive Service Account.
+	// Whether to enable the dynamic throttling for this Cognitive Service Account. This attribute cannot be set when the `kind` is `OpenAI` or `AIServices`.
 	DynamicThrottlingEnabled *bool `pulumi:"dynamicThrottlingEnabled"`
 	// List of FQDNs allowed for the Cognitive Account.
 	Fqdns []string `pulumi:"fqdns"`
 	// An `identity` block as defined below.
 	Identity *AccountIdentity `pulumi:"identity"`
-	// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `ContentSafety`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`, `FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `MetricsAdvisor`, `OpenAI`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
+	// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AIServices`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `ContentSafety`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`, `FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `MetricsAdvisor`, `OpenAI`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** New Bing Search resources cannot be created as their APIs are moving from Cognitive Services Platform to new surface area under Microsoft.com. Starting from October 30, 2020, existing instances of Bing Search APIs provisioned via Cognitive Services will be continuously supported for next 3 years or till the end of respective Enterprise Agreement, whichever happens first.
 	//
@@ -360,8 +384,12 @@ type accountArgs struct {
 	Name *string `pulumi:"name"`
 	// A `networkAcls` block as defined below. When this property is specified, `customSubdomainName` is also required to be set.
 	NetworkAcls *AccountNetworkAcls `pulumi:"networkAcls"`
+	// A `networkInjection` block as defined below. Only applicable if the `kind` is set to `AIServices`.
+	NetworkInjection *AccountNetworkInjection `pulumi:"networkInjection"`
 	// Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
 	OutboundNetworkAccessRestricted *bool `pulumi:"outboundNetworkAccessRestricted"`
+	// Whether project management is enabled when the `kind` is set to `AIServices`. Once enabled, `projectManagementEnabled` cannot be disabled. Changing this forces a new resource to be created. Defaults to `false`.
+	ProjectManagementEnabled *bool `pulumi:"projectManagementEnabled"`
 	// Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// A URL to link a QnAMaker cognitive account to a QnA runtime.
@@ -386,17 +414,19 @@ type AccountArgs struct {
 	//
 	// > **Note:** `customQuestionAnsweringSearchServiceId` and `customQuestionAnsweringSearchServiceKey` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qnaRuntimeEndpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
 	CustomQuestionAnsweringSearchServiceKey pulumi.StringPtrInput
-	// The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. This property is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://<custom_subdomain_name>.openai.azure.com/`.  Changing this forces a new resource to be created.
+	// The subdomain name used for Entra ID token-based authentication. This attribute is required when `networkAcls` is specified. This attribute is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://<custom_subdomain_name>.openai.azure.com/`. This can be specified during creation or added later, but once set changing this forces a new resource to be created.
+	//
+	// > **Note:** If you do not specify a `customSubdomainName` then you will not be able to attach a Private Endpoint to the resource. Moreover, functionality that requires Entra ID authentication, including Agent service, will not be accessible.
 	CustomSubdomainName pulumi.StringPtrInput
 	// A `customerManagedKey` block as documented below.
 	CustomerManagedKey AccountCustomerManagedKeyTypePtrInput
-	// Whether to enable the dynamic throttling for this Cognitive Service Account.
+	// Whether to enable the dynamic throttling for this Cognitive Service Account. This attribute cannot be set when the `kind` is `OpenAI` or `AIServices`.
 	DynamicThrottlingEnabled pulumi.BoolPtrInput
 	// List of FQDNs allowed for the Cognitive Account.
 	Fqdns pulumi.StringArrayInput
 	// An `identity` block as defined below.
 	Identity AccountIdentityPtrInput
-	// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `ContentSafety`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`, `FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `MetricsAdvisor`, `OpenAI`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
+	// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AIServices`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `ContentSafety`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`, `FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `MetricsAdvisor`, `OpenAI`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** New Bing Search resources cannot be created as their APIs are moving from Cognitive Services Platform to new surface area under Microsoft.com. Starting from October 30, 2020, existing instances of Bing Search APIs provisioned via Cognitive Services will be continuously supported for next 3 years or till the end of respective Enterprise Agreement, whichever happens first.
 	//
@@ -420,8 +450,12 @@ type AccountArgs struct {
 	Name pulumi.StringPtrInput
 	// A `networkAcls` block as defined below. When this property is specified, `customSubdomainName` is also required to be set.
 	NetworkAcls AccountNetworkAclsPtrInput
+	// A `networkInjection` block as defined below. Only applicable if the `kind` is set to `AIServices`.
+	NetworkInjection AccountNetworkInjectionPtrInput
 	// Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
 	OutboundNetworkAccessRestricted pulumi.BoolPtrInput
+	// Whether project management is enabled when the `kind` is set to `AIServices`. Once enabled, `projectManagementEnabled` cannot be disabled. Changing this forces a new resource to be created. Defaults to `false`.
+	ProjectManagementEnabled pulumi.BoolPtrInput
 	// Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// A URL to link a QnAMaker cognitive account to a QnA runtime.
@@ -537,7 +571,9 @@ func (o AccountOutput) CustomQuestionAnsweringSearchServiceKey() pulumi.StringPt
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.CustomQuestionAnsweringSearchServiceKey }).(pulumi.StringPtrOutput)
 }
 
-// The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. This property is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://<custom_subdomain_name>.openai.azure.com/`.  Changing this forces a new resource to be created.
+// The subdomain name used for Entra ID token-based authentication. This attribute is required when `networkAcls` is specified. This attribute is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://<custom_subdomain_name>.openai.azure.com/`. This can be specified during creation or added later, but once set changing this forces a new resource to be created.
+//
+// > **Note:** If you do not specify a `customSubdomainName` then you will not be able to attach a Private Endpoint to the resource. Moreover, functionality that requires Entra ID authentication, including Agent service, will not be accessible.
 func (o AccountOutput) CustomSubdomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.CustomSubdomainName }).(pulumi.StringPtrOutput)
 }
@@ -547,7 +583,7 @@ func (o AccountOutput) CustomerManagedKey() AccountCustomerManagedKeyTypePtrOutp
 	return o.ApplyT(func(v *Account) AccountCustomerManagedKeyTypePtrOutput { return v.CustomerManagedKey }).(AccountCustomerManagedKeyTypePtrOutput)
 }
 
-// Whether to enable the dynamic throttling for this Cognitive Service Account.
+// Whether to enable the dynamic throttling for this Cognitive Service Account. This attribute cannot be set when the `kind` is `OpenAI` or `AIServices`.
 func (o AccountOutput) DynamicThrottlingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.DynamicThrottlingEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -567,7 +603,7 @@ func (o AccountOutput) Identity() AccountIdentityPtrOutput {
 	return o.ApplyT(func(v *Account) AccountIdentityPtrOutput { return v.Identity }).(AccountIdentityPtrOutput)
 }
 
-// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `ContentSafety`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`, `FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `MetricsAdvisor`, `OpenAI`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
+// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AIServices`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `ContentSafety`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`, `FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `MetricsAdvisor`, `OpenAI`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
 //
 // > **Note:** New Bing Search resources cannot be created as their APIs are moving from Cognitive Services Platform to new surface area under Microsoft.com. Starting from October 30, 2020, existing instances of Bing Search APIs provisioned via Cognitive Services will be continuously supported for next 3 years or till the end of respective Enterprise Agreement, whichever happens first.
 //
@@ -618,6 +654,11 @@ func (o AccountOutput) NetworkAcls() AccountNetworkAclsPtrOutput {
 	return o.ApplyT(func(v *Account) AccountNetworkAclsPtrOutput { return v.NetworkAcls }).(AccountNetworkAclsPtrOutput)
 }
 
+// A `networkInjection` block as defined below. Only applicable if the `kind` is set to `AIServices`.
+func (o AccountOutput) NetworkInjection() AccountNetworkInjectionPtrOutput {
+	return o.ApplyT(func(v *Account) AccountNetworkInjectionPtrOutput { return v.NetworkInjection }).(AccountNetworkInjectionPtrOutput)
+}
+
 // Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
 func (o AccountOutput) OutboundNetworkAccessRestricted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.OutboundNetworkAccessRestricted }).(pulumi.BoolPtrOutput)
@@ -626,6 +667,11 @@ func (o AccountOutput) OutboundNetworkAccessRestricted() pulumi.BoolPtrOutput {
 // A primary access key which can be used to connect to the Cognitive Service Account.
 func (o AccountOutput) PrimaryAccessKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.PrimaryAccessKey }).(pulumi.StringOutput)
+}
+
+// Whether project management is enabled when the `kind` is set to `AIServices`. Once enabled, `projectManagementEnabled` cannot be disabled. Changing this forces a new resource to be created. Defaults to `false`.
+func (o AccountOutput) ProjectManagementEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.ProjectManagementEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Whether public network access is allowed for the Cognitive Account. Defaults to `true`.

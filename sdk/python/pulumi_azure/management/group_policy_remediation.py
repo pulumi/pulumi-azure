@@ -31,7 +31,7 @@ class GroupPolicyRemediationArgs:
         The set of arguments for constructing a GroupPolicyRemediation resource.
         :param pulumi.Input[_builtins.str] management_group_id: The Management Group ID at which the Policy Remediation should be applied. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] policy_assignment_id: The ID of the Policy Assignment that should be remediated.
-        :param pulumi.Input[_builtins.float] failure_percentage: A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+        :param pulumi.Input[_builtins.float] failure_percentage: The percentage failure threshold. Possible values range between `0.0` and `1.0`. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] location_filters: A list of the resource locations that will be remediated.
         :param pulumi.Input[_builtins.str] name: The name of the Policy Remediation. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] parallel_deployments: Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
@@ -81,7 +81,7 @@ class GroupPolicyRemediationArgs:
     @pulumi.getter(name="failurePercentage")
     def failure_percentage(self) -> Optional[pulumi.Input[_builtins.float]]:
         """
-        A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+        The percentage failure threshold. Possible values range between `0.0` and `1.0`. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
         """
         return pulumi.get(self, "failure_percentage")
 
@@ -163,7 +163,7 @@ class _GroupPolicyRemediationState:
                  resource_count: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering GroupPolicyRemediation resources.
-        :param pulumi.Input[_builtins.float] failure_percentage: A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+        :param pulumi.Input[_builtins.float] failure_percentage: The percentage failure threshold. Possible values range between `0.0` and `1.0`. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] location_filters: A list of the resource locations that will be remediated.
         :param pulumi.Input[_builtins.str] management_group_id: The Management Group ID at which the Policy Remediation should be applied. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Policy Remediation. Changing this forces a new resource to be created.
@@ -193,7 +193,7 @@ class _GroupPolicyRemediationState:
     @pulumi.getter(name="failurePercentage")
     def failure_percentage(self) -> Optional[pulumi.Input[_builtins.float]]:
         """
-        A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+        The percentage failure threshold. Possible values range between `0.0` and `1.0`. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
         """
         return pulumi.get(self, "failure_percentage")
 
@@ -345,7 +345,7 @@ class GroupPolicyRemediation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.float] failure_percentage: A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+        :param pulumi.Input[_builtins.float] failure_percentage: The percentage failure threshold. Possible values range between `0.0` and `1.0`. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] location_filters: A list of the resource locations that will be remediated.
         :param pulumi.Input[_builtins.str] management_group_id: The Management Group ID at which the Policy Remediation should be applied. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Policy Remediation. Changing this forces a new resource to be created.
@@ -471,7 +471,7 @@ class GroupPolicyRemediation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.float] failure_percentage: A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+        :param pulumi.Input[_builtins.float] failure_percentage: The percentage failure threshold. Possible values range between `0.0` and `1.0`. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] location_filters: A list of the resource locations that will be remediated.
         :param pulumi.Input[_builtins.str] management_group_id: The Management Group ID at which the Policy Remediation should be applied. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Policy Remediation. Changing this forces a new resource to be created.
@@ -498,7 +498,7 @@ class GroupPolicyRemediation(pulumi.CustomResource):
     @pulumi.getter(name="failurePercentage")
     def failure_percentage(self) -> pulumi.Output[Optional[_builtins.float]]:
         """
-        A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+        The percentage failure threshold. Possible values range between `0.0` and `1.0`. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
         """
         return pulumi.get(self, "failure_percentage")
 

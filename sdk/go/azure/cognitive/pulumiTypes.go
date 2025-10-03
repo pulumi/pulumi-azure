@@ -802,6 +802,8 @@ func (o AIServicesStorageArrayOutput) Index(i pulumi.IntInput) AIServicesStorage
 
 type AccountCustomerManagedKeyType struct {
 	// The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account.
+	//
+	// > **Note:** When `projectManagementEnabled` is set to `true`, removing this block forces a new resource to be created.
 	IdentityClientId *string `pulumi:"identityClientId"`
 	// The ID of the Key Vault Key which should be used to Encrypt the data in this Cognitive Account.
 	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`
@@ -820,6 +822,8 @@ type AccountCustomerManagedKeyTypeInput interface {
 
 type AccountCustomerManagedKeyTypeArgs struct {
 	// The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account.
+	//
+	// > **Note:** When `projectManagementEnabled` is set to `true`, removing this block forces a new resource to be created.
 	IdentityClientId pulumi.StringPtrInput `pulumi:"identityClientId"`
 	// The ID of the Key Vault Key which should be used to Encrypt the data in this Cognitive Account.
 	KeyVaultKeyId pulumi.StringInput `pulumi:"keyVaultKeyId"`
@@ -903,6 +907,8 @@ func (o AccountCustomerManagedKeyTypeOutput) ToAccountCustomerManagedKeyTypePtrO
 }
 
 // The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account.
+//
+// > **Note:** When `projectManagementEnabled` is set to `true`, removing this block forces a new resource to be created.
 func (o AccountCustomerManagedKeyTypeOutput) IdentityClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountCustomerManagedKeyType) *string { return v.IdentityClientId }).(pulumi.StringPtrOutput)
 }
@@ -937,6 +943,8 @@ func (o AccountCustomerManagedKeyTypePtrOutput) Elem() AccountCustomerManagedKey
 }
 
 // The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account.
+//
+// > **Note:** When `projectManagementEnabled` is set to `true`, removing this block forces a new resource to be created.
 func (o AccountCustomerManagedKeyTypePtrOutput) IdentityClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountCustomerManagedKeyType) *string {
 		if v == nil {
@@ -1161,7 +1169,7 @@ func (o AccountIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 type AccountNetworkAcls struct {
 	// Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
 	//
-	// > **Note:** `bypass` can only be set when `kind` is set to `OpenAI`
+	// > **Note:** `bypass` can only be set when `kind` is set to `OpenAI` or `AIServices`.
 	Bypass *string `pulumi:"bypass"`
 	// The Default Action to use when no rules match from `ipRules` / `virtualNetworkRules`. Possible values are `Allow` and `Deny`.
 	DefaultAction string `pulumi:"defaultAction"`
@@ -1185,7 +1193,7 @@ type AccountNetworkAclsInput interface {
 type AccountNetworkAclsArgs struct {
 	// Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
 	//
-	// > **Note:** `bypass` can only be set when `kind` is set to `OpenAI`
+	// > **Note:** `bypass` can only be set when `kind` is set to `OpenAI` or `AIServices`.
 	Bypass pulumi.StringPtrInput `pulumi:"bypass"`
 	// The Default Action to use when no rules match from `ipRules` / `virtualNetworkRules`. Possible values are `Allow` and `Deny`.
 	DefaultAction pulumi.StringInput `pulumi:"defaultAction"`
@@ -1274,7 +1282,7 @@ func (o AccountNetworkAclsOutput) ToAccountNetworkAclsPtrOutputWithContext(ctx c
 
 // Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
 //
-// > **Note:** `bypass` can only be set when `kind` is set to `OpenAI`
+// > **Note:** `bypass` can only be set when `kind` is set to `OpenAI` or `AIServices`.
 func (o AccountNetworkAclsOutput) Bypass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountNetworkAcls) *string { return v.Bypass }).(pulumi.StringPtrOutput)
 }
@@ -1320,7 +1328,7 @@ func (o AccountNetworkAclsPtrOutput) Elem() AccountNetworkAclsOutput {
 
 // Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
 //
-// > **Note:** `bypass` can only be set when `kind` is set to `OpenAI`
+// > **Note:** `bypass` can only be set when `kind` is set to `OpenAI` or `AIServices`.
 func (o AccountNetworkAclsPtrOutput) Bypass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountNetworkAcls) *string {
 		if v == nil {
@@ -1361,7 +1369,7 @@ func (o AccountNetworkAclsPtrOutput) VirtualNetworkRules() AccountNetworkAclsVir
 }
 
 type AccountNetworkAclsVirtualNetworkRule struct {
-	// Whether ignore missing vnet service endpoint or not. Default to `false`.
+	// Whether ignore missing vnet service endpoint or not. Defaults to `false`.
 	IgnoreMissingVnetServiceEndpoint *bool `pulumi:"ignoreMissingVnetServiceEndpoint"`
 	// The ID of the subnet which should be able to access this Cognitive Account.
 	SubnetId string `pulumi:"subnetId"`
@@ -1379,7 +1387,7 @@ type AccountNetworkAclsVirtualNetworkRuleInput interface {
 }
 
 type AccountNetworkAclsVirtualNetworkRuleArgs struct {
-	// Whether ignore missing vnet service endpoint or not. Default to `false`.
+	// Whether ignore missing vnet service endpoint or not. Defaults to `false`.
 	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrInput `pulumi:"ignoreMissingVnetServiceEndpoint"`
 	// The ID of the subnet which should be able to access this Cognitive Account.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
@@ -1436,7 +1444,7 @@ func (o AccountNetworkAclsVirtualNetworkRuleOutput) ToAccountNetworkAclsVirtualN
 	return o
 }
 
-// Whether ignore missing vnet service endpoint or not. Default to `false`.
+// Whether ignore missing vnet service endpoint or not. Defaults to `false`.
 func (o AccountNetworkAclsVirtualNetworkRuleOutput) IgnoreMissingVnetServiceEndpoint() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccountNetworkAclsVirtualNetworkRule) *bool { return v.IgnoreMissingVnetServiceEndpoint }).(pulumi.BoolPtrOutput)
 }
@@ -1464,6 +1472,170 @@ func (o AccountNetworkAclsVirtualNetworkRuleArrayOutput) Index(i pulumi.IntInput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccountNetworkAclsVirtualNetworkRule {
 		return vs[0].([]AccountNetworkAclsVirtualNetworkRule)[vs[1].(int)]
 	}).(AccountNetworkAclsVirtualNetworkRuleOutput)
+}
+
+type AccountNetworkInjection struct {
+	// Specifies what features network injection applies to. The only possible value is `agent`.
+	Scenario string `pulumi:"scenario"`
+	// The ID of the subnet which the Agent Client is injected into.
+	//
+	// > **Note:** The agent subnet must use an address space in the 172.* or 192.* ranges.
+	SubnetId string `pulumi:"subnetId"`
+}
+
+// AccountNetworkInjectionInput is an input type that accepts AccountNetworkInjectionArgs and AccountNetworkInjectionOutput values.
+// You can construct a concrete instance of `AccountNetworkInjectionInput` via:
+//
+//	AccountNetworkInjectionArgs{...}
+type AccountNetworkInjectionInput interface {
+	pulumi.Input
+
+	ToAccountNetworkInjectionOutput() AccountNetworkInjectionOutput
+	ToAccountNetworkInjectionOutputWithContext(context.Context) AccountNetworkInjectionOutput
+}
+
+type AccountNetworkInjectionArgs struct {
+	// Specifies what features network injection applies to. The only possible value is `agent`.
+	Scenario pulumi.StringInput `pulumi:"scenario"`
+	// The ID of the subnet which the Agent Client is injected into.
+	//
+	// > **Note:** The agent subnet must use an address space in the 172.* or 192.* ranges.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (AccountNetworkInjectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountNetworkInjection)(nil)).Elem()
+}
+
+func (i AccountNetworkInjectionArgs) ToAccountNetworkInjectionOutput() AccountNetworkInjectionOutput {
+	return i.ToAccountNetworkInjectionOutputWithContext(context.Background())
+}
+
+func (i AccountNetworkInjectionArgs) ToAccountNetworkInjectionOutputWithContext(ctx context.Context) AccountNetworkInjectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkInjectionOutput)
+}
+
+func (i AccountNetworkInjectionArgs) ToAccountNetworkInjectionPtrOutput() AccountNetworkInjectionPtrOutput {
+	return i.ToAccountNetworkInjectionPtrOutputWithContext(context.Background())
+}
+
+func (i AccountNetworkInjectionArgs) ToAccountNetworkInjectionPtrOutputWithContext(ctx context.Context) AccountNetworkInjectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkInjectionOutput).ToAccountNetworkInjectionPtrOutputWithContext(ctx)
+}
+
+// AccountNetworkInjectionPtrInput is an input type that accepts AccountNetworkInjectionArgs, AccountNetworkInjectionPtr and AccountNetworkInjectionPtrOutput values.
+// You can construct a concrete instance of `AccountNetworkInjectionPtrInput` via:
+//
+//	        AccountNetworkInjectionArgs{...}
+//
+//	or:
+//
+//	        nil
+type AccountNetworkInjectionPtrInput interface {
+	pulumi.Input
+
+	ToAccountNetworkInjectionPtrOutput() AccountNetworkInjectionPtrOutput
+	ToAccountNetworkInjectionPtrOutputWithContext(context.Context) AccountNetworkInjectionPtrOutput
+}
+
+type accountNetworkInjectionPtrType AccountNetworkInjectionArgs
+
+func AccountNetworkInjectionPtr(v *AccountNetworkInjectionArgs) AccountNetworkInjectionPtrInput {
+	return (*accountNetworkInjectionPtrType)(v)
+}
+
+func (*accountNetworkInjectionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountNetworkInjection)(nil)).Elem()
+}
+
+func (i *accountNetworkInjectionPtrType) ToAccountNetworkInjectionPtrOutput() AccountNetworkInjectionPtrOutput {
+	return i.ToAccountNetworkInjectionPtrOutputWithContext(context.Background())
+}
+
+func (i *accountNetworkInjectionPtrType) ToAccountNetworkInjectionPtrOutputWithContext(ctx context.Context) AccountNetworkInjectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkInjectionPtrOutput)
+}
+
+type AccountNetworkInjectionOutput struct{ *pulumi.OutputState }
+
+func (AccountNetworkInjectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountNetworkInjection)(nil)).Elem()
+}
+
+func (o AccountNetworkInjectionOutput) ToAccountNetworkInjectionOutput() AccountNetworkInjectionOutput {
+	return o
+}
+
+func (o AccountNetworkInjectionOutput) ToAccountNetworkInjectionOutputWithContext(ctx context.Context) AccountNetworkInjectionOutput {
+	return o
+}
+
+func (o AccountNetworkInjectionOutput) ToAccountNetworkInjectionPtrOutput() AccountNetworkInjectionPtrOutput {
+	return o.ToAccountNetworkInjectionPtrOutputWithContext(context.Background())
+}
+
+func (o AccountNetworkInjectionOutput) ToAccountNetworkInjectionPtrOutputWithContext(ctx context.Context) AccountNetworkInjectionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountNetworkInjection) *AccountNetworkInjection {
+		return &v
+	}).(AccountNetworkInjectionPtrOutput)
+}
+
+// Specifies what features network injection applies to. The only possible value is `agent`.
+func (o AccountNetworkInjectionOutput) Scenario() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountNetworkInjection) string { return v.Scenario }).(pulumi.StringOutput)
+}
+
+// The ID of the subnet which the Agent Client is injected into.
+//
+// > **Note:** The agent subnet must use an address space in the 172.* or 192.* ranges.
+func (o AccountNetworkInjectionOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountNetworkInjection) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+type AccountNetworkInjectionPtrOutput struct{ *pulumi.OutputState }
+
+func (AccountNetworkInjectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountNetworkInjection)(nil)).Elem()
+}
+
+func (o AccountNetworkInjectionPtrOutput) ToAccountNetworkInjectionPtrOutput() AccountNetworkInjectionPtrOutput {
+	return o
+}
+
+func (o AccountNetworkInjectionPtrOutput) ToAccountNetworkInjectionPtrOutputWithContext(ctx context.Context) AccountNetworkInjectionPtrOutput {
+	return o
+}
+
+func (o AccountNetworkInjectionPtrOutput) Elem() AccountNetworkInjectionOutput {
+	return o.ApplyT(func(v *AccountNetworkInjection) AccountNetworkInjection {
+		if v != nil {
+			return *v
+		}
+		var ret AccountNetworkInjection
+		return ret
+	}).(AccountNetworkInjectionOutput)
+}
+
+// Specifies what features network injection applies to. The only possible value is `agent`.
+func (o AccountNetworkInjectionPtrOutput) Scenario() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountNetworkInjection) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Scenario
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the subnet which the Agent Client is injected into.
+//
+// > **Note:** The agent subnet must use an address space in the 172.* or 192.* ranges.
+func (o AccountNetworkInjectionPtrOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountNetworkInjection) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SubnetId
+	}).(pulumi.StringPtrOutput)
 }
 
 type AccountRaiPolicyContentFilter struct {
@@ -2246,6 +2418,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountNetworkAclsPtrInput)(nil)).Elem(), AccountNetworkAclsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountNetworkAclsVirtualNetworkRuleInput)(nil)).Elem(), AccountNetworkAclsVirtualNetworkRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountNetworkAclsVirtualNetworkRuleArrayInput)(nil)).Elem(), AccountNetworkAclsVirtualNetworkRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountNetworkInjectionInput)(nil)).Elem(), AccountNetworkInjectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountNetworkInjectionPtrInput)(nil)).Elem(), AccountNetworkInjectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountRaiPolicyContentFilterInput)(nil)).Elem(), AccountRaiPolicyContentFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountRaiPolicyContentFilterArrayInput)(nil)).Elem(), AccountRaiPolicyContentFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountStorageInput)(nil)).Elem(), AccountStorageArgs{})
@@ -2274,6 +2448,8 @@ func init() {
 	pulumi.RegisterOutputType(AccountNetworkAclsPtrOutput{})
 	pulumi.RegisterOutputType(AccountNetworkAclsVirtualNetworkRuleOutput{})
 	pulumi.RegisterOutputType(AccountNetworkAclsVirtualNetworkRuleArrayOutput{})
+	pulumi.RegisterOutputType(AccountNetworkInjectionOutput{})
+	pulumi.RegisterOutputType(AccountNetworkInjectionPtrOutput{})
 	pulumi.RegisterOutputType(AccountRaiPolicyContentFilterOutput{})
 	pulumi.RegisterOutputType(AccountRaiPolicyContentFilterArrayOutput{})
 	pulumi.RegisterOutputType(AccountStorageOutput{})

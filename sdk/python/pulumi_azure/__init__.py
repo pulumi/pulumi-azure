@@ -855,6 +855,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "apimanagement/workspacePolicy",
+  "fqn": "pulumi_azure.apimanagement",
+  "classes": {
+   "azure:apimanagement/workspacePolicy:WorkspacePolicy": "WorkspacePolicy"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "appconfiguration/configurationFeature",
   "fqn": "pulumi_azure.appconfiguration",
   "classes": {

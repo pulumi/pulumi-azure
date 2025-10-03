@@ -295,6 +295,11 @@ export type Workspace = import("./workspace").Workspace;
 export const Workspace: typeof import("./workspace").Workspace = null as any;
 utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
 
+export { WorkspacePolicyArgs, WorkspacePolicyState } from "./workspacePolicy";
+export type WorkspacePolicy = import("./workspacePolicy").WorkspacePolicy;
+export const WorkspacePolicy: typeof import("./workspacePolicy").WorkspacePolicy = null as any;
+utilities.lazyLoad(exports, ["WorkspacePolicy"], () => require("./workspacePolicy"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -398,6 +403,8 @@ const _module = {
                 return new User(name, <any>undefined, { urn })
             case "azure:apimanagement/workspace:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
+            case "azure:apimanagement/workspacePolicy:WorkspacePolicy":
+                return new WorkspacePolicy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -452,3 +459,4 @@ pulumi.runtime.registerResourceModule("azure", "apimanagement/subscription", _mo
 pulumi.runtime.registerResourceModule("azure", "apimanagement/tag", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/user", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/workspace", _module)
+pulumi.runtime.registerResourceModule("azure", "apimanagement/workspacePolicy", _module)

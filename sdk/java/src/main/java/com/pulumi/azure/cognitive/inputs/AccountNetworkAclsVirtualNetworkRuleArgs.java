@@ -18,14 +18,14 @@ public final class AccountNetworkAclsVirtualNetworkRuleArgs extends com.pulumi.r
     public static final AccountNetworkAclsVirtualNetworkRuleArgs Empty = new AccountNetworkAclsVirtualNetworkRuleArgs();
 
     /**
-     * Whether ignore missing vnet service endpoint or not. Default to `false`.
+     * Whether ignore missing vnet service endpoint or not. Defaults to `false`.
      * 
      */
     @Import(name="ignoreMissingVnetServiceEndpoint")
     private @Nullable Output<Boolean> ignoreMissingVnetServiceEndpoint;
 
     /**
-     * @return Whether ignore missing vnet service endpoint or not. Default to `false`.
+     * @return Whether ignore missing vnet service endpoint or not. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> ignoreMissingVnetServiceEndpoint() {
@@ -73,7 +73,7 @@ public final class AccountNetworkAclsVirtualNetworkRuleArgs extends com.pulumi.r
         }
 
         /**
-         * @param ignoreMissingVnetServiceEndpoint Whether ignore missing vnet service endpoint or not. Default to `false`.
+         * @param ignoreMissingVnetServiceEndpoint Whether ignore missing vnet service endpoint or not. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class AccountNetworkAclsVirtualNetworkRuleArgs extends com.pulumi.r
         }
 
         /**
-         * @param ignoreMissingVnetServiceEndpoint Whether ignore missing vnet service endpoint or not. Default to `false`.
+         * @param ignoreMissingVnetServiceEndpoint Whether ignore missing vnet service endpoint or not. Defaults to `false`.
          * 
          * @return builder
          * 

@@ -22,7 +22,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly int AppPort;
         /// <summary>
-        /// The protocol for the app. Possible values include `http` and `grpc`. Defaults to `http`.
+        /// The protocol for the app.
         /// </summary>
         public readonly string AppProtocol;
 

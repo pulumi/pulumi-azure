@@ -33,6 +33,8 @@ __all__ = [
     'AccountNetworkAclsArgsDict',
     'AccountNetworkAclsVirtualNetworkRuleArgs',
     'AccountNetworkAclsVirtualNetworkRuleArgsDict',
+    'AccountNetworkInjectionArgs',
+    'AccountNetworkInjectionArgsDict',
     'AccountRaiPolicyContentFilterArgs',
     'AccountRaiPolicyContentFilterArgsDict',
     'AccountStorageArgs',
@@ -419,6 +421,8 @@ if not MYPY:
         identity_client_id: NotRequired[pulumi.Input[_builtins.str]]
         """
         The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account.
+
+        > **Note:** When `project_management_enabled` is set to `true`, removing this block forces a new resource to be created.
         """
 elif False:
     AccountCustomerManagedKeyArgsDict: TypeAlias = Mapping[str, Any]
@@ -431,6 +435,8 @@ class AccountCustomerManagedKeyArgs:
         """
         :param pulumi.Input[_builtins.str] key_vault_key_id: The ID of the Key Vault Key which should be used to Encrypt the data in this Cognitive Account.
         :param pulumi.Input[_builtins.str] identity_client_id: The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account.
+               
+               > **Note:** When `project_management_enabled` is set to `true`, removing this block forces a new resource to be created.
         """
         pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
         if identity_client_id is not None:
@@ -453,6 +459,8 @@ class AccountCustomerManagedKeyArgs:
     def identity_client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account.
+
+        > **Note:** When `project_management_enabled` is set to `true`, removing this block forces a new resource to be created.
         """
         return pulumi.get(self, "identity_client_id")
 
@@ -568,7 +576,7 @@ if not MYPY:
         """
         Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
 
-        > **Note:** `bypass` can only be set when `kind` is set to `OpenAI`
+        > **Note:** `bypass` can only be set when `kind` is set to `OpenAI` or `AIServices`.
         """
         ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
         """
@@ -592,7 +600,7 @@ class AccountNetworkAclsArgs:
         :param pulumi.Input[_builtins.str] default_action: The Default Action to use when no rules match from `ip_rules` / `virtual_network_rules`. Possible values are `Allow` and `Deny`.
         :param pulumi.Input[_builtins.str] bypass: Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
                
-               > **Note:** `bypass` can only be set when `kind` is set to `OpenAI`
+               > **Note:** `bypass` can only be set when `kind` is set to `OpenAI` or `AIServices`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_rules: One or more IP Addresses, or CIDR Blocks which should be able to access the Cognitive Account.
         :param pulumi.Input[Sequence[pulumi.Input['AccountNetworkAclsVirtualNetworkRuleArgs']]] virtual_network_rules: A `virtual_network_rules` block as defined below.
         """
@@ -622,7 +630,7 @@ class AccountNetworkAclsArgs:
         """
         Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
 
-        > **Note:** `bypass` can only be set when `kind` is set to `OpenAI`
+        > **Note:** `bypass` can only be set when `kind` is set to `OpenAI` or `AIServices`.
         """
         return pulumi.get(self, "bypass")
 
@@ -663,7 +671,7 @@ if not MYPY:
         """
         ignore_missing_vnet_service_endpoint: NotRequired[pulumi.Input[_builtins.bool]]
         """
-        Whether ignore missing vnet service endpoint or not. Default to `false`.
+        Whether ignore missing vnet service endpoint or not. Defaults to `false`.
         """
 elif False:
     AccountNetworkAclsVirtualNetworkRuleArgsDict: TypeAlias = Mapping[str, Any]
@@ -675,7 +683,7 @@ class AccountNetworkAclsVirtualNetworkRuleArgs:
                  ignore_missing_vnet_service_endpoint: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet which should be able to access this Cognitive Account.
-        :param pulumi.Input[_builtins.bool] ignore_missing_vnet_service_endpoint: Whether ignore missing vnet service endpoint or not. Default to `false`.
+        :param pulumi.Input[_builtins.bool] ignore_missing_vnet_service_endpoint: Whether ignore missing vnet service endpoint or not. Defaults to `false`.
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
         if ignore_missing_vnet_service_endpoint is not None:
@@ -697,13 +705,69 @@ class AccountNetworkAclsVirtualNetworkRuleArgs:
     @pulumi.getter(name="ignoreMissingVnetServiceEndpoint")
     def ignore_missing_vnet_service_endpoint(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Whether ignore missing vnet service endpoint or not. Default to `false`.
+        Whether ignore missing vnet service endpoint or not. Defaults to `false`.
         """
         return pulumi.get(self, "ignore_missing_vnet_service_endpoint")
 
     @ignore_missing_vnet_service_endpoint.setter
     def ignore_missing_vnet_service_endpoint(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "ignore_missing_vnet_service_endpoint", value)
+
+
+if not MYPY:
+    class AccountNetworkInjectionArgsDict(TypedDict):
+        scenario: pulumi.Input[_builtins.str]
+        """
+        Specifies what features network injection applies to. The only possible value is `agent`.
+        """
+        subnet_id: pulumi.Input[_builtins.str]
+        """
+        The ID of the subnet which the Agent Client is injected into.
+
+        > **Note:** The agent subnet must use an address space in the 172.* or 192.* ranges.
+        """
+elif False:
+    AccountNetworkInjectionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AccountNetworkInjectionArgs:
+    def __init__(__self__, *,
+                 scenario: pulumi.Input[_builtins.str],
+                 subnet_id: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] scenario: Specifies what features network injection applies to. The only possible value is `agent`.
+        :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet which the Agent Client is injected into.
+               
+               > **Note:** The agent subnet must use an address space in the 172.* or 192.* ranges.
+        """
+        pulumi.set(__self__, "scenario", scenario)
+        pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def scenario(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies what features network injection applies to. The only possible value is `agent`.
+        """
+        return pulumi.get(self, "scenario")
+
+    @scenario.setter
+    def scenario(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "scenario", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ID of the subnet which the Agent Client is injected into.
+
+        > **Note:** The agent subnet must use an address space in the 172.* or 192.* ranges.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "subnet_id", value)
 
 
 if not MYPY:

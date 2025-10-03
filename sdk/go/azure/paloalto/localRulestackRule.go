@@ -116,7 +116,7 @@ type LocalRulestackRule struct {
 	NegateDestination pulumi.BoolPtrOutput `pulumi:"negateDestination"`
 	// Should the inverse of the Source configuration be used. Defaults to `false`.
 	NegateSource pulumi.BoolPtrOutput `pulumi:"negateSource"`
-	// The Priority of this rule. Rules are executed in numerical order. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
+	// The Priority of this rule. Rules are executed in numerical order. Possible values are between 1 and 1000000. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
 	//
 	// > **Note:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
 	Priority pulumi.IntOutput `pulumi:"priority"`
@@ -208,7 +208,7 @@ type localRulestackRuleState struct {
 	NegateDestination *bool `pulumi:"negateDestination"`
 	// Should the inverse of the Source configuration be used. Defaults to `false`.
 	NegateSource *bool `pulumi:"negateSource"`
-	// The Priority of this rule. Rules are executed in numerical order. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
+	// The Priority of this rule. Rules are executed in numerical order. Possible values are between 1 and 1000000. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
 	//
 	// > **Note:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
 	Priority *int `pulumi:"priority"`
@@ -253,7 +253,7 @@ type LocalRulestackRuleState struct {
 	NegateDestination pulumi.BoolPtrInput
 	// Should the inverse of the Source configuration be used. Defaults to `false`.
 	NegateSource pulumi.BoolPtrInput
-	// The Priority of this rule. Rules are executed in numerical order. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
+	// The Priority of this rule. Rules are executed in numerical order. Possible values are between 1 and 1000000. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
 	//
 	// > **Note:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
 	Priority pulumi.IntPtrInput
@@ -302,7 +302,7 @@ type localRulestackRuleArgs struct {
 	NegateDestination *bool `pulumi:"negateDestination"`
 	// Should the inverse of the Source configuration be used. Defaults to `false`.
 	NegateSource *bool `pulumi:"negateSource"`
-	// The Priority of this rule. Rules are executed in numerical order. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
+	// The Priority of this rule. Rules are executed in numerical order. Possible values are between 1 and 1000000. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
 	//
 	// > **Note:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
 	Priority int `pulumi:"priority"`
@@ -348,7 +348,7 @@ type LocalRulestackRuleArgs struct {
 	NegateDestination pulumi.BoolPtrInput
 	// Should the inverse of the Source configuration be used. Defaults to `false`.
 	NegateSource pulumi.BoolPtrInput
-	// The Priority of this rule. Rules are executed in numerical order. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
+	// The Priority of this rule. Rules are executed in numerical order. Possible values are between 1 and 1000000. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
 	//
 	// > **Note:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
 	Priority pulumi.IntInput
@@ -518,7 +518,7 @@ func (o LocalRulestackRuleOutput) NegateSource() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LocalRulestackRule) pulumi.BoolPtrOutput { return v.NegateSource }).(pulumi.BoolPtrOutput)
 }
 
-// The Priority of this rule. Rules are executed in numerical order. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
+// The Priority of this rule. Rules are executed in numerical order. Possible values are between 1 and 1000000. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
 //
 // > **Note:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
 func (o LocalRulestackRuleOutput) Priority() pulumi.IntOutput {

@@ -14,15 +14,15 @@ namespace Pulumi.Azure.ContainerApp.Outputs
     public sealed class GetAppTemplateInitContainerResult
     {
         /// <summary>
-        /// A list of extra arguments to pass to the container.
+        /// A list of extra arguments passed to the container.
         /// </summary>
         public readonly ImmutableArray<string> Args;
         /// <summary>
-        /// A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+        /// A command passed to the container to override the default. This is provided as a list of command line elements without spaces.
         /// </summary>
         public readonly ImmutableArray<string> Commands;
         /// <summary>
-        /// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+        /// The amount of vCPU allocated to the container.
         /// </summary>
         public readonly double Cpu;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly string Image;
         /// <summary>
-        /// The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi`, and `4Gi`.
+        /// The amount of memory allocated to the container.
         /// </summary>
         public readonly string Memory;
         /// <summary>

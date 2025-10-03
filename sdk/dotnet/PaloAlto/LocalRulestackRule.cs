@@ -162,7 +162,7 @@ namespace Pulumi.Azure.PaloAlto
         public Output<bool?> NegateSource { get; private set; } = null!;
 
         /// <summary>
-        /// The Priority of this rule. Rules are executed in numerical order. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
+        /// The Priority of this rule. Rules are executed in numerical order. Possible values are between 1 and 1000000. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
         /// 
         /// &gt; **Note:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
         /// </summary>
@@ -332,7 +332,7 @@ namespace Pulumi.Azure.PaloAlto
         public Input<bool>? NegateSource { get; set; }
 
         /// <summary>
-        /// The Priority of this rule. Rules are executed in numerical order. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
+        /// The Priority of this rule. Rules are executed in numerical order. Possible values are between 1 and 1000000. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
         /// 
         /// &gt; **Note:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
         /// </summary>
@@ -476,7 +476,7 @@ namespace Pulumi.Azure.PaloAlto
         public Input<bool>? NegateSource { get; set; }
 
         /// <summary>
-        /// The Priority of this rule. Rules are executed in numerical order. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
+        /// The Priority of this rule. Rules are executed in numerical order. Possible values are between 1 and 1000000. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
         /// 
         /// &gt; **Note:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
         /// </summary>

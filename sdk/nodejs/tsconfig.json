@@ -83,6 +83,7 @@
         "apimanagement/tag.ts",
         "apimanagement/user.ts",
         "apimanagement/workspace.ts",
+        "apimanagement/workspacePolicy.ts",
         "appconfiguration/configurationFeature.ts",
         "appconfiguration/configurationKey.ts",
         "appconfiguration/configurationStore.ts",

@@ -79,7 +79,7 @@ namespace Pulumi.Azure.Management
     public partial class GroupPolicyRemediation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+        /// The percentage failure threshold. Possible values range between `0.0` and `1.0`. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
         /// </summary>
         [Output("failurePercentage")]
         public Output<double?> FailurePercentage { get; private set; } = null!;
@@ -173,7 +173,7 @@ namespace Pulumi.Azure.Management
     public sealed class GroupPolicyRemediationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+        /// The percentage failure threshold. Possible values range between `0.0` and `1.0`. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
         /// </summary>
         [Input("failurePercentage")]
         public Input<double>? FailurePercentage { get; set; }
@@ -235,7 +235,7 @@ namespace Pulumi.Azure.Management
     public sealed class GroupPolicyRemediationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+        /// The percentage failure threshold. Possible values range between `0.0` and `1.0`. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
         /// </summary>
         [Input("failurePercentage")]
         public Input<double>? FailurePercentage { get; set; }

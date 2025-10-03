@@ -64,5 +64,6 @@ from .subscription import *
 from .tag import *
 from .user import *
 from .workspace import *
+from .workspace_policy import *
 from ._inputs import *
 from . import outputs
