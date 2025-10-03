@@ -1,4 +1,0 @@
-{
-  "go.testTags": "all",
-  "go.testTimeout": "60m"
-}
