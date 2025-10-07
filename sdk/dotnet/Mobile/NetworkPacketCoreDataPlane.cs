@@ -12,6 +12,82 @@ namespace Pulumi.Azure.Mobile
     /// <summary>
     /// Manages a Mobile Network Packet Core Data Plane.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleDevice = new Azure.DataboxEdge.Device("example", new()
+    ///     {
+    ///         Name = "example-device",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         SkuName = "EdgeP_Base-Standard",
+    ///     });
+    /// 
+    ///     var exampleNetwork = new Azure.Mobile.Network("example", new()
+    ///     {
+    ///         Name = "example-mn",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         MobileCountryCode = "001",
+    ///         MobileNetworkCode = "01",
+    ///     });
+    /// 
+    ///     var exampleNetworkPacketCoreControlPlane = new Azure.Mobile.NetworkPacketCoreControlPlane("example", new()
+    ///     {
+    ///         Name = "example-mnpccp",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         Sku = "G0",
+    ///         MobileNetworkId = exampleNetwork.Id,
+    ///         ControlPlaneAccessName = "default-interface",
+    ///         ControlPlaneAccessIpv4Address = "192.168.1.199",
+    ///         ControlPlaneAccessIpv4Gateway = "192.168.1.1",
+    ///         ControlPlaneAccessIpv4Subnet = "192.168.1.0/25",
+    ///         Platform = new Azure.Mobile.Inputs.NetworkPacketCoreControlPlanePlatformArgs
+    ///         {
+    ///             Type = "AKS-HCI",
+    ///             EdgeDeviceId = exampleDevice.Id,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleNetworkPacketCoreDataPlane = new Azure.Mobile.NetworkPacketCoreDataPlane("example", new()
+    ///     {
+    ///         Name = "example-mnpcdp",
+    ///         MobileNetworkPacketCoreControlPlaneId = exampleNetworkPacketCoreControlPlane.Id,
+    ///         Location = example.Location,
+    ///         UserPlaneAccessName = "default-interface",
+    ///         UserPlaneAccessIpv4Address = "192.168.1.199",
+    ///         UserPlaneAccessIpv4Gateway = "192.168.1.1",
+    ///         UserPlaneAccessIpv4Subnet = "192.168.1.0/25",
+    ///         Tags = 
+    ///         {
+    ///             { "key", "value" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.MobileNetwork` - 2022-11-01
+    /// 
     /// ## Import
     /// 
     /// Mobile Network Packet Core Data Plane can be imported using the `resource id`, e.g.

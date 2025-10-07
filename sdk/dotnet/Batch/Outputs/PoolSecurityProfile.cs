@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Batch.Outputs
     public sealed class PoolSecurityProfile
     {
         /// <summary>
-        /// Whether to enable host encryption for the Virtual Machine or Virtual Machine Scale Set. This will enable the encryption for all the disks including Resource/Temp disk at host itself. Possible values are `true` and `false`. Changing this forces a new resource to be created.
+        /// Whether to enable host encryption for the Virtual Machine or Virtual Machine Scale Set. This will enable the encryption for all the disks including Resource/Temp disk at host itself. Possible values are `True` and `False`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly bool? HostEncryptionEnabled;
         /// <summary>
-        /// Whether to enable secure boot for the Virtual Machine or Virtual Machine Scale Set. Possible values are `true` and `false`. Changing this forces a new resource to be created.
+        /// Whether to enable secure boot for the Virtual Machine or Virtual Machine Scale Set. Possible values are `True` and `False`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly bool? SecureBootEnabled;
         /// <summary>
@@ -26,11 +26,11 @@ namespace Pulumi.Azure.Batch.Outputs
         /// </summary>
         public readonly string? SecurityType;
         /// <summary>
-        /// Whether to enable virtual trusted platform module (vTPM) for the Virtual Machine or Virtual Machine Scale Set. Possible values are `true` and `false`. Changing this forces a new resource to be created.
+        /// Whether to enable virtual trusted platform module (vTPM) for the Virtual Machine or Virtual Machine Scale Set. Possible values are `True` and `False`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** `security_profile` block can only be specified during creation and does not support updates.
+        /// &gt; **Note:** `SecurityProfile` block can only be specified during creation and does not support updates.
         /// 
-        /// &gt; **Note:** `security_type` must be specified to set UEFI related properties including `secure_boot_enabled` and `vtpm_enabled`.
+        /// &gt; **Note:** `SecurityType` must be specified to set UEFI related properties including `SecureBootEnabled` and `VtpmEnabled`.
         /// </summary>
         public readonly bool? VtpmEnabled;
 

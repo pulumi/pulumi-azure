@@ -174,7 +174,7 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDiskEncryptionSetIdentityResult> Identities;
         /// <summary>

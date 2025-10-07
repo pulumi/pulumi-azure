@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Waf.Inputs
         private InputList<Inputs.PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs>? _ruleGroupOverrides;
 
         /// <summary>
-        /// One or more `rule_group_override` block defined below.
+        /// One or more `RuleGroupOverride` block defined below.
         /// </summary>
         public InputList<Inputs.PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs> RuleGroupOverrides
         {

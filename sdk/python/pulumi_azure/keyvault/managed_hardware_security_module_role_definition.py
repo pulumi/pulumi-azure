@@ -240,6 +240,37 @@ class ManagedHardwareSecurityModuleRoleDefinition(pulumi.CustomResource):
         """
         Manages a Key Vault Managed Hardware Security Module Role Definition. This resource works together with Managed hardware security module resource.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.keyvault.ManagedHardwareSecurityModule("example",
+            name="example",
+            resource_group_name=example_azurerm_resource_group["name"],
+            location=example_azurerm_resource_group["location"],
+            sku_name="Standard_B1",
+            tenant_id=current["tenantId"],
+            admin_object_ids=[current["objectId"]],
+            purge_protection_enabled=False,
+            active_config=[{
+                "securityDomainCertificate": [
+                    cert[0]["id"],
+                    cert[1]["id"],
+                    cert[2]["id"],
+                ],
+                "securityDomainQuorum": 2,
+            }])
+        example_managed_hardware_security_module_role_definition = azure.keyvault.ManagedHardwareSecurityModuleRoleDefinition("example",
+            name="7d206142-bf01-11ed-80bc-00155d61ee9e",
+            managed_hsm_id=example.id,
+            description="desc foo",
+            permissions=[{
+                "data_actions": ["Microsoft.KeyVault/managedHsm/keys/read/action"],
+            }])
+        ```
+
         ## Import
 
         Key Vault Managed Hardware Security Module Role Definitions can be imported using the `resource id`, e.g.
@@ -264,6 +295,37 @@ class ManagedHardwareSecurityModuleRoleDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Key Vault Managed Hardware Security Module Role Definition. This resource works together with Managed hardware security module resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.keyvault.ManagedHardwareSecurityModule("example",
+            name="example",
+            resource_group_name=example_azurerm_resource_group["name"],
+            location=example_azurerm_resource_group["location"],
+            sku_name="Standard_B1",
+            tenant_id=current["tenantId"],
+            admin_object_ids=[current["objectId"]],
+            purge_protection_enabled=False,
+            active_config=[{
+                "securityDomainCertificate": [
+                    cert[0]["id"],
+                    cert[1]["id"],
+                    cert[2]["id"],
+                ],
+                "securityDomainQuorum": 2,
+            }])
+        example_managed_hardware_security_module_role_definition = azure.keyvault.ManagedHardwareSecurityModuleRoleDefinition("example",
+            name="7d206142-bf01-11ed-80bc-00155d61ee9e",
+            managed_hsm_id=example.id,
+            description="desc foo",
+            permissions=[{
+                "data_actions": ["Microsoft.KeyVault/managedHsm/keys/read/action"],
+            }])
+        ```
 
         ## Import
 

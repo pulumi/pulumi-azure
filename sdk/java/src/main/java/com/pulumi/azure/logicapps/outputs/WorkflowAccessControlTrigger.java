@@ -18,7 +18,7 @@ public final class WorkflowAccessControlTrigger {
      */
     private @Nullable List<String> allowedCallerIpAddressRanges;
     /**
-     * @return A `open_authentication_policy` block as defined below.
+     * @return A `openAuthenticationPolicy` block as defined below.
      * 
      */
     private @Nullable List<WorkflowAccessControlTriggerOpenAuthenticationPolicy> openAuthenticationPolicies;
@@ -32,7 +32,7 @@ public final class WorkflowAccessControlTrigger {
         return this.allowedCallerIpAddressRanges == null ? List.of() : this.allowedCallerIpAddressRanges;
     }
     /**
-     * @return A `open_authentication_policy` block as defined below.
+     * @return A `openAuthenticationPolicy` block as defined below.
      * 
      */
     public List<WorkflowAccessControlTriggerOpenAuthenticationPolicy> openAuthenticationPolicies() {

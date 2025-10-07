@@ -28,7 +28,7 @@ namespace Pulumi.Azure.PrivateLink.Inputs
         private InputList<string>? _privateDnsZoneIds;
 
         /// <summary>
-        /// Specifies the list of Private DNS Zones to include within the `private_dns_zone_group`.
+        /// Specifies the list of Private DNS Zones to include within the `PrivateDnsZoneGroup`.
         /// </summary>
         public InputList<string> PrivateDnsZoneIds
         {

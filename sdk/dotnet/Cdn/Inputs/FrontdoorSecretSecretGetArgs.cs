@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         private InputList<Inputs.FrontdoorSecretSecretCustomerCertificateGetArgs>? _customerCertificates;
 
         /// <summary>
-        /// A `customer_certificate` block as defined below. Changing this forces a new Front Door Secret to be created.
+        /// A `CustomerCertificate` block as defined below. Changing this forces a new Front Door Secret to be created.
         /// </summary>
         public InputList<Inputs.FrontdoorSecretSecretCustomerCertificateGetArgs> CustomerCertificates
         {

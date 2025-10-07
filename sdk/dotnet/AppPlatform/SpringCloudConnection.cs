@@ -14,6 +14,107 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     /// !&gt; **Note:** Azure Spring Apps is now deprecated and will be retired on 2028-05-31 - as such the `azure.appplatform.SpringCloudConnection` resource is deprecated and will be removed in a future major version of the AzureRM Provider. See https://aka.ms/asaretirement for more information.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.CosmosDB.Account("example", new()
+    ///     {
+    ///         Name = "example-cosmosdb-account",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         OfferType = "Standard",
+    ///         Kind = "GlobalDocumentDB",
+    ///         ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
+    ///         {
+    ///             ConsistencyLevel = "BoundedStaleness",
+    ///             MaxIntervalInSeconds = 10,
+    ///             MaxStalenessPrefix = 200,
+    ///         },
+    ///         GeoLocations = new[]
+    ///         {
+    ///             new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
+    ///             {
+    ///                 Location = example.Location,
+    ///                 FailoverPriority = 0,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSqlDatabase = new Azure.CosmosDB.SqlDatabase("example", new()
+    ///     {
+    ///         Name = "cosmos-sql-db",
+    ///         ResourceGroupName = exampleAccount.ResourceGroupName,
+    ///         AccountName = exampleAccount.Name,
+    ///         Throughput = 400,
+    ///     });
+    /// 
+    ///     var exampleSqlContainer = new Azure.CosmosDB.SqlContainer("example", new()
+    ///     {
+    ///         Name = "example-container",
+    ///         ResourceGroupName = exampleAccount.ResourceGroupName,
+    ///         AccountName = exampleAccount.Name,
+    ///         DatabaseName = exampleSqlDatabase.Name,
+    ///         PartitionKeyPath = "/definition",
+    ///     });
+    /// 
+    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("example", new()
+    ///     {
+    ///         Name = "examplespringcloud",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///     });
+    /// 
+    ///     var exampleSpringCloudApp = new Azure.AppPlatform.SpringCloudApp("example", new()
+    ///     {
+    ///         Name = "examplespringcloudapp",
+    ///         ResourceGroupName = example.Name,
+    ///         ServiceName = exampleSpringCloudService.Name,
+    ///         Identity = new Azure.AppPlatform.Inputs.SpringCloudAppIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSpringCloudJavaDeployment = new Azure.AppPlatform.SpringCloudJavaDeployment("example", new()
+    ///     {
+    ///         Name = "exampledeployment",
+    ///         SpringCloudAppId = exampleSpringCloudApp.Id,
+    ///     });
+    /// 
+    ///     var exampleSpringCloudConnection = new Azure.AppPlatform.SpringCloudConnection("example", new()
+    ///     {
+    ///         Name = "example-serviceconnector",
+    ///         SpringCloudId = exampleSpringCloudJavaDeployment.Id,
+    ///         TargetResourceId = exampleSqlDatabase.Id,
+    ///         Authentication = new Azure.AppPlatform.Inputs.SpringCloudConnectionAuthenticationArgs
+    ///         {
+    ///             Type = "systemAssignedIdentity",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.ServiceLinker` - 2024-04-01, 2022-05-01
+    /// 
     /// ## Import
     /// 
     /// Service Connector for spring cloud can be imported using the `resource id`, e.g.
@@ -26,7 +127,7 @@ namespace Pulumi.Azure.AppPlatform
     public partial class SpringCloudConnection : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The authentication info. An `authentication` block as defined below.
+        /// The authentication info. An `Authentication` block as defined below.
         /// </summary>
         [Output("authentication")]
         public Output<Outputs.SpringCloudConnectionAuthentication> Authentication { get; private set; } = null!;
@@ -105,7 +206,7 @@ namespace Pulumi.Azure.AppPlatform
     public sealed class SpringCloudConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The authentication info. An `authentication` block as defined below.
+        /// The authentication info. An `Authentication` block as defined below.
         /// </summary>
         [Input("authentication", required: true)]
         public Input<Inputs.SpringCloudConnectionAuthenticationArgs> Authentication { get; set; } = null!;
@@ -146,7 +247,7 @@ namespace Pulumi.Azure.AppPlatform
     public sealed class SpringCloudConnectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The authentication info. An `authentication` block as defined below.
+        /// The authentication info. An `Authentication` block as defined below.
         /// </summary>
         [Input("authentication")]
         public Input<Inputs.SpringCloudConnectionAuthenticationGetArgs>? Authentication { get; set; }

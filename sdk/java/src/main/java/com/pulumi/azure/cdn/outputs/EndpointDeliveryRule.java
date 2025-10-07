@@ -35,37 +35,37 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EndpointDeliveryRule {
     /**
-     * @return A `cache_expiration_action` block as defined above.
+     * @return A `cacheExpirationAction` block as defined above.
      * 
      */
     private @Nullable EndpointDeliveryRuleCacheExpirationAction cacheExpirationAction;
     /**
-     * @return A `cache_key_query_string_action` block as defined above.
+     * @return A `cacheKeyQueryStringAction` block as defined above.
      * 
      */
     private @Nullable EndpointDeliveryRuleCacheKeyQueryStringAction cacheKeyQueryStringAction;
     /**
-     * @return A `cookies_condition` block as defined above.
+     * @return A `cookiesCondition` block as defined above.
      * 
      */
     private @Nullable List<EndpointDeliveryRuleCookiesCondition> cookiesConditions;
     /**
-     * @return A `device_condition` block as defined below.
+     * @return A `deviceCondition` block as defined below.
      * 
      */
     private @Nullable EndpointDeliveryRuleDeviceCondition deviceCondition;
     /**
-     * @return A `http_version_condition` block as defined below.
+     * @return A `httpVersionCondition` block as defined below.
      * 
      */
     private @Nullable List<EndpointDeliveryRuleHttpVersionCondition> httpVersionConditions;
     /**
-     * @return A `modify_request_header_action` block as defined below.
+     * @return A `modifyRequestHeaderAction` block as defined below.
      * 
      */
     private @Nullable List<EndpointDeliveryRuleModifyRequestHeaderAction> modifyRequestHeaderActions;
     /**
-     * @return A `modify_response_header_action` block as defined below.
+     * @return A `modifyResponseHeaderAction` block as defined below.
      * 
      */
     private @Nullable List<EndpointDeliveryRuleModifyResponseHeaderAction> modifyResponseHeaderActions;
@@ -80,116 +80,116 @@ public final class EndpointDeliveryRule {
      */
     private Integer order;
     /**
-     * @return A `post_arg_condition` block as defined below.
+     * @return A `postArgCondition` block as defined below.
      * 
      */
     private @Nullable List<EndpointDeliveryRulePostArgCondition> postArgConditions;
     /**
-     * @return A `query_string_condition` block as defined below.
+     * @return A `queryStringCondition` block as defined below.
      * 
      */
     private @Nullable List<EndpointDeliveryRuleQueryStringCondition> queryStringConditions;
     /**
-     * @return A `remote_address_condition` block as defined below.
+     * @return A `remoteAddressCondition` block as defined below.
      * 
      */
     private @Nullable List<EndpointDeliveryRuleRemoteAddressCondition> remoteAddressConditions;
     /**
-     * @return A `request_body_condition` block as defined below.
+     * @return A `requestBodyCondition` block as defined below.
      * 
      */
     private @Nullable List<EndpointDeliveryRuleRequestBodyCondition> requestBodyConditions;
     /**
-     * @return A `request_header_condition` block as defined below.
+     * @return A `requestHeaderCondition` block as defined below.
      * 
      */
     private @Nullable List<EndpointDeliveryRuleRequestHeaderCondition> requestHeaderConditions;
     /**
-     * @return A `request_method_condition` block as defined below.
+     * @return A `requestMethodCondition` block as defined below.
      * 
      */
     private @Nullable EndpointDeliveryRuleRequestMethodCondition requestMethodCondition;
     /**
-     * @return A `request_scheme_condition` block as defined below.
+     * @return A `requestSchemeCondition` block as defined below.
      * 
      */
     private @Nullable EndpointDeliveryRuleRequestSchemeCondition requestSchemeCondition;
     /**
-     * @return A `request_uri_condition` block as defined below.
+     * @return A `requestUriCondition` block as defined below.
      * 
      */
     private @Nullable List<EndpointDeliveryRuleRequestUriCondition> requestUriConditions;
     /**
-     * @return A `url_file_extension_condition` block as defined below.
+     * @return A `urlFileExtensionCondition` block as defined below.
      * 
      */
     private @Nullable List<EndpointDeliveryRuleUrlFileExtensionCondition> urlFileExtensionConditions;
     /**
-     * @return A `url_file_name_condition` block as defined below.
+     * @return A `urlFileNameCondition` block as defined below.
      * 
      */
     private @Nullable List<EndpointDeliveryRuleUrlFileNameCondition> urlFileNameConditions;
     /**
-     * @return A `url_path_condition` block as defined below.
+     * @return A `urlPathCondition` block as defined below.
      * 
      */
     private @Nullable List<EndpointDeliveryRuleUrlPathCondition> urlPathConditions;
     /**
-     * @return A `url_redirect_action` block as defined below.
+     * @return A `urlRedirectAction` block as defined below.
      * 
      */
     private @Nullable EndpointDeliveryRuleUrlRedirectAction urlRedirectAction;
     /**
-     * @return A `url_rewrite_action` block as defined below.
+     * @return A `urlRewriteAction` block as defined below.
      * 
      */
     private @Nullable EndpointDeliveryRuleUrlRewriteAction urlRewriteAction;
 
     private EndpointDeliveryRule() {}
     /**
-     * @return A `cache_expiration_action` block as defined above.
+     * @return A `cacheExpirationAction` block as defined above.
      * 
      */
     public Optional<EndpointDeliveryRuleCacheExpirationAction> cacheExpirationAction() {
         return Optional.ofNullable(this.cacheExpirationAction);
     }
     /**
-     * @return A `cache_key_query_string_action` block as defined above.
+     * @return A `cacheKeyQueryStringAction` block as defined above.
      * 
      */
     public Optional<EndpointDeliveryRuleCacheKeyQueryStringAction> cacheKeyQueryStringAction() {
         return Optional.ofNullable(this.cacheKeyQueryStringAction);
     }
     /**
-     * @return A `cookies_condition` block as defined above.
+     * @return A `cookiesCondition` block as defined above.
      * 
      */
     public List<EndpointDeliveryRuleCookiesCondition> cookiesConditions() {
         return this.cookiesConditions == null ? List.of() : this.cookiesConditions;
     }
     /**
-     * @return A `device_condition` block as defined below.
+     * @return A `deviceCondition` block as defined below.
      * 
      */
     public Optional<EndpointDeliveryRuleDeviceCondition> deviceCondition() {
         return Optional.ofNullable(this.deviceCondition);
     }
     /**
-     * @return A `http_version_condition` block as defined below.
+     * @return A `httpVersionCondition` block as defined below.
      * 
      */
     public List<EndpointDeliveryRuleHttpVersionCondition> httpVersionConditions() {
         return this.httpVersionConditions == null ? List.of() : this.httpVersionConditions;
     }
     /**
-     * @return A `modify_request_header_action` block as defined below.
+     * @return A `modifyRequestHeaderAction` block as defined below.
      * 
      */
     public List<EndpointDeliveryRuleModifyRequestHeaderAction> modifyRequestHeaderActions() {
         return this.modifyRequestHeaderActions == null ? List.of() : this.modifyRequestHeaderActions;
     }
     /**
-     * @return A `modify_response_header_action` block as defined below.
+     * @return A `modifyResponseHeaderAction` block as defined below.
      * 
      */
     public List<EndpointDeliveryRuleModifyResponseHeaderAction> modifyResponseHeaderActions() {
@@ -210,91 +210,91 @@ public final class EndpointDeliveryRule {
         return this.order;
     }
     /**
-     * @return A `post_arg_condition` block as defined below.
+     * @return A `postArgCondition` block as defined below.
      * 
      */
     public List<EndpointDeliveryRulePostArgCondition> postArgConditions() {
         return this.postArgConditions == null ? List.of() : this.postArgConditions;
     }
     /**
-     * @return A `query_string_condition` block as defined below.
+     * @return A `queryStringCondition` block as defined below.
      * 
      */
     public List<EndpointDeliveryRuleQueryStringCondition> queryStringConditions() {
         return this.queryStringConditions == null ? List.of() : this.queryStringConditions;
     }
     /**
-     * @return A `remote_address_condition` block as defined below.
+     * @return A `remoteAddressCondition` block as defined below.
      * 
      */
     public List<EndpointDeliveryRuleRemoteAddressCondition> remoteAddressConditions() {
         return this.remoteAddressConditions == null ? List.of() : this.remoteAddressConditions;
     }
     /**
-     * @return A `request_body_condition` block as defined below.
+     * @return A `requestBodyCondition` block as defined below.
      * 
      */
     public List<EndpointDeliveryRuleRequestBodyCondition> requestBodyConditions() {
         return this.requestBodyConditions == null ? List.of() : this.requestBodyConditions;
     }
     /**
-     * @return A `request_header_condition` block as defined below.
+     * @return A `requestHeaderCondition` block as defined below.
      * 
      */
     public List<EndpointDeliveryRuleRequestHeaderCondition> requestHeaderConditions() {
         return this.requestHeaderConditions == null ? List.of() : this.requestHeaderConditions;
     }
     /**
-     * @return A `request_method_condition` block as defined below.
+     * @return A `requestMethodCondition` block as defined below.
      * 
      */
     public Optional<EndpointDeliveryRuleRequestMethodCondition> requestMethodCondition() {
         return Optional.ofNullable(this.requestMethodCondition);
     }
     /**
-     * @return A `request_scheme_condition` block as defined below.
+     * @return A `requestSchemeCondition` block as defined below.
      * 
      */
     public Optional<EndpointDeliveryRuleRequestSchemeCondition> requestSchemeCondition() {
         return Optional.ofNullable(this.requestSchemeCondition);
     }
     /**
-     * @return A `request_uri_condition` block as defined below.
+     * @return A `requestUriCondition` block as defined below.
      * 
      */
     public List<EndpointDeliveryRuleRequestUriCondition> requestUriConditions() {
         return this.requestUriConditions == null ? List.of() : this.requestUriConditions;
     }
     /**
-     * @return A `url_file_extension_condition` block as defined below.
+     * @return A `urlFileExtensionCondition` block as defined below.
      * 
      */
     public List<EndpointDeliveryRuleUrlFileExtensionCondition> urlFileExtensionConditions() {
         return this.urlFileExtensionConditions == null ? List.of() : this.urlFileExtensionConditions;
     }
     /**
-     * @return A `url_file_name_condition` block as defined below.
+     * @return A `urlFileNameCondition` block as defined below.
      * 
      */
     public List<EndpointDeliveryRuleUrlFileNameCondition> urlFileNameConditions() {
         return this.urlFileNameConditions == null ? List.of() : this.urlFileNameConditions;
     }
     /**
-     * @return A `url_path_condition` block as defined below.
+     * @return A `urlPathCondition` block as defined below.
      * 
      */
     public List<EndpointDeliveryRuleUrlPathCondition> urlPathConditions() {
         return this.urlPathConditions == null ? List.of() : this.urlPathConditions;
     }
     /**
-     * @return A `url_redirect_action` block as defined below.
+     * @return A `urlRedirectAction` block as defined below.
      * 
      */
     public Optional<EndpointDeliveryRuleUrlRedirectAction> urlRedirectAction() {
         return Optional.ofNullable(this.urlRedirectAction);
     }
     /**
-     * @return A `url_rewrite_action` block as defined below.
+     * @return A `urlRewriteAction` block as defined below.
      * 
      */
     public Optional<EndpointDeliveryRuleUrlRewriteAction> urlRewriteAction() {

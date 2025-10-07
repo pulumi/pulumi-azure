@@ -81,14 +81,14 @@ public final class PolicyFileShareState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Configures the policy daily retention as documented in the `retention_daily` block below.
+     * Configures the policy daily retention as documented in the `retentionDaily` block below.
      * 
      */
     @Import(name="retentionDaily")
     private @Nullable Output<PolicyFileShareRetentionDailyArgs> retentionDaily;
 
     /**
-     * @return Configures the policy daily retention as documented in the `retention_daily` block below.
+     * @return Configures the policy daily retention as documented in the `retentionDaily` block below.
      * 
      */
     public Optional<Output<PolicyFileShareRetentionDailyArgs>> retentionDaily() {
@@ -96,14 +96,14 @@ public final class PolicyFileShareState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Configures the policy monthly retention as documented in the `retention_monthly` block below.
+     * Configures the policy monthly retention as documented in the `retentionMonthly` block below.
      * 
      */
     @Import(name="retentionMonthly")
     private @Nullable Output<PolicyFileShareRetentionMonthlyArgs> retentionMonthly;
 
     /**
-     * @return Configures the policy monthly retention as documented in the `retention_monthly` block below.
+     * @return Configures the policy monthly retention as documented in the `retentionMonthly` block below.
      * 
      */
     public Optional<Output<PolicyFileShareRetentionMonthlyArgs>> retentionMonthly() {
@@ -111,14 +111,14 @@ public final class PolicyFileShareState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Configures the policy weekly retention as documented in the `retention_weekly` block below.
+     * Configures the policy weekly retention as documented in the `retentionWeekly` block below.
      * 
      */
     @Import(name="retentionWeekly")
     private @Nullable Output<PolicyFileShareRetentionWeeklyArgs> retentionWeekly;
 
     /**
-     * @return Configures the policy weekly retention as documented in the `retention_weekly` block below.
+     * @return Configures the policy weekly retention as documented in the `retentionWeekly` block below.
      * 
      */
     public Optional<Output<PolicyFileShareRetentionWeeklyArgs>> retentionWeekly() {
@@ -126,14 +126,14 @@ public final class PolicyFileShareState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Configures the policy yearly retention as documented in the `retention_yearly` block below.
+     * Configures the policy yearly retention as documented in the `retentionYearly` block below.
      * 
      */
     @Import(name="retentionYearly")
     private @Nullable Output<PolicyFileShareRetentionYearlyArgs> retentionYearly;
 
     /**
-     * @return Configures the policy yearly retention as documented in the `retention_yearly` block below.
+     * @return Configures the policy yearly retention as documented in the `retentionYearly` block below.
      * 
      */
     public Optional<Output<PolicyFileShareRetentionYearlyArgs>> retentionYearly() {
@@ -276,7 +276,7 @@ public final class PolicyFileShareState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param retentionDaily Configures the policy daily retention as documented in the `retention_daily` block below.
+         * @param retentionDaily Configures the policy daily retention as documented in the `retentionDaily` block below.
          * 
          * @return builder
          * 
@@ -287,7 +287,7 @@ public final class PolicyFileShareState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param retentionDaily Configures the policy daily retention as documented in the `retention_daily` block below.
+         * @param retentionDaily Configures the policy daily retention as documented in the `retentionDaily` block below.
          * 
          * @return builder
          * 
@@ -297,7 +297,7 @@ public final class PolicyFileShareState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param retentionMonthly Configures the policy monthly retention as documented in the `retention_monthly` block below.
+         * @param retentionMonthly Configures the policy monthly retention as documented in the `retentionMonthly` block below.
          * 
          * @return builder
          * 
@@ -308,7 +308,7 @@ public final class PolicyFileShareState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param retentionMonthly Configures the policy monthly retention as documented in the `retention_monthly` block below.
+         * @param retentionMonthly Configures the policy monthly retention as documented in the `retentionMonthly` block below.
          * 
          * @return builder
          * 
@@ -318,7 +318,7 @@ public final class PolicyFileShareState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param retentionWeekly Configures the policy weekly retention as documented in the `retention_weekly` block below.
+         * @param retentionWeekly Configures the policy weekly retention as documented in the `retentionWeekly` block below.
          * 
          * @return builder
          * 
@@ -329,7 +329,7 @@ public final class PolicyFileShareState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param retentionWeekly Configures the policy weekly retention as documented in the `retention_weekly` block below.
+         * @param retentionWeekly Configures the policy weekly retention as documented in the `retentionWeekly` block below.
          * 
          * @return builder
          * 
@@ -339,7 +339,7 @@ public final class PolicyFileShareState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param retentionYearly Configures the policy yearly retention as documented in the `retention_yearly` block below.
+         * @param retentionYearly Configures the policy yearly retention as documented in the `retentionYearly` block below.
          * 
          * @return builder
          * 
@@ -350,7 +350,7 @@ public final class PolicyFileShareState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param retentionYearly Configures the policy yearly retention as documented in the `retention_yearly` block below.
+         * @param retentionYearly Configures the policy yearly retention as documented in the `retentionYearly` block below.
          * 
          * @return builder
          * 

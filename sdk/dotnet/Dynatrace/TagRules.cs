@@ -12,6 +12,93 @@ namespace Pulumi.Azure.Dynatrace
     /// <summary>
     /// Manages Dynatrace tag rules.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleMonitor = new Azure.Dynatrace.Monitor("example", new()
+    ///     {
+    ///         Name = "exmpledynatracemonitor",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = test.Location,
+    ///         MonitoringEnabled = true,
+    ///         MarketplaceSubscriptionStatus = "Active",
+    ///         Identity = new Azure.Dynatrace.Inputs.MonitorIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///         User = new Azure.Dynatrace.Inputs.MonitorUserArgs
+    ///         {
+    ///             FirstName = "Alice",
+    ///             LastName = "Bobab",
+    ///             Email = "alice@microsoft.com",
+    ///             PhoneNumber = "123456",
+    ///             Country = "westus",
+    ///         },
+    ///         Plan = new Azure.Dynatrace.Inputs.MonitorPlanArgs
+    ///         {
+    ///             UsageType = "COMMITTED",
+    ///             BillingCycle = "MONTHLY",
+    ///             Plan = "azureportalintegration_privatepreview@TIDhjdtn7tfnxcy",
+    ///             EffectiveDate = "2019-08-30T15:14:33Z",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleTagRules = new Azure.Dynatrace.TagRules("example", new()
+    ///     {
+    ///         Name = "default",
+    ///         MonitorId = testAzurermDynatraceMonitors.Id,
+    ///         LogRule = new Azure.Dynatrace.Inputs.TagRulesLogRuleArgs
+    ///         {
+    ///             FilteringTags = new[]
+    ///             {
+    ///                 new Azure.Dynatrace.Inputs.TagRulesLogRuleFilteringTagArgs
+    ///                 {
+    ///                     Name = "Environment",
+    ///                     Value = "Prod",
+    ///                     Action = "Include",
+    ///                 },
+    ///             },
+    ///             SendAzureActiveDirectoryLogsEnabled = true,
+    ///             SendActivityLogsEnabled = true,
+    ///             SendSubscriptionLogsEnabled = true,
+    ///         },
+    ///         MetricRule = new Azure.Dynatrace.Inputs.TagRulesMetricRuleArgs
+    ///         {
+    ///             FilteringTags = new[]
+    ///             {
+    ///                 new Azure.Dynatrace.Inputs.TagRulesMetricRuleFilteringTagArgs
+    ///                 {
+    ///                     Name = "Environment",
+    ///                     Value = "Prod",
+    ///                     Action = "Include",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Dynatrace.Observability` - 2023-04-27
+    /// 
     /// ## Import
     /// 
     /// Dynatrace tag rules can be imported using the `resource id`, e.g.
@@ -24,13 +111,13 @@ namespace Pulumi.Azure.Dynatrace
     public partial class TagRules : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Set of rules for sending logs for the Monitor resource. A `log_rule` block as defined below.
+        /// Set of rules for sending logs for the Monitor resource. A `LogRule` block as defined below.
         /// </summary>
         [Output("logRule")]
         public Output<Outputs.TagRulesLogRule?> LogRule { get; private set; } = null!;
 
         /// <summary>
-        /// Set of rules for sending metrics for the Monitor resource. A `metric_rule` block as defined below.
+        /// Set of rules for sending metrics for the Monitor resource. A `MetricRule` block as defined below.
         /// </summary>
         [Output("metricRule")]
         public Output<Outputs.TagRulesMetricRule?> MetricRule { get; private set; } = null!;
@@ -42,7 +129,7 @@ namespace Pulumi.Azure.Dynatrace
         public Output<string> MonitorId { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the Dynatrace tag rules. Currently, the only supported value is `default`. Changing this forces a new resource to be created.
+        /// Name of the Dynatrace tag rules. Currently, the only supported value is `Default`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -94,13 +181,13 @@ namespace Pulumi.Azure.Dynatrace
     public sealed class TagRulesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Set of rules for sending logs for the Monitor resource. A `log_rule` block as defined below.
+        /// Set of rules for sending logs for the Monitor resource. A `LogRule` block as defined below.
         /// </summary>
         [Input("logRule")]
         public Input<Inputs.TagRulesLogRuleArgs>? LogRule { get; set; }
 
         /// <summary>
-        /// Set of rules for sending metrics for the Monitor resource. A `metric_rule` block as defined below.
+        /// Set of rules for sending metrics for the Monitor resource. A `MetricRule` block as defined below.
         /// </summary>
         [Input("metricRule")]
         public Input<Inputs.TagRulesMetricRuleArgs>? MetricRule { get; set; }
@@ -112,7 +199,7 @@ namespace Pulumi.Azure.Dynatrace
         public Input<string> MonitorId { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Dynatrace tag rules. Currently, the only supported value is `default`. Changing this forces a new resource to be created.
+        /// Name of the Dynatrace tag rules. Currently, the only supported value is `Default`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -126,13 +213,13 @@ namespace Pulumi.Azure.Dynatrace
     public sealed class TagRulesState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Set of rules for sending logs for the Monitor resource. A `log_rule` block as defined below.
+        /// Set of rules for sending logs for the Monitor resource. A `LogRule` block as defined below.
         /// </summary>
         [Input("logRule")]
         public Input<Inputs.TagRulesLogRuleGetArgs>? LogRule { get; set; }
 
         /// <summary>
-        /// Set of rules for sending metrics for the Monitor resource. A `metric_rule` block as defined below.
+        /// Set of rules for sending metrics for the Monitor resource. A `MetricRule` block as defined below.
         /// </summary>
         [Input("metricRule")]
         public Input<Inputs.TagRulesMetricRuleGetArgs>? MetricRule { get; set; }
@@ -144,7 +231,7 @@ namespace Pulumi.Azure.Dynatrace
         public Input<string>? MonitorId { get; set; }
 
         /// <summary>
-        /// Name of the Dynatrace tag rules. Currently, the only supported value is `default`. Changing this forces a new resource to be created.
+        /// Name of the Dynatrace tag rules. Currently, the only supported value is `Default`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

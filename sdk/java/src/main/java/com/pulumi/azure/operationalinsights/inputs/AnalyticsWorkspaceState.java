@@ -142,19 +142,19 @@ public final class AnalyticsWorkspaceState extends com.pulumi.resources.Resource
 
     /**
      * @deprecated
-     * `local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider
+     * `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated /* `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider */
     @Import(name="localAuthenticationDisabled")
     private @Nullable Output<Boolean> localAuthenticationDisabled;
 
     /**
      * @deprecated
-     * `local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider
+     * `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated /* `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider */
     public Optional<Output<Boolean>> localAuthenticationDisabled() {
         return Optional.ofNullable(this.localAuthenticationDisabled);
     }
@@ -222,7 +222,7 @@ public final class AnalyticsWorkspaceState extends com.pulumi.resources.Resource
     /**
      * The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
      * 
-     * &gt; **Note:** `reservation_capacity_in_gb_per_day` can only be used when the `sku` is set to `CapacityReservation`.
+     * &gt; **Note:** `reservationCapacityInGbPerDay` can only be used when the `sku` is set to `CapacityReservation`.
      * 
      */
     @Import(name="reservationCapacityInGbPerDay")
@@ -231,7 +231,7 @@ public final class AnalyticsWorkspaceState extends com.pulumi.resources.Resource
     /**
      * @return The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
      * 
-     * &gt; **Note:** `reservation_capacity_in_gb_per_day` can only be used when the `sku` is set to `CapacityReservation`.
+     * &gt; **Note:** `reservationCapacityInGbPerDay` can only be used when the `sku` is set to `CapacityReservation`.
      * 
      */
     public Optional<Output<Integer>> reservationCapacityInGbPerDay() {
@@ -288,7 +288,7 @@ public final class AnalyticsWorkspaceState extends com.pulumi.resources.Resource
      * 
      * &gt; **Note:** `sku` should only be set to `LACluster` when the Log Analytics Workspace is linked to a Log Analytics Cluster. Additionally, `sku` cannot be modified while linked.
      * 
-     * &gt; **Note:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. Changing `sku` to `CapacityReservation` or changing `reservation_capacity_in_gb_per_day` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
+     * &gt; **Note:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. Changing `sku` to `CapacityReservation` or changing `reservationCapacityInGbPerDay` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
      * 
      * &gt; **Note:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you&#39;ve provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
      * 
@@ -301,7 +301,7 @@ public final class AnalyticsWorkspaceState extends com.pulumi.resources.Resource
      * 
      * &gt; **Note:** `sku` should only be set to `LACluster` when the Log Analytics Workspace is linked to a Log Analytics Cluster. Additionally, `sku` cannot be modified while linked.
      * 
-     * &gt; **Note:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. Changing `sku` to `CapacityReservation` or changing `reservation_capacity_in_gb_per_day` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
+     * &gt; **Note:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. Changing `sku` to `CapacityReservation` or changing `reservationCapacityInGbPerDay` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
      * 
      * &gt; **Note:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you&#39;ve provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
      * 
@@ -555,10 +555,10 @@ public final class AnalyticsWorkspaceState extends com.pulumi.resources.Resource
          * @return builder
          * 
          * @deprecated
-         * `local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider
+         * `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* `local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated /* `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider */
         public Builder localAuthenticationDisabled(@Nullable Output<Boolean> localAuthenticationDisabled) {
             $.localAuthenticationDisabled = localAuthenticationDisabled;
             return this;
@@ -568,10 +568,10 @@ public final class AnalyticsWorkspaceState extends com.pulumi.resources.Resource
          * @return builder
          * 
          * @deprecated
-         * `local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider
+         * `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* `local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated /* `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider */
         public Builder localAuthenticationDisabled(Boolean localAuthenticationDisabled) {
             return localAuthenticationDisabled(Output.of(localAuthenticationDisabled));
         }
@@ -663,7 +663,7 @@ public final class AnalyticsWorkspaceState extends com.pulumi.resources.Resource
         /**
          * @param reservationCapacityInGbPerDay The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
          * 
-         * &gt; **Note:** `reservation_capacity_in_gb_per_day` can only be used when the `sku` is set to `CapacityReservation`.
+         * &gt; **Note:** `reservationCapacityInGbPerDay` can only be used when the `sku` is set to `CapacityReservation`.
          * 
          * @return builder
          * 
@@ -676,7 +676,7 @@ public final class AnalyticsWorkspaceState extends com.pulumi.resources.Resource
         /**
          * @param reservationCapacityInGbPerDay The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
          * 
-         * &gt; **Note:** `reservation_capacity_in_gb_per_day` can only be used when the `sku` is set to `CapacityReservation`.
+         * &gt; **Note:** `reservationCapacityInGbPerDay` can only be used when the `sku` is set to `CapacityReservation`.
          * 
          * @return builder
          * 
@@ -753,7 +753,7 @@ public final class AnalyticsWorkspaceState extends com.pulumi.resources.Resource
          * 
          * &gt; **Note:** `sku` should only be set to `LACluster` when the Log Analytics Workspace is linked to a Log Analytics Cluster. Additionally, `sku` cannot be modified while linked.
          * 
-         * &gt; **Note:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. Changing `sku` to `CapacityReservation` or changing `reservation_capacity_in_gb_per_day` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
+         * &gt; **Note:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. Changing `sku` to `CapacityReservation` or changing `reservationCapacityInGbPerDay` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
          * 
          * &gt; **Note:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you&#39;ve provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
          * 
@@ -770,7 +770,7 @@ public final class AnalyticsWorkspaceState extends com.pulumi.resources.Resource
          * 
          * &gt; **Note:** `sku` should only be set to `LACluster` when the Log Analytics Workspace is linked to a Log Analytics Cluster. Additionally, `sku` cannot be modified while linked.
          * 
-         * &gt; **Note:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. Changing `sku` to `CapacityReservation` or changing `reservation_capacity_in_gb_per_day` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
+         * &gt; **Note:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. Changing `sku` to `CapacityReservation` or changing `reservationCapacityInGbPerDay` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
          * 
          * &gt; **Note:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you&#39;ve provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
          * 

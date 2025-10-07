@@ -12,6 +12,73 @@ namespace Pulumi.Azure.ManagedLustre
     /// <summary>
     /// Manages an Azure Managed Lustre File System.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     {
+    ///         Name = "example-vnet",
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     {
+    ///         Name = "example-subnet",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleFileSystem = new Azure.ManagedLustre.FileSystem("example", new()
+    ///     {
+    ///         Name = "example-amlfs",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         SkuName = "AMLFS-Durable-Premium-250",
+    ///         SubnetId = exampleSubnet.Id,
+    ///         StorageCapacityInTb = 8,
+    ///         Zones = new[]
+    ///         {
+    ///             "2",
+    ///         },
+    ///         MaintenanceWindow = new Azure.ManagedLustre.Inputs.FileSystemMaintenanceWindowArgs
+    ///         {
+    ///             DayOfWeek = "Friday",
+    ///             TimeOfDayUtc = "22:00",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.StorageCache` - 2024-07-01
+    /// 
     /// ## Import
     /// 
     /// Azure Managed Lustre File Systems can be imported using the `resource id`, e.g.
@@ -24,21 +91,21 @@ namespace Pulumi.Azure.ManagedLustre
     public partial class FileSystem : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An `encryption_key` block as defined below.
+        /// An `EncryptionKey` block as defined below.
         /// 
-        /// &gt; **Note:** Removing `encryption_key` forces a new resource to be created.
+        /// &gt; **Note:** Removing `EncryptionKey` forces a new resource to be created.
         /// </summary>
         [Output("encryptionKey")]
         public Output<Outputs.FileSystemEncryptionKey?> EncryptionKey { get; private set; } = null!;
 
         /// <summary>
-        /// A `hsm_setting` block as defined below. Changing this forces a new resource to be created.
+        /// A `HsmSetting` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("hsmSetting")]
         public Output<Outputs.FileSystemHsmSetting?> HsmSetting { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new resource to be created.
+        /// An `Identity` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.FileSystemIdentity?> Identity { get; private set; } = null!;
@@ -50,7 +117,7 @@ namespace Pulumi.Azure.ManagedLustre
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// A `maintenance_window` block as defined below.
+        /// A `MaintenanceWindow` block as defined below.
         /// </summary>
         [Output("maintenanceWindow")]
         public Output<Outputs.FileSystemMaintenanceWindow> MaintenanceWindow { get; private set; } = null!;
@@ -74,7 +141,7 @@ namespace Pulumi.Azure.ManagedLustre
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `root_squash` block as defined below.
+        /// A `RootSquash` block as defined below.
         /// </summary>
         [Output("rootSquash")]
         public Output<Outputs.FileSystemRootSquash?> RootSquash { get; private set; } = null!;
@@ -86,7 +153,7 @@ namespace Pulumi.Azure.ManagedLustre
         public Output<string> SkuName { get; private set; } = null!;
 
         /// <summary>
-        /// The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependant on which `sku_name` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
+        /// The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependant on which `SkuName` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
         /// </summary>
         [Output("storageCapacityInTb")]
         public Output<int> StorageCapacityInTb { get; private set; } = null!;
@@ -156,21 +223,21 @@ namespace Pulumi.Azure.ManagedLustre
     public sealed class FileSystemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `encryption_key` block as defined below.
+        /// An `EncryptionKey` block as defined below.
         /// 
-        /// &gt; **Note:** Removing `encryption_key` forces a new resource to be created.
+        /// &gt; **Note:** Removing `EncryptionKey` forces a new resource to be created.
         /// </summary>
         [Input("encryptionKey")]
         public Input<Inputs.FileSystemEncryptionKeyArgs>? EncryptionKey { get; set; }
 
         /// <summary>
-        /// A `hsm_setting` block as defined below. Changing this forces a new resource to be created.
+        /// A `HsmSetting` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("hsmSetting")]
         public Input<Inputs.FileSystemHsmSettingArgs>? HsmSetting { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new resource to be created.
+        /// An `Identity` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.FileSystemIdentityArgs>? Identity { get; set; }
@@ -182,7 +249,7 @@ namespace Pulumi.Azure.ManagedLustre
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A `maintenance_window` block as defined below.
+        /// A `MaintenanceWindow` block as defined below.
         /// </summary>
         [Input("maintenanceWindow", required: true)]
         public Input<Inputs.FileSystemMaintenanceWindowArgs> MaintenanceWindow { get; set; } = null!;
@@ -200,7 +267,7 @@ namespace Pulumi.Azure.ManagedLustre
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `root_squash` block as defined below.
+        /// A `RootSquash` block as defined below.
         /// </summary>
         [Input("rootSquash")]
         public Input<Inputs.FileSystemRootSquashArgs>? RootSquash { get; set; }
@@ -212,7 +279,7 @@ namespace Pulumi.Azure.ManagedLustre
         public Input<string> SkuName { get; set; } = null!;
 
         /// <summary>
-        /// The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependant on which `sku_name` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
+        /// The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependant on which `SkuName` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageCapacityInTb", required: true)]
         public Input<int> StorageCapacityInTb { get; set; } = null!;
@@ -256,21 +323,21 @@ namespace Pulumi.Azure.ManagedLustre
     public sealed class FileSystemState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `encryption_key` block as defined below.
+        /// An `EncryptionKey` block as defined below.
         /// 
-        /// &gt; **Note:** Removing `encryption_key` forces a new resource to be created.
+        /// &gt; **Note:** Removing `EncryptionKey` forces a new resource to be created.
         /// </summary>
         [Input("encryptionKey")]
         public Input<Inputs.FileSystemEncryptionKeyGetArgs>? EncryptionKey { get; set; }
 
         /// <summary>
-        /// A `hsm_setting` block as defined below. Changing this forces a new resource to be created.
+        /// A `HsmSetting` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("hsmSetting")]
         public Input<Inputs.FileSystemHsmSettingGetArgs>? HsmSetting { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new resource to be created.
+        /// An `Identity` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.FileSystemIdentityGetArgs>? Identity { get; set; }
@@ -282,7 +349,7 @@ namespace Pulumi.Azure.ManagedLustre
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A `maintenance_window` block as defined below.
+        /// A `MaintenanceWindow` block as defined below.
         /// </summary>
         [Input("maintenanceWindow")]
         public Input<Inputs.FileSystemMaintenanceWindowGetArgs>? MaintenanceWindow { get; set; }
@@ -306,7 +373,7 @@ namespace Pulumi.Azure.ManagedLustre
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// A `root_squash` block as defined below.
+        /// A `RootSquash` block as defined below.
         /// </summary>
         [Input("rootSquash")]
         public Input<Inputs.FileSystemRootSquashGetArgs>? RootSquash { get; set; }
@@ -318,7 +385,7 @@ namespace Pulumi.Azure.ManagedLustre
         public Input<string>? SkuName { get; set; }
 
         /// <summary>
-        /// The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependant on which `sku_name` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
+        /// The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependant on which `SkuName` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageCapacityInTb")]
         public Input<int>? StorageCapacityInTb { get; set; }

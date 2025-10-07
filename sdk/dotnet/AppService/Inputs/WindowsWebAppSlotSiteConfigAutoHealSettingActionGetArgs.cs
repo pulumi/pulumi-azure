@@ -19,7 +19,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string> ActionType { get; set; } = null!;
 
         /// <summary>
-        /// A `custom_action` block as defined below.
+        /// A `CustomAction` block as defined below.
         /// </summary>
         [Input("customAction")]
         public Input<Inputs.WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomActionGetArgs>? CustomAction { get; set; }

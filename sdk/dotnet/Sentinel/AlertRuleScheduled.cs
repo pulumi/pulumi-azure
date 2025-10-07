@@ -76,7 +76,7 @@ namespace Pulumi.Azure.Sentinel
     public partial class AlertRuleScheduled : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An `alert_details_override` block as defined below.
+        /// An `AlertDetailsOverride` block as defined below.
         /// </summary>
         [Output("alertDetailsOverrides")]
         public Output<ImmutableArray<Outputs.AlertRuleScheduledAlertDetailsOverride>> AlertDetailsOverrides { get; private set; } = null!;
@@ -112,25 +112,25 @@ namespace Pulumi.Azure.Sentinel
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
+        /// Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// A list of `entity_mapping` blocks as defined below.
+        /// A list of `EntityMapping` blocks as defined below.
         /// </summary>
         [Output("entityMappings")]
         public Output<ImmutableArray<Outputs.AlertRuleScheduledEntityMapping>> EntityMappings { get; private set; } = null!;
 
         /// <summary>
-        /// A `event_grouping` block as defined below.
+        /// A `EventGrouping` block as defined below.
         /// </summary>
         [Output("eventGrouping")]
         public Output<Outputs.AlertRuleScheduledEventGrouping?> EventGrouping { get; private set; } = null!;
 
         /// <summary>
-        /// A `incident` block as defined below.
+        /// A `Incident` block as defined below.
         /// </summary>
         [Output("incident")]
         public Output<Outputs.AlertRuleScheduledIncident> Incident { get; private set; } = null!;
@@ -162,15 +162,15 @@ namespace Pulumi.Azure.Sentinel
         /// <summary>
         /// The ISO 8601 timespan duration, which determine the time period of the data covered by the query. For example, it can query the past 10 minutes of data, or the past 6 hours of data. Defaults to `PT5H`.
         /// 
-        /// &gt; **Note:** `query_period` must larger than or equal to `query_frequency`, which ensures there is no gaps in the overall query coverage.
+        /// &gt; **Note:** `QueryPeriod` must larger than or equal to `QueryFrequency`, which ensures there is no gaps in the overall query coverage.
         /// </summary>
         [Output("queryPeriod")]
         public Output<string?> QueryPeriod { get; private set; } = null!;
 
         /// <summary>
-        /// A list of `sentinel_entity_mapping` blocks as defined below.
+        /// A list of `SentinelEntityMapping` blocks as defined below.
         /// 
-        /// &gt; **Note:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 10.
+        /// &gt; **Note:** `EntityMapping` and `SentinelEntityMapping` together can't exceed 10.
         /// </summary>
         [Output("sentinelEntityMappings")]
         public Output<ImmutableArray<Outputs.AlertRuleScheduledSentinelEntityMapping>> SentinelEntityMappings { get; private set; } = null!;
@@ -182,15 +182,15 @@ namespace Pulumi.Azure.Sentinel
         public Output<string> Severity { get; private set; } = null!;
 
         /// <summary>
-        /// If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
+        /// If `SuppressionEnabled` is `True`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
         /// 
-        /// &gt; **Note:** `suppression_duration` must larger than or equal to `query_frequency`, otherwise the suppression has no actual effect since no query will happen during the suppression duration.
+        /// &gt; **Note:** `SuppressionDuration` must larger than or equal to `QueryFrequency`, otherwise the suppression has no actual effect since no query will happen during the suppression duration.
         /// </summary>
         [Output("suppressionDuration")]
         public Output<string?> SuppressionDuration { get; private set; } = null!;
 
         /// <summary>
-        /// Should the Sentinel Scheduled Alert Rulea stop running query after alert is generated? Defaults to `false`.
+        /// Should the Sentinel Scheduled Alert Rulea stop running query after alert is generated? Defaults to `False`.
         /// </summary>
         [Output("suppressionEnabled")]
         public Output<bool?> SuppressionEnabled { get; private set; } = null!;
@@ -208,13 +208,13 @@ namespace Pulumi.Azure.Sentinel
         public Output<ImmutableArray<string>> Techniques { get; private set; } = null!;
 
         /// <summary>
-        /// The alert trigger operator, combined with `trigger_threshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`. Defaults to `GreaterThan`.
+        /// The alert trigger operator, combined with `TriggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`. Defaults to `GreaterThan`.
         /// </summary>
         [Output("triggerOperator")]
         public Output<string?> TriggerOperator { get; private set; } = null!;
 
         /// <summary>
-        /// The baseline number of query results generated, combined with `trigger_operator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
+        /// The baseline number of query results generated, combined with `TriggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
         /// </summary>
         [Output("triggerThreshold")]
         public Output<int?> TriggerThreshold { get; private set; } = null!;
@@ -269,7 +269,7 @@ namespace Pulumi.Azure.Sentinel
         private InputList<Inputs.AlertRuleScheduledAlertDetailsOverrideArgs>? _alertDetailsOverrides;
 
         /// <summary>
-        /// An `alert_details_override` block as defined below.
+        /// An `AlertDetailsOverride` block as defined below.
         /// </summary>
         public InputList<Inputs.AlertRuleScheduledAlertDetailsOverrideArgs> AlertDetailsOverrides
         {
@@ -314,7 +314,7 @@ namespace Pulumi.Azure.Sentinel
         public Input<string> DisplayName { get; set; } = null!;
 
         /// <summary>
-        /// Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
+        /// Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -323,7 +323,7 @@ namespace Pulumi.Azure.Sentinel
         private InputList<Inputs.AlertRuleScheduledEntityMappingArgs>? _entityMappings;
 
         /// <summary>
-        /// A list of `entity_mapping` blocks as defined below.
+        /// A list of `EntityMapping` blocks as defined below.
         /// </summary>
         public InputList<Inputs.AlertRuleScheduledEntityMappingArgs> EntityMappings
         {
@@ -332,13 +332,13 @@ namespace Pulumi.Azure.Sentinel
         }
 
         /// <summary>
-        /// A `event_grouping` block as defined below.
+        /// A `EventGrouping` block as defined below.
         /// </summary>
         [Input("eventGrouping")]
         public Input<Inputs.AlertRuleScheduledEventGroupingArgs>? EventGrouping { get; set; }
 
         /// <summary>
-        /// A `incident` block as defined below.
+        /// A `Incident` block as defined below.
         /// </summary>
         [Input("incident")]
         public Input<Inputs.AlertRuleScheduledIncidentArgs>? Incident { get; set; }
@@ -370,7 +370,7 @@ namespace Pulumi.Azure.Sentinel
         /// <summary>
         /// The ISO 8601 timespan duration, which determine the time period of the data covered by the query. For example, it can query the past 10 minutes of data, or the past 6 hours of data. Defaults to `PT5H`.
         /// 
-        /// &gt; **Note:** `query_period` must larger than or equal to `query_frequency`, which ensures there is no gaps in the overall query coverage.
+        /// &gt; **Note:** `QueryPeriod` must larger than or equal to `QueryFrequency`, which ensures there is no gaps in the overall query coverage.
         /// </summary>
         [Input("queryPeriod")]
         public Input<string>? QueryPeriod { get; set; }
@@ -379,9 +379,9 @@ namespace Pulumi.Azure.Sentinel
         private InputList<Inputs.AlertRuleScheduledSentinelEntityMappingArgs>? _sentinelEntityMappings;
 
         /// <summary>
-        /// A list of `sentinel_entity_mapping` blocks as defined below.
+        /// A list of `SentinelEntityMapping` blocks as defined below.
         /// 
-        /// &gt; **Note:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 10.
+        /// &gt; **Note:** `EntityMapping` and `SentinelEntityMapping` together can't exceed 10.
         /// </summary>
         public InputList<Inputs.AlertRuleScheduledSentinelEntityMappingArgs> SentinelEntityMappings
         {
@@ -396,15 +396,15 @@ namespace Pulumi.Azure.Sentinel
         public Input<string> Severity { get; set; } = null!;
 
         /// <summary>
-        /// If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
+        /// If `SuppressionEnabled` is `True`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
         /// 
-        /// &gt; **Note:** `suppression_duration` must larger than or equal to `query_frequency`, otherwise the suppression has no actual effect since no query will happen during the suppression duration.
+        /// &gt; **Note:** `SuppressionDuration` must larger than or equal to `QueryFrequency`, otherwise the suppression has no actual effect since no query will happen during the suppression duration.
         /// </summary>
         [Input("suppressionDuration")]
         public Input<string>? SuppressionDuration { get; set; }
 
         /// <summary>
-        /// Should the Sentinel Scheduled Alert Rulea stop running query after alert is generated? Defaults to `false`.
+        /// Should the Sentinel Scheduled Alert Rulea stop running query after alert is generated? Defaults to `False`.
         /// </summary>
         [Input("suppressionEnabled")]
         public Input<bool>? SuppressionEnabled { get; set; }
@@ -434,13 +434,13 @@ namespace Pulumi.Azure.Sentinel
         }
 
         /// <summary>
-        /// The alert trigger operator, combined with `trigger_threshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`. Defaults to `GreaterThan`.
+        /// The alert trigger operator, combined with `TriggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`. Defaults to `GreaterThan`.
         /// </summary>
         [Input("triggerOperator")]
         public Input<string>? TriggerOperator { get; set; }
 
         /// <summary>
-        /// The baseline number of query results generated, combined with `trigger_operator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
+        /// The baseline number of query results generated, combined with `TriggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
         /// </summary>
         [Input("triggerThreshold")]
         public Input<int>? TriggerThreshold { get; set; }
@@ -457,7 +457,7 @@ namespace Pulumi.Azure.Sentinel
         private InputList<Inputs.AlertRuleScheduledAlertDetailsOverrideGetArgs>? _alertDetailsOverrides;
 
         /// <summary>
-        /// An `alert_details_override` block as defined below.
+        /// An `AlertDetailsOverride` block as defined below.
         /// </summary>
         public InputList<Inputs.AlertRuleScheduledAlertDetailsOverrideGetArgs> AlertDetailsOverrides
         {
@@ -502,7 +502,7 @@ namespace Pulumi.Azure.Sentinel
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
+        /// Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -511,7 +511,7 @@ namespace Pulumi.Azure.Sentinel
         private InputList<Inputs.AlertRuleScheduledEntityMappingGetArgs>? _entityMappings;
 
         /// <summary>
-        /// A list of `entity_mapping` blocks as defined below.
+        /// A list of `EntityMapping` blocks as defined below.
         /// </summary>
         public InputList<Inputs.AlertRuleScheduledEntityMappingGetArgs> EntityMappings
         {
@@ -520,13 +520,13 @@ namespace Pulumi.Azure.Sentinel
         }
 
         /// <summary>
-        /// A `event_grouping` block as defined below.
+        /// A `EventGrouping` block as defined below.
         /// </summary>
         [Input("eventGrouping")]
         public Input<Inputs.AlertRuleScheduledEventGroupingGetArgs>? EventGrouping { get; set; }
 
         /// <summary>
-        /// A `incident` block as defined below.
+        /// A `Incident` block as defined below.
         /// </summary>
         [Input("incident")]
         public Input<Inputs.AlertRuleScheduledIncidentGetArgs>? Incident { get; set; }
@@ -558,7 +558,7 @@ namespace Pulumi.Azure.Sentinel
         /// <summary>
         /// The ISO 8601 timespan duration, which determine the time period of the data covered by the query. For example, it can query the past 10 minutes of data, or the past 6 hours of data. Defaults to `PT5H`.
         /// 
-        /// &gt; **Note:** `query_period` must larger than or equal to `query_frequency`, which ensures there is no gaps in the overall query coverage.
+        /// &gt; **Note:** `QueryPeriod` must larger than or equal to `QueryFrequency`, which ensures there is no gaps in the overall query coverage.
         /// </summary>
         [Input("queryPeriod")]
         public Input<string>? QueryPeriod { get; set; }
@@ -567,9 +567,9 @@ namespace Pulumi.Azure.Sentinel
         private InputList<Inputs.AlertRuleScheduledSentinelEntityMappingGetArgs>? _sentinelEntityMappings;
 
         /// <summary>
-        /// A list of `sentinel_entity_mapping` blocks as defined below.
+        /// A list of `SentinelEntityMapping` blocks as defined below.
         /// 
-        /// &gt; **Note:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 10.
+        /// &gt; **Note:** `EntityMapping` and `SentinelEntityMapping` together can't exceed 10.
         /// </summary>
         public InputList<Inputs.AlertRuleScheduledSentinelEntityMappingGetArgs> SentinelEntityMappings
         {
@@ -584,15 +584,15 @@ namespace Pulumi.Azure.Sentinel
         public Input<string>? Severity { get; set; }
 
         /// <summary>
-        /// If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
+        /// If `SuppressionEnabled` is `True`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
         /// 
-        /// &gt; **Note:** `suppression_duration` must larger than or equal to `query_frequency`, otherwise the suppression has no actual effect since no query will happen during the suppression duration.
+        /// &gt; **Note:** `SuppressionDuration` must larger than or equal to `QueryFrequency`, otherwise the suppression has no actual effect since no query will happen during the suppression duration.
         /// </summary>
         [Input("suppressionDuration")]
         public Input<string>? SuppressionDuration { get; set; }
 
         /// <summary>
-        /// Should the Sentinel Scheduled Alert Rulea stop running query after alert is generated? Defaults to `false`.
+        /// Should the Sentinel Scheduled Alert Rulea stop running query after alert is generated? Defaults to `False`.
         /// </summary>
         [Input("suppressionEnabled")]
         public Input<bool>? SuppressionEnabled { get; set; }
@@ -622,13 +622,13 @@ namespace Pulumi.Azure.Sentinel
         }
 
         /// <summary>
-        /// The alert trigger operator, combined with `trigger_threshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`. Defaults to `GreaterThan`.
+        /// The alert trigger operator, combined with `TriggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`. Defaults to `GreaterThan`.
         /// </summary>
         [Input("triggerOperator")]
         public Input<string>? TriggerOperator { get; set; }
 
         /// <summary>
-        /// The baseline number of query results generated, combined with `trigger_operator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
+        /// The baseline number of query results generated, combined with `TriggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
         /// </summary>
         [Input("triggerThreshold")]
         public Input<int>? TriggerThreshold { get; set; }

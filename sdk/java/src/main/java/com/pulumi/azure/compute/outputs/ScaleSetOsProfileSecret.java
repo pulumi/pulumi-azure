@@ -19,7 +19,7 @@ public final class ScaleSetOsProfileSecret {
      */
     private String sourceVaultId;
     /**
-     * @return (Required, on Windows machines) One or more `vault_certificates` blocks as defined below.
+     * @return (Required, on Windows machines) One or more `vaultCertificates` blocks as defined below.
      * 
      */
     private @Nullable List<ScaleSetOsProfileSecretVaultCertificate> vaultCertificates;
@@ -33,7 +33,7 @@ public final class ScaleSetOsProfileSecret {
         return this.sourceVaultId;
     }
     /**
-     * @return (Required, on Windows machines) One or more `vault_certificates` blocks as defined below.
+     * @return (Required, on Windows machines) One or more `vaultCertificates` blocks as defined below.
      * 
      */
     public List<ScaleSetOsProfileSecretVaultCertificate> vaultCertificates() {

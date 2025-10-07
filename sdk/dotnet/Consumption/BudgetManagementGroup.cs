@@ -132,7 +132,7 @@ namespace Pulumi.Azure.Consumption
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
-        /// A `filter` block as defined below.
+        /// A `Filter` block as defined below.
         /// </summary>
         [Output("filter")]
         public Output<Outputs.BudgetManagementGroupFilter?> Filter { get; private set; } = null!;
@@ -150,7 +150,7 @@ namespace Pulumi.Azure.Consumption
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `notification` blocks as defined below.
+        /// One or more `Notification` blocks as defined below.
         /// </summary>
         [Output("notifications")]
         public Output<ImmutableArray<Outputs.BudgetManagementGroupNotification>> Notifications { get; private set; } = null!;
@@ -162,7 +162,7 @@ namespace Pulumi.Azure.Consumption
         public Output<string?> TimeGrain { get; private set; } = null!;
 
         /// <summary>
-        /// A `time_period` block as defined below.
+        /// A `TimePeriod` block as defined below.
         /// </summary>
         [Output("timePeriod")]
         public Output<Outputs.BudgetManagementGroupTimePeriod> TimePeriod { get; private set; } = null!;
@@ -226,7 +226,7 @@ namespace Pulumi.Azure.Consumption
         public Input<string>? Etag { get; set; }
 
         /// <summary>
-        /// A `filter` block as defined below.
+        /// A `Filter` block as defined below.
         /// </summary>
         [Input("filter")]
         public Input<Inputs.BudgetManagementGroupFilterArgs>? Filter { get; set; }
@@ -247,7 +247,7 @@ namespace Pulumi.Azure.Consumption
         private InputList<Inputs.BudgetManagementGroupNotificationArgs>? _notifications;
 
         /// <summary>
-        /// One or more `notification` blocks as defined below.
+        /// One or more `Notification` blocks as defined below.
         /// </summary>
         public InputList<Inputs.BudgetManagementGroupNotificationArgs> Notifications
         {
@@ -262,7 +262,7 @@ namespace Pulumi.Azure.Consumption
         public Input<string>? TimeGrain { get; set; }
 
         /// <summary>
-        /// A `time_period` block as defined below.
+        /// A `TimePeriod` block as defined below.
         /// </summary>
         [Input("timePeriod", required: true)]
         public Input<Inputs.BudgetManagementGroupTimePeriodArgs> TimePeriod { get; set; } = null!;
@@ -288,7 +288,7 @@ namespace Pulumi.Azure.Consumption
         public Input<string>? Etag { get; set; }
 
         /// <summary>
-        /// A `filter` block as defined below.
+        /// A `Filter` block as defined below.
         /// </summary>
         [Input("filter")]
         public Input<Inputs.BudgetManagementGroupFilterGetArgs>? Filter { get; set; }
@@ -309,7 +309,7 @@ namespace Pulumi.Azure.Consumption
         private InputList<Inputs.BudgetManagementGroupNotificationGetArgs>? _notifications;
 
         /// <summary>
-        /// One or more `notification` blocks as defined below.
+        /// One or more `Notification` blocks as defined below.
         /// </summary>
         public InputList<Inputs.BudgetManagementGroupNotificationGetArgs> Notifications
         {
@@ -324,7 +324,7 @@ namespace Pulumi.Azure.Consumption
         public Input<string>? TimeGrain { get; set; }
 
         /// <summary>
-        /// A `time_period` block as defined below.
+        /// A `TimePeriod` block as defined below.
         /// </summary>
         [Input("timePeriod")]
         public Input<Inputs.BudgetManagementGroupTimePeriodGetArgs>? TimePeriod { get; set; }

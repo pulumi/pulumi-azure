@@ -88,13 +88,13 @@ namespace Pulumi.Azure.ServiceBus
         public Output<bool?> BatchedOperationsEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A `client_scoped_subscription` block as defined below.
+        /// A `ClientScopedSubscription` block as defined below.
         /// </summary>
         [Output("clientScopedSubscription")]
         public Output<Outputs.SubscriptionClientScopedSubscription?> ClientScopedSubscription { get; private set; } = null!;
 
         /// <summary>
-        /// whether the subscription is scoped to a client id. Defaults to `false`.
+        /// whether the subscription is scoped to a client id. Defaults to `False`.
         /// 
         /// &gt; **Note:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
         /// </summary>
@@ -102,7 +102,7 @@ namespace Pulumi.Azure.ServiceBus
         public Output<bool?> ClientScopedSubscriptionEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
+        /// Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `True`.
         /// </summary>
         [Output("deadLetteringOnFilterEvaluationError")]
         public Output<bool?> DeadLetteringOnFilterEvaluationError { get; private set; } = null!;
@@ -230,13 +230,13 @@ namespace Pulumi.Azure.ServiceBus
         public Input<bool>? BatchedOperationsEnabled { get; set; }
 
         /// <summary>
-        /// A `client_scoped_subscription` block as defined below.
+        /// A `ClientScopedSubscription` block as defined below.
         /// </summary>
         [Input("clientScopedSubscription")]
         public Input<Inputs.SubscriptionClientScopedSubscriptionArgs>? ClientScopedSubscription { get; set; }
 
         /// <summary>
-        /// whether the subscription is scoped to a client id. Defaults to `false`.
+        /// whether the subscription is scoped to a client id. Defaults to `False`.
         /// 
         /// &gt; **Note:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
         /// </summary>
@@ -244,7 +244,7 @@ namespace Pulumi.Azure.ServiceBus
         public Input<bool>? ClientScopedSubscriptionEnabled { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
+        /// Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `True`.
         /// </summary>
         [Input("deadLetteringOnFilterEvaluationError")]
         public Input<bool>? DeadLetteringOnFilterEvaluationError { get; set; }
@@ -330,13 +330,13 @@ namespace Pulumi.Azure.ServiceBus
         public Input<bool>? BatchedOperationsEnabled { get; set; }
 
         /// <summary>
-        /// A `client_scoped_subscription` block as defined below.
+        /// A `ClientScopedSubscription` block as defined below.
         /// </summary>
         [Input("clientScopedSubscription")]
         public Input<Inputs.SubscriptionClientScopedSubscriptionGetArgs>? ClientScopedSubscription { get; set; }
 
         /// <summary>
-        /// whether the subscription is scoped to a client id. Defaults to `false`.
+        /// whether the subscription is scoped to a client id. Defaults to `False`.
         /// 
         /// &gt; **Note:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
         /// </summary>
@@ -344,7 +344,7 @@ namespace Pulumi.Azure.ServiceBus
         public Input<bool>? ClientScopedSubscriptionEnabled { get; set; }
 
         /// <summary>
-        /// Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
+        /// Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `True`.
         /// </summary>
         [Input("deadLetteringOnFilterEvaluationError")]
         public Input<bool>? DeadLetteringOnFilterEvaluationError { get; set; }

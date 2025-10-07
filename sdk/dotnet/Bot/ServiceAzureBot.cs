@@ -85,7 +85,7 @@ namespace Pulumi.Azure.Bot
         /// <summary>
         /// The CMK Key Vault Key URL that will be used to encrypt the Bot with the Customer Managed Encryption Key.
         /// 
-        /// &gt; **Note:** In order to utilize CMEK, you must add the `Key Vault Crypto Service Encryption User` role to the Azure-defined `Bot Service CMEK Prod` Service Principal. You must also enable `soft_delete_enabled` and `purge_protection_enabled` on the `azure.keyvault.KeyVault` that `cmk_key_vault_key_url` refers to. [See Azure Documentation](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0#how-to-configure-your-azure-key-vault-instance)
+        /// &gt; **Note:** In order to utilize CMEK, you must add the `Key Vault Crypto Service Encryption User` role to the Azure-defined `Bot Service CMEK Prod` Service Principal. You must also enable `SoftDeleteEnabled` and `PurgeProtectionEnabled` on the `azure.keyvault.KeyVault` that `CmkKeyVaultKeyUrl` refers to. [See Azure Documentation](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0#how-to-configure-your-azure-key-vault-instance)
         /// </summary>
         [Output("cmkKeyVaultKeyUrl")]
         public Output<string?> CmkKeyVaultKeyUrl { get; private set; } = null!;
@@ -109,7 +109,7 @@ namespace Pulumi.Azure.Bot
         public Output<string?> DeveloperAppInsightsKey { get; private set; } = null!;
 
         /// <summary>
-        /// The name that the Azure Bot Service will be displayed as. This defaults to the value set for `name` if not specified.
+        /// The name that the Azure Bot Service will be displayed as. This defaults to the value set for `Name` if not specified.
         /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
@@ -127,7 +127,7 @@ namespace Pulumi.Azure.Bot
         public Output<string?> IconUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Is local authentication enabled? Defaults to `true`.
+        /// Is local authentication enabled? Defaults to `True`.
         /// </summary>
         [Output("localAuthenticationEnabled")]
         public Output<bool?> LocalAuthenticationEnabled { get; private set; } = null!;
@@ -181,7 +181,7 @@ namespace Pulumi.Azure.Bot
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Whether public network access is enabled. Defaults to `true`.
+        /// Whether public network access is enabled. Defaults to `True`.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
@@ -199,7 +199,7 @@ namespace Pulumi.Azure.Bot
         public Output<string> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// Is the streaming endpoint enabled for this Azure Bot Service. Defaults to `false`.
+        /// Is the streaming endpoint enabled for this Azure Bot Service. Defaults to `False`.
         /// </summary>
         [Output("streamingEndpointEnabled")]
         public Output<bool?> StreamingEndpointEnabled { get; private set; } = null!;
@@ -264,7 +264,7 @@ namespace Pulumi.Azure.Bot
         /// <summary>
         /// The CMK Key Vault Key URL that will be used to encrypt the Bot with the Customer Managed Encryption Key.
         /// 
-        /// &gt; **Note:** In order to utilize CMEK, you must add the `Key Vault Crypto Service Encryption User` role to the Azure-defined `Bot Service CMEK Prod` Service Principal. You must also enable `soft_delete_enabled` and `purge_protection_enabled` on the `azure.keyvault.KeyVault` that `cmk_key_vault_key_url` refers to. [See Azure Documentation](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0#how-to-configure-your-azure-key-vault-instance)
+        /// &gt; **Note:** In order to utilize CMEK, you must add the `Key Vault Crypto Service Encryption User` role to the Azure-defined `Bot Service CMEK Prod` Service Principal. You must also enable `SoftDeleteEnabled` and `PurgeProtectionEnabled` on the `azure.keyvault.KeyVault` that `CmkKeyVaultKeyUrl` refers to. [See Azure Documentation](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0#how-to-configure-your-azure-key-vault-instance)
         /// </summary>
         [Input("cmkKeyVaultKeyUrl")]
         public Input<string>? CmkKeyVaultKeyUrl { get; set; }
@@ -298,7 +298,7 @@ namespace Pulumi.Azure.Bot
         public Input<string>? DeveloperAppInsightsKey { get; set; }
 
         /// <summary>
-        /// The name that the Azure Bot Service will be displayed as. This defaults to the value set for `name` if not specified.
+        /// The name that the Azure Bot Service will be displayed as. This defaults to the value set for `Name` if not specified.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
@@ -316,7 +316,7 @@ namespace Pulumi.Azure.Bot
         public Input<string>? IconUrl { get; set; }
 
         /// <summary>
-        /// Is local authentication enabled? Defaults to `true`.
+        /// Is local authentication enabled? Defaults to `True`.
         /// </summary>
         [Input("localAuthenticationEnabled")]
         public Input<bool>? LocalAuthenticationEnabled { get; set; }
@@ -386,7 +386,7 @@ namespace Pulumi.Azure.Bot
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether public network access is enabled. Defaults to `true`.
+        /// Whether public network access is enabled. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -404,7 +404,7 @@ namespace Pulumi.Azure.Bot
         public Input<string> Sku { get; set; } = null!;
 
         /// <summary>
-        /// Is the streaming endpoint enabled for this Azure Bot Service. Defaults to `false`.
+        /// Is the streaming endpoint enabled for this Azure Bot Service. Defaults to `False`.
         /// </summary>
         [Input("streamingEndpointEnabled")]
         public Input<bool>? StreamingEndpointEnabled { get; set; }
@@ -432,7 +432,7 @@ namespace Pulumi.Azure.Bot
         /// <summary>
         /// The CMK Key Vault Key URL that will be used to encrypt the Bot with the Customer Managed Encryption Key.
         /// 
-        /// &gt; **Note:** In order to utilize CMEK, you must add the `Key Vault Crypto Service Encryption User` role to the Azure-defined `Bot Service CMEK Prod` Service Principal. You must also enable `soft_delete_enabled` and `purge_protection_enabled` on the `azure.keyvault.KeyVault` that `cmk_key_vault_key_url` refers to. [See Azure Documentation](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0#how-to-configure-your-azure-key-vault-instance)
+        /// &gt; **Note:** In order to utilize CMEK, you must add the `Key Vault Crypto Service Encryption User` role to the Azure-defined `Bot Service CMEK Prod` Service Principal. You must also enable `SoftDeleteEnabled` and `PurgeProtectionEnabled` on the `azure.keyvault.KeyVault` that `CmkKeyVaultKeyUrl` refers to. [See Azure Documentation](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0#how-to-configure-your-azure-key-vault-instance)
         /// </summary>
         [Input("cmkKeyVaultKeyUrl")]
         public Input<string>? CmkKeyVaultKeyUrl { get; set; }
@@ -466,7 +466,7 @@ namespace Pulumi.Azure.Bot
         public Input<string>? DeveloperAppInsightsKey { get; set; }
 
         /// <summary>
-        /// The name that the Azure Bot Service will be displayed as. This defaults to the value set for `name` if not specified.
+        /// The name that the Azure Bot Service will be displayed as. This defaults to the value set for `Name` if not specified.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
@@ -484,7 +484,7 @@ namespace Pulumi.Azure.Bot
         public Input<string>? IconUrl { get; set; }
 
         /// <summary>
-        /// Is local authentication enabled? Defaults to `true`.
+        /// Is local authentication enabled? Defaults to `True`.
         /// </summary>
         [Input("localAuthenticationEnabled")]
         public Input<bool>? LocalAuthenticationEnabled { get; set; }
@@ -554,7 +554,7 @@ namespace Pulumi.Azure.Bot
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether public network access is enabled. Defaults to `true`.
+        /// Whether public network access is enabled. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -572,7 +572,7 @@ namespace Pulumi.Azure.Bot
         public Input<string>? Sku { get; set; }
 
         /// <summary>
-        /// Is the streaming endpoint enabled for this Azure Bot Service. Defaults to `false`.
+        /// Is the streaming endpoint enabled for this Azure Bot Service. Defaults to `False`.
         /// </summary>
         [Input("streamingEndpointEnabled")]
         public Input<bool>? StreamingEndpointEnabled { get; set; }

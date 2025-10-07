@@ -201,7 +201,7 @@ namespace Pulumi.Azure.DataShare
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// A `snapshot_schedule` block as defined below.
+        /// A `SnapshotSchedule` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetShareSnapshotScheduleResult> SnapshotSchedules;
         /// <summary>

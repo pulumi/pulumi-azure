@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
     public sealed class DataCollectionRuleDataSourcesLogFileSettings
     {
         /// <summary>
-        /// A `text` block as defined below.
+        /// A `Text` block as defined below.
         /// </summary>
         public readonly Outputs.DataCollectionRuleDataSourcesLogFileSettingsText Text;
 

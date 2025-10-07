@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TableAcl {
     /**
-     * @return An `access_policy` block as defined below.
+     * @return An `accessPolicy` block as defined below.
      * 
      */
     private @Nullable List<TableAclAccessPolicy> accessPolicies;
@@ -26,7 +26,7 @@ public final class TableAcl {
 
     private TableAcl() {}
     /**
-     * @return An `access_policy` block as defined below.
+     * @return An `accessPolicy` block as defined below.
      * 
      */
     public List<TableAclAccessPolicy> accessPolicies() {

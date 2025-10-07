@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Cognitive.Outputs
         /// </summary>
         public readonly string? Bypass;
         /// <summary>
-        /// The Default Action to use when no rules match from `ip_rules` / `virtual_network_rules`. Possible values are `Allow` and `Deny`.
+        /// The Default Action to use when no rules match from `IpRules` / `VirtualNetworkRules`. Possible values are `Allow` and `Deny`.
         /// </summary>
         public readonly string DefaultAction;
         /// <summary>
@@ -27,7 +27,7 @@ namespace Pulumi.Azure.Cognitive.Outputs
         /// </summary>
         public readonly ImmutableArray<string> IpRules;
         /// <summary>
-        /// A `virtual_network_rules` block as defined below.
+        /// A `VirtualNetworkRules` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AIServicesNetworkAclsVirtualNetworkRule> VirtualNetworkRules;
 

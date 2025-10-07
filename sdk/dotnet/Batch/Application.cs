@@ -82,7 +82,7 @@ namespace Pulumi.Azure.Batch
         public Output<string> AccountName { get; private set; } = null!;
 
         /// <summary>
-        /// A value indicating whether packages within the application may be overwritten using the same version string. Defaults to `true`.
+        /// A value indicating whether packages within the application may be overwritten using the same version string. Defaults to `True`.
         /// </summary>
         [Output("allowUpdates")]
         public Output<bool?> AllowUpdates { get; private set; } = null!;
@@ -164,7 +164,7 @@ namespace Pulumi.Azure.Batch
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// A value indicating whether packages within the application may be overwritten using the same version string. Defaults to `true`.
+        /// A value indicating whether packages within the application may be overwritten using the same version string. Defaults to `True`.
         /// </summary>
         [Input("allowUpdates")]
         public Input<bool>? AllowUpdates { get; set; }
@@ -208,7 +208,7 @@ namespace Pulumi.Azure.Batch
         public Input<string>? AccountName { get; set; }
 
         /// <summary>
-        /// A value indicating whether packages within the application may be overwritten using the same version string. Defaults to `true`.
+        /// A value indicating whether packages within the application may be overwritten using the same version string. Defaults to `True`.
         /// </summary>
         [Input("allowUpdates")]
         public Input<bool>? AllowUpdates { get; set; }

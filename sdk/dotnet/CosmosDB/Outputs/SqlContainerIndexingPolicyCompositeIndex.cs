@@ -14,7 +14,7 @@ namespace Pulumi.Azure.CosmosDB.Outputs
     public sealed class SqlContainerIndexingPolicyCompositeIndex
     {
         /// <summary>
-        /// One or more `index` blocks as defined below.
+        /// One or more `Index` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.SqlContainerIndexingPolicyCompositeIndexIndex> Indices;
 

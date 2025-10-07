@@ -34,14 +34,14 @@ public final class Powershell72ModuleArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A `module_link` block as defined below.
+     * A `moduleLink` block as defined below.
      * 
      */
     @Import(name="moduleLink", required=true)
     private Output<Powershell72ModuleModuleLinkArgs> moduleLink;
 
     /**
-     * @return A `module_link` block as defined below.
+     * @return A `moduleLink` block as defined below.
      * 
      */
     public Output<Powershell72ModuleModuleLinkArgs> moduleLink() {
@@ -127,7 +127,7 @@ public final class Powershell72ModuleArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param moduleLink A `module_link` block as defined below.
+         * @param moduleLink A `moduleLink` block as defined below.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class Powershell72ModuleArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param moduleLink A `module_link` block as defined below.
+         * @param moduleLink A `moduleLink` block as defined below.
          * 
          * @return builder
          * 

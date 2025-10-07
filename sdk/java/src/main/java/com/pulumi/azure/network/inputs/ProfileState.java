@@ -19,14 +19,14 @@ public final class ProfileState extends com.pulumi.resources.ResourceArgs {
     public static final ProfileState Empty = new ProfileState();
 
     /**
-     * A `container_network_interface` block as documented below.
+     * A `containerNetworkInterface` block as documented below.
      * 
      */
     @Import(name="containerNetworkInterface")
     private @Nullable Output<ProfileContainerNetworkInterfaceArgs> containerNetworkInterface;
 
     /**
-     * @return A `container_network_interface` block as documented below.
+     * @return A `containerNetworkInterface` block as documented below.
      * 
      */
     public Optional<Output<ProfileContainerNetworkInterfaceArgs>> containerNetworkInterface() {
@@ -138,7 +138,7 @@ public final class ProfileState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param containerNetworkInterface A `container_network_interface` block as documented below.
+         * @param containerNetworkInterface A `containerNetworkInterface` block as documented below.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class ProfileState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param containerNetworkInterface A `container_network_interface` block as documented below.
+         * @param containerNetworkInterface A `containerNetworkInterface` block as documented below.
          * 
          * @return builder
          * 

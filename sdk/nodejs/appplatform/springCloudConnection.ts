@@ -11,6 +11,79 @@ import * as utilities from "../utilities";
  *
  * !> **Note:** Azure Spring Apps is now deprecated and will be retired on 2028-05-31 - as such the `azure.appplatform.SpringCloudConnection` resource is deprecated and will be removed in a future major version of the AzureRM Provider. See https://aka.ms/asaretirement for more information.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.cosmosdb.Account("example", {
+ *     name: "example-cosmosdb-account",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     offerType: "Standard",
+ *     kind: "GlobalDocumentDB",
+ *     consistencyPolicy: {
+ *         consistencyLevel: "BoundedStaleness",
+ *         maxIntervalInSeconds: 10,
+ *         maxStalenessPrefix: 200,
+ *     },
+ *     geoLocations: [{
+ *         location: example.location,
+ *         failoverPriority: 0,
+ *     }],
+ * });
+ * const exampleSqlDatabase = new azure.cosmosdb.SqlDatabase("example", {
+ *     name: "cosmos-sql-db",
+ *     resourceGroupName: exampleAccount.resourceGroupName,
+ *     accountName: exampleAccount.name,
+ *     throughput: 400,
+ * });
+ * const exampleSqlContainer = new azure.cosmosdb.SqlContainer("example", {
+ *     name: "example-container",
+ *     resourceGroupName: exampleAccount.resourceGroupName,
+ *     accountName: exampleAccount.name,
+ *     databaseName: exampleSqlDatabase.name,
+ *     partitionKeyPath: "/definition",
+ * });
+ * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("example", {
+ *     name: "examplespringcloud",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ * });
+ * const exampleSpringCloudApp = new azure.appplatform.SpringCloudApp("example", {
+ *     name: "examplespringcloudapp",
+ *     resourceGroupName: example.name,
+ *     serviceName: exampleSpringCloudService.name,
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ * });
+ * const exampleSpringCloudJavaDeployment = new azure.appplatform.SpringCloudJavaDeployment("example", {
+ *     name: "exampledeployment",
+ *     springCloudAppId: exampleSpringCloudApp.id,
+ * });
+ * const exampleSpringCloudConnection = new azure.appplatform.SpringCloudConnection("example", {
+ *     name: "example-serviceconnector",
+ *     springCloudId: exampleSpringCloudJavaDeployment.id,
+ *     targetResourceId: exampleSqlDatabase.id,
+ *     authentication: {
+ *         type: "systemAssignedIdentity",
+ *     },
+ * });
+ * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.ServiceLinker` - 2024-04-01, 2022-05-01
+ *
  * ## Import
  *
  * Service Connector for spring cloud can be imported using the `resource id`, e.g.

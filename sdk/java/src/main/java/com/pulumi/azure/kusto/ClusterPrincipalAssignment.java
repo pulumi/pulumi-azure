@@ -16,6 +16,75 @@ import javax.annotation.Nullable;
 /**
  * Manages a Kusto Cluster Principal Assignment.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.kusto.Cluster;
+ * import com.pulumi.azure.kusto.ClusterArgs;
+ * import com.pulumi.azure.kusto.inputs.ClusterSkuArgs;
+ * import com.pulumi.azure.kusto.ClusterPrincipalAssignment;
+ * import com.pulumi.azure.kusto.ClusterPrincipalAssignmentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+ * 
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("KustoRG")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()
+ *             .name("kustocluster")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .sku(ClusterSkuArgs.builder()
+ *                 .name("Standard_D13_v2")
+ *                 .capacity(2)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleClusterPrincipalAssignment = new ClusterPrincipalAssignment("exampleClusterPrincipalAssignment", ClusterPrincipalAssignmentArgs.builder()
+ *             .name("KustoPrincipalAssignment")
+ *             .resourceGroupName(example.name())
+ *             .clusterName(exampleCluster.name())
+ *             .tenantId(current.tenantId())
+ *             .principalId(current.principalId())
+ *             .principalType("App")
+ *             .role("AllDatabasesAdmin")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Kusto` - 2024-04-13
+ * 
  * ## Import
  * 
  * Data Explorer Cluster Principal Assignments can be imported using the `resource id`, e.g.

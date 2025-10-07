@@ -22,14 +22,14 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
     public static final ScheduleArgs Empty = new ScheduleArgs();
 
     /**
-     * The properties of a daily schedule. If the schedule occurs once each day of the week, specify the daily recurrence. A `daily_recurrence` block as defined below.
+     * The properties of a daily schedule. If the schedule occurs once each day of the week, specify the daily recurrence. A `dailyRecurrence` block as defined below.
      * 
      */
     @Import(name="dailyRecurrence")
     private @Nullable Output<ScheduleDailyRecurrenceArgs> dailyRecurrence;
 
     /**
-     * @return The properties of a daily schedule. If the schedule occurs once each day of the week, specify the daily recurrence. A `daily_recurrence` block as defined below.
+     * @return The properties of a daily schedule. If the schedule occurs once each day of the week, specify the daily recurrence. A `dailyRecurrence` block as defined below.
      * 
      */
     public Optional<Output<ScheduleDailyRecurrenceArgs>> dailyRecurrence() {
@@ -37,14 +37,14 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The properties of an hourly schedule. If the schedule occurs multiple times a day, specify the hourly recurrence. A `hourly_recurrence` block as defined below.
+     * The properties of an hourly schedule. If the schedule occurs multiple times a day, specify the hourly recurrence. A `hourlyRecurrence` block as defined below.
      * 
      */
     @Import(name="hourlyRecurrence")
     private @Nullable Output<ScheduleHourlyRecurrenceArgs> hourlyRecurrence;
 
     /**
-     * @return The properties of an hourly schedule. If the schedule occurs multiple times a day, specify the hourly recurrence. A `hourly_recurrence` block as defined below.
+     * @return The properties of an hourly schedule. If the schedule occurs multiple times a day, specify the hourly recurrence. A `hourlyRecurrence` block as defined below.
      * 
      */
     public Optional<Output<ScheduleHourlyRecurrenceArgs>> hourlyRecurrence() {
@@ -82,14 +82,14 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the dev test lab schedule. Valid value for name depends on the `task_type`. For instance for task_type `LabVmsStartupTask` the name needs to be `LabVmAutoStart`. Changing this forces a new resource to be created.
+     * The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the dev test lab schedule. Valid value for name depends on the `task_type`. For instance for task_type `LabVmsStartupTask` the name needs to be `LabVmAutoStart`. Changing this forces a new resource to be created.
+     * @return The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -97,14 +97,14 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The notification setting of a schedule. A `notification_settings` block as defined below.
+     * The notification setting of a schedule. A `notificationSettings` block as defined below.
      * 
      */
     @Import(name="notificationSettings", required=true)
     private Output<ScheduleNotificationSettingsArgs> notificationSettings;
 
     /**
-     * @return The notification setting of a schedule. A `notification_settings` block as defined below.
+     * @return The notification setting of a schedule. A `notificationSettings` block as defined below.
      * 
      */
     public Output<ScheduleNotificationSettingsArgs> notificationSettings() {
@@ -187,14 +187,14 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The properties of a weekly schedule. If the schedule occurs only some days of the week, specify the weekly recurrence. A `weekly_recurrence` block as defined below.
+     * The properties of a weekly schedule. If the schedule occurs only some days of the week, specify the weekly recurrence. A `weeklyRecurrence` block as defined below.
      * 
      */
     @Import(name="weeklyRecurrence")
     private @Nullable Output<ScheduleWeeklyRecurrenceArgs> weeklyRecurrence;
 
     /**
-     * @return The properties of a weekly schedule. If the schedule occurs only some days of the week, specify the weekly recurrence. A `weekly_recurrence` block as defined below.
+     * @return The properties of a weekly schedule. If the schedule occurs only some days of the week, specify the weekly recurrence. A `weeklyRecurrence` block as defined below.
      * 
      */
     public Optional<Output<ScheduleWeeklyRecurrenceArgs>> weeklyRecurrence() {
@@ -237,7 +237,7 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dailyRecurrence The properties of a daily schedule. If the schedule occurs once each day of the week, specify the daily recurrence. A `daily_recurrence` block as defined below.
+         * @param dailyRecurrence The properties of a daily schedule. If the schedule occurs once each day of the week, specify the daily recurrence. A `dailyRecurrence` block as defined below.
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dailyRecurrence The properties of a daily schedule. If the schedule occurs once each day of the week, specify the daily recurrence. A `daily_recurrence` block as defined below.
+         * @param dailyRecurrence The properties of a daily schedule. If the schedule occurs once each day of the week, specify the daily recurrence. A `dailyRecurrence` block as defined below.
          * 
          * @return builder
          * 
@@ -258,7 +258,7 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hourlyRecurrence The properties of an hourly schedule. If the schedule occurs multiple times a day, specify the hourly recurrence. A `hourly_recurrence` block as defined below.
+         * @param hourlyRecurrence The properties of an hourly schedule. If the schedule occurs multiple times a day, specify the hourly recurrence. A `hourlyRecurrence` block as defined below.
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hourlyRecurrence The properties of an hourly schedule. If the schedule occurs multiple times a day, specify the hourly recurrence. A `hourly_recurrence` block as defined below.
+         * @param hourlyRecurrence The properties of an hourly schedule. If the schedule occurs multiple times a day, specify the hourly recurrence. A `hourlyRecurrence` block as defined below.
          * 
          * @return builder
          * 
@@ -321,7 +321,7 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the dev test lab schedule. Valid value for name depends on the `task_type`. For instance for task_type `LabVmsStartupTask` the name needs to be `LabVmAutoStart`. Changing this forces a new resource to be created.
+         * @param name The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -332,7 +332,7 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the dev test lab schedule. Valid value for name depends on the `task_type`. For instance for task_type `LabVmsStartupTask` the name needs to be `LabVmAutoStart`. Changing this forces a new resource to be created.
+         * @param name The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -342,7 +342,7 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param notificationSettings The notification setting of a schedule. A `notification_settings` block as defined below.
+         * @param notificationSettings The notification setting of a schedule. A `notificationSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -353,7 +353,7 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param notificationSettings The notification setting of a schedule. A `notification_settings` block as defined below.
+         * @param notificationSettings The notification setting of a schedule. A `notificationSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -468,7 +468,7 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param weeklyRecurrence The properties of a weekly schedule. If the schedule occurs only some days of the week, specify the weekly recurrence. A `weekly_recurrence` block as defined below.
+         * @param weeklyRecurrence The properties of a weekly schedule. If the schedule occurs only some days of the week, specify the weekly recurrence. A `weeklyRecurrence` block as defined below.
          * 
          * @return builder
          * 
@@ -479,7 +479,7 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param weeklyRecurrence The properties of a weekly schedule. If the schedule occurs only some days of the week, specify the weekly recurrence. A `weekly_recurrence` block as defined below.
+         * @param weeklyRecurrence The properties of a weekly schedule. If the schedule occurs only some days of the week, specify the weekly recurrence. A `weeklyRecurrence` block as defined below.
          * 
          * @return builder
          * 

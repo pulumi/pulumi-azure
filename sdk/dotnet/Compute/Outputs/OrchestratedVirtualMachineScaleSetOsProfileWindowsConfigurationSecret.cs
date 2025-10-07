@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret
     {
         /// <summary>
-        /// One or more `certificate` blocks as defined below.
+        /// One or more `Certificate` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate> Certificates;
         /// <summary>

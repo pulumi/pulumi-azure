@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Consumption.Outputs
     public sealed class GetBudgetResourceGroupFilterNotResult
     {
         /// <summary>
-        /// A `dimension` block as defined below.
+        /// A `Dimension` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBudgetResourceGroupFilterNotDimensionResult> Dimensions;
         /// <summary>
-        /// A `tag` block as defined below.
+        /// A `Tag` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBudgetResourceGroupFilterNotTagResult> Tags;
 

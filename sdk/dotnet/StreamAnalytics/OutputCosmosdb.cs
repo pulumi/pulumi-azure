@@ -12,6 +12,88 @@ namespace Pulumi.Azure.StreamAnalytics
     /// <summary>
     /// Manages a Stream Analytics Output to CosmosDB.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "rg-example",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var example = Azure.StreamAnalytics.GetJob.Invoke(new()
+    ///     {
+    ///         Name = "example-job",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.CosmosDB.Account("example", new()
+    ///     {
+    ///         Name = "exampledb",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         OfferType = "Standard",
+    ///         Kind = "GlobalDocumentDB",
+    ///         ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
+    ///         {
+    ///             ConsistencyLevel = "BoundedStaleness",
+    ///             MaxIntervalInSeconds = 10,
+    ///             MaxStalenessPrefix = 200,
+    ///         },
+    ///         GeoLocations = new[]
+    ///         {
+    ///             new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
+    ///             {
+    ///                 Location = exampleResourceGroup.Location,
+    ///                 FailoverPriority = 0,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSqlDatabase = new Azure.CosmosDB.SqlDatabase("example", new()
+    ///     {
+    ///         Name = "cosmos-sql-db",
+    ///         ResourceGroupName = exampleAccount.ResourceGroupName,
+    ///         AccountName = exampleAccount.Name,
+    ///         Throughput = 400,
+    ///     });
+    /// 
+    ///     var exampleSqlContainer = new Azure.CosmosDB.SqlContainer("example", new()
+    ///     {
+    ///         Name = "examplecontainer",
+    ///         ResourceGroupName = exampleAccount.ResourceGroupName,
+    ///         AccountName = exampleAccount.Name,
+    ///         DatabaseName = exampleSqlDatabase.Name,
+    ///         PartitionKeyPath = "foo",
+    ///     });
+    /// 
+    ///     var exampleOutputCosmosdb = new Azure.StreamAnalytics.OutputCosmosdb("example", new()
+    ///     {
+    ///         Name = "output-to-cosmosdb",
+    ///         StreamAnalyticsJobId = example.Apply(getJobResult =&gt; getJobResult.Id),
+    ///         CosmosdbAccountKey = exampleAccount.PrimaryKey,
+    ///         CosmosdbSqlDatabaseId = exampleSqlDatabase.Id,
+    ///         ContainerName = exampleSqlContainer.Name,
+    ///         DocumentId = "exampledocumentid",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.StreamAnalytics` - 2021-10-01-preview
+    /// 
     /// ## Import
     /// 
     /// Stream Analytics Outputs for CosmosDB can be imported using the `resource id`, e.g.
@@ -60,7 +142,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the field in output events used to specify the key for partitioning output across collections. If `container_name` contains `{partition}` token, this property is required to be specified.
+        /// The name of the field in output events used to specify the key for partitioning output across collections. If `ContainerName` contains `{partition}` token, this property is required to be specified.
         /// </summary>
         [Output("partitionKey")]
         public Output<string?> PartitionKey { get; private set; } = null!;
@@ -168,7 +250,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the field in output events used to specify the key for partitioning output across collections. If `container_name` contains `{partition}` token, this property is required to be specified.
+        /// The name of the field in output events used to specify the key for partitioning output across collections. If `ContainerName` contains `{partition}` token, this property is required to be specified.
         /// </summary>
         [Input("partitionKey")]
         public Input<string>? PartitionKey { get; set; }
@@ -234,7 +316,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the field in output events used to specify the key for partitioning output across collections. If `container_name` contains `{partition}` token, this property is required to be specified.
+        /// The name of the field in output events used to specify the key for partitioning output across collections. If `ContainerName` contains `{partition}` token, this property is required to be specified.
         /// </summary>
         [Input("partitionKey")]
         public Input<string>? PartitionKey { get; set; }

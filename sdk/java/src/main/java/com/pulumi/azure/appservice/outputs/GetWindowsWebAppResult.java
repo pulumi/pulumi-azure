@@ -29,12 +29,12 @@ public final class GetWindowsWebAppResult {
      */
     private Map<String,String> appSettings;
     /**
-     * @return A `auth_settings` block as defined below.
+     * @return A `authSettings` block as defined below.
      * 
      */
     private List<GetWindowsWebAppAuthSetting> authSettings;
     /**
-     * @return An `auth_settings_v2` block as defined below.
+     * @return An `authSettingsV2` block as defined below.
      * 
      */
     private List<GetWindowsWebAppAuthSettingsV2> authSettingsV2s;
@@ -64,7 +64,7 @@ public final class GetWindowsWebAppResult {
      */
     private String clientCertificateMode;
     /**
-     * @return A `connection_string` block as defined below.
+     * @return A `connectionString` block as defined below.
      * 
      */
     private List<GetWindowsWebAppConnectionString> connectionStrings;
@@ -160,22 +160,22 @@ public final class GetWindowsWebAppResult {
      */
     private String servicePlanId;
     /**
-     * @return A `site_config` block as defined below.
+     * @return A `siteConfig` block as defined below.
      * 
      */
     private List<GetWindowsWebAppSiteConfig> siteConfigs;
     /**
-     * @return A `site_credential` block as defined below.
+     * @return A `siteCredential` block as defined below.
      * 
      */
     private List<GetWindowsWebAppSiteCredential> siteCredentials;
     /**
-     * @return A `sticky_settings` block as defined below.
+     * @return A `stickySettings` block as defined below.
      * 
      */
     private List<GetWindowsWebAppStickySetting> stickySettings;
     /**
-     * @return A `storage_account` block as defined below.
+     * @return A `storageAccount` block as defined below.
      * 
      */
     private List<GetWindowsWebAppStorageAccount> storageAccounts;
@@ -205,14 +205,14 @@ public final class GetWindowsWebAppResult {
         return this.appSettings;
     }
     /**
-     * @return A `auth_settings` block as defined below.
+     * @return A `authSettings` block as defined below.
      * 
      */
     public List<GetWindowsWebAppAuthSetting> authSettings() {
         return this.authSettings;
     }
     /**
-     * @return An `auth_settings_v2` block as defined below.
+     * @return An `authSettingsV2` block as defined below.
      * 
      */
     public List<GetWindowsWebAppAuthSettingsV2> authSettingsV2s() {
@@ -254,7 +254,7 @@ public final class GetWindowsWebAppResult {
         return this.clientCertificateMode;
     }
     /**
-     * @return A `connection_string` block as defined below.
+     * @return A `connectionString` block as defined below.
      * 
      */
     public List<GetWindowsWebAppConnectionString> connectionStrings() {
@@ -390,28 +390,28 @@ public final class GetWindowsWebAppResult {
         return this.servicePlanId;
     }
     /**
-     * @return A `site_config` block as defined below.
+     * @return A `siteConfig` block as defined below.
      * 
      */
     public List<GetWindowsWebAppSiteConfig> siteConfigs() {
         return this.siteConfigs;
     }
     /**
-     * @return A `site_credential` block as defined below.
+     * @return A `siteCredential` block as defined below.
      * 
      */
     public List<GetWindowsWebAppSiteCredential> siteCredentials() {
         return this.siteCredentials;
     }
     /**
-     * @return A `sticky_settings` block as defined below.
+     * @return A `stickySettings` block as defined below.
      * 
      */
     public List<GetWindowsWebAppStickySetting> stickySettings() {
         return this.stickySettings;
     }
     /**
-     * @return A `storage_account` block as defined below.
+     * @return A `storageAccount` block as defined below.
      * 
      */
     public List<GetWindowsWebAppStorageAccount> storageAccounts() {

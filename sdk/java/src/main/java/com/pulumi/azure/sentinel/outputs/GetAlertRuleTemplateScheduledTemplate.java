@@ -43,12 +43,12 @@ public final class GetAlertRuleTemplateScheduledTemplate {
      */
     private List<String> tactics;
     /**
-     * @return The alert trigger operator, combined with `trigger_threshold`, setting alert threshold of this Sentinel Scheduled Alert Rule Template.
+     * @return The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule Template.
      * 
      */
     private String triggerOperator;
     /**
-     * @return The baseline number of query results generated, combined with `trigger_operator`, setting alert threshold of this Sentinel Scheduled Alert Rule Template.
+     * @return The baseline number of query results generated, combined with `triggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule Template.
      * 
      */
     private Integer triggerThreshold;
@@ -97,14 +97,14 @@ public final class GetAlertRuleTemplateScheduledTemplate {
         return this.tactics;
     }
     /**
-     * @return The alert trigger operator, combined with `trigger_threshold`, setting alert threshold of this Sentinel Scheduled Alert Rule Template.
+     * @return The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule Template.
      * 
      */
     public String triggerOperator() {
         return this.triggerOperator;
     }
     /**
-     * @return The baseline number of query results generated, combined with `trigger_operator`, setting alert threshold of this Sentinel Scheduled Alert Rule Template.
+     * @return The baseline number of query results generated, combined with `triggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule Template.
      * 
      */
     public Integer triggerThreshold() {

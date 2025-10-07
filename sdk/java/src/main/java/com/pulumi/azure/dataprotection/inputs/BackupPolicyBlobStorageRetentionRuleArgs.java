@@ -33,14 +33,14 @@ public final class BackupPolicyBlobStorageRetentionRuleArgs extends com.pulumi.r
     }
 
     /**
-     * A `life_cycle` block as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
+     * A `lifeCycle` block as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
      * 
      */
     @Import(name="lifeCycle", required=true)
     private Output<BackupPolicyBlobStorageRetentionRuleLifeCycleArgs> lifeCycle;
 
     /**
-     * @return A `life_cycle` block as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
+     * @return A `lifeCycle` block as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
      * 
      */
     public Output<BackupPolicyBlobStorageRetentionRuleLifeCycleArgs> lifeCycle() {
@@ -126,7 +126,7 @@ public final class BackupPolicyBlobStorageRetentionRuleArgs extends com.pulumi.r
         }
 
         /**
-         * @param lifeCycle A `life_cycle` block as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
+         * @param lifeCycle A `lifeCycle` block as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class BackupPolicyBlobStorageRetentionRuleArgs extends com.pulumi.r
         }
 
         /**
-         * @param lifeCycle A `life_cycle` block as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
+         * @param lifeCycle A `lifeCycle` block as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
          * 
          * @return builder
          * 

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.DataFactory.Outputs
     public sealed class DataFlowSink
     {
         /// <summary>
-        /// A `dataset` block as defined below.
+        /// A `Dataset` block as defined below.
         /// </summary>
         public readonly Outputs.DataFlowSinkDataset? Dataset;
         /// <summary>
@@ -22,11 +22,11 @@ namespace Pulumi.Azure.DataFactory.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// A `flowlet` block as defined below.
+        /// A `Flowlet` block as defined below.
         /// </summary>
         public readonly Outputs.DataFlowSinkFlowlet? Flowlet;
         /// <summary>
-        /// A `linked_service` block as defined below.
+        /// A `LinkedService` block as defined below.
         /// </summary>
         public readonly Outputs.DataFlowSinkLinkedService? LinkedService;
         /// <summary>
@@ -34,11 +34,11 @@ namespace Pulumi.Azure.DataFactory.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// A `rejected_linked_service` block as defined below.
+        /// A `RejectedLinkedService` block as defined below.
         /// </summary>
         public readonly Outputs.DataFlowSinkRejectedLinkedService? RejectedLinkedService;
         /// <summary>
-        /// A `schema_linked_service` block as defined below.
+        /// A `SchemaLinkedService` block as defined below.
         /// </summary>
         public readonly Outputs.DataFlowSinkSchemaLinkedService? SchemaLinkedService;
 

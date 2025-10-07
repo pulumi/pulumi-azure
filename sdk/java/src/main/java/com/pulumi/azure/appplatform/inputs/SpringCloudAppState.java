@@ -37,14 +37,14 @@ public final class SpringCloudAppState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A `custom_persistent_disk` block as defined below.
+     * A `customPersistentDisk` block as defined below.
      * 
      */
     @Import(name="customPersistentDisks")
     private @Nullable Output<List<SpringCloudAppCustomPersistentDiskArgs>> customPersistentDisks;
 
     /**
-     * @return A `custom_persistent_disk` block as defined below.
+     * @return A `customPersistentDisk` block as defined below.
      * 
      */
     public Optional<Output<List<SpringCloudAppCustomPersistentDiskArgs>>> customPersistentDisks() {
@@ -97,14 +97,14 @@ public final class SpringCloudAppState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * An `ingress_settings` block as defined below.
+     * An `ingressSettings` block as defined below.
      * 
      */
     @Import(name="ingressSettings")
     private @Nullable Output<SpringCloudAppIngressSettingsArgs> ingressSettings;
 
     /**
-     * @return An `ingress_settings` block as defined below.
+     * @return An `ingressSettings` block as defined below.
      * 
      */
     public Optional<Output<SpringCloudAppIngressSettingsArgs>> ingressSettings() {
@@ -142,14 +142,14 @@ public final class SpringCloudAppState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * An `persistent_disk` block as defined below.
+     * An `persistentDisk` block as defined below.
      * 
      */
     @Import(name="persistentDisk")
     private @Nullable Output<SpringCloudAppPersistentDiskArgs> persistentDisk;
 
     /**
-     * @return An `persistent_disk` block as defined below.
+     * @return An `persistentDisk` block as defined below.
      * 
      */
     public Optional<Output<SpringCloudAppPersistentDiskArgs>> persistentDisk() {
@@ -290,7 +290,7 @@ public final class SpringCloudAppState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param customPersistentDisks A `custom_persistent_disk` block as defined below.
+         * @param customPersistentDisks A `customPersistentDisk` block as defined below.
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class SpringCloudAppState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param customPersistentDisks A `custom_persistent_disk` block as defined below.
+         * @param customPersistentDisks A `customPersistentDisk` block as defined below.
          * 
          * @return builder
          * 
@@ -311,7 +311,7 @@ public final class SpringCloudAppState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param customPersistentDisks A `custom_persistent_disk` block as defined below.
+         * @param customPersistentDisks A `customPersistentDisk` block as defined below.
          * 
          * @return builder
          * 
@@ -384,7 +384,7 @@ public final class SpringCloudAppState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param ingressSettings An `ingress_settings` block as defined below.
+         * @param ingressSettings An `ingressSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -395,7 +395,7 @@ public final class SpringCloudAppState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param ingressSettings An `ingress_settings` block as defined below.
+         * @param ingressSettings An `ingressSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -447,7 +447,7 @@ public final class SpringCloudAppState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param persistentDisk An `persistent_disk` block as defined below.
+         * @param persistentDisk An `persistentDisk` block as defined below.
          * 
          * @return builder
          * 
@@ -458,7 +458,7 @@ public final class SpringCloudAppState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param persistentDisk An `persistent_disk` block as defined below.
+         * @param persistentDisk An `persistentDisk` block as defined below.
          * 
          * @return builder
          * 

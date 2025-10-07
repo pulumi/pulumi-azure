@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ServiceFabric.Outputs
     public sealed class ClusterUpgradePolicy
     {
         /// <summary>
-        /// A `delta_health_policy` block as defined below
+        /// A `DeltaHealthPolicy` block as defined below
         /// </summary>
         public readonly Outputs.ClusterUpgradePolicyDeltaHealthPolicy? DeltaHealthPolicy;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.ServiceFabric.Outputs
         /// </summary>
         public readonly string? HealthCheckWaitDuration;
         /// <summary>
-        /// A `health_policy` block as defined below
+        /// A `HealthPolicy` block as defined below
         /// </summary>
         public readonly Outputs.ClusterUpgradePolicyHealthPolicy? HealthPolicy;
         /// <summary>

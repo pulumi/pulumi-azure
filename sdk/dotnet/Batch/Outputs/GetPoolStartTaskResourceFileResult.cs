@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Batch.Outputs
         /// </summary>
         public readonly string FileMode;
         /// <summary>
-        /// The location on the compute node to which to download the file, relative to the task's working directory. If the `http_url` property is specified, the `file_path` is required and describes the path which the file will be downloaded to, including the filename. Otherwise, if the `auto_storage_container_name` or `storage_container_url` property is specified.
+        /// The location on the compute node to which to download the file, relative to the task's working directory. If the `HttpUrl` property is specified, the `FilePath` is required and describes the path which the file will be downloaded to, including the filename. Otherwise, if the `AutoStorageContainerName` or `StorageContainerUrl` property is specified.
         /// </summary>
         public readonly string FilePath;
         /// <summary>

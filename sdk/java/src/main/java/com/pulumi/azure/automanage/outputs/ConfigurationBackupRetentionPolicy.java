@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ConfigurationBackupRetentionPolicy {
     /**
-     * @return A `daily_schedule` block as defined below.
+     * @return A `dailySchedule` block as defined below.
      * 
      */
     private @Nullable ConfigurationBackupRetentionPolicyDailySchedule dailySchedule;
@@ -24,14 +24,14 @@ public final class ConfigurationBackupRetentionPolicy {
      */
     private @Nullable String retentionPolicyType;
     /**
-     * @return A `weekly_schedule` block as defined below.
+     * @return A `weeklySchedule` block as defined below.
      * 
      */
     private @Nullable ConfigurationBackupRetentionPolicyWeeklySchedule weeklySchedule;
 
     private ConfigurationBackupRetentionPolicy() {}
     /**
-     * @return A `daily_schedule` block as defined below.
+     * @return A `dailySchedule` block as defined below.
      * 
      */
     public Optional<ConfigurationBackupRetentionPolicyDailySchedule> dailySchedule() {
@@ -45,7 +45,7 @@ public final class ConfigurationBackupRetentionPolicy {
         return Optional.ofNullable(this.retentionPolicyType);
     }
     /**
-     * @return A `weekly_schedule` block as defined below.
+     * @return A `weeklySchedule` block as defined below.
      * 
      */
     public Optional<ConfigurationBackupRetentionPolicyWeeklySchedule> weeklySchedule() {

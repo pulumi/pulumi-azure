@@ -13,13 +13,13 @@ namespace Pulumi.Azure.WorkloadsSAP.Inputs
     public sealed class ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `image` block as defined below. Changing this forces a new resource to be created.
+        /// An `Image` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("image", required: true)]
         public Input<Inputs.ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationImageGetArgs> Image { get; set; } = null!;
 
         /// <summary>
-        /// An `os_profile` block as defined below. Changing this forces a new resource to be created.
+        /// An `OsProfile` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("osProfile", required: true)]
         public Input<Inputs.ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationOsProfileGetArgs> OsProfile { get; set; } = null!;

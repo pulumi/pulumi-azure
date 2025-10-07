@@ -89,7 +89,7 @@ namespace Pulumi.Azure.Stack
         public Output<string> CustomLocationId { get; private set; } = null!;
 
         /// <summary>
-        /// The format of the disk file. Possible values are `vhdx` and `vhd`. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
+        /// The format of the disk file. Possible values are `Vhdx` and `Vhd`. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
         /// </summary>
         [Output("diskFileFormat")]
         public Output<string?> DiskFileFormat { get; private set; } = null!;
@@ -101,7 +101,7 @@ namespace Pulumi.Azure.Stack
         public Output<int> DiskSizeInGb { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to enable dynamic sizing for the Azure Stack HCI Virtual Hard Disk. Defaults to `false`. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
+        /// Whether to enable dynamic sizing for the Azure Stack HCI Virtual Hard Disk. Defaults to `False`. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
         /// </summary>
         [Output("dynamicEnabled")]
         public Output<bool?> DynamicEnabled { get; private set; } = null!;
@@ -145,7 +145,7 @@ namespace Pulumi.Azure.Stack
         /// <summary>
         /// The ID of the Azure Stack HCI Storage Path used for this Virtual Hard Disk. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
         /// 
-        /// &gt; **Note:** If `storage_path_id` is not specified, the Virtual Hard Disk will be placed in a high availability Storage Path. If you experience a diff you may need to add this to `ignore_changes`.
+        /// &gt; **Note:** If `StoragePathId` is not specified, the Virtual Hard Disk will be placed in a high availability Storage Path. If you experience a diff you may need to add this to `IgnoreChanges`.
         /// </summary>
         [Output("storagePathId")]
         public Output<string?> StoragePathId { get; private set; } = null!;
@@ -215,7 +215,7 @@ namespace Pulumi.Azure.Stack
         public Input<string> CustomLocationId { get; set; } = null!;
 
         /// <summary>
-        /// The format of the disk file. Possible values are `vhdx` and `vhd`. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
+        /// The format of the disk file. Possible values are `Vhdx` and `Vhd`. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
         /// </summary>
         [Input("diskFileFormat")]
         public Input<string>? DiskFileFormat { get; set; }
@@ -227,7 +227,7 @@ namespace Pulumi.Azure.Stack
         public Input<int> DiskSizeInGb { get; set; } = null!;
 
         /// <summary>
-        /// Whether to enable dynamic sizing for the Azure Stack HCI Virtual Hard Disk. Defaults to `false`. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
+        /// Whether to enable dynamic sizing for the Azure Stack HCI Virtual Hard Disk. Defaults to `False`. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
         /// </summary>
         [Input("dynamicEnabled")]
         public Input<bool>? DynamicEnabled { get; set; }
@@ -271,7 +271,7 @@ namespace Pulumi.Azure.Stack
         /// <summary>
         /// The ID of the Azure Stack HCI Storage Path used for this Virtual Hard Disk. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
         /// 
-        /// &gt; **Note:** If `storage_path_id` is not specified, the Virtual Hard Disk will be placed in a high availability Storage Path. If you experience a diff you may need to add this to `ignore_changes`.
+        /// &gt; **Note:** If `StoragePathId` is not specified, the Virtual Hard Disk will be placed in a high availability Storage Path. If you experience a diff you may need to add this to `IgnoreChanges`.
         /// </summary>
         [Input("storagePathId")]
         public Input<string>? StoragePathId { get; set; }
@@ -309,7 +309,7 @@ namespace Pulumi.Azure.Stack
         public Input<string>? CustomLocationId { get; set; }
 
         /// <summary>
-        /// The format of the disk file. Possible values are `vhdx` and `vhd`. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
+        /// The format of the disk file. Possible values are `Vhdx` and `Vhd`. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
         /// </summary>
         [Input("diskFileFormat")]
         public Input<string>? DiskFileFormat { get; set; }
@@ -321,7 +321,7 @@ namespace Pulumi.Azure.Stack
         public Input<int>? DiskSizeInGb { get; set; }
 
         /// <summary>
-        /// Whether to enable dynamic sizing for the Azure Stack HCI Virtual Hard Disk. Defaults to `false`. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
+        /// Whether to enable dynamic sizing for the Azure Stack HCI Virtual Hard Disk. Defaults to `False`. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
         /// </summary>
         [Input("dynamicEnabled")]
         public Input<bool>? DynamicEnabled { get; set; }
@@ -365,7 +365,7 @@ namespace Pulumi.Azure.Stack
         /// <summary>
         /// The ID of the Azure Stack HCI Storage Path used for this Virtual Hard Disk. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
         /// 
-        /// &gt; **Note:** If `storage_path_id` is not specified, the Virtual Hard Disk will be placed in a high availability Storage Path. If you experience a diff you may need to add this to `ignore_changes`.
+        /// &gt; **Note:** If `StoragePathId` is not specified, the Virtual Hard Disk will be placed in a high availability Storage Path. If you experience a diff you may need to add this to `IgnoreChanges`.
         /// </summary>
         [Input("storagePathId")]
         public Input<string>? StoragePathId { get; set; }

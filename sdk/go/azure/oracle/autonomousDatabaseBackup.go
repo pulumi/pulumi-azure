@@ -14,6 +14,58 @@ import (
 
 // Manages an Oracle Autonomous Database Backup in Azure.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/oracle"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
+//				Location: pulumi.String("East US"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAutonomousDatabase, err := oracle.NewAutonomousDatabase(ctx, "example", &oracle.AutonomousDatabaseArgs{
+//				Name:              pulumi.String("example-adb"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = oracle.NewAutonomousDatabaseBackup(ctx, "example", &oracle.AutonomousDatabaseBackupArgs{
+//				Name:                  pulumi.String("example-backup"),
+//				AutonomousDatabaseId:  exampleAutonomousDatabase.ID(),
+//				RetentionPeriodInDays: pulumi.Int(120),
+//				BackupType:            "Full",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Oracle.Database` - 2025-03-01
+//
 // ## Import
 //
 // Autonomous Database Backups can be imported using the `id`, e.g.

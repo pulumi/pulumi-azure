@@ -16,7 +16,7 @@ namespace Pulumi.Azure.TrafficManager.Inputs
         private InputList<Inputs.ProfileMonitorConfigCustomHeaderArgs>? _customHeaders;
 
         /// <summary>
-        /// One or more `custom_header` blocks as defined below.
+        /// One or more `CustomHeader` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ProfileMonitorConfigCustomHeaderArgs> CustomHeaders
         {
@@ -43,7 +43,7 @@ namespace Pulumi.Azure.TrafficManager.Inputs
         public Input<int>? IntervalInSeconds { get; set; }
 
         /// <summary>
-        /// The path used by the monitoring checks. Required when `protocol` is set to `HTTP` or `HTTPS` - cannot be set when `protocol` is set to `TCP`.
+        /// The path used by the monitoring checks. Required when `Protocol` is set to `HTTP` or `HTTPS` - cannot be set when `Protocol` is set to `TCP`.
         /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
@@ -61,7 +61,7 @@ namespace Pulumi.Azure.TrafficManager.Inputs
         public Input<string> Protocol { get; set; } = null!;
 
         /// <summary>
-        /// The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If `interval_in_seconds` is set to `30`, then `timeout_in_seconds` can be between `5` and `10`. The default value is `10`. If `interval_in_seconds` is set to `10`, then valid values are between `5` and `9` and `timeout_in_seconds` is required.
+        /// The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If `IntervalInSeconds` is set to `30`, then `TimeoutInSeconds` can be between `5` and `10`. The default value is `10`. If `IntervalInSeconds` is set to `10`, then valid values are between `5` and `9` and `TimeoutInSeconds` is required.
         /// </summary>
         [Input("timeoutInSeconds")]
         public Input<int>? TimeoutInSeconds { get; set; }

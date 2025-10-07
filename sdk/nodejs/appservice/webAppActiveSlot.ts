@@ -41,6 +41,47 @@ import * as utilities from "../utilities";
  * const exampleWebAppActiveSlot = new azure.appservice.WebAppActiveSlot("example", {slotId: exampleWindowsWebAppSlot.id});
  * ```
  *
+ * ### Linux Web App
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleServicePlan = new azure.appservice.ServicePlan("example", {
+ *     name: "example-plan",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     osType: "Linux",
+ *     skuName: "P1v2",
+ * });
+ * const exampleLinuxWebApp = new azure.appservice.LinuxWebApp("example", {
+ *     name: "example-linux-web-app",
+ *     resourceGroupName: example.name,
+ *     location: exampleServicePlan.location,
+ *     servicePlanId: exampleServicePlan.id,
+ *     siteConfig: {},
+ * });
+ * const exampleLinuxWebAppSlot = new azure.appservice.LinuxWebAppSlot("example", {
+ *     name: "example-linux-web-app-slot",
+ *     appServiceName: exampleLinuxWebApp.name,
+ *     location: exampleServicePlan.location,
+ *     servicePlanId: exampleServicePlan.id,
+ *     siteConfig: {},
+ * });
+ * const exampleWebAppActiveSlot = new azure.appservice.WebAppActiveSlot("example", {slotId: exampleLinuxWebAppSlot.id});
+ * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Web` - 2023-12-01
+ *
  * ## Import
  *
  * a Web App Active Slot can be imported using the `resource id`, e.g.

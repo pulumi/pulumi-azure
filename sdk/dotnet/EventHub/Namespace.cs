@@ -63,13 +63,13 @@ namespace Pulumi.Azure.EventHub
     public partial class Namespace : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
+        /// Specifies the capacity. When `Sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `Sku` is `Basic` or `Standard`, capacity can be `0` only.
         /// </summary>
         [Output("capacity")]
         public Output<int?> Capacity { get; private set; } = null!;
 
         /// <summary>
-        /// An `customer_managed_key` block as defined below.
+        /// An `CustomerManagedKey` block as defined below.
         /// </summary>
         [Output("customerManagedKey")]
         public Output<Outputs.NamespaceCustomerManagedKey?> CustomerManagedKey { get; private set; } = null!;
@@ -105,13 +105,13 @@ namespace Pulumi.Azure.EventHub
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.NamespaceIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
+        /// Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `True`.
         /// </summary>
         [Output("localAuthEnabled")]
         public Output<bool?> LocalAuthEnabled { get; private set; } = null!;
@@ -137,13 +137,13 @@ namespace Pulumi.Azure.EventHub
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// An `network_rule_set` block as defined below.
+        /// An `NetworkRuleSet` block as defined below.
         /// </summary>
         [Output("networkRuleSet")]
         public Output<Outputs.NamespaceNetworkRuleSet> NetworkRuleSet { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
+        /// Specifies the number messaging partitions. Only valid when `Sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
         /// </summary>
@@ -151,7 +151,7 @@ namespace Pulumi.Azure.EventHub
         public Output<int?> PremiumMessagingPartitions { get; private set; } = null!;
 
         /// <summary>
-        /// Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+        /// Is public network access enabled for the Service Bus Namespace? Defaults to `True`.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
@@ -229,25 +229,25 @@ namespace Pulumi.Azure.EventHub
     public sealed class NamespaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
+        /// Specifies the capacity. When `Sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `Sku` is `Basic` or `Standard`, capacity can be `0` only.
         /// </summary>
         [Input("capacity")]
         public Input<int>? Capacity { get; set; }
 
         /// <summary>
-        /// An `customer_managed_key` block as defined below.
+        /// An `CustomerManagedKey` block as defined below.
         /// </summary>
         [Input("customerManagedKey")]
         public Input<Inputs.NamespaceCustomerManagedKeyArgs>? CustomerManagedKey { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.NamespaceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
+        /// Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `True`.
         /// </summary>
         [Input("localAuthEnabled")]
         public Input<bool>? LocalAuthEnabled { get; set; }
@@ -273,13 +273,13 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// An `network_rule_set` block as defined below.
+        /// An `NetworkRuleSet` block as defined below.
         /// </summary>
         [Input("networkRuleSet")]
         public Input<Inputs.NamespaceNetworkRuleSetArgs>? NetworkRuleSet { get; set; }
 
         /// <summary>
-        /// Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
+        /// Specifies the number messaging partitions. Only valid when `Sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
         /// </summary>
@@ -287,7 +287,7 @@ namespace Pulumi.Azure.EventHub
         public Input<int>? PremiumMessagingPartitions { get; set; }
 
         /// <summary>
-        /// Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+        /// Is public network access enabled for the Service Bus Namespace? Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -326,13 +326,13 @@ namespace Pulumi.Azure.EventHub
     public sealed class NamespaceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
+        /// Specifies the capacity. When `Sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `Sku` is `Basic` or `Standard`, capacity can be `0` only.
         /// </summary>
         [Input("capacity")]
         public Input<int>? Capacity { get; set; }
 
         /// <summary>
-        /// An `customer_managed_key` block as defined below.
+        /// An `CustomerManagedKey` block as defined below.
         /// </summary>
         [Input("customerManagedKey")]
         public Input<Inputs.NamespaceCustomerManagedKeyGetArgs>? CustomerManagedKey { get; set; }
@@ -408,13 +408,13 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? Endpoint { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.NamespaceIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
+        /// Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `True`.
         /// </summary>
         [Input("localAuthEnabled")]
         public Input<bool>? LocalAuthEnabled { get; set; }
@@ -440,13 +440,13 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// An `network_rule_set` block as defined below.
+        /// An `NetworkRuleSet` block as defined below.
         /// </summary>
         [Input("networkRuleSet")]
         public Input<Inputs.NamespaceNetworkRuleSetGetArgs>? NetworkRuleSet { get; set; }
 
         /// <summary>
-        /// Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
+        /// Specifies the number messaging partitions. Only valid when `Sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
         /// </summary>
@@ -454,7 +454,7 @@ namespace Pulumi.Azure.EventHub
         public Input<int>? PremiumMessagingPartitions { get; set; }
 
         /// <summary>
-        /// Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+        /// Is public network access enabled for the Service Bus Namespace? Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }

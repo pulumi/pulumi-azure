@@ -13,19 +13,19 @@ namespace Pulumi.Azure.Mobile.Inputs
     public sealed class NetworkServicePccRuleQosPolicyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemption_capability` and `preemption_vulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `qos_indicator` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+        /// QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `PreemptionCapability` and `PreemptionVulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `QosIndicator` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
         /// </summary>
         [Input("allocationAndRetentionPriorityLevel")]
         public Input<int>? AllocationAndRetentionPriorityLevel { get; set; }
 
         /// <summary>
-        /// A `guaranteed_bit_rate` block as defined below. The Guaranteed Bit Rate (GBR) for all service data flows that use this PCC Rule. If it's not specified, there will be no GBR set for the PCC Rule that uses this QoS definition.
+        /// A `GuaranteedBitRate` block as defined below. The Guaranteed Bit Rate (GBR) for all service data flows that use this PCC Rule. If it's not specified, there will be no GBR set for the PCC Rule that uses this QoS definition.
         /// </summary>
         [Input("guaranteedBitRate")]
         public Input<Inputs.NetworkServicePccRuleQosPolicyGuaranteedBitRateGetArgs>? GuaranteedBitRate { get; set; }
 
         /// <summary>
-        /// A `maximum_bit_rate` block as defined below. The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
+        /// A `MaximumBitRate` block as defined below. The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
         /// </summary>
         [Input("maximumBitRate", required: true)]
         public Input<Inputs.NetworkServicePccRuleQosPolicyMaximumBitRateGetArgs> MaximumBitRate { get; set; } = null!;

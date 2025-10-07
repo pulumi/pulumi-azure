@@ -298,14 +298,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:siterecovery/replicatedVM:ReplicatedVM")
 public class ReplicatedVM extends com.pulumi.resources.CustomResource {
     /**
-     * One or more `managed_disk` block as defined below. Changing this forces a new resource to be created.
+     * One or more `managedDisk` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="managedDisks", refs={List.class,ReplicatedVMManagedDisk.class}, tree="[0,1]")
     private Output<List<ReplicatedVMManagedDisk>> managedDisks;
 
     /**
-     * @return One or more `managed_disk` block as defined below. Changing this forces a new resource to be created.
+     * @return One or more `managedDisk` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<List<ReplicatedVMManagedDisk>> managedDisks() {
@@ -340,14 +340,14 @@ public class ReplicatedVM extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * One or more `network_interface` block as defined below.
+     * One or more `networkInterface` block as defined below.
      * 
      */
     @Export(name="networkInterfaces", refs={List.class,ReplicatedVMNetworkInterface.class}, tree="[0,1]")
     private Output<List<ReplicatedVMNetworkInterface>> networkInterfaces;
 
     /**
-     * @return One or more `network_interface` block as defined below.
+     * @return One or more `networkInterface` block as defined below.
      * 
      */
     public Output<List<ReplicatedVMNetworkInterface>> networkInterfaces() {
@@ -494,14 +494,14 @@ public class ReplicatedVM extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.targetEdgeZone);
     }
     /**
-     * Network to use when a failover is done (recommended to set if any network_interface is configured for failover).
+     * Network to use when a failover is done (recommended to set if any networkInterface is configured for failover).
      * 
      */
     @Export(name="targetNetworkId", refs={String.class}, tree="[0]")
     private Output<String> targetNetworkId;
 
     /**
-     * @return Network to use when a failover is done (recommended to set if any network_interface is configured for failover).
+     * @return Network to use when a failover is done (recommended to set if any networkInterface is configured for failover).
      * 
      */
     public Output<String> targetNetworkId() {
@@ -620,14 +620,14 @@ public class ReplicatedVM extends com.pulumi.resources.CustomResource {
         return this.testNetworkId;
     }
     /**
-     * One or more `unmanaged_disk` block as defined below. Changing this forces a new resource to be created.
+     * One or more `unmanagedDisk` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="unmanagedDisks", refs={List.class,ReplicatedVMUnmanagedDisk.class}, tree="[0,1]")
     private Output<List<ReplicatedVMUnmanagedDisk>> unmanagedDisks;
 
     /**
-     * @return One or more `unmanaged_disk` block as defined below. Changing this forces a new resource to be created.
+     * @return One or more `unmanagedDisk` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<List<ReplicatedVMUnmanagedDisk>> unmanagedDisks() {

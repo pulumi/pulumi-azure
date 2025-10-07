@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServiceHostnameConfiguration {
     /**
-     * @return One or more `developer_portal` blocks as documented below.
+     * @return One or more `developerPortal` blocks as documented below.
      * 
      */
     private @Nullable List<ServiceHostnameConfigurationDeveloperPortal> developerPortals;
@@ -43,7 +43,7 @@ public final class ServiceHostnameConfiguration {
 
     private ServiceHostnameConfiguration() {}
     /**
-     * @return One or more `developer_portal` blocks as documented below.
+     * @return One or more `developerPortal` blocks as documented below.
      * 
      */
     public List<ServiceHostnameConfigurationDeveloperPortal> developerPortals() {

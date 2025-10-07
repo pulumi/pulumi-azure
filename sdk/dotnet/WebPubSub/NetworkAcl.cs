@@ -12,6 +12,113 @@ namespace Pulumi.Azure.WebPubSub
     /// <summary>
     /// Manages the Network ACL for a Web Pubsub.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "terraform-webpubsub",
+    ///         Location = "east us",
+    ///     });
+    /// 
+    ///     var exampleService = new Azure.WebPubSub.Service("example", new()
+    ///     {
+    ///         Name = "tfex-webpubsub",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Sku = "Standard_S1",
+    ///         Capacity = 1,
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     {
+    ///         Name = "example-vnet",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.5.0.0/16",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     {
+    ///         Name = "example-subnet",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.5.2.0/24",
+    ///         },
+    ///         EnforcePrivateLinkEndpointNetworkPolicies = true,
+    ///     });
+    /// 
+    ///     var exampleEndpoint = new Azure.PrivateLink.Endpoint("example", new()
+    ///     {
+    ///         Name = "example-privateendpoint",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         SubnetId = exampleSubnet.Id,
+    ///         PrivateServiceConnection = new Azure.PrivateLink.Inputs.EndpointPrivateServiceConnectionArgs
+    ///         {
+    ///             Name = "psc-sig-test",
+    ///             IsManualConnection = false,
+    ///             PrivateConnectionResourceId = exampleService.Id,
+    ///             SubresourceNames = new[]
+    ///             {
+    ///                 "webpubsub",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleNetworkAcl = new Azure.WebPubSub.NetworkAcl("example", new()
+    ///     {
+    ///         WebPubsubId = exampleService.Id,
+    ///         DefaultAction = "Allow",
+    ///         PublicNetwork = new Azure.WebPubSub.Inputs.NetworkAclPublicNetworkArgs
+    ///         {
+    ///             DeniedRequestTypes = new[]
+    ///             {
+    ///                 "ClientConnection",
+    ///             },
+    ///         },
+    ///         PrivateEndpoints = new[]
+    ///         {
+    ///             new Azure.WebPubSub.Inputs.NetworkAclPrivateEndpointArgs
+    ///             {
+    ///                 Id = exampleEndpoint.Id,
+    ///                 DeniedRequestTypes = new[]
+    ///                 {
+    ///                     "RESTAPI",
+    ///                     "ClientConnection",
+    ///                 },
+    ///             },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleEndpoint,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.SignalRService` - 2024-03-01
+    /// 
     /// ## Import
     /// 
     /// Network ACLs for a Web Pubsub service can be imported using the `resource id`, e.g.
@@ -30,13 +137,13 @@ namespace Pulumi.Azure.WebPubSub
         public Output<string?> DefaultAction { get; private set; } = null!;
 
         /// <summary>
-        /// A `private_endpoint` block as defined below.
+        /// A `PrivateEndpoint` block as defined below.
         /// </summary>
         [Output("privateEndpoints")]
         public Output<ImmutableArray<Outputs.NetworkAclPrivateEndpoint>> PrivateEndpoints { get; private set; } = null!;
 
         /// <summary>
-        /// A `public_network` block as defined below.
+        /// A `PublicNetwork` block as defined below.
         /// </summary>
         [Output("publicNetwork")]
         public Output<Outputs.NetworkAclPublicNetwork> PublicNetwork { get; private set; } = null!;
@@ -103,7 +210,7 @@ namespace Pulumi.Azure.WebPubSub
         private InputList<Inputs.NetworkAclPrivateEndpointArgs>? _privateEndpoints;
 
         /// <summary>
-        /// A `private_endpoint` block as defined below.
+        /// A `PrivateEndpoint` block as defined below.
         /// </summary>
         public InputList<Inputs.NetworkAclPrivateEndpointArgs> PrivateEndpoints
         {
@@ -112,7 +219,7 @@ namespace Pulumi.Azure.WebPubSub
         }
 
         /// <summary>
-        /// A `public_network` block as defined below.
+        /// A `PublicNetwork` block as defined below.
         /// </summary>
         [Input("publicNetwork", required: true)]
         public Input<Inputs.NetworkAclPublicNetworkArgs> PublicNetwork { get; set; } = null!;
@@ -141,7 +248,7 @@ namespace Pulumi.Azure.WebPubSub
         private InputList<Inputs.NetworkAclPrivateEndpointGetArgs>? _privateEndpoints;
 
         /// <summary>
-        /// A `private_endpoint` block as defined below.
+        /// A `PrivateEndpoint` block as defined below.
         /// </summary>
         public InputList<Inputs.NetworkAclPrivateEndpointGetArgs> PrivateEndpoints
         {
@@ -150,7 +257,7 @@ namespace Pulumi.Azure.WebPubSub
         }
 
         /// <summary>
-        /// A `public_network` block as defined below.
+        /// A `PublicNetwork` block as defined below.
         /// </summary>
         [Input("publicNetwork")]
         public Input<Inputs.NetworkAclPublicNetworkGetArgs>? PublicNetwork { get; set; }

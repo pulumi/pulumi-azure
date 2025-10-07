@@ -20,6 +20,113 @@ import javax.annotation.Nullable;
 /**
  * Manages the Network ACL for a Web Pubsub.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.webpubsub.Service;
+ * import com.pulumi.azure.webpubsub.ServiceArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.privatelink.Endpoint;
+ * import com.pulumi.azure.privatelink.EndpointArgs;
+ * import com.pulumi.azure.privatelink.inputs.EndpointPrivateServiceConnectionArgs;
+ * import com.pulumi.azure.webpubsub.NetworkAcl;
+ * import com.pulumi.azure.webpubsub.NetworkAclArgs;
+ * import com.pulumi.azure.webpubsub.inputs.NetworkAclPublicNetworkArgs;
+ * import com.pulumi.azure.webpubsub.inputs.NetworkAclPrivateEndpointArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("terraform-webpubsub")
+ *             .location("east us")
+ *             .build());
+ * 
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()
+ *             .name("tfex-webpubsub")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .sku("Standard_S1")
+ *             .capacity(1)
+ *             .build());
+ * 
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
+ *             .name("example-vnet")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .addressSpaces("10.5.0.0/16")
+ *             .build());
+ * 
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
+ *             .name("example-subnet")
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes("10.5.2.0/24")
+ *             .enforcePrivateLinkEndpointNetworkPolicies(true)
+ *             .build());
+ * 
+ *         var exampleEndpoint = new Endpoint("exampleEndpoint", EndpointArgs.builder()
+ *             .name("example-privateendpoint")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .subnetId(exampleSubnet.id())
+ *             .privateServiceConnection(EndpointPrivateServiceConnectionArgs.builder()
+ *                 .name("psc-sig-test")
+ *                 .isManualConnection(false)
+ *                 .privateConnectionResourceId(exampleService.id())
+ *                 .subresourceNames("webpubsub")
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleNetworkAcl = new NetworkAcl("exampleNetworkAcl", NetworkAclArgs.builder()
+ *             .webPubsubId(exampleService.id())
+ *             .defaultAction("Allow")
+ *             .publicNetwork(NetworkAclPublicNetworkArgs.builder()
+ *                 .deniedRequestTypes("ClientConnection")
+ *                 .build())
+ *             .privateEndpoints(NetworkAclPrivateEndpointArgs.builder()
+ *                 .id(exampleEndpoint.id())
+ *                 .deniedRequestTypes(                
+ *                     "RESTAPI",
+ *                     "ClientConnection")
+ *                 .build())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleEndpoint)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.SignalRService` - 2024-03-01
+ * 
  * ## Import
  * 
  * Network ACLs for a Web Pubsub service can be imported using the `resource id`, e.g.
@@ -46,28 +153,28 @@ public class NetworkAcl extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.defaultAction);
     }
     /**
-     * A `private_endpoint` block as defined below.
+     * A `privateEndpoint` block as defined below.
      * 
      */
     @Export(name="privateEndpoints", refs={List.class,NetworkAclPrivateEndpoint.class}, tree="[0,1]")
     private Output</* @Nullable */ List<NetworkAclPrivateEndpoint>> privateEndpoints;
 
     /**
-     * @return A `private_endpoint` block as defined below.
+     * @return A `privateEndpoint` block as defined below.
      * 
      */
     public Output<Optional<List<NetworkAclPrivateEndpoint>>> privateEndpoints() {
         return Codegen.optional(this.privateEndpoints);
     }
     /**
-     * A `public_network` block as defined below.
+     * A `publicNetwork` block as defined below.
      * 
      */
     @Export(name="publicNetwork", refs={NetworkAclPublicNetwork.class}, tree="[0]")
     private Output<NetworkAclPublicNetwork> publicNetwork;
 
     /**
-     * @return A `public_network` block as defined below.
+     * @return A `publicNetwork` block as defined below.
      * 
      */
     public Output<NetworkAclPublicNetwork> publicNetwork() {

@@ -20,6 +20,90 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** Endpoints can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azurerm_iothub_endpoint_*` resources - but the two ways of defining the endpoints cannot be used together. If both are used against the same IoTHub, spurious changes will occur. Also, defining a `azurerm_iothub_endpoint_*` resource and another endpoint of a different type directly on the `azure.iot.IoTHub` resource is not supported.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.servicebus.Namespace;
+ * import com.pulumi.azure.servicebus.NamespaceArgs;
+ * import com.pulumi.azure.servicebus.Queue;
+ * import com.pulumi.azure.servicebus.QueueArgs;
+ * import com.pulumi.azure.servicebus.QueueAuthorizationRule;
+ * import com.pulumi.azure.servicebus.QueueAuthorizationRuleArgs;
+ * import com.pulumi.azure.iot.IoTHub;
+ * import com.pulumi.azure.iot.IoTHubArgs;
+ * import com.pulumi.azure.iot.inputs.IoTHubSkuArgs;
+ * import com.pulumi.azure.iot.EndpointServicebusQueue;
+ * import com.pulumi.azure.iot.EndpointServicebusQueueArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("example-resources")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()
+ *             .name("exampleNamespace")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .sku("Standard")
+ *             .build());
+ * 
+ *         var exampleQueue = new Queue("exampleQueue", QueueArgs.builder()
+ *             .name("exampleQueue")
+ *             .namespaceId(exampleNamespace.id())
+ *             .enablePartitioning(true)
+ *             .build());
+ * 
+ *         var exampleQueueAuthorizationRule = new QueueAuthorizationRule("exampleQueueAuthorizationRule", QueueAuthorizationRuleArgs.builder()
+ *             .name("exampleRule")
+ *             .queueId(exampleQueue.id())
+ *             .listen(false)
+ *             .send(true)
+ *             .manage(false)
+ *             .build());
+ * 
+ *         var exampleIoTHub = new IoTHub("exampleIoTHub", IoTHubArgs.builder()
+ *             .name("exampleIothub")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .sku(IoTHubSkuArgs.builder()
+ *                 .name("B1")
+ *                 .capacity(1)
+ *                 .build())
+ *             .tags(Map.of("purpose", "example"))
+ *             .build());
+ * 
+ *         var exampleEndpointServicebusQueue = new EndpointServicebusQueue("exampleEndpointServicebusQueue", EndpointServicebusQueueArgs.builder()
+ *             .resourceGroupName(example.name())
+ *             .iothubId(exampleIoTHub.id())
+ *             .name("example")
+ *             .connectionString(exampleQueueAuthorizationRule.primaryConnectionString())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * IoTHub ServiceBus Queue Endpoint can be imported using the `resource id`, e.g.
@@ -48,42 +132,42 @@ public class EndpointServicebusQueue extends com.pulumi.resources.CustomResource
         return Codegen.optional(this.authenticationType);
     }
     /**
-     * The connection string for the endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `keyBased`.
+     * The connection string for the endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `keyBased`.
      * 
      */
     @Export(name="connectionString", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> connectionString;
 
     /**
-     * @return The connection string for the endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `keyBased`.
+     * @return The connection string for the endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `keyBased`.
      * 
      */
     public Output<Optional<String>> connectionString() {
         return Codegen.optional(this.connectionString);
     }
     /**
-     * URI of the Service Bus endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+     * URI of the Service Bus endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
      * 
      */
     @Export(name="endpointUri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> endpointUri;
 
     /**
-     * @return URI of the Service Bus endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+     * @return URI of the Service Bus endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
      * 
      */
     public Output<Optional<String>> endpointUri() {
         return Codegen.optional(this.endpointUri);
     }
     /**
-     * Name of the Service Bus Queue. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+     * Name of the Service Bus Queue. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
      * 
      */
     @Export(name="entityPath", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> entityPath;
 
     /**
-     * @return Name of the Service Bus Queue. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+     * @return Name of the Service Bus Queue. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
      * 
      */
     public Output<Optional<String>> entityPath() {
@@ -92,7 +176,7 @@ public class EndpointServicebusQueue extends com.pulumi.resources.CustomResource
     /**
      * ID of the User Managed Identity used to authenticate against the Service Bus Queue endpoint.
      * 
-     * &gt; **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
+     * &gt; **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
      * 
      */
     @Export(name="identityId", refs={String.class}, tree="[0]")
@@ -101,7 +185,7 @@ public class EndpointServicebusQueue extends com.pulumi.resources.CustomResource
     /**
      * @return ID of the User Managed Identity used to authenticate against the Service Bus Queue endpoint.
      * 
-     * &gt; **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
+     * &gt; **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
      * 
      */
     public Output<Optional<String>> identityId() {
@@ -152,7 +236,7 @@ public class EndpointServicebusQueue extends com.pulumi.resources.CustomResource
     /**
      * The subscription ID for the endpoint.
      * 
-     * &gt; **Note:** When `subscription_id` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
+     * &gt; **Note:** When `subscriptionId` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
      * 
      */
     @Export(name="subscriptionId", refs={String.class}, tree="[0]")
@@ -161,7 +245,7 @@ public class EndpointServicebusQueue extends com.pulumi.resources.CustomResource
     /**
      * @return The subscription ID for the endpoint.
      * 
-     * &gt; **Note:** When `subscription_id` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
+     * &gt; **Note:** When `subscriptionId` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
      * 
      */
     public Output<String> subscriptionId() {

@@ -145,13 +145,13 @@ namespace Pulumi.Azure.MachineLearning
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ComputeClusterIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// Whether local authentication methods is enabled. Defaults to `True`. Changing this forces a new Machine Learning Compute Cluster to be created.
         /// </summary>
         [Output("localAuthEnabled")]
         public Output<bool?> LocalAuthEnabled { get; private set; } = null!;
@@ -175,25 +175,25 @@ namespace Pulumi.Azure.MachineLearning
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the compute cluster will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// Whether the compute cluster will have a public ip. Defaults to `True`. Changing this forces a new Machine Learning Compute Cluster to be created.
         /// </summary>
         [Output("nodePublicIpEnabled")]
         public Output<bool?> NodePublicIpEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A `scale_settings` block as defined below.
+        /// A `ScaleSettings` block as defined below.
         /// </summary>
         [Output("scaleSettings")]
         public Output<Outputs.ComputeClusterScaleSettings> ScaleSettings { get; private set; } = null!;
 
         /// <summary>
-        /// Credentials for an administrator user account that will be created on each compute node. A `ssh` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// Credentials for an administrator user account that will be created on each compute node. A `Ssh` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
         /// </summary>
         [Output("ssh")]
         public Output<Outputs.ComputeClusterSsh?> Ssh { get; private set; } = null!;
 
         /// <summary>
-        /// A boolean value indicating whether enable the public SSH port. Defaults to `false`. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// A boolean value indicating whether enable the public SSH port. Defaults to `False`. Changing this forces a new Machine Learning Compute Cluster to be created.
         /// </summary>
         [Output("sshPublicAccessEnabled")]
         public Output<bool?> SshPublicAccessEnabled { get; private set; } = null!;
@@ -275,13 +275,13 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ComputeClusterIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// Whether local authentication methods is enabled. Defaults to `True`. Changing this forces a new Machine Learning Compute Cluster to be created.
         /// </summary>
         [Input("localAuthEnabled")]
         public Input<bool>? LocalAuthEnabled { get; set; }
@@ -305,25 +305,25 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether the compute cluster will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// Whether the compute cluster will have a public ip. Defaults to `True`. Changing this forces a new Machine Learning Compute Cluster to be created.
         /// </summary>
         [Input("nodePublicIpEnabled")]
         public Input<bool>? NodePublicIpEnabled { get; set; }
 
         /// <summary>
-        /// A `scale_settings` block as defined below.
+        /// A `ScaleSettings` block as defined below.
         /// </summary>
         [Input("scaleSettings", required: true)]
         public Input<Inputs.ComputeClusterScaleSettingsArgs> ScaleSettings { get; set; } = null!;
 
         /// <summary>
-        /// Credentials for an administrator user account that will be created on each compute node. A `ssh` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// Credentials for an administrator user account that will be created on each compute node. A `Ssh` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
         /// </summary>
         [Input("ssh")]
         public Input<Inputs.ComputeClusterSshArgs>? Ssh { get; set; }
 
         /// <summary>
-        /// A boolean value indicating whether enable the public SSH port. Defaults to `false`. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// A boolean value indicating whether enable the public SSH port. Defaults to `False`. Changing this forces a new Machine Learning Compute Cluster to be created.
         /// </summary>
         [Input("sshPublicAccessEnabled")]
         public Input<bool>? SshPublicAccessEnabled { get; set; }
@@ -373,13 +373,13 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ComputeClusterIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// Whether local authentication methods is enabled. Defaults to `True`. Changing this forces a new Machine Learning Compute Cluster to be created.
         /// </summary>
         [Input("localAuthEnabled")]
         public Input<bool>? LocalAuthEnabled { get; set; }
@@ -403,25 +403,25 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether the compute cluster will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// Whether the compute cluster will have a public ip. Defaults to `True`. Changing this forces a new Machine Learning Compute Cluster to be created.
         /// </summary>
         [Input("nodePublicIpEnabled")]
         public Input<bool>? NodePublicIpEnabled { get; set; }
 
         /// <summary>
-        /// A `scale_settings` block as defined below.
+        /// A `ScaleSettings` block as defined below.
         /// </summary>
         [Input("scaleSettings")]
         public Input<Inputs.ComputeClusterScaleSettingsGetArgs>? ScaleSettings { get; set; }
 
         /// <summary>
-        /// Credentials for an administrator user account that will be created on each compute node. A `ssh` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// Credentials for an administrator user account that will be created on each compute node. A `Ssh` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
         /// </summary>
         [Input("ssh")]
         public Input<Inputs.ComputeClusterSshGetArgs>? Ssh { get; set; }
 
         /// <summary>
-        /// A boolean value indicating whether enable the public SSH port. Defaults to `false`. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// A boolean value indicating whether enable the public SSH port. Defaults to `False`. Changing this forces a new Machine Learning Compute Cluster to be created.
         /// </summary>
         [Input("sshPublicAccessEnabled")]
         public Input<bool>? SshPublicAccessEnabled { get; set; }

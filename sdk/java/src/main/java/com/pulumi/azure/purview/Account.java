@@ -187,7 +187,7 @@ public class Account extends com.pulumi.resources.CustomResource {
     /**
      * Whether the Purview Account should create a managed Event Hub Namespace. Defaults to `true`.
      * 
-     * &gt; **Note:** `managed_event_hub_enabled` must be `false` in order to use a Kafka Configuration with the Purview Account.
+     * &gt; **Note:** `managedEventHubEnabled` must be `false` in order to use a Kafka Configuration with the Purview Account.
      * 
      */
     @Export(name="managedEventHubEnabled", refs={Boolean.class}, tree="[0]")
@@ -196,7 +196,7 @@ public class Account extends com.pulumi.resources.CustomResource {
     /**
      * @return Whether the Purview Account should create a managed Event Hub Namespace. Defaults to `true`.
      * 
-     * &gt; **Note:** `managed_event_hub_enabled` must be `false` in order to use a Kafka Configuration with the Purview Account.
+     * &gt; **Note:** `managedEventHubEnabled` must be `false` in order to use a Kafka Configuration with the Purview Account.
      * 
      */
     public Output<Optional<Boolean>> managedEventHubEnabled() {
@@ -205,7 +205,7 @@ public class Account extends com.pulumi.resources.CustomResource {
     /**
      * The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
      * 
-     * &gt; **Note:** `managed_resource_group_name` must be a new Resource Group.
+     * &gt; **Note:** `managedResourceGroupName` must be a new Resource Group.
      * 
      */
     @Export(name="managedResourceGroupName", refs={String.class}, tree="[0]")
@@ -214,21 +214,21 @@ public class Account extends com.pulumi.resources.CustomResource {
     /**
      * @return The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
      * 
-     * &gt; **Note:** `managed_resource_group_name` must be a new Resource Group.
+     * &gt; **Note:** `managedResourceGroupName` must be a new Resource Group.
      * 
      */
     public Output<String> managedResourceGroupName() {
         return this.managedResourceGroupName;
     }
     /**
-     * A `managed_resources` block as defined below.
+     * A `managedResources` block as defined below.
      * 
      */
     @Export(name="managedResources", refs={List.class,AccountManagedResource.class}, tree="[0,1]")
     private Output<List<AccountManagedResource>> managedResources;
 
     /**
-     * @return A `managed_resources` block as defined below.
+     * @return A `managedResources` block as defined below.
      * 
      */
     public Output<List<AccountManagedResource>> managedResources() {

@@ -12,6 +12,109 @@ namespace Pulumi.Azure.SignalR
     /// <summary>
     /// Manages the Network ACL for a SignalR service.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleService = new Azure.SignalR.Service("example", new()
+    ///     {
+    ///         Name = "example-signalr",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Sku = new Azure.SignalR.Inputs.ServiceSkuArgs
+    ///         {
+    ///             Name = "Standard_S1",
+    ///             Capacity = 1,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     {
+    ///         Name = "example-vnet",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.5.0.0/16",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     {
+    ///         Name = "example-subnet",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.5.2.0/24",
+    ///         },
+    ///         EnforcePrivateLinkEndpointNetworkPolicies = true,
+    ///     });
+    /// 
+    ///     var exampleEndpoint = new Azure.PrivateLink.Endpoint("example", new()
+    ///     {
+    ///         Name = "example-privateendpoint",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         SubnetId = exampleSubnet.Id,
+    ///         PrivateServiceConnection = new Azure.PrivateLink.Inputs.EndpointPrivateServiceConnectionArgs
+    ///         {
+    ///             Name = "psc-sig-test",
+    ///             IsManualConnection = false,
+    ///             PrivateConnectionResourceId = exampleService.Id,
+    ///             SubresourceNames = new[]
+    ///             {
+    ///                 "signalr",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleServiceNetworkAcl = new Azure.SignalR.ServiceNetworkAcl("example", new()
+    ///     {
+    ///         SignalrServiceId = exampleService.Id,
+    ///         DefaultAction = "Deny",
+    ///         PublicNetwork = new Azure.SignalR.Inputs.ServiceNetworkAclPublicNetworkArgs
+    ///         {
+    ///             AllowedRequestTypes = new[]
+    ///             {
+    ///                 "ClientConnection",
+    ///             },
+    ///         },
+    ///         PrivateEndpoints = new[]
+    ///         {
+    ///             new Azure.SignalR.Inputs.ServiceNetworkAclPrivateEndpointArgs
+    ///             {
+    ///                 Id = exampleEndpoint.Id,
+    ///                 AllowedRequestTypes = new[]
+    ///                 {
+    ///                     "ServerConnection",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.SignalRService` - 2024-03-01
+    /// 
     /// ## Import
     /// 
     /// Network ACLs for a SignalR service can be imported using the `resource id`, e.g.
@@ -30,13 +133,13 @@ namespace Pulumi.Azure.SignalR
         public Output<string> DefaultAction { get; private set; } = null!;
 
         /// <summary>
-        /// A `private_endpoint` block as defined below.
+        /// A `PrivateEndpoint` block as defined below.
         /// </summary>
         [Output("privateEndpoints")]
         public Output<ImmutableArray<Outputs.ServiceNetworkAclPrivateEndpoint>> PrivateEndpoints { get; private set; } = null!;
 
         /// <summary>
-        /// A `public_network` block as defined below.
+        /// A `PublicNetwork` block as defined below.
         /// </summary>
         [Output("publicNetwork")]
         public Output<Outputs.ServiceNetworkAclPublicNetwork> PublicNetwork { get; private set; } = null!;
@@ -103,7 +206,7 @@ namespace Pulumi.Azure.SignalR
         private InputList<Inputs.ServiceNetworkAclPrivateEndpointArgs>? _privateEndpoints;
 
         /// <summary>
-        /// A `private_endpoint` block as defined below.
+        /// A `PrivateEndpoint` block as defined below.
         /// </summary>
         public InputList<Inputs.ServiceNetworkAclPrivateEndpointArgs> PrivateEndpoints
         {
@@ -112,7 +215,7 @@ namespace Pulumi.Azure.SignalR
         }
 
         /// <summary>
-        /// A `public_network` block as defined below.
+        /// A `PublicNetwork` block as defined below.
         /// </summary>
         [Input("publicNetwork", required: true)]
         public Input<Inputs.ServiceNetworkAclPublicNetworkArgs> PublicNetwork { get; set; } = null!;
@@ -141,7 +244,7 @@ namespace Pulumi.Azure.SignalR
         private InputList<Inputs.ServiceNetworkAclPrivateEndpointGetArgs>? _privateEndpoints;
 
         /// <summary>
-        /// A `private_endpoint` block as defined below.
+        /// A `PrivateEndpoint` block as defined below.
         /// </summary>
         public InputList<Inputs.ServiceNetworkAclPrivateEndpointGetArgs> PrivateEndpoints
         {
@@ -150,7 +253,7 @@ namespace Pulumi.Azure.SignalR
         }
 
         /// <summary>
-        /// A `public_network` block as defined below.
+        /// A `PublicNetwork` block as defined below.
         /// </summary>
         [Input("publicNetwork")]
         public Input<Inputs.ServiceNetworkAclPublicNetworkGetArgs>? PublicNetwork { get; set; }

@@ -25,7 +25,7 @@ namespace Pulumi.Azure.AppService.Inputs
         }
 
         /// <summary>
-        /// Are credentials allowed in CORS requests? Defaults to `false`.
+        /// Are credentials allowed in CORS requests? Defaults to `False`.
         /// </summary>
         [Input("supportCredentials")]
         public Input<bool>? SupportCredentials { get; set; }

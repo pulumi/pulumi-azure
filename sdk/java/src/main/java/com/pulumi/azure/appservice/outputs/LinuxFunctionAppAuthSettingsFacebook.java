@@ -19,12 +19,12 @@ public final class LinuxFunctionAppAuthSettingsFacebook {
      */
     private String appId;
     /**
-     * @return The App Secret of the Facebook app used for Facebook login. Cannot be specified with `app_secret_setting_name`.
+     * @return The App Secret of the Facebook app used for Facebook login. Cannot be specified with `appSecretSettingName`.
      * 
      */
     private @Nullable String appSecret;
     /**
-     * @return The app setting name that contains the `app_secret` value used for Facebook login. Cannot be specified with `app_secret`.
+     * @return The app setting name that contains the `appSecret` value used for Facebook login. Cannot be specified with `appSecret`.
      * 
      */
     private @Nullable String appSecretSettingName;
@@ -43,14 +43,14 @@ public final class LinuxFunctionAppAuthSettingsFacebook {
         return this.appId;
     }
     /**
-     * @return The App Secret of the Facebook app used for Facebook login. Cannot be specified with `app_secret_setting_name`.
+     * @return The App Secret of the Facebook app used for Facebook login. Cannot be specified with `appSecretSettingName`.
      * 
      */
     public Optional<String> appSecret() {
         return Optional.ofNullable(this.appSecret);
     }
     /**
-     * @return The app setting name that contains the `app_secret` value used for Facebook login. Cannot be specified with `app_secret`.
+     * @return The app setting name that contains the `appSecret` value used for Facebook login. Cannot be specified with `appSecret`.
      * 
      */
     public Optional<String> appSecretSettingName() {

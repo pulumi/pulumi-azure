@@ -57,7 +57,7 @@ namespace Pulumi.Azure.Cdn
     /// 
     /// ## Example DNS Auth TXT Record Usage
     /// 
-    /// The name of your DNS TXT record should be in the format of `_dnsauth.&lt;your_subdomain&gt;`. So, for example, if we use the `host_name` in the example usage above you would create a DNS TXT record with the name of `_dnsauth.contoso` which contains the value of the Front Door Custom Domains `validation_token` field. See the [product documentation](https://learn.microsoft.com/azure/frontdoor/standard-premium/how-to-add-custom-domain) for more information.
+    /// The name of your DNS TXT record should be in the format of `_dnsauth.&lt;your_subdomain&gt;`. So, for example, if we use the `HostName` in the example usage above you would create a DNS TXT record with the name of `_dnsauth.contoso` which contains the value of the Front Door Custom Domains `ValidationToken` field. See the [product documentation](https://learn.microsoft.com/azure/frontdoor/standard-premium/how-to-add-custom-domain) for more information.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -96,7 +96,7 @@ namespace Pulumi.Azure.Cdn
     /// 
     /// ## Example CNAME Record Usage
     /// 
-    /// !&gt; **Note:** You **must** include the `depends_on` meta-argument which references both the `azure.cdn.FrontdoorRoute` and the `azure.cdn.FrontdoorSecurityPolicy` that are associated with your Custom Domain. The reason for these `depends_on` meta-arguments is because all of the resources for the Custom Domain need to be associated within Front Door before the CNAME record can be written to the domains DNS, else the CNAME validation will fail and Front Door will not enable traffic to the Domain.
+    /// !&gt; **Note:** You **must** include the `DependsOn` meta-argument which references both the `azure.cdn.FrontdoorRoute` and the `azure.cdn.FrontdoorSecurityPolicy` that are associated with your Custom Domain. The reason for these `DependsOn` meta-arguments is because all of the resources for the Custom Domain need to be associated within Front Door before the CNAME record can be written to the domains DNS, else the CNAME validation will fail and Front Door will not enable traffic to the Domain.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -145,9 +145,9 @@ namespace Pulumi.Azure.Cdn
         /// <summary>
         /// The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you're using your own domain provider to handle your DNS, you must validate the Front Door Custom Domain by creating the DNS TXT records manually.
         /// 
-        /// &lt;!-- * `pre_validated_cdn_frontdoor_custom_domain_id` - (Optional) The resource ID of the pre-validated Front Door Custom Domain. This domain type is used when you wish to onboard a validated Azure service domain, and then configure the Azure service behind an Azure Front Door.
+        /// &lt;!-- * `PreValidatedCdnFrontdoorCustomDomainId` - (Optional) The resource ID of the pre-validated Front Door Custom Domain. This domain type is used when you wish to onboard a validated Azure service domain, and then configure the Azure service behind an Azure Front Door.
         /// 
-        /// &gt; **Note:** Currently `pre_validated_cdn_frontdoor_custom_domain_id` only supports domains validated by Static Web App. --&gt;
+        /// &gt; **Note:** Currently `PreValidatedCdnFrontdoorCustomDomainId` only supports domains validated by Static Web App. --&gt;
         /// </summary>
         [Output("dnsZoneId")]
         public Output<string?> DnsZoneId { get; private set; } = null!;
@@ -159,7 +159,7 @@ namespace Pulumi.Azure.Cdn
         public Output<string> ExpirationDate { get; private set; } = null!;
 
         /// <summary>
-        /// The host name of the domain. The `host_name` field must be the FQDN of your domain(e.g. `contoso.fabrikam.com`). Changing this forces a new Front Door Custom Domain to be created.
+        /// The host name of the domain. The `HostName` field must be the FQDN of your domain(e.g. `contoso.fabrikam.com`). Changing this forces a new Front Door Custom Domain to be created.
         /// </summary>
         [Output("hostName")]
         public Output<string> HostName { get; private set; } = null!;
@@ -171,7 +171,7 @@ namespace Pulumi.Azure.Cdn
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `tls` block as defined below.
+        /// A `Tls` block as defined below.
         /// </summary>
         [Output("tls")]
         public Output<Outputs.FrontdoorCustomDomainTls> Tls { get; private set; } = null!;
@@ -241,15 +241,15 @@ namespace Pulumi.Azure.Cdn
         /// <summary>
         /// The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you're using your own domain provider to handle your DNS, you must validate the Front Door Custom Domain by creating the DNS TXT records manually.
         /// 
-        /// &lt;!-- * `pre_validated_cdn_frontdoor_custom_domain_id` - (Optional) The resource ID of the pre-validated Front Door Custom Domain. This domain type is used when you wish to onboard a validated Azure service domain, and then configure the Azure service behind an Azure Front Door.
+        /// &lt;!-- * `PreValidatedCdnFrontdoorCustomDomainId` - (Optional) The resource ID of the pre-validated Front Door Custom Domain. This domain type is used when you wish to onboard a validated Azure service domain, and then configure the Azure service behind an Azure Front Door.
         /// 
-        /// &gt; **Note:** Currently `pre_validated_cdn_frontdoor_custom_domain_id` only supports domains validated by Static Web App. --&gt;
+        /// &gt; **Note:** Currently `PreValidatedCdnFrontdoorCustomDomainId` only supports domains validated by Static Web App. --&gt;
         /// </summary>
         [Input("dnsZoneId")]
         public Input<string>? DnsZoneId { get; set; }
 
         /// <summary>
-        /// The host name of the domain. The `host_name` field must be the FQDN of your domain(e.g. `contoso.fabrikam.com`). Changing this forces a new Front Door Custom Domain to be created.
+        /// The host name of the domain. The `HostName` field must be the FQDN of your domain(e.g. `contoso.fabrikam.com`). Changing this forces a new Front Door Custom Domain to be created.
         /// </summary>
         [Input("hostName", required: true)]
         public Input<string> HostName { get; set; } = null!;
@@ -261,7 +261,7 @@ namespace Pulumi.Azure.Cdn
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `tls` block as defined below.
+        /// A `Tls` block as defined below.
         /// </summary>
         [Input("tls", required: true)]
         public Input<Inputs.FrontdoorCustomDomainTlsArgs> Tls { get; set; } = null!;
@@ -283,9 +283,9 @@ namespace Pulumi.Azure.Cdn
         /// <summary>
         /// The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you're using your own domain provider to handle your DNS, you must validate the Front Door Custom Domain by creating the DNS TXT records manually.
         /// 
-        /// &lt;!-- * `pre_validated_cdn_frontdoor_custom_domain_id` - (Optional) The resource ID of the pre-validated Front Door Custom Domain. This domain type is used when you wish to onboard a validated Azure service domain, and then configure the Azure service behind an Azure Front Door.
+        /// &lt;!-- * `PreValidatedCdnFrontdoorCustomDomainId` - (Optional) The resource ID of the pre-validated Front Door Custom Domain. This domain type is used when you wish to onboard a validated Azure service domain, and then configure the Azure service behind an Azure Front Door.
         /// 
-        /// &gt; **Note:** Currently `pre_validated_cdn_frontdoor_custom_domain_id` only supports domains validated by Static Web App. --&gt;
+        /// &gt; **Note:** Currently `PreValidatedCdnFrontdoorCustomDomainId` only supports domains validated by Static Web App. --&gt;
         /// </summary>
         [Input("dnsZoneId")]
         public Input<string>? DnsZoneId { get; set; }
@@ -297,7 +297,7 @@ namespace Pulumi.Azure.Cdn
         public Input<string>? ExpirationDate { get; set; }
 
         /// <summary>
-        /// The host name of the domain. The `host_name` field must be the FQDN of your domain(e.g. `contoso.fabrikam.com`). Changing this forces a new Front Door Custom Domain to be created.
+        /// The host name of the domain. The `HostName` field must be the FQDN of your domain(e.g. `contoso.fabrikam.com`). Changing this forces a new Front Door Custom Domain to be created.
         /// </summary>
         [Input("hostName")]
         public Input<string>? HostName { get; set; }
@@ -309,7 +309,7 @@ namespace Pulumi.Azure.Cdn
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `tls` block as defined below.
+        /// A `Tls` block as defined below.
         /// </summary>
         [Input("tls")]
         public Input<Inputs.FrontdoorCustomDomainTlsGetArgs>? Tls { get; set; }

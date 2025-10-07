@@ -51,32 +51,32 @@ public final class OutboundRuleState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @deprecated
-     * This property is being deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider.
+     * This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
      * 
      */
-    @Deprecated /* This property is being deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider. */
+    @Deprecated /* This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider. */
     @Import(name="enableTcpReset")
     private @Nullable Output<Boolean> enableTcpReset;
 
     /**
      * @deprecated
-     * This property is being deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider.
+     * This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
      * 
      */
-    @Deprecated /* This property is being deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider. */
+    @Deprecated /* This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider. */
     public Optional<Output<Boolean>> enableTcpReset() {
         return Optional.ofNullable(this.enableTcpReset);
     }
 
     /**
-     * One or more `frontend_ip_configuration` blocks as defined below.
+     * One or more `frontendIpConfiguration` blocks as defined below.
      * 
      */
     @Import(name="frontendIpConfigurations")
     private @Nullable Output<List<OutboundRuleFrontendIpConfigurationArgs>> frontendIpConfigurations;
 
     /**
-     * @return One or more `frontend_ip_configuration` blocks as defined below.
+     * @return One or more `frontendIpConfiguration` blocks as defined below.
      * 
      */
     public Optional<Output<List<OutboundRuleFrontendIpConfigurationArgs>>> frontendIpConfigurations() {
@@ -236,10 +236,10 @@ public final class OutboundRuleState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * This property is being deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider.
+         * This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
          * 
          */
-        @Deprecated /* This property is being deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider. */
+        @Deprecated /* This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider. */
         public Builder enableTcpReset(@Nullable Output<Boolean> enableTcpReset) {
             $.enableTcpReset = enableTcpReset;
             return this;
@@ -249,16 +249,16 @@ public final class OutboundRuleState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * This property is being deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider.
+         * This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
          * 
          */
-        @Deprecated /* This property is being deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider. */
+        @Deprecated /* This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider. */
         public Builder enableTcpReset(Boolean enableTcpReset) {
             return enableTcpReset(Output.of(enableTcpReset));
         }
 
         /**
-         * @param frontendIpConfigurations One or more `frontend_ip_configuration` blocks as defined below.
+         * @param frontendIpConfigurations One or more `frontendIpConfiguration` blocks as defined below.
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class OutboundRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param frontendIpConfigurations One or more `frontend_ip_configuration` blocks as defined below.
+         * @param frontendIpConfigurations One or more `frontendIpConfiguration` blocks as defined below.
          * 
          * @return builder
          * 
@@ -279,7 +279,7 @@ public final class OutboundRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param frontendIpConfigurations One or more `frontend_ip_configuration` blocks as defined below.
+         * @param frontendIpConfigurations One or more `frontendIpConfiguration` blocks as defined below.
          * 
          * @return builder
          * 

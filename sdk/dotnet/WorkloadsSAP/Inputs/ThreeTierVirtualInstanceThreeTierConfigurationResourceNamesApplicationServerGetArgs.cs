@@ -22,7 +22,7 @@ namespace Pulumi.Azure.WorkloadsSAP.Inputs
         private InputList<Inputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineGetArgs>? _virtualMachines;
 
         /// <summary>
-        /// One or more `virtual_machine` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `VirtualMachine` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineGetArgs> VirtualMachines
         {

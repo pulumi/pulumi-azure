@@ -22,7 +22,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         private InputList<Inputs.ApiOperationResponseRepresentationExampleArgs>? _examples;
 
         /// <summary>
-        /// One or more `example` blocks as defined above.
+        /// One or more `Example` blocks as defined above.
         /// </summary>
         public InputList<Inputs.ApiOperationResponseRepresentationExampleArgs> Examples
         {
@@ -34,9 +34,9 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         private InputList<Inputs.ApiOperationResponseRepresentationFormParameterArgs>? _formParameters;
 
         /// <summary>
-        /// One or more `form_parameter` block as defined above.
+        /// One or more `FormParameter` block as defined above.
         /// 
-        /// &gt; **Note:** This is Required when `content_type` is set to `application/x-www-form-urlencoded` or `multipart/form-data`.
+        /// &gt; **Note:** This is Required when `ContentType` is set to `application/x-www-form-urlencoded` or `multipart/form-data`.
         /// </summary>
         public InputList<Inputs.ApiOperationResponseRepresentationFormParameterArgs> FormParameters
         {
@@ -47,7 +47,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         /// <summary>
         /// The ID of an API Management Schema which represents this Response.
         /// 
-        /// &gt; **Note:** This can only be specified when `content_type` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
+        /// &gt; **Note:** This can only be specified when `ContentType` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
         /// </summary>
         [Input("schemaId")]
         public Input<string>? SchemaId { get; set; }
@@ -55,7 +55,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         /// <summary>
         /// The Type Name defined by the Schema.
         /// 
-        /// &gt; **Note:** This can only be specified when `content_type` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
+        /// &gt; **Note:** This can only be specified when `ContentType` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
         /// </summary>
         [Input("typeName")]
         public Input<string>? TypeName { get; set; }

@@ -55,7 +55,7 @@ public final class DatasetJsonState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `azure_blob_storage_location` block as defined below.
+     * A `azureBlobStorageLocation` block as defined below.
      * 
      * The following supported arguments are specific to Delimited Text Dataset:
      * 
@@ -64,7 +64,7 @@ public final class DatasetJsonState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<DatasetJsonAzureBlobStorageLocationArgs> azureBlobStorageLocation;
 
     /**
-     * @return A `azure_blob_storage_location` block as defined below.
+     * @return A `azureBlobStorageLocation` block as defined below.
      * 
      * The following supported arguments are specific to Delimited Text Dataset:
      * 
@@ -134,14 +134,14 @@ public final class DatasetJsonState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `http_server_location` block as defined below.
+     * A `httpServerLocation` block as defined below.
      * 
      */
     @Import(name="httpServerLocation")
     private @Nullable Output<DatasetJsonHttpServerLocationArgs> httpServerLocation;
 
     /**
-     * @return A `http_server_location` block as defined below.
+     * @return A `httpServerLocation` block as defined below.
      * 
      */
     public Optional<Output<DatasetJsonHttpServerLocationArgs>> httpServerLocation() {
@@ -194,14 +194,14 @@ public final class DatasetJsonState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `schema_column` block as defined below.
+     * A `schemaColumn` block as defined below.
      * 
      */
     @Import(name="schemaColumns")
     private @Nullable Output<List<DatasetJsonSchemaColumnArgs>> schemaColumns;
 
     /**
-     * @return A `schema_column` block as defined below.
+     * @return A `schemaColumn` block as defined below.
      * 
      */
     public Optional<Output<List<DatasetJsonSchemaColumnArgs>>> schemaColumns() {
@@ -300,7 +300,7 @@ public final class DatasetJsonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param azureBlobStorageLocation A `azure_blob_storage_location` block as defined below.
+         * @param azureBlobStorageLocation A `azureBlobStorageLocation` block as defined below.
          * 
          * The following supported arguments are specific to Delimited Text Dataset:
          * 
@@ -313,7 +313,7 @@ public final class DatasetJsonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param azureBlobStorageLocation A `azure_blob_storage_location` block as defined below.
+         * @param azureBlobStorageLocation A `azureBlobStorageLocation` block as defined below.
          * 
          * The following supported arguments are specific to Delimited Text Dataset:
          * 
@@ -409,7 +409,7 @@ public final class DatasetJsonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param httpServerLocation A `http_server_location` block as defined below.
+         * @param httpServerLocation A `httpServerLocation` block as defined below.
          * 
          * @return builder
          * 
@@ -420,7 +420,7 @@ public final class DatasetJsonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param httpServerLocation A `http_server_location` block as defined below.
+         * @param httpServerLocation A `httpServerLocation` block as defined below.
          * 
          * @return builder
          * 
@@ -493,7 +493,7 @@ public final class DatasetJsonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schemaColumns A `schema_column` block as defined below.
+         * @param schemaColumns A `schemaColumn` block as defined below.
          * 
          * @return builder
          * 
@@ -504,7 +504,7 @@ public final class DatasetJsonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schemaColumns A `schema_column` block as defined below.
+         * @param schemaColumns A `schemaColumn` block as defined below.
          * 
          * @return builder
          * 
@@ -514,7 +514,7 @@ public final class DatasetJsonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schemaColumns A `schema_column` block as defined below.
+         * @param schemaColumns A `schemaColumn` block as defined below.
          * 
          * @return builder
          * 

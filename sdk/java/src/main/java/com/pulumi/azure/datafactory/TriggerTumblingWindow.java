@@ -317,14 +317,14 @@ public class TriggerTumblingWindow extends com.pulumi.resources.CustomResource {
         return this.startTime;
     }
     /**
-     * One or more `trigger_dependency` block as defined below.
+     * One or more `triggerDependency` block as defined below.
      * 
      */
     @Export(name="triggerDependencies", refs={List.class,TriggerTumblingWindowTriggerDependency.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TriggerTumblingWindowTriggerDependency>> triggerDependencies;
 
     /**
-     * @return One or more `trigger_dependency` block as defined below.
+     * @return One or more `triggerDependency` block as defined below.
      * 
      */
     public Output<Optional<List<TriggerTumblingWindowTriggerDependency>>> triggerDependencies() {

@@ -18,11 +18,11 @@ namespace Pulumi.Azure.EventHub.Outputs
         /// </summary>
         public readonly string CleanupPolicy;
         /// <summary>
-        /// Specifies the number of hours to retain the events for this Event Hub. The value is only used when `cleanup_policy` is `Delete`.
+        /// Specifies the number of hours to retain the events for this Event Hub. The value is only used when `CleanupPolicy` is `Delete`.
         /// </summary>
         public readonly int? RetentionTimeInHours;
         /// <summary>
-        /// Specifies the number of hours to retain the tombstones markers of a compacted Event Hub. The value is only used when `cleanup_policy` is `Compact`.
+        /// Specifies the number of hours to retain the tombstones markers of a compacted Event Hub. The value is only used when `CleanupPolicy` is `Compact`.
         /// </summary>
         public readonly int? TombstoneRetentionTimeInHours;
 

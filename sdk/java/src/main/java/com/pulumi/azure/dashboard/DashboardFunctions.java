@@ -19,7 +19,7 @@ import java.util.concurrent.CompletableFuture;
 
 public final class DashboardFunctions {
     /**
-     * Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `azurerm_dashboard` resource.
+     * Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `azurermDashboard` resource.
      * 
      * ## Example Usage
      * 
@@ -72,7 +72,7 @@ public final class DashboardFunctions {
         return azurerm_portal_dashboard(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `azurerm_dashboard` resource.
+     * Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `azurermDashboard` resource.
      * 
      * ## Example Usage
      * 
@@ -125,7 +125,7 @@ public final class DashboardFunctions {
         return azurerm_portal_dashboardPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `azurerm_dashboard` resource.
+     * Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `azurermDashboard` resource.
      * 
      * ## Example Usage
      * 
@@ -178,7 +178,7 @@ public final class DashboardFunctions {
         return Deployment.getInstance().invoke("azure:dashboard/azurerm_portal_dashboard:azurerm_portal_dashboard", TypeShape.of(Azurerm_portal_dashboardResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `azurerm_dashboard` resource.
+     * Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `azurermDashboard` resource.
      * 
      * ## Example Usage
      * 
@@ -231,7 +231,7 @@ public final class DashboardFunctions {
         return Deployment.getInstance().invoke("azure:dashboard/azurerm_portal_dashboard:azurerm_portal_dashboard", TypeShape.of(Azurerm_portal_dashboardResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `azurerm_dashboard` resource.
+     * Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `azurermDashboard` resource.
      * 
      * ## Example Usage
      * 

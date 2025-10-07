@@ -31,7 +31,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string>? SubnetId { get; set; }
 
         /// <summary>
-        /// Whether to enable virtual network integration for the API Server. Defaults to `false`.
+        /// Whether to enable virtual network integration for the API Server. Defaults to `False`.
         /// </summary>
         [Input("virtualNetworkIntegrationEnabled")]
         public Input<bool>? VirtualNetworkIntegrationEnabled { get; set; }

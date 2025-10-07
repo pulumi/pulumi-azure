@@ -21,10 +21,10 @@ public final class GetNamespaceAuthorizationRuleResult {
     private @Nullable String namespaceId;
     /**
      * @deprecated
-     * `namespace_name` will be removed in favour of the property `namespace_id` in v5.0 of the AzureRM Provider.
+     * `namespaceName` will be removed in favour of the property `namespaceId` in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `namespace_name` will be removed in favour of the property `namespace_id` in v5.0 of the AzureRM Provider. */
+    @Deprecated /* `namespaceName` will be removed in favour of the property `namespaceId` in v5.0 of the AzureRM Provider. */
     private @Nullable String namespaceName;
     /**
      * @return The primary connection string for the authorization rule.
@@ -43,10 +43,10 @@ public final class GetNamespaceAuthorizationRuleResult {
     private String primaryKey;
     /**
      * @deprecated
-     * `resource_group_name` will be removed in favour of the property `namespace_id` in v5.0 of the AzureRM Provider.
+     * `resourceGroupName` will be removed in favour of the property `namespaceId` in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `resource_group_name` will be removed in favour of the property `namespace_id` in v5.0 of the AzureRM Provider. */
+    @Deprecated /* `resourceGroupName` will be removed in favour of the property `namespaceId` in v5.0 of the AzureRM Provider. */
     private @Nullable String resourceGroupName;
     /**
      * @return The secondary connection string for the authorization rule.
@@ -80,10 +80,10 @@ public final class GetNamespaceAuthorizationRuleResult {
     }
     /**
      * @deprecated
-     * `namespace_name` will be removed in favour of the property `namespace_id` in v5.0 of the AzureRM Provider.
+     * `namespaceName` will be removed in favour of the property `namespaceId` in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `namespace_name` will be removed in favour of the property `namespace_id` in v5.0 of the AzureRM Provider. */
+    @Deprecated /* `namespaceName` will be removed in favour of the property `namespaceId` in v5.0 of the AzureRM Provider. */
     public Optional<String> namespaceName() {
         return Optional.ofNullable(this.namespaceName);
     }
@@ -110,10 +110,10 @@ public final class GetNamespaceAuthorizationRuleResult {
     }
     /**
      * @deprecated
-     * `resource_group_name` will be removed in favour of the property `namespace_id` in v5.0 of the AzureRM Provider.
+     * `resourceGroupName` will be removed in favour of the property `namespaceId` in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `resource_group_name` will be removed in favour of the property `namespace_id` in v5.0 of the AzureRM Provider. */
+    @Deprecated /* `resourceGroupName` will be removed in favour of the property `namespaceId` in v5.0 of the AzureRM Provider. */
     public Optional<String> resourceGroupName() {
         return Optional.ofNullable(this.resourceGroupName);
     }

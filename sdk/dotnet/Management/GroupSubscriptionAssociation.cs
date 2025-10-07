@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Management
     /// <summary>
     /// Manages a Management Group Subscription Association.
     /// 
-    /// !&gt; **Note:** When using this resource, configuring `subscription_ids` on the `azure.management.Group` resource is not supported.
+    /// !&gt; **Note:** When using this resource, configuring `SubscriptionIds` on the `azure.management.Group` resource is not supported.
     /// 
     /// ## Example Usage
     /// 

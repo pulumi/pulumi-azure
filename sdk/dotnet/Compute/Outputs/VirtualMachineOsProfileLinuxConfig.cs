@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class VirtualMachineOsProfileLinuxConfig
     {
         /// <summary>
-        /// Specifies whether password authentication should be disabled. If set to `false`, an `admin_password` must be specified.
+        /// Specifies whether password authentication should be disabled. If set to `False`, an `AdminPassword` must be specified.
         /// </summary>
         public readonly bool DisablePasswordAuthentication;
         /// <summary>
-        /// One or more `ssh_keys` blocks as defined below. This field is required if `disable_password_authentication` is set to `true`.
+        /// One or more `SshKeys` blocks as defined below. This field is required if `DisablePasswordAuthentication` is set to `True`.
         /// </summary>
         public readonly ImmutableArray<Outputs.VirtualMachineOsProfileLinuxConfigSshKey> SshKeys;
 

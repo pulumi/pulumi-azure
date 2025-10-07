@@ -14,17 +14,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AlertRuleNrtIncidentGrouping {
     /**
-     * @return A list of alert details to group by, only when the `entity_matching_method` is `Selected`. Possible values are `DisplayName` and `Severity`.
+     * @return A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `DisplayName` and `Severity`.
      * 
      */
     private @Nullable List<String> byAlertDetails;
     /**
-     * @return A list of custom details keys to group by, only when the `entity_matching_method` is `Selected`. Only keys defined in the `custom_details` may be used.
+     * @return A list of custom details keys to group by, only when the `entityMatchingMethod` is `Selected`. Only keys defined in the `customDetails` may be used.
      * 
      */
     private @Nullable List<String> byCustomDetails;
     /**
-     * @return A list of entity types to group by, only when the `entity_matching_method` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+     * @return A list of entity types to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
      * 
      */
     private @Nullable List<String> byEntities;
@@ -51,21 +51,21 @@ public final class AlertRuleNrtIncidentGrouping {
 
     private AlertRuleNrtIncidentGrouping() {}
     /**
-     * @return A list of alert details to group by, only when the `entity_matching_method` is `Selected`. Possible values are `DisplayName` and `Severity`.
+     * @return A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `DisplayName` and `Severity`.
      * 
      */
     public List<String> byAlertDetails() {
         return this.byAlertDetails == null ? List.of() : this.byAlertDetails;
     }
     /**
-     * @return A list of custom details keys to group by, only when the `entity_matching_method` is `Selected`. Only keys defined in the `custom_details` may be used.
+     * @return A list of custom details keys to group by, only when the `entityMatchingMethod` is `Selected`. Only keys defined in the `customDetails` may be used.
      * 
      */
     public List<String> byCustomDetails() {
         return this.byCustomDetails == null ? List.of() : this.byCustomDetails;
     }
     /**
-     * @return A list of entity types to group by, only when the `entity_matching_method` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+     * @return A list of entity types to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
      * 
      */
     public List<String> byEntities() {

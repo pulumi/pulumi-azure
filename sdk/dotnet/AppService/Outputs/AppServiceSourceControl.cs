@@ -18,7 +18,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? Branch;
         /// <summary>
-        /// Limits to manual integration. Defaults to `false` if not specified.
+        /// Limits to manual integration. Defaults to `False` if not specified.
         /// </summary>
         public readonly bool? ManualIntegration;
         /// <summary>
@@ -26,11 +26,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? RepoUrl;
         /// <summary>
-        /// Enable roll-back for the repository. Defaults to `false` if not specified.
+        /// Enable roll-back for the repository. Defaults to `False` if not specified.
         /// </summary>
         public readonly bool? RollbackEnabled;
         /// <summary>
-        /// Use Mercurial if `true`, otherwise uses Git.
+        /// Use Mercurial if `True`, otherwise uses Git.
         /// </summary>
         public readonly bool? UseMercurial;
 

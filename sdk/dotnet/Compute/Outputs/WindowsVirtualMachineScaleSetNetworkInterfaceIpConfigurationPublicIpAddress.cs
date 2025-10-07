@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly int? IdleTimeoutInMinutes;
         /// <summary>
-        /// One or more `ip_tag` blocks as defined above. Changing this forces a new resource to be created.
+        /// One or more `IpTag` blocks as defined above. Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableArray<Outputs.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag> IpTags;
         /// <summary>

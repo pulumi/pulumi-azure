@@ -17,14 +17,14 @@ public final class EndpointCustomDnsConfigArgs extends com.pulumi.resources.Reso
     public static final EndpointCustomDnsConfigArgs Empty = new EndpointCustomDnsConfigArgs();
 
     /**
-     * The fully qualified domain name to the `private_dns_zone`.
+     * The fully qualified domain name to the `privateDnsZone`.
      * 
      */
     @Import(name="fqdn")
     private @Nullable Output<String> fqdn;
 
     /**
-     * @return The fully qualified domain name to the `private_dns_zone`.
+     * @return The fully qualified domain name to the `privateDnsZone`.
      * 
      */
     public Optional<Output<String>> fqdn() {
@@ -32,14 +32,14 @@ public final class EndpointCustomDnsConfigArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A list of all IP Addresses that map to the `private_dns_zone` fqdn.
+     * A list of all IP Addresses that map to the `privateDnsZone` fqdn.
      * 
      */
     @Import(name="ipAddresses")
     private @Nullable Output<List<String>> ipAddresses;
 
     /**
-     * @return A list of all IP Addresses that map to the `private_dns_zone` fqdn.
+     * @return A list of all IP Addresses that map to the `privateDnsZone` fqdn.
      * 
      */
     public Optional<Output<List<String>>> ipAddresses() {
@@ -72,7 +72,7 @@ public final class EndpointCustomDnsConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param fqdn The fully qualified domain name to the `private_dns_zone`.
+         * @param fqdn The fully qualified domain name to the `privateDnsZone`.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class EndpointCustomDnsConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param fqdn The fully qualified domain name to the `private_dns_zone`.
+         * @param fqdn The fully qualified domain name to the `privateDnsZone`.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class EndpointCustomDnsConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param ipAddresses A list of all IP Addresses that map to the `private_dns_zone` fqdn.
+         * @param ipAddresses A list of all IP Addresses that map to the `privateDnsZone` fqdn.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class EndpointCustomDnsConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param ipAddresses A list of all IP Addresses that map to the `private_dns_zone` fqdn.
+         * @param ipAddresses A list of all IP Addresses that map to the `privateDnsZone` fqdn.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class EndpointCustomDnsConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param ipAddresses A list of all IP Addresses that map to the `private_dns_zone` fqdn.
+         * @param ipAddresses A list of all IP Addresses that map to the `privateDnsZone` fqdn.
          * 
          * @return builder
          * 

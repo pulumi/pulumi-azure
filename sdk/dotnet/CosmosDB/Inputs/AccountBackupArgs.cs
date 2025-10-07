@@ -27,7 +27,7 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         /// <summary>
         /// The storage redundancy is used to indicate the type of backup residency. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
         /// 
-        /// &gt; **Note:** You can only configure `interval_in_minutes`, `retention_in_hours` and `storage_redundancy` when the `type` field is set to `Periodic`.
+        /// &gt; **Note:** You can only configure `IntervalInMinutes`, `RetentionInHours` and `StorageRedundancy` when the `Type` field is set to `Periodic`.
         /// </summary>
         [Input("storageRedundancy")]
         public Input<string>? StorageRedundancy { get; set; }
@@ -39,7 +39,7 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         public Input<string>? Tier { get; set; }
 
         /// <summary>
-        /// The type of the `backup`. Possible values are `Continuous` and `Periodic`.
+        /// The type of the `Backup`. Possible values are `Continuous` and `Periodic`.
         /// 
         /// &gt; **Note:** Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
         /// </summary>

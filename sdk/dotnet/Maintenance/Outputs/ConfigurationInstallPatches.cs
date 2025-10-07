@@ -14,15 +14,15 @@ namespace Pulumi.Azure.Maintenance.Outputs
     public sealed class ConfigurationInstallPatches
     {
         /// <summary>
-        /// A `linux` block as defined above. This property only applies when `scope` is set to `InGuestPatch`
+        /// A `Linux` block as defined above. This property only applies when `Scope` is set to `InGuestPatch`
         /// </summary>
         public readonly ImmutableArray<Outputs.ConfigurationInstallPatchesLinux> Linuxes;
         /// <summary>
-        /// Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed. Possible values are `Always`, `IfRequired` and `Never`. This property only applies when `scope` is set to `InGuestPatch`.
+        /// Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed. Possible values are `Always`, `IfRequired` and `Never`. This property only applies when `Scope` is set to `InGuestPatch`.
         /// </summary>
         public readonly string? Reboot;
         /// <summary>
-        /// A `windows` block as defined above. This property only applies when `scope` is set to `InGuestPatch`
+        /// A `Windows` block as defined above. This property only applies when `Scope` is set to `InGuestPatch`
         /// </summary>
         public readonly ImmutableArray<Outputs.ConfigurationInstallPatchesWindow> Windows;
 

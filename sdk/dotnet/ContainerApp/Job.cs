@@ -144,13 +144,13 @@ namespace Pulumi.Azure.ContainerApp
         public Output<string> EventStreamEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// A `event_trigger_config` block as defined below.
+        /// A `EventTriggerConfig` block as defined below.
         /// </summary>
         [Output("eventTriggerConfig")]
         public Output<Outputs.JobEventTriggerConfig?> EventTriggerConfig { get; private set; } = null!;
 
         /// <summary>
-        /// A `identity` block as defined below.
+        /// A `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.JobIdentity?> Identity { get; private set; } = null!;
@@ -162,7 +162,7 @@ namespace Pulumi.Azure.ContainerApp
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// A `manual_trigger_config` block as defined below.
+        /// A `ManualTriggerConfig` block as defined below.
         /// </summary>
         [Output("manualTriggerConfig")]
         public Output<Outputs.JobManualTriggerConfig?> ManualTriggerConfig { get; private set; } = null!;
@@ -180,7 +180,7 @@ namespace Pulumi.Azure.ContainerApp
         public Output<ImmutableArray<string>> OutboundIpAddresses { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `registry` blocks as defined below.
+        /// One or more `Registry` blocks as defined below.
         /// </summary>
         [Output("registries")]
         public Output<ImmutableArray<Outputs.JobRegistry>> Registries { get; private set; } = null!;
@@ -204,15 +204,15 @@ namespace Pulumi.Azure.ContainerApp
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `schedule_trigger_config` block as defined below.
+        /// A `ScheduleTriggerConfig` block as defined below.
         /// 
-        /// &gt; **Note:** Only one of `manual_trigger_config`, `event_trigger_config` or `schedule_trigger_config` can be specified.
+        /// &gt; **Note:** Only one of `ManualTriggerConfig`, `EventTriggerConfig` or `ScheduleTriggerConfig` can be specified.
         /// </summary>
         [Output("scheduleTriggerConfig")]
         public Output<Outputs.JobScheduleTriggerConfig?> ScheduleTriggerConfig { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `secret` blocks as defined below.
+        /// One or more `Secret` blocks as defined below.
         /// </summary>
         [Output("secrets")]
         public Output<ImmutableArray<Outputs.JobSecret>> Secrets { get; private set; } = null!;
@@ -224,7 +224,7 @@ namespace Pulumi.Azure.ContainerApp
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A `template` block as defined below.
+        /// A `Template` block as defined below.
         /// </summary>
         [Output("template")]
         public Output<Outputs.JobTemplate> Template { get; private set; } = null!;
@@ -292,13 +292,13 @@ namespace Pulumi.Azure.ContainerApp
         public Input<string> ContainerAppEnvironmentId { get; set; } = null!;
 
         /// <summary>
-        /// A `event_trigger_config` block as defined below.
+        /// A `EventTriggerConfig` block as defined below.
         /// </summary>
         [Input("eventTriggerConfig")]
         public Input<Inputs.JobEventTriggerConfigArgs>? EventTriggerConfig { get; set; }
 
         /// <summary>
-        /// A `identity` block as defined below.
+        /// A `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.JobIdentityArgs>? Identity { get; set; }
@@ -310,7 +310,7 @@ namespace Pulumi.Azure.ContainerApp
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A `manual_trigger_config` block as defined below.
+        /// A `ManualTriggerConfig` block as defined below.
         /// </summary>
         [Input("manualTriggerConfig")]
         public Input<Inputs.JobManualTriggerConfigArgs>? ManualTriggerConfig { get; set; }
@@ -325,7 +325,7 @@ namespace Pulumi.Azure.ContainerApp
         private InputList<Inputs.JobRegistryArgs>? _registries;
 
         /// <summary>
-        /// One or more `registry` blocks as defined below.
+        /// One or more `Registry` blocks as defined below.
         /// </summary>
         public InputList<Inputs.JobRegistryArgs> Registries
         {
@@ -352,9 +352,9 @@ namespace Pulumi.Azure.ContainerApp
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `schedule_trigger_config` block as defined below.
+        /// A `ScheduleTriggerConfig` block as defined below.
         /// 
-        /// &gt; **Note:** Only one of `manual_trigger_config`, `event_trigger_config` or `schedule_trigger_config` can be specified.
+        /// &gt; **Note:** Only one of `ManualTriggerConfig`, `EventTriggerConfig` or `ScheduleTriggerConfig` can be specified.
         /// </summary>
         [Input("scheduleTriggerConfig")]
         public Input<Inputs.JobScheduleTriggerConfigArgs>? ScheduleTriggerConfig { get; set; }
@@ -363,7 +363,7 @@ namespace Pulumi.Azure.ContainerApp
         private InputList<Inputs.JobSecretArgs>? _secrets;
 
         /// <summary>
-        /// One or more `secret` blocks as defined below.
+        /// One or more `Secret` blocks as defined below.
         /// </summary>
         public InputList<Inputs.JobSecretArgs> Secrets
         {
@@ -388,7 +388,7 @@ namespace Pulumi.Azure.ContainerApp
         }
 
         /// <summary>
-        /// A `template` block as defined below.
+        /// A `Template` block as defined below.
         /// </summary>
         [Input("template", required: true)]
         public Input<Inputs.JobTemplateArgs> Template { get; set; } = null!;
@@ -420,13 +420,13 @@ namespace Pulumi.Azure.ContainerApp
         public Input<string>? EventStreamEndpoint { get; set; }
 
         /// <summary>
-        /// A `event_trigger_config` block as defined below.
+        /// A `EventTriggerConfig` block as defined below.
         /// </summary>
         [Input("eventTriggerConfig")]
         public Input<Inputs.JobEventTriggerConfigGetArgs>? EventTriggerConfig { get; set; }
 
         /// <summary>
-        /// A `identity` block as defined below.
+        /// A `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.JobIdentityGetArgs>? Identity { get; set; }
@@ -438,7 +438,7 @@ namespace Pulumi.Azure.ContainerApp
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A `manual_trigger_config` block as defined below.
+        /// A `ManualTriggerConfig` block as defined below.
         /// </summary>
         [Input("manualTriggerConfig")]
         public Input<Inputs.JobManualTriggerConfigGetArgs>? ManualTriggerConfig { get; set; }
@@ -465,7 +465,7 @@ namespace Pulumi.Azure.ContainerApp
         private InputList<Inputs.JobRegistryGetArgs>? _registries;
 
         /// <summary>
-        /// One or more `registry` blocks as defined below.
+        /// One or more `Registry` blocks as defined below.
         /// </summary>
         public InputList<Inputs.JobRegistryGetArgs> Registries
         {
@@ -492,9 +492,9 @@ namespace Pulumi.Azure.ContainerApp
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// A `schedule_trigger_config` block as defined below.
+        /// A `ScheduleTriggerConfig` block as defined below.
         /// 
-        /// &gt; **Note:** Only one of `manual_trigger_config`, `event_trigger_config` or `schedule_trigger_config` can be specified.
+        /// &gt; **Note:** Only one of `ManualTriggerConfig`, `EventTriggerConfig` or `ScheduleTriggerConfig` can be specified.
         /// </summary>
         [Input("scheduleTriggerConfig")]
         public Input<Inputs.JobScheduleTriggerConfigGetArgs>? ScheduleTriggerConfig { get; set; }
@@ -503,7 +503,7 @@ namespace Pulumi.Azure.ContainerApp
         private InputList<Inputs.JobSecretGetArgs>? _secrets;
 
         /// <summary>
-        /// One or more `secret` blocks as defined below.
+        /// One or more `Secret` blocks as defined below.
         /// </summary>
         public InputList<Inputs.JobSecretGetArgs> Secrets
         {
@@ -528,7 +528,7 @@ namespace Pulumi.Azure.ContainerApp
         }
 
         /// <summary>
-        /// A `template` block as defined below.
+        /// A `Template` block as defined below.
         /// </summary>
         [Input("template")]
         public Input<Inputs.JobTemplateGetArgs>? Template { get; set; }

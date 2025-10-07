@@ -16,7 +16,7 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         private InputList<string>? _matchValues;
 
         /// <summary>
-        /// Up to `600` possible values to match. Limit is in total across all `match_condition` blocks and `match_values` arguments. String value itself can be up to `256` characters long.
+        /// Up to `600` possible values to match. Limit is in total across all `MatchCondition` blocks and `MatchValues` arguments. String value itself can be up to `256` characters long.
         /// </summary>
         public InputList<string> MatchValues
         {
@@ -43,7 +43,7 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         public Input<string> Operator { get; set; } = null!;
 
         /// <summary>
-        /// Match against a specific key if the `match_variable` is `QueryString`, `PostArgs`, `RequestHeader` or `Cookies`.
+        /// Match against a specific key if the `MatchVariable` is `QueryString`, `PostArgs`, `RequestHeader` or `Cookies`.
         /// </summary>
         [Input("selector")]
         public Input<string>? Selector { get; set; }

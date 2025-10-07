@@ -23,11 +23,11 @@ namespace Pulumi.Azure.ContainerService.Outputs
         public readonly string DockerBridgeCidr;
         public readonly string LoadBalancerSku;
         /// <summary>
-        /// Network plugin used such as `azure` or `kubenet`.
+        /// Network plugin used such as `Azure` or `Kubenet`.
         /// </summary>
         public readonly string NetworkPlugin;
         /// <summary>
-        /// Network policy to be used with Azure CNI. e.g. `calico` or `azure`
+        /// Network policy to be used with Azure CNI. e.g. `Calico` or `Azure`
         /// </summary>
         public readonly string NetworkPolicy;
         /// <summary>

@@ -18,18 +18,18 @@ public final class KubernetesClusterUpgradeOverrideArgs extends com.pulumi.resou
     public static final KubernetesClusterUpgradeOverrideArgs Empty = new KubernetesClusterUpgradeOverrideArgs();
 
     /**
-     * Specifies the duration, in RFC 3339 format (e.g., `2025-10-01T13:00:00Z`), the `upgrade_override` values are effective. This field must be set for the `upgrade_override` values to take effect. The date-time must be within the next 30 days.
+     * Specifies the duration, in RFC 3339 format (e.g., `2025-10-01T13:00:00Z`), the `upgradeOverride` values are effective. This field must be set for the `upgradeOverride` values to take effect. The date-time must be within the next 30 days.
      * 
-     * &gt; **Note:** This only matches the start time of an upgrade, and the effectiveness won&#39;t change once an upgrade starts even if the `effective_until` value expires as the upgrade proceeds.
+     * &gt; **Note:** This only matches the start time of an upgrade, and the effectiveness won&#39;t change once an upgrade starts even if the `effectiveUntil` value expires as the upgrade proceeds.
      * 
      */
     @Import(name="effectiveUntil")
     private @Nullable Output<String> effectiveUntil;
 
     /**
-     * @return Specifies the duration, in RFC 3339 format (e.g., `2025-10-01T13:00:00Z`), the `upgrade_override` values are effective. This field must be set for the `upgrade_override` values to take effect. The date-time must be within the next 30 days.
+     * @return Specifies the duration, in RFC 3339 format (e.g., `2025-10-01T13:00:00Z`), the `upgradeOverride` values are effective. This field must be set for the `upgradeOverride` values to take effect. The date-time must be within the next 30 days.
      * 
-     * &gt; **Note:** This only matches the start time of an upgrade, and the effectiveness won&#39;t change once an upgrade starts even if the `effective_until` value expires as the upgrade proceeds.
+     * &gt; **Note:** This only matches the start time of an upgrade, and the effectiveness won&#39;t change once an upgrade starts even if the `effectiveUntil` value expires as the upgrade proceeds.
      * 
      */
     public Optional<Output<String>> effectiveUntil() {
@@ -39,7 +39,7 @@ public final class KubernetesClusterUpgradeOverrideArgs extends com.pulumi.resou
     /**
      * Whether to force upgrade the cluster. Possible values are `true` or `false`.
      * 
-     * !&gt; **Note:** The `force_upgrade_enabled` field instructs the upgrade operation to bypass upgrade protections (e.g. checking for deprecated API usage) which may render the cluster inoperative after the upgrade process has completed. Use the `force_upgrade_enabled` option with extreme caution only.
+     * !&gt; **Note:** The `forceUpgradeEnabled` field instructs the upgrade operation to bypass upgrade protections (e.g. checking for deprecated API usage) which may render the cluster inoperative after the upgrade process has completed. Use the `forceUpgradeEnabled` option with extreme caution only.
      * 
      */
     @Import(name="forceUpgradeEnabled", required=true)
@@ -48,7 +48,7 @@ public final class KubernetesClusterUpgradeOverrideArgs extends com.pulumi.resou
     /**
      * @return Whether to force upgrade the cluster. Possible values are `true` or `false`.
      * 
-     * !&gt; **Note:** The `force_upgrade_enabled` field instructs the upgrade operation to bypass upgrade protections (e.g. checking for deprecated API usage) which may render the cluster inoperative after the upgrade process has completed. Use the `force_upgrade_enabled` option with extreme caution only.
+     * !&gt; **Note:** The `forceUpgradeEnabled` field instructs the upgrade operation to bypass upgrade protections (e.g. checking for deprecated API usage) which may render the cluster inoperative after the upgrade process has completed. Use the `forceUpgradeEnabled` option with extreme caution only.
      * 
      */
     public Output<Boolean> forceUpgradeEnabled() {
@@ -81,9 +81,9 @@ public final class KubernetesClusterUpgradeOverrideArgs extends com.pulumi.resou
         }
 
         /**
-         * @param effectiveUntil Specifies the duration, in RFC 3339 format (e.g., `2025-10-01T13:00:00Z`), the `upgrade_override` values are effective. This field must be set for the `upgrade_override` values to take effect. The date-time must be within the next 30 days.
+         * @param effectiveUntil Specifies the duration, in RFC 3339 format (e.g., `2025-10-01T13:00:00Z`), the `upgradeOverride` values are effective. This field must be set for the `upgradeOverride` values to take effect. The date-time must be within the next 30 days.
          * 
-         * &gt; **Note:** This only matches the start time of an upgrade, and the effectiveness won&#39;t change once an upgrade starts even if the `effective_until` value expires as the upgrade proceeds.
+         * &gt; **Note:** This only matches the start time of an upgrade, and the effectiveness won&#39;t change once an upgrade starts even if the `effectiveUntil` value expires as the upgrade proceeds.
          * 
          * @return builder
          * 
@@ -94,9 +94,9 @@ public final class KubernetesClusterUpgradeOverrideArgs extends com.pulumi.resou
         }
 
         /**
-         * @param effectiveUntil Specifies the duration, in RFC 3339 format (e.g., `2025-10-01T13:00:00Z`), the `upgrade_override` values are effective. This field must be set for the `upgrade_override` values to take effect. The date-time must be within the next 30 days.
+         * @param effectiveUntil Specifies the duration, in RFC 3339 format (e.g., `2025-10-01T13:00:00Z`), the `upgradeOverride` values are effective. This field must be set for the `upgradeOverride` values to take effect. The date-time must be within the next 30 days.
          * 
-         * &gt; **Note:** This only matches the start time of an upgrade, and the effectiveness won&#39;t change once an upgrade starts even if the `effective_until` value expires as the upgrade proceeds.
+         * &gt; **Note:** This only matches the start time of an upgrade, and the effectiveness won&#39;t change once an upgrade starts even if the `effectiveUntil` value expires as the upgrade proceeds.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class KubernetesClusterUpgradeOverrideArgs extends com.pulumi.resou
         /**
          * @param forceUpgradeEnabled Whether to force upgrade the cluster. Possible values are `true` or `false`.
          * 
-         * !&gt; **Note:** The `force_upgrade_enabled` field instructs the upgrade operation to bypass upgrade protections (e.g. checking for deprecated API usage) which may render the cluster inoperative after the upgrade process has completed. Use the `force_upgrade_enabled` option with extreme caution only.
+         * !&gt; **Note:** The `forceUpgradeEnabled` field instructs the upgrade operation to bypass upgrade protections (e.g. checking for deprecated API usage) which may render the cluster inoperative after the upgrade process has completed. Use the `forceUpgradeEnabled` option with extreme caution only.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class KubernetesClusterUpgradeOverrideArgs extends com.pulumi.resou
         /**
          * @param forceUpgradeEnabled Whether to force upgrade the cluster. Possible values are `true` or `false`.
          * 
-         * !&gt; **Note:** The `force_upgrade_enabled` field instructs the upgrade operation to bypass upgrade protections (e.g. checking for deprecated API usage) which may render the cluster inoperative after the upgrade process has completed. Use the `force_upgrade_enabled` option with extreme caution only.
+         * !&gt; **Note:** The `forceUpgradeEnabled` field instructs the upgrade operation to bypass upgrade protections (e.g. checking for deprecated API usage) which may render the cluster inoperative after the upgrade process has completed. Use the `forceUpgradeEnabled` option with extreme caution only.
          * 
          * @return builder
          * 

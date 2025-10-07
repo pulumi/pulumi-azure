@@ -18,14 +18,14 @@ public final class AadDiagnosticSettingArgs extends com.pulumi.resources.Resourc
     public static final AadDiagnosticSettingArgs Empty = new AadDiagnosticSettingArgs();
 
     /**
-     * One or more `enabled_log` blocks as defined below.
+     * One or more `enabledLog` blocks as defined below.
      * 
      */
     @Import(name="enabledLogs")
     private @Nullable Output<List<AadDiagnosticSettingEnabledLogArgs>> enabledLogs;
 
     /**
-     * @return One or more `enabled_log` blocks as defined below.
+     * @return One or more `enabledLog` blocks as defined below.
      * 
      */
     public Optional<Output<List<AadDiagnosticSettingEnabledLogArgs>>> enabledLogs() {
@@ -99,7 +99,7 @@ public final class AadDiagnosticSettingArgs extends com.pulumi.resources.Resourc
     /**
      * The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** One of `eventhub_authorization_rule_id`, `log_analytics_workspace_id` and `storage_account_id` must be specified.
+     * &gt; **Note:** One of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId` and `storageAccountId` must be specified.
      * 
      */
     @Import(name="storageAccountId")
@@ -108,7 +108,7 @@ public final class AadDiagnosticSettingArgs extends com.pulumi.resources.Resourc
     /**
      * @return The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** One of `eventhub_authorization_rule_id`, `log_analytics_workspace_id` and `storage_account_id` must be specified.
+     * &gt; **Note:** One of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId` and `storageAccountId` must be specified.
      * 
      */
     public Optional<Output<String>> storageAccountId() {
@@ -145,7 +145,7 @@ public final class AadDiagnosticSettingArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param enabledLogs One or more `enabled_log` blocks as defined below.
+         * @param enabledLogs One or more `enabledLog` blocks as defined below.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class AadDiagnosticSettingArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param enabledLogs One or more `enabled_log` blocks as defined below.
+         * @param enabledLogs One or more `enabledLog` blocks as defined below.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class AadDiagnosticSettingArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param enabledLogs One or more `enabled_log` blocks as defined below.
+         * @param enabledLogs One or more `enabledLog` blocks as defined below.
          * 
          * @return builder
          * 
@@ -266,7 +266,7 @@ public final class AadDiagnosticSettingArgs extends com.pulumi.resources.Resourc
         /**
          * @param storageAccountId The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** One of `eventhub_authorization_rule_id`, `log_analytics_workspace_id` and `storage_account_id` must be specified.
+         * &gt; **Note:** One of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId` and `storageAccountId` must be specified.
          * 
          * @return builder
          * 
@@ -279,7 +279,7 @@ public final class AadDiagnosticSettingArgs extends com.pulumi.resources.Resourc
         /**
          * @param storageAccountId The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** One of `eventhub_authorization_rule_id`, `log_analytics_workspace_id` and `storage_account_id` must be specified.
+         * &gt; **Note:** One of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId` and `storageAccountId` must be specified.
          * 
          * @return builder
          * 

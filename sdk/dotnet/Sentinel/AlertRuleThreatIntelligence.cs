@@ -91,7 +91,7 @@ namespace Pulumi.Azure.Sentinel
         public Output<string> AlertRuleTemplateGuid { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the Threat Intelligence Alert rule enabled? Defaults to `true`.
+        /// Whether the Threat Intelligence Alert rule enabled? Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -161,7 +161,7 @@ namespace Pulumi.Azure.Sentinel
         public Input<string> AlertRuleTemplateGuid { get; set; } = null!;
 
         /// <summary>
-        /// Whether the Threat Intelligence Alert rule enabled? Defaults to `true`.
+        /// Whether the Threat Intelligence Alert rule enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -193,7 +193,7 @@ namespace Pulumi.Azure.Sentinel
         public Input<string>? AlertRuleTemplateGuid { get; set; }
 
         /// <summary>
-        /// Whether the Threat Intelligence Alert rule enabled? Defaults to `true`.
+        /// Whether the Threat Intelligence Alert rule enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

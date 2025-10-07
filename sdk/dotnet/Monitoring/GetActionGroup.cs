@@ -166,23 +166,23 @@ namespace Pulumi.Azure.Monitoring
     public sealed class GetActionGroupResult
     {
         /// <summary>
-        /// One or more `arm_role_receiver` blocks as defined below.
+        /// One or more `ArmRoleReceiver` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetActionGroupArmRoleReceiverResult> ArmRoleReceivers;
         /// <summary>
-        /// One or more `automation_runbook_receiver` blocks as defined below.
+        /// One or more `AutomationRunbookReceiver` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetActionGroupAutomationRunbookReceiverResult> AutomationRunbookReceivers;
         /// <summary>
-        /// One or more `azure_app_push_receiver` blocks as defined below.
+        /// One or more `AzureAppPushReceiver` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetActionGroupAzureAppPushReceiverResult> AzureAppPushReceivers;
         /// <summary>
-        /// One or more `azure_function_receiver` blocks as defined below.
+        /// One or more `AzureFunctionReceiver` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetActionGroupAzureFunctionReceiverResult> AzureFunctionReceivers;
         /// <summary>
-        /// One or more `email_receiver` blocks as defined below.
+        /// One or more `EmailReceiver` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetActionGroupEmailReceiverResult> EmailReceivers;
         /// <summary>
@@ -190,7 +190,7 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
-        /// One or more `event_hub_receiver` blocks as defined below.
+        /// One or more `EventHubReceiver` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetActionGroupEventHubReceiverResult> EventHubReceivers;
         /// <summary>
@@ -198,11 +198,11 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// One or more `itsm_receiver` blocks as defined below.
+        /// One or more `ItsmReceiver` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetActionGroupItsmReceiverResult> ItsmReceivers;
         /// <summary>
-        /// One or more `logic_app_receiver` blocks as defined below.
+        /// One or more `LogicAppReceiver` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetActionGroupLogicAppReceiverResult> LogicAppReceivers;
         /// <summary>
@@ -215,15 +215,15 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         public readonly string ShortName;
         /// <summary>
-        /// One or more `sms_receiver` blocks as defined below.
+        /// One or more `SmsReceiver` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetActionGroupSmsReceiverResult> SmsReceivers;
         /// <summary>
-        /// One or more `voice_receiver` blocks as defined below.
+        /// One or more `VoiceReceiver` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetActionGroupVoiceReceiverResult> VoiceReceivers;
         /// <summary>
-        /// One or more `webhook_receiver` blocks as defined below.
+        /// One or more `WebhookReceiver` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetActionGroupWebhookReceiverResult> WebhookReceivers;
 

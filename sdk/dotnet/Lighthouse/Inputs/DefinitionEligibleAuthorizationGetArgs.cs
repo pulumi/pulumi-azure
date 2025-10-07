@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Lighthouse.Inputs
     public sealed class DefinitionEligibleAuthorizationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `just_in_time_access_policy` block as defined below.
+        /// A `JustInTimeAccessPolicy` block as defined below.
         /// </summary>
         [Input("justInTimeAccessPolicy")]
         public Input<Inputs.DefinitionEligibleAuthorizationJustInTimeAccessPolicyGetArgs>? JustInTimeAccessPolicy { get; set; }

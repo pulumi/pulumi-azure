@@ -110,13 +110,13 @@ namespace Pulumi.Azure.Synapse
     public partial class SparkPool : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An `auto_pause` block as defined below.
+        /// An `AutoPause` block as defined below.
         /// </summary>
         [Output("autoPause")]
         public Output<Outputs.SparkPoolAutoPause?> AutoPause { get; private set; } = null!;
 
         /// <summary>
-        /// An `auto_scale` block as defined below. Exactly one of `node_count` or `auto_scale` must be specified.
+        /// An `AutoScale` block as defined below. Exactly one of `NodeCount` or `AutoScale` must be specified.
         /// </summary>
         [Output("autoScale")]
         public Output<Outputs.SparkPoolAutoScale?> AutoScale { get; private set; } = null!;
@@ -128,7 +128,7 @@ namespace Pulumi.Azure.Synapse
         public Output<int?> CacheSize { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether compute isolation is enabled or not. Defaults to `false`.
+        /// Indicates whether compute isolation is enabled or not. Defaults to `False`.
         /// </summary>
         [Output("computeIsolationEnabled")]
         public Output<bool?> ComputeIsolationEnabled { get; private set; } = null!;
@@ -152,7 +152,7 @@ namespace Pulumi.Azure.Synapse
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified.
+        /// The number of nodes in the Spark Pool. Exactly one of `NodeCount` or `AutoScale` must be specified.
         /// </summary>
         [Output("nodeCount")]
         public Output<int> NodeCount { get; private set; } = null!;
@@ -243,13 +243,13 @@ namespace Pulumi.Azure.Synapse
     public sealed class SparkPoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `auto_pause` block as defined below.
+        /// An `AutoPause` block as defined below.
         /// </summary>
         [Input("autoPause")]
         public Input<Inputs.SparkPoolAutoPauseArgs>? AutoPause { get; set; }
 
         /// <summary>
-        /// An `auto_scale` block as defined below. Exactly one of `node_count` or `auto_scale` must be specified.
+        /// An `AutoScale` block as defined below. Exactly one of `NodeCount` or `AutoScale` must be specified.
         /// </summary>
         [Input("autoScale")]
         public Input<Inputs.SparkPoolAutoScaleArgs>? AutoScale { get; set; }
@@ -261,7 +261,7 @@ namespace Pulumi.Azure.Synapse
         public Input<int>? CacheSize { get; set; }
 
         /// <summary>
-        /// Indicates whether compute isolation is enabled or not. Defaults to `false`.
+        /// Indicates whether compute isolation is enabled or not. Defaults to `False`.
         /// </summary>
         [Input("computeIsolationEnabled")]
         public Input<bool>? ComputeIsolationEnabled { get; set; }
@@ -285,7 +285,7 @@ namespace Pulumi.Azure.Synapse
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified.
+        /// The number of nodes in the Spark Pool. Exactly one of `NodeCount` or `AutoScale` must be specified.
         /// </summary>
         [Input("nodeCount")]
         public Input<int>? NodeCount { get; set; }
@@ -343,13 +343,13 @@ namespace Pulumi.Azure.Synapse
     public sealed class SparkPoolState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `auto_pause` block as defined below.
+        /// An `AutoPause` block as defined below.
         /// </summary>
         [Input("autoPause")]
         public Input<Inputs.SparkPoolAutoPauseGetArgs>? AutoPause { get; set; }
 
         /// <summary>
-        /// An `auto_scale` block as defined below. Exactly one of `node_count` or `auto_scale` must be specified.
+        /// An `AutoScale` block as defined below. Exactly one of `NodeCount` or `AutoScale` must be specified.
         /// </summary>
         [Input("autoScale")]
         public Input<Inputs.SparkPoolAutoScaleGetArgs>? AutoScale { get; set; }
@@ -361,7 +361,7 @@ namespace Pulumi.Azure.Synapse
         public Input<int>? CacheSize { get; set; }
 
         /// <summary>
-        /// Indicates whether compute isolation is enabled or not. Defaults to `false`.
+        /// Indicates whether compute isolation is enabled or not. Defaults to `False`.
         /// </summary>
         [Input("computeIsolationEnabled")]
         public Input<bool>? ComputeIsolationEnabled { get; set; }
@@ -385,7 +385,7 @@ namespace Pulumi.Azure.Synapse
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified.
+        /// The number of nodes in the Spark Pool. Exactly one of `NodeCount` or `AutoScale` must be specified.
         /// </summary>
         [Input("nodeCount")]
         public Input<int>? NodeCount { get; set; }

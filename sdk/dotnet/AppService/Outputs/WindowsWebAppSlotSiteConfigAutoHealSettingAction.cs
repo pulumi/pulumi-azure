@@ -18,7 +18,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string ActionType;
         /// <summary>
-        /// A `custom_action` block as defined below.
+        /// A `CustomAction` block as defined below.
         /// </summary>
         public readonly Outputs.WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomAction? CustomAction;
         /// <summary>

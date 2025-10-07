@@ -172,6 +172,33 @@ class AutonomousDatabaseBackup(pulumi.CustomResource):
         """
         Manages an Oracle Autonomous Database Backup in Azure.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="East US")
+        example_autonomous_database = azure.oracle.AutonomousDatabase("example",
+            name="example-adb",
+            resource_group_name=example.name,
+            location=example.location)
+        example_autonomous_database_backup = azure.oracle.AutonomousDatabaseBackup("example",
+            name="example-backup",
+            autonomous_database_id=example_autonomous_database.id,
+            retention_period_in_days=120,
+            backup_type="Full")
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Oracle.Database` - 2025-03-01
+
         ## Import
 
         Autonomous Database Backups can be imported using the `id`, e.g.
@@ -195,6 +222,33 @@ class AutonomousDatabaseBackup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Oracle Autonomous Database Backup in Azure.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="East US")
+        example_autonomous_database = azure.oracle.AutonomousDatabase("example",
+            name="example-adb",
+            resource_group_name=example.name,
+            location=example.location)
+        example_autonomous_database_backup = azure.oracle.AutonomousDatabaseBackup("example",
+            name="example-backup",
+            autonomous_database_id=example_autonomous_database.id,
+            retention_period_in_days=120,
+            backup_type="Full")
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Oracle.Database` - 2025-03-01
 
         ## Import
 

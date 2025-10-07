@@ -43,14 +43,14 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
     }
 
     /**
-     * an `auth_settings` block as detailed below.
+     * an `authSettings` block as detailed below.
      * 
      */
     @Import(name="authSettings")
     private @Nullable Output<WindowsFunctionAppSlotAuthSettingsArgs> authSettings;
 
     /**
-     * @return an `auth_settings` block as detailed below.
+     * @return an `authSettings` block as detailed below.
      * 
      */
     public Optional<Output<WindowsFunctionAppSlotAuthSettingsArgs>> authSettings() {
@@ -58,14 +58,14 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
     }
 
     /**
-     * an `auth_settings_v2` block as detailed below.
+     * an `authSettingsV2` block as detailed below.
      * 
      */
     @Import(name="authSettingsV2")
     private @Nullable Output<WindowsFunctionAppSlotAuthSettingsV2Args> authSettingsV2;
 
     /**
-     * @return an `auth_settings_v2` block as detailed below.
+     * @return an `authSettingsV2` block as detailed below.
      * 
      */
     public Optional<Output<WindowsFunctionAppSlotAuthSettingsV2Args>> authSettingsV2() {
@@ -148,14 +148,14 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
     }
 
     /**
-     * a `connection_string` block as detailed below.
+     * a `connectionString` block as detailed below.
      * 
      */
     @Import(name="connectionStrings")
     private @Nullable Output<List<WindowsFunctionAppSlotConnectionStringArgs>> connectionStrings;
 
     /**
-     * @return a `connection_string` block as detailed below.
+     * @return a `connectionString` block as detailed below.
      * 
      */
     public Optional<Output<List<WindowsFunctionAppSlotConnectionStringArgs>>> connectionStrings() {
@@ -403,14 +403,14 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
     }
 
     /**
-     * A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
+     * A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outboundIpAddressList`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
      * 
      */
     @Import(name="possibleOutboundIpAddressLists")
     private @Nullable Output<List<String>> possibleOutboundIpAddressLists;
 
     /**
-     * @return A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
+     * @return A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outboundIpAddressList`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
      * 
      */
     public Optional<Output<List<String>>> possibleOutboundIpAddressLists() {
@@ -418,14 +418,14 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
     }
 
     /**
-     * A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;,&#34;52.143.43.17&#34;]`.
+     * A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;,&#34;52.143.43.17&#34;]`.
      * 
      */
     @Import(name="possibleOutboundIpAddresses")
     private @Nullable Output<String> possibleOutboundIpAddresses;
 
     /**
-     * @return A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;,&#34;52.143.43.17&#34;]`.
+     * @return A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;,&#34;52.143.43.17&#34;]`.
      * 
      */
     public Optional<Output<String>> possibleOutboundIpAddresses() {
@@ -463,14 +463,14 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
     }
 
     /**
-     * a `site_config` block as detailed below.
+     * a `siteConfig` block as detailed below.
      * 
      */
     @Import(name="siteConfig")
     private @Nullable Output<WindowsFunctionAppSlotSiteConfigArgs> siteConfig;
 
     /**
-     * @return a `site_config` block as detailed below.
+     * @return a `siteConfig` block as detailed below.
      * 
      */
     public Optional<Output<WindowsFunctionAppSlotSiteConfigArgs>> siteConfig() {
@@ -478,14 +478,14 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
     }
 
     /**
-     * A `site_credential` block as defined below.
+     * A `siteCredential` block as defined below.
      * 
      */
     @Import(name="siteCredentials")
     private @Nullable Output<List<WindowsFunctionAppSlotSiteCredentialArgs>> siteCredentials;
 
     /**
-     * @return A `site_credential` block as defined below.
+     * @return A `siteCredential` block as defined below.
      * 
      */
     public Optional<Output<List<WindowsFunctionAppSlotSiteCredentialArgs>>> siteCredentials() {
@@ -523,14 +523,14 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
     }
 
     /**
-     * One or more `storage_account` blocks as defined below.
+     * One or more `storageAccount` blocks as defined below.
      * 
      */
     @Import(name="storageAccounts")
     private @Nullable Output<List<WindowsFunctionAppSlotStorageAccountArgs>> storageAccounts;
 
     /**
-     * @return One or more `storage_account` blocks as defined below.
+     * @return One or more `storageAccount` blocks as defined below.
      * 
      */
     public Optional<Output<List<WindowsFunctionAppSlotStorageAccountArgs>>> storageAccounts() {
@@ -540,9 +540,9 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
     /**
      * The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App Slot.
      * 
-     * &gt; **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+     * &gt; **Note:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
      * 
-     * &gt; **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+     * &gt; **Note:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
      * 
      */
     @Import(name="storageKeyVaultSecretId")
@@ -551,9 +551,9 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
     /**
      * @return The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App Slot.
      * 
-     * &gt; **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+     * &gt; **Note:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
      * 
-     * &gt; **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+     * &gt; **Note:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
      * 
      */
     public Optional<Output<String>> storageKeyVaultSecretId() {
@@ -563,7 +563,7 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
     /**
      * Should the Function App Slot use its Managed Identity to access storage.
      * 
-     * &gt; **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+     * &gt; **Note:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
      * 
      */
     @Import(name="storageUsesManagedIdentity")
@@ -572,7 +572,7 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
     /**
      * @return Should the Function App Slot use its Managed Identity to access storage.
      * 
-     * &gt; **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+     * &gt; **Note:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
      * 
      */
     public Optional<Output<Boolean>> storageUsesManagedIdentity() {
@@ -736,7 +736,7 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param authSettings an `auth_settings` block as detailed below.
+         * @param authSettings an `authSettings` block as detailed below.
          * 
          * @return builder
          * 
@@ -747,7 +747,7 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param authSettings an `auth_settings` block as detailed below.
+         * @param authSettings an `authSettings` block as detailed below.
          * 
          * @return builder
          * 
@@ -757,7 +757,7 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param authSettingsV2 an `auth_settings_v2` block as detailed below.
+         * @param authSettingsV2 an `authSettingsV2` block as detailed below.
          * 
          * @return builder
          * 
@@ -768,7 +768,7 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param authSettingsV2 an `auth_settings_v2` block as detailed below.
+         * @param authSettingsV2 an `authSettingsV2` block as detailed below.
          * 
          * @return builder
          * 
@@ -883,7 +883,7 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param connectionStrings a `connection_string` block as detailed below.
+         * @param connectionStrings a `connectionString` block as detailed below.
          * 
          * @return builder
          * 
@@ -894,7 +894,7 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param connectionStrings a `connection_string` block as detailed below.
+         * @param connectionStrings a `connectionString` block as detailed below.
          * 
          * @return builder
          * 
@@ -904,7 +904,7 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param connectionStrings a `connection_string` block as detailed below.
+         * @param connectionStrings a `connectionString` block as detailed below.
          * 
          * @return builder
          * 
@@ -1260,7 +1260,7 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param possibleOutboundIpAddressLists A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
+         * @param possibleOutboundIpAddressLists A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outboundIpAddressList`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
          * 
          * @return builder
          * 
@@ -1271,7 +1271,7 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param possibleOutboundIpAddressLists A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
+         * @param possibleOutboundIpAddressLists A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outboundIpAddressList`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
          * 
          * @return builder
          * 
@@ -1281,7 +1281,7 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param possibleOutboundIpAddressLists A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
+         * @param possibleOutboundIpAddressLists A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outboundIpAddressList`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
          * 
          * @return builder
          * 
@@ -1291,7 +1291,7 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param possibleOutboundIpAddresses A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;,&#34;52.143.43.17&#34;]`.
+         * @param possibleOutboundIpAddresses A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;,&#34;52.143.43.17&#34;]`.
          * 
          * @return builder
          * 
@@ -1302,7 +1302,7 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param possibleOutboundIpAddresses A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;,&#34;52.143.43.17&#34;]`.
+         * @param possibleOutboundIpAddresses A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;,&#34;52.143.43.17&#34;]`.
          * 
          * @return builder
          * 
@@ -1354,7 +1354,7 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param siteConfig a `site_config` block as detailed below.
+         * @param siteConfig a `siteConfig` block as detailed below.
          * 
          * @return builder
          * 
@@ -1365,7 +1365,7 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param siteConfig a `site_config` block as detailed below.
+         * @param siteConfig a `siteConfig` block as detailed below.
          * 
          * @return builder
          * 
@@ -1375,7 +1375,7 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param siteCredentials A `site_credential` block as defined below.
+         * @param siteCredentials A `siteCredential` block as defined below.
          * 
          * @return builder
          * 
@@ -1386,7 +1386,7 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param siteCredentials A `site_credential` block as defined below.
+         * @param siteCredentials A `siteCredential` block as defined below.
          * 
          * @return builder
          * 
@@ -1396,7 +1396,7 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param siteCredentials A `site_credential` block as defined below.
+         * @param siteCredentials A `siteCredential` block as defined below.
          * 
          * @return builder
          * 
@@ -1448,7 +1448,7 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param storageAccounts One or more `storage_account` blocks as defined below.
+         * @param storageAccounts One or more `storageAccount` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1459,7 +1459,7 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param storageAccounts One or more `storage_account` blocks as defined below.
+         * @param storageAccounts One or more `storageAccount` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1469,7 +1469,7 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param storageAccounts One or more `storage_account` blocks as defined below.
+         * @param storageAccounts One or more `storageAccount` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1481,9 +1481,9 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
         /**
          * @param storageKeyVaultSecretId The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App Slot.
          * 
-         * &gt; **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+         * &gt; **Note:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
          * 
-         * &gt; **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+         * &gt; **Note:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
          * 
          * @return builder
          * 
@@ -1496,9 +1496,9 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
         /**
          * @param storageKeyVaultSecretId The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App Slot.
          * 
-         * &gt; **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+         * &gt; **Note:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
          * 
-         * &gt; **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+         * &gt; **Note:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
          * 
          * @return builder
          * 
@@ -1510,7 +1510,7 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
         /**
          * @param storageUsesManagedIdentity Should the Function App Slot use its Managed Identity to access storage.
          * 
-         * &gt; **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+         * &gt; **Note:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
          * 
          * @return builder
          * 
@@ -1523,7 +1523,7 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
         /**
          * @param storageUsesManagedIdentity Should the Function App Slot use its Managed Identity to access storage.
          * 
-         * &gt; **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+         * &gt; **Note:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
          * 
          * @return builder
          * 

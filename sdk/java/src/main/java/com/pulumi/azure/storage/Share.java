@@ -107,7 +107,7 @@ public class Share extends com.pulumi.resources.CustomResource {
     /**
      * The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`.
      * 
-     * &gt; **Note:** The `FileStorage` `account_kind` of the `azure.storage.Account` requires `Premium` `access_tier`.
+     * &gt; **Note:** The `FileStorage` `accountKind` of the `azure.storage.Account` requires `Premium` `accessTier`.
      * 
      */
     @Export(name="accessTier", refs={String.class}, tree="[0]")
@@ -116,7 +116,7 @@ public class Share extends com.pulumi.resources.CustomResource {
     /**
      * @return The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`.
      * 
-     * &gt; **Note:** The `FileStorage` `account_kind` of the `azure.storage.Account` requires `Premium` `access_tier`.
+     * &gt; **Note:** The `FileStorage` `accountKind` of the `azure.storage.Account` requires `Premium` `accessTier`.
      * 
      */
     public Output<String> accessTier() {
@@ -139,7 +139,7 @@ public class Share extends com.pulumi.resources.CustomResource {
     /**
      * The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** The `FileStorage` `account_kind` of the `azure.storage.Account` is required for the `NFS` protocol.
+     * &gt; **Note:** The `FileStorage` `accountKind` of the `azure.storage.Account` is required for the `NFS` protocol.
      * 
      */
     @Export(name="enabledProtocol", refs={String.class}, tree="[0]")
@@ -148,7 +148,7 @@ public class Share extends com.pulumi.resources.CustomResource {
     /**
      * @return The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** The `FileStorage` `account_kind` of the `azure.storage.Account` is required for the `NFS` protocol.
+     * &gt; **Note:** The `FileStorage` `accountKind` of the `azure.storage.Account` is required for the `NFS` protocol.
      * 
      */
     public Output<Optional<String>> enabledProtocol() {
@@ -185,7 +185,7 @@ public class Share extends com.pulumi.resources.CustomResource {
     /**
      * The maximum size of the share, in gigabytes.
      * 
-     * &gt; **Note:** For Standard storage accounts, by default this must be `1` GB (or higher) and at most `5120` GB (`5` TB). This can be set to a value larger than `5120` GB if `large_file_share_enabled` is set to `true` in the parent `azure.storage.Account`.
+     * &gt; **Note:** For Standard storage accounts, by default this must be `1` GB (or higher) and at most `5120` GB (`5` TB). This can be set to a value larger than `5120` GB if `largeFileShareEnabled` is set to `true` in the parent `azure.storage.Account`.
      * 
      * &gt; **Note:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
      * 
@@ -196,7 +196,7 @@ public class Share extends com.pulumi.resources.CustomResource {
     /**
      * @return The maximum size of the share, in gigabytes.
      * 
-     * &gt; **Note:** For Standard storage accounts, by default this must be `1` GB (or higher) and at most `5120` GB (`5` TB). This can be set to a value larger than `5120` GB if `large_file_share_enabled` is set to `true` in the parent `azure.storage.Account`.
+     * &gt; **Note:** For Standard storage accounts, by default this must be `1` GB (or higher) and at most `5120` GB (`5` TB). This can be set to a value larger than `5120` GB if `largeFileShareEnabled` is set to `true` in the parent `azure.storage.Account`.
      * 
      * &gt; **Note:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
      * 
@@ -225,7 +225,7 @@ public class Share extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+     * &gt; **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
      * 
      */
     @Export(name="storageAccountId", refs={String.class}, tree="[0]")
@@ -234,29 +234,29 @@ public class Share extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+     * &gt; **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
      * 
      */
     public Output<Optional<String>> storageAccountId() {
         return Codegen.optional(this.storageAccountId);
     }
     /**
-     * Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
+     * Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
      * 
-     * &gt; **Note:** Migrating from the deprecated `storage_account_name` to `storage_account_id` is supported without recreation. Any other change to either property will result in the resource being recreated.
+     * &gt; **Note:** Migrating from the deprecated `storageAccountName` to `storageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
      * 
      * @deprecated
-     * This property has been deprecated and will be replaced by `storage_account_id` in version 5.0 of the provider.
+     * This property has been deprecated and will be replaced by `storageAccountId` in version 5.0 of the provider.
      * 
      */
-    @Deprecated /* This property has been deprecated and will be replaced by `storage_account_id` in version 5.0 of the provider. */
+    @Deprecated /* This property has been deprecated and will be replaced by `storageAccountId` in version 5.0 of the provider. */
     @Export(name="storageAccountName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageAccountName;
 
     /**
-     * @return Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
+     * @return Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
      * 
-     * &gt; **Note:** Migrating from the deprecated `storage_account_name` to `storage_account_id` is supported without recreation. Any other change to either property will result in the resource being recreated.
+     * &gt; **Note:** Migrating from the deprecated `storageAccountName` to `storageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
      * 
      */
     public Output<Optional<String>> storageAccountName() {

@@ -14,7 +14,7 @@ import java.util.Objects;
 @CustomType
 public final class GetDeviceResult {
     /**
-     * @return A `device_properties` block as defined below.
+     * @return A `deviceProperties` block as defined below.
      * 
      */
     private List<GetDeviceDeviceProperty> deviceProperties;
@@ -31,7 +31,7 @@ public final class GetDeviceResult {
     private String name;
     private String resourceGroupName;
     /**
-     * @return The `sku_name` is comprised of two segments separated by a hyphen (e.g. `TEA_1Node_UPS_Heater-Standard`). The first segment of the `sku_name` defines the `name` of the SKU. The second segment defines the `tier` of the `sku_name`. For more information see the product documentation.
+     * @return The `skuName` is comprised of two segments separated by a hyphen (e.g. `TEA_1Node_UPS_Heater-Standard`). The first segment of the `skuName` defines the `name` of the SKU. The second segment defines the `tier` of the `skuName`. For more information see the product documentation.
      * 
      */
     private String skuName;
@@ -43,7 +43,7 @@ public final class GetDeviceResult {
 
     private GetDeviceResult() {}
     /**
-     * @return A `device_properties` block as defined below.
+     * @return A `deviceProperties` block as defined below.
      * 
      */
     public List<GetDeviceDeviceProperty> deviceProperties() {
@@ -70,7 +70,7 @@ public final class GetDeviceResult {
         return this.resourceGroupName;
     }
     /**
-     * @return The `sku_name` is comprised of two segments separated by a hyphen (e.g. `TEA_1Node_UPS_Heater-Standard`). The first segment of the `sku_name` defines the `name` of the SKU. The second segment defines the `tier` of the `sku_name`. For more information see the product documentation.
+     * @return The `skuName` is comprised of two segments separated by a hyphen (e.g. `TEA_1Node_UPS_Heater-Standard`). The first segment of the `skuName` defines the `name` of the SKU. The second segment defines the `tier` of the `skuName`. For more information see the product documentation.
      * 
      */
     public String skuName() {

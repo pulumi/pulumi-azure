@@ -57,13 +57,13 @@ namespace Pulumi.Azure.Network
     public partial class VirtualWan : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `true`.
+        /// Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `True`.
         /// </summary>
         [Output("allowBranchToBranchTraffic")]
         public Output<bool?> AllowBranchToBranchTraffic { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean flag to specify whether VPN encryption is disabled. Defaults to `false`.
+        /// Boolean flag to specify whether VPN encryption is disabled. Defaults to `False`.
         /// </summary>
         [Output("disableVpnEncryption")]
         public Output<bool?> DisableVpnEncryption { get; private set; } = null!;
@@ -151,13 +151,13 @@ namespace Pulumi.Azure.Network
     public sealed class VirtualWanArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `true`.
+        /// Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `True`.
         /// </summary>
         [Input("allowBranchToBranchTraffic")]
         public Input<bool>? AllowBranchToBranchTraffic { get; set; }
 
         /// <summary>
-        /// Boolean flag to specify whether VPN encryption is disabled. Defaults to `false`.
+        /// Boolean flag to specify whether VPN encryption is disabled. Defaults to `False`.
         /// </summary>
         [Input("disableVpnEncryption")]
         public Input<bool>? DisableVpnEncryption { get; set; }
@@ -213,13 +213,13 @@ namespace Pulumi.Azure.Network
     public sealed class VirtualWanState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `true`.
+        /// Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `True`.
         /// </summary>
         [Input("allowBranchToBranchTraffic")]
         public Input<bool>? AllowBranchToBranchTraffic { get; set; }
 
         /// <summary>
-        /// Boolean flag to specify whether VPN encryption is disabled. Defaults to `false`.
+        /// Boolean flag to specify whether VPN encryption is disabled. Defaults to `False`.
         /// </summary>
         [Input("disableVpnEncryption")]
         public Input<bool>? DisableVpnEncryption { get; set; }

@@ -120,14 +120,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:network/firewall:Firewall")
 public class Firewall extends com.pulumi.resources.CustomResource {
     /**
-     * Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dns_servers` provided with a not empty list.
+     * Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dnsServers` provided with a not empty list.
      * 
      */
     @Export(name="dnsProxyEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> dnsProxyEnabled;
 
     /**
-     * @return Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dns_servers` provided with a not empty list.
+     * @return Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dnsServers` provided with a not empty list.
      * 
      */
     public Output<Boolean> dnsProxyEnabled() {
@@ -162,14 +162,14 @@ public class Firewall extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.firewallPolicyId);
     }
     /**
-     * An `ip_configuration` block as documented below.
+     * An `ipConfiguration` block as documented below.
      * 
      */
     @Export(name="ipConfigurations", refs={List.class,FirewallIpConfiguration.class}, tree="[0,1]")
     private Output</* @Nullable */ List<FirewallIpConfiguration>> ipConfigurations;
 
     /**
-     * @return An `ip_configuration` block as documented below.
+     * @return An `ipConfiguration` block as documented below.
      * 
      */
     public Output<Optional<List<FirewallIpConfiguration>>> ipConfigurations() {
@@ -190,14 +190,14 @@ public class Firewall extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * A `management_ip_configuration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnet_id` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
+     * A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="managementIpConfiguration", refs={FirewallManagementIpConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ FirewallManagementIpConfiguration> managementIpConfiguration;
 
     /**
-     * @return A `management_ip_configuration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnet_id` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
+     * @return A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<FirewallManagementIpConfiguration>> managementIpConfiguration() {
@@ -302,14 +302,14 @@ public class Firewall extends com.pulumi.resources.CustomResource {
         return this.threatIntelMode;
     }
     /**
-     * A `virtual_hub` block as documented below.
+     * A `virtualHub` block as documented below.
      * 
      */
     @Export(name="virtualHub", refs={FirewallVirtualHub.class}, tree="[0]")
     private Output</* @Nullable */ FirewallVirtualHub> virtualHub;
 
     /**
-     * @return A `virtual_hub` block as documented below.
+     * @return A `virtualHub` block as documented below.
      * 
      */
     public Output<Optional<FirewallVirtualHub>> virtualHub() {

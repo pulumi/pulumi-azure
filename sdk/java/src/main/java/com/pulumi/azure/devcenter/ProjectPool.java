@@ -224,7 +224,7 @@ public class ProjectPool extends com.pulumi.resources.CustomResource {
     /**
      * A list of the regions of the managed Virtual Network. When specified, the Dev Center Project Pool will use a Microsoft managed network.
      * 
-     * &gt; **Note:** Currently only one region can be specified for `managed_virtual_network_regions`.
+     * &gt; **Note:** Currently only one region can be specified for `managedVirtualNetworkRegions`.
      * 
      */
     @Export(name="managedVirtualNetworkRegions", refs={String.class}, tree="[0]")
@@ -233,7 +233,7 @@ public class ProjectPool extends com.pulumi.resources.CustomResource {
     /**
      * @return A list of the regions of the managed Virtual Network. When specified, the Dev Center Project Pool will use a Microsoft managed network.
      * 
-     * &gt; **Note:** Currently only one region can be specified for `managed_virtual_network_regions`.
+     * &gt; **Note:** Currently only one region can be specified for `managedVirtualNetworkRegions`.
      * 
      */
     public Output<Optional<String>> managedVirtualNetworkRegions() {

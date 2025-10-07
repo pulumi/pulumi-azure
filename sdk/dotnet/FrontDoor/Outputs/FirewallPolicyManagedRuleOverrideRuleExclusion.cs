@@ -22,7 +22,7 @@ namespace Pulumi.Azure.FrontDoor.Outputs
         /// </summary>
         public readonly string Operator;
         /// <summary>
-        /// Selector for the value in the `match_variable` attribute this exclusion applies to.
+        /// Selector for the value in the `MatchVariable` attribute this exclusion applies to.
         /// </summary>
         public readonly string Selector;
 

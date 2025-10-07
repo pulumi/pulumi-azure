@@ -21,14 +21,14 @@ public final class SpringCloudServiceConfigServerGitSettingArgs extends com.pulu
     public static final SpringCloudServiceConfigServerGitSettingArgs Empty = new SpringCloudServiceConfigServerGitSettingArgs();
 
     /**
-     * A `http_basic_auth` block as defined below.
+     * A `httpBasicAuth` block as defined below.
      * 
      */
     @Import(name="httpBasicAuth")
     private @Nullable Output<SpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs> httpBasicAuth;
 
     /**
-     * @return A `http_basic_auth` block as defined below.
+     * @return A `httpBasicAuth` block as defined below.
      * 
      */
     public Optional<Output<SpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs>> httpBasicAuth() {
@@ -81,14 +81,14 @@ public final class SpringCloudServiceConfigServerGitSettingArgs extends com.pulu
     }
 
     /**
-     * A `ssh_auth` block as defined below.
+     * A `sshAuth` block as defined below.
      * 
      */
     @Import(name="sshAuth")
     private @Nullable Output<SpringCloudServiceConfigServerGitSettingSshAuthArgs> sshAuth;
 
     /**
-     * @return A `ssh_auth` block as defined below.
+     * @return A `sshAuth` block as defined below.
      * 
      */
     public Optional<Output<SpringCloudServiceConfigServerGitSettingSshAuthArgs>> sshAuth() {
@@ -140,7 +140,7 @@ public final class SpringCloudServiceConfigServerGitSettingArgs extends com.pulu
         }
 
         /**
-         * @param httpBasicAuth A `http_basic_auth` block as defined below.
+         * @param httpBasicAuth A `httpBasicAuth` block as defined below.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class SpringCloudServiceConfigServerGitSettingArgs extends com.pulu
         }
 
         /**
-         * @param httpBasicAuth A `http_basic_auth` block as defined below.
+         * @param httpBasicAuth A `httpBasicAuth` block as defined below.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class SpringCloudServiceConfigServerGitSettingArgs extends com.pulu
         }
 
         /**
-         * @param sshAuth A `ssh_auth` block as defined below.
+         * @param sshAuth A `sshAuth` block as defined below.
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class SpringCloudServiceConfigServerGitSettingArgs extends com.pulu
         }
 
         /**
-         * @param sshAuth A `ssh_auth` block as defined below.
+         * @param sshAuth A `sshAuth` block as defined below.
          * 
          * @return builder
          * 

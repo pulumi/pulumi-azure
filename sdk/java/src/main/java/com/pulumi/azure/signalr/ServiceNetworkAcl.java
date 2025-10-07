@@ -20,6 +20,111 @@ import javax.annotation.Nullable;
 /**
  * Manages the Network ACL for a SignalR service.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.signalr.Service;
+ * import com.pulumi.azure.signalr.ServiceArgs;
+ * import com.pulumi.azure.signalr.inputs.ServiceSkuArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.privatelink.Endpoint;
+ * import com.pulumi.azure.privatelink.EndpointArgs;
+ * import com.pulumi.azure.privatelink.inputs.EndpointPrivateServiceConnectionArgs;
+ * import com.pulumi.azure.signalr.ServiceNetworkAcl;
+ * import com.pulumi.azure.signalr.ServiceNetworkAclArgs;
+ * import com.pulumi.azure.signalr.inputs.ServiceNetworkAclPublicNetworkArgs;
+ * import com.pulumi.azure.signalr.inputs.ServiceNetworkAclPrivateEndpointArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("example-resources")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()
+ *             .name("example-signalr")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .sku(ServiceSkuArgs.builder()
+ *                 .name("Standard_S1")
+ *                 .capacity(1)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
+ *             .name("example-vnet")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .addressSpaces("10.5.0.0/16")
+ *             .build());
+ * 
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
+ *             .name("example-subnet")
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes("10.5.2.0/24")
+ *             .enforcePrivateLinkEndpointNetworkPolicies(true)
+ *             .build());
+ * 
+ *         var exampleEndpoint = new Endpoint("exampleEndpoint", EndpointArgs.builder()
+ *             .name("example-privateendpoint")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .subnetId(exampleSubnet.id())
+ *             .privateServiceConnection(EndpointPrivateServiceConnectionArgs.builder()
+ *                 .name("psc-sig-test")
+ *                 .isManualConnection(false)
+ *                 .privateConnectionResourceId(exampleService.id())
+ *                 .subresourceNames("signalr")
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleServiceNetworkAcl = new ServiceNetworkAcl("exampleServiceNetworkAcl", ServiceNetworkAclArgs.builder()
+ *             .signalrServiceId(exampleService.id())
+ *             .defaultAction("Deny")
+ *             .publicNetwork(ServiceNetworkAclPublicNetworkArgs.builder()
+ *                 .allowedRequestTypes("ClientConnection")
+ *                 .build())
+ *             .privateEndpoints(ServiceNetworkAclPrivateEndpointArgs.builder()
+ *                 .id(exampleEndpoint.id())
+ *                 .allowedRequestTypes("ServerConnection")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.SignalRService` - 2024-03-01
+ * 
  * ## Import
  * 
  * Network ACLs for a SignalR service can be imported using the `resource id`, e.g.
@@ -46,28 +151,28 @@ public class ServiceNetworkAcl extends com.pulumi.resources.CustomResource {
         return this.defaultAction;
     }
     /**
-     * A `private_endpoint` block as defined below.
+     * A `privateEndpoint` block as defined below.
      * 
      */
     @Export(name="privateEndpoints", refs={List.class,ServiceNetworkAclPrivateEndpoint.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ServiceNetworkAclPrivateEndpoint>> privateEndpoints;
 
     /**
-     * @return A `private_endpoint` block as defined below.
+     * @return A `privateEndpoint` block as defined below.
      * 
      */
     public Output<Optional<List<ServiceNetworkAclPrivateEndpoint>>> privateEndpoints() {
         return Codegen.optional(this.privateEndpoints);
     }
     /**
-     * A `public_network` block as defined below.
+     * A `publicNetwork` block as defined below.
      * 
      */
     @Export(name="publicNetwork", refs={ServiceNetworkAclPublicNetwork.class}, tree="[0]")
     private Output<ServiceNetworkAclPublicNetwork> publicNetwork;
 
     /**
-     * @return A `public_network` block as defined below.
+     * @return A `publicNetwork` block as defined below.
      * 
      */
     public Output<ServiceNetworkAclPublicNetwork> publicNetwork() {

@@ -144,7 +144,7 @@ public class AlertRuleAnomalyBuiltIn extends com.pulumi.resources.CustomResource
     /**
      * The Display Name of the built-in Anomaly Alert Rule.
      * 
-     * &gt; **Note:** One of `name` or `display_name` block must be specified.
+     * &gt; **Note:** One of `name` or `displayName` block must be specified.
      * 
      */
     @Export(name="displayName", refs={String.class}, tree="[0]")
@@ -153,7 +153,7 @@ public class AlertRuleAnomalyBuiltIn extends com.pulumi.resources.CustomResource
     /**
      * @return The Display Name of the built-in Anomaly Alert Rule.
      * 
-     * &gt; **Note:** One of `name` or `display_name` block must be specified.
+     * &gt; **Note:** One of `name` or `displayName` block must be specified.
      * 
      */
     public Output<String> displayName() {
@@ -216,14 +216,14 @@ public class AlertRuleAnomalyBuiltIn extends com.pulumi.resources.CustomResource
         return this.mode;
     }
     /**
-     * A list of `multi_select_observation` blocks as defined below.
+     * A list of `multiSelectObservation` blocks as defined below.
      * 
      */
     @Export(name="multiSelectObservations", refs={List.class,AlertRuleAnomalyBuiltInMultiSelectObservation.class}, tree="[0,1]")
     private Output<List<AlertRuleAnomalyBuiltInMultiSelectObservation>> multiSelectObservations;
 
     /**
-     * @return A list of `multi_select_observation` blocks as defined below.
+     * @return A list of `multiSelectObservation` blocks as defined below.
      * 
      */
     public Output<List<AlertRuleAnomalyBuiltInMultiSelectObservation>> multiSelectObservations() {
@@ -244,28 +244,28 @@ public class AlertRuleAnomalyBuiltIn extends com.pulumi.resources.CustomResource
         return this.name;
     }
     /**
-     * A list of `prioritized_exclude_observation` blocks as defined below.
+     * A list of `prioritizedExcludeObservation` blocks as defined below.
      * 
      */
     @Export(name="prioritizedExcludeObservations", refs={List.class,AlertRuleAnomalyBuiltInPrioritizedExcludeObservation.class}, tree="[0,1]")
     private Output<List<AlertRuleAnomalyBuiltInPrioritizedExcludeObservation>> prioritizedExcludeObservations;
 
     /**
-     * @return A list of `prioritized_exclude_observation` blocks as defined below.
+     * @return A list of `prioritizedExcludeObservation` blocks as defined below.
      * 
      */
     public Output<List<AlertRuleAnomalyBuiltInPrioritizedExcludeObservation>> prioritizedExcludeObservations() {
         return this.prioritizedExcludeObservations;
     }
     /**
-     * A `required_data_connector` block as defined below.
+     * A `requiredDataConnector` block as defined below.
      * 
      */
     @Export(name="requiredDataConnectors", refs={List.class,AlertRuleAnomalyBuiltInRequiredDataConnector.class}, tree="[0,1]")
     private Output<List<AlertRuleAnomalyBuiltInRequiredDataConnector>> requiredDataConnectors;
 
     /**
-     * @return A `required_data_connector` block as defined below.
+     * @return A `requiredDataConnector` block as defined below.
      * 
      */
     public Output<List<AlertRuleAnomalyBuiltInRequiredDataConnector>> requiredDataConnectors() {
@@ -286,14 +286,14 @@ public class AlertRuleAnomalyBuiltIn extends com.pulumi.resources.CustomResource
         return this.settingsDefinitionId;
     }
     /**
-     * A list of `single_select_observation` blocks as defined below.
+     * A list of `singleSelectObservation` blocks as defined below.
      * 
      */
     @Export(name="singleSelectObservations", refs={List.class,AlertRuleAnomalyBuiltInSingleSelectObservation.class}, tree="[0,1]")
     private Output<List<AlertRuleAnomalyBuiltInSingleSelectObservation>> singleSelectObservations;
 
     /**
-     * @return A list of `single_select_observation` blocks as defined below.
+     * @return A list of `singleSelectObservation` blocks as defined below.
      * 
      */
     public Output<List<AlertRuleAnomalyBuiltInSingleSelectObservation>> singleSelectObservations() {
@@ -328,14 +328,14 @@ public class AlertRuleAnomalyBuiltIn extends com.pulumi.resources.CustomResource
         return this.techniques;
     }
     /**
-     * A list of `threshold_observation` blocks as defined below.
+     * A list of `thresholdObservation` blocks as defined below.
      * 
      */
     @Export(name="thresholdObservations", refs={List.class,AlertRuleAnomalyBuiltInThresholdObservation.class}, tree="[0,1]")
     private Output<List<AlertRuleAnomalyBuiltInThresholdObservation>> thresholdObservations;
 
     /**
-     * @return A list of `threshold_observation` blocks as defined below.
+     * @return A list of `thresholdObservation` blocks as defined below.
      * 
      */
     public Output<List<AlertRuleAnomalyBuiltInThresholdObservation>> thresholdObservations() {

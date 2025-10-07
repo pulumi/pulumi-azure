@@ -12,6 +12,74 @@ namespace Pulumi.Azure.Oracle
     /// <summary>
     /// Manages an Autonomous Database.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Oracle.AutonomousDatabase("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         ResourceGroupName = "example",
+    ///         Location = "West Europe",
+    ///         SubnetId = "example",
+    ///         DisplayName = "example",
+    ///         DbWorkload = "example",
+    ///         MtlsConnectionRequired = false,
+    ///         BackupRetentionPeriodInDays = 42,
+    ///         ComputeModel = "example",
+    ///         DataStorageSizeInGbs = 42,
+    ///         AutoScalingForStorageEnabled = false,
+    ///         VirtualNetworkId = "example",
+    ///         AdminPassword = "example",
+    ///         AutoScalingEnabled = "example",
+    ///         CharacterSet = "example",
+    ///         ComputeCount = 1.23456,
+    ///         NationalCharacterSet = "example",
+    ///         LicenseModel = "false",
+    ///         DbVersion = "example",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## &gt; **Note:** `AllowedIps`  cannot be updated after provisioning the resource with an empty list (i.e., a publicly accessible Autonomous Database)
+    /// 
+    ///               size: the maximum number of Ips provided shouldn't exceed 1024. At this time we only support IpV4.
+    /// ***
+    /// 
+    /// * `CustomerContacts` - (Optional) Specifies a list of customer contacts as email addresses. Changing this forces a new Autonomous Database to be created.
+    /// 
+    /// * `Tags` - (Optional) A mapping of tags which should be assigned to the Autonomous Database.
+    /// 
+    /// * `LongTermBackupSchedule` - (Optional) A `LongTermBackupSchedule` block as defined below.
+    /// 
+    /// &gt; **Note:** for more information see [Create Long-Term Backups on Autonomous Database](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adbsb/backup-long-term.html#GUID-BD76E02E-AEB0-4450-A6AB-5C9EB1F4EAD0)
+    /// 
+    /// ***
+    /// 
+    /// A `LongTermBackupSchedule` blocks supports the following:
+    /// 
+    /// * `RepeatCadence` - (Required)  Specifies the schedule for automated long-term backups. Possible values are `Weekly`, `Monthly`, `Yearly`, or `OneTime` (does not repeat) . For example, if the Backup date and Time is `Jan 24, 2025 00:09:00 UTC` and this is a Tuesday, and Weekly is selected, the long-term backup will happen every Tuesday.
+    /// 
+    /// * `TimeOfBackup` - (Required) The date and time in which the backup should be taken in ISO8601 Date Time format.
+    /// 
+    /// * `RetentionPeriodInDays` - (Required) The retention period in days for the Autonomous Database Backup. Possible values range from `90` to `2558` days (7 years).
+    /// 
+    /// * `Enabled` - (Required) A boolean value that indicates whether the long term backup schedule is enabled.
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Oracle.Database` - 2025-03-01
+    /// 
     /// ## Import
     /// 
     /// Autonomous Databases can be imported using the `resource id`, e.g.
@@ -36,13 +104,13 @@ namespace Pulumi.Azure.Oracle
         public Output<ImmutableArray<string>> AllowedIps { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates if auto scaling is enabled for the Autonomous Database CPU core count. The default value is `true`.
+        /// Indicates if auto scaling is enabled for the Autonomous Database CPU core count. The default value is `True`.
         /// </summary>
         [Output("autoScalingEnabled")]
         public Output<bool> AutoScalingEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates if auto scaling is enabled for the Autonomous Database storage. The default value is `false`.
+        /// Indicates if auto scaling is enabled for the Autonomous Database storage. The default value is `False`.
         /// </summary>
         [Output("autoScalingForStorageEnabled")]
         public Output<bool> AutoScalingForStorageEnabled { get; private set; } = null!;
@@ -118,9 +186,9 @@ namespace Pulumi.Azure.Oracle
         public Output<Outputs.AutonomousDatabaseLongTermBackupSchedule?> LongTermBackupSchedule { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `false`.
+        /// Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `False`.
         /// 
-        /// &gt; **Note:** `mtls_connection_required`  must be set to `true` for all workload types except 'APEX' when creating a database with public access.
+        /// &gt; **Note:** `MtlsConnectionRequired`  must be set to `True` for all workload types except 'APEX' when creating a database with public access.
         /// </summary>
         [Output("mtlsConnectionRequired")]
         public Output<bool> MtlsConnectionRequired { get; private set; } = null!;
@@ -237,13 +305,13 @@ namespace Pulumi.Azure.Oracle
         }
 
         /// <summary>
-        /// Indicates if auto scaling is enabled for the Autonomous Database CPU core count. The default value is `true`.
+        /// Indicates if auto scaling is enabled for the Autonomous Database CPU core count. The default value is `True`.
         /// </summary>
         [Input("autoScalingEnabled", required: true)]
         public Input<bool> AutoScalingEnabled { get; set; } = null!;
 
         /// <summary>
-        /// Indicates if auto scaling is enabled for the Autonomous Database storage. The default value is `false`.
+        /// Indicates if auto scaling is enabled for the Autonomous Database storage. The default value is `False`.
         /// </summary>
         [Input("autoScalingForStorageEnabled", required: true)]
         public Input<bool> AutoScalingForStorageEnabled { get; set; } = null!;
@@ -324,9 +392,9 @@ namespace Pulumi.Azure.Oracle
         public Input<Inputs.AutonomousDatabaseLongTermBackupScheduleArgs>? LongTermBackupSchedule { get; set; }
 
         /// <summary>
-        /// Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `false`.
+        /// Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `False`.
         /// 
-        /// &gt; **Note:** `mtls_connection_required`  must be set to `true` for all workload types except 'APEX' when creating a database with public access.
+        /// &gt; **Note:** `MtlsConnectionRequired`  must be set to `True` for all workload types except 'APEX' when creating a database with public access.
         /// </summary>
         [Input("mtlsConnectionRequired", required: true)]
         public Input<bool> MtlsConnectionRequired { get; set; } = null!;
@@ -406,13 +474,13 @@ namespace Pulumi.Azure.Oracle
         }
 
         /// <summary>
-        /// Indicates if auto scaling is enabled for the Autonomous Database CPU core count. The default value is `true`.
+        /// Indicates if auto scaling is enabled for the Autonomous Database CPU core count. The default value is `True`.
         /// </summary>
         [Input("autoScalingEnabled")]
         public Input<bool>? AutoScalingEnabled { get; set; }
 
         /// <summary>
-        /// Indicates if auto scaling is enabled for the Autonomous Database storage. The default value is `false`.
+        /// Indicates if auto scaling is enabled for the Autonomous Database storage. The default value is `False`.
         /// </summary>
         [Input("autoScalingForStorageEnabled")]
         public Input<bool>? AutoScalingForStorageEnabled { get; set; }
@@ -493,9 +561,9 @@ namespace Pulumi.Azure.Oracle
         public Input<Inputs.AutonomousDatabaseLongTermBackupScheduleGetArgs>? LongTermBackupSchedule { get; set; }
 
         /// <summary>
-        /// Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `false`.
+        /// Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `False`.
         /// 
-        /// &gt; **Note:** `mtls_connection_required`  must be set to `true` for all workload types except 'APEX' when creating a database with public access.
+        /// &gt; **Note:** `MtlsConnectionRequired`  must be set to `True` for all workload types except 'APEX' when creating a database with public access.
         /// </summary>
         [Input("mtlsConnectionRequired")]
         public Input<bool>? MtlsConnectionRequired { get; set; }

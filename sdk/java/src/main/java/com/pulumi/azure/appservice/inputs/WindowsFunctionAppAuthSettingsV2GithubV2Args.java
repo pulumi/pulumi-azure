@@ -33,18 +33,18 @@ public final class WindowsFunctionAppAuthSettingsV2GithubV2Args extends com.pulu
     }
 
     /**
-     * The app setting name that contains the `client_secret` value used for GitHub Login.
+     * The app setting name that contains the `clientSecret` value used for GitHub Login.
      * 
-     * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
+     * !&gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
      * 
      */
     @Import(name="clientSecretSettingName", required=true)
     private Output<String> clientSecretSettingName;
 
     /**
-     * @return The app setting name that contains the `client_secret` value used for GitHub Login.
+     * @return The app setting name that contains the `clientSecret` value used for GitHub Login.
      * 
-     * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
+     * !&gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
      * 
      */
     public Output<String> clientSecretSettingName() {
@@ -114,9 +114,9 @@ public final class WindowsFunctionAppAuthSettingsV2GithubV2Args extends com.pulu
         }
 
         /**
-         * @param clientSecretSettingName The app setting name that contains the `client_secret` value used for GitHub Login.
+         * @param clientSecretSettingName The app setting name that contains the `clientSecret` value used for GitHub Login.
          * 
-         * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
+         * !&gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
          * 
          * @return builder
          * 
@@ -127,9 +127,9 @@ public final class WindowsFunctionAppAuthSettingsV2GithubV2Args extends com.pulu
         }
 
         /**
-         * @param clientSecretSettingName The app setting name that contains the `client_secret` value used for GitHub Login.
+         * @param clientSecretSettingName The app setting name that contains the `clientSecret` value used for GitHub Login.
          * 
-         * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
+         * !&gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
          * 
          * @return builder
          * 

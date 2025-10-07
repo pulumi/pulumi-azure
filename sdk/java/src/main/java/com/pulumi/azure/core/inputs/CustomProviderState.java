@@ -21,14 +21,14 @@ public final class CustomProviderState extends com.pulumi.resources.ResourceArgs
     public static final CustomProviderState Empty = new CustomProviderState();
 
     /**
-     * Any number of `action` block as defined below. One of `resource_type` or `action` must be specified.
+     * Any number of `action` block as defined below. One of `resourceType` or `action` must be specified.
      * 
      */
     @Import(name="actions")
     private @Nullable Output<List<CustomProviderActionArgs>> actions;
 
     /**
-     * @return Any number of `action` block as defined below. One of `resource_type` or `action` must be specified.
+     * @return Any number of `action` block as defined below. One of `resourceType` or `action` must be specified.
      * 
      */
     public Optional<Output<List<CustomProviderActionArgs>>> actions() {
@@ -81,14 +81,14 @@ public final class CustomProviderState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Any number of `resource_type` block as defined below. One of `resource_type` or `action` must be specified.
+     * Any number of `resourceType` block as defined below. One of `resourceType` or `action` must be specified.
      * 
      */
     @Import(name="resourceTypes")
     private @Nullable Output<List<CustomProviderResourceTypeArgs>> resourceTypes;
 
     /**
-     * @return Any number of `resource_type` block as defined below. One of `resource_type` or `action` must be specified.
+     * @return Any number of `resourceType` block as defined below. One of `resourceType` or `action` must be specified.
      * 
      */
     public Optional<Output<List<CustomProviderResourceTypeArgs>>> resourceTypes() {
@@ -156,7 +156,7 @@ public final class CustomProviderState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param actions Any number of `action` block as defined below. One of `resource_type` or `action` must be specified.
+         * @param actions Any number of `action` block as defined below. One of `resourceType` or `action` must be specified.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class CustomProviderState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param actions Any number of `action` block as defined below. One of `resource_type` or `action` must be specified.
+         * @param actions Any number of `action` block as defined below. One of `resourceType` or `action` must be specified.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class CustomProviderState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param actions Any number of `action` block as defined below. One of `resource_type` or `action` must be specified.
+         * @param actions Any number of `action` block as defined below. One of `resourceType` or `action` must be specified.
          * 
          * @return builder
          * 
@@ -250,7 +250,7 @@ public final class CustomProviderState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param resourceTypes Any number of `resource_type` block as defined below. One of `resource_type` or `action` must be specified.
+         * @param resourceTypes Any number of `resourceType` block as defined below. One of `resourceType` or `action` must be specified.
          * 
          * @return builder
          * 
@@ -261,7 +261,7 @@ public final class CustomProviderState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param resourceTypes Any number of `resource_type` block as defined below. One of `resource_type` or `action` must be specified.
+         * @param resourceTypes Any number of `resourceType` block as defined below. One of `resourceType` or `action` must be specified.
          * 
          * @return builder
          * 
@@ -271,7 +271,7 @@ public final class CustomProviderState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param resourceTypes Any number of `resource_type` block as defined below. One of `resource_type` or `action` must be specified.
+         * @param resourceTypes Any number of `resourceType` block as defined below. One of `resourceType` or `action` must be specified.
          * 
          * @return builder
          * 

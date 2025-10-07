@@ -55,7 +55,7 @@ public final class ChannelDirectLineSite {
      */
     private @Nullable Boolean storageEnabled;
     /**
-     * @return This field is required when `is_secure_site_enabled` is enabled. Determines which origins can establish a Directline conversation for this site.
+     * @return This field is required when `isSecureSiteEnabled` is enabled. Determines which origins can establish a Directline conversation for this site.
      * 
      */
     private @Nullable List<String> trustedOrigins;
@@ -133,7 +133,7 @@ public final class ChannelDirectLineSite {
         return Optional.ofNullable(this.storageEnabled);
     }
     /**
-     * @return This field is required when `is_secure_site_enabled` is enabled. Determines which origins can establish a Directline conversation for this site.
+     * @return This field is required when `isSecureSiteEnabled` is enabled. Determines which origins can establish a Directline conversation for this site.
      * 
      */
     public List<String> trustedOrigins() {

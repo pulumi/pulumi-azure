@@ -78,14 +78,14 @@ public final class LinuxFunctionAppSiteConfigIpRestrictionArgs extends com.pulum
     }
 
     /**
-     * The name which should be used for this `ip_restriction`.
+     * The name which should be used for this `ipRestriction`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name which should be used for this `ip_restriction`.
+     * @return The name which should be used for this `ipRestriction`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -93,14 +93,14 @@ public final class LinuxFunctionAppSiteConfigIpRestrictionArgs extends com.pulum
     }
 
     /**
-     * The priority value of this `ip_restriction`. Defaults to `65000`.
+     * The priority value of this `ipRestriction`. Defaults to `65000`.
      * 
      */
     @Import(name="priority")
     private @Nullable Output<Integer> priority;
 
     /**
-     * @return The priority value of this `ip_restriction`. Defaults to `65000`.
+     * @return The priority value of this `ipRestriction`. Defaults to `65000`.
      * 
      */
     public Optional<Output<Integer>> priority() {
@@ -125,7 +125,7 @@ public final class LinuxFunctionAppSiteConfigIpRestrictionArgs extends com.pulum
     /**
      * The Virtual Network Subnet ID used for this IP Restriction.
      * 
-     * &gt; **Note:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+     * &gt; **Note:** One and only one of `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified.
      * 
      */
     @Import(name="virtualNetworkSubnetId")
@@ -134,7 +134,7 @@ public final class LinuxFunctionAppSiteConfigIpRestrictionArgs extends com.pulum
     /**
      * @return The Virtual Network Subnet ID used for this IP Restriction.
      * 
-     * &gt; **Note:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+     * &gt; **Note:** One and only one of `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified.
      * 
      */
     public Optional<Output<String>> virtualNetworkSubnetId() {
@@ -257,7 +257,7 @@ public final class LinuxFunctionAppSiteConfigIpRestrictionArgs extends com.pulum
         }
 
         /**
-         * @param name The name which should be used for this `ip_restriction`.
+         * @param name The name which should be used for this `ipRestriction`.
          * 
          * @return builder
          * 
@@ -268,7 +268,7 @@ public final class LinuxFunctionAppSiteConfigIpRestrictionArgs extends com.pulum
         }
 
         /**
-         * @param name The name which should be used for this `ip_restriction`.
+         * @param name The name which should be used for this `ipRestriction`.
          * 
          * @return builder
          * 
@@ -278,7 +278,7 @@ public final class LinuxFunctionAppSiteConfigIpRestrictionArgs extends com.pulum
         }
 
         /**
-         * @param priority The priority value of this `ip_restriction`. Defaults to `65000`.
+         * @param priority The priority value of this `ipRestriction`. Defaults to `65000`.
          * 
          * @return builder
          * 
@@ -289,7 +289,7 @@ public final class LinuxFunctionAppSiteConfigIpRestrictionArgs extends com.pulum
         }
 
         /**
-         * @param priority The priority value of this `ip_restriction`. Defaults to `65000`.
+         * @param priority The priority value of this `ipRestriction`. Defaults to `65000`.
          * 
          * @return builder
          * 
@@ -322,7 +322,7 @@ public final class LinuxFunctionAppSiteConfigIpRestrictionArgs extends com.pulum
         /**
          * @param virtualNetworkSubnetId The Virtual Network Subnet ID used for this IP Restriction.
          * 
-         * &gt; **Note:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+         * &gt; **Note:** One and only one of `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified.
          * 
          * @return builder
          * 
@@ -335,7 +335,7 @@ public final class LinuxFunctionAppSiteConfigIpRestrictionArgs extends com.pulum
         /**
          * @param virtualNetworkSubnetId The Virtual Network Subnet ID used for this IP Restriction.
          * 
-         * &gt; **Note:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+         * &gt; **Note:** One and only one of `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified.
          * 
          * @return builder
          * 

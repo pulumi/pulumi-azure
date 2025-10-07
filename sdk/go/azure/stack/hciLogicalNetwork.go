@@ -14,6 +14,67 @@ import (
 
 // Manages an Azure Stack HCI Logical Network.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/stack"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-rg"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = stack.NewHciLogicalNetwork(ctx, "example", &stack.HciLogicalNetworkArgs{
+//				Name:              pulumi.String("example-hci-ln"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				CustomLocationId:  pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ExtendedLocation/customLocations/cl1"),
+//				VirtualSwitchName: pulumi.String("ConvergedSwitch(managementcompute)"),
+//				DnsServers: pulumi.StringArray{
+//					pulumi.String("10.0.0.7"),
+//					pulumi.String("10.0.0.8"),
+//				},
+//				Subnet: &stack.HciLogicalNetworkSubnetArgs{
+//					IpAllocationMethod: pulumi.String("Static"),
+//					AddressPrefix:      pulumi.String("10.0.0.0/24"),
+//					VlanId:             pulumi.Int(123),
+//					Route: map[string]interface{}{
+//						"addressPrefix":    "0.0.0.0/0",
+//						"nextHopIpAddress": "10.0.0.1",
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"foo": pulumi.String("bar"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.AzureStackHCI` - 2024-01-01
+//
 // ## Import
 //
 // Azure Stack HCI Logical Networks can be imported using the `resource id`, e.g.

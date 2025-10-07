@@ -13,18 +13,111 @@ namespace Pulumi.Azure.ApiManagement
     {
         /// <summary>
         /// Use this data source to access information about an existing API Management User.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.ApiManagement.GetUser.Invoke(new()
+        ///     {
+        ///         UserId = "my-user",
+        ///         ApiManagementName = "example-apim",
+        ///         ResourceGroupName = "search-service",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["notes"] = example.Apply(getUserResult =&gt; getUserResult.Notes),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.ApiManagement` - 2022-08-01
         /// </summary>
         public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("azure:apimanagement/getUser:getUser", args ?? new GetUserArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing API Management User.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.ApiManagement.GetUser.Invoke(new()
+        ///     {
+        ///         UserId = "my-user",
+        ///         ApiManagementName = "example-apim",
+        ///         ResourceGroupName = "search-service",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["notes"] = example.Apply(getUserResult =&gt; getUserResult.Notes),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.ApiManagement` - 2022-08-01
         /// </summary>
         public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserResult>("azure:apimanagement/getUser:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing API Management User.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.ApiManagement.GetUser.Invoke(new()
+        ///     {
+        ///         UserId = "my-user",
+        ///         ApiManagementName = "example-apim",
+        ///         ResourceGroupName = "search-service",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["notes"] = example.Apply(getUserResult =&gt; getUserResult.Notes),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.ApiManagement` - 2022-08-01
         /// </summary>
         public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserResult>("azure:apimanagement/getUser:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());
@@ -110,7 +203,7 @@ namespace Pulumi.Azure.ApiManagement
         public readonly string Note;
         public readonly string ResourceGroupName;
         /// <summary>
-        /// The current state of this User, for example `active`, `blocked` or `pending`.
+        /// The current state of this User, for example `Active`, `Blocked` or `Pending`.
         /// </summary>
         public readonly string State;
         public readonly string UserId;

@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Batch.Inputs
         private InputList<Inputs.PoolContainerConfigurationContainerRegistryGetArgs>? _containerRegistries;
 
         /// <summary>
-        /// One or more `container_registries` blocks as defined below. Additional container registries from which container images can be pulled by the pool's VMs. Changing this forces a new resource to be created.
+        /// One or more `ContainerRegistries` blocks as defined below. Additional container registries from which container images can be pulled by the pool's VMs. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.PoolContainerConfigurationContainerRegistryGetArgs> ContainerRegistries
         {

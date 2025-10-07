@@ -166,32 +166,32 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
         return this.fqdn;
     }
     /**
-     * A `gallery_image_reference` block as defined below.
+     * A `galleryImageReference` block as defined below.
      * 
      */
     @Export(name="galleryImageReference", refs={LinuxVirtualMachineGalleryImageReference.class}, tree="[0]")
     private Output<LinuxVirtualMachineGalleryImageReference> galleryImageReference;
 
     /**
-     * @return A `gallery_image_reference` block as defined below.
+     * @return A `galleryImageReference` block as defined below.
      * 
      */
     public Output<LinuxVirtualMachineGalleryImageReference> galleryImageReference() {
         return this.galleryImageReference;
     }
     /**
-     * One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
+     * One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
+     * &gt; **Note:** If any `inboundNatRule` blocks are specified then `disallowPublicIpAddress` must be set to `true`.
      * 
      */
     @Export(name="inboundNatRules", refs={List.class,LinuxVirtualMachineInboundNatRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<LinuxVirtualMachineInboundNatRule>> inboundNatRules;
 
     /**
-     * @return One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
+     * @return One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
+     * &gt; **Note:** If any `inboundNatRule` blocks are specified then `disallowPublicIpAddress` must be set to `true`.
      * 
      */
     public Output<Optional<List<LinuxVirtualMachineInboundNatRule>>> inboundNatRules() {
@@ -256,7 +256,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** The validation requirements for the Name change based on the `os_type` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
+     * &gt; **Note:** The validation requirements for the Name change based on the `osType` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
@@ -265,7 +265,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** The validation requirements for the Name change based on the `os_type` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
+     * &gt; **Note:** The validation requirements for the Name change based on the `osType` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
      * 
      */
     public Output<String> name() {
@@ -330,7 +330,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** One or either `password` or `ssh_key` must be specified.
+     * &gt; **Note:** One or either `password` or `sshKey` must be specified.
      * 
      */
     @Export(name="sshKey", refs={String.class}, tree="[0]")
@@ -339,7 +339,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * @return The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** One or either `password` or `ssh_key` must be specified.
+     * &gt; **Note:** One or either `password` or `sshKey` must be specified.
      * 
      */
     public Output<Optional<String>> sshKey() {

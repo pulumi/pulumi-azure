@@ -19,18 +19,18 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
     public static final ApplicationState Empty = new ApplicationState();
 
     /**
-     * A `display_name` name. Custom display name for the IoT Central application. Default is resource name.
+     * A `displayName` name. Custom display name for the IoT Central application. Default is resource name.
      * 
-     * &gt; **Note:** Due to a bug in the provider, the default value of `display_name` of a newly created IoT Central App will be the Resource Group Name, it will be fixed and use resource name in 4.0. For an existing IoT Central App, this could be fixed by specifying the `display_name` explicitly.
+     * &gt; **Note:** Due to a bug in the provider, the default value of `displayName` of a newly created IoT Central App will be the Resource Group Name, it will be fixed and use resource name in 4.0. For an existing IoT Central App, this could be fixed by specifying the `displayName` explicitly.
      * 
      */
     @Import(name="displayName")
     private @Nullable Output<String> displayName;
 
     /**
-     * @return A `display_name` name. Custom display name for the IoT Central application. Default is resource name.
+     * @return A `displayName` name. Custom display name for the IoT Central application. Default is resource name.
      * 
-     * &gt; **Note:** Due to a bug in the provider, the default value of `display_name` of a newly created IoT Central App will be the Resource Group Name, it will be fixed and use resource name in 4.0. For an existing IoT Central App, this could be fixed by specifying the `display_name` explicitly.
+     * &gt; **Note:** Due to a bug in the provider, the default value of `displayName` of a newly created IoT Central App will be the Resource Group Name, it will be fixed and use resource name in 4.0. For an existing IoT Central App, this could be fixed by specifying the `displayName` explicitly.
      * 
      */
     public Optional<Output<String>> displayName() {
@@ -128,14 +128,14 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `sub_domain` name. Subdomain for the IoT Central URL. Each application must have a unique subdomain.
+     * A `subDomain` name. Subdomain for the IoT Central URL. Each application must have a unique subdomain.
      * 
      */
     @Import(name="subDomain")
     private @Nullable Output<String> subDomain;
 
     /**
-     * @return A `sub_domain` name. Subdomain for the IoT Central URL. Each application must have a unique subdomain.
+     * @return A `subDomain` name. Subdomain for the IoT Central URL. Each application must have a unique subdomain.
      * 
      */
     public Optional<Output<String>> subDomain() {
@@ -206,9 +206,9 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param displayName A `display_name` name. Custom display name for the IoT Central application. Default is resource name.
+         * @param displayName A `displayName` name. Custom display name for the IoT Central application. Default is resource name.
          * 
-         * &gt; **Note:** Due to a bug in the provider, the default value of `display_name` of a newly created IoT Central App will be the Resource Group Name, it will be fixed and use resource name in 4.0. For an existing IoT Central App, this could be fixed by specifying the `display_name` explicitly.
+         * &gt; **Note:** Due to a bug in the provider, the default value of `displayName` of a newly created IoT Central App will be the Resource Group Name, it will be fixed and use resource name in 4.0. For an existing IoT Central App, this could be fixed by specifying the `displayName` explicitly.
          * 
          * @return builder
          * 
@@ -219,9 +219,9 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param displayName A `display_name` name. Custom display name for the IoT Central application. Default is resource name.
+         * @param displayName A `displayName` name. Custom display name for the IoT Central application. Default is resource name.
          * 
-         * &gt; **Note:** Due to a bug in the provider, the default value of `display_name` of a newly created IoT Central App will be the Resource Group Name, it will be fixed and use resource name in 4.0. For an existing IoT Central App, this could be fixed by specifying the `display_name` explicitly.
+         * &gt; **Note:** Due to a bug in the provider, the default value of `displayName` of a newly created IoT Central App will be the Resource Group Name, it will be fixed and use resource name in 4.0. For an existing IoT Central App, this could be fixed by specifying the `displayName` explicitly.
          * 
          * @return builder
          * 
@@ -357,7 +357,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subDomain A `sub_domain` name. Subdomain for the IoT Central URL. Each application must have a unique subdomain.
+         * @param subDomain A `subDomain` name. Subdomain for the IoT Central URL. Each application must have a unique subdomain.
          * 
          * @return builder
          * 
@@ -368,7 +368,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subDomain A `sub_domain` name. Subdomain for the IoT Central URL. Each application must have a unique subdomain.
+         * @param subDomain A `subDomain` name. Subdomain for the IoT Central URL. Each application must have a unique subdomain.
          * 
          * @return builder
          * 

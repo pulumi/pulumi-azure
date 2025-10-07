@@ -16,7 +16,7 @@ namespace Pulumi.Azure.AppService.Inputs
         private InputList<Inputs.LinuxFunctionAppSiteConfigApplicationStackDockerGetArgs>? _dockers;
 
         /// <summary>
-        /// One or more `docker` blocks as defined below.
+        /// One or more `Docker` blocks as defined below.
         /// </summary>
         public InputList<Inputs.LinuxFunctionAppSiteConfigApplicationStackDockerGetArgs> Dockers
         {
@@ -33,7 +33,7 @@ namespace Pulumi.Azure.AppService.Inputs
         /// <summary>
         /// The Version of Java to use. Supported versions include `8`, `11`, `17`, `21`.
         /// 
-        /// &gt; **Note:** The value `21` is currently in Preview for `java_version`.
+        /// &gt; **Note:** The value `21` is currently in Preview for `JavaVersion`.
         /// </summary>
         [Input("javaVersion")]
         public Input<string>? JavaVersion { get; set; }
@@ -63,7 +63,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<bool>? UseCustomRuntime { get; set; }
 
         /// <summary>
-        /// Should the DotNet process use an isolated runtime. Defaults to `false`.
+        /// Should the DotNet process use an isolated runtime. Defaults to `False`.
         /// </summary>
         [Input("useDotnetIsolatedRuntime")]
         public Input<bool>? UseDotnetIsolatedRuntime { get; set; }

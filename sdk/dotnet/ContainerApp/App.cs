@@ -100,19 +100,19 @@ namespace Pulumi.Azure.ContainerApp
         public Output<string> CustomDomainVerificationId { get; private set; } = null!;
 
         /// <summary>
-        /// A `dapr` block as detailed below.
+        /// A `Dapr` block as detailed below.
         /// </summary>
         [Output("dapr")]
         public Output<Outputs.AppDapr?> Dapr { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as detailed below.
+        /// An `Identity` block as detailed below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.AppIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// An `ingress` block as detailed below.
+        /// An `Ingress` block as detailed below.
         /// </summary>
         [Output("ingress")]
         public Output<Outputs.AppIngress?> Ingress { get; private set; } = null!;
@@ -154,7 +154,7 @@ namespace Pulumi.Azure.ContainerApp
         public Output<ImmutableArray<string>> OutboundIpAddresses { get; private set; } = null!;
 
         /// <summary>
-        /// A `registry` block as detailed below.
+        /// A `Registry` block as detailed below.
         /// </summary>
         [Output("registries")]
         public Output<ImmutableArray<Outputs.AppRegistry>> Registries { get; private set; } = null!;
@@ -166,13 +166,13 @@ namespace Pulumi.Azure.ContainerApp
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The revisions operational mode for the Container App. Possible values include `Single` and `Multiple`. In `Single` mode, a single revision is in operation at any given time. In `Multiple` mode, more than one revision can be active at a time and can be configured with load distribution via the `traffic_weight` block in the `ingress` configuration.
+        /// The revisions operational mode for the Container App. Possible values include `Single` and `Multiple`. In `Single` mode, a single revision is in operation at any given time. In `Multiple` mode, more than one revision can be active at a time and can be configured with load distribution via the `TrafficWeight` block in the `Ingress` configuration.
         /// </summary>
         [Output("revisionMode")]
         public Output<string> RevisionMode { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `secret` block as detailed below.
+        /// One or more `Secret` block as detailed below.
         /// </summary>
         [Output("secrets")]
         public Output<ImmutableArray<Outputs.AppSecret>> Secrets { get; private set; } = null!;
@@ -184,7 +184,7 @@ namespace Pulumi.Azure.ContainerApp
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A `template` block as detailed below.
+        /// A `Template` block as detailed below.
         /// </summary>
         [Output("template")]
         public Output<Outputs.AppTemplate> Template { get; private set; } = null!;
@@ -255,19 +255,19 @@ namespace Pulumi.Azure.ContainerApp
         public Input<string> ContainerAppEnvironmentId { get; set; } = null!;
 
         /// <summary>
-        /// A `dapr` block as detailed below.
+        /// A `Dapr` block as detailed below.
         /// </summary>
         [Input("dapr")]
         public Input<Inputs.AppDaprArgs>? Dapr { get; set; }
 
         /// <summary>
-        /// An `identity` block as detailed below.
+        /// An `Identity` block as detailed below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.AppIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// An `ingress` block as detailed below.
+        /// An `Ingress` block as detailed below.
         /// </summary>
         [Input("ingress")]
         public Input<Inputs.AppIngressArgs>? Ingress { get; set; }
@@ -288,7 +288,7 @@ namespace Pulumi.Azure.ContainerApp
         private InputList<Inputs.AppRegistryArgs>? _registries;
 
         /// <summary>
-        /// A `registry` block as detailed below.
+        /// A `Registry` block as detailed below.
         /// </summary>
         public InputList<Inputs.AppRegistryArgs> Registries
         {
@@ -303,7 +303,7 @@ namespace Pulumi.Azure.ContainerApp
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The revisions operational mode for the Container App. Possible values include `Single` and `Multiple`. In `Single` mode, a single revision is in operation at any given time. In `Multiple` mode, more than one revision can be active at a time and can be configured with load distribution via the `traffic_weight` block in the `ingress` configuration.
+        /// The revisions operational mode for the Container App. Possible values include `Single` and `Multiple`. In `Single` mode, a single revision is in operation at any given time. In `Multiple` mode, more than one revision can be active at a time and can be configured with load distribution via the `TrafficWeight` block in the `Ingress` configuration.
         /// </summary>
         [Input("revisionMode", required: true)]
         public Input<string> RevisionMode { get; set; } = null!;
@@ -312,7 +312,7 @@ namespace Pulumi.Azure.ContainerApp
         private InputList<Inputs.AppSecretArgs>? _secrets;
 
         /// <summary>
-        /// One or more `secret` block as detailed below.
+        /// One or more `Secret` block as detailed below.
         /// </summary>
         public InputList<Inputs.AppSecretArgs> Secrets
         {
@@ -337,7 +337,7 @@ namespace Pulumi.Azure.ContainerApp
         }
 
         /// <summary>
-        /// A `template` block as detailed below.
+        /// A `Template` block as detailed below.
         /// </summary>
         [Input("template", required: true)]
         public Input<Inputs.AppTemplateArgs> Template { get; set; } = null!;
@@ -381,19 +381,19 @@ namespace Pulumi.Azure.ContainerApp
         }
 
         /// <summary>
-        /// A `dapr` block as detailed below.
+        /// A `Dapr` block as detailed below.
         /// </summary>
         [Input("dapr")]
         public Input<Inputs.AppDaprGetArgs>? Dapr { get; set; }
 
         /// <summary>
-        /// An `identity` block as detailed below.
+        /// An `Identity` block as detailed below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.AppIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// An `ingress` block as detailed below.
+        /// An `Ingress` block as detailed below.
         /// </summary>
         [Input("ingress")]
         public Input<Inputs.AppIngressGetArgs>? Ingress { get; set; }
@@ -444,7 +444,7 @@ namespace Pulumi.Azure.ContainerApp
         private InputList<Inputs.AppRegistryGetArgs>? _registries;
 
         /// <summary>
-        /// A `registry` block as detailed below.
+        /// A `Registry` block as detailed below.
         /// </summary>
         public InputList<Inputs.AppRegistryGetArgs> Registries
         {
@@ -459,7 +459,7 @@ namespace Pulumi.Azure.ContainerApp
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The revisions operational mode for the Container App. Possible values include `Single` and `Multiple`. In `Single` mode, a single revision is in operation at any given time. In `Multiple` mode, more than one revision can be active at a time and can be configured with load distribution via the `traffic_weight` block in the `ingress` configuration.
+        /// The revisions operational mode for the Container App. Possible values include `Single` and `Multiple`. In `Single` mode, a single revision is in operation at any given time. In `Multiple` mode, more than one revision can be active at a time and can be configured with load distribution via the `TrafficWeight` block in the `Ingress` configuration.
         /// </summary>
         [Input("revisionMode")]
         public Input<string>? RevisionMode { get; set; }
@@ -468,7 +468,7 @@ namespace Pulumi.Azure.ContainerApp
         private InputList<Inputs.AppSecretGetArgs>? _secrets;
 
         /// <summary>
-        /// One or more `secret` block as detailed below.
+        /// One or more `Secret` block as detailed below.
         /// </summary>
         public InputList<Inputs.AppSecretGetArgs> Secrets
         {
@@ -493,7 +493,7 @@ namespace Pulumi.Azure.ContainerApp
         }
 
         /// <summary>
-        /// A `template` block as detailed below.
+        /// A `Template` block as detailed below.
         /// </summary>
         [Input("template")]
         public Input<Inputs.AppTemplateGetArgs>? Template { get; set; }

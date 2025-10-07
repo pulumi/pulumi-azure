@@ -16,11 +16,11 @@ namespace Pulumi.Azure.Cdn.Outputs
         /// <summary>
         /// A list of one or more string or integer values(e.g. "1") representing the value of the request file name to match. If multiple values are specified, they're evaluated using `OR` logic.
         /// 
-        /// &gt; **Note:** The `match_values` field is only optional if the `operator` is set to `Any`.
+        /// &gt; **Note:** The `MatchValues` field is only optional if the `Operator` is set to `Any`.
         /// </summary>
         public readonly ImmutableArray<string> MatchValues;
         /// <summary>
-        /// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        /// If `True` operator becomes the opposite of its value. Possible values `True` or `False`. Defaults to `False`. Details can be found in the `Condition Operator List` below.
         /// </summary>
         public readonly bool? NegateCondition;
         /// <summary>

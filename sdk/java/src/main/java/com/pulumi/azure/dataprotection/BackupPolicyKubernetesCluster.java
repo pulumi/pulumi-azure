@@ -20,6 +20,88 @@ import javax.annotation.Nullable;
 /**
  * Manages a Backup Policy to back up Kubernetes Cluster.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.dataprotection.BackupVault;
+ * import com.pulumi.azure.dataprotection.BackupVaultArgs;
+ * import com.pulumi.azure.dataprotection.BackupPolicyKubernetesCluster;
+ * import com.pulumi.azure.dataprotection.BackupPolicyKubernetesClusterArgs;
+ * import com.pulumi.azure.dataprotection.inputs.BackupPolicyKubernetesClusterRetentionRuleArgs;
+ * import com.pulumi.azure.dataprotection.inputs.BackupPolicyKubernetesClusterRetentionRuleCriteriaArgs;
+ * import com.pulumi.azure.dataprotection.inputs.BackupPolicyKubernetesClusterDefaultRetentionRuleArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("example-resources")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleBackupVault = new BackupVault("exampleBackupVault", BackupVaultArgs.builder()
+ *             .name("example-backup-vault")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .datastoreType("VaultStore")
+ *             .redundancy("LocallyRedundant")
+ *             .build());
+ * 
+ *         var exampleBackupPolicyKubernetesCluster = new BackupPolicyKubernetesCluster("exampleBackupPolicyKubernetesCluster", BackupPolicyKubernetesClusterArgs.builder()
+ *             .name("example-backup-policy")
+ *             .resourceGroupName(example.name())
+ *             .vaultName(exampleBackupVault.name())
+ *             .backupRepeatingTimeIntervals("R/2021-05-23T02:30:00+00:00/P1W")
+ *             .timeZone("India Standard Time")
+ *             .defaultRetentionDuration("P4M")
+ *             .retentionRules(BackupPolicyKubernetesClusterRetentionRuleArgs.builder()
+ *                 .name("Daily")
+ *                 .priority(25)
+ *                 .lifeCycles(BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs.builder()
+ *                     .duration("P84D")
+ *                     .dataStoreType("OperationalStore")
+ *                     .build())
+ *                 .criteria(BackupPolicyKubernetesClusterRetentionRuleCriteriaArgs.builder()
+ *                     .absoluteCriteria("FirstOfDay")
+ *                     .build())
+ *                 .build())
+ *             .defaultRetentionRule(BackupPolicyKubernetesClusterDefaultRetentionRuleArgs.builder()
+ *                 .lifeCycles(BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgs.builder()
+ *                     .duration("P7D")
+ *                     .dataStoreType("OperationalStore")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.DataProtection` - 2024-04-01
+ * 
  * ## Import
  * 
  * Backup Policy Kubernetes Cluster&#39;s can be imported using the `resource id`, e.g.
@@ -46,14 +128,14 @@ public class BackupPolicyKubernetesCluster extends com.pulumi.resources.CustomRe
         return this.backupRepeatingTimeIntervals;
     }
     /**
-     * A `default_retention_rule` block as defined below. Changing this forces a new resource to be created.
+     * A `defaultRetentionRule` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="defaultRetentionRule", refs={BackupPolicyKubernetesClusterDefaultRetentionRule.class}, tree="[0]")
     private Output<BackupPolicyKubernetesClusterDefaultRetentionRule> defaultRetentionRule;
 
     /**
-     * @return A `default_retention_rule` block as defined below. Changing this forces a new resource to be created.
+     * @return A `defaultRetentionRule` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<BackupPolicyKubernetesClusterDefaultRetentionRule> defaultRetentionRule() {
@@ -88,14 +170,14 @@ public class BackupPolicyKubernetesCluster extends com.pulumi.resources.CustomRe
         return this.resourceGroupName;
     }
     /**
-     * One or more `retention_rule` blocks as defined below. Changing this forces a new resource to be created.
+     * One or more `retentionRule` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="retentionRules", refs={List.class,BackupPolicyKubernetesClusterRetentionRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<BackupPolicyKubernetesClusterRetentionRule>> retentionRules;
 
     /**
-     * @return One or more `retention_rule` blocks as defined below. Changing this forces a new resource to be created.
+     * @return One or more `retentionRule` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<List<BackupPolicyKubernetesClusterRetentionRule>>> retentionRules() {

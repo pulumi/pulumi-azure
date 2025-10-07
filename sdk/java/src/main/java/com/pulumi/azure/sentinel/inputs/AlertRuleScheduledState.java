@@ -25,14 +25,14 @@ public final class AlertRuleScheduledState extends com.pulumi.resources.Resource
     public static final AlertRuleScheduledState Empty = new AlertRuleScheduledState();
 
     /**
-     * An `alert_details_override` block as defined below.
+     * An `alertDetailsOverride` block as defined below.
      * 
      */
     @Import(name="alertDetailsOverrides")
     private @Nullable Output<List<AlertRuleScheduledAlertDetailsOverrideArgs>> alertDetailsOverrides;
 
     /**
-     * @return An `alert_details_override` block as defined below.
+     * @return An `alertDetailsOverride` block as defined below.
      * 
      */
     public Optional<Output<List<AlertRuleScheduledAlertDetailsOverrideArgs>>> alertDetailsOverrides() {
@@ -130,14 +130,14 @@ public final class AlertRuleScheduledState extends com.pulumi.resources.Resource
     }
 
     /**
-     * A list of `entity_mapping` blocks as defined below.
+     * A list of `entityMapping` blocks as defined below.
      * 
      */
     @Import(name="entityMappings")
     private @Nullable Output<List<AlertRuleScheduledEntityMappingArgs>> entityMappings;
 
     /**
-     * @return A list of `entity_mapping` blocks as defined below.
+     * @return A list of `entityMapping` blocks as defined below.
      * 
      */
     public Optional<Output<List<AlertRuleScheduledEntityMappingArgs>>> entityMappings() {
@@ -145,14 +145,14 @@ public final class AlertRuleScheduledState extends com.pulumi.resources.Resource
     }
 
     /**
-     * A `event_grouping` block as defined below.
+     * A `eventGrouping` block as defined below.
      * 
      */
     @Import(name="eventGrouping")
     private @Nullable Output<AlertRuleScheduledEventGroupingArgs> eventGrouping;
 
     /**
-     * @return A `event_grouping` block as defined below.
+     * @return A `eventGrouping` block as defined below.
      * 
      */
     public Optional<Output<AlertRuleScheduledEventGroupingArgs>> eventGrouping() {
@@ -237,7 +237,7 @@ public final class AlertRuleScheduledState extends com.pulumi.resources.Resource
     /**
      * The ISO 8601 timespan duration, which determine the time period of the data covered by the query. For example, it can query the past 10 minutes of data, or the past 6 hours of data. Defaults to `PT5H`.
      * 
-     * &gt; **Note:** `query_period` must larger than or equal to `query_frequency`, which ensures there is no gaps in the overall query coverage.
+     * &gt; **Note:** `queryPeriod` must larger than or equal to `queryFrequency`, which ensures there is no gaps in the overall query coverage.
      * 
      */
     @Import(name="queryPeriod")
@@ -246,7 +246,7 @@ public final class AlertRuleScheduledState extends com.pulumi.resources.Resource
     /**
      * @return The ISO 8601 timespan duration, which determine the time period of the data covered by the query. For example, it can query the past 10 minutes of data, or the past 6 hours of data. Defaults to `PT5H`.
      * 
-     * &gt; **Note:** `query_period` must larger than or equal to `query_frequency`, which ensures there is no gaps in the overall query coverage.
+     * &gt; **Note:** `queryPeriod` must larger than or equal to `queryFrequency`, which ensures there is no gaps in the overall query coverage.
      * 
      */
     public Optional<Output<String>> queryPeriod() {
@@ -254,18 +254,18 @@ public final class AlertRuleScheduledState extends com.pulumi.resources.Resource
     }
 
     /**
-     * A list of `sentinel_entity_mapping` blocks as defined below.
+     * A list of `sentinelEntityMapping` blocks as defined below.
      * 
-     * &gt; **Note:** `entity_mapping` and `sentinel_entity_mapping` together can&#39;t exceed 10.
+     * &gt; **Note:** `entityMapping` and `sentinelEntityMapping` together can&#39;t exceed 10.
      * 
      */
     @Import(name="sentinelEntityMappings")
     private @Nullable Output<List<AlertRuleScheduledSentinelEntityMappingArgs>> sentinelEntityMappings;
 
     /**
-     * @return A list of `sentinel_entity_mapping` blocks as defined below.
+     * @return A list of `sentinelEntityMapping` blocks as defined below.
      * 
-     * &gt; **Note:** `entity_mapping` and `sentinel_entity_mapping` together can&#39;t exceed 10.
+     * &gt; **Note:** `entityMapping` and `sentinelEntityMapping` together can&#39;t exceed 10.
      * 
      */
     public Optional<Output<List<AlertRuleScheduledSentinelEntityMappingArgs>>> sentinelEntityMappings() {
@@ -288,18 +288,18 @@ public final class AlertRuleScheduledState extends com.pulumi.resources.Resource
     }
 
     /**
-     * If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
+     * If `suppressionEnabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
      * 
-     * &gt; **Note:** `suppression_duration` must larger than or equal to `query_frequency`, otherwise the suppression has no actual effect since no query will happen during the suppression duration.
+     * &gt; **Note:** `suppressionDuration` must larger than or equal to `queryFrequency`, otherwise the suppression has no actual effect since no query will happen during the suppression duration.
      * 
      */
     @Import(name="suppressionDuration")
     private @Nullable Output<String> suppressionDuration;
 
     /**
-     * @return If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
+     * @return If `suppressionEnabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
      * 
-     * &gt; **Note:** `suppression_duration` must larger than or equal to `query_frequency`, otherwise the suppression has no actual effect since no query will happen during the suppression duration.
+     * &gt; **Note:** `suppressionDuration` must larger than or equal to `queryFrequency`, otherwise the suppression has no actual effect since no query will happen during the suppression duration.
      * 
      */
     public Optional<Output<String>> suppressionDuration() {
@@ -352,14 +352,14 @@ public final class AlertRuleScheduledState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The alert trigger operator, combined with `trigger_threshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`. Defaults to `GreaterThan`.
+     * The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`. Defaults to `GreaterThan`.
      * 
      */
     @Import(name="triggerOperator")
     private @Nullable Output<String> triggerOperator;
 
     /**
-     * @return The alert trigger operator, combined with `trigger_threshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`. Defaults to `GreaterThan`.
+     * @return The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`. Defaults to `GreaterThan`.
      * 
      */
     public Optional<Output<String>> triggerOperator() {
@@ -367,14 +367,14 @@ public final class AlertRuleScheduledState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The baseline number of query results generated, combined with `trigger_operator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
+     * The baseline number of query results generated, combined with `triggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
      * 
      */
     @Import(name="triggerThreshold")
     private @Nullable Output<Integer> triggerThreshold;
 
     /**
-     * @return The baseline number of query results generated, combined with `trigger_operator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
+     * @return The baseline number of query results generated, combined with `triggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
      * 
      */
     public Optional<Output<Integer>> triggerThreshold() {
@@ -428,7 +428,7 @@ public final class AlertRuleScheduledState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param alertDetailsOverrides An `alert_details_override` block as defined below.
+         * @param alertDetailsOverrides An `alertDetailsOverride` block as defined below.
          * 
          * @return builder
          * 
@@ -439,7 +439,7 @@ public final class AlertRuleScheduledState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param alertDetailsOverrides An `alert_details_override` block as defined below.
+         * @param alertDetailsOverrides An `alertDetailsOverride` block as defined below.
          * 
          * @return builder
          * 
@@ -449,7 +449,7 @@ public final class AlertRuleScheduledState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param alertDetailsOverrides An `alert_details_override` block as defined below.
+         * @param alertDetailsOverrides An `alertDetailsOverride` block as defined below.
          * 
          * @return builder
          * 
@@ -585,7 +585,7 @@ public final class AlertRuleScheduledState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param entityMappings A list of `entity_mapping` blocks as defined below.
+         * @param entityMappings A list of `entityMapping` blocks as defined below.
          * 
          * @return builder
          * 
@@ -596,7 +596,7 @@ public final class AlertRuleScheduledState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param entityMappings A list of `entity_mapping` blocks as defined below.
+         * @param entityMappings A list of `entityMapping` blocks as defined below.
          * 
          * @return builder
          * 
@@ -606,7 +606,7 @@ public final class AlertRuleScheduledState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param entityMappings A list of `entity_mapping` blocks as defined below.
+         * @param entityMappings A list of `entityMapping` blocks as defined below.
          * 
          * @return builder
          * 
@@ -616,7 +616,7 @@ public final class AlertRuleScheduledState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param eventGrouping A `event_grouping` block as defined below.
+         * @param eventGrouping A `eventGrouping` block as defined below.
          * 
          * @return builder
          * 
@@ -627,7 +627,7 @@ public final class AlertRuleScheduledState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param eventGrouping A `event_grouping` block as defined below.
+         * @param eventGrouping A `eventGrouping` block as defined below.
          * 
          * @return builder
          * 
@@ -744,7 +744,7 @@ public final class AlertRuleScheduledState extends com.pulumi.resources.Resource
         /**
          * @param queryPeriod The ISO 8601 timespan duration, which determine the time period of the data covered by the query. For example, it can query the past 10 minutes of data, or the past 6 hours of data. Defaults to `PT5H`.
          * 
-         * &gt; **Note:** `query_period` must larger than or equal to `query_frequency`, which ensures there is no gaps in the overall query coverage.
+         * &gt; **Note:** `queryPeriod` must larger than or equal to `queryFrequency`, which ensures there is no gaps in the overall query coverage.
          * 
          * @return builder
          * 
@@ -757,7 +757,7 @@ public final class AlertRuleScheduledState extends com.pulumi.resources.Resource
         /**
          * @param queryPeriod The ISO 8601 timespan duration, which determine the time period of the data covered by the query. For example, it can query the past 10 minutes of data, or the past 6 hours of data. Defaults to `PT5H`.
          * 
-         * &gt; **Note:** `query_period` must larger than or equal to `query_frequency`, which ensures there is no gaps in the overall query coverage.
+         * &gt; **Note:** `queryPeriod` must larger than or equal to `queryFrequency`, which ensures there is no gaps in the overall query coverage.
          * 
          * @return builder
          * 
@@ -767,9 +767,9 @@ public final class AlertRuleScheduledState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param sentinelEntityMappings A list of `sentinel_entity_mapping` blocks as defined below.
+         * @param sentinelEntityMappings A list of `sentinelEntityMapping` blocks as defined below.
          * 
-         * &gt; **Note:** `entity_mapping` and `sentinel_entity_mapping` together can&#39;t exceed 10.
+         * &gt; **Note:** `entityMapping` and `sentinelEntityMapping` together can&#39;t exceed 10.
          * 
          * @return builder
          * 
@@ -780,9 +780,9 @@ public final class AlertRuleScheduledState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param sentinelEntityMappings A list of `sentinel_entity_mapping` blocks as defined below.
+         * @param sentinelEntityMappings A list of `sentinelEntityMapping` blocks as defined below.
          * 
-         * &gt; **Note:** `entity_mapping` and `sentinel_entity_mapping` together can&#39;t exceed 10.
+         * &gt; **Note:** `entityMapping` and `sentinelEntityMapping` together can&#39;t exceed 10.
          * 
          * @return builder
          * 
@@ -792,9 +792,9 @@ public final class AlertRuleScheduledState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param sentinelEntityMappings A list of `sentinel_entity_mapping` blocks as defined below.
+         * @param sentinelEntityMappings A list of `sentinelEntityMapping` blocks as defined below.
          * 
-         * &gt; **Note:** `entity_mapping` and `sentinel_entity_mapping` together can&#39;t exceed 10.
+         * &gt; **Note:** `entityMapping` and `sentinelEntityMapping` together can&#39;t exceed 10.
          * 
          * @return builder
          * 
@@ -825,9 +825,9 @@ public final class AlertRuleScheduledState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param suppressionDuration If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
+         * @param suppressionDuration If `suppressionEnabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
          * 
-         * &gt; **Note:** `suppression_duration` must larger than or equal to `query_frequency`, otherwise the suppression has no actual effect since no query will happen during the suppression duration.
+         * &gt; **Note:** `suppressionDuration` must larger than or equal to `queryFrequency`, otherwise the suppression has no actual effect since no query will happen during the suppression duration.
          * 
          * @return builder
          * 
@@ -838,9 +838,9 @@ public final class AlertRuleScheduledState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param suppressionDuration If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
+         * @param suppressionDuration If `suppressionEnabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
          * 
-         * &gt; **Note:** `suppression_duration` must larger than or equal to `query_frequency`, otherwise the suppression has no actual effect since no query will happen during the suppression duration.
+         * &gt; **Note:** `suppressionDuration` must larger than or equal to `queryFrequency`, otherwise the suppression has no actual effect since no query will happen during the suppression duration.
          * 
          * @return builder
          * 
@@ -933,7 +933,7 @@ public final class AlertRuleScheduledState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param triggerOperator The alert trigger operator, combined with `trigger_threshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`. Defaults to `GreaterThan`.
+         * @param triggerOperator The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`. Defaults to `GreaterThan`.
          * 
          * @return builder
          * 
@@ -944,7 +944,7 @@ public final class AlertRuleScheduledState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param triggerOperator The alert trigger operator, combined with `trigger_threshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`. Defaults to `GreaterThan`.
+         * @param triggerOperator The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`. Defaults to `GreaterThan`.
          * 
          * @return builder
          * 
@@ -954,7 +954,7 @@ public final class AlertRuleScheduledState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param triggerThreshold The baseline number of query results generated, combined with `trigger_operator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
+         * @param triggerThreshold The baseline number of query results generated, combined with `triggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
          * 
          * @return builder
          * 
@@ -965,7 +965,7 @@ public final class AlertRuleScheduledState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param triggerThreshold The baseline number of query results generated, combined with `trigger_operator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
+         * @param triggerThreshold The baseline number of query results generated, combined with `triggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
          * 
          * @return builder
          * 

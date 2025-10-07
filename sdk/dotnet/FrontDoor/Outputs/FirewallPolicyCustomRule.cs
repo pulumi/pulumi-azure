@@ -18,11 +18,11 @@ namespace Pulumi.Azure.FrontDoor.Outputs
         /// </summary>
         public readonly string Action;
         /// <summary>
-        /// Is the rule is enabled or disabled? Defaults to `true`.
+        /// Is the rule is enabled or disabled? Defaults to `True`.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// One or more `match_condition` block defined below. Can support up to `10` `match_condition` blocks.
+        /// One or more `MatchCondition` block defined below. Can support up to `10` `MatchCondition` blocks.
         /// </summary>
         public readonly ImmutableArray<Outputs.FirewallPolicyCustomRuleMatchCondition> MatchConditions;
         /// <summary>

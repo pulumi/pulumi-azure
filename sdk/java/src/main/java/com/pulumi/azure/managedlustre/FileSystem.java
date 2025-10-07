@@ -25,6 +25,82 @@ import javax.annotation.Nullable;
 /**
  * Manages an Azure Managed Lustre File System.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.managedlustre.FileSystem;
+ * import com.pulumi.azure.managedlustre.FileSystemArgs;
+ * import com.pulumi.azure.managedlustre.inputs.FileSystemMaintenanceWindowArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("example-resources")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
+ *             .name("example-vnet")
+ *             .addressSpaces("10.0.0.0/16")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .build());
+ * 
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
+ *             .name("example-subnet")
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes("10.0.2.0/24")
+ *             .build());
+ * 
+ *         var exampleFileSystem = new FileSystem("exampleFileSystem", FileSystemArgs.builder()
+ *             .name("example-amlfs")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .skuName("AMLFS-Durable-Premium-250")
+ *             .subnetId(exampleSubnet.id())
+ *             .storageCapacityInTb(8)
+ *             .zones("2")
+ *             .maintenanceWindow(FileSystemMaintenanceWindowArgs.builder()
+ *                 .dayOfWeek("Friday")
+ *                 .timeOfDayUtc("22:00")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.StorageCache` - 2024-07-01
+ * 
  * ## Import
  * 
  * Azure Managed Lustre File Systems can be imported using the `resource id`, e.g.
@@ -37,32 +113,32 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:managedlustre/fileSystem:FileSystem")
 public class FileSystem extends com.pulumi.resources.CustomResource {
     /**
-     * An `encryption_key` block as defined below.
+     * An `encryptionKey` block as defined below.
      * 
-     * &gt; **Note:** Removing `encryption_key` forces a new resource to be created.
+     * &gt; **Note:** Removing `encryptionKey` forces a new resource to be created.
      * 
      */
     @Export(name="encryptionKey", refs={FileSystemEncryptionKey.class}, tree="[0]")
     private Output</* @Nullable */ FileSystemEncryptionKey> encryptionKey;
 
     /**
-     * @return An `encryption_key` block as defined below.
+     * @return An `encryptionKey` block as defined below.
      * 
-     * &gt; **Note:** Removing `encryption_key` forces a new resource to be created.
+     * &gt; **Note:** Removing `encryptionKey` forces a new resource to be created.
      * 
      */
     public Output<Optional<FileSystemEncryptionKey>> encryptionKey() {
         return Codegen.optional(this.encryptionKey);
     }
     /**
-     * A `hsm_setting` block as defined below. Changing this forces a new resource to be created.
+     * A `hsmSetting` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="hsmSetting", refs={FileSystemHsmSetting.class}, tree="[0]")
     private Output</* @Nullable */ FileSystemHsmSetting> hsmSetting;
 
     /**
-     * @return A `hsm_setting` block as defined below. Changing this forces a new resource to be created.
+     * @return A `hsmSetting` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<FileSystemHsmSetting>> hsmSetting() {
@@ -97,14 +173,14 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * A `maintenance_window` block as defined below.
+     * A `maintenanceWindow` block as defined below.
      * 
      */
     @Export(name="maintenanceWindow", refs={FileSystemMaintenanceWindow.class}, tree="[0]")
     private Output<FileSystemMaintenanceWindow> maintenanceWindow;
 
     /**
-     * @return A `maintenance_window` block as defined below.
+     * @return A `maintenanceWindow` block as defined below.
      * 
      */
     public Output<FileSystemMaintenanceWindow> maintenanceWindow() {
@@ -153,14 +229,14 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * A `root_squash` block as defined below.
+     * A `rootSquash` block as defined below.
      * 
      */
     @Export(name="rootSquash", refs={FileSystemRootSquash.class}, tree="[0]")
     private Output</* @Nullable */ FileSystemRootSquash> rootSquash;
 
     /**
-     * @return A `root_squash` block as defined below.
+     * @return A `rootSquash` block as defined below.
      * 
      */
     public Output<Optional<FileSystemRootSquash>> rootSquash() {
@@ -181,14 +257,14 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
         return this.skuName;
     }
     /**
-     * The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependant on which `sku_name` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
+     * The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependant on which `skuName` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
      * 
      */
     @Export(name="storageCapacityInTb", refs={Integer.class}, tree="[0]")
     private Output<Integer> storageCapacityInTb;
 
     /**
-     * @return The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependant on which `sku_name` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
+     * @return The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependant on which `skuName` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
      * 
      */
     public Output<Integer> storageCapacityInTb() {

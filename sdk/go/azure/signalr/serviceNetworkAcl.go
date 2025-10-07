@@ -14,6 +14,115 @@ import (
 
 // Manages the Network ACL for a SignalR service.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/privatelink"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/signalr"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleService, err := signalr.NewService(ctx, "example", &signalr.ServiceArgs{
+//				Name:              pulumi.String("example-signalr"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				Sku: &signalr.ServiceSkuArgs{
+//					Name:     pulumi.String("Standard_S1"),
+//					Capacity: pulumi.Int(1),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name:              pulumi.String("example-vnet"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.5.0.0/16"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
+//				Name:               pulumi.String("example-subnet"),
+//				ResourceGroupName:  example.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.5.2.0/24"),
+//				},
+//				EnforcePrivateLinkEndpointNetworkPolicies: true,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleEndpoint, err := privatelink.NewEndpoint(ctx, "example", &privatelink.EndpointArgs{
+//				Name:              pulumi.String("example-privateendpoint"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				SubnetId:          exampleSubnet.ID(),
+//				PrivateServiceConnection: &privatelink.EndpointPrivateServiceConnectionArgs{
+//					Name:                        pulumi.String("psc-sig-test"),
+//					IsManualConnection:          pulumi.Bool(false),
+//					PrivateConnectionResourceId: exampleService.ID(),
+//					SubresourceNames: pulumi.StringArray{
+//						pulumi.String("signalr"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = signalr.NewServiceNetworkAcl(ctx, "example", &signalr.ServiceNetworkAclArgs{
+//				SignalrServiceId: exampleService.ID(),
+//				DefaultAction:    pulumi.String("Deny"),
+//				PublicNetwork: &signalr.ServiceNetworkAclPublicNetworkArgs{
+//					AllowedRequestTypes: pulumi.StringArray{
+//						pulumi.String("ClientConnection"),
+//					},
+//				},
+//				PrivateEndpoints: signalr.ServiceNetworkAclPrivateEndpointArray{
+//					&signalr.ServiceNetworkAclPrivateEndpointArgs{
+//						Id: exampleEndpoint.ID(),
+//						AllowedRequestTypes: pulumi.StringArray{
+//							pulumi.String("ServerConnection"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.SignalRService` - 2024-03-01
+//
 // ## Import
 //
 // Network ACLs for a SignalR service can be imported using the `resource id`, e.g.

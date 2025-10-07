@@ -106,7 +106,7 @@ namespace Pulumi.Azure.Network
     public partial class Profile : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A `container_network_interface` block as documented below.
+        /// A `ContainerNetworkInterface` block as documented below.
         /// </summary>
         [Output("containerNetworkInterface")]
         public Output<Outputs.ProfileContainerNetworkInterface> ContainerNetworkInterface { get; private set; } = null!;
@@ -188,7 +188,7 @@ namespace Pulumi.Azure.Network
     public sealed class ProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `container_network_interface` block as documented below.
+        /// A `ContainerNetworkInterface` block as documented below.
         /// </summary>
         [Input("containerNetworkInterface", required: true)]
         public Input<Inputs.ProfileContainerNetworkInterfaceArgs> ContainerNetworkInterface { get; set; } = null!;
@@ -232,7 +232,7 @@ namespace Pulumi.Azure.Network
     public sealed class ProfileState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `container_network_interface` block as documented below.
+        /// A `ContainerNetworkInterface` block as documented below.
         /// </summary>
         [Input("containerNetworkInterface")]
         public Input<Inputs.ProfileContainerNetworkInterfaceGetArgs>? ContainerNetworkInterface { get; set; }

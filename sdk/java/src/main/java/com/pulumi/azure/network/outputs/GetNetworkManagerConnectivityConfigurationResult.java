@@ -15,7 +15,7 @@ import java.util.Objects;
 @CustomType
 public final class GetNetworkManagerConnectivityConfigurationResult {
     /**
-     * @return An `applies_to_group` block as defined below.
+     * @return An `appliesToGroup` block as defined below.
      * 
      */
     private List<GetNetworkManagerConnectivityConfigurationAppliesToGroup> appliesToGroups;
@@ -54,7 +54,7 @@ public final class GetNetworkManagerConnectivityConfigurationResult {
 
     private GetNetworkManagerConnectivityConfigurationResult() {}
     /**
-     * @return An `applies_to_group` block as defined below.
+     * @return An `appliesToGroup` block as defined below.
      * 
      */
     public List<GetNetworkManagerConnectivityConfigurationAppliesToGroup> appliesToGroups() {

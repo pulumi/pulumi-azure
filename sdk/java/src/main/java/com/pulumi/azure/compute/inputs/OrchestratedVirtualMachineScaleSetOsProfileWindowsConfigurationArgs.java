@@ -22,14 +22,14 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
     public static final OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs Empty = new OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs();
 
     /**
-     * One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
+     * One or more `additionalUnattendContent` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="additionalUnattendContents")
     private @Nullable Output<List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArgs>> additionalUnattendContents;
 
     /**
-     * @return One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
+     * @return One or more `additionalUnattendContent` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArgs>>> additionalUnattendContents() {
@@ -67,14 +67,14 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
     }
 
     /**
-     * The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
+     * The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="computerNamePrefix")
     private @Nullable Output<String> computerNamePrefix;
 
     /**
-     * @return The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
+     * @return The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> computerNamePrefix() {
@@ -99,7 +99,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
     /**
      * Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
      * 
-     * &gt; **Note:** Hotpatching can only be enabled if the `patch_mode` is set to `AutomaticByPlatform`, the `provision_vm_agent` is set to `true`, your `source_image_reference` references a hotpatching enabled image, the VM&#39;s `sku_name` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM SKU and the `extension` contains an application health extension. An example of how to correctly configure a Virtual Machine Scale Set to provision a Windows Virtual Machine with hotpatching enabled can be found in the `./examples/orchestrated-vm-scale-set/hotpatching-enabled` directory within the GitHub Repository.
+     * &gt; **Note:** Hotpatching can only be enabled if the `patchMode` is set to `AutomaticByPlatform`, the `provisionVmAgent` is set to `true`, your `sourceImageReference` references a hotpatching enabled image, the VM&#39;s `skuName` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM SKU and the `extension` contains an application health extension. An example of how to correctly configure a Virtual Machine Scale Set to provision a Windows Virtual Machine with hotpatching enabled can be found in the `./examples/orchestrated-vm-scale-set/hotpatching-enabled` directory within the GitHub Repository.
      * 
      */
     @Import(name="hotpatchingEnabled")
@@ -108,7 +108,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
     /**
      * @return Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
      * 
-     * &gt; **Note:** Hotpatching can only be enabled if the `patch_mode` is set to `AutomaticByPlatform`, the `provision_vm_agent` is set to `true`, your `source_image_reference` references a hotpatching enabled image, the VM&#39;s `sku_name` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM SKU and the `extension` contains an application health extension. An example of how to correctly configure a Virtual Machine Scale Set to provision a Windows Virtual Machine with hotpatching enabled can be found in the `./examples/orchestrated-vm-scale-set/hotpatching-enabled` directory within the GitHub Repository.
+     * &gt; **Note:** Hotpatching can only be enabled if the `patchMode` is set to `AutomaticByPlatform`, the `provisionVmAgent` is set to `true`, your `sourceImageReference` references a hotpatching enabled image, the VM&#39;s `skuName` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM SKU and the `extension` contains an application health extension. An example of how to correctly configure a Virtual Machine Scale Set to provision a Windows Virtual Machine with hotpatching enabled can be found in the `./examples/orchestrated-vm-scale-set/hotpatching-enabled` directory within the GitHub Repository.
      * 
      */
     public Optional<Output<Boolean>> hotpatchingEnabled() {
@@ -118,7 +118,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
     /**
      * Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
      * 
-     * &gt; **Note:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
+     * &gt; **Note:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
      * 
      */
     @Import(name="patchAssessmentMode")
@@ -127,7 +127,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
     /**
      * @return Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
      * 
-     * &gt; **Note:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
+     * &gt; **Note:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
      * 
      */
     public Optional<Output<String>> patchAssessmentMode() {
@@ -137,7 +137,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
     /**
      * Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
      * 
-     * &gt; **Note:** If `patch_mode` is set to `AutomaticByPlatform` the `provision_vm_agent` must be set to `true` and the `extension` must contain at least one application health extension.
+     * &gt; **Note:** If `patchMode` is set to `AutomaticByPlatform` the `provisionVmAgent` must be set to `true` and the `extension` must contain at least one application health extension.
      * 
      */
     @Import(name="patchMode")
@@ -146,7 +146,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
     /**
      * @return Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
      * 
-     * &gt; **Note:** If `patch_mode` is set to `AutomaticByPlatform` the `provision_vm_agent` must be set to `true` and the `extension` must contain at least one application health extension.
+     * &gt; **Note:** If `patchMode` is set to `AutomaticByPlatform` the `provisionVmAgent` must be set to `true` and the `extension` must contain at least one application health extension.
      * 
      */
     public Optional<Output<String>> patchMode() {
@@ -199,14 +199,14 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
     }
 
     /**
-     * One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
+     * One or more `winrmListener` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="winrmListeners")
     private @Nullable Output<List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs>> winrmListeners;
 
     /**
-     * @return One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
+     * @return One or more `winrmListener` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs>>> winrmListeners() {
@@ -249,7 +249,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
         }
 
         /**
-         * @param additionalUnattendContents One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
+         * @param additionalUnattendContents One or more `additionalUnattendContent` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -260,7 +260,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
         }
 
         /**
-         * @param additionalUnattendContents One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
+         * @param additionalUnattendContents One or more `additionalUnattendContent` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
         }
 
         /**
-         * @param additionalUnattendContents One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
+         * @param additionalUnattendContents One or more `additionalUnattendContent` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -322,7 +322,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
         }
 
         /**
-         * @param computerNamePrefix The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
+         * @param computerNamePrefix The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -333,7 +333,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
         }
 
         /**
-         * @param computerNamePrefix The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
+         * @param computerNamePrefix The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -366,7 +366,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
         /**
          * @param hotpatchingEnabled Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
          * 
-         * &gt; **Note:** Hotpatching can only be enabled if the `patch_mode` is set to `AutomaticByPlatform`, the `provision_vm_agent` is set to `true`, your `source_image_reference` references a hotpatching enabled image, the VM&#39;s `sku_name` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM SKU and the `extension` contains an application health extension. An example of how to correctly configure a Virtual Machine Scale Set to provision a Windows Virtual Machine with hotpatching enabled can be found in the `./examples/orchestrated-vm-scale-set/hotpatching-enabled` directory within the GitHub Repository.
+         * &gt; **Note:** Hotpatching can only be enabled if the `patchMode` is set to `AutomaticByPlatform`, the `provisionVmAgent` is set to `true`, your `sourceImageReference` references a hotpatching enabled image, the VM&#39;s `skuName` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM SKU and the `extension` contains an application health extension. An example of how to correctly configure a Virtual Machine Scale Set to provision a Windows Virtual Machine with hotpatching enabled can be found in the `./examples/orchestrated-vm-scale-set/hotpatching-enabled` directory within the GitHub Repository.
          * 
          * @return builder
          * 
@@ -379,7 +379,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
         /**
          * @param hotpatchingEnabled Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
          * 
-         * &gt; **Note:** Hotpatching can only be enabled if the `patch_mode` is set to `AutomaticByPlatform`, the `provision_vm_agent` is set to `true`, your `source_image_reference` references a hotpatching enabled image, the VM&#39;s `sku_name` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM SKU and the `extension` contains an application health extension. An example of how to correctly configure a Virtual Machine Scale Set to provision a Windows Virtual Machine with hotpatching enabled can be found in the `./examples/orchestrated-vm-scale-set/hotpatching-enabled` directory within the GitHub Repository.
+         * &gt; **Note:** Hotpatching can only be enabled if the `patchMode` is set to `AutomaticByPlatform`, the `provisionVmAgent` is set to `true`, your `sourceImageReference` references a hotpatching enabled image, the VM&#39;s `skuName` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM SKU and the `extension` contains an application health extension. An example of how to correctly configure a Virtual Machine Scale Set to provision a Windows Virtual Machine with hotpatching enabled can be found in the `./examples/orchestrated-vm-scale-set/hotpatching-enabled` directory within the GitHub Repository.
          * 
          * @return builder
          * 
@@ -391,7 +391,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
         /**
          * @param patchAssessmentMode Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
          * 
-         * &gt; **Note:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
+         * &gt; **Note:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
          * 
          * @return builder
          * 
@@ -404,7 +404,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
         /**
          * @param patchAssessmentMode Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
          * 
-         * &gt; **Note:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
+         * &gt; **Note:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
          * 
          * @return builder
          * 
@@ -416,7 +416,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
         /**
          * @param patchMode Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
          * 
-         * &gt; **Note:** If `patch_mode` is set to `AutomaticByPlatform` the `provision_vm_agent` must be set to `true` and the `extension` must contain at least one application health extension.
+         * &gt; **Note:** If `patchMode` is set to `AutomaticByPlatform` the `provisionVmAgent` must be set to `true` and the `extension` must contain at least one application health extension.
          * 
          * @return builder
          * 
@@ -429,7 +429,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
         /**
          * @param patchMode Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
          * 
-         * &gt; **Note:** If `patch_mode` is set to `AutomaticByPlatform` the `provision_vm_agent` must be set to `true` and the `extension` must contain at least one application health extension.
+         * &gt; **Note:** If `patchMode` is set to `AutomaticByPlatform` the `provisionVmAgent` must be set to `true` and the `extension` must contain at least one application health extension.
          * 
          * @return builder
          * 
@@ -512,7 +512,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
         }
 
         /**
-         * @param winrmListeners One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
+         * @param winrmListeners One or more `winrmListener` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -523,7 +523,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
         }
 
         /**
-         * @param winrmListeners One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
+         * @param winrmListeners One or more `winrmListener` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -533,7 +533,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
         }
 
         /**
-         * @param winrmListeners One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
+         * @param winrmListeners One or more `winrmListener` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

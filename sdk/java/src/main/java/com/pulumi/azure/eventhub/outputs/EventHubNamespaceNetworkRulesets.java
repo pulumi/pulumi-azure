@@ -22,7 +22,7 @@ public final class EventHubNamespaceNetworkRulesets {
      */
     private String defaultAction;
     /**
-     * @return One or more `ip_rule` blocks as defined below.
+     * @return One or more `ipRule` blocks as defined below.
      * 
      */
     private @Nullable List<EventHubNamespaceNetworkRulesetsIpRule> ipRules;
@@ -39,7 +39,7 @@ public final class EventHubNamespaceNetworkRulesets {
      */
     private @Nullable Boolean trustedServiceAccessEnabled;
     /**
-     * @return One or more `virtual_network_rule` blocks as defined below.
+     * @return One or more `virtualNetworkRule` blocks as defined below.
      * 
      */
     private @Nullable List<EventHubNamespaceNetworkRulesetsVirtualNetworkRule> virtualNetworkRules;
@@ -53,7 +53,7 @@ public final class EventHubNamespaceNetworkRulesets {
         return this.defaultAction;
     }
     /**
-     * @return One or more `ip_rule` blocks as defined below.
+     * @return One or more `ipRule` blocks as defined below.
      * 
      */
     public List<EventHubNamespaceNetworkRulesetsIpRule> ipRules() {
@@ -76,7 +76,7 @@ public final class EventHubNamespaceNetworkRulesets {
         return Optional.ofNullable(this.trustedServiceAccessEnabled);
     }
     /**
-     * @return One or more `virtual_network_rule` blocks as defined below.
+     * @return One or more `virtualNetworkRule` blocks as defined below.
      * 
      */
     public List<EventHubNamespaceNetworkRulesetsVirtualNetworkRule> virtualNetworkRules() {

@@ -19,14 +19,14 @@ public final class KubernetesClusterAciConnectorLinuxArgs extends com.pulumi.res
     public static final KubernetesClusterAciConnectorLinuxArgs Empty = new KubernetesClusterAciConnectorLinuxArgs();
 
     /**
-     * A `connector_identity` block is exported. The exported attributes are defined below.
+     * A `connectorIdentity` block is exported. The exported attributes are defined below.
      * 
      */
     @Import(name="connectorIdentities")
     private @Nullable Output<List<KubernetesClusterAciConnectorLinuxConnectorIdentityArgs>> connectorIdentities;
 
     /**
-     * @return A `connector_identity` block is exported. The exported attributes are defined below.
+     * @return A `connectorIdentity` block is exported. The exported attributes are defined below.
      * 
      */
     public Optional<Output<List<KubernetesClusterAciConnectorLinuxConnectorIdentityArgs>>> connectorIdentities() {
@@ -160,7 +160,7 @@ public final class KubernetesClusterAciConnectorLinuxArgs extends com.pulumi.res
         }
 
         /**
-         * @param connectorIdentities A `connector_identity` block is exported. The exported attributes are defined below.
+         * @param connectorIdentities A `connectorIdentity` block is exported. The exported attributes are defined below.
          * 
          * @return builder
          * 
@@ -171,7 +171,7 @@ public final class KubernetesClusterAciConnectorLinuxArgs extends com.pulumi.res
         }
 
         /**
-         * @param connectorIdentities A `connector_identity` block is exported. The exported attributes are defined below.
+         * @param connectorIdentities A `connectorIdentity` block is exported. The exported attributes are defined below.
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class KubernetesClusterAciConnectorLinuxArgs extends com.pulumi.res
         }
 
         /**
-         * @param connectorIdentities A `connector_identity` block is exported. The exported attributes are defined below.
+         * @param connectorIdentities A `connectorIdentity` block is exported. The exported attributes are defined below.
          * 
          * @return builder
          * 

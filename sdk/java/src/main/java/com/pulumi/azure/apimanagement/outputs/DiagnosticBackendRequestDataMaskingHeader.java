@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class DiagnosticBackendRequestDataMaskingHeader {
     /**
-     * @return The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
+     * @return The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
      * 
      */
     private String mode;
@@ -23,7 +23,7 @@ public final class DiagnosticBackendRequestDataMaskingHeader {
 
     private DiagnosticBackendRequestDataMaskingHeader() {}
     /**
-     * @return The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
+     * @return The data masking mode. Possible values are `Mask` and `Hide` for `queryParams`. The only possible value is `Mask` for `headers`.
      * 
      */
     public String mode() {

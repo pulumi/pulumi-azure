@@ -14,15 +14,15 @@ namespace Pulumi.Azure.Monitoring.Outputs
     public sealed class AlertProcessingRuleSuppressionScheduleRecurrence
     {
         /// <summary>
-        /// One or more `daily` blocks as defined above.
+        /// One or more `Daily` blocks as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.AlertProcessingRuleSuppressionScheduleRecurrenceDaily> Dailies;
         /// <summary>
-        /// One or more `monthly` blocks as defined above.
+        /// One or more `Monthly` blocks as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.AlertProcessingRuleSuppressionScheduleRecurrenceMonthly> Monthlies;
         /// <summary>
-        /// One or more `weekly` blocks as defined below.
+        /// One or more `Weekly` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AlertProcessingRuleSuppressionScheduleRecurrenceWeekly> Weeklies;
 

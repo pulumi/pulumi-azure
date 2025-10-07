@@ -14,7 +14,7 @@ namespace Pulumi.Azure.DevTest.Outputs
     public sealed class VirtualNetworkSubnetSharedPublicIpAddress
     {
         /// <summary>
-        /// A list of `allowed_ports` blocks as defined below.
+        /// A list of `AllowedPorts` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.VirtualNetworkSubnetSharedPublicIpAddressAllowedPort> AllowedPorts;
 

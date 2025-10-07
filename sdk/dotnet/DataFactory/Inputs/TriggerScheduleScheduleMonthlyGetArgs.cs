@@ -13,13 +13,13 @@ namespace Pulumi.Azure.DataFactory.Inputs
     public sealed class TriggerScheduleScheduleMonthlyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The occurrence of the specified day during the month. For example, a `monthly` property with `weekday` and `week` values of `Sunday, -1` means the last Sunday of the month.
+        /// The occurrence of the specified day during the month. For example, a `Monthly` property with `Weekday` and `Week` values of `Sunday, -1` means the last Sunday of the month.
         /// </summary>
         [Input("week")]
         public Input<int>? Week { get; set; }
 
         /// <summary>
-        /// The day of the week on which the trigger runs. For example, a `monthly` property with a `weekday` value of `Sunday` means every Sunday of the month.
+        /// The day of the week on which the trigger runs. For example, a `Monthly` property with a `Weekday` value of `Sunday` means every Sunday of the month.
         /// </summary>
         [Input("weekday", required: true)]
         public Input<string> Weekday { get; set; } = null!;

@@ -129,14 +129,14 @@ public final class NamedValueArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `value_from_key_vault` block as defined below. If specified, `secret` must also be set to `true`.
+     * A `valueFromKeyVault` block as defined below. If specified, `secret` must also be set to `true`.
      * 
      */
     @Import(name="valueFromKeyVault")
     private @Nullable Output<NamedValueValueFromKeyVaultArgs> valueFromKeyVault;
 
     /**
-     * @return A `value_from_key_vault` block as defined below. If specified, `secret` must also be set to `true`.
+     * @return A `valueFromKeyVault` block as defined below. If specified, `secret` must also be set to `true`.
      * 
      */
     public Optional<Output<NamedValueValueFromKeyVaultArgs>> valueFromKeyVault() {
@@ -336,7 +336,7 @@ public final class NamedValueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param valueFromKeyVault A `value_from_key_vault` block as defined below. If specified, `secret` must also be set to `true`.
+         * @param valueFromKeyVault A `valueFromKeyVault` block as defined below. If specified, `secret` must also be set to `true`.
          * 
          * @return builder
          * 
@@ -347,7 +347,7 @@ public final class NamedValueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param valueFromKeyVault A `value_from_key_vault` block as defined below. If specified, `secret` must also be set to `true`.
+         * @param valueFromKeyVault A `valueFromKeyVault` block as defined below. If specified, `secret` must also be set to `true`.
          * 
          * @return builder
          * 

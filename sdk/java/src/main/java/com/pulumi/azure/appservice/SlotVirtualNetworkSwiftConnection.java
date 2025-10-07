@@ -157,14 +157,14 @@ public class SlotVirtualNetworkSwiftConnection extends com.pulumi.resources.Cust
         return this.slotName;
     }
     /**
-     * The ID of the subnet the app service will be associated to (the subnet must have a `service_delegation` configured for `Microsoft.Web/serverFarms`).
+     * The ID of the subnet the app service will be associated to (the subnet must have a `serviceDelegation` configured for `Microsoft.Web/serverFarms`).
      * 
      */
     @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output<String> subnetId;
 
     /**
-     * @return The ID of the subnet the app service will be associated to (the subnet must have a `service_delegation` configured for `Microsoft.Web/serverFarms`).
+     * @return The ID of the subnet the app service will be associated to (the subnet must have a `serviceDelegation` configured for `Microsoft.Web/serverFarms`).
      * 
      */
     public Output<String> subnetId() {

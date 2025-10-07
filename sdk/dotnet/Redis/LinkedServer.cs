@@ -12,6 +12,81 @@ namespace Pulumi.Azure.Redis
     /// <summary>
     /// Manages a Redis Linked Server (ie Geo Location)
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example_primary = new Azure.Core.ResourceGroup("example-primary", new()
+    ///     {
+    ///         Name = "example-resources-primary",
+    ///         Location = "East US",
+    ///     });
+    /// 
+    ///     var example_primaryCache = new Azure.Redis.Cache("example-primary", new()
+    ///     {
+    ///         Name = "example-cache1",
+    ///         Location = example_primary.Location,
+    ///         ResourceGroupName = example_primary.Name,
+    ///         Capacity = 1,
+    ///         Family = "P",
+    ///         SkuName = "Premium",
+    ///         EnableNonSslPort = false,
+    ///         RedisConfiguration = new Azure.Redis.Inputs.CacheRedisConfigurationArgs
+    ///         {
+    ///             MaxmemoryReserved = 2,
+    ///             MaxmemoryDelta = 2,
+    ///             MaxmemoryPolicy = "allkeys-lru",
+    ///         },
+    ///     });
+    /// 
+    ///     var example_secondary = new Azure.Core.ResourceGroup("example-secondary", new()
+    ///     {
+    ///         Name = "example-resources-secondary",
+    ///         Location = "West US",
+    ///     });
+    /// 
+    ///     var example_secondaryCache = new Azure.Redis.Cache("example-secondary", new()
+    ///     {
+    ///         Name = "example-cache2",
+    ///         Location = example_secondary.Location,
+    ///         ResourceGroupName = example_secondary.Name,
+    ///         Capacity = 1,
+    ///         Family = "P",
+    ///         SkuName = "Premium",
+    ///         EnableNonSslPort = false,
+    ///         RedisConfiguration = new Azure.Redis.Inputs.CacheRedisConfigurationArgs
+    ///         {
+    ///             MaxmemoryReserved = 2,
+    ///             MaxmemoryDelta = 2,
+    ///             MaxmemoryPolicy = "allkeys-lru",
+    ///         },
+    ///     });
+    /// 
+    ///     var example_link = new Azure.Redis.LinkedServer("example-link", new()
+    ///     {
+    ///         TargetRedisCacheName = example_primaryCache.Name,
+    ///         ResourceGroupName = example_primaryCache.ResourceGroupName,
+    ///         LinkedRedisCacheId = example_secondaryCache.Id,
+    ///         LinkedRedisCacheLocation = example_secondaryCache.Location,
+    ///         ServerRole = "Secondary",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Cache` - 2024-11-01
+    /// 
     /// ## Import
     /// 
     /// Redis can be imported using the `resource id`, e.g.

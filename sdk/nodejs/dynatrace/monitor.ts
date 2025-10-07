@@ -9,6 +9,48 @@ import * as utilities from "../utilities";
 /**
  * Manages a Dynatrace monitor.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleMonitor = new azure.dynatrace.Monitor("example", {
+ *     name: "exmpledynatracemonitor",
+ *     resourceGroupName: example.name,
+ *     location: test.location,
+ *     monitoringEnabled: true,
+ *     marketplaceSubscriptionStatus: "Active",
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ *     user: {
+ *         firstName: "Alice",
+ *         lastName: "Bobab",
+ *         email: "alice@microsoft.com",
+ *         phoneNumber: "123456",
+ *         country: "westus",
+ *     },
+ *     plan: {
+ *         usageType: "COMMITTED",
+ *         billingCycle: "MONTHLY",
+ *         plan: "azureportalintegration_privatepreview@TIDhjdtn7tfnxcy",
+ *         effectiveDate: "2019-08-30T15:14:33Z",
+ *     },
+ * });
+ * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Dynatrace.Observability` - 2023-04-27
+ *
  * ## Import
  *
  * Dynatrace monitor can be imported using the `resource id`, e.g.

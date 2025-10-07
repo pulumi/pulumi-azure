@@ -169,7 +169,7 @@ namespace Pulumi.Azure.Compute
     public partial class PacketCapture : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `Filter` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("filters")]
         public Output<ImmutableArray<Outputs.PacketCaptureFilter>> Filters { get; private set; } = null!;
@@ -205,7 +205,7 @@ namespace Pulumi.Azure.Compute
         public Output<string> NetworkWatcherId { get; private set; } = null!;
 
         /// <summary>
-        /// A `storage_location` block as defined below. Changing this forces a new resource to be created.
+        /// A `StorageLocation` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("storageLocation")]
         public Output<Outputs.PacketCaptureStorageLocation> StorageLocation { get; private set; } = null!;
@@ -266,7 +266,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.PacketCaptureFilterArgs>? _filters;
 
         /// <summary>
-        /// One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `Filter` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.PacketCaptureFilterArgs> Filters
         {
@@ -305,7 +305,7 @@ namespace Pulumi.Azure.Compute
         public Input<string> NetworkWatcherId { get; set; } = null!;
 
         /// <summary>
-        /// A `storage_location` block as defined below. Changing this forces a new resource to be created.
+        /// A `StorageLocation` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageLocation", required: true)]
         public Input<Inputs.PacketCaptureStorageLocationArgs> StorageLocation { get; set; } = null!;
@@ -328,7 +328,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.PacketCaptureFilterGetArgs>? _filters;
 
         /// <summary>
-        /// One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `Filter` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.PacketCaptureFilterGetArgs> Filters
         {
@@ -367,7 +367,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? NetworkWatcherId { get; set; }
 
         /// <summary>
-        /// A `storage_location` block as defined below. Changing this forces a new resource to be created.
+        /// A `StorageLocation` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageLocation")]
         public Input<Inputs.PacketCaptureStorageLocationGetArgs>? StorageLocation { get; set; }

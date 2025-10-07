@@ -7,6 +7,57 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Native Qumulo Scalable File System.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-vnet",
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "example-subnet",
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.1.0/24"],
+ *     delegations: [{
+ *         name: "delegation",
+ *         serviceDelegation: {
+ *             actions: ["Microsoft.Network/virtualNetworks/subnets/join/action"],
+ *             name: "Qumulo.Storage/fileSystems",
+ *         },
+ *     }],
+ * });
+ * const exampleFileSystem = new azure.qumulo.FileSystem("example", {
+ *     name: "example",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     adminPassword: ")^X#ZX#JRyIY}t9",
+ *     availabilityZone: "1",
+ *     delegatedSubnetId: exampleSubnet.id,
+ *     storageSku: "Standard",
+ *     email: "test@test.com",
+ *     tags: {
+ *         environment: "test",
+ *     },
+ * });
+ * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Qumulo.Storage` - 2024-06-19
+ *
  * ## Import
  *
  * An existing File System can be imported into Pulumi using the `resource id`, e.g.

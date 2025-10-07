@@ -12,14 +12,14 @@ import java.util.Objects;
 @CustomType
 public final class BackupPolicyPostgresqlFlexibleServerDefaultRetentionRule {
     /**
-     * @return A `life_cycle` block as defined below. Changing this forces a new resource to be created.
+     * @return A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     private List<BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycle> lifeCycles;
 
     private BackupPolicyPostgresqlFlexibleServerDefaultRetentionRule() {}
     /**
-     * @return A `life_cycle` block as defined below. Changing this forces a new resource to be created.
+     * @return A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public List<BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycle> lifeCycles() {

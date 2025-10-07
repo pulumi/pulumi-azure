@@ -130,7 +130,7 @@ namespace Pulumi.Azure.Orbital
     public partial class ContactProfile : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Auto-tracking configurations for a spacecraft. Possible values are `disabled`, `xBand` and `sBand`.
+        /// Auto-tracking configurations for a spacecraft. Possible values are `Disabled`, `xBand` and `sBand`.
         /// </summary>
         [Output("autoTracking")]
         public Output<string> AutoTracking { get; private set; } = null!;
@@ -142,7 +142,7 @@ namespace Pulumi.Azure.Orbital
         public Output<string?> EventHubUri { get; private set; } = null!;
 
         /// <summary>
-        /// A list of spacecraft links. A `links` block as defined below. Changing this forces a new resource to be created.
+        /// A list of spacecraft links. A `Links` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("links")]
         public Output<ImmutableArray<Outputs.ContactProfileLink>> Links { get; private set; } = null!;
@@ -236,7 +236,7 @@ namespace Pulumi.Azure.Orbital
     public sealed class ContactProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Auto-tracking configurations for a spacecraft. Possible values are `disabled`, `xBand` and `sBand`.
+        /// Auto-tracking configurations for a spacecraft. Possible values are `Disabled`, `xBand` and `sBand`.
         /// </summary>
         [Input("autoTracking", required: true)]
         public Input<string> AutoTracking { get; set; } = null!;
@@ -251,7 +251,7 @@ namespace Pulumi.Azure.Orbital
         private InputList<Inputs.ContactProfileLinkArgs>? _links;
 
         /// <summary>
-        /// A list of spacecraft links. A `links` block as defined below. Changing this forces a new resource to be created.
+        /// A list of spacecraft links. A `Links` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.ContactProfileLinkArgs> Links
         {
@@ -316,7 +316,7 @@ namespace Pulumi.Azure.Orbital
     public sealed class ContactProfileState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Auto-tracking configurations for a spacecraft. Possible values are `disabled`, `xBand` and `sBand`.
+        /// Auto-tracking configurations for a spacecraft. Possible values are `Disabled`, `xBand` and `sBand`.
         /// </summary>
         [Input("autoTracking")]
         public Input<string>? AutoTracking { get; set; }
@@ -331,7 +331,7 @@ namespace Pulumi.Azure.Orbital
         private InputList<Inputs.ContactProfileLinkGetArgs>? _links;
 
         /// <summary>
-        /// A list of spacecraft links. A `links` block as defined below. Changing this forces a new resource to be created.
+        /// A list of spacecraft links. A `Links` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.ContactProfileLinkGetArgs> Links
         {

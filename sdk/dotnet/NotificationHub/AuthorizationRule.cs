@@ -78,15 +78,15 @@ namespace Pulumi.Azure.NotificationHub
     public partial class AuthorizationRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Does this Authorization Rule have Listen access to the Notification Hub? Defaults to `false`.
+        /// Does this Authorization Rule have Listen access to the Notification Hub? Defaults to `False`.
         /// </summary>
         [Output("listen")]
         public Output<bool?> Listen { get; private set; } = null!;
 
         /// <summary>
-        /// Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`.
+        /// Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `False`.
         /// 
-        /// &gt; **Note:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
+        /// &gt; **Note:** If `Manage` is set to `True` then both `Send` and `Listen` must also be set to `True`.
         /// </summary>
         [Output("manage")]
         public Output<bool?> Manage { get; private set; } = null!;
@@ -140,7 +140,7 @@ namespace Pulumi.Azure.NotificationHub
         public Output<string> SecondaryConnectionString { get; private set; } = null!;
 
         /// <summary>
-        /// Does this Authorization Rule have Send access to the Notification Hub? Defaults to `false`.
+        /// Does this Authorization Rule have Send access to the Notification Hub? Defaults to `False`.
         /// </summary>
         [Output("send")]
         public Output<bool?> Send { get; private set; } = null!;
@@ -199,15 +199,15 @@ namespace Pulumi.Azure.NotificationHub
     public sealed class AuthorizationRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Does this Authorization Rule have Listen access to the Notification Hub? Defaults to `false`.
+        /// Does this Authorization Rule have Listen access to the Notification Hub? Defaults to `False`.
         /// </summary>
         [Input("listen")]
         public Input<bool>? Listen { get; set; }
 
         /// <summary>
-        /// Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`.
+        /// Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `False`.
         /// 
-        /// &gt; **Note:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
+        /// &gt; **Note:** If `Manage` is set to `True` then both `Send` and `Listen` must also be set to `True`.
         /// </summary>
         [Input("manage")]
         public Input<bool>? Manage { get; set; }
@@ -237,7 +237,7 @@ namespace Pulumi.Azure.NotificationHub
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Does this Authorization Rule have Send access to the Notification Hub? Defaults to `false`.
+        /// Does this Authorization Rule have Send access to the Notification Hub? Defaults to `False`.
         /// </summary>
         [Input("send")]
         public Input<bool>? Send { get; set; }
@@ -251,15 +251,15 @@ namespace Pulumi.Azure.NotificationHub
     public sealed class AuthorizationRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Does this Authorization Rule have Listen access to the Notification Hub? Defaults to `false`.
+        /// Does this Authorization Rule have Listen access to the Notification Hub? Defaults to `False`.
         /// </summary>
         [Input("listen")]
         public Input<bool>? Listen { get; set; }
 
         /// <summary>
-        /// Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`.
+        /// Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `False`.
         /// 
-        /// &gt; **Note:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
+        /// &gt; **Note:** If `Manage` is set to `True` then both `Send` and `Listen` must also be set to `True`.
         /// </summary>
         [Input("manage")]
         public Input<bool>? Manage { get; set; }
@@ -353,7 +353,7 @@ namespace Pulumi.Azure.NotificationHub
         }
 
         /// <summary>
-        /// Does this Authorization Rule have Send access to the Notification Hub? Defaults to `false`.
+        /// Does this Authorization Rule have Send access to the Notification Hub? Defaults to `False`.
         /// </summary>
         [Input("send")]
         public Input<bool>? Send { get; set; }

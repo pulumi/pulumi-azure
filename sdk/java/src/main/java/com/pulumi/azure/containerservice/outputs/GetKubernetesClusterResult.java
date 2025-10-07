@@ -32,12 +32,12 @@ import java.util.Objects;
 @CustomType
 public final class GetKubernetesClusterResult {
     /**
-     * @return An `aci_connector_linux` block as documented below.
+     * @return An `aciConnectorLinux` block as documented below.
      * 
      */
     private List<GetKubernetesClusterAciConnectorLinux> aciConnectorLinuxes;
     /**
-     * @return An `agent_pool_profile` block as documented below.
+     * @return An `agentPoolProfile` block as documented below.
      * 
      */
     private List<GetKubernetesClusterAgentPoolProfile> agentPoolProfiles;
@@ -47,7 +47,7 @@ public final class GetKubernetesClusterResult {
      */
     private List<String> apiServerAuthorizedIpRanges;
     /**
-     * @return An `azure_active_directory_role_based_access_control` block as documented below.
+     * @return An `azureActiveDirectoryRoleBasedAccessControl` block as documented below.
      * 
      */
     private List<GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl> azureActiveDirectoryRoleBasedAccessControls;
@@ -97,17 +97,17 @@ public final class GetKubernetesClusterResult {
      */
     private List<GetKubernetesClusterIdentity> identities;
     /**
-     * @return An `ingress_application_gateway` block as documented below.
+     * @return An `ingressApplicationGateway` block as documented below.
      * 
      */
     private List<GetKubernetesClusterIngressApplicationGateway> ingressApplicationGateways;
     /**
-     * @return A `key_management_service` block as documented below.
+     * @return A `keyManagementService` block as documented below.
      * 
      */
     private List<GetKubernetesClusterKeyManagementService> keyManagementServices;
     /**
-     * @return A `key_vault_secrets_provider` block as documented below.
+     * @return A `keyVaultSecretsProvider` block as documented below.
      * 
      */
     private List<GetKubernetesClusterKeyVaultSecretsProvider> keyVaultSecretsProviders;
@@ -117,7 +117,7 @@ public final class GetKubernetesClusterResult {
      */
     private String kubeAdminConfigRaw;
     /**
-     * @return A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts are not disabled.
+     * @return A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts are not disabled.
      * 
      */
     private List<GetKubernetesClusterKubeAdminConfig> kubeAdminConfigs;
@@ -127,12 +127,12 @@ public final class GetKubernetesClusterResult {
      */
     private String kubeConfigRaw;
     /**
-     * @return A `kube_config` block as defined below.
+     * @return A `kubeConfig` block as defined below.
      * 
      */
     private List<GetKubernetesClusterKubeConfig> kubeConfigs;
     /**
-     * @return A `kubelet_identity` block as documented below.
+     * @return A `kubeletIdentity` block as documented below.
      * 
      */
     private List<GetKubernetesClusterKubeletIdentity> kubeletIdentities;
@@ -142,7 +142,7 @@ public final class GetKubernetesClusterResult {
      */
     private String kubernetesVersion;
     /**
-     * @return A `linux_profile` block as documented below.
+     * @return A `linuxProfile` block as documented below.
      * 
      */
     private List<GetKubernetesClusterLinuxProfile> linuxProfiles;
@@ -152,7 +152,7 @@ public final class GetKubernetesClusterResult {
      */
     private String location;
     /**
-     * @return A `microsoft_defender` block as defined below.
+     * @return A `microsoftDefender` block as defined below.
      * 
      */
     private List<GetKubernetesClusterMicrosoftDefender> microsoftDefenders;
@@ -162,7 +162,7 @@ public final class GetKubernetesClusterResult {
      */
     private String name;
     /**
-     * @return A `network_profile` block as documented below.
+     * @return A `networkProfile` block as documented below.
      * 
      */
     private List<GetKubernetesClusterNetworkProfile> networkProfiles;
@@ -187,7 +187,7 @@ public final class GetKubernetesClusterResult {
      */
     private String oidcIssuerUrl;
     /**
-     * @return An `oms_agent` block as documented below.
+     * @return An `omsAgent` block as documented below.
      * 
      */
     private List<GetKubernetesClusterOmsAgent> omsAgents;
@@ -214,12 +214,12 @@ public final class GetKubernetesClusterResult {
     private Boolean roleBasedAccessControlEnabled;
     private List<GetKubernetesClusterServiceMeshProfile> serviceMeshProfiles;
     /**
-     * @return A `service_principal` block as documented below.
+     * @return A `servicePrincipal` block as documented below.
      * 
      */
     private List<GetKubernetesClusterServicePrincipal> servicePrincipals;
     /**
-     * @return A `storage_profile` block as documented below.
+     * @return A `storageProfile` block as documented below.
      * 
      */
     private List<GetKubernetesClusterStorageProfile> storageProfiles;
@@ -229,21 +229,21 @@ public final class GetKubernetesClusterResult {
      */
     private Map<String,String> tags;
     /**
-     * @return A `windows_profile` block as documented below.
+     * @return A `windowsProfile` block as documented below.
      * 
      */
     private List<GetKubernetesClusterWindowsProfile> windowsProfiles;
 
     private GetKubernetesClusterResult() {}
     /**
-     * @return An `aci_connector_linux` block as documented below.
+     * @return An `aciConnectorLinux` block as documented below.
      * 
      */
     public List<GetKubernetesClusterAciConnectorLinux> aciConnectorLinuxes() {
         return this.aciConnectorLinuxes;
     }
     /**
-     * @return An `agent_pool_profile` block as documented below.
+     * @return An `agentPoolProfile` block as documented below.
      * 
      */
     public List<GetKubernetesClusterAgentPoolProfile> agentPoolProfiles() {
@@ -257,7 +257,7 @@ public final class GetKubernetesClusterResult {
         return this.apiServerAuthorizedIpRanges;
     }
     /**
-     * @return An `azure_active_directory_role_based_access_control` block as documented below.
+     * @return An `azureActiveDirectoryRoleBasedAccessControl` block as documented below.
      * 
      */
     public List<GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl> azureActiveDirectoryRoleBasedAccessControls() {
@@ -327,21 +327,21 @@ public final class GetKubernetesClusterResult {
         return this.identities;
     }
     /**
-     * @return An `ingress_application_gateway` block as documented below.
+     * @return An `ingressApplicationGateway` block as documented below.
      * 
      */
     public List<GetKubernetesClusterIngressApplicationGateway> ingressApplicationGateways() {
         return this.ingressApplicationGateways;
     }
     /**
-     * @return A `key_management_service` block as documented below.
+     * @return A `keyManagementService` block as documented below.
      * 
      */
     public List<GetKubernetesClusterKeyManagementService> keyManagementServices() {
         return this.keyManagementServices;
     }
     /**
-     * @return A `key_vault_secrets_provider` block as documented below.
+     * @return A `keyVaultSecretsProvider` block as documented below.
      * 
      */
     public List<GetKubernetesClusterKeyVaultSecretsProvider> keyVaultSecretsProviders() {
@@ -355,7 +355,7 @@ public final class GetKubernetesClusterResult {
         return this.kubeAdminConfigRaw;
     }
     /**
-     * @return A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts are not disabled.
+     * @return A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts are not disabled.
      * 
      */
     public List<GetKubernetesClusterKubeAdminConfig> kubeAdminConfigs() {
@@ -369,14 +369,14 @@ public final class GetKubernetesClusterResult {
         return this.kubeConfigRaw;
     }
     /**
-     * @return A `kube_config` block as defined below.
+     * @return A `kubeConfig` block as defined below.
      * 
      */
     public List<GetKubernetesClusterKubeConfig> kubeConfigs() {
         return this.kubeConfigs;
     }
     /**
-     * @return A `kubelet_identity` block as documented below.
+     * @return A `kubeletIdentity` block as documented below.
      * 
      */
     public List<GetKubernetesClusterKubeletIdentity> kubeletIdentities() {
@@ -390,7 +390,7 @@ public final class GetKubernetesClusterResult {
         return this.kubernetesVersion;
     }
     /**
-     * @return A `linux_profile` block as documented below.
+     * @return A `linuxProfile` block as documented below.
      * 
      */
     public List<GetKubernetesClusterLinuxProfile> linuxProfiles() {
@@ -404,7 +404,7 @@ public final class GetKubernetesClusterResult {
         return this.location;
     }
     /**
-     * @return A `microsoft_defender` block as defined below.
+     * @return A `microsoftDefender` block as defined below.
      * 
      */
     public List<GetKubernetesClusterMicrosoftDefender> microsoftDefenders() {
@@ -418,7 +418,7 @@ public final class GetKubernetesClusterResult {
         return this.name;
     }
     /**
-     * @return A `network_profile` block as documented below.
+     * @return A `networkProfile` block as documented below.
      * 
      */
     public List<GetKubernetesClusterNetworkProfile> networkProfiles() {
@@ -453,7 +453,7 @@ public final class GetKubernetesClusterResult {
         return this.oidcIssuerUrl;
     }
     /**
-     * @return An `oms_agent` block as documented below.
+     * @return An `omsAgent` block as documented below.
      * 
      */
     public List<GetKubernetesClusterOmsAgent> omsAgents() {
@@ -494,14 +494,14 @@ public final class GetKubernetesClusterResult {
         return this.serviceMeshProfiles;
     }
     /**
-     * @return A `service_principal` block as documented below.
+     * @return A `servicePrincipal` block as documented below.
      * 
      */
     public List<GetKubernetesClusterServicePrincipal> servicePrincipals() {
         return this.servicePrincipals;
     }
     /**
-     * @return A `storage_profile` block as documented below.
+     * @return A `storageProfile` block as documented below.
      * 
      */
     public List<GetKubernetesClusterStorageProfile> storageProfiles() {
@@ -515,7 +515,7 @@ public final class GetKubernetesClusterResult {
         return this.tags;
     }
     /**
-     * @return A `windows_profile` block as documented below.
+     * @return A `windowsProfile` block as documented below.
      * 
      */
     public List<GetKubernetesClusterWindowsProfile> windowsProfiles() {

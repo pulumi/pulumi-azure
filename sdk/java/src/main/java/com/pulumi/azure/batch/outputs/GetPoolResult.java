@@ -34,7 +34,7 @@ public final class GetPoolResult {
      */
     private String accountName;
     /**
-     * @return A `auto_scale` block that describes the scale settings when using auto scale.
+     * @return A `autoScale` block that describes the scale settings when using auto scale.
      * 
      */
     private List<GetPoolAutoScale> autoScales;
@@ -49,12 +49,12 @@ public final class GetPoolResult {
      */
     private List<GetPoolContainerConfiguration> containerConfigurations;
     /**
-     * @return A `data_disks` block describes the data disk settings.
+     * @return A `dataDisks` block describes the data disk settings.
      * 
      */
     private List<GetPoolDataDisk> dataDisks;
     /**
-     * @return A `disk_encryption` block describes the disk encryption configuration applied on compute nodes in the pool.
+     * @return A `diskEncryption` block describes the disk encryption configuration applied on compute nodes in the pool.
      * 
      */
     private List<GetPoolDiskEncryption> diskEncryptions;
@@ -65,7 +65,7 @@ public final class GetPoolResult {
      */
     private List<GetPoolExtension> extensions;
     /**
-     * @return A `fixed_scale` block that describes the scale settings when using fixed scale.
+     * @return A `fixedScale` block that describes the scale settings when using fixed scale.
      * 
      */
     private List<GetPoolFixedScale> fixedScales;
@@ -107,7 +107,7 @@ public final class GetPoolResult {
      */
     private String nodeAgentSkuId;
     /**
-     * @return A `node_placement` block that describes the placement policy for allocating nodes in the pool.
+     * @return A `nodePlacement` block that describes the placement policy for allocating nodes in the pool.
      * 
      */
     private List<GetPoolNodePlacement> nodePlacements;
@@ -118,7 +118,7 @@ public final class GetPoolResult {
     private String osDiskPlacement;
     private String resourceGroupName;
     /**
-     * @return A `start_task` block that describes the start task settings for the Batch pool.
+     * @return A `startTask` block that describes the start task settings for the Batch pool.
      * 
      */
     private List<GetPoolStartTask> startTasks;
@@ -128,12 +128,12 @@ public final class GetPoolResult {
      */
     private List<GetPoolStorageImageReference> storageImageReferences;
     /**
-     * @return A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool.
+     * @return A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool.
      * 
      */
     private List<GetPoolTaskSchedulingPolicy> taskSchedulingPolicies;
     /**
-     * @return A `user_accounts` block that describes the list of user accounts to be created on each node in the pool.
+     * @return A `userAccounts` block that describes the list of user accounts to be created on each node in the pool.
      * 
      */
     private List<GetPoolUserAccount> userAccounts;
@@ -157,7 +157,7 @@ public final class GetPoolResult {
         return this.accountName;
     }
     /**
-     * @return A `auto_scale` block that describes the scale settings when using auto scale.
+     * @return A `autoScale` block that describes the scale settings when using auto scale.
      * 
      */
     public List<GetPoolAutoScale> autoScales() {
@@ -178,14 +178,14 @@ public final class GetPoolResult {
         return this.containerConfigurations;
     }
     /**
-     * @return A `data_disks` block describes the data disk settings.
+     * @return A `dataDisks` block describes the data disk settings.
      * 
      */
     public List<GetPoolDataDisk> dataDisks() {
         return this.dataDisks;
     }
     /**
-     * @return A `disk_encryption` block describes the disk encryption configuration applied on compute nodes in the pool.
+     * @return A `diskEncryption` block describes the disk encryption configuration applied on compute nodes in the pool.
      * 
      */
     public List<GetPoolDiskEncryption> diskEncryptions() {
@@ -202,7 +202,7 @@ public final class GetPoolResult {
         return this.extensions;
     }
     /**
-     * @return A `fixed_scale` block that describes the scale settings when using fixed scale.
+     * @return A `fixedScale` block that describes the scale settings when using fixed scale.
      * 
      */
     public List<GetPoolFixedScale> fixedScales() {
@@ -264,7 +264,7 @@ public final class GetPoolResult {
         return this.nodeAgentSkuId;
     }
     /**
-     * @return A `node_placement` block that describes the placement policy for allocating nodes in the pool.
+     * @return A `nodePlacement` block that describes the placement policy for allocating nodes in the pool.
      * 
      */
     public List<GetPoolNodePlacement> nodePlacements() {
@@ -281,7 +281,7 @@ public final class GetPoolResult {
         return this.resourceGroupName;
     }
     /**
-     * @return A `start_task` block that describes the start task settings for the Batch pool.
+     * @return A `startTask` block that describes the start task settings for the Batch pool.
      * 
      */
     public List<GetPoolStartTask> startTasks() {
@@ -295,14 +295,14 @@ public final class GetPoolResult {
         return this.storageImageReferences;
     }
     /**
-     * @return A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool.
+     * @return A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool.
      * 
      */
     public List<GetPoolTaskSchedulingPolicy> taskSchedulingPolicies() {
         return this.taskSchedulingPolicies;
     }
     /**
-     * @return A `user_accounts` block that describes the list of user accounts to be created on each node in the pool.
+     * @return A `userAccounts` block that describes the list of user accounts to be created on each node in the pool.
      * 
      */
     public List<GetPoolUserAccount> userAccounts() {

@@ -22,7 +22,7 @@ public final class RulesEngineRule {
      */
     private @Nullable RulesEngineRuleAction action;
     /**
-     * @return One or more `match_condition` block as defined below.
+     * @return One or more `matchCondition` block as defined below.
      * 
      */
     private @Nullable List<RulesEngineRuleMatchCondition> matchConditions;
@@ -46,7 +46,7 @@ public final class RulesEngineRule {
         return Optional.ofNullable(this.action);
     }
     /**
-     * @return One or more `match_condition` block as defined below.
+     * @return One or more `matchCondition` block as defined below.
      * 
      */
     public List<RulesEngineRuleMatchCondition> matchConditions() {

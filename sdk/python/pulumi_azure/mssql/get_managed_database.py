@@ -134,6 +134,15 @@ def get_managed_database(managed_instance_id: Optional[_builtins.str] = None,
     """
     Use this data source to access information about an existing Azure SQL Azure Managed Database.
 
+    ## Example Usage
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Sql` - 2023-08-01-preview
+
 
     :param _builtins.str managed_instance_id: The SQL Managed Instance ID.
     :param _builtins.str name: The name of this Azure SQL Azure Managed Database.
@@ -158,6 +167,15 @@ def get_managed_database_output(managed_instance_id: Optional[pulumi.Input[_buil
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedDatabaseResult]:
     """
     Use this data source to access information about an existing Azure SQL Azure Managed Database.
+
+    ## Example Usage
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Sql` - 2023-08-01-preview
 
 
     :param _builtins.str managed_instance_id: The SQL Managed Instance ID.

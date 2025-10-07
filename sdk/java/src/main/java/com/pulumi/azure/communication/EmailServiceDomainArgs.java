@@ -49,14 +49,14 @@ public final class EmailServiceDomainArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The name of the Email Communication Service resource. If `domain_management` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
+     * The name of the Email Communication Service resource. If `domainManagement` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the Email Communication Service resource. If `domain_management` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
+     * @return The name of the Email Communication Service resource. If `domainManagement` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -164,7 +164,7 @@ public final class EmailServiceDomainArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name The name of the Email Communication Service resource. If `domain_management` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
+         * @param name The name of the Email Communication Service resource. If `domainManagement` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class EmailServiceDomainArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name The name of the Email Communication Service resource. If `domain_management` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
+         * @param name The name of the Email Communication Service resource. If `domainManagement` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
          * 
          * @return builder
          * 

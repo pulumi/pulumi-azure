@@ -105,13 +105,13 @@ namespace Pulumi.Azure.Datadog
     public partial class Monitor : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A `datadog_organization` block as defined below.
+        /// A `DatadogOrganization` block as defined below.
         /// </summary>
         [Output("datadogOrganization")]
         public Output<Outputs.MonitorDatadogOrganization> DatadogOrganization { get; private set; } = null!;
 
         /// <summary>
-        /// A `identity` block as defined below.
+        /// A `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.MonitorIdentity?> Identity { get; private set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.Azure.Datadog
         public Output<string> MarketplaceSubscriptionStatus { get; private set; } = null!;
 
         /// <summary>
-        /// Is monitoring enabled? Defaults to `true`.
+        /// Is monitoring enabled? Defaults to `True`.
         /// </summary>
         [Output("monitoringEnabled")]
         public Output<bool?> MonitoringEnabled { get; private set; } = null!;
@@ -159,7 +159,7 @@ namespace Pulumi.Azure.Datadog
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A `user` block as defined below.
+        /// A `User` block as defined below.
         /// </summary>
         [Output("user")]
         public Output<Outputs.MonitorUser> User { get; private set; } = null!;
@@ -211,13 +211,13 @@ namespace Pulumi.Azure.Datadog
     public sealed class MonitorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `datadog_organization` block as defined below.
+        /// A `DatadogOrganization` block as defined below.
         /// </summary>
         [Input("datadogOrganization", required: true)]
         public Input<Inputs.MonitorDatadogOrganizationArgs> DatadogOrganization { get; set; } = null!;
 
         /// <summary>
-        /// A `identity` block as defined below.
+        /// A `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.MonitorIdentityArgs>? Identity { get; set; }
@@ -229,7 +229,7 @@ namespace Pulumi.Azure.Datadog
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Is monitoring enabled? Defaults to `true`.
+        /// Is monitoring enabled? Defaults to `True`.
         /// </summary>
         [Input("monitoringEnabled")]
         public Input<bool>? MonitoringEnabled { get; set; }
@@ -265,7 +265,7 @@ namespace Pulumi.Azure.Datadog
         }
 
         /// <summary>
-        /// A `user` block as defined below.
+        /// A `User` block as defined below.
         /// </summary>
         [Input("user", required: true)]
         public Input<Inputs.MonitorUserArgs> User { get; set; } = null!;
@@ -279,13 +279,13 @@ namespace Pulumi.Azure.Datadog
     public sealed class MonitorState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `datadog_organization` block as defined below.
+        /// A `DatadogOrganization` block as defined below.
         /// </summary>
         [Input("datadogOrganization")]
         public Input<Inputs.MonitorDatadogOrganizationGetArgs>? DatadogOrganization { get; set; }
 
         /// <summary>
-        /// A `identity` block as defined below.
+        /// A `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.MonitorIdentityGetArgs>? Identity { get; set; }
@@ -303,7 +303,7 @@ namespace Pulumi.Azure.Datadog
         public Input<string>? MarketplaceSubscriptionStatus { get; set; }
 
         /// <summary>
-        /// Is monitoring enabled? Defaults to `true`.
+        /// Is monitoring enabled? Defaults to `True`.
         /// </summary>
         [Input("monitoringEnabled")]
         public Input<bool>? MonitoringEnabled { get; set; }
@@ -339,7 +339,7 @@ namespace Pulumi.Azure.Datadog
         }
 
         /// <summary>
-        /// A `user` block as defined below.
+        /// A `User` block as defined below.
         /// </summary>
         [Input("user")]
         public Input<Inputs.MonitorUserGetArgs>? User { get; set; }

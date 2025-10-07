@@ -50,14 +50,14 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `ipv4_firewall_rule` block(s) as defined below.
+     * One or more `ipv4FirewallRule` block(s) as defined below.
      * 
      */
     @Import(name="ipv4FirewallRules")
     private @Nullable Output<List<ServerIpv4FirewallRuleArgs>> ipv4FirewallRules;
 
     /**
-     * @return One or more `ipv4_firewall_rule` block(s) as defined below.
+     * @return One or more `ipv4FirewallRule` block(s) as defined below.
      * 
      */
     public Optional<Output<List<ServerIpv4FirewallRuleArgs>>> ipv4FirewallRules() {
@@ -271,7 +271,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipv4FirewallRules One or more `ipv4_firewall_rule` block(s) as defined below.
+         * @param ipv4FirewallRules One or more `ipv4FirewallRule` block(s) as defined below.
          * 
          * @return builder
          * 
@@ -282,7 +282,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipv4FirewallRules One or more `ipv4_firewall_rule` block(s) as defined below.
+         * @param ipv4FirewallRules One or more `ipv4FirewallRule` block(s) as defined below.
          * 
          * @return builder
          * 
@@ -292,7 +292,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipv4FirewallRules One or more `ipv4_firewall_rule` block(s) as defined below.
+         * @param ipv4FirewallRules One or more `ipv4FirewallRule` block(s) as defined below.
          * 
          * @return builder
          * 

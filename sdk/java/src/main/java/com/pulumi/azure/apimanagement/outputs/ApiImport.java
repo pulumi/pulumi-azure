@@ -19,12 +19,12 @@ public final class ApiImport {
      */
     private String contentFormat;
     /**
-     * @return The Content from which the API Definition should be imported. When a `content_format` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline. The URL must be accessible and return a valid document; otherwise, deployment may fail.
+     * @return The Content from which the API Definition should be imported. When a `contentFormat` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline. The URL must be accessible and return a valid document; otherwise, deployment may fail.
      * 
      */
     private String contentValue;
     /**
-     * @return A `wsdl_selector` block as defined below, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when `content_format` is `wsdl` or `wsdl-link`.
+     * @return A `wsdlSelector` block as defined below, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when `contentFormat` is `wsdl` or `wsdl-link`.
      * 
      */
     private @Nullable ApiImportWsdlSelector wsdlSelector;
@@ -38,14 +38,14 @@ public final class ApiImport {
         return this.contentFormat;
     }
     /**
-     * @return The Content from which the API Definition should be imported. When a `content_format` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline. The URL must be accessible and return a valid document; otherwise, deployment may fail.
+     * @return The Content from which the API Definition should be imported. When a `contentFormat` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline. The URL must be accessible and return a valid document; otherwise, deployment may fail.
      * 
      */
     public String contentValue() {
         return this.contentValue;
     }
     /**
-     * @return A `wsdl_selector` block as defined below, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when `content_format` is `wsdl` or `wsdl-link`.
+     * @return A `wsdlSelector` block as defined below, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when `contentFormat` is `wsdl` or `wsdl-link`.
      * 
      */
     public Optional<ApiImportWsdlSelector> wsdlSelector() {

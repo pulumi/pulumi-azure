@@ -87,7 +87,7 @@ public final class AppTemplateInitContainerArgs extends com.pulumi.resources.Res
     /**
      * The amount of ephemeral storage available to the Container App.
      * 
-     * &gt; **Note:** `ephemeral_storage` is currently in preview and not configurable at this time.
+     * &gt; **Note:** `ephemeralStorage` is currently in preview and not configurable at this time.
      * 
      */
     @Import(name="ephemeralStorage")
@@ -96,7 +96,7 @@ public final class AppTemplateInitContainerArgs extends com.pulumi.resources.Res
     /**
      * @return The amount of ephemeral storage available to the Container App.
      * 
-     * &gt; **Note:** `ephemeral_storage` is currently in preview and not configurable at this time.
+     * &gt; **Note:** `ephemeralStorage` is currently in preview and not configurable at this time.
      * 
      */
     public Optional<Output<String>> ephemeralStorage() {
@@ -153,14 +153,14 @@ public final class AppTemplateInitContainerArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * A `volume_mounts` block as detailed below.
+     * A `volumeMounts` block as detailed below.
      * 
      */
     @Import(name="volumeMounts")
     private @Nullable Output<List<AppTemplateInitContainerVolumeMountArgs>> volumeMounts;
 
     /**
-     * @return A `volume_mounts` block as detailed below.
+     * @return A `volumeMounts` block as detailed below.
      * 
      */
     public Optional<Output<List<AppTemplateInitContainerVolumeMountArgs>>> volumeMounts() {
@@ -320,7 +320,7 @@ public final class AppTemplateInitContainerArgs extends com.pulumi.resources.Res
         /**
          * @param ephemeralStorage The amount of ephemeral storage available to the Container App.
          * 
-         * &gt; **Note:** `ephemeral_storage` is currently in preview and not configurable at this time.
+         * &gt; **Note:** `ephemeralStorage` is currently in preview and not configurable at this time.
          * 
          * @return builder
          * 
@@ -333,7 +333,7 @@ public final class AppTemplateInitContainerArgs extends com.pulumi.resources.Res
         /**
          * @param ephemeralStorage The amount of ephemeral storage available to the Container App.
          * 
-         * &gt; **Note:** `ephemeral_storage` is currently in preview and not configurable at this time.
+         * &gt; **Note:** `ephemeralStorage` is currently in preview and not configurable at this time.
          * 
          * @return builder
          * 
@@ -410,7 +410,7 @@ public final class AppTemplateInitContainerArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param volumeMounts A `volume_mounts` block as detailed below.
+         * @param volumeMounts A `volumeMounts` block as detailed below.
          * 
          * @return builder
          * 
@@ -421,7 +421,7 @@ public final class AppTemplateInitContainerArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param volumeMounts A `volume_mounts` block as detailed below.
+         * @param volumeMounts A `volumeMounts` block as detailed below.
          * 
          * @return builder
          * 
@@ -431,7 +431,7 @@ public final class AppTemplateInitContainerArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param volumeMounts A `volume_mounts` block as detailed below.
+         * @param volumeMounts A `volumeMounts` block as detailed below.
          * 
          * @return builder
          * 

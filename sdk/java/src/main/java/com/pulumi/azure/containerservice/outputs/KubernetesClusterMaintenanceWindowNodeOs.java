@@ -41,7 +41,7 @@ public final class KubernetesClusterMaintenanceWindowNodeOs {
      */
     private Integer interval;
     /**
-     * @return One or more `not_allowed` block as defined below.
+     * @return One or more `notAllowed` block as defined below.
      * 
      */
     private @Nullable List<KubernetesClusterMaintenanceWindowNodeOsNotAllowed> notAlloweds;
@@ -51,7 +51,7 @@ public final class KubernetesClusterMaintenanceWindowNodeOs {
      */
     private @Nullable String startDate;
     /**
-     * @return The time for maintenance to begin, based on the timezone determined by `utc_offset`. Format is `HH:mm`.
+     * @return The time for maintenance to begin, based on the timezone determined by `utcOffset`. Format is `HH:mm`.
      * 
      */
     private @Nullable String startTime;
@@ -103,7 +103,7 @@ public final class KubernetesClusterMaintenanceWindowNodeOs {
         return this.interval;
     }
     /**
-     * @return One or more `not_allowed` block as defined below.
+     * @return One or more `notAllowed` block as defined below.
      * 
      */
     public List<KubernetesClusterMaintenanceWindowNodeOsNotAllowed> notAlloweds() {
@@ -117,7 +117,7 @@ public final class KubernetesClusterMaintenanceWindowNodeOs {
         return Optional.ofNullable(this.startDate);
     }
     /**
-     * @return The time for maintenance to begin, based on the timezone determined by `utc_offset`. Format is `HH:mm`.
+     * @return The time for maintenance to begin, based on the timezone determined by `utcOffset`. Format is `HH:mm`.
      * 
      */
     public Optional<String> startTime() {

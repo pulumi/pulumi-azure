@@ -206,6 +206,199 @@ class ManagedInstanceStartStopSchedule(pulumi.CustomResource):
         """
         Manages Start Stop Schedules for an MS SQL Managed Instance.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="database-rg",
+            location="West Europe")
+        example_network_security_group = azure.network.NetworkSecurityGroup("example",
+            name="mi-security-group",
+            location=example.location,
+            resource_group_name=example.name)
+        allow_management_inbound = azure.network.NetworkSecurityRule("allow_management_inbound",
+            name="allow_management_inbound",
+            priority=106,
+            direction="Inbound",
+            access="Allow",
+            protocol="Tcp",
+            source_port_range="*",
+            destination_port_ranges=[
+                "9000",
+                "9003",
+                "1438",
+                "1440",
+                "1452",
+            ],
+            source_address_prefix="*",
+            destination_address_prefix="*",
+            resource_group_name=example.name,
+            network_security_group_name=example_network_security_group.name)
+        allow_misubnet_inbound = azure.network.NetworkSecurityRule("allow_misubnet_inbound",
+            name="allow_misubnet_inbound",
+            priority=200,
+            direction="Inbound",
+            access="Allow",
+            protocol="*",
+            source_port_range="*",
+            destination_port_range="*",
+            source_address_prefix="10.0.0.0/24",
+            destination_address_prefix="*",
+            resource_group_name=example.name,
+            network_security_group_name=example_network_security_group.name)
+        allow_health_probe_inbound = azure.network.NetworkSecurityRule("allow_health_probe_inbound",
+            name="allow_health_probe_inbound",
+            priority=300,
+            direction="Inbound",
+            access="Allow",
+            protocol="*",
+            source_port_range="*",
+            destination_port_range="*",
+            source_address_prefix="AzureLoadBalancer",
+            destination_address_prefix="*",
+            resource_group_name=example.name,
+            network_security_group_name=example_network_security_group.name)
+        allow_tds_inbound = azure.network.NetworkSecurityRule("allow_tds_inbound",
+            name="allow_tds_inbound",
+            priority=1000,
+            direction="Inbound",
+            access="Allow",
+            protocol="Tcp",
+            source_port_range="*",
+            destination_port_range="1433",
+            source_address_prefix="VirtualNetwork",
+            destination_address_prefix="*",
+            resource_group_name=example.name,
+            network_security_group_name=example_network_security_group.name)
+        deny_all_inbound = azure.network.NetworkSecurityRule("deny_all_inbound",
+            name="deny_all_inbound",
+            priority=4096,
+            direction="Inbound",
+            access="Deny",
+            protocol="*",
+            source_port_range="*",
+            destination_port_range="*",
+            source_address_prefix="*",
+            destination_address_prefix="*",
+            resource_group_name=example.name,
+            network_security_group_name=example_network_security_group.name)
+        allow_management_outbound = azure.network.NetworkSecurityRule("allow_management_outbound",
+            name="allow_management_outbound",
+            priority=102,
+            direction="Outbound",
+            access="Allow",
+            protocol="Tcp",
+            source_port_range="*",
+            destination_port_ranges=[
+                "80",
+                "443",
+                "12000",
+            ],
+            source_address_prefix="*",
+            destination_address_prefix="*",
+            resource_group_name=example.name,
+            network_security_group_name=example_network_security_group.name)
+        allow_misubnet_outbound = azure.network.NetworkSecurityRule("allow_misubnet_outbound",
+            name="allow_misubnet_outbound",
+            priority=200,
+            direction="Outbound",
+            access="Allow",
+            protocol="*",
+            source_port_range="*",
+            destination_port_range="*",
+            source_address_prefix="10.0.0.0/24",
+            destination_address_prefix="*",
+            resource_group_name=example.name,
+            network_security_group_name=example_network_security_group.name)
+        deny_all_outbound = azure.network.NetworkSecurityRule("deny_all_outbound",
+            name="deny_all_outbound",
+            priority=4096,
+            direction="Outbound",
+            access="Deny",
+            protocol="*",
+            source_port_range="*",
+            destination_port_range="*",
+            source_address_prefix="*",
+            destination_address_prefix="*",
+            resource_group_name=example.name,
+            network_security_group_name=example_network_security_group.name)
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="vnet-mi",
+            resource_group_name=example.name,
+            address_spaces=["10.0.0.0/16"],
+            location=example.location)
+        example_subnet = azure.network.Subnet("example",
+            name="subnet-mi",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.0.0/24"],
+            delegations=[{
+                "name": "managedinstancedelegation",
+                "service_delegation": {
+                    "name": "Microsoft.Sql/managedInstances",
+                    "actions": [
+                        "Microsoft.Network/virtualNetworks/subnets/join/action",
+                        "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
+                        "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action",
+                    ],
+                },
+            }])
+        example_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("example",
+            subnet_id=example_subnet.id,
+            network_security_group_id=example_network_security_group.id)
+        example_route_table = azure.network.RouteTable("example",
+            name="routetable-mi",
+            location=example.location,
+            resource_group_name=example.name,
+            disable_bgp_route_propagation=False,
+            opts = pulumi.ResourceOptions(depends_on=[example_subnet]))
+        example_subnet_route_table_association = azure.network.SubnetRouteTableAssociation("example",
+            subnet_id=example_subnet.id,
+            route_table_id=example_route_table.id)
+        example_managed_instance = azure.mssql.ManagedInstance("example",
+            name="managedsqlinstance",
+            resource_group_name=example.name,
+            location=example.location,
+            license_type="BasePrice",
+            sku_name="GP_Gen5",
+            storage_size_in_gb=32,
+            subnet_id=example_subnet.id,
+            vcores=4,
+            administrator_login="mradministrator",
+            administrator_login_password="thisIsDog11",
+            opts = pulumi.ResourceOptions(depends_on=[
+                    example_subnet_network_security_group_association,
+                    example_subnet_route_table_association,
+                ]))
+        example_managed_instance_start_stop_schedule = azure.mssql.ManagedInstanceStartStopSchedule("example",
+            managed_instance_id=example_managed_instance.id,
+            timezone_id="Central European Standard Time",
+            schedules=[
+                {
+                    "start_day": "Monday",
+                    "start_time": "08:00",
+                    "stop_day": "Monday",
+                    "stop_time": "11:00",
+                },
+                {
+                    "start_day": "Tuesday",
+                    "start_time": "12:00",
+                    "stop_day": "Tuesday",
+                    "stop_time": "18:00",
+                },
+            ])
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Sql` - 2023-08-01-preview
+
         ## Import
 
         MS SQL Managed Instance Start Stop Schedule can be imported using the `resource id`, e.g.
@@ -229,6 +422,199 @@ class ManagedInstanceStartStopSchedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages Start Stop Schedules for an MS SQL Managed Instance.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="database-rg",
+            location="West Europe")
+        example_network_security_group = azure.network.NetworkSecurityGroup("example",
+            name="mi-security-group",
+            location=example.location,
+            resource_group_name=example.name)
+        allow_management_inbound = azure.network.NetworkSecurityRule("allow_management_inbound",
+            name="allow_management_inbound",
+            priority=106,
+            direction="Inbound",
+            access="Allow",
+            protocol="Tcp",
+            source_port_range="*",
+            destination_port_ranges=[
+                "9000",
+                "9003",
+                "1438",
+                "1440",
+                "1452",
+            ],
+            source_address_prefix="*",
+            destination_address_prefix="*",
+            resource_group_name=example.name,
+            network_security_group_name=example_network_security_group.name)
+        allow_misubnet_inbound = azure.network.NetworkSecurityRule("allow_misubnet_inbound",
+            name="allow_misubnet_inbound",
+            priority=200,
+            direction="Inbound",
+            access="Allow",
+            protocol="*",
+            source_port_range="*",
+            destination_port_range="*",
+            source_address_prefix="10.0.0.0/24",
+            destination_address_prefix="*",
+            resource_group_name=example.name,
+            network_security_group_name=example_network_security_group.name)
+        allow_health_probe_inbound = azure.network.NetworkSecurityRule("allow_health_probe_inbound",
+            name="allow_health_probe_inbound",
+            priority=300,
+            direction="Inbound",
+            access="Allow",
+            protocol="*",
+            source_port_range="*",
+            destination_port_range="*",
+            source_address_prefix="AzureLoadBalancer",
+            destination_address_prefix="*",
+            resource_group_name=example.name,
+            network_security_group_name=example_network_security_group.name)
+        allow_tds_inbound = azure.network.NetworkSecurityRule("allow_tds_inbound",
+            name="allow_tds_inbound",
+            priority=1000,
+            direction="Inbound",
+            access="Allow",
+            protocol="Tcp",
+            source_port_range="*",
+            destination_port_range="1433",
+            source_address_prefix="VirtualNetwork",
+            destination_address_prefix="*",
+            resource_group_name=example.name,
+            network_security_group_name=example_network_security_group.name)
+        deny_all_inbound = azure.network.NetworkSecurityRule("deny_all_inbound",
+            name="deny_all_inbound",
+            priority=4096,
+            direction="Inbound",
+            access="Deny",
+            protocol="*",
+            source_port_range="*",
+            destination_port_range="*",
+            source_address_prefix="*",
+            destination_address_prefix="*",
+            resource_group_name=example.name,
+            network_security_group_name=example_network_security_group.name)
+        allow_management_outbound = azure.network.NetworkSecurityRule("allow_management_outbound",
+            name="allow_management_outbound",
+            priority=102,
+            direction="Outbound",
+            access="Allow",
+            protocol="Tcp",
+            source_port_range="*",
+            destination_port_ranges=[
+                "80",
+                "443",
+                "12000",
+            ],
+            source_address_prefix="*",
+            destination_address_prefix="*",
+            resource_group_name=example.name,
+            network_security_group_name=example_network_security_group.name)
+        allow_misubnet_outbound = azure.network.NetworkSecurityRule("allow_misubnet_outbound",
+            name="allow_misubnet_outbound",
+            priority=200,
+            direction="Outbound",
+            access="Allow",
+            protocol="*",
+            source_port_range="*",
+            destination_port_range="*",
+            source_address_prefix="10.0.0.0/24",
+            destination_address_prefix="*",
+            resource_group_name=example.name,
+            network_security_group_name=example_network_security_group.name)
+        deny_all_outbound = azure.network.NetworkSecurityRule("deny_all_outbound",
+            name="deny_all_outbound",
+            priority=4096,
+            direction="Outbound",
+            access="Deny",
+            protocol="*",
+            source_port_range="*",
+            destination_port_range="*",
+            source_address_prefix="*",
+            destination_address_prefix="*",
+            resource_group_name=example.name,
+            network_security_group_name=example_network_security_group.name)
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="vnet-mi",
+            resource_group_name=example.name,
+            address_spaces=["10.0.0.0/16"],
+            location=example.location)
+        example_subnet = azure.network.Subnet("example",
+            name="subnet-mi",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.0.0/24"],
+            delegations=[{
+                "name": "managedinstancedelegation",
+                "service_delegation": {
+                    "name": "Microsoft.Sql/managedInstances",
+                    "actions": [
+                        "Microsoft.Network/virtualNetworks/subnets/join/action",
+                        "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
+                        "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action",
+                    ],
+                },
+            }])
+        example_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("example",
+            subnet_id=example_subnet.id,
+            network_security_group_id=example_network_security_group.id)
+        example_route_table = azure.network.RouteTable("example",
+            name="routetable-mi",
+            location=example.location,
+            resource_group_name=example.name,
+            disable_bgp_route_propagation=False,
+            opts = pulumi.ResourceOptions(depends_on=[example_subnet]))
+        example_subnet_route_table_association = azure.network.SubnetRouteTableAssociation("example",
+            subnet_id=example_subnet.id,
+            route_table_id=example_route_table.id)
+        example_managed_instance = azure.mssql.ManagedInstance("example",
+            name="managedsqlinstance",
+            resource_group_name=example.name,
+            location=example.location,
+            license_type="BasePrice",
+            sku_name="GP_Gen5",
+            storage_size_in_gb=32,
+            subnet_id=example_subnet.id,
+            vcores=4,
+            administrator_login="mradministrator",
+            administrator_login_password="thisIsDog11",
+            opts = pulumi.ResourceOptions(depends_on=[
+                    example_subnet_network_security_group_association,
+                    example_subnet_route_table_association,
+                ]))
+        example_managed_instance_start_stop_schedule = azure.mssql.ManagedInstanceStartStopSchedule("example",
+            managed_instance_id=example_managed_instance.id,
+            timezone_id="Central European Standard Time",
+            schedules=[
+                {
+                    "start_day": "Monday",
+                    "start_time": "08:00",
+                    "stop_day": "Monday",
+                    "stop_time": "11:00",
+                },
+                {
+                    "start_day": "Tuesday",
+                    "start_time": "12:00",
+                    "stop_day": "Tuesday",
+                    "stop_time": "18:00",
+                },
+            ])
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Sql` - 2023-08-01-preview
 
         ## Import
 

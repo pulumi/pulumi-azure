@@ -302,6 +302,59 @@ class OutputCosmosdb(pulumi.CustomResource):
         """
         Manages a Stream Analytics Output to CosmosDB.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="rg-example",
+            location="West Europe")
+        example = azure.streamanalytics.get_job_output(name="example-job",
+            resource_group_name=example_resource_group.name)
+        example_account = azure.cosmosdb.Account("example",
+            name="exampledb",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            offer_type="Standard",
+            kind="GlobalDocumentDB",
+            consistency_policy={
+                "consistency_level": "BoundedStaleness",
+                "max_interval_in_seconds": 10,
+                "max_staleness_prefix": 200,
+            },
+            geo_locations=[{
+                "location": example_resource_group.location,
+                "failover_priority": 0,
+            }])
+        example_sql_database = azure.cosmosdb.SqlDatabase("example",
+            name="cosmos-sql-db",
+            resource_group_name=example_account.resource_group_name,
+            account_name=example_account.name,
+            throughput=400)
+        example_sql_container = azure.cosmosdb.SqlContainer("example",
+            name="examplecontainer",
+            resource_group_name=example_account.resource_group_name,
+            account_name=example_account.name,
+            database_name=example_sql_database.name,
+            partition_key_path="foo")
+        example_output_cosmosdb = azure.streamanalytics.OutputCosmosdb("example",
+            name="output-to-cosmosdb",
+            stream_analytics_job_id=example.id,
+            cosmosdb_account_key=example_account.primary_key,
+            cosmosdb_sql_database_id=example_sql_database.id,
+            container_name=example_sql_container.name,
+            document_id="exampledocumentid")
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.StreamAnalytics` - 2021-10-01-preview
+
         ## Import
 
         Stream Analytics Outputs for CosmosDB can be imported using the `resource id`, e.g.
@@ -329,6 +382,59 @@ class OutputCosmosdb(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Stream Analytics Output to CosmosDB.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="rg-example",
+            location="West Europe")
+        example = azure.streamanalytics.get_job_output(name="example-job",
+            resource_group_name=example_resource_group.name)
+        example_account = azure.cosmosdb.Account("example",
+            name="exampledb",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            offer_type="Standard",
+            kind="GlobalDocumentDB",
+            consistency_policy={
+                "consistency_level": "BoundedStaleness",
+                "max_interval_in_seconds": 10,
+                "max_staleness_prefix": 200,
+            },
+            geo_locations=[{
+                "location": example_resource_group.location,
+                "failover_priority": 0,
+            }])
+        example_sql_database = azure.cosmosdb.SqlDatabase("example",
+            name="cosmos-sql-db",
+            resource_group_name=example_account.resource_group_name,
+            account_name=example_account.name,
+            throughput=400)
+        example_sql_container = azure.cosmosdb.SqlContainer("example",
+            name="examplecontainer",
+            resource_group_name=example_account.resource_group_name,
+            account_name=example_account.name,
+            database_name=example_sql_database.name,
+            partition_key_path="foo")
+        example_output_cosmosdb = azure.streamanalytics.OutputCosmosdb("example",
+            name="output-to-cosmosdb",
+            stream_analytics_job_id=example.id,
+            cosmosdb_account_key=example_account.primary_key,
+            cosmosdb_sql_database_id=example_sql_database.id,
+            container_name=example_sql_container.name,
+            document_id="exampledocumentid")
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.StreamAnalytics` - 2021-10-01-preview
 
         ## Import
 

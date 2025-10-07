@@ -14,17 +14,17 @@ namespace Pulumi.Azure.Storage.Outputs
     public sealed class ShareAclAccessPolicy
     {
         /// <summary>
-        /// The time at which this Access Policy should be valid untilWhen using `storage_account_id` this should be in RFC3339 format. If using the deprecated `storage_account_name` property, this uses the [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+        /// The time at which this Access Policy should be valid untilWhen using `StorageAccountId` this should be in RFC3339 format. If using the deprecated `StorageAccountName` property, this uses the [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
         /// </summary>
         public readonly string? Expiry;
         /// <summary>
-        /// The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
+        /// The permissions which should be associated with this Shared Identifier. Possible value is combination of `R` (read), `W` (write), `D` (delete), and `L` (list).
         /// 
         /// &gt; **Note:** Permission order is strict at the service side, and permissions need to be listed in the order above.
         /// </summary>
         public readonly string Permissions;
         /// <summary>
-        /// The time at which this Access Policy should be valid from. When using `storage_account_id` this should be in RFC3339 format. If using the deprecated `storage_account_name` property, this uses the [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+        /// The time at which this Access Policy should be valid from. When using `StorageAccountId` this should be in RFC3339 format. If using the deprecated `StorageAccountName` property, this uses the [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
         /// </summary>
         public readonly string? Start;
 

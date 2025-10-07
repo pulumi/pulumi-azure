@@ -186,14 +186,14 @@ public class ScaleSetPacketCapture extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.filters);
     }
     /**
-     * A `machine_scope` block as defined below. Changing this forces a new resource to be created.
+     * A `machineScope` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="machineScope", refs={ScaleSetPacketCaptureMachineScope.class}, tree="[0]")
     private Output</* @Nullable */ ScaleSetPacketCaptureMachineScope> machineScope;
 
     /**
-     * @return A `machine_scope` block as defined below. Changing this forces a new resource to be created.
+     * @return A `machineScope` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<ScaleSetPacketCaptureMachineScope>> machineScope() {
@@ -270,14 +270,14 @@ public class ScaleSetPacketCapture extends com.pulumi.resources.CustomResource {
         return this.networkWatcherId;
     }
     /**
-     * A `storage_location` block as defined below. Changing this forces a new resource to be created.
+     * A `storageLocation` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="storageLocation", refs={ScaleSetPacketCaptureStorageLocation.class}, tree="[0]")
     private Output<ScaleSetPacketCaptureStorageLocation> storageLocation;
 
     /**
-     * @return A `storage_location` block as defined below. Changing this forces a new resource to be created.
+     * @return A `storageLocation` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<ScaleSetPacketCaptureStorageLocation> storageLocation() {

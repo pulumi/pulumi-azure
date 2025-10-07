@@ -87,7 +87,7 @@ namespace Pulumi.Azure.PrivateDns
         public Output<string> PrivateDnsZoneName { get; private set; } = null!;
 
         /// <summary>
-        /// Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to `false`.
+        /// Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to `False`.
         /// </summary>
         [Output("registrationEnabled")]
         public Output<bool?> RegistrationEnabled { get; private set; } = null!;
@@ -175,7 +175,7 @@ namespace Pulumi.Azure.PrivateDns
         public Input<string> PrivateDnsZoneName { get; set; } = null!;
 
         /// <summary>
-        /// Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to `false`.
+        /// Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to `False`.
         /// </summary>
         [Input("registrationEnabled")]
         public Input<bool>? RegistrationEnabled { get; set; }
@@ -231,7 +231,7 @@ namespace Pulumi.Azure.PrivateDns
         public Input<string>? PrivateDnsZoneName { get; set; }
 
         /// <summary>
-        /// Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to `false`.
+        /// Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to `False`.
         /// </summary>
         [Input("registrationEnabled")]
         public Input<bool>? RegistrationEnabled { get; set; }

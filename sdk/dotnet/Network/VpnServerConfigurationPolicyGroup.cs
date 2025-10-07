@@ -88,7 +88,7 @@ namespace Pulumi.Azure.Network
     public partial class VpnServerConfigurationPolicyGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Is this a default VPN Server Configuration Policy Group? Defaults to `false`. Changing this forces a new resource to be created.
+        /// Is this a default VPN Server Configuration Policy Group? Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("isDefault")]
         public Output<bool?> IsDefault { get; private set; } = null!;
@@ -100,7 +100,7 @@ namespace Pulumi.Azure.Network
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `policy` blocks as documented below.
+        /// One or more `Policy` blocks as documented below.
         /// </summary>
         [Output("policies")]
         public Output<ImmutableArray<Outputs.VpnServerConfigurationPolicyGroupPolicy>> Policies { get; private set; } = null!;
@@ -164,7 +164,7 @@ namespace Pulumi.Azure.Network
     public sealed class VpnServerConfigurationPolicyGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Is this a default VPN Server Configuration Policy Group? Defaults to `false`. Changing this forces a new resource to be created.
+        /// Is this a default VPN Server Configuration Policy Group? Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("isDefault")]
         public Input<bool>? IsDefault { get; set; }
@@ -179,7 +179,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.VpnServerConfigurationPolicyGroupPolicyArgs>? _policies;
 
         /// <summary>
-        /// One or more `policy` blocks as documented below.
+        /// One or more `Policy` blocks as documented below.
         /// </summary>
         public InputList<Inputs.VpnServerConfigurationPolicyGroupPolicyArgs> Policies
         {
@@ -208,7 +208,7 @@ namespace Pulumi.Azure.Network
     public sealed class VpnServerConfigurationPolicyGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Is this a default VPN Server Configuration Policy Group? Defaults to `false`. Changing this forces a new resource to be created.
+        /// Is this a default VPN Server Configuration Policy Group? Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("isDefault")]
         public Input<bool>? IsDefault { get; set; }
@@ -223,7 +223,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.VpnServerConfigurationPolicyGroupPolicyGetArgs>? _policies;
 
         /// <summary>
-        /// One or more `policy` blocks as documented below.
+        /// One or more `Policy` blocks as documented below.
         /// </summary>
         public InputList<Inputs.VpnServerConfigurationPolicyGroupPolicyGetArgs> Policies
         {

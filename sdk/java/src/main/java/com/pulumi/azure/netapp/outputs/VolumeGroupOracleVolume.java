@@ -26,22 +26,22 @@ public final class VolumeGroupOracleVolume {
      */
     private String capacityPoolId;
     /**
-     * @return A `data_protection_replication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
+     * @return A `dataProtectionReplication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
      * 
      */
     private @Nullable VolumeGroupOracleVolumeDataProtectionReplication dataProtectionReplication;
     /**
-     * @return A `data_protection_snapshot_policy` block as defined below.
+     * @return A `dataProtectionSnapshotPolicy` block as defined below.
      * 
      */
     private @Nullable VolumeGroupOracleVolumeDataProtectionSnapshotPolicy dataProtectionSnapshotPolicy;
     /**
-     * @return The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`. Changing this forces a new resource to be created.
+     * @return The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String encryptionKeySource;
     /**
-     * @return One or more `export_policy_rule` blocks as defined below.
+     * @return One or more `exportPolicyRule` blocks as defined below.
      * 
      */
     private List<VolumeGroupOracleVolumeExportPolicyRule> exportPolicyRules;
@@ -51,7 +51,7 @@ public final class VolumeGroupOracleVolume {
      */
     private @Nullable String id;
     /**
-     * @return The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
+     * @return The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String keyVaultPrivateEndpointId;
@@ -67,9 +67,9 @@ public final class VolumeGroupOracleVolume {
      */
     private @Nullable String networkFeatures;
     /**
-     * @return The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3_enabled = false` and `nfsv41_enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`.
+     * @return The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3Enabled = false` and `nfsv41Enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`.
      * 
-     * &gt; **Note:** When converting protocols between NFSv3 and NFSv4.1, ensure that export policy rules are updated accordingly to avoid configuration drift. Update the `nfsv3_enabled` and `nfsv41_enabled` flags to match the new protocol.
+     * &gt; **Note:** When converting protocols between NFSv3 and NFSv4.1, ensure that export policy rules are updated accordingly to avoid configuration drift. Update the `nfsv3Enabled` and `nfsv41Enabled` flags to match the new protocol.
      * 
      */
     private String protocols;
@@ -126,7 +126,7 @@ public final class VolumeGroupOracleVolume {
      */
     private String volumeSpecName;
     /**
-     * @return Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`, depending on the Azure region. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Note that this cannot be used together with `proximity_placement_group_id`.
+     * @return Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`, depending on the Azure region. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Note that this cannot be used together with `proximityPlacementGroupId`.
      * 
      */
     private @Nullable String zone;
@@ -140,28 +140,28 @@ public final class VolumeGroupOracleVolume {
         return this.capacityPoolId;
     }
     /**
-     * @return A `data_protection_replication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
+     * @return A `dataProtectionReplication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
      * 
      */
     public Optional<VolumeGroupOracleVolumeDataProtectionReplication> dataProtectionReplication() {
         return Optional.ofNullable(this.dataProtectionReplication);
     }
     /**
-     * @return A `data_protection_snapshot_policy` block as defined below.
+     * @return A `dataProtectionSnapshotPolicy` block as defined below.
      * 
      */
     public Optional<VolumeGroupOracleVolumeDataProtectionSnapshotPolicy> dataProtectionSnapshotPolicy() {
         return Optional.ofNullable(this.dataProtectionSnapshotPolicy);
     }
     /**
-     * @return The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`. Changing this forces a new resource to be created.
+     * @return The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> encryptionKeySource() {
         return Optional.ofNullable(this.encryptionKeySource);
     }
     /**
-     * @return One or more `export_policy_rule` blocks as defined below.
+     * @return One or more `exportPolicyRule` blocks as defined below.
      * 
      */
     public List<VolumeGroupOracleVolumeExportPolicyRule> exportPolicyRules() {
@@ -175,7 +175,7 @@ public final class VolumeGroupOracleVolume {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
+     * @return The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> keyVaultPrivateEndpointId() {
@@ -199,9 +199,9 @@ public final class VolumeGroupOracleVolume {
         return Optional.ofNullable(this.networkFeatures);
     }
     /**
-     * @return The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3_enabled = false` and `nfsv41_enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`.
+     * @return The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3Enabled = false` and `nfsv41Enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`.
      * 
-     * &gt; **Note:** When converting protocols between NFSv3 and NFSv4.1, ensure that export policy rules are updated accordingly to avoid configuration drift. Update the `nfsv3_enabled` and `nfsv41_enabled` flags to match the new protocol.
+     * &gt; **Note:** When converting protocols between NFSv3 and NFSv4.1, ensure that export policy rules are updated accordingly to avoid configuration drift. Update the `nfsv3Enabled` and `nfsv41Enabled` flags to match the new protocol.
      * 
      */
     public String protocols() {
@@ -280,7 +280,7 @@ public final class VolumeGroupOracleVolume {
         return this.volumeSpecName;
     }
     /**
-     * @return Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`, depending on the Azure region. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Note that this cannot be used together with `proximity_placement_group_id`.
+     * @return Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`, depending on the Azure region. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Note that this cannot be used together with `proximityPlacementGroupId`.
      * 
      */
     public Optional<String> zone() {

@@ -159,7 +159,7 @@ public class Prefix extends com.pulumi.resources.CustomResource {
     /**
      * Specifies that the custom IP prefix should be commissioned after provisioning in Azure. Defaults to `false`.
      * 
-     * !&gt; **Note:** Changing the value of `commissioning_enabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
+     * !&gt; **Note:** Changing the value of `commissioningEnabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
      * 
      */
     @Export(name="commissioningEnabled", refs={Boolean.class}, tree="[0]")
@@ -168,7 +168,7 @@ public class Prefix extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies that the custom IP prefix should be commissioned after provisioning in Azure. Defaults to `false`.
      * 
-     * !&gt; **Note:** Changing the value of `commissioning_enabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
+     * !&gt; **Note:** Changing the value of `commissioningEnabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
      * 
      */
     public Output<Optional<Boolean>> commissioningEnabled() {
@@ -177,7 +177,7 @@ public class Prefix extends com.pulumi.resources.CustomResource {
     /**
      * Specifies that the custom IP prefix should not be publicly advertised on the Internet when commissioned (regional commissioning feature). Defaults to `false`.
      * 
-     * !&gt; **Note:** Changing the value of `internet_advertising_disabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
+     * !&gt; **Note:** Changing the value of `internetAdvertisingDisabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
      * 
      */
     @Export(name="internetAdvertisingDisabled", refs={Boolean.class}, tree="[0]")
@@ -186,7 +186,7 @@ public class Prefix extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies that the custom IP prefix should not be publicly advertised on the Internet when commissioned (regional commissioning feature). Defaults to `false`.
      * 
-     * !&gt; **Note:** Changing the value of `internet_advertising_disabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
+     * !&gt; **Note:** Changing the value of `internetAdvertisingDisabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
      * 
      */
     public Output<Optional<Boolean>> internetAdvertisingDisabled() {

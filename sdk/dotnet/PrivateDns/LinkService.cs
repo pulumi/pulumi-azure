@@ -14,6 +14,118 @@ namespace Pulumi.Azure.PrivateDns
     /// 
     /// &gt; **Note:** Private Link is now in [GA](https://docs.microsoft.com/en-gb/azure/private-link/).
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     {
+    ///         Name = "example-network",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.5.0.0/16",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     {
+    ///         Name = "example-subnet",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.5.1.0/24",
+    ///         },
+    ///         EnforcePrivateLinkServiceNetworkPolicies = true,
+    ///     });
+    /// 
+    ///     var examplePublicIp = new Azure.Network.PublicIp("example", new()
+    ///     {
+    ///         Name = "example-api",
+    ///         Sku = "Standard",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         AllocationMethod = "Static",
+    ///     });
+    /// 
+    ///     var exampleLoadBalancer = new Azure.Lb.LoadBalancer("example", new()
+    ///     {
+    ///         Name = "example-lb",
+    ///         Sku = "Standard",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         FrontendIpConfigurations = new[]
+    ///         {
+    ///             new Azure.Lb.Inputs.LoadBalancerFrontendIpConfigurationArgs
+    ///             {
+    ///                 Name = examplePublicIp.Name,
+    ///                 PublicIpAddressId = examplePublicIp.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleLinkService = new Azure.PrivateDns.LinkService("example", new()
+    ///     {
+    ///         Name = "example-privatelink",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         AutoApprovalSubscriptionIds = new[]
+    ///         {
+    ///             "00000000-0000-0000-0000-000000000000",
+    ///         },
+    ///         VisibilitySubscriptionIds = new[]
+    ///         {
+    ///             "00000000-0000-0000-0000-000000000000",
+    ///         },
+    ///         LoadBalancerFrontendIpConfigurationIds = new[]
+    ///         {
+    ///             exampleLoadBalancer.FrontendIpConfigurations.Apply(frontendIpConfigurations =&gt; frontendIpConfigurations[0]?.Id),
+    ///         },
+    ///         NatIpConfigurations = new[]
+    ///         {
+    ///             new Azure.PrivateDns.Inputs.LinkServiceNatIpConfigurationArgs
+    ///             {
+    ///                 Name = "primary",
+    ///                 PrivateIpAddress = "10.5.1.17",
+    ///                 PrivateIpAddressVersion = "IPv4",
+    ///                 SubnetId = exampleSubnet.Id,
+    ///                 Primary = true,
+    ///             },
+    ///             new Azure.PrivateDns.Inputs.LinkServiceNatIpConfigurationArgs
+    ///             {
+    ///                 Name = "secondary",
+    ///                 PrivateIpAddress = "10.5.1.18",
+    ///                 PrivateIpAddressVersion = "IPv4",
+    ///                 SubnetId = exampleSubnet.Id,
+    ///                 Primary = false,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Network` - 2024-05-01
+    /// 
     /// ## Import
     /// 
     /// Private Link Services can be imported using the `resource id`, e.g.
@@ -74,7 +186,7 @@ namespace Pulumi.Azure.PrivateDns
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// One or more (up to 8) `nat_ip_configuration` block as defined below.
+        /// One or more (up to 8) `NatIpConfiguration` block as defined below.
         /// </summary>
         [Output("natIpConfigurations")]
         public Output<ImmutableArray<Outputs.LinkServiceNatIpConfiguration>> NatIpConfigurations { get; private set; } = null!;
@@ -209,7 +321,7 @@ namespace Pulumi.Azure.PrivateDns
         private InputList<Inputs.LinkServiceNatIpConfigurationArgs>? _natIpConfigurations;
 
         /// <summary>
-        /// One or more (up to 8) `nat_ip_configuration` block as defined below.
+        /// One or more (up to 8) `NatIpConfiguration` block as defined below.
         /// </summary>
         public InputList<Inputs.LinkServiceNatIpConfigurationArgs> NatIpConfigurations
         {
@@ -327,7 +439,7 @@ namespace Pulumi.Azure.PrivateDns
         private InputList<Inputs.LinkServiceNatIpConfigurationGetArgs>? _natIpConfigurations;
 
         /// <summary>
-        /// One or more (up to 8) `nat_ip_configuration` block as defined below.
+        /// One or more (up to 8) `NatIpConfiguration` block as defined below.
         /// </summary>
         public InputList<Inputs.LinkServiceNatIpConfigurationGetArgs> NatIpConfigurations
         {

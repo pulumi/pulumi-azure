@@ -19,6 +19,90 @@ import javax.annotation.Nullable;
 /**
  * Manages a Container Registry Token Password associated with a scope map.  For more information on scope maps and their tokens see the [product documentation](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-repository-scoped-permissions).
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.containerservice.Registry;
+ * import com.pulumi.azure.containerservice.RegistryArgs;
+ * import com.pulumi.azure.containerservice.RegistryScopeMap;
+ * import com.pulumi.azure.containerservice.RegistryScopeMapArgs;
+ * import com.pulumi.azure.containerservice.RegistryToken;
+ * import com.pulumi.azure.containerservice.RegistryTokenArgs;
+ * import com.pulumi.azure.containerservice.TokenPassword;
+ * import com.pulumi.azure.containerservice.TokenPasswordArgs;
+ * import com.pulumi.azure.containerservice.inputs.TokenPasswordPassword1Args;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("example-resource-group")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleRegistry = new Registry("exampleRegistry", RegistryArgs.builder()
+ *             .name("example-registry")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .sku("Basic")
+ *             .adminEnabled(false)
+ *             .georeplicationLocations(List.of(            
+ *                 "East US",
+ *                 "West Europe"))
+ *             .build());
+ * 
+ *         var exampleRegistryScopeMap = new RegistryScopeMap("exampleRegistryScopeMap", RegistryScopeMapArgs.builder()
+ *             .name("example-scope-map")
+ *             .containerRegistryName(exampleRegistry.name())
+ *             .resourceGroupName(example.name())
+ *             .actions(            
+ *                 "repositories/repo1/content/read",
+ *                 "repositories/repo1/content/write")
+ *             .build());
+ * 
+ *         var exampleRegistryToken = new RegistryToken("exampleRegistryToken", RegistryTokenArgs.builder()
+ *             .name("exampletoken")
+ *             .containerRegistryName(exampleRegistry.name())
+ *             .resourceGroupName(example.name())
+ *             .scopeMapId(exampleRegistryScopeMap.id())
+ *             .build());
+ * 
+ *         var exampleTokenPassword = new TokenPassword("exampleTokenPassword", TokenPasswordArgs.builder()
+ *             .containerRegistryTokenId(exampleRegistryToken.id())
+ *             .password1(TokenPasswordPassword1Args.builder()
+ *                 .expiry("2023-03-22T17:57:36+08:00")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.ContainerRegistry` - 2023-11-01-preview
+ * 
  * ## Import
  * 
  * Container Registry Token Passwords can be imported using the `resource id`, e.g.

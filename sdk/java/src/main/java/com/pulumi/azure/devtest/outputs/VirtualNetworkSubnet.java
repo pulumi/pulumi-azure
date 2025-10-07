@@ -18,7 +18,7 @@ public final class VirtualNetworkSubnet {
      */
     private @Nullable String name;
     /**
-     * @return A `shared_public_ip_address` block as defined below.
+     * @return A `sharedPublicIpAddress` block as defined below.
      * 
      */
     private @Nullable VirtualNetworkSubnetSharedPublicIpAddress sharedPublicIpAddress;
@@ -42,7 +42,7 @@ public final class VirtualNetworkSubnet {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return A `shared_public_ip_address` block as defined below.
+     * @return A `sharedPublicIpAddress` block as defined below.
      * 
      */
     public Optional<VirtualNetworkSubnetSharedPublicIpAddress> sharedPublicIpAddress() {

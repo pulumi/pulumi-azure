@@ -80,14 +80,14 @@ public final class EmailServiceDomainState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The name of the Email Communication Service resource. If `domain_management` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
+     * The name of the Email Communication Service resource. If `domainManagement` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the Email Communication Service resource. If `domain_management` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
+     * @return The name of the Email Communication Service resource. If `domainManagement` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -125,14 +125,14 @@ public final class EmailServiceDomainState extends com.pulumi.resources.Resource
     }
 
     /**
-     * (Optional) An `verification_records` block as defined below.
+     * (Optional) An `verificationRecords` block as defined below.
      * 
      */
     @Import(name="verificationRecords")
     private @Nullable Output<List<EmailServiceDomainVerificationRecordArgs>> verificationRecords;
 
     /**
-     * @return (Optional) An `verification_records` block as defined below.
+     * @return (Optional) An `verificationRecords` block as defined below.
      * 
      */
     public Optional<Output<List<EmailServiceDomainVerificationRecordArgs>>> verificationRecords() {
@@ -255,7 +255,7 @@ public final class EmailServiceDomainState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name The name of the Email Communication Service resource. If `domain_management` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
+         * @param name The name of the Email Communication Service resource. If `domainManagement` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
          * 
          * @return builder
          * 
@@ -266,7 +266,7 @@ public final class EmailServiceDomainState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name The name of the Email Communication Service resource. If `domain_management` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
+         * @param name The name of the Email Communication Service resource. If `domainManagement` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
          * 
          * @return builder
          * 
@@ -318,7 +318,7 @@ public final class EmailServiceDomainState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param verificationRecords (Optional) An `verification_records` block as defined below.
+         * @param verificationRecords (Optional) An `verificationRecords` block as defined below.
          * 
          * @return builder
          * 
@@ -329,7 +329,7 @@ public final class EmailServiceDomainState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param verificationRecords (Optional) An `verification_records` block as defined below.
+         * @param verificationRecords (Optional) An `verificationRecords` block as defined below.
          * 
          * @return builder
          * 
@@ -339,7 +339,7 @@ public final class EmailServiceDomainState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param verificationRecords (Optional) An `verification_records` block as defined below.
+         * @param verificationRecords (Optional) An `verificationRecords` block as defined below.
          * 
          * @return builder
          * 

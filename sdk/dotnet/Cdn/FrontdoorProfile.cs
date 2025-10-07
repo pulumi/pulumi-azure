@@ -84,15 +84,15 @@ namespace Pulumi.Azure.Cdn
     public partial class FrontdoorProfile : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.FrontdoorProfileIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `log_scrubbing_rule` blocks as defined below.
+        /// One or more `LogScrubbingRule` blocks as defined below.
         /// 
-        /// &gt; **Note:** When no `log_scrubbing_rule` blocks are defined, log scrubbing will be automatically `disabled`. When one or more `log_scrubbing_rule` blocks are present, log scrubbing will be `enabled`.
+        /// &gt; **Note:** When no `LogScrubbingRule` blocks are defined, log scrubbing will be automatically `Disabled`. When one or more `LogScrubbingRule` blocks are present, log scrubbing will be `Enabled`.
         /// </summary>
         [Output("logScrubbingRules")]
         public Output<ImmutableArray<Outputs.FrontdoorProfileLogScrubbingRule>> LogScrubbingRules { get; private set; } = null!;
@@ -180,7 +180,7 @@ namespace Pulumi.Azure.Cdn
     public sealed class FrontdoorProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.FrontdoorProfileIdentityArgs>? Identity { get; set; }
@@ -189,9 +189,9 @@ namespace Pulumi.Azure.Cdn
         private InputList<Inputs.FrontdoorProfileLogScrubbingRuleArgs>? _logScrubbingRules;
 
         /// <summary>
-        /// One or more `log_scrubbing_rule` blocks as defined below.
+        /// One or more `LogScrubbingRule` blocks as defined below.
         /// 
-        /// &gt; **Note:** When no `log_scrubbing_rule` blocks are defined, log scrubbing will be automatically `disabled`. When one or more `log_scrubbing_rule` blocks are present, log scrubbing will be `enabled`.
+        /// &gt; **Note:** When no `LogScrubbingRule` blocks are defined, log scrubbing will be automatically `Disabled`. When one or more `LogScrubbingRule` blocks are present, log scrubbing will be `Enabled`.
         /// </summary>
         public InputList<Inputs.FrontdoorProfileLogScrubbingRuleArgs> LogScrubbingRules
         {
@@ -244,7 +244,7 @@ namespace Pulumi.Azure.Cdn
     public sealed class FrontdoorProfileState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.FrontdoorProfileIdentityGetArgs>? Identity { get; set; }
@@ -253,9 +253,9 @@ namespace Pulumi.Azure.Cdn
         private InputList<Inputs.FrontdoorProfileLogScrubbingRuleGetArgs>? _logScrubbingRules;
 
         /// <summary>
-        /// One or more `log_scrubbing_rule` blocks as defined below.
+        /// One or more `LogScrubbingRule` blocks as defined below.
         /// 
-        /// &gt; **Note:** When no `log_scrubbing_rule` blocks are defined, log scrubbing will be automatically `disabled`. When one or more `log_scrubbing_rule` blocks are present, log scrubbing will be `enabled`.
+        /// &gt; **Note:** When no `LogScrubbingRule` blocks are defined, log scrubbing will be automatically `Disabled`. When one or more `LogScrubbingRule` blocks are present, log scrubbing will be `Enabled`.
         /// </summary>
         public InputList<Inputs.FrontdoorProfileLogScrubbingRuleGetArgs> LogScrubbingRules
         {

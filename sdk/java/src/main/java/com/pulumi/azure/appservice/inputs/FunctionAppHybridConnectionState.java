@@ -122,14 +122,14 @@ public final class FunctionAppHybridConnectionState extends com.pulumi.resources
     }
 
     /**
-     * The Primary Access Key for the `send_key_name`
+     * The Primary Access Key for the `sendKeyName`
      * 
      */
     @Import(name="sendKeyValue")
     private @Nullable Output<String> sendKeyValue;
 
     /**
-     * @return The Primary Access Key for the `send_key_name`
+     * @return The Primary Access Key for the `sendKeyName`
      * 
      */
     public Optional<Output<String>> sendKeyValue() {
@@ -347,7 +347,7 @@ public final class FunctionAppHybridConnectionState extends com.pulumi.resources
         }
 
         /**
-         * @param sendKeyValue The Primary Access Key for the `send_key_name`
+         * @param sendKeyValue The Primary Access Key for the `sendKeyName`
          * 
          * @return builder
          * 
@@ -358,7 +358,7 @@ public final class FunctionAppHybridConnectionState extends com.pulumi.resources
         }
 
         /**
-         * @param sendKeyValue The Primary Access Key for the `send_key_name`
+         * @param sendKeyValue The Primary Access Key for the `sendKeyName`
          * 
          * @return builder
          * 

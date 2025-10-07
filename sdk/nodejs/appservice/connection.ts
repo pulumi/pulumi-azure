@@ -9,6 +9,76 @@ import * as utilities from "../utilities";
 /**
  * Manages a service connector for app service.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.cosmosdb.Account("example", {
+ *     name: "example-cosmosdb-account",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     offerType: "Standard",
+ *     kind: "GlobalDocumentDB",
+ *     consistencyPolicy: {
+ *         consistencyLevel: "BoundedStaleness",
+ *         maxIntervalInSeconds: 10,
+ *         maxStalenessPrefix: 200,
+ *     },
+ *     geoLocations: [{
+ *         location: example.location,
+ *         failoverPriority: 0,
+ *     }],
+ * });
+ * const exampleSqlDatabase = new azure.cosmosdb.SqlDatabase("example", {
+ *     name: "cosmos-sql-db",
+ *     resourceGroupName: exampleAccount.resourceGroupName,
+ *     accountName: exampleAccount.name,
+ *     throughput: 400,
+ * });
+ * const exampleSqlContainer = new azure.cosmosdb.SqlContainer("example", {
+ *     name: "example-container",
+ *     resourceGroupName: exampleAccount.resourceGroupName,
+ *     accountName: exampleAccount.name,
+ *     databaseName: exampleSqlDatabase.name,
+ *     partitionKeyPath: "/definition",
+ * });
+ * const exampleServicePlan = new azure.appservice.ServicePlan("example", {
+ *     location: example.location,
+ *     name: "example-serviceplan",
+ *     resourceGroupName: example.name,
+ *     skuName: "P1v2",
+ *     osType: "Linux",
+ * });
+ * const exampleLinuxWebApp = new azure.appservice.LinuxWebApp("example", {
+ *     location: example.location,
+ *     name: "example-linuxwebapp",
+ *     resourceGroupName: example.name,
+ *     servicePlanId: exampleServicePlan.id,
+ *     siteConfig: {},
+ * });
+ * const exampleConnection = new azure.appservice.Connection("example", {
+ *     name: "example-serviceconnector",
+ *     appServiceId: exampleLinuxWebApp.id,
+ *     targetResourceId: exampleSqlDatabase.id,
+ *     authentication: {
+ *         type: "systemAssignedIdentity",
+ *     },
+ * });
+ * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.ServiceLinker` - 2024-04-01, 2022-05-01
+ *
  * ## Import
  *
  * Service Connector for app service can be imported using the `resource id`, e.g.

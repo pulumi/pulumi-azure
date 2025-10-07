@@ -110,7 +110,7 @@ namespace Pulumi.Azure.AppPlatform
         public Output<string?> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// A `git_repository` block as defined below.
+        /// A `GitRepository` block as defined below.
         /// </summary>
         [Output("gitRepository")]
         public Output<Outputs.SpringCloudCustomizedAcceleratorGitRepository> GitRepository { get; private set; } = null!;
@@ -210,7 +210,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// A `git_repository` block as defined below.
+        /// A `GitRepository` block as defined below.
         /// </summary>
         [Input("gitRepository", required: true)]
         public Input<Inputs.SpringCloudCustomizedAcceleratorGitRepositoryArgs> GitRepository { get; set; } = null!;
@@ -272,7 +272,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// A `git_repository` block as defined below.
+        /// A `GitRepository` block as defined below.
         /// </summary>
         [Input("gitRepository")]
         public Input<Inputs.SpringCloudCustomizedAcceleratorGitRepositoryGetArgs>? GitRepository { get; set; }

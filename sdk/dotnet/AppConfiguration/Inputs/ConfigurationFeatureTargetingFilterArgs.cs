@@ -22,7 +22,7 @@ namespace Pulumi.Azure.AppConfiguration.Inputs
         private InputList<Inputs.ConfigurationFeatureTargetingFilterGroupArgs>? _groups;
 
         /// <summary>
-        /// One or more `groups` blocks as defined below.
+        /// One or more `Groups` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ConfigurationFeatureTargetingFilterGroupArgs> Groups
         {

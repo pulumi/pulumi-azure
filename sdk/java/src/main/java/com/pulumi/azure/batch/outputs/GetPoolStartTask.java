@@ -34,7 +34,7 @@ public final class GetPoolStartTask {
      */
     private List<GetPoolStartTaskContainer> containers;
     /**
-     * @return One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
+     * @return One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
      * 
      */
     private List<GetPoolStartTaskResourceFile> resourceFiles;
@@ -44,7 +44,7 @@ public final class GetPoolStartTask {
      */
     private Integer taskRetryMaximum;
     /**
-     * @return A `user_identity` block that describes the user identity under which the start task runs.
+     * @return A `userIdentity` block that describes the user identity under which the start task runs.
      * 
      */
     private List<GetPoolStartTaskUserIdentity> userIdentities;
@@ -77,7 +77,7 @@ public final class GetPoolStartTask {
         return this.containers;
     }
     /**
-     * @return One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
+     * @return One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
      * 
      */
     public List<GetPoolStartTaskResourceFile> resourceFiles() {
@@ -91,7 +91,7 @@ public final class GetPoolStartTask {
         return this.taskRetryMaximum;
     }
     /**
-     * @return A `user_identity` block that describes the user identity under which the start task runs.
+     * @return A `userIdentity` block that describes the user identity under which the start task runs.
      * 
      */
     public List<GetPoolStartTaskUserIdentity> userIdentities() {

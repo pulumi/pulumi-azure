@@ -131,14 +131,14 @@ public class RoutingIntent extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * One or more `routing_policy` blocks as defined below.
+     * One or more `routingPolicy` blocks as defined below.
      * 
      */
     @Export(name="routingPolicies", refs={List.class,RoutingIntentRoutingPolicy.class}, tree="[0,1]")
     private Output<List<RoutingIntentRoutingPolicy>> routingPolicies;
 
     /**
-     * @return One or more `routing_policy` blocks as defined below.
+     * @return One or more `routingPolicy` blocks as defined below.
      * 
      */
     public Output<List<RoutingIntentRoutingPolicy>> routingPolicies() {

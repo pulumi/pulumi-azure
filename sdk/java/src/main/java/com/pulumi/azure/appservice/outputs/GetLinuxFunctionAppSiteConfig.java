@@ -46,7 +46,7 @@ public final class GetLinuxFunctionAppSiteConfig {
      */
     private Integer appScaleLimit;
     /**
-     * @return An `app_service_logs` block as defined above.
+     * @return An `appServiceLogs` block as defined above.
      * 
      */
     private List<GetLinuxFunctionAppSiteConfigAppServiceLog> appServiceLogs;
@@ -61,7 +61,7 @@ public final class GetLinuxFunctionAppSiteConfig {
      */
     private String applicationInsightsKey;
     /**
-     * @return An `application_stack` block as defined above.
+     * @return An `applicationStack` block as defined above.
      * 
      */
     private List<GetLinuxFunctionAppSiteConfigApplicationStack> applicationStacks;
@@ -112,12 +112,12 @@ public final class GetLinuxFunctionAppSiteConfig {
      */
     private Boolean http2Enabled;
     /**
-     * @return The Default action for traffic that does not match any `ip_restriction` rule.
+     * @return The Default action for traffic that does not match any `ipRestriction` rule.
      * 
      */
     private String ipRestrictionDefaultAction;
     /**
-     * @return One or more `ip_restriction` blocks as defined above.
+     * @return One or more `ipRestriction` blocks as defined above.
      * 
      */
     private List<GetLinuxFunctionAppSiteConfigIpRestriction> ipRestrictions;
@@ -158,12 +158,12 @@ public final class GetLinuxFunctionAppSiteConfig {
      */
     private Boolean runtimeScaleMonitoringEnabled;
     /**
-     * @return The Default action for traffic that does not match any `scm_ip_restriction` rule.
+     * @return The Default action for traffic that does not match any `scmIpRestriction` rule.
      * 
      */
     private @Nullable String scmIpRestrictionDefaultAction;
     /**
-     * @return One or more `scm_ip_restriction` blocks as defined above.
+     * @return One or more `scmIpRestriction` blocks as defined above.
      * 
      */
     private List<GetLinuxFunctionAppSiteConfigScmIpRestriction> scmIpRestrictions;
@@ -174,7 +174,7 @@ public final class GetLinuxFunctionAppSiteConfig {
     private String scmMinimumTlsVersion;
     private String scmType;
     /**
-     * @return Is the Linux Function App `ip_restriction` configuration used for the SCM also?
+     * @return Is the Linux Function App `ipRestriction` configuration used for the SCM also?
      * 
      */
     private Boolean scmUseMainIpRestriction;
@@ -236,7 +236,7 @@ public final class GetLinuxFunctionAppSiteConfig {
         return this.appScaleLimit;
     }
     /**
-     * @return An `app_service_logs` block as defined above.
+     * @return An `appServiceLogs` block as defined above.
      * 
      */
     public List<GetLinuxFunctionAppSiteConfigAppServiceLog> appServiceLogs() {
@@ -257,7 +257,7 @@ public final class GetLinuxFunctionAppSiteConfig {
         return this.applicationInsightsKey;
     }
     /**
-     * @return An `application_stack` block as defined above.
+     * @return An `applicationStack` block as defined above.
      * 
      */
     public List<GetLinuxFunctionAppSiteConfigApplicationStack> applicationStacks() {
@@ -330,14 +330,14 @@ public final class GetLinuxFunctionAppSiteConfig {
         return this.http2Enabled;
     }
     /**
-     * @return The Default action for traffic that does not match any `ip_restriction` rule.
+     * @return The Default action for traffic that does not match any `ipRestriction` rule.
      * 
      */
     public String ipRestrictionDefaultAction() {
         return this.ipRestrictionDefaultAction;
     }
     /**
-     * @return One or more `ip_restriction` blocks as defined above.
+     * @return One or more `ipRestriction` blocks as defined above.
      * 
      */
     public List<GetLinuxFunctionAppSiteConfigIpRestriction> ipRestrictions() {
@@ -396,14 +396,14 @@ public final class GetLinuxFunctionAppSiteConfig {
         return this.runtimeScaleMonitoringEnabled;
     }
     /**
-     * @return The Default action for traffic that does not match any `scm_ip_restriction` rule.
+     * @return The Default action for traffic that does not match any `scmIpRestriction` rule.
      * 
      */
     public Optional<String> scmIpRestrictionDefaultAction() {
         return Optional.ofNullable(this.scmIpRestrictionDefaultAction);
     }
     /**
-     * @return One or more `scm_ip_restriction` blocks as defined above.
+     * @return One or more `scmIpRestriction` blocks as defined above.
      * 
      */
     public List<GetLinuxFunctionAppSiteConfigScmIpRestriction> scmIpRestrictions() {
@@ -420,7 +420,7 @@ public final class GetLinuxFunctionAppSiteConfig {
         return this.scmType;
     }
     /**
-     * @return Is the Linux Function App `ip_restriction` configuration used for the SCM also?
+     * @return Is the Linux Function App `ipRestriction` configuration used for the SCM also?
      * 
      */
     public Boolean scmUseMainIpRestriction() {

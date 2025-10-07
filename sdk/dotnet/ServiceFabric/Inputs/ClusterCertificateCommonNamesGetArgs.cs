@@ -16,7 +16,7 @@ namespace Pulumi.Azure.ServiceFabric.Inputs
         private InputList<Inputs.ClusterCertificateCommonNamesCommonNameGetArgs>? _commonNames;
 
         /// <summary>
-        /// A `common_names` block as defined below.
+        /// A `CommonNames` block as defined below.
         /// </summary>
         public InputList<Inputs.ClusterCertificateCommonNamesCommonNameGetArgs> CommonNames
         {

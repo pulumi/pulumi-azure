@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetLinuxWebAppLogApplicationLogAzureBlobStorage {
     /**
-     * @return The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
+     * @return The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `httpLogs`
      * 
      */
     private String level;
@@ -29,7 +29,7 @@ public final class GetLinuxWebAppLogApplicationLogAzureBlobStorage {
 
     private GetLinuxWebAppLogApplicationLogAzureBlobStorage() {}
     /**
-     * @return The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
+     * @return The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `httpLogs`
      * 
      */
     public String level() {

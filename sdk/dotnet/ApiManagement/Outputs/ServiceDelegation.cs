@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
     public sealed class ServiceDelegation
     {
         /// <summary>
-        /// Should subscription requests be delegated to an external url? Defaults to `false`.
+        /// Should subscription requests be delegated to an external url? Defaults to `False`.
         /// </summary>
         public readonly bool? SubscriptionsEnabled;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// </summary>
         public readonly string? Url;
         /// <summary>
-        /// Should user registration requests be delegated to an external url? Defaults to `false`.
+        /// Should user registration requests be delegated to an external url? Defaults to `False`.
         /// </summary>
         public readonly bool? UserRegistrationEnabled;
         /// <summary>

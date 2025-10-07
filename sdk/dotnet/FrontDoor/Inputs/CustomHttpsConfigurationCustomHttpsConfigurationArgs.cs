@@ -35,7 +35,7 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         /// <summary>
         /// Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
         /// 
-        /// The following attributes are only valid if `certificate_source` is set to `AzureKeyVault`:
+        /// The following attributes are only valid if `CertificateSource` is set to `AzureKeyVault`:
         /// </summary>
         [Input("certificateSource")]
         public Input<string>? CertificateSource { get; set; }

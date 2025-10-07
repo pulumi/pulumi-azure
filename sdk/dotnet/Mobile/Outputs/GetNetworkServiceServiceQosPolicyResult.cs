@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Mobile.Outputs
         /// </summary>
         public readonly int AllocationAndRetentionPriorityLevel;
         /// <summary>
-        /// A `maximum_bit_rate` block as defined below. The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
+        /// A `MaximumBitRate` block as defined below. The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworkServiceServiceQosPolicyMaximumBitRateResult> MaximumBitRates;
         /// <summary>

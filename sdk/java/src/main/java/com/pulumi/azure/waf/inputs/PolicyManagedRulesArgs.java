@@ -34,14 +34,14 @@ public final class PolicyManagedRulesArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * One or more `managed_rule_set` block defined below.
+     * One or more `managedRuleSet` block defined below.
      * 
      */
     @Import(name="managedRuleSets", required=true)
     private Output<List<PolicyManagedRulesManagedRuleSetArgs>> managedRuleSets;
 
     /**
-     * @return One or more `managed_rule_set` block defined below.
+     * @return One or more `managedRuleSet` block defined below.
      * 
      */
     public Output<List<PolicyManagedRulesManagedRuleSetArgs>> managedRuleSets() {
@@ -105,7 +105,7 @@ public final class PolicyManagedRulesArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param managedRuleSets One or more `managed_rule_set` block defined below.
+         * @param managedRuleSets One or more `managedRuleSet` block defined below.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class PolicyManagedRulesArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param managedRuleSets One or more `managed_rule_set` block defined below.
+         * @param managedRuleSets One or more `managedRuleSet` block defined below.
          * 
          * @return builder
          * 
@@ -126,7 +126,7 @@ public final class PolicyManagedRulesArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param managedRuleSets One or more `managed_rule_set` block defined below.
+         * @param managedRuleSets One or more `managedRuleSet` block defined below.
          * 
          * @return builder
          * 

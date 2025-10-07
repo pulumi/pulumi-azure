@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Storage.Outputs
     public sealed class GetPolicyRuleResult
     {
         /// <summary>
-        /// An `actions` block as documented below.
+        /// An `Actions` block as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPolicyRuleActionResult> Actions;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Storage.Outputs
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
-        /// A `filter` block as documented below.
+        /// A `Filter` block as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPolicyRuleFilterResult> Filters;
         /// <summary>

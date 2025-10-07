@@ -40,12 +40,12 @@ public final class LinuxWebAppSlotSiteConfig {
      */
     private @Nullable String appCommandLine;
     /**
-     * @return A `application_stack` block as defined above.
+     * @return A `applicationStack` block as defined above.
      * 
      */
     private @Nullable LinuxWebAppSlotSiteConfigApplicationStack applicationStack;
     /**
-     * @return A `auto_heal_setting` block as defined above. Required with `auto_heal`.
+     * @return A `autoHealSetting` block as defined above. Required with `autoHeal`.
      * 
      */
     private @Nullable LinuxWebAppSlotSiteConfigAutoHealSetting autoHealSetting;
@@ -79,7 +79,7 @@ public final class LinuxWebAppSlotSiteConfig {
     private @Nullable Boolean detailedErrorLoggingEnabled;
     private @Nullable String ftpsState;
     /**
-     * @return The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+     * @return The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
      * 
      */
     private @Nullable Integer healthCheckEvictionTimeInMin;
@@ -94,12 +94,12 @@ public final class LinuxWebAppSlotSiteConfig {
      */
     private @Nullable Boolean http2Enabled;
     /**
-     * @return The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+     * @return The Default action for traffic that does not match any `ipRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
      * 
      */
     private @Nullable String ipRestrictionDefaultAction;
     /**
-     * @return One or more `ip_restriction` blocks as defined above.
+     * @return One or more `ipRestriction` blocks as defined above.
      * 
      */
     private @Nullable List<LinuxWebAppSlotSiteConfigIpRestriction> ipRestrictions;
@@ -135,12 +135,12 @@ public final class LinuxWebAppSlotSiteConfig {
      */
     private @Nullable String remoteDebuggingVersion;
     /**
-     * @return The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+     * @return The Default action for traffic that does not match any `scmIpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
      * 
      */
     private @Nullable String scmIpRestrictionDefaultAction;
     /**
-     * @return One or more `scm_ip_restriction` blocks as defined above.
+     * @return One or more `scmIpRestriction` blocks as defined above.
      * 
      */
     private @Nullable List<LinuxWebAppSlotSiteConfigScmIpRestriction> scmIpRestrictions;
@@ -151,7 +151,7 @@ public final class LinuxWebAppSlotSiteConfig {
     private @Nullable String scmMinimumTlsVersion;
     private @Nullable String scmType;
     /**
-     * @return Should the Linux Web App `ip_restriction` configuration be used for the SCM also.
+     * @return Should the Linux Web App `ipRestriction` configuration be used for the SCM also.
      * 
      */
     private @Nullable Boolean scmUseMainIpRestriction;
@@ -206,14 +206,14 @@ public final class LinuxWebAppSlotSiteConfig {
         return Optional.ofNullable(this.appCommandLine);
     }
     /**
-     * @return A `application_stack` block as defined above.
+     * @return A `applicationStack` block as defined above.
      * 
      */
     public Optional<LinuxWebAppSlotSiteConfigApplicationStack> applicationStack() {
         return Optional.ofNullable(this.applicationStack);
     }
     /**
-     * @return A `auto_heal_setting` block as defined above. Required with `auto_heal`.
+     * @return A `autoHealSetting` block as defined above. Required with `autoHeal`.
      * 
      */
     public Optional<LinuxWebAppSlotSiteConfigAutoHealSetting> autoHealSetting() {
@@ -263,7 +263,7 @@ public final class LinuxWebAppSlotSiteConfig {
         return Optional.ofNullable(this.ftpsState);
     }
     /**
-     * @return The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+     * @return The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
      * 
      */
     public Optional<Integer> healthCheckEvictionTimeInMin() {
@@ -284,14 +284,14 @@ public final class LinuxWebAppSlotSiteConfig {
         return Optional.ofNullable(this.http2Enabled);
     }
     /**
-     * @return The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+     * @return The Default action for traffic that does not match any `ipRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
      * 
      */
     public Optional<String> ipRestrictionDefaultAction() {
         return Optional.ofNullable(this.ipRestrictionDefaultAction);
     }
     /**
-     * @return One or more `ip_restriction` blocks as defined above.
+     * @return One or more `ipRestriction` blocks as defined above.
      * 
      */
     public List<LinuxWebAppSlotSiteConfigIpRestriction> ipRestrictions() {
@@ -343,14 +343,14 @@ public final class LinuxWebAppSlotSiteConfig {
         return Optional.ofNullable(this.remoteDebuggingVersion);
     }
     /**
-     * @return The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+     * @return The Default action for traffic that does not match any `scmIpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
      * 
      */
     public Optional<String> scmIpRestrictionDefaultAction() {
         return Optional.ofNullable(this.scmIpRestrictionDefaultAction);
     }
     /**
-     * @return One or more `scm_ip_restriction` blocks as defined above.
+     * @return One or more `scmIpRestriction` blocks as defined above.
      * 
      */
     public List<LinuxWebAppSlotSiteConfigScmIpRestriction> scmIpRestrictions() {
@@ -367,7 +367,7 @@ public final class LinuxWebAppSlotSiteConfig {
         return Optional.ofNullable(this.scmType);
     }
     /**
-     * @return Should the Linux Web App `ip_restriction` configuration be used for the SCM also.
+     * @return Should the Linux Web App `ipRestriction` configuration be used for the SCM also.
      * 
      */
     public Optional<Boolean> scmUseMainIpRestriction() {

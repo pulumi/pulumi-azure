@@ -21,19 +21,19 @@ public final class VirtualMachineAutoBackupArgs extends com.pulumi.resources.Res
 
     /**
      * @deprecated
-     * `encryption_enabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryption_password` is set; otherwise disabled.
+     * `encryptionEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryptionPassword` is set; otherwise disabled.
      * 
      */
-    @Deprecated /* `encryption_enabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryption_password` is set; otherwise disabled. */
+    @Deprecated /* `encryptionEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryptionPassword` is set; otherwise disabled. */
     @Import(name="encryptionEnabled")
     private @Nullable Output<Boolean> encryptionEnabled;
 
     /**
      * @deprecated
-     * `encryption_enabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryption_password` is set; otherwise disabled.
+     * `encryptionEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryptionPassword` is set; otherwise disabled.
      * 
      */
-    @Deprecated /* `encryption_enabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryption_password` is set; otherwise disabled. */
+    @Deprecated /* `encryptionEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryptionPassword` is set; otherwise disabled. */
     public Optional<Output<Boolean>> encryptionEnabled() {
         return Optional.ofNullable(this.encryptionEnabled);
     }
@@ -54,14 +54,14 @@ public final class VirtualMachineAutoBackupArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * A `manual_schedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
+     * A `manualSchedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
      * 
      */
     @Import(name="manualSchedule")
     private @Nullable Output<VirtualMachineAutoBackupManualScheduleArgs> manualSchedule;
 
     /**
-     * @return A `manual_schedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
+     * @return A `manualSchedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
      * 
      */
     public Optional<Output<VirtualMachineAutoBackupManualScheduleArgs>> manualSchedule() {
@@ -162,10 +162,10 @@ public final class VirtualMachineAutoBackupArgs extends com.pulumi.resources.Res
          * @return builder
          * 
          * @deprecated
-         * `encryption_enabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryption_password` is set; otherwise disabled.
+         * `encryptionEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryptionPassword` is set; otherwise disabled.
          * 
          */
-        @Deprecated /* `encryption_enabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryption_password` is set; otherwise disabled. */
+        @Deprecated /* `encryptionEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryptionPassword` is set; otherwise disabled. */
         public Builder encryptionEnabled(@Nullable Output<Boolean> encryptionEnabled) {
             $.encryptionEnabled = encryptionEnabled;
             return this;
@@ -175,10 +175,10 @@ public final class VirtualMachineAutoBackupArgs extends com.pulumi.resources.Res
          * @return builder
          * 
          * @deprecated
-         * `encryption_enabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryption_password` is set; otherwise disabled.
+         * `encryptionEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryptionPassword` is set; otherwise disabled.
          * 
          */
-        @Deprecated /* `encryption_enabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryption_password` is set; otherwise disabled. */
+        @Deprecated /* `encryptionEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryptionPassword` is set; otherwise disabled. */
         public Builder encryptionEnabled(Boolean encryptionEnabled) {
             return encryptionEnabled(Output.of(encryptionEnabled));
         }
@@ -205,7 +205,7 @@ public final class VirtualMachineAutoBackupArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param manualSchedule A `manual_schedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
+         * @param manualSchedule A `manualSchedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class VirtualMachineAutoBackupArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param manualSchedule A `manual_schedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
+         * @param manualSchedule A `manualSchedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
          * 
          * @return builder
          * 

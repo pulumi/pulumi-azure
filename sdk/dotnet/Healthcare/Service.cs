@@ -95,7 +95,7 @@ namespace Pulumi.Azure.Healthcare
         public Output<ImmutableArray<string>> AccessPolicyObjectIds { get; private set; } = null!;
 
         /// <summary>
-        /// An `authentication_configuration` block as defined below.
+        /// An `AuthenticationConfiguration` block as defined below.
         /// </summary>
         [Output("authenticationConfiguration")]
         public Output<Outputs.ServiceAuthenticationConfiguration> AuthenticationConfiguration { get; private set; } = null!;
@@ -107,7 +107,7 @@ namespace Pulumi.Azure.Healthcare
         public Output<string?> ConfigurationExportStorageAccountName { get; private set; } = null!;
 
         /// <summary>
-        /// A `cors_configuration` block as defined below.
+        /// A `CorsConfiguration` block as defined below.
         /// </summary>
         [Output("corsConfiguration")]
         public Output<Outputs.ServiceCorsConfiguration> CorsConfiguration { get; private set; } = null!;
@@ -127,13 +127,13 @@ namespace Pulumi.Azure.Healthcare
         public Output<int?> CosmosdbThroughput { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ServiceIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
+        /// The type of the service. Values at time of publication are: `Fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `Fhir`.
         /// </summary>
         [Output("kind")]
         public Output<string?> Kind { get; private set; } = null!;
@@ -153,7 +153,7 @@ namespace Pulumi.Azure.Healthcare
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Whether public network access is enabled or disabled for this service instance. Defaults to `true`.
+        /// Whether public network access is enabled or disabled for this service instance. Defaults to `True`.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
@@ -225,7 +225,7 @@ namespace Pulumi.Azure.Healthcare
         }
 
         /// <summary>
-        /// An `authentication_configuration` block as defined below.
+        /// An `AuthenticationConfiguration` block as defined below.
         /// </summary>
         [Input("authenticationConfiguration")]
         public Input<Inputs.ServiceAuthenticationConfigurationArgs>? AuthenticationConfiguration { get; set; }
@@ -237,7 +237,7 @@ namespace Pulumi.Azure.Healthcare
         public Input<string>? ConfigurationExportStorageAccountName { get; set; }
 
         /// <summary>
-        /// A `cors_configuration` block as defined below.
+        /// A `CorsConfiguration` block as defined below.
         /// </summary>
         [Input("corsConfiguration")]
         public Input<Inputs.ServiceCorsConfigurationArgs>? CorsConfiguration { get; set; }
@@ -257,13 +257,13 @@ namespace Pulumi.Azure.Healthcare
         public Input<int>? CosmosdbThroughput { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
+        /// The type of the service. Values at time of publication are: `Fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `Fhir`.
         /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }
@@ -283,7 +283,7 @@ namespace Pulumi.Azure.Healthcare
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether public network access is enabled or disabled for this service instance. Defaults to `true`.
+        /// Whether public network access is enabled or disabled for this service instance. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -323,7 +323,7 @@ namespace Pulumi.Azure.Healthcare
         }
 
         /// <summary>
-        /// An `authentication_configuration` block as defined below.
+        /// An `AuthenticationConfiguration` block as defined below.
         /// </summary>
         [Input("authenticationConfiguration")]
         public Input<Inputs.ServiceAuthenticationConfigurationGetArgs>? AuthenticationConfiguration { get; set; }
@@ -335,7 +335,7 @@ namespace Pulumi.Azure.Healthcare
         public Input<string>? ConfigurationExportStorageAccountName { get; set; }
 
         /// <summary>
-        /// A `cors_configuration` block as defined below.
+        /// A `CorsConfiguration` block as defined below.
         /// </summary>
         [Input("corsConfiguration")]
         public Input<Inputs.ServiceCorsConfigurationGetArgs>? CorsConfiguration { get; set; }
@@ -355,13 +355,13 @@ namespace Pulumi.Azure.Healthcare
         public Input<int>? CosmosdbThroughput { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ServiceIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
+        /// The type of the service. Values at time of publication are: `Fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `Fhir`.
         /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }
@@ -381,7 +381,7 @@ namespace Pulumi.Azure.Healthcare
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether public network access is enabled or disabled for this service instance. Defaults to `true`.
+        /// Whether public network access is enabled or disabled for this service instance. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }

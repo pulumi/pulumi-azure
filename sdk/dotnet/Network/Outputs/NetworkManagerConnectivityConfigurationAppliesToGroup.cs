@@ -14,9 +14,9 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class NetworkManagerConnectivityConfigurationAppliesToGroup
     {
         /// <summary>
-        /// Indicates whether to global mesh is supported for this group. Possible values are `true` and `false`.
+        /// Indicates whether to global mesh is supported for this group. Possible values are `True` and `False`.
         /// 
-        /// &gt; **Note:** A group can be global only if the `group_connectivity` is `DirectlyConnected`.
+        /// &gt; **Note:** A group can be global only if the `GroupConnectivity` is `DirectlyConnected`.
         /// </summary>
         public readonly bool? GlobalMeshEnabled;
         /// <summary>
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string NetworkGroupId;
         /// <summary>
-        /// Indicates whether the hub gateway is used. Possible values are `true` and `false`.
+        /// Indicates whether the hub gateway is used. Possible values are `True` and `False`.
         /// </summary>
         public readonly bool? UseHubGateway;
 

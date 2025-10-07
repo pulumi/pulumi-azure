@@ -143,14 +143,14 @@ public final class LinkedServiceAzureFileStorageState extends com.pulumi.resourc
     }
 
     /**
-     * A `key_vault_password` block as defined below. Use this argument to store Azure File Storage password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+     * A `keyVaultPassword` block as defined below. Use this argument to store Azure File Storage password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
      * 
      */
     @Import(name="keyVaultPassword")
     private @Nullable Output<LinkedServiceAzureFileStorageKeyVaultPasswordArgs> keyVaultPassword;
 
     /**
-     * @return A `key_vault_password` block as defined below. Use this argument to store Azure File Storage password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+     * @return A `keyVaultPassword` block as defined below. Use this argument to store Azure File Storage password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
      * 
      */
     public Optional<Output<LinkedServiceAzureFileStorageKeyVaultPasswordArgs>> keyVaultPassword() {
@@ -436,7 +436,7 @@ public final class LinkedServiceAzureFileStorageState extends com.pulumi.resourc
         }
 
         /**
-         * @param keyVaultPassword A `key_vault_password` block as defined below. Use this argument to store Azure File Storage password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+         * @param keyVaultPassword A `keyVaultPassword` block as defined below. Use this argument to store Azure File Storage password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
          * 
          * @return builder
          * 
@@ -447,7 +447,7 @@ public final class LinkedServiceAzureFileStorageState extends com.pulumi.resourc
         }
 
         /**
-         * @param keyVaultPassword A `key_vault_password` block as defined below. Use this argument to store Azure File Storage password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+         * @param keyVaultPassword A `keyVaultPassword` block as defined below. Use this argument to store Azure File Storage password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
          * 
          * @return builder
          * 

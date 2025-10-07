@@ -14,11 +14,11 @@ namespace Pulumi.Azure.KeyVault.Outputs
     public sealed class CertificateCertificatePolicyLifetimeActionTrigger
     {
         /// <summary>
-        /// The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with `lifetime_percentage`.
+        /// The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with `LifetimePercentage`.
         /// </summary>
         public readonly int? DaysBeforeExpiry;
         /// <summary>
-        /// The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with `days_before_expiry`.
+        /// The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with `DaysBeforeExpiry`.
         /// </summary>
         public readonly int? LifetimePercentage;
 

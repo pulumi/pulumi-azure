@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class KubernetesClusterAciConnectorLinux {
     /**
-     * @return A `connector_identity` block is exported. The exported attributes are defined below.
+     * @return A `connectorIdentity` block is exported. The exported attributes are defined below.
      * 
      */
     private @Nullable List<KubernetesClusterAciConnectorLinuxConnectorIdentity> connectorIdentities;
@@ -69,7 +69,7 @@ public final class KubernetesClusterAciConnectorLinux {
 
     private KubernetesClusterAciConnectorLinux() {}
     /**
-     * @return A `connector_identity` block is exported. The exported attributes are defined below.
+     * @return A `connectorIdentity` block is exported. The exported attributes are defined below.
      * 
      */
     public List<KubernetesClusterAciConnectorLinuxConnectorIdentity> connectorIdentities() {

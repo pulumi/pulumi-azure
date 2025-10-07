@@ -25,12 +25,12 @@ public final class FirewallPolicyIntrusionDetection {
      */
     private @Nullable List<String> privateRanges;
     /**
-     * @return One or more `signature_overrides` blocks as defined below.
+     * @return One or more `signatureOverrides` blocks as defined below.
      * 
      */
     private @Nullable List<FirewallPolicyIntrusionDetectionSignatureOverride> signatureOverrides;
     /**
-     * @return One or more `traffic_bypass` blocks as defined below.
+     * @return One or more `trafficBypass` blocks as defined below.
      * 
      */
     private @Nullable List<FirewallPolicyIntrusionDetectionTrafficBypass> trafficBypasses;
@@ -51,14 +51,14 @@ public final class FirewallPolicyIntrusionDetection {
         return this.privateRanges == null ? List.of() : this.privateRanges;
     }
     /**
-     * @return One or more `signature_overrides` blocks as defined below.
+     * @return One or more `signatureOverrides` blocks as defined below.
      * 
      */
     public List<FirewallPolicyIntrusionDetectionSignatureOverride> signatureOverrides() {
         return this.signatureOverrides == null ? List.of() : this.signatureOverrides;
     }
     /**
-     * @return One or more `traffic_bypass` blocks as defined below.
+     * @return One or more `trafficBypass` blocks as defined below.
      * 
      */
     public List<FirewallPolicyIntrusionDetectionTrafficBypass> trafficBypasses() {

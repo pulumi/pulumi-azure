@@ -18,14 +18,14 @@ public final class LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs ext
     public static final LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs Empty = new LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs();
 
     /**
-     * The number of occurrences of the defined `status_code` in the specified `interval` on which to trigger this rule.
+     * The number of occurrences of the defined `statusCode` in the specified `interval` on which to trigger this rule.
      * 
      */
     @Import(name="count", required=true)
     private Output<Integer> count;
 
     /**
-     * @return The number of occurrences of the defined `status_code` in the specified `interval` on which to trigger this rule.
+     * @return The number of occurrences of the defined `statusCode` in the specified `interval` on which to trigger this rule.
      * 
      */
     public Output<Integer> count() {
@@ -137,7 +137,7 @@ public final class LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs ext
         }
 
         /**
-         * @param count The number of occurrences of the defined `status_code` in the specified `interval` on which to trigger this rule.
+         * @param count The number of occurrences of the defined `statusCode` in the specified `interval` on which to trigger this rule.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs ext
         }
 
         /**
-         * @param count The number of occurrences of the defined `status_code` in the specified `interval` on which to trigger this rule.
+         * @param count The number of occurrences of the defined `statusCode` in the specified `interval` on which to trigger this rule.
          * 
          * @return builder
          * 

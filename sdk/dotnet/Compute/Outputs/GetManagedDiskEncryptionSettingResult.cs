@@ -14,12 +14,12 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class GetManagedDiskEncryptionSettingResult
     {
         /// <summary>
-        /// A `disk_encryption_key` block as defined above.
+        /// A `DiskEncryptionKey` block as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetManagedDiskEncryptionSettingDiskEncryptionKeyResult> DiskEncryptionKeys;
         public readonly bool Enabled;
         /// <summary>
-        /// A `key_encryption_key` block as defined below.
+        /// A `KeyEncryptionKey` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetManagedDiskEncryptionSettingKeyEncryptionKeyResult> KeyEncryptionKeys;
 

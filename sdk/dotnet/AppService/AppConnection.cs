@@ -12,6 +12,111 @@ namespace Pulumi.Azure.AppService
     /// <summary>
     /// Manages a service connector for function app.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.CosmosDB.Account("example", new()
+    ///     {
+    ///         Name = "example-cosmosdb-account",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         OfferType = "Standard",
+    ///         Kind = "GlobalDocumentDB",
+    ///         ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
+    ///         {
+    ///             ConsistencyLevel = "BoundedStaleness",
+    ///             MaxIntervalInSeconds = 10,
+    ///             MaxStalenessPrefix = 200,
+    ///         },
+    ///         GeoLocations = new[]
+    ///         {
+    ///             new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
+    ///             {
+    ///                 Location = example.Location,
+    ///                 FailoverPriority = 0,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSqlDatabase = new Azure.CosmosDB.SqlDatabase("example", new()
+    ///     {
+    ///         Name = "cosmos-sql-db",
+    ///         ResourceGroupName = exampleAccount.ResourceGroupName,
+    ///         AccountName = exampleAccount.Name,
+    ///         Throughput = 400,
+    ///     });
+    /// 
+    ///     var exampleSqlContainer = new Azure.CosmosDB.SqlContainer("example", new()
+    ///     {
+    ///         Name = "example-container",
+    ///         ResourceGroupName = exampleAccount.ResourceGroupName,
+    ///         AccountName = exampleAccount.Name,
+    ///         DatabaseName = exampleSqlDatabase.Name,
+    ///         PartitionKeyPath = "/definition",
+    ///     });
+    /// 
+    ///     var exampleAccount2 = new Azure.Storage.Account("example", new()
+    ///     {
+    ///         Name = "examplestorageaccount",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleServicePlan = new Azure.AppService.ServicePlan("example", new()
+    ///     {
+    ///         Location = example.Location,
+    ///         Name = "example-serviceplan",
+    ///         ResourceGroupName = example.Name,
+    ///         SkuName = "P1v2",
+    ///         OsType = "Linux",
+    ///     });
+    /// 
+    ///     var test = new Azure.AppService.FunctionApp("test", new()
+    ///     {
+    ///         Name = "example-function-app",
+    ///         Location = testAzurermResourceGroup.Location,
+    ///         ResourceGroupName = testAzurermResourceGroup.Name,
+    ///         AppServicePlanId = testAzurermAppServicePlan.Id,
+    ///         StorageAccountName = testAzurermStorageAccount.Name,
+    ///         StorageAccountAccessKey = testAzurermStorageAccount.PrimaryAccessKey,
+    ///     });
+    /// 
+    ///     var exampleAppConnection = new Azure.AppService.AppConnection("example", new()
+    ///     {
+    ///         Name = "example-serviceconnector",
+    ///         FunctionAppId = exampleAzurermFunctionApp.Id,
+    ///         TargetResourceId = testAzurermCosmosdbAccount.Id,
+    ///         Authentication = new Azure.AppService.Inputs.AppConnectionAuthenticationArgs
+    ///         {
+    ///             Type = "systemAssignedIdentity",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.ServiceLinker` - 2024-04-01, 2022-05-01
+    /// 
     /// ## Import
     /// 
     /// Service Connector for app service can be imported using the `resource id`, e.g.
@@ -24,7 +129,7 @@ namespace Pulumi.Azure.AppService
     public partial class AppConnection : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The authentication info. An `authentication` block as defined below.
+        /// The authentication info. An `Authentication` block as defined below.
         /// 
         /// &gt; **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
         /// </summary>
@@ -105,7 +210,7 @@ namespace Pulumi.Azure.AppService
     public sealed class AppConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The authentication info. An `authentication` block as defined below.
+        /// The authentication info. An `Authentication` block as defined below.
         /// 
         /// &gt; **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
         /// </summary>
@@ -148,7 +253,7 @@ namespace Pulumi.Azure.AppService
     public sealed class AppConnectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The authentication info. An `authentication` block as defined below.
+        /// The authentication info. An `Authentication` block as defined below.
         /// 
         /// &gt; **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
         /// </summary>

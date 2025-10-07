@@ -25,12 +25,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LinuxFunctionAppSlotAuthSettingsV2 {
     /**
-     * @return An `active_directory_v2` block as defined below.
+     * @return An `activeDirectoryV2` block as defined below.
      * 
      */
     private @Nullable LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2 activeDirectoryV2;
     /**
-     * @return An `apple_v2` block as defined below.
+     * @return An `appleV2` block as defined below.
      * 
      */
     private @Nullable LinuxFunctionAppSlotAuthSettingsV2AppleV2 appleV2;
@@ -40,7 +40,7 @@ public final class LinuxFunctionAppSlotAuthSettingsV2 {
      */
     private @Nullable Boolean authEnabled;
     /**
-     * @return An `azure_static_web_app_v2` block as defined below.
+     * @return An `azureStaticWebAppV2` block as defined below.
      * 
      */
     private @Nullable LinuxFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2 azureStaticWebAppV2;
@@ -52,26 +52,26 @@ public final class LinuxFunctionAppSlotAuthSettingsV2 {
      */
     private @Nullable String configFilePath;
     /**
-     * @return Zero or more `custom_oidc_v2` blocks as defined below.
+     * @return Zero or more `customOidcV2` blocks as defined below.
      * 
      */
     private @Nullable List<LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2> customOidcV2s;
     /**
-     * @return The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+     * @return The Default Authentication Provider to use when the `unauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `customOidcV2` provider.
      * 
-     * &gt; **Note:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+     * &gt; **Note:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
      * 
      */
     private @Nullable String defaultProvider;
     /**
-     * @return The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+     * @return The paths which should be excluded from the `unauthenticatedAction` when it is set to `RedirectToLoginPage`.
      * 
-     * &gt; **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
+     * &gt; **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `appSettings` as it takes priority.
      * 
      */
     private @Nullable List<String> excludedPaths;
     /**
-     * @return A `facebook_v2` block as defined below.
+     * @return A `facebookV2` block as defined below.
      * 
      */
     private @Nullable LinuxFunctionAppSlotAuthSettingsV2FacebookV2 facebookV2;
@@ -91,12 +91,12 @@ public final class LinuxFunctionAppSlotAuthSettingsV2 {
      */
     private @Nullable String forwardProxyCustomSchemeHeaderName;
     /**
-     * @return A `github_v2` block as defined below.
+     * @return A `githubV2` block as defined below.
      * 
      */
     private @Nullable LinuxFunctionAppSlotAuthSettingsV2GithubV2 githubV2;
     /**
-     * @return A `google_v2` block as defined below.
+     * @return A `googleV2` block as defined below.
      * 
      */
     private @Nullable LinuxFunctionAppSlotAuthSettingsV2GoogleV2 googleV2;
@@ -111,7 +111,7 @@ public final class LinuxFunctionAppSlotAuthSettingsV2 {
      */
     private LinuxFunctionAppSlotAuthSettingsV2Login login;
     /**
-     * @return A `microsoft_v2` block as defined below.
+     * @return A `microsoftV2` block as defined below.
      * 
      */
     private @Nullable LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2 microsoftV2;
@@ -131,7 +131,7 @@ public final class LinuxFunctionAppSlotAuthSettingsV2 {
      */
     private @Nullable String runtimeVersion;
     /**
-     * @return A `twitter_v2` block as defined below.
+     * @return A `twitterV2` block as defined below.
      * 
      */
     private @Nullable LinuxFunctionAppSlotAuthSettingsV2TwitterV2 twitterV2;
@@ -143,14 +143,14 @@ public final class LinuxFunctionAppSlotAuthSettingsV2 {
 
     private LinuxFunctionAppSlotAuthSettingsV2() {}
     /**
-     * @return An `active_directory_v2` block as defined below.
+     * @return An `activeDirectoryV2` block as defined below.
      * 
      */
     public Optional<LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2> activeDirectoryV2() {
         return Optional.ofNullable(this.activeDirectoryV2);
     }
     /**
-     * @return An `apple_v2` block as defined below.
+     * @return An `appleV2` block as defined below.
      * 
      */
     public Optional<LinuxFunctionAppSlotAuthSettingsV2AppleV2> appleV2() {
@@ -164,7 +164,7 @@ public final class LinuxFunctionAppSlotAuthSettingsV2 {
         return Optional.ofNullable(this.authEnabled);
     }
     /**
-     * @return An `azure_static_web_app_v2` block as defined below.
+     * @return An `azureStaticWebAppV2` block as defined below.
      * 
      */
     public Optional<LinuxFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2> azureStaticWebAppV2() {
@@ -180,32 +180,32 @@ public final class LinuxFunctionAppSlotAuthSettingsV2 {
         return Optional.ofNullable(this.configFilePath);
     }
     /**
-     * @return Zero or more `custom_oidc_v2` blocks as defined below.
+     * @return Zero or more `customOidcV2` blocks as defined below.
      * 
      */
     public List<LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2> customOidcV2s() {
         return this.customOidcV2s == null ? List.of() : this.customOidcV2s;
     }
     /**
-     * @return The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+     * @return The Default Authentication Provider to use when the `unauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `customOidcV2` provider.
      * 
-     * &gt; **Note:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+     * &gt; **Note:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
      * 
      */
     public Optional<String> defaultProvider() {
         return Optional.ofNullable(this.defaultProvider);
     }
     /**
-     * @return The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+     * @return The paths which should be excluded from the `unauthenticatedAction` when it is set to `RedirectToLoginPage`.
      * 
-     * &gt; **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
+     * &gt; **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `appSettings` as it takes priority.
      * 
      */
     public List<String> excludedPaths() {
         return this.excludedPaths == null ? List.of() : this.excludedPaths;
     }
     /**
-     * @return A `facebook_v2` block as defined below.
+     * @return A `facebookV2` block as defined below.
      * 
      */
     public Optional<LinuxFunctionAppSlotAuthSettingsV2FacebookV2> facebookV2() {
@@ -233,14 +233,14 @@ public final class LinuxFunctionAppSlotAuthSettingsV2 {
         return Optional.ofNullable(this.forwardProxyCustomSchemeHeaderName);
     }
     /**
-     * @return A `github_v2` block as defined below.
+     * @return A `githubV2` block as defined below.
      * 
      */
     public Optional<LinuxFunctionAppSlotAuthSettingsV2GithubV2> githubV2() {
         return Optional.ofNullable(this.githubV2);
     }
     /**
-     * @return A `google_v2` block as defined below.
+     * @return A `googleV2` block as defined below.
      * 
      */
     public Optional<LinuxFunctionAppSlotAuthSettingsV2GoogleV2> googleV2() {
@@ -261,7 +261,7 @@ public final class LinuxFunctionAppSlotAuthSettingsV2 {
         return this.login;
     }
     /**
-     * @return A `microsoft_v2` block as defined below.
+     * @return A `microsoftV2` block as defined below.
      * 
      */
     public Optional<LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2> microsoftV2() {
@@ -289,7 +289,7 @@ public final class LinuxFunctionAppSlotAuthSettingsV2 {
         return Optional.ofNullable(this.runtimeVersion);
     }
     /**
-     * @return A `twitter_v2` block as defined below.
+     * @return A `twitterV2` block as defined below.
      * 
      */
     public Optional<LinuxFunctionAppSlotAuthSettingsV2TwitterV2> twitterV2() {

@@ -159,7 +159,7 @@ namespace Pulumi.Azure.AppService
         public Output<string> LastSuccessfulSwap { get; private set; } = null!;
 
         /// <summary>
-        /// The swap action should overwrite the Production slot's network configuration with the configuration from this slot. Defaults to `true`. Changing this forces a new resource to be created.
+        /// The swap action should overwrite the Production slot's network configuration with the configuration from this slot. Defaults to `True`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("overwriteNetworkConfig")]
         public Output<bool?> OverwriteNetworkConfig { get; private set; } = null!;
@@ -217,7 +217,7 @@ namespace Pulumi.Azure.AppService
     public sealed class FunctionAppActiveSlotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The swap action should overwrite the Production slot's network configuration with the configuration from this slot. Defaults to `true`. Changing this forces a new resource to be created.
+        /// The swap action should overwrite the Production slot's network configuration with the configuration from this slot. Defaults to `True`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("overwriteNetworkConfig")]
         public Input<bool>? OverwriteNetworkConfig { get; set; }
@@ -243,7 +243,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? LastSuccessfulSwap { get; set; }
 
         /// <summary>
-        /// The swap action should overwrite the Production slot's network configuration with the configuration from this slot. Defaults to `true`. Changing this forces a new resource to be created.
+        /// The swap action should overwrite the Production slot's network configuration with the configuration from this slot. Defaults to `True`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("overwriteNetworkConfig")]
         public Input<bool>? OverwriteNetworkConfig { get; set; }

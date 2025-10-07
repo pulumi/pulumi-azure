@@ -19,14 +19,14 @@ public final class VpnServerConfigurationRadiusArgs extends com.pulumi.resources
     public static final VpnServerConfigurationRadiusArgs Empty = new VpnServerConfigurationRadiusArgs();
 
     /**
-     * One or more `client_root_certificate` blocks as defined below.
+     * One or more `clientRootCertificate` blocks as defined below.
      * 
      */
     @Import(name="clientRootCertificates")
     private @Nullable Output<List<VpnServerConfigurationRadiusClientRootCertificateArgs>> clientRootCertificates;
 
     /**
-     * @return One or more `client_root_certificate` blocks as defined below.
+     * @return One or more `clientRootCertificate` blocks as defined below.
      * 
      */
     public Optional<Output<List<VpnServerConfigurationRadiusClientRootCertificateArgs>>> clientRootCertificates() {
@@ -34,14 +34,14 @@ public final class VpnServerConfigurationRadiusArgs extends com.pulumi.resources
     }
 
     /**
-     * One or more `server_root_certificate` blocks as defined below.
+     * One or more `serverRootCertificate` blocks as defined below.
      * 
      */
     @Import(name="serverRootCertificates")
     private @Nullable Output<List<VpnServerConfigurationRadiusServerRootCertificateArgs>> serverRootCertificates;
 
     /**
-     * @return One or more `server_root_certificate` blocks as defined below.
+     * @return One or more `serverRootCertificate` blocks as defined below.
      * 
      */
     public Optional<Output<List<VpnServerConfigurationRadiusServerRootCertificateArgs>>> serverRootCertificates() {
@@ -90,7 +90,7 @@ public final class VpnServerConfigurationRadiusArgs extends com.pulumi.resources
         }
 
         /**
-         * @param clientRootCertificates One or more `client_root_certificate` blocks as defined below.
+         * @param clientRootCertificates One or more `clientRootCertificate` blocks as defined below.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class VpnServerConfigurationRadiusArgs extends com.pulumi.resources
         }
 
         /**
-         * @param clientRootCertificates One or more `client_root_certificate` blocks as defined below.
+         * @param clientRootCertificates One or more `clientRootCertificate` blocks as defined below.
          * 
          * @return builder
          * 
@@ -111,7 +111,7 @@ public final class VpnServerConfigurationRadiusArgs extends com.pulumi.resources
         }
 
         /**
-         * @param clientRootCertificates One or more `client_root_certificate` blocks as defined below.
+         * @param clientRootCertificates One or more `clientRootCertificate` blocks as defined below.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class VpnServerConfigurationRadiusArgs extends com.pulumi.resources
         }
 
         /**
-         * @param serverRootCertificates One or more `server_root_certificate` blocks as defined below.
+         * @param serverRootCertificates One or more `serverRootCertificate` blocks as defined below.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class VpnServerConfigurationRadiusArgs extends com.pulumi.resources
         }
 
         /**
-         * @param serverRootCertificates One or more `server_root_certificate` blocks as defined below.
+         * @param serverRootCertificates One or more `serverRootCertificate` blocks as defined below.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class VpnServerConfigurationRadiusArgs extends com.pulumi.resources
         }
 
         /**
-         * @param serverRootCertificates One or more `server_root_certificate` blocks as defined below.
+         * @param serverRootCertificates One or more `serverRootCertificate` blocks as defined below.
          * 
          * @return builder
          * 

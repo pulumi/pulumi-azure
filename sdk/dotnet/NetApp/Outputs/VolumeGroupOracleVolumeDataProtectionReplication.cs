@@ -14,7 +14,7 @@ namespace Pulumi.Azure.NetApp.Outputs
     public sealed class VolumeGroupOracleVolumeDataProtectionReplication
     {
         /// <summary>
-        /// The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        /// The endpoint type. Possible values are `Dst` and `Src`. Defaults to `Dst`. Changing this forces a new Application Volume Group to be created and data will be lost.
         /// </summary>
         public readonly string? EndpointType;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Azure.NetApp.Outputs
         /// </summary>
         public readonly string RemoteVolumeResourceId;
         /// <summary>
-        /// Replication frequency. Possible values are `10minutes`, `daily` and `hourly`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        /// Replication frequency. Possible values are `10minutes`, `Daily` and `Hourly`. Changing this forces a new Application Volume Group to be created and data will be lost.
         /// </summary>
         public readonly string ReplicationFrequency;
 

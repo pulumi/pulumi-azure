@@ -7,6 +7,89 @@ import * as utilities from "../utilities";
 /**
  * Manages a Container App Custom Domain.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as std from "@pulumi/std";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleZone = new azure.dns.Zone("example", {
+ *     name: "contoso.com",
+ *     resourceGroupName: example.name,
+ * });
+ * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("example", {
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     sku: "PerGB2018",
+ *     retentionInDays: 30,
+ * });
+ * const exampleEnvironment = new azure.containerapp.Environment("example", {
+ *     name: "Example-Environment",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     logAnalyticsWorkspaceId: exampleAnalyticsWorkspace.id,
+ * });
+ * const exampleApp = new azure.containerapp.App("example", {
+ *     name: "example-app",
+ *     containerAppEnvironmentId: exampleEnvironment.id,
+ *     resourceGroupName: example.name,
+ *     revisionMode: "Single",
+ *     template: {
+ *         containers: [{
+ *             name: "examplecontainerapp",
+ *             image: "mcr.microsoft.com/k8se/quickstart:latest",
+ *             cpu: 0.25,
+ *             memory: "0.5Gi",
+ *         }],
+ *     },
+ *     ingress: {
+ *         allowInsecureConnections: false,
+ *         externalEnabled: true,
+ *         targetPort: 5000,
+ *         transport: "http",
+ *         trafficWeights: [{
+ *             latestRevision: true,
+ *             percentage: 100,
+ *         }],
+ *     },
+ * });
+ * const exampleTxtRecord = new azure.dns.TxtRecord("example", {
+ *     name: "asuid.example",
+ *     resourceGroupName: exampleZone.resourceGroupName,
+ *     zoneName: exampleZone.name,
+ *     ttl: 300,
+ *     records: [{
+ *         value: exampleApp.customDomainVerificationId,
+ *     }],
+ * });
+ * const exampleEnvironmentCertificate = new azure.containerapp.EnvironmentCertificate("example", {
+ *     name: "myfriendlyname",
+ *     containerAppEnvironmentId: exampleEnvironment.id,
+ *     certificateBlob: std.filebase64({
+ *         input: "path/to/certificate_file.pfx",
+ *     }).then(invoke => invoke.result),
+ *     certificatePassword: "$3cretSqu1rreL",
+ * });
+ * const exampleCustomDomain = new azure.containerapp.CustomDomain("example", {
+ *     name: std.trimprefix({
+ *         input: api.fqdn,
+ *         prefix: "asuid.",
+ *     }).then(invoke => std.trimsuffix({
+ *         input: invoke.result,
+ *         suffix: ".",
+ *     })).then(invoke => invoke.result),
+ *     containerAppId: exampleApp.id,
+ *     containerAppEnvironmentCertificateId: exampleEnvironmentCertificate.id,
+ *     certificateBindingType: "SniEnabled",
+ * });
+ * ```
+ *
  * ### Managed Certificate
  *
  * ```typescript

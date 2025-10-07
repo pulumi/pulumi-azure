@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetWindowsWebAppLogApplicationLog {
     /**
-     * @return A `azure_blob_storage` block as defined above.
+     * @return A `azureBlobStorage` block as defined above.
      * 
      */
     private List<GetWindowsWebAppLogApplicationLogAzureBlobStorage> azureBlobStorages;
@@ -25,7 +25,7 @@ public final class GetWindowsWebAppLogApplicationLog {
 
     private GetWindowsWebAppLogApplicationLog() {}
     /**
-     * @return A `azure_blob_storage` block as defined above.
+     * @return A `azureBlobStorage` block as defined above.
      * 
      */
     public List<GetWindowsWebAppLogApplicationLogAzureBlobStorage> azureBlobStorages() {

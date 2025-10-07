@@ -85,14 +85,14 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
     }
 
     /**
-     * An `ipsec_policy` block as defined below.
+     * An `ipsecPolicy` block as defined below.
      * 
      */
     @Import(name="ipsecPolicy")
     private @Nullable Output<VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgs> ipsecPolicy;
 
     /**
-     * @return An `ipsec_policy` block as defined below.
+     * @return An `ipsecPolicy` block as defined below.
      * 
      */
     public Optional<Output<VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgs>> ipsecPolicy() {
@@ -130,14 +130,14 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
     }
 
     /**
-     * One or more `radius_server` blocks as defined below.
+     * One or more `radiusServer` blocks as defined below.
      * 
      */
     @Import(name="radiusServers")
     private @Nullable Output<List<VirtualNetworkGatewayVpnClientConfigurationRadiusServerArgs>> radiusServers;
 
     /**
-     * @return One or more `radius_server` blocks as defined below.
+     * @return One or more `radiusServer` blocks as defined below.
      * 
      */
     public Optional<Output<List<VirtualNetworkGatewayVpnClientConfigurationRadiusServerArgs>>> radiusServers() {
@@ -145,14 +145,14 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
     }
 
     /**
-     * One or more `revoked_certificate` blocks which are defined below.
+     * One or more `revokedCertificate` blocks which are defined below.
      * 
      */
     @Import(name="revokedCertificates")
     private @Nullable Output<List<VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs>> revokedCertificates;
 
     /**
-     * @return One or more `revoked_certificate` blocks which are defined below.
+     * @return One or more `revokedCertificate` blocks which are defined below.
      * 
      */
     public Optional<Output<List<VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs>>> revokedCertificates() {
@@ -160,14 +160,14 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
     }
 
     /**
-     * One or more `root_certificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
+     * One or more `rootCertificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
      * 
      */
     @Import(name="rootCertificates")
     private @Nullable Output<List<VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs>> rootCertificates;
 
     /**
-     * @return One or more `root_certificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
+     * @return One or more `rootCertificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
      * 
      */
     public Optional<Output<List<VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs>>> rootCertificates() {
@@ -175,14 +175,14 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
     }
 
     /**
-     * One or more `virtual_network_gateway_client_connection` blocks as defined below.
+     * One or more `virtualNetworkGatewayClientConnection` blocks as defined below.
      * 
      */
     @Import(name="virtualNetworkGatewayClientConnections")
     private @Nullable Output<List<VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArgs>> virtualNetworkGatewayClientConnections;
 
     /**
-     * @return One or more `virtual_network_gateway_client_connection` blocks as defined below.
+     * @return One or more `virtualNetworkGatewayClientConnection` blocks as defined below.
      * 
      */
     public Optional<Output<List<VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArgs>>> virtualNetworkGatewayClientConnections() {
@@ -193,7 +193,7 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
      * List of the vpn authentication types for the virtual network gateway.
      * The supported values are `AAD`, `Radius` and `Certificate`.
      * 
-     * &gt; **Note:** `vpn_auth_types` must be set when using multiple vpn authentication types.
+     * &gt; **Note:** `vpnAuthTypes` must be set when using multiple vpn authentication types.
      * 
      */
     @Import(name="vpnAuthTypes")
@@ -203,7 +203,7 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
      * @return List of the vpn authentication types for the virtual network gateway.
      * The supported values are `AAD`, `Radius` and `Certificate`.
      * 
-     * &gt; **Note:** `vpn_auth_types` must be set when using multiple vpn authentication types.
+     * &gt; **Note:** `vpnAuthTypes` must be set when using multiple vpn authentication types.
      * 
      */
     public Optional<Output<List<String>>> vpnAuthTypes() {
@@ -214,7 +214,7 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
      * List of the protocols supported by the vpn client.
      * The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
      * Values `SSTP` and `IkeV2` are incompatible with the use of
-     * `aad_tenant`, `aad_audience` and `aad_issuer`.
+     * `aadTenant`, `aadAudience` and `aadIssuer`.
      * 
      */
     @Import(name="vpnClientProtocols")
@@ -224,7 +224,7 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
      * @return List of the protocols supported by the vpn client.
      * The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
      * Values `SSTP` and `IkeV2` are incompatible with the use of
-     * `aad_tenant`, `aad_audience` and `aad_issuer`.
+     * `aadTenant`, `aadAudience` and `aadIssuer`.
      * 
      */
     public Optional<Output<List<String>>> vpnClientProtocols() {
@@ -364,7 +364,7 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
         }
 
         /**
-         * @param ipsecPolicy An `ipsec_policy` block as defined below.
+         * @param ipsecPolicy An `ipsecPolicy` block as defined below.
          * 
          * @return builder
          * 
@@ -375,7 +375,7 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
         }
 
         /**
-         * @param ipsecPolicy An `ipsec_policy` block as defined below.
+         * @param ipsecPolicy An `ipsecPolicy` block as defined below.
          * 
          * @return builder
          * 
@@ -427,7 +427,7 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
         }
 
         /**
-         * @param radiusServers One or more `radius_server` blocks as defined below.
+         * @param radiusServers One or more `radiusServer` blocks as defined below.
          * 
          * @return builder
          * 
@@ -438,7 +438,7 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
         }
 
         /**
-         * @param radiusServers One or more `radius_server` blocks as defined below.
+         * @param radiusServers One or more `radiusServer` blocks as defined below.
          * 
          * @return builder
          * 
@@ -448,7 +448,7 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
         }
 
         /**
-         * @param radiusServers One or more `radius_server` blocks as defined below.
+         * @param radiusServers One or more `radiusServer` blocks as defined below.
          * 
          * @return builder
          * 
@@ -458,7 +458,7 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
         }
 
         /**
-         * @param revokedCertificates One or more `revoked_certificate` blocks which are defined below.
+         * @param revokedCertificates One or more `revokedCertificate` blocks which are defined below.
          * 
          * @return builder
          * 
@@ -469,7 +469,7 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
         }
 
         /**
-         * @param revokedCertificates One or more `revoked_certificate` blocks which are defined below.
+         * @param revokedCertificates One or more `revokedCertificate` blocks which are defined below.
          * 
          * @return builder
          * 
@@ -479,7 +479,7 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
         }
 
         /**
-         * @param revokedCertificates One or more `revoked_certificate` blocks which are defined below.
+         * @param revokedCertificates One or more `revokedCertificate` blocks which are defined below.
          * 
          * @return builder
          * 
@@ -489,7 +489,7 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
         }
 
         /**
-         * @param rootCertificates One or more `root_certificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
+         * @param rootCertificates One or more `rootCertificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
          * 
          * @return builder
          * 
@@ -500,7 +500,7 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
         }
 
         /**
-         * @param rootCertificates One or more `root_certificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
+         * @param rootCertificates One or more `rootCertificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
          * 
          * @return builder
          * 
@@ -510,7 +510,7 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
         }
 
         /**
-         * @param rootCertificates One or more `root_certificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
+         * @param rootCertificates One or more `rootCertificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
          * 
          * @return builder
          * 
@@ -520,7 +520,7 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
         }
 
         /**
-         * @param virtualNetworkGatewayClientConnections One or more `virtual_network_gateway_client_connection` blocks as defined below.
+         * @param virtualNetworkGatewayClientConnections One or more `virtualNetworkGatewayClientConnection` blocks as defined below.
          * 
          * @return builder
          * 
@@ -531,7 +531,7 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
         }
 
         /**
-         * @param virtualNetworkGatewayClientConnections One or more `virtual_network_gateway_client_connection` blocks as defined below.
+         * @param virtualNetworkGatewayClientConnections One or more `virtualNetworkGatewayClientConnection` blocks as defined below.
          * 
          * @return builder
          * 
@@ -541,7 +541,7 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
         }
 
         /**
-         * @param virtualNetworkGatewayClientConnections One or more `virtual_network_gateway_client_connection` blocks as defined below.
+         * @param virtualNetworkGatewayClientConnections One or more `virtualNetworkGatewayClientConnection` blocks as defined below.
          * 
          * @return builder
          * 
@@ -554,7 +554,7 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
          * @param vpnAuthTypes List of the vpn authentication types for the virtual network gateway.
          * The supported values are `AAD`, `Radius` and `Certificate`.
          * 
-         * &gt; **Note:** `vpn_auth_types` must be set when using multiple vpn authentication types.
+         * &gt; **Note:** `vpnAuthTypes` must be set when using multiple vpn authentication types.
          * 
          * @return builder
          * 
@@ -568,7 +568,7 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
          * @param vpnAuthTypes List of the vpn authentication types for the virtual network gateway.
          * The supported values are `AAD`, `Radius` and `Certificate`.
          * 
-         * &gt; **Note:** `vpn_auth_types` must be set when using multiple vpn authentication types.
+         * &gt; **Note:** `vpnAuthTypes` must be set when using multiple vpn authentication types.
          * 
          * @return builder
          * 
@@ -581,7 +581,7 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
          * @param vpnAuthTypes List of the vpn authentication types for the virtual network gateway.
          * The supported values are `AAD`, `Radius` and `Certificate`.
          * 
-         * &gt; **Note:** `vpn_auth_types` must be set when using multiple vpn authentication types.
+         * &gt; **Note:** `vpnAuthTypes` must be set when using multiple vpn authentication types.
          * 
          * @return builder
          * 
@@ -594,7 +594,7 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
          * @param vpnClientProtocols List of the protocols supported by the vpn client.
          * The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
          * Values `SSTP` and `IkeV2` are incompatible with the use of
-         * `aad_tenant`, `aad_audience` and `aad_issuer`.
+         * `aadTenant`, `aadAudience` and `aadIssuer`.
          * 
          * @return builder
          * 
@@ -608,7 +608,7 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
          * @param vpnClientProtocols List of the protocols supported by the vpn client.
          * The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
          * Values `SSTP` and `IkeV2` are incompatible with the use of
-         * `aad_tenant`, `aad_audience` and `aad_issuer`.
+         * `aadTenant`, `aadAudience` and `aadIssuer`.
          * 
          * @return builder
          * 
@@ -621,7 +621,7 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
          * @param vpnClientProtocols List of the protocols supported by the vpn client.
          * The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
          * Values `SSTP` and `IkeV2` are incompatible with the use of
-         * `aad_tenant`, `aad_audience` and `aad_issuer`.
+         * `aadTenant`, `aadAudience` and `aadIssuer`.
          * 
          * @return builder
          * 

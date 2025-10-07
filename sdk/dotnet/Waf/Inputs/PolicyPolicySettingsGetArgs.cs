@@ -13,13 +13,13 @@ namespace Pulumi.Azure.Waf.Inputs
     public sealed class PolicyPolicySettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Describes if the policy is in enabled state or disabled state. Defaults to `true`.
+        /// Describes if the policy is in enabled state or disabled state. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Whether the firewall should block a request with upload size greater then `file_upload_limit_in_mb`.
+        /// Whether the firewall should block a request with upload size greater then `FileUploadLimitInMb`.
         /// </summary>
         [Input("fileUploadEnforcement")]
         public Input<bool>? FileUploadEnforcement { get; set; }
@@ -37,7 +37,7 @@ namespace Pulumi.Azure.Waf.Inputs
         public Input<int>? JsChallengeCookieExpirationInMinutes { get; set; }
 
         /// <summary>
-        /// One `log_scrubbing` block as defined below.
+        /// One `LogScrubbing` block as defined below.
         /// </summary>
         [Input("logScrubbing")]
         public Input<Inputs.PolicyPolicySettingsLogScrubbingGetArgs>? LogScrubbing { get; set; }
@@ -55,13 +55,13 @@ namespace Pulumi.Azure.Waf.Inputs
         public Input<string>? Mode { get; set; }
 
         /// <summary>
-        /// Is Request Body Inspection enabled? Defaults to `true`.
+        /// Is Request Body Inspection enabled? Defaults to `True`.
         /// </summary>
         [Input("requestBodyCheck")]
         public Input<bool>? RequestBodyCheck { get; set; }
 
         /// <summary>
-        /// Whether the firewall should block a request with body size greater then `max_request_body_size_in_kb`. Defaults to `true`.
+        /// Whether the firewall should block a request with body size greater then `MaxRequestBodySizeInKb`. Defaults to `True`.
         /// </summary>
         [Input("requestBodyEnforcement")]
         public Input<bool>? RequestBodyEnforcement { get; set; }

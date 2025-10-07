@@ -98,7 +98,7 @@ namespace Pulumi.Azure.Avs
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The Cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av48`, `av48t`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Cluster to be created.
+        /// The Cluster SKU to use. Possible values are `Av20`, `Av36`, `Av36t`, `Av36p`, `Av48`, `Av48t`, `Av36pt`, `Av52`, `Av52t`, and `Av64`. Changing this forces a new Azure VMware Solution Cluster to be created.
         /// </summary>
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
@@ -168,7 +168,7 @@ namespace Pulumi.Azure.Avs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The Cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av48`, `av48t`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Cluster to be created.
+        /// The Cluster SKU to use. Possible values are `Av20`, `Av36`, `Av36t`, `Av36p`, `Av48`, `Av48t`, `Av36pt`, `Av52`, `Av52t`, and `Av64`. Changing this forces a new Azure VMware Solution Cluster to be created.
         /// </summary>
         [Input("skuName", required: true)]
         public Input<string> SkuName { get; set; } = null!;
@@ -218,7 +218,7 @@ namespace Pulumi.Azure.Avs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The Cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av48`, `av48t`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Cluster to be created.
+        /// The Cluster SKU to use. Possible values are `Av20`, `Av36`, `Av36t`, `Av36p`, `Av48`, `Av48t`, `Av36pt`, `Av52`, `Av52t`, and `Av64`. Changing this forces a new Azure VMware Solution Cluster to be created.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }

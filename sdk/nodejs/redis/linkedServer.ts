@@ -7,6 +7,64 @@ import * as utilities from "../utilities";
 /**
  * Manages a Redis Linked Server (ie Geo Location)
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example_primary = new azure.core.ResourceGroup("example-primary", {
+ *     name: "example-resources-primary",
+ *     location: "East US",
+ * });
+ * const example_primaryCache = new azure.redis.Cache("example-primary", {
+ *     name: "example-cache1",
+ *     location: example_primary.location,
+ *     resourceGroupName: example_primary.name,
+ *     capacity: 1,
+ *     family: "P",
+ *     skuName: "Premium",
+ *     enableNonSslPort: false,
+ *     redisConfiguration: {
+ *         maxmemoryReserved: 2,
+ *         maxmemoryDelta: 2,
+ *         maxmemoryPolicy: "allkeys-lru",
+ *     },
+ * });
+ * const example_secondary = new azure.core.ResourceGroup("example-secondary", {
+ *     name: "example-resources-secondary",
+ *     location: "West US",
+ * });
+ * const example_secondaryCache = new azure.redis.Cache("example-secondary", {
+ *     name: "example-cache2",
+ *     location: example_secondary.location,
+ *     resourceGroupName: example_secondary.name,
+ *     capacity: 1,
+ *     family: "P",
+ *     skuName: "Premium",
+ *     enableNonSslPort: false,
+ *     redisConfiguration: {
+ *         maxmemoryReserved: 2,
+ *         maxmemoryDelta: 2,
+ *         maxmemoryPolicy: "allkeys-lru",
+ *     },
+ * });
+ * const example_link = new azure.redis.LinkedServer("example-link", {
+ *     targetRedisCacheName: example_primaryCache.name,
+ *     resourceGroupName: example_primaryCache.resourceGroupName,
+ *     linkedRedisCacheId: example_secondaryCache.id,
+ *     linkedRedisCacheLocation: example_secondaryCache.location,
+ *     serverRole: "Secondary",
+ * });
+ * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Cache` - 2024-11-01
+ *
  * ## Import
  *
  * Redis can be imported using the `resource id`, e.g.

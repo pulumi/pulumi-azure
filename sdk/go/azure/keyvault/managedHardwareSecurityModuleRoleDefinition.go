@@ -14,6 +14,65 @@ import (
 
 // Manages a Key Vault Managed Hardware Security Module Role Definition. This resource works together with Managed hardware security module resource.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/keyvault"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := keyvault.NewManagedHardwareSecurityModule(ctx, "example", &keyvault.ManagedHardwareSecurityModuleArgs{
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: pulumi.Any(exampleAzurermResourceGroup.Name),
+//				Location:          pulumi.Any(exampleAzurermResourceGroup.Location),
+//				SkuName:           pulumi.String("Standard_B1"),
+//				TenantId:          pulumi.Any(current.TenantId),
+//				AdminObjectIds: pulumi.StringArray{
+//					current.ObjectId,
+//				},
+//				PurgeProtectionEnabled: pulumi.Bool(false),
+//				ActiveConfig: []map[string]interface{}{
+//					map[string]interface{}{
+//						"securityDomainCertificate": []interface{}{
+//							cert[0].Id,
+//							cert[1].Id,
+//							cert[2].Id,
+//						},
+//						"securityDomainQuorum": 2,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = keyvault.NewManagedHardwareSecurityModuleRoleDefinition(ctx, "example", &keyvault.ManagedHardwareSecurityModuleRoleDefinitionArgs{
+//				Name:         pulumi.String("7d206142-bf01-11ed-80bc-00155d61ee9e"),
+//				ManagedHsmId: example.ID(),
+//				Description:  pulumi.String("desc foo"),
+//				Permissions: keyvault.ManagedHardwareSecurityModuleRoleDefinitionPermissionArray{
+//					&keyvault.ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs{
+//						DataActions: pulumi.StringArray{
+//							pulumi.String("Microsoft.KeyVault/managedHsm/keys/read/action"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Key Vault Managed Hardware Security Module Role Definitions can be imported using the `resource id`, e.g.

@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly string ExtensionName;
         /// <summary>
-        /// Specifies a list of data sources this extension needs data from. An item should be a name of a supported data source which produces only one stream. Supported data sources type: `performance_counter`, `windows_event_log`,and `syslog`.
+        /// Specifies a list of data sources this extension needs data from. An item should be a name of a supported data source which produces only one stream. Supported data sources type: `PerformanceCounter`, `WindowsEventLog`,and `Syslog`.
         /// </summary>
         public readonly ImmutableArray<string> InputDataSources;
         /// <summary>

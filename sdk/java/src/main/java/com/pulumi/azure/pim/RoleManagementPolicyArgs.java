@@ -21,14 +21,14 @@ public final class RoleManagementPolicyArgs extends com.pulumi.resources.Resourc
     public static final RoleManagementPolicyArgs Empty = new RoleManagementPolicyArgs();
 
     /**
-     * An `activation_rules` block as defined below.
+     * An `activationRules` block as defined below.
      * 
      */
     @Import(name="activationRules")
     private @Nullable Output<RoleManagementPolicyActivationRulesArgs> activationRules;
 
     /**
-     * @return An `activation_rules` block as defined below.
+     * @return An `activationRules` block as defined below.
      * 
      */
     public Optional<Output<RoleManagementPolicyActivationRulesArgs>> activationRules() {
@@ -36,14 +36,14 @@ public final class RoleManagementPolicyArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * An `active_assignment_rules` block as defined below.
+     * An `activeAssignmentRules` block as defined below.
      * 
      */
     @Import(name="activeAssignmentRules")
     private @Nullable Output<RoleManagementPolicyActiveAssignmentRulesArgs> activeAssignmentRules;
 
     /**
-     * @return An `active_assignment_rules` block as defined below.
+     * @return An `activeAssignmentRules` block as defined below.
      * 
      */
     public Optional<Output<RoleManagementPolicyActiveAssignmentRulesArgs>> activeAssignmentRules() {
@@ -51,14 +51,14 @@ public final class RoleManagementPolicyArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * An `eligible_assignment_rules` block as defined below.
+     * An `eligibleAssignmentRules` block as defined below.
      * 
      */
     @Import(name="eligibleAssignmentRules")
     private @Nullable Output<RoleManagementPolicyEligibleAssignmentRulesArgs> eligibleAssignmentRules;
 
     /**
-     * @return An `eligible_assignment_rules` block as defined below.
+     * @return An `eligibleAssignmentRules` block as defined below.
      * 
      */
     public Optional<Output<RoleManagementPolicyEligibleAssignmentRulesArgs>> eligibleAssignmentRules() {
@@ -66,14 +66,14 @@ public final class RoleManagementPolicyArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A `notification_rules` block as defined below.
+     * A `notificationRules` block as defined below.
      * 
      */
     @Import(name="notificationRules")
     private @Nullable Output<RoleManagementPolicyNotificationRulesArgs> notificationRules;
 
     /**
-     * @return A `notification_rules` block as defined below.
+     * @return A `notificationRules` block as defined below.
      * 
      */
     public Optional<Output<RoleManagementPolicyNotificationRulesArgs>> notificationRules() {
@@ -140,7 +140,7 @@ public final class RoleManagementPolicyArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param activationRules An `activation_rules` block as defined below.
+         * @param activationRules An `activationRules` block as defined below.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class RoleManagementPolicyArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param activationRules An `activation_rules` block as defined below.
+         * @param activationRules An `activationRules` block as defined below.
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class RoleManagementPolicyArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param activeAssignmentRules An `active_assignment_rules` block as defined below.
+         * @param activeAssignmentRules An `activeAssignmentRules` block as defined below.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class RoleManagementPolicyArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param activeAssignmentRules An `active_assignment_rules` block as defined below.
+         * @param activeAssignmentRules An `activeAssignmentRules` block as defined below.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class RoleManagementPolicyArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param eligibleAssignmentRules An `eligible_assignment_rules` block as defined below.
+         * @param eligibleAssignmentRules An `eligibleAssignmentRules` block as defined below.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class RoleManagementPolicyArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param eligibleAssignmentRules An `eligible_assignment_rules` block as defined below.
+         * @param eligibleAssignmentRules An `eligibleAssignmentRules` block as defined below.
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class RoleManagementPolicyArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param notificationRules A `notification_rules` block as defined below.
+         * @param notificationRules A `notificationRules` block as defined below.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class RoleManagementPolicyArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param notificationRules A `notification_rules` block as defined below.
+         * @param notificationRules A `notificationRules` block as defined below.
          * 
          * @return builder
          * 

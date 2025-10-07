@@ -19,6 +19,75 @@ import javax.annotation.Nullable;
 /**
  * Manages an Authorization Rule for a ServiceBus Queue.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.servicebus.Namespace;
+ * import com.pulumi.azure.servicebus.NamespaceArgs;
+ * import com.pulumi.azure.servicebus.Queue;
+ * import com.pulumi.azure.servicebus.QueueArgs;
+ * import com.pulumi.azure.servicebus.QueueAuthorizationRule;
+ * import com.pulumi.azure.servicebus.QueueAuthorizationRuleArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("my-servicebus")
+ *             .location("West US")
+ *             .build());
+ * 
+ *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()
+ *             .name("tfex-servicebus-namespace")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .sku("Standard")
+ *             .tags(Map.of("source", "example"))
+ *             .build());
+ * 
+ *         var exampleQueue = new Queue("exampleQueue", QueueArgs.builder()
+ *             .name("tfex_servicebus_queue")
+ *             .namespaceId(exampleNamespace.id())
+ *             .enablePartitioning(true)
+ *             .build());
+ * 
+ *         var exampleQueueAuthorizationRule = new QueueAuthorizationRule("exampleQueueAuthorizationRule", QueueAuthorizationRuleArgs.builder()
+ *             .name("examplerule")
+ *             .queueId(exampleQueue.id())
+ *             .listen(true)
+ *             .send(true)
+ *             .manage(false)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.ServiceBus` - 2024-01-01
+ * 
  * ## Import
  * 
  * ServiceBus Queue Authorization Rules can be imported using the `resource id`, e.g.

@@ -51,7 +51,7 @@ public final class ScalingPlanSchedule {
      */
     private Integer rampDownCapacityThresholdPercent;
     /**
-     * @return Whether users will be forced to log-off session hosts once the `ramp_down_wait_time_minutes` value has been exceeded during the Ramp-Down period. Possible values are `true` and `false`.
+     * @return Whether users will be forced to log-off session hosts once the `rampDownWaitTimeMinutes` value has been exceeded during the Ramp-Down period. Possible values are `true` and `false`.
      * 
      */
     private Boolean rampDownForceLogoffUsers;
@@ -157,7 +157,7 @@ public final class ScalingPlanSchedule {
         return this.rampDownCapacityThresholdPercent;
     }
     /**
-     * @return Whether users will be forced to log-off session hosts once the `ramp_down_wait_time_minutes` value has been exceeded during the Ramp-Down period. Possible values are `true` and `false`.
+     * @return Whether users will be forced to log-off session hosts once the `rampDownWaitTimeMinutes` value has been exceeded during the Ramp-Down period. Possible values are `true` and `false`.
      * 
      */
     public Boolean rampDownForceLogoffUsers() {

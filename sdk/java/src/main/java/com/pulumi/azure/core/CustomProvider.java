@@ -88,14 +88,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:core/customProvider:CustomProvider")
 public class CustomProvider extends com.pulumi.resources.CustomResource {
     /**
-     * Any number of `action` block as defined below. One of `resource_type` or `action` must be specified.
+     * Any number of `action` block as defined below. One of `resourceType` or `action` must be specified.
      * 
      */
     @Export(name="actions", refs={List.class,CustomProviderAction.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CustomProviderAction>> actions;
 
     /**
-     * @return Any number of `action` block as defined below. One of `resource_type` or `action` must be specified.
+     * @return Any number of `action` block as defined below. One of `resourceType` or `action` must be specified.
      * 
      */
     public Output<Optional<List<CustomProviderAction>>> actions() {
@@ -144,14 +144,14 @@ public class CustomProvider extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * Any number of `resource_type` block as defined below. One of `resource_type` or `action` must be specified.
+     * Any number of `resourceType` block as defined below. One of `resourceType` or `action` must be specified.
      * 
      */
     @Export(name="resourceTypes", refs={List.class,CustomProviderResourceType.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CustomProviderResourceType>> resourceTypes;
 
     /**
-     * @return Any number of `resource_type` block as defined below. One of `resource_type` or `action` must be specified.
+     * @return Any number of `resourceType` block as defined below. One of `resourceType` or `action` must be specified.
      * 
      */
     public Output<Optional<List<CustomProviderResourceType>>> resourceTypes() {

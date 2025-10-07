@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example DNS Auth TXT Record Usage
  * 
- * The name of your DNS TXT record should be in the format of `_dnsauth.&lt;your_subdomain&gt;`. So, for example, if we use the `host_name` in the example usage above you would create a DNS TXT record with the name of `_dnsauth.contoso` which contains the value of the Front Door Custom Domains `validation_token` field. See the [product documentation](https://learn.microsoft.com/azure/frontdoor/standard-premium/how-to-add-custom-domain) for more information.
+ * The name of your DNS TXT record should be in the format of `_dnsauth.&lt;your_subdomain&gt;`. So, for example, if we use the `hostName` in the example usage above you would create a DNS TXT record with the name of `_dnsauth.contoso` which contains the value of the Front Door Custom Domains `validationToken` field. See the [product documentation](https://learn.microsoft.com/azure/frontdoor/standard-premium/how-to-add-custom-domain) for more information.
  * 
  * <pre>
  * {@code
@@ -132,7 +132,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example CNAME Record Usage
  * 
- * !&gt; **Note:** You **must** include the `depends_on` meta-argument which references both the `azure.cdn.FrontdoorRoute` and the `azure.cdn.FrontdoorSecurityPolicy` that are associated with your Custom Domain. The reason for these `depends_on` meta-arguments is because all of the resources for the Custom Domain need to be associated within Front Door before the CNAME record can be written to the domains DNS, else the CNAME validation will fail and Front Door will not enable traffic to the Domain.
+ * !&gt; **Note:** You **must** include the `dependsOn` meta-argument which references both the `azure.cdn.FrontdoorRoute` and the `azure.cdn.FrontdoorSecurityPolicy` that are associated with your Custom Domain. The reason for these `dependsOn` meta-arguments is because all of the resources for the Custom Domain need to be associated within Front Door before the CNAME record can be written to the domains DNS, else the CNAME validation will fail and Front Door will not enable traffic to the Domain.
  * 
  * <pre>
  * {@code
@@ -202,9 +202,9 @@ public class FrontdoorCustomDomain extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider&#39;s domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you&#39;re using your own domain provider to handle your DNS, you must validate the Front Door Custom Domain by creating the DNS TXT records manually.
      * 
-     * &lt;!-- * `pre_validated_cdn_frontdoor_custom_domain_id` - (Optional) The resource ID of the pre-validated Front Door Custom Domain. This domain type is used when you wish to onboard a validated Azure service domain, and then configure the Azure service behind an Azure Front Door.
+     * &lt;!-- * `preValidatedCdnFrontdoorCustomDomainId` - (Optional) The resource ID of the pre-validated Front Door Custom Domain. This domain type is used when you wish to onboard a validated Azure service domain, and then configure the Azure service behind an Azure Front Door.
      * 
-     * &gt; **Note:** Currently `pre_validated_cdn_frontdoor_custom_domain_id` only supports domains validated by Static Web App. --&gt;
+     * &gt; **Note:** Currently `preValidatedCdnFrontdoorCustomDomainId` only supports domains validated by Static Web App. --&gt;
      * 
      */
     @Export(name="dnsZoneId", refs={String.class}, tree="[0]")
@@ -213,9 +213,9 @@ public class FrontdoorCustomDomain extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider&#39;s domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you&#39;re using your own domain provider to handle your DNS, you must validate the Front Door Custom Domain by creating the DNS TXT records manually.
      * 
-     * &lt;!-- * `pre_validated_cdn_frontdoor_custom_domain_id` - (Optional) The resource ID of the pre-validated Front Door Custom Domain. This domain type is used when you wish to onboard a validated Azure service domain, and then configure the Azure service behind an Azure Front Door.
+     * &lt;!-- * `preValidatedCdnFrontdoorCustomDomainId` - (Optional) The resource ID of the pre-validated Front Door Custom Domain. This domain type is used when you wish to onboard a validated Azure service domain, and then configure the Azure service behind an Azure Front Door.
      * 
-     * &gt; **Note:** Currently `pre_validated_cdn_frontdoor_custom_domain_id` only supports domains validated by Static Web App. --&gt;
+     * &gt; **Note:** Currently `preValidatedCdnFrontdoorCustomDomainId` only supports domains validated by Static Web App. --&gt;
      * 
      */
     public Output<Optional<String>> dnsZoneId() {
@@ -236,14 +236,14 @@ public class FrontdoorCustomDomain extends com.pulumi.resources.CustomResource {
         return this.expirationDate;
     }
     /**
-     * The host name of the domain. The `host_name` field must be the FQDN of your domain(e.g. `contoso.fabrikam.com`). Changing this forces a new Front Door Custom Domain to be created.
+     * The host name of the domain. The `hostName` field must be the FQDN of your domain(e.g. `contoso.fabrikam.com`). Changing this forces a new Front Door Custom Domain to be created.
      * 
      */
     @Export(name="hostName", refs={String.class}, tree="[0]")
     private Output<String> hostName;
 
     /**
-     * @return The host name of the domain. The `host_name` field must be the FQDN of your domain(e.g. `contoso.fabrikam.com`). Changing this forces a new Front Door Custom Domain to be created.
+     * @return The host name of the domain. The `hostName` field must be the FQDN of your domain(e.g. `contoso.fabrikam.com`). Changing this forces a new Front Door Custom Domain to be created.
      * 
      */
     public Output<String> hostName() {

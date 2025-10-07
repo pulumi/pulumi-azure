@@ -139,6 +139,31 @@ class SqlFunction(pulumi.CustomResource):
         """
         Manages an SQL User Defined Function.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.cosmosdb.get_account(name="tfex-cosmosdb-account",
+            resource_group_name="tfex-cosmosdb-account-rg")
+        example_sql_database = azure.cosmosdb.SqlDatabase("example",
+            name="tfex-cosmos-db",
+            resource_group_name=example.resource_group_name,
+            account_name=example.name,
+            throughput=400)
+        example_sql_container = azure.cosmosdb.SqlContainer("example",
+            name="example-container",
+            resource_group_name=example.resource_group_name,
+            account_name=example.name,
+            database_name=example_sql_database.name,
+            partition_key_path="/id")
+        example_sql_function = azure.cosmosdb.SqlFunction("example",
+            name="test-function",
+            container_id=example_sql_container.id,
+            body="function trigger(){}")
+        ```
+
         ## Import
 
         SQL User Defined Functions can be imported using the `resource id`, e.g.
@@ -161,6 +186,31 @@ class SqlFunction(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an SQL User Defined Function.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.cosmosdb.get_account(name="tfex-cosmosdb-account",
+            resource_group_name="tfex-cosmosdb-account-rg")
+        example_sql_database = azure.cosmosdb.SqlDatabase("example",
+            name="tfex-cosmos-db",
+            resource_group_name=example.resource_group_name,
+            account_name=example.name,
+            throughput=400)
+        example_sql_container = azure.cosmosdb.SqlContainer("example",
+            name="example-container",
+            resource_group_name=example.resource_group_name,
+            account_name=example.name,
+            database_name=example_sql_database.name,
+            partition_key_path="/id")
+        example_sql_function = azure.cosmosdb.SqlFunction("example",
+            name="test-function",
+            container_id=example_sql_container.id,
+            body="function trigger(){}")
+        ```
 
         ## Import
 

@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Waf.Inputs
         private InputList<string>? _matchValues;
 
         /// <summary>
-        /// A list of match values. This is **Required** when the `operator` is not `Any`.
+        /// A list of match values. This is **Required** when the `Operator` is not `Any`.
         /// </summary>
         public InputList<string> MatchValues
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Waf.Inputs
         private InputList<Inputs.PolicyCustomRuleMatchConditionMatchVariableArgs>? _matchVariables;
 
         /// <summary>
-        /// One or more `match_variables` blocks as defined below.
+        /// One or more `MatchVariables` blocks as defined below.
         /// </summary>
         public InputList<Inputs.PolicyCustomRuleMatchConditionMatchVariableArgs> MatchVariables
         {

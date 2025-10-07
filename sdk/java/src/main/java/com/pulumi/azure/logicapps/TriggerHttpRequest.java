@@ -88,14 +88,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:logicapps/triggerHttpRequest:TriggerHttpRequest")
 public class TriggerHttpRequest extends com.pulumi.resources.CustomResource {
     /**
-     * The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group and security_center_automation.
+     * The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitorActionGroup and security_center_automation.
      * 
      */
     @Export(name="callbackUrl", refs={String.class}, tree="[0]")
     private Output<String> callbackUrl;
 
     /**
-     * @return The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group and security_center_automation.
+     * @return The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitorActionGroup and security_center_automation.
      * 
      */
     public Output<String> callbackUrl() {
@@ -150,7 +150,7 @@ public class TriggerHttpRequest extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the Relative Path used for this Request.
      * 
-     * &gt; **NOTE:** When `relative_path` is set a `method` must also be set.
+     * &gt; **NOTE:** When `relativePath` is set a `method` must also be set.
      * 
      */
     @Export(name="relativePath", refs={String.class}, tree="[0]")
@@ -159,7 +159,7 @@ public class TriggerHttpRequest extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies the Relative Path used for this Request.
      * 
-     * &gt; **NOTE:** When `relative_path` is set a `method` must also be set.
+     * &gt; **NOTE:** When `relativePath` is set a `method` must also be set.
      * 
      */
     public Output<Optional<String>> relativePath() {

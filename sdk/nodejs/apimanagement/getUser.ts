@@ -6,6 +6,27 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing API Management User.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.apimanagement.getUser({
+ *     userId: "my-user",
+ *     apiManagementName: "example-apim",
+ *     resourceGroupName: "search-service",
+ * });
+ * export const notes = example.then(example => example.notes);
+ * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.ApiManagement` - 2022-08-01
  */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -68,6 +89,27 @@ export interface GetUserResult {
 }
 /**
  * Use this data source to access information about an existing API Management User.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.apimanagement.getUser({
+ *     userId: "my-user",
+ *     apiManagementName: "example-apim",
+ *     resourceGroupName: "search-service",
+ * });
+ * export const notes = example.then(example => example.notes);
+ * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.ApiManagement` - 2022-08-01
  */
 export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUserResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

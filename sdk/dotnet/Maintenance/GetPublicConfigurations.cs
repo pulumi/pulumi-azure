@@ -181,7 +181,7 @@ namespace Pulumi.Azure.Maintenance
     public sealed class GetPublicConfigurationsResult
     {
         /// <summary>
-        /// A `configs` block as defined below.
+        /// A `Configs` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPublicConfigurationsConfigResult> Configs;
         /// <summary>

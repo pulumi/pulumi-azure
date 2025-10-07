@@ -31,13 +31,13 @@ namespace Pulumi.Azure.Compute.Inputs
         }
 
         /// <summary>
-        /// A `linux_configuration` block as documented below.
+        /// A `LinuxConfiguration` block as documented below.
         /// </summary>
         [Input("linuxConfiguration")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationGetArgs>? LinuxConfiguration { get; set; }
 
         /// <summary>
-        /// A `windows_configuration` block as documented below.
+        /// A `WindowsConfiguration` block as documented below.
         /// </summary>
         [Input("windowsConfiguration")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationGetArgs>? WindowsConfiguration { get; set; }

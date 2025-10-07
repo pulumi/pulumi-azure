@@ -57,14 +57,14 @@ public final class DatasetParquetArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A `azure_blob_fs_location` block as defined below.
+     * A `azureBlobFsLocation` block as defined below.
      * 
      */
     @Import(name="azureBlobFsLocation")
     private @Nullable Output<DatasetParquetAzureBlobFsLocationArgs> azureBlobFsLocation;
 
     /**
-     * @return A `azure_blob_fs_location` block as defined below.
+     * @return A `azureBlobFsLocation` block as defined below.
      * 
      */
     public Optional<Output<DatasetParquetAzureBlobFsLocationArgs>> azureBlobFsLocation() {
@@ -72,7 +72,7 @@ public final class DatasetParquetArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A `azure_blob_storage_location` block as defined below.
+     * A `azureBlobStorageLocation` block as defined below.
      * 
      * The following supported arguments are specific to Parquet Dataset:
      * 
@@ -81,7 +81,7 @@ public final class DatasetParquetArgs extends com.pulumi.resources.ResourceArgs 
     private @Nullable Output<DatasetParquetAzureBlobStorageLocationArgs> azureBlobStorageLocation;
 
     /**
-     * @return A `azure_blob_storage_location` block as defined below.
+     * @return A `azureBlobStorageLocation` block as defined below.
      * 
      * The following supported arguments are specific to Parquet Dataset:
      * 
@@ -166,14 +166,14 @@ public final class DatasetParquetArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A `http_server_location` block as defined below.
+     * A `httpServerLocation` block as defined below.
      * 
      */
     @Import(name="httpServerLocation")
     private @Nullable Output<DatasetParquetHttpServerLocationArgs> httpServerLocation;
 
     /**
-     * @return A `http_server_location` block as defined below.
+     * @return A `httpServerLocation` block as defined below.
      * 
      */
     public Optional<Output<DatasetParquetHttpServerLocationArgs>> httpServerLocation() {
@@ -226,14 +226,14 @@ public final class DatasetParquetArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A `schema_column` block as defined below.
+     * A `schemaColumn` block as defined below.
      * 
      */
     @Import(name="schemaColumns")
     private @Nullable Output<List<DatasetParquetSchemaColumnArgs>> schemaColumns;
 
     /**
-     * @return A `schema_column` block as defined below.
+     * @return A `schemaColumn` block as defined below.
      * 
      */
     public Optional<Output<List<DatasetParquetSchemaColumnArgs>>> schemaColumns() {
@@ -334,7 +334,7 @@ public final class DatasetParquetArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param azureBlobFsLocation A `azure_blob_fs_location` block as defined below.
+         * @param azureBlobFsLocation A `azureBlobFsLocation` block as defined below.
          * 
          * @return builder
          * 
@@ -345,7 +345,7 @@ public final class DatasetParquetArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param azureBlobFsLocation A `azure_blob_fs_location` block as defined below.
+         * @param azureBlobFsLocation A `azureBlobFsLocation` block as defined below.
          * 
          * @return builder
          * 
@@ -355,7 +355,7 @@ public final class DatasetParquetArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param azureBlobStorageLocation A `azure_blob_storage_location` block as defined below.
+         * @param azureBlobStorageLocation A `azureBlobStorageLocation` block as defined below.
          * 
          * The following supported arguments are specific to Parquet Dataset:
          * 
@@ -368,7 +368,7 @@ public final class DatasetParquetArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param azureBlobStorageLocation A `azure_blob_storage_location` block as defined below.
+         * @param azureBlobStorageLocation A `azureBlobStorageLocation` block as defined below.
          * 
          * The following supported arguments are specific to Parquet Dataset:
          * 
@@ -485,7 +485,7 @@ public final class DatasetParquetArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param httpServerLocation A `http_server_location` block as defined below.
+         * @param httpServerLocation A `httpServerLocation` block as defined below.
          * 
          * @return builder
          * 
@@ -496,7 +496,7 @@ public final class DatasetParquetArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param httpServerLocation A `http_server_location` block as defined below.
+         * @param httpServerLocation A `httpServerLocation` block as defined below.
          * 
          * @return builder
          * 
@@ -569,7 +569,7 @@ public final class DatasetParquetArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param schemaColumns A `schema_column` block as defined below.
+         * @param schemaColumns A `schemaColumn` block as defined below.
          * 
          * @return builder
          * 
@@ -580,7 +580,7 @@ public final class DatasetParquetArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param schemaColumns A `schema_column` block as defined below.
+         * @param schemaColumns A `schemaColumn` block as defined below.
          * 
          * @return builder
          * 
@@ -590,7 +590,7 @@ public final class DatasetParquetArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param schemaColumns A `schema_column` block as defined below.
+         * @param schemaColumns A `schemaColumn` block as defined below.
          * 
          * @return builder
          * 

@@ -23,6 +23,56 @@ import javax.annotation.Nullable;
 /**
  * Manages a Web PubSub Service for Socket.IO.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.webpubsub.Socketio;
+ * import com.pulumi.azure.webpubsub.SocketioArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("example")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleSocketio = new Socketio("exampleSocketio", SocketioArgs.builder()
+ *             .name("example")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .sku("Free_F1"[0])
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.SignalRService` - 2024-03-01
+ * 
  * ## Import
  * 
  * Web PubSub Service for Socket.IOs can be imported using the `resource id`, e.g.
@@ -219,7 +269,7 @@ public class Socketio extends com.pulumi.resources.CustomResource {
     /**
      * Whether public network access is enabled. Defaults to `Enabled`. Possible values are `Enabled` and `Disabled`.
      * 
-     * &gt; **Note:** `public_network_access` cannot be set to `Disabled` when `sku` is `Free_F1`.
+     * &gt; **Note:** `publicNetworkAccess` cannot be set to `Disabled` when `sku` is `Free_F1`.
      * 
      */
     @Export(name="publicNetworkAccess", refs={String.class}, tree="[0]")
@@ -228,7 +278,7 @@ public class Socketio extends com.pulumi.resources.CustomResource {
     /**
      * @return Whether public network access is enabled. Defaults to `Enabled`. Possible values are `Enabled` and `Disabled`.
      * 
-     * &gt; **Note:** `public_network_access` cannot be set to `Disabled` when `sku` is `Free_F1`.
+     * &gt; **Note:** `publicNetworkAccess` cannot be set to `Disabled` when `sku` is `Free_F1`.
      * 
      */
     public Output<Optional<String>> publicNetworkAccess() {
@@ -349,7 +399,7 @@ public class Socketio extends com.pulumi.resources.CustomResource {
     /**
      * Whether the service should request a client certificate during a TLS handshake. Defaults to `false`.
      * 
-     * &gt; **Note:** `tls_client_cert_enabled` cannot be set to `true` when `sku` is `Free_F1`.
+     * &gt; **Note:** `tlsClientCertEnabled` cannot be set to `true` when `sku` is `Free_F1`.
      * 
      */
     @Export(name="tlsClientCertEnabled", refs={Boolean.class}, tree="[0]")
@@ -358,7 +408,7 @@ public class Socketio extends com.pulumi.resources.CustomResource {
     /**
      * @return Whether the service should request a client certificate during a TLS handshake. Defaults to `false`.
      * 
-     * &gt; **Note:** `tls_client_cert_enabled` cannot be set to `true` when `sku` is `Free_F1`.
+     * &gt; **Note:** `tlsClientCertEnabled` cannot be set to `true` when `sku` is `Free_F1`.
      * 
      */
     public Output<Optional<Boolean>> tlsClientCertEnabled() {

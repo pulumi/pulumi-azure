@@ -15,14 +15,14 @@ public final class DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeF
     public static final DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterArgs Empty = new DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterArgs();
 
     /**
-     * The label of the filter. This label should be unique across all `label_include_fileter` block. Possible value is `microsoft_metrics_include_label`.
+     * The label of the filter. This label should be unique across all `labelIncludeFileter` block. Possible value is `microsoftMetricsIncludeLabel`.
      * 
      */
     @Import(name="label", required=true)
     private Output<String> label;
 
     /**
-     * @return The label of the filter. This label should be unique across all `label_include_fileter` block. Possible value is `microsoft_metrics_include_label`.
+     * @return The label of the filter. This label should be unique across all `labelIncludeFileter` block. Possible value is `microsoftMetricsIncludeLabel`.
      * 
      */
     public Output<String> label() {
@@ -70,7 +70,7 @@ public final class DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeF
         }
 
         /**
-         * @param label The label of the filter. This label should be unique across all `label_include_fileter` block. Possible value is `microsoft_metrics_include_label`.
+         * @param label The label of the filter. This label should be unique across all `labelIncludeFileter` block. Possible value is `microsoftMetricsIncludeLabel`.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeF
         }
 
         /**
-         * @param label The label of the filter. This label should be unique across all `label_include_fileter` block. Possible value is `microsoft_metrics_include_label`.
+         * @param label The label of the filter. This label should be unique across all `labelIncludeFileter` block. Possible value is `microsoftMetricsIncludeLabel`.
          * 
          * @return builder
          * 

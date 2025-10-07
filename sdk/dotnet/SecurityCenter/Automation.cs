@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.SecurityCenter
 {
     /// <summary>
-    /// Manages Security Center Automation and Continuous Export. This resource supports three types of destination in the `action`, Logic Apps, Log Analytics and Event Hubs
+    /// Manages Security Center Automation and Continuous Export. This resource supports three types of destination in the `Action`, Logic Apps, Log Analytics and Event Hubs
     /// 
     /// ## Example Usage
     /// 
@@ -124,7 +124,7 @@ namespace Pulumi.Azure.SecurityCenter
     public partial class Automation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// One or more `action` blocks as defined below. An `action` tells this automation where the data is to be sent to upon being evaluated by the rules in the `source`.
+        /// One or more `Action` blocks as defined below. An `Action` tells this automation where the data is to be sent to upon being evaluated by the rules in the `Source`.
         /// </summary>
         [Output("actions")]
         public Output<ImmutableArray<Outputs.AutomationAction>> Actions { get; private set; } = null!;
@@ -136,7 +136,7 @@ namespace Pulumi.Azure.SecurityCenter
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean to enable or disable this Security Center Automation. Defaults to `true`.
+        /// Boolean to enable or disable this Security Center Automation. Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -168,7 +168,7 @@ namespace Pulumi.Azure.SecurityCenter
         public Output<ImmutableArray<string>> Scopes { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `source` blocks as defined below. A `source` defines what data types will be processed and a set of rules to filter that data.
+        /// One or more `Source` blocks as defined below. A `Source` defines what data types will be processed and a set of rules to filter that data.
         /// </summary>
         [Output("sources")]
         public Output<ImmutableArray<Outputs.AutomationSource>> Sources { get; private set; } = null!;
@@ -229,7 +229,7 @@ namespace Pulumi.Azure.SecurityCenter
         private InputList<Inputs.AutomationActionArgs>? _actions;
 
         /// <summary>
-        /// One or more `action` blocks as defined below. An `action` tells this automation where the data is to be sent to upon being evaluated by the rules in the `source`.
+        /// One or more `Action` blocks as defined below. An `Action` tells this automation where the data is to be sent to upon being evaluated by the rules in the `Source`.
         /// </summary>
         public InputList<Inputs.AutomationActionArgs> Actions
         {
@@ -244,7 +244,7 @@ namespace Pulumi.Azure.SecurityCenter
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Boolean to enable or disable this Security Center Automation. Defaults to `true`.
+        /// Boolean to enable or disable this Security Center Automation. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -285,7 +285,7 @@ namespace Pulumi.Azure.SecurityCenter
         private InputList<Inputs.AutomationSourceArgs>? _sources;
 
         /// <summary>
-        /// One or more `source` blocks as defined below. A `source` defines what data types will be processed and a set of rules to filter that data.
+        /// One or more `Source` blocks as defined below. A `Source` defines what data types will be processed and a set of rules to filter that data.
         /// </summary>
         public InputList<Inputs.AutomationSourceArgs> Sources
         {
@@ -317,7 +317,7 @@ namespace Pulumi.Azure.SecurityCenter
         private InputList<Inputs.AutomationActionGetArgs>? _actions;
 
         /// <summary>
-        /// One or more `action` blocks as defined below. An `action` tells this automation where the data is to be sent to upon being evaluated by the rules in the `source`.
+        /// One or more `Action` blocks as defined below. An `Action` tells this automation where the data is to be sent to upon being evaluated by the rules in the `Source`.
         /// </summary>
         public InputList<Inputs.AutomationActionGetArgs> Actions
         {
@@ -332,7 +332,7 @@ namespace Pulumi.Azure.SecurityCenter
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Boolean to enable or disable this Security Center Automation. Defaults to `true`.
+        /// Boolean to enable or disable this Security Center Automation. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -373,7 +373,7 @@ namespace Pulumi.Azure.SecurityCenter
         private InputList<Inputs.AutomationSourceGetArgs>? _sources;
 
         /// <summary>
-        /// One or more `source` blocks as defined below. A `source` defines what data types will be processed and a set of rules to filter that data.
+        /// One or more `Source` blocks as defined below. A `Source` defines what data types will be processed and a set of rules to filter that data.
         /// </summary>
         public InputList<Inputs.AutomationSourceGetArgs> Sources
         {

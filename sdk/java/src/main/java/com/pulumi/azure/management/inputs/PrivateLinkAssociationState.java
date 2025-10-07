@@ -19,7 +19,7 @@ public final class PrivateLinkAssociationState extends com.pulumi.resources.Reso
     /**
      * Specifies the Management Group ID within which this Private Link Association should exist. Changing this forces a new Private Link Association to be created.
      * 
-     * &gt; **Note:** For now, `management_group_id` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
+     * &gt; **Note:** For now, `managementGroupId` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
      * 
      */
     @Import(name="managementGroupId")
@@ -28,7 +28,7 @@ public final class PrivateLinkAssociationState extends com.pulumi.resources.Reso
     /**
      * @return Specifies the Management Group ID within which this Private Link Association should exist. Changing this forces a new Private Link Association to be created.
      * 
-     * &gt; **Note:** For now, `management_group_id` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
+     * &gt; **Note:** For now, `managementGroupId` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
      * 
      */
     public Optional<Output<String>> managementGroupId() {
@@ -36,14 +36,14 @@ public final class PrivateLinkAssociationState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignore_changes` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
+     * Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignoreChanges` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignore_changes` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
+     * @return Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignoreChanges` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -126,7 +126,7 @@ public final class PrivateLinkAssociationState extends com.pulumi.resources.Reso
         /**
          * @param managementGroupId Specifies the Management Group ID within which this Private Link Association should exist. Changing this forces a new Private Link Association to be created.
          * 
-         * &gt; **Note:** For now, `management_group_id` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
+         * &gt; **Note:** For now, `managementGroupId` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class PrivateLinkAssociationState extends com.pulumi.resources.Reso
         /**
          * @param managementGroupId Specifies the Management Group ID within which this Private Link Association should exist. Changing this forces a new Private Link Association to be created.
          * 
-         * &gt; **Note:** For now, `management_group_id` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
+         * &gt; **Note:** For now, `managementGroupId` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class PrivateLinkAssociationState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignore_changes` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
+         * @param name Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignoreChanges` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class PrivateLinkAssociationState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignore_changes` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
+         * @param name Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignoreChanges` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
          * 
          * @return builder
          * 

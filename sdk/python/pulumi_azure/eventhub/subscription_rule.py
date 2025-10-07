@@ -259,6 +259,83 @@ class SubscriptionRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### SQL Filter)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="tfex-servicebus-subscription-rule-sql",
+            location="West Europe")
+        example_namespace = azure.servicebus.Namespace("example",
+            name="tfex-servicebus-namespace",
+            location=example.location,
+            resource_group_name=example.name,
+            sku="Standard",
+            tags={
+                "source": "example",
+            })
+        example_topic = azure.servicebus.Topic("example",
+            name="tfex_servicebus_topic",
+            namespace_id=example_namespace.id,
+            enable_partitioning=True)
+        example_subscription = azure.servicebus.Subscription("example",
+            name="tfex_servicebus_subscription",
+            topic_id=example_topic.id,
+            max_delivery_count=1)
+        example_subscription_rule = azure.servicebus.SubscriptionRule("example",
+            name="tfex_servicebus_rule",
+            subscription_id=example_subscription.id,
+            filter_type="SqlFilter",
+            sql_filter="colour = 'red'")
+        ```
+
+        ### Correlation Filter)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="tfex-servicebus-subscription-rule-cor",
+            location="West Europe")
+        example_namespace = azure.servicebus.Namespace("example",
+            name="tfex-servicebus-namespace",
+            location=example.location,
+            resource_group_name=example.name,
+            sku="Standard",
+            tags={
+                "source": "example",
+            })
+        example_topic = azure.servicebus.Topic("example",
+            name="tfex_servicebus_topic",
+            namespace_id=example_namespace.id,
+            enable_partitioning=True)
+        example_subscription = azure.servicebus.Subscription("example",
+            name="tfex_servicebus_subscription",
+            topic_id=example_topic.id,
+            max_delivery_count=1)
+        example_subscription_rule = azure.servicebus.SubscriptionRule("example",
+            name="tfex_servicebus_rule",
+            subscription_id=example_subscription.id,
+            filter_type="CorrelationFilter",
+            correlation_filter={
+                "correlation_id": "high",
+                "label": "red",
+                "properties": {
+                    "customProperty": "value",
+                },
+            })
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ServiceBus` - 2024-01-01
+
         ## Import
 
         Service Bus Subscription Rule can be imported using the `resource id`, e.g.
@@ -286,6 +363,83 @@ class SubscriptionRule(pulumi.CustomResource):
         Manages a ServiceBus Subscription Rule.
 
         ## Example Usage
+
+        ### SQL Filter)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="tfex-servicebus-subscription-rule-sql",
+            location="West Europe")
+        example_namespace = azure.servicebus.Namespace("example",
+            name="tfex-servicebus-namespace",
+            location=example.location,
+            resource_group_name=example.name,
+            sku="Standard",
+            tags={
+                "source": "example",
+            })
+        example_topic = azure.servicebus.Topic("example",
+            name="tfex_servicebus_topic",
+            namespace_id=example_namespace.id,
+            enable_partitioning=True)
+        example_subscription = azure.servicebus.Subscription("example",
+            name="tfex_servicebus_subscription",
+            topic_id=example_topic.id,
+            max_delivery_count=1)
+        example_subscription_rule = azure.servicebus.SubscriptionRule("example",
+            name="tfex_servicebus_rule",
+            subscription_id=example_subscription.id,
+            filter_type="SqlFilter",
+            sql_filter="colour = 'red'")
+        ```
+
+        ### Correlation Filter)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="tfex-servicebus-subscription-rule-cor",
+            location="West Europe")
+        example_namespace = azure.servicebus.Namespace("example",
+            name="tfex-servicebus-namespace",
+            location=example.location,
+            resource_group_name=example.name,
+            sku="Standard",
+            tags={
+                "source": "example",
+            })
+        example_topic = azure.servicebus.Topic("example",
+            name="tfex_servicebus_topic",
+            namespace_id=example_namespace.id,
+            enable_partitioning=True)
+        example_subscription = azure.servicebus.Subscription("example",
+            name="tfex_servicebus_subscription",
+            topic_id=example_topic.id,
+            max_delivery_count=1)
+        example_subscription_rule = azure.servicebus.SubscriptionRule("example",
+            name="tfex_servicebus_rule",
+            subscription_id=example_subscription.id,
+            filter_type="CorrelationFilter",
+            correlation_filter={
+                "correlation_id": "high",
+                "label": "red",
+                "properties": {
+                    "customProperty": "value",
+                },
+            })
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ServiceBus` - 2024-01-01
 
         ## Import
 

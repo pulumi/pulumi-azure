@@ -175,6 +175,66 @@ class TagRules(pulumi.CustomResource):
         """
         Manages Dynatrace tag rules.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_monitor = azure.dynatrace.Monitor("example",
+            name="exmpledynatracemonitor",
+            resource_group_name=example.name,
+            location=test["location"],
+            monitoring_enabled=True,
+            marketplace_subscription_status="Active",
+            identity={
+                "type": "SystemAssigned",
+            },
+            user={
+                "first_name": "Alice",
+                "last_name": "Bobab",
+                "email": "alice@microsoft.com",
+                "phone_number": "123456",
+                "country": "westus",
+            },
+            plan={
+                "usage_type": "COMMITTED",
+                "billing_cycle": "MONTHLY",
+                "plan": "azureportalintegration_privatepreview@TIDhjdtn7tfnxcy",
+                "effective_date": "2019-08-30T15:14:33Z",
+            })
+        example_tag_rules = azure.dynatrace.TagRules("example",
+            name="default",
+            monitor_id=test_azurerm_dynatrace_monitors["id"],
+            log_rule={
+                "filtering_tags": [{
+                    "name": "Environment",
+                    "value": "Prod",
+                    "action": "Include",
+                }],
+                "send_azure_active_directory_logs_enabled": True,
+                "send_activity_logs_enabled": True,
+                "send_subscription_logs_enabled": True,
+            },
+            metric_rule={
+                "filtering_tags": [{
+                    "name": "Environment",
+                    "value": "Prod",
+                    "action": "Include",
+                }],
+            })
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Dynatrace.Observability` - 2023-04-27
+
         ## Import
 
         Dynatrace tag rules can be imported using the `resource id`, e.g.
@@ -198,6 +258,66 @@ class TagRules(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages Dynatrace tag rules.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_monitor = azure.dynatrace.Monitor("example",
+            name="exmpledynatracemonitor",
+            resource_group_name=example.name,
+            location=test["location"],
+            monitoring_enabled=True,
+            marketplace_subscription_status="Active",
+            identity={
+                "type": "SystemAssigned",
+            },
+            user={
+                "first_name": "Alice",
+                "last_name": "Bobab",
+                "email": "alice@microsoft.com",
+                "phone_number": "123456",
+                "country": "westus",
+            },
+            plan={
+                "usage_type": "COMMITTED",
+                "billing_cycle": "MONTHLY",
+                "plan": "azureportalintegration_privatepreview@TIDhjdtn7tfnxcy",
+                "effective_date": "2019-08-30T15:14:33Z",
+            })
+        example_tag_rules = azure.dynatrace.TagRules("example",
+            name="default",
+            monitor_id=test_azurerm_dynatrace_monitors["id"],
+            log_rule={
+                "filtering_tags": [{
+                    "name": "Environment",
+                    "value": "Prod",
+                    "action": "Include",
+                }],
+                "send_azure_active_directory_logs_enabled": True,
+                "send_activity_logs_enabled": True,
+                "send_subscription_logs_enabled": True,
+            },
+            metric_rule={
+                "filtering_tags": [{
+                    "name": "Environment",
+                    "value": "Prod",
+                    "action": "Include",
+                }],
+            })
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Dynatrace.Observability` - 2023-04-27
 
         ## Import
 

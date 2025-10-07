@@ -313,6 +313,60 @@ class HciNetworkInterface(pulumi.CustomResource):
         """
         Manages an Azure Stack HCI Network Interface.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="West Europe")
+        example_hci_logical_network = azure.stack.HciLogicalNetwork("example",
+            name="example-hci-ln",
+            resource_group_name=example.name,
+            location=example.location,
+            custom_location_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ExtendedLocation/customLocations/cl1",
+            virtual_switch_name="ConvergedSwitch(managementcompute)",
+            dns_servers=[
+                "10.0.0.7",
+                "10.0.0.8",
+            ],
+            subnet={
+                "ip_allocation_method": "Static",
+                "address_prefix": "10.0.0.0/24",
+                "route": {
+                    "name": "example-route",
+                    "addressPrefix": "0.0.0.0/0",
+                    "nextHopIpAddress": "10.0.20.1",
+                },
+                "vlan_id": 123,
+            },
+            tags={
+                "foo": "bar",
+            })
+        example_hci_network_interface = azure.stack.HciNetworkInterface("example",
+            name="example-ni",
+            resource_group_name=example.name,
+            location=example.location,
+            custom_location_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ExtendedLocation/customLocations/cl1",
+            dns_servers=["10.0.0.8"],
+            ip_configuration={
+                "private_ip_address": "10.0.0.2",
+                "subnet_id": test["id"],
+            },
+            tags={
+                "foo": "bar",
+            })
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.AzureStackHCI` - 2024-01-01
+
         ## Import
 
         Azure Stack HCI Network Interfaces can be imported using the `resource id`, e.g.
@@ -342,6 +396,60 @@ class HciNetworkInterface(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Stack HCI Network Interface.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="West Europe")
+        example_hci_logical_network = azure.stack.HciLogicalNetwork("example",
+            name="example-hci-ln",
+            resource_group_name=example.name,
+            location=example.location,
+            custom_location_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ExtendedLocation/customLocations/cl1",
+            virtual_switch_name="ConvergedSwitch(managementcompute)",
+            dns_servers=[
+                "10.0.0.7",
+                "10.0.0.8",
+            ],
+            subnet={
+                "ip_allocation_method": "Static",
+                "address_prefix": "10.0.0.0/24",
+                "route": {
+                    "name": "example-route",
+                    "addressPrefix": "0.0.0.0/0",
+                    "nextHopIpAddress": "10.0.20.1",
+                },
+                "vlan_id": 123,
+            },
+            tags={
+                "foo": "bar",
+            })
+        example_hci_network_interface = azure.stack.HciNetworkInterface("example",
+            name="example-ni",
+            resource_group_name=example.name,
+            location=example.location,
+            custom_location_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ExtendedLocation/customLocations/cl1",
+            dns_servers=["10.0.0.8"],
+            ip_configuration={
+                "private_ip_address": "10.0.0.2",
+                "subnet_id": test["id"],
+            },
+            tags={
+                "foo": "bar",
+            })
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.AzureStackHCI` - 2024-01-01
 
         ## Import
 

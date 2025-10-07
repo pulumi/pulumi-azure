@@ -18,14 +18,14 @@ public final class CatalogState extends com.pulumi.resources.ResourceArgs {
     public static final CatalogState Empty = new CatalogState();
 
     /**
-     * A `catalog_adogit` block as defined below.
+     * A `catalogAdogit` block as defined below.
      * 
      */
     @Import(name="catalogAdogit")
     private @Nullable Output<CatalogCatalogAdogitArgs> catalogAdogit;
 
     /**
-     * @return A `catalog_adogit` block as defined below.
+     * @return A `catalogAdogit` block as defined below.
      * 
      */
     public Optional<Output<CatalogCatalogAdogitArgs>> catalogAdogit() {
@@ -33,14 +33,14 @@ public final class CatalogState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `catalog_github` block as defined below.
+     * A `catalogGithub` block as defined below.
      * 
      */
     @Import(name="catalogGithub")
     private @Nullable Output<CatalogCatalogGithubArgs> catalogGithub;
 
     /**
-     * @return A `catalog_github` block as defined below.
+     * @return A `catalogGithub` block as defined below.
      * 
      */
     public Optional<Output<CatalogCatalogGithubArgs>> catalogGithub() {
@@ -121,7 +121,7 @@ public final class CatalogState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param catalogAdogit A `catalog_adogit` block as defined below.
+         * @param catalogAdogit A `catalogAdogit` block as defined below.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class CatalogState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param catalogAdogit A `catalog_adogit` block as defined below.
+         * @param catalogAdogit A `catalogAdogit` block as defined below.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class CatalogState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param catalogGithub A `catalog_github` block as defined below.
+         * @param catalogGithub A `catalogGithub` block as defined below.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class CatalogState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param catalogGithub A `catalog_github` block as defined below.
+         * @param catalogGithub A `catalogGithub` block as defined below.
          * 
          * @return builder
          * 

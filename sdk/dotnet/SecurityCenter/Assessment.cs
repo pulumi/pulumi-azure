@@ -145,7 +145,7 @@ namespace Pulumi.Azure.SecurityCenter
         public Output<string> AssessmentPolicyId { get; private set; } = null!;
 
         /// <summary>
-        /// A `status` block as defined below.
+        /// A `Status` block as defined below.
         /// </summary>
         [Output("status")]
         public Output<Outputs.AssessmentStatus> Status { get; private set; } = null!;
@@ -221,7 +221,7 @@ namespace Pulumi.Azure.SecurityCenter
         public Input<string> AssessmentPolicyId { get; set; } = null!;
 
         /// <summary>
-        /// A `status` block as defined below.
+        /// A `Status` block as defined below.
         /// </summary>
         [Input("status", required: true)]
         public Input<Inputs.AssessmentStatusArgs> Status { get; set; } = null!;
@@ -259,7 +259,7 @@ namespace Pulumi.Azure.SecurityCenter
         public Input<string>? AssessmentPolicyId { get; set; }
 
         /// <summary>
-        /// A `status` block as defined below.
+        /// A `Status` block as defined below.
         /// </summary>
         [Input("status")]
         public Input<Inputs.AssessmentStatusGetArgs>? Status { get; set; }

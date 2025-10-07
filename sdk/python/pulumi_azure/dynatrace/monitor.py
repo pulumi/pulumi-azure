@@ -369,6 +369,46 @@ class Monitor(pulumi.CustomResource):
         """
         Manages a Dynatrace monitor.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_monitor = azure.dynatrace.Monitor("example",
+            name="exmpledynatracemonitor",
+            resource_group_name=example.name,
+            location=test["location"],
+            monitoring_enabled=True,
+            marketplace_subscription_status="Active",
+            identity={
+                "type": "SystemAssigned",
+            },
+            user={
+                "first_name": "Alice",
+                "last_name": "Bobab",
+                "email": "alice@microsoft.com",
+                "phone_number": "123456",
+                "country": "westus",
+            },
+            plan={
+                "usage_type": "COMMITTED",
+                "billing_cycle": "MONTHLY",
+                "plan": "azureportalintegration_privatepreview@TIDhjdtn7tfnxcy",
+                "effective_date": "2019-08-30T15:14:33Z",
+            })
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Dynatrace.Observability` - 2023-04-27
+
         ## Import
 
         Dynatrace monitor can be imported using the `resource id`, e.g.
@@ -398,6 +438,46 @@ class Monitor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Dynatrace monitor.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_monitor = azure.dynatrace.Monitor("example",
+            name="exmpledynatracemonitor",
+            resource_group_name=example.name,
+            location=test["location"],
+            monitoring_enabled=True,
+            marketplace_subscription_status="Active",
+            identity={
+                "type": "SystemAssigned",
+            },
+            user={
+                "first_name": "Alice",
+                "last_name": "Bobab",
+                "email": "alice@microsoft.com",
+                "phone_number": "123456",
+                "country": "westus",
+            },
+            plan={
+                "usage_type": "COMMITTED",
+                "billing_cycle": "MONTHLY",
+                "plan": "azureportalintegration_privatepreview@TIDhjdtn7tfnxcy",
+                "effective_date": "2019-08-30T15:14:33Z",
+            })
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Dynatrace.Observability` - 2023-04-27
 
         ## Import
 

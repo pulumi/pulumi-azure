@@ -18,6 +18,85 @@ import javax.annotation.Nullable;
 /**
  * Manages a API Management Redis Cache.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.apimanagement.Service;
+ * import com.pulumi.azure.apimanagement.ServiceArgs;
+ * import com.pulumi.azure.redis.Cache;
+ * import com.pulumi.azure.redis.CacheArgs;
+ * import com.pulumi.azure.redis.inputs.CacheRedisConfigurationArgs;
+ * import com.pulumi.azure.apimanagement.RedisCache;
+ * import com.pulumi.azure.apimanagement.RedisCacheArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
+ *         Pulumi.run(App::stack);
+ *     }}{@code
+ * 
+ *     public static void stack(Context ctx) }{{@code
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("example-resources")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()
+ *             .name("example-apim")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .publisherName("pub1")
+ *             .publisherEmail("pub1}{@literal @}{@code email.com")
+ *             .skuName("Consumption_0")
+ *             .build());
+ * 
+ *         var exampleCache = new Cache("exampleCache", CacheArgs.builder()
+ *             .name("example-cache")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .capacity(1)
+ *             .family("C")
+ *             .skuName("Basic")
+ *             .enableNonSslPort(false)
+ *             .minimumTlsVersion("1.2")
+ *             .redisConfiguration(CacheRedisConfigurationArgs.builder()
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleRedisCache = new RedisCache("exampleRedisCache", RedisCacheArgs.builder()
+ *             .name("example-Redis-Cache")
+ *             .apiManagementId(exampleService.id())
+ *             .connectionString(exampleCache.primaryConnectionString())
+ *             .description("Redis cache instances")
+ *             .redisCacheId(exampleCache.id())
+ *             .cacheLocation("East Us")
+ *             .build());
+ * 
+ *     }}{@code
+ * }}{@code
+ * }
+ * </pre>
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.ApiManagement` - 2022-08-01
+ * 
  * ## Import
  * 
  * API Management Redis Caches can be imported using the `resource id`, e.g.

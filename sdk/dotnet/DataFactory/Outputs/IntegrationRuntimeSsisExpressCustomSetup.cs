@@ -14,11 +14,11 @@ namespace Pulumi.Azure.DataFactory.Outputs
     public sealed class IntegrationRuntimeSsisExpressCustomSetup
     {
         /// <summary>
-        /// One or more `command_key` blocks as defined below.
+        /// One or more `CommandKey` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.IntegrationRuntimeSsisExpressCustomSetupCommandKey> CommandKeys;
         /// <summary>
-        /// One or more `component` blocks as defined below.
+        /// One or more `Component` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.IntegrationRuntimeSsisExpressCustomSetupComponent> Components;
         /// <summary>
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.DataFactory.Outputs
         /// <summary>
         /// The version of Azure Powershell installed for the Azure-SSIS Integration Runtime.
         /// 
-        /// &gt; **Note:** At least one of `env`, `powershell_version`, `component` and `command_key` should be specified.
+        /// &gt; **Note:** At least one of `Env`, `PowershellVersion`, `Component` and `CommandKey` should be specified.
         /// </summary>
         public readonly string? PowershellVersion;
 

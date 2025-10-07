@@ -182,9 +182,9 @@ namespace Pulumi.Azure.Hsm
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// A `management_network_profile` block as defined below.
+        /// A `ManagementNetworkProfile` block as defined below.
         /// 
-        /// &gt; **Note:** The `management_network_profile` should not be specified when `sku_name` is `SafeNet Luna Network HSM A790`.
+        /// &gt; **Note:** The `ManagementNetworkProfile` should not be specified when `SkuName` is `SafeNet Luna Network HSM A790`.
         /// </summary>
         [Output("managementNetworkProfile")]
         public Output<Outputs.ModuleManagementNetworkProfile?> ManagementNetworkProfile { get; private set; } = null!;
@@ -196,7 +196,7 @@ namespace Pulumi.Azure.Hsm
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `network_profile` block as defined below.
+        /// A `NetworkProfile` block as defined below.
         /// </summary>
         [Output("networkProfile")]
         public Output<Outputs.ModuleNetworkProfile> NetworkProfile { get; private set; } = null!;
@@ -214,7 +214,7 @@ namespace Pulumi.Azure.Hsm
         public Output<string> SkuName { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the stamp. Possible values are `stamp1` or `stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created.
+        /// The ID of the stamp. Possible values are `Stamp1` or `Stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created.
         /// </summary>
         [Output("stampId")]
         public Output<string?> StampId { get; private set; } = null!;
@@ -284,9 +284,9 @@ namespace Pulumi.Azure.Hsm
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A `management_network_profile` block as defined below.
+        /// A `ManagementNetworkProfile` block as defined below.
         /// 
-        /// &gt; **Note:** The `management_network_profile` should not be specified when `sku_name` is `SafeNet Luna Network HSM A790`.
+        /// &gt; **Note:** The `ManagementNetworkProfile` should not be specified when `SkuName` is `SafeNet Luna Network HSM A790`.
         /// </summary>
         [Input("managementNetworkProfile")]
         public Input<Inputs.ModuleManagementNetworkProfileArgs>? ManagementNetworkProfile { get; set; }
@@ -298,7 +298,7 @@ namespace Pulumi.Azure.Hsm
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `network_profile` block as defined below.
+        /// A `NetworkProfile` block as defined below.
         /// </summary>
         [Input("networkProfile", required: true)]
         public Input<Inputs.ModuleNetworkProfileArgs> NetworkProfile { get; set; } = null!;
@@ -316,7 +316,7 @@ namespace Pulumi.Azure.Hsm
         public Input<string> SkuName { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the stamp. Possible values are `stamp1` or `stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created.
+        /// The ID of the stamp. Possible values are `Stamp1` or `Stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created.
         /// </summary>
         [Input("stampId")]
         public Input<string>? StampId { get; set; }
@@ -360,9 +360,9 @@ namespace Pulumi.Azure.Hsm
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A `management_network_profile` block as defined below.
+        /// A `ManagementNetworkProfile` block as defined below.
         /// 
-        /// &gt; **Note:** The `management_network_profile` should not be specified when `sku_name` is `SafeNet Luna Network HSM A790`.
+        /// &gt; **Note:** The `ManagementNetworkProfile` should not be specified when `SkuName` is `SafeNet Luna Network HSM A790`.
         /// </summary>
         [Input("managementNetworkProfile")]
         public Input<Inputs.ModuleManagementNetworkProfileGetArgs>? ManagementNetworkProfile { get; set; }
@@ -374,7 +374,7 @@ namespace Pulumi.Azure.Hsm
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `network_profile` block as defined below.
+        /// A `NetworkProfile` block as defined below.
         /// </summary>
         [Input("networkProfile")]
         public Input<Inputs.ModuleNetworkProfileGetArgs>? NetworkProfile { get; set; }
@@ -392,7 +392,7 @@ namespace Pulumi.Azure.Hsm
         public Input<string>? SkuName { get; set; }
 
         /// <summary>
-        /// The ID of the stamp. Possible values are `stamp1` or `stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created.
+        /// The ID of the stamp. Possible values are `Stamp1` or `Stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created.
         /// </summary>
         [Input("stampId")]
         public Input<string>? StampId { get; set; }

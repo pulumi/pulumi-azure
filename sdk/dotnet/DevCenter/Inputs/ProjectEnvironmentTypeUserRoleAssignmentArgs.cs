@@ -16,7 +16,7 @@ namespace Pulumi.Azure.DevCenter.Inputs
         private InputList<string>? _roles;
 
         /// <summary>
-        /// A list of roles to assign to the `user_id`.
+        /// A list of roles to assign to the `UserId`.
         /// </summary>
         public InputList<string> Roles
         {

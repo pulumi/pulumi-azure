@@ -78,7 +78,7 @@ namespace Pulumi.Azure.Kusto
         public Output<ImmutableArray<string>> AllowedIpRanges { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days). Defaults to `true`.
+        /// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days). Defaults to `True`.
         /// </summary>
         [Output("autoStopEnabled")]
         public Output<bool?> AutoStopEnabled { get; private set; } = null!;
@@ -90,7 +90,7 @@ namespace Pulumi.Azure.Kusto
         public Output<string> DataIngestionUri { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if the cluster's disks are encrypted. Defaults to `false`.
+        /// Specifies if the cluster's disks are encrypted. Defaults to `False`.
         /// </summary>
         [Output("diskEncryptionEnabled")]
         public Output<bool?> DiskEncryptionEnabled { get; private set; } = null!;
@@ -102,13 +102,13 @@ namespace Pulumi.Azure.Kusto
         public Output<bool?> DoubleEncryptionEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ClusterIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// A `language_extension` block as defined below.
+        /// A `LanguageExtension` block as defined below.
         /// </summary>
         [Output("languageExtension")]
         public Output<ImmutableArray<Outputs.ClusterLanguageExtension>> LanguageExtension { get; private set; } = null!;
@@ -129,13 +129,13 @@ namespace Pulumi.Azure.Kusto
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// An `optimized_auto_scale` block as defined below.
+        /// An `OptimizedAutoScale` block as defined below.
         /// </summary>
         [Output("optimizedAutoScale")]
         public Output<Outputs.ClusterOptimizedAutoScale?> OptimizedAutoScale { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to restrict outbound network access. Defaults to `false`.
+        /// Whether to restrict outbound network access. Defaults to `False`.
         /// </summary>
         [Output("outboundNetworkAccessRestricted")]
         public Output<bool?> OutboundNetworkAccessRestricted { get; private set; } = null!;
@@ -147,13 +147,13 @@ namespace Pulumi.Azure.Kusto
         public Output<string?> PublicIpType { get; private set; } = null!;
 
         /// <summary>
-        /// Is the public network access enabled? Defaults to `true`.
+        /// Is the public network access enabled? Defaults to `True`.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if the purge operations are enabled. Defaults to `false`.
+        /// Specifies if the purge operations are enabled. Defaults to `False`.
         /// </summary>
         [Output("purgeEnabled")]
         public Output<bool?> PurgeEnabled { get; private set; } = null!;
@@ -165,13 +165,13 @@ namespace Pulumi.Azure.Kusto
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `sku` block as defined below.
+        /// A `Sku` block as defined below.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.ClusterSku> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if the streaming ingest is enabled. Defaults to `false`.
+        /// Specifies if the streaming ingest is enabled. Defaults to `False`.
         /// </summary>
         [Output("streamingIngestionEnabled")]
         public Output<bool?> StreamingIngestionEnabled { get; private set; } = null!;
@@ -183,9 +183,9 @@ namespace Pulumi.Azure.Kusto
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = ["*"]` to explicitly allow all other tenants, `trusted_external_tenants = ["MyTenantOnly"]` for only your tenant or `trusted_external_tenants = ["&lt;tenantId1&gt;", "&lt;tenantIdx&gt;"]` to allow specific other tenants.
+        /// Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `TrustedExternalTenants = ["*"]` to explicitly allow all other tenants, `TrustedExternalTenants = ["MyTenantOnly"]` for only your tenant or `TrustedExternalTenants = ["&lt;tenantId1&gt;", "&lt;tenantIdx&gt;"]` to allow specific other tenants.
         /// 
-        /// &gt; **Note:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = ["MyTenantOnly"]` to `trusted_external_tenants = []`.
+        /// &gt; **Note:** In v3.0 of `Azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `TrustedExternalTenants = ["MyTenantOnly"]` to `TrustedExternalTenants = []`.
         /// </summary>
         [Output("trustedExternalTenants")]
         public Output<ImmutableArray<string>> TrustedExternalTenants { get; private set; } = null!;
@@ -276,13 +276,13 @@ namespace Pulumi.Azure.Kusto
         }
 
         /// <summary>
-        /// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days). Defaults to `true`.
+        /// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days). Defaults to `True`.
         /// </summary>
         [Input("autoStopEnabled")]
         public Input<bool>? AutoStopEnabled { get; set; }
 
         /// <summary>
-        /// Specifies if the cluster's disks are encrypted. Defaults to `false`.
+        /// Specifies if the cluster's disks are encrypted. Defaults to `False`.
         /// </summary>
         [Input("diskEncryptionEnabled")]
         public Input<bool>? DiskEncryptionEnabled { get; set; }
@@ -294,7 +294,7 @@ namespace Pulumi.Azure.Kusto
         public Input<bool>? DoubleEncryptionEnabled { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ClusterIdentityArgs>? Identity { get; set; }
@@ -303,7 +303,7 @@ namespace Pulumi.Azure.Kusto
         private InputList<Inputs.ClusterLanguageExtensionArgs>? _languageExtension;
 
         /// <summary>
-        /// A `language_extension` block as defined below.
+        /// A `LanguageExtension` block as defined below.
         /// </summary>
         public InputList<Inputs.ClusterLanguageExtensionArgs> LanguageExtension
         {
@@ -313,7 +313,7 @@ namespace Pulumi.Azure.Kusto
 
         [Input("languageExtensions")]
         private InputList<Inputs.ClusterLanguageExtensionArgs>? _languageExtensions;
-        [Obsolete(@"`language_extensions` has been deprecated in favour of `language_extension` and will be removed in v5.0 of the AzureRM provider")]
+        [Obsolete(@"`LanguageExtensions` has been deprecated in favour of `LanguageExtension` and will be removed in v5.0 of the AzureRM provider")]
         public InputList<Inputs.ClusterLanguageExtensionArgs> LanguageExtensions
         {
             get => _languageExtensions ?? (_languageExtensions = new InputList<Inputs.ClusterLanguageExtensionArgs>());
@@ -333,13 +333,13 @@ namespace Pulumi.Azure.Kusto
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// An `optimized_auto_scale` block as defined below.
+        /// An `OptimizedAutoScale` block as defined below.
         /// </summary>
         [Input("optimizedAutoScale")]
         public Input<Inputs.ClusterOptimizedAutoScaleArgs>? OptimizedAutoScale { get; set; }
 
         /// <summary>
-        /// Whether to restrict outbound network access. Defaults to `false`.
+        /// Whether to restrict outbound network access. Defaults to `False`.
         /// </summary>
         [Input("outboundNetworkAccessRestricted")]
         public Input<bool>? OutboundNetworkAccessRestricted { get; set; }
@@ -351,13 +351,13 @@ namespace Pulumi.Azure.Kusto
         public Input<string>? PublicIpType { get; set; }
 
         /// <summary>
-        /// Is the public network access enabled? Defaults to `true`.
+        /// Is the public network access enabled? Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
-        /// Specifies if the purge operations are enabled. Defaults to `false`.
+        /// Specifies if the purge operations are enabled. Defaults to `False`.
         /// </summary>
         [Input("purgeEnabled")]
         public Input<bool>? PurgeEnabled { get; set; }
@@ -369,13 +369,13 @@ namespace Pulumi.Azure.Kusto
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `sku` block as defined below.
+        /// A `Sku` block as defined below.
         /// </summary>
         [Input("sku", required: true)]
         public Input<Inputs.ClusterSkuArgs> Sku { get; set; } = null!;
 
         /// <summary>
-        /// Specifies if the streaming ingest is enabled. Defaults to `false`.
+        /// Specifies if the streaming ingest is enabled. Defaults to `False`.
         /// </summary>
         [Input("streamingIngestionEnabled")]
         public Input<bool>? StreamingIngestionEnabled { get; set; }
@@ -396,9 +396,9 @@ namespace Pulumi.Azure.Kusto
         private InputList<string>? _trustedExternalTenants;
 
         /// <summary>
-        /// Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = ["*"]` to explicitly allow all other tenants, `trusted_external_tenants = ["MyTenantOnly"]` for only your tenant or `trusted_external_tenants = ["&lt;tenantId1&gt;", "&lt;tenantIdx&gt;"]` to allow specific other tenants.
+        /// Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `TrustedExternalTenants = ["*"]` to explicitly allow all other tenants, `TrustedExternalTenants = ["MyTenantOnly"]` for only your tenant or `TrustedExternalTenants = ["&lt;tenantId1&gt;", "&lt;tenantIdx&gt;"]` to allow specific other tenants.
         /// 
-        /// &gt; **Note:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = ["MyTenantOnly"]` to `trusted_external_tenants = []`.
+        /// &gt; **Note:** In v3.0 of `Azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `TrustedExternalTenants = ["MyTenantOnly"]` to `TrustedExternalTenants = []`.
         /// </summary>
         public InputList<string> TrustedExternalTenants
         {
@@ -454,7 +454,7 @@ namespace Pulumi.Azure.Kusto
         }
 
         /// <summary>
-        /// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days). Defaults to `true`.
+        /// Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days). Defaults to `True`.
         /// </summary>
         [Input("autoStopEnabled")]
         public Input<bool>? AutoStopEnabled { get; set; }
@@ -466,7 +466,7 @@ namespace Pulumi.Azure.Kusto
         public Input<string>? DataIngestionUri { get; set; }
 
         /// <summary>
-        /// Specifies if the cluster's disks are encrypted. Defaults to `false`.
+        /// Specifies if the cluster's disks are encrypted. Defaults to `False`.
         /// </summary>
         [Input("diskEncryptionEnabled")]
         public Input<bool>? DiskEncryptionEnabled { get; set; }
@@ -478,7 +478,7 @@ namespace Pulumi.Azure.Kusto
         public Input<bool>? DoubleEncryptionEnabled { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ClusterIdentityGetArgs>? Identity { get; set; }
@@ -487,7 +487,7 @@ namespace Pulumi.Azure.Kusto
         private InputList<Inputs.ClusterLanguageExtensionGetArgs>? _languageExtension;
 
         /// <summary>
-        /// A `language_extension` block as defined below.
+        /// A `LanguageExtension` block as defined below.
         /// </summary>
         public InputList<Inputs.ClusterLanguageExtensionGetArgs> LanguageExtension
         {
@@ -497,7 +497,7 @@ namespace Pulumi.Azure.Kusto
 
         [Input("languageExtensions")]
         private InputList<Inputs.ClusterLanguageExtensionGetArgs>? _languageExtensions;
-        [Obsolete(@"`language_extensions` has been deprecated in favour of `language_extension` and will be removed in v5.0 of the AzureRM provider")]
+        [Obsolete(@"`LanguageExtensions` has been deprecated in favour of `LanguageExtension` and will be removed in v5.0 of the AzureRM provider")]
         public InputList<Inputs.ClusterLanguageExtensionGetArgs> LanguageExtensions
         {
             get => _languageExtensions ?? (_languageExtensions = new InputList<Inputs.ClusterLanguageExtensionGetArgs>());
@@ -517,13 +517,13 @@ namespace Pulumi.Azure.Kusto
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// An `optimized_auto_scale` block as defined below.
+        /// An `OptimizedAutoScale` block as defined below.
         /// </summary>
         [Input("optimizedAutoScale")]
         public Input<Inputs.ClusterOptimizedAutoScaleGetArgs>? OptimizedAutoScale { get; set; }
 
         /// <summary>
-        /// Whether to restrict outbound network access. Defaults to `false`.
+        /// Whether to restrict outbound network access. Defaults to `False`.
         /// </summary>
         [Input("outboundNetworkAccessRestricted")]
         public Input<bool>? OutboundNetworkAccessRestricted { get; set; }
@@ -535,13 +535,13 @@ namespace Pulumi.Azure.Kusto
         public Input<string>? PublicIpType { get; set; }
 
         /// <summary>
-        /// Is the public network access enabled? Defaults to `true`.
+        /// Is the public network access enabled? Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
-        /// Specifies if the purge operations are enabled. Defaults to `false`.
+        /// Specifies if the purge operations are enabled. Defaults to `False`.
         /// </summary>
         [Input("purgeEnabled")]
         public Input<bool>? PurgeEnabled { get; set; }
@@ -553,13 +553,13 @@ namespace Pulumi.Azure.Kusto
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// A `sku` block as defined below.
+        /// A `Sku` block as defined below.
         /// </summary>
         [Input("sku")]
         public Input<Inputs.ClusterSkuGetArgs>? Sku { get; set; }
 
         /// <summary>
-        /// Specifies if the streaming ingest is enabled. Defaults to `false`.
+        /// Specifies if the streaming ingest is enabled. Defaults to `False`.
         /// </summary>
         [Input("streamingIngestionEnabled")]
         public Input<bool>? StreamingIngestionEnabled { get; set; }
@@ -580,9 +580,9 @@ namespace Pulumi.Azure.Kusto
         private InputList<string>? _trustedExternalTenants;
 
         /// <summary>
-        /// Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = ["*"]` to explicitly allow all other tenants, `trusted_external_tenants = ["MyTenantOnly"]` for only your tenant or `trusted_external_tenants = ["&lt;tenantId1&gt;", "&lt;tenantIdx&gt;"]` to allow specific other tenants.
+        /// Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `TrustedExternalTenants = ["*"]` to explicitly allow all other tenants, `TrustedExternalTenants = ["MyTenantOnly"]` for only your tenant or `TrustedExternalTenants = ["&lt;tenantId1&gt;", "&lt;tenantIdx&gt;"]` to allow specific other tenants.
         /// 
-        /// &gt; **Note:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = ["MyTenantOnly"]` to `trusted_external_tenants = []`.
+        /// &gt; **Note:** In v3.0 of `Azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `TrustedExternalTenants = ["MyTenantOnly"]` to `TrustedExternalTenants = []`.
         /// </summary>
         public InputList<string> TrustedExternalTenants
         {

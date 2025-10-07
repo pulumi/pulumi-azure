@@ -76,7 +76,7 @@ namespace Pulumi.Azure.DevCenter
         public Output<string> DevCenterId { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the Dev Boxes created with this definition are capable of hibernation. Defaults to `false`.
+        /// Whether the Dev Boxes created with this definition are capable of hibernation. Defaults to `False`.
         /// 
         /// &gt; **Note:** Not all images are capable of supporting hibernation, for more information see https://aka.ms/devbox/hibernate.
         /// </summary>
@@ -166,7 +166,7 @@ namespace Pulumi.Azure.DevCenter
         public Input<string> DevCenterId { get; set; } = null!;
 
         /// <summary>
-        /// Whether the Dev Boxes created with this definition are capable of hibernation. Defaults to `false`.
+        /// Whether the Dev Boxes created with this definition are capable of hibernation. Defaults to `False`.
         /// 
         /// &gt; **Note:** Not all images are capable of supporting hibernation, for more information see https://aka.ms/devbox/hibernate.
         /// </summary>
@@ -224,7 +224,7 @@ namespace Pulumi.Azure.DevCenter
         public Input<string>? DevCenterId { get; set; }
 
         /// <summary>
-        /// Whether the Dev Boxes created with this definition are capable of hibernation. Defaults to `false`.
+        /// Whether the Dev Boxes created with this definition are capable of hibernation. Defaults to `False`.
         /// 
         /// &gt; **Note:** Not all images are capable of supporting hibernation, for more information see https://aka.ms/devbox/hibernate.
         /// </summary>

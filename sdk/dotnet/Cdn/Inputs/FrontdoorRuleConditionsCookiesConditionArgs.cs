@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         }
 
         /// <summary>
-        /// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        /// If `True` operator becomes the opposite of its value. Possible values `True` or `False`. Defaults to `False`. Details can be found in the `Condition Operator List` below.
         /// </summary>
         [Input("negateCondition")]
         public Input<bool>? NegateCondition { get; set; }

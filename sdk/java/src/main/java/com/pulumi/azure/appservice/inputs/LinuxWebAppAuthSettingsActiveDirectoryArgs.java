@@ -20,7 +20,7 @@ public final class LinuxWebAppAuthSettingsActiveDirectoryArgs extends com.pulumi
     /**
      * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
      * 
-     * &gt; **Note:** The `client_id` value is always considered an allowed audience.
+     * &gt; **Note:** The `clientId` value is always considered an allowed audience.
      * 
      */
     @Import(name="allowedAudiences")
@@ -29,7 +29,7 @@ public final class LinuxWebAppAuthSettingsActiveDirectoryArgs extends com.pulumi
     /**
      * @return Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
      * 
-     * &gt; **Note:** The `client_id` value is always considered an allowed audience.
+     * &gt; **Note:** The `clientId` value is always considered an allowed audience.
      * 
      */
     public Optional<Output<List<String>>> allowedAudiences() {
@@ -52,14 +52,14 @@ public final class LinuxWebAppAuthSettingsActiveDirectoryArgs extends com.pulumi
     }
 
     /**
-     * The Client Secret for the Client ID. Cannot be used with `client_secret_setting_name`.
+     * The Client Secret for the Client ID. Cannot be used with `clientSecretSettingName`.
      * 
      */
     @Import(name="clientSecret")
     private @Nullable Output<String> clientSecret;
 
     /**
-     * @return The Client Secret for the Client ID. Cannot be used with `client_secret_setting_name`.
+     * @return The Client Secret for the Client ID. Cannot be used with `clientSecretSettingName`.
      * 
      */
     public Optional<Output<String>> clientSecret() {
@@ -67,14 +67,14 @@ public final class LinuxWebAppAuthSettingsActiveDirectoryArgs extends com.pulumi
     }
 
     /**
-     * The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+     * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
      * 
      */
     @Import(name="clientSecretSettingName")
     private @Nullable Output<String> clientSecretSettingName;
 
     /**
-     * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+     * @return The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
      * 
      */
     public Optional<Output<String>> clientSecretSettingName() {
@@ -111,7 +111,7 @@ public final class LinuxWebAppAuthSettingsActiveDirectoryArgs extends com.pulumi
         /**
          * @param allowedAudiences Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          * 
-         * &gt; **Note:** The `client_id` value is always considered an allowed audience.
+         * &gt; **Note:** The `clientId` value is always considered an allowed audience.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class LinuxWebAppAuthSettingsActiveDirectoryArgs extends com.pulumi
         /**
          * @param allowedAudiences Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          * 
-         * &gt; **Note:** The `client_id` value is always considered an allowed audience.
+         * &gt; **Note:** The `clientId` value is always considered an allowed audience.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class LinuxWebAppAuthSettingsActiveDirectoryArgs extends com.pulumi
         /**
          * @param allowedAudiences Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          * 
-         * &gt; **Note:** The `client_id` value is always considered an allowed audience.
+         * &gt; **Note:** The `clientId` value is always considered an allowed audience.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class LinuxWebAppAuthSettingsActiveDirectoryArgs extends com.pulumi
         }
 
         /**
-         * @param clientSecret The Client Secret for the Client ID. Cannot be used with `client_secret_setting_name`.
+         * @param clientSecret The Client Secret for the Client ID. Cannot be used with `clientSecretSettingName`.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class LinuxWebAppAuthSettingsActiveDirectoryArgs extends com.pulumi
         }
 
         /**
-         * @param clientSecret The Client Secret for the Client ID. Cannot be used with `client_secret_setting_name`.
+         * @param clientSecret The Client Secret for the Client ID. Cannot be used with `clientSecretSettingName`.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class LinuxWebAppAuthSettingsActiveDirectoryArgs extends com.pulumi
         }
 
         /**
-         * @param clientSecretSettingName The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+         * @param clientSecretSettingName The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class LinuxWebAppAuthSettingsActiveDirectoryArgs extends com.pulumi
         }
 
         /**
-         * @param clientSecretSettingName The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+         * @param clientSecretSettingName The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
          * 
          * @return builder
          * 

@@ -28,7 +28,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         private InputList<Inputs.FluxConfigurationKustomizationPostBuildSubstituteFromGetArgs>? _substituteFroms;
 
         /// <summary>
-        /// A `substitute_from` block as defined below.
+        /// A `SubstituteFrom` block as defined below.
         /// </summary>
         public InputList<Inputs.FluxConfigurationKustomizationPostBuildSubstituteFromGetArgs> SubstituteFroms
         {

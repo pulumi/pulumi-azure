@@ -19,7 +19,7 @@ public final class PolicyCustomRule {
     /**
      * @return Type of action. Possible values are `Allow`, `Block`, `JSChallenge` and `Log`.
      * 
-     * &gt; **Note:** If the `rule_type` is specified as `RateLimitRule`, the `Allow` is not supported.
+     * &gt; **Note:** If the `ruleType` is specified as `RateLimitRule`, the `Allow` is not supported.
      * 
      */
     private String action;
@@ -34,7 +34,7 @@ public final class PolicyCustomRule {
      */
     private @Nullable String groupRateLimitBy;
     /**
-     * @return One or more `match_conditions` blocks as defined below.
+     * @return One or more `matchConditions` blocks as defined below.
      * 
      */
     private List<PolicyCustomRuleMatchCondition> matchConditions;
@@ -68,7 +68,7 @@ public final class PolicyCustomRule {
     /**
      * @return Type of action. Possible values are `Allow`, `Block`, `JSChallenge` and `Log`.
      * 
-     * &gt; **Note:** If the `rule_type` is specified as `RateLimitRule`, the `Allow` is not supported.
+     * &gt; **Note:** If the `ruleType` is specified as `RateLimitRule`, the `Allow` is not supported.
      * 
      */
     public String action() {
@@ -89,7 +89,7 @@ public final class PolicyCustomRule {
         return Optional.ofNullable(this.groupRateLimitBy);
     }
     /**
-     * @return One or more `match_conditions` blocks as defined below.
+     * @return One or more `matchConditions` blocks as defined below.
      * 
      */
     public List<PolicyCustomRuleMatchCondition> matchConditions() {

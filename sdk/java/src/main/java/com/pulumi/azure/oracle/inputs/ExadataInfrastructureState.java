@@ -95,14 +95,14 @@ public final class ExadataInfrastructureState extends com.pulumi.resources.Resou
     }
 
     /**
-     * One or more `maintenance_window` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
+     * One or more `maintenanceWindow` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     @Import(name="maintenanceWindows")
     private @Nullable Output<List<ExadataInfrastructureMaintenanceWindowArgs>> maintenanceWindows;
 
     /**
-     * @return One or more `maintenance_window` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
+     * @return One or more `maintenanceWindow` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     public Optional<Output<List<ExadataInfrastructureMaintenanceWindowArgs>>> maintenanceWindows() {
@@ -366,7 +366,7 @@ public final class ExadataInfrastructureState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param maintenanceWindows One or more `maintenance_window` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
+         * @param maintenanceWindows One or more `maintenanceWindow` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
          * 
          * @return builder
          * 
@@ -377,7 +377,7 @@ public final class ExadataInfrastructureState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param maintenanceWindows One or more `maintenance_window` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
+         * @param maintenanceWindows One or more `maintenanceWindow` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
          * 
          * @return builder
          * 
@@ -387,7 +387,7 @@ public final class ExadataInfrastructureState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param maintenanceWindows One or more `maintenance_window` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
+         * @param maintenanceWindows One or more `maintenanceWindow` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
          * 
          * @return builder
          * 

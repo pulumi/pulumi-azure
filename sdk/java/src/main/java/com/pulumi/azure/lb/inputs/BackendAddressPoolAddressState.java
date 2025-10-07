@@ -52,14 +52,14 @@ public final class BackendAddressPoolAddressState extends com.pulumi.resources.R
     }
 
     /**
-     * A list of `inbound_nat_rule_port_mapping` block as defined below.
+     * A list of `inboundNatRulePortMapping` block as defined below.
      * 
      */
     @Import(name="inboundNatRulePortMappings")
     private @Nullable Output<List<BackendAddressPoolAddressInboundNatRulePortMappingArgs>> inboundNatRulePortMappings;
 
     /**
-     * @return A list of `inbound_nat_rule_port_mapping` block as defined below.
+     * @return A list of `inboundNatRulePortMapping` block as defined below.
      * 
      */
     public Optional<Output<List<BackendAddressPoolAddressInboundNatRulePortMappingArgs>>> inboundNatRulePortMappings() {
@@ -187,7 +187,7 @@ public final class BackendAddressPoolAddressState extends com.pulumi.resources.R
         }
 
         /**
-         * @param inboundNatRulePortMappings A list of `inbound_nat_rule_port_mapping` block as defined below.
+         * @param inboundNatRulePortMappings A list of `inboundNatRulePortMapping` block as defined below.
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class BackendAddressPoolAddressState extends com.pulumi.resources.R
         }
 
         /**
-         * @param inboundNatRulePortMappings A list of `inbound_nat_rule_port_mapping` block as defined below.
+         * @param inboundNatRulePortMappings A list of `inboundNatRulePortMapping` block as defined below.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class BackendAddressPoolAddressState extends com.pulumi.resources.R
         }
 
         /**
-         * @param inboundNatRulePortMappings A list of `inbound_nat_rule_port_mapping` block as defined below.
+         * @param inboundNatRulePortMappings A list of `inboundNatRulePortMapping` block as defined below.
          * 
          * @return builder
          * 

@@ -21,12 +21,12 @@ public final class LinuxVirtualMachineScaleSetOsDisk {
      */
     private String caching;
     /**
-     * @return A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
+     * @return A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings diffDiskSettings;
     /**
-     * @return The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`. Changing this forces a new resource to be created.
+     * @return The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
      * 
@@ -42,18 +42,18 @@ public final class LinuxVirtualMachineScaleSetOsDisk {
      */
     private @Nullable Integer diskSizeGb;
     /**
-     * @return The ID of the Disk Encryption Set which should be used to Encrypt the OS Disk when the Virtual Machine Scale Set is Confidential VMSS. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
+     * @return The ID of the Disk Encryption Set which should be used to Encrypt the OS Disk when the Virtual Machine Scale Set is Confidential VMSS. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** `secure_vm_disk_encryption_set_id` can only be specified when `security_encryption_type` is set to `DiskWithVMGuestState`.
+     * &gt; **Note:** `secureVmDiskEncryptionSetId` can only be specified when `securityEncryptionType` is set to `DiskWithVMGuestState`.
      * 
      */
     private @Nullable String secureVmDiskEncryptionSetId;
     /**
      * @return Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** `vtpm_enabled` must be set to `true` when `security_encryption_type` is specified.
+     * &gt; **Note:** `vtpmEnabled` must be set to `true` when `securityEncryptionType` is specified.
      * 
-     * &gt; **Note:** `encryption_at_host_enabled` cannot be set to `true` when `security_encryption_type` is set to `DiskWithVMGuestState`.
+     * &gt; **Note:** `encryptionAtHostEnabled` cannot be set to `true` when `securityEncryptionType` is set to `DiskWithVMGuestState`.
      * 
      */
     private @Nullable String securityEncryptionType;
@@ -65,7 +65,7 @@ public final class LinuxVirtualMachineScaleSetOsDisk {
     /**
      * @return Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
      * 
-     * &gt; **Note:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
+     * &gt; **Note:** This requires that the `storageAccountType` is set to `Premium_LRS` and that `caching` is set to `None`.
      * 
      */
     private @Nullable Boolean writeAcceleratorEnabled;
@@ -79,14 +79,14 @@ public final class LinuxVirtualMachineScaleSetOsDisk {
         return this.caching;
     }
     /**
-     * @return A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
+     * @return A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
      * 
      */
     public Optional<LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings> diffDiskSettings() {
         return Optional.ofNullable(this.diffDiskSettings);
     }
     /**
-     * @return The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`. Changing this forces a new resource to be created.
+     * @return The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
      * 
@@ -106,9 +106,9 @@ public final class LinuxVirtualMachineScaleSetOsDisk {
         return Optional.ofNullable(this.diskSizeGb);
     }
     /**
-     * @return The ID of the Disk Encryption Set which should be used to Encrypt the OS Disk when the Virtual Machine Scale Set is Confidential VMSS. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
+     * @return The ID of the Disk Encryption Set which should be used to Encrypt the OS Disk when the Virtual Machine Scale Set is Confidential VMSS. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** `secure_vm_disk_encryption_set_id` can only be specified when `security_encryption_type` is set to `DiskWithVMGuestState`.
+     * &gt; **Note:** `secureVmDiskEncryptionSetId` can only be specified when `securityEncryptionType` is set to `DiskWithVMGuestState`.
      * 
      */
     public Optional<String> secureVmDiskEncryptionSetId() {
@@ -117,9 +117,9 @@ public final class LinuxVirtualMachineScaleSetOsDisk {
     /**
      * @return Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** `vtpm_enabled` must be set to `true` when `security_encryption_type` is specified.
+     * &gt; **Note:** `vtpmEnabled` must be set to `true` when `securityEncryptionType` is specified.
      * 
-     * &gt; **Note:** `encryption_at_host_enabled` cannot be set to `true` when `security_encryption_type` is set to `DiskWithVMGuestState`.
+     * &gt; **Note:** `encryptionAtHostEnabled` cannot be set to `true` when `securityEncryptionType` is set to `DiskWithVMGuestState`.
      * 
      */
     public Optional<String> securityEncryptionType() {
@@ -135,7 +135,7 @@ public final class LinuxVirtualMachineScaleSetOsDisk {
     /**
      * @return Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
      * 
-     * &gt; **Note:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
+     * &gt; **Note:** This requires that the `storageAccountType` is set to `Premium_LRS` and that `caching` is set to `None`.
      * 
      */
     public Optional<Boolean> writeAcceleratorEnabled() {

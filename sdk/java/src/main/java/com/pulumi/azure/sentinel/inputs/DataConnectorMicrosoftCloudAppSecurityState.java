@@ -34,7 +34,7 @@ public final class DataConnectorMicrosoftCloudAppSecurityState extends com.pulum
     /**
      * Should the Discovery Logs be enabled? Defaults to `true`.
      * 
-     * &gt; **Note:** One of either `alerts_enabled` or `discovery_logs_enabled` has to be specified.
+     * &gt; **Note:** One of either `alertsEnabled` or `discoveryLogsEnabled` has to be specified.
      * 
      */
     @Import(name="discoveryLogsEnabled")
@@ -43,7 +43,7 @@ public final class DataConnectorMicrosoftCloudAppSecurityState extends com.pulum
     /**
      * @return Should the Discovery Logs be enabled? Defaults to `true`.
      * 
-     * &gt; **Note:** One of either `alerts_enabled` or `discovery_logs_enabled` has to be specified.
+     * &gt; **Note:** One of either `alertsEnabled` or `discoveryLogsEnabled` has to be specified.
      * 
      */
     public Optional<Output<Boolean>> discoveryLogsEnabled() {
@@ -151,7 +151,7 @@ public final class DataConnectorMicrosoftCloudAppSecurityState extends com.pulum
         /**
          * @param discoveryLogsEnabled Should the Discovery Logs be enabled? Defaults to `true`.
          * 
-         * &gt; **Note:** One of either `alerts_enabled` or `discovery_logs_enabled` has to be specified.
+         * &gt; **Note:** One of either `alertsEnabled` or `discoveryLogsEnabled` has to be specified.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class DataConnectorMicrosoftCloudAppSecurityState extends com.pulum
         /**
          * @param discoveryLogsEnabled Should the Discovery Logs be enabled? Defaults to `true`.
          * 
-         * &gt; **Note:** One of either `alerts_enabled` or `discovery_logs_enabled` has to be specified.
+         * &gt; **Note:** One of either `alertsEnabled` or `discoveryLogsEnabled` has to be specified.
          * 
          * @return builder
          * 

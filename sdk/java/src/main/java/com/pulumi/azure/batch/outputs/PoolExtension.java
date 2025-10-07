@@ -22,7 +22,7 @@ public final class PoolExtension {
     /**
      * @return Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`.
      * 
-     * &gt; **Note:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` should be manually ignored by user.
+     * &gt; **Note:** When `automaticUpgradeEnabled` is set to `true`, the `typeHandlerVersion` is automatically updated by the Azure platform when a new version is available and any change in `typeHandlerVersion` should be manually ignored by user.
      * 
      */
     private @Nullable Boolean automaticUpgradeEnabled;
@@ -32,7 +32,7 @@ public final class PoolExtension {
      */
     private String name;
     /**
-     * @return JSON formatted protected settings for the extension, the value should be encoded with `jsonencode` function. The extension can contain either `protected_settings` or `provision_after_extensions` or no protected settings at all.
+     * @return JSON formatted protected settings for the extension, the value should be encoded with `jsonencode` function. The extension can contain either `protectedSettings` or `provisionAfterExtensions` or no protected settings at all.
      * 
      */
     private @Nullable String protectedSettings;
@@ -73,7 +73,7 @@ public final class PoolExtension {
     /**
      * @return Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`.
      * 
-     * &gt; **Note:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` should be manually ignored by user.
+     * &gt; **Note:** When `automaticUpgradeEnabled` is set to `true`, the `typeHandlerVersion` is automatically updated by the Azure platform when a new version is available and any change in `typeHandlerVersion` should be manually ignored by user.
      * 
      */
     public Optional<Boolean> automaticUpgradeEnabled() {
@@ -87,7 +87,7 @@ public final class PoolExtension {
         return this.name;
     }
     /**
-     * @return JSON formatted protected settings for the extension, the value should be encoded with `jsonencode` function. The extension can contain either `protected_settings` or `provision_after_extensions` or no protected settings at all.
+     * @return JSON formatted protected settings for the extension, the value should be encoded with `jsonencode` function. The extension can contain either `protectedSettings` or `provisionAfterExtensions` or no protected settings at all.
      * 
      */
     public Optional<String> protectedSettings() {

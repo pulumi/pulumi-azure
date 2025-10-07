@@ -77,13 +77,13 @@ namespace Pulumi.Azure.Management
         /// <summary>
         /// Specifies the Management Group ID within which this Private Link Association should exist. Changing this forces a new Private Link Association to be created.
         /// 
-        /// &gt; **Note:** For now, `management_group_id` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
+        /// &gt; **Note:** For now, `ManagementGroupId` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
         /// </summary>
         [Output("managementGroupId")]
         public Output<string> ManagementGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignore_changes` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
+        /// Specifies the name of this Private Link Association, which should be a UUID. If `Name` is not provided, a UUID will be generated, you should use the `IgnoreChanges` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -155,13 +155,13 @@ namespace Pulumi.Azure.Management
         /// <summary>
         /// Specifies the Management Group ID within which this Private Link Association should exist. Changing this forces a new Private Link Association to be created.
         /// 
-        /// &gt; **Note:** For now, `management_group_id` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
+        /// &gt; **Note:** For now, `ManagementGroupId` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
         /// </summary>
         [Input("managementGroupId", required: true)]
         public Input<string> ManagementGroupId { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignore_changes` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
+        /// Specifies the name of this Private Link Association, which should be a UUID. If `Name` is not provided, a UUID will be generated, you should use the `IgnoreChanges` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -189,13 +189,13 @@ namespace Pulumi.Azure.Management
         /// <summary>
         /// Specifies the Management Group ID within which this Private Link Association should exist. Changing this forces a new Private Link Association to be created.
         /// 
-        /// &gt; **Note:** For now, `management_group_id` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
+        /// &gt; **Note:** For now, `ManagementGroupId` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
         /// </summary>
         [Input("managementGroupId")]
         public Input<string>? ManagementGroupId { get; set; }
 
         /// <summary>
-        /// Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignore_changes` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
+        /// Specifies the name of this Private Link Association, which should be a UUID. If `Name` is not provided, a UUID will be generated, you should use the `IgnoreChanges` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -109,14 +109,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:sentinel/alertRuleScheduled:AlertRuleScheduled")
 public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
     /**
-     * An `alert_details_override` block as defined below.
+     * An `alertDetailsOverride` block as defined below.
      * 
      */
     @Export(name="alertDetailsOverrides", refs={List.class,AlertRuleScheduledAlertDetailsOverride.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AlertRuleScheduledAlertDetailsOverride>> alertDetailsOverrides;
 
     /**
-     * @return An `alert_details_override` block as defined below.
+     * @return An `alertDetailsOverride` block as defined below.
      * 
      */
     public Output<Optional<List<AlertRuleScheduledAlertDetailsOverride>>> alertDetailsOverrides() {
@@ -207,28 +207,28 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enabled);
     }
     /**
-     * A list of `entity_mapping` blocks as defined below.
+     * A list of `entityMapping` blocks as defined below.
      * 
      */
     @Export(name="entityMappings", refs={List.class,AlertRuleScheduledEntityMapping.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AlertRuleScheduledEntityMapping>> entityMappings;
 
     /**
-     * @return A list of `entity_mapping` blocks as defined below.
+     * @return A list of `entityMapping` blocks as defined below.
      * 
      */
     public Output<Optional<List<AlertRuleScheduledEntityMapping>>> entityMappings() {
         return Codegen.optional(this.entityMappings);
     }
     /**
-     * A `event_grouping` block as defined below.
+     * A `eventGrouping` block as defined below.
      * 
      */
     @Export(name="eventGrouping", refs={AlertRuleScheduledEventGrouping.class}, tree="[0]")
     private Output</* @Nullable */ AlertRuleScheduledEventGrouping> eventGrouping;
 
     /**
-     * @return A `event_grouping` block as defined below.
+     * @return A `eventGrouping` block as defined below.
      * 
      */
     public Output<Optional<AlertRuleScheduledEventGrouping>> eventGrouping() {
@@ -307,7 +307,7 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
     /**
      * The ISO 8601 timespan duration, which determine the time period of the data covered by the query. For example, it can query the past 10 minutes of data, or the past 6 hours of data. Defaults to `PT5H`.
      * 
-     * &gt; **Note:** `query_period` must larger than or equal to `query_frequency`, which ensures there is no gaps in the overall query coverage.
+     * &gt; **Note:** `queryPeriod` must larger than or equal to `queryFrequency`, which ensures there is no gaps in the overall query coverage.
      * 
      */
     @Export(name="queryPeriod", refs={String.class}, tree="[0]")
@@ -316,25 +316,25 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
     /**
      * @return The ISO 8601 timespan duration, which determine the time period of the data covered by the query. For example, it can query the past 10 minutes of data, or the past 6 hours of data. Defaults to `PT5H`.
      * 
-     * &gt; **Note:** `query_period` must larger than or equal to `query_frequency`, which ensures there is no gaps in the overall query coverage.
+     * &gt; **Note:** `queryPeriod` must larger than or equal to `queryFrequency`, which ensures there is no gaps in the overall query coverage.
      * 
      */
     public Output<Optional<String>> queryPeriod() {
         return Codegen.optional(this.queryPeriod);
     }
     /**
-     * A list of `sentinel_entity_mapping` blocks as defined below.
+     * A list of `sentinelEntityMapping` blocks as defined below.
      * 
-     * &gt; **Note:** `entity_mapping` and `sentinel_entity_mapping` together can&#39;t exceed 10.
+     * &gt; **Note:** `entityMapping` and `sentinelEntityMapping` together can&#39;t exceed 10.
      * 
      */
     @Export(name="sentinelEntityMappings", refs={List.class,AlertRuleScheduledSentinelEntityMapping.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AlertRuleScheduledSentinelEntityMapping>> sentinelEntityMappings;
 
     /**
-     * @return A list of `sentinel_entity_mapping` blocks as defined below.
+     * @return A list of `sentinelEntityMapping` blocks as defined below.
      * 
-     * &gt; **Note:** `entity_mapping` and `sentinel_entity_mapping` together can&#39;t exceed 10.
+     * &gt; **Note:** `entityMapping` and `sentinelEntityMapping` together can&#39;t exceed 10.
      * 
      */
     public Output<Optional<List<AlertRuleScheduledSentinelEntityMapping>>> sentinelEntityMappings() {
@@ -355,18 +355,18 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
         return this.severity;
     }
     /**
-     * If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
+     * If `suppressionEnabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
      * 
-     * &gt; **Note:** `suppression_duration` must larger than or equal to `query_frequency`, otherwise the suppression has no actual effect since no query will happen during the suppression duration.
+     * &gt; **Note:** `suppressionDuration` must larger than or equal to `queryFrequency`, otherwise the suppression has no actual effect since no query will happen during the suppression duration.
      * 
      */
     @Export(name="suppressionDuration", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> suppressionDuration;
 
     /**
-     * @return If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
+     * @return If `suppressionEnabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
      * 
-     * &gt; **Note:** `suppression_duration` must larger than or equal to `query_frequency`, otherwise the suppression has no actual effect since no query will happen during the suppression duration.
+     * &gt; **Note:** `suppressionDuration` must larger than or equal to `queryFrequency`, otherwise the suppression has no actual effect since no query will happen during the suppression duration.
      * 
      */
     public Output<Optional<String>> suppressionDuration() {
@@ -415,28 +415,28 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.techniques);
     }
     /**
-     * The alert trigger operator, combined with `trigger_threshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`. Defaults to `GreaterThan`.
+     * The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`. Defaults to `GreaterThan`.
      * 
      */
     @Export(name="triggerOperator", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> triggerOperator;
 
     /**
-     * @return The alert trigger operator, combined with `trigger_threshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`. Defaults to `GreaterThan`.
+     * @return The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`. Defaults to `GreaterThan`.
      * 
      */
     public Output<Optional<String>> triggerOperator() {
         return Codegen.optional(this.triggerOperator);
     }
     /**
-     * The baseline number of query results generated, combined with `trigger_operator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
+     * The baseline number of query results generated, combined with `triggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
      * 
      */
     @Export(name="triggerThreshold", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> triggerThreshold;
 
     /**
-     * @return The baseline number of query results generated, combined with `trigger_operator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
+     * @return The baseline number of query results generated, combined with `triggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
      * 
      */
     public Output<Optional<Integer>> triggerThreshold() {

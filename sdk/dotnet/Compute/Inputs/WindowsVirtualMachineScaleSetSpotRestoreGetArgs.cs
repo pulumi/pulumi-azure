@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Compute.Inputs
     public sealed class WindowsVirtualMachineScaleSetSpotRestoreGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should the Spot-Try-Restore feature be enabled? The Spot-Try-Restore feature will attempt to automatically restore the evicted Spot Virtual Machine Scale Set VM instances opportunistically based on capacity availability and pricing constraints. Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Should the Spot-Try-Restore feature be enabled? The Spot-Try-Restore feature will attempt to automatically restore the evicted Spot Virtual Machine Scale Set VM instances opportunistically based on capacity availability and pricing constraints. Possible values are `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

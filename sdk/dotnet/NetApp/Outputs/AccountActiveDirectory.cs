@@ -14,7 +14,7 @@ namespace Pulumi.Azure.NetApp.Outputs
     public sealed class AccountActiveDirectory
     {
         /// <summary>
-        /// If enabled, AES encryption will be enabled for SMB communication. Defaults to `false`.
+        /// If enabled, AES encryption will be enabled for SMB communication. Defaults to `False`.
         /// </summary>
         public readonly bool? AesEncryptionEnabled;
         /// <summary>
@@ -32,19 +32,19 @@ namespace Pulumi.Azure.NetApp.Outputs
         /// <summary>
         /// kdc server IP addresses for the active directory machine.
         /// 
-        /// &gt; **Note:** If you plan on using **Kerberos** volumes, both `ad_name` and `kdc_ip` are required in order to create the volume.
+        /// &gt; **Note:** If you plan on using **Kerberos** volumes, both `AdName` and `KdcIp` are required in order to create the volume.
         /// </summary>
         public readonly string? KerberosKdcIp;
         /// <summary>
-        /// Specifies whether or not the LDAP traffic needs to be secured via TLS. Defaults to `false`.
+        /// Specifies whether or not the LDAP traffic needs to be secured via TLS. Defaults to `False`.
         /// </summary>
         public readonly bool? LdapOverTlsEnabled;
         /// <summary>
-        /// Specifies whether or not the LDAP traffic needs to be signed. Defaults to `false`.
+        /// Specifies whether or not the LDAP traffic needs to be signed. Defaults to `False`.
         /// </summary>
         public readonly bool? LdapSigningEnabled;
         /// <summary>
-        /// If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes. Defaults to `false`.
+        /// If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes. Defaults to `False`.
         /// </summary>
         public readonly bool? LocalNfsUsersWithLdapAllowed;
         /// <summary>
@@ -52,11 +52,11 @@ namespace Pulumi.Azure.NetApp.Outputs
         /// </summary>
         public readonly string? OrganizationalUnit;
         /// <summary>
-        /// The password associated with the `username`.
+        /// The password associated with the `Username`.
         /// </summary>
         public readonly string Password;
         /// <summary>
-        /// When LDAP over SSL/TLS is enabled, the LDAP client is required to have a *base64 encoded Active Directory Certificate Service's self-signed root CA certificate*, this optional parameter is used only for dual protocol with LDAP user-mapping volumes. Required if `ldap_over_tls_enabled` is set to `true`.
+        /// When LDAP over SSL/TLS is enabled, the LDAP client is required to have a *base64 encoded Active Directory Certificate Service's self-signed root CA certificate*, this optional parameter is used only for dual protocol with LDAP user-mapping volumes. Required if `LdapOverTlsEnabled` is set to `True`.
         /// </summary>
         public readonly string? ServerRootCaCertificate;
         /// <summary>

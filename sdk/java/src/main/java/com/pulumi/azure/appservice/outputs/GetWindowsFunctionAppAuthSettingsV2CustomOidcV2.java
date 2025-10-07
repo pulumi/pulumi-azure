@@ -12,12 +12,12 @@ import java.util.Objects;
 @CustomType
 public final class GetWindowsFunctionAppAuthSettingsV2CustomOidcV2 {
     /**
-     * @return The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
+     * @return The endpoint to make the Authorisation Request as supplied by `openidConfigurationEndpoint` response.
      * 
      */
     private String authorisationEndpoint;
     /**
-     * @return The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
+     * @return The endpoint that provides the keys necessary to validate the token as supplied by `openidConfigurationEndpoint` response.
      * 
      */
     private String certificationUri;
@@ -37,7 +37,7 @@ public final class GetWindowsFunctionAppAuthSettingsV2CustomOidcV2 {
      */
     private String clientSecretSettingName;
     /**
-     * @return The endpoint that issued the Token as supplied by `openid_configuration_endpoint` response.
+     * @return The endpoint that issued the Token as supplied by `openidConfigurationEndpoint` response.
      * 
      */
     private String issuerEndpoint;
@@ -62,21 +62,21 @@ public final class GetWindowsFunctionAppAuthSettingsV2CustomOidcV2 {
      */
     private List<String> scopes;
     /**
-     * @return The endpoint used to request a Token as supplied by `openid_configuration_endpoint` response.
+     * @return The endpoint used to request a Token as supplied by `openidConfigurationEndpoint` response.
      * 
      */
     private String tokenEndpoint;
 
     private GetWindowsFunctionAppAuthSettingsV2CustomOidcV2() {}
     /**
-     * @return The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
+     * @return The endpoint to make the Authorisation Request as supplied by `openidConfigurationEndpoint` response.
      * 
      */
     public String authorisationEndpoint() {
         return this.authorisationEndpoint;
     }
     /**
-     * @return The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
+     * @return The endpoint that provides the keys necessary to validate the token as supplied by `openidConfigurationEndpoint` response.
      * 
      */
     public String certificationUri() {
@@ -104,7 +104,7 @@ public final class GetWindowsFunctionAppAuthSettingsV2CustomOidcV2 {
         return this.clientSecretSettingName;
     }
     /**
-     * @return The endpoint that issued the Token as supplied by `openid_configuration_endpoint` response.
+     * @return The endpoint that issued the Token as supplied by `openidConfigurationEndpoint` response.
      * 
      */
     public String issuerEndpoint() {
@@ -139,7 +139,7 @@ public final class GetWindowsFunctionAppAuthSettingsV2CustomOidcV2 {
         return this.scopes;
     }
     /**
-     * @return The endpoint used to request a Token as supplied by `openid_configuration_endpoint` response.
+     * @return The endpoint used to request a Token as supplied by `openidConfigurationEndpoint` response.
      * 
      */
     public String tokenEndpoint() {

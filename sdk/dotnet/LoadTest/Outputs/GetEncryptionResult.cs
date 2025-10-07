@@ -14,7 +14,7 @@ namespace Pulumi.Azure.LoadTest.Outputs
     public sealed class GetEncryptionResult
     {
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetEncryptionIdentityResult> Identities;
         /// <summary>

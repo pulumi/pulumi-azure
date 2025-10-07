@@ -7,6 +7,41 @@ import * as utilities from "../utilities";
 /**
  * ## Example Usage
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-vnet",
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     subnets: [{
+ *         name: "subnet1",
+ *         addressPrefix: "10.0.1.0/24",
+ *     }],
+ * });
+ * const exampleVirtualNetworkDnsServers = new azure.network.VirtualNetworkDnsServers("example", {
+ *     virtualNetworkId: exampleVirtualNetwork.id,
+ *     dnsServers: [
+ *         "10.7.7.2",
+ *         "10.7.7.7",
+ *         "10.7.7.1",
+ *     ],
+ * });
+ * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Network` - 2024-05-01
+ *
  * ## Import
  *
  * Virtual Network DNS Servers can be imported using the `resource id`, e.g.

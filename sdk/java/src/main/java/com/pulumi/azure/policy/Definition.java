@@ -235,14 +235,14 @@ public class Definition extends com.pulumi.resources.CustomResource {
         return this.policyType;
     }
     /**
-     * A list of role definition id extracted from `policy_rule` required for remediation.
+     * A list of role definition id extracted from `policyRule` required for remediation.
      * 
      */
     @Export(name="roleDefinitionIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> roleDefinitionIds;
 
     /**
-     * @return A list of role definition id extracted from `policy_rule` required for remediation.
+     * @return A list of role definition id extracted from `policyRule` required for remediation.
      * 
      */
     public Output<List<String>> roleDefinitionIds() {

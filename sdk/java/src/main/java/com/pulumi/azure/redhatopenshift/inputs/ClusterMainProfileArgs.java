@@ -35,7 +35,7 @@ public final class ClusterMainProfileArgs extends com.pulumi.resources.ResourceA
     /**
      * Whether main virtual machines are encrypted at host. Defaults to `false`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** `encryption_at_host_enabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
+     * &gt; **Note:** `encryptionAtHostEnabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
      * 
      */
     @Import(name="encryptionAtHostEnabled")
@@ -44,7 +44,7 @@ public final class ClusterMainProfileArgs extends com.pulumi.resources.ResourceA
     /**
      * @return Whether main virtual machines are encrypted at host. Defaults to `false`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** `encryption_at_host_enabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
+     * &gt; **Note:** `encryptionAtHostEnabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
      * 
      */
     public Optional<Output<Boolean>> encryptionAtHostEnabled() {
@@ -132,7 +132,7 @@ public final class ClusterMainProfileArgs extends com.pulumi.resources.ResourceA
         /**
          * @param encryptionAtHostEnabled Whether main virtual machines are encrypted at host. Defaults to `false`. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** `encryption_at_host_enabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
+         * &gt; **Note:** `encryptionAtHostEnabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class ClusterMainProfileArgs extends com.pulumi.resources.ResourceA
         /**
          * @param encryptionAtHostEnabled Whether main virtual machines are encrypted at host. Defaults to `false`. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** `encryption_at_host_enabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
+         * &gt; **Note:** `encryptionAtHostEnabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
          * 
          * @return builder
          * 

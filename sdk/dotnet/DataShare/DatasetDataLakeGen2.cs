@@ -118,7 +118,7 @@ namespace Pulumi.Azure.DataShare
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// The path of the file in the data lake file system to be shared with the receiver. Conflicts with `folder_path` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
+        /// The path of the file in the data lake file system to be shared with the receiver. Conflicts with `FolderPath` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
         /// </summary>
         [Output("filePath")]
         public Output<string?> FilePath { get; private set; } = null!;
@@ -130,7 +130,7 @@ namespace Pulumi.Azure.DataShare
         public Output<string> FileSystemName { get; private set; } = null!;
 
         /// <summary>
-        /// The folder path in the data lake file system to be shared with the receiver. Conflicts with `file_path` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
+        /// The folder path in the data lake file system to be shared with the receiver. Conflicts with `FilePath` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
         /// </summary>
         [Output("folderPath")]
         public Output<string?> FolderPath { get; private set; } = null!;
@@ -200,7 +200,7 @@ namespace Pulumi.Azure.DataShare
     public sealed class DatasetDataLakeGen2Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The path of the file in the data lake file system to be shared with the receiver. Conflicts with `folder_path` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
+        /// The path of the file in the data lake file system to be shared with the receiver. Conflicts with `FolderPath` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
         /// </summary>
         [Input("filePath")]
         public Input<string>? FilePath { get; set; }
@@ -212,7 +212,7 @@ namespace Pulumi.Azure.DataShare
         public Input<string> FileSystemName { get; set; } = null!;
 
         /// <summary>
-        /// The folder path in the data lake file system to be shared with the receiver. Conflicts with `file_path` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
+        /// The folder path in the data lake file system to be shared with the receiver. Conflicts with `FilePath` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
         /// </summary>
         [Input("folderPath")]
         public Input<string>? FolderPath { get; set; }
@@ -250,7 +250,7 @@ namespace Pulumi.Azure.DataShare
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// The path of the file in the data lake file system to be shared with the receiver. Conflicts with `folder_path` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
+        /// The path of the file in the data lake file system to be shared with the receiver. Conflicts with `FolderPath` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
         /// </summary>
         [Input("filePath")]
         public Input<string>? FilePath { get; set; }
@@ -262,7 +262,7 @@ namespace Pulumi.Azure.DataShare
         public Input<string>? FileSystemName { get; set; }
 
         /// <summary>
-        /// The folder path in the data lake file system to be shared with the receiver. Conflicts with `file_path` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
+        /// The folder path in the data lake file system to be shared with the receiver. Conflicts with `FilePath` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
         /// </summary>
         [Input("folderPath")]
         public Input<string>? FolderPath { get; set; }

@@ -432,6 +432,53 @@ class FileSystem(pulumi.CustomResource):
         """
         Manages an Azure Native Qumulo Scalable File System.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-vnet",
+            address_spaces=["10.0.0.0/16"],
+            location=example.location,
+            resource_group_name=example.name)
+        example_subnet = azure.network.Subnet("example",
+            name="example-subnet",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.1.0/24"],
+            delegations=[{
+                "name": "delegation",
+                "service_delegation": {
+                    "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
+                    "name": "Qumulo.Storage/fileSystems",
+                },
+            }])
+        example_file_system = azure.qumulo.FileSystem("example",
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
+            admin_password=")^X#ZX#JRyIY}t9",
+            availability_zone="1",
+            delegated_subnet_id=example_subnet.id,
+            storage_sku="Standard",
+            email="test@test.com",
+            tags={
+                "environment": "test",
+            })
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Qumulo.Storage` - 2024-06-19
+
         ## Import
 
         An existing File System can be imported into Pulumi using the `resource id`, e.g.
@@ -463,6 +510,53 @@ class FileSystem(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Native Qumulo Scalable File System.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-vnet",
+            address_spaces=["10.0.0.0/16"],
+            location=example.location,
+            resource_group_name=example.name)
+        example_subnet = azure.network.Subnet("example",
+            name="example-subnet",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.1.0/24"],
+            delegations=[{
+                "name": "delegation",
+                "service_delegation": {
+                    "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
+                    "name": "Qumulo.Storage/fileSystems",
+                },
+            }])
+        example_file_system = azure.qumulo.FileSystem("example",
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
+            admin_password=")^X#ZX#JRyIY}t9",
+            availability_zone="1",
+            delegated_subnet_id=example_subnet.id,
+            storage_sku="Standard",
+            email="test@test.com",
+            tags={
+                "environment": "test",
+            })
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Qumulo.Storage` - 2024-06-19
 
         ## Import
 

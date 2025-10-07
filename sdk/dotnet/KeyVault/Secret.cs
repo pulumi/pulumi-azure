@@ -137,9 +137,9 @@ namespace Pulumi.Azure.KeyVault
         public Output<string?> Value { get; private set; } = null!;
 
         /// <summary>
-        /// An integer value used to trigger an update for `value_wo`. This property should be incremented when updating `value_wo`.
+        /// An integer value used to trigger an update for `ValueWo`. This property should be incremented when updating `ValueWo`.
         /// 
-        /// &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("my_secret_file"), "/\n/", "\n")` or `base64encode(file("my_secret_file"))`, respectively.
+        /// &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("MySecretFile"), "/\n/", "\n")` or `base64encode(file("MySecretFile"))`, respectively.
         /// </summary>
         [Output("valueWoVersion")]
         public Output<int?> ValueWoVersion { get; private set; } = null!;
@@ -265,9 +265,9 @@ namespace Pulumi.Azure.KeyVault
         }
 
         /// <summary>
-        /// An integer value used to trigger an update for `value_wo`. This property should be incremented when updating `value_wo`.
+        /// An integer value used to trigger an update for `ValueWo`. This property should be incremented when updating `ValueWo`.
         /// 
-        /// &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("my_secret_file"), "/\n/", "\n")` or `base64encode(file("my_secret_file"))`, respectively.
+        /// &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("MySecretFile"), "/\n/", "\n")` or `base64encode(file("MySecretFile"))`, respectively.
         /// </summary>
         [Input("valueWoVersion")]
         public Input<int>? ValueWoVersion { get; set; }
@@ -351,9 +351,9 @@ namespace Pulumi.Azure.KeyVault
         }
 
         /// <summary>
-        /// An integer value used to trigger an update for `value_wo`. This property should be incremented when updating `value_wo`.
+        /// An integer value used to trigger an update for `ValueWo`. This property should be incremented when updating `ValueWo`.
         /// 
-        /// &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("my_secret_file"), "/\n/", "\n")` or `base64encode(file("my_secret_file"))`, respectively.
+        /// &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("MySecretFile"), "/\n/", "\n")` or `base64encode(file("MySecretFile"))`, respectively.
         /// </summary>
         [Input("valueWoVersion")]
         public Input<int>? ValueWoVersion { get; set; }

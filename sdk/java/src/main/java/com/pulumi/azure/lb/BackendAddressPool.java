@@ -187,32 +187,32 @@ public class BackendAddressPool extends com.pulumi.resources.CustomResource {
         return this.outboundRules;
     }
     /**
-     * The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtual_network_id`. Changing this forces a new resource to be created.
+     * The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtualNetworkId`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** The `synchronous_mode` can set only for Load Balancer with `Standard` SKU.
+     * &gt; **Note:** The `synchronousMode` can set only for Load Balancer with `Standard` SKU.
      * 
      */
     @Export(name="synchronousMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> synchronousMode;
 
     /**
-     * @return The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtual_network_id`. Changing this forces a new resource to be created.
+     * @return The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtualNetworkId`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** The `synchronous_mode` can set only for Load Balancer with `Standard` SKU.
+     * &gt; **Note:** The `synchronousMode` can set only for Load Balancer with `Standard` SKU.
      * 
      */
     public Output<Optional<String>> synchronousMode() {
         return Codegen.optional(this.synchronousMode);
     }
     /**
-     * One or more `tunnel_interface` blocks as defined below.
+     * One or more `tunnelInterface` blocks as defined below.
      * 
      */
     @Export(name="tunnelInterfaces", refs={List.class,BackendAddressPoolTunnelInterface.class}, tree="[0,1]")
     private Output</* @Nullable */ List<BackendAddressPoolTunnelInterface>> tunnelInterfaces;
 
     /**
-     * @return One or more `tunnel_interface` blocks as defined below.
+     * @return One or more `tunnelInterface` blocks as defined below.
      * 
      */
     public Output<Optional<List<BackendAddressPoolTunnelInterface>>> tunnelInterfaces() {

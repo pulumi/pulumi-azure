@@ -48,22 +48,22 @@ public final class VaultEncryptionArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Indicate that system assigned identity should be used or not. Defaults to `true`. Must be set to `false` when `user_assigned_identity_id` is set.
+     * Indicate that system assigned identity should be used or not. Defaults to `true`. Must be set to `false` when `userAssignedIdentityId` is set.
      * 
-     * !&gt; **Note:** `use_system_assigned_identity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
+     * !&gt; **Note:** `useSystemAssignedIdentity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
      * 
-     * !&gt; **Note:** Once `infrastructure_encryption_enabled` has been set it&#39;s not possible to change it.
+     * !&gt; **Note:** Once `infrastructureEncryptionEnabled` has been set it&#39;s not possible to change it.
      * 
      */
     @Import(name="useSystemAssignedIdentity")
     private @Nullable Output<Boolean> useSystemAssignedIdentity;
 
     /**
-     * @return Indicate that system assigned identity should be used or not. Defaults to `true`. Must be set to `false` when `user_assigned_identity_id` is set.
+     * @return Indicate that system assigned identity should be used or not. Defaults to `true`. Must be set to `false` when `userAssignedIdentityId` is set.
      * 
-     * !&gt; **Note:** `use_system_assigned_identity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
+     * !&gt; **Note:** `useSystemAssignedIdentity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
      * 
-     * !&gt; **Note:** Once `infrastructure_encryption_enabled` has been set it&#39;s not possible to change it.
+     * !&gt; **Note:** Once `infrastructureEncryptionEnabled` has been set it&#39;s not possible to change it.
      * 
      */
     public Optional<Output<Boolean>> useSystemAssignedIdentity() {
@@ -155,11 +155,11 @@ public final class VaultEncryptionArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param useSystemAssignedIdentity Indicate that system assigned identity should be used or not. Defaults to `true`. Must be set to `false` when `user_assigned_identity_id` is set.
+         * @param useSystemAssignedIdentity Indicate that system assigned identity should be used or not. Defaults to `true`. Must be set to `false` when `userAssignedIdentityId` is set.
          * 
-         * !&gt; **Note:** `use_system_assigned_identity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
+         * !&gt; **Note:** `useSystemAssignedIdentity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
          * 
-         * !&gt; **Note:** Once `infrastructure_encryption_enabled` has been set it&#39;s not possible to change it.
+         * !&gt; **Note:** Once `infrastructureEncryptionEnabled` has been set it&#39;s not possible to change it.
          * 
          * @return builder
          * 
@@ -170,11 +170,11 @@ public final class VaultEncryptionArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param useSystemAssignedIdentity Indicate that system assigned identity should be used or not. Defaults to `true`. Must be set to `false` when `user_assigned_identity_id` is set.
+         * @param useSystemAssignedIdentity Indicate that system assigned identity should be used or not. Defaults to `true`. Must be set to `false` when `userAssignedIdentityId` is set.
          * 
-         * !&gt; **Note:** `use_system_assigned_identity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
+         * !&gt; **Note:** `useSystemAssignedIdentity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
          * 
-         * !&gt; **Note:** Once `infrastructure_encryption_enabled` has been set it&#39;s not possible to change it.
+         * !&gt; **Note:** Once `infrastructureEncryptionEnabled` has been set it&#39;s not possible to change it.
          * 
          * @return builder
          * 

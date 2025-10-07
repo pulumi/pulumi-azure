@@ -17,7 +17,7 @@ public final class GetAlertRuleAnomalyMultiSelectObservation {
      */
     private String description;
     /**
-     * @return The guid of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
+     * @return The guid of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
      * 
      */
     private String name;
@@ -41,7 +41,7 @@ public final class GetAlertRuleAnomalyMultiSelectObservation {
         return this.description;
     }
     /**
-     * @return The guid of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
+     * @return The guid of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
      * 
      */
     public String name() {

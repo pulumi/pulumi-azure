@@ -79,7 +79,7 @@ namespace Pulumi.Azure.Network
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `rule` block as defined below.
+        /// A `Rule` block as defined below.
         /// </summary>
         [Output("rule")]
         public Output<Outputs.RouteFilterRule> Rule { get; private set; } = null!;
@@ -155,7 +155,7 @@ namespace Pulumi.Azure.Network
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `rule` block as defined below.
+        /// A `Rule` block as defined below.
         /// </summary>
         [Input("rule")]
         public Input<Inputs.RouteFilterRuleArgs>? Rule { get; set; }
@@ -199,7 +199,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// A `rule` block as defined below.
+        /// A `Rule` block as defined below.
         /// </summary>
         [Input("rule")]
         public Input<Inputs.RouteFilterRuleGetArgs>? Rule { get; set; }

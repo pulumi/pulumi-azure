@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetWindowsWebAppSiteConfigAutoHealSettingActionCustomAction {
     /**
-     * @return The command run when this `auto_heal` action is triggered.
+     * @return The command run when this `autoHeal` action is triggered.
      * 
      */
     private String executable;
@@ -23,7 +23,7 @@ public final class GetWindowsWebAppSiteConfigAutoHealSettingActionCustomAction {
 
     private GetWindowsWebAppSiteConfigAutoHealSettingActionCustomAction() {}
     /**
-     * @return The command run when this `auto_heal` action is triggered.
+     * @return The command run when this `autoHeal` action is triggered.
      * 
      */
     public String executable() {

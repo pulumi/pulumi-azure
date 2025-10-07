@@ -24,7 +24,7 @@ public final class GetKubernetesClusterOmsAgent {
      */
     private Boolean msiAuthForMonitoringEnabled;
     /**
-     * @return An `oms_agent_identity` block as defined below.
+     * @return An `omsAgentIdentity` block as defined below.
      * 
      */
     private List<GetKubernetesClusterOmsAgentOmsAgentIdentity> omsAgentIdentities;
@@ -45,7 +45,7 @@ public final class GetKubernetesClusterOmsAgent {
         return this.msiAuthForMonitoringEnabled;
     }
     /**
-     * @return An `oms_agent_identity` block as defined below.
+     * @return An `omsAgentIdentity` block as defined below.
      * 
      */
     public List<GetKubernetesClusterOmsAgentOmsAgentIdentity> omsAgentIdentities() {

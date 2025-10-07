@@ -410,6 +410,47 @@ class OutputServiceBusQueue(pulumi.CustomResource):
         """
         Manages a Stream Analytics Output to a ServiceBus Queue.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="rg-example",
+            location="West Europe")
+        example = azure.streamanalytics.get_job_output(name="example-job",
+            resource_group_name=example_resource_group.name)
+        example_namespace = azure.servicebus.Namespace("example",
+            name="example-namespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard")
+        example_queue = azure.servicebus.Queue("example",
+            name="example-queue",
+            namespace_id=example_namespace.id,
+            enable_partitioning=True)
+        example_output_service_bus_queue = azure.streamanalytics.OutputServiceBusQueue("example",
+            name="blob-storage-output",
+            stream_analytics_job_name=example.name,
+            resource_group_name=example.resource_group_name,
+            queue_name=example_queue.name,
+            servicebus_namespace=example_namespace.name,
+            shared_access_policy_key=example_namespace.default_primary_key,
+            shared_access_policy_name="RootManageSharedAccessKey",
+            serialization={
+                "type": "Csv",
+                "format": "Array",
+            })
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.StreamAnalytics` - 2021-10-01-preview
+
         ## Import
 
         Stream Analytics Output ServiceBus Queue's can be imported using the `resource id`, e.g.
@@ -442,6 +483,47 @@ class OutputServiceBusQueue(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Stream Analytics Output to a ServiceBus Queue.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="rg-example",
+            location="West Europe")
+        example = azure.streamanalytics.get_job_output(name="example-job",
+            resource_group_name=example_resource_group.name)
+        example_namespace = azure.servicebus.Namespace("example",
+            name="example-namespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard")
+        example_queue = azure.servicebus.Queue("example",
+            name="example-queue",
+            namespace_id=example_namespace.id,
+            enable_partitioning=True)
+        example_output_service_bus_queue = azure.streamanalytics.OutputServiceBusQueue("example",
+            name="blob-storage-output",
+            stream_analytics_job_name=example.name,
+            resource_group_name=example.resource_group_name,
+            queue_name=example_queue.name,
+            servicebus_namespace=example_namespace.name,
+            shared_access_policy_key=example_namespace.default_primary_key,
+            shared_access_policy_name="RootManageSharedAccessKey",
+            serialization={
+                "type": "Csv",
+                "format": "Array",
+            })
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.StreamAnalytics` - 2021-10-01-preview
 
         ## Import
 

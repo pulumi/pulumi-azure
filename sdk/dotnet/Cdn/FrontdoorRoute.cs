@@ -204,9 +204,9 @@ namespace Pulumi.Azure.Cdn
     public partial class FrontdoorRoute : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A `cache` block as defined below.
+        /// A `Cache` block as defined below.
         /// 
-        /// &gt; **Note:** To disable caching, do not provide the `cache` block in the configuration file.
+        /// &gt; **Note:** To disable caching, do not provide the `Cache` block in the configuration file.
         /// </summary>
         [Output("cache")]
         public Output<Outputs.FrontdoorRouteCache?> Cache { get; private set; } = null!;
@@ -248,7 +248,7 @@ namespace Pulumi.Azure.Cdn
         public Output<ImmutableArray<string>> CdnFrontdoorRuleSetIds { get; private set; } = null!;
 
         /// <summary>
-        /// Is this Front Door Route enabled? Possible values are `true` or `false`. Defaults to `true`.
+        /// Is this Front Door Route enabled? Possible values are `True` or `False`. Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -260,15 +260,15 @@ namespace Pulumi.Azure.Cdn
         public Output<string?> ForwardingProtocol { get; private set; } = null!;
 
         /// <summary>
-        /// Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
+        /// Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `True` or `False`. Defaults to `True`.
         /// 
-        /// &gt; **Note:** The `https_redirect_enabled` rule is the first rule that will be executed.
+        /// &gt; **Note:** The `HttpsRedirectEnabled` rule is the first rule that will be executed.
         /// </summary>
         [Output("httpsRedirectEnabled")]
         public Output<bool?> HttpsRedirectEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Should this Front Door Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
+        /// Should this Front Door Route be linked to the default endpoint? Possible values include `True` or `False`. Defaults to `True`.
         /// </summary>
         [Output("linkToDefaultDomain")]
         public Output<bool?> LinkToDefaultDomain { get; private set; } = null!;
@@ -288,7 +288,7 @@ namespace Pulumi.Azure.Cdn
         /// <summary>
         /// One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
         /// 
-        /// &gt; **Note:** If `https_redirect_enabled` is set to `true` the `supported_protocols` field must contain both `Http` and `Https` values.
+        /// &gt; **Note:** If `HttpsRedirectEnabled` is set to `True` the `SupportedProtocols` field must contain both `Http` and `Https` values.
         /// </summary>
         [Output("supportedProtocols")]
         public Output<ImmutableArray<string>> SupportedProtocols { get; private set; } = null!;
@@ -340,9 +340,9 @@ namespace Pulumi.Azure.Cdn
     public sealed class FrontdoorRouteArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `cache` block as defined below.
+        /// A `Cache` block as defined below.
         /// 
-        /// &gt; **Note:** To disable caching, do not provide the `cache` block in the configuration file.
+        /// &gt; **Note:** To disable caching, do not provide the `Cache` block in the configuration file.
         /// </summary>
         [Input("cache")]
         public Input<Inputs.FrontdoorRouteCacheArgs>? Cache { get; set; }
@@ -402,7 +402,7 @@ namespace Pulumi.Azure.Cdn
         }
 
         /// <summary>
-        /// Is this Front Door Route enabled? Possible values are `true` or `false`. Defaults to `true`.
+        /// Is this Front Door Route enabled? Possible values are `True` or `False`. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -414,15 +414,15 @@ namespace Pulumi.Azure.Cdn
         public Input<string>? ForwardingProtocol { get; set; }
 
         /// <summary>
-        /// Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
+        /// Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `True` or `False`. Defaults to `True`.
         /// 
-        /// &gt; **Note:** The `https_redirect_enabled` rule is the first rule that will be executed.
+        /// &gt; **Note:** The `HttpsRedirectEnabled` rule is the first rule that will be executed.
         /// </summary>
         [Input("httpsRedirectEnabled")]
         public Input<bool>? HttpsRedirectEnabled { get; set; }
 
         /// <summary>
-        /// Should this Front Door Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
+        /// Should this Front Door Route be linked to the default endpoint? Possible values include `True` or `False`. Defaults to `True`.
         /// </summary>
         [Input("linkToDefaultDomain")]
         public Input<bool>? LinkToDefaultDomain { get; set; }
@@ -451,7 +451,7 @@ namespace Pulumi.Azure.Cdn
         /// <summary>
         /// One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
         /// 
-        /// &gt; **Note:** If `https_redirect_enabled` is set to `true` the `supported_protocols` field must contain both `Http` and `Https` values.
+        /// &gt; **Note:** If `HttpsRedirectEnabled` is set to `True` the `SupportedProtocols` field must contain both `Http` and `Https` values.
         /// </summary>
         public InputList<string> SupportedProtocols
         {
@@ -468,9 +468,9 @@ namespace Pulumi.Azure.Cdn
     public sealed class FrontdoorRouteState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `cache` block as defined below.
+        /// A `Cache` block as defined below.
         /// 
-        /// &gt; **Note:** To disable caching, do not provide the `cache` block in the configuration file.
+        /// &gt; **Note:** To disable caching, do not provide the `Cache` block in the configuration file.
         /// </summary>
         [Input("cache")]
         public Input<Inputs.FrontdoorRouteCacheGetArgs>? Cache { get; set; }
@@ -530,7 +530,7 @@ namespace Pulumi.Azure.Cdn
         }
 
         /// <summary>
-        /// Is this Front Door Route enabled? Possible values are `true` or `false`. Defaults to `true`.
+        /// Is this Front Door Route enabled? Possible values are `True` or `False`. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -542,15 +542,15 @@ namespace Pulumi.Azure.Cdn
         public Input<string>? ForwardingProtocol { get; set; }
 
         /// <summary>
-        /// Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
+        /// Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `True` or `False`. Defaults to `True`.
         /// 
-        /// &gt; **Note:** The `https_redirect_enabled` rule is the first rule that will be executed.
+        /// &gt; **Note:** The `HttpsRedirectEnabled` rule is the first rule that will be executed.
         /// </summary>
         [Input("httpsRedirectEnabled")]
         public Input<bool>? HttpsRedirectEnabled { get; set; }
 
         /// <summary>
-        /// Should this Front Door Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
+        /// Should this Front Door Route be linked to the default endpoint? Possible values include `True` or `False`. Defaults to `True`.
         /// </summary>
         [Input("linkToDefaultDomain")]
         public Input<bool>? LinkToDefaultDomain { get; set; }
@@ -579,7 +579,7 @@ namespace Pulumi.Azure.Cdn
         /// <summary>
         /// One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
         /// 
-        /// &gt; **Note:** If `https_redirect_enabled` is set to `true` the `supported_protocols` field must contain both `Http` and `Https` values.
+        /// &gt; **Note:** If `HttpsRedirectEnabled` is set to `True` the `SupportedProtocols` field must contain both `Http` and `Https` values.
         /// </summary>
         public InputList<string> SupportedProtocols
         {

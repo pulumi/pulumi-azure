@@ -89,7 +89,7 @@ namespace Pulumi.Azure.Cognitive
         public Output<string> CognitiveAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// A `content_filter` block as defined below.
+        /// A `ContentFilter` block as defined below.
         /// </summary>
         [Output("contentFilters")]
         public Output<ImmutableArray<Outputs.AccountRaiPolicyContentFilter>> ContentFilters { get; private set; } = null!;
@@ -174,7 +174,7 @@ namespace Pulumi.Azure.Cognitive
         private InputList<Inputs.AccountRaiPolicyContentFilterArgs>? _contentFilters;
 
         /// <summary>
-        /// A `content_filter` block as defined below.
+        /// A `ContentFilter` block as defined below.
         /// </summary>
         public InputList<Inputs.AccountRaiPolicyContentFilterArgs> ContentFilters
         {
@@ -230,7 +230,7 @@ namespace Pulumi.Azure.Cognitive
         private InputList<Inputs.AccountRaiPolicyContentFilterGetArgs>? _contentFilters;
 
         /// <summary>
-        /// A `content_filter` block as defined below.
+        /// A `ContentFilter` block as defined below.
         /// </summary>
         public InputList<Inputs.AccountRaiPolicyContentFilterGetArgs> ContentFilters
         {

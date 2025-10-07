@@ -120,7 +120,7 @@ namespace Pulumi.Azure.AppPlatform
     public partial class SpringCloudGateway : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A `api_metadata` block as defined below.
+        /// A `ApiMetadata` block as defined below.
         /// </summary>
         [Output("apiMetadata")]
         public Output<Outputs.SpringCloudGatewayApiMetadata?> ApiMetadata { get; private set; } = null!;
@@ -138,13 +138,13 @@ namespace Pulumi.Azure.AppPlatform
         public Output<ImmutableArray<string>> ApplicationPerformanceMonitoringTypes { get; private set; } = null!;
 
         /// <summary>
-        /// A `client_authorization` block as defined below.
+        /// A `ClientAuthorization` block as defined below.
         /// </summary>
         [Output("clientAuthorization")]
         public Output<Outputs.SpringCloudGatewayClientAuthorization?> ClientAuthorization { get; private set; } = null!;
 
         /// <summary>
-        /// A `cors` block as defined below.
+        /// A `Cors` block as defined below.
         /// </summary>
         [Output("cors")]
         public Output<Outputs.SpringCloudGatewayCors?> Cors { get; private set; } = null!;
@@ -168,19 +168,19 @@ namespace Pulumi.Azure.AppPlatform
         public Output<int?> InstanceCount { get; private set; } = null!;
 
         /// <summary>
-        /// A `local_response_cache_per_instance` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
+        /// A `LocalResponseCachePerInstance` block as defined below. Only one of `LocalResponseCachePerInstance` or `LocalResponseCachePerRoute` can be specified.
         /// </summary>
         [Output("localResponseCachePerInstance")]
         public Output<Outputs.SpringCloudGatewayLocalResponseCachePerInstance?> LocalResponseCachePerInstance { get; private set; } = null!;
 
         /// <summary>
-        /// A `local_response_cache_per_route` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
+        /// A `LocalResponseCachePerRoute` block as defined below. Only one of `LocalResponseCachePerInstance` or `LocalResponseCachePerRoute` can be specified.
         /// </summary>
         [Output("localResponseCachePerRoute")]
         public Output<Outputs.SpringCloudGatewayLocalResponseCachePerRoute?> LocalResponseCachePerRoute { get; private set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
+        /// The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `Default`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -192,7 +192,7 @@ namespace Pulumi.Azure.AppPlatform
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A `quota` block as defined below.
+        /// A `Quota` block as defined below.
         /// </summary>
         [Output("quota")]
         public Output<Outputs.SpringCloudGatewayQuota> Quota { get; private set; } = null!;
@@ -210,7 +210,7 @@ namespace Pulumi.Azure.AppPlatform
         public Output<string> SpringCloudServiceId { get; private set; } = null!;
 
         /// <summary>
-        /// A `sso` block as defined below.
+        /// A `Sso` block as defined below.
         /// </summary>
         [Output("sso")]
         public Output<Outputs.SpringCloudGatewaySso?> Sso { get; private set; } = null!;
@@ -272,7 +272,7 @@ namespace Pulumi.Azure.AppPlatform
     public sealed class SpringCloudGatewayArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `api_metadata` block as defined below.
+        /// A `ApiMetadata` block as defined below.
         /// </summary>
         [Input("apiMetadata")]
         public Input<Inputs.SpringCloudGatewayApiMetadataArgs>? ApiMetadata { get; set; }
@@ -302,13 +302,13 @@ namespace Pulumi.Azure.AppPlatform
         }
 
         /// <summary>
-        /// A `client_authorization` block as defined below.
+        /// A `ClientAuthorization` block as defined below.
         /// </summary>
         [Input("clientAuthorization")]
         public Input<Inputs.SpringCloudGatewayClientAuthorizationArgs>? ClientAuthorization { get; set; }
 
         /// <summary>
-        /// A `cors` block as defined below.
+        /// A `Cors` block as defined below.
         /// </summary>
         [Input("cors")]
         public Input<Inputs.SpringCloudGatewayCorsArgs>? Cors { get; set; }
@@ -338,19 +338,19 @@ namespace Pulumi.Azure.AppPlatform
         public Input<int>? InstanceCount { get; set; }
 
         /// <summary>
-        /// A `local_response_cache_per_instance` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
+        /// A `LocalResponseCachePerInstance` block as defined below. Only one of `LocalResponseCachePerInstance` or `LocalResponseCachePerRoute` can be specified.
         /// </summary>
         [Input("localResponseCachePerInstance")]
         public Input<Inputs.SpringCloudGatewayLocalResponseCachePerInstanceArgs>? LocalResponseCachePerInstance { get; set; }
 
         /// <summary>
-        /// A `local_response_cache_per_route` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
+        /// A `LocalResponseCachePerRoute` block as defined below. Only one of `LocalResponseCachePerInstance` or `LocalResponseCachePerRoute` can be specified.
         /// </summary>
         [Input("localResponseCachePerRoute")]
         public Input<Inputs.SpringCloudGatewayLocalResponseCachePerRouteArgs>? LocalResponseCachePerRoute { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
+        /// The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `Default`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -362,7 +362,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
-        /// A `quota` block as defined below.
+        /// A `Quota` block as defined below.
         /// </summary>
         [Input("quota")]
         public Input<Inputs.SpringCloudGatewayQuotaArgs>? Quota { get; set; }
@@ -390,7 +390,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string> SpringCloudServiceId { get; set; } = null!;
 
         /// <summary>
-        /// A `sso` block as defined below.
+        /// A `Sso` block as defined below.
         /// </summary>
         [Input("sso")]
         public Input<Inputs.SpringCloudGatewaySsoArgs>? Sso { get; set; }
@@ -404,7 +404,7 @@ namespace Pulumi.Azure.AppPlatform
     public sealed class SpringCloudGatewayState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `api_metadata` block as defined below.
+        /// A `ApiMetadata` block as defined below.
         /// </summary>
         [Input("apiMetadata")]
         public Input<Inputs.SpringCloudGatewayApiMetadataGetArgs>? ApiMetadata { get; set; }
@@ -434,13 +434,13 @@ namespace Pulumi.Azure.AppPlatform
         }
 
         /// <summary>
-        /// A `client_authorization` block as defined below.
+        /// A `ClientAuthorization` block as defined below.
         /// </summary>
         [Input("clientAuthorization")]
         public Input<Inputs.SpringCloudGatewayClientAuthorizationGetArgs>? ClientAuthorization { get; set; }
 
         /// <summary>
-        /// A `cors` block as defined below.
+        /// A `Cors` block as defined below.
         /// </summary>
         [Input("cors")]
         public Input<Inputs.SpringCloudGatewayCorsGetArgs>? Cors { get; set; }
@@ -470,19 +470,19 @@ namespace Pulumi.Azure.AppPlatform
         public Input<int>? InstanceCount { get; set; }
 
         /// <summary>
-        /// A `local_response_cache_per_instance` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
+        /// A `LocalResponseCachePerInstance` block as defined below. Only one of `LocalResponseCachePerInstance` or `LocalResponseCachePerRoute` can be specified.
         /// </summary>
         [Input("localResponseCachePerInstance")]
         public Input<Inputs.SpringCloudGatewayLocalResponseCachePerInstanceGetArgs>? LocalResponseCachePerInstance { get; set; }
 
         /// <summary>
-        /// A `local_response_cache_per_route` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
+        /// A `LocalResponseCachePerRoute` block as defined below. Only one of `LocalResponseCachePerInstance` or `LocalResponseCachePerRoute` can be specified.
         /// </summary>
         [Input("localResponseCachePerRoute")]
         public Input<Inputs.SpringCloudGatewayLocalResponseCachePerRouteGetArgs>? LocalResponseCachePerRoute { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
+        /// The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `Default`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -494,7 +494,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
-        /// A `quota` block as defined below.
+        /// A `Quota` block as defined below.
         /// </summary>
         [Input("quota")]
         public Input<Inputs.SpringCloudGatewayQuotaGetArgs>? Quota { get; set; }
@@ -522,7 +522,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string>? SpringCloudServiceId { get; set; }
 
         /// <summary>
-        /// A `sso` block as defined below.
+        /// A `Sso` block as defined below.
         /// </summary>
         [Input("sso")]
         public Input<Inputs.SpringCloudGatewaySsoGetArgs>? Sso { get; set; }

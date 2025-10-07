@@ -19,14 +19,14 @@ public final class NetworkManagerDeploymentArgs extends com.pulumi.resources.Res
     public static final NetworkManagerDeploymentArgs Empty = new NetworkManagerDeploymentArgs();
 
     /**
-     * A list of Network Manager Configuration IDs which should be aligned with `scope_access`.
+     * A list of Network Manager Configuration IDs which should be aligned with `scopeAccess`.
      * 
      */
     @Import(name="configurationIds", required=true)
     private Output<List<String>> configurationIds;
 
     /**
-     * @return A list of Network Manager Configuration IDs which should be aligned with `scope_access`.
+     * @return A list of Network Manager Configuration IDs which should be aligned with `scopeAccess`.
      * 
      */
     public Output<List<String>> configurationIds() {
@@ -122,7 +122,7 @@ public final class NetworkManagerDeploymentArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param configurationIds A list of Network Manager Configuration IDs which should be aligned with `scope_access`.
+         * @param configurationIds A list of Network Manager Configuration IDs which should be aligned with `scopeAccess`.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class NetworkManagerDeploymentArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param configurationIds A list of Network Manager Configuration IDs which should be aligned with `scope_access`.
+         * @param configurationIds A list of Network Manager Configuration IDs which should be aligned with `scopeAccess`.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class NetworkManagerDeploymentArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param configurationIds A list of Network Manager Configuration IDs which should be aligned with `scope_access`.
+         * @param configurationIds A list of Network Manager Configuration IDs which should be aligned with `scopeAccess`.
          * 
          * @return builder
          * 

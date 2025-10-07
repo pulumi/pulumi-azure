@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class NetworkConnectionMonitorTestConfigurationIcmpConfiguration
     {
         /// <summary>
-        /// Should path evaluation with trace route be enabled? Defaults to `true`.
+        /// Should path evaluation with trace route be enabled? Defaults to `True`.
         /// </summary>
         public readonly bool? TraceRouteEnabled;
 

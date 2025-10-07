@@ -13,7 +13,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
     public sealed class RegistryTaskSourceTriggerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `authentication` block as defined above.
+        /// A `Authentication` block as defined above.
         /// </summary>
         [Input("authentication")]
         public Input<Inputs.RegistryTaskSourceTriggerAuthenticationArgs>? Authentication { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string>? Branch { get; set; }
 
         /// <summary>
-        /// Should the trigger be enabled? Defaults to `true`.
+        /// Should the trigger be enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         private InputList<string>? _events;
 
         /// <summary>
-        /// Specifies a list of source events corresponding to the trigger. Possible values are `commit` and `pullrequest`.
+        /// Specifies a list of source events corresponding to the trigger. Possible values are `Commit` and `Pullrequest`.
         /// </summary>
         public InputList<string> Events
         {

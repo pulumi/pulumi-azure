@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Batch.Outputs
         /// </summary>
         public readonly string ImageName;
         /// <summary>
-        /// The `container_registries` block defined as below.
+        /// The `ContainerRegistries` block defined as below.
         /// </summary>
         public readonly ImmutableArray<Outputs.PoolStartTaskContainerRegistry> Registries;
         /// <summary>

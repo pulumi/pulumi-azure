@@ -30,7 +30,7 @@ public final class GetAccountResult {
      */
     private String id;
     /**
-     * @return The `key_vault_reference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
+     * @return The `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
      * 
      */
     private List<GetAccountKeyVaultReference> keyVaultReferences;
@@ -94,7 +94,7 @@ public final class GetAccountResult {
         return this.id;
     }
     /**
-     * @return The `key_vault_reference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
+     * @return The `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
      * 
      */
     public List<GetAccountKeyVaultReference> keyVaultReferences() {

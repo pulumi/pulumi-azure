@@ -311,28 +311,28 @@ public class GroupTemplateDeployment extends com.pulumi.resources.CustomResource
         return Codegen.optional(this.tags);
     }
     /**
-     * The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `template_spec_version_id`.
+     * The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `templateSpecVersionId`.
      * 
      */
     @Export(name="templateContent", refs={String.class}, tree="[0]")
     private Output<String> templateContent;
 
     /**
-     * @return The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `template_spec_version_id`.
+     * @return The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `templateSpecVersionId`.
      * 
      */
     public Output<String> templateContent() {
         return this.templateContent;
     }
     /**
-     * The ID of the Template Spec Version to deploy. Cannot be specified with `template_content`.
+     * The ID of the Template Spec Version to deploy. Cannot be specified with `templateContent`.
      * 
      */
     @Export(name="templateSpecVersionId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> templateSpecVersionId;
 
     /**
-     * @return The ID of the Template Spec Version to deploy. Cannot be specified with `template_content`.
+     * @return The ID of the Template Spec Version to deploy. Cannot be specified with `templateContent`.
      * 
      */
     public Output<Optional<String>> templateSpecVersionId() {

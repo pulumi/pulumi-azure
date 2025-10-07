@@ -222,7 +222,7 @@ public class Hub extends com.pulumi.resources.CustomResource {
     /**
      * Whether High Business Impact (HBI) should be enabled or not. Enabling this setting will reduce diagnostic data collected by the service. Changing this forces a new AI Foundry Hub to be created. Defaults to `false`.
      * 
-     * &gt; **Note:** `high_business_impact_enabled` will be enabled by default when creating an AI Foundry Hub with `encryption` enabled.
+     * &gt; **Note:** `highBusinessImpactEnabled` will be enabled by default when creating an AI Foundry Hub with `encryption` enabled.
      * 
      */
     @Export(name="highBusinessImpactEnabled", refs={Boolean.class}, tree="[0]")
@@ -231,7 +231,7 @@ public class Hub extends com.pulumi.resources.CustomResource {
     /**
      * @return Whether High Business Impact (HBI) should be enabled or not. Enabling this setting will reduce diagnostic data collected by the service. Changing this forces a new AI Foundry Hub to be created. Defaults to `false`.
      * 
-     * &gt; **Note:** `high_business_impact_enabled` will be enabled by default when creating an AI Foundry Hub with `encryption` enabled.
+     * &gt; **Note:** `highBusinessImpactEnabled` will be enabled by default when creating an AI Foundry Hub with `encryption` enabled.
      * 
      */
     public Output<Boolean> highBusinessImpactEnabled() {
@@ -280,14 +280,14 @@ public class Hub extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * A `managed_network` block as defined below.
+     * A `managedNetwork` block as defined below.
      * 
      */
     @Export(name="managedNetwork", refs={HubManagedNetwork.class}, tree="[0]")
     private Output<HubManagedNetwork> managedNetwork;
 
     /**
-     * @return A `managed_network` block as defined below.
+     * @return A `managedNetwork` block as defined below.
      * 
      */
     public Output<HubManagedNetwork> managedNetwork() {

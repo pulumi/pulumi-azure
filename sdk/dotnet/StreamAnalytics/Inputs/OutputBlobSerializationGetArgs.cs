@@ -15,7 +15,7 @@ namespace Pulumi.Azure.StreamAnalytics.Inputs
         /// <summary>
         /// The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
         /// 
-        /// &gt; **Note:** This is required when `type` is set to `Csv` or `Json`.
+        /// &gt; **Note:** This is required when `Type` is set to `Csv` or `Json`.
         /// </summary>
         [Input("encoding")]
         public Input<string>? Encoding { get; set; }
@@ -23,7 +23,7 @@ namespace Pulumi.Azure.StreamAnalytics.Inputs
         /// <summary>
         /// The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
         /// 
-        /// &gt; **Note:** This is required when `type` is set to `Csv`.
+        /// &gt; **Note:** This is required when `Type` is set to `Csv`.
         /// </summary>
         [Input("fieldDelimiter")]
         public Input<string>? FieldDelimiter { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Azure.StreamAnalytics.Inputs
         /// <summary>
         /// Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
         /// 
-        /// &gt; **Note:** This is Required and can only be specified when `type` is set to `Json`.
+        /// &gt; **Note:** This is Required and can only be specified when `Type` is set to `Json`.
         /// </summary>
         [Input("format")]
         public Input<string>? Format { get; set; }
@@ -39,7 +39,7 @@ namespace Pulumi.Azure.StreamAnalytics.Inputs
         /// <summary>
         /// The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv`, `Json` and `Parquet`.
         /// 
-        /// &gt; **Note:** `batch_max_wait_time` and `batch_min_rows` are required when `type` is set to `Parquet`
+        /// &gt; **Note:** `BatchMaxWaitTime` and `BatchMinRows` are required when `Type` is set to `Parquet`
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

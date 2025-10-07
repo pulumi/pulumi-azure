@@ -238,7 +238,7 @@ namespace Pulumi.Azure.Network
     public sealed class GetNetworkManagerResult
     {
         /// <summary>
-        /// One or more `cross_tenant_scopes` blocks as defined below.
+        /// One or more `CrossTenantScopes` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworkManagerCrossTenantScopeResult> CrossTenantScopes;
         /// <summary>
@@ -260,7 +260,7 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly ImmutableArray<string> ScopeAccesses;
         /// <summary>
-        /// A `scope` block as defined below.
+        /// A `Scope` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworkManagerScopeResult> Scopes;
         /// <summary>

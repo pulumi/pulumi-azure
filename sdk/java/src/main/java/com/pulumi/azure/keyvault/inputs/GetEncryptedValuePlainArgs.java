@@ -31,14 +31,14 @@ public final class GetEncryptedValuePlainArgs extends com.pulumi.resources.Invok
     }
 
     /**
-     * The Base64 URL Encoded Encrypted Data which should be decrypted into `plain_text_value`.
+     * The Base64 URL Encoded Encrypted Data which should be decrypted into `plainTextValue`.
      * 
      */
     @Import(name="encryptedData")
     private @Nullable String encryptedData;
 
     /**
-     * @return The Base64 URL Encoded Encrypted Data which should be decrypted into `plain_text_value`.
+     * @return The Base64 URL Encoded Encrypted Data which should be decrypted into `plainTextValue`.
      * 
      */
     public Optional<String> encryptedData() {
@@ -61,18 +61,18 @@ public final class GetEncryptedValuePlainArgs extends com.pulumi.resources.Invok
     }
 
     /**
-     * The plain-text value which should be Encrypted into `encrypted_data`.
+     * The plain-text value which should be Encrypted into `encryptedData`.
      * 
-     * &gt; **Note:** One of either `encrypted_data` or `plain_text_value` must be specified and is used to populate the encrypted/decrypted value for the other field.
+     * &gt; **Note:** One of either `encryptedData` or `plainTextValue` must be specified and is used to populate the encrypted/decrypted value for the other field.
      * 
      */
     @Import(name="plainTextValue")
     private @Nullable String plainTextValue;
 
     /**
-     * @return The plain-text value which should be Encrypted into `encrypted_data`.
+     * @return The plain-text value which should be Encrypted into `encryptedData`.
      * 
-     * &gt; **Note:** One of either `encrypted_data` or `plain_text_value` must be specified and is used to populate the encrypted/decrypted value for the other field.
+     * &gt; **Note:** One of either `encryptedData` or `plainTextValue` must be specified and is used to populate the encrypted/decrypted value for the other field.
      * 
      */
     public Optional<String> plainTextValue() {
@@ -118,7 +118,7 @@ public final class GetEncryptedValuePlainArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param encryptedData The Base64 URL Encoded Encrypted Data which should be decrypted into `plain_text_value`.
+         * @param encryptedData The Base64 URL Encoded Encrypted Data which should be decrypted into `plainTextValue`.
          * 
          * @return builder
          * 
@@ -140,9 +140,9 @@ public final class GetEncryptedValuePlainArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param plainTextValue The plain-text value which should be Encrypted into `encrypted_data`.
+         * @param plainTextValue The plain-text value which should be Encrypted into `encryptedData`.
          * 
-         * &gt; **Note:** One of either `encrypted_data` or `plain_text_value` must be specified and is used to populate the encrypted/decrypted value for the other field.
+         * &gt; **Note:** One of either `encryptedData` or `plainTextValue` must be specified and is used to populate the encrypted/decrypted value for the other field.
          * 
          * @return builder
          * 

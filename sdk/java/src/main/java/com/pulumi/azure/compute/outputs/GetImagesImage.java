@@ -16,7 +16,7 @@ import java.util.Objects;
 @CustomType
 public final class GetImagesImage {
     /**
-     * @return One or more `data_disk` blocks as defined below.
+     * @return One or more `dataDisk` blocks as defined below.
      * 
      */
     private List<GetImagesImageDataDisk> dataDisks;
@@ -31,7 +31,7 @@ public final class GetImagesImage {
      */
     private String name;
     /**
-     * @return An `os_disk` block as defined below.
+     * @return An `osDisk` block as defined below.
      * 
      */
     private List<GetImagesImageOsDisk> osDisks;
@@ -48,7 +48,7 @@ public final class GetImagesImage {
 
     private GetImagesImage() {}
     /**
-     * @return One or more `data_disk` blocks as defined below.
+     * @return One or more `dataDisk` blocks as defined below.
      * 
      */
     public List<GetImagesImageDataDisk> dataDisks() {
@@ -69,7 +69,7 @@ public final class GetImagesImage {
         return this.name;
     }
     /**
-     * @return An `os_disk` block as defined below.
+     * @return An `osDisk` block as defined below.
      * 
      */
     public List<GetImagesImageOsDisk> osDisks() {

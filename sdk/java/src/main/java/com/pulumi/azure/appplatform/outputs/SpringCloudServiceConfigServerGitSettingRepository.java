@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SpringCloudServiceConfigServerGitSettingRepository {
     /**
-     * @return A `http_basic_auth` block as defined below.
+     * @return A `httpBasicAuth` block as defined below.
      * 
      */
     private @Nullable SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth httpBasicAuth;
@@ -41,7 +41,7 @@ public final class SpringCloudServiceConfigServerGitSettingRepository {
      */
     private @Nullable List<String> searchPaths;
     /**
-     * @return A `ssh_auth` block as defined below.
+     * @return A `sshAuth` block as defined below.
      * 
      */
     private @Nullable SpringCloudServiceConfigServerGitSettingRepositorySshAuth sshAuth;
@@ -53,7 +53,7 @@ public final class SpringCloudServiceConfigServerGitSettingRepository {
 
     private SpringCloudServiceConfigServerGitSettingRepository() {}
     /**
-     * @return A `http_basic_auth` block as defined below.
+     * @return A `httpBasicAuth` block as defined below.
      * 
      */
     public Optional<SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth> httpBasicAuth() {
@@ -88,7 +88,7 @@ public final class SpringCloudServiceConfigServerGitSettingRepository {
         return this.searchPaths == null ? List.of() : this.searchPaths;
     }
     /**
-     * @return A `ssh_auth` block as defined below.
+     * @return A `sshAuth` block as defined below.
      * 
      */
     public Optional<SpringCloudServiceConfigServerGitSettingRepositorySshAuth> sshAuth() {

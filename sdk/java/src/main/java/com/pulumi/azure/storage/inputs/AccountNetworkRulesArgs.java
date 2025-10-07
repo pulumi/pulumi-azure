@@ -64,13 +64,13 @@ public final class AccountNetworkRulesArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * One or more `private_link_access` block as defined below.
+     * One or more `privateLinkAccess` block as defined below.
      * 
-     * &gt; **Note:** If specifying `network_rules`, one of either `ip_rules` or `virtual_network_subnet_ids` must be specified and `default_action` must be set to `Deny`.
+     * &gt; **Note:** If specifying `networkRules`, one of either `ipRules` or `virtualNetworkSubnetIds` must be specified and `defaultAction` must be set to `Deny`.
      * 
-     * &gt; **Note:** Network Rules can be defined either directly on the `azure.storage.Account` resource, or using the `azure.storage.AccountNetworkRules` resource - but the two cannot be used together. If both are used against the same Storage Account, spurious changes will occur. When managing Network Rules using this resource, to change from a `default_action` of `Deny` to `Allow` requires defining, rather than removing, the block.
+     * &gt; **Note:** Network Rules can be defined either directly on the `azure.storage.Account` resource, or using the `azure.storage.AccountNetworkRules` resource - but the two cannot be used together. If both are used against the same Storage Account, spurious changes will occur. When managing Network Rules using this resource, to change from a `defaultAction` of `Deny` to `Allow` requires defining, rather than removing, the block.
      * 
-     * &gt; **Note:** The prefix of `ip_rules` must be between 0 and 30 and only supports public IP addresses.
+     * &gt; **Note:** The prefix of `ipRules` must be between 0 and 30 and only supports public IP addresses.
      * 
      * &gt; **Note:** [More information on Validation is available here](https://docs.microsoft.com/en-gb/azure/storage/blobs/storage-custom-domain-name)
      * 
@@ -79,13 +79,13 @@ public final class AccountNetworkRulesArgs extends com.pulumi.resources.Resource
     private @Nullable Output<List<AccountNetworkRulesPrivateLinkAccessArgs>> privateLinkAccesses;
 
     /**
-     * @return One or more `private_link_access` block as defined below.
+     * @return One or more `privateLinkAccess` block as defined below.
      * 
-     * &gt; **Note:** If specifying `network_rules`, one of either `ip_rules` or `virtual_network_subnet_ids` must be specified and `default_action` must be set to `Deny`.
+     * &gt; **Note:** If specifying `networkRules`, one of either `ipRules` or `virtualNetworkSubnetIds` must be specified and `defaultAction` must be set to `Deny`.
      * 
-     * &gt; **Note:** Network Rules can be defined either directly on the `azure.storage.Account` resource, or using the `azure.storage.AccountNetworkRules` resource - but the two cannot be used together. If both are used against the same Storage Account, spurious changes will occur. When managing Network Rules using this resource, to change from a `default_action` of `Deny` to `Allow` requires defining, rather than removing, the block.
+     * &gt; **Note:** Network Rules can be defined either directly on the `azure.storage.Account` resource, or using the `azure.storage.AccountNetworkRules` resource - but the two cannot be used together. If both are used against the same Storage Account, spurious changes will occur. When managing Network Rules using this resource, to change from a `defaultAction` of `Deny` to `Allow` requires defining, rather than removing, the block.
      * 
-     * &gt; **Note:** The prefix of `ip_rules` must be between 0 and 30 and only supports public IP addresses.
+     * &gt; **Note:** The prefix of `ipRules` must be between 0 and 30 and only supports public IP addresses.
      * 
      * &gt; **Note:** [More information on Validation is available here](https://docs.microsoft.com/en-gb/azure/storage/blobs/storage-custom-domain-name)
      * 
@@ -221,13 +221,13 @@ public final class AccountNetworkRulesArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param privateLinkAccesses One or more `private_link_access` block as defined below.
+         * @param privateLinkAccesses One or more `privateLinkAccess` block as defined below.
          * 
-         * &gt; **Note:** If specifying `network_rules`, one of either `ip_rules` or `virtual_network_subnet_ids` must be specified and `default_action` must be set to `Deny`.
+         * &gt; **Note:** If specifying `networkRules`, one of either `ipRules` or `virtualNetworkSubnetIds` must be specified and `defaultAction` must be set to `Deny`.
          * 
-         * &gt; **Note:** Network Rules can be defined either directly on the `azure.storage.Account` resource, or using the `azure.storage.AccountNetworkRules` resource - but the two cannot be used together. If both are used against the same Storage Account, spurious changes will occur. When managing Network Rules using this resource, to change from a `default_action` of `Deny` to `Allow` requires defining, rather than removing, the block.
+         * &gt; **Note:** Network Rules can be defined either directly on the `azure.storage.Account` resource, or using the `azure.storage.AccountNetworkRules` resource - but the two cannot be used together. If both are used against the same Storage Account, spurious changes will occur. When managing Network Rules using this resource, to change from a `defaultAction` of `Deny` to `Allow` requires defining, rather than removing, the block.
          * 
-         * &gt; **Note:** The prefix of `ip_rules` must be between 0 and 30 and only supports public IP addresses.
+         * &gt; **Note:** The prefix of `ipRules` must be between 0 and 30 and only supports public IP addresses.
          * 
          * &gt; **Note:** [More information on Validation is available here](https://docs.microsoft.com/en-gb/azure/storage/blobs/storage-custom-domain-name)
          * 
@@ -240,13 +240,13 @@ public final class AccountNetworkRulesArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param privateLinkAccesses One or more `private_link_access` block as defined below.
+         * @param privateLinkAccesses One or more `privateLinkAccess` block as defined below.
          * 
-         * &gt; **Note:** If specifying `network_rules`, one of either `ip_rules` or `virtual_network_subnet_ids` must be specified and `default_action` must be set to `Deny`.
+         * &gt; **Note:** If specifying `networkRules`, one of either `ipRules` or `virtualNetworkSubnetIds` must be specified and `defaultAction` must be set to `Deny`.
          * 
-         * &gt; **Note:** Network Rules can be defined either directly on the `azure.storage.Account` resource, or using the `azure.storage.AccountNetworkRules` resource - but the two cannot be used together. If both are used against the same Storage Account, spurious changes will occur. When managing Network Rules using this resource, to change from a `default_action` of `Deny` to `Allow` requires defining, rather than removing, the block.
+         * &gt; **Note:** Network Rules can be defined either directly on the `azure.storage.Account` resource, or using the `azure.storage.AccountNetworkRules` resource - but the two cannot be used together. If both are used against the same Storage Account, spurious changes will occur. When managing Network Rules using this resource, to change from a `defaultAction` of `Deny` to `Allow` requires defining, rather than removing, the block.
          * 
-         * &gt; **Note:** The prefix of `ip_rules` must be between 0 and 30 and only supports public IP addresses.
+         * &gt; **Note:** The prefix of `ipRules` must be between 0 and 30 and only supports public IP addresses.
          * 
          * &gt; **Note:** [More information on Validation is available here](https://docs.microsoft.com/en-gb/azure/storage/blobs/storage-custom-domain-name)
          * 
@@ -258,13 +258,13 @@ public final class AccountNetworkRulesArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param privateLinkAccesses One or more `private_link_access` block as defined below.
+         * @param privateLinkAccesses One or more `privateLinkAccess` block as defined below.
          * 
-         * &gt; **Note:** If specifying `network_rules`, one of either `ip_rules` or `virtual_network_subnet_ids` must be specified and `default_action` must be set to `Deny`.
+         * &gt; **Note:** If specifying `networkRules`, one of either `ipRules` or `virtualNetworkSubnetIds` must be specified and `defaultAction` must be set to `Deny`.
          * 
-         * &gt; **Note:** Network Rules can be defined either directly on the `azure.storage.Account` resource, or using the `azure.storage.AccountNetworkRules` resource - but the two cannot be used together. If both are used against the same Storage Account, spurious changes will occur. When managing Network Rules using this resource, to change from a `default_action` of `Deny` to `Allow` requires defining, rather than removing, the block.
+         * &gt; **Note:** Network Rules can be defined either directly on the `azure.storage.Account` resource, or using the `azure.storage.AccountNetworkRules` resource - but the two cannot be used together. If both are used against the same Storage Account, spurious changes will occur. When managing Network Rules using this resource, to change from a `defaultAction` of `Deny` to `Allow` requires defining, rather than removing, the block.
          * 
-         * &gt; **Note:** The prefix of `ip_rules` must be between 0 and 30 and only supports public IP addresses.
+         * &gt; **Note:** The prefix of `ipRules` must be between 0 and 30 and only supports public IP addresses.
          * 
          * &gt; **Note:** [More information on Validation is available here](https://docs.microsoft.com/en-gb/azure/storage/blobs/storage-custom-domain-name)
          * 

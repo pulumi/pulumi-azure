@@ -238,6 +238,48 @@ class RedisCache(pulumi.CustomResource):
         """
         Manages a API Management Redis Cache.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_service = azure.apimanagement.Service("example",
+            name="example-apim",
+            location=example.location,
+            resource_group_name=example.name,
+            publisher_name="pub1",
+            publisher_email="pub1@email.com",
+            sku_name="Consumption_0")
+        example_cache = azure.redis.Cache("example",
+            name="example-cache",
+            location=example.location,
+            resource_group_name=example.name,
+            capacity=1,
+            family="C",
+            sku_name="Basic",
+            enable_non_ssl_port=False,
+            minimum_tls_version="1.2",
+            redis_configuration={})
+        example_redis_cache = azure.apimanagement.RedisCache("example",
+            name="example-Redis-Cache",
+            api_management_id=example_service.id,
+            connection_string=example_cache.primary_connection_string,
+            description="Redis cache instances",
+            redis_cache_id=example_cache.id,
+            cache_location="East Us")
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement` - 2022-08-01
+
         ## Import
 
         API Management Redis Caches can be imported using the `resource id`, e.g.
@@ -263,6 +305,48 @@ class RedisCache(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a API Management Redis Cache.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_service = azure.apimanagement.Service("example",
+            name="example-apim",
+            location=example.location,
+            resource_group_name=example.name,
+            publisher_name="pub1",
+            publisher_email="pub1@email.com",
+            sku_name="Consumption_0")
+        example_cache = azure.redis.Cache("example",
+            name="example-cache",
+            location=example.location,
+            resource_group_name=example.name,
+            capacity=1,
+            family="C",
+            sku_name="Basic",
+            enable_non_ssl_port=False,
+            minimum_tls_version="1.2",
+            redis_configuration={})
+        example_redis_cache = azure.apimanagement.RedisCache("example",
+            name="example-Redis-Cache",
+            api_management_id=example_service.id,
+            connection_string=example_cache.primary_connection_string,
+            description="Redis cache instances",
+            redis_cache_id=example_cache.id,
+            cache_location="East Us")
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement` - 2022-08-01
 
         ## Import
 

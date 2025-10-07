@@ -25,7 +25,7 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
      * 
      * &gt; **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
      * 
-     * &gt; **Note:** Exactly one of `address_prefixes` or `ip_address_pool` must be specified.
+     * &gt; **Note:** Exactly one of `addressPrefixes` or `ipAddressPool` must be specified.
      * 
      */
     @Import(name="addressPrefixes")
@@ -36,7 +36,7 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
      * 
      * &gt; **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
      * 
-     * &gt; **Note:** Exactly one of `address_prefixes` or `ip_address_pool` must be specified.
+     * &gt; **Note:** Exactly one of `addressPrefixes` or `ipAddressPool` must be specified.
      * 
      */
     public Optional<Output<List<String>>> addressPrefixes() {
@@ -74,18 +74,18 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `ip_address_pool` block as defined below.
+     * An `ipAddressPool` block as defined below.
      * 
-     * &gt; **Note:** Exactly one of `address_prefixes` or `ip_address_pool` must be specified.
+     * &gt; **Note:** Exactly one of `addressPrefixes` or `ipAddressPool` must be specified.
      * 
      */
     @Import(name="ipAddressPool")
     private @Nullable Output<SubnetIpAddressPoolArgs> ipAddressPool;
 
     /**
-     * @return An `ip_address_pool` block as defined below.
+     * @return An `ipAddressPool` block as defined below.
      * 
-     * &gt; **Note:** Exactly one of `address_prefixes` or `ip_address_pool` must be specified.
+     * &gt; **Note:** Exactly one of `addressPrefixes` or `ipAddressPool` must be specified.
      * 
      */
     public Optional<Output<SubnetIpAddressPoolArgs>> ipAddressPool() {
@@ -110,9 +110,9 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
      * 
-     * &gt; **NOTE:** If you don&#39;t want to use network policies like user-defined Routes and Network Security Groups, you need to set `private_endpoint_network_policies` in the subnet to `Disabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet. For other resources in the Subnet, access is controlled based via the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource.
+     * &gt; **NOTE:** If you don&#39;t want to use network policies like user-defined Routes and Network Security Groups, you need to set `privateEndpointNetworkPolicies` in the subnet to `Disabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet. For other resources in the Subnet, access is controlled based via the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource.
      * 
-     * &gt; **NOTE:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `private_endpoint_network_policies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet. For other resources in the Subnet, access is controlled based via the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource.
+     * &gt; **NOTE:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `privateEndpointNetworkPolicies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet. For other resources in the Subnet, access is controlled based via the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource.
      * 
      * &gt; **NOTE:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
      * 
@@ -123,9 +123,9 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
      * 
-     * &gt; **NOTE:** If you don&#39;t want to use network policies like user-defined Routes and Network Security Groups, you need to set `private_endpoint_network_policies` in the subnet to `Disabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet. For other resources in the Subnet, access is controlled based via the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource.
+     * &gt; **NOTE:** If you don&#39;t want to use network policies like user-defined Routes and Network Security Groups, you need to set `privateEndpointNetworkPolicies` in the subnet to `Disabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet. For other resources in the Subnet, access is controlled based via the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource.
      * 
-     * &gt; **NOTE:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `private_endpoint_network_policies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet. For other resources in the Subnet, access is controlled based via the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource.
+     * &gt; **NOTE:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `privateEndpointNetworkPolicies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet. For other resources in the Subnet, access is controlled based via the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource.
      * 
      * &gt; **NOTE:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
      * 
@@ -137,7 +137,7 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
      * 
-     * &gt; **NOTE:** When configuring Azure Private Link service, the explicit setting `private_link_service_network_policies_enabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
+     * &gt; **NOTE:** When configuring Azure Private Link service, the explicit setting `privateLinkServiceNetworkPoliciesEnabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
      * 
      */
     @Import(name="privateLinkServiceNetworkPoliciesEnabled")
@@ -146,7 +146,7 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
      * 
-     * &gt; **NOTE:** When configuring Azure Private Link service, the explicit setting `private_link_service_network_policies_enabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
+     * &gt; **NOTE:** When configuring Azure Private Link service, the explicit setting `privateLinkServiceNetworkPoliciesEnabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
      * 
      */
     public Optional<Output<Boolean>> privateLinkServiceNetworkPoliciesEnabled() {
@@ -205,9 +205,9 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The sharing scope of the subnet. Possible value is `Tenant`.
      * 
-     * &gt; **Note:** This property cannot be set if `default_outbound_access_enabled` is set to `true`.
+     * &gt; **Note:** This property cannot be set if `defaultOutboundAccessEnabled` is set to `true`.
      * 
-     * !&gt; **Note:** The `sharing_scope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
+     * !&gt; **Note:** The `sharingScope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
      * 
      */
     @Import(name="sharingScope")
@@ -216,9 +216,9 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The sharing scope of the subnet. Possible value is `Tenant`.
      * 
-     * &gt; **Note:** This property cannot be set if `default_outbound_access_enabled` is set to `true`.
+     * &gt; **Note:** This property cannot be set if `defaultOutboundAccessEnabled` is set to `true`.
      * 
-     * !&gt; **Note:** The `sharing_scope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
+     * !&gt; **Note:** The `sharingScope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
      * 
      */
     public Optional<Output<String>> sharingScope() {
@@ -280,7 +280,7 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * &gt; **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
          * 
-         * &gt; **Note:** Exactly one of `address_prefixes` or `ip_address_pool` must be specified.
+         * &gt; **Note:** Exactly one of `addressPrefixes` or `ipAddressPool` must be specified.
          * 
          * @return builder
          * 
@@ -295,7 +295,7 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * &gt; **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
          * 
-         * &gt; **Note:** Exactly one of `address_prefixes` or `ip_address_pool` must be specified.
+         * &gt; **Note:** Exactly one of `addressPrefixes` or `ipAddressPool` must be specified.
          * 
          * @return builder
          * 
@@ -309,7 +309,7 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * &gt; **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
          * 
-         * &gt; **Note:** Exactly one of `address_prefixes` or `ip_address_pool` must be specified.
+         * &gt; **Note:** Exactly one of `addressPrefixes` or `ipAddressPool` must be specified.
          * 
          * @return builder
          * 
@@ -371,9 +371,9 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipAddressPool An `ip_address_pool` block as defined below.
+         * @param ipAddressPool An `ipAddressPool` block as defined below.
          * 
-         * &gt; **Note:** Exactly one of `address_prefixes` or `ip_address_pool` must be specified.
+         * &gt; **Note:** Exactly one of `addressPrefixes` or `ipAddressPool` must be specified.
          * 
          * @return builder
          * 
@@ -384,9 +384,9 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipAddressPool An `ip_address_pool` block as defined below.
+         * @param ipAddressPool An `ipAddressPool` block as defined below.
          * 
-         * &gt; **Note:** Exactly one of `address_prefixes` or `ip_address_pool` must be specified.
+         * &gt; **Note:** Exactly one of `addressPrefixes` or `ipAddressPool` must be specified.
          * 
          * @return builder
          * 
@@ -419,9 +419,9 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param privateEndpointNetworkPolicies Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
          * 
-         * &gt; **NOTE:** If you don&#39;t want to use network policies like user-defined Routes and Network Security Groups, you need to set `private_endpoint_network_policies` in the subnet to `Disabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet. For other resources in the Subnet, access is controlled based via the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource.
+         * &gt; **NOTE:** If you don&#39;t want to use network policies like user-defined Routes and Network Security Groups, you need to set `privateEndpointNetworkPolicies` in the subnet to `Disabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet. For other resources in the Subnet, access is controlled based via the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource.
          * 
-         * &gt; **NOTE:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `private_endpoint_network_policies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet. For other resources in the Subnet, access is controlled based via the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource.
+         * &gt; **NOTE:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `privateEndpointNetworkPolicies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet. For other resources in the Subnet, access is controlled based via the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource.
          * 
          * &gt; **NOTE:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
          * 
@@ -436,9 +436,9 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param privateEndpointNetworkPolicies Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
          * 
-         * &gt; **NOTE:** If you don&#39;t want to use network policies like user-defined Routes and Network Security Groups, you need to set `private_endpoint_network_policies` in the subnet to `Disabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet. For other resources in the Subnet, access is controlled based via the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource.
+         * &gt; **NOTE:** If you don&#39;t want to use network policies like user-defined Routes and Network Security Groups, you need to set `privateEndpointNetworkPolicies` in the subnet to `Disabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet. For other resources in the Subnet, access is controlled based via the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource.
          * 
-         * &gt; **NOTE:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `private_endpoint_network_policies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet. For other resources in the Subnet, access is controlled based via the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource.
+         * &gt; **NOTE:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `privateEndpointNetworkPolicies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet. For other resources in the Subnet, access is controlled based via the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource.
          * 
          * &gt; **NOTE:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
          * 
@@ -452,7 +452,7 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param privateLinkServiceNetworkPoliciesEnabled Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
          * 
-         * &gt; **NOTE:** When configuring Azure Private Link service, the explicit setting `private_link_service_network_policies_enabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
+         * &gt; **NOTE:** When configuring Azure Private Link service, the explicit setting `privateLinkServiceNetworkPoliciesEnabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
          * 
          * @return builder
          * 
@@ -465,7 +465,7 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param privateLinkServiceNetworkPoliciesEnabled Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
          * 
-         * &gt; **NOTE:** When configuring Azure Private Link service, the explicit setting `private_link_service_network_policies_enabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
+         * &gt; **NOTE:** When configuring Azure Private Link service, the explicit setting `privateLinkServiceNetworkPoliciesEnabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
          * 
          * @return builder
          * 
@@ -566,9 +566,9 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param sharingScope The sharing scope of the subnet. Possible value is `Tenant`.
          * 
-         * &gt; **Note:** This property cannot be set if `default_outbound_access_enabled` is set to `true`.
+         * &gt; **Note:** This property cannot be set if `defaultOutboundAccessEnabled` is set to `true`.
          * 
-         * !&gt; **Note:** The `sharing_scope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
+         * !&gt; **Note:** The `sharingScope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
          * 
          * @return builder
          * 
@@ -581,9 +581,9 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param sharingScope The sharing scope of the subnet. Possible value is `Tenant`.
          * 
-         * &gt; **Note:** This property cannot be set if `default_outbound_access_enabled` is set to `true`.
+         * &gt; **Note:** This property cannot be set if `defaultOutboundAccessEnabled` is set to `true`.
          * 
-         * !&gt; **Note:** The `sharing_scope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
+         * !&gt; **Note:** The `sharingScope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
          * 
          * @return builder
          * 

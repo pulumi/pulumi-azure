@@ -92,7 +92,7 @@ namespace Pulumi.Azure.ArcKubernetes
         public Output<string> Distribution { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new Arc Kubernetes Cluster to be created.
+        /// An `Identity` block as defined below. Changing this forces a new Arc Kubernetes Cluster to be created.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ClusterIdentity> Identity { get; private set; } = null!;
@@ -204,7 +204,7 @@ namespace Pulumi.Azure.ArcKubernetes
         public Input<string> AgentPublicKeyCertificate { get; set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new Arc Kubernetes Cluster to be created.
+        /// An `Identity` block as defined below. Changing this forces a new Arc Kubernetes Cluster to be created.
         /// </summary>
         [Input("identity", required: true)]
         public Input<Inputs.ClusterIdentityArgs> Identity { get; set; } = null!;
@@ -266,7 +266,7 @@ namespace Pulumi.Azure.ArcKubernetes
         public Input<string>? Distribution { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new Arc Kubernetes Cluster to be created.
+        /// An `Identity` block as defined below. Changing this forces a new Arc Kubernetes Cluster to be created.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ClusterIdentityGetArgs>? Identity { get; set; }
