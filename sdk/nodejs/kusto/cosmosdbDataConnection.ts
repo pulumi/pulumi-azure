@@ -7,6 +7,117 @@ import * as utilities from "../utilities";
 /**
  * Manages a Kusto / Cosmos Database Data Connection.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const current = azure.core.getClientConfig({});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "exampleRG",
+ *     location: "West Europe",
+ * });
+ * const builtin = azure.authorization.getRoleDefinition({
+ *     roleDefinitionId: "fbdf93bf-df7d-467e-a4d2-9458aa1360c8",
+ * });
+ * const exampleCluster = new azure.kusto.Cluster("example", {
+ *     name: "examplekc",
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: {
+ *         name: "Dev(No SLA)_Standard_D11_v2",
+ *         capacity: 1,
+ *     },
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ * });
+ * const exampleAssignment = new azure.authorization.Assignment("example", {
+ *     scope: exampleResourceGroup.id,
+ *     roleDefinitionName: builtin.then(builtin => builtin.name),
+ *     principalId: exampleCluster.identity.apply(identity => identity?.principalId),
+ * });
+ * const exampleAccount = new azure.cosmosdb.Account("example", {
+ *     name: "example-ca",
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     offerType: "Standard",
+ *     kind: "GlobalDocumentDB",
+ *     consistencyPolicy: {
+ *         consistencyLevel: "Session",
+ *         maxIntervalInSeconds: 5,
+ *         maxStalenessPrefix: 100,
+ *     },
+ *     geoLocations: [{
+ *         location: exampleResourceGroup.location,
+ *         failoverPriority: 0,
+ *     }],
+ * });
+ * const exampleSqlDatabase = new azure.cosmosdb.SqlDatabase("example", {
+ *     name: "examplecosmosdbsqldb",
+ *     resourceGroupName: exampleAccount.resourceGroupName,
+ *     accountName: exampleAccount.name,
+ * });
+ * const exampleSqlContainer = new azure.cosmosdb.SqlContainer("example", {
+ *     name: "examplecosmosdbsqlcon",
+ *     resourceGroupName: exampleAccount.resourceGroupName,
+ *     accountName: exampleAccount.name,
+ *     databaseName: exampleSqlDatabase.name,
+ *     partitionKeyPath: "/part",
+ *     throughput: 400,
+ * });
+ * const example = azure.cosmosdb.getSqlRoleDefinitionOutput({
+ *     roleDefinitionId: "00000000-0000-0000-0000-000000000001",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     accountName: exampleAccount.name,
+ * });
+ * const exampleSqlRoleAssignment = new azure.cosmosdb.SqlRoleAssignment("example", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     accountName: exampleAccount.name,
+ *     roleDefinitionId: example.apply(example => example.id),
+ *     principalId: exampleCluster.identity.apply(identity => identity?.principalId),
+ *     scope: exampleAccount.id,
+ * });
+ * const exampleDatabase = new azure.kusto.Database("example", {
+ *     name: "examplekd",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     clusterName: exampleCluster.name,
+ * });
+ * const exampleScript = new azure.kusto.Script("example", {
+ *     name: "create-table-script",
+ *     databaseId: exampleDatabase.id,
+ *     scriptContent: `.create table TestTable(Id:string, Name:string, _ts:long, _timestamp:datetime)
+ * .create table TestTable ingestion json mapping "TestMapping"
+ * '['
+ * '    {"column":"Id","path":".id"},'
+ * '    {"column":"Name","path":".name"},'
+ * '    {"column":"_ts","path":"._ts"},'
+ * '    {"column":"_timestamp","path":"._ts", "transform":"DateTimeFromUnixSeconds"}'
+ * ']'
+ * .alter table TestTable policy ingestionbatching "{'MaximumBatchingTimeSpan': '0:0:10', 'MaximumNumberOfItems': 10000}"
+ * `,
+ * });
+ * const exampleCosmosdbDataConnection = new azure.kusto.CosmosdbDataConnection("example", {
+ *     name: "examplekcdcd",
+ *     location: exampleResourceGroup.location,
+ *     cosmosdbContainerId: exampleSqlContainer.id,
+ *     kustoDatabaseId: exampleDatabase.id,
+ *     managedIdentityId: exampleCluster.id,
+ *     tableName: "TestTable",
+ *     mappingRuleName: "TestMapping",
+ *     retrievalStartDate: "2023-06-26T12:00:00.6554616Z",
+ * });
+ * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Kusto` - 2024-04-13
+ *
  * ## Import
  *
  * Kusto / Cosmos Database Data Connection can be imported using the `resource id`, e.g.

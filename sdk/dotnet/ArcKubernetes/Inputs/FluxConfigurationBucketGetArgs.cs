@@ -59,7 +59,7 @@ namespace Pulumi.Azure.ArcKubernetes.Inputs
         public Input<int>? TimeoutInSeconds { get; set; }
 
         /// <summary>
-        /// Specify whether to communicate with a bucket using TLS is enabled. Defaults to `true`.
+        /// Specify whether to communicate with a bucket using TLS is enabled. Defaults to `True`.
         /// </summary>
         [Input("tlsEnabled")]
         public Input<bool>? TlsEnabled { get; set; }

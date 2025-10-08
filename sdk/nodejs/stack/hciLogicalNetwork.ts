@@ -9,6 +9,48 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Stack HCI Logical Network.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-rg",
+ *     location: "West Europe",
+ * });
+ * const exampleHciLogicalNetwork = new azure.stack.HciLogicalNetwork("example", {
+ *     name: "example-hci-ln",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     customLocationId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ExtendedLocation/customLocations/cl1",
+ *     virtualSwitchName: "ConvergedSwitch(managementcompute)",
+ *     dnsServers: [
+ *         "10.0.0.7",
+ *         "10.0.0.8",
+ *     ],
+ *     subnet: {
+ *         ipAllocationMethod: "Static",
+ *         addressPrefix: "10.0.0.0/24",
+ *         vlanId: 123,
+ *         route: {
+ *             addressPrefix: "0.0.0.0/0",
+ *             nextHopIpAddress: "10.0.0.1",
+ *         },
+ *     },
+ *     tags: {
+ *         foo: "bar",
+ *     },
+ * });
+ * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.AzureStackHCI` - 2024-01-01
+ *
  * ## Import
  *
  * Azure Stack HCI Logical Networks can be imported using the `resource id`, e.g.

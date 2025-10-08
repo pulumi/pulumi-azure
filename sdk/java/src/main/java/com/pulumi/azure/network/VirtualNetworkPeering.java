@@ -87,6 +87,97 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Global Virtual Network Peering)
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.CidrsubnetArgs;
+ * import com.pulumi.azure.network.VirtualNetworkPeering;
+ * import com.pulumi.azure.network.VirtualNetworkPeeringArgs;
+ * import com.pulumi.codegen.internal.KeyedValue;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var config = ctx.config();
+ *         final var location = config.get("location").orElse(List.of(        
+ *             "uksouth",
+ *             "southeastasia"));
+ *         final var vnetAddressSpace = config.get("vnetAddressSpace").orElse(List.of(        
+ *             "10.0.0.0/16",
+ *             "10.1.0.0/16"));
+ *         for (var i = 0; i < location.length(); i++) {
+ *             new ResourceGroup("example-" + i, ResourceGroupArgs.builder()
+ *                 .name(String.format("rg-global-vnet-peering-%s", range.value()))
+ *                 .location(location[range.value()])
+ *                 .build());
+ * 
+ *         
+ * }
+ *         for (var i = 0; i < location.length(); i++) {
+ *             new VirtualNetwork("vnet-" + i, VirtualNetworkArgs.builder()
+ *                 .name(String.format("vnet-%s", range.value()))
+ *                 .resourceGroupName(example.stream().map(element -> element.name()).collect(toList())[range.value()])
+ *                 .addressSpaces(vnetAddressSpace[range.value()])
+ *                 .location(example.stream().map(element -> element.location()).collect(toList())[range.value()])
+ *                 .build());
+ * 
+ *         
+ * }
+ *         for (var i = 0; i < location.length(); i++) {
+ *             new Subnet("nva-" + i, SubnetArgs.builder()
+ *                 .name("nva")
+ *                 .resourceGroupName(example.stream().map(element -> element.name()).collect(toList())[range.value()])
+ *                 .virtualNetworkName(vnet.stream().map(element -> element.name()).collect(toList())[range.value()])
+ *                 .addressPrefix(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
+ *                     .input(vnet[range.value()].addressSpace()[range.value()])
+ *                     .newbits(13)
+ *                     .netnum(0)
+ *                     .build()).result())
+ *                 .build());
+ * 
+ *         
+ * }
+ *         // enable global peering between the two virtual network
+ *         for (var i = 0; i < location.length(); i++) {
+ *             new VirtualNetworkPeering("peering-" + i, VirtualNetworkPeeringArgs.builder()
+ *                 .name(vnet.stream().map(element -> element.name()).collect(toList())[1 - range.value()].applyValue(_names -> String.format("peering-to-%s", _names)))
+ *                 .resourceGroupName(example.stream().map(element -> element.name()).collect(toList())[range.value()])
+ *                 .virtualNetworkName(vnet.stream().map(element -> element.name()).collect(toList())[range.value()])
+ *                 .remoteVirtualNetworkId(vnet.stream().map(element -> element.id()).collect(toList())[1 - range.value()])
+ *                 .allowVirtualNetworkAccess(true)
+ *                 .allowForwardedTraffic(true)
+ *                 .allowGatewayTransit(false)
+ *                 .build());
+ * 
+ *         
+ * }
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ### Triggers)
  * 
  * <pre>
@@ -340,18 +431,18 @@ public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.triggers);
     }
     /**
-     * Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
+     * Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allowGatewayTransit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
      * 
-     * &gt; **Note:** `use_remote_gateways` must be set to `false` if using Global Virtual Network Peerings.
+     * &gt; **Note:** `useRemoteGateways` must be set to `false` if using Global Virtual Network Peerings.
      * 
      */
     @Export(name="useRemoteGateways", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> useRemoteGateways;
 
     /**
-     * @return Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
+     * @return Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allowGatewayTransit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
      * 
-     * &gt; **Note:** `use_remote_gateways` must be set to `false` if using Global Virtual Network Peerings.
+     * &gt; **Note:** `useRemoteGateways` must be set to `false` if using Global Virtual Network Peerings.
      * 
      */
     public Output<Optional<Boolean>> useRemoteGateways() {

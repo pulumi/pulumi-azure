@@ -12,6 +12,85 @@ namespace Pulumi.Azure.Qumulo
     /// <summary>
     /// Manages an Azure Native Qumulo Scalable File System.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     {
+    ///         Name = "example-vnet",
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     {
+    ///         Name = "example-subnet",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.1.0/24",
+    ///         },
+    ///         Delegations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.SubnetDelegationArgs
+    ///             {
+    ///                 Name = "delegation",
+    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                 {
+    ///                     Actions = new[]
+    ///                     {
+    ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
+    ///                     },
+    ///                     Name = "Qumulo.Storage/fileSystems",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleFileSystem = new Azure.Qumulo.FileSystem("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         AdminPassword = ")^X#ZX#JRyIY}t9",
+    ///         AvailabilityZone = "1",
+    ///         DelegatedSubnetId = exampleSubnet.Id,
+    ///         StorageSku = "Standard",
+    ///         Email = "test@test.com",
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "test" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Qumulo.Storage` - 2024-06-19
+    /// 
     /// ## Import
     /// 
     /// An existing File System can be imported into Pulumi using the `resource id`, e.g.
@@ -60,7 +139,7 @@ namespace Pulumi.Azure.Qumulo
         public Output<string?> PlanId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the marketplace publisher ID. Defaults to `qumulo1584033880660`. Changing this forces a new resource to be created.
+        /// Specifies the marketplace publisher ID. Defaults to `Qumulo1584033880660`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("publisherId")]
         public Output<string?> PublisherId { get; private set; } = null!;
@@ -192,7 +271,7 @@ namespace Pulumi.Azure.Qumulo
         public Input<string>? PlanId { get; set; }
 
         /// <summary>
-        /// Specifies the marketplace publisher ID. Defaults to `qumulo1584033880660`. Changing this forces a new resource to be created.
+        /// Specifies the marketplace publisher ID. Defaults to `Qumulo1584033880660`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("publisherId")]
         public Input<string>? PublisherId { get; set; }
@@ -288,7 +367,7 @@ namespace Pulumi.Azure.Qumulo
         public Input<string>? PlanId { get; set; }
 
         /// <summary>
-        /// Specifies the marketplace publisher ID. Defaults to `qumulo1584033880660`. Changing this forces a new resource to be created.
+        /// Specifies the marketplace publisher ID. Defaults to `Qumulo1584033880660`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("publisherId")]
         public Input<string>? PublisherId { get; set; }

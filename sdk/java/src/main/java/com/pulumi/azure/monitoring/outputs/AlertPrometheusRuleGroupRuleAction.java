@@ -20,7 +20,7 @@ public final class AlertPrometheusRuleGroupRuleAction {
     /**
      * @return Specifies the properties of an action group object.
      * 
-     * &gt; **Note:** `action_properties` can only be configured for IcM Connector Action Groups for now. Other public features will be supported in the future.
+     * &gt; **Note:** `actionProperties` can only be configured for IcM Connector Action Groups for now. Other public features will be supported in the future.
      * 
      */
     private @Nullable Map<String,String> actionProperties;
@@ -36,7 +36,7 @@ public final class AlertPrometheusRuleGroupRuleAction {
     /**
      * @return Specifies the properties of an action group object.
      * 
-     * &gt; **Note:** `action_properties` can only be configured for IcM Connector Action Groups for now. Other public features will be supported in the future.
+     * &gt; **Note:** `actionProperties` can only be configured for IcM Connector Action Groups for now. Other public features will be supported in the future.
      * 
      */
     public Map<String,String> actionProperties() {

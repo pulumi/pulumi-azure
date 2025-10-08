@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Sentinel.Outputs
         /// </summary>
         public readonly string? DisplayNameFormat;
         /// <summary>
-        /// A list of `dynamic_property` blocks as defined below.
+        /// A list of `DynamicProperty` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AlertRuleNrtAlertDetailsOverrideDynamicProperty> DynamicProperties;
         /// <summary>

@@ -9,6 +9,218 @@ import * as utilities from "../utilities";
 /**
  * Manages Start Stop Schedules for an MS SQL Managed Instance.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "database-rg",
+ *     location: "West Europe",
+ * });
+ * const exampleNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("example", {
+ *     name: "mi-security-group",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ * });
+ * const allowManagementInbound = new azure.network.NetworkSecurityRule("allow_management_inbound", {
+ *     name: "allow_management_inbound",
+ *     priority: 106,
+ *     direction: "Inbound",
+ *     access: "Allow",
+ *     protocol: "Tcp",
+ *     sourcePortRange: "*",
+ *     destinationPortRanges: [
+ *         "9000",
+ *         "9003",
+ *         "1438",
+ *         "1440",
+ *         "1452",
+ *     ],
+ *     sourceAddressPrefix: "*",
+ *     destinationAddressPrefix: "*",
+ *     resourceGroupName: example.name,
+ *     networkSecurityGroupName: exampleNetworkSecurityGroup.name,
+ * });
+ * const allowMisubnetInbound = new azure.network.NetworkSecurityRule("allow_misubnet_inbound", {
+ *     name: "allow_misubnet_inbound",
+ *     priority: 200,
+ *     direction: "Inbound",
+ *     access: "Allow",
+ *     protocol: "*",
+ *     sourcePortRange: "*",
+ *     destinationPortRange: "*",
+ *     sourceAddressPrefix: "10.0.0.0/24",
+ *     destinationAddressPrefix: "*",
+ *     resourceGroupName: example.name,
+ *     networkSecurityGroupName: exampleNetworkSecurityGroup.name,
+ * });
+ * const allowHealthProbeInbound = new azure.network.NetworkSecurityRule("allow_health_probe_inbound", {
+ *     name: "allow_health_probe_inbound",
+ *     priority: 300,
+ *     direction: "Inbound",
+ *     access: "Allow",
+ *     protocol: "*",
+ *     sourcePortRange: "*",
+ *     destinationPortRange: "*",
+ *     sourceAddressPrefix: "AzureLoadBalancer",
+ *     destinationAddressPrefix: "*",
+ *     resourceGroupName: example.name,
+ *     networkSecurityGroupName: exampleNetworkSecurityGroup.name,
+ * });
+ * const allowTdsInbound = new azure.network.NetworkSecurityRule("allow_tds_inbound", {
+ *     name: "allow_tds_inbound",
+ *     priority: 1000,
+ *     direction: "Inbound",
+ *     access: "Allow",
+ *     protocol: "Tcp",
+ *     sourcePortRange: "*",
+ *     destinationPortRange: "1433",
+ *     sourceAddressPrefix: "VirtualNetwork",
+ *     destinationAddressPrefix: "*",
+ *     resourceGroupName: example.name,
+ *     networkSecurityGroupName: exampleNetworkSecurityGroup.name,
+ * });
+ * const denyAllInbound = new azure.network.NetworkSecurityRule("deny_all_inbound", {
+ *     name: "deny_all_inbound",
+ *     priority: 4096,
+ *     direction: "Inbound",
+ *     access: "Deny",
+ *     protocol: "*",
+ *     sourcePortRange: "*",
+ *     destinationPortRange: "*",
+ *     sourceAddressPrefix: "*",
+ *     destinationAddressPrefix: "*",
+ *     resourceGroupName: example.name,
+ *     networkSecurityGroupName: exampleNetworkSecurityGroup.name,
+ * });
+ * const allowManagementOutbound = new azure.network.NetworkSecurityRule("allow_management_outbound", {
+ *     name: "allow_management_outbound",
+ *     priority: 102,
+ *     direction: "Outbound",
+ *     access: "Allow",
+ *     protocol: "Tcp",
+ *     sourcePortRange: "*",
+ *     destinationPortRanges: [
+ *         "80",
+ *         "443",
+ *         "12000",
+ *     ],
+ *     sourceAddressPrefix: "*",
+ *     destinationAddressPrefix: "*",
+ *     resourceGroupName: example.name,
+ *     networkSecurityGroupName: exampleNetworkSecurityGroup.name,
+ * });
+ * const allowMisubnetOutbound = new azure.network.NetworkSecurityRule("allow_misubnet_outbound", {
+ *     name: "allow_misubnet_outbound",
+ *     priority: 200,
+ *     direction: "Outbound",
+ *     access: "Allow",
+ *     protocol: "*",
+ *     sourcePortRange: "*",
+ *     destinationPortRange: "*",
+ *     sourceAddressPrefix: "10.0.0.0/24",
+ *     destinationAddressPrefix: "*",
+ *     resourceGroupName: example.name,
+ *     networkSecurityGroupName: exampleNetworkSecurityGroup.name,
+ * });
+ * const denyAllOutbound = new azure.network.NetworkSecurityRule("deny_all_outbound", {
+ *     name: "deny_all_outbound",
+ *     priority: 4096,
+ *     direction: "Outbound",
+ *     access: "Deny",
+ *     protocol: "*",
+ *     sourcePortRange: "*",
+ *     destinationPortRange: "*",
+ *     sourceAddressPrefix: "*",
+ *     destinationAddressPrefix: "*",
+ *     resourceGroupName: example.name,
+ *     networkSecurityGroupName: exampleNetworkSecurityGroup.name,
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "vnet-mi",
+ *     resourceGroupName: example.name,
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: example.location,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "subnet-mi",
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.0.0/24"],
+ *     delegations: [{
+ *         name: "managedinstancedelegation",
+ *         serviceDelegation: {
+ *             name: "Microsoft.Sql/managedInstances",
+ *             actions: [
+ *                 "Microsoft.Network/virtualNetworks/subnets/join/action",
+ *                 "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
+ *                 "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action",
+ *             ],
+ *         },
+ *     }],
+ * });
+ * const exampleSubnetNetworkSecurityGroupAssociation = new azure.network.SubnetNetworkSecurityGroupAssociation("example", {
+ *     subnetId: exampleSubnet.id,
+ *     networkSecurityGroupId: exampleNetworkSecurityGroup.id,
+ * });
+ * const exampleRouteTable = new azure.network.RouteTable("example", {
+ *     name: "routetable-mi",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     disableBgpRoutePropagation: false,
+ * }, {
+ *     dependsOn: [exampleSubnet],
+ * });
+ * const exampleSubnetRouteTableAssociation = new azure.network.SubnetRouteTableAssociation("example", {
+ *     subnetId: exampleSubnet.id,
+ *     routeTableId: exampleRouteTable.id,
+ * });
+ * const exampleManagedInstance = new azure.mssql.ManagedInstance("example", {
+ *     name: "managedsqlinstance",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     licenseType: "BasePrice",
+ *     skuName: "GP_Gen5",
+ *     storageSizeInGb: 32,
+ *     subnetId: exampleSubnet.id,
+ *     vcores: 4,
+ *     administratorLogin: "mradministrator",
+ *     administratorLoginPassword: "thisIsDog11",
+ * }, {
+ *     dependsOn: [
+ *         exampleSubnetNetworkSecurityGroupAssociation,
+ *         exampleSubnetRouteTableAssociation,
+ *     ],
+ * });
+ * const exampleManagedInstanceStartStopSchedule = new azure.mssql.ManagedInstanceStartStopSchedule("example", {
+ *     managedInstanceId: exampleManagedInstance.id,
+ *     timezoneId: "Central European Standard Time",
+ *     schedules: [
+ *         {
+ *             startDay: "Monday",
+ *             startTime: "08:00",
+ *             stopDay: "Monday",
+ *             stopTime: "11:00",
+ *         },
+ *         {
+ *             startDay: "Tuesday",
+ *             startTime: "12:00",
+ *             stopDay: "Tuesday",
+ *             stopTime: "18:00",
+ *         },
+ *     ],
+ * });
+ * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Sql` - 2023-08-01-preview
+ *
  * ## Import
  *
  * MS SQL Managed Instance Start Stop Schedule can be imported using the `resource id`, e.g.

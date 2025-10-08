@@ -234,6 +234,59 @@ class LinkedServer(pulumi.CustomResource):
         """
         Manages a Redis Linked Server (ie Geo Location)
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_primary = azure.core.ResourceGroup("example-primary",
+            name="example-resources-primary",
+            location="East US")
+        example_primary_cache = azure.redis.Cache("example-primary",
+            name="example-cache1",
+            location=example_primary.location,
+            resource_group_name=example_primary.name,
+            capacity=1,
+            family="P",
+            sku_name="Premium",
+            enable_non_ssl_port=False,
+            redis_configuration={
+                "maxmemory_reserved": 2,
+                "maxmemory_delta": 2,
+                "maxmemory_policy": "allkeys-lru",
+            })
+        example_secondary = azure.core.ResourceGroup("example-secondary",
+            name="example-resources-secondary",
+            location="West US")
+        example_secondary_cache = azure.redis.Cache("example-secondary",
+            name="example-cache2",
+            location=example_secondary.location,
+            resource_group_name=example_secondary.name,
+            capacity=1,
+            family="P",
+            sku_name="Premium",
+            enable_non_ssl_port=False,
+            redis_configuration={
+                "maxmemory_reserved": 2,
+                "maxmemory_delta": 2,
+                "maxmemory_policy": "allkeys-lru",
+            })
+        example_link = azure.redis.LinkedServer("example-link",
+            target_redis_cache_name=example_primary_cache.name,
+            resource_group_name=example_primary_cache.resource_group_name,
+            linked_redis_cache_id=example_secondary_cache.id,
+            linked_redis_cache_location=example_secondary_cache.location,
+            server_role="Secondary")
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Cache` - 2024-11-01
+
         ## Import
 
         Redis can be imported using the `resource id`, e.g.
@@ -258,6 +311,59 @@ class LinkedServer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Redis Linked Server (ie Geo Location)
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_primary = azure.core.ResourceGroup("example-primary",
+            name="example-resources-primary",
+            location="East US")
+        example_primary_cache = azure.redis.Cache("example-primary",
+            name="example-cache1",
+            location=example_primary.location,
+            resource_group_name=example_primary.name,
+            capacity=1,
+            family="P",
+            sku_name="Premium",
+            enable_non_ssl_port=False,
+            redis_configuration={
+                "maxmemory_reserved": 2,
+                "maxmemory_delta": 2,
+                "maxmemory_policy": "allkeys-lru",
+            })
+        example_secondary = azure.core.ResourceGroup("example-secondary",
+            name="example-resources-secondary",
+            location="West US")
+        example_secondary_cache = azure.redis.Cache("example-secondary",
+            name="example-cache2",
+            location=example_secondary.location,
+            resource_group_name=example_secondary.name,
+            capacity=1,
+            family="P",
+            sku_name="Premium",
+            enable_non_ssl_port=False,
+            redis_configuration={
+                "maxmemory_reserved": 2,
+                "maxmemory_delta": 2,
+                "maxmemory_policy": "allkeys-lru",
+            })
+        example_link = azure.redis.LinkedServer("example-link",
+            target_redis_cache_name=example_primary_cache.name,
+            resource_group_name=example_primary_cache.resource_group_name,
+            linked_redis_cache_id=example_secondary_cache.id,
+            linked_redis_cache_location=example_secondary_cache.location,
+            server_role="Secondary")
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Cache` - 2024-11-01
 
         ## Import
 

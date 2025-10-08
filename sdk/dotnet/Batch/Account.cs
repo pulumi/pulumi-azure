@@ -85,19 +85,19 @@ namespace Pulumi.Azure.Batch
         public Output<ImmutableArray<string>> AllowedAuthenticationModes { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if customer managed key encryption should be used to encrypt batch account data. One `encryption` block as defined below.
+        /// Specifies if customer managed key encryption should be used to encrypt batch account data. One `Encryption` block as defined below.
         /// </summary>
         [Output("encryption")]
         public Output<Outputs.AccountEncryption?> Encryption { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.AccountIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// A `key_vault_reference` block, as defined below, that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
+        /// A `KeyVaultReference` block, as defined below, that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
         /// </summary>
         [Output("keyVaultReference")]
         public Output<Outputs.AccountKeyVaultReference?> KeyVaultReference { get; private set; } = null!;
@@ -115,7 +115,7 @@ namespace Pulumi.Azure.Batch
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `network_profile` block as defined below.
+        /// A `NetworkProfile` block as defined below.
         /// </summary>
         [Output("networkProfile")]
         public Output<Outputs.AccountNetworkProfile?> NetworkProfile { get; private set; } = null!;
@@ -133,9 +133,9 @@ namespace Pulumi.Azure.Batch
         public Output<string> PrimaryAccessKey { get; private set; } = null!;
 
         /// <summary>
-        /// Whether public network access is allowed for this server. Defaults to `true`.
+        /// Whether public network access is allowed for this server. Defaults to `True`.
         /// 
-        /// &gt; **NOTE:** When using `UserSubscription` mode, an Azure KeyVault reference has to be specified. See `key_vault_reference` below.
+        /// &gt; **NOTE:** When using `UserSubscription` mode, an Azure KeyVault reference has to be specified. See `KeyVaultReference` below.
         /// 
         /// &gt; **NOTE:** When using `UserSubscription` mode, the `Microsoft Azure Batch` service principal has to have `Contributor` role on your subscription scope, as documented [here](https://docs.microsoft.com/azure/batch/batch-account-create-portal#additional-configuration-for-user-subscription-mode).
         /// </summary>
@@ -167,7 +167,7 @@ namespace Pulumi.Azure.Batch
         /// <summary>
         /// Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
         /// 
-        /// &gt; **NOTE:** When using `storage_account_id`, the `storage_account_authentication_mode` must be specified as well.
+        /// &gt; **NOTE:** When using `StorageAccountId`, the `StorageAccountAuthenticationMode` must be specified as well.
         /// </summary>
         [Output("storageAccountId")]
         public Output<string?> StorageAccountId { get; private set; } = null!;
@@ -248,19 +248,19 @@ namespace Pulumi.Azure.Batch
         }
 
         /// <summary>
-        /// Specifies if customer managed key encryption should be used to encrypt batch account data. One `encryption` block as defined below.
+        /// Specifies if customer managed key encryption should be used to encrypt batch account data. One `Encryption` block as defined below.
         /// </summary>
         [Input("encryption")]
         public Input<Inputs.AccountEncryptionArgs>? Encryption { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.AccountIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// A `key_vault_reference` block, as defined below, that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
+        /// A `KeyVaultReference` block, as defined below, that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
         /// </summary>
         [Input("keyVaultReference")]
         public Input<Inputs.AccountKeyVaultReferenceArgs>? KeyVaultReference { get; set; }
@@ -278,7 +278,7 @@ namespace Pulumi.Azure.Batch
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `network_profile` block as defined below.
+        /// A `NetworkProfile` block as defined below.
         /// </summary>
         [Input("networkProfile")]
         public Input<Inputs.AccountNetworkProfileArgs>? NetworkProfile { get; set; }
@@ -290,9 +290,9 @@ namespace Pulumi.Azure.Batch
         public Input<string>? PoolAllocationMode { get; set; }
 
         /// <summary>
-        /// Whether public network access is allowed for this server. Defaults to `true`.
+        /// Whether public network access is allowed for this server. Defaults to `True`.
         /// 
-        /// &gt; **NOTE:** When using `UserSubscription` mode, an Azure KeyVault reference has to be specified. See `key_vault_reference` below.
+        /// &gt; **NOTE:** When using `UserSubscription` mode, an Azure KeyVault reference has to be specified. See `KeyVaultReference` below.
         /// 
         /// &gt; **NOTE:** When using `UserSubscription` mode, the `Microsoft Azure Batch` service principal has to have `Contributor` role on your subscription scope, as documented [here](https://docs.microsoft.com/azure/batch/batch-account-create-portal#additional-configuration-for-user-subscription-mode).
         /// </summary>
@@ -318,7 +318,7 @@ namespace Pulumi.Azure.Batch
         /// <summary>
         /// Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
         /// 
-        /// &gt; **NOTE:** When using `storage_account_id`, the `storage_account_authentication_mode` must be specified as well.
+        /// &gt; **NOTE:** When using `StorageAccountId`, the `StorageAccountAuthenticationMode` must be specified as well.
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }
@@ -368,19 +368,19 @@ namespace Pulumi.Azure.Batch
         }
 
         /// <summary>
-        /// Specifies if customer managed key encryption should be used to encrypt batch account data. One `encryption` block as defined below.
+        /// Specifies if customer managed key encryption should be used to encrypt batch account data. One `Encryption` block as defined below.
         /// </summary>
         [Input("encryption")]
         public Input<Inputs.AccountEncryptionGetArgs>? Encryption { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.AccountIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// A `key_vault_reference` block, as defined below, that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
+        /// A `KeyVaultReference` block, as defined below, that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
         /// </summary>
         [Input("keyVaultReference")]
         public Input<Inputs.AccountKeyVaultReferenceGetArgs>? KeyVaultReference { get; set; }
@@ -398,7 +398,7 @@ namespace Pulumi.Azure.Batch
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `network_profile` block as defined below.
+        /// A `NetworkProfile` block as defined below.
         /// </summary>
         [Input("networkProfile")]
         public Input<Inputs.AccountNetworkProfileGetArgs>? NetworkProfile { get; set; }
@@ -426,9 +426,9 @@ namespace Pulumi.Azure.Batch
         }
 
         /// <summary>
-        /// Whether public network access is allowed for this server. Defaults to `true`.
+        /// Whether public network access is allowed for this server. Defaults to `True`.
         /// 
-        /// &gt; **NOTE:** When using `UserSubscription` mode, an Azure KeyVault reference has to be specified. See `key_vault_reference` below.
+        /// &gt; **NOTE:** When using `UserSubscription` mode, an Azure KeyVault reference has to be specified. See `KeyVaultReference` below.
         /// 
         /// &gt; **NOTE:** When using `UserSubscription` mode, the `Microsoft Azure Batch` service principal has to have `Contributor` role on your subscription scope, as documented [here](https://docs.microsoft.com/azure/batch/batch-account-create-portal#additional-configuration-for-user-subscription-mode).
         /// </summary>
@@ -470,7 +470,7 @@ namespace Pulumi.Azure.Batch
         /// <summary>
         /// Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
         /// 
-        /// &gt; **NOTE:** When using `storage_account_id`, the `storage_account_authentication_mode` must be specified as well.
+        /// &gt; **NOTE:** When using `StorageAccountId`, the `StorageAccountAuthenticationMode` must be specified as well.
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }

@@ -16,38 +16,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class KafkaClusterRoles {
     /**
-     * @return A `head_node` block as defined above.
+     * @return A `headNode` block as defined above.
      * 
      */
     private KafkaClusterRolesHeadNode headNode;
     /**
-     * @return A `kafka_management_node` block as defined below.
+     * @return A `kafkaManagementNode` block as defined below.
      * 
      * &gt; **Note:** This property has been deprecated and will be removed in version 4.0.
      * 
      */
     private @Nullable KafkaClusterRolesKafkaManagementNode kafkaManagementNode;
     /**
-     * @return A `worker_node` block as defined below.
+     * @return A `workerNode` block as defined below.
      * 
      */
     private KafkaClusterRolesWorkerNode workerNode;
     /**
-     * @return A `zookeeper_node` block as defined below.
+     * @return A `zookeeperNode` block as defined below.
      * 
      */
     private KafkaClusterRolesZookeeperNode zookeeperNode;
 
     private KafkaClusterRoles() {}
     /**
-     * @return A `head_node` block as defined above.
+     * @return A `headNode` block as defined above.
      * 
      */
     public KafkaClusterRolesHeadNode headNode() {
         return this.headNode;
     }
     /**
-     * @return A `kafka_management_node` block as defined below.
+     * @return A `kafkaManagementNode` block as defined below.
      * 
      * &gt; **Note:** This property has been deprecated and will be removed in version 4.0.
      * 
@@ -56,14 +56,14 @@ public final class KafkaClusterRoles {
         return Optional.ofNullable(this.kafkaManagementNode);
     }
     /**
-     * @return A `worker_node` block as defined below.
+     * @return A `workerNode` block as defined below.
      * 
      */
     public KafkaClusterRolesWorkerNode workerNode() {
         return this.workerNode;
     }
     /**
-     * @return A `zookeeper_node` block as defined below.
+     * @return A `zookeeperNode` block as defined below.
      * 
      */
     public KafkaClusterRolesZookeeperNode zookeeperNode() {

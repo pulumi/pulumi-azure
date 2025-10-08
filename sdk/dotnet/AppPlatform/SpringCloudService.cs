@@ -86,19 +86,19 @@ namespace Pulumi.Azure.AppPlatform
         public Output<string?> BuildAgentPoolSize { get; private set; } = null!;
 
         /// <summary>
-        /// A `config_server_git_setting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
+        /// A `ConfigServerGitSetting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
         /// </summary>
         [Output("configServerGitSetting")]
         public Output<Outputs.SpringCloudServiceConfigServerGitSetting?> ConfigServerGitSetting { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `container_registry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+        /// One or more `ContainerRegistry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
         /// </summary>
         [Output("containerRegistries")]
         public Output<ImmutableArray<Outputs.SpringCloudServiceContainerRegistry>> ContainerRegistries { get; private set; } = null!;
 
         /// <summary>
-        /// A `default_build_service` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+        /// A `DefaultBuildService` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
         /// </summary>
         [Output("defaultBuildService")]
         public Output<Outputs.SpringCloudServiceDefaultBuildService?> DefaultBuildService { get; private set; } = null!;
@@ -116,13 +116,13 @@ namespace Pulumi.Azure.AppPlatform
         public Output<bool?> LogStreamPublicEndpointEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The resource Id of the Managed Environment that the Spring Apps instance builds on. Can only be specified when `sku_tier` is set to `StandardGen2`.
+        /// The resource Id of the Managed Environment that the Spring Apps instance builds on. Can only be specified when `SkuTier` is set to `StandardGen2`.
         /// </summary>
         [Output("managedEnvironmentId")]
         public Output<string?> ManagedEnvironmentId { get; private set; } = null!;
 
         /// <summary>
-        /// A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
+        /// A `Marketplace` block as defined below. Can only be specified when `Sku` is set to `E0`.
         /// </summary>
         [Output("marketplace")]
         public Output<Outputs.SpringCloudServiceMarketplace> Marketplace { get; private set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.Azure.AppPlatform
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `network` block as defined below. Changing this forces a new resource to be created.
+        /// A `Network` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("network")]
         public Output<Outputs.SpringCloudServiceNetwork?> Network { get; private set; } = null!;
@@ -146,7 +146,7 @@ namespace Pulumi.Azure.AppPlatform
         public Output<ImmutableArray<string>> OutboundPublicIpAddresses { get; private set; } = null!;
 
         /// <summary>
-        /// A list of `required_network_traffic_rules` blocks as defined below.
+        /// A list of `RequiredNetworkTrafficRules` blocks as defined below.
         /// </summary>
         [Output("requiredNetworkTrafficRules")]
         public Output<ImmutableArray<Outputs.SpringCloudServiceRequiredNetworkTrafficRule>> RequiredNetworkTrafficRules { get; private set; } = null!;
@@ -176,7 +176,7 @@ namespace Pulumi.Azure.AppPlatform
         public Output<string?> SkuName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managed_environment_id` is defined. Changing this forces a new resource to be created.
+        /// Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `ManagedEnvironmentId` is defined. Changing this forces a new resource to be created.
         /// </summary>
         [Output("skuTier")]
         public Output<string> SkuTier { get; private set; } = null!;
@@ -188,13 +188,13 @@ namespace Pulumi.Azure.AppPlatform
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A `trace` block as defined below.
+        /// A `Trace` block as defined below.
         /// </summary>
         [Output("trace")]
         public Output<Outputs.SpringCloudServiceTrace?> Trace { get; private set; } = null!;
 
         /// <summary>
-        /// Whether zone redundancy is enabled for this Spring Cloud Service. Defaults to `false`.
+        /// Whether zone redundancy is enabled for this Spring Cloud Service. Defaults to `False`.
         /// </summary>
         [Output("zoneRedundant")]
         public Output<bool?> ZoneRedundant { get; private set; } = null!;
@@ -252,7 +252,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string>? BuildAgentPoolSize { get; set; }
 
         /// <summary>
-        /// A `config_server_git_setting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
+        /// A `ConfigServerGitSetting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
         /// </summary>
         [Input("configServerGitSetting")]
         public Input<Inputs.SpringCloudServiceConfigServerGitSettingArgs>? ConfigServerGitSetting { get; set; }
@@ -261,7 +261,7 @@ namespace Pulumi.Azure.AppPlatform
         private InputList<Inputs.SpringCloudServiceContainerRegistryArgs>? _containerRegistries;
 
         /// <summary>
-        /// One or more `container_registry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+        /// One or more `ContainerRegistry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
         /// </summary>
         public InputList<Inputs.SpringCloudServiceContainerRegistryArgs> ContainerRegistries
         {
@@ -270,7 +270,7 @@ namespace Pulumi.Azure.AppPlatform
         }
 
         /// <summary>
-        /// A `default_build_service` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+        /// A `DefaultBuildService` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
         /// </summary>
         [Input("defaultBuildService")]
         public Input<Inputs.SpringCloudServiceDefaultBuildServiceArgs>? DefaultBuildService { get; set; }
@@ -288,13 +288,13 @@ namespace Pulumi.Azure.AppPlatform
         public Input<bool>? LogStreamPublicEndpointEnabled { get; set; }
 
         /// <summary>
-        /// The resource Id of the Managed Environment that the Spring Apps instance builds on. Can only be specified when `sku_tier` is set to `StandardGen2`.
+        /// The resource Id of the Managed Environment that the Spring Apps instance builds on. Can only be specified when `SkuTier` is set to `StandardGen2`.
         /// </summary>
         [Input("managedEnvironmentId")]
         public Input<string>? ManagedEnvironmentId { get; set; }
 
         /// <summary>
-        /// A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
+        /// A `Marketplace` block as defined below. Can only be specified when `Sku` is set to `E0`.
         /// </summary>
         [Input("marketplace")]
         public Input<Inputs.SpringCloudServiceMarketplaceArgs>? Marketplace { get; set; }
@@ -306,7 +306,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `network` block as defined below. Changing this forces a new resource to be created.
+        /// A `Network` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("network")]
         public Input<Inputs.SpringCloudServiceNetworkArgs>? Network { get; set; }
@@ -330,7 +330,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string>? SkuName { get; set; }
 
         /// <summary>
-        /// Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managed_environment_id` is defined. Changing this forces a new resource to be created.
+        /// Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `ManagedEnvironmentId` is defined. Changing this forces a new resource to be created.
         /// </summary>
         [Input("skuTier")]
         public Input<string>? SkuTier { get; set; }
@@ -348,13 +348,13 @@ namespace Pulumi.Azure.AppPlatform
         }
 
         /// <summary>
-        /// A `trace` block as defined below.
+        /// A `Trace` block as defined below.
         /// </summary>
         [Input("trace")]
         public Input<Inputs.SpringCloudServiceTraceArgs>? Trace { get; set; }
 
         /// <summary>
-        /// Whether zone redundancy is enabled for this Spring Cloud Service. Defaults to `false`.
+        /// Whether zone redundancy is enabled for this Spring Cloud Service. Defaults to `False`.
         /// </summary>
         [Input("zoneRedundant")]
         public Input<bool>? ZoneRedundant { get; set; }
@@ -374,7 +374,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string>? BuildAgentPoolSize { get; set; }
 
         /// <summary>
-        /// A `config_server_git_setting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
+        /// A `ConfigServerGitSetting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
         /// </summary>
         [Input("configServerGitSetting")]
         public Input<Inputs.SpringCloudServiceConfigServerGitSettingGetArgs>? ConfigServerGitSetting { get; set; }
@@ -383,7 +383,7 @@ namespace Pulumi.Azure.AppPlatform
         private InputList<Inputs.SpringCloudServiceContainerRegistryGetArgs>? _containerRegistries;
 
         /// <summary>
-        /// One or more `container_registry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+        /// One or more `ContainerRegistry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
         /// </summary>
         public InputList<Inputs.SpringCloudServiceContainerRegistryGetArgs> ContainerRegistries
         {
@@ -392,7 +392,7 @@ namespace Pulumi.Azure.AppPlatform
         }
 
         /// <summary>
-        /// A `default_build_service` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+        /// A `DefaultBuildService` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
         /// </summary>
         [Input("defaultBuildService")]
         public Input<Inputs.SpringCloudServiceDefaultBuildServiceGetArgs>? DefaultBuildService { get; set; }
@@ -410,13 +410,13 @@ namespace Pulumi.Azure.AppPlatform
         public Input<bool>? LogStreamPublicEndpointEnabled { get; set; }
 
         /// <summary>
-        /// The resource Id of the Managed Environment that the Spring Apps instance builds on. Can only be specified when `sku_tier` is set to `StandardGen2`.
+        /// The resource Id of the Managed Environment that the Spring Apps instance builds on. Can only be specified when `SkuTier` is set to `StandardGen2`.
         /// </summary>
         [Input("managedEnvironmentId")]
         public Input<string>? ManagedEnvironmentId { get; set; }
 
         /// <summary>
-        /// A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
+        /// A `Marketplace` block as defined below. Can only be specified when `Sku` is set to `E0`.
         /// </summary>
         [Input("marketplace")]
         public Input<Inputs.SpringCloudServiceMarketplaceGetArgs>? Marketplace { get; set; }
@@ -428,7 +428,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `network` block as defined below. Changing this forces a new resource to be created.
+        /// A `Network` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("network")]
         public Input<Inputs.SpringCloudServiceNetworkGetArgs>? Network { get; set; }
@@ -449,7 +449,7 @@ namespace Pulumi.Azure.AppPlatform
         private InputList<Inputs.SpringCloudServiceRequiredNetworkTrafficRuleGetArgs>? _requiredNetworkTrafficRules;
 
         /// <summary>
-        /// A list of `required_network_traffic_rules` blocks as defined below.
+        /// A list of `RequiredNetworkTrafficRules` blocks as defined below.
         /// </summary>
         public InputList<Inputs.SpringCloudServiceRequiredNetworkTrafficRuleGetArgs> RequiredNetworkTrafficRules
         {
@@ -482,7 +482,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string>? SkuName { get; set; }
 
         /// <summary>
-        /// Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managed_environment_id` is defined. Changing this forces a new resource to be created.
+        /// Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `ManagedEnvironmentId` is defined. Changing this forces a new resource to be created.
         /// </summary>
         [Input("skuTier")]
         public Input<string>? SkuTier { get; set; }
@@ -500,13 +500,13 @@ namespace Pulumi.Azure.AppPlatform
         }
 
         /// <summary>
-        /// A `trace` block as defined below.
+        /// A `Trace` block as defined below.
         /// </summary>
         [Input("trace")]
         public Input<Inputs.SpringCloudServiceTraceGetArgs>? Trace { get; set; }
 
         /// <summary>
-        /// Whether zone redundancy is enabled for this Spring Cloud Service. Defaults to `false`.
+        /// Whether zone redundancy is enabled for this Spring Cloud Service. Defaults to `False`.
         /// </summary>
         [Input("zoneRedundant")]
         public Input<bool>? ZoneRedundant { get; set; }

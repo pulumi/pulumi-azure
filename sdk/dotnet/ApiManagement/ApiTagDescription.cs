@@ -12,6 +12,75 @@ namespace Pulumi.Azure.ApiManagement
     /// <summary>
     /// Manages an API Tag Description within an API Management Service.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleService = new Azure.ApiManagement.Service("example", new()
+    ///     {
+    ///         Name = "example-apim",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         PublisherName = "My Company",
+    ///         PublisherEmail = "company@terraform.io",
+    ///         SkuName = "Developer_1",
+    ///     });
+    /// 
+    ///     var exampleApi = new Azure.ApiManagement.Api("example", new()
+    ///     {
+    ///         Name = "example-api",
+    ///         ResourceGroupName = example.Name,
+    ///         ApiManagementName = exampleService.Name,
+    ///         Revision = "1",
+    ///         DisplayName = "Example API",
+    ///         Path = "example",
+    ///         Protocols = new[]
+    ///         {
+    ///             "https",
+    ///         },
+    ///         Import = new Azure.ApiManagement.Inputs.ApiImportArgs
+    ///         {
+    ///             ContentFormat = "swagger-link-json",
+    ///             ContentValue = "https://raw.githubusercontent.com/hashicorp/terraform-provider-azurerm/refs/heads/main/internal/services/apimanagement/testdata/api_management_api_swagger.json",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleTag = new Azure.ApiManagement.Tag("example", new()
+    ///     {
+    ///         ApiManagementId = exampleService.Id,
+    ///         Name = "example-Tag",
+    ///     });
+    /// 
+    ///     var exampleApiTagDescription = new Azure.ApiManagement.ApiTagDescription("example", new()
+    ///     {
+    ///         ApiTagId = exampleTag.Id,
+    ///         Description = "This is an example description",
+    ///         ExternalDocsUrl = "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs",
+    ///         ExternalDocsDescription = "This is an example external docs description",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.ApiManagement` - 2022-08-01
+    /// 
     /// ## Import
     /// 
     /// API Management API Schema's can be imported using the `resource id`, e.g.

@@ -112,7 +112,7 @@ namespace Pulumi.Azure.Healthcare
         public Output<ImmutableArray<string>> AccessPolicyObjectIds { get; private set; } = null!;
 
         /// <summary>
-        /// An `authentication` block as defined below.
+        /// An `Authentication` block as defined below.
         /// </summary>
         [Output("authentication")]
         public Output<Outputs.FhirServiceAuthentication> Authentication { get; private set; } = null!;
@@ -130,13 +130,13 @@ namespace Pulumi.Azure.Healthcare
         public Output<ImmutableArray<string>> ContainerRegistryLoginServerUrls { get; private set; } = null!;
 
         /// <summary>
-        /// A `cors` block as defined below.
+        /// A `Cors` block as defined below.
         /// </summary>
         [Output("cors")]
         public Output<Outputs.FhirServiceCors?> Cors { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.FhirServiceIdentity?> Identity { get; private set; } = null!;
@@ -160,7 +160,7 @@ namespace Pulumi.Azure.Healthcare
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `oci_artifact` objects as defined below to describe [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export).
+        /// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `OciArtifact` objects as defined below to describe [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export).
         /// </summary>
         [Output("ociArtifacts")]
         public Output<ImmutableArray<Outputs.FhirServiceOciArtifact>> OciArtifacts { get; private set; } = null!;
@@ -248,7 +248,7 @@ namespace Pulumi.Azure.Healthcare
         }
 
         /// <summary>
-        /// An `authentication` block as defined below.
+        /// An `Authentication` block as defined below.
         /// </summary>
         [Input("authentication", required: true)]
         public Input<Inputs.FhirServiceAuthenticationArgs> Authentication { get; set; } = null!;
@@ -272,13 +272,13 @@ namespace Pulumi.Azure.Healthcare
         }
 
         /// <summary>
-        /// A `cors` block as defined below.
+        /// A `Cors` block as defined below.
         /// </summary>
         [Input("cors")]
         public Input<Inputs.FhirServiceCorsArgs>? Cors { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.FhirServiceIdentityArgs>? Identity { get; set; }
@@ -305,7 +305,7 @@ namespace Pulumi.Azure.Healthcare
         private InputList<Inputs.FhirServiceOciArtifactArgs>? _ociArtifacts;
 
         /// <summary>
-        /// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `oci_artifact` objects as defined below to describe [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export).
+        /// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `OciArtifact` objects as defined below to describe [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export).
         /// </summary>
         public InputList<Inputs.FhirServiceOciArtifactArgs> OciArtifacts
         {
@@ -358,7 +358,7 @@ namespace Pulumi.Azure.Healthcare
         }
 
         /// <summary>
-        /// An `authentication` block as defined below.
+        /// An `Authentication` block as defined below.
         /// </summary>
         [Input("authentication")]
         public Input<Inputs.FhirServiceAuthenticationGetArgs>? Authentication { get; set; }
@@ -382,13 +382,13 @@ namespace Pulumi.Azure.Healthcare
         }
 
         /// <summary>
-        /// A `cors` block as defined below.
+        /// A `Cors` block as defined below.
         /// </summary>
         [Input("cors")]
         public Input<Inputs.FhirServiceCorsGetArgs>? Cors { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.FhirServiceIdentityGetArgs>? Identity { get; set; }
@@ -415,7 +415,7 @@ namespace Pulumi.Azure.Healthcare
         private InputList<Inputs.FhirServiceOciArtifactGetArgs>? _ociArtifacts;
 
         /// <summary>
-        /// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `oci_artifact` objects as defined below to describe [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export).
+        /// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `OciArtifact` objects as defined below to describe [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export).
         /// </summary>
         public InputList<Inputs.FhirServiceOciArtifactGetArgs> OciArtifacts
         {

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.NetApp.Outputs
     public sealed class VolumeDataProtectionReplication
     {
         /// <summary>
-        /// The endpoint type, default value is `dst` for destination.
+        /// The endpoint type, default value is `Dst` for destination.
         /// </summary>
         public readonly string? EndpointType;
         /// <summary>
@@ -28,9 +28,9 @@ namespace Pulumi.Azure.NetApp.Outputs
         /// <summary>
         /// Replication frequency, supported values are '10minutes', 'hourly', 'daily', values are case sensitive.
         /// 
-        /// A full example of the `data_protection_replication` attribute can be found in the `./examples/netapp/volume_crr` directory within the GitHub Repository
+        /// A full example of the `DataProtectionReplication` attribute can be found in the `./examples/netapp/volume_crr` directory within the GitHub Repository
         /// 
-        /// &gt; **Note:** `data_protection_replication` can be defined only once per secondary volume, adding a second instance of it is not supported.
+        /// &gt; **Note:** `DataProtectionReplication` can be defined only once per secondary volume, adding a second instance of it is not supported.
         /// </summary>
         public readonly string ReplicationFrequency;
 

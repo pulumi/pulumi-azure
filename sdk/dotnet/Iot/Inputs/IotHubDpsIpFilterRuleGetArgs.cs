@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Iot.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Target for requests captured by this rule. Possible values are `all`, `deviceApi` and `serviceApi`.
+        /// Target for requests captured by this rule. Possible values are `All`, `deviceApi` and `serviceApi`.
         /// </summary>
         [Input("target")]
         public Input<string>? Target { get; set; }

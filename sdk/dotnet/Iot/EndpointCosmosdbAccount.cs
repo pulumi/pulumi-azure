@@ -14,6 +14,90 @@ namespace Pulumi.Azure.Iot
     /// 
     /// &gt; **Note:** Endpoints can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azurerm_iothub_endpoint_*` resources - but the two ways of defining the endpoints cannot be used together. If both are used against the same IoTHub, spurious changes will occur. Also, defining a `azurerm_iothub_endpoint_*` resource and another endpoint of a different type directly on the `azure.iot.IoTHub` resource is not supported.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleIoTHub = new Azure.Iot.IoTHub("example", new()
+    ///     {
+    ///         Name = "exampleIothub",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         Sku = new Azure.Iot.Inputs.IoTHubSkuArgs
+    ///         {
+    ///             Name = "B1",
+    ///             Capacity = 1,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "purpose", "example" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.CosmosDB.Account("example", new()
+    ///     {
+    ///         Name = "cosmosdb-account",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         OfferType = "Standard",
+    ///         Kind = "GlobalDocumentDB",
+    ///         ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
+    ///         {
+    ///             ConsistencyLevel = "Strong",
+    ///         },
+    ///         GeoLocations = new[]
+    ///         {
+    ///             new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
+    ///             {
+    ///                 Location = example.Location,
+    ///                 FailoverPriority = 0,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSqlDatabase = new Azure.CosmosDB.SqlDatabase("example", new()
+    ///     {
+    ///         Name = "cosmos-sql-db",
+    ///         ResourceGroupName = exampleAccount.ResourceGroupName,
+    ///         AccountName = exampleAccount.Name,
+    ///     });
+    /// 
+    ///     var exampleSqlContainer = new Azure.CosmosDB.SqlContainer("example", new()
+    ///     {
+    ///         Name = "example-container",
+    ///         ResourceGroupName = exampleAccount.ResourceGroupName,
+    ///         AccountName = exampleAccount.Name,
+    ///         DatabaseName = exampleSqlDatabase.Name,
+    ///         PartitionKeyPath = "/definition/id",
+    ///     });
+    /// 
+    ///     var exampleEndpointCosmosdbAccount = new Azure.Iot.EndpointCosmosdbAccount("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
+    ///         IothubId = exampleIoTHub.Id,
+    ///         ContainerName = exampleSqlContainer.Name,
+    ///         DatabaseName = exampleSqlDatabase.Name,
+    ///         EndpointUri = exampleAccount.Endpoint,
+    ///         PrimaryKey = exampleAccount.PrimaryKey,
+    ///         SecondaryKey = exampleAccount.SecondaryKey,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// IoTHub Cosmos DB Account Endpoint can be imported using the `resource id`, e.g.
@@ -52,7 +136,7 @@ namespace Pulumi.Azure.Iot
         /// <summary>
         /// The ID of the User Managed Identity used to authenticate against the Cosmos DB Account endpoint.
         /// 
-        /// &gt; **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
+        /// &gt; **Note:** `IdentityId` can only be specified when `AuthenticationType` is `identityBased`. It must be one of the `IdentityIds` of the Iot Hub. If not specified when `AuthenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
         /// </summary>
         [Output("identityId")]
         public Output<string?> IdentityId { get; private set; } = null!;
@@ -64,7 +148,7 @@ namespace Pulumi.Azure.Iot
         public Output<string> IothubId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
+        /// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `Events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -84,7 +168,7 @@ namespace Pulumi.Azure.Iot
         /// <summary>
         /// The primary key of the Cosmos DB Account.
         /// 
-        /// &gt; **Note:** `primary_key` must and can only be specified when `authentication_type` is `keyBased`.
+        /// &gt; **Note:** `PrimaryKey` must and can only be specified when `AuthenticationType` is `keyBased`.
         /// </summary>
         [Output("primaryKey")]
         public Output<string?> PrimaryKey { get; private set; } = null!;
@@ -98,7 +182,7 @@ namespace Pulumi.Azure.Iot
         /// <summary>
         /// The secondary key of the Cosmos DB Account.
         /// 
-        /// &gt; **Note:** `secondary_key` must and can only be specified when `authentication_type` is `keyBased`.
+        /// &gt; **Note:** `SecondaryKey` must and can only be specified when `AuthenticationType` is `keyBased`.
         /// </summary>
         [Output("secondaryKey")]
         public Output<string?> SecondaryKey { get; private set; } = null!;
@@ -106,7 +190,7 @@ namespace Pulumi.Azure.Iot
         /// <summary>
         /// The subscription ID for the endpoint.
         /// 
-        /// &gt; **Note:** When `subscription_id` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+        /// &gt; **Note:** When `SubscriptionId` isn't specified it will be set to the subscription ID of the IoT Hub resource.
         /// </summary>
         [Output("subscriptionId")]
         public Output<string> SubscriptionId { get; private set; } = null!;
@@ -189,7 +273,7 @@ namespace Pulumi.Azure.Iot
         /// <summary>
         /// The ID of the User Managed Identity used to authenticate against the Cosmos DB Account endpoint.
         /// 
-        /// &gt; **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
+        /// &gt; **Note:** `IdentityId` can only be specified when `AuthenticationType` is `identityBased`. It must be one of the `IdentityIds` of the Iot Hub. If not specified when `AuthenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
         /// </summary>
         [Input("identityId")]
         public Input<string>? IdentityId { get; set; }
@@ -201,7 +285,7 @@ namespace Pulumi.Azure.Iot
         public Input<string> IothubId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
+        /// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `Events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -224,7 +308,7 @@ namespace Pulumi.Azure.Iot
         /// <summary>
         /// The primary key of the Cosmos DB Account.
         /// 
-        /// &gt; **Note:** `primary_key` must and can only be specified when `authentication_type` is `keyBased`.
+        /// &gt; **Note:** `PrimaryKey` must and can only be specified when `AuthenticationType` is `keyBased`.
         /// </summary>
         public Input<string>? PrimaryKey
         {
@@ -248,7 +332,7 @@ namespace Pulumi.Azure.Iot
         /// <summary>
         /// The secondary key of the Cosmos DB Account.
         /// 
-        /// &gt; **Note:** `secondary_key` must and can only be specified when `authentication_type` is `keyBased`.
+        /// &gt; **Note:** `SecondaryKey` must and can only be specified when `AuthenticationType` is `keyBased`.
         /// </summary>
         public Input<string>? SecondaryKey
         {
@@ -263,7 +347,7 @@ namespace Pulumi.Azure.Iot
         /// <summary>
         /// The subscription ID for the endpoint.
         /// 
-        /// &gt; **Note:** When `subscription_id` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+        /// &gt; **Note:** When `SubscriptionId` isn't specified it will be set to the subscription ID of the IoT Hub resource.
         /// </summary>
         [Input("subscriptionId")]
         public Input<string>? SubscriptionId { get; set; }
@@ -303,7 +387,7 @@ namespace Pulumi.Azure.Iot
         /// <summary>
         /// The ID of the User Managed Identity used to authenticate against the Cosmos DB Account endpoint.
         /// 
-        /// &gt; **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
+        /// &gt; **Note:** `IdentityId` can only be specified when `AuthenticationType` is `identityBased`. It must be one of the `IdentityIds` of the Iot Hub. If not specified when `AuthenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
         /// </summary>
         [Input("identityId")]
         public Input<string>? IdentityId { get; set; }
@@ -315,7 +399,7 @@ namespace Pulumi.Azure.Iot
         public Input<string>? IothubId { get; set; }
 
         /// <summary>
-        /// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
+        /// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `Events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -338,7 +422,7 @@ namespace Pulumi.Azure.Iot
         /// <summary>
         /// The primary key of the Cosmos DB Account.
         /// 
-        /// &gt; **Note:** `primary_key` must and can only be specified when `authentication_type` is `keyBased`.
+        /// &gt; **Note:** `PrimaryKey` must and can only be specified when `AuthenticationType` is `keyBased`.
         /// </summary>
         public Input<string>? PrimaryKey
         {
@@ -362,7 +446,7 @@ namespace Pulumi.Azure.Iot
         /// <summary>
         /// The secondary key of the Cosmos DB Account.
         /// 
-        /// &gt; **Note:** `secondary_key` must and can only be specified when `authentication_type` is `keyBased`.
+        /// &gt; **Note:** `SecondaryKey` must and can only be specified when `AuthenticationType` is `keyBased`.
         /// </summary>
         public Input<string>? SecondaryKey
         {
@@ -377,7 +461,7 @@ namespace Pulumi.Azure.Iot
         /// <summary>
         /// The subscription ID for the endpoint.
         /// 
-        /// &gt; **Note:** When `subscription_id` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+        /// &gt; **Note:** When `SubscriptionId` isn't specified it will be set to the subscription ID of the IoT Hub resource.
         /// </summary>
         [Input("subscriptionId")]
         public Input<string>? SubscriptionId { get; set; }

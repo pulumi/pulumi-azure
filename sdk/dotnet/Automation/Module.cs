@@ -75,7 +75,7 @@ namespace Pulumi.Azure.Automation
         public Output<string> AutomationAccountName { get; private set; } = null!;
 
         /// <summary>
-        /// A `module_link` block as defined below.
+        /// A `ModuleLink` block as defined below.
         /// </summary>
         [Output("moduleLink")]
         public Output<Outputs.ModuleModuleLink> ModuleLink { get; private set; } = null!;
@@ -145,7 +145,7 @@ namespace Pulumi.Azure.Automation
         public Input<string> AutomationAccountName { get; set; } = null!;
 
         /// <summary>
-        /// A `module_link` block as defined below.
+        /// A `ModuleLink` block as defined below.
         /// </summary>
         [Input("moduleLink", required: true)]
         public Input<Inputs.ModuleModuleLinkArgs> ModuleLink { get; set; } = null!;
@@ -177,7 +177,7 @@ namespace Pulumi.Azure.Automation
         public Input<string>? AutomationAccountName { get; set; }
 
         /// <summary>
-        /// A `module_link` block as defined below.
+        /// A `ModuleLink` block as defined below.
         /// </summary>
         [Input("moduleLink")]
         public Input<Inputs.ModuleModuleLinkGetArgs>? ModuleLink { get; set; }

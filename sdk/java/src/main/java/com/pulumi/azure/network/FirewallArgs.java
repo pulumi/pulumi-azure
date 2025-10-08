@@ -23,14 +23,14 @@ public final class FirewallArgs extends com.pulumi.resources.ResourceArgs {
     public static final FirewallArgs Empty = new FirewallArgs();
 
     /**
-     * Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dns_servers` provided with a not empty list.
+     * Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dnsServers` provided with a not empty list.
      * 
      */
     @Import(name="dnsProxyEnabled")
     private @Nullable Output<Boolean> dnsProxyEnabled;
 
     /**
-     * @return Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dns_servers` provided with a not empty list.
+     * @return Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dnsServers` provided with a not empty list.
      * 
      */
     public Optional<Output<Boolean>> dnsProxyEnabled() {
@@ -68,14 +68,14 @@ public final class FirewallArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `ip_configuration` block as documented below.
+     * An `ipConfiguration` block as documented below.
      * 
      */
     @Import(name="ipConfigurations")
     private @Nullable Output<List<FirewallIpConfigurationArgs>> ipConfigurations;
 
     /**
-     * @return An `ip_configuration` block as documented below.
+     * @return An `ipConfiguration` block as documented below.
      * 
      */
     public Optional<Output<List<FirewallIpConfigurationArgs>>> ipConfigurations() {
@@ -98,14 +98,14 @@ public final class FirewallArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `management_ip_configuration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnet_id` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
+     * A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="managementIpConfiguration")
     private @Nullable Output<FirewallManagementIpConfigurationArgs> managementIpConfiguration;
 
     /**
-     * @return A `management_ip_configuration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnet_id` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
+     * @return A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<FirewallManagementIpConfigurationArgs>> managementIpConfiguration() {
@@ -218,14 +218,14 @@ public final class FirewallArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `virtual_hub` block as documented below.
+     * A `virtualHub` block as documented below.
      * 
      */
     @Import(name="virtualHub")
     private @Nullable Output<FirewallVirtualHubArgs> virtualHub;
 
     /**
-     * @return A `virtual_hub` block as documented below.
+     * @return A `virtualHub` block as documented below.
      * 
      */
     public Optional<Output<FirewallVirtualHubArgs>> virtualHub() {
@@ -290,7 +290,7 @@ public final class FirewallArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsProxyEnabled Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dns_servers` provided with a not empty list.
+         * @param dnsProxyEnabled Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dnsServers` provided with a not empty list.
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class FirewallArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsProxyEnabled Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dns_servers` provided with a not empty list.
+         * @param dnsProxyEnabled Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dnsServers` provided with a not empty list.
          * 
          * @return builder
          * 
@@ -363,7 +363,7 @@ public final class FirewallArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipConfigurations An `ip_configuration` block as documented below.
+         * @param ipConfigurations An `ipConfiguration` block as documented below.
          * 
          * @return builder
          * 
@@ -374,7 +374,7 @@ public final class FirewallArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipConfigurations An `ip_configuration` block as documented below.
+         * @param ipConfigurations An `ipConfiguration` block as documented below.
          * 
          * @return builder
          * 
@@ -384,7 +384,7 @@ public final class FirewallArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipConfigurations An `ip_configuration` block as documented below.
+         * @param ipConfigurations An `ipConfiguration` block as documented below.
          * 
          * @return builder
          * 
@@ -415,7 +415,7 @@ public final class FirewallArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managementIpConfiguration A `management_ip_configuration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnet_id` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
+         * @param managementIpConfiguration A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -426,7 +426,7 @@ public final class FirewallArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managementIpConfiguration A `management_ip_configuration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnet_id` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
+         * @param managementIpConfiguration A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -593,7 +593,7 @@ public final class FirewallArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param virtualHub A `virtual_hub` block as documented below.
+         * @param virtualHub A `virtualHub` block as documented below.
          * 
          * @return builder
          * 
@@ -604,7 +604,7 @@ public final class FirewallArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param virtualHub A `virtual_hub` block as documented below.
+         * @param virtualHub A `virtualHub` block as documented below.
          * 
          * @return builder
          * 

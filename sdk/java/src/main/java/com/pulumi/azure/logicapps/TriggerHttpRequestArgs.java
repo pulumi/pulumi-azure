@@ -68,7 +68,7 @@ public final class TriggerHttpRequestArgs extends com.pulumi.resources.ResourceA
     /**
      * Specifies the Relative Path used for this Request.
      * 
-     * &gt; **NOTE:** When `relative_path` is set a `method` must also be set.
+     * &gt; **NOTE:** When `relativePath` is set a `method` must also be set.
      * 
      */
     @Import(name="relativePath")
@@ -77,7 +77,7 @@ public final class TriggerHttpRequestArgs extends com.pulumi.resources.ResourceA
     /**
      * @return Specifies the Relative Path used for this Request.
      * 
-     * &gt; **NOTE:** When `relative_path` is set a `method` must also be set.
+     * &gt; **NOTE:** When `relativePath` is set a `method` must also be set.
      * 
      */
     public Optional<Output<String>> relativePath() {
@@ -197,7 +197,7 @@ public final class TriggerHttpRequestArgs extends com.pulumi.resources.ResourceA
         /**
          * @param relativePath Specifies the Relative Path used for this Request.
          * 
-         * &gt; **NOTE:** When `relative_path` is set a `method` must also be set.
+         * &gt; **NOTE:** When `relativePath` is set a `method` must also be set.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class TriggerHttpRequestArgs extends com.pulumi.resources.ResourceA
         /**
          * @param relativePath Specifies the Relative Path used for this Request.
          * 
-         * &gt; **NOTE:** When `relative_path` is set a `method` must also be set.
+         * &gt; **NOTE:** When `relativePath` is set a `method` must also be set.
          * 
          * @return builder
          * 

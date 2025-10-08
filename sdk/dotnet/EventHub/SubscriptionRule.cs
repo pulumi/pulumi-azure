@@ -14,6 +14,127 @@ namespace Pulumi.Azure.EventHub
     /// 
     /// ## Example Usage
     /// 
+    /// ### SQL Filter)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "tfex-servicebus-subscription-rule-sql",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleNamespace = new Azure.ServiceBus.Namespace("example", new()
+    ///     {
+    ///         Name = "tfex-servicebus-namespace",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Sku = "Standard",
+    ///         Tags = 
+    ///         {
+    ///             { "source", "example" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleTopic = new Azure.ServiceBus.Topic("example", new()
+    ///     {
+    ///         Name = "tfex_servicebus_topic",
+    ///         NamespaceId = exampleNamespace.Id,
+    ///         EnablePartitioning = true,
+    ///     });
+    /// 
+    ///     var exampleSubscription = new Azure.ServiceBus.Subscription("example", new()
+    ///     {
+    ///         Name = "tfex_servicebus_subscription",
+    ///         TopicId = exampleTopic.Id,
+    ///         MaxDeliveryCount = 1,
+    ///     });
+    /// 
+    ///     var exampleSubscriptionRule = new Azure.ServiceBus.SubscriptionRule("example", new()
+    ///     {
+    ///         Name = "tfex_servicebus_rule",
+    ///         SubscriptionId = exampleSubscription.Id,
+    ///         FilterType = "SqlFilter",
+    ///         SqlFilter = "colour = 'red'",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Correlation Filter)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "tfex-servicebus-subscription-rule-cor",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleNamespace = new Azure.ServiceBus.Namespace("example", new()
+    ///     {
+    ///         Name = "tfex-servicebus-namespace",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Sku = "Standard",
+    ///         Tags = 
+    ///         {
+    ///             { "source", "example" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleTopic = new Azure.ServiceBus.Topic("example", new()
+    ///     {
+    ///         Name = "tfex_servicebus_topic",
+    ///         NamespaceId = exampleNamespace.Id,
+    ///         EnablePartitioning = true,
+    ///     });
+    /// 
+    ///     var exampleSubscription = new Azure.ServiceBus.Subscription("example", new()
+    ///     {
+    ///         Name = "tfex_servicebus_subscription",
+    ///         TopicId = exampleTopic.Id,
+    ///         MaxDeliveryCount = 1,
+    ///     });
+    /// 
+    ///     var exampleSubscriptionRule = new Azure.ServiceBus.SubscriptionRule("example", new()
+    ///     {
+    ///         Name = "tfex_servicebus_rule",
+    ///         SubscriptionId = exampleSubscription.Id,
+    ///         FilterType = "CorrelationFilter",
+    ///         CorrelationFilter = new Azure.ServiceBus.Inputs.SubscriptionRuleCorrelationFilterArgs
+    ///         {
+    ///             CorrelationId = "high",
+    ///             Label = "red",
+    ///             Properties = 
+    ///             {
+    ///                 { "customProperty", "value" },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.ServiceBus` - 2024-01-01
+    /// 
     /// ## Import
     /// 
     /// Service Bus Subscription Rule can be imported using the `resource id`, e.g.
@@ -33,7 +154,7 @@ namespace Pulumi.Azure.EventHub
         public Output<string?> Action { get; private set; } = null!;
 
         /// <summary>
-        /// A `correlation_filter` block as documented below to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `CorrelationFilter`.
+        /// A `CorrelationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `FilterType` is set to `CorrelationFilter`.
         /// </summary>
         [Output("correlationFilter")]
         public Output<Outputs.SubscriptionRuleCorrelationFilter?> CorrelationFilter { get; private set; } = null!;
@@ -51,7 +172,7 @@ namespace Pulumi.Azure.EventHub
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `SqlFilter`.
+        /// Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `FilterType` is set to `SqlFilter`.
         /// </summary>
         [Output("sqlFilter")]
         public Output<string?> SqlFilter { get; private set; } = null!;
@@ -118,7 +239,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? Action { get; set; }
 
         /// <summary>
-        /// A `correlation_filter` block as documented below to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `CorrelationFilter`.
+        /// A `CorrelationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `FilterType` is set to `CorrelationFilter`.
         /// </summary>
         [Input("correlationFilter")]
         public Input<Inputs.SubscriptionRuleCorrelationFilterArgs>? CorrelationFilter { get; set; }
@@ -136,7 +257,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `SqlFilter`.
+        /// Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `FilterType` is set to `SqlFilter`.
         /// </summary>
         [Input("sqlFilter")]
         public Input<string>? SqlFilter { get; set; }
@@ -162,7 +283,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? Action { get; set; }
 
         /// <summary>
-        /// A `correlation_filter` block as documented below to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `CorrelationFilter`.
+        /// A `CorrelationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `FilterType` is set to `CorrelationFilter`.
         /// </summary>
         [Input("correlationFilter")]
         public Input<Inputs.SubscriptionRuleCorrelationFilterGetArgs>? CorrelationFilter { get; set; }
@@ -180,7 +301,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `SqlFilter`.
+        /// Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `FilterType` is set to `SqlFilter`.
         /// </summary>
         [Input("sqlFilter")]
         public Input<string>? SqlFilter { get; set; }

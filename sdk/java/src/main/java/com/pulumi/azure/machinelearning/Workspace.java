@@ -472,7 +472,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** The `admin_enabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
+     * &gt; **Note:** The `adminEnabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
      * 
      */
     @Export(name="containerRegistryId", refs={String.class}, tree="[0]")
@@ -481,7 +481,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** The `admin_enabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
+     * &gt; **Note:** The `adminEnabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
      * 
      */
     public Output<Optional<String>> containerRegistryId() {
@@ -530,14 +530,14 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.encryption);
     }
     /**
-     * A `feature_store` block as defined below.
+     * A `featureStore` block as defined below.
      * 
      */
     @Export(name="featureStore", refs={WorkspaceFeatureStore.class}, tree="[0]")
     private Output</* @Nullable */ WorkspaceFeatureStore> featureStore;
 
     /**
-     * @return A `feature_store` block as defined below.
+     * @return A `featureStore` block as defined below.
      * 
      */
     public Output<Optional<WorkspaceFeatureStore>> featureStore() {
@@ -642,14 +642,14 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * A `managed_network` block as defined below.
+     * A `managedNetwork` block as defined below.
      * 
      */
     @Export(name="managedNetwork", refs={WorkspaceManagedNetwork.class}, tree="[0]")
     private Output<WorkspaceManagedNetwork> managedNetwork;
 
     /**
-     * @return A `managed_network` block as defined below.
+     * @return A `managedNetwork` block as defined below.
      * 
      */
     public Output<WorkspaceManagedNetwork> managedNetwork() {
@@ -686,7 +686,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
     /**
      * Enable public access when this Machine Learning Workspace is behind VNet. Defaults to `true`.
      * 
-     * &gt; **Note:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
+     * &gt; **Note:** `publicAccessBehindVirtualNetworkEnabled` is deprecated and will be removed in favour of the property `publicNetworkAccessEnabled`.
      * 
      */
     @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
@@ -695,7 +695,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
     /**
      * @return Enable public access when this Machine Learning Workspace is behind VNet. Defaults to `true`.
      * 
-     * &gt; **Note:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
+     * &gt; **Note:** `publicAccessBehindVirtualNetworkEnabled` is deprecated and will be removed in favour of the property `publicNetworkAccessEnabled`.
      * 
      */
     public Output<Optional<Boolean>> publicNetworkAccessEnabled() {
@@ -716,14 +716,14 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * A `serverless_compute` block as defined below.
+     * A `serverlessCompute` block as defined below.
      * 
      */
     @Export(name="serverlessCompute", refs={WorkspaceServerlessCompute.class}, tree="[0]")
     private Output</* @Nullable */ WorkspaceServerlessCompute> serverlessCompute;
 
     /**
-     * @return A `serverless_compute` block as defined below.
+     * @return A `serverlessCompute` block as defined below.
      * 
      */
     public Output<Optional<WorkspaceServerlessCompute>> serverlessCompute() {
@@ -732,7 +732,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
     /**
      * Whether to enable service-side encryption with customer-managed keys (CMK). Default to `false`. Changing this forces a new resource to be created.
      * 
-     * !&gt; **Note:** Setting `service_side_encryption_enabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
+     * !&gt; **Note:** Setting `serviceSideEncryptionEnabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
      * 
      */
     @Export(name="serviceSideEncryptionEnabled", refs={Boolean.class}, tree="[0]")
@@ -741,7 +741,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
     /**
      * @return Whether to enable service-side encryption with customer-managed keys (CMK). Default to `false`. Changing this forces a new resource to be created.
      * 
-     * !&gt; **Note:** Setting `service_side_encryption_enabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
+     * !&gt; **Note:** Setting `serviceSideEncryptionEnabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
      * 
      */
     public Output<Optional<Boolean>> serviceSideEncryptionEnabled() {
@@ -764,7 +764,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** The `account_tier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
+     * &gt; **Note:** The `accountTier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
      * 
      */
     @Export(name="storageAccountId", refs={String.class}, tree="[0]")
@@ -773,7 +773,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** The `account_tier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
+     * &gt; **Note:** The `accountTier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
      * 
      */
     public Output<String> storageAccountId() {
@@ -794,14 +794,14 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * Enable V1 API features, enabling `v1_legacy_mode` may prevent you from using features provided by the v2 API. Defaults to `false`.
+     * Enable V1 API features, enabling `v1LegacyMode` may prevent you from using features provided by the v2 API. Defaults to `false`.
      * 
      */
     @Export(name="v1LegacyModeEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> v1LegacyModeEnabled;
 
     /**
-     * @return Enable V1 API features, enabling `v1_legacy_mode` may prevent you from using features provided by the v2 API. Defaults to `false`.
+     * @return Enable V1 API features, enabling `v1LegacyMode` may prevent you from using features provided by the v2 API. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> v1LegacyModeEnabled() {

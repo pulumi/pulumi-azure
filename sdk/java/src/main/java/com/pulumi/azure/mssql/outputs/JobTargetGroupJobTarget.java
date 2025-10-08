@@ -15,21 +15,21 @@ public final class JobTargetGroupJobTarget {
     /**
      * @return The name of the MS SQL Database.
      * 
-     * &gt; **Note:** This cannot be set in combination with `elastic_pool_name`.
+     * &gt; **Note:** This cannot be set in combination with `elasticPoolName`.
      * 
      */
     private @Nullable String databaseName;
     /**
      * @return The name of the MS SQL Elastic Pool.
      * 
-     * &gt; **Note:** This cannot be set in combination with `database_name`.
+     * &gt; **Note:** This cannot be set in combination with `databaseName`.
      * 
      */
     private @Nullable String elasticPoolName;
     /**
      * @return The ID of the job credential to use during execution of jobs.
      * 
-     * &gt; **Note:** This is required when `membership_type` is `Include`, unless `database_name` is set.
+     * &gt; **Note:** This is required when `membershipType` is `Include`, unless `databaseName` is set.
      * 
      */
     private @Nullable String jobCredentialId;
@@ -44,7 +44,7 @@ public final class JobTargetGroupJobTarget {
      */
     private String serverName;
     /**
-     * @return The job target type. This value is computed based on `server_name`, `database_name`, and `elastic_pool_name`.
+     * @return The job target type. This value is computed based on `serverName`, `databaseName`, and `elasticPoolName`.
      * 
      */
     private @Nullable String type;
@@ -53,7 +53,7 @@ public final class JobTargetGroupJobTarget {
     /**
      * @return The name of the MS SQL Database.
      * 
-     * &gt; **Note:** This cannot be set in combination with `elastic_pool_name`.
+     * &gt; **Note:** This cannot be set in combination with `elasticPoolName`.
      * 
      */
     public Optional<String> databaseName() {
@@ -62,7 +62,7 @@ public final class JobTargetGroupJobTarget {
     /**
      * @return The name of the MS SQL Elastic Pool.
      * 
-     * &gt; **Note:** This cannot be set in combination with `database_name`.
+     * &gt; **Note:** This cannot be set in combination with `databaseName`.
      * 
      */
     public Optional<String> elasticPoolName() {
@@ -71,7 +71,7 @@ public final class JobTargetGroupJobTarget {
     /**
      * @return The ID of the job credential to use during execution of jobs.
      * 
-     * &gt; **Note:** This is required when `membership_type` is `Include`, unless `database_name` is set.
+     * &gt; **Note:** This is required when `membershipType` is `Include`, unless `databaseName` is set.
      * 
      */
     public Optional<String> jobCredentialId() {
@@ -92,7 +92,7 @@ public final class JobTargetGroupJobTarget {
         return this.serverName;
     }
     /**
-     * @return The job target type. This value is computed based on `server_name`, `database_name`, and `elastic_pool_name`.
+     * @return The job target type. This value is computed based on `serverName`, `databaseName`, and `elasticPoolName`.
      * 
      */
     public Optional<String> type() {

@@ -20,7 +20,7 @@ namespace Pulumi.Azure.Core.Outputs
         /// <summary>
         /// The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** The Resource Manager ID of a Storage Container is exposed via the `resource_manager_id` attribute of the `azure.storage.Container` resource.
+        /// &gt; **Note:** The Resource Manager ID of a Storage Container is exposed via the `ResourceManagerId` attribute of the `azure.storage.Container` resource.
         /// </summary>
         public readonly string RootFolderPath;
 

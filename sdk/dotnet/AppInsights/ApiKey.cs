@@ -136,13 +136,13 @@ namespace Pulumi.Azure.AppInsights
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
+        /// Specifies the list of read permissions granted to the API key. Valid values are `Agentconfig`, `Aggregate`, `Api`, `Draft`, `Extendqueries`, `Search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
         /// </summary>
         [Output("readPermissions")]
         public Output<ImmutableArray<string>> ReadPermissions { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
+        /// Specifies the list of write permissions granted to the API key. Valid values are `Annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** At least one read or write permission must be defined.
         /// </summary>
@@ -215,7 +215,7 @@ namespace Pulumi.Azure.AppInsights
         private InputList<string>? _readPermissions;
 
         /// <summary>
-        /// Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
+        /// Specifies the list of read permissions granted to the API key. Valid values are `Agentconfig`, `Aggregate`, `Api`, `Draft`, `Extendqueries`, `Search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<string> ReadPermissions
         {
@@ -227,7 +227,7 @@ namespace Pulumi.Azure.AppInsights
         private InputList<string>? _writePermissions;
 
         /// <summary>
-        /// Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
+        /// Specifies the list of write permissions granted to the API key. Valid values are `Annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** At least one read or write permission must be defined.
         /// </summary>
@@ -277,7 +277,7 @@ namespace Pulumi.Azure.AppInsights
         private InputList<string>? _readPermissions;
 
         /// <summary>
-        /// Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
+        /// Specifies the list of read permissions granted to the API key. Valid values are `Agentconfig`, `Aggregate`, `Api`, `Draft`, `Extendqueries`, `Search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<string> ReadPermissions
         {
@@ -289,7 +289,7 @@ namespace Pulumi.Azure.AppInsights
         private InputList<string>? _writePermissions;
 
         /// <summary>
-        /// Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
+        /// Specifies the list of write permissions granted to the API key. Valid values are `Annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** At least one read or write permission must be defined.
         /// </summary>

@@ -224,13 +224,13 @@ namespace Pulumi.Azure.Synapse
     public partial class Workspace : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An `azure_devops_repo` block as defined below.
+        /// An `AzureDevopsRepo` block as defined below.
         /// </summary>
         [Output("azureDevopsRepo")]
         public Output<Outputs.WorkspaceAzureDevopsRepo?> AzureDevopsRepo { get; private set; } = null!;
 
         /// <summary>
-        /// Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
+        /// Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `False`.
         /// </summary>
         [Output("azureadAuthenticationOnly")]
         public Output<bool?> AzureadAuthenticationOnly { get; private set; } = null!;
@@ -242,31 +242,31 @@ namespace Pulumi.Azure.Synapse
         public Output<string?> ComputeSubnetId { get; private set; } = null!;
 
         /// <summary>
-        /// A map of Connectivity endpoints for this Synapse Workspace. Possible key values are `dev`, `sql`, `sqlOnDemand`, and `web`.
+        /// A map of Connectivity endpoints for this Synapse Workspace. Possible key values are `Dev`, `Sql`, `sqlOnDemand`, and `Web`.
         /// </summary>
         [Output("connectivityEndpoints")]
         public Output<ImmutableDictionary<string, string>> ConnectivityEndpoints { get; private set; } = null!;
 
         /// <summary>
-        /// A `customer_managed_key` block as defined below.
+        /// A `CustomerManagedKey` block as defined below.
         /// </summary>
         [Output("customerManagedKey")]
         public Output<Outputs.WorkspaceCustomerManagedKey?> CustomerManagedKey { get; private set; } = null!;
 
         /// <summary>
-        /// Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
+        /// Is data exfiltration protection enabled in this workspace? If set to `True`, `ManagedVirtualNetworkEnabled` must also be set to `True`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("dataExfiltrationProtectionEnabled")]
         public Output<bool?> DataExfiltrationProtectionEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A `github_repo` block as defined below.
+        /// A `GithubRepo` block as defined below.
         /// </summary>
         [Output("githubRepo")]
         public Output<Outputs.WorkspaceGithubRepo?> GithubRepo { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.WorkspaceIdentity?> Identity { get; private set; } = null!;
@@ -302,7 +302,7 @@ namespace Pulumi.Azure.Synapse
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
+        /// Whether public network access is allowed for the Cognitive Account. Defaults to `True`.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
@@ -320,13 +320,13 @@ namespace Pulumi.Azure.Synapse
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `customer_managed_key` must be provided.
+        /// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `CustomerManagedKey` must be provided.
         /// </summary>
         [Output("sqlAdministratorLogin")]
         public Output<string?> SqlAdministratorLogin { get; private set; } = null!;
 
         /// <summary>
-        /// The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `customer_managed_key` must be provided.
+        /// The Password associated with the `SqlAdministratorLogin` for the SQL administrator. If this is not provided `CustomerManagedKey` must be provided.
         /// </summary>
         [Output("sqlAdministratorLoginPassword")]
         public Output<string?> SqlAdministratorLoginPassword { get; private set; } = null!;
@@ -400,13 +400,13 @@ namespace Pulumi.Azure.Synapse
     public sealed class WorkspaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `azure_devops_repo` block as defined below.
+        /// An `AzureDevopsRepo` block as defined below.
         /// </summary>
         [Input("azureDevopsRepo")]
         public Input<Inputs.WorkspaceAzureDevopsRepoArgs>? AzureDevopsRepo { get; set; }
 
         /// <summary>
-        /// Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
+        /// Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `False`.
         /// </summary>
         [Input("azureadAuthenticationOnly")]
         public Input<bool>? AzureadAuthenticationOnly { get; set; }
@@ -418,25 +418,25 @@ namespace Pulumi.Azure.Synapse
         public Input<string>? ComputeSubnetId { get; set; }
 
         /// <summary>
-        /// A `customer_managed_key` block as defined below.
+        /// A `CustomerManagedKey` block as defined below.
         /// </summary>
         [Input("customerManagedKey")]
         public Input<Inputs.WorkspaceCustomerManagedKeyArgs>? CustomerManagedKey { get; set; }
 
         /// <summary>
-        /// Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
+        /// Is data exfiltration protection enabled in this workspace? If set to `True`, `ManagedVirtualNetworkEnabled` must also be set to `True`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("dataExfiltrationProtectionEnabled")]
         public Input<bool>? DataExfiltrationProtectionEnabled { get; set; }
 
         /// <summary>
-        /// A `github_repo` block as defined below.
+        /// A `GithubRepo` block as defined below.
         /// </summary>
         [Input("githubRepo")]
         public Input<Inputs.WorkspaceGithubRepoArgs>? GithubRepo { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.WorkspaceIdentityArgs>? Identity { get; set; }
@@ -478,7 +478,7 @@ namespace Pulumi.Azure.Synapse
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
+        /// Whether public network access is allowed for the Cognitive Account. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -496,7 +496,7 @@ namespace Pulumi.Azure.Synapse
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `customer_managed_key` must be provided.
+        /// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `CustomerManagedKey` must be provided.
         /// </summary>
         [Input("sqlAdministratorLogin")]
         public Input<string>? SqlAdministratorLogin { get; set; }
@@ -505,7 +505,7 @@ namespace Pulumi.Azure.Synapse
         private Input<string>? _sqlAdministratorLoginPassword;
 
         /// <summary>
-        /// The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `customer_managed_key` must be provided.
+        /// The Password associated with the `SqlAdministratorLogin` for the SQL administrator. If this is not provided `CustomerManagedKey` must be provided.
         /// </summary>
         public Input<string>? SqlAdministratorLoginPassword
         {
@@ -550,13 +550,13 @@ namespace Pulumi.Azure.Synapse
     public sealed class WorkspaceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `azure_devops_repo` block as defined below.
+        /// An `AzureDevopsRepo` block as defined below.
         /// </summary>
         [Input("azureDevopsRepo")]
         public Input<Inputs.WorkspaceAzureDevopsRepoGetArgs>? AzureDevopsRepo { get; set; }
 
         /// <summary>
-        /// Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
+        /// Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `False`.
         /// </summary>
         [Input("azureadAuthenticationOnly")]
         public Input<bool>? AzureadAuthenticationOnly { get; set; }
@@ -571,7 +571,7 @@ namespace Pulumi.Azure.Synapse
         private InputMap<string>? _connectivityEndpoints;
 
         /// <summary>
-        /// A map of Connectivity endpoints for this Synapse Workspace. Possible key values are `dev`, `sql`, `sqlOnDemand`, and `web`.
+        /// A map of Connectivity endpoints for this Synapse Workspace. Possible key values are `Dev`, `Sql`, `sqlOnDemand`, and `Web`.
         /// </summary>
         public InputMap<string> ConnectivityEndpoints
         {
@@ -580,25 +580,25 @@ namespace Pulumi.Azure.Synapse
         }
 
         /// <summary>
-        /// A `customer_managed_key` block as defined below.
+        /// A `CustomerManagedKey` block as defined below.
         /// </summary>
         [Input("customerManagedKey")]
         public Input<Inputs.WorkspaceCustomerManagedKeyGetArgs>? CustomerManagedKey { get; set; }
 
         /// <summary>
-        /// Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
+        /// Is data exfiltration protection enabled in this workspace? If set to `True`, `ManagedVirtualNetworkEnabled` must also be set to `True`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("dataExfiltrationProtectionEnabled")]
         public Input<bool>? DataExfiltrationProtectionEnabled { get; set; }
 
         /// <summary>
-        /// A `github_repo` block as defined below.
+        /// A `GithubRepo` block as defined below.
         /// </summary>
         [Input("githubRepo")]
         public Input<Inputs.WorkspaceGithubRepoGetArgs>? GithubRepo { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.WorkspaceIdentityGetArgs>? Identity { get; set; }
@@ -640,7 +640,7 @@ namespace Pulumi.Azure.Synapse
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
+        /// Whether public network access is allowed for the Cognitive Account. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -658,7 +658,7 @@ namespace Pulumi.Azure.Synapse
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `customer_managed_key` must be provided.
+        /// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `CustomerManagedKey` must be provided.
         /// </summary>
         [Input("sqlAdministratorLogin")]
         public Input<string>? SqlAdministratorLogin { get; set; }
@@ -667,7 +667,7 @@ namespace Pulumi.Azure.Synapse
         private Input<string>? _sqlAdministratorLoginPassword;
 
         /// <summary>
-        /// The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `customer_managed_key` must be provided.
+        /// The Password associated with the `SqlAdministratorLogin` for the SQL administrator. If this is not provided `CustomerManagedKey` must be provided.
         /// </summary>
         public Input<string>? SqlAdministratorLoginPassword
         {

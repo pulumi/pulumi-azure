@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ElasticCloud.Outputs
     public sealed class ElasticsearchLogsFilteringTag
     {
         /// <summary>
-        /// Specifies the type of action which should be taken when the Tag matches the `name` and `value`. Possible values are `Exclude` and `Include`.
+        /// Specifies the type of action which should be taken when the Tag matches the `Name` and `Value`. Possible values are `Exclude` and `Include`.
         /// </summary>
         public readonly string Action;
         /// <summary>

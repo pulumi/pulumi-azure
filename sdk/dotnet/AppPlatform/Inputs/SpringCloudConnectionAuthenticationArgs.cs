@@ -16,7 +16,7 @@ namespace Pulumi.Azure.AppPlatform.Inputs
         private Input<string>? _certificate;
 
         /// <summary>
-        /// Service principal certificate for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalCertificate`.
+        /// Service principal certificate for `servicePrincipal` auth. Should be specified when `Type` is set to `servicePrincipalCertificate`.
         /// </summary>
         public Input<string>? Certificate
         {
@@ -29,19 +29,19 @@ namespace Pulumi.Azure.AppPlatform.Inputs
         }
 
         /// <summary>
-        /// Client ID for `userAssignedIdentity` or `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalSecret` or `servicePrincipalCertificate`. When `type` is set to `userAssignedIdentity`, `client_id` and `subscription_id` should be either both specified or both not specified.
+        /// Client ID for `userAssignedIdentity` or `servicePrincipal` auth. Should be specified when `Type` is set to `servicePrincipalSecret` or `servicePrincipalCertificate`. When `Type` is set to `userAssignedIdentity`, `ClientId` and `SubscriptionId` should be either both specified or both not specified.
         /// </summary>
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
 
         /// <summary>
-        /// Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
+        /// Username or account name for secret auth. `Name` and `Secret` should be either both specified or both not specified when `Type` is set to `Secret`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Principal ID for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalSecret` or `servicePrincipalCertificate`.
+        /// Principal ID for `servicePrincipal` auth. Should be specified when `Type` is set to `servicePrincipalSecret` or `servicePrincipalCertificate`.
         /// </summary>
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
@@ -50,7 +50,7 @@ namespace Pulumi.Azure.AppPlatform.Inputs
         private Input<string>? _secret;
 
         /// <summary>
-        /// Password or account key for secret auth. `secret` and `name` should be either both specified or both not specified when `type` is set to `secret`.
+        /// Password or account key for secret auth. `Secret` and `Name` should be either both specified or both not specified when `Type` is set to `Secret`.
         /// </summary>
         public Input<string>? Secret
         {
@@ -63,13 +63,13 @@ namespace Pulumi.Azure.AppPlatform.Inputs
         }
 
         /// <summary>
-        /// Subscription ID for `userAssignedIdentity`. `subscription_id` and `client_id` should be either both specified or both not specified.
+        /// Subscription ID for `userAssignedIdentity`. `SubscriptionId` and `ClientId` should be either both specified or both not specified.
         /// </summary>
         [Input("subscriptionId")]
         public Input<string>? SubscriptionId { get; set; }
 
         /// <summary>
-        /// The authentication type. Possible values are `systemAssignedIdentity`, `userAssignedIdentity`, `servicePrincipalSecret`, `servicePrincipalCertificate`, `secret`. Changing this forces a new resource to be created.
+        /// The authentication type. Possible values are `systemAssignedIdentity`, `userAssignedIdentity`, `servicePrincipalSecret`, `servicePrincipalCertificate`, `Secret`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

@@ -21,17 +21,17 @@ public final class GetLinuxWebAppSiteConfigAutoHealSettingTrigger {
      */
     private List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequest> requests;
     /**
-     * @return (Optional) One or more `slow_request_with_path` blocks as defined above.
+     * @return (Optional) One or more `slowRequestWithPath` blocks as defined above.
      * 
      */
     private List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPath> slowRequestWithPaths;
     /**
-     * @return A `slow_request` block as defined above.
+     * @return A `slowRequest` block as defined above.
      * 
      */
     private @Nullable List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests;
     /**
-     * @return A `status_code` block as defined above.
+     * @return A `statusCode` block as defined above.
      * 
      */
     private List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode> statusCodes;
@@ -45,21 +45,21 @@ public final class GetLinuxWebAppSiteConfigAutoHealSettingTrigger {
         return this.requests;
     }
     /**
-     * @return (Optional) One or more `slow_request_with_path` blocks as defined above.
+     * @return (Optional) One or more `slowRequestWithPath` blocks as defined above.
      * 
      */
     public List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPath> slowRequestWithPaths() {
         return this.slowRequestWithPaths;
     }
     /**
-     * @return A `slow_request` block as defined above.
+     * @return A `slowRequest` block as defined above.
      * 
      */
     public List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests() {
         return this.slowRequests == null ? List.of() : this.slowRequests;
     }
     /**
-     * @return A `status_code` block as defined above.
+     * @return A `statusCode` block as defined above.
      * 
      */
     public List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode> statusCodes() {

@@ -16,7 +16,7 @@ namespace Pulumi.Azure.RecoveryServices.Outputs
         /// <summary>
         /// A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
         /// 
-        /// &gt; **Note:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        /// &gt; **Note:** `IdentityIds` is required when `Type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>

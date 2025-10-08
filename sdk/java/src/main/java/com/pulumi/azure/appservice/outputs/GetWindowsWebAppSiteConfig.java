@@ -41,12 +41,12 @@ public final class GetWindowsWebAppSiteConfig {
      */
     private String appCommandLine;
     /**
-     * @return A `application_stack` block as defined above.
+     * @return A `applicationStack` block as defined above.
      * 
      */
     private List<GetWindowsWebAppSiteConfigApplicationStack> applicationStacks;
     /**
-     * @return A `auto_heal_setting` block as defined above.
+     * @return A `autoHealSetting` block as defined above.
      * 
      */
     private List<GetWindowsWebAppSiteConfigAutoHealSetting> autoHealSettings;
@@ -81,12 +81,12 @@ public final class GetWindowsWebAppSiteConfig {
      */
     private String ftpsState;
     /**
-     * @return A `handler_mapping` block as defined below.
+     * @return A `handlerMapping` block as defined below.
      * 
      */
     private List<GetWindowsWebAppSiteConfigHandlerMapping> handlerMappings;
     /**
-     * @return (Optional) The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+     * @return (Optional) The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
      * 
      */
     private Integer healthCheckEvictionTimeInMin;
@@ -101,12 +101,12 @@ public final class GetWindowsWebAppSiteConfig {
      */
     private Boolean http2Enabled;
     /**
-     * @return The Default action for traffic that does not match any `ip_restriction` rule.
+     * @return The Default action for traffic that does not match any `ipRestriction` rule.
      * 
      */
     private String ipRestrictionDefaultAction;
     /**
-     * @return A `ip_restriction` block as defined above.
+     * @return A `ipRestriction` block as defined above.
      * 
      */
     private List<GetWindowsWebAppSiteConfigIpRestriction> ipRestrictions;
@@ -137,12 +137,12 @@ public final class GetWindowsWebAppSiteConfig {
      */
     private String remoteDebuggingVersion;
     /**
-     * @return The Default action for traffic that does not match any `scm_ip_restriction` rule.
+     * @return The Default action for traffic that does not match any `scmIpRestriction` rule.
      * 
      */
     private String scmIpRestrictionDefaultAction;
     /**
-     * @return A `scm_ip_restriction` block as defined above.
+     * @return A `scmIpRestriction` block as defined above.
      * 
      */
     private List<GetWindowsWebAppSiteConfigScmIpRestriction> scmIpRestrictions;
@@ -157,7 +157,7 @@ public final class GetWindowsWebAppSiteConfig {
      */
     private String scmType;
     /**
-     * @return Is the Windows Web App `ip_restriction` configuration used for the SCM also.
+     * @return Is the Windows Web App `ipRestriction` configuration used for the SCM also.
      * 
      */
     private Boolean scmUseMainIpRestriction;
@@ -167,7 +167,7 @@ public final class GetWindowsWebAppSiteConfig {
      */
     private Boolean use32BitWorker;
     /**
-     * @return A `virtual_application` block as defined below.
+     * @return A `virtualApplication` block as defined below.
      * 
      */
     private List<GetWindowsWebAppSiteConfigVirtualApplication> virtualApplications;
@@ -222,14 +222,14 @@ public final class GetWindowsWebAppSiteConfig {
         return this.appCommandLine;
     }
     /**
-     * @return A `application_stack` block as defined above.
+     * @return A `applicationStack` block as defined above.
      * 
      */
     public List<GetWindowsWebAppSiteConfigApplicationStack> applicationStacks() {
         return this.applicationStacks;
     }
     /**
-     * @return A `auto_heal_setting` block as defined above.
+     * @return A `autoHealSetting` block as defined above.
      * 
      */
     public List<GetWindowsWebAppSiteConfigAutoHealSetting> autoHealSettings() {
@@ -278,14 +278,14 @@ public final class GetWindowsWebAppSiteConfig {
         return this.ftpsState;
     }
     /**
-     * @return A `handler_mapping` block as defined below.
+     * @return A `handlerMapping` block as defined below.
      * 
      */
     public List<GetWindowsWebAppSiteConfigHandlerMapping> handlerMappings() {
         return this.handlerMappings;
     }
     /**
-     * @return (Optional) The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+     * @return (Optional) The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
      * 
      */
     public Integer healthCheckEvictionTimeInMin() {
@@ -306,14 +306,14 @@ public final class GetWindowsWebAppSiteConfig {
         return this.http2Enabled;
     }
     /**
-     * @return The Default action for traffic that does not match any `ip_restriction` rule.
+     * @return The Default action for traffic that does not match any `ipRestriction` rule.
      * 
      */
     public String ipRestrictionDefaultAction() {
         return this.ipRestrictionDefaultAction;
     }
     /**
-     * @return A `ip_restriction` block as defined above.
+     * @return A `ipRestriction` block as defined above.
      * 
      */
     public List<GetWindowsWebAppSiteConfigIpRestriction> ipRestrictions() {
@@ -358,14 +358,14 @@ public final class GetWindowsWebAppSiteConfig {
         return this.remoteDebuggingVersion;
     }
     /**
-     * @return The Default action for traffic that does not match any `scm_ip_restriction` rule.
+     * @return The Default action for traffic that does not match any `scmIpRestriction` rule.
      * 
      */
     public String scmIpRestrictionDefaultAction() {
         return this.scmIpRestrictionDefaultAction;
     }
     /**
-     * @return A `scm_ip_restriction` block as defined above.
+     * @return A `scmIpRestriction` block as defined above.
      * 
      */
     public List<GetWindowsWebAppSiteConfigScmIpRestriction> scmIpRestrictions() {
@@ -386,7 +386,7 @@ public final class GetWindowsWebAppSiteConfig {
         return this.scmType;
     }
     /**
-     * @return Is the Windows Web App `ip_restriction` configuration used for the SCM also.
+     * @return Is the Windows Web App `ipRestriction` configuration used for the SCM also.
      * 
      */
     public Boolean scmUseMainIpRestriction() {
@@ -400,7 +400,7 @@ public final class GetWindowsWebAppSiteConfig {
         return this.use32BitWorker;
     }
     /**
-     * @return A `virtual_application` block as defined below.
+     * @return A `virtualApplication` block as defined below.
      * 
      */
     public List<GetWindowsWebAppSiteConfigVirtualApplication> virtualApplications() {

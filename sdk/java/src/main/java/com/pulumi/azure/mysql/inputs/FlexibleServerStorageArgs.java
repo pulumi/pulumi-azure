@@ -79,7 +79,7 @@ public final class FlexibleServerStorageArgs extends com.pulumi.resources.Resour
     /**
      * The max storage allowed for the MySQL Flexible Server. Possible values are between `20` and `16384`.
      * 
-     * &gt; **Note:** Decreasing `size_gb` forces a new resource to be created.
+     * &gt; **Note:** Decreasing `sizeGb` forces a new resource to be created.
      * 
      */
     @Import(name="sizeGb")
@@ -88,7 +88,7 @@ public final class FlexibleServerStorageArgs extends com.pulumi.resources.Resour
     /**
      * @return The max storage allowed for the MySQL Flexible Server. Possible values are between `20` and `16384`.
      * 
-     * &gt; **Note:** Decreasing `size_gb` forces a new resource to be created.
+     * &gt; **Note:** Decreasing `sizeGb` forces a new resource to be created.
      * 
      */
     public Optional<Output<Integer>> sizeGb() {
@@ -210,7 +210,7 @@ public final class FlexibleServerStorageArgs extends com.pulumi.resources.Resour
         /**
          * @param sizeGb The max storage allowed for the MySQL Flexible Server. Possible values are between `20` and `16384`.
          * 
-         * &gt; **Note:** Decreasing `size_gb` forces a new resource to be created.
+         * &gt; **Note:** Decreasing `sizeGb` forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class FlexibleServerStorageArgs extends com.pulumi.resources.Resour
         /**
          * @param sizeGb The max storage allowed for the MySQL Flexible Server. Possible values are between `20` and `16384`.
          * 
-         * &gt; **Note:** Decreasing `size_gb` forces a new resource to be created.
+         * &gt; **Note:** Decreasing `sizeGb` forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -16,9 +16,9 @@ namespace Pulumi.Azure.Compute.Outputs
         /// <summary>
         /// The name of the Image Version.
         /// 
-        /// &gt; **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
+        /// &gt; **Note:** You may specify `Latest` to obtain the latest version or `Recent` to obtain the most recently updated version.
         /// 
-        /// &gt; **Note:** In 3.0, `latest` may return an image version with `exclude_from_latest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `exlude_from_latest` set to `true`.
+        /// &gt; **Note:** In 3.0, `Latest` may return an image version with `ExcludeFromLatest` set to `True`. Starting from 4.0 onwards `Latest` will not return image versions with `ExludeFromLatest` set to `True`.
         /// </summary>
         public readonly string Name;
         /// <summary>

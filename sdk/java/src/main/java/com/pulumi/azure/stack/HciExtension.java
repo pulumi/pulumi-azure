@@ -198,7 +198,7 @@ public class HciExtension extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the version of the script handler.
      * 
-     * &gt; **Note:** `type_handler_version` cannot be set when `automatic_upgrade_enabled` is set to `true`.
+     * &gt; **Note:** `typeHandlerVersion` cannot be set when `automaticUpgradeEnabled` is set to `true`.
      * 
      */
     @Export(name="typeHandlerVersion", refs={String.class}, tree="[0]")
@@ -207,7 +207,7 @@ public class HciExtension extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies the version of the script handler.
      * 
-     * &gt; **Note:** `type_handler_version` cannot be set when `automatic_upgrade_enabled` is set to `true`.
+     * &gt; **Note:** `typeHandlerVersion` cannot be set when `automaticUpgradeEnabled` is set to `true`.
      * 
      */
     public Output<Optional<String>> typeHandlerVersion() {

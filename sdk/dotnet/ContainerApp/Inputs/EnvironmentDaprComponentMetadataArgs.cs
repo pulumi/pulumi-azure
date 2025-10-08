@@ -19,7 +19,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The name of a secret specified in the `secrets` block that contains the value for this metadata configuration item.
+        /// The name of a secret specified in the `Secrets` block that contains the value for this metadata configuration item.
         /// </summary>
         [Input("secretName")]
         public Input<string>? SecretName { get; set; }

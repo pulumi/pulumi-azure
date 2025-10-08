@@ -21,14 +21,14 @@ public final class LedgerArgs extends com.pulumi.resources.ResourceArgs {
     public static final LedgerArgs Empty = new LedgerArgs();
 
     /**
-     * A list of `azuread_based_service_principal` blocks as defined below.
+     * A list of `azureadBasedServicePrincipal` blocks as defined below.
      * 
      */
     @Import(name="azureadBasedServicePrincipals", required=true)
     private Output<List<LedgerAzureadBasedServicePrincipalArgs>> azureadBasedServicePrincipals;
 
     /**
-     * @return A list of `azuread_based_service_principal` blocks as defined below.
+     * @return A list of `azureadBasedServicePrincipal` blocks as defined below.
      * 
      */
     public Output<List<LedgerAzureadBasedServicePrincipalArgs>> azureadBasedServicePrincipals() {
@@ -36,14 +36,14 @@ public final class LedgerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of `certificate_based_security_principal` blocks as defined below.
+     * A list of `certificateBasedSecurityPrincipal` blocks as defined below.
      * 
      */
     @Import(name="certificateBasedSecurityPrincipals")
     private @Nullable Output<List<LedgerCertificateBasedSecurityPrincipalArgs>> certificateBasedSecurityPrincipals;
 
     /**
-     * @return A list of `certificate_based_security_principal` blocks as defined below.
+     * @return A list of `certificateBasedSecurityPrincipal` blocks as defined below.
      * 
      */
     public Optional<Output<List<LedgerCertificateBasedSecurityPrincipalArgs>>> certificateBasedSecurityPrincipals() {
@@ -156,7 +156,7 @@ public final class LedgerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param azureadBasedServicePrincipals A list of `azuread_based_service_principal` blocks as defined below.
+         * @param azureadBasedServicePrincipals A list of `azureadBasedServicePrincipal` blocks as defined below.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class LedgerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param azureadBasedServicePrincipals A list of `azuread_based_service_principal` blocks as defined below.
+         * @param azureadBasedServicePrincipals A list of `azureadBasedServicePrincipal` blocks as defined below.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class LedgerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param azureadBasedServicePrincipals A list of `azuread_based_service_principal` blocks as defined below.
+         * @param azureadBasedServicePrincipals A list of `azureadBasedServicePrincipal` blocks as defined below.
          * 
          * @return builder
          * 
@@ -187,7 +187,7 @@ public final class LedgerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateBasedSecurityPrincipals A list of `certificate_based_security_principal` blocks as defined below.
+         * @param certificateBasedSecurityPrincipals A list of `certificateBasedSecurityPrincipal` blocks as defined below.
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class LedgerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateBasedSecurityPrincipals A list of `certificate_based_security_principal` blocks as defined below.
+         * @param certificateBasedSecurityPrincipals A list of `certificateBasedSecurityPrincipal` blocks as defined below.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class LedgerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateBasedSecurityPrincipals A list of `certificate_based_security_principal` blocks as defined below.
+         * @param certificateBasedSecurityPrincipals A list of `certificateBasedSecurityPrincipal` blocks as defined below.
          * 
          * @return builder
          * 

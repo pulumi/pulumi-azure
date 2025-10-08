@@ -205,6 +205,75 @@ class CustomDomain(pulumi.CustomResource):
         """
         Manages a Container App Custom Domain.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_std as std
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_zone = azure.dns.Zone("example",
+            name="contoso.com",
+            resource_group_name=example.name)
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
+            sku="PerGB2018",
+            retention_in_days=30)
+        example_environment = azure.containerapp.Environment("example",
+            name="Example-Environment",
+            location=example.location,
+            resource_group_name=example.name,
+            log_analytics_workspace_id=example_analytics_workspace.id)
+        example_app = azure.containerapp.App("example",
+            name="example-app",
+            container_app_environment_id=example_environment.id,
+            resource_group_name=example.name,
+            revision_mode="Single",
+            template={
+                "containers": [{
+                    "name": "examplecontainerapp",
+                    "image": "mcr.microsoft.com/k8se/quickstart:latest",
+                    "cpu": 0.25,
+                    "memory": "0.5Gi",
+                }],
+            },
+            ingress={
+                "allow_insecure_connections": False,
+                "external_enabled": True,
+                "target_port": 5000,
+                "transport": "http",
+                "traffic_weights": [{
+                    "latest_revision": True,
+                    "percentage": 100,
+                }],
+            })
+        example_txt_record = azure.dns.TxtRecord("example",
+            name="asuid.example",
+            resource_group_name=example_zone.resource_group_name,
+            zone_name=example_zone.name,
+            ttl=300,
+            records=[{
+                "value": example_app.custom_domain_verification_id,
+            }])
+        example_environment_certificate = azure.containerapp.EnvironmentCertificate("example",
+            name="myfriendlyname",
+            container_app_environment_id=example_environment.id,
+            certificate_blob=std.filebase64(input="path/to/certificate_file.pfx").result,
+            certificate_password="$3cretSqu1rreL")
+        example_custom_domain = azure.containerapp.CustomDomain("example",
+            name=std.trimsuffix(input=std.trimprefix(input=api["fqdn"],
+                    prefix="asuid.").result,
+                suffix=".").result,
+            container_app_id=example_app.id,
+            container_app_environment_certificate_id=example_environment_certificate.id,
+            certificate_binding_type="SniEnabled")
+        ```
+
         ### Managed Certificate
 
         ```python
@@ -253,6 +322,75 @@ class CustomDomain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Container App Custom Domain.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_std as std
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_zone = azure.dns.Zone("example",
+            name="contoso.com",
+            resource_group_name=example.name)
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
+            sku="PerGB2018",
+            retention_in_days=30)
+        example_environment = azure.containerapp.Environment("example",
+            name="Example-Environment",
+            location=example.location,
+            resource_group_name=example.name,
+            log_analytics_workspace_id=example_analytics_workspace.id)
+        example_app = azure.containerapp.App("example",
+            name="example-app",
+            container_app_environment_id=example_environment.id,
+            resource_group_name=example.name,
+            revision_mode="Single",
+            template={
+                "containers": [{
+                    "name": "examplecontainerapp",
+                    "image": "mcr.microsoft.com/k8se/quickstart:latest",
+                    "cpu": 0.25,
+                    "memory": "0.5Gi",
+                }],
+            },
+            ingress={
+                "allow_insecure_connections": False,
+                "external_enabled": True,
+                "target_port": 5000,
+                "transport": "http",
+                "traffic_weights": [{
+                    "latest_revision": True,
+                    "percentage": 100,
+                }],
+            })
+        example_txt_record = azure.dns.TxtRecord("example",
+            name="asuid.example",
+            resource_group_name=example_zone.resource_group_name,
+            zone_name=example_zone.name,
+            ttl=300,
+            records=[{
+                "value": example_app.custom_domain_verification_id,
+            }])
+        example_environment_certificate = azure.containerapp.EnvironmentCertificate("example",
+            name="myfriendlyname",
+            container_app_environment_id=example_environment.id,
+            certificate_blob=std.filebase64(input="path/to/certificate_file.pfx").result,
+            certificate_password="$3cretSqu1rreL")
+        example_custom_domain = azure.containerapp.CustomDomain("example",
+            name=std.trimsuffix(input=std.trimprefix(input=api["fqdn"],
+                    prefix="asuid.").result,
+                suffix=".").result,
+            container_app_id=example_app.id,
+            container_app_environment_certificate_id=example_environment_certificate.id,
+            certificate_binding_type="SniEnabled")
+        ```
 
         ### Managed Certificate
 

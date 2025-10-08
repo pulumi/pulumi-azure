@@ -104,7 +104,7 @@ namespace Pulumi.Azure.Network
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `routing_policy` blocks as defined below.
+        /// One or more `RoutingPolicy` blocks as defined below.
         /// </summary>
         [Output("routingPolicies")]
         public Output<ImmutableArray<Outputs.RoutingIntentRoutingPolicy>> RoutingPolicies { get; private set; } = null!;
@@ -171,7 +171,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.RoutingIntentRoutingPolicyArgs>? _routingPolicies;
 
         /// <summary>
-        /// One or more `routing_policy` blocks as defined below.
+        /// One or more `RoutingPolicy` blocks as defined below.
         /// </summary>
         public InputList<Inputs.RoutingIntentRoutingPolicyArgs> RoutingPolicies
         {
@@ -203,7 +203,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.RoutingIntentRoutingPolicyGetArgs>? _routingPolicies;
 
         /// <summary>
-        /// One or more `routing_policy` blocks as defined below.
+        /// One or more `RoutingPolicy` blocks as defined below.
         /// </summary>
         public InputList<Inputs.RoutingIntentRoutingPolicyGetArgs> RoutingPolicies
         {

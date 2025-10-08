@@ -25,7 +25,7 @@ public final class GroupContainerLivenessProbe {
      */
     private @Nullable Integer failureThreshold;
     /**
-     * @return The definition of the http_get for this container as documented in the `http_get` block below. Changing this forces a new resource to be created.
+     * @return The definition of the httpGet for this container as documented in the `httpGet` block below. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable List<GroupContainerLivenessProbeHttpGet> httpGets;
@@ -66,7 +66,7 @@ public final class GroupContainerLivenessProbe {
         return Optional.ofNullable(this.failureThreshold);
     }
     /**
-     * @return The definition of the http_get for this container as documented in the `http_get` block below. Changing this forces a new resource to be created.
+     * @return The definition of the httpGet for this container as documented in the `httpGet` block below. Changing this forces a new resource to be created.
      * 
      */
     public List<GroupContainerLivenessProbeHttpGet> httpGets() {

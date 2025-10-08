@@ -90,7 +90,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `stage` blocks as defined below.
+        /// One or more `Stage` blocks as defined below.
         /// </summary>
         [Output("stages")]
         public Output<ImmutableArray<Outputs.FleetUpdateStrategyStage>> Stages { get; private set; } = null!;
@@ -157,7 +157,7 @@ namespace Pulumi.Azure.ContainerService
         private InputList<Inputs.FleetUpdateStrategyStageArgs>? _stages;
 
         /// <summary>
-        /// One or more `stage` blocks as defined below.
+        /// One or more `Stage` blocks as defined below.
         /// </summary>
         public InputList<Inputs.FleetUpdateStrategyStageArgs> Stages
         {
@@ -189,7 +189,7 @@ namespace Pulumi.Azure.ContainerService
         private InputList<Inputs.FleetUpdateStrategyStageGetArgs>? _stages;
 
         /// <summary>
-        /// One or more `stage` blocks as defined below.
+        /// One or more `Stage` blocks as defined below.
         /// </summary>
         public InputList<Inputs.FleetUpdateStrategyStageGetArgs> Stages
         {

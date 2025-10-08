@@ -49,14 +49,14 @@ public final class FirewallPolicyIntrusionDetectionArgs extends com.pulumi.resou
     }
 
     /**
-     * One or more `signature_overrides` blocks as defined below.
+     * One or more `signatureOverrides` blocks as defined below.
      * 
      */
     @Import(name="signatureOverrides")
     private @Nullable Output<List<FirewallPolicyIntrusionDetectionSignatureOverrideArgs>> signatureOverrides;
 
     /**
-     * @return One or more `signature_overrides` blocks as defined below.
+     * @return One or more `signatureOverrides` blocks as defined below.
      * 
      */
     public Optional<Output<List<FirewallPolicyIntrusionDetectionSignatureOverrideArgs>>> signatureOverrides() {
@@ -64,14 +64,14 @@ public final class FirewallPolicyIntrusionDetectionArgs extends com.pulumi.resou
     }
 
     /**
-     * One or more `traffic_bypass` blocks as defined below.
+     * One or more `trafficBypass` blocks as defined below.
      * 
      */
     @Import(name="trafficBypasses")
     private @Nullable Output<List<FirewallPolicyIntrusionDetectionTrafficBypassArgs>> trafficBypasses;
 
     /**
-     * @return One or more `traffic_bypass` blocks as defined below.
+     * @return One or more `trafficBypass` blocks as defined below.
      * 
      */
     public Optional<Output<List<FirewallPolicyIntrusionDetectionTrafficBypassArgs>>> trafficBypasses() {
@@ -158,7 +158,7 @@ public final class FirewallPolicyIntrusionDetectionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param signatureOverrides One or more `signature_overrides` blocks as defined below.
+         * @param signatureOverrides One or more `signatureOverrides` blocks as defined below.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class FirewallPolicyIntrusionDetectionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param signatureOverrides One or more `signature_overrides` blocks as defined below.
+         * @param signatureOverrides One or more `signatureOverrides` blocks as defined below.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class FirewallPolicyIntrusionDetectionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param signatureOverrides One or more `signature_overrides` blocks as defined below.
+         * @param signatureOverrides One or more `signatureOverrides` blocks as defined below.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class FirewallPolicyIntrusionDetectionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param trafficBypasses One or more `traffic_bypass` blocks as defined below.
+         * @param trafficBypasses One or more `trafficBypass` blocks as defined below.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class FirewallPolicyIntrusionDetectionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param trafficBypasses One or more `traffic_bypass` blocks as defined below.
+         * @param trafficBypasses One or more `trafficBypass` blocks as defined below.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class FirewallPolicyIntrusionDetectionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param trafficBypasses One or more `traffic_bypass` blocks as defined below.
+         * @param trafficBypasses One or more `trafficBypass` blocks as defined below.
          * 
          * @return builder
          * 

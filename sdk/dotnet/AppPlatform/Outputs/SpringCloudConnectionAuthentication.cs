@@ -14,31 +14,31 @@ namespace Pulumi.Azure.AppPlatform.Outputs
     public sealed class SpringCloudConnectionAuthentication
     {
         /// <summary>
-        /// Service principal certificate for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalCertificate`.
+        /// Service principal certificate for `servicePrincipal` auth. Should be specified when `Type` is set to `servicePrincipalCertificate`.
         /// </summary>
         public readonly string? Certificate;
         /// <summary>
-        /// Client ID for `userAssignedIdentity` or `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalSecret` or `servicePrincipalCertificate`. When `type` is set to `userAssignedIdentity`, `client_id` and `subscription_id` should be either both specified or both not specified.
+        /// Client ID for `userAssignedIdentity` or `servicePrincipal` auth. Should be specified when `Type` is set to `servicePrincipalSecret` or `servicePrincipalCertificate`. When `Type` is set to `userAssignedIdentity`, `ClientId` and `SubscriptionId` should be either both specified or both not specified.
         /// </summary>
         public readonly string? ClientId;
         /// <summary>
-        /// Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
+        /// Username or account name for secret auth. `Name` and `Secret` should be either both specified or both not specified when `Type` is set to `Secret`.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Principal ID for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalSecret` or `servicePrincipalCertificate`.
+        /// Principal ID for `servicePrincipal` auth. Should be specified when `Type` is set to `servicePrincipalSecret` or `servicePrincipalCertificate`.
         /// </summary>
         public readonly string? PrincipalId;
         /// <summary>
-        /// Password or account key for secret auth. `secret` and `name` should be either both specified or both not specified when `type` is set to `secret`.
+        /// Password or account key for secret auth. `Secret` and `Name` should be either both specified or both not specified when `Type` is set to `Secret`.
         /// </summary>
         public readonly string? Secret;
         /// <summary>
-        /// Subscription ID for `userAssignedIdentity`. `subscription_id` and `client_id` should be either both specified or both not specified.
+        /// Subscription ID for `userAssignedIdentity`. `SubscriptionId` and `ClientId` should be either both specified or both not specified.
         /// </summary>
         public readonly string? SubscriptionId;
         /// <summary>
-        /// The authentication type. Possible values are `systemAssignedIdentity`, `userAssignedIdentity`, `servicePrincipalSecret`, `servicePrincipalCertificate`, `secret`. Changing this forces a new resource to be created.
+        /// The authentication type. Possible values are `systemAssignedIdentity`, `userAssignedIdentity`, `servicePrincipalSecret`, `servicePrincipalCertificate`, `Secret`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Type;
 

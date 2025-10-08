@@ -9,6 +9,44 @@ import * as utilities from "../utilities";
  *
  * !> **Note:** Azure Spring Apps is now deprecated and will be retired on 2028-05-31 - as such the `azure.appplatform.SpringCloudAppRedisAssociation` resource is deprecated and will be removed in a future major version of the AzureRM Provider. See https://aka.ms/asaretirement for more information.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("example", {
+ *     name: "example-springcloud",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ * });
+ * const exampleSpringCloudApp = new azure.appplatform.SpringCloudApp("example", {
+ *     name: "example-springcloudapp",
+ *     resourceGroupName: example.name,
+ *     serviceName: exampleSpringCloudService.name,
+ * });
+ * const exampleCache = new azure.redis.Cache("example", {
+ *     name: "example-cache",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     capacity: 0,
+ *     family: "C",
+ *     skuName: "Basic",
+ *     enableNonSslPort: true,
+ * });
+ * const exampleSpringCloudAppRedisAssociation = new azure.appplatform.SpringCloudAppRedisAssociation("example", {
+ *     name: "example-bind",
+ *     springCloudAppId: exampleSpringCloudApp.id,
+ *     redisCacheId: exampleCache.id,
+ *     redisAccessKey: exampleCache.primaryAccessKey,
+ *     sslEnabled: true,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Spring Cloud Application Redis Association can be imported using the `resource id`, e.g.

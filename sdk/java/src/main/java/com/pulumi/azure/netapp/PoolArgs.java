@@ -37,7 +37,7 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Whether the NetApp Pool can hold cool access enabled volumes. Defaults to `false`.
      * 
-     * &gt; **Note:** Disabling `cool_access_enabled` is not allowed and forces a new resource to be created.
+     * &gt; **Note:** Disabling `coolAccessEnabled` is not allowed and forces a new resource to be created.
      * 
      */
     @Import(name="coolAccessEnabled")
@@ -46,7 +46,7 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Whether the NetApp Pool can hold cool access enabled volumes. Defaults to `false`.
      * 
-     * &gt; **Note:** Disabling `cool_access_enabled` is not allowed and forces a new resource to be created.
+     * &gt; **Note:** Disabling `coolAccessEnabled` is not allowed and forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> coolAccessEnabled() {
@@ -54,14 +54,14 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The custom throughput for the pool in MiB/s. Minimum value is `128`. This field can only be set when `service_level` is set to `Flexible` and `qos_type` is set to `Manual`.
+     * The custom throughput for the pool in MiB/s. Minimum value is `128`. This field can only be set when `serviceLevel` is set to `Flexible` and `qosType` is set to `Manual`.
      * 
      */
     @Import(name="customThroughputMibps")
     private @Nullable Output<Integer> customThroughputMibps;
 
     /**
-     * @return The custom throughput for the pool in MiB/s. Minimum value is `128`. This field can only be set when `service_level` is set to `Flexible` and `qos_type` is set to `Manual`.
+     * @return The custom throughput for the pool in MiB/s. Minimum value is `128`. This field can only be set when `serviceLevel` is set to `Flexible` and `qosType` is set to `Manual`.
      * 
      */
     public Optional<Output<Integer>> customThroughputMibps() {
@@ -163,7 +163,7 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
      * 
      * &gt; **Note:** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
      * 
-     * &gt; **Note:** The maximum `size_in_tb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
+     * &gt; **Note:** The maximum `sizeInTb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
      * 
      */
     @Import(name="sizeInTb", required=true)
@@ -174,7 +174,7 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
      * 
      * &gt; **Note:** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
      * 
-     * &gt; **Note:** The maximum `size_in_tb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
+     * &gt; **Note:** The maximum `sizeInTb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
      * 
      */
     public Output<Integer> sizeInTb() {
@@ -254,7 +254,7 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param coolAccessEnabled Whether the NetApp Pool can hold cool access enabled volumes. Defaults to `false`.
          * 
-         * &gt; **Note:** Disabling `cool_access_enabled` is not allowed and forces a new resource to be created.
+         * &gt; **Note:** Disabling `coolAccessEnabled` is not allowed and forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -267,7 +267,7 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param coolAccessEnabled Whether the NetApp Pool can hold cool access enabled volumes. Defaults to `false`.
          * 
-         * &gt; **Note:** Disabling `cool_access_enabled` is not allowed and forces a new resource to be created.
+         * &gt; **Note:** Disabling `coolAccessEnabled` is not allowed and forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -277,7 +277,7 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customThroughputMibps The custom throughput for the pool in MiB/s. Minimum value is `128`. This field can only be set when `service_level` is set to `Flexible` and `qos_type` is set to `Manual`.
+         * @param customThroughputMibps The custom throughput for the pool in MiB/s. Minimum value is `128`. This field can only be set when `serviceLevel` is set to `Flexible` and `qosType` is set to `Manual`.
          * 
          * @return builder
          * 
@@ -288,7 +288,7 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customThroughputMibps The custom throughput for the pool in MiB/s. Minimum value is `128`. This field can only be set when `service_level` is set to `Flexible` and `qos_type` is set to `Manual`.
+         * @param customThroughputMibps The custom throughput for the pool in MiB/s. Minimum value is `128`. This field can only be set when `serviceLevel` is set to `Flexible` and `qosType` is set to `Manual`.
          * 
          * @return builder
          * 
@@ -428,7 +428,7 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * &gt; **Note:** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
          * 
-         * &gt; **Note:** The maximum `size_in_tb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
+         * &gt; **Note:** The maximum `sizeInTb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
          * 
          * @return builder
          * 
@@ -443,7 +443,7 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * &gt; **Note:** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
          * 
-         * &gt; **Note:** The maximum `size_in_tb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
+         * &gt; **Note:** The maximum `sizeInTb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
          * 
          * @return builder
          * 

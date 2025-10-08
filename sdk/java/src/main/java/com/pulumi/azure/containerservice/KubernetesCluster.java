@@ -130,42 +130,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:containerservice/kubernetesCluster:KubernetesCluster")
 public class KubernetesCluster extends com.pulumi.resources.CustomResource {
     /**
-     * A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
+     * A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
      * 
      */
     @Export(name="aciConnectorLinux", refs={KubernetesClusterAciConnectorLinux.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterAciConnectorLinux> aciConnectorLinux;
 
     /**
-     * @return A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
+     * @return A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
      * 
      */
     public Output<Optional<KubernetesClusterAciConnectorLinux>> aciConnectorLinux() {
         return Codegen.optional(this.aciConnectorLinux);
     }
     /**
-     * An `api_server_access_profile` block as defined below.
+     * An `apiServerAccessProfile` block as defined below.
      * 
      */
     @Export(name="apiServerAccessProfile", refs={KubernetesClusterApiServerAccessProfile.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterApiServerAccessProfile> apiServerAccessProfile;
 
     /**
-     * @return An `api_server_access_profile` block as defined below.
+     * @return An `apiServerAccessProfile` block as defined below.
      * 
      */
     public Output<Optional<KubernetesClusterApiServerAccessProfile>> apiServerAccessProfile() {
         return Codegen.optional(this.apiServerAccessProfile);
     }
     /**
-     * A `auto_scaler_profile` block as defined below.
+     * A `autoScalerProfile` block as defined below.
      * 
      */
     @Export(name="autoScalerProfile", refs={KubernetesClusterAutoScalerProfile.class}, tree="[0]")
     private Output<KubernetesClusterAutoScalerProfile> autoScalerProfile;
 
     /**
-     * @return A `auto_scaler_profile` block as defined below.
+     * @return A `autoScalerProfile` block as defined below.
      * 
      */
     public Output<KubernetesClusterAutoScalerProfile> autoScalerProfile() {
@@ -194,14 +194,14 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.automaticUpgradeChannel);
     }
     /**
-     * A `azure_active_directory_role_based_access_control` block as defined below.
+     * A `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
      * 
      */
     @Export(name="azureActiveDirectoryRoleBasedAccessControl", refs={KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl> azureActiveDirectoryRoleBasedAccessControl;
 
     /**
-     * @return A `azure_active_directory_role_based_access_control` block as defined below.
+     * @return A `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
      * 
      */
     public Output<Optional<KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl>> azureActiveDirectoryRoleBasedAccessControl() {
@@ -222,42 +222,42 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.azurePolicyEnabled);
     }
     /**
-     * A `bootstrap_profile` block as defined below.
+     * A `bootstrapProfile` block as defined below.
      * 
      */
     @Export(name="bootstrapProfile", refs={KubernetesClusterBootstrapProfile.class}, tree="[0]")
     private Output<KubernetesClusterBootstrapProfile> bootstrapProfile;
 
     /**
-     * @return A `bootstrap_profile` block as defined below.
+     * @return A `bootstrapProfile` block as defined below.
      * 
      */
     public Output<KubernetesClusterBootstrapProfile> bootstrapProfile() {
         return this.bootstrapProfile;
     }
     /**
-     * A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+     * A `confidentialComputing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
      * 
      */
     @Export(name="confidentialComputing", refs={KubernetesClusterConfidentialComputing.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterConfidentialComputing> confidentialComputing;
 
     /**
-     * @return A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+     * @return A `confidentialComputing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
      * 
      */
     public Output<Optional<KubernetesClusterConfidentialComputing>> confidentialComputing() {
         return Codegen.optional(this.confidentialComputing);
     }
     /**
-     * Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `sku_tier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
+     * Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `skuTier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
      * 
      */
     @Export(name="costAnalysisEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> costAnalysisEnabled;
 
     /**
-     * @return Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `sku_tier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
+     * @return Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `skuTier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
      * 
      */
     public Output<Optional<Boolean>> costAnalysisEnabled() {
@@ -292,14 +292,14 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.customCaTrustCertificatesBase64s);
     }
     /**
-     * Specifies configuration for &#34;System&#34; mode node pool. A `default_node_pool` block as defined below.
+     * Specifies configuration for &#34;System&#34; mode node pool. A `defaultNodePool` block as defined below.
      * 
      */
     @Export(name="defaultNodePool", refs={KubernetesClusterDefaultNodePool.class}, tree="[0]")
     private Output<KubernetesClusterDefaultNodePool> defaultNodePool;
 
     /**
-     * @return Specifies configuration for &#34;System&#34; mode node pool. A `default_node_pool` block as defined below.
+     * @return Specifies configuration for &#34;System&#34; mode node pool. A `defaultNodePool` block as defined below.
      * 
      */
     public Output<KubernetesClusterDefaultNodePool> defaultNodePool() {
@@ -336,9 +336,9 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** You must define either a `dns_prefix` or a `dns_prefix_private_cluster` field.
+     * &gt; **Note:** You must define either a `dnsPrefix` or a `dnsPrefixPrivateCluster` field.
      * 
-     * In addition, one of either `identity` or `service_principal` blocks must be specified.
+     * In addition, one of either `identity` or `servicePrincipal` blocks must be specified.
      * 
      */
     @Export(name="dnsPrefixPrivateCluster", refs={String.class}, tree="[0]")
@@ -347,9 +347,9 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** You must define either a `dns_prefix` or a `dns_prefix_private_cluster` field.
+     * &gt; **Note:** You must define either a `dnsPrefix` or a `dnsPrefixPrivateCluster` field.
      * 
-     * In addition, one of either `identity` or `service_principal` blocks must be specified.
+     * In addition, one of either `identity` or `servicePrincipal` blocks must be specified.
      * 
      */
     public Output<Optional<String>> dnsPrefixPrivateCluster() {
@@ -416,32 +416,32 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
         return this.httpApplicationRoutingZoneName;
     }
     /**
-     * A `http_proxy_config` block as defined below.
+     * A `httpProxyConfig` block as defined below.
      * 
      */
     @Export(name="httpProxyConfig", refs={KubernetesClusterHttpProxyConfig.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterHttpProxyConfig> httpProxyConfig;
 
     /**
-     * @return A `http_proxy_config` block as defined below.
+     * @return A `httpProxyConfig` block as defined below.
      * 
      */
     public Output<Optional<KubernetesClusterHttpProxyConfig>> httpProxyConfig() {
         return Codegen.optional(this.httpProxyConfig);
     }
     /**
-     * An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
+     * An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
      * 
-     * !&gt; **Note:** A migration scenario from `service_principal` to `identity` is supported. When upgrading `service_principal` to `identity`, your cluster&#39;s control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `service_principal` until you upgrade your Node Pool.
+     * !&gt; **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster&#39;s control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
      * 
      */
     @Export(name="identity", refs={KubernetesClusterIdentity.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterIdentity> identity;
 
     /**
-     * @return An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
+     * @return An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
      * 
-     * !&gt; **Note:** A migration scenario from `service_principal` to `identity` is supported. When upgrading `service_principal` to `identity`, your cluster&#39;s control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `service_principal` until you upgrade your Node Pool.
+     * !&gt; **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster&#39;s control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
      * 
      */
     public Output<Optional<KubernetesClusterIdentity>> identity() {
@@ -476,7 +476,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.imageCleanerIntervalHours);
     }
     /**
-     * A `ingress_application_gateway` block as defined below.
+     * A `ingressApplicationGateway` block as defined below.
      * 
      * &gt; **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
      * 
@@ -485,7 +485,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ KubernetesClusterIngressApplicationGateway> ingressApplicationGateway;
 
     /**
-     * @return A `ingress_application_gateway` block as defined below.
+     * @return A `ingressApplicationGateway` block as defined below.
      * 
      * &gt; **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
      * 
@@ -494,28 +494,28 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.ingressApplicationGateway);
     }
     /**
-     * A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
+     * A `keyManagementService` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
      * 
      */
     @Export(name="keyManagementService", refs={KubernetesClusterKeyManagementService.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterKeyManagementService> keyManagementService;
 
     /**
-     * @return A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
+     * @return A `keyManagementService` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
      * 
      */
     public Output<Optional<KubernetesClusterKeyManagementService>> keyManagementService() {
         return Codegen.optional(this.keyManagementService);
     }
     /**
-     * A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
+     * A `keyVaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
      * 
      */
     @Export(name="keyVaultSecretsProvider", refs={KubernetesClusterKeyVaultSecretsProvider.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterKeyVaultSecretsProvider> keyVaultSecretsProvider;
 
     /**
-     * @return A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
+     * @return A `keyVaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
      * 
      */
     public Output<Optional<KubernetesClusterKeyVaultSecretsProvider>> keyVaultSecretsProvider() {
@@ -536,14 +536,14 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
         return this.kubeAdminConfigRaw;
     }
     /**
-     * A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
+     * A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
      * 
      */
     @Export(name="kubeAdminConfigs", refs={List.class,KubernetesClusterKubeAdminConfig.class}, tree="[0,1]")
     private Output<List<KubernetesClusterKubeAdminConfig>> kubeAdminConfigs;
 
     /**
-     * @return A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
+     * @return A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
      * 
      */
     public Output<List<KubernetesClusterKubeAdminConfig>> kubeAdminConfigs() {
@@ -564,28 +564,28 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
         return this.kubeConfigRaw;
     }
     /**
-     * A `kube_config` block as defined below.
+     * A `kubeConfig` block as defined below.
      * 
      */
     @Export(name="kubeConfigs", refs={List.class,KubernetesClusterKubeConfig.class}, tree="[0,1]")
     private Output<List<KubernetesClusterKubeConfig>> kubeConfigs;
 
     /**
-     * @return A `kube_config` block as defined below.
+     * @return A `kubeConfig` block as defined below.
      * 
      */
     public Output<List<KubernetesClusterKubeConfig>> kubeConfigs() {
         return this.kubeConfigs;
     }
     /**
-     * A `kubelet_identity` block as defined below.
+     * A `kubeletIdentity` block as defined below.
      * 
      */
     @Export(name="kubeletIdentity", refs={KubernetesClusterKubeletIdentity.class}, tree="[0]")
     private Output<KubernetesClusterKubeletIdentity> kubeletIdentity;
 
     /**
-     * @return A `kubelet_identity` block as defined below.
+     * @return A `kubeletIdentity` block as defined below.
      * 
      */
     public Output<KubernetesClusterKubeletIdentity> kubeletIdentity() {
@@ -610,14 +610,14 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
         return this.kubernetesVersion;
     }
     /**
-     * A `linux_profile` block as defined below.
+     * A `linuxProfile` block as defined below.
      * 
      */
     @Export(name="linuxProfile", refs={KubernetesClusterLinuxProfile.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterLinuxProfile> linuxProfile;
 
     /**
-     * @return A `linux_profile` block as defined below.
+     * @return A `linuxProfile` block as defined below.
      * 
      */
     public Output<Optional<KubernetesClusterLinuxProfile>> linuxProfile() {
@@ -626,7 +626,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
     /**
      * If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
      * 
-     * &gt; **Note:** If `local_account_disabled` is set to `true`, it is required to enable Kubernetes RBAC and AKS-managed Azure AD integration. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#azure-ad-authentication-overview) for more information.
+     * &gt; **Note:** If `localAccountDisabled` is set to `true`, it is required to enable Kubernetes RBAC and AKS-managed Azure AD integration. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#azure-ad-authentication-overview) for more information.
      * 
      */
     @Export(name="localAccountDisabled", refs={Boolean.class}, tree="[0]")
@@ -635,7 +635,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
     /**
      * @return If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
      * 
-     * &gt; **Note:** If `local_account_disabled` is set to `true`, it is required to enable Kubernetes RBAC and AKS-managed Azure AD integration. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#azure-ad-authentication-overview) for more information.
+     * &gt; **Note:** If `localAccountDisabled` is set to `true`, it is required to enable Kubernetes RBAC and AKS-managed Azure AD integration. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#azure-ad-authentication-overview) for more information.
      * 
      */
     public Output<Optional<Boolean>> localAccountDisabled() {
@@ -656,74 +656,74 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * A `maintenance_window` block as defined below.
+     * A `maintenanceWindow` block as defined below.
      * 
      */
     @Export(name="maintenanceWindow", refs={KubernetesClusterMaintenanceWindow.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterMaintenanceWindow> maintenanceWindow;
 
     /**
-     * @return A `maintenance_window` block as defined below.
+     * @return A `maintenanceWindow` block as defined below.
      * 
      */
     public Output<Optional<KubernetesClusterMaintenanceWindow>> maintenanceWindow() {
         return Codegen.optional(this.maintenanceWindow);
     }
     /**
-     * A `maintenance_window_auto_upgrade` block as defined below.
+     * A `maintenanceWindowAutoUpgrade` block as defined below.
      * 
      */
     @Export(name="maintenanceWindowAutoUpgrade", refs={KubernetesClusterMaintenanceWindowAutoUpgrade.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterMaintenanceWindowAutoUpgrade> maintenanceWindowAutoUpgrade;
 
     /**
-     * @return A `maintenance_window_auto_upgrade` block as defined below.
+     * @return A `maintenanceWindowAutoUpgrade` block as defined below.
      * 
      */
     public Output<Optional<KubernetesClusterMaintenanceWindowAutoUpgrade>> maintenanceWindowAutoUpgrade() {
         return Codegen.optional(this.maintenanceWindowAutoUpgrade);
     }
     /**
-     * A `maintenance_window_node_os` block as defined below.
+     * A `maintenanceWindowNodeOs` block as defined below.
      * 
      */
     @Export(name="maintenanceWindowNodeOs", refs={KubernetesClusterMaintenanceWindowNodeOs.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterMaintenanceWindowNodeOs> maintenanceWindowNodeOs;
 
     /**
-     * @return A `maintenance_window_node_os` block as defined below.
+     * @return A `maintenanceWindowNodeOs` block as defined below.
      * 
      */
     public Output<Optional<KubernetesClusterMaintenanceWindowNodeOs>> maintenanceWindowNodeOs() {
         return Codegen.optional(this.maintenanceWindowNodeOs);
     }
     /**
-     * A `microsoft_defender` block as defined below.
+     * A `microsoftDefender` block as defined below.
      * 
      */
     @Export(name="microsoftDefender", refs={KubernetesClusterMicrosoftDefender.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterMicrosoftDefender> microsoftDefender;
 
     /**
-     * @return A `microsoft_defender` block as defined below.
+     * @return A `microsoftDefender` block as defined below.
      * 
      */
     public Output<Optional<KubernetesClusterMicrosoftDefender>> microsoftDefender() {
         return Codegen.optional(this.microsoftDefender);
     }
     /**
-     * Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
+     * Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitorMetrics` block as defined below.
      * 
-     * &gt; **Note:** If deploying Managed Prometheus, the `monitor_metrics` properties are required to configure the cluster for metrics collection. If no value is needed, set properties to `null`.
+     * &gt; **Note:** If deploying Managed Prometheus, the `monitorMetrics` properties are required to configure the cluster for metrics collection. If no value is needed, set properties to `null`.
      * 
      */
     @Export(name="monitorMetrics", refs={KubernetesClusterMonitorMetrics.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterMonitorMetrics> monitorMetrics;
 
     /**
-     * @return Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
+     * @return Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitorMetrics` block as defined below.
      * 
-     * &gt; **Note:** If deploying Managed Prometheus, the `monitor_metrics` properties are required to configure the cluster for metrics collection. If no value is needed, set properties to `null`.
+     * &gt; **Note:** If deploying Managed Prometheus, the `monitorMetrics` properties are required to configure the cluster for metrics collection. If no value is needed, set properties to `null`.
      * 
      */
     public Output<Optional<KubernetesClusterMonitorMetrics>> monitorMetrics() {
@@ -744,18 +744,18 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A `network_profile` block as defined below. Changing this forces a new resource to be created.
+     * A `networkProfile` block as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** If `network_profile` is not defined, `kubenet` profile will be used by default.
+     * &gt; **Note:** If `networkProfile` is not defined, `kubenet` profile will be used by default.
      * 
      */
     @Export(name="networkProfile", refs={KubernetesClusterNetworkProfile.class}, tree="[0]")
     private Output<KubernetesClusterNetworkProfile> networkProfile;
 
     /**
-     * @return A `network_profile` block as defined below. Changing this forces a new resource to be created.
+     * @return A `networkProfile` block as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** If `network_profile` is not defined, `kubenet` profile will be used by default.
+     * &gt; **Note:** If `networkProfile` is not defined, `kubenet` profile will be used by default.
      * 
      */
     public Output<KubernetesClusterNetworkProfile> networkProfile() {
@@ -764,7 +764,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
     /**
      * The upgrade channel for this Kubernetes Cluster Nodes&#39; OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`. Defaults to `NodeImage`.
      * 
-     * &gt; **Note:** `node_os_upgrade_channel` must be set to `NodeImage` if `automatic_upgrade_channel` has been set to `node-image`
+     * &gt; **Note:** `nodeOsUpgradeChannel` must be set to `NodeImage` if `automaticUpgradeChannel` has been set to `node-image`
      * 
      */
     @Export(name="nodeOsUpgradeChannel", refs={String.class}, tree="[0]")
@@ -773,7 +773,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
     /**
      * @return The upgrade channel for this Kubernetes Cluster Nodes&#39; OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`. Defaults to `NodeImage`.
      * 
-     * &gt; **Note:** `node_os_upgrade_channel` must be set to `NodeImage` if `automatic_upgrade_channel` has been set to `node-image`
+     * &gt; **Note:** `nodeOsUpgradeChannel` must be set to `NodeImage` if `automaticUpgradeChannel` has been set to `node-image`
      * 
      */
     public Output<Optional<String>> nodeOsUpgradeChannel() {
@@ -840,14 +840,14 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
         return this.oidcIssuerUrl;
     }
     /**
-     * A `oms_agent` block as defined below.
+     * A `omsAgent` block as defined below.
      * 
      */
     @Export(name="omsAgent", refs={KubernetesClusterOmsAgent.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterOmsAgent> omsAgent;
 
     /**
-     * @return A `oms_agent` block as defined below.
+     * @return A `omsAgent` block as defined below.
      * 
      */
     public Output<Optional<KubernetesClusterOmsAgent>> omsAgent() {
@@ -1122,32 +1122,32 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.runCommandEnabled);
     }
     /**
-     * A `service_mesh_profile` block as defined below.
+     * A `serviceMeshProfile` block as defined below.
      * 
      */
     @Export(name="serviceMeshProfile", refs={KubernetesClusterServiceMeshProfile.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterServiceMeshProfile> serviceMeshProfile;
 
     /**
-     * @return A `service_mesh_profile` block as defined below.
+     * @return A `serviceMeshProfile` block as defined below.
      * 
      */
     public Output<Optional<KubernetesClusterServiceMeshProfile>> serviceMeshProfile() {
         return Codegen.optional(this.serviceMeshProfile);
     }
     /**
-     * A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
+     * A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
      * 
-     * !&gt; **Note:** A migration scenario from `service_principal` to `identity` is supported. When upgrading `service_principal` to `identity`, your cluster&#39;s control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `service_principal` until you upgrade your Node Pool.
+     * !&gt; **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster&#39;s control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
      * 
      */
     @Export(name="servicePrincipal", refs={KubernetesClusterServicePrincipal.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterServicePrincipal> servicePrincipal;
 
     /**
-     * @return A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
+     * @return A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
      * 
-     * !&gt; **Note:** A migration scenario from `service_principal` to `identity` is supported. When upgrading `service_principal` to `identity`, your cluster&#39;s control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `service_principal` until you upgrade your Node Pool.
+     * !&gt; **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster&#39;s control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
      * 
      */
     public Output<Optional<KubernetesClusterServicePrincipal>> servicePrincipal() {
@@ -1172,14 +1172,14 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.skuTier);
     }
     /**
-     * A `storage_profile` block as defined below.
+     * A `storageProfile` block as defined below.
      * 
      */
     @Export(name="storageProfile", refs={KubernetesClusterStorageProfile.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterStorageProfile> storageProfile;
 
     /**
-     * @return A `storage_profile` block as defined below.
+     * @return A `storageProfile` block as defined below.
      * 
      */
     public Output<Optional<KubernetesClusterStorageProfile>> storageProfile() {
@@ -1214,56 +1214,56 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A `upgrade_override` block as defined below.
+     * A `upgradeOverride` block as defined below.
      * 
      */
     @Export(name="upgradeOverride", refs={KubernetesClusterUpgradeOverride.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterUpgradeOverride> upgradeOverride;
 
     /**
-     * @return A `upgrade_override` block as defined below.
+     * @return A `upgradeOverride` block as defined below.
      * 
      */
     public Output<Optional<KubernetesClusterUpgradeOverride>> upgradeOverride() {
         return Codegen.optional(this.upgradeOverride);
     }
     /**
-     * A `web_app_routing` block as defined below.
+     * A `webAppRouting` block as defined below.
      * 
      */
     @Export(name="webAppRouting", refs={KubernetesClusterWebAppRouting.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterWebAppRouting> webAppRouting;
 
     /**
-     * @return A `web_app_routing` block as defined below.
+     * @return A `webAppRouting` block as defined below.
      * 
      */
     public Output<Optional<KubernetesClusterWebAppRouting>> webAppRouting() {
         return Codegen.optional(this.webAppRouting);
     }
     /**
-     * A `windows_profile` block as defined below.
+     * A `windowsProfile` block as defined below.
      * 
      */
     @Export(name="windowsProfile", refs={KubernetesClusterWindowsProfile.class}, tree="[0]")
     private Output<KubernetesClusterWindowsProfile> windowsProfile;
 
     /**
-     * @return A `windows_profile` block as defined below.
+     * @return A `windowsProfile` block as defined below.
      * 
      */
     public Output<KubernetesClusterWindowsProfile> windowsProfile() {
         return this.windowsProfile;
     }
     /**
-     * A `workload_autoscaler_profile` block defined below.
+     * A `workloadAutoscalerProfile` block defined below.
      * 
      */
     @Export(name="workloadAutoscalerProfile", refs={KubernetesClusterWorkloadAutoscalerProfile.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterWorkloadAutoscalerProfile> workloadAutoscalerProfile;
 
     /**
-     * @return A `workload_autoscaler_profile` block defined below.
+     * @return A `workloadAutoscalerProfile` block defined below.
      * 
      */
     public Output<Optional<KubernetesClusterWorkloadAutoscalerProfile>> workloadAutoscalerProfile() {
@@ -1272,7 +1272,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
     /**
      * Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
      * 
-     * &gt; **Note:** To enable Azure AD Workload Identity `oidc_issuer_enabled` must be set to `true`.
+     * &gt; **Note:** To enable Azure AD Workload Identity `oidcIssuerEnabled` must be set to `true`.
      * 
      * &gt; **Note:** Enabling this option will allocate Workload Identity resources to the `kube-system` namespace in Kubernetes. If you wish to customize the deployment of Workload Identity, you can refer to [the documentation on Azure AD Workload Identity.](https://azure.github.io/azure-workload-identity/docs/installation/mutating-admission-webhook.html) The documentation provides guidance on how to install the mutating admission webhook, which allows for the customization of Workload Identity deployment.
      * 
@@ -1283,7 +1283,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
      * 
-     * &gt; **Note:** To enable Azure AD Workload Identity `oidc_issuer_enabled` must be set to `true`.
+     * &gt; **Note:** To enable Azure AD Workload Identity `oidcIssuerEnabled` must be set to `true`.
      * 
      * &gt; **Note:** Enabling this option will allocate Workload Identity resources to the `kube-system` namespace in Kubernetes. If you wish to customize the deployment of Workload Identity, you can refer to [the documentation on Azure AD Workload Identity.](https://azure.github.io/azure-workload-identity/docs/installation/mutating-admission-webhook.html) The documentation provides guidance on how to install the mutating admission webhook, which allows for the customization of Workload Identity deployment.
      * 

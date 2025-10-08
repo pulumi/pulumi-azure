@@ -22,14 +22,14 @@ public final class ApplicationGatewayWafConfigurationArgs extends com.pulumi.res
     public static final ApplicationGatewayWafConfigurationArgs Empty = new ApplicationGatewayWafConfigurationArgs();
 
     /**
-     * One or more `disabled_rule_group` blocks as defined below.
+     * One or more `disabledRuleGroup` blocks as defined below.
      * 
      */
     @Import(name="disabledRuleGroups")
     private @Nullable Output<List<ApplicationGatewayWafConfigurationDisabledRuleGroupArgs>> disabledRuleGroups;
 
     /**
-     * @return One or more `disabled_rule_group` blocks as defined below.
+     * @return One or more `disabledRuleGroup` blocks as defined below.
      * 
      */
     public Optional<Output<List<ApplicationGatewayWafConfigurationDisabledRuleGroupArgs>>> disabledRuleGroups() {
@@ -189,7 +189,7 @@ public final class ApplicationGatewayWafConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param disabledRuleGroups One or more `disabled_rule_group` blocks as defined below.
+         * @param disabledRuleGroups One or more `disabledRuleGroup` blocks as defined below.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class ApplicationGatewayWafConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param disabledRuleGroups One or more `disabled_rule_group` blocks as defined below.
+         * @param disabledRuleGroups One or more `disabledRuleGroup` blocks as defined below.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class ApplicationGatewayWafConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param disabledRuleGroups One or more `disabled_rule_group` blocks as defined below.
+         * @param disabledRuleGroups One or more `disabledRuleGroup` blocks as defined below.
          * 
          * @return builder
          * 

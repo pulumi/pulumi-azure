@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequest {
     /**
-     * @return The number of occurrences of the defined `status_code` in the specified `interval` on which to trigger this rule.
+     * @return The number of occurrences of the defined `statusCode` in the specified `interval` on which to trigger this rule.
      * 
      */
     private Integer count;
@@ -24,7 +24,7 @@ public final class GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequest {
 
     private GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequest() {}
     /**
-     * @return The number of occurrences of the defined `status_code` in the specified `interval` on which to trigger this rule.
+     * @return The number of occurrences of the defined `statusCode` in the specified `interval` on which to trigger this rule.
      * 
      */
     public Integer count() {

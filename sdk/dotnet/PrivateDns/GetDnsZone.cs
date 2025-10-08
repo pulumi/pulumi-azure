@@ -111,7 +111,7 @@ namespace Pulumi.Azure.PrivateDns
         /// <summary>
         /// The Name of the Resource Group where the Private DNS Zone exists.
         /// If the Name of the Resource Group is not provided, the first Private DNS Zone from the list of Private
-        /// DNS Zones in your subscription that matches `name` will be returned.
+        /// DNS Zones in your subscription that matches `Name` will be returned.
         /// </summary>
         [Input("resourceGroupName")]
         public string? ResourceGroupName { get; set; }
@@ -145,7 +145,7 @@ namespace Pulumi.Azure.PrivateDns
         /// <summary>
         /// The Name of the Resource Group where the Private DNS Zone exists.
         /// If the Name of the Resource Group is not provided, the first Private DNS Zone from the list of Private
-        /// DNS Zones in your subscription that matches `name` will be returned.
+        /// DNS Zones in your subscription that matches `Name` will be returned.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

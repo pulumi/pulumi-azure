@@ -25,7 +25,7 @@ public final class VirtualNetworkGatewayBgpSettingsPeeringAddress {
      */
     private @Nullable List<String> defaultAddresses;
     /**
-     * @return The name of the IP configuration of this Virtual Network Gateway. In case there are multiple `ip_configuration` blocks defined, this property is **required** to specify.
+     * @return The name of the IP configuration of this Virtual Network Gateway. In case there are multiple `ipConfiguration` blocks defined, this property is **required** to specify.
      * 
      */
     private @Nullable String ipConfigurationName;
@@ -53,7 +53,7 @@ public final class VirtualNetworkGatewayBgpSettingsPeeringAddress {
         return this.defaultAddresses == null ? List.of() : this.defaultAddresses;
     }
     /**
-     * @return The name of the IP configuration of this Virtual Network Gateway. In case there are multiple `ip_configuration` blocks defined, this property is **required** to specify.
+     * @return The name of the IP configuration of this Virtual Network Gateway. In case there are multiple `ipConfiguration` blocks defined, this property is **required** to specify.
      * 
      */
     public Optional<String> ipConfigurationName() {

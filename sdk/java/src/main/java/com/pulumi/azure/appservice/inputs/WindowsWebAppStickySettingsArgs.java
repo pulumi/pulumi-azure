@@ -17,14 +17,14 @@ public final class WindowsWebAppStickySettingsArgs extends com.pulumi.resources.
     public static final WindowsWebAppStickySettingsArgs Empty = new WindowsWebAppStickySettingsArgs();
 
     /**
-     * A list of `app_setting` names that the Windows Web App will not swap between Slots when a swap operation is triggered.
+     * A list of `appSetting` names that the Windows Web App will not swap between Slots when a swap operation is triggered.
      * 
      */
     @Import(name="appSettingNames")
     private @Nullable Output<List<String>> appSettingNames;
 
     /**
-     * @return A list of `app_setting` names that the Windows Web App will not swap between Slots when a swap operation is triggered.
+     * @return A list of `appSetting` names that the Windows Web App will not swap between Slots when a swap operation is triggered.
      * 
      */
     public Optional<Output<List<String>>> appSettingNames() {
@@ -32,14 +32,14 @@ public final class WindowsWebAppStickySettingsArgs extends com.pulumi.resources.
     }
 
     /**
-     * A list of `connection_string` names that the Windows Web App will not swap between Slots when a swap operation is triggered.
+     * A list of `connectionString` names that the Windows Web App will not swap between Slots when a swap operation is triggered.
      * 
      */
     @Import(name="connectionStringNames")
     private @Nullable Output<List<String>> connectionStringNames;
 
     /**
-     * @return A list of `connection_string` names that the Windows Web App will not swap between Slots when a swap operation is triggered.
+     * @return A list of `connectionString` names that the Windows Web App will not swap between Slots when a swap operation is triggered.
      * 
      */
     public Optional<Output<List<String>>> connectionStringNames() {
@@ -72,7 +72,7 @@ public final class WindowsWebAppStickySettingsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param appSettingNames A list of `app_setting` names that the Windows Web App will not swap between Slots when a swap operation is triggered.
+         * @param appSettingNames A list of `appSetting` names that the Windows Web App will not swap between Slots when a swap operation is triggered.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class WindowsWebAppStickySettingsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param appSettingNames A list of `app_setting` names that the Windows Web App will not swap between Slots when a swap operation is triggered.
+         * @param appSettingNames A list of `appSetting` names that the Windows Web App will not swap between Slots when a swap operation is triggered.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class WindowsWebAppStickySettingsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param appSettingNames A list of `app_setting` names that the Windows Web App will not swap between Slots when a swap operation is triggered.
+         * @param appSettingNames A list of `appSetting` names that the Windows Web App will not swap between Slots when a swap operation is triggered.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class WindowsWebAppStickySettingsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param connectionStringNames A list of `connection_string` names that the Windows Web App will not swap between Slots when a swap operation is triggered.
+         * @param connectionStringNames A list of `connectionString` names that the Windows Web App will not swap between Slots when a swap operation is triggered.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class WindowsWebAppStickySettingsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param connectionStringNames A list of `connection_string` names that the Windows Web App will not swap between Slots when a swap operation is triggered.
+         * @param connectionStringNames A list of `connectionString` names that the Windows Web App will not swap between Slots when a swap operation is triggered.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class WindowsWebAppStickySettingsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param connectionStringNames A list of `connection_string` names that the Windows Web App will not swap between Slots when a swap operation is triggered.
+         * @param connectionStringNames A list of `connectionString` names that the Windows Web App will not swap between Slots when a swap operation is triggered.
          * 
          * @return builder
          * 

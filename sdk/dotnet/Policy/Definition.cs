@@ -137,7 +137,7 @@ namespace Pulumi.Azure.Policy
         public Output<string> PolicyType { get; private set; } = null!;
 
         /// <summary>
-        /// A list of role definition id extracted from `policy_rule` required for remediation.
+        /// A list of role definition id extracted from `PolicyRule` required for remediation.
         /// </summary>
         [Output("roleDefinitionIds")]
         public Output<ImmutableArray<string>> RoleDefinitionIds { get; private set; } = null!;
@@ -312,7 +312,7 @@ namespace Pulumi.Azure.Policy
         private InputList<string>? _roleDefinitionIds;
 
         /// <summary>
-        /// A list of role definition id extracted from `policy_rule` required for remediation.
+        /// A list of role definition id extracted from `PolicyRule` required for remediation.
         /// </summary>
         public InputList<string> RoleDefinitionIds
         {

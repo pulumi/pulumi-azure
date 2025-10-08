@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Pim.Inputs
     public sealed class RoleManagementPolicyEligibleAssignmentRulesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Must an assignment have an expiry date. `false` allows permanent assignment.
+        /// Must an assignment have an expiry date. `False` allows permanent assignment.
         /// </summary>
         [Input("expirationRequired")]
         public Input<bool>? ExpirationRequired { get; set; }
@@ -21,7 +21,7 @@ namespace Pulumi.Azure.Pim.Inputs
         /// <summary>
         /// The maximum length of time an assignment can be valid, as an ISO8601 duration. Permitted values: `P15D`, `P30D`, `P90D`, `P180D`, or `P365D`.
         /// 
-        /// One of `expiration_required` or `expire_after` must be provided.
+        /// One of `ExpirationRequired` or `ExpireAfter` must be provided.
         /// </summary>
         [Input("expireAfter")]
         public Input<string>? ExpireAfter { get; set; }

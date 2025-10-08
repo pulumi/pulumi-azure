@@ -12,6 +12,74 @@ namespace Pulumi.Azure.StreamAnalytics
     /// <summary>
     /// Manages a Stream Analytics Output to a ServiceBus Topic.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "rg-example",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var example = Azure.StreamAnalytics.GetJob.Invoke(new()
+    ///     {
+    ///         Name = "example-job",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleNamespace = new Azure.ServiceBus.Namespace("example", new()
+    ///     {
+    ///         Name = "example-namespace",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Standard",
+    ///     });
+    /// 
+    ///     var exampleTopic = new Azure.ServiceBus.Topic("example", new()
+    ///     {
+    ///         Name = "example-topic",
+    ///         NamespaceId = exampleNamespace.Id,
+    ///         EnablePartitioning = true,
+    ///     });
+    /// 
+    ///     var exampleOutputServicebusTopic = new Azure.StreamAnalytics.OutputServicebusTopic("example", new()
+    ///     {
+    ///         Name = "service-bus-topic-output",
+    ///         StreamAnalyticsJobName = example.Apply(getJobResult =&gt; getJobResult.Name),
+    ///         ResourceGroupName = example.Apply(getJobResult =&gt; getJobResult.ResourceGroupName),
+    ///         TopicName = exampleTopic.Name,
+    ///         ServicebusNamespace = exampleNamespace.Name,
+    ///         SharedAccessPolicyKey = exampleNamespace.DefaultPrimaryKey,
+    ///         SharedAccessPolicyName = "RootManageSharedAccessKey",
+    ///         PropertyColumns = new[]
+    ///         {
+    ///             "col1",
+    ///             "col2",
+    ///         },
+    ///         Serialization = new Azure.StreamAnalytics.Inputs.OutputServicebusTopicSerializationArgs
+    ///         {
+    ///             Type = "Csv",
+    ///             Format = "Array",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.StreamAnalytics` - 2021-10-01-preview
+    /// 
     /// ## Import
     /// 
     /// Stream Analytics Output ServiceBus Topic's can be imported using the `resource id`, e.g.
@@ -48,7 +116,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `serialization` block as defined below.
+        /// A `Serialization` block as defined below.
         /// </summary>
         [Output("serialization")]
         public Output<Outputs.OutputServicebusTopicSerialization> Serialization { get; private set; } = null!;
@@ -60,13 +128,13 @@ namespace Pulumi.Azure.StreamAnalytics
         public Output<string> ServicebusNamespace { get; private set; } = null!;
 
         /// <summary>
-        /// The shared access policy key for the specified shared access policy. Required if `authentication_mode` is `ConnectionString`.
+        /// The shared access policy key for the specified shared access policy. Required if `AuthenticationMode` is `ConnectionString`.
         /// </summary>
         [Output("sharedAccessPolicyKey")]
         public Output<string?> SharedAccessPolicyKey { get; private set; } = null!;
 
         /// <summary>
-        /// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required if `authentication_mode` is `ConnectionString`.
+        /// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required if `AuthenticationMode` is `ConnectionString`.
         /// </summary>
         [Output("sharedAccessPolicyName")]
         public Output<string?> SharedAccessPolicyName { get; private set; } = null!;
@@ -172,7 +240,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `serialization` block as defined below.
+        /// A `Serialization` block as defined below.
         /// </summary>
         [Input("serialization", required: true)]
         public Input<Inputs.OutputServicebusTopicSerializationArgs> Serialization { get; set; } = null!;
@@ -187,7 +255,7 @@ namespace Pulumi.Azure.StreamAnalytics
         private Input<string>? _sharedAccessPolicyKey;
 
         /// <summary>
-        /// The shared access policy key for the specified shared access policy. Required if `authentication_mode` is `ConnectionString`.
+        /// The shared access policy key for the specified shared access policy. Required if `AuthenticationMode` is `ConnectionString`.
         /// </summary>
         public Input<string>? SharedAccessPolicyKey
         {
@@ -200,7 +268,7 @@ namespace Pulumi.Azure.StreamAnalytics
         }
 
         /// <summary>
-        /// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required if `authentication_mode` is `ConnectionString`.
+        /// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required if `AuthenticationMode` is `ConnectionString`.
         /// </summary>
         [Input("sharedAccessPolicyName")]
         public Input<string>? SharedAccessPolicyName { get; set; }
@@ -270,7 +338,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// A `serialization` block as defined below.
+        /// A `Serialization` block as defined below.
         /// </summary>
         [Input("serialization")]
         public Input<Inputs.OutputServicebusTopicSerializationGetArgs>? Serialization { get; set; }
@@ -285,7 +353,7 @@ namespace Pulumi.Azure.StreamAnalytics
         private Input<string>? _sharedAccessPolicyKey;
 
         /// <summary>
-        /// The shared access policy key for the specified shared access policy. Required if `authentication_mode` is `ConnectionString`.
+        /// The shared access policy key for the specified shared access policy. Required if `AuthenticationMode` is `ConnectionString`.
         /// </summary>
         public Input<string>? SharedAccessPolicyKey
         {
@@ -298,7 +366,7 @@ namespace Pulumi.Azure.StreamAnalytics
         }
 
         /// <summary>
-        /// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required if `authentication_mode` is `ConnectionString`.
+        /// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required if `AuthenticationMode` is `ConnectionString`.
         /// </summary>
         [Input("sharedAccessPolicyName")]
         public Input<string>? SharedAccessPolicyName { get; set; }

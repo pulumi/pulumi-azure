@@ -12,6 +12,85 @@ namespace Pulumi.Azure.DataProtection
     /// <summary>
     /// Manages a Backup Policy to back up Kubernetes Cluster.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleBackupVault = new Azure.DataProtection.BackupVault("example", new()
+    ///     {
+    ///         Name = "example-backup-vault",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         DatastoreType = "VaultStore",
+    ///         Redundancy = "LocallyRedundant",
+    ///     });
+    /// 
+    ///     var exampleBackupPolicyKubernetesCluster = new Azure.DataProtection.BackupPolicyKubernetesCluster("example", new()
+    ///     {
+    ///         Name = "example-backup-policy",
+    ///         ResourceGroupName = example.Name,
+    ///         VaultName = exampleBackupVault.Name,
+    ///         BackupRepeatingTimeIntervals = new[]
+    ///         {
+    ///             "R/2021-05-23T02:30:00+00:00/P1W",
+    ///         },
+    ///         TimeZone = "India Standard Time",
+    ///         DefaultRetentionDuration = "P4M",
+    ///         RetentionRules = new[]
+    ///         {
+    ///             new Azure.DataProtection.Inputs.BackupPolicyKubernetesClusterRetentionRuleArgs
+    ///             {
+    ///                 Name = "Daily",
+    ///                 Priority = 25,
+    ///                 LifeCycles = new[]
+    ///                 {
+    ///                     new Azure.DataProtection.Inputs.BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs
+    ///                     {
+    ///                         Duration = "P84D",
+    ///                         DataStoreType = "OperationalStore",
+    ///                     },
+    ///                 },
+    ///                 Criteria = new Azure.DataProtection.Inputs.BackupPolicyKubernetesClusterRetentionRuleCriteriaArgs
+    ///                 {
+    ///                     AbsoluteCriteria = "FirstOfDay",
+    ///                 },
+    ///             },
+    ///         },
+    ///         DefaultRetentionRule = new Azure.DataProtection.Inputs.BackupPolicyKubernetesClusterDefaultRetentionRuleArgs
+    ///         {
+    ///             LifeCycles = new[]
+    ///             {
+    ///                 new Azure.DataProtection.Inputs.BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgs
+    ///                 {
+    ///                     Duration = "P7D",
+    ///                     DataStoreType = "OperationalStore",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.DataProtection` - 2024-04-01
+    /// 
     /// ## Import
     /// 
     /// Backup Policy Kubernetes Cluster's can be imported using the `resource id`, e.g.
@@ -30,7 +109,7 @@ namespace Pulumi.Azure.DataProtection
         public Output<ImmutableArray<string>> BackupRepeatingTimeIntervals { get; private set; } = null!;
 
         /// <summary>
-        /// A `default_retention_rule` block as defined below. Changing this forces a new resource to be created.
+        /// A `DefaultRetentionRule` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("defaultRetentionRule")]
         public Output<Outputs.BackupPolicyKubernetesClusterDefaultRetentionRule> DefaultRetentionRule { get; private set; } = null!;
@@ -48,7 +127,7 @@ namespace Pulumi.Azure.DataProtection
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `retention_rule` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `RetentionRule` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("retentionRules")]
         public Output<ImmutableArray<Outputs.BackupPolicyKubernetesClusterRetentionRule>> RetentionRules { get; private set; } = null!;
@@ -124,7 +203,7 @@ namespace Pulumi.Azure.DataProtection
         }
 
         /// <summary>
-        /// A `default_retention_rule` block as defined below. Changing this forces a new resource to be created.
+        /// A `DefaultRetentionRule` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("defaultRetentionRule", required: true)]
         public Input<Inputs.BackupPolicyKubernetesClusterDefaultRetentionRuleArgs> DefaultRetentionRule { get; set; } = null!;
@@ -145,7 +224,7 @@ namespace Pulumi.Azure.DataProtection
         private InputList<Inputs.BackupPolicyKubernetesClusterRetentionRuleArgs>? _retentionRules;
 
         /// <summary>
-        /// One or more `retention_rule` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `RetentionRule` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.BackupPolicyKubernetesClusterRetentionRuleArgs> RetentionRules
         {
@@ -186,7 +265,7 @@ namespace Pulumi.Azure.DataProtection
         }
 
         /// <summary>
-        /// A `default_retention_rule` block as defined below. Changing this forces a new resource to be created.
+        /// A `DefaultRetentionRule` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("defaultRetentionRule")]
         public Input<Inputs.BackupPolicyKubernetesClusterDefaultRetentionRuleGetArgs>? DefaultRetentionRule { get; set; }
@@ -207,7 +286,7 @@ namespace Pulumi.Azure.DataProtection
         private InputList<Inputs.BackupPolicyKubernetesClusterRetentionRuleGetArgs>? _retentionRules;
 
         /// <summary>
-        /// One or more `retention_rule` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `RetentionRule` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.BackupPolicyKubernetesClusterRetentionRuleGetArgs> RetentionRules
         {

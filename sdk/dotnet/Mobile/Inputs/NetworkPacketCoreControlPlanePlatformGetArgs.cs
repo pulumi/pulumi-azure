@@ -21,7 +21,7 @@ namespace Pulumi.Azure.Mobile.Inputs
         /// <summary>
         /// The ID of the Azure Arc custom location where the packet core is deployed.
         /// 
-        /// &gt; **Note:** At least one of `edge_device_id`, `arc_kubernetes_cluster_id`, `stack_hci_cluster_id` and `custom_location_id` should be specified. If multiple are set, they must be consistent with each other.
+        /// &gt; **Note:** At least one of `EdgeDeviceId`, `ArcKubernetesClusterId`, `StackHciClusterId` and `CustomLocationId` should be specified. If multiple are set, they must be consistent with each other.
         /// </summary>
         [Input("customLocationId")]
         public Input<string>? CustomLocationId { get; set; }

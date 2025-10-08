@@ -97,7 +97,7 @@ namespace Pulumi.Azure.Oracle
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `maintenance_window` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        /// One or more `MaintenanceWindow` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
         /// </summary>
         [Output("maintenanceWindows")]
         public Output<ImmutableArray<Outputs.ExadataInfrastructureMaintenanceWindow>> MaintenanceWindows { get; private set; } = null!;
@@ -230,7 +230,7 @@ namespace Pulumi.Azure.Oracle
         private InputList<Inputs.ExadataInfrastructureMaintenanceWindowArgs>? _maintenanceWindows;
 
         /// <summary>
-        /// One or more `maintenance_window` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        /// One or more `MaintenanceWindow` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
         /// </summary>
         public InputList<Inputs.ExadataInfrastructureMaintenanceWindowArgs> MaintenanceWindows
         {
@@ -340,7 +340,7 @@ namespace Pulumi.Azure.Oracle
         private InputList<Inputs.ExadataInfrastructureMaintenanceWindowGetArgs>? _maintenanceWindows;
 
         /// <summary>
-        /// One or more `maintenance_window` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        /// One or more `MaintenanceWindow` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
         /// </summary>
         public InputList<Inputs.ExadataInfrastructureMaintenanceWindowGetArgs> MaintenanceWindows
         {

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
     public sealed class GetDataCollectionRuleDataSourceDataImportResult
     {
         /// <summary>
-        /// An `event_hub_data_source` block as defined below.
+        /// An `EventHubDataSource` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDataCollectionRuleDataSourceDataImportEventHubDataSourceResult> EventHubDataSources;
 

@@ -500,6 +500,60 @@ class EndpointCosmosdbAccount(pulumi.CustomResource):
 
         > **Note:** Endpoints can be defined either directly on the `iot.IoTHub` resource, or using the `azurerm_iothub_endpoint_*` resources - but the two ways of defining the endpoints cannot be used together. If both are used against the same IoTHub, spurious changes will occur. Also, defining a `azurerm_iothub_endpoint_*` resource and another endpoint of a different type directly on the `iot.IoTHub` resource is not supported.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_io_t_hub = azure.iot.IoTHub("example",
+            name="exampleIothub",
+            resource_group_name=example.name,
+            location=example.location,
+            sku={
+                "name": "B1",
+                "capacity": 1,
+            },
+            tags={
+                "purpose": "example",
+            })
+        example_account = azure.cosmosdb.Account("example",
+            name="cosmosdb-account",
+            location=example.location,
+            resource_group_name=example.name,
+            offer_type="Standard",
+            kind="GlobalDocumentDB",
+            consistency_policy={
+                "consistency_level": "Strong",
+            },
+            geo_locations=[{
+                "location": example.location,
+                "failover_priority": 0,
+            }])
+        example_sql_database = azure.cosmosdb.SqlDatabase("example",
+            name="cosmos-sql-db",
+            resource_group_name=example_account.resource_group_name,
+            account_name=example_account.name)
+        example_sql_container = azure.cosmosdb.SqlContainer("example",
+            name="example-container",
+            resource_group_name=example_account.resource_group_name,
+            account_name=example_account.name,
+            database_name=example_sql_database.name,
+            partition_key_path="/definition/id")
+        example_endpoint_cosmosdb_account = azure.iot.EndpointCosmosdbAccount("example",
+            name="example",
+            resource_group_name=example.name,
+            iothub_id=example_io_t_hub.id,
+            container_name=example_sql_container.name,
+            database_name=example_sql_database.name,
+            endpoint_uri=example_account.endpoint,
+            primary_key=example_account.primary_key,
+            secondary_key=example_account.secondary_key)
+        ```
+
         ## Import
 
         IoTHub Cosmos DB Account Endpoint can be imported using the `resource id`, e.g.
@@ -542,6 +596,60 @@ class EndpointCosmosdbAccount(pulumi.CustomResource):
         Manages an IotHub Cosmos DB Account Endpoint
 
         > **Note:** Endpoints can be defined either directly on the `iot.IoTHub` resource, or using the `azurerm_iothub_endpoint_*` resources - but the two ways of defining the endpoints cannot be used together. If both are used against the same IoTHub, spurious changes will occur. Also, defining a `azurerm_iothub_endpoint_*` resource and another endpoint of a different type directly on the `iot.IoTHub` resource is not supported.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_io_t_hub = azure.iot.IoTHub("example",
+            name="exampleIothub",
+            resource_group_name=example.name,
+            location=example.location,
+            sku={
+                "name": "B1",
+                "capacity": 1,
+            },
+            tags={
+                "purpose": "example",
+            })
+        example_account = azure.cosmosdb.Account("example",
+            name="cosmosdb-account",
+            location=example.location,
+            resource_group_name=example.name,
+            offer_type="Standard",
+            kind="GlobalDocumentDB",
+            consistency_policy={
+                "consistency_level": "Strong",
+            },
+            geo_locations=[{
+                "location": example.location,
+                "failover_priority": 0,
+            }])
+        example_sql_database = azure.cosmosdb.SqlDatabase("example",
+            name="cosmos-sql-db",
+            resource_group_name=example_account.resource_group_name,
+            account_name=example_account.name)
+        example_sql_container = azure.cosmosdb.SqlContainer("example",
+            name="example-container",
+            resource_group_name=example_account.resource_group_name,
+            account_name=example_account.name,
+            database_name=example_sql_database.name,
+            partition_key_path="/definition/id")
+        example_endpoint_cosmosdb_account = azure.iot.EndpointCosmosdbAccount("example",
+            name="example",
+            resource_group_name=example.name,
+            iothub_id=example_io_t_hub.id,
+            container_name=example_sql_container.name,
+            database_name=example_sql_database.name,
+            endpoint_uri=example_account.endpoint,
+            primary_key=example_account.primary_key,
+            secondary_key=example_account.secondary_key)
+        ```
 
         ## Import
 

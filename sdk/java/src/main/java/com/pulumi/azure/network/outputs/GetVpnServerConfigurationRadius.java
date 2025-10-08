@@ -14,12 +14,12 @@ import java.util.Objects;
 @CustomType
 public final class GetVpnServerConfigurationRadius {
     /**
-     * @return One or more `client_root_certificate` blocks as defined below.
+     * @return One or more `clientRootCertificate` blocks as defined below.
      * 
      */
     private List<GetVpnServerConfigurationRadiusClientRootCertificate> clientRootCertificates;
     /**
-     * @return One or more `server_root_certificate` blocks as defined below.
+     * @return One or more `serverRootCertificate` blocks as defined below.
      * 
      */
     private List<GetVpnServerConfigurationRadiusServerRootCertificate> serverRootCertificates;
@@ -31,14 +31,14 @@ public final class GetVpnServerConfigurationRadius {
 
     private GetVpnServerConfigurationRadius() {}
     /**
-     * @return One or more `client_root_certificate` blocks as defined below.
+     * @return One or more `clientRootCertificate` blocks as defined below.
      * 
      */
     public List<GetVpnServerConfigurationRadiusClientRootCertificate> clientRootCertificates() {
         return this.clientRootCertificates;
     }
     /**
-     * @return One or more `server_root_certificate` blocks as defined below.
+     * @return One or more `serverRootCertificate` blocks as defined below.
      * 
      */
     public List<GetVpnServerConfigurationRadiusServerRootCertificate> serverRootCertificates() {

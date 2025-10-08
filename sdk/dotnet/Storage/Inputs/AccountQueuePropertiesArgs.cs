@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Storage.Inputs
         private InputList<Inputs.AccountQueuePropertiesCorsRuleArgs>? _corsRules;
 
         /// <summary>
-        /// A `cors_rule` block as defined above.
+        /// A `CorsRule` block as defined above.
         /// </summary>
         public InputList<Inputs.AccountQueuePropertiesCorsRuleArgs> CorsRules
         {
@@ -25,19 +25,19 @@ namespace Pulumi.Azure.Storage.Inputs
         }
 
         /// <summary>
-        /// A `hour_metrics` block as defined below.
+        /// A `HourMetrics` block as defined below.
         /// </summary>
         [Input("hourMetrics")]
         public Input<Inputs.AccountQueuePropertiesHourMetricsArgs>? HourMetrics { get; set; }
 
         /// <summary>
-        /// A `logging` block as defined below.
+        /// A `Logging` block as defined below.
         /// </summary>
         [Input("logging")]
         public Input<Inputs.AccountQueuePropertiesLoggingArgs>? Logging { get; set; }
 
         /// <summary>
-        /// A `minute_metrics` block as defined below.
+        /// A `MinuteMetrics` block as defined below.
         /// </summary>
         [Input("minuteMetrics")]
         public Input<Inputs.AccountQueuePropertiesMinuteMetricsArgs>? MinuteMetrics { get; set; }

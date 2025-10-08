@@ -169,7 +169,7 @@ namespace Pulumi.Azure.Nginx
     public partial class Configuration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// One or more `config_file` blocks as defined below.
+        /// One or more `ConfigFile` blocks as defined below.
         /// </summary>
         [Output("configFiles")]
         public Output<ImmutableArray<Outputs.ConfigurationConfigFile>> ConfigFiles { get; private set; } = null!;
@@ -187,7 +187,7 @@ namespace Pulumi.Azure.Nginx
         public Output<string?> PackageData { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified.
+        /// One or more `ProtectedFile` blocks with sensitive information as defined below. If specified `ConfigFile` must also be specified.
         /// </summary>
         [Output("protectedFiles")]
         public Output<ImmutableArray<Outputs.ConfigurationProtectedFile>> ProtectedFiles { get; private set; } = null!;
@@ -248,7 +248,7 @@ namespace Pulumi.Azure.Nginx
         private InputList<Inputs.ConfigurationConfigFileArgs>? _configFiles;
 
         /// <summary>
-        /// One or more `config_file` blocks as defined below.
+        /// One or more `ConfigFile` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ConfigurationConfigFileArgs> ConfigFiles
         {
@@ -272,7 +272,7 @@ namespace Pulumi.Azure.Nginx
         private InputList<Inputs.ConfigurationProtectedFileArgs>? _protectedFiles;
 
         /// <summary>
-        /// One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified.
+        /// One or more `ProtectedFile` blocks with sensitive information as defined below. If specified `ConfigFile` must also be specified.
         /// </summary>
         public InputList<Inputs.ConfigurationProtectedFileArgs> ProtectedFiles
         {
@@ -298,7 +298,7 @@ namespace Pulumi.Azure.Nginx
         private InputList<Inputs.ConfigurationConfigFileGetArgs>? _configFiles;
 
         /// <summary>
-        /// One or more `config_file` blocks as defined below.
+        /// One or more `ConfigFile` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ConfigurationConfigFileGetArgs> ConfigFiles
         {
@@ -322,7 +322,7 @@ namespace Pulumi.Azure.Nginx
         private InputList<Inputs.ConfigurationProtectedFileGetArgs>? _protectedFiles;
 
         /// <summary>
-        /// One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified.
+        /// One or more `ProtectedFile` blocks with sensitive information as defined below. If specified `ConfigFile` must also be specified.
         /// </summary>
         public InputList<Inputs.ConfigurationProtectedFileGetArgs> ProtectedFiles
         {

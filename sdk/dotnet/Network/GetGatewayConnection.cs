@@ -178,17 +178,17 @@ namespace Pulumi.Azure.Network
         public readonly int DpdTimeoutSeconds;
         public readonly int EgressBytesTransferred;
         /// <summary>
-        /// If `true`, BGP (Border Gateway Protocol) is enabled
+        /// If `True`, BGP (Border Gateway Protocol) is enabled
         /// for this connection.
         /// </summary>
         public readonly bool EnableBgp;
         /// <summary>
         /// The ID of the Express Route Circuit
-        /// (i.e. when `type` is `ExpressRoute`).
+        /// (i.e. when `Type` is `ExpressRoute`).
         /// </summary>
         public readonly string ExpressRouteCircuitId;
         /// <summary>
-        /// If `true`, data packets will bypass ExpressRoute Gateway for data forwarding. This is only valid for ExpressRoute connections.
+        /// If `True`, data packets will bypass ExpressRoute Gateway for data forwarding. This is only valid for ExpressRoute connections.
         /// </summary>
         public readonly bool ExpressRouteGatewayBypass;
         /// <summary>
@@ -197,7 +197,7 @@ namespace Pulumi.Azure.Network
         public readonly string Id;
         public readonly int IngressBytesTransferred;
         /// <summary>
-        /// (Optional) A `ipsec_policy` block which is documented below.
+        /// (Optional) A `IpsecPolicy` block which is documented below.
         /// Only a single policy can be defined for a connection. For details on
         /// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
         /// </summary>
@@ -208,7 +208,7 @@ namespace Pulumi.Azure.Network
         public readonly bool LocalAzureIpAddressEnabled;
         /// <summary>
         /// The ID of the local network gateway
-        /// when a Site-to-Site connection (i.e. when `type` is `IPsec`).
+        /// when a Site-to-Site connection (i.e. when `Type` is `IPsec`).
         /// </summary>
         public readonly string LocalNetworkGatewayId;
         /// <summary>
@@ -219,12 +219,12 @@ namespace Pulumi.Azure.Network
         public readonly string Name;
         /// <summary>
         /// The ID of the peer virtual
-        /// network gateway when a VNet-to-VNet connection (i.e. when `type`
+        /// network gateway when a VNet-to-VNet connection (i.e. when `Type`
         /// is `Vnet2Vnet`).
         /// </summary>
         public readonly string PeerVirtualNetworkGatewayId;
         /// <summary>
-        /// If `true`, data packets will bypass the Express Route gateway when accessing private-links.
+        /// If `True`, data packets will bypass the Express Route gateway when accessing private-links.
         /// This is only valid for ExpressRoute connections, on the conditions described in [the relevant section in the Azure documentation](https://learn.microsoft.com/en-us/azure/expressroute/expressroute-howto-linkvnet-arm#fastpath-virtual-network-peering-user-defined-routes-udrs-and-private-link-support-for-expressroute-direct-connections)
         /// </summary>
         public readonly bool PrivateLinkFastPathEnabled;
@@ -243,8 +243,8 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// One or more `traffic_selector_policy` blocks which are documented below.
-        /// A `traffic_selector_policy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
+        /// One or more `TrafficSelectorPolicy` blocks which are documented below.
+        /// A `TrafficSelectorPolicy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
         /// For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
         /// </summary>
         public readonly ImmutableArray<Outputs.GetGatewayConnectionTrafficSelectorPolicyResult> TrafficSelectorPolicies;
@@ -254,9 +254,9 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// If `true`, policy-based traffic
+        /// If `True`, policy-based traffic
         /// selectors are enabled for this connection. Enabling policy-based traffic
-        /// selectors requires an `ipsec_policy` block.
+        /// selectors requires an `IpsecPolicy` block.
         /// </summary>
         public readonly bool UsePolicyBasedTrafficSelectors;
         /// <summary>

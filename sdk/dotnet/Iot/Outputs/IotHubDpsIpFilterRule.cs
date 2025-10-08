@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Iot.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Target for requests captured by this rule. Possible values are `all`, `deviceApi` and `serviceApi`.
+        /// Target for requests captured by this rule. Possible values are `All`, `deviceApi` and `serviceApi`.
         /// </summary>
         public readonly string? Target;
 

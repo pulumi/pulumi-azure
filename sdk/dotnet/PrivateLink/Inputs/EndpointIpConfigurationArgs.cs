@@ -13,9 +13,9 @@ namespace Pulumi.Azure.PrivateLink.Inputs
     public sealed class EndpointIpConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the member name this IP address applies to. If it is not specified, it will use the value of `subresource_name`. Changing this forces a new resource to be created.
+        /// Specifies the member name this IP address applies to. If it is not specified, it will use the value of `SubresourceName`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** `member_name` will be required and will not take the value of `subresource_name` in the next major version.
+        /// &gt; **Note:** `MemberName` will be required and will not take the value of `SubresourceName` in the next major version.
         /// </summary>
         [Input("memberName")]
         public Input<string>? MemberName { get; set; }
@@ -33,7 +33,7 @@ namespace Pulumi.Azure.PrivateLink.Inputs
         public Input<string> PrivateIpAddress { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the subresource this IP address applies to. `subresource_names` corresponds to `group_id`. Changing this forces a new resource to be created.
+        /// Specifies the subresource this IP address applies to. `SubresourceNames` corresponds to `GroupId`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("subresourceName")]
         public Input<string>? SubresourceName { get; set; }

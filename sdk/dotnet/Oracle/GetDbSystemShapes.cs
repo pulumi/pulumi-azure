@@ -172,7 +172,7 @@ namespace Pulumi.Azure.Oracle
     public sealed class GetDbSystemShapesResult
     {
         /// <summary>
-        /// A `db_system_shapes` block as defined below.
+        /// A `DbSystemShapes` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDbSystemShapesDbSystemShapeResult> DbSystemShapes;
         /// <summary>

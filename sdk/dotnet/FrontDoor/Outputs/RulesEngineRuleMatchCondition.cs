@@ -14,7 +14,7 @@ namespace Pulumi.Azure.FrontDoor.Outputs
     public sealed class RulesEngineRuleMatchCondition
     {
         /// <summary>
-        /// can be set to `true` or `false` to negate the given condition. Defaults to `false`.
+        /// can be set to `True` or `False` to negate the given condition. Defaults to `False`.
         /// </summary>
         public readonly bool? NegateCondition;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.FrontDoor.Outputs
         /// </summary>
         public readonly string Operator;
         /// <summary>
-        /// match against a specific key when `variable` is set to `PostArgs` or `RequestHeader`. It cannot be used with `QueryString` and `RequestMethod`.
+        /// match against a specific key when `Variable` is set to `PostArgs` or `RequestHeader`. It cannot be used with `QueryString` and `RequestMethod`.
         /// </summary>
         public readonly string? Selector;
         /// <summary>

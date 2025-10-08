@@ -50,14 +50,14 @@ public final class StaticWebAppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `basic_auth` block as defined below.
+     * A `basicAuth` block as defined below.
      * 
      */
     @Import(name="basicAuth")
     private @Nullable Output<StaticWebAppBasicAuthArgs> basicAuth;
 
     /**
-     * @return A `basic_auth` block as defined below.
+     * @return A `basicAuth` block as defined below.
      * 
      */
     public Optional<Output<StaticWebAppBasicAuthArgs>> basicAuth() {
@@ -170,14 +170,14 @@ public final class StaticWebAppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Repository branch to use for the Static Web App. `repository_url` and `repository_token` must also be set.
+     * Repository branch to use for the Static Web App. `repositoryUrl` and `repositoryToken` must also be set.
      * 
      */
     @Import(name="repositoryBranch")
     private @Nullable Output<String> repositoryBranch;
 
     /**
-     * @return Repository branch to use for the Static Web App. `repository_url` and `repository_token` must also be set.
+     * @return Repository branch to use for the Static Web App. `repositoryUrl` and `repositoryToken` must also be set.
      * 
      */
     public Optional<Output<String>> repositoryBranch() {
@@ -185,14 +185,14 @@ public final class StaticWebAppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Repository Token with `admin` privileges to use for the Static Web App. `repository_branch` and `repository_url` must also be set.
+     * Repository Token with `admin` privileges to use for the Static Web App. `repositoryBranch` and `repositoryUrl` must also be set.
      * 
      */
     @Import(name="repositoryToken")
     private @Nullable Output<String> repositoryToken;
 
     /**
-     * @return Repository Token with `admin` privileges to use for the Static Web App. `repository_branch` and `repository_url` must also be set.
+     * @return Repository Token with `admin` privileges to use for the Static Web App. `repositoryBranch` and `repositoryUrl` must also be set.
      * 
      */
     public Optional<Output<String>> repositoryToken() {
@@ -200,14 +200,14 @@ public final class StaticWebAppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Repository URL to use for the Static Web App. `repository_branch` and `repository_token` must also be set.
+     * Repository URL to use for the Static Web App. `repositoryBranch` and `repositoryToken` must also be set.
      * 
      */
     @Import(name="repositoryUrl")
     private @Nullable Output<String> repositoryUrl;
 
     /**
-     * @return Repository URL to use for the Static Web App. `repository_branch` and `repository_token` must also be set.
+     * @return Repository URL to use for the Static Web App. `repositoryBranch` and `repositoryToken` must also be set.
      * 
      */
     public Optional<Output<String>> repositoryUrl() {
@@ -357,7 +357,7 @@ public final class StaticWebAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param basicAuth A `basic_auth` block as defined below.
+         * @param basicAuth A `basicAuth` block as defined below.
          * 
          * @return builder
          * 
@@ -368,7 +368,7 @@ public final class StaticWebAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param basicAuth A `basic_auth` block as defined below.
+         * @param basicAuth A `basicAuth` block as defined below.
          * 
          * @return builder
          * 
@@ -525,7 +525,7 @@ public final class StaticWebAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param repositoryBranch Repository branch to use for the Static Web App. `repository_url` and `repository_token` must also be set.
+         * @param repositoryBranch Repository branch to use for the Static Web App. `repositoryUrl` and `repositoryToken` must also be set.
          * 
          * @return builder
          * 
@@ -536,7 +536,7 @@ public final class StaticWebAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param repositoryBranch Repository branch to use for the Static Web App. `repository_url` and `repository_token` must also be set.
+         * @param repositoryBranch Repository branch to use for the Static Web App. `repositoryUrl` and `repositoryToken` must also be set.
          * 
          * @return builder
          * 
@@ -546,7 +546,7 @@ public final class StaticWebAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param repositoryToken Repository Token with `admin` privileges to use for the Static Web App. `repository_branch` and `repository_url` must also be set.
+         * @param repositoryToken Repository Token with `admin` privileges to use for the Static Web App. `repositoryBranch` and `repositoryUrl` must also be set.
          * 
          * @return builder
          * 
@@ -557,7 +557,7 @@ public final class StaticWebAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param repositoryToken Repository Token with `admin` privileges to use for the Static Web App. `repository_branch` and `repository_url` must also be set.
+         * @param repositoryToken Repository Token with `admin` privileges to use for the Static Web App. `repositoryBranch` and `repositoryUrl` must also be set.
          * 
          * @return builder
          * 
@@ -567,7 +567,7 @@ public final class StaticWebAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param repositoryUrl Repository URL to use for the Static Web App. `repository_branch` and `repository_token` must also be set.
+         * @param repositoryUrl Repository URL to use for the Static Web App. `repositoryBranch` and `repositoryToken` must also be set.
          * 
          * @return builder
          * 
@@ -578,7 +578,7 @@ public final class StaticWebAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param repositoryUrl Repository URL to use for the Static Web App. `repository_branch` and `repository_token` must also be set.
+         * @param repositoryUrl Repository URL to use for the Static Web App. `repositoryBranch` and `repositoryToken` must also be set.
          * 
          * @return builder
          * 

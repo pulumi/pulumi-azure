@@ -13,7 +13,7 @@ namespace Pulumi.Azure.ServiceFabric.Inputs
     public sealed class ClusterNodeTypeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `application_ports` block as defined below.
+        /// A `ApplicationPorts` block as defined below.
         /// </summary>
         [Input("applicationPorts")]
         public Input<Inputs.ClusterNodeTypeApplicationPortsArgs>? ApplicationPorts { get; set; }
@@ -43,7 +43,7 @@ namespace Pulumi.Azure.ServiceFabric.Inputs
         public Input<string>? DurabilityLevel { get; set; }
 
         /// <summary>
-        /// A `ephemeral_ports` block as defined below.
+        /// A `EphemeralPorts` block as defined below.
         /// </summary>
         [Input("ephemeralPorts")]
         public Input<Inputs.ClusterNodeTypeEphemeralPortsArgs>? EphemeralPorts { get; set; }

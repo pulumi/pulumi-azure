@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Compute.Inputs
         private InputList<Inputs.VirtualMachineOsProfileSecretVaultCertificateArgs>? _vaultCertificates;
 
         /// <summary>
-        /// One or more `vault_certificates` blocks as defined below.
+        /// One or more `VaultCertificates` blocks as defined below.
         /// </summary>
         public InputList<Inputs.VirtualMachineOsProfileSecretVaultCertificateArgs> VaultCertificates
         {

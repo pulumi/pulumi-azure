@@ -24,7 +24,7 @@ public final class GetCertificateResult {
      */
     private String certificateDataBase64;
     /**
-     * @return A `certificate_policy` block as defined below.
+     * @return A `certificatePolicy` block as defined below.
      * 
      */
     private List<GetCertificateCertificatePolicy> certificatePolicies;
@@ -106,7 +106,7 @@ public final class GetCertificateResult {
         return this.certificateDataBase64;
     }
     /**
-     * @return A `certificate_policy` block as defined below.
+     * @return A `certificatePolicy` block as defined below.
      * 
      */
     public List<GetCertificateCertificatePolicy> certificatePolicies() {

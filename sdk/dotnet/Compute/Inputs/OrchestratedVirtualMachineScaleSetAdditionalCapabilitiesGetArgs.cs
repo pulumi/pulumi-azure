@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Compute.Inputs
     public sealed class OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
+        /// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("ultraSsdEnabled")]
         public Input<bool>? UltraSsdEnabled { get; set; }

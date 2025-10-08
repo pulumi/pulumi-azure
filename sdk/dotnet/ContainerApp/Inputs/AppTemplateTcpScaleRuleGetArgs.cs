@@ -16,7 +16,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         private InputList<Inputs.AppTemplateTcpScaleRuleAuthenticationGetArgs>? _authentications;
 
         /// <summary>
-        /// Zero or more `authentication` blocks as defined below.
+        /// Zero or more `Authentication` blocks as defined below.
         /// </summary>
         public InputList<Inputs.AppTemplateTcpScaleRuleAuthenticationGetArgs> Authentications
         {

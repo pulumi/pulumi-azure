@@ -27,7 +27,7 @@ public final class GetRoleAssignmentsResult {
      */
     private @Nullable String principalId;
     /**
-     * @return A `role_assignments` block as defined below.
+     * @return A `roleAssignments` block as defined below.
      * 
      */
     private List<GetRoleAssignmentsRoleAssignment> roleAssignments;
@@ -53,7 +53,7 @@ public final class GetRoleAssignmentsResult {
         return Optional.ofNullable(this.principalId);
     }
     /**
-     * @return A `role_assignments` block as defined below.
+     * @return A `roleAssignments` block as defined below.
      * 
      */
     public List<GetRoleAssignmentsRoleAssignment> roleAssignments() {

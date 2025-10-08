@@ -185,7 +185,7 @@ namespace Pulumi.Azure.HDInsight
         /// </summary>
         public readonly string EdgeSshEndpoint;
         /// <summary>
-        /// A `gateway` block as defined below.
+        /// A `Gateway` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetClusterGatewayResult> Gateways;
         /// <summary>

@@ -14,6 +14,87 @@ import (
 
 // Manages a Backup Policy to back up Kubernetes Cluster.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/dataprotection"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleBackupVault, err := dataprotection.NewBackupVault(ctx, "example", &dataprotection.BackupVaultArgs{
+//				Name:              pulumi.String("example-backup-vault"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				DatastoreType:     pulumi.String("VaultStore"),
+//				Redundancy:        pulumi.String("LocallyRedundant"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = dataprotection.NewBackupPolicyKubernetesCluster(ctx, "example", &dataprotection.BackupPolicyKubernetesClusterArgs{
+//				Name:              pulumi.String("example-backup-policy"),
+//				ResourceGroupName: example.Name,
+//				VaultName:         exampleBackupVault.Name,
+//				BackupRepeatingTimeIntervals: pulumi.StringArray{
+//					pulumi.String("R/2021-05-23T02:30:00+00:00/P1W"),
+//				},
+//				TimeZone:                 pulumi.String("India Standard Time"),
+//				DefaultRetentionDuration: "P4M",
+//				RetentionRules: dataprotection.BackupPolicyKubernetesClusterRetentionRuleArray{
+//					&dataprotection.BackupPolicyKubernetesClusterRetentionRuleArgs{
+//						Name:     pulumi.String("Daily"),
+//						Priority: pulumi.Int(25),
+//						LifeCycles: dataprotection.BackupPolicyKubernetesClusterRetentionRuleLifeCycleArray{
+//							&dataprotection.BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs{
+//								Duration:      pulumi.String("P84D"),
+//								DataStoreType: pulumi.String("OperationalStore"),
+//							},
+//						},
+//						Criteria: &dataprotection.BackupPolicyKubernetesClusterRetentionRuleCriteriaArgs{
+//							AbsoluteCriteria: pulumi.String("FirstOfDay"),
+//						},
+//					},
+//				},
+//				DefaultRetentionRule: &dataprotection.BackupPolicyKubernetesClusterDefaultRetentionRuleArgs{
+//					LifeCycles: dataprotection.BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArray{
+//						&dataprotection.BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgs{
+//							Duration:      pulumi.String("P7D"),
+//							DataStoreType: pulumi.String("OperationalStore"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.DataProtection` - 2024-04-01
+//
 // ## Import
 //
 // Backup Policy Kubernetes Cluster's can be imported using the `resource id`, e.g.

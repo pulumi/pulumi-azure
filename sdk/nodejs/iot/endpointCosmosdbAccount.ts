@@ -9,6 +9,66 @@ import * as utilities from "../utilities";
  *
  * > **Note:** Endpoints can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azurerm_iothub_endpoint_*` resources - but the two ways of defining the endpoints cannot be used together. If both are used against the same IoTHub, spurious changes will occur. Also, defining a `azurerm_iothub_endpoint_*` resource and another endpoint of a different type directly on the `azure.iot.IoTHub` resource is not supported.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleIoTHub = new azure.iot.IoTHub("example", {
+ *     name: "exampleIothub",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     sku: {
+ *         name: "B1",
+ *         capacity: 1,
+ *     },
+ *     tags: {
+ *         purpose: "example",
+ *     },
+ * });
+ * const exampleAccount = new azure.cosmosdb.Account("example", {
+ *     name: "cosmosdb-account",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     offerType: "Standard",
+ *     kind: "GlobalDocumentDB",
+ *     consistencyPolicy: {
+ *         consistencyLevel: "Strong",
+ *     },
+ *     geoLocations: [{
+ *         location: example.location,
+ *         failoverPriority: 0,
+ *     }],
+ * });
+ * const exampleSqlDatabase = new azure.cosmosdb.SqlDatabase("example", {
+ *     name: "cosmos-sql-db",
+ *     resourceGroupName: exampleAccount.resourceGroupName,
+ *     accountName: exampleAccount.name,
+ * });
+ * const exampleSqlContainer = new azure.cosmosdb.SqlContainer("example", {
+ *     name: "example-container",
+ *     resourceGroupName: exampleAccount.resourceGroupName,
+ *     accountName: exampleAccount.name,
+ *     databaseName: exampleSqlDatabase.name,
+ *     partitionKeyPath: "/definition/id",
+ * });
+ * const exampleEndpointCosmosdbAccount = new azure.iot.EndpointCosmosdbAccount("example", {
+ *     name: "example",
+ *     resourceGroupName: example.name,
+ *     iothubId: exampleIoTHub.id,
+ *     containerName: exampleSqlContainer.name,
+ *     databaseName: exampleSqlDatabase.name,
+ *     endpointUri: exampleAccount.endpoint,
+ *     primaryKey: exampleAccount.primaryKey,
+ *     secondaryKey: exampleAccount.secondaryKey,
+ * });
+ * ```
+ *
  * ## Import
  *
  * IoTHub Cosmos DB Account Endpoint can be imported using the `resource id`, e.g.

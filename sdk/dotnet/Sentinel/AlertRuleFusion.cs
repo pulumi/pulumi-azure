@@ -75,7 +75,7 @@ namespace Pulumi.Azure.Sentinel
         public Output<string> AlertRuleTemplateGuid { get; private set; } = null!;
 
         /// <summary>
-        /// Should this Sentinel Fusion Alert Rule be enabled? Defaults to `true`.
+        /// Should this Sentinel Fusion Alert Rule be enabled? Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -90,7 +90,7 @@ namespace Pulumi.Azure.Sentinel
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `source` blocks as defined below.
+        /// One or more `Source` blocks as defined below.
         /// </summary>
         [Output("sources")]
         public Output<ImmutableArray<Outputs.AlertRuleFusionSource>> Sources { get; private set; } = null!;
@@ -148,7 +148,7 @@ namespace Pulumi.Azure.Sentinel
         public Input<string> AlertRuleTemplateGuid { get; set; } = null!;
 
         /// <summary>
-        /// Should this Sentinel Fusion Alert Rule be enabled? Defaults to `true`.
+        /// Should this Sentinel Fusion Alert Rule be enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -166,7 +166,7 @@ namespace Pulumi.Azure.Sentinel
         private InputList<Inputs.AlertRuleFusionSourceArgs>? _sources;
 
         /// <summary>
-        /// One or more `source` blocks as defined below.
+        /// One or more `Source` blocks as defined below.
         /// </summary>
         public InputList<Inputs.AlertRuleFusionSourceArgs> Sources
         {
@@ -189,7 +189,7 @@ namespace Pulumi.Azure.Sentinel
         public Input<string>? AlertRuleTemplateGuid { get; set; }
 
         /// <summary>
-        /// Should this Sentinel Fusion Alert Rule be enabled? Defaults to `true`.
+        /// Should this Sentinel Fusion Alert Rule be enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -207,7 +207,7 @@ namespace Pulumi.Azure.Sentinel
         private InputList<Inputs.AlertRuleFusionSourceGetArgs>? _sources;
 
         /// <summary>
-        /// One or more `source` blocks as defined below.
+        /// One or more `Source` blocks as defined below.
         /// </summary>
         public InputList<Inputs.AlertRuleFusionSourceGetArgs> Sources
         {

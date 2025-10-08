@@ -16,7 +16,7 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         private InputList<Inputs.SqlContainerIndexingPolicyCompositeIndexArgs>? _compositeIndices;
 
         /// <summary>
-        /// One or more `composite_index` blocks as defined below.
+        /// One or more `CompositeIndex` blocks as defined below.
         /// </summary>
         public InputList<Inputs.SqlContainerIndexingPolicyCompositeIndexArgs> CompositeIndices
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         private InputList<Inputs.SqlContainerIndexingPolicyExcludedPathArgs>? _excludedPaths;
 
         /// <summary>
-        /// One or more `excluded_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
+        /// One or more `ExcludedPath` blocks as defined below. Either `IncludedPath` or `ExcludedPath` must contain the `Path` `/*`
         /// </summary>
         public InputList<Inputs.SqlContainerIndexingPolicyExcludedPathArgs> ExcludedPaths
         {
@@ -40,7 +40,7 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         private InputList<Inputs.SqlContainerIndexingPolicyIncludedPathArgs>? _includedPaths;
 
         /// <summary>
-        /// One or more `included_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
+        /// One or more `IncludedPath` blocks as defined below. Either `IncludedPath` or `ExcludedPath` must contain the `Path` `/*`
         /// </summary>
         public InputList<Inputs.SqlContainerIndexingPolicyIncludedPathArgs> IncludedPaths
         {
@@ -49,7 +49,7 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         }
 
         /// <summary>
-        /// Indicates the indexing mode. Possible values include: `consistent` and `none`. Defaults to `consistent`.
+        /// Indicates the indexing mode. Possible values include: `Consistent` and `None`. Defaults to `Consistent`.
         /// </summary>
         [Input("indexingMode")]
         public Input<string>? IndexingMode { get; set; }
@@ -58,7 +58,7 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         private InputList<Inputs.SqlContainerIndexingPolicySpatialIndexArgs>? _spatialIndices;
 
         /// <summary>
-        /// One or more `spatial_index` blocks as defined below.
+        /// One or more `SpatialIndex` blocks as defined below.
         /// </summary>
         public InputList<Inputs.SqlContainerIndexingPolicySpatialIndexArgs> SpatialIndices
         {

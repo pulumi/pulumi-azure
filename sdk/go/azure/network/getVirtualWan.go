@@ -12,6 +12,49 @@ import (
 )
 
 // Use this data source to access information about an existing Virtual Wan.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := network.LookupVirtualWan(ctx, &network.LookupVirtualWanArgs{
+//				Name:              "existing",
+//				ResourceGroupName: "existing",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("id", example.Id)
+//			ctx.Export("allowBranchToBranchTraffic", example.AllowBranchToBranchTraffic)
+//			ctx.Export("disableVpnEncryption", example.DisableVpnEncryption)
+//			ctx.Export("location", example.Location)
+//			ctx.Export("office365LocalBreakoutCategory", example.Office365LocalBreakoutCategory)
+//			ctx.Export("sku", example.Sku)
+//			ctx.Export("tags", example.Tags)
+//			ctx.Export("virtualHubs", example.VirtualHubs)
+//			ctx.Export("vpnSites", example.VpnSites)
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.Network` - 2024-05-01
 func LookupVirtualWan(ctx *pulumi.Context, args *LookupVirtualWanArgs, opts ...pulumi.InvokeOption) (*LookupVirtualWanResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVirtualWanResult

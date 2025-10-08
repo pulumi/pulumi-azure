@@ -37,14 +37,14 @@ public final class VpnGatewayState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `bgp_settings` block as defined below.
+     * A `bgpSettings` block as defined below.
      * 
      */
     @Import(name="bgpSettings")
     private @Nullable Output<VpnGatewayBgpSettingsArgs> bgpSettings;
 
     /**
-     * @return A `bgp_settings` block as defined below.
+     * @return A `bgpSettings` block as defined below.
      * 
      */
     public Optional<Output<VpnGatewayBgpSettingsArgs>> bgpSettings() {
@@ -52,14 +52,14 @@ public final class VpnGatewayState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `ip_configuration` block as defined below.
+     * An `ipConfiguration` block as defined below.
      * 
      */
     @Import(name="ipConfigurations")
     private @Nullable Output<List<VpnGatewayIpConfigurationArgs>> ipConfigurations;
 
     /**
-     * @return An `ip_configuration` block as defined below.
+     * @return An `ipConfiguration` block as defined below.
      * 
      */
     public Optional<Output<List<VpnGatewayIpConfigurationArgs>>> ipConfigurations() {
@@ -226,7 +226,7 @@ public final class VpnGatewayState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bgpSettings A `bgp_settings` block as defined below.
+         * @param bgpSettings A `bgpSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -237,7 +237,7 @@ public final class VpnGatewayState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bgpSettings A `bgp_settings` block as defined below.
+         * @param bgpSettings A `bgpSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -247,7 +247,7 @@ public final class VpnGatewayState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipConfigurations An `ip_configuration` block as defined below.
+         * @param ipConfigurations An `ipConfiguration` block as defined below.
          * 
          * @return builder
          * 
@@ -258,7 +258,7 @@ public final class VpnGatewayState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipConfigurations An `ip_configuration` block as defined below.
+         * @param ipConfigurations An `ipConfiguration` block as defined below.
          * 
          * @return builder
          * 
@@ -268,7 +268,7 @@ public final class VpnGatewayState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipConfigurations An `ip_configuration` block as defined below.
+         * @param ipConfigurations An `ipConfiguration` block as defined below.
          * 
          * @return builder
          * 

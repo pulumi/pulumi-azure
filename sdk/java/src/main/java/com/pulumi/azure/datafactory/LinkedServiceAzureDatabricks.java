@@ -275,28 +275,28 @@ public class LinkedServiceAzureDatabricks extends com.pulumi.resources.CustomRes
         return Codegen.optional(this.description);
     }
     /**
-     * The cluster_id of an existing cluster within the linked ADB instance.
+     * The clusterId of an existing cluster within the linked ADB instance.
      * 
      */
     @Export(name="existingClusterId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> existingClusterId;
 
     /**
-     * @return The cluster_id of an existing cluster within the linked ADB instance.
+     * @return The clusterId of an existing cluster within the linked ADB instance.
      * 
      */
     public Output<Optional<String>> existingClusterId() {
         return Codegen.optional(this.existingClusterId);
     }
     /**
-     * Leverages an instance pool within the linked ADB instance as one `instance_pool` block defined below.
+     * Leverages an instance pool within the linked ADB instance as one `instancePool` block defined below.
      * 
      */
     @Export(name="instancePool", refs={LinkedServiceAzureDatabricksInstancePool.class}, tree="[0]")
     private Output</* @Nullable */ LinkedServiceAzureDatabricksInstancePool> instancePool;
 
     /**
-     * @return Leverages an instance pool within the linked ADB instance as one `instance_pool` block defined below.
+     * @return Leverages an instance pool within the linked ADB instance as one `instancePool` block defined below.
      * 
      */
     public Output<Optional<LinkedServiceAzureDatabricksInstancePool>> instancePool() {
@@ -317,14 +317,14 @@ public class LinkedServiceAzureDatabricks extends com.pulumi.resources.CustomRes
         return Codegen.optional(this.integrationRuntimeName);
     }
     /**
-     * Authenticate to ADB via Azure Key Vault Linked Service as defined in the `key_vault_password` block below.
+     * Authenticate to ADB via Azure Key Vault Linked Service as defined in the `keyVaultPassword` block below.
      * 
      */
     @Export(name="keyVaultPassword", refs={LinkedServiceAzureDatabricksKeyVaultPassword.class}, tree="[0]")
     private Output</* @Nullable */ LinkedServiceAzureDatabricksKeyVaultPassword> keyVaultPassword;
 
     /**
-     * @return Authenticate to ADB via Azure Key Vault Linked Service as defined in the `key_vault_password` block below.
+     * @return Authenticate to ADB via Azure Key Vault Linked Service as defined in the `keyVaultPassword` block below.
      * 
      */
     public Output<Optional<LinkedServiceAzureDatabricksKeyVaultPassword>> keyVaultPassword() {
@@ -359,14 +359,14 @@ public class LinkedServiceAzureDatabricks extends com.pulumi.resources.CustomRes
         return this.name;
     }
     /**
-     * Creates new clusters within the linked ADB instance as defined in the `new_cluster_config` block below.
+     * Creates new clusters within the linked ADB instance as defined in the `newClusterConfig` block below.
      * 
      */
     @Export(name="newClusterConfig", refs={LinkedServiceAzureDatabricksNewClusterConfig.class}, tree="[0]")
     private Output</* @Nullable */ LinkedServiceAzureDatabricksNewClusterConfig> newClusterConfig;
 
     /**
-     * @return Creates new clusters within the linked ADB instance as defined in the `new_cluster_config` block below.
+     * @return Creates new clusters within the linked ADB instance as defined in the `newClusterConfig` block below.
      * 
      */
     public Output<Optional<LinkedServiceAzureDatabricksNewClusterConfig>> newClusterConfig() {

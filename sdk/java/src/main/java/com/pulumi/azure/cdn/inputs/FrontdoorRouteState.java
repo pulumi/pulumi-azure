@@ -160,7 +160,7 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
     /**
      * Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
      * 
-     * &gt; **Note:** The `https_redirect_enabled` rule is the first rule that will be executed.
+     * &gt; **Note:** The `httpsRedirectEnabled` rule is the first rule that will be executed.
      * 
      */
     @Import(name="httpsRedirectEnabled")
@@ -169,7 +169,7 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
     /**
      * @return Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
      * 
-     * &gt; **Note:** The `https_redirect_enabled` rule is the first rule that will be executed.
+     * &gt; **Note:** The `httpsRedirectEnabled` rule is the first rule that will be executed.
      * 
      */
     public Optional<Output<Boolean>> httpsRedirectEnabled() {
@@ -224,7 +224,7 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
     /**
      * One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
      * 
-     * &gt; **Note:** If `https_redirect_enabled` is set to `true` the `supported_protocols` field must contain both `Http` and `Https` values.
+     * &gt; **Note:** If `httpsRedirectEnabled` is set to `true` the `supportedProtocols` field must contain both `Http` and `Https` values.
      * 
      */
     @Import(name="supportedProtocols")
@@ -233,7 +233,7 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
     /**
      * @return One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
      * 
-     * &gt; **Note:** If `https_redirect_enabled` is set to `true` the `supported_protocols` field must contain both `Http` and `Https` values.
+     * &gt; **Note:** If `httpsRedirectEnabled` is set to `true` the `supportedProtocols` field must contain both `Http` and `Https` values.
      * 
      */
     public Optional<Output<List<String>>> supportedProtocols() {
@@ -503,7 +503,7 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
         /**
          * @param httpsRedirectEnabled Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
          * 
-         * &gt; **Note:** The `https_redirect_enabled` rule is the first rule that will be executed.
+         * &gt; **Note:** The `httpsRedirectEnabled` rule is the first rule that will be executed.
          * 
          * @return builder
          * 
@@ -516,7 +516,7 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
         /**
          * @param httpsRedirectEnabled Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
          * 
-         * &gt; **Note:** The `https_redirect_enabled` rule is the first rule that will be executed.
+         * &gt; **Note:** The `httpsRedirectEnabled` rule is the first rule that will be executed.
          * 
          * @return builder
          * 
@@ -601,7 +601,7 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
         /**
          * @param supportedProtocols One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
          * 
-         * &gt; **Note:** If `https_redirect_enabled` is set to `true` the `supported_protocols` field must contain both `Http` and `Https` values.
+         * &gt; **Note:** If `httpsRedirectEnabled` is set to `true` the `supportedProtocols` field must contain both `Http` and `Https` values.
          * 
          * @return builder
          * 
@@ -614,7 +614,7 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
         /**
          * @param supportedProtocols One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
          * 
-         * &gt; **Note:** If `https_redirect_enabled` is set to `true` the `supported_protocols` field must contain both `Http` and `Https` values.
+         * &gt; **Note:** If `httpsRedirectEnabled` is set to `true` the `supportedProtocols` field must contain both `Http` and `Https` values.
          * 
          * @return builder
          * 
@@ -626,7 +626,7 @@ public final class FrontdoorRouteState extends com.pulumi.resources.ResourceArgs
         /**
          * @param supportedProtocols One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
          * 
-         * &gt; **Note:** If `https_redirect_enabled` is set to `true` the `supported_protocols` field must contain both `Http` and `Https` values.
+         * &gt; **Note:** If `httpsRedirectEnabled` is set to `true` the `supportedProtocols` field must contain both `Http` and `Https` values.
          * 
          * @return builder
          * 

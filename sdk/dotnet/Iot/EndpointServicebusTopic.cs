@@ -98,19 +98,19 @@ namespace Pulumi.Azure.Iot
         public Output<string?> AuthenticationType { get; private set; } = null!;
 
         /// <summary>
-        /// The connection string for the endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `keyBased`.
+        /// The connection string for the endpoint. This attribute can only be specified and is mandatory when `AuthenticationType` is `keyBased`.
         /// </summary>
         [Output("connectionString")]
         public Output<string?> ConnectionString { get; private set; } = null!;
 
         /// <summary>
-        /// URI of the Service Bus endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+        /// URI of the Service Bus endpoint. This attribute can only be specified and is mandatory when `AuthenticationType` is `identityBased`.
         /// </summary>
         [Output("endpointUri")]
         public Output<string?> EndpointUri { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the Service Bus Topic. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+        /// Name of the Service Bus Topic. This attribute can only be specified and is mandatory when `AuthenticationType` is `identityBased`.
         /// </summary>
         [Output("entityPath")]
         public Output<string?> EntityPath { get; private set; } = null!;
@@ -118,7 +118,7 @@ namespace Pulumi.Azure.Iot
         /// <summary>
         /// ID of the User Managed Identity used to authenticate against the Service Bus Topic endpoint.
         /// 
-        /// &gt; **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
+        /// &gt; **Note:** `IdentityId` can only be specified when `AuthenticationType` is `identityBased`. It must be one of the `IdentityIds` of the Iot Hub. If not specified when `AuthenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
         /// </summary>
         [Output("identityId")]
         public Output<string?> IdentityId { get; private set; } = null!;
@@ -130,7 +130,7 @@ namespace Pulumi.Azure.Iot
         public Output<string> IothubId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
+        /// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `Events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -144,7 +144,7 @@ namespace Pulumi.Azure.Iot
         /// <summary>
         /// The subscription ID for the endpoint.
         /// 
-        /// &gt; **Note:** When `subscription_id` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+        /// &gt; **Note:** When `SubscriptionId` isn't specified it will be set to the subscription ID of the IoT Hub resource.
         /// </summary>
         [Output("subscriptionId")]
         public Output<string> SubscriptionId { get; private set; } = null!;
@@ -209,7 +209,7 @@ namespace Pulumi.Azure.Iot
         private Input<string>? _connectionString;
 
         /// <summary>
-        /// The connection string for the endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `keyBased`.
+        /// The connection string for the endpoint. This attribute can only be specified and is mandatory when `AuthenticationType` is `keyBased`.
         /// </summary>
         public Input<string>? ConnectionString
         {
@@ -222,13 +222,13 @@ namespace Pulumi.Azure.Iot
         }
 
         /// <summary>
-        /// URI of the Service Bus endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+        /// URI of the Service Bus endpoint. This attribute can only be specified and is mandatory when `AuthenticationType` is `identityBased`.
         /// </summary>
         [Input("endpointUri")]
         public Input<string>? EndpointUri { get; set; }
 
         /// <summary>
-        /// Name of the Service Bus Topic. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+        /// Name of the Service Bus Topic. This attribute can only be specified and is mandatory when `AuthenticationType` is `identityBased`.
         /// </summary>
         [Input("entityPath")]
         public Input<string>? EntityPath { get; set; }
@@ -236,7 +236,7 @@ namespace Pulumi.Azure.Iot
         /// <summary>
         /// ID of the User Managed Identity used to authenticate against the Service Bus Topic endpoint.
         /// 
-        /// &gt; **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
+        /// &gt; **Note:** `IdentityId` can only be specified when `AuthenticationType` is `identityBased`. It must be one of the `IdentityIds` of the Iot Hub. If not specified when `AuthenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
         /// </summary>
         [Input("identityId")]
         public Input<string>? IdentityId { get; set; }
@@ -248,7 +248,7 @@ namespace Pulumi.Azure.Iot
         public Input<string> IothubId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
+        /// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `Events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -262,7 +262,7 @@ namespace Pulumi.Azure.Iot
         /// <summary>
         /// The subscription ID for the endpoint.
         /// 
-        /// &gt; **Note:** When `subscription_id` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+        /// &gt; **Note:** When `SubscriptionId` isn't specified it will be set to the subscription ID of the IoT Hub resource.
         /// </summary>
         [Input("subscriptionId")]
         public Input<string>? SubscriptionId { get; set; }
@@ -285,7 +285,7 @@ namespace Pulumi.Azure.Iot
         private Input<string>? _connectionString;
 
         /// <summary>
-        /// The connection string for the endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `keyBased`.
+        /// The connection string for the endpoint. This attribute can only be specified and is mandatory when `AuthenticationType` is `keyBased`.
         /// </summary>
         public Input<string>? ConnectionString
         {
@@ -298,13 +298,13 @@ namespace Pulumi.Azure.Iot
         }
 
         /// <summary>
-        /// URI of the Service Bus endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+        /// URI of the Service Bus endpoint. This attribute can only be specified and is mandatory when `AuthenticationType` is `identityBased`.
         /// </summary>
         [Input("endpointUri")]
         public Input<string>? EndpointUri { get; set; }
 
         /// <summary>
-        /// Name of the Service Bus Topic. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+        /// Name of the Service Bus Topic. This attribute can only be specified and is mandatory when `AuthenticationType` is `identityBased`.
         /// </summary>
         [Input("entityPath")]
         public Input<string>? EntityPath { get; set; }
@@ -312,7 +312,7 @@ namespace Pulumi.Azure.Iot
         /// <summary>
         /// ID of the User Managed Identity used to authenticate against the Service Bus Topic endpoint.
         /// 
-        /// &gt; **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
+        /// &gt; **Note:** `IdentityId` can only be specified when `AuthenticationType` is `identityBased`. It must be one of the `IdentityIds` of the Iot Hub. If not specified when `AuthenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
         /// </summary>
         [Input("identityId")]
         public Input<string>? IdentityId { get; set; }
@@ -324,7 +324,7 @@ namespace Pulumi.Azure.Iot
         public Input<string>? IothubId { get; set; }
 
         /// <summary>
-        /// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
+        /// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `Events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -338,7 +338,7 @@ namespace Pulumi.Azure.Iot
         /// <summary>
         /// The subscription ID for the endpoint.
         /// 
-        /// &gt; **Note:** When `subscription_id` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+        /// &gt; **Note:** When `SubscriptionId` isn't specified it will be set to the subscription ID of the IoT Hub resource.
         /// </summary>
         [Input("subscriptionId")]
         public Input<string>? SubscriptionId { get; set; }

@@ -27,9 +27,9 @@ public final class HciLogicalNetworkSubnet {
      */
     private String ipAllocationMethod;
     /**
-     * @return One or more `ip_pool` block as defined above. Changing this forces a new resource to be created.
+     * @return One or more `ipPool` block as defined above. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** If `ip_pool` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignore_changes`.
+     * &gt; **Note:** If `ipPool` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignoreChanges`.
      * 
      */
     private @Nullable List<HciLogicalNetworkSubnetIpPool> ipPools;
@@ -60,9 +60,9 @@ public final class HciLogicalNetworkSubnet {
         return this.ipAllocationMethod;
     }
     /**
-     * @return One or more `ip_pool` block as defined above. Changing this forces a new resource to be created.
+     * @return One or more `ipPool` block as defined above. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** If `ip_pool` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignore_changes`.
+     * &gt; **Note:** If `ipPool` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignoreChanges`.
      * 
      */
     public List<HciLogicalNetworkSubnetIpPool> ipPools() {

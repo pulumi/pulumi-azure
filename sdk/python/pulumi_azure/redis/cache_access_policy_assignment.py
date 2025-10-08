@@ -203,6 +203,44 @@ class CacheAccessPolicyAssignment(pulumi.CustomResource):
         """
         Manages a Redis Cache Access Policy Assignment
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        test = azure.core.get_client_config()
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="East US")
+        example_cache = azure.redis.Cache("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
+            capacity=1,
+            family="P",
+            sku_name="Premium",
+            enable_non_ssl_port=False,
+            redis_configuration={
+                "maxmemory_reserved": 2,
+                "maxmemory_delta": 2,
+                "maxmemory_policy": "allkeys-lru",
+            })
+        example_cache_access_policy_assignment = azure.redis.CacheAccessPolicyAssignment("example",
+            name="example",
+            redis_cache_id=example_cache.id,
+            access_policy_name="Data Contributor",
+            object_id=test.object_id,
+            object_id_alias="ServicePrincipal")
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Cache` - 2024-11-01
+
         ## Import
 
         Redis Cache Policy Assignment can be imported using the `resource id`, e.g.
@@ -227,6 +265,44 @@ class CacheAccessPolicyAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Redis Cache Access Policy Assignment
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        test = azure.core.get_client_config()
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="East US")
+        example_cache = azure.redis.Cache("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
+            capacity=1,
+            family="P",
+            sku_name="Premium",
+            enable_non_ssl_port=False,
+            redis_configuration={
+                "maxmemory_reserved": 2,
+                "maxmemory_delta": 2,
+                "maxmemory_policy": "allkeys-lru",
+            })
+        example_cache_access_policy_assignment = azure.redis.CacheAccessPolicyAssignment("example",
+            name="example",
+            redis_cache_id=example_cache.id,
+            access_policy_name="Data Contributor",
+            object_id=test.object_id,
+            object_id_alias="ServicePrincipal")
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Cache` - 2024-11-01
 
         ## Import
 

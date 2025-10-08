@@ -431,6 +431,73 @@ class LinkService(pulumi.CustomResource):
 
         > **Note:** Private Link is now in [GA](https://docs.microsoft.com/en-gb/azure/private-link/).
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-network",
+            resource_group_name=example.name,
+            location=example.location,
+            address_spaces=["10.5.0.0/16"])
+        example_subnet = azure.network.Subnet("example",
+            name="example-subnet",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.5.1.0/24"],
+            enforce_private_link_service_network_policies=True)
+        example_public_ip = azure.network.PublicIp("example",
+            name="example-api",
+            sku="Standard",
+            location=example.location,
+            resource_group_name=example.name,
+            allocation_method="Static")
+        example_load_balancer = azure.lb.LoadBalancer("example",
+            name="example-lb",
+            sku="Standard",
+            location=example.location,
+            resource_group_name=example.name,
+            frontend_ip_configurations=[{
+                "name": example_public_ip.name,
+                "public_ip_address_id": example_public_ip.id,
+            }])
+        example_link_service = azure.privatedns.LinkService("example",
+            name="example-privatelink",
+            resource_group_name=example.name,
+            location=example.location,
+            auto_approval_subscription_ids=["00000000-0000-0000-0000-000000000000"],
+            visibility_subscription_ids=["00000000-0000-0000-0000-000000000000"],
+            load_balancer_frontend_ip_configuration_ids=[example_load_balancer.frontend_ip_configurations[0].id],
+            nat_ip_configurations=[
+                {
+                    "name": "primary",
+                    "private_ip_address": "10.5.1.17",
+                    "private_ip_address_version": "IPv4",
+                    "subnet_id": example_subnet.id,
+                    "primary": True,
+                },
+                {
+                    "name": "secondary",
+                    "private_ip_address": "10.5.1.18",
+                    "private_ip_address_version": "IPv4",
+                    "subnet_id": example_subnet.id,
+                    "primary": False,
+                },
+            ])
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network` - 2024-05-01
+
         ## Import
 
         Private Link Services can be imported using the `resource id`, e.g.
@@ -465,6 +532,73 @@ class LinkService(pulumi.CustomResource):
         Manages a Private Link Service.
 
         > **Note:** Private Link is now in [GA](https://docs.microsoft.com/en-gb/azure/private-link/).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-network",
+            resource_group_name=example.name,
+            location=example.location,
+            address_spaces=["10.5.0.0/16"])
+        example_subnet = azure.network.Subnet("example",
+            name="example-subnet",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.5.1.0/24"],
+            enforce_private_link_service_network_policies=True)
+        example_public_ip = azure.network.PublicIp("example",
+            name="example-api",
+            sku="Standard",
+            location=example.location,
+            resource_group_name=example.name,
+            allocation_method="Static")
+        example_load_balancer = azure.lb.LoadBalancer("example",
+            name="example-lb",
+            sku="Standard",
+            location=example.location,
+            resource_group_name=example.name,
+            frontend_ip_configurations=[{
+                "name": example_public_ip.name,
+                "public_ip_address_id": example_public_ip.id,
+            }])
+        example_link_service = azure.privatedns.LinkService("example",
+            name="example-privatelink",
+            resource_group_name=example.name,
+            location=example.location,
+            auto_approval_subscription_ids=["00000000-0000-0000-0000-000000000000"],
+            visibility_subscription_ids=["00000000-0000-0000-0000-000000000000"],
+            load_balancer_frontend_ip_configuration_ids=[example_load_balancer.frontend_ip_configurations[0].id],
+            nat_ip_configurations=[
+                {
+                    "name": "primary",
+                    "private_ip_address": "10.5.1.17",
+                    "private_ip_address_version": "IPv4",
+                    "subnet_id": example_subnet.id,
+                    "primary": True,
+                },
+                {
+                    "name": "secondary",
+                    "private_ip_address": "10.5.1.18",
+                    "private_ip_address_version": "IPv4",
+                    "subnet_id": example_subnet.id,
+                    "primary": False,
+                },
+            ])
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network` - 2024-05-01
 
         ## Import
 

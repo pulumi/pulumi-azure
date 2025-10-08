@@ -41,14 +41,14 @@ public final class SpringCloudServiceState extends com.pulumi.resources.Resource
     }
 
     /**
-     * A `config_server_git_setting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
+     * A `configServerGitSetting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
      * 
      */
     @Import(name="configServerGitSetting")
     private @Nullable Output<SpringCloudServiceConfigServerGitSettingArgs> configServerGitSetting;
 
     /**
-     * @return A `config_server_git_setting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
+     * @return A `configServerGitSetting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
      * 
      */
     public Optional<Output<SpringCloudServiceConfigServerGitSettingArgs>> configServerGitSetting() {
@@ -56,14 +56,14 @@ public final class SpringCloudServiceState extends com.pulumi.resources.Resource
     }
 
     /**
-     * One or more `container_registry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+     * One or more `containerRegistry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
      * 
      */
     @Import(name="containerRegistries")
     private @Nullable Output<List<SpringCloudServiceContainerRegistryArgs>> containerRegistries;
 
     /**
-     * @return One or more `container_registry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+     * @return One or more `containerRegistry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
      * 
      */
     public Optional<Output<List<SpringCloudServiceContainerRegistryArgs>>> containerRegistries() {
@@ -71,14 +71,14 @@ public final class SpringCloudServiceState extends com.pulumi.resources.Resource
     }
 
     /**
-     * A `default_build_service` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+     * A `defaultBuildService` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
      * 
      */
     @Import(name="defaultBuildService")
     private @Nullable Output<SpringCloudServiceDefaultBuildServiceArgs> defaultBuildService;
 
     /**
-     * @return A `default_build_service` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+     * @return A `defaultBuildService` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
      * 
      */
     public Optional<Output<SpringCloudServiceDefaultBuildServiceArgs>> defaultBuildService() {
@@ -116,14 +116,14 @@ public final class SpringCloudServiceState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The resource Id of the Managed Environment that the Spring Apps instance builds on. Can only be specified when `sku_tier` is set to `StandardGen2`.
+     * The resource Id of the Managed Environment that the Spring Apps instance builds on. Can only be specified when `skuTier` is set to `StandardGen2`.
      * 
      */
     @Import(name="managedEnvironmentId")
     private @Nullable Output<String> managedEnvironmentId;
 
     /**
-     * @return The resource Id of the Managed Environment that the Spring Apps instance builds on. Can only be specified when `sku_tier` is set to `StandardGen2`.
+     * @return The resource Id of the Managed Environment that the Spring Apps instance builds on. Can only be specified when `skuTier` is set to `StandardGen2`.
      * 
      */
     public Optional<Output<String>> managedEnvironmentId() {
@@ -191,14 +191,14 @@ public final class SpringCloudServiceState extends com.pulumi.resources.Resource
     }
 
     /**
-     * A list of `required_network_traffic_rules` blocks as defined below.
+     * A list of `requiredNetworkTrafficRules` blocks as defined below.
      * 
      */
     @Import(name="requiredNetworkTrafficRules")
     private @Nullable Output<List<SpringCloudServiceRequiredNetworkTrafficRuleArgs>> requiredNetworkTrafficRules;
 
     /**
-     * @return A list of `required_network_traffic_rules` blocks as defined below.
+     * @return A list of `requiredNetworkTrafficRules` blocks as defined below.
      * 
      */
     public Optional<Output<List<SpringCloudServiceRequiredNetworkTrafficRuleArgs>>> requiredNetworkTrafficRules() {
@@ -266,14 +266,14 @@ public final class SpringCloudServiceState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managed_environment_id` is defined. Changing this forces a new resource to be created.
+     * Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managedEnvironmentId` is defined. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="skuTier")
     private @Nullable Output<String> skuTier;
 
     /**
-     * @return Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managed_environment_id` is defined. Changing this forces a new resource to be created.
+     * @return Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managedEnvironmentId` is defined. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> skuTier() {
@@ -390,7 +390,7 @@ public final class SpringCloudServiceState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param configServerGitSetting A `config_server_git_setting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
+         * @param configServerGitSetting A `configServerGitSetting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
          * 
          * @return builder
          * 
@@ -401,7 +401,7 @@ public final class SpringCloudServiceState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param configServerGitSetting A `config_server_git_setting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
+         * @param configServerGitSetting A `configServerGitSetting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
          * 
          * @return builder
          * 
@@ -411,7 +411,7 @@ public final class SpringCloudServiceState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param containerRegistries One or more `container_registry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+         * @param containerRegistries One or more `containerRegistry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
          * 
          * @return builder
          * 
@@ -422,7 +422,7 @@ public final class SpringCloudServiceState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param containerRegistries One or more `container_registry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+         * @param containerRegistries One or more `containerRegistry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
          * 
          * @return builder
          * 
@@ -432,7 +432,7 @@ public final class SpringCloudServiceState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param containerRegistries One or more `container_registry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+         * @param containerRegistries One or more `containerRegistry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
          * 
          * @return builder
          * 
@@ -442,7 +442,7 @@ public final class SpringCloudServiceState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param defaultBuildService A `default_build_service` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+         * @param defaultBuildService A `defaultBuildService` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
          * 
          * @return builder
          * 
@@ -453,7 +453,7 @@ public final class SpringCloudServiceState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param defaultBuildService A `default_build_service` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+         * @param defaultBuildService A `defaultBuildService` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
          * 
          * @return builder
          * 
@@ -505,7 +505,7 @@ public final class SpringCloudServiceState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param managedEnvironmentId The resource Id of the Managed Environment that the Spring Apps instance builds on. Can only be specified when `sku_tier` is set to `StandardGen2`.
+         * @param managedEnvironmentId The resource Id of the Managed Environment that the Spring Apps instance builds on. Can only be specified when `skuTier` is set to `StandardGen2`.
          * 
          * @return builder
          * 
@@ -516,7 +516,7 @@ public final class SpringCloudServiceState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param managedEnvironmentId The resource Id of the Managed Environment that the Spring Apps instance builds on. Can only be specified when `sku_tier` is set to `StandardGen2`.
+         * @param managedEnvironmentId The resource Id of the Managed Environment that the Spring Apps instance builds on. Can only be specified when `skuTier` is set to `StandardGen2`.
          * 
          * @return builder
          * 
@@ -620,7 +620,7 @@ public final class SpringCloudServiceState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param requiredNetworkTrafficRules A list of `required_network_traffic_rules` blocks as defined below.
+         * @param requiredNetworkTrafficRules A list of `requiredNetworkTrafficRules` blocks as defined below.
          * 
          * @return builder
          * 
@@ -631,7 +631,7 @@ public final class SpringCloudServiceState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param requiredNetworkTrafficRules A list of `required_network_traffic_rules` blocks as defined below.
+         * @param requiredNetworkTrafficRules A list of `requiredNetworkTrafficRules` blocks as defined below.
          * 
          * @return builder
          * 
@@ -641,7 +641,7 @@ public final class SpringCloudServiceState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param requiredNetworkTrafficRules A list of `required_network_traffic_rules` blocks as defined below.
+         * @param requiredNetworkTrafficRules A list of `requiredNetworkTrafficRules` blocks as defined below.
          * 
          * @return builder
          * 
@@ -735,7 +735,7 @@ public final class SpringCloudServiceState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param skuTier Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managed_environment_id` is defined. Changing this forces a new resource to be created.
+         * @param skuTier Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managedEnvironmentId` is defined. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -746,7 +746,7 @@ public final class SpringCloudServiceState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param skuTier Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managed_environment_id` is defined. Changing this forces a new resource to be created.
+         * @param skuTier Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managedEnvironmentId` is defined. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

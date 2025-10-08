@@ -7,6 +7,65 @@ import * as utilities from "../utilities";
 /**
  * Manages a Mobile Network Packet Core Data Plane.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleDevice = new azure.databoxedge.Device("example", {
+ *     name: "example-device",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     skuName: "EdgeP_Base-Standard",
+ * });
+ * const exampleNetwork = new azure.mobile.Network("example", {
+ *     name: "example-mn",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     mobileCountryCode: "001",
+ *     mobileNetworkCode: "01",
+ * });
+ * const exampleNetworkPacketCoreControlPlane = new azure.mobile.NetworkPacketCoreControlPlane("example", {
+ *     name: "example-mnpccp",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     sku: "G0",
+ *     mobileNetworkId: exampleNetwork.id,
+ *     controlPlaneAccessName: "default-interface",
+ *     controlPlaneAccessIpv4Address: "192.168.1.199",
+ *     controlPlaneAccessIpv4Gateway: "192.168.1.1",
+ *     controlPlaneAccessIpv4Subnet: "192.168.1.0/25",
+ *     platform: {
+ *         type: "AKS-HCI",
+ *         edgeDeviceId: exampleDevice.id,
+ *     },
+ * });
+ * const exampleNetworkPacketCoreDataPlane = new azure.mobile.NetworkPacketCoreDataPlane("example", {
+ *     name: "example-mnpcdp",
+ *     mobileNetworkPacketCoreControlPlaneId: exampleNetworkPacketCoreControlPlane.id,
+ *     location: example.location,
+ *     userPlaneAccessName: "default-interface",
+ *     userPlaneAccessIpv4Address: "192.168.1.199",
+ *     userPlaneAccessIpv4Gateway: "192.168.1.1",
+ *     userPlaneAccessIpv4Subnet: "192.168.1.0/25",
+ *     tags: {
+ *         key: "value",
+ *     },
+ * });
+ * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.MobileNetwork` - 2022-11-01
+ *
  * ## Import
  *
  * Mobile Network Packet Core Data Plane can be imported using the `resource id`, e.g.

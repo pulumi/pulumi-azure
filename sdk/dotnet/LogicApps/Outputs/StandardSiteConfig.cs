@@ -14,7 +14,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
     public sealed class StandardSiteConfig
     {
         /// <summary>
-        /// Should the Logic App be loaded at all times? Defaults to `false`.
+        /// Should the Logic App be loaded at all times? Defaults to `False`.
         /// </summary>
         public readonly bool? AlwaysOn;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// </summary>
         public readonly string? AutoSwapSlotName;
         /// <summary>
-        /// A `cors` block as defined below.
+        /// A `Cors` block as defined below.
         /// </summary>
         public readonly Outputs.StandardSiteConfigCors? Cors;
         /// <summary>
@@ -46,19 +46,19 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// </summary>
         public readonly string? HealthCheckPath;
         /// <summary>
-        /// Specifies whether the HTTP2 protocol should be enabled. Defaults to `false`.
+        /// Specifies whether the HTTP2 protocol should be enabled. Defaults to `False`.
         /// </summary>
         public readonly bool? Http2Enabled;
         /// <summary>
-        /// A list of `ip_restriction` objects representing IP restrictions as defined below.
+        /// A list of `IpRestriction` objects representing IP restrictions as defined below.
         /// 
-        /// &gt; **Note:** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+        /// &gt; **Note:** User has to explicitly set `IpRestriction` to empty slice (`[]`) to remove it.
         /// </summary>
         public readonly ImmutableArray<Outputs.StandardSiteConfigIpRestriction> IpRestrictions;
         /// <summary>
-        /// Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`.
+        /// Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `Kind` of application deployed to `functionapp,linux,container,workflowapp`.
         /// 
-        /// &gt; **Note:** You must set `os_type` in `azure.appservice.ServicePlan` to `Linux` when this property is set.
+        /// &gt; **Note:** You must set `OsType` in `azure.appservice.ServicePlan` to `Linux` when this property is set.
         /// </summary>
         public readonly string? LinuxFxVersion;
         /// <summary>
@@ -73,13 +73,13 @@ namespace Pulumi.Azure.LogicApps.Outputs
         public readonly int? PreWarmedInstanceCount;
         public readonly bool? PublicNetworkAccessEnabled;
         /// <summary>
-        /// Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
+        /// Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `False`.
         /// </summary>
         public readonly bool? RuntimeScaleMonitoringEnabled;
         /// <summary>
-        /// A list of `scm_ip_restriction` objects representing SCM IP restrictions as defined below.
+        /// A list of `ScmIpRestriction` objects representing SCM IP restrictions as defined below.
         /// 
-        /// &gt; **Note:** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+        /// &gt; **Note:** User has to explicitly set `ScmIpRestriction` to empty slice (`[]`) to remove it.
         /// </summary>
         public readonly ImmutableArray<Outputs.StandardSiteConfigScmIpRestriction> ScmIpRestrictions;
         /// <summary>
@@ -93,13 +93,13 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// </summary>
         public readonly string? ScmType;
         /// <summary>
-        /// Should the Logic App `ip_restriction` configuration be used for the SCM too. Defaults to `false`.
+        /// Should the Logic App `IpRestriction` configuration be used for the SCM too. Defaults to `False`.
         /// </summary>
         public readonly bool? ScmUseMainIpRestriction;
         /// <summary>
-        /// Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
+        /// Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to `True`.
         /// 
-        /// &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+        /// &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `Use32BitWorkerProcess` must be set to `True`.
         /// </summary>
         public readonly bool? Use32BitWorkerProcess;
         /// <summary>

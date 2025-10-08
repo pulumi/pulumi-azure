@@ -112,13 +112,13 @@ namespace Pulumi.Azure.Network
     public partial class TrafficManagerNestedEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// One or more `custom_header` blocks as defined below.
+        /// One or more `CustomHeader` blocks as defined below.
         /// </summary>
         [Output("customHeaders")]
         public Output<ImmutableArray<Outputs.TrafficManagerNestedEndpointCustomHeader>> CustomHeaders { get; private set; } = null!;
 
         /// <summary>
-        /// Is the endpoint enabled? Defaults to `true`.
+        /// Is the endpoint enabled? Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -138,7 +138,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
         /// 
-        /// &gt; **Note:** If `min_child_endpoints` is less than either `minimum_required_child_endpoints_ipv4` or `minimum_required_child_endpoints_ipv6`, then it won't have any effect.
+        /// &gt; **Note:** If `MinChildEndpoints` is less than either `MinimumRequiredChildEndpointsIpv4` or `MinimumRequiredChildEndpointsIpv6`, then it won't have any effect.
         /// </summary>
         [Output("minimumChildEndpoints")]
         public Output<int> MinimumChildEndpoints { get; private set; } = null!;
@@ -174,7 +174,7 @@ namespace Pulumi.Azure.Network
         public Output<string> ProfileId { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `Subnet` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("subnets")]
         public Output<ImmutableArray<Outputs.TrafficManagerNestedEndpointSubnet>> Subnets { get; private set; } = null!;
@@ -241,7 +241,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.TrafficManagerNestedEndpointCustomHeaderArgs>? _customHeaders;
 
         /// <summary>
-        /// One or more `custom_header` blocks as defined below.
+        /// One or more `CustomHeader` blocks as defined below.
         /// </summary>
         public InputList<Inputs.TrafficManagerNestedEndpointCustomHeaderArgs> CustomHeaders
         {
@@ -250,7 +250,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// Is the endpoint enabled? Defaults to `true`.
+        /// Is the endpoint enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -276,7 +276,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
         /// 
-        /// &gt; **Note:** If `min_child_endpoints` is less than either `minimum_required_child_endpoints_ipv4` or `minimum_required_child_endpoints_ipv6`, then it won't have any effect.
+        /// &gt; **Note:** If `MinChildEndpoints` is less than either `MinimumRequiredChildEndpointsIpv4` or `MinimumRequiredChildEndpointsIpv6`, then it won't have any effect.
         /// </summary>
         [Input("minimumChildEndpoints", required: true)]
         public Input<int> MinimumChildEndpoints { get; set; } = null!;
@@ -315,7 +315,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.TrafficManagerNestedEndpointSubnetArgs>? _subnets;
 
         /// <summary>
-        /// One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `Subnet` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.TrafficManagerNestedEndpointSubnetArgs> Subnets
         {
@@ -347,7 +347,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.TrafficManagerNestedEndpointCustomHeaderGetArgs>? _customHeaders;
 
         /// <summary>
-        /// One or more `custom_header` blocks as defined below.
+        /// One or more `CustomHeader` blocks as defined below.
         /// </summary>
         public InputList<Inputs.TrafficManagerNestedEndpointCustomHeaderGetArgs> CustomHeaders
         {
@@ -356,7 +356,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// Is the endpoint enabled? Defaults to `true`.
+        /// Is the endpoint enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -382,7 +382,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
         /// 
-        /// &gt; **Note:** If `min_child_endpoints` is less than either `minimum_required_child_endpoints_ipv4` or `minimum_required_child_endpoints_ipv6`, then it won't have any effect.
+        /// &gt; **Note:** If `MinChildEndpoints` is less than either `MinimumRequiredChildEndpointsIpv4` or `MinimumRequiredChildEndpointsIpv6`, then it won't have any effect.
         /// </summary>
         [Input("minimumChildEndpoints")]
         public Input<int>? MinimumChildEndpoints { get; set; }
@@ -421,7 +421,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.TrafficManagerNestedEndpointSubnetGetArgs>? _subnets;
 
         /// <summary>
-        /// One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `Subnet` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.TrafficManagerNestedEndpointSubnetGetArgs> Subnets
         {

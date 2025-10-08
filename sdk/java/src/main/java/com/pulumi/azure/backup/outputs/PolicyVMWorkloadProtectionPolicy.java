@@ -29,27 +29,27 @@ public final class PolicyVMWorkloadProtectionPolicy {
      */
     private String policyType;
     /**
-     * @return A `retention_daily` block as defined below.
+     * @return A `retentionDaily` block as defined below.
      * 
      */
     private @Nullable PolicyVMWorkloadProtectionPolicyRetentionDaily retentionDaily;
     /**
-     * @return A `retention_monthly` block as defined below.
+     * @return A `retentionMonthly` block as defined below.
      * 
      */
     private @Nullable PolicyVMWorkloadProtectionPolicyRetentionMonthly retentionMonthly;
     /**
-     * @return A `retention_weekly` block as defined below.
+     * @return A `retentionWeekly` block as defined below.
      * 
      */
     private @Nullable PolicyVMWorkloadProtectionPolicyRetentionWeekly retentionWeekly;
     /**
-     * @return A `retention_yearly` block as defined below.
+     * @return A `retentionYearly` block as defined below.
      * 
      */
     private @Nullable PolicyVMWorkloadProtectionPolicyRetentionYearly retentionYearly;
     /**
-     * @return A `simple_retention` block as defined below.
+     * @return A `simpleRetention` block as defined below.
      * 
      */
     private @Nullable PolicyVMWorkloadProtectionPolicySimpleRetention simpleRetention;
@@ -70,35 +70,35 @@ public final class PolicyVMWorkloadProtectionPolicy {
         return this.policyType;
     }
     /**
-     * @return A `retention_daily` block as defined below.
+     * @return A `retentionDaily` block as defined below.
      * 
      */
     public Optional<PolicyVMWorkloadProtectionPolicyRetentionDaily> retentionDaily() {
         return Optional.ofNullable(this.retentionDaily);
     }
     /**
-     * @return A `retention_monthly` block as defined below.
+     * @return A `retentionMonthly` block as defined below.
      * 
      */
     public Optional<PolicyVMWorkloadProtectionPolicyRetentionMonthly> retentionMonthly() {
         return Optional.ofNullable(this.retentionMonthly);
     }
     /**
-     * @return A `retention_weekly` block as defined below.
+     * @return A `retentionWeekly` block as defined below.
      * 
      */
     public Optional<PolicyVMWorkloadProtectionPolicyRetentionWeekly> retentionWeekly() {
         return Optional.ofNullable(this.retentionWeekly);
     }
     /**
-     * @return A `retention_yearly` block as defined below.
+     * @return A `retentionYearly` block as defined below.
      * 
      */
     public Optional<PolicyVMWorkloadProtectionPolicyRetentionYearly> retentionYearly() {
         return Optional.ofNullable(this.retentionYearly);
     }
     /**
-     * @return A `simple_retention` block as defined below.
+     * @return A `simpleRetention` block as defined below.
      * 
      */
     public Optional<PolicyVMWorkloadProtectionPolicySimpleRetention> simpleRetention() {

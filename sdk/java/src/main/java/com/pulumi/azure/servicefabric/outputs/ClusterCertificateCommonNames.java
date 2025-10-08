@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class ClusterCertificateCommonNames {
     /**
-     * @return A `common_names` block as defined below.
+     * @return A `commonNames` block as defined below.
      * 
      */
     private List<ClusterCertificateCommonNamesCommonName> commonNames;
@@ -25,7 +25,7 @@ public final class ClusterCertificateCommonNames {
 
     private ClusterCertificateCommonNames() {}
     /**
-     * @return A `common_names` block as defined below.
+     * @return A `commonNames` block as defined below.
      * 
      */
     public List<ClusterCertificateCommonNamesCommonName> commonNames() {

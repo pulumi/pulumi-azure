@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Storage.Inputs
         private List<Inputs.GetShareAclAccessPolicyArgs>? _accessPolicies;
 
         /// <summary>
-        /// An `access_policy` block as defined below.
+        /// An `AccessPolicy` block as defined below.
         /// </summary>
         public List<Inputs.GetShareAclAccessPolicyArgs> AccessPolicies
         {

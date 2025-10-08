@@ -120,14 +120,14 @@ public class Logger extends com.pulumi.resources.CustomResource {
         return this.apiManagementName;
     }
     /**
-     * An `application_insights` block as documented below. Changing this forces a new resource to be created.
+     * An `applicationInsights` block as documented below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="applicationInsights", refs={LoggerApplicationInsights.class}, tree="[0]")
     private Output</* @Nullable */ LoggerApplicationInsights> applicationInsights;
 
     /**
-     * @return An `application_insights` block as documented below. Changing this forces a new resource to be created.
+     * @return An `applicationInsights` block as documented below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<LoggerApplicationInsights>> applicationInsights() {

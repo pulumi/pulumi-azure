@@ -84,7 +84,7 @@ namespace Pulumi.Azure.Compute
         public Output<bool?> AcceleratedNetworkSupportEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
+        /// CPU architecture supported by an OS. Possible values are `X64` and `Arm64`. Defaults to `X64`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("architecture")]
         public Output<string?> Architecture { get; private set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
+        /// &gt; **Note:** Only one of `TrustedLaunchSupported`, `TrustedLaunchEnabled`, `ConfidentialVmSupported` and `ConfidentialVmEnabled` can be specified.
         /// </summary>
         [Output("confidentialVmEnabled")]
         public Output<bool?> ConfidentialVmEnabled { get; private set; } = null!;
@@ -152,7 +152,7 @@ namespace Pulumi.Azure.Compute
         public Output<string?> HyperVGeneration { get; private set; } = null!;
 
         /// <summary>
-        /// An `identifier` block as defined below.
+        /// An `Identifier` block as defined below.
         /// </summary>
         [Output("identifier")]
         public Output<Outputs.SharedImageIdentifier> Identifier { get; private set; } = null!;
@@ -206,7 +206,7 @@ namespace Pulumi.Azure.Compute
         public Output<string?> PrivacyStatementUri { get; private set; } = null!;
 
         /// <summary>
-        /// A `purchase_plan` block as defined below.
+        /// A `PurchasePlan` block as defined below.
         /// </summary>
         [Output("purchasePlan")]
         public Output<Outputs.SharedImagePurchasePlan?> PurchasePlan { get; private set; } = null!;
@@ -224,7 +224,7 @@ namespace Pulumi.Azure.Compute
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
+        /// Specifies that the Operating System used inside this Image has not been Generalized (for example, `Sysprep` on Windows has not been run). Changing this forces a new resource to be created.
         /// 
         /// !&gt; **Note:** It's recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
         /// </summary>
@@ -302,7 +302,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? AcceleratedNetworkSupportEnabled { get; set; }
 
         /// <summary>
-        /// CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
+        /// CPU architecture supported by an OS. Possible values are `X64` and `Arm64`. Defaults to `X64`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("architecture")]
         public Input<string>? Architecture { get; set; }
@@ -310,7 +310,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
+        /// &gt; **Note:** Only one of `TrustedLaunchSupported`, `TrustedLaunchEnabled`, `ConfidentialVmSupported` and `ConfidentialVmEnabled` can be specified.
         /// </summary>
         [Input("confidentialVmEnabled")]
         public Input<bool>? ConfidentialVmEnabled { get; set; }
@@ -376,7 +376,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? HyperVGeneration { get; set; }
 
         /// <summary>
-        /// An `identifier` block as defined below.
+        /// An `Identifier` block as defined below.
         /// </summary>
         [Input("identifier", required: true)]
         public Input<Inputs.SharedImageIdentifierArgs> Identifier { get; set; } = null!;
@@ -430,7 +430,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? PrivacyStatementUri { get; set; }
 
         /// <summary>
-        /// A `purchase_plan` block as defined below.
+        /// A `PurchasePlan` block as defined below.
         /// </summary>
         [Input("purchasePlan")]
         public Input<Inputs.SharedImagePurchasePlanArgs>? PurchasePlan { get; set; }
@@ -448,7 +448,7 @@ namespace Pulumi.Azure.Compute
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
+        /// Specifies that the Operating System used inside this Image has not been Generalized (for example, `Sysprep` on Windows has not been run). Changing this forces a new resource to be created.
         /// 
         /// !&gt; **Note:** It's recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
         /// </summary>
@@ -494,7 +494,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? AcceleratedNetworkSupportEnabled { get; set; }
 
         /// <summary>
-        /// CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
+        /// CPU architecture supported by an OS. Possible values are `X64` and `Arm64`. Defaults to `X64`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("architecture")]
         public Input<string>? Architecture { get; set; }
@@ -502,7 +502,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
+        /// &gt; **Note:** Only one of `TrustedLaunchSupported`, `TrustedLaunchEnabled`, `ConfidentialVmSupported` and `ConfidentialVmEnabled` can be specified.
         /// </summary>
         [Input("confidentialVmEnabled")]
         public Input<bool>? ConfidentialVmEnabled { get; set; }
@@ -568,7 +568,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? HyperVGeneration { get; set; }
 
         /// <summary>
-        /// An `identifier` block as defined below.
+        /// An `Identifier` block as defined below.
         /// </summary>
         [Input("identifier")]
         public Input<Inputs.SharedImageIdentifierGetArgs>? Identifier { get; set; }
@@ -622,7 +622,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? PrivacyStatementUri { get; set; }
 
         /// <summary>
-        /// A `purchase_plan` block as defined below.
+        /// A `PurchasePlan` block as defined below.
         /// </summary>
         [Input("purchasePlan")]
         public Input<Inputs.SharedImagePurchasePlanGetArgs>? PurchasePlan { get; set; }
@@ -640,7 +640,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
+        /// Specifies that the Operating System used inside this Image has not been Generalized (for example, `Sysprep` on Windows has not been run). Changing this forces a new resource to be created.
         /// 
         /// !&gt; **Note:** It's recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
         /// </summary>

@@ -78,6 +78,77 @@ import (
 //
 // ```
 //
+// ### Linux Web App
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/appservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleServicePlan, err := appservice.NewServicePlan(ctx, "example", &appservice.ServicePlanArgs{
+//				Name:              pulumi.String("example-plan"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				OsType:            pulumi.String("Linux"),
+//				SkuName:           pulumi.String("P1v2"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleLinuxWebApp, err := appservice.NewLinuxWebApp(ctx, "example", &appservice.LinuxWebAppArgs{
+//				Name:              pulumi.String("example-linux-web-app"),
+//				ResourceGroupName: example.Name,
+//				Location:          exampleServicePlan.Location,
+//				ServicePlanId:     exampleServicePlan.ID(),
+//				SiteConfig:        &appservice.LinuxWebAppSiteConfigArgs{},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleLinuxWebAppSlot, err := appservice.NewLinuxWebAppSlot(ctx, "example", &appservice.LinuxWebAppSlotArgs{
+//				Name:           pulumi.String("example-linux-web-app-slot"),
+//				AppServiceName: exampleLinuxWebApp.Name,
+//				Location:       exampleServicePlan.Location,
+//				ServicePlanId:  exampleServicePlan.ID(),
+//				SiteConfig:     &appservice.LinuxWebAppSlotSiteConfigArgs{},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appservice.NewWebAppActiveSlot(ctx, "example", &appservice.WebAppActiveSlotArgs{
+//				SlotId: exampleLinuxWebAppSlot.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Web` - 2023-12-01
+//
 // ## Import
 //
 // a Web App Active Slot can be imported using the `resource id`, e.g.

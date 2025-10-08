@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 /**
  * Manages the transparent data encryption configuration for a MSSQL Managed Instance
  * 
- * &gt; **Note:** Once transparent data encryption(TDE) is enabled on a MS SQL instance, it is not possible to remove TDE. You will be able to switch between &#39;ServiceManaged&#39; and &#39;CustomerManaged&#39; keys, but will not be able to remove encryption. For safety when this resource is deleted, the TDE mode will automatically be set to &#39;ServiceManaged&#39;. See `key_vault_uri` for more information on how to specify the key types. As SQL Managed Instance only supports a single configuration for encryption settings, this resource will replace the current encryption settings on the server.
+ * &gt; **Note:** Once transparent data encryption(TDE) is enabled on a MS SQL instance, it is not possible to remove TDE. You will be able to switch between &#39;ServiceManaged&#39; and &#39;CustomerManaged&#39; keys, but will not be able to remove encryption. For safety when this resource is deleted, the TDE mode will automatically be set to &#39;ServiceManaged&#39;. See `keyVaultUri` for more information on how to specify the key types. As SQL Managed Instance only supports a single configuration for encryption settings, this resource will replace the current encryption settings on the server.
  * 
  * &gt; **Note:** See [documentation](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview) for important information on how handle lifecycle management of the keys to prevent data lockout.
  * 
@@ -309,7 +309,7 @@ public class ManagedInstanceTransparentDataEncryption extends com.pulumi.resourc
      * 
      * &gt; **Note:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: &#39;get&#39;, &#39;wrapKey&#39; and &#39;unwrapKey&#39;
      * 
-     * &gt; **Note:** If `managed_instance_id` denotes a secondary instance deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary instance&#39;s transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
+     * &gt; **Note:** If `managedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary instance&#39;s transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
      * 
      */
     @Export(name="managedHsmKeyId", refs={String.class}, tree="[0]")
@@ -320,7 +320,7 @@ public class ManagedInstanceTransparentDataEncryption extends com.pulumi.resourc
      * 
      * &gt; **Note:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: &#39;get&#39;, &#39;wrapKey&#39; and &#39;unwrapKey&#39;
      * 
-     * &gt; **Note:** If `managed_instance_id` denotes a secondary instance deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary instance&#39;s transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
+     * &gt; **Note:** If `managedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary instance&#39;s transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
      * 
      */
     public Output<Optional<String>> managedHsmKeyId() {

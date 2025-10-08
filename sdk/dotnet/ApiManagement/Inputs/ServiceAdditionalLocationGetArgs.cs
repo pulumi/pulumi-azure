@@ -69,7 +69,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         }
 
         /// <summary>
-        /// A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
+        /// A `VirtualNetworkConfiguration` block as defined below. Required when `VirtualNetworkType` is `External` or `Internal`.
         /// </summary>
         [Input("virtualNetworkConfiguration")]
         public Input<Inputs.ServiceAdditionalLocationVirtualNetworkConfigurationGetArgs>? VirtualNetworkConfiguration { get; set; }

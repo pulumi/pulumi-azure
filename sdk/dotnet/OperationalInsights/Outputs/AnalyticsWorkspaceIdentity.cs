@@ -14,15 +14,15 @@ namespace Pulumi.Azure.OperationalInsights.Outputs
     public sealed class AnalyticsWorkspaceIdentity
     {
         /// <summary>
-        /// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+        /// Specifies a list of user managed identity ids to be assigned. Required if `Type` is `UserAssigned`.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         public readonly string? PrincipalId;
         public readonly string? TenantId;
         /// <summary>
-        /// Specifies the identity type of the Log Analytics Workspace. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you) and `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field.
+        /// Specifies the identity type of the Log Analytics Workspace. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you) and `UserAssigned` where you can specify the Service Principal IDs in the `IdentityIds` field.
         /// 
-        /// &gt; **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Log Analytics Workspace has been created.
+        /// &gt; **Note:** When `Type` is set to `SystemAssigned`, The assigned `PrincipalId` and `TenantId` can be retrieved after the Log Analytics Workspace has been created.
         /// </summary>
         public readonly string Type;
 

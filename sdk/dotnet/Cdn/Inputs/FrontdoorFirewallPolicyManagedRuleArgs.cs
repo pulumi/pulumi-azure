@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         private InputList<Inputs.FrontdoorFirewallPolicyManagedRuleExclusionArgs>? _exclusions;
 
         /// <summary>
-        /// One or more `exclusion` blocks as defined below.
+        /// One or more `Exclusion` blocks as defined below.
         /// </summary>
         public InputList<Inputs.FrontdoorFirewallPolicyManagedRuleExclusionArgs> Exclusions
         {
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         private InputList<Inputs.FrontdoorFirewallPolicyManagedRuleOverrideArgs>? _overrides;
 
         /// <summary>
-        /// One or more `override` blocks as defined below.
+        /// One or more `Override` blocks as defined below.
         /// </summary>
         public InputList<Inputs.FrontdoorFirewallPolicyManagedRuleOverrideArgs> Overrides
         {

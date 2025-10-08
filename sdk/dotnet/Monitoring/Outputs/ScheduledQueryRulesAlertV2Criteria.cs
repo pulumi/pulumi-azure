@@ -14,17 +14,17 @@ namespace Pulumi.Azure.Monitoring.Outputs
     public sealed class ScheduledQueryRulesAlertV2Criteria
     {
         /// <summary>
-        /// A `dimension` block as defined below.
+        /// A `Dimension` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.ScheduledQueryRulesAlertV2CriteriaDimension> Dimensions;
         /// <summary>
-        /// A `failing_periods` block as defined below.
+        /// A `FailingPeriods` block as defined below.
         /// </summary>
         public readonly Outputs.ScheduledQueryRulesAlertV2CriteriaFailingPeriods? FailingPeriods;
         /// <summary>
         /// Specifies the column containing the metric measure number.
         /// 
-        /// &gt; **Note:** `metric_measure_column` is required if `time_aggregation_method` is `Average`, `Maximum`, `Minimum`, or `Total`. And `metric_measure_column` can not be specified if `time_aggregation_method` is `Count`.
+        /// &gt; **Note:** `MetricMeasureColumn` is required if `TimeAggregationMethod` is `Average`, `Maximum`, `Minimum`, or `Total`. And `MetricMeasureColumn` can not be specified if `TimeAggregationMethod` is `Count`.
         /// </summary>
         public readonly string? MetricMeasureColumn;
         /// <summary>

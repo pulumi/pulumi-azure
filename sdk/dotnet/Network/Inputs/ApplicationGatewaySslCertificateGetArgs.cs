@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Network.Inputs
         private Input<string>? _data;
 
         /// <summary>
-        /// The base64-encoded PFX certificate data. Required if `key_vault_secret_id` is not set.
+        /// The base64-encoded PFX certificate data. Required if `KeyVaultSecretId` is not set.
         /// 
         /// &gt; **Note:** When specifying a file, use `data = filebase64("path/to/file")` to encode the contents of that file.
         /// </summary>
@@ -37,13 +37,13 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The Secret ID of the (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for Key Vault to use this feature. Required if `data` is not set.
+        /// The Secret ID of the (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for Key Vault to use this feature. Required if `Data` is not set.
         /// 
-        /// &gt; **Note:** To implement certificate rotation, the `azure.keyvault.Secret` attribute `versionless_id` should be used, although `id` is also supported.
+        /// &gt; **Note:** To implement certificate rotation, the `azure.keyvault.Secret` attribute `VersionlessId` should be used, although `Id` is also supported.
         /// 
         /// &gt; **Note:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
         /// 
-        /// &gt; **Note:** For TLS termination with Key Vault certificates to work properly, an existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
+        /// &gt; **Note:** For TLS termination with Key Vault certificates to work properly, an existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `Identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
         /// </summary>
         [Input("keyVaultSecretId")]
         public Input<string>? KeyVaultSecretId { get; set; }
@@ -58,7 +58,7 @@ namespace Pulumi.Azure.Network.Inputs
         private Input<string>? _password;
 
         /// <summary>
-        /// Password for the pfx file specified in data. Required if `data` is set.
+        /// Password for the pfx file specified in data. Required if `Data` is set.
         /// </summary>
         public Input<string>? Password
         {

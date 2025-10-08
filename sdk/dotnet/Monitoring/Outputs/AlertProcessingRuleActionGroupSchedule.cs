@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly string? EffectiveUntil;
         /// <summary>
-        /// A `recurrence` block as defined above.
+        /// A `Recurrence` block as defined above.
         /// </summary>
         public readonly Outputs.AlertProcessingRuleActionGroupScheduleRecurrence? Recurrence;
         /// <summary>

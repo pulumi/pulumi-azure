@@ -12,6 +12,61 @@ namespace Pulumi.Azure.Stack
     /// <summary>
     /// Manages an Azure Stack HCI Logical Network.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-rg",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleHciLogicalNetwork = new Azure.Stack.HciLogicalNetwork("example", new()
+    ///     {
+    ///         Name = "example-hci-ln",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         CustomLocationId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ExtendedLocation/customLocations/cl1",
+    ///         VirtualSwitchName = "ConvergedSwitch(managementcompute)",
+    ///         DnsServers = new[]
+    ///         {
+    ///             "10.0.0.7",
+    ///             "10.0.0.8",
+    ///         },
+    ///         Subnet = new Azure.Stack.Inputs.HciLogicalNetworkSubnetArgs
+    ///         {
+    ///             IpAllocationMethod = "Static",
+    ///             AddressPrefix = "10.0.0.0/24",
+    ///             VlanId = 123,
+    ///             Route = 
+    ///             {
+    ///                 { "addressPrefix", "0.0.0.0/0" },
+    ///                 { "nextHopIpAddress", "10.0.0.1" },
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "foo", "bar" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.AzureStackHCI` - 2024-01-01
+    /// 
     /// ## Import
     /// 
     /// Azure Stack HCI Logical Networks can be imported using the `resource id`, e.g.
@@ -54,7 +109,7 @@ namespace Pulumi.Azure.Stack
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `subnet` block as defined below. Changing this forces a new resource to be created.
+        /// A `Subnet` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("subnet")]
         public Output<Outputs.HciLogicalNetworkSubnet> Subnet { get; private set; } = null!;
@@ -154,7 +209,7 @@ namespace Pulumi.Azure.Stack
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `subnet` block as defined below. Changing this forces a new resource to be created.
+        /// A `Subnet` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("subnet", required: true)]
         public Input<Inputs.HciLogicalNetworkSubnetArgs> Subnet { get; set; } = null!;
@@ -222,7 +277,7 @@ namespace Pulumi.Azure.Stack
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// A `subnet` block as defined below. Changing this forces a new resource to be created.
+        /// A `Subnet` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("subnet")]
         public Input<Inputs.HciLogicalNetworkSubnetGetArgs>? Subnet { get; set; }

@@ -18,11 +18,11 @@ namespace Pulumi.Azure.ArcMachine.Outputs
         /// </summary>
         public readonly string ComputerName;
         /// <summary>
-        /// A `linux` block as defined above.
+        /// A `Linux` block as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetOsProfileLinuxResult> Linuxes;
         /// <summary>
-        /// A `windows` block as defined below.
+        /// A `Windows` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetOsProfileWindowResult> Windows;
 

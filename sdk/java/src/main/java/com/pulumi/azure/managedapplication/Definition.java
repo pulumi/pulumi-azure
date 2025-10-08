@@ -250,7 +250,7 @@ public class Definition extends com.pulumi.resources.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      * 
-     * &gt; **Note:** If either `create_ui_definition` or `main_template` is set they both must be set.
+     * &gt; **Note:** If either `createUiDefinition` or `mainTemplate` is set they both must be set.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
@@ -259,7 +259,7 @@ public class Definition extends com.pulumi.resources.CustomResource {
     /**
      * @return A mapping of tags to assign to the resource.
      * 
-     * &gt; **Note:** If either `create_ui_definition` or `main_template` is set they both must be set.
+     * &gt; **Note:** If either `createUiDefinition` or `mainTemplate` is set they both must be set.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

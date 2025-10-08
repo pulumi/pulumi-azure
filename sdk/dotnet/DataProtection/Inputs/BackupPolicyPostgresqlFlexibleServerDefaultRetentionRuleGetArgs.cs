@@ -16,7 +16,7 @@ namespace Pulumi.Azure.DataProtection.Inputs
         private InputList<Inputs.BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleGetArgs>? _lifeCycles;
 
         /// <summary>
-        /// A `life_cycle` block as defined below. Changing this forces a new resource to be created.
+        /// A `LifeCycle` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleGetArgs> LifeCycles
         {

@@ -118,49 +118,49 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.addOnFeatures);
     }
     /**
-     * An `azure_active_directory` block as defined below.
+     * An `azureActiveDirectory` block as defined below.
      * 
      */
     @Export(name="azureActiveDirectory", refs={ClusterAzureActiveDirectory.class}, tree="[0]")
     private Output</* @Nullable */ ClusterAzureActiveDirectory> azureActiveDirectory;
 
     /**
-     * @return An `azure_active_directory` block as defined below.
+     * @return An `azureActiveDirectory` block as defined below.
      * 
      */
     public Output<Optional<ClusterAzureActiveDirectory>> azureActiveDirectory() {
         return Codegen.optional(this.azureActiveDirectory);
     }
     /**
-     * A `certificate` block as defined below. Conflicts with `certificate_common_names`.
+     * A `certificate` block as defined below. Conflicts with `certificateCommonNames`.
      * 
      */
     @Export(name="certificate", refs={ClusterCertificate.class}, tree="[0]")
     private Output</* @Nullable */ ClusterCertificate> certificate;
 
     /**
-     * @return A `certificate` block as defined below. Conflicts with `certificate_common_names`.
+     * @return A `certificate` block as defined below. Conflicts with `certificateCommonNames`.
      * 
      */
     public Output<Optional<ClusterCertificate>> certificate() {
         return Codegen.optional(this.certificate);
     }
     /**
-     * A `certificate_common_names` block as defined below. Conflicts with `certificate`.
+     * A `certificateCommonNames` block as defined below. Conflicts with `certificate`.
      * 
      */
     @Export(name="certificateCommonNames", refs={ClusterCertificateCommonNames.class}, tree="[0]")
     private Output</* @Nullable */ ClusterCertificateCommonNames> certificateCommonNames;
 
     /**
-     * @return A `certificate_common_names` block as defined below. Conflicts with `certificate`.
+     * @return A `certificateCommonNames` block as defined below. Conflicts with `certificate`.
      * 
      */
     public Output<Optional<ClusterCertificateCommonNames>> certificateCommonNames() {
         return Codegen.optional(this.certificateCommonNames);
     }
     /**
-     * A `client_certificate_common_name` block as defined below.
+     * A `clientCertificateCommonName` block as defined below.
      * 
      * &gt; **Note:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
      * 
@@ -169,7 +169,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ List<ClusterClientCertificateCommonName>> clientCertificateCommonNames;
 
     /**
-     * @return A `client_certificate_common_name` block as defined below.
+     * @return A `clientCertificateCommonName` block as defined below.
      * 
      * &gt; **Note:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
      * 
@@ -178,14 +178,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.clientCertificateCommonNames);
     }
     /**
-     * One or more `client_certificate_thumbprint` blocks as defined below.
+     * One or more `clientCertificateThumbprint` blocks as defined below.
      * 
      */
     @Export(name="clientCertificateThumbprints", refs={List.class,ClusterClientCertificateThumbprint.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ClusterClientCertificateThumbprint>> clientCertificateThumbprints;
 
     /**
-     * @return One or more `client_certificate_thumbprint` blocks as defined below.
+     * @return One or more `clientCertificateThumbprint` blocks as defined below.
      * 
      */
     public Output<Optional<List<ClusterClientCertificateThumbprint>>> clientCertificateThumbprints() {
@@ -220,28 +220,28 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.clusterEndpoint;
     }
     /**
-     * A `diagnostics_config` block as defined below.
+     * A `diagnosticsConfig` block as defined below.
      * 
      */
     @Export(name="diagnosticsConfig", refs={ClusterDiagnosticsConfig.class}, tree="[0]")
     private Output</* @Nullable */ ClusterDiagnosticsConfig> diagnosticsConfig;
 
     /**
-     * @return A `diagnostics_config` block as defined below.
+     * @return A `diagnosticsConfig` block as defined below.
      * 
      */
     public Output<Optional<ClusterDiagnosticsConfig>> diagnosticsConfig() {
         return Codegen.optional(this.diagnosticsConfig);
     }
     /**
-     * One or more `fabric_settings` blocks as defined below.
+     * One or more `fabricSettings` blocks as defined below.
      * 
      */
     @Export(name="fabricSettings", refs={List.class,ClusterFabricSetting.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ClusterFabricSetting>> fabricSettings;
 
     /**
-     * @return One or more `fabric_settings` blocks as defined below.
+     * @return One or more `fabricSettings` blocks as defined below.
      * 
      */
     public Output<Optional<List<ClusterFabricSetting>>> fabricSettings() {
@@ -290,14 +290,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * One or more `node_type` blocks as defined below.
+     * One or more `nodeType` blocks as defined below.
      * 
      */
     @Export(name="nodeTypes", refs={List.class,ClusterNodeType.class}, tree="[0,1]")
     private Output<List<ClusterNodeType>> nodeTypes;
 
     /**
-     * @return One or more `node_type` blocks as defined below.
+     * @return One or more `nodeType` blocks as defined below.
      * 
      */
     public Output<List<ClusterNodeType>> nodeTypes() {
@@ -336,28 +336,28 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * A `reverse_proxy_certificate` block as defined below. Conflicts with `reverse_proxy_certificate_common_names`.
+     * A `reverseProxyCertificate` block as defined below. Conflicts with `reverseProxyCertificateCommonNames`.
      * 
      */
     @Export(name="reverseProxyCertificate", refs={ClusterReverseProxyCertificate.class}, tree="[0]")
     private Output</* @Nullable */ ClusterReverseProxyCertificate> reverseProxyCertificate;
 
     /**
-     * @return A `reverse_proxy_certificate` block as defined below. Conflicts with `reverse_proxy_certificate_common_names`.
+     * @return A `reverseProxyCertificate` block as defined below. Conflicts with `reverseProxyCertificateCommonNames`.
      * 
      */
     public Output<Optional<ClusterReverseProxyCertificate>> reverseProxyCertificate() {
         return Codegen.optional(this.reverseProxyCertificate);
     }
     /**
-     * A `reverse_proxy_certificate_common_names` block as defined below. Conflicts with `reverse_proxy_certificate`.
+     * A `reverseProxyCertificateCommonNames` block as defined below. Conflicts with `reverseProxyCertificate`.
      * 
      */
     @Export(name="reverseProxyCertificateCommonNames", refs={ClusterReverseProxyCertificateCommonNames.class}, tree="[0]")
     private Output</* @Nullable */ ClusterReverseProxyCertificateCommonNames> reverseProxyCertificateCommonNames;
 
     /**
-     * @return A `reverse_proxy_certificate_common_names` block as defined below. Conflicts with `reverse_proxy_certificate`.
+     * @return A `reverseProxyCertificateCommonNames` block as defined below. Conflicts with `reverseProxyCertificate`.
      * 
      */
     public Output<Optional<ClusterReverseProxyCertificateCommonNames>> reverseProxyCertificateCommonNames() {
@@ -406,14 +406,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.upgradeMode;
     }
     /**
-     * A `upgrade_policy` block as defined below.
+     * A `upgradePolicy` block as defined below.
      * 
      */
     @Export(name="upgradePolicy", refs={ClusterUpgradePolicy.class}, tree="[0]")
     private Output</* @Nullable */ ClusterUpgradePolicy> upgradePolicy;
 
     /**
-     * @return A `upgrade_policy` block as defined below.
+     * @return A `upgradePolicy` block as defined below.
      * 
      */
     public Output<Optional<ClusterUpgradePolicy>> upgradePolicy() {

@@ -14,15 +14,15 @@ namespace Pulumi.Azure.ApiManagement.Outputs
     public sealed class ApiImport
     {
         /// <summary>
-        /// The format of the content from which the API Definition should be imported. Possible values are: `openapi`, `openapi+json`, `openapi+json-link`, `openapi-link`, `swagger-json`, `swagger-link-json`, `wadl-link-json`, `wadl-xml`, `wsdl` and `wsdl-link`.
+        /// The format of the content from which the API Definition should be imported. Possible values are: `Openapi`, `openapi+json`, `openapi+json-link`, `openapi-link`, `swagger-json`, `swagger-link-json`, `wadl-link-json`, `wadl-xml`, `Wsdl` and `wsdl-link`.
         /// </summary>
         public readonly string ContentFormat;
         /// <summary>
-        /// The Content from which the API Definition should be imported. When a `content_format` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline. The URL must be accessible and return a valid document; otherwise, deployment may fail.
+        /// The Content from which the API Definition should be imported. When a `ContentFormat` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline. The URL must be accessible and return a valid document; otherwise, deployment may fail.
         /// </summary>
         public readonly string ContentValue;
         /// <summary>
-        /// A `wsdl_selector` block as defined below, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when `content_format` is `wsdl` or `wsdl-link`.
+        /// A `WsdlSelector` block as defined below, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when `ContentFormat` is `Wsdl` or `wsdl-link`.
         /// </summary>
         public readonly Outputs.ApiImportWsdlSelector? WsdlSelector;
 

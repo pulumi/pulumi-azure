@@ -30,7 +30,7 @@ public final class GetNetworkSecurityGroupResult {
     private String name;
     private String resourceGroupName;
     /**
-     * @return One or more `security_rule` blocks as defined below.
+     * @return One or more `securityRule` blocks as defined below.
      * 
      */
     private List<GetNetworkSecurityGroupSecurityRule> securityRules;
@@ -66,7 +66,7 @@ public final class GetNetworkSecurityGroupResult {
         return this.resourceGroupName;
     }
     /**
-     * @return One or more `security_rule` blocks as defined below.
+     * @return One or more `securityRule` blocks as defined below.
      * 
      */
     public List<GetNetworkSecurityGroupSecurityRule> securityRules() {

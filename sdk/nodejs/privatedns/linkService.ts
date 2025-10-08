@@ -11,6 +11,79 @@ import * as utilities from "../utilities";
  *
  * > **Note:** Private Link is now in [GA](https://docs.microsoft.com/en-gb/azure/private-link/).
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-network",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     addressSpaces: ["10.5.0.0/16"],
+ * });
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "example-subnet",
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.5.1.0/24"],
+ *     enforcePrivateLinkServiceNetworkPolicies: true,
+ * });
+ * const examplePublicIp = new azure.network.PublicIp("example", {
+ *     name: "example-api",
+ *     sku: "Standard",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     allocationMethod: "Static",
+ * });
+ * const exampleLoadBalancer = new azure.lb.LoadBalancer("example", {
+ *     name: "example-lb",
+ *     sku: "Standard",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     frontendIpConfigurations: [{
+ *         name: examplePublicIp.name,
+ *         publicIpAddressId: examplePublicIp.id,
+ *     }],
+ * });
+ * const exampleLinkService = new azure.privatedns.LinkService("example", {
+ *     name: "example-privatelink",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     autoApprovalSubscriptionIds: ["00000000-0000-0000-0000-000000000000"],
+ *     visibilitySubscriptionIds: ["00000000-0000-0000-0000-000000000000"],
+ *     loadBalancerFrontendIpConfigurationIds: [exampleLoadBalancer.frontendIpConfigurations.apply(frontendIpConfigurations => frontendIpConfigurations?.[0]?.id)],
+ *     natIpConfigurations: [
+ *         {
+ *             name: "primary",
+ *             privateIpAddress: "10.5.1.17",
+ *             privateIpAddressVersion: "IPv4",
+ *             subnetId: exampleSubnet.id,
+ *             primary: true,
+ *         },
+ *         {
+ *             name: "secondary",
+ *             privateIpAddress: "10.5.1.18",
+ *             privateIpAddressVersion: "IPv4",
+ *             subnetId: exampleSubnet.id,
+ *             primary: false,
+ *         },
+ *     ],
+ * });
+ * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Network` - 2024-05-01
+ *
  * ## Import
  *
  * Private Link Services can be imported using the `resource id`, e.g.

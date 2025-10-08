@@ -28,12 +28,12 @@ public final class GetWindowsFunctionAppResult {
      */
     private Map<String,String> appSettings;
     /**
-     * @return A `auth_settings` block as defined below.
+     * @return A `authSettings` block as defined below.
      * 
      */
     private List<GetWindowsFunctionAppAuthSetting> authSettings;
     /**
-     * @return A `auth_settings_v2` block as defined below.
+     * @return A `authSettingsV2` block as defined below.
      * 
      */
     private List<GetWindowsFunctionAppAuthSettingsV2> authSettingsV2s;
@@ -63,7 +63,7 @@ public final class GetWindowsFunctionAppResult {
      */
     private String clientCertificateMode;
     /**
-     * @return One or more `connection_string` blocks as defined below.
+     * @return One or more `connectionString` blocks as defined below.
      * 
      */
     private List<GetWindowsFunctionAppConnectionString> connectionStrings;
@@ -148,12 +148,12 @@ public final class GetWindowsFunctionAppResult {
      */
     private String outboundIpAddresses;
     /**
-     * @return A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
+     * @return A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outboundIpAddressList`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
      * 
      */
     private List<String> possibleOutboundIpAddressLists;
     /**
-     * @return A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`.
+     * @return A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`.
      * 
      */
     private String possibleOutboundIpAddresses;
@@ -169,17 +169,17 @@ public final class GetWindowsFunctionAppResult {
      */
     private String servicePlanId;
     /**
-     * @return A `site_config` block as defined below.
+     * @return A `siteConfig` block as defined below.
      * 
      */
     private List<GetWindowsFunctionAppSiteConfig> siteConfigs;
     /**
-     * @return A `site_credential` block as defined below.
+     * @return A `siteCredential` block as defined below.
      * 
      */
     private List<GetWindowsFunctionAppSiteCredential> siteCredentials;
     /**
-     * @return A `sticky_settings` block as defined below.
+     * @return A `stickySettings` block as defined below.
      * 
      */
     private List<GetWindowsFunctionAppStickySetting> stickySettings;
@@ -233,14 +233,14 @@ public final class GetWindowsFunctionAppResult {
         return this.appSettings;
     }
     /**
-     * @return A `auth_settings` block as defined below.
+     * @return A `authSettings` block as defined below.
      * 
      */
     public List<GetWindowsFunctionAppAuthSetting> authSettings() {
         return this.authSettings;
     }
     /**
-     * @return A `auth_settings_v2` block as defined below.
+     * @return A `authSettingsV2` block as defined below.
      * 
      */
     public List<GetWindowsFunctionAppAuthSettingsV2> authSettingsV2s() {
@@ -282,7 +282,7 @@ public final class GetWindowsFunctionAppResult {
         return this.clientCertificateMode;
     }
     /**
-     * @return One or more `connection_string` blocks as defined below.
+     * @return One or more `connectionString` blocks as defined below.
      * 
      */
     public List<GetWindowsFunctionAppConnectionString> connectionStrings() {
@@ -401,14 +401,14 @@ public final class GetWindowsFunctionAppResult {
         return this.outboundIpAddresses;
     }
     /**
-     * @return A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
+     * @return A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outboundIpAddressList`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
      * 
      */
     public List<String> possibleOutboundIpAddressLists() {
         return this.possibleOutboundIpAddressLists;
     }
     /**
-     * @return A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`.
+     * @return A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`.
      * 
      */
     public String possibleOutboundIpAddresses() {
@@ -432,21 +432,21 @@ public final class GetWindowsFunctionAppResult {
         return this.servicePlanId;
     }
     /**
-     * @return A `site_config` block as defined below.
+     * @return A `siteConfig` block as defined below.
      * 
      */
     public List<GetWindowsFunctionAppSiteConfig> siteConfigs() {
         return this.siteConfigs;
     }
     /**
-     * @return A `site_credential` block as defined below.
+     * @return A `siteCredential` block as defined below.
      * 
      */
     public List<GetWindowsFunctionAppSiteCredential> siteCredentials() {
         return this.siteCredentials;
     }
     /**
-     * @return A `sticky_settings` block as defined below.
+     * @return A `stickySettings` block as defined below.
      * 
      */
     public List<GetWindowsFunctionAppStickySetting> stickySettings() {

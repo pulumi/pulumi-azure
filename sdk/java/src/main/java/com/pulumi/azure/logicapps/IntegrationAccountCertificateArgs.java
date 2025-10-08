@@ -33,14 +33,14 @@ public final class IntegrationAccountCertificateArgs extends com.pulumi.resource
     }
 
     /**
-     * A `key_vault_key` block as documented below.
+     * A `keyVaultKey` block as documented below.
      * 
      */
     @Import(name="keyVaultKey")
     private @Nullable Output<IntegrationAccountCertificateKeyVaultKeyArgs> keyVaultKey;
 
     /**
-     * @return A `key_vault_key` block as documented below.
+     * @return A `keyVaultKey` block as documented below.
      * 
      */
     public Optional<Output<IntegrationAccountCertificateKeyVaultKeyArgs>> keyVaultKey() {
@@ -158,7 +158,7 @@ public final class IntegrationAccountCertificateArgs extends com.pulumi.resource
         }
 
         /**
-         * @param keyVaultKey A `key_vault_key` block as documented below.
+         * @param keyVaultKey A `keyVaultKey` block as documented below.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class IntegrationAccountCertificateArgs extends com.pulumi.resource
         }
 
         /**
-         * @param keyVaultKey A `key_vault_key` block as documented below.
+         * @param keyVaultKey A `keyVaultKey` block as documented below.
          * 
          * @return builder
          * 

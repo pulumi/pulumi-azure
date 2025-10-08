@@ -20,14 +20,14 @@ public final class MongoClusterArgs extends com.pulumi.resources.ResourceArgs {
     public static final MongoClusterArgs Empty = new MongoClusterArgs();
 
     /**
-     * The Password associated with the `administrator_username` for the MongoDB Cluster.
+     * The Password associated with the `administratorUsername` for the MongoDB Cluster.
      * 
      */
     @Import(name="administratorPassword")
     private @Nullable Output<String> administratorPassword;
 
     /**
-     * @return The Password associated with the `administrator_username` for the MongoDB Cluster.
+     * @return The Password associated with the `administratorUsername` for the MongoDB Cluster.
      * 
      */
     public Optional<Output<String>> administratorPassword() {
@@ -299,7 +299,7 @@ public final class MongoClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param administratorPassword The Password associated with the `administrator_username` for the MongoDB Cluster.
+         * @param administratorPassword The Password associated with the `administratorUsername` for the MongoDB Cluster.
          * 
          * @return builder
          * 
@@ -310,7 +310,7 @@ public final class MongoClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param administratorPassword The Password associated with the `administrator_username` for the MongoDB Cluster.
+         * @param administratorPassword The Password associated with the `administratorUsername` for the MongoDB Cluster.
          * 
          * @return builder
          * 

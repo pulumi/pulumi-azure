@@ -275,6 +275,93 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
             storage_account_access_key=example_account.primary_access_key)
         ```
 
+        ### With Storage Account Behind VNet And Firewall
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_azurerm as azurerm
+
+        primary = azure.core.get_subscription()
+        example = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="virtnetname-1",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("example",
+            name="subnetname-1",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"],
+            service_endpoints=[
+                "Microsoft.Sql",
+                "Microsoft.Storage",
+            ],
+            enforce_private_link_endpoint_network_policies=True)
+        example_server = azure.mssql.Server("example",
+            name="example-sqlserver",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            version="12.0",
+            administrator_login="missadministrator",
+            administrator_login_password="AdminPassword123!",
+            minimum_tls_version="1.2",
+            identity={
+                "type": "SystemAssigned",
+            })
+        example_assignment = azure.authorization.Assignment("example",
+            scope=primary.id,
+            role_definition_name="Storage Blob Data Contributor",
+            principal_id=example_server.identity.principal_id)
+        sqlvnetrule = azurerm.index.SqlVirtualNetworkRule("sqlvnetrule",
+            name=sql-vnet-rule,
+            resource_group_name=example_resource_group.name,
+            server_name=example_server.name,
+            subnet_id=example_subnet.id)
+        example_sql_firewall_rule = azurerm.index.SqlFirewallRule("example",
+            name=FirewallRule1,
+            resource_group_name=example_resource_group.name,
+            server_name=example_server.name,
+            start_ip_address=0.0.0.0,
+            end_ip_address=0.0.0.0)
+        example_account = azure.storage.Account("example",
+            name="examplesa",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS",
+            account_kind="StorageV2",
+            allow_nested_items_to_be_public=False,
+            network_rules={
+                "default_action": "Deny",
+                "ip_rules": ["127.0.0.1"],
+                "virtual_network_subnet_ids": [example_subnet.id],
+                "bypasses": ["AzureServices"],
+            },
+            identity={
+                "type": "SystemAssigned",
+            })
+        example_server_microsoft_support_auditing_policy = azure.mssql.ServerMicrosoftSupportAuditingPolicy("example",
+            blob_storage_endpoint=example_account.primary_blob_endpoint,
+            server_id=example_server.id,
+            log_monitoring_enabled=False,
+            storage_account_subscription_id=primary_azurerm_subscription["subscriptionId"],
+            opts = pulumi.ResourceOptions(depends_on=[
+                    example_assignment,
+                    example_account,
+                ]))
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Sql` - 2023-08-01-preview
+
         ## Import
 
         MS SQL Server Microsoft Support Auditing Policies can be imported using the `resource id`, e.g.
@@ -330,6 +417,93 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
             blob_storage_endpoint=example_account.primary_blob_endpoint,
             storage_account_access_key=example_account.primary_access_key)
         ```
+
+        ### With Storage Account Behind VNet And Firewall
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_azurerm as azurerm
+
+        primary = azure.core.get_subscription()
+        example = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="virtnetname-1",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("example",
+            name="subnetname-1",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"],
+            service_endpoints=[
+                "Microsoft.Sql",
+                "Microsoft.Storage",
+            ],
+            enforce_private_link_endpoint_network_policies=True)
+        example_server = azure.mssql.Server("example",
+            name="example-sqlserver",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            version="12.0",
+            administrator_login="missadministrator",
+            administrator_login_password="AdminPassword123!",
+            minimum_tls_version="1.2",
+            identity={
+                "type": "SystemAssigned",
+            })
+        example_assignment = azure.authorization.Assignment("example",
+            scope=primary.id,
+            role_definition_name="Storage Blob Data Contributor",
+            principal_id=example_server.identity.principal_id)
+        sqlvnetrule = azurerm.index.SqlVirtualNetworkRule("sqlvnetrule",
+            name=sql-vnet-rule,
+            resource_group_name=example_resource_group.name,
+            server_name=example_server.name,
+            subnet_id=example_subnet.id)
+        example_sql_firewall_rule = azurerm.index.SqlFirewallRule("example",
+            name=FirewallRule1,
+            resource_group_name=example_resource_group.name,
+            server_name=example_server.name,
+            start_ip_address=0.0.0.0,
+            end_ip_address=0.0.0.0)
+        example_account = azure.storage.Account("example",
+            name="examplesa",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS",
+            account_kind="StorageV2",
+            allow_nested_items_to_be_public=False,
+            network_rules={
+                "default_action": "Deny",
+                "ip_rules": ["127.0.0.1"],
+                "virtual_network_subnet_ids": [example_subnet.id],
+                "bypasses": ["AzureServices"],
+            },
+            identity={
+                "type": "SystemAssigned",
+            })
+        example_server_microsoft_support_auditing_policy = azure.mssql.ServerMicrosoftSupportAuditingPolicy("example",
+            blob_storage_endpoint=example_account.primary_blob_endpoint,
+            server_id=example_server.id,
+            log_monitoring_enabled=False,
+            storage_account_subscription_id=primary_azurerm_subscription["subscriptionId"],
+            opts = pulumi.ResourceOptions(depends_on=[
+                    example_assignment,
+                    example_account,
+                ]))
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Sql` - 2023-08-01-preview
 
         ## Import
 

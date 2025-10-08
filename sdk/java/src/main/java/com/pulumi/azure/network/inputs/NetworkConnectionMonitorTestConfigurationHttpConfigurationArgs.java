@@ -80,14 +80,14 @@ public final class NetworkConnectionMonitorTestConfigurationHttpConfigurationArg
     }
 
     /**
-     * A `request_header` block as defined below.
+     * A `requestHeader` block as defined below.
      * 
      */
     @Import(name="requestHeaders")
     private @Nullable Output<List<NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArgs>> requestHeaders;
 
     /**
-     * @return A `request_header` block as defined below.
+     * @return A `requestHeader` block as defined below.
      * 
      */
     public Optional<Output<List<NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArgs>>> requestHeaders() {
@@ -223,7 +223,7 @@ public final class NetworkConnectionMonitorTestConfigurationHttpConfigurationArg
         }
 
         /**
-         * @param requestHeaders A `request_header` block as defined below.
+         * @param requestHeaders A `requestHeader` block as defined below.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class NetworkConnectionMonitorTestConfigurationHttpConfigurationArg
         }
 
         /**
-         * @param requestHeaders A `request_header` block as defined below.
+         * @param requestHeaders A `requestHeader` block as defined below.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class NetworkConnectionMonitorTestConfigurationHttpConfigurationArg
         }
 
         /**
-         * @param requestHeaders A `request_header` block as defined below.
+         * @param requestHeaders A `requestHeader` block as defined below.
          * 
          * @return builder
          * 

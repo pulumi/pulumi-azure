@@ -31,7 +31,7 @@ public final class PointToPointVpnGatewayConnectionConfiguration {
      */
     private @Nullable PointToPointVpnGatewayConnectionConfigurationRoute route;
     /**
-     * @return A `vpn_client_address_pool` block as defined below.
+     * @return A `vpnClientAddressPool` block as defined below.
      * 
      */
     private PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool vpnClientAddressPool;
@@ -59,7 +59,7 @@ public final class PointToPointVpnGatewayConnectionConfiguration {
         return Optional.ofNullable(this.route);
     }
     /**
-     * @return A `vpn_client_address_pool` block as defined below.
+     * @return A `vpnClientAddressPool` block as defined below.
      * 
      */
     public PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool vpnClientAddressPool() {

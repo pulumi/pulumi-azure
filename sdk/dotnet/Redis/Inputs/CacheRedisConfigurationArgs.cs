@@ -13,15 +13,15 @@ namespace Pulumi.Azure.Redis.Inputs
     public sealed class CacheRedisConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enable Microsoft Entra (AAD) authentication. Defaults to `false`.
+        /// Enable Microsoft Entra (AAD) authentication. Defaults to `False`.
         /// </summary>
         [Input("activeDirectoryAuthenticationEnabled")]
         public Input<bool>? ActiveDirectoryAuthenticationEnabled { get; set; }
 
         /// <summary>
-        /// Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
+        /// Enable or disable AOF persistence for this Redis Cache. Defaults to `False`.
         /// 
-        /// &gt; **NOTE:** `aof_backup_enabled` can only be set when SKU is `Premium`.
+        /// &gt; **NOTE:** `AofBackupEnabled` can only be set when SKU is `Premium`.
         /// </summary>
         [Input("aofBackupEnabled")]
         public Input<bool>? AofBackupEnabled { get; set; }
@@ -61,9 +61,9 @@ namespace Pulumi.Azure.Redis.Inputs
         }
 
         /// <summary>
-        /// If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
+        /// If set to `False`, the Redis instance will be accessible without authentication. Defaults to `True`.
         /// 
-        /// &gt; **NOTE:** `authentication_enabled` can only be set to `false` if a `subnet_id` is specified; and only works if there aren't existing instances within the subnet with `authentication_enabled` set to `true`.
+        /// &gt; **NOTE:** `AuthenticationEnabled` can only be set to `False` if a `SubnetId` is specified; and only works if there aren't existing instances within the subnet with `AuthenticationEnabled` set to `True`.
         /// </summary>
         [Input("authenticationEnabled")]
         public Input<bool>? AuthenticationEnabled { get; set; }
@@ -93,7 +93,7 @@ namespace Pulumi.Azure.Redis.Inputs
         public Input<int>? MaxmemoryDelta { get; set; }
 
         /// <summary>
-        /// How Redis will select what to remove when `maxmemory` is reached. Defaults to `volatile-lru`.
+        /// How Redis will select what to remove when `Maxmemory` is reached. Defaults to `volatile-lru`.
         /// </summary>
         [Input("maxmemoryPolicy")]
         public Input<string>? MaxmemoryPolicy { get; set; }
@@ -111,9 +111,9 @@ namespace Pulumi.Azure.Redis.Inputs
         public Input<string>? NotifyKeyspaceEvents { get; set; }
 
         /// <summary>
-        /// Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
+        /// Is Backup Enabled? Only supported on Premium SKUs. Defaults to `False`.
         /// 
-        /// &gt; **NOTE:** If `rdb_backup_enabled` set to `true`, `rdb_storage_connection_string` must also be set.
+        /// &gt; **NOTE:** If `RdbBackupEnabled` set to `True`, `RdbStorageConnectionString` must also be set.
         /// </summary>
         [Input("rdbBackupEnabled")]
         public Input<bool>? RdbBackupEnabled { get; set; }

@@ -166,11 +166,11 @@ namespace Pulumi.Azure.Healthcare
     public sealed class GetDicomServiceResult
     {
         /// <summary>
-        /// The `authentication` block as defined below.
+        /// The `Authentication` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDicomServiceAuthenticationResult> Authentications;
         /// <summary>
-        /// The `cors` block as defined below.
+        /// The `Cors` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDicomServiceCorResult> Cors;
         /// <summary>
@@ -197,7 +197,7 @@ namespace Pulumi.Azure.Healthcare
         /// </summary>
         public readonly string ServiceUrl;
         /// <summary>
-        /// The `storage` block as defined below.
+        /// The `Storage` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDicomServiceStorageResult> Storages;
         /// <summary>

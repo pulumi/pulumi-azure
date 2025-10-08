@@ -105,7 +105,7 @@ namespace Pulumi.Azure.Automation
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of key value pairs passed to the connection. Different `type` needs different parameters in the `values`. Builtin types have required field values as below:
+        /// A mapping of key value pairs passed to the connection. Different `Type` needs different parameters in the `Values`. Builtin types have required field values as below:
         /// 
         /// * `Azure`: parameters `AutomationCertificateName` and `SubscriptionID`.
         /// 
@@ -196,7 +196,7 @@ namespace Pulumi.Azure.Automation
         private InputMap<string>? _values;
 
         /// <summary>
-        /// A mapping of key value pairs passed to the connection. Different `type` needs different parameters in the `values`. Builtin types have required field values as below:
+        /// A mapping of key value pairs passed to the connection. Different `Type` needs different parameters in the `Values`. Builtin types have required field values as below:
         /// 
         /// * `Azure`: parameters `AutomationCertificateName` and `SubscriptionID`.
         /// 
@@ -252,7 +252,7 @@ namespace Pulumi.Azure.Automation
         private InputMap<string>? _values;
 
         /// <summary>
-        /// A mapping of key value pairs passed to the connection. Different `type` needs different parameters in the `values`. Builtin types have required field values as below:
+        /// A mapping of key value pairs passed to the connection. Different `Type` needs different parameters in the `Values`. Builtin types have required field values as below:
         /// 
         /// * `Azure`: parameters `AutomationCertificateName` and `SubscriptionID`.
         /// 

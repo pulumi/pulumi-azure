@@ -14,6 +14,82 @@ import (
 
 // Manages an Azure Managed Lustre File System.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/managedlustre"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name: pulumi.String("example-vnet"),
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
+//				Name:               pulumi.String("example-subnet"),
+//				ResourceGroupName:  example.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.2.0/24"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = managedlustre.NewFileSystem(ctx, "example", &managedlustre.FileSystemArgs{
+//				Name:                pulumi.String("example-amlfs"),
+//				ResourceGroupName:   example.Name,
+//				Location:            example.Location,
+//				SkuName:             pulumi.String("AMLFS-Durable-Premium-250"),
+//				SubnetId:            exampleSubnet.ID(),
+//				StorageCapacityInTb: pulumi.Int(8),
+//				Zones: pulumi.StringArray{
+//					pulumi.String("2"),
+//				},
+//				MaintenanceWindow: &managedlustre.FileSystemMaintenanceWindowArgs{
+//					DayOfWeek:    pulumi.String("Friday"),
+//					TimeOfDayUtc: "22:00",
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.StorageCache` - 2024-07-01
+//
 // ## Import
 //
 // Azure Managed Lustre File Systems can be imported using the `resource id`, e.g.

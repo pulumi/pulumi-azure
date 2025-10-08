@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Compute
     /// <summary>
     /// Manages a Virtual Machine Gallery Application Assignment.
     /// 
-    /// &gt; **Note:** Gallery Application Assignments can be defined either directly on `azure.compute.LinuxVirtualMachine` and `azure.compute.WindowsVirtualMachine` resources, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. It's recommended to use `ignore_changes` for the `gallery_application` block on the associated virtual machine resources, to avoid a persistent diff when using this resource.
+    /// &gt; **Note:** Gallery Application Assignments can be defined either directly on `azure.compute.LinuxVirtualMachine` and `azure.compute.WindowsVirtualMachine` resources, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. It's recommended to use `IgnoreChanges` for the `GalleryApplication` block on the associated virtual machine resources, to avoid a persistent diff when using this resource.
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -145,7 +145,7 @@ namespace Pulumi.Azure.Compute
         public Output<int?> Order { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
+        /// Specifies a passthrough value for more generic context. This field can be any valid `String` value. Changing this forces a new resource to be created.
         /// </summary>
         [Output("tag")]
         public Output<string?> Tag { get; private set; } = null!;
@@ -221,7 +221,7 @@ namespace Pulumi.Azure.Compute
         public Input<int>? Order { get; set; }
 
         /// <summary>
-        /// Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
+        /// Specifies a passthrough value for more generic context. This field can be any valid `String` value. Changing this forces a new resource to be created.
         /// </summary>
         [Input("tag")]
         public Input<string>? Tag { get; set; }
@@ -259,7 +259,7 @@ namespace Pulumi.Azure.Compute
         public Input<int>? Order { get; set; }
 
         /// <summary>
-        /// Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
+        /// Specifies a passthrough value for more generic context. This field can be any valid `String` value. Changing this forces a new resource to be created.
         /// </summary>
         [Input("tag")]
         public Input<string>? Tag { get; set; }

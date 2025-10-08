@@ -12,6 +12,47 @@ namespace Pulumi.Azure.Oracle
     /// <summary>
     /// Manages an Oracle Autonomous Database Backup in Azure.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "East US",
+    ///     });
+    /// 
+    ///     var exampleAutonomousDatabase = new Azure.Oracle.AutonomousDatabase("example", new()
+    ///     {
+    ///         Name = "example-adb",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///     });
+    /// 
+    ///     var exampleAutonomousDatabaseBackup = new Azure.Oracle.AutonomousDatabaseBackup("example", new()
+    ///     {
+    ///         Name = "example-backup",
+    ///         AutonomousDatabaseId = exampleAutonomousDatabase.Id,
+    ///         RetentionPeriodInDays = 120,
+    ///         BackupType = "Full",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Oracle.Database` - 2025-03-01
+    /// 
     /// ## Import
     /// 
     /// Autonomous Database Backups can be imported using the `id`, e.g.

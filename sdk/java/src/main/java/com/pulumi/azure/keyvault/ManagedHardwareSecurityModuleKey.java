@@ -20,7 +20,98 @@ import javax.annotation.Nullable;
 /**
  * Manages a Key Vault Managed Hardware Security Module Key.
  * 
- * &gt; **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Managed Hardware Security Module Key resource on destroy, rather than the default soft-delete. See `purge_soft_deleted_hardware_security_modules_on_destroy` for more information.
+ * &gt; **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Managed Hardware Security Module Key resource on destroy, rather than the default soft-delete. See `purgeSoftDeletedHardwareSecurityModulesOnDestroy` for more information.
+ * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.keyvault.ManagedHardwareSecurityModule;
+ * import com.pulumi.azure.keyvault.ManagedHardwareSecurityModuleArgs;
+ * import com.pulumi.azure.keyvault.ManagedHardwareSecurityModuleRoleAssignment;
+ * import com.pulumi.azure.keyvault.ManagedHardwareSecurityModuleRoleAssignmentArgs;
+ * import com.pulumi.azure.keyvault.ManagedHardwareSecurityModuleKey;
+ * import com.pulumi.azure.keyvault.ManagedHardwareSecurityModuleKeyArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+ * 
+ *         var example = new ManagedHardwareSecurityModule("example", ManagedHardwareSecurityModuleArgs.builder()
+ *             .name("example")
+ *             .resourceGroupName(exampleAzurermResourceGroup.name())
+ *             .location(exampleAzurermResourceGroup.location())
+ *             .skuName("Standard_B1")
+ *             .tenantId(current.tenantId())
+ *             .adminObjectIds(current.objectId())
+ *             .purgeProtectionEnabled(false)
+ *             .activeConfig(List.of(Map.ofEntries(
+ *                 Map.entry("securityDomainCertificate", List.of(                
+ *                     cert[0].id(),
+ *                     cert[1].id(),
+ *                     cert[2].id())),
+ *                 Map.entry("securityDomainQuorum", 2)
+ *             )))
+ *             .build());
+ * 
+ *         // this gives your service principal the HSM Crypto User role which lets you create and destroy hsm keys
+ *         var hsm_crypto_user = new ManagedHardwareSecurityModuleRoleAssignment("hsm-crypto-user", ManagedHardwareSecurityModuleRoleAssignmentArgs.builder()
+ *             .managedHsmId(test.id())
+ *             .name("1e243909-064c-6ac3-84e9-1c8bf8d6ad22")
+ *             .scope("/keys")
+ *             .roleDefinitionId("/Microsoft.KeyVault/providers/Microsoft.Authorization/roleDefinitions/21dbd100-6940-42c2-9190-5d6cb909625b")
+ *             .principalId(current.objectId())
+ *             .build());
+ * 
+ *         // this gives your service principal the HSM Crypto Officer role which lets you purge hsm keys
+ *         var hsm_crypto_officer = new ManagedHardwareSecurityModuleRoleAssignment("hsm-crypto-officer", ManagedHardwareSecurityModuleRoleAssignmentArgs.builder()
+ *             .managedHsmId(test.id())
+ *             .name("1e243909-064c-6ac3-84e9-1c8bf8d6ad23")
+ *             .scope("/keys")
+ *             .roleDefinitionId("/Microsoft.KeyVault/providers/Microsoft.Authorization/roleDefinitions/515eb02d-2335-4d2d-92f2-b1cbdf9c3778")
+ *             .principalId(current.objectId())
+ *             .build());
+ * 
+ *         var exampleManagedHardwareSecurityModuleKey = new ManagedHardwareSecurityModuleKey("exampleManagedHardwareSecurityModuleKey", ManagedHardwareSecurityModuleKeyArgs.builder()
+ *             .name("example")
+ *             .managedHsmId(test.id())
+ *             .keyType("EC-HSM")
+ *             .curve("P-521")
+ *             .keyOpts("sign")
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     testAzurermKeyVaultManagedHardwareSecurityModuleRoleAssignment,
+ *                     test1)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.KeyVault` - 2023-07-01
  * 
  * ## Import
  * 
@@ -34,14 +125,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:keyvault/managedHardwareSecurityModuleKey:ManagedHardwareSecurityModuleKey")
 public class ManagedHardwareSecurityModuleKey extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies the curve to use when creating an `EC-HSM` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field is required if `key_type` is `EC-HSM`. Changing this forces a new resource to be created.
+     * Specifies the curve to use when creating an `EC-HSM` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field is required if `keyType` is `EC-HSM`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="curve", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> curve;
 
     /**
-     * @return Specifies the curve to use when creating an `EC-HSM` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field is required if `key_type` is `EC-HSM`. Changing this forces a new resource to be created.
+     * @return Specifies the curve to use when creating an `EC-HSM` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field is required if `keyType` is `EC-HSM`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> curve() {
@@ -76,14 +167,14 @@ public class ManagedHardwareSecurityModuleKey extends com.pulumi.resources.Custo
         return this.keyOpts;
     }
     /**
-     * Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA-HSM` or `oct-HSM`. Changing this forces a new resource to be created.
+     * Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `keyType` is `RSA-HSM` or `oct-HSM`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="keySize", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> keySize;
 
     /**
-     * @return Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA-HSM` or `oct-HSM`. Changing this forces a new resource to be created.
+     * @return Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `keyType` is `RSA-HSM` or `oct-HSM`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Integer>> keySize() {
@@ -134,7 +225,7 @@ public class ManagedHardwareSecurityModuleKey extends com.pulumi.resources.Custo
     /**
      * Key not usable before the provided UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;).
      * 
-     * &gt; **Note:** Once `expiration_date` is set, it&#39;s not possible to unset the key even if it is deleted &amp; recreated as underlying Azure API uses the restore of the purged key.
+     * &gt; **Note:** Once `expirationDate` is set, it&#39;s not possible to unset the key even if it is deleted &amp; recreated as underlying Azure API uses the restore of the purged key.
      * 
      */
     @Export(name="notBeforeDate", refs={String.class}, tree="[0]")
@@ -143,7 +234,7 @@ public class ManagedHardwareSecurityModuleKey extends com.pulumi.resources.Custo
     /**
      * @return Key not usable before the provided UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;).
      * 
-     * &gt; **Note:** Once `expiration_date` is set, it&#39;s not possible to unset the key even if it is deleted &amp; recreated as underlying Azure API uses the restore of the purged key.
+     * &gt; **Note:** Once `expirationDate` is set, it&#39;s not possible to unset the key even if it is deleted &amp; recreated as underlying Azure API uses the restore of the purged key.
      * 
      */
     public Output<Optional<String>> notBeforeDate() {

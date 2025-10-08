@@ -81,14 +81,14 @@ public final class ManagedHardwareSecurityModuleState extends com.pulumi.resourc
     }
 
     /**
-     * A `network_acls` block as defined below.
+     * A `networkAcls` block as defined below.
      * 
      */
     @Import(name="networkAcls")
     private @Nullable Output<ManagedHardwareSecurityModuleNetworkAclsArgs> networkAcls;
 
     /**
-     * @return A `network_acls` block as defined below.
+     * @return A `networkAcls` block as defined below.
      * 
      */
     public Optional<Output<ManagedHardwareSecurityModuleNetworkAclsArgs>> networkAcls() {
@@ -171,14 +171,14 @@ public final class ManagedHardwareSecurityModuleState extends com.pulumi.resourc
     }
 
     /**
-     * Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `security_domain_key_vault_certificate_ids` is specified. Valid values are between 2 and 10.
+     * Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `securityDomainKeyVaultCertificateIds` is specified. Valid values are between 2 and 10.
      * 
      */
     @Import(name="securityDomainQuorum")
     private @Nullable Output<Integer> securityDomainQuorum;
 
     /**
-     * @return Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `security_domain_key_vault_certificate_ids` is specified. Valid values are between 2 and 10.
+     * @return Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `securityDomainKeyVaultCertificateIds` is specified. Valid values are between 2 and 10.
      * 
      */
     public Optional<Output<Integer>> securityDomainQuorum() {
@@ -378,7 +378,7 @@ public final class ManagedHardwareSecurityModuleState extends com.pulumi.resourc
         }
 
         /**
-         * @param networkAcls A `network_acls` block as defined below.
+         * @param networkAcls A `networkAcls` block as defined below.
          * 
          * @return builder
          * 
@@ -389,7 +389,7 @@ public final class ManagedHardwareSecurityModuleState extends com.pulumi.resourc
         }
 
         /**
-         * @param networkAcls A `network_acls` block as defined below.
+         * @param networkAcls A `networkAcls` block as defined below.
          * 
          * @return builder
          * 
@@ -514,7 +514,7 @@ public final class ManagedHardwareSecurityModuleState extends com.pulumi.resourc
         }
 
         /**
-         * @param securityDomainQuorum Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `security_domain_key_vault_certificate_ids` is specified. Valid values are between 2 and 10.
+         * @param securityDomainQuorum Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `securityDomainKeyVaultCertificateIds` is specified. Valid values are between 2 and 10.
          * 
          * @return builder
          * 
@@ -525,7 +525,7 @@ public final class ManagedHardwareSecurityModuleState extends com.pulumi.resourc
         }
 
         /**
-         * @param securityDomainQuorum Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `security_domain_key_vault_certificate_ids` is specified. Valid values are between 2 and 10.
+         * @param securityDomainQuorum Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `securityDomainKeyVaultCertificateIds` is specified. Valid values are between 2 and 10.
          * 
          * @return builder
          * 

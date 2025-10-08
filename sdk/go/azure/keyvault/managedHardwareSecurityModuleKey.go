@@ -16,6 +16,99 @@ import (
 //
 // > **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Managed Hardware Security Module Key resource on destroy, rather than the default soft-delete. See `purgeSoftDeletedHardwareSecurityModulesOnDestroy` for more information.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/keyvault"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, map[string]interface{}{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = keyvault.NewManagedHardwareSecurityModule(ctx, "example", &keyvault.ManagedHardwareSecurityModuleArgs{
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: pulumi.Any(exampleAzurermResourceGroup.Name),
+//				Location:          pulumi.Any(exampleAzurermResourceGroup.Location),
+//				SkuName:           pulumi.String("Standard_B1"),
+//				TenantId:          pulumi.String(current.TenantId),
+//				AdminObjectIds: pulumi.StringArray{
+//					pulumi.String(current.ObjectId),
+//				},
+//				PurgeProtectionEnabled: pulumi.Bool(false),
+//				ActiveConfig: []map[string]interface{}{
+//					map[string]interface{}{
+//						"securityDomainCertificate": []interface{}{
+//							cert[0].Id,
+//							cert[1].Id,
+//							cert[2].Id,
+//						},
+//						"securityDomainQuorum": 2,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// this gives your service principal the HSM Crypto User role which lets you create and destroy hsm keys
+//			_, err = keyvault.NewManagedHardwareSecurityModuleRoleAssignment(ctx, "hsm-crypto-user", &keyvault.ManagedHardwareSecurityModuleRoleAssignmentArgs{
+//				ManagedHsmId:     pulumi.Any(test.Id),
+//				Name:             pulumi.String("1e243909-064c-6ac3-84e9-1c8bf8d6ad22"),
+//				Scope:            pulumi.String("/keys"),
+//				RoleDefinitionId: pulumi.String("/Microsoft.KeyVault/providers/Microsoft.Authorization/roleDefinitions/21dbd100-6940-42c2-9190-5d6cb909625b"),
+//				PrincipalId:      pulumi.String(current.ObjectId),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// this gives your service principal the HSM Crypto Officer role which lets you purge hsm keys
+//			_, err = keyvault.NewManagedHardwareSecurityModuleRoleAssignment(ctx, "hsm-crypto-officer", &keyvault.ManagedHardwareSecurityModuleRoleAssignmentArgs{
+//				ManagedHsmId:     pulumi.Any(test.Id),
+//				Name:             pulumi.String("1e243909-064c-6ac3-84e9-1c8bf8d6ad23"),
+//				Scope:            pulumi.String("/keys"),
+//				RoleDefinitionId: pulumi.String("/Microsoft.KeyVault/providers/Microsoft.Authorization/roleDefinitions/515eb02d-2335-4d2d-92f2-b1cbdf9c3778"),
+//				PrincipalId:      pulumi.String(current.ObjectId),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = keyvault.NewManagedHardwareSecurityModuleKey(ctx, "example", &keyvault.ManagedHardwareSecurityModuleKeyArgs{
+//				Name:         pulumi.String("example"),
+//				ManagedHsmId: pulumi.Any(test.Id),
+//				KeyType:      pulumi.String("EC-HSM"),
+//				Curve:        pulumi.String("P-521"),
+//				KeyOpts: pulumi.StringArray{
+//					pulumi.String("sign"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				testAzurermKeyVaultManagedHardwareSecurityModuleRoleAssignment,
+//				test1,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.KeyVault` - 2023-07-01
+//
 // ## Import
 //
 // Key Vault Managed Hardware Security Module Key can be imported using the `resource id`, e.g.

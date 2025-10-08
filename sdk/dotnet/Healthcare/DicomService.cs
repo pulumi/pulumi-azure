@@ -66,19 +66,19 @@ namespace Pulumi.Azure.Healthcare
     public partial class DicomService : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The `authentication` block as defined below.
+        /// The `Authentication` block as defined below.
         /// </summary>
         [Output("authentications")]
         public Output<ImmutableArray<Outputs.DicomServiceAuthentication>> Authentications { get; private set; } = null!;
 
         /// <summary>
-        /// A `cors` block as defined below.
+        /// A `Cors` block as defined below.
         /// </summary>
         [Output("cors")]
         public Output<Outputs.DicomServiceCors> Cors { get; private set; } = null!;
 
         /// <summary>
-        /// If data partitions are enabled or not. Defaults to `false`. Changing this forces a new Healthcare DICOM Service to be created.
+        /// If data partitions are enabled or not. Defaults to `False`. Changing this forces a new Healthcare DICOM Service to be created.
         /// </summary>
         [Output("dataPartitionsEnabled")]
         public Output<bool?> DataPartitionsEnabled { get; private set; } = null!;
@@ -90,7 +90,7 @@ namespace Pulumi.Azure.Healthcare
         public Output<string?> EncryptionKeyUrl { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.DicomServiceIdentity?> Identity { get; private set; } = null!;
@@ -111,7 +111,7 @@ namespace Pulumi.Azure.Healthcare
         public Output<ImmutableArray<Outputs.DicomServicePrivateEndpoint>> PrivateEndpoints { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `true`.
+        /// Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `True`.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
@@ -123,7 +123,7 @@ namespace Pulumi.Azure.Healthcare
         public Output<string> ServiceUrl { get; private set; } = null!;
 
         /// <summary>
-        /// A `storage` block as defined below.
+        /// A `Storage` block as defined below.
         /// </summary>
         [Output("storage")]
         public Output<Outputs.DicomServiceStorage> Storage { get; private set; } = null!;
@@ -187,13 +187,13 @@ namespace Pulumi.Azure.Healthcare
     public sealed class DicomServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `cors` block as defined below.
+        /// A `Cors` block as defined below.
         /// </summary>
         [Input("cors")]
         public Input<Inputs.DicomServiceCorsArgs>? Cors { get; set; }
 
         /// <summary>
-        /// If data partitions are enabled or not. Defaults to `false`. Changing this forces a new Healthcare DICOM Service to be created.
+        /// If data partitions are enabled or not. Defaults to `False`. Changing this forces a new Healthcare DICOM Service to be created.
         /// </summary>
         [Input("dataPartitionsEnabled")]
         public Input<bool>? DataPartitionsEnabled { get; set; }
@@ -205,7 +205,7 @@ namespace Pulumi.Azure.Healthcare
         public Input<string>? EncryptionKeyUrl { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.DicomServiceIdentityArgs>? Identity { get; set; }
@@ -223,13 +223,13 @@ namespace Pulumi.Azure.Healthcare
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `true`.
+        /// Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
-        /// A `storage` block as defined below.
+        /// A `Storage` block as defined below.
         /// </summary>
         [Input("storage")]
         public Input<Inputs.DicomServiceStorageArgs>? Storage { get; set; }
@@ -264,7 +264,7 @@ namespace Pulumi.Azure.Healthcare
         private InputList<Inputs.DicomServiceAuthenticationGetArgs>? _authentications;
 
         /// <summary>
-        /// The `authentication` block as defined below.
+        /// The `Authentication` block as defined below.
         /// </summary>
         public InputList<Inputs.DicomServiceAuthenticationGetArgs> Authentications
         {
@@ -273,13 +273,13 @@ namespace Pulumi.Azure.Healthcare
         }
 
         /// <summary>
-        /// A `cors` block as defined below.
+        /// A `Cors` block as defined below.
         /// </summary>
         [Input("cors")]
         public Input<Inputs.DicomServiceCorsGetArgs>? Cors { get; set; }
 
         /// <summary>
-        /// If data partitions are enabled or not. Defaults to `false`. Changing this forces a new Healthcare DICOM Service to be created.
+        /// If data partitions are enabled or not. Defaults to `False`. Changing this forces a new Healthcare DICOM Service to be created.
         /// </summary>
         [Input("dataPartitionsEnabled")]
         public Input<bool>? DataPartitionsEnabled { get; set; }
@@ -291,7 +291,7 @@ namespace Pulumi.Azure.Healthcare
         public Input<string>? EncryptionKeyUrl { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.DicomServiceIdentityGetArgs>? Identity { get; set; }
@@ -317,7 +317,7 @@ namespace Pulumi.Azure.Healthcare
         }
 
         /// <summary>
-        /// Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `true`.
+        /// Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -329,7 +329,7 @@ namespace Pulumi.Azure.Healthcare
         public Input<string>? ServiceUrl { get; set; }
 
         /// <summary>
-        /// A `storage` block as defined below.
+        /// A `Storage` block as defined below.
         /// </summary>
         [Input("storage")]
         public Input<Inputs.DicomServiceStorageGetArgs>? Storage { get; set; }

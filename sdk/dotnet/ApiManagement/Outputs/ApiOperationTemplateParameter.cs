@@ -22,7 +22,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// One or more `example` blocks as defined above.
+        /// One or more `Example` blocks as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.ApiOperationTemplateParameterExample> Examples;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// </summary>
         public readonly string? SchemaId;
         /// <summary>
-        /// The Type of this Template Parameter, such as a `string`.
+        /// The Type of this Template Parameter, such as a `String`.
         /// </summary>
         public readonly string Type;
         /// <summary>

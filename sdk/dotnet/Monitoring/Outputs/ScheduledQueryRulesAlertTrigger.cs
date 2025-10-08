@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
     public sealed class ScheduledQueryRulesAlertTrigger
     {
         /// <summary>
-        /// A `metric_trigger` block as defined above. Trigger condition for metric query rule.
+        /// A `MetricTrigger` block as defined above. Trigger condition for metric query rule.
         /// </summary>
         public readonly Outputs.ScheduledQueryRulesAlertTriggerMetricTrigger? MetricTrigger;
         /// <summary>

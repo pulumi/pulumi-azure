@@ -19,7 +19,7 @@ public final class VirtualMachineOsProfileArgs extends com.pulumi.resources.Reso
     /**
      * (Optional for Windows, Optional for Linux) The password associated with the local administrator account.
      * 
-     * &gt; **NOTE:** If using Linux, it may be preferable to use SSH Key authentication (available in the `os_profile_linux_config` block) instead of password authentication.
+     * &gt; **NOTE:** If using Linux, it may be preferable to use SSH Key authentication (available in the `osProfileLinuxConfig` block) instead of password authentication.
      * 
      */
     @Import(name="adminPassword")
@@ -28,7 +28,7 @@ public final class VirtualMachineOsProfileArgs extends com.pulumi.resources.Reso
     /**
      * @return (Optional for Windows, Optional for Linux) The password associated with the local administrator account.
      * 
-     * &gt; **NOTE:** If using Linux, it may be preferable to use SSH Key authentication (available in the `os_profile_linux_config` block) instead of password authentication.
+     * &gt; **NOTE:** If using Linux, it may be preferable to use SSH Key authentication (available in the `osProfileLinuxConfig` block) instead of password authentication.
      * 
      */
     public Optional<Output<String>> adminPassword() {
@@ -110,7 +110,7 @@ public final class VirtualMachineOsProfileArgs extends com.pulumi.resources.Reso
         /**
          * @param adminPassword (Optional for Windows, Optional for Linux) The password associated with the local administrator account.
          * 
-         * &gt; **NOTE:** If using Linux, it may be preferable to use SSH Key authentication (available in the `os_profile_linux_config` block) instead of password authentication.
+         * &gt; **NOTE:** If using Linux, it may be preferable to use SSH Key authentication (available in the `osProfileLinuxConfig` block) instead of password authentication.
          * 
          * @return builder
          * 
@@ -123,7 +123,7 @@ public final class VirtualMachineOsProfileArgs extends com.pulumi.resources.Reso
         /**
          * @param adminPassword (Optional for Windows, Optional for Linux) The password associated with the local administrator account.
          * 
-         * &gt; **NOTE:** If using Linux, it may be preferable to use SSH Key authentication (available in the `os_profile_linux_config` block) instead of password authentication.
+         * &gt; **NOTE:** If using Linux, it may be preferable to use SSH Key authentication (available in the `osProfileLinuxConfig` block) instead of password authentication.
          * 
          * @return builder
          * 

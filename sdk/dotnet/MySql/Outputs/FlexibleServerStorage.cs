@@ -14,11 +14,11 @@ namespace Pulumi.Azure.MySql.Outputs
     public sealed class FlexibleServerStorage
     {
         /// <summary>
-        /// Should Storage Auto Grow be enabled? Defaults to `true`.
+        /// Should Storage Auto Grow be enabled? Defaults to `True`.
         /// </summary>
         public readonly bool? AutoGrowEnabled;
         /// <summary>
-        /// Should IOPS be scaled automatically? If `true`, `iops` can not be set. Defaults to `false`.
+        /// Should IOPS be scaled automatically? If `True`, `Iops` can not be set. Defaults to `False`.
         /// </summary>
         public readonly bool? IoScalingEnabled;
         /// <summary>
@@ -26,13 +26,13 @@ namespace Pulumi.Azure.MySql.Outputs
         /// </summary>
         public readonly int? Iops;
         /// <summary>
-        /// Should Storage Log On Disk be enabled? Defaults to `false`.
+        /// Should Storage Log On Disk be enabled? Defaults to `False`.
         /// </summary>
         public readonly bool? LogOnDiskEnabled;
         /// <summary>
         /// The max storage allowed for the MySQL Flexible Server. Possible values are between `20` and `16384`.
         /// 
-        /// &gt; **Note:** Decreasing `size_gb` forces a new resource to be created.
+        /// &gt; **Note:** Decreasing `SizeGb` forces a new resource to be created.
         /// </summary>
         public readonly int? SizeGb;
 

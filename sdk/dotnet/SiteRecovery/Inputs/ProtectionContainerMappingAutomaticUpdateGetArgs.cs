@@ -15,7 +15,7 @@ namespace Pulumi.Azure.SiteRecovery.Inputs
         /// <summary>
         /// The authentication type used for automation account. Possible values are `RunAsAccount` and `SystemAssignedIdentity`. Defaults to `SystemAssignedIdentity`.
         /// 
-        /// &gt; **Note:** `RunAsAccount` of `authentication_type` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/en-us/azure/automation/whats-new#support-for-run-as-accounts).
+        /// &gt; **Note:** `RunAsAccount` of `AuthenticationType` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/en-us/azure/automation/whats-new#support-for-run-as-accounts).
         /// </summary>
         [Input("authenticationType")]
         public Input<string>? AuthenticationType { get; set; }
@@ -23,13 +23,13 @@ namespace Pulumi.Azure.SiteRecovery.Inputs
         /// <summary>
         /// The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
         /// 
-        /// &gt; **Note:** `automation_account_id` is required when `enabled` is specified.
+        /// &gt; **Note:** `AutomationAccountId` is required when `Enabled` is specified.
         /// </summary>
         [Input("automationAccountId")]
         public Input<string>? AutomationAccountId { get; set; }
 
         /// <summary>
-        /// Should the Mobility service installed on Azure virtual machines be automatically updated. Defaults to `false`.
+        /// Should the Mobility service installed on Azure virtual machines be automatically updated. Defaults to `False`.
         /// 
         /// &gt; **Note:** The setting applies to all Azure VMs protected in the same container. For more details see [this document](https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-autoupdate#enable-automatic-updates)
         /// </summary>

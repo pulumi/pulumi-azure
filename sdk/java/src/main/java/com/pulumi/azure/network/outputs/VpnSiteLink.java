@@ -17,7 +17,7 @@ public final class VpnSiteLink {
     /**
      * @return A `bgp` block as defined above.
      * 
-     * &gt; **Note:** The `link.bgp` has to be set when the `address_cidrs` isn&#39;t specified.
+     * &gt; **Note:** The `link.bgp` has to be set when the `addressCidrs` isn&#39;t specified.
      * 
      */
     private @Nullable VpnSiteLinkBgp bgp;
@@ -34,7 +34,7 @@ public final class VpnSiteLink {
     /**
      * @return The IP address of this VPN Site Link.
      * 
-     * &gt; **Note:** Either `fqdn` or `ip_address` should be specified.
+     * &gt; **Note:** Either `fqdn` or `ipAddress` should be specified.
      * 
      */
     private @Nullable String ipAddress;
@@ -58,7 +58,7 @@ public final class VpnSiteLink {
     /**
      * @return A `bgp` block as defined above.
      * 
-     * &gt; **Note:** The `link.bgp` has to be set when the `address_cidrs` isn&#39;t specified.
+     * &gt; **Note:** The `link.bgp` has to be set when the `addressCidrs` isn&#39;t specified.
      * 
      */
     public Optional<VpnSiteLinkBgp> bgp() {
@@ -81,7 +81,7 @@ public final class VpnSiteLink {
     /**
      * @return The IP address of this VPN Site Link.
      * 
-     * &gt; **Note:** Either `fqdn` or `ip_address` should be specified.
+     * &gt; **Note:** Either `fqdn` or `ipAddress` should be specified.
      * 
      */
     public Optional<String> ipAddress() {

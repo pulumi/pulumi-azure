@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Batch.Outputs
         /// <summary>
         /// A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
         /// 
-        /// &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
+        /// &gt; **NOTE:** This is required when `Type` is set to `UserAssigned`.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>

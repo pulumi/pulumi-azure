@@ -27,7 +27,7 @@ namespace Pulumi.Azure.WorkloadsSAP.Inputs
         /// <summary>
         /// The name of the Volume. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** Possible value for Application Server and Central Server is `default`.
+        /// &gt; **Note:** Possible value for Application Server and Central Server is `Default`.
         /// 
         /// &gt; **Note:** Possible values for Database Server are `hanaData`, `hanaLog`, `hanaShared` and `usrSap`.
         /// </summary>

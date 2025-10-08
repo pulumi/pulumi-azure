@@ -173,6 +173,51 @@ class ApiTagDescription(pulumi.CustomResource):
         """
         Manages an API Tag Description within an API Management Service.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_service = azure.apimanagement.Service("example",
+            name="example-apim",
+            location=example.location,
+            resource_group_name=example.name,
+            publisher_name="My Company",
+            publisher_email="company@terraform.io",
+            sku_name="Developer_1")
+        example_api = azure.apimanagement.Api("example",
+            name="example-api",
+            resource_group_name=example.name,
+            api_management_name=example_service.name,
+            revision="1",
+            display_name="Example API",
+            path="example",
+            protocols=["https"],
+            import_={
+                "content_format": "swagger-link-json",
+                "content_value": "https://raw.githubusercontent.com/hashicorp/terraform-provider-azurerm/refs/heads/main/internal/services/apimanagement/testdata/api_management_api_swagger.json",
+            })
+        example_tag = azure.apimanagement.Tag("example",
+            api_management_id=example_service.id,
+            name="example-Tag")
+        example_api_tag_description = azure.apimanagement.ApiTagDescription("example",
+            api_tag_id=example_tag.id,
+            description="This is an example description",
+            external_docs_url="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs",
+            external_docs_description="This is an example external docs description")
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement` - 2022-08-01
+
         ## Import
 
         API Management API Schema's can be imported using the `resource id`, e.g.
@@ -196,6 +241,51 @@ class ApiTagDescription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an API Tag Description within an API Management Service.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_service = azure.apimanagement.Service("example",
+            name="example-apim",
+            location=example.location,
+            resource_group_name=example.name,
+            publisher_name="My Company",
+            publisher_email="company@terraform.io",
+            sku_name="Developer_1")
+        example_api = azure.apimanagement.Api("example",
+            name="example-api",
+            resource_group_name=example.name,
+            api_management_name=example_service.name,
+            revision="1",
+            display_name="Example API",
+            path="example",
+            protocols=["https"],
+            import_={
+                "content_format": "swagger-link-json",
+                "content_value": "https://raw.githubusercontent.com/hashicorp/terraform-provider-azurerm/refs/heads/main/internal/services/apimanagement/testdata/api_management_api_swagger.json",
+            })
+        example_tag = azure.apimanagement.Tag("example",
+            api_management_id=example_service.id,
+            name="example-Tag")
+        example_api_tag_description = azure.apimanagement.ApiTagDescription("example",
+            api_tag_id=example_tag.id,
+            description="This is an example description",
+            external_docs_url="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs",
+            external_docs_description="This is an example external docs description")
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement` - 2022-08-01
 
         ## Import
 

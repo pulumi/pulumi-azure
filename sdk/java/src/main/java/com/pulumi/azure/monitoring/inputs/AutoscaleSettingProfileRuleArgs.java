@@ -16,14 +16,14 @@ public final class AutoscaleSettingProfileRuleArgs extends com.pulumi.resources.
     public static final AutoscaleSettingProfileRuleArgs Empty = new AutoscaleSettingProfileRuleArgs();
 
     /**
-     * A `metric_trigger` block as defined below.
+     * A `metricTrigger` block as defined below.
      * 
      */
     @Import(name="metricTrigger", required=true)
     private Output<AutoscaleSettingProfileRuleMetricTriggerArgs> metricTrigger;
 
     /**
-     * @return A `metric_trigger` block as defined below.
+     * @return A `metricTrigger` block as defined below.
      * 
      */
     public Output<AutoscaleSettingProfileRuleMetricTriggerArgs> metricTrigger() {
@@ -31,14 +31,14 @@ public final class AutoscaleSettingProfileRuleArgs extends com.pulumi.resources.
     }
 
     /**
-     * A `scale_action` block as defined below.
+     * A `scaleAction` block as defined below.
      * 
      */
     @Import(name="scaleAction", required=true)
     private Output<AutoscaleSettingProfileRuleScaleActionArgs> scaleAction;
 
     /**
-     * @return A `scale_action` block as defined below.
+     * @return A `scaleAction` block as defined below.
      * 
      */
     public Output<AutoscaleSettingProfileRuleScaleActionArgs> scaleAction() {
@@ -71,7 +71,7 @@ public final class AutoscaleSettingProfileRuleArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param metricTrigger A `metric_trigger` block as defined below.
+         * @param metricTrigger A `metricTrigger` block as defined below.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class AutoscaleSettingProfileRuleArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param metricTrigger A `metric_trigger` block as defined below.
+         * @param metricTrigger A `metricTrigger` block as defined below.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class AutoscaleSettingProfileRuleArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param scaleAction A `scale_action` block as defined below.
+         * @param scaleAction A `scaleAction` block as defined below.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class AutoscaleSettingProfileRuleArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param scaleAction A `scale_action` block as defined below.
+         * @param scaleAction A `scaleAction` block as defined below.
          * 
          * @return builder
          * 

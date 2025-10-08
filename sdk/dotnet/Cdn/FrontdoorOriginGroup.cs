@@ -77,13 +77,13 @@ namespace Pulumi.Azure.Cdn
         public Output<string> CdnFrontdoorProfileId { get; private set; } = null!;
 
         /// <summary>
-        /// A `health_probe` block as defined below.
+        /// A `HealthProbe` block as defined below.
         /// </summary>
         [Output("healthProbe")]
         public Output<Outputs.FrontdoorOriginGroupHealthProbe?> HealthProbe { get; private set; } = null!;
 
         /// <summary>
-        /// A `load_balancing` block as defined below.
+        /// A `LoadBalancing` block as defined below.
         /// </summary>
         [Output("loadBalancing")]
         public Output<Outputs.FrontdoorOriginGroupLoadBalancing> LoadBalancing { get; private set; } = null!;
@@ -103,7 +103,7 @@ namespace Pulumi.Azure.Cdn
         public Output<int?> RestoreTrafficTimeToHealedOrNewEndpointInMinutes { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether session affinity should be enabled on this host. Defaults to `true`.
+        /// Specifies whether session affinity should be enabled on this host. Defaults to `True`.
         /// </summary>
         [Output("sessionAffinityEnabled")]
         public Output<bool?> SessionAffinityEnabled { get; private set; } = null!;
@@ -161,13 +161,13 @@ namespace Pulumi.Azure.Cdn
         public Input<string> CdnFrontdoorProfileId { get; set; } = null!;
 
         /// <summary>
-        /// A `health_probe` block as defined below.
+        /// A `HealthProbe` block as defined below.
         /// </summary>
         [Input("healthProbe")]
         public Input<Inputs.FrontdoorOriginGroupHealthProbeArgs>? HealthProbe { get; set; }
 
         /// <summary>
-        /// A `load_balancing` block as defined below.
+        /// A `LoadBalancing` block as defined below.
         /// </summary>
         [Input("loadBalancing", required: true)]
         public Input<Inputs.FrontdoorOriginGroupLoadBalancingArgs> LoadBalancing { get; set; } = null!;
@@ -187,7 +187,7 @@ namespace Pulumi.Azure.Cdn
         public Input<int>? RestoreTrafficTimeToHealedOrNewEndpointInMinutes { get; set; }
 
         /// <summary>
-        /// Specifies whether session affinity should be enabled on this host. Defaults to `true`.
+        /// Specifies whether session affinity should be enabled on this host. Defaults to `True`.
         /// </summary>
         [Input("sessionAffinityEnabled")]
         public Input<bool>? SessionAffinityEnabled { get; set; }
@@ -207,13 +207,13 @@ namespace Pulumi.Azure.Cdn
         public Input<string>? CdnFrontdoorProfileId { get; set; }
 
         /// <summary>
-        /// A `health_probe` block as defined below.
+        /// A `HealthProbe` block as defined below.
         /// </summary>
         [Input("healthProbe")]
         public Input<Inputs.FrontdoorOriginGroupHealthProbeGetArgs>? HealthProbe { get; set; }
 
         /// <summary>
-        /// A `load_balancing` block as defined below.
+        /// A `LoadBalancing` block as defined below.
         /// </summary>
         [Input("loadBalancing")]
         public Input<Inputs.FrontdoorOriginGroupLoadBalancingGetArgs>? LoadBalancing { get; set; }
@@ -233,7 +233,7 @@ namespace Pulumi.Azure.Cdn
         public Input<int>? RestoreTrafficTimeToHealedOrNewEndpointInMinutes { get; set; }
 
         /// <summary>
-        /// Specifies whether session affinity should be enabled on this host. Defaults to `true`.
+        /// Specifies whether session affinity should be enabled on this host. Defaults to `True`.
         /// </summary>
         [Input("sessionAffinityEnabled")]
         public Input<bool>? SessionAffinityEnabled { get; set; }

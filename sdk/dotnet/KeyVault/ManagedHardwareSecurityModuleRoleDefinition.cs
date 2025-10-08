@@ -12,6 +12,63 @@ namespace Pulumi.Azure.KeyVault
     /// <summary>
     /// Manages a Key Vault Managed Hardware Security Module Role Definition. This resource works together with Managed hardware security module resource.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.KeyVault.ManagedHardwareSecurityModule("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
+    ///         Location = exampleAzurermResourceGroup.Location,
+    ///         SkuName = "Standard_B1",
+    ///         TenantId = current.TenantId,
+    ///         AdminObjectIds = new[]
+    ///         {
+    ///             current.ObjectId,
+    ///         },
+    ///         PurgeProtectionEnabled = false,
+    ///         ActiveConfig = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "securityDomainCertificate", new[]
+    ///                 {
+    ///                     cert[0].Id,
+    ///                     cert[1].Id,
+    ///                     cert[2].Id,
+    ///                 } },
+    ///                 { "securityDomainQuorum", 2 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleManagedHardwareSecurityModuleRoleDefinition = new Azure.KeyVault.ManagedHardwareSecurityModuleRoleDefinition("example", new()
+    ///     {
+    ///         Name = "7d206142-bf01-11ed-80bc-00155d61ee9e",
+    ///         ManagedHsmId = example.Id,
+    ///         Description = "desc foo",
+    ///         Permissions = new[]
+    ///         {
+    ///             new Azure.KeyVault.Inputs.ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs
+    ///             {
+    ///                 DataActions = new[]
+    ///                 {
+    ///                     "Microsoft.KeyVault/managedHsm/keys/read/action",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Key Vault Managed Hardware Security Module Role Definitions can be imported using the `resource id`, e.g.
@@ -42,7 +99,7 @@ namespace Pulumi.Azure.KeyVault
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `permission` blocks as defined below.
+        /// One or more `Permission` blocks as defined below.
         /// </summary>
         [Output("permissions")]
         public Output<ImmutableArray<Outputs.ManagedHardwareSecurityModuleRoleDefinitionPermission>> Permissions { get; private set; } = null!;
@@ -133,7 +190,7 @@ namespace Pulumi.Azure.KeyVault
         private InputList<Inputs.ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs>? _permissions;
 
         /// <summary>
-        /// One or more `permission` blocks as defined below.
+        /// One or more `Permission` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs> Permissions
         {
@@ -177,7 +234,7 @@ namespace Pulumi.Azure.KeyVault
         private InputList<Inputs.ManagedHardwareSecurityModuleRoleDefinitionPermissionGetArgs>? _permissions;
 
         /// <summary>
-        /// One or more `permission` blocks as defined below.
+        /// One or more `Permission` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ManagedHardwareSecurityModuleRoleDefinitionPermissionGetArgs> Permissions
         {

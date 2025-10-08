@@ -38,7 +38,7 @@ public final class VolumeGroupArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * An `encryption` block as defined below.
      * 
-     * &gt; **Note:** The `encryption` block can only be set when `encryption_type` is set to `EncryptionAtRestWithCustomerManagedKey`.
+     * &gt; **Note:** The `encryption` block can only be set when `encryptionType` is set to `EncryptionAtRestWithCustomerManagedKey`.
      * 
      */
     @Import(name="encryption")
@@ -47,7 +47,7 @@ public final class VolumeGroupArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return An `encryption` block as defined below.
      * 
-     * &gt; **Note:** The `encryption` block can only be set when `encryption_type` is set to `EncryptionAtRestWithCustomerManagedKey`.
+     * &gt; **Note:** The `encryption` block can only be set when `encryptionType` is set to `EncryptionAtRestWithCustomerManagedKey`.
      * 
      */
     public Optional<Output<VolumeGroupEncryptionArgs>> encryption() {
@@ -100,14 +100,14 @@ public final class VolumeGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `network_rule` blocks as defined below.
+     * One or more `networkRule` blocks as defined below.
      * 
      */
     @Import(name="networkRules")
     private @Nullable Output<List<VolumeGroupNetworkRuleArgs>> networkRules;
 
     /**
-     * @return One or more `network_rule` blocks as defined below.
+     * @return One or more `networkRule` blocks as defined below.
      * 
      */
     public Optional<Output<List<VolumeGroupNetworkRuleArgs>>> networkRules() {
@@ -183,7 +183,7 @@ public final class VolumeGroupArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param encryption An `encryption` block as defined below.
          * 
-         * &gt; **Note:** The `encryption` block can only be set when `encryption_type` is set to `EncryptionAtRestWithCustomerManagedKey`.
+         * &gt; **Note:** The `encryption` block can only be set when `encryptionType` is set to `EncryptionAtRestWithCustomerManagedKey`.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class VolumeGroupArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param encryption An `encryption` block as defined below.
          * 
-         * &gt; **Note:** The `encryption` block can only be set when `encryption_type` is set to `EncryptionAtRestWithCustomerManagedKey`.
+         * &gt; **Note:** The `encryption` block can only be set when `encryptionType` is set to `EncryptionAtRestWithCustomerManagedKey`.
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class VolumeGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkRules One or more `network_rule` blocks as defined below.
+         * @param networkRules One or more `networkRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class VolumeGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkRules One or more `network_rule` blocks as defined below.
+         * @param networkRules One or more `networkRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class VolumeGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkRules One or more `network_rule` blocks as defined below.
+         * @param networkRules One or more `networkRule` blocks as defined below.
          * 
          * @return builder
          * 

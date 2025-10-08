@@ -110,14 +110,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:iot/securityDeviceGroup:SecurityDeviceGroup")
 public class SecurityDeviceGroup extends com.pulumi.resources.CustomResource {
     /**
-     * an `allow_rule` blocks as defined below.
+     * an `allowRule` blocks as defined below.
      * 
      */
     @Export(name="allowRule", refs={SecurityDeviceGroupAllowRule.class}, tree="[0]")
     private Output</* @Nullable */ SecurityDeviceGroupAllowRule> allowRule;
 
     /**
-     * @return an `allow_rule` blocks as defined below.
+     * @return an `allowRule` blocks as defined below.
      * 
      */
     public Output<Optional<SecurityDeviceGroupAllowRule>> allowRule() {
@@ -152,14 +152,14 @@ public class SecurityDeviceGroup extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * One or more `range_rule` blocks as defined below.
+     * One or more `rangeRule` blocks as defined below.
      * 
      */
     @Export(name="rangeRules", refs={List.class,SecurityDeviceGroupRangeRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SecurityDeviceGroupRangeRule>> rangeRules;
 
     /**
-     * @return One or more `range_rule` blocks as defined below.
+     * @return One or more `rangeRule` blocks as defined below.
      * 
      */
     public Output<Optional<List<SecurityDeviceGroupRangeRule>>> rangeRules() {

@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Core
     /// <summary>
     /// Manages a Resource Group Template Deployment.
     /// 
-    /// &gt; **Note:** This resource will automatically attempt to delete resources deployed by the ARM Template when it is deleted. This behavior can be disabled in the provider `features` block by setting the `delete_nested_items_during_deletion` field to `false` within the `template_deployment` block.
+    /// &gt; **Note:** This resource will automatically attempt to delete resources deployed by the ARM Template when it is deleted. This behavior can be disabled in the provider `Features` block by setting the `DeleteNestedItemsDuringDeletion` field to `False` within the `TemplateDeployment` block.
     /// 
     /// ## Import
     /// 
@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Core
     public partial class ResourceGroupTemplateDeployment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
+        /// The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `None`, `requestContent`, `responseContent` and `requestContent, responseContent`.
         /// </summary>
         [Output("debugLevel")]
         public Output<string?> DebugLevel { get; private set; } = null!;
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Core
         /// <summary>
         /// The Deployment Mode for this Resource Group Template Deployment. Possible values are `Complete` (where resources in the Resource Group not specified in the ARM Template will be destroyed) and `Incremental` (where resources are additive only).
         /// 
-        /// &gt; **Note:** If `deployment_mode` is set to `Complete` then resources within this Resource Group which are not defined in the ARM Template will be deleted.
+        /// &gt; **Note:** If `DeploymentMode` is set to `Complete` then resources within this Resource Group which are not defined in the ARM Template will be deleted.
         /// </summary>
         [Output("deploymentMode")]
         public Output<string> DeploymentMode { get; private set; } = null!;
@@ -72,13 +72,13 @@ namespace Pulumi.Azure.Core
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `template_spec_version_id`.
+        /// The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `TemplateSpecVersionId`.
         /// </summary>
         [Output("templateContent")]
         public Output<string> TemplateContent { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Template Spec Version to deploy. Cannot be specified with `template_content`.
+        /// The ID of the Template Spec Version to deploy. Cannot be specified with `TemplateContent`.
         /// </summary>
         [Output("templateSpecVersionId")]
         public Output<string?> TemplateSpecVersionId { get; private set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.Azure.Core
     public sealed class ResourceGroupTemplateDeploymentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
+        /// The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `None`, `requestContent`, `responseContent` and `requestContent, responseContent`.
         /// </summary>
         [Input("debugLevel")]
         public Input<string>? DebugLevel { get; set; }
@@ -142,7 +142,7 @@ namespace Pulumi.Azure.Core
         /// <summary>
         /// The Deployment Mode for this Resource Group Template Deployment. Possible values are `Complete` (where resources in the Resource Group not specified in the ARM Template will be destroyed) and `Incremental` (where resources are additive only).
         /// 
-        /// &gt; **Note:** If `deployment_mode` is set to `Complete` then resources within this Resource Group which are not defined in the ARM Template will be deleted.
+        /// &gt; **Note:** If `DeploymentMode` is set to `Complete` then resources within this Resource Group which are not defined in the ARM Template will be deleted.
         /// </summary>
         [Input("deploymentMode", required: true)]
         public Input<string> DeploymentMode { get; set; } = null!;
@@ -180,13 +180,13 @@ namespace Pulumi.Azure.Core
         }
 
         /// <summary>
-        /// The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `template_spec_version_id`.
+        /// The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `TemplateSpecVersionId`.
         /// </summary>
         [Input("templateContent")]
         public Input<string>? TemplateContent { get; set; }
 
         /// <summary>
-        /// The ID of the Template Spec Version to deploy. Cannot be specified with `template_content`.
+        /// The ID of the Template Spec Version to deploy. Cannot be specified with `TemplateContent`.
         /// </summary>
         [Input("templateSpecVersionId")]
         public Input<string>? TemplateSpecVersionId { get; set; }
@@ -200,7 +200,7 @@ namespace Pulumi.Azure.Core
     public sealed class ResourceGroupTemplateDeploymentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
+        /// The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `None`, `requestContent`, `responseContent` and `requestContent, responseContent`.
         /// </summary>
         [Input("debugLevel")]
         public Input<string>? DebugLevel { get; set; }
@@ -208,7 +208,7 @@ namespace Pulumi.Azure.Core
         /// <summary>
         /// The Deployment Mode for this Resource Group Template Deployment. Possible values are `Complete` (where resources in the Resource Group not specified in the ARM Template will be destroyed) and `Incremental` (where resources are additive only).
         /// 
-        /// &gt; **Note:** If `deployment_mode` is set to `Complete` then resources within this Resource Group which are not defined in the ARM Template will be deleted.
+        /// &gt; **Note:** If `DeploymentMode` is set to `Complete` then resources within this Resource Group which are not defined in the ARM Template will be deleted.
         /// </summary>
         [Input("deploymentMode")]
         public Input<string>? DeploymentMode { get; set; }
@@ -252,13 +252,13 @@ namespace Pulumi.Azure.Core
         }
 
         /// <summary>
-        /// The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `template_spec_version_id`.
+        /// The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `TemplateSpecVersionId`.
         /// </summary>
         [Input("templateContent")]
         public Input<string>? TemplateContent { get; set; }
 
         /// <summary>
-        /// The ID of the Template Spec Version to deploy. Cannot be specified with `template_content`.
+        /// The ID of the Template Spec Version to deploy. Cannot be specified with `TemplateContent`.
         /// </summary>
         [Input("templateSpecVersionId")]
         public Input<string>? TemplateSpecVersionId { get; set; }

@@ -130,7 +130,7 @@ public final class VirtualNetworkPeeringArgs extends com.pulumi.resources.Resour
     /**
      * Can remote gateways be used on the Databricks virtual network? Defaults to `false`.
      * 
-     * &gt; **Note:** If the `use_remote_gateways` is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, the virtual network will use the gateways of the remote virtual network for transit. Only one peering can have this flag set to `true`. `use_remote_gateways` cannot be set if the virtual network already has a gateway.
+     * &gt; **Note:** If the `useRemoteGateways` is set to `true`, and `allowGatewayTransit` on the remote peering is also `true`, the virtual network will use the gateways of the remote virtual network for transit. Only one peering can have this flag set to `true`. `useRemoteGateways` cannot be set if the virtual network already has a gateway.
      * 
      */
     @Import(name="useRemoteGateways")
@@ -139,7 +139,7 @@ public final class VirtualNetworkPeeringArgs extends com.pulumi.resources.Resour
     /**
      * @return Can remote gateways be used on the Databricks virtual network? Defaults to `false`.
      * 
-     * &gt; **Note:** If the `use_remote_gateways` is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, the virtual network will use the gateways of the remote virtual network for transit. Only one peering can have this flag set to `true`. `use_remote_gateways` cannot be set if the virtual network already has a gateway.
+     * &gt; **Note:** If the `useRemoteGateways` is set to `true`, and `allowGatewayTransit` on the remote peering is also `true`, the virtual network will use the gateways of the remote virtual network for transit. Only one peering can have this flag set to `true`. `useRemoteGateways` cannot be set if the virtual network already has a gateway.
      * 
      */
     public Optional<Output<Boolean>> useRemoteGateways() {
@@ -357,7 +357,7 @@ public final class VirtualNetworkPeeringArgs extends com.pulumi.resources.Resour
         /**
          * @param useRemoteGateways Can remote gateways be used on the Databricks virtual network? Defaults to `false`.
          * 
-         * &gt; **Note:** If the `use_remote_gateways` is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, the virtual network will use the gateways of the remote virtual network for transit. Only one peering can have this flag set to `true`. `use_remote_gateways` cannot be set if the virtual network already has a gateway.
+         * &gt; **Note:** If the `useRemoteGateways` is set to `true`, and `allowGatewayTransit` on the remote peering is also `true`, the virtual network will use the gateways of the remote virtual network for transit. Only one peering can have this flag set to `true`. `useRemoteGateways` cannot be set if the virtual network already has a gateway.
          * 
          * @return builder
          * 
@@ -370,7 +370,7 @@ public final class VirtualNetworkPeeringArgs extends com.pulumi.resources.Resour
         /**
          * @param useRemoteGateways Can remote gateways be used on the Databricks virtual network? Defaults to `false`.
          * 
-         * &gt; **Note:** If the `use_remote_gateways` is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, the virtual network will use the gateways of the remote virtual network for transit. Only one peering can have this flag set to `true`. `use_remote_gateways` cannot be set if the virtual network already has a gateway.
+         * &gt; **Note:** If the `useRemoteGateways` is set to `true`, and `allowGatewayTransit` on the remote peering is also `true`, the virtual network will use the gateways of the remote virtual network for transit. Only one peering can have this flag set to `true`. `useRemoteGateways` cannot be set if the virtual network already has a gateway.
          * 
          * @return builder
          * 

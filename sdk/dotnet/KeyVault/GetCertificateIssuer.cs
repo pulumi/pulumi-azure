@@ -167,7 +167,7 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         public readonly string AccountId;
         /// <summary>
-        /// A list of `admin` blocks as defined below.
+        /// A list of `Admin` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCertificateIssuerAdminResult> Admins;
         /// <summary>

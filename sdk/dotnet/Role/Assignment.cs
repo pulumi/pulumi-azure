@@ -288,7 +288,7 @@ namespace Pulumi.Azure.Role
         /// <summary>
         /// The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** `condition` is required when `condition_version` is set.
+        /// &gt; **Note:** `Condition` is required when `ConditionVersion` is set.
         /// </summary>
         [Output("conditionVersion")]
         public Output<string> ConditionVersion { get; private set; } = null!;
@@ -322,7 +322,7 @@ namespace Pulumi.Azure.Role
         public Output<string> PrincipalId { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
+        /// The type of the `PrincipalId`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
         /// </summary>
         [Output("principalType")]
         public Output<string> PrincipalType { get; private set; } = null!;
@@ -336,7 +336,7 @@ namespace Pulumi.Azure.Role
         /// <summary>
         /// The name of a built-in Role. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** Either `role_definition_id` or `role_definition_name` must be set.
+        /// &gt; **Note:** Either `RoleDefinitionId` or `RoleDefinitionName` must be set.
         /// </summary>
         [Output("roleDefinitionName")]
         public Output<string> RoleDefinitionName { get; private set; } = null!;
@@ -348,7 +348,7 @@ namespace Pulumi.Azure.Role
         public Output<string> Scope { get; private set; } = null!;
 
         /// <summary>
-        /// If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. Defaults to `false`.
+        /// If the `PrincipalId` is a newly provisioned `Service Principal` set this value to `True` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `PrincipalId` is a `Service Principal` identity. Defaults to `False`.
         /// 
         /// &gt; **Note:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
         /// </summary>
@@ -410,7 +410,7 @@ namespace Pulumi.Azure.Role
         /// <summary>
         /// The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** `condition` is required when `condition_version` is set.
+        /// &gt; **Note:** `Condition` is required when `ConditionVersion` is set.
         /// </summary>
         [Input("conditionVersion")]
         public Input<string>? ConditionVersion { get; set; }
@@ -444,7 +444,7 @@ namespace Pulumi.Azure.Role
         public Input<string> PrincipalId { get; set; } = null!;
 
         /// <summary>
-        /// The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
+        /// The type of the `PrincipalId`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
         /// </summary>
         [Input("principalType")]
         public Input<string>? PrincipalType { get; set; }
@@ -458,7 +458,7 @@ namespace Pulumi.Azure.Role
         /// <summary>
         /// The name of a built-in Role. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** Either `role_definition_id` or `role_definition_name` must be set.
+        /// &gt; **Note:** Either `RoleDefinitionId` or `RoleDefinitionName` must be set.
         /// </summary>
         [Input("roleDefinitionName")]
         public Input<string>? RoleDefinitionName { get; set; }
@@ -470,7 +470,7 @@ namespace Pulumi.Azure.Role
         public Input<string> Scope { get; set; } = null!;
 
         /// <summary>
-        /// If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. Defaults to `false`.
+        /// If the `PrincipalId` is a newly provisioned `Service Principal` set this value to `True` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `PrincipalId` is a `Service Principal` identity. Defaults to `False`.
         /// 
         /// &gt; **Note:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
         /// </summary>
@@ -494,7 +494,7 @@ namespace Pulumi.Azure.Role
         /// <summary>
         /// The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** `condition` is required when `condition_version` is set.
+        /// &gt; **Note:** `Condition` is required when `ConditionVersion` is set.
         /// </summary>
         [Input("conditionVersion")]
         public Input<string>? ConditionVersion { get; set; }
@@ -528,7 +528,7 @@ namespace Pulumi.Azure.Role
         public Input<string>? PrincipalId { get; set; }
 
         /// <summary>
-        /// The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
+        /// The type of the `PrincipalId`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
         /// </summary>
         [Input("principalType")]
         public Input<string>? PrincipalType { get; set; }
@@ -542,7 +542,7 @@ namespace Pulumi.Azure.Role
         /// <summary>
         /// The name of a built-in Role. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** Either `role_definition_id` or `role_definition_name` must be set.
+        /// &gt; **Note:** Either `RoleDefinitionId` or `RoleDefinitionName` must be set.
         /// </summary>
         [Input("roleDefinitionName")]
         public Input<string>? RoleDefinitionName { get; set; }
@@ -554,7 +554,7 @@ namespace Pulumi.Azure.Role
         public Input<string>? Scope { get; set; }
 
         /// <summary>
-        /// If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. Defaults to `false`.
+        /// If the `PrincipalId` is a newly provisioned `Service Principal` set this value to `True` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `PrincipalId` is a `Service Principal` identity. Defaults to `False`.
         /// 
         /// &gt; **Note:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
         /// </summary>

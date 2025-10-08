@@ -138,14 +138,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:siterecovery/protectionContainerMapping:ProtectionContainerMapping")
 public class ProtectionContainerMapping extends com.pulumi.resources.CustomResource {
     /**
-     * a `automatic_update` block defined as below.
+     * a `automaticUpdate` block defined as below.
      * 
      */
     @Export(name="automaticUpdate", refs={ProtectionContainerMappingAutomaticUpdate.class}, tree="[0]")
     private Output<ProtectionContainerMappingAutomaticUpdate> automaticUpdate;
 
     /**
-     * @return a `automatic_update` block defined as below.
+     * @return a `automaticUpdate` block defined as below.
      * 
      */
     public Output<ProtectionContainerMappingAutomaticUpdate> automaticUpdate() {

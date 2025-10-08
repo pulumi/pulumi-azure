@@ -90,15 +90,15 @@ namespace Pulumi.Azure.MSSql
         public Output<string> DatabaseId { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
+        /// Whether to enable the extended auditing policy. Possible values are `True` and `False`. Defaults to `True`.
         /// 
-        /// &gt; **Note:** If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
+        /// &gt; **Note:** If `Enabled` is `True`, `StorageEndpoint` or `LogMonitoringEnabled` are required.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// Enable audit events to Azure Monitor? Defaults to `true`.
+        /// Enable audit events to Azure Monitor? Defaults to `True`.
         /// 
         /// &gt; **Note:** To enable sending audit events to Log Analytics, please refer to the example which can be found in the `./examples/sql-azure/sql_auditing_log_analytics` directory within the GitHub Repository.  To enable sending server audit events to Log Analytics, please enable the master database to send audit events to Log Analytics.
         /// To enable audit events to Eventhub, please refer to the example which can be found in the `./examples/sql-azure/sql_auditing_eventhub` directory within the GitHub Repository.
@@ -119,7 +119,7 @@ namespace Pulumi.Azure.MSSql
         public Output<string?> StorageAccountAccessKey { get; private set; } = null!;
 
         /// <summary>
-        /// Is `storage_account_access_key` value the storage's secondary key?
+        /// Is `StorageAccountAccessKey` value the storage's secondary key?
         /// </summary>
         [Output("storageAccountAccessKeyIsSecondary")]
         public Output<bool?> StorageAccountAccessKeyIsSecondary { get; private set; } = null!;
@@ -187,15 +187,15 @@ namespace Pulumi.Azure.MSSql
         public Input<string> DatabaseId { get; set; } = null!;
 
         /// <summary>
-        /// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
+        /// Whether to enable the extended auditing policy. Possible values are `True` and `False`. Defaults to `True`.
         /// 
-        /// &gt; **Note:** If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
+        /// &gt; **Note:** If `Enabled` is `True`, `StorageEndpoint` or `LogMonitoringEnabled` are required.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Enable audit events to Azure Monitor? Defaults to `true`.
+        /// Enable audit events to Azure Monitor? Defaults to `True`.
         /// 
         /// &gt; **Note:** To enable sending audit events to Log Analytics, please refer to the example which can be found in the `./examples/sql-azure/sql_auditing_log_analytics` directory within the GitHub Repository.  To enable sending server audit events to Log Analytics, please enable the master database to send audit events to Log Analytics.
         /// To enable audit events to Eventhub, please refer to the example which can be found in the `./examples/sql-azure/sql_auditing_eventhub` directory within the GitHub Repository.
@@ -226,7 +226,7 @@ namespace Pulumi.Azure.MSSql
         }
 
         /// <summary>
-        /// Is `storage_account_access_key` value the storage's secondary key?
+        /// Is `StorageAccountAccessKey` value the storage's secondary key?
         /// </summary>
         [Input("storageAccountAccessKeyIsSecondary")]
         public Input<bool>? StorageAccountAccessKeyIsSecondary { get; set; }
@@ -252,15 +252,15 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? DatabaseId { get; set; }
 
         /// <summary>
-        /// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
+        /// Whether to enable the extended auditing policy. Possible values are `True` and `False`. Defaults to `True`.
         /// 
-        /// &gt; **Note:** If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
+        /// &gt; **Note:** If `Enabled` is `True`, `StorageEndpoint` or `LogMonitoringEnabled` are required.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Enable audit events to Azure Monitor? Defaults to `true`.
+        /// Enable audit events to Azure Monitor? Defaults to `True`.
         /// 
         /// &gt; **Note:** To enable sending audit events to Log Analytics, please refer to the example which can be found in the `./examples/sql-azure/sql_auditing_log_analytics` directory within the GitHub Repository.  To enable sending server audit events to Log Analytics, please enable the master database to send audit events to Log Analytics.
         /// To enable audit events to Eventhub, please refer to the example which can be found in the `./examples/sql-azure/sql_auditing_eventhub` directory within the GitHub Repository.
@@ -291,7 +291,7 @@ namespace Pulumi.Azure.MSSql
         }
 
         /// <summary>
-        /// Is `storage_account_access_key` value the storage's secondary key?
+        /// Is `StorageAccountAccessKey` value the storage's secondary key?
         /// </summary>
         [Input("storageAccountAccessKeyIsSecondary")]
         public Input<bool>? StorageAccountAccessKeyIsSecondary { get; set; }

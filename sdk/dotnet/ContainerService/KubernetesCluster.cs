@@ -81,25 +81,25 @@ namespace Pulumi.Azure.ContainerService
     public partial class KubernetesCluster : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
+        /// A `AciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
         /// </summary>
         [Output("aciConnectorLinux")]
         public Output<Outputs.KubernetesClusterAciConnectorLinux?> AciConnectorLinux { get; private set; } = null!;
 
         /// <summary>
-        /// An `api_server_access_profile` block as defined below.
+        /// An `ApiServerAccessProfile` block as defined below.
         /// </summary>
         [Output("apiServerAccessProfile")]
         public Output<Outputs.KubernetesClusterApiServerAccessProfile?> ApiServerAccessProfile { get; private set; } = null!;
 
         /// <summary>
-        /// A `auto_scaler_profile` block as defined below.
+        /// A `AutoScalerProfile` block as defined below.
         /// </summary>
         [Output("autoScalerProfile")]
         public Output<Outputs.KubernetesClusterAutoScalerProfile> AutoScalerProfile { get; private set; } = null!;
 
         /// <summary>
-        /// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
+        /// The upgrade channel for this Kubernetes Cluster. Possible values are `Patch`, `Rapid`, `node-image` and `Stable`. Omitting this field sets this value to `None`.
         /// 
         /// !&gt; **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
         /// 
@@ -109,7 +109,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string?> AutomaticUpgradeChannel { get; private set; } = null!;
 
         /// <summary>
-        /// A `azure_active_directory_role_based_access_control` block as defined below.
+        /// A `AzureActiveDirectoryRoleBasedAccessControl` block as defined below.
         /// </summary>
         [Output("azureActiveDirectoryRoleBasedAccessControl")]
         public Output<Outputs.KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl?> AzureActiveDirectoryRoleBasedAccessControl { get; private set; } = null!;
@@ -121,19 +121,19 @@ namespace Pulumi.Azure.ContainerService
         public Output<bool?> AzurePolicyEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A `bootstrap_profile` block as defined below.
+        /// A `BootstrapProfile` block as defined below.
         /// </summary>
         [Output("bootstrapProfile")]
         public Output<Outputs.KubernetesClusterBootstrapProfile> BootstrapProfile { get; private set; } = null!;
 
         /// <summary>
-        /// A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+        /// A `ConfidentialComputing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
         /// </summary>
         [Output("confidentialComputing")]
         public Output<Outputs.KubernetesClusterConfidentialComputing?> ConfidentialComputing { get; private set; } = null!;
 
         /// <summary>
-        /// Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `sku_tier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
+        /// Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `False`. The `SkuTier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
         /// </summary>
         [Output("costAnalysisEnabled")]
         public Output<bool?> CostAnalysisEnabled { get; private set; } = null!;
@@ -151,7 +151,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<ImmutableArray<string>> CustomCaTrustCertificatesBase64s { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies configuration for "System" mode node pool. A `default_node_pool` block as defined below.
+        /// Specifies configuration for "System" mode node pool. A `DefaultNodePool` block as defined below.
         /// </summary>
         [Output("defaultNodePool")]
         public Output<Outputs.KubernetesClusterDefaultNodePool> DefaultNodePool { get; private set; } = null!;
@@ -171,9 +171,9 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** You must define either a `dns_prefix` or a `dns_prefix_private_cluster` field.
+        /// &gt; **Note:** You must define either a `DnsPrefix` or a `DnsPrefixPrivateCluster` field.
         /// 
-        /// In addition, one of either `identity` or `service_principal` blocks must be specified.
+        /// In addition, one of either `Identity` or `ServicePrincipal` blocks must be specified.
         /// </summary>
         [Output("dnsPrefixPrivateCluster")]
         public Output<string?> DnsPrefixPrivateCluster { get; private set; } = null!;
@@ -205,15 +205,15 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> HttpApplicationRoutingZoneName { get; private set; } = null!;
 
         /// <summary>
-        /// A `http_proxy_config` block as defined below.
+        /// A `HttpProxyConfig` block as defined below.
         /// </summary>
         [Output("httpProxyConfig")]
         public Output<Outputs.KubernetesClusterHttpProxyConfig?> HttpProxyConfig { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
+        /// An `Identity` block as defined below. One of either `Identity` or `ServicePrincipal` must be specified.
         /// 
-        /// !&gt; **Note:** A migration scenario from `service_principal` to `identity` is supported. When upgrading `service_principal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `service_principal` until you upgrade your Node Pool.
+        /// !&gt; **Note:** A migration scenario from `ServicePrincipal` to `Identity` is supported. When upgrading `ServicePrincipal` to `Identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `ServicePrincipal` until you upgrade your Node Pool.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.KubernetesClusterIdentity?> Identity { get; private set; } = null!;
@@ -231,7 +231,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<int?> ImageCleanerIntervalHours { get; private set; } = null!;
 
         /// <summary>
-        /// A `ingress_application_gateway` block as defined below.
+        /// A `IngressApplicationGateway` block as defined below.
         /// 
         /// &gt; **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
         /// </summary>
@@ -239,13 +239,13 @@ namespace Pulumi.Azure.ContainerService
         public Output<Outputs.KubernetesClusterIngressApplicationGateway?> IngressApplicationGateway { get; private set; } = null!;
 
         /// <summary>
-        /// A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
+        /// A `KeyManagementService` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
         /// </summary>
         [Output("keyManagementService")]
         public Output<Outputs.KubernetesClusterKeyManagementService?> KeyManagementService { get; private set; } = null!;
 
         /// <summary>
-        /// A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
+        /// A `KeyVaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
         /// </summary>
         [Output("keyVaultSecretsProvider")]
         public Output<Outputs.KubernetesClusterKeyVaultSecretsProvider?> KeyVaultSecretsProvider { get; private set; } = null!;
@@ -257,7 +257,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> KubeAdminConfigRaw { get; private set; } = null!;
 
         /// <summary>
-        /// A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
+        /// A `KubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
         /// </summary>
         [Output("kubeAdminConfigs")]
         public Output<ImmutableArray<Outputs.KubernetesClusterKubeAdminConfig>> KubeAdminConfigs { get; private set; } = null!;
@@ -269,13 +269,13 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> KubeConfigRaw { get; private set; } = null!;
 
         /// <summary>
-        /// A `kube_config` block as defined below.
+        /// A `KubeConfig` block as defined below.
         /// </summary>
         [Output("kubeConfigs")]
         public Output<ImmutableArray<Outputs.KubernetesClusterKubeConfig>> KubeConfigs { get; private set; } = null!;
 
         /// <summary>
-        /// A `kubelet_identity` block as defined below.
+        /// A `KubeletIdentity` block as defined below.
         /// </summary>
         [Output("kubeletIdentity")]
         public Output<Outputs.KubernetesClusterKubeletIdentity> KubeletIdentity { get; private set; } = null!;
@@ -289,15 +289,15 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> KubernetesVersion { get; private set; } = null!;
 
         /// <summary>
-        /// A `linux_profile` block as defined below.
+        /// A `LinuxProfile` block as defined below.
         /// </summary>
         [Output("linuxProfile")]
         public Output<Outputs.KubernetesClusterLinuxProfile?> LinuxProfile { get; private set; } = null!;
 
         /// <summary>
-        /// If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+        /// If `True` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
         /// 
-        /// &gt; **Note:** If `local_account_disabled` is set to `true`, it is required to enable Kubernetes RBAC and AKS-managed Azure AD integration. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#azure-ad-authentication-overview) for more information.
+        /// &gt; **Note:** If `LocalAccountDisabled` is set to `True`, it is required to enable Kubernetes RBAC and AKS-managed Azure AD integration. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#azure-ad-authentication-overview) for more information.
         /// </summary>
         [Output("localAccountDisabled")]
         public Output<bool?> LocalAccountDisabled { get; private set; } = null!;
@@ -309,33 +309,33 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// A `maintenance_window` block as defined below.
+        /// A `MaintenanceWindow` block as defined below.
         /// </summary>
         [Output("maintenanceWindow")]
         public Output<Outputs.KubernetesClusterMaintenanceWindow?> MaintenanceWindow { get; private set; } = null!;
 
         /// <summary>
-        /// A `maintenance_window_auto_upgrade` block as defined below.
+        /// A `MaintenanceWindowAutoUpgrade` block as defined below.
         /// </summary>
         [Output("maintenanceWindowAutoUpgrade")]
         public Output<Outputs.KubernetesClusterMaintenanceWindowAutoUpgrade?> MaintenanceWindowAutoUpgrade { get; private set; } = null!;
 
         /// <summary>
-        /// A `maintenance_window_node_os` block as defined below.
+        /// A `MaintenanceWindowNodeOs` block as defined below.
         /// </summary>
         [Output("maintenanceWindowNodeOs")]
         public Output<Outputs.KubernetesClusterMaintenanceWindowNodeOs?> MaintenanceWindowNodeOs { get; private set; } = null!;
 
         /// <summary>
-        /// A `microsoft_defender` block as defined below.
+        /// A `MicrosoftDefender` block as defined below.
         /// </summary>
         [Output("microsoftDefender")]
         public Output<Outputs.KubernetesClusterMicrosoftDefender?> MicrosoftDefender { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
+        /// Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `MonitorMetrics` block as defined below.
         /// 
-        /// &gt; **Note:** If deploying Managed Prometheus, the `monitor_metrics` properties are required to configure the cluster for metrics collection. If no value is needed, set properties to `null`.
+        /// &gt; **Note:** If deploying Managed Prometheus, the `MonitorMetrics` properties are required to configure the cluster for metrics collection. If no value is needed, set properties to `Null`.
         /// </summary>
         [Output("monitorMetrics")]
         public Output<Outputs.KubernetesClusterMonitorMetrics?> MonitorMetrics { get; private set; } = null!;
@@ -347,9 +347,9 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `network_profile` block as defined below. Changing this forces a new resource to be created.
+        /// A `NetworkProfile` block as defined below. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** If `network_profile` is not defined, `kubenet` profile will be used by default.
+        /// &gt; **Note:** If `NetworkProfile` is not defined, `Kubenet` profile will be used by default.
         /// </summary>
         [Output("networkProfile")]
         public Output<Outputs.KubernetesClusterNetworkProfile> NetworkProfile { get; private set; } = null!;
@@ -357,7 +357,7 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`. Defaults to `NodeImage`.
         /// 
-        /// &gt; **Note:** `node_os_upgrade_channel` must be set to `NodeImage` if `automatic_upgrade_channel` has been set to `node-image`
+        /// &gt; **Note:** `NodeOsUpgradeChannel` must be set to `NodeImage` if `AutomaticUpgradeChannel` has been set to `node-image`
         /// </summary>
         [Output("nodeOsUpgradeChannel")]
         public Output<string?> NodeOsUpgradeChannel { get; private set; } = null!;
@@ -389,7 +389,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> OidcIssuerUrl { get; private set; } = null!;
 
         /// <summary>
-        /// A `oms_agent` block as defined below.
+        /// A `OmsAgent` block as defined below.
         /// </summary>
         [Output("omsAgent")]
         public Output<Outputs.KubernetesClusterOmsAgent?> OmsAgent { get; private set; } = null!;
@@ -407,13 +407,13 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> PortalFqdn { get; private set; } = null!;
 
         /// <summary>
-        /// Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("privateClusterEnabled")]
         public Output<bool?> PrivateClusterEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
+        /// Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `False`.
         /// 
         /// &gt; **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
         /// 
@@ -492,27 +492,27 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
+        /// Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `True`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("roleBasedAccessControlEnabled")]
         public Output<bool?> RoleBasedAccessControlEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to enable run command for the cluster or not. Defaults to `true`.
+        /// Whether to enable run command for the cluster or not. Defaults to `True`.
         /// </summary>
         [Output("runCommandEnabled")]
         public Output<bool?> RunCommandEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A `service_mesh_profile` block as defined below.
+        /// A `ServiceMeshProfile` block as defined below.
         /// </summary>
         [Output("serviceMeshProfile")]
         public Output<Outputs.KubernetesClusterServiceMeshProfile?> ServiceMeshProfile { get; private set; } = null!;
 
         /// <summary>
-        /// A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
+        /// A `ServicePrincipal` block as documented below. One of either `Identity` or `ServicePrincipal` must be specified.
         /// 
-        /// !&gt; **Note:** A migration scenario from `service_principal` to `identity` is supported. When upgrading `service_principal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `service_principal` until you upgrade your Node Pool.
+        /// !&gt; **Note:** A migration scenario from `ServicePrincipal` to `Identity` is supported. When upgrading `ServicePrincipal` to `Identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `ServicePrincipal` until you upgrade your Node Pool.
         /// </summary>
         [Output("servicePrincipal")]
         public Output<Outputs.KubernetesClusterServicePrincipal?> ServicePrincipal { get; private set; } = null!;
@@ -526,7 +526,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string?> SkuTier { get; private set; } = null!;
 
         /// <summary>
-        /// A `storage_profile` block as defined below.
+        /// A `StorageProfile` block as defined below.
         /// </summary>
         [Output("storageProfile")]
         public Output<Outputs.KubernetesClusterStorageProfile?> StorageProfile { get; private set; } = null!;
@@ -544,33 +544,33 @@ namespace Pulumi.Azure.ContainerService
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A `upgrade_override` block as defined below.
+        /// A `UpgradeOverride` block as defined below.
         /// </summary>
         [Output("upgradeOverride")]
         public Output<Outputs.KubernetesClusterUpgradeOverride?> UpgradeOverride { get; private set; } = null!;
 
         /// <summary>
-        /// A `web_app_routing` block as defined below.
+        /// A `WebAppRouting` block as defined below.
         /// </summary>
         [Output("webAppRouting")]
         public Output<Outputs.KubernetesClusterWebAppRouting?> WebAppRouting { get; private set; } = null!;
 
         /// <summary>
-        /// A `windows_profile` block as defined below.
+        /// A `WindowsProfile` block as defined below.
         /// </summary>
         [Output("windowsProfile")]
         public Output<Outputs.KubernetesClusterWindowsProfile> WindowsProfile { get; private set; } = null!;
 
         /// <summary>
-        /// A `workload_autoscaler_profile` block defined below.
+        /// A `WorkloadAutoscalerProfile` block defined below.
         /// </summary>
         [Output("workloadAutoscalerProfile")]
         public Output<Outputs.KubernetesClusterWorkloadAutoscalerProfile?> WorkloadAutoscalerProfile { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
+        /// Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `False`.
         /// 
-        /// &gt; **Note:** To enable Azure AD Workload Identity `oidc_issuer_enabled` must be set to `true`.
+        /// &gt; **Note:** To enable Azure AD Workload Identity `OidcIssuerEnabled` must be set to `True`.
         /// 
         /// &gt; **Note:** Enabling this option will allocate Workload Identity resources to the `kube-system` namespace in Kubernetes. If you wish to customize the deployment of Workload Identity, you can refer to [the documentation on Azure AD Workload Identity.](https://azure.github.io/azure-workload-identity/docs/installation/mutating-admission-webhook.html) The documentation provides guidance on how to install the mutating admission webhook, which allows for the customization of Workload Identity deployment.
         /// </summary>
@@ -631,25 +631,25 @@ namespace Pulumi.Azure.ContainerService
     public sealed class KubernetesClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
+        /// A `AciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
         /// </summary>
         [Input("aciConnectorLinux")]
         public Input<Inputs.KubernetesClusterAciConnectorLinuxArgs>? AciConnectorLinux { get; set; }
 
         /// <summary>
-        /// An `api_server_access_profile` block as defined below.
+        /// An `ApiServerAccessProfile` block as defined below.
         /// </summary>
         [Input("apiServerAccessProfile")]
         public Input<Inputs.KubernetesClusterApiServerAccessProfileArgs>? ApiServerAccessProfile { get; set; }
 
         /// <summary>
-        /// A `auto_scaler_profile` block as defined below.
+        /// A `AutoScalerProfile` block as defined below.
         /// </summary>
         [Input("autoScalerProfile")]
         public Input<Inputs.KubernetesClusterAutoScalerProfileArgs>? AutoScalerProfile { get; set; }
 
         /// <summary>
-        /// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
+        /// The upgrade channel for this Kubernetes Cluster. Possible values are `Patch`, `Rapid`, `node-image` and `Stable`. Omitting this field sets this value to `None`.
         /// 
         /// !&gt; **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
         /// 
@@ -659,7 +659,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? AutomaticUpgradeChannel { get; set; }
 
         /// <summary>
-        /// A `azure_active_directory_role_based_access_control` block as defined below.
+        /// A `AzureActiveDirectoryRoleBasedAccessControl` block as defined below.
         /// </summary>
         [Input("azureActiveDirectoryRoleBasedAccessControl")]
         public Input<Inputs.KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs>? AzureActiveDirectoryRoleBasedAccessControl { get; set; }
@@ -671,19 +671,19 @@ namespace Pulumi.Azure.ContainerService
         public Input<bool>? AzurePolicyEnabled { get; set; }
 
         /// <summary>
-        /// A `bootstrap_profile` block as defined below.
+        /// A `BootstrapProfile` block as defined below.
         /// </summary>
         [Input("bootstrapProfile")]
         public Input<Inputs.KubernetesClusterBootstrapProfileArgs>? BootstrapProfile { get; set; }
 
         /// <summary>
-        /// A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+        /// A `ConfidentialComputing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
         /// </summary>
         [Input("confidentialComputing")]
         public Input<Inputs.KubernetesClusterConfidentialComputingArgs>? ConfidentialComputing { get; set; }
 
         /// <summary>
-        /// Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `sku_tier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
+        /// Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `False`. The `SkuTier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
         /// </summary>
         [Input("costAnalysisEnabled")]
         public Input<bool>? CostAnalysisEnabled { get; set; }
@@ -701,7 +701,7 @@ namespace Pulumi.Azure.ContainerService
         }
 
         /// <summary>
-        /// Specifies configuration for "System" mode node pool. A `default_node_pool` block as defined below.
+        /// Specifies configuration for "System" mode node pool. A `DefaultNodePool` block as defined below.
         /// </summary>
         [Input("defaultNodePool", required: true)]
         public Input<Inputs.KubernetesClusterDefaultNodePoolArgs> DefaultNodePool { get; set; } = null!;
@@ -721,9 +721,9 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** You must define either a `dns_prefix` or a `dns_prefix_private_cluster` field.
+        /// &gt; **Note:** You must define either a `DnsPrefix` or a `DnsPrefixPrivateCluster` field.
         /// 
-        /// In addition, one of either `identity` or `service_principal` blocks must be specified.
+        /// In addition, one of either `Identity` or `ServicePrincipal` blocks must be specified.
         /// </summary>
         [Input("dnsPrefixPrivateCluster")]
         public Input<string>? DnsPrefixPrivateCluster { get; set; }
@@ -743,15 +743,15 @@ namespace Pulumi.Azure.ContainerService
         public Input<bool>? HttpApplicationRoutingEnabled { get; set; }
 
         /// <summary>
-        /// A `http_proxy_config` block as defined below.
+        /// A `HttpProxyConfig` block as defined below.
         /// </summary>
         [Input("httpProxyConfig")]
         public Input<Inputs.KubernetesClusterHttpProxyConfigArgs>? HttpProxyConfig { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
+        /// An `Identity` block as defined below. One of either `Identity` or `ServicePrincipal` must be specified.
         /// 
-        /// !&gt; **Note:** A migration scenario from `service_principal` to `identity` is supported. When upgrading `service_principal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `service_principal` until you upgrade your Node Pool.
+        /// !&gt; **Note:** A migration scenario from `ServicePrincipal` to `Identity` is supported. When upgrading `ServicePrincipal` to `Identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `ServicePrincipal` until you upgrade your Node Pool.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.KubernetesClusterIdentityArgs>? Identity { get; set; }
@@ -769,7 +769,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<int>? ImageCleanerIntervalHours { get; set; }
 
         /// <summary>
-        /// A `ingress_application_gateway` block as defined below.
+        /// A `IngressApplicationGateway` block as defined below.
         /// 
         /// &gt; **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
         /// </summary>
@@ -777,19 +777,19 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterIngressApplicationGatewayArgs>? IngressApplicationGateway { get; set; }
 
         /// <summary>
-        /// A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
+        /// A `KeyManagementService` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
         /// </summary>
         [Input("keyManagementService")]
         public Input<Inputs.KubernetesClusterKeyManagementServiceArgs>? KeyManagementService { get; set; }
 
         /// <summary>
-        /// A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
+        /// A `KeyVaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
         /// </summary>
         [Input("keyVaultSecretsProvider")]
         public Input<Inputs.KubernetesClusterKeyVaultSecretsProviderArgs>? KeyVaultSecretsProvider { get; set; }
 
         /// <summary>
-        /// A `kubelet_identity` block as defined below.
+        /// A `KubeletIdentity` block as defined below.
         /// </summary>
         [Input("kubeletIdentity")]
         public Input<Inputs.KubernetesClusterKubeletIdentityArgs>? KubeletIdentity { get; set; }
@@ -803,15 +803,15 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? KubernetesVersion { get; set; }
 
         /// <summary>
-        /// A `linux_profile` block as defined below.
+        /// A `LinuxProfile` block as defined below.
         /// </summary>
         [Input("linuxProfile")]
         public Input<Inputs.KubernetesClusterLinuxProfileArgs>? LinuxProfile { get; set; }
 
         /// <summary>
-        /// If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+        /// If `True` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
         /// 
-        /// &gt; **Note:** If `local_account_disabled` is set to `true`, it is required to enable Kubernetes RBAC and AKS-managed Azure AD integration. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#azure-ad-authentication-overview) for more information.
+        /// &gt; **Note:** If `LocalAccountDisabled` is set to `True`, it is required to enable Kubernetes RBAC and AKS-managed Azure AD integration. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#azure-ad-authentication-overview) for more information.
         /// </summary>
         [Input("localAccountDisabled")]
         public Input<bool>? LocalAccountDisabled { get; set; }
@@ -823,33 +823,33 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A `maintenance_window` block as defined below.
+        /// A `MaintenanceWindow` block as defined below.
         /// </summary>
         [Input("maintenanceWindow")]
         public Input<Inputs.KubernetesClusterMaintenanceWindowArgs>? MaintenanceWindow { get; set; }
 
         /// <summary>
-        /// A `maintenance_window_auto_upgrade` block as defined below.
+        /// A `MaintenanceWindowAutoUpgrade` block as defined below.
         /// </summary>
         [Input("maintenanceWindowAutoUpgrade")]
         public Input<Inputs.KubernetesClusterMaintenanceWindowAutoUpgradeArgs>? MaintenanceWindowAutoUpgrade { get; set; }
 
         /// <summary>
-        /// A `maintenance_window_node_os` block as defined below.
+        /// A `MaintenanceWindowNodeOs` block as defined below.
         /// </summary>
         [Input("maintenanceWindowNodeOs")]
         public Input<Inputs.KubernetesClusterMaintenanceWindowNodeOsArgs>? MaintenanceWindowNodeOs { get; set; }
 
         /// <summary>
-        /// A `microsoft_defender` block as defined below.
+        /// A `MicrosoftDefender` block as defined below.
         /// </summary>
         [Input("microsoftDefender")]
         public Input<Inputs.KubernetesClusterMicrosoftDefenderArgs>? MicrosoftDefender { get; set; }
 
         /// <summary>
-        /// Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
+        /// Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `MonitorMetrics` block as defined below.
         /// 
-        /// &gt; **Note:** If deploying Managed Prometheus, the `monitor_metrics` properties are required to configure the cluster for metrics collection. If no value is needed, set properties to `null`.
+        /// &gt; **Note:** If deploying Managed Prometheus, the `MonitorMetrics` properties are required to configure the cluster for metrics collection. If no value is needed, set properties to `Null`.
         /// </summary>
         [Input("monitorMetrics")]
         public Input<Inputs.KubernetesClusterMonitorMetricsArgs>? MonitorMetrics { get; set; }
@@ -861,9 +861,9 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `network_profile` block as defined below. Changing this forces a new resource to be created.
+        /// A `NetworkProfile` block as defined below. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** If `network_profile` is not defined, `kubenet` profile will be used by default.
+        /// &gt; **Note:** If `NetworkProfile` is not defined, `Kubenet` profile will be used by default.
         /// </summary>
         [Input("networkProfile")]
         public Input<Inputs.KubernetesClusterNetworkProfileArgs>? NetworkProfile { get; set; }
@@ -871,7 +871,7 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`. Defaults to `NodeImage`.
         /// 
-        /// &gt; **Note:** `node_os_upgrade_channel` must be set to `NodeImage` if `automatic_upgrade_channel` has been set to `node-image`
+        /// &gt; **Note:** `NodeOsUpgradeChannel` must be set to `NodeImage` if `AutomaticUpgradeChannel` has been set to `node-image`
         /// </summary>
         [Input("nodeOsUpgradeChannel")]
         public Input<string>? NodeOsUpgradeChannel { get; set; }
@@ -891,7 +891,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<bool>? OidcIssuerEnabled { get; set; }
 
         /// <summary>
-        /// A `oms_agent` block as defined below.
+        /// A `OmsAgent` block as defined below.
         /// </summary>
         [Input("omsAgent")]
         public Input<Inputs.KubernetesClusterOmsAgentArgs>? OmsAgent { get; set; }
@@ -903,13 +903,13 @@ namespace Pulumi.Azure.ContainerService
         public Input<bool>? OpenServiceMeshEnabled { get; set; }
 
         /// <summary>
-        /// Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("privateClusterEnabled")]
         public Input<bool>? PrivateClusterEnabled { get; set; }
 
         /// <summary>
-        /// Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
+        /// Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `False`.
         /// 
         /// &gt; **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
         /// 
@@ -982,27 +982,27 @@ namespace Pulumi.Azure.ContainerService
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
+        /// Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `True`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("roleBasedAccessControlEnabled")]
         public Input<bool>? RoleBasedAccessControlEnabled { get; set; }
 
         /// <summary>
-        /// Whether to enable run command for the cluster or not. Defaults to `true`.
+        /// Whether to enable run command for the cluster or not. Defaults to `True`.
         /// </summary>
         [Input("runCommandEnabled")]
         public Input<bool>? RunCommandEnabled { get; set; }
 
         /// <summary>
-        /// A `service_mesh_profile` block as defined below.
+        /// A `ServiceMeshProfile` block as defined below.
         /// </summary>
         [Input("serviceMeshProfile")]
         public Input<Inputs.KubernetesClusterServiceMeshProfileArgs>? ServiceMeshProfile { get; set; }
 
         /// <summary>
-        /// A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
+        /// A `ServicePrincipal` block as documented below. One of either `Identity` or `ServicePrincipal` must be specified.
         /// 
-        /// !&gt; **Note:** A migration scenario from `service_principal` to `identity` is supported. When upgrading `service_principal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `service_principal` until you upgrade your Node Pool.
+        /// !&gt; **Note:** A migration scenario from `ServicePrincipal` to `Identity` is supported. When upgrading `ServicePrincipal` to `Identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `ServicePrincipal` until you upgrade your Node Pool.
         /// </summary>
         [Input("servicePrincipal")]
         public Input<Inputs.KubernetesClusterServicePrincipalArgs>? ServicePrincipal { get; set; }
@@ -1016,7 +1016,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? SkuTier { get; set; }
 
         /// <summary>
-        /// A `storage_profile` block as defined below.
+        /// A `StorageProfile` block as defined below.
         /// </summary>
         [Input("storageProfile")]
         public Input<Inputs.KubernetesClusterStorageProfileArgs>? StorageProfile { get; set; }
@@ -1040,33 +1040,33 @@ namespace Pulumi.Azure.ContainerService
         }
 
         /// <summary>
-        /// A `upgrade_override` block as defined below.
+        /// A `UpgradeOverride` block as defined below.
         /// </summary>
         [Input("upgradeOverride")]
         public Input<Inputs.KubernetesClusterUpgradeOverrideArgs>? UpgradeOverride { get; set; }
 
         /// <summary>
-        /// A `web_app_routing` block as defined below.
+        /// A `WebAppRouting` block as defined below.
         /// </summary>
         [Input("webAppRouting")]
         public Input<Inputs.KubernetesClusterWebAppRoutingArgs>? WebAppRouting { get; set; }
 
         /// <summary>
-        /// A `windows_profile` block as defined below.
+        /// A `WindowsProfile` block as defined below.
         /// </summary>
         [Input("windowsProfile")]
         public Input<Inputs.KubernetesClusterWindowsProfileArgs>? WindowsProfile { get; set; }
 
         /// <summary>
-        /// A `workload_autoscaler_profile` block defined below.
+        /// A `WorkloadAutoscalerProfile` block defined below.
         /// </summary>
         [Input("workloadAutoscalerProfile")]
         public Input<Inputs.KubernetesClusterWorkloadAutoscalerProfileArgs>? WorkloadAutoscalerProfile { get; set; }
 
         /// <summary>
-        /// Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
+        /// Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `False`.
         /// 
-        /// &gt; **Note:** To enable Azure AD Workload Identity `oidc_issuer_enabled` must be set to `true`.
+        /// &gt; **Note:** To enable Azure AD Workload Identity `OidcIssuerEnabled` must be set to `True`.
         /// 
         /// &gt; **Note:** Enabling this option will allocate Workload Identity resources to the `kube-system` namespace in Kubernetes. If you wish to customize the deployment of Workload Identity, you can refer to [the documentation on Azure AD Workload Identity.](https://azure.github.io/azure-workload-identity/docs/installation/mutating-admission-webhook.html) The documentation provides guidance on how to install the mutating admission webhook, which allows for the customization of Workload Identity deployment.
         /// </summary>
@@ -1082,25 +1082,25 @@ namespace Pulumi.Azure.ContainerService
     public sealed class KubernetesClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
+        /// A `AciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
         /// </summary>
         [Input("aciConnectorLinux")]
         public Input<Inputs.KubernetesClusterAciConnectorLinuxGetArgs>? AciConnectorLinux { get; set; }
 
         /// <summary>
-        /// An `api_server_access_profile` block as defined below.
+        /// An `ApiServerAccessProfile` block as defined below.
         /// </summary>
         [Input("apiServerAccessProfile")]
         public Input<Inputs.KubernetesClusterApiServerAccessProfileGetArgs>? ApiServerAccessProfile { get; set; }
 
         /// <summary>
-        /// A `auto_scaler_profile` block as defined below.
+        /// A `AutoScalerProfile` block as defined below.
         /// </summary>
         [Input("autoScalerProfile")]
         public Input<Inputs.KubernetesClusterAutoScalerProfileGetArgs>? AutoScalerProfile { get; set; }
 
         /// <summary>
-        /// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
+        /// The upgrade channel for this Kubernetes Cluster. Possible values are `Patch`, `Rapid`, `node-image` and `Stable`. Omitting this field sets this value to `None`.
         /// 
         /// !&gt; **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
         /// 
@@ -1110,7 +1110,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? AutomaticUpgradeChannel { get; set; }
 
         /// <summary>
-        /// A `azure_active_directory_role_based_access_control` block as defined below.
+        /// A `AzureActiveDirectoryRoleBasedAccessControl` block as defined below.
         /// </summary>
         [Input("azureActiveDirectoryRoleBasedAccessControl")]
         public Input<Inputs.KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlGetArgs>? AzureActiveDirectoryRoleBasedAccessControl { get; set; }
@@ -1122,19 +1122,19 @@ namespace Pulumi.Azure.ContainerService
         public Input<bool>? AzurePolicyEnabled { get; set; }
 
         /// <summary>
-        /// A `bootstrap_profile` block as defined below.
+        /// A `BootstrapProfile` block as defined below.
         /// </summary>
         [Input("bootstrapProfile")]
         public Input<Inputs.KubernetesClusterBootstrapProfileGetArgs>? BootstrapProfile { get; set; }
 
         /// <summary>
-        /// A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
+        /// A `ConfidentialComputing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
         /// </summary>
         [Input("confidentialComputing")]
         public Input<Inputs.KubernetesClusterConfidentialComputingGetArgs>? ConfidentialComputing { get; set; }
 
         /// <summary>
-        /// Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `sku_tier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
+        /// Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `False`. The `SkuTier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
         /// </summary>
         [Input("costAnalysisEnabled")]
         public Input<bool>? CostAnalysisEnabled { get; set; }
@@ -1158,7 +1158,7 @@ namespace Pulumi.Azure.ContainerService
         }
 
         /// <summary>
-        /// Specifies configuration for "System" mode node pool. A `default_node_pool` block as defined below.
+        /// Specifies configuration for "System" mode node pool. A `DefaultNodePool` block as defined below.
         /// </summary>
         [Input("defaultNodePool")]
         public Input<Inputs.KubernetesClusterDefaultNodePoolGetArgs>? DefaultNodePool { get; set; }
@@ -1178,9 +1178,9 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** You must define either a `dns_prefix` or a `dns_prefix_private_cluster` field.
+        /// &gt; **Note:** You must define either a `DnsPrefix` or a `DnsPrefixPrivateCluster` field.
         /// 
-        /// In addition, one of either `identity` or `service_principal` blocks must be specified.
+        /// In addition, one of either `Identity` or `ServicePrincipal` blocks must be specified.
         /// </summary>
         [Input("dnsPrefixPrivateCluster")]
         public Input<string>? DnsPrefixPrivateCluster { get; set; }
@@ -1212,15 +1212,15 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? HttpApplicationRoutingZoneName { get; set; }
 
         /// <summary>
-        /// A `http_proxy_config` block as defined below.
+        /// A `HttpProxyConfig` block as defined below.
         /// </summary>
         [Input("httpProxyConfig")]
         public Input<Inputs.KubernetesClusterHttpProxyConfigGetArgs>? HttpProxyConfig { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
+        /// An `Identity` block as defined below. One of either `Identity` or `ServicePrincipal` must be specified.
         /// 
-        /// !&gt; **Note:** A migration scenario from `service_principal` to `identity` is supported. When upgrading `service_principal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `service_principal` until you upgrade your Node Pool.
+        /// !&gt; **Note:** A migration scenario from `ServicePrincipal` to `Identity` is supported. When upgrading `ServicePrincipal` to `Identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `ServicePrincipal` until you upgrade your Node Pool.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.KubernetesClusterIdentityGetArgs>? Identity { get; set; }
@@ -1238,7 +1238,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<int>? ImageCleanerIntervalHours { get; set; }
 
         /// <summary>
-        /// A `ingress_application_gateway` block as defined below.
+        /// A `IngressApplicationGateway` block as defined below.
         /// 
         /// &gt; **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
         /// </summary>
@@ -1246,13 +1246,13 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterIngressApplicationGatewayGetArgs>? IngressApplicationGateway { get; set; }
 
         /// <summary>
-        /// A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
+        /// A `KeyManagementService` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
         /// </summary>
         [Input("keyManagementService")]
         public Input<Inputs.KubernetesClusterKeyManagementServiceGetArgs>? KeyManagementService { get; set; }
 
         /// <summary>
-        /// A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
+        /// A `KeyVaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
         /// </summary>
         [Input("keyVaultSecretsProvider")]
         public Input<Inputs.KubernetesClusterKeyVaultSecretsProviderGetArgs>? KeyVaultSecretsProvider { get; set; }
@@ -1277,7 +1277,7 @@ namespace Pulumi.Azure.ContainerService
         private InputList<Inputs.KubernetesClusterKubeAdminConfigGetArgs>? _kubeAdminConfigs;
 
         /// <summary>
-        /// A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
+        /// A `KubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
         /// </summary>
         public InputList<Inputs.KubernetesClusterKubeAdminConfigGetArgs> KubeAdminConfigs
         {
@@ -1309,7 +1309,7 @@ namespace Pulumi.Azure.ContainerService
         private InputList<Inputs.KubernetesClusterKubeConfigGetArgs>? _kubeConfigs;
 
         /// <summary>
-        /// A `kube_config` block as defined below.
+        /// A `KubeConfig` block as defined below.
         /// </summary>
         public InputList<Inputs.KubernetesClusterKubeConfigGetArgs> KubeConfigs
         {
@@ -1322,7 +1322,7 @@ namespace Pulumi.Azure.ContainerService
         }
 
         /// <summary>
-        /// A `kubelet_identity` block as defined below.
+        /// A `KubeletIdentity` block as defined below.
         /// </summary>
         [Input("kubeletIdentity")]
         public Input<Inputs.KubernetesClusterKubeletIdentityGetArgs>? KubeletIdentity { get; set; }
@@ -1336,15 +1336,15 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? KubernetesVersion { get; set; }
 
         /// <summary>
-        /// A `linux_profile` block as defined below.
+        /// A `LinuxProfile` block as defined below.
         /// </summary>
         [Input("linuxProfile")]
         public Input<Inputs.KubernetesClusterLinuxProfileGetArgs>? LinuxProfile { get; set; }
 
         /// <summary>
-        /// If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
+        /// If `True` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
         /// 
-        /// &gt; **Note:** If `local_account_disabled` is set to `true`, it is required to enable Kubernetes RBAC and AKS-managed Azure AD integration. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#azure-ad-authentication-overview) for more information.
+        /// &gt; **Note:** If `LocalAccountDisabled` is set to `True`, it is required to enable Kubernetes RBAC and AKS-managed Azure AD integration. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#azure-ad-authentication-overview) for more information.
         /// </summary>
         [Input("localAccountDisabled")]
         public Input<bool>? LocalAccountDisabled { get; set; }
@@ -1356,33 +1356,33 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A `maintenance_window` block as defined below.
+        /// A `MaintenanceWindow` block as defined below.
         /// </summary>
         [Input("maintenanceWindow")]
         public Input<Inputs.KubernetesClusterMaintenanceWindowGetArgs>? MaintenanceWindow { get; set; }
 
         /// <summary>
-        /// A `maintenance_window_auto_upgrade` block as defined below.
+        /// A `MaintenanceWindowAutoUpgrade` block as defined below.
         /// </summary>
         [Input("maintenanceWindowAutoUpgrade")]
         public Input<Inputs.KubernetesClusterMaintenanceWindowAutoUpgradeGetArgs>? MaintenanceWindowAutoUpgrade { get; set; }
 
         /// <summary>
-        /// A `maintenance_window_node_os` block as defined below.
+        /// A `MaintenanceWindowNodeOs` block as defined below.
         /// </summary>
         [Input("maintenanceWindowNodeOs")]
         public Input<Inputs.KubernetesClusterMaintenanceWindowNodeOsGetArgs>? MaintenanceWindowNodeOs { get; set; }
 
         /// <summary>
-        /// A `microsoft_defender` block as defined below.
+        /// A `MicrosoftDefender` block as defined below.
         /// </summary>
         [Input("microsoftDefender")]
         public Input<Inputs.KubernetesClusterMicrosoftDefenderGetArgs>? MicrosoftDefender { get; set; }
 
         /// <summary>
-        /// Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
+        /// Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `MonitorMetrics` block as defined below.
         /// 
-        /// &gt; **Note:** If deploying Managed Prometheus, the `monitor_metrics` properties are required to configure the cluster for metrics collection. If no value is needed, set properties to `null`.
+        /// &gt; **Note:** If deploying Managed Prometheus, the `MonitorMetrics` properties are required to configure the cluster for metrics collection. If no value is needed, set properties to `Null`.
         /// </summary>
         [Input("monitorMetrics")]
         public Input<Inputs.KubernetesClusterMonitorMetricsGetArgs>? MonitorMetrics { get; set; }
@@ -1394,9 +1394,9 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `network_profile` block as defined below. Changing this forces a new resource to be created.
+        /// A `NetworkProfile` block as defined below. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** If `network_profile` is not defined, `kubenet` profile will be used by default.
+        /// &gt; **Note:** If `NetworkProfile` is not defined, `Kubenet` profile will be used by default.
         /// </summary>
         [Input("networkProfile")]
         public Input<Inputs.KubernetesClusterNetworkProfileGetArgs>? NetworkProfile { get; set; }
@@ -1404,7 +1404,7 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`. Defaults to `NodeImage`.
         /// 
-        /// &gt; **Note:** `node_os_upgrade_channel` must be set to `NodeImage` if `automatic_upgrade_channel` has been set to `node-image`
+        /// &gt; **Note:** `NodeOsUpgradeChannel` must be set to `NodeImage` if `AutomaticUpgradeChannel` has been set to `node-image`
         /// </summary>
         [Input("nodeOsUpgradeChannel")]
         public Input<string>? NodeOsUpgradeChannel { get; set; }
@@ -1436,7 +1436,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? OidcIssuerUrl { get; set; }
 
         /// <summary>
-        /// A `oms_agent` block as defined below.
+        /// A `OmsAgent` block as defined below.
         /// </summary>
         [Input("omsAgent")]
         public Input<Inputs.KubernetesClusterOmsAgentGetArgs>? OmsAgent { get; set; }
@@ -1454,13 +1454,13 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? PortalFqdn { get; set; }
 
         /// <summary>
-        /// Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("privateClusterEnabled")]
         public Input<bool>? PrivateClusterEnabled { get; set; }
 
         /// <summary>
-        /// Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
+        /// Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `False`.
         /// 
         /// &gt; **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
         /// 
@@ -1539,27 +1539,27 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
+        /// Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `True`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("roleBasedAccessControlEnabled")]
         public Input<bool>? RoleBasedAccessControlEnabled { get; set; }
 
         /// <summary>
-        /// Whether to enable run command for the cluster or not. Defaults to `true`.
+        /// Whether to enable run command for the cluster or not. Defaults to `True`.
         /// </summary>
         [Input("runCommandEnabled")]
         public Input<bool>? RunCommandEnabled { get; set; }
 
         /// <summary>
-        /// A `service_mesh_profile` block as defined below.
+        /// A `ServiceMeshProfile` block as defined below.
         /// </summary>
         [Input("serviceMeshProfile")]
         public Input<Inputs.KubernetesClusterServiceMeshProfileGetArgs>? ServiceMeshProfile { get; set; }
 
         /// <summary>
-        /// A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
+        /// A `ServicePrincipal` block as documented below. One of either `Identity` or `ServicePrincipal` must be specified.
         /// 
-        /// !&gt; **Note:** A migration scenario from `service_principal` to `identity` is supported. When upgrading `service_principal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `service_principal` until you upgrade your Node Pool.
+        /// !&gt; **Note:** A migration scenario from `ServicePrincipal` to `Identity` is supported. When upgrading `ServicePrincipal` to `Identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `ServicePrincipal` until you upgrade your Node Pool.
         /// </summary>
         [Input("servicePrincipal")]
         public Input<Inputs.KubernetesClusterServicePrincipalGetArgs>? ServicePrincipal { get; set; }
@@ -1573,7 +1573,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? SkuTier { get; set; }
 
         /// <summary>
-        /// A `storage_profile` block as defined below.
+        /// A `StorageProfile` block as defined below.
         /// </summary>
         [Input("storageProfile")]
         public Input<Inputs.KubernetesClusterStorageProfileGetArgs>? StorageProfile { get; set; }
@@ -1597,33 +1597,33 @@ namespace Pulumi.Azure.ContainerService
         }
 
         /// <summary>
-        /// A `upgrade_override` block as defined below.
+        /// A `UpgradeOverride` block as defined below.
         /// </summary>
         [Input("upgradeOverride")]
         public Input<Inputs.KubernetesClusterUpgradeOverrideGetArgs>? UpgradeOverride { get; set; }
 
         /// <summary>
-        /// A `web_app_routing` block as defined below.
+        /// A `WebAppRouting` block as defined below.
         /// </summary>
         [Input("webAppRouting")]
         public Input<Inputs.KubernetesClusterWebAppRoutingGetArgs>? WebAppRouting { get; set; }
 
         /// <summary>
-        /// A `windows_profile` block as defined below.
+        /// A `WindowsProfile` block as defined below.
         /// </summary>
         [Input("windowsProfile")]
         public Input<Inputs.KubernetesClusterWindowsProfileGetArgs>? WindowsProfile { get; set; }
 
         /// <summary>
-        /// A `workload_autoscaler_profile` block defined below.
+        /// A `WorkloadAutoscalerProfile` block defined below.
         /// </summary>
         [Input("workloadAutoscalerProfile")]
         public Input<Inputs.KubernetesClusterWorkloadAutoscalerProfileGetArgs>? WorkloadAutoscalerProfile { get; set; }
 
         /// <summary>
-        /// Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
+        /// Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `False`.
         /// 
-        /// &gt; **Note:** To enable Azure AD Workload Identity `oidc_issuer_enabled` must be set to `true`.
+        /// &gt; **Note:** To enable Azure AD Workload Identity `OidcIssuerEnabled` must be set to `True`.
         /// 
         /// &gt; **Note:** Enabling this option will allocate Workload Identity resources to the `kube-system` namespace in Kubernetes. If you wish to customize the deployment of Workload Identity, you can refer to [the documentation on Azure AD Workload Identity.](https://azure.github.io/azure-workload-identity/docs/installation/mutating-admission-webhook.html) The documentation provides guidance on how to install the mutating admission webhook, which allows for the customization of Workload Identity deployment.
         /// </summary>

@@ -7,6 +7,68 @@ import * as utilities from "../utilities";
 /**
  * Manages a Security Alert Policy for a Synapse Workspace.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "examplestorageacc",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ *     accountKind: "StorageV2",
+ *     isHnsEnabled: true,
+ * });
+ * const exampleDataLakeGen2Filesystem = new azure.storage.DataLakeGen2Filesystem("example", {
+ *     name: "example",
+ *     storageAccountId: exampleAccount.id,
+ * });
+ * const exampleWorkspace = new azure.synapse.Workspace("example", {
+ *     name: "example",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     storageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.id,
+ *     sqlAdministratorLogin: "sqladminuser",
+ *     sqlAdministratorLoginPassword: "H@Sh1CoR3!",
+ *     aadAdmin: [{
+ *         login: "AzureAD Admin",
+ *         objectId: "00000000-0000-0000-0000-000000000000",
+ *         tenantId: "00000000-0000-0000-0000-000000000000",
+ *     }],
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ *     tags: {
+ *         Env: "production",
+ *     },
+ * });
+ * const auditLogs = new azure.storage.Account("audit_logs", {
+ *     name: "examplesa",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ * });
+ * const exampleWorkspaceSecurityAlertPolicy = new azure.synapse.WorkspaceSecurityAlertPolicy("example", {
+ *     synapseWorkspaceId: exampleWorkspace.id,
+ *     policyState: "Enabled",
+ *     storageEndpoint: auditLogs.primaryBlobEndpoint,
+ *     storageAccountAccessKey: auditLogs.primaryAccessKey,
+ *     disabledAlerts: [
+ *         "Sql_Injection",
+ *         "Data_Exfiltration",
+ *     ],
+ *     retentionDays: 20,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Synapse Workspace Security Alert Policies can be imported using the `resource id`, e.g.

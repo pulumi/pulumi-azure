@@ -116,14 +116,14 @@ public class Definition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * An `eligible_authorization` block as defined below.
+     * An `eligibleAuthorization` block as defined below.
      * 
      */
     @Export(name="eligibleAuthorizations", refs={List.class,DefinitionEligibleAuthorization.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DefinitionEligibleAuthorization>> eligibleAuthorizations;
 
     /**
-     * @return An `eligible_authorization` block as defined below.
+     * @return An `eligibleAuthorization` block as defined below.
      * 
      */
     public Output<Optional<List<DefinitionEligibleAuthorization>>> eligibleAuthorizations() {

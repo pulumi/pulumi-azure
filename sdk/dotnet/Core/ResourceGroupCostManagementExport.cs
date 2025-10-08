@@ -85,19 +85,19 @@ namespace Pulumi.Azure.Core
     public partial class ResourceGroupCostManagementExport : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Is the cost management export active? Default is `true`.
+        /// Is the cost management export active? Default is `True`.
         /// </summary>
         [Output("active")]
         public Output<bool?> Active { get; private set; } = null!;
 
         /// <summary>
-        /// A `export_data_options` block as defined below.
+        /// A `ExportDataOptions` block as defined below.
         /// </summary>
         [Output("exportDataOptions")]
         public Output<Outputs.ResourceGroupCostManagementExportExportDataOptions> ExportDataOptions { get; private set; } = null!;
 
         /// <summary>
-        /// A `export_data_storage_location` block as defined below.
+        /// A `ExportDataStorageLocation` block as defined below.
         /// </summary>
         [Output("exportDataStorageLocation")]
         public Output<Outputs.ResourceGroupCostManagementExportExportDataStorageLocation> ExportDataStorageLocation { get; private set; } = null!;
@@ -185,19 +185,19 @@ namespace Pulumi.Azure.Core
     public sealed class ResourceGroupCostManagementExportArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Is the cost management export active? Default is `true`.
+        /// Is the cost management export active? Default is `True`.
         /// </summary>
         [Input("active")]
         public Input<bool>? Active { get; set; }
 
         /// <summary>
-        /// A `export_data_options` block as defined below.
+        /// A `ExportDataOptions` block as defined below.
         /// </summary>
         [Input("exportDataOptions", required: true)]
         public Input<Inputs.ResourceGroupCostManagementExportExportDataOptionsArgs> ExportDataOptions { get; set; } = null!;
 
         /// <summary>
-        /// A `export_data_storage_location` block as defined below.
+        /// A `ExportDataStorageLocation` block as defined below.
         /// </summary>
         [Input("exportDataStorageLocation", required: true)]
         public Input<Inputs.ResourceGroupCostManagementExportExportDataStorageLocationArgs> ExportDataStorageLocation { get; set; } = null!;
@@ -247,19 +247,19 @@ namespace Pulumi.Azure.Core
     public sealed class ResourceGroupCostManagementExportState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Is the cost management export active? Default is `true`.
+        /// Is the cost management export active? Default is `True`.
         /// </summary>
         [Input("active")]
         public Input<bool>? Active { get; set; }
 
         /// <summary>
-        /// A `export_data_options` block as defined below.
+        /// A `ExportDataOptions` block as defined below.
         /// </summary>
         [Input("exportDataOptions")]
         public Input<Inputs.ResourceGroupCostManagementExportExportDataOptionsGetArgs>? ExportDataOptions { get; set; }
 
         /// <summary>
-        /// A `export_data_storage_location` block as defined below.
+        /// A `ExportDataStorageLocation` block as defined below.
         /// </summary>
         [Input("exportDataStorageLocation")]
         public Input<Inputs.ResourceGroupCostManagementExportExportDataStorageLocationGetArgs>? ExportDataStorageLocation { get; set; }

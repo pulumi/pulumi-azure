@@ -13,7 +13,7 @@ namespace Pulumi.Azure.AppService.Inputs
     public sealed class LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The number of occurrences of the defined `status_code` in the specified `interval` on which to trigger this rule.
+        /// The number of occurrences of the defined `StatusCode` in the specified `Interval` on which to trigger this rule.
         /// </summary>
         [Input("count", required: true)]
         public Input<int> Count { get; set; } = null!;

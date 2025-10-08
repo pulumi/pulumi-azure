@@ -20,7 +20,7 @@ public final class AlertRuleAnomalyBuiltInArgs extends com.pulumi.resources.Reso
     /**
      * The Display Name of the built-in Anomaly Alert Rule.
      * 
-     * &gt; **Note:** One of `name` or `display_name` block must be specified.
+     * &gt; **Note:** One of `name` or `displayName` block must be specified.
      * 
      */
     @Import(name="displayName")
@@ -29,7 +29,7 @@ public final class AlertRuleAnomalyBuiltInArgs extends com.pulumi.resources.Reso
     /**
      * @return The Display Name of the built-in Anomaly Alert Rule.
      * 
-     * &gt; **Note:** One of `name` or `display_name` block must be specified.
+     * &gt; **Note:** One of `name` or `displayName` block must be specified.
      * 
      */
     public Optional<Output<String>> displayName() {
@@ -127,7 +127,7 @@ public final class AlertRuleAnomalyBuiltInArgs extends com.pulumi.resources.Reso
         /**
          * @param displayName The Display Name of the built-in Anomaly Alert Rule.
          * 
-         * &gt; **Note:** One of `name` or `display_name` block must be specified.
+         * &gt; **Note:** One of `name` or `displayName` block must be specified.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class AlertRuleAnomalyBuiltInArgs extends com.pulumi.resources.Reso
         /**
          * @param displayName The Display Name of the built-in Anomaly Alert Rule.
          * 
-         * &gt; **Note:** One of `name` or `display_name` block must be specified.
+         * &gt; **Note:** One of `name` or `displayName` block must be specified.
          * 
          * @return builder
          * 

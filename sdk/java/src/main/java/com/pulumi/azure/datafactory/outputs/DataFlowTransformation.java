@@ -31,7 +31,7 @@ public final class DataFlowTransformation {
      */
     private @Nullable DataFlowTransformationFlowlet flowlet;
     /**
-     * @return A `linked_service` block as defined below.
+     * @return A `linkedService` block as defined below.
      * 
      */
     private @Nullable DataFlowTransformationLinkedService linkedService;
@@ -64,7 +64,7 @@ public final class DataFlowTransformation {
         return Optional.ofNullable(this.flowlet);
     }
     /**
-     * @return A `linked_service` block as defined below.
+     * @return A `linkedService` block as defined below.
      * 
      */
     public Optional<DataFlowTransformationLinkedService> linkedService() {

@@ -35,7 +35,7 @@ namespace Pulumi.Azure.Iot.Inputs
         }
 
         /// <summary>
-        /// The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connection_string specified.
+        /// The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the ConnectionString specified.
         /// </summary>
         [Input("containerName", required: true)]
         public Input<string> ContainerName { get; set; } = null!;
@@ -49,9 +49,9 @@ namespace Pulumi.Azure.Iot.Inputs
         /// <summary>
         /// The ID of the User Managed Identity used to authenticate against the storage account.
         /// 
-        /// &gt; **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the IoT Hub. If `identity_id` is omitted when `authentication_type` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
+        /// &gt; **Note:** `IdentityId` can only be specified when `AuthenticationType` is `identityBased`. It must be one of the `IdentityIds` of the IoT Hub. If `IdentityId` is omitted when `AuthenticationType` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
         /// 
-        /// &gt; **Note:** An IoT Hub can only be updated to use the System-Assigned Managed Identity for `file_upload` since it is not possible to grant access to the endpoint until after creation.
+        /// &gt; **Note:** An IoT Hub can only be updated to use the System-Assigned Managed Identity for `FileUpload` since it is not possible to grant access to the endpoint until after creation.
         /// </summary>
         [Input("identityId")]
         public Input<string>? IdentityId { get; set; }
@@ -69,7 +69,7 @@ namespace Pulumi.Azure.Iot.Inputs
         public Input<int>? MaxDeliveryCount { get; set; }
 
         /// <summary>
-        /// Used to specify whether file notifications are sent to IoT Hub on upload. Defaults to `false`.
+        /// Used to specify whether file notifications are sent to IoT Hub on upload. Defaults to `False`.
         /// </summary>
         [Input("notifications")]
         public Input<bool>? Notifications { get; set; }

@@ -34,7 +34,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         /// <summary>
         /// The instrumentation key used to push data to Application Insights.
         /// 
-        /// &gt; **Note:** Either `connection_string` or `instrumentation_key` have to be specified.
+        /// &gt; **Note:** Either `ConnectionString` or `InstrumentationKey` have to be specified.
         /// </summary>
         public Input<string>? InstrumentationKey
         {

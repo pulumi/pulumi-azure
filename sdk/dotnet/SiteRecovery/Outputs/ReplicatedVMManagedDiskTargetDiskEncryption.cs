@@ -14,11 +14,11 @@ namespace Pulumi.Azure.SiteRecovery.Outputs
     public sealed class ReplicatedVMManagedDiskTargetDiskEncryption
     {
         /// <summary>
-        /// A `disk_encryption_key` block as defined below.
+        /// A `DiskEncryptionKey` block as defined below.
         /// </summary>
         public readonly Outputs.ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey DiskEncryptionKey;
         /// <summary>
-        /// A `key_encryption_key` block as defined below.
+        /// A `KeyEncryptionKey` block as defined below.
         /// </summary>
         public readonly Outputs.ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey? KeyEncryptionKey;
 

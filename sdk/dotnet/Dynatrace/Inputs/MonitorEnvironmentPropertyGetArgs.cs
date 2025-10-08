@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Dynatrace.Inputs
         private InputList<Inputs.MonitorEnvironmentPropertyEnvironmentInfoGetArgs>? _environmentInfos;
 
         /// <summary>
-        /// Information about the Dynatrace environment. An `environment_info` block as defined below.
+        /// Information about the Dynatrace environment. An `EnvironmentInfo` block as defined below.
         /// </summary>
         public InputList<Inputs.MonitorEnvironmentPropertyEnvironmentInfoGetArgs> EnvironmentInfos
         {

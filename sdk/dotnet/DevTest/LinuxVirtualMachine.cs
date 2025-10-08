@@ -99,7 +99,7 @@ namespace Pulumi.Azure.DevTest
     public partial class LinuxVirtualMachine : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Can this Virtual Machine be claimed by users? Defaults to `true`.
+        /// Can this Virtual Machine be claimed by users? Defaults to `True`.
         /// </summary>
         [Output("allowClaim")]
         public Output<bool?> AllowClaim { get; private set; } = null!;
@@ -117,15 +117,15 @@ namespace Pulumi.Azure.DevTest
         public Output<string> Fqdn { get; private set; } = null!;
 
         /// <summary>
-        /// A `gallery_image_reference` block as defined below.
+        /// A `GalleryImageReference` block as defined below.
         /// </summary>
         [Output("galleryImageReference")]
         public Output<Outputs.LinuxVirtualMachineGalleryImageReference> GalleryImageReference { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `InboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
+        /// &gt; **Note:** If any `InboundNatRule` blocks are specified then `DisallowPublicIpAddress` must be set to `True`.
         /// </summary>
         [Output("inboundNatRules")]
         public Output<ImmutableArray<Outputs.LinuxVirtualMachineInboundNatRule>> InboundNatRules { get; private set; } = null!;
@@ -157,7 +157,7 @@ namespace Pulumi.Azure.DevTest
         /// <summary>
         /// Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** The validation requirements for the Name change based on the `os_type` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
+        /// &gt; **Note:** The validation requirements for the Name change based on the `OsType` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -169,7 +169,7 @@ namespace Pulumi.Azure.DevTest
         public Output<string?> Notes { get; private set; } = null!;
 
         /// <summary>
-        /// The Password associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
+        /// The Password associated with the `Username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
         /// </summary>
         [Output("password")]
         public Output<string?> Password { get; private set; } = null!;
@@ -187,9 +187,9 @@ namespace Pulumi.Azure.DevTest
         public Output<string> Size { get; private set; } = null!;
 
         /// <summary>
-        /// The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
+        /// The SSH Key associated with the `Username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** One or either `password` or `ssh_key` must be specified.
+        /// &gt; **Note:** One or either `Password` or `SshKey` must be specified.
         /// </summary>
         [Output("sshKey")]
         public Output<string?> SshKey { get; private set; } = null!;
@@ -269,7 +269,7 @@ namespace Pulumi.Azure.DevTest
     public sealed class LinuxVirtualMachineArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Can this Virtual Machine be claimed by users? Defaults to `true`.
+        /// Can this Virtual Machine be claimed by users? Defaults to `True`.
         /// </summary>
         [Input("allowClaim")]
         public Input<bool>? AllowClaim { get; set; }
@@ -281,7 +281,7 @@ namespace Pulumi.Azure.DevTest
         public Input<bool>? DisallowPublicIpAddress { get; set; }
 
         /// <summary>
-        /// A `gallery_image_reference` block as defined below.
+        /// A `GalleryImageReference` block as defined below.
         /// </summary>
         [Input("galleryImageReference", required: true)]
         public Input<Inputs.LinuxVirtualMachineGalleryImageReferenceArgs> GalleryImageReference { get; set; } = null!;
@@ -290,9 +290,9 @@ namespace Pulumi.Azure.DevTest
         private InputList<Inputs.LinuxVirtualMachineInboundNatRuleArgs>? _inboundNatRules;
 
         /// <summary>
-        /// One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `InboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
+        /// &gt; **Note:** If any `InboundNatRule` blocks are specified then `DisallowPublicIpAddress` must be set to `True`.
         /// </summary>
         public InputList<Inputs.LinuxVirtualMachineInboundNatRuleArgs> InboundNatRules
         {
@@ -327,7 +327,7 @@ namespace Pulumi.Azure.DevTest
         /// <summary>
         /// Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** The validation requirements for the Name change based on the `os_type` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
+        /// &gt; **Note:** The validation requirements for the Name change based on the `OsType` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -342,7 +342,7 @@ namespace Pulumi.Azure.DevTest
         private Input<string>? _password;
 
         /// <summary>
-        /// The Password associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
+        /// The Password associated with the `Username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
         /// </summary>
         public Input<string>? Password
         {
@@ -367,9 +367,9 @@ namespace Pulumi.Azure.DevTest
         public Input<string> Size { get; set; } = null!;
 
         /// <summary>
-        /// The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
+        /// The SSH Key associated with the `Username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** One or either `password` or `ssh_key` must be specified.
+        /// &gt; **Note:** One or either `Password` or `SshKey` must be specified.
         /// </summary>
         [Input("sshKey")]
         public Input<string>? SshKey { get; set; }
@@ -407,7 +407,7 @@ namespace Pulumi.Azure.DevTest
     public sealed class LinuxVirtualMachineState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Can this Virtual Machine be claimed by users? Defaults to `true`.
+        /// Can this Virtual Machine be claimed by users? Defaults to `True`.
         /// </summary>
         [Input("allowClaim")]
         public Input<bool>? AllowClaim { get; set; }
@@ -425,7 +425,7 @@ namespace Pulumi.Azure.DevTest
         public Input<string>? Fqdn { get; set; }
 
         /// <summary>
-        /// A `gallery_image_reference` block as defined below.
+        /// A `GalleryImageReference` block as defined below.
         /// </summary>
         [Input("galleryImageReference")]
         public Input<Inputs.LinuxVirtualMachineGalleryImageReferenceGetArgs>? GalleryImageReference { get; set; }
@@ -434,9 +434,9 @@ namespace Pulumi.Azure.DevTest
         private InputList<Inputs.LinuxVirtualMachineInboundNatRuleGetArgs>? _inboundNatRules;
 
         /// <summary>
-        /// One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `InboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
+        /// &gt; **Note:** If any `InboundNatRule` blocks are specified then `DisallowPublicIpAddress` must be set to `True`.
         /// </summary>
         public InputList<Inputs.LinuxVirtualMachineInboundNatRuleGetArgs> InboundNatRules
         {
@@ -471,7 +471,7 @@ namespace Pulumi.Azure.DevTest
         /// <summary>
         /// Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** The validation requirements for the Name change based on the `os_type` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
+        /// &gt; **Note:** The validation requirements for the Name change based on the `OsType` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -486,7 +486,7 @@ namespace Pulumi.Azure.DevTest
         private Input<string>? _password;
 
         /// <summary>
-        /// The Password associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
+        /// The Password associated with the `Username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
         /// </summary>
         public Input<string>? Password
         {
@@ -511,9 +511,9 @@ namespace Pulumi.Azure.DevTest
         public Input<string>? Size { get; set; }
 
         /// <summary>
-        /// The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
+        /// The SSH Key associated with the `Username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** One or either `password` or `ssh_key` must be specified.
+        /// &gt; **Note:** One or either `Password` or `SshKey` must be specified.
         /// </summary>
         [Input("sshKey")]
         public Input<string>? SshKey { get; set; }

@@ -199,14 +199,14 @@ public final class KubernetesClusterAutoScalerProfileArgs extends com.pulumi.res
     }
 
     /**
-     * How long after node deletion that scale down evaluation resumes. Defaults to the value used for `scan_interval`.
+     * How long after node deletion that scale down evaluation resumes. Defaults to the value used for `scanInterval`.
      * 
      */
     @Import(name="scaleDownDelayAfterDelete")
     private @Nullable Output<String> scaleDownDelayAfterDelete;
 
     /**
-     * @return How long after node deletion that scale down evaluation resumes. Defaults to the value used for `scan_interval`.
+     * @return How long after node deletion that scale down evaluation resumes. Defaults to the value used for `scanInterval`.
      * 
      */
     public Optional<Output<String>> scaleDownDelayAfterDelete() {
@@ -606,7 +606,7 @@ public final class KubernetesClusterAutoScalerProfileArgs extends com.pulumi.res
         }
 
         /**
-         * @param scaleDownDelayAfterDelete How long after node deletion that scale down evaluation resumes. Defaults to the value used for `scan_interval`.
+         * @param scaleDownDelayAfterDelete How long after node deletion that scale down evaluation resumes. Defaults to the value used for `scanInterval`.
          * 
          * @return builder
          * 
@@ -617,7 +617,7 @@ public final class KubernetesClusterAutoScalerProfileArgs extends com.pulumi.res
         }
 
         /**
-         * @param scaleDownDelayAfterDelete How long after node deletion that scale down evaluation resumes. Defaults to the value used for `scan_interval`.
+         * @param scaleDownDelayAfterDelete How long after node deletion that scale down evaluation resumes. Defaults to the value used for `scanInterval`.
          * 
          * @return builder
          * 

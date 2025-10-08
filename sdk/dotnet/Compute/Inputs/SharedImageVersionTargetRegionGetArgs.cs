@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<string>? DiskEncryptionSetId { get; set; }
 
         /// <summary>
-        /// Specifies whether this Shared Image Version should be excluded when querying for the `latest` version. Defaults to `false`.
+        /// Specifies whether this Shared Image Version should be excluded when querying for the `Latest` version. Defaults to `False`.
         /// </summary>
         [Input("excludeFromLatestEnabled")]
         public Input<bool>? ExcludeFromLatestEnabled { get; set; }

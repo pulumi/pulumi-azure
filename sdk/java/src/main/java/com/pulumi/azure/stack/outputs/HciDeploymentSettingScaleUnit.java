@@ -71,7 +71,7 @@ public final class HciDeploymentSettingScaleUnit {
      */
     private @Nullable Boolean euLocationEnabled;
     /**
-     * @return A `host_network` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+     * @return A `hostNetwork` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
      * 
      */
     private HciDeploymentSettingScaleUnitHostNetwork hostNetwork;
@@ -81,7 +81,7 @@ public final class HciDeploymentSettingScaleUnit {
      */
     private @Nullable Boolean hvciProtectionEnabled;
     /**
-     * @return One or more `infrastructure_network` blocks as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+     * @return One or more `infrastructureNetwork` blocks as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
      * 
      */
     private List<HciDeploymentSettingScaleUnitInfrastructureNetwork> infrastructureNetworks;
@@ -91,12 +91,12 @@ public final class HciDeploymentSettingScaleUnit {
      */
     private String namePrefix;
     /**
-     * @return A `optional_service` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+     * @return A `optionalService` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
      * 
      */
     private HciDeploymentSettingScaleUnitOptionalService optionalService;
     /**
-     * @return One or more `physical_node` blocks as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+     * @return One or more `physicalNode` blocks as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
      * 
      */
     private List<HciDeploymentSettingScaleUnitPhysicalNode> physicalNodes;
@@ -208,7 +208,7 @@ public final class HciDeploymentSettingScaleUnit {
         return Optional.ofNullable(this.euLocationEnabled);
     }
     /**
-     * @return A `host_network` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+     * @return A `hostNetwork` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
      * 
      */
     public HciDeploymentSettingScaleUnitHostNetwork hostNetwork() {
@@ -222,7 +222,7 @@ public final class HciDeploymentSettingScaleUnit {
         return Optional.ofNullable(this.hvciProtectionEnabled);
     }
     /**
-     * @return One or more `infrastructure_network` blocks as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+     * @return One or more `infrastructureNetwork` blocks as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
      * 
      */
     public List<HciDeploymentSettingScaleUnitInfrastructureNetwork> infrastructureNetworks() {
@@ -236,14 +236,14 @@ public final class HciDeploymentSettingScaleUnit {
         return this.namePrefix;
     }
     /**
-     * @return A `optional_service` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+     * @return A `optionalService` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
      * 
      */
     public HciDeploymentSettingScaleUnitOptionalService optionalService() {
         return this.optionalService;
     }
     /**
-     * @return One or more `physical_node` blocks as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+     * @return One or more `physicalNode` blocks as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
      * 
      */
     public List<HciDeploymentSettingScaleUnitPhysicalNode> physicalNodes() {

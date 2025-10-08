@@ -17,6 +17,91 @@ import javax.annotation.Nullable;
 /**
  * Manages an API Tag Description within an API Management Service.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.apimanagement.Service;
+ * import com.pulumi.azure.apimanagement.ServiceArgs;
+ * import com.pulumi.azure.apimanagement.Api;
+ * import com.pulumi.azure.apimanagement.ApiArgs;
+ * import com.pulumi.azure.apimanagement.inputs.ApiImportArgs;
+ * import com.pulumi.azure.apimanagement.Tag;
+ * import com.pulumi.azure.apimanagement.TagArgs;
+ * import com.pulumi.azure.apimanagement.ApiTagDescription;
+ * import com.pulumi.azure.apimanagement.ApiTagDescriptionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
+ *         Pulumi.run(App::stack);
+ *     }}{@code
+ * 
+ *     public static void stack(Context ctx) }{{@code
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("example-resources")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleService = new Service("exampleService", ServiceArgs.builder()
+ *             .name("example-apim")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .publisherName("My Company")
+ *             .publisherEmail("company}{@literal @}{@code terraform.io")
+ *             .skuName("Developer_1")
+ *             .build());
+ * 
+ *         var exampleApi = new Api("exampleApi", ApiArgs.builder()
+ *             .name("example-api")
+ *             .resourceGroupName(example.name())
+ *             .apiManagementName(exampleService.name())
+ *             .revision("1")
+ *             .displayName("Example API")
+ *             .path("example")
+ *             .protocols("https")
+ *             .import_(ApiImportArgs.builder()
+ *                 .contentFormat("swagger-link-json")
+ *                 .contentValue("https://raw.githubusercontent.com/hashicorp/terraform-provider-azurerm/refs/heads/main/internal/services/apimanagement/testdata/api_management_api_swagger.json")
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleTag = new Tag("exampleTag", TagArgs.builder()
+ *             .apiManagementId(exampleService.id())
+ *             .name("example-Tag")
+ *             .build());
+ * 
+ *         var exampleApiTagDescription = new ApiTagDescription("exampleApiTagDescription", ApiTagDescriptionArgs.builder()
+ *             .apiTagId(exampleTag.id())
+ *             .description("This is an example description")
+ *             .externalDocsUrl("https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs")
+ *             .externalDocsDescription("This is an example external docs description")
+ *             .build());
+ * 
+ *     }}{@code
+ * }}{@code
+ * }
+ * </pre>
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.ApiManagement` - 2022-08-01
+ * 
  * ## Import
  * 
  * API Management API Schema&#39;s can be imported using the `resource id`, e.g.

@@ -172,7 +172,7 @@ namespace Pulumi.Azure.PrivateDns
         public readonly ImmutableDictionary<string, string> Metadata;
         public readonly string Name;
         /// <summary>
-        /// A list of `target_dns_servers` block as defined below.
+        /// A list of `TargetDnsServers` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetResolverForwardingRuleTargetDnsServerResult> TargetDnsServers;
 

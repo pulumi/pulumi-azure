@@ -12,26 +12,26 @@ import java.util.Objects;
 @CustomType
 public final class GetLinuxFunctionAppStickySetting {
     /**
-     * @return A list of `app_setting` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
+     * @return A list of `appSetting` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
      * 
      */
     private List<String> appSettingNames;
     /**
-     * @return A list of `connection_string` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
+     * @return A list of `connectionString` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
      * 
      */
     private List<String> connectionStringNames;
 
     private GetLinuxFunctionAppStickySetting() {}
     /**
-     * @return A list of `app_setting` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
+     * @return A list of `appSetting` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
      * 
      */
     public List<String> appSettingNames() {
         return this.appSettingNames;
     }
     /**
-     * @return A list of `connection_string` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
+     * @return A list of `connectionString` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
      * 
      */
     public List<String> connectionStringNames() {

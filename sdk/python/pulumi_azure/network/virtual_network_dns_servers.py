@@ -107,6 +107,38 @@ class VirtualNetworkDnsServers(pulumi.CustomResource):
         """
         ## Example Usage
 
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-vnet",
+            address_spaces=["10.0.0.0/16"],
+            location=example.location,
+            resource_group_name=example.name,
+            subnets=[{
+                "name": "subnet1",
+                "address_prefix": "10.0.1.0/24",
+            }])
+        example_virtual_network_dns_servers = azure.network.VirtualNetworkDnsServers("example",
+            virtual_network_id=example_virtual_network.id,
+            dns_servers=[
+                "10.7.7.2",
+                "10.7.7.7",
+                "10.7.7.1",
+            ])
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network` - 2024-05-01
+
         ## Import
 
         Virtual Network DNS Servers can be imported using the `resource id`, e.g.
@@ -128,6 +160,38 @@ class VirtualNetworkDnsServers(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-vnet",
+            address_spaces=["10.0.0.0/16"],
+            location=example.location,
+            resource_group_name=example.name,
+            subnets=[{
+                "name": "subnet1",
+                "address_prefix": "10.0.1.0/24",
+            }])
+        example_virtual_network_dns_servers = azure.network.VirtualNetworkDnsServers("example",
+            virtual_network_id=example_virtual_network.id,
+            dns_servers=[
+                "10.7.7.2",
+                "10.7.7.7",
+                "10.7.7.1",
+            ])
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network` - 2024-05-01
 
         ## Import
 

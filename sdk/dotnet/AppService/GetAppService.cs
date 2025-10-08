@@ -167,7 +167,7 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly bool ClientCertEnabled;
         /// <summary>
-        /// An `connection_string` block as defined below.
+        /// An `ConnectionString` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAppServiceConnectionStringResult> ConnectionStrings;
         /// <summary>
@@ -207,21 +207,21 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly string OutboundIpAddresses;
         /// <summary>
-        /// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12", "52.143.43.17"]` - not all of which are necessarily in use. Superset of `outbound_ip_address_list`.
+        /// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12", "52.143.43.17"]` - not all of which are necessarily in use. Superset of `OutboundIpAddressList`.
         /// </summary>
         public readonly ImmutableArray<string> PossibleOutboundIpAddressLists;
         /// <summary>
-        /// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+        /// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `OutboundIpAddresses`.
         /// </summary>
         public readonly string PossibleOutboundIpAddresses;
         public readonly string ResourceGroupName;
         /// <summary>
-        /// A `site_config` block as defined below.
+        /// A `SiteConfig` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAppServiceSiteConfigResult> SiteConfigs;
         public readonly ImmutableArray<Outputs.GetAppServiceSiteCredentialResult> SiteCredentials;
         /// <summary>
-        /// A `source_control` block as defined below.
+        /// A `SourceControl` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAppServiceSourceControlResult> SourceControls;
         /// <summary>

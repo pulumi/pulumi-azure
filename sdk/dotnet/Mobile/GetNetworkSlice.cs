@@ -186,7 +186,7 @@ namespace Pulumi.Azure.Mobile
         public readonly string MobileNetworkId;
         public readonly string Name;
         /// <summary>
-        /// A `single_network_slice_selection_assistance_information` block as defined below. Single-network slice selection assistance information (S-NSSAI).
+        /// A `SingleNetworkSliceSelectionAssistanceInformation` block as defined below. Single-network slice selection assistance information (S-NSSAI).
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationResult> SingleNetworkSliceSelectionAssistanceInformations;
         /// <summary>

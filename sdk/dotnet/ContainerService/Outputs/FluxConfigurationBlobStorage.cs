@@ -26,7 +26,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? LocalAuthReference;
         /// <summary>
-        /// A `managed_identity` block as defined below.
+        /// A `ManagedIdentity` block as defined below.
         /// </summary>
         public readonly Outputs.FluxConfigurationBlobStorageManagedIdentity? ManagedIdentity;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? SasToken;
         /// <summary>
-        /// A `service_principal` block as defined below.
+        /// A `ServicePrincipal` block as defined below.
         /// </summary>
         public readonly Outputs.FluxConfigurationBlobStorageServicePrincipal? ServicePrincipal;
         /// <summary>

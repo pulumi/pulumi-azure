@@ -88,7 +88,7 @@ namespace Pulumi.Azure.OperationalInsights
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// A `plan` block as documented below.
+        /// A `Plan` block as documented below.
         /// </summary>
         [Output("plan")]
         public Output<Outputs.AnalyticsSolutionPlan> Plan { get; private set; } = null!;
@@ -176,7 +176,7 @@ namespace Pulumi.Azure.OperationalInsights
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A `plan` block as documented below.
+        /// A `Plan` block as documented below.
         /// </summary>
         [Input("plan", required: true)]
         public Input<Inputs.AnalyticsSolutionPlanArgs> Plan { get; set; } = null!;
@@ -232,7 +232,7 @@ namespace Pulumi.Azure.OperationalInsights
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A `plan` block as documented below.
+        /// A `Plan` block as documented below.
         /// </summary>
         [Input("plan")]
         public Input<Inputs.AnalyticsSolutionPlanGetArgs>? Plan { get; set; }

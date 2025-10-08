@@ -18,14 +18,14 @@ public final class DirectoryArgs extends com.pulumi.resources.ResourceArgs {
     public static final DirectoryArgs Empty = new DirectoryArgs();
 
     /**
-     * Country code of the B2C tenant. The `country_code` should be valid for the specified `data_residency_location`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
+     * Country code of the B2C tenant. The `countryCode` should be valid for the specified `dataResidencyLocation`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
      * 
      */
     @Import(name="countryCode")
     private @Nullable Output<String> countryCode;
 
     /**
-     * @return Country code of the B2C tenant. The `country_code` should be valid for the specified `data_residency_location`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
+     * @return Country code of the B2C tenant. The `countryCode` should be valid for the specified `dataResidencyLocation`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
      * 
      */
     public Optional<Output<String>> countryCode() {
@@ -33,14 +33,14 @@ public final class DirectoryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Location in which the B2C tenant is hosted and data resides. The `data_residency_location` should be valid for the specified `country_code`. See [official docs](https://aka.ms/B2CDataResidenc) for more information. Changing this forces a new AAD B2C Directory to be created. Possible values are `Asia Pacific`, `Australia`, `Europe`, `Global` and `United States`.
+     * Location in which the B2C tenant is hosted and data resides. The `dataResidencyLocation` should be valid for the specified `countryCode`. See [official docs](https://aka.ms/B2CDataResidenc) for more information. Changing this forces a new AAD B2C Directory to be created. Possible values are `Asia Pacific`, `Australia`, `Europe`, `Global` and `United States`.
      * 
      */
     @Import(name="dataResidencyLocation", required=true)
     private Output<String> dataResidencyLocation;
 
     /**
-     * @return Location in which the B2C tenant is hosted and data resides. The `data_residency_location` should be valid for the specified `country_code`. See [official docs](https://aka.ms/B2CDataResidenc) for more information. Changing this forces a new AAD B2C Directory to be created. Possible values are `Asia Pacific`, `Australia`, `Europe`, `Global` and `United States`.
+     * @return Location in which the B2C tenant is hosted and data resides. The `dataResidencyLocation` should be valid for the specified `countryCode`. See [official docs](https://aka.ms/B2CDataResidenc) for more information. Changing this forces a new AAD B2C Directory to be created. Possible values are `Asia Pacific`, `Australia`, `Europe`, `Global` and `United States`.
      * 
      */
     public Output<String> dataResidencyLocation() {
@@ -153,7 +153,7 @@ public final class DirectoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param countryCode Country code of the B2C tenant. The `country_code` should be valid for the specified `data_residency_location`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
+         * @param countryCode Country code of the B2C tenant. The `countryCode` should be valid for the specified `dataResidencyLocation`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class DirectoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param countryCode Country code of the B2C tenant. The `country_code` should be valid for the specified `data_residency_location`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
+         * @param countryCode Country code of the B2C tenant. The `countryCode` should be valid for the specified `dataResidencyLocation`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class DirectoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataResidencyLocation Location in which the B2C tenant is hosted and data resides. The `data_residency_location` should be valid for the specified `country_code`. See [official docs](https://aka.ms/B2CDataResidenc) for more information. Changing this forces a new AAD B2C Directory to be created. Possible values are `Asia Pacific`, `Australia`, `Europe`, `Global` and `United States`.
+         * @param dataResidencyLocation Location in which the B2C tenant is hosted and data resides. The `dataResidencyLocation` should be valid for the specified `countryCode`. See [official docs](https://aka.ms/B2CDataResidenc) for more information. Changing this forces a new AAD B2C Directory to be created. Possible values are `Asia Pacific`, `Australia`, `Europe`, `Global` and `United States`.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class DirectoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataResidencyLocation Location in which the B2C tenant is hosted and data resides. The `data_residency_location` should be valid for the specified `country_code`. See [official docs](https://aka.ms/B2CDataResidenc) for more information. Changing this forces a new AAD B2C Directory to be created. Possible values are `Asia Pacific`, `Australia`, `Europe`, `Global` and `United States`.
+         * @param dataResidencyLocation Location in which the B2C tenant is hosted and data resides. The `dataResidencyLocation` should be valid for the specified `countryCode`. See [official docs](https://aka.ms/B2CDataResidenc) for more information. Changing this forces a new AAD B2C Directory to be created. Possible values are `Asia Pacific`, `Australia`, `Europe`, `Global` and `United States`.
          * 
          * @return builder
          * 

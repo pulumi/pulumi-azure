@@ -261,14 +261,14 @@ public class ComputeCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.nodePublicIpEnabled);
     }
     /**
-     * A `scale_settings` block as defined below.
+     * A `scaleSettings` block as defined below.
      * 
      */
     @Export(name="scaleSettings", refs={ComputeClusterScaleSettings.class}, tree="[0]")
     private Output<ComputeClusterScaleSettings> scaleSettings;
 
     /**
-     * @return A `scale_settings` block as defined below.
+     * @return A `scaleSettings` block as defined below.
      * 
      */
     public Output<ComputeClusterScaleSettings> scaleSettings() {

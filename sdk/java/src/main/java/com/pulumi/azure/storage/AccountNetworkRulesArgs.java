@@ -59,7 +59,7 @@ public final class AccountNetworkRulesArgs extends com.pulumi.resources.Resource
      * 
      * &gt; **Note:** IP network rules have no effect on requests originating from the same Azure region as the storage account. Use Virtual network rules to allow same-region requests. Services deployed in the same region as the storage account use private Azure IP addresses for communication. Thus, you cannot restrict access to specific Azure services based on their public outbound IP address range.
      * 
-     * &gt; **Note:** User has to explicitly set `ip_rules` to empty slice (`[]`) to remove it.
+     * &gt; **Note:** User has to explicitly set `ipRules` to empty slice (`[]`) to remove it.
      * 
      */
     @Import(name="ipRules")
@@ -72,7 +72,7 @@ public final class AccountNetworkRulesArgs extends com.pulumi.resources.Resource
      * 
      * &gt; **Note:** IP network rules have no effect on requests originating from the same Azure region as the storage account. Use Virtual network rules to allow same-region requests. Services deployed in the same region as the storage account use private Azure IP addresses for communication. Thus, you cannot restrict access to specific Azure services based on their public outbound IP address range.
      * 
-     * &gt; **Note:** User has to explicitly set `ip_rules` to empty slice (`[]`) to remove it.
+     * &gt; **Note:** User has to explicitly set `ipRules` to empty slice (`[]`) to remove it.
      * 
      */
     public Optional<Output<List<String>>> ipRules() {
@@ -80,14 +80,14 @@ public final class AccountNetworkRulesArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * One or more `private_link_access` block as defined below.
+     * One or more `privateLinkAccess` block as defined below.
      * 
      */
     @Import(name="privateLinkAccessRules")
     private @Nullable Output<List<AccountNetworkRulesPrivateLinkAccessRuleArgs>> privateLinkAccessRules;
 
     /**
-     * @return One or more `private_link_access` block as defined below.
+     * @return One or more `privateLinkAccess` block as defined below.
      * 
      */
     public Optional<Output<List<AccountNetworkRulesPrivateLinkAccessRuleArgs>>> privateLinkAccessRules() {
@@ -112,7 +112,7 @@ public final class AccountNetworkRulesArgs extends com.pulumi.resources.Resource
     /**
      * A list of virtual network subnet ids to secure the storage account.
      * 
-     * &gt; **Note:** User has to explicitly set `virtual_network_subnet_ids` to empty slice (`[]`) to remove it.
+     * &gt; **Note:** User has to explicitly set `virtualNetworkSubnetIds` to empty slice (`[]`) to remove it.
      * 
      */
     @Import(name="virtualNetworkSubnetIds")
@@ -121,7 +121,7 @@ public final class AccountNetworkRulesArgs extends com.pulumi.resources.Resource
     /**
      * @return A list of virtual network subnet ids to secure the storage account.
      * 
-     * &gt; **Note:** User has to explicitly set `virtual_network_subnet_ids` to empty slice (`[]`) to remove it.
+     * &gt; **Note:** User has to explicitly set `virtualNetworkSubnetIds` to empty slice (`[]`) to remove it.
      * 
      */
     public Optional<Output<List<String>>> virtualNetworkSubnetIds() {
@@ -222,7 +222,7 @@ public final class AccountNetworkRulesArgs extends com.pulumi.resources.Resource
          * 
          * &gt; **Note:** IP network rules have no effect on requests originating from the same Azure region as the storage account. Use Virtual network rules to allow same-region requests. Services deployed in the same region as the storage account use private Azure IP addresses for communication. Thus, you cannot restrict access to specific Azure services based on their public outbound IP address range.
          * 
-         * &gt; **Note:** User has to explicitly set `ip_rules` to empty slice (`[]`) to remove it.
+         * &gt; **Note:** User has to explicitly set `ipRules` to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -239,7 +239,7 @@ public final class AccountNetworkRulesArgs extends com.pulumi.resources.Resource
          * 
          * &gt; **Note:** IP network rules have no effect on requests originating from the same Azure region as the storage account. Use Virtual network rules to allow same-region requests. Services deployed in the same region as the storage account use private Azure IP addresses for communication. Thus, you cannot restrict access to specific Azure services based on their public outbound IP address range.
          * 
-         * &gt; **Note:** User has to explicitly set `ip_rules` to empty slice (`[]`) to remove it.
+         * &gt; **Note:** User has to explicitly set `ipRules` to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class AccountNetworkRulesArgs extends com.pulumi.resources.Resource
          * 
          * &gt; **Note:** IP network rules have no effect on requests originating from the same Azure region as the storage account. Use Virtual network rules to allow same-region requests. Services deployed in the same region as the storage account use private Azure IP addresses for communication. Thus, you cannot restrict access to specific Azure services based on their public outbound IP address range.
          * 
-         * &gt; **Note:** User has to explicitly set `ip_rules` to empty slice (`[]`) to remove it.
+         * &gt; **Note:** User has to explicitly set `ipRules` to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -265,7 +265,7 @@ public final class AccountNetworkRulesArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param privateLinkAccessRules One or more `private_link_access` block as defined below.
+         * @param privateLinkAccessRules One or more `privateLinkAccess` block as defined below.
          * 
          * @return builder
          * 
@@ -276,7 +276,7 @@ public final class AccountNetworkRulesArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param privateLinkAccessRules One or more `private_link_access` block as defined below.
+         * @param privateLinkAccessRules One or more `privateLinkAccess` block as defined below.
          * 
          * @return builder
          * 
@@ -286,7 +286,7 @@ public final class AccountNetworkRulesArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param privateLinkAccessRules One or more `private_link_access` block as defined below.
+         * @param privateLinkAccessRules One or more `privateLinkAccess` block as defined below.
          * 
          * @return builder
          * 
@@ -319,7 +319,7 @@ public final class AccountNetworkRulesArgs extends com.pulumi.resources.Resource
         /**
          * @param virtualNetworkSubnetIds A list of virtual network subnet ids to secure the storage account.
          * 
-         * &gt; **Note:** User has to explicitly set `virtual_network_subnet_ids` to empty slice (`[]`) to remove it.
+         * &gt; **Note:** User has to explicitly set `virtualNetworkSubnetIds` to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -332,7 +332,7 @@ public final class AccountNetworkRulesArgs extends com.pulumi.resources.Resource
         /**
          * @param virtualNetworkSubnetIds A list of virtual network subnet ids to secure the storage account.
          * 
-         * &gt; **Note:** User has to explicitly set `virtual_network_subnet_ids` to empty slice (`[]`) to remove it.
+         * &gt; **Note:** User has to explicitly set `virtualNetworkSubnetIds` to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -344,7 +344,7 @@ public final class AccountNetworkRulesArgs extends com.pulumi.resources.Resource
         /**
          * @param virtualNetworkSubnetIds A list of virtual network subnet ids to secure the storage account.
          * 
-         * &gt; **Note:** User has to explicitly set `virtual_network_subnet_ids` to empty slice (`[]`) to remove it.
+         * &gt; **Note:** User has to explicitly set `virtualNetworkSubnetIds` to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 

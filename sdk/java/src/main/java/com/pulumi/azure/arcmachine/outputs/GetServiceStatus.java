@@ -13,26 +13,26 @@ import java.util.Objects;
 @CustomType
 public final class GetServiceStatus {
     /**
-     * @return A `extension_service` block as defined above.
+     * @return A `extensionService` block as defined above.
      * 
      */
     private List<GetServiceStatusExtensionService> extensionServices;
     /**
-     * @return A `guest_configuration_service` block as defined above.
+     * @return A `guestConfigurationService` block as defined above.
      * 
      */
     private List<GetServiceStatusGuestConfigurationService> guestConfigurationServices;
 
     private GetServiceStatus() {}
     /**
-     * @return A `extension_service` block as defined above.
+     * @return A `extensionService` block as defined above.
      * 
      */
     public List<GetServiceStatusExtensionService> extensionServices() {
         return this.extensionServices;
     }
     /**
-     * @return A `guest_configuration_service` block as defined above.
+     * @return A `guestConfigurationService` block as defined above.
      * 
      */
     public List<GetServiceStatusGuestConfigurationService> guestConfigurationServices() {

@@ -14,6 +14,85 @@ import (
 
 // Manages a Container Registry Token Password associated with a scope map.  For more information on scope maps and their tokens see the [product documentation](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-repository-scoped-permissions).
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/containerservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resource-group"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleRegistry, err := containerservice.NewRegistry(ctx, "example", &containerservice.RegistryArgs{
+//				Name:              pulumi.String("example-registry"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				Sku:               pulumi.String("Basic"),
+//				AdminEnabled:      pulumi.Bool(false),
+//				GeoreplicationLocations: []string{
+//					"East US",
+//					"West Europe",
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleRegistryScopeMap, err := containerservice.NewRegistryScopeMap(ctx, "example", &containerservice.RegistryScopeMapArgs{
+//				Name:                  pulumi.String("example-scope-map"),
+//				ContainerRegistryName: exampleRegistry.Name,
+//				ResourceGroupName:     example.Name,
+//				Actions: pulumi.StringArray{
+//					pulumi.String("repositories/repo1/content/read"),
+//					pulumi.String("repositories/repo1/content/write"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleRegistryToken, err := containerservice.NewRegistryToken(ctx, "example", &containerservice.RegistryTokenArgs{
+//				Name:                  pulumi.String("exampletoken"),
+//				ContainerRegistryName: exampleRegistry.Name,
+//				ResourceGroupName:     example.Name,
+//				ScopeMapId:            exampleRegistryScopeMap.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = containerservice.NewTokenPassword(ctx, "example", &containerservice.TokenPasswordArgs{
+//				ContainerRegistryTokenId: exampleRegistryToken.ID(),
+//				Password1: &containerservice.TokenPasswordPassword1Args{
+//					Expiry: pulumi.String("2023-03-22T17:57:36+08:00"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.ContainerRegistry` - 2023-11-01-preview
+//
 // ## Import
 //
 // Container Registry Token Passwords can be imported using the `resource id`, e.g.

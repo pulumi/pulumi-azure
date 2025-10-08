@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Batch.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The extension can contain either `protected_settings` or `provision_after_extensions` or no protected settings at all.
+        /// The extension can contain either `ProtectedSettings` or `ProvisionAfterExtensions` or no protected settings at all.
         /// </summary>
         public readonly string ProtectedSettings;
         /// <summary>

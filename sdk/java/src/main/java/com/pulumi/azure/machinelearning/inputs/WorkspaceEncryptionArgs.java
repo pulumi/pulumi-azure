@@ -49,7 +49,7 @@ public final class WorkspaceEncryptionArgs extends com.pulumi.resources.Resource
     /**
      * The Key Vault URI to access the encryption key.
      * 
-     * &gt; **Note:** `user_assigned_identity_id` must set when`identity.type` is `UserAssigned` or service won&#39;t be able to find the assigned permissions.
+     * &gt; **Note:** `userAssignedIdentityId` must set when`identity.type` is `UserAssigned` or service won&#39;t be able to find the assigned permissions.
      * 
      */
     @Import(name="userAssignedIdentityId")
@@ -58,7 +58,7 @@ public final class WorkspaceEncryptionArgs extends com.pulumi.resources.Resource
     /**
      * @return The Key Vault URI to access the encryption key.
      * 
-     * &gt; **Note:** `user_assigned_identity_id` must set when`identity.type` is `UserAssigned` or service won&#39;t be able to find the assigned permissions.
+     * &gt; **Note:** `userAssignedIdentityId` must set when`identity.type` is `UserAssigned` or service won&#39;t be able to find the assigned permissions.
      * 
      */
     public Optional<Output<String>> userAssignedIdentityId() {
@@ -136,7 +136,7 @@ public final class WorkspaceEncryptionArgs extends com.pulumi.resources.Resource
         /**
          * @param userAssignedIdentityId The Key Vault URI to access the encryption key.
          * 
-         * &gt; **Note:** `user_assigned_identity_id` must set when`identity.type` is `UserAssigned` or service won&#39;t be able to find the assigned permissions.
+         * &gt; **Note:** `userAssignedIdentityId` must set when`identity.type` is `UserAssigned` or service won&#39;t be able to find the assigned permissions.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class WorkspaceEncryptionArgs extends com.pulumi.resources.Resource
         /**
          * @param userAssignedIdentityId The Key Vault URI to access the encryption key.
          * 
-         * &gt; **Note:** `user_assigned_identity_id` must set when`identity.type` is `UserAssigned` or service won&#39;t be able to find the assigned permissions.
+         * &gt; **Note:** `userAssignedIdentityId` must set when`identity.type` is `UserAssigned` or service won&#39;t be able to find the assigned permissions.
          * 
          * @return builder
          * 

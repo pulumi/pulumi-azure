@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class LinuxFunctionAppSiteConfigApplicationStack
     {
         /// <summary>
-        /// One or more `docker` blocks as defined below.
+        /// One or more `Docker` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.LinuxFunctionAppSiteConfigApplicationStackDocker> Dockers;
         /// <summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// <summary>
         /// The Version of Java to use. Supported versions include `8`, `11`, `17`, `21`.
         /// 
-        /// &gt; **Note:** The value `21` is currently in Preview for `java_version`.
+        /// &gt; **Note:** The value `21` is currently in Preview for `JavaVersion`.
         /// </summary>
         public readonly string? JavaVersion;
         /// <summary>
@@ -44,7 +44,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool? UseCustomRuntime;
         /// <summary>
-        /// Should the DotNet process use an isolated runtime. Defaults to `false`.
+        /// Should the DotNet process use an isolated runtime. Defaults to `False`.
         /// </summary>
         public readonly bool? UseDotnetIsolatedRuntime;
 

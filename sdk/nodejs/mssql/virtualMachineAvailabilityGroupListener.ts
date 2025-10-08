@@ -9,6 +9,90 @@ import * as utilities from "../utilities";
 /**
  * Manages a Microsoft SQL Virtual Machine Availability Group Listener.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.network.getSubnet({
+ *     name: "examplesubnet",
+ *     virtualNetworkName: "examplevnet",
+ *     resourceGroupName: "example-resources",
+ * });
+ * const exampleGetLB = azure.lb.getLB({
+ *     name: "example-lb",
+ *     resourceGroupName: "example-resources",
+ * });
+ * const exampleGetVirtualMachine = (new Array(2)).map((_, i) => i).map(__index => (azure.compute.getVirtualMachine({
+ *     name: "example-vm",
+ *     resourceGroupName: "example-resources",
+ * })));
+ * const exampleVirtualMachineGroup = new azure.mssql.VirtualMachineGroup("example", {
+ *     name: "examplegroup",
+ *     resourceGroupName: "example-resources",
+ *     location: "West Europe",
+ *     sqlImageOffer: "SQL2017-WS2016",
+ *     sqlImageSku: "Developer",
+ *     wsfcDomainProfile: {
+ *         fqdn: "testdomain.com",
+ *         clusterSubnetType: "SingleSubnet",
+ *     },
+ * });
+ * const exampleVirtualMachine: azure.mssql.VirtualMachine[] = [];
+ * for (const range = {value: 0}; range.value < 2; range.value++) {
+ *     exampleVirtualMachine.push(new azure.mssql.VirtualMachine(`example-${range.value}`, {
+ *         virtualMachineId: exampleGetVirtualMachine[range.value].then(exampleGetVirtualMachine => exampleGetVirtualMachine.id),
+ *         sqlLicenseType: "PAYG",
+ *         sqlVirtualMachineGroupId: exampleVirtualMachineGroup.id,
+ *         wsfcDomainCredential: {
+ *             clusterBootstrapAccountPassword: "P@ssw0rd1234!",
+ *             clusterOperatorAccountPassword: "P@ssw0rd1234!",
+ *             sqlServiceAccountPassword: "P@ssw0rd1234!",
+ *         },
+ *     }));
+ * }
+ * const exampleVirtualMachineAvailabilityGroupListener = new azure.mssql.VirtualMachineAvailabilityGroupListener("example", {
+ *     name: "listener1",
+ *     availabilityGroupName: "availabilitygroup1",
+ *     port: 1433,
+ *     sqlVirtualMachineGroupId: exampleVirtualMachineGroup.id,
+ *     loadBalancerConfiguration: {
+ *         loadBalancerId: exampleGetLB.then(exampleGetLB => exampleGetLB.id),
+ *         privateIpAddress: "10.0.2.11",
+ *         probePort: 51572,
+ *         subnetId: example.then(example => example.id),
+ *         sqlVirtualMachineIds: [
+ *             exampleVirtualMachine[0].id,
+ *             exampleVirtualMachine[1].id,
+ *         ],
+ *     },
+ *     replicas: [
+ *         {
+ *             sqlVirtualMachineId: exampleVirtualMachine[0].id,
+ *             role: "Primary",
+ *             commit: "Synchronous_Commit",
+ *             failover: "Automatic",
+ *             readableSecondary: "All",
+ *         },
+ *         {
+ *             sqlVirtualMachineId: exampleVirtualMachine[1].id,
+ *             role: "Secondary",
+ *             commit: "Asynchronous_Commit",
+ *             failover: "Manual",
+ *             readableSecondary: "No",
+ *         },
+ *     ],
+ * });
+ * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.SqlVirtualMachine` - 2023-10-01
+ *
  * ## Import
  *
  * Microsoft SQL Virtual Machine Availability Group Listeners can be imported using the `resource id`, e.g.

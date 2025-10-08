@@ -38,14 +38,14 @@ public final class SparkClusterRolesHeadNodeArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
+     * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="scriptActions")
     private @Nullable Output<List<SparkClusterRolesHeadNodeScriptActionArgs>> scriptActions;
 
     /**
-     * @return The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
+     * @return The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<SparkClusterRolesHeadNodeScriptActionArgs>>> scriptActions() {
@@ -55,7 +55,7 @@ public final class SparkClusterRolesHeadNodeArgs extends com.pulumi.resources.Re
     /**
      * A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
+     * &gt; **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
      * 
      */
     @Import(name="sshKeys")
@@ -64,7 +64,7 @@ public final class SparkClusterRolesHeadNodeArgs extends com.pulumi.resources.Re
     /**
      * @return A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
+     * &gt; **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
      * 
      */
     public Optional<Output<List<String>>> sshKeys() {
@@ -187,7 +187,7 @@ public final class SparkClusterRolesHeadNodeArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param scriptActions The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
+         * @param scriptActions The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class SparkClusterRolesHeadNodeArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param scriptActions The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
+         * @param scriptActions The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class SparkClusterRolesHeadNodeArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param scriptActions The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
+         * @param scriptActions The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -220,7 +220,7 @@ public final class SparkClusterRolesHeadNodeArgs extends com.pulumi.resources.Re
         /**
          * @param sshKeys A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
+         * &gt; **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class SparkClusterRolesHeadNodeArgs extends com.pulumi.resources.Re
         /**
          * @param sshKeys A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
+         * &gt; **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class SparkClusterRolesHeadNodeArgs extends com.pulumi.resources.Re
         /**
          * @param sshKeys A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
+         * &gt; **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
          * 
          * @return builder
          * 

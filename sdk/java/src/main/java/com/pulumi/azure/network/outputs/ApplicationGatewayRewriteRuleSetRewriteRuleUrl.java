@@ -13,9 +13,9 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ApplicationGatewayRewriteRuleSetRewriteRuleUrl {
     /**
-     * @return The components used to rewrite the URL. Possible values are `path_only` and `query_string_only` to limit the rewrite to the URL Path or URL Query String only.
+     * @return The components used to rewrite the URL. Possible values are `pathOnly` and `queryStringOnly` to limit the rewrite to the URL Path or URL Query String only.
      * 
-     * &gt; **Note:** One or both of `path` and `query_string` must be specified. If one of these is not specified, it means the value will be empty. If you only want to rewrite `path` or `query_string`, use `components`.
+     * &gt; **Note:** One or both of `path` and `queryString` must be specified. If one of these is not specified, it means the value will be empty. If you only want to rewrite `path` or `queryString`, use `components`.
      * 
      */
     private @Nullable String components;
@@ -37,9 +37,9 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRuleUrl {
 
     private ApplicationGatewayRewriteRuleSetRewriteRuleUrl() {}
     /**
-     * @return The components used to rewrite the URL. Possible values are `path_only` and `query_string_only` to limit the rewrite to the URL Path or URL Query String only.
+     * @return The components used to rewrite the URL. Possible values are `pathOnly` and `queryStringOnly` to limit the rewrite to the URL Path or URL Query String only.
      * 
-     * &gt; **Note:** One or both of `path` and `query_string` must be specified. If one of these is not specified, it means the value will be empty. If you only want to rewrite `path` or `query_string`, use `components`.
+     * &gt; **Note:** One or both of `path` and `queryString` must be specified. If one of these is not specified, it means the value will be empty. If you only want to rewrite `path` or `queryString`, use `components`.
      * 
      */
     public Optional<String> components() {

@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetBackendAddressPoolBackendAddress {
     /**
-     * @return A list of `inbound_nat_rule_port_mapping` block as defined below.
+     * @return A list of `inboundNatRulePortMapping` block as defined below.
      * 
      */
     private List<GetBackendAddressPoolBackendAddressInboundNatRulePortMapping> inboundNatRulePortMappings;
@@ -35,7 +35,7 @@ public final class GetBackendAddressPoolBackendAddress {
 
     private GetBackendAddressPoolBackendAddress() {}
     /**
-     * @return A list of `inbound_nat_rule_port_mapping` block as defined below.
+     * @return A list of `inboundNatRulePortMapping` block as defined below.
      * 
      */
     public List<GetBackendAddressPoolBackendAddressInboundNatRulePortMapping> inboundNatRulePortMappings() {

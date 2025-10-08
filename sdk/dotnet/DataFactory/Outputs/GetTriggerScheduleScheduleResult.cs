@@ -30,7 +30,7 @@ namespace Pulumi.Azure.DataFactory.Outputs
         /// </summary>
         public readonly ImmutableArray<int> Minutes;
         /// <summary>
-        /// A `monthly` block as documented below, which specifies the days of the month on which the trigger is scheduled.
+        /// A `Monthly` block as documented below, which specifies the days of the month on which the trigger is scheduled.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetTriggerScheduleScheduleMonthlyResult> Monthlies;
 

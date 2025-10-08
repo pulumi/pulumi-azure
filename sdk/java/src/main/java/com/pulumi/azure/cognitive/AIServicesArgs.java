@@ -24,18 +24,18 @@ public final class AIServicesArgs extends com.pulumi.resources.ResourceArgs {
     public static final AIServicesArgs Empty = new AIServicesArgs();
 
     /**
-     * The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
+     * The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** If you do not specify a `custom_subdomain_name` then you will not be able to attach a Private Endpoint to the resource.
+     * &gt; **Note:** If you do not specify a `customSubdomainName` then you will not be able to attach a Private Endpoint to the resource.
      * 
      */
     @Import(name="customSubdomainName")
     private @Nullable Output<String> customSubdomainName;
 
     /**
-     * @return The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
+     * @return The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** If you do not specify a `custom_subdomain_name` then you will not be able to attach a Private Endpoint to the resource.
+     * &gt; **Note:** If you do not specify a `customSubdomainName` then you will not be able to attach a Private Endpoint to the resource.
      * 
      */
     public Optional<Output<String>> customSubdomainName() {
@@ -43,14 +43,14 @@ public final class AIServicesArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `customer_managed_key` block as documented below.
+     * A `customerManagedKey` block as documented below.
      * 
      */
     @Import(name="customerManagedKey")
     private @Nullable Output<AIServicesCustomerManagedKeyArgs> customerManagedKey;
 
     /**
-     * @return A `customer_managed_key` block as documented below.
+     * @return A `customerManagedKey` block as documented below.
      * 
      */
     public Optional<Output<AIServicesCustomerManagedKeyArgs>> customerManagedKey() {
@@ -133,14 +133,14 @@ public final class AIServicesArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `network_acls` block as defined below. When this property is specified, `custom_subdomain_name` is also required to be set.
+     * A `networkAcls` block as defined below. When this property is specified, `customSubdomainName` is also required to be set.
      * 
      */
     @Import(name="networkAcls")
     private @Nullable Output<AIServicesNetworkAclsArgs> networkAcls;
 
     /**
-     * @return A `network_acls` block as defined below. When this property is specified, `custom_subdomain_name` is also required to be set.
+     * @return A `networkAcls` block as defined below. When this property is specified, `customSubdomainName` is also required to be set.
      * 
      */
     public Optional<Output<AIServicesNetworkAclsArgs>> networkAcls() {
@@ -279,9 +279,9 @@ public final class AIServicesArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customSubdomainName The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
+         * @param customSubdomainName The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** If you do not specify a `custom_subdomain_name` then you will not be able to attach a Private Endpoint to the resource.
+         * &gt; **Note:** If you do not specify a `customSubdomainName` then you will not be able to attach a Private Endpoint to the resource.
          * 
          * @return builder
          * 
@@ -292,9 +292,9 @@ public final class AIServicesArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customSubdomainName The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
+         * @param customSubdomainName The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** If you do not specify a `custom_subdomain_name` then you will not be able to attach a Private Endpoint to the resource.
+         * &gt; **Note:** If you do not specify a `customSubdomainName` then you will not be able to attach a Private Endpoint to the resource.
          * 
          * @return builder
          * 
@@ -304,7 +304,7 @@ public final class AIServicesArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customerManagedKey A `customer_managed_key` block as documented below.
+         * @param customerManagedKey A `customerManagedKey` block as documented below.
          * 
          * @return builder
          * 
@@ -315,7 +315,7 @@ public final class AIServicesArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customerManagedKey A `customer_managed_key` block as documented below.
+         * @param customerManagedKey A `customerManagedKey` block as documented below.
          * 
          * @return builder
          * 
@@ -440,7 +440,7 @@ public final class AIServicesArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkAcls A `network_acls` block as defined below. When this property is specified, `custom_subdomain_name` is also required to be set.
+         * @param networkAcls A `networkAcls` block as defined below. When this property is specified, `customSubdomainName` is also required to be set.
          * 
          * @return builder
          * 
@@ -451,7 +451,7 @@ public final class AIServicesArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkAcls A `network_acls` block as defined below. When this property is specified, `custom_subdomain_name` is also required to be set.
+         * @param networkAcls A `networkAcls` block as defined below. When this property is specified, `customSubdomainName` is also required to be set.
          * 
          * @return builder
          * 

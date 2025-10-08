@@ -106,28 +106,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:devtest/schedule:Schedule")
 public class Schedule extends com.pulumi.resources.CustomResource {
     /**
-     * The properties of a daily schedule. If the schedule occurs once each day of the week, specify the daily recurrence. A `daily_recurrence` block as defined below.
+     * The properties of a daily schedule. If the schedule occurs once each day of the week, specify the daily recurrence. A `dailyRecurrence` block as defined below.
      * 
      */
     @Export(name="dailyRecurrence", refs={ScheduleDailyRecurrence.class}, tree="[0]")
     private Output</* @Nullable */ ScheduleDailyRecurrence> dailyRecurrence;
 
     /**
-     * @return The properties of a daily schedule. If the schedule occurs once each day of the week, specify the daily recurrence. A `daily_recurrence` block as defined below.
+     * @return The properties of a daily schedule. If the schedule occurs once each day of the week, specify the daily recurrence. A `dailyRecurrence` block as defined below.
      * 
      */
     public Output<Optional<ScheduleDailyRecurrence>> dailyRecurrence() {
         return Codegen.optional(this.dailyRecurrence);
     }
     /**
-     * The properties of an hourly schedule. If the schedule occurs multiple times a day, specify the hourly recurrence. A `hourly_recurrence` block as defined below.
+     * The properties of an hourly schedule. If the schedule occurs multiple times a day, specify the hourly recurrence. A `hourlyRecurrence` block as defined below.
      * 
      */
     @Export(name="hourlyRecurrence", refs={ScheduleHourlyRecurrence.class}, tree="[0]")
     private Output</* @Nullable */ ScheduleHourlyRecurrence> hourlyRecurrence;
 
     /**
-     * @return The properties of an hourly schedule. If the schedule occurs multiple times a day, specify the hourly recurrence. A `hourly_recurrence` block as defined below.
+     * @return The properties of an hourly schedule. If the schedule occurs multiple times a day, specify the hourly recurrence. A `hourlyRecurrence` block as defined below.
      * 
      */
     public Output<Optional<ScheduleHourlyRecurrence>> hourlyRecurrence() {
@@ -162,28 +162,28 @@ public class Schedule extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * The name of the dev test lab schedule. Valid value for name depends on the `task_type`. For instance for task_type `LabVmsStartupTask` the name needs to be `LabVmAutoStart`. Changing this forces a new resource to be created.
+     * The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the dev test lab schedule. Valid value for name depends on the `task_type`. For instance for task_type `LabVmsStartupTask` the name needs to be `LabVmAutoStart`. Changing this forces a new resource to be created.
+     * @return The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The notification setting of a schedule. A `notification_settings` block as defined below.
+     * The notification setting of a schedule. A `notificationSettings` block as defined below.
      * 
      */
     @Export(name="notificationSettings", refs={ScheduleNotificationSettings.class}, tree="[0]")
     private Output<ScheduleNotificationSettings> notificationSettings;
 
     /**
-     * @return The notification setting of a schedule. A `notification_settings` block as defined below.
+     * @return The notification setting of a schedule. A `notificationSettings` block as defined below.
      * 
      */
     public Output<ScheduleNotificationSettings> notificationSettings() {
@@ -260,14 +260,14 @@ public class Schedule extends com.pulumi.resources.CustomResource {
         return this.timeZoneId;
     }
     /**
-     * The properties of a weekly schedule. If the schedule occurs only some days of the week, specify the weekly recurrence. A `weekly_recurrence` block as defined below.
+     * The properties of a weekly schedule. If the schedule occurs only some days of the week, specify the weekly recurrence. A `weeklyRecurrence` block as defined below.
      * 
      */
     @Export(name="weeklyRecurrence", refs={ScheduleWeeklyRecurrence.class}, tree="[0]")
     private Output</* @Nullable */ ScheduleWeeklyRecurrence> weeklyRecurrence;
 
     /**
-     * @return The properties of a weekly schedule. If the schedule occurs only some days of the week, specify the weekly recurrence. A `weekly_recurrence` block as defined below.
+     * @return The properties of a weekly schedule. If the schedule occurs only some days of the week, specify the weekly recurrence. A `weeklyRecurrence` block as defined below.
      * 
      */
     public Output<Optional<ScheduleWeeklyRecurrence>> weeklyRecurrence() {

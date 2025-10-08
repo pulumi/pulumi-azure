@@ -18,7 +18,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Substitute;
         /// <summary>
-        /// A `substitute_from` block as defined below.
+        /// A `SubstituteFrom` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FluxConfigurationKustomizationPostBuildSubstituteFrom> SubstituteFroms;
 

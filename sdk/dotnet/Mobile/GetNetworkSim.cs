@@ -13,18 +13,51 @@ namespace Pulumi.Azure.Mobile
     {
         /// <summary>
         /// Get information about a Mobile Network Sim.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// 
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.MobileNetwork` - 2022-11-01
         /// </summary>
         public static Task<GetNetworkSimResult> InvokeAsync(GetNetworkSimArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkSimResult>("azure:mobile/getNetworkSim:getNetworkSim", args ?? new GetNetworkSimArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get information about a Mobile Network Sim.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// 
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.MobileNetwork` - 2022-11-01
         /// </summary>
         public static Output<GetNetworkSimResult> Invoke(GetNetworkSimInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkSimResult>("azure:mobile/getNetworkSim:getNetworkSim", args ?? new GetNetworkSimInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get information about a Mobile Network Sim.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// 
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.MobileNetwork` - 2022-11-01
         /// </summary>
         public static Output<GetNetworkSimResult> Invoke(GetNetworkSimInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkSimResult>("azure:mobile/getNetworkSim:getNetworkSim", args ?? new GetNetworkSimInvokeArgs(), options.WithDefaults());
@@ -102,7 +135,7 @@ namespace Pulumi.Azure.Mobile
         /// </summary>
         public readonly string SimState;
         /// <summary>
-        /// A `static_ip_configuration` block as defined below.
+        /// A `StaticIpConfiguration` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworkSimStaticIpConfigurationResult> StaticIpConfigurations;
         /// <summary>

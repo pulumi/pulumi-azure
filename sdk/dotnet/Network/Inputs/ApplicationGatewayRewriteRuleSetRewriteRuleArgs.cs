@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<Inputs.ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs>? _conditions;
 
         /// <summary>
-        /// One or more `condition` blocks as defined above.
+        /// One or more `Condition` blocks as defined above.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs> Conditions
         {
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<Inputs.ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs>? _requestHeaderConfigurations;
 
         /// <summary>
-        /// One or more `request_header_configuration` blocks as defined above.
+        /// One or more `RequestHeaderConfiguration` blocks as defined above.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs> RequestHeaderConfigurations
         {
@@ -46,7 +46,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<Inputs.ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs>? _responseHeaderConfigurations;
 
         /// <summary>
-        /// One or more `response_header_configuration` blocks as defined above.
+        /// One or more `ResponseHeaderConfiguration` blocks as defined above.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs> ResponseHeaderConfigurations
         {
@@ -61,7 +61,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<int> RuleSequence { get; set; } = null!;
 
         /// <summary>
-        /// One `url` block as defined below
+        /// One `Url` block as defined below
         /// </summary>
         [Input("url")]
         public Input<Inputs.ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs>? Url { get; set; }

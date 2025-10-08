@@ -14,9 +14,9 @@ namespace Pulumi.Azure.Monitoring.Outputs
     public sealed class ActionGroupWebhookReceiver
     {
         /// <summary>
-        /// The `aad_auth` block as defined below.
+        /// The `AadAuth` block as defined below.
         /// 
-        /// &gt; **Note:** Before adding a secure webhook receiver by setting `aad_auth`, please read [the configuration instruction of the AAD application](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#secure-webhook).
+        /// &gt; **Note:** Before adding a secure webhook receiver by setting `AadAuth`, please read [the configuration instruction of the AAD application](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#secure-webhook).
         /// </summary>
         public readonly Outputs.ActionGroupWebhookReceiverAadAuth? AadAuth;
         /// <summary>

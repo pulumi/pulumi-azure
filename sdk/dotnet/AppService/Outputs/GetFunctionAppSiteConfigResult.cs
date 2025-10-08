@@ -23,7 +23,7 @@ namespace Pulumi.Azure.AppService.Outputs
         public readonly int AppScaleLimit;
         public readonly string AutoSwapSlotName;
         /// <summary>
-        /// A `cors` block as defined above.
+        /// A `Cors` block as defined above.
         /// </summary>
         public readonly Outputs.GetFunctionAppSiteConfigCorsResult Cors;
         /// <summary>
@@ -44,7 +44,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool Http2Enabled;
         /// <summary>
-        /// One or more `ip_restriction` blocks as defined above.
+        /// One or more `IpRestriction` blocks as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFunctionAppSiteConfigIpRestrictionResult> IpRestrictions;
         /// <summary>
@@ -68,7 +68,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool RuntimeScaleMonitoringEnabled;
         /// <summary>
-        /// One or more `scm_ip_restriction` blocks as defined above.
+        /// One or more `ScmIpRestriction` blocks as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFunctionAppSiteConfigScmIpRestrictionResult> ScmIpRestrictions;
         /// <summary>

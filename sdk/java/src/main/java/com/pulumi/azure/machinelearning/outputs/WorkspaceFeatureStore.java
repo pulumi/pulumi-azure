@@ -24,7 +24,7 @@ public final class WorkspaceFeatureStore {
     /**
      * @return The name of online store connection.
      * 
-     * &gt; **Note:** `feature_store` must be set when`kind` is `FeatureStore`
+     * &gt; **Note:** `featureStore` must be set when`kind` is `FeatureStore`
      * 
      */
     private @Nullable String onlineConnectionName;
@@ -47,7 +47,7 @@ public final class WorkspaceFeatureStore {
     /**
      * @return The name of online store connection.
      * 
-     * &gt; **Note:** `feature_store` must be set when`kind` is `FeatureStore`
+     * &gt; **Note:** `featureStore` must be set when`kind` is `FeatureStore`
      * 
      */
     public Optional<String> onlineConnectionName() {

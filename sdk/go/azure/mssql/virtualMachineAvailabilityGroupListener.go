@@ -14,6 +14,15 @@ import (
 
 // Manages a Microsoft SQL Virtual Machine Availability Group Listener.
 //
+// ## Example Usage
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.SqlVirtualMachine` - 2023-10-01
+//
 // ## Import
 //
 // Microsoft SQL Virtual Machine Availability Group Listeners can be imported using the `resource id`, e.g.

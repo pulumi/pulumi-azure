@@ -16,6 +16,78 @@ import javax.annotation.Nullable;
 /**
  * Manages a Redis Cache Access Policy Assignment
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.redis.Cache;
+ * import com.pulumi.azure.redis.CacheArgs;
+ * import com.pulumi.azure.redis.inputs.CacheRedisConfigurationArgs;
+ * import com.pulumi.azure.redis.CacheAccessPolicyAssignment;
+ * import com.pulumi.azure.redis.CacheAccessPolicyAssignmentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var test = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+ * 
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("example-resources")
+ *             .location("East US")
+ *             .build());
+ * 
+ *         var exampleCache = new Cache("exampleCache", CacheArgs.builder()
+ *             .name("example")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .capacity(1)
+ *             .family("P")
+ *             .skuName("Premium")
+ *             .enableNonSslPort(false)
+ *             .redisConfiguration(CacheRedisConfigurationArgs.builder()
+ *                 .maxmemoryReserved(2)
+ *                 .maxmemoryDelta(2)
+ *                 .maxmemoryPolicy("allkeys-lru")
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleCacheAccessPolicyAssignment = new CacheAccessPolicyAssignment("exampleCacheAccessPolicyAssignment", CacheAccessPolicyAssignmentArgs.builder()
+ *             .name("example")
+ *             .redisCacheId(exampleCache.id())
+ *             .accessPolicyName("Data Contributor")
+ *             .objectId(test.objectId())
+ *             .objectIdAlias("ServicePrincipal")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Cache` - 2024-11-01
+ * 
  * ## Import
  * 
  * Redis Cache Policy Assignment can be imported using the `resource id`, e.g.

@@ -13,18 +13,132 @@ namespace Pulumi.Azure.Network
     {
         /// <summary>
         /// Use this data source to access information about an existing Virtual Wan.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Network.GetVirtualWan.Invoke(new()
+        ///     {
+        ///         Name = "existing",
+        ///         ResourceGroupName = "existing",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getVirtualWanResult =&gt; getVirtualWanResult.Id),
+        ///         ["allowBranchToBranchTraffic"] = example.Apply(getVirtualWanResult =&gt; getVirtualWanResult.AllowBranchToBranchTraffic),
+        ///         ["disableVpnEncryption"] = example.Apply(getVirtualWanResult =&gt; getVirtualWanResult.DisableVpnEncryption),
+        ///         ["location"] = example.Apply(getVirtualWanResult =&gt; getVirtualWanResult.Location),
+        ///         ["office365LocalBreakoutCategory"] = example.Apply(getVirtualWanResult =&gt; getVirtualWanResult.Office365LocalBreakoutCategory),
+        ///         ["sku"] = example.Apply(getVirtualWanResult =&gt; getVirtualWanResult.Sku),
+        ///         ["tags"] = example.Apply(getVirtualWanResult =&gt; getVirtualWanResult.Tags),
+        ///         ["virtualHubs"] = example.Apply(getVirtualWanResult =&gt; getVirtualWanResult.VirtualHubs),
+        ///         ["vpnSites"] = example.Apply(getVirtualWanResult =&gt; getVirtualWanResult.VpnSites),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Network` - 2024-05-01
         /// </summary>
         public static Task<GetVirtualWanResult> InvokeAsync(GetVirtualWanArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualWanResult>("azure:network/getVirtualWan:getVirtualWan", args ?? new GetVirtualWanArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Virtual Wan.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Network.GetVirtualWan.Invoke(new()
+        ///     {
+        ///         Name = "existing",
+        ///         ResourceGroupName = "existing",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getVirtualWanResult =&gt; getVirtualWanResult.Id),
+        ///         ["allowBranchToBranchTraffic"] = example.Apply(getVirtualWanResult =&gt; getVirtualWanResult.AllowBranchToBranchTraffic),
+        ///         ["disableVpnEncryption"] = example.Apply(getVirtualWanResult =&gt; getVirtualWanResult.DisableVpnEncryption),
+        ///         ["location"] = example.Apply(getVirtualWanResult =&gt; getVirtualWanResult.Location),
+        ///         ["office365LocalBreakoutCategory"] = example.Apply(getVirtualWanResult =&gt; getVirtualWanResult.Office365LocalBreakoutCategory),
+        ///         ["sku"] = example.Apply(getVirtualWanResult =&gt; getVirtualWanResult.Sku),
+        ///         ["tags"] = example.Apply(getVirtualWanResult =&gt; getVirtualWanResult.Tags),
+        ///         ["virtualHubs"] = example.Apply(getVirtualWanResult =&gt; getVirtualWanResult.VirtualHubs),
+        ///         ["vpnSites"] = example.Apply(getVirtualWanResult =&gt; getVirtualWanResult.VpnSites),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Network` - 2024-05-01
         /// </summary>
         public static Output<GetVirtualWanResult> Invoke(GetVirtualWanInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualWanResult>("azure:network/getVirtualWan:getVirtualWan", args ?? new GetVirtualWanInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Virtual Wan.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Network.GetVirtualWan.Invoke(new()
+        ///     {
+        ///         Name = "existing",
+        ///         ResourceGroupName = "existing",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getVirtualWanResult =&gt; getVirtualWanResult.Id),
+        ///         ["allowBranchToBranchTraffic"] = example.Apply(getVirtualWanResult =&gt; getVirtualWanResult.AllowBranchToBranchTraffic),
+        ///         ["disableVpnEncryption"] = example.Apply(getVirtualWanResult =&gt; getVirtualWanResult.DisableVpnEncryption),
+        ///         ["location"] = example.Apply(getVirtualWanResult =&gt; getVirtualWanResult.Location),
+        ///         ["office365LocalBreakoutCategory"] = example.Apply(getVirtualWanResult =&gt; getVirtualWanResult.Office365LocalBreakoutCategory),
+        ///         ["sku"] = example.Apply(getVirtualWanResult =&gt; getVirtualWanResult.Sku),
+        ///         ["tags"] = example.Apply(getVirtualWanResult =&gt; getVirtualWanResult.Tags),
+        ///         ["virtualHubs"] = example.Apply(getVirtualWanResult =&gt; getVirtualWanResult.VirtualHubs),
+        ///         ["vpnSites"] = example.Apply(getVirtualWanResult =&gt; getVirtualWanResult.VpnSites),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Network` - 2024-05-01
         /// </summary>
         public static Output<GetVirtualWanResult> Invoke(GetVirtualWanInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualWanResult>("azure:network/getVirtualWan:getVirtualWan", args ?? new GetVirtualWanInvokeArgs(), options.WithDefaults());

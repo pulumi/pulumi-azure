@@ -144,7 +144,7 @@ namespace Pulumi.Azure.Storage
     public partial class ManagementPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A `rule` block as documented below.
+        /// A `Rule` block as documented below.
         /// </summary>
         [Output("rules")]
         public Output<ImmutableArray<Outputs.ManagementPolicyRule>> Rules { get; private set; } = null!;
@@ -205,7 +205,7 @@ namespace Pulumi.Azure.Storage
         private InputList<Inputs.ManagementPolicyRuleArgs>? _rules;
 
         /// <summary>
-        /// A `rule` block as documented below.
+        /// A `Rule` block as documented below.
         /// </summary>
         public InputList<Inputs.ManagementPolicyRuleArgs> Rules
         {
@@ -231,7 +231,7 @@ namespace Pulumi.Azure.Storage
         private InputList<Inputs.ManagementPolicyRuleGetArgs>? _rules;
 
         /// <summary>
-        /// A `rule` block as documented below.
+        /// A `Rule` block as documented below.
         /// </summary>
         public InputList<Inputs.ManagementPolicyRuleGetArgs> Rules
         {

@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Backup.Inputs
     public sealed class PolicyVMWorkloadProtectionPolicyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `backup` block as defined below.
+        /// A `Backup` block as defined below.
         /// </summary>
         [Input("backup", required: true)]
         public Input<Inputs.PolicyVMWorkloadProtectionPolicyBackupGetArgs> Backup { get; set; } = null!;
@@ -25,31 +25,31 @@ namespace Pulumi.Azure.Backup.Inputs
         public Input<string> PolicyType { get; set; } = null!;
 
         /// <summary>
-        /// A `retention_daily` block as defined below.
+        /// A `RetentionDaily` block as defined below.
         /// </summary>
         [Input("retentionDaily")]
         public Input<Inputs.PolicyVMWorkloadProtectionPolicyRetentionDailyGetArgs>? RetentionDaily { get; set; }
 
         /// <summary>
-        /// A `retention_monthly` block as defined below.
+        /// A `RetentionMonthly` block as defined below.
         /// </summary>
         [Input("retentionMonthly")]
         public Input<Inputs.PolicyVMWorkloadProtectionPolicyRetentionMonthlyGetArgs>? RetentionMonthly { get; set; }
 
         /// <summary>
-        /// A `retention_weekly` block as defined below.
+        /// A `RetentionWeekly` block as defined below.
         /// </summary>
         [Input("retentionWeekly")]
         public Input<Inputs.PolicyVMWorkloadProtectionPolicyRetentionWeeklyGetArgs>? RetentionWeekly { get; set; }
 
         /// <summary>
-        /// A `retention_yearly` block as defined below.
+        /// A `RetentionYearly` block as defined below.
         /// </summary>
         [Input("retentionYearly")]
         public Input<Inputs.PolicyVMWorkloadProtectionPolicyRetentionYearlyGetArgs>? RetentionYearly { get; set; }
 
         /// <summary>
-        /// A `simple_retention` block as defined below.
+        /// A `SimpleRetention` block as defined below.
         /// </summary>
         [Input("simpleRetention")]
         public Input<Inputs.PolicyVMWorkloadProtectionPolicySimpleRetentionGetArgs>? SimpleRetention { get; set; }

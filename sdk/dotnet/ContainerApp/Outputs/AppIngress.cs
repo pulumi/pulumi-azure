@@ -18,25 +18,25 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly bool? AllowInsecureConnections;
         /// <summary>
-        /// The client certificate mode for the Ingress. Possible values are `require`, `accept`, and `ignore`.
+        /// The client certificate mode for the Ingress. Possible values are `Require`, `Accept`, and `Ignore`.
         /// </summary>
         public readonly string? ClientCertificateMode;
         /// <summary>
-        /// A `cors` block as defined below.
+        /// A `Cors` block as defined below.
         /// </summary>
         public readonly Outputs.AppIngressCors? Cors;
         /// <summary>
-        /// One or more `custom_domain` block as detailed below.
+        /// One or more `CustomDomain` block as detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AppIngressCustomDomain> CustomDomains;
         /// <summary>
         /// The exposed port on the container for the Ingress traffic.
         /// 
-        /// &gt; **Note:** `exposed_port` can only be specified when `transport` is set to `tcp`.
+        /// &gt; **Note:** `ExposedPort` can only be specified when `Transport` is set to `Tcp`.
         /// </summary>
         public readonly int? ExposedPort;
         /// <summary>
-        /// Are connections to this Ingress from outside the Container App Environment enabled? Defaults to `false`.
+        /// Are connections to this Ingress from outside the Container App Environment enabled? Defaults to `False`.
         /// </summary>
         public readonly bool? ExternalEnabled;
         /// <summary>
@@ -44,7 +44,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly string? Fqdn;
         /// <summary>
-        /// One or more `ip_security_restriction` blocks for IP-filtering rules as defined below.
+        /// One or more `IpSecurityRestriction` blocks for IP-filtering rules as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AppIngressIpSecurityRestriction> IpSecurityRestrictions;
         /// <summary>
@@ -52,13 +52,13 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly int TargetPort;
         /// <summary>
-        /// One or more `traffic_weight` blocks as detailed below.
+        /// One or more `TrafficWeight` blocks as detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AppIngressTrafficWeight> TrafficWeights;
         /// <summary>
-        /// The transport method for the Ingress. Possible values are `auto`, `http`, `http2` and `tcp`. Defaults to `auto`.
+        /// The transport method for the Ingress. Possible values are `Auto`, `Http`, `Http2` and `Tcp`. Defaults to `Auto`.
         /// 
-        /// &gt; **Note:** if `transport` is set to `tcp`, `exposed_port` and `target_port` should be set at the same time.
+        /// &gt; **Note:** if `Transport` is set to `Tcp`, `ExposedPort` and `TargetPort` should be set at the same time.
         /// </summary>
         public readonly string? Transport;
 

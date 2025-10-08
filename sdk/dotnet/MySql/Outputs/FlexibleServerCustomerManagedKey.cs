@@ -18,9 +18,9 @@ namespace Pulumi.Azure.MySql.Outputs
         /// </summary>
         public readonly string? GeoBackupKeyVaultKeyId;
         /// <summary>
-        /// The geo backup user managed identity id for a Customer Managed Key. Should be added with `identity_ids`. It can't cross region and need identity in same region as geo backup.
+        /// The geo backup user managed identity id for a Customer Managed Key. Should be added with `IdentityIds`. It can't cross region and need identity in same region as geo backup.
         /// 
-        /// &gt; **Note:** `primary_user_assigned_identity_id` or `geo_backup_user_assigned_identity_id` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        /// &gt; **Note:** `PrimaryUserAssignedIdentityId` or `GeoBackupUserAssignedIdentityId` is required when `Type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         /// </summary>
         public readonly string? GeoBackupUserAssignedIdentityId;
         /// <summary>
@@ -32,7 +32,7 @@ namespace Pulumi.Azure.MySql.Outputs
         /// </summary>
         public readonly string? ManagedHsmKeyId;
         /// <summary>
-        /// Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identity_ids`.
+        /// Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `IdentityIds`.
         /// </summary>
         public readonly string? PrimaryUserAssignedIdentityId;
 

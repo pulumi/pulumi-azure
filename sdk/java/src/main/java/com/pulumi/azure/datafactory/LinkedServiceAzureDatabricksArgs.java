@@ -112,14 +112,14 @@ public final class LinkedServiceAzureDatabricksArgs extends com.pulumi.resources
     }
 
     /**
-     * The cluster_id of an existing cluster within the linked ADB instance.
+     * The clusterId of an existing cluster within the linked ADB instance.
      * 
      */
     @Import(name="existingClusterId")
     private @Nullable Output<String> existingClusterId;
 
     /**
-     * @return The cluster_id of an existing cluster within the linked ADB instance.
+     * @return The clusterId of an existing cluster within the linked ADB instance.
      * 
      */
     public Optional<Output<String>> existingClusterId() {
@@ -127,14 +127,14 @@ public final class LinkedServiceAzureDatabricksArgs extends com.pulumi.resources
     }
 
     /**
-     * Leverages an instance pool within the linked ADB instance as one `instance_pool` block defined below.
+     * Leverages an instance pool within the linked ADB instance as one `instancePool` block defined below.
      * 
      */
     @Import(name="instancePool")
     private @Nullable Output<LinkedServiceAzureDatabricksInstancePoolArgs> instancePool;
 
     /**
-     * @return Leverages an instance pool within the linked ADB instance as one `instance_pool` block defined below.
+     * @return Leverages an instance pool within the linked ADB instance as one `instancePool` block defined below.
      * 
      */
     public Optional<Output<LinkedServiceAzureDatabricksInstancePoolArgs>> instancePool() {
@@ -157,14 +157,14 @@ public final class LinkedServiceAzureDatabricksArgs extends com.pulumi.resources
     }
 
     /**
-     * Authenticate to ADB via Azure Key Vault Linked Service as defined in the `key_vault_password` block below.
+     * Authenticate to ADB via Azure Key Vault Linked Service as defined in the `keyVaultPassword` block below.
      * 
      */
     @Import(name="keyVaultPassword")
     private @Nullable Output<LinkedServiceAzureDatabricksKeyVaultPasswordArgs> keyVaultPassword;
 
     /**
-     * @return Authenticate to ADB via Azure Key Vault Linked Service as defined in the `key_vault_password` block below.
+     * @return Authenticate to ADB via Azure Key Vault Linked Service as defined in the `keyVaultPassword` block below.
      * 
      */
     public Optional<Output<LinkedServiceAzureDatabricksKeyVaultPasswordArgs>> keyVaultPassword() {
@@ -202,14 +202,14 @@ public final class LinkedServiceAzureDatabricksArgs extends com.pulumi.resources
     }
 
     /**
-     * Creates new clusters within the linked ADB instance as defined in the `new_cluster_config` block below.
+     * Creates new clusters within the linked ADB instance as defined in the `newClusterConfig` block below.
      * 
      */
     @Import(name="newClusterConfig")
     private @Nullable Output<LinkedServiceAzureDatabricksNewClusterConfigArgs> newClusterConfig;
 
     /**
-     * @return Creates new clusters within the linked ADB instance as defined in the `new_cluster_config` block below.
+     * @return Creates new clusters within the linked ADB instance as defined in the `newClusterConfig` block below.
      * 
      */
     public Optional<Output<LinkedServiceAzureDatabricksNewClusterConfigArgs>> newClusterConfig() {
@@ -405,7 +405,7 @@ public final class LinkedServiceAzureDatabricksArgs extends com.pulumi.resources
         }
 
         /**
-         * @param existingClusterId The cluster_id of an existing cluster within the linked ADB instance.
+         * @param existingClusterId The clusterId of an existing cluster within the linked ADB instance.
          * 
          * @return builder
          * 
@@ -416,7 +416,7 @@ public final class LinkedServiceAzureDatabricksArgs extends com.pulumi.resources
         }
 
         /**
-         * @param existingClusterId The cluster_id of an existing cluster within the linked ADB instance.
+         * @param existingClusterId The clusterId of an existing cluster within the linked ADB instance.
          * 
          * @return builder
          * 
@@ -426,7 +426,7 @@ public final class LinkedServiceAzureDatabricksArgs extends com.pulumi.resources
         }
 
         /**
-         * @param instancePool Leverages an instance pool within the linked ADB instance as one `instance_pool` block defined below.
+         * @param instancePool Leverages an instance pool within the linked ADB instance as one `instancePool` block defined below.
          * 
          * @return builder
          * 
@@ -437,7 +437,7 @@ public final class LinkedServiceAzureDatabricksArgs extends com.pulumi.resources
         }
 
         /**
-         * @param instancePool Leverages an instance pool within the linked ADB instance as one `instance_pool` block defined below.
+         * @param instancePool Leverages an instance pool within the linked ADB instance as one `instancePool` block defined below.
          * 
          * @return builder
          * 
@@ -468,7 +468,7 @@ public final class LinkedServiceAzureDatabricksArgs extends com.pulumi.resources
         }
 
         /**
-         * @param keyVaultPassword Authenticate to ADB via Azure Key Vault Linked Service as defined in the `key_vault_password` block below.
+         * @param keyVaultPassword Authenticate to ADB via Azure Key Vault Linked Service as defined in the `keyVaultPassword` block below.
          * 
          * @return builder
          * 
@@ -479,7 +479,7 @@ public final class LinkedServiceAzureDatabricksArgs extends com.pulumi.resources
         }
 
         /**
-         * @param keyVaultPassword Authenticate to ADB via Azure Key Vault Linked Service as defined in the `key_vault_password` block below.
+         * @param keyVaultPassword Authenticate to ADB via Azure Key Vault Linked Service as defined in the `keyVaultPassword` block below.
          * 
          * @return builder
          * 
@@ -531,7 +531,7 @@ public final class LinkedServiceAzureDatabricksArgs extends com.pulumi.resources
         }
 
         /**
-         * @param newClusterConfig Creates new clusters within the linked ADB instance as defined in the `new_cluster_config` block below.
+         * @param newClusterConfig Creates new clusters within the linked ADB instance as defined in the `newClusterConfig` block below.
          * 
          * @return builder
          * 
@@ -542,7 +542,7 @@ public final class LinkedServiceAzureDatabricksArgs extends com.pulumi.resources
         }
 
         /**
-         * @param newClusterConfig Creates new clusters within the linked ADB instance as defined in the `new_cluster_config` block below.
+         * @param newClusterConfig Creates new clusters within the linked ADB instance as defined in the `newClusterConfig` block below.
          * 
          * @return builder
          * 

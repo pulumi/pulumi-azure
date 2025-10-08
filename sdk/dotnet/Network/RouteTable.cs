@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages a Route Table
     /// 
-    /// &gt; **NOTE on Route Tables and Routes:** There is both a standalone `route` resource, and allows for Routes to be defined in-line within the `route_table` resource.
+    /// &gt; **NOTE on Route Tables and Routes:** There is both a standalone `Route` resource, and allows for Routes to be defined in-line within the `RouteTable` resource.
     /// At this time you cannot use a Route Table with in-line Routes in conjunction with any Route resources. Doing so will cause a conflict of Route configurations and will overwrite Routes.
     /// 
     /// ## Example Usage
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Network
     public partial class RouteTable : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Boolean flag which controls propagation of routes learned by BGP on that route table. Defaults to `true`.
+        /// Boolean flag which controls propagation of routes learned by BGP on that route table. Defaults to `True`.
         /// </summary>
         [Output("bgpRoutePropagationEnabled")]
         public Output<bool?> BgpRoutePropagationEnabled { get; private set; } = null!;
@@ -99,7 +99,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// A list of objects representing routes. Each object accepts the arguments documented below.
         /// 
-        /// &gt; **NOTE** Since `route` can be configured both inline and via the separate `azure.network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+        /// &gt; **NOTE** Since `Route` can be configured both inline and via the separate `azure.network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         /// </summary>
         [Output("routes")]
         public Output<ImmutableArray<Outputs.RouteTableRoute>> Routes { get; private set; } = null!;
@@ -163,7 +163,7 @@ namespace Pulumi.Azure.Network
     public sealed class RouteTableArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Boolean flag which controls propagation of routes learned by BGP on that route table. Defaults to `true`.
+        /// Boolean flag which controls propagation of routes learned by BGP on that route table. Defaults to `True`.
         /// </summary>
         [Input("bgpRoutePropagationEnabled")]
         public Input<bool>? BgpRoutePropagationEnabled { get; set; }
@@ -192,7 +192,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// A list of objects representing routes. Each object accepts the arguments documented below.
         /// 
-        /// &gt; **NOTE** Since `route` can be configured both inline and via the separate `azure.network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+        /// &gt; **NOTE** Since `Route` can be configured both inline and via the separate `azure.network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         /// </summary>
         public InputList<Inputs.RouteTableRouteArgs> Routes
         {
@@ -221,7 +221,7 @@ namespace Pulumi.Azure.Network
     public sealed class RouteTableState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Boolean flag which controls propagation of routes learned by BGP on that route table. Defaults to `true`.
+        /// Boolean flag which controls propagation of routes learned by BGP on that route table. Defaults to `True`.
         /// </summary>
         [Input("bgpRoutePropagationEnabled")]
         public Input<bool>? BgpRoutePropagationEnabled { get; set; }
@@ -250,7 +250,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// A list of objects representing routes. Each object accepts the arguments documented below.
         /// 
-        /// &gt; **NOTE** Since `route` can be configured both inline and via the separate `azure.network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+        /// &gt; **NOTE** Since `Route` can be configured both inline and via the separate `azure.network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         /// </summary>
         public InputList<Inputs.RouteTableRouteGetArgs> Routes
         {

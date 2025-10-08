@@ -21,6 +21,126 @@ import javax.annotation.Nullable;
  * 
  * !&gt; **Note:** Azure Spring Apps is now deprecated and will be retired on 2028-05-31 - as such the `azure.appplatform.SpringCloudConnection` resource is deprecated and will be removed in a future major version of the AzureRM Provider. See https://aka.ms/asaretirement for more information.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.cosmosdb.Account;
+ * import com.pulumi.azure.cosmosdb.AccountArgs;
+ * import com.pulumi.azure.cosmosdb.inputs.AccountConsistencyPolicyArgs;
+ * import com.pulumi.azure.cosmosdb.inputs.AccountGeoLocationArgs;
+ * import com.pulumi.azure.cosmosdb.SqlDatabase;
+ * import com.pulumi.azure.cosmosdb.SqlDatabaseArgs;
+ * import com.pulumi.azure.cosmosdb.SqlContainer;
+ * import com.pulumi.azure.cosmosdb.SqlContainerArgs;
+ * import com.pulumi.azure.appplatform.SpringCloudService;
+ * import com.pulumi.azure.appplatform.SpringCloudServiceArgs;
+ * import com.pulumi.azure.appplatform.SpringCloudApp;
+ * import com.pulumi.azure.appplatform.SpringCloudAppArgs;
+ * import com.pulumi.azure.appplatform.inputs.SpringCloudAppIdentityArgs;
+ * import com.pulumi.azure.appplatform.SpringCloudJavaDeployment;
+ * import com.pulumi.azure.appplatform.SpringCloudJavaDeploymentArgs;
+ * import com.pulumi.azure.appplatform.SpringCloudConnection;
+ * import com.pulumi.azure.appplatform.SpringCloudConnectionArgs;
+ * import com.pulumi.azure.appplatform.inputs.SpringCloudConnectionAuthenticationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("example-resources")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
+ *             .name("example-cosmosdb-account")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .offerType("Standard")
+ *             .kind("GlobalDocumentDB")
+ *             .consistencyPolicy(AccountConsistencyPolicyArgs.builder()
+ *                 .consistencyLevel("BoundedStaleness")
+ *                 .maxIntervalInSeconds(10)
+ *                 .maxStalenessPrefix(200)
+ *                 .build())
+ *             .geoLocations(AccountGeoLocationArgs.builder()
+ *                 .location(example.location())
+ *                 .failoverPriority(0)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleSqlDatabase = new SqlDatabase("exampleSqlDatabase", SqlDatabaseArgs.builder()
+ *             .name("cosmos-sql-db")
+ *             .resourceGroupName(exampleAccount.resourceGroupName())
+ *             .accountName(exampleAccount.name())
+ *             .throughput(400)
+ *             .build());
+ * 
+ *         var exampleSqlContainer = new SqlContainer("exampleSqlContainer", SqlContainerArgs.builder()
+ *             .name("example-container")
+ *             .resourceGroupName(exampleAccount.resourceGroupName())
+ *             .accountName(exampleAccount.name())
+ *             .databaseName(exampleSqlDatabase.name())
+ *             .partitionKeyPath("/definition")
+ *             .build());
+ * 
+ *         var exampleSpringCloudService = new SpringCloudService("exampleSpringCloudService", SpringCloudServiceArgs.builder()
+ *             .name("examplespringcloud")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .build());
+ * 
+ *         var exampleSpringCloudApp = new SpringCloudApp("exampleSpringCloudApp", SpringCloudAppArgs.builder()
+ *             .name("examplespringcloudapp")
+ *             .resourceGroupName(example.name())
+ *             .serviceName(exampleSpringCloudService.name())
+ *             .identity(SpringCloudAppIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleSpringCloudJavaDeployment = new SpringCloudJavaDeployment("exampleSpringCloudJavaDeployment", SpringCloudJavaDeploymentArgs.builder()
+ *             .name("exampledeployment")
+ *             .springCloudAppId(exampleSpringCloudApp.id())
+ *             .build());
+ * 
+ *         var exampleSpringCloudConnection = new SpringCloudConnection("exampleSpringCloudConnection", SpringCloudConnectionArgs.builder()
+ *             .name("example-serviceconnector")
+ *             .springCloudId(exampleSpringCloudJavaDeployment.id())
+ *             .targetResourceId(exampleSqlDatabase.id())
+ *             .authentication(SpringCloudConnectionAuthenticationArgs.builder()
+ *                 .type("systemAssignedIdentity")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.ServiceLinker` - 2024-04-01, 2022-05-01
+ * 
  * ## Import
  * 
  * Service Connector for spring cloud can be imported using the `resource id`, e.g.

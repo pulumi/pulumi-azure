@@ -12,6 +12,65 @@ namespace Pulumi.Azure.ApiManagement
     /// <summary>
     /// Manages a API Management Redis Cache.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleService = new Azure.ApiManagement.Service("example", new()
+    ///     {
+    ///         Name = "example-apim",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         PublisherName = "pub1",
+    ///         PublisherEmail = "pub1@email.com",
+    ///         SkuName = "Consumption_0",
+    ///     });
+    /// 
+    ///     var exampleCache = new Azure.Redis.Cache("example", new()
+    ///     {
+    ///         Name = "example-cache",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Capacity = 1,
+    ///         Family = "C",
+    ///         SkuName = "Basic",
+    ///         EnableNonSslPort = false,
+    ///         MinimumTlsVersion = "1.2",
+    ///         RedisConfiguration = null,
+    ///     });
+    /// 
+    ///     var exampleRedisCache = new Azure.ApiManagement.RedisCache("example", new()
+    ///     {
+    ///         Name = "example-Redis-Cache",
+    ///         ApiManagementId = exampleService.Id,
+    ///         ConnectionString = exampleCache.PrimaryConnectionString,
+    ///         Description = "Redis cache instances",
+    ///         RedisCacheId = exampleCache.Id,
+    ///         CacheLocation = "East Us",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.ApiManagement` - 2022-08-01
+    /// 
     /// ## Import
     /// 
     /// API Management Redis Caches can be imported using the `resource id`, e.g.
@@ -30,7 +89,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> ApiManagementId { get; private set; } = null!;
 
         /// <summary>
-        /// The location where to use cache from. Possible values are `default` and valid Azure regions. Defaults to `default`.
+        /// The location where to use cache from. Possible values are `Default` and valid Azure regions. Defaults to `Default`.
         /// </summary>
         [Output("cacheLocation")]
         public Output<string?> CacheLocation { get; private set; } = null!;
@@ -116,7 +175,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string> ApiManagementId { get; set; } = null!;
 
         /// <summary>
-        /// The location where to use cache from. Possible values are `default` and valid Azure regions. Defaults to `default`.
+        /// The location where to use cache from. Possible values are `Default` and valid Azure regions. Defaults to `Default`.
         /// </summary>
         [Input("cacheLocation")]
         public Input<string>? CacheLocation { get; set; }
@@ -170,7 +229,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? ApiManagementId { get; set; }
 
         /// <summary>
-        /// The location where to use cache from. Possible values are `default` and valid Azure regions. Defaults to `default`.
+        /// The location where to use cache from. Possible values are `Default` and valid Azure regions. Defaults to `Default`.
         /// </summary>
         [Input("cacheLocation")]
         public Input<string>? CacheLocation { get; set; }

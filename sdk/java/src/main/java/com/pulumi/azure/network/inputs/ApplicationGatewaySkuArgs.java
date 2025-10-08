@@ -18,14 +18,14 @@ public final class ApplicationGatewaySkuArgs extends com.pulumi.resources.Resour
     public static final ApplicationGatewaySkuArgs Empty = new ApplicationGatewaySkuArgs();
 
     /**
-     * The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between `1` and `32`, and `1` to `125` for a V2 SKU. When using a `Basic` SKU this property must be between `1` and `2`. This property is optional if `autoscale_configuration` is set.
+     * The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between `1` and `32`, and `1` to `125` for a V2 SKU. When using a `Basic` SKU this property must be between `1` and `2`. This property is optional if `autoscaleConfiguration` is set.
      * 
      */
     @Import(name="capacity")
     private @Nullable Output<Integer> capacity;
 
     /**
-     * @return The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between `1` and `32`, and `1` to `125` for a V2 SKU. When using a `Basic` SKU this property must be between `1` and `2`. This property is optional if `autoscale_configuration` is set.
+     * @return The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between `1` and `32`, and `1` to `125` for a V2 SKU. When using a `Basic` SKU this property must be between `1` and `2`. This property is optional if `autoscaleConfiguration` is set.
      * 
      */
     public Optional<Output<Integer>> capacity() {
@@ -89,7 +89,7 @@ public final class ApplicationGatewaySkuArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param capacity The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between `1` and `32`, and `1` to `125` for a V2 SKU. When using a `Basic` SKU this property must be between `1` and `2`. This property is optional if `autoscale_configuration` is set.
+         * @param capacity The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between `1` and `32`, and `1` to `125` for a V2 SKU. When using a `Basic` SKU this property must be between `1` and `2`. This property is optional if `autoscaleConfiguration` is set.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class ApplicationGatewaySkuArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param capacity The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between `1` and `32`, and `1` to `125` for a V2 SKU. When using a `Basic` SKU this property must be between `1` and `2`. This property is optional if `autoscale_configuration` is set.
+         * @param capacity The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between `1` and `32`, and `1` to `125` for a V2 SKU. When using a `Basic` SKU this property must be between `1` and `2`. This property is optional if `autoscaleConfiguration` is set.
          * 
          * @return builder
          * 

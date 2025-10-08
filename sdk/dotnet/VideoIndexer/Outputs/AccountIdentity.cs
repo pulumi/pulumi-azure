@@ -14,13 +14,13 @@ namespace Pulumi.Azure.VideoIndexer.Outputs
     public sealed class AccountIdentity
     {
         /// <summary>
-        /// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+        /// Specifies a list of user managed identity ids to be assigned. Required if `Type` is `UserAssigned`.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         public readonly string? PrincipalId;
         public readonly string? TenantId;
         /// <summary>
-        /// Specifies the identity type of the Video Indexer Account. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
+        /// Specifies the identity type of the Video Indexer Account. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `IdentityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
         /// </summary>
         public readonly string Type;
 

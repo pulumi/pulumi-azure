@@ -125,18 +125,18 @@ public final class ManagedInstanceSecurityAlertPolicyArgs extends com.pulumi.res
     }
 
     /**
-     * Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storage_endpoint` to specify a storage account blob endpoint.
+     * Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storageEndpoint` to specify a storage account blob endpoint.
      * 
-     * &gt; **Note:** Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `azure.mssql.ManagedInstanceSecurityAlertPolicy` with `storage_endpoint` for now.
+     * &gt; **Note:** Please note that storage accounts configured with `sharedAccessKeyEnabled = false` cannot be used to configure `azure.mssql.ManagedInstanceSecurityAlertPolicy` with `storageEndpoint` for now.
      * 
      */
     @Import(name="storageAccountAccessKey")
     private @Nullable Output<String> storageAccountAccessKey;
 
     /**
-     * @return Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storage_endpoint` to specify a storage account blob endpoint.
+     * @return Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storageEndpoint` to specify a storage account blob endpoint.
      * 
-     * &gt; **Note:** Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `azure.mssql.ManagedInstanceSecurityAlertPolicy` with `storage_endpoint` for now.
+     * &gt; **Note:** Please note that storage accounts configured with `sharedAccessKeyEnabled = false` cannot be used to configure `azure.mssql.ManagedInstanceSecurityAlertPolicy` with `storageEndpoint` for now.
      * 
      */
     public Optional<Output<String>> storageAccountAccessKey() {
@@ -358,9 +358,9 @@ public final class ManagedInstanceSecurityAlertPolicyArgs extends com.pulumi.res
         }
 
         /**
-         * @param storageAccountAccessKey Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storage_endpoint` to specify a storage account blob endpoint.
+         * @param storageAccountAccessKey Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storageEndpoint` to specify a storage account blob endpoint.
          * 
-         * &gt; **Note:** Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `azure.mssql.ManagedInstanceSecurityAlertPolicy` with `storage_endpoint` for now.
+         * &gt; **Note:** Please note that storage accounts configured with `sharedAccessKeyEnabled = false` cannot be used to configure `azure.mssql.ManagedInstanceSecurityAlertPolicy` with `storageEndpoint` for now.
          * 
          * @return builder
          * 
@@ -371,9 +371,9 @@ public final class ManagedInstanceSecurityAlertPolicyArgs extends com.pulumi.res
         }
 
         /**
-         * @param storageAccountAccessKey Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storage_endpoint` to specify a storage account blob endpoint.
+         * @param storageAccountAccessKey Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storageEndpoint` to specify a storage account blob endpoint.
          * 
-         * &gt; **Note:** Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `azure.mssql.ManagedInstanceSecurityAlertPolicy` with `storage_endpoint` for now.
+         * &gt; **Note:** Please note that storage accounts configured with `sharedAccessKeyEnabled = false` cannot be used to configure `azure.mssql.ManagedInstanceSecurityAlertPolicy` with `storageEndpoint` for now.
          * 
          * @return builder
          * 

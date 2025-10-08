@@ -77,7 +77,7 @@ namespace Pulumi.Azure.CosmosDB
     /// });
     /// ```
     /// 
-    /// &gt; **Note:** The CosmosDB Account needs to have the `EnableGremlin` capability enabled to use this resource - which can be done by adding this to the `capabilities` list within the `azure.cosmosdb.Account` resource.
+    /// &gt; **Note:** The CosmosDB Account needs to have the `EnableGremlin` capability enabled to use this resource - which can be done by adding this to the `Capabilities` list within the `azure.cosmosdb.Account` resource.
     /// 
     /// ## API Providers
     /// 
@@ -106,7 +106,7 @@ namespace Pulumi.Azure.CosmosDB
         /// <summary>
         /// The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire.
         /// 
-        /// &gt; **Note:** Disabling `analytical_storage_ttl` will force a new resource to be created since it can't be disabled once it's enabled.
+        /// &gt; **Note:** Disabling `AnalyticalStorageTtl` will force a new resource to be created since it can't be disabled once it's enabled.
         /// </summary>
         [Output("analyticalStorageTtl")]
         public Output<int?> AnalyticalStorageTtl { get; private set; } = null!;
@@ -115,7 +115,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<Outputs.GremlinGraphAutoscaleSettings?> AutoscaleSettings { get; private set; } = null!;
 
         /// <summary>
-        /// A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
+        /// A `ConflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("conflictResolutionPolicy")]
         public Output<Outputs.GremlinGraphConflictResolutionPolicy> ConflictResolutionPolicy { get; private set; } = null!;
@@ -133,7 +133,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<int?> DefaultTtl { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration of the indexing policy. One or more `index_policy` blocks as defined below.
+        /// The configuration of the indexing policy. One or more `IndexPolicy` blocks as defined below.
         /// </summary>
         [Output("indexPolicy")]
         public Output<Outputs.GremlinGraphIndexPolicy> IndexPolicy { get; private set; } = null!;
@@ -169,7 +169,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<int> Throughput { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `UniqueKey` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("uniqueKeys")]
         public Output<ImmutableArray<Outputs.GremlinGraphUniqueKey>> UniqueKeys { get; private set; } = null!;
@@ -229,7 +229,7 @@ namespace Pulumi.Azure.CosmosDB
         /// <summary>
         /// The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire.
         /// 
-        /// &gt; **Note:** Disabling `analytical_storage_ttl` will force a new resource to be created since it can't be disabled once it's enabled.
+        /// &gt; **Note:** Disabling `AnalyticalStorageTtl` will force a new resource to be created since it can't be disabled once it's enabled.
         /// </summary>
         [Input("analyticalStorageTtl")]
         public Input<int>? AnalyticalStorageTtl { get; set; }
@@ -238,7 +238,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<Inputs.GremlinGraphAutoscaleSettingsArgs>? AutoscaleSettings { get; set; }
 
         /// <summary>
-        /// A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
+        /// A `ConflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("conflictResolutionPolicy")]
         public Input<Inputs.GremlinGraphConflictResolutionPolicyArgs>? ConflictResolutionPolicy { get; set; }
@@ -256,7 +256,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<int>? DefaultTtl { get; set; }
 
         /// <summary>
-        /// The configuration of the indexing policy. One or more `index_policy` blocks as defined below.
+        /// The configuration of the indexing policy. One or more `IndexPolicy` blocks as defined below.
         /// </summary>
         [Input("indexPolicy")]
         public Input<Inputs.GremlinGraphIndexPolicyArgs>? IndexPolicy { get; set; }
@@ -295,7 +295,7 @@ namespace Pulumi.Azure.CosmosDB
         private InputList<Inputs.GremlinGraphUniqueKeyArgs>? _uniqueKeys;
 
         /// <summary>
-        /// One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `UniqueKey` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.GremlinGraphUniqueKeyArgs> UniqueKeys
         {
@@ -320,7 +320,7 @@ namespace Pulumi.Azure.CosmosDB
         /// <summary>
         /// The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire.
         /// 
-        /// &gt; **Note:** Disabling `analytical_storage_ttl` will force a new resource to be created since it can't be disabled once it's enabled.
+        /// &gt; **Note:** Disabling `AnalyticalStorageTtl` will force a new resource to be created since it can't be disabled once it's enabled.
         /// </summary>
         [Input("analyticalStorageTtl")]
         public Input<int>? AnalyticalStorageTtl { get; set; }
@@ -329,7 +329,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<Inputs.GremlinGraphAutoscaleSettingsGetArgs>? AutoscaleSettings { get; set; }
 
         /// <summary>
-        /// A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
+        /// A `ConflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("conflictResolutionPolicy")]
         public Input<Inputs.GremlinGraphConflictResolutionPolicyGetArgs>? ConflictResolutionPolicy { get; set; }
@@ -347,7 +347,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<int>? DefaultTtl { get; set; }
 
         /// <summary>
-        /// The configuration of the indexing policy. One or more `index_policy` blocks as defined below.
+        /// The configuration of the indexing policy. One or more `IndexPolicy` blocks as defined below.
         /// </summary>
         [Input("indexPolicy")]
         public Input<Inputs.GremlinGraphIndexPolicyGetArgs>? IndexPolicy { get; set; }
@@ -386,7 +386,7 @@ namespace Pulumi.Azure.CosmosDB
         private InputList<Inputs.GremlinGraphUniqueKeyGetArgs>? _uniqueKeys;
 
         /// <summary>
-        /// One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `UniqueKey` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.GremlinGraphUniqueKeyGetArgs> UniqueKeys
         {

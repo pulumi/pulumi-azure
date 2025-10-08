@@ -37,7 +37,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<int>? ContainerLogMaxSizeMb { get; set; }
 
         /// <summary>
-        /// Is CPU CFS quota enforcement for containers enabled? Defaults to `true`.
+        /// Is CPU CFS quota enforcement for containers enabled? Defaults to `True`.
         /// </summary>
         [Input("cpuCfsQuotaEnabled")]
         public Input<bool>? CpuCfsQuotaEnabled { get; set; }
@@ -49,7 +49,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string>? CpuCfsQuotaPeriod { get; set; }
 
         /// <summary>
-        /// Specifies the CPU Manager policy to use. Possible values are `none` and `static`,.
+        /// Specifies the CPU Manager policy to use. Possible values are `None` and `Static`,.
         /// </summary>
         [Input("cpuManagerPolicy")]
         public Input<string>? CpuManagerPolicy { get; set; }
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<int>? PodMaxPid { get; set; }
 
         /// <summary>
-        /// Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`.
+        /// Specifies the Topology Manager policy to use. Possible values are `None`, `best-effort`, `Restricted` or `single-numa-node`.
         /// </summary>
         [Input("topologyManagerPolicy")]
         public Input<string>? TopologyManagerPolicy { get; set; }

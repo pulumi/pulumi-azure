@@ -18,15 +18,15 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string ClientId;
         /// <summary>
-        /// The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `client_secret_setting_name`.
+        /// The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `ClientSecretSettingName`.
         /// </summary>
         public readonly string? ClientSecret;
         /// <summary>
-        /// The app setting name that contains the `client_secret` value used for GitHub login. Cannot be specified with `client_secret`.
+        /// The app setting name that contains the `ClientSecret` value used for GitHub login. Cannot be specified with `ClientSecret`.
         /// </summary>
         public readonly string? ClientSecretSettingName;
         /// <summary>
-        /// an `oauth_scopes`.
+        /// an `OauthScopes`.
         /// </summary>
         public readonly ImmutableArray<string> OauthScopes;
 

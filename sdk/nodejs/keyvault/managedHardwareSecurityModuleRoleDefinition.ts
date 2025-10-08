@@ -9,6 +9,39 @@ import * as utilities from "../utilities";
 /**
  * Manages a Key Vault Managed Hardware Security Module Role Definition. This resource works together with Managed hardware security module resource.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.keyvault.ManagedHardwareSecurityModule("example", {
+ *     name: "example",
+ *     resourceGroupName: exampleAzurermResourceGroup.name,
+ *     location: exampleAzurermResourceGroup.location,
+ *     skuName: "Standard_B1",
+ *     tenantId: current.tenantId,
+ *     adminObjectIds: [current.objectId],
+ *     purgeProtectionEnabled: false,
+ *     activeConfig: [{
+ *         securityDomainCertificate: [
+ *             cert[0].id,
+ *             cert[1].id,
+ *             cert[2].id,
+ *         ],
+ *         securityDomainQuorum: 2,
+ *     }],
+ * });
+ * const exampleManagedHardwareSecurityModuleRoleDefinition = new azure.keyvault.ManagedHardwareSecurityModuleRoleDefinition("example", {
+ *     name: "7d206142-bf01-11ed-80bc-00155d61ee9e",
+ *     managedHsmId: example.id,
+ *     description: "desc foo",
+ *     permissions: [{
+ *         dataActions: ["Microsoft.KeyVault/managedHsm/keys/read/action"],
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Key Vault Managed Hardware Security Module Role Definitions can be imported using the `resource id`, e.g.

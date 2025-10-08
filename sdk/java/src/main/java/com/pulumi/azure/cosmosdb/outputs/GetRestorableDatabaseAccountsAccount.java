@@ -33,7 +33,7 @@ public final class GetRestorableDatabaseAccountsAccount {
      */
     private String id;
     /**
-     * @return One or more `restorable_locations` blocks as defined below.
+     * @return One or more `restorableLocations` blocks as defined below.
      * 
      */
     private List<GetRestorableDatabaseAccountsAccountRestorableLocation> restorableLocations;
@@ -68,7 +68,7 @@ public final class GetRestorableDatabaseAccountsAccount {
         return this.id;
     }
     /**
-     * @return One or more `restorable_locations` blocks as defined below.
+     * @return One or more `restorableLocations` blocks as defined below.
      * 
      */
     public List<GetRestorableDatabaseAccountsAccountRestorableLocation> restorableLocations() {

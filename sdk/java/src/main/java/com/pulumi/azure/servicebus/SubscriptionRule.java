@@ -23,6 +23,156 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### SQL Filter)
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.servicebus.Namespace;
+ * import com.pulumi.azure.servicebus.NamespaceArgs;
+ * import com.pulumi.azure.servicebus.Topic;
+ * import com.pulumi.azure.servicebus.TopicArgs;
+ * import com.pulumi.azure.servicebus.Subscription;
+ * import com.pulumi.azure.servicebus.SubscriptionArgs;
+ * import com.pulumi.azure.servicebus.SubscriptionRule;
+ * import com.pulumi.azure.servicebus.SubscriptionRuleArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("tfex-servicebus-subscription-rule-sql")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()
+ *             .name("tfex-servicebus-namespace")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .sku("Standard")
+ *             .tags(Map.of("source", "example"))
+ *             .build());
+ * 
+ *         var exampleTopic = new Topic("exampleTopic", TopicArgs.builder()
+ *             .name("tfex_servicebus_topic")
+ *             .namespaceId(exampleNamespace.id())
+ *             .enablePartitioning(true)
+ *             .build());
+ * 
+ *         var exampleSubscription = new Subscription("exampleSubscription", SubscriptionArgs.builder()
+ *             .name("tfex_servicebus_subscription")
+ *             .topicId(exampleTopic.id())
+ *             .maxDeliveryCount(1)
+ *             .build());
+ * 
+ *         var exampleSubscriptionRule = new SubscriptionRule("exampleSubscriptionRule", SubscriptionRuleArgs.builder()
+ *             .name("tfex_servicebus_rule")
+ *             .subscriptionId(exampleSubscription.id())
+ *             .filterType("SqlFilter")
+ *             .sqlFilter("colour = 'red'")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Correlation Filter)
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.servicebus.Namespace;
+ * import com.pulumi.azure.servicebus.NamespaceArgs;
+ * import com.pulumi.azure.servicebus.Topic;
+ * import com.pulumi.azure.servicebus.TopicArgs;
+ * import com.pulumi.azure.servicebus.Subscription;
+ * import com.pulumi.azure.servicebus.SubscriptionArgs;
+ * import com.pulumi.azure.servicebus.SubscriptionRule;
+ * import com.pulumi.azure.servicebus.SubscriptionRuleArgs;
+ * import com.pulumi.azure.servicebus.inputs.SubscriptionRuleCorrelationFilterArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("tfex-servicebus-subscription-rule-cor")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()
+ *             .name("tfex-servicebus-namespace")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .sku("Standard")
+ *             .tags(Map.of("source", "example"))
+ *             .build());
+ * 
+ *         var exampleTopic = new Topic("exampleTopic", TopicArgs.builder()
+ *             .name("tfex_servicebus_topic")
+ *             .namespaceId(exampleNamespace.id())
+ *             .enablePartitioning(true)
+ *             .build());
+ * 
+ *         var exampleSubscription = new Subscription("exampleSubscription", SubscriptionArgs.builder()
+ *             .name("tfex_servicebus_subscription")
+ *             .topicId(exampleTopic.id())
+ *             .maxDeliveryCount(1)
+ *             .build());
+ * 
+ *         var exampleSubscriptionRule = new SubscriptionRule("exampleSubscriptionRule", SubscriptionRuleArgs.builder()
+ *             .name("tfex_servicebus_rule")
+ *             .subscriptionId(exampleSubscription.id())
+ *             .filterType("CorrelationFilter")
+ *             .correlationFilter(SubscriptionRuleCorrelationFilterArgs.builder()
+ *                 .correlationId("high")
+ *                 .label("red")
+ *                 .properties(Map.of("customProperty", "value"))
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.ServiceBus` - 2024-01-01
+ * 
  * ## Import
  * 
  * Service Bus Subscription Rule can be imported using the `resource id`, e.g.
@@ -49,14 +199,14 @@ public class SubscriptionRule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.action);
     }
     /**
-     * A `correlation_filter` block as documented below to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `CorrelationFilter`.
+     * A `correlationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
      * 
      */
     @Export(name="correlationFilter", refs={SubscriptionRuleCorrelationFilter.class}, tree="[0]")
     private Output</* @Nullable */ SubscriptionRuleCorrelationFilter> correlationFilter;
 
     /**
-     * @return A `correlation_filter` block as documented below to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `CorrelationFilter`.
+     * @return A `correlationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
      * 
      */
     public Output<Optional<SubscriptionRuleCorrelationFilter>> correlationFilter() {
@@ -91,14 +241,14 @@ public class SubscriptionRule extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `SqlFilter`.
+     * Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filterType` is set to `SqlFilter`.
      * 
      */
     @Export(name="sqlFilter", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sqlFilter;
 
     /**
-     * @return Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `SqlFilter`.
+     * @return Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filterType` is set to `SqlFilter`.
      * 
      */
     public Output<Optional<String>> sqlFilter() {

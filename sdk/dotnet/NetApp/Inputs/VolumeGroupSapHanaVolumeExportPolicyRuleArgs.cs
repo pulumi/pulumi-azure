@@ -31,7 +31,7 @@ namespace Pulumi.Azure.NetApp.Inputs
         public Input<bool> Nfsv41Enabled { get; set; } = null!;
 
         /// <summary>
-        /// Is root access permitted to this volume? Defaults to `true`.
+        /// Is root access permitted to this volume? Defaults to `True`.
         /// </summary>
         [Input("rootAccessEnabled")]
         public Input<bool>? RootAccessEnabled { get; set; }
@@ -49,7 +49,7 @@ namespace Pulumi.Azure.NetApp.Inputs
         public Input<bool>? UnixReadOnly { get; set; }
 
         /// <summary>
-        /// Is the file system on unix read and write? Defaults to `true`.
+        /// Is the file system on unix read and write? Defaults to `True`.
         /// </summary>
         [Input("unixReadWrite")]
         public Input<bool>? UnixReadWrite { get; set; }

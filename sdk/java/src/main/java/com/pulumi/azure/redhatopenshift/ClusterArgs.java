@@ -25,14 +25,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     public static final ClusterArgs Empty = new ClusterArgs();
 
     /**
-     * An `api_server_profile` block as defined below. Changing this forces a new resource to be created.
+     * An `apiServerProfile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="apiServerProfile", required=true)
     private Output<ClusterApiServerProfileArgs> apiServerProfile;
 
     /**
-     * @return An `api_server_profile` block as defined below. Changing this forces a new resource to be created.
+     * @return An `apiServerProfile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<ClusterApiServerProfileArgs> apiServerProfile() {
@@ -40,14 +40,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `cluster_profile` block as defined below. Changing this forces a new resource to be created.
+     * A `clusterProfile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="clusterProfile", required=true)
     private Output<ClusterClusterProfileArgs> clusterProfile;
 
     /**
-     * @return A `cluster_profile` block as defined below. Changing this forces a new resource to be created.
+     * @return A `clusterProfile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<ClusterClusterProfileArgs> clusterProfile() {
@@ -55,14 +55,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `ingress_profile` block as defined below. Changing this forces a new resource to be created.
+     * An `ingressProfile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="ingressProfile", required=true)
     private Output<ClusterIngressProfileArgs> ingressProfile;
 
     /**
-     * @return An `ingress_profile` block as defined below. Changing this forces a new resource to be created.
+     * @return An `ingressProfile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<ClusterIngressProfileArgs> ingressProfile() {
@@ -85,14 +85,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `main_profile` block as defined below. Changing this forces a new resource to be created.
+     * A `mainProfile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="mainProfile", required=true)
     private Output<ClusterMainProfileArgs> mainProfile;
 
     /**
-     * @return A `main_profile` block as defined below. Changing this forces a new resource to be created.
+     * @return A `mainProfile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<ClusterMainProfileArgs> mainProfile() {
@@ -115,14 +115,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `network_profile` block as defined below. Changing this forces a new resource to be created.
+     * A `networkProfile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="networkProfile", required=true)
     private Output<ClusterNetworkProfileArgs> networkProfile;
 
     /**
-     * @return A `network_profile` block as defined below. Changing this forces a new resource to be created.
+     * @return A `networkProfile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<ClusterNetworkProfileArgs> networkProfile() {
@@ -145,14 +145,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `service_principal` block as defined below.
+     * A `servicePrincipal` block as defined below.
      * 
      */
     @Import(name="servicePrincipal", required=true)
     private Output<ClusterServicePrincipalArgs> servicePrincipal;
 
     /**
-     * @return A `service_principal` block as defined below.
+     * @return A `servicePrincipal` block as defined below.
      * 
      */
     public Output<ClusterServicePrincipalArgs> servicePrincipal() {
@@ -175,14 +175,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `worker_profile` block as defined below. Changing this forces a new resource to be created.
+     * A `workerProfile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="workerProfile", required=true)
     private Output<ClusterWorkerProfileArgs> workerProfile;
 
     /**
-     * @return A `worker_profile` block as defined below. Changing this forces a new resource to be created.
+     * @return A `workerProfile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<ClusterWorkerProfileArgs> workerProfile() {
@@ -224,7 +224,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiServerProfile An `api_server_profile` block as defined below. Changing this forces a new resource to be created.
+         * @param apiServerProfile An `apiServerProfile` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -235,7 +235,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiServerProfile An `api_server_profile` block as defined below. Changing this forces a new resource to be created.
+         * @param apiServerProfile An `apiServerProfile` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clusterProfile A `cluster_profile` block as defined below. Changing this forces a new resource to be created.
+         * @param clusterProfile A `clusterProfile` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clusterProfile A `cluster_profile` block as defined below. Changing this forces a new resource to be created.
+         * @param clusterProfile A `clusterProfile` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -266,7 +266,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ingressProfile An `ingress_profile` block as defined below. Changing this forces a new resource to be created.
+         * @param ingressProfile An `ingressProfile` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -277,7 +277,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ingressProfile An `ingress_profile` block as defined below. Changing this forces a new resource to be created.
+         * @param ingressProfile An `ingressProfile` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -308,7 +308,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mainProfile A `main_profile` block as defined below. Changing this forces a new resource to be created.
+         * @param mainProfile A `mainProfile` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -319,7 +319,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mainProfile A `main_profile` block as defined below. Changing this forces a new resource to be created.
+         * @param mainProfile A `mainProfile` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -350,7 +350,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkProfile A `network_profile` block as defined below. Changing this forces a new resource to be created.
+         * @param networkProfile A `networkProfile` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -361,7 +361,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkProfile A `network_profile` block as defined below. Changing this forces a new resource to be created.
+         * @param networkProfile A `networkProfile` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -392,7 +392,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param servicePrincipal A `service_principal` block as defined below.
+         * @param servicePrincipal A `servicePrincipal` block as defined below.
          * 
          * @return builder
          * 
@@ -403,7 +403,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param servicePrincipal A `service_principal` block as defined below.
+         * @param servicePrincipal A `servicePrincipal` block as defined below.
          * 
          * @return builder
          * 
@@ -434,7 +434,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workerProfile A `worker_profile` block as defined below. Changing this forces a new resource to be created.
+         * @param workerProfile A `workerProfile` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -445,7 +445,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workerProfile A `worker_profile` block as defined below. Changing this forces a new resource to be created.
+         * @param workerProfile A `workerProfile` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

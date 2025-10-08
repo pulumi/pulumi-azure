@@ -180,14 +180,14 @@ public class OutputMssql extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Password used together with username, to login to the Microsoft SQL Server. Required if `authentication_mode` is `ConnectionString`.
+     * Password used together with username, to login to the Microsoft SQL Server. Required if `authenticationMode` is `ConnectionString`.
      * 
      */
     @Export(name="password", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> password;
 
     /**
-     * @return Password used together with username, to login to the Microsoft SQL Server. Required if `authentication_mode` is `ConnectionString`.
+     * @return Password used together with username, to login to the Microsoft SQL Server. Required if `authenticationMode` is `ConnectionString`.
      * 
      */
     public Output<Optional<String>> password() {
@@ -250,14 +250,14 @@ public class OutputMssql extends com.pulumi.resources.CustomResource {
         return this.table;
     }
     /**
-     * Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created. Required if `authentication_mode` is `ConnectionString`.
+     * Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created. Required if `authenticationMode` is `ConnectionString`.
      * 
      */
     @Export(name="user", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> user;
 
     /**
-     * @return Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created. Required if `authentication_mode` is `ConnectionString`.
+     * @return Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created. Required if `authenticationMode` is `ConnectionString`.
      * 
      */
     public Output<Optional<String>> user() {

@@ -78,7 +78,7 @@ namespace Pulumi.Azure.NetApp
         public Output<int?> DailyBackupsToKeep { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the Backup Policy is enabled. Defaults to `true`.
+        /// Whether the Backup Policy is enabled. Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -180,7 +180,7 @@ namespace Pulumi.Azure.NetApp
         public Input<int>? DailyBackupsToKeep { get; set; }
 
         /// <summary>
-        /// Whether the Backup Policy is enabled. Defaults to `true`.
+        /// Whether the Backup Policy is enabled. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -250,7 +250,7 @@ namespace Pulumi.Azure.NetApp
         public Input<int>? DailyBackupsToKeep { get; set; }
 
         /// <summary>
-        /// Whether the Backup Policy is enabled. Defaults to `true`.
+        /// Whether the Backup Policy is enabled. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

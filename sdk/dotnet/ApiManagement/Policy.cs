@@ -87,7 +87,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> ApiManagementId { get; private set; } = null!;
 
         /// <summary>
-        /// The XML Content for this Policy as a string. To integrate frontend and backend services in Azure API Management, utilize the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, specifying the `base-url` value. Typically, this value corresponds to the `url` property defined in the `Backend` resource configuration.
+        /// The XML Content for this Policy as a string. To integrate frontend and backend services in Azure API Management, utilize the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, specifying the `base-url` value. Typically, this value corresponds to the `Url` property defined in the `Backend` resource configuration.
         /// </summary>
         [Output("xmlContent")]
         public Output<string> XmlContent { get; private set; } = null!;
@@ -151,7 +151,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string> ApiManagementId { get; set; } = null!;
 
         /// <summary>
-        /// The XML Content for this Policy as a string. To integrate frontend and backend services in Azure API Management, utilize the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, specifying the `base-url` value. Typically, this value corresponds to the `url` property defined in the `Backend` resource configuration.
+        /// The XML Content for this Policy as a string. To integrate frontend and backend services in Azure API Management, utilize the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, specifying the `base-url` value. Typically, this value corresponds to the `Url` property defined in the `Backend` resource configuration.
         /// </summary>
         [Input("xmlContent")]
         public Input<string>? XmlContent { get; set; }
@@ -177,7 +177,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? ApiManagementId { get; set; }
 
         /// <summary>
-        /// The XML Content for this Policy as a string. To integrate frontend and backend services in Azure API Management, utilize the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, specifying the `base-url` value. Typically, this value corresponds to the `url` property defined in the `Backend` resource configuration.
+        /// The XML Content for this Policy as a string. To integrate frontend and backend services in Azure API Management, utilize the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, specifying the `base-url` value. Typically, this value corresponds to the `Url` property defined in the `Backend` resource configuration.
         /// </summary>
         [Input("xmlContent")]
         public Input<string>? XmlContent { get; set; }

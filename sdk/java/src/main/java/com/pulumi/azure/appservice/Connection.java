@@ -19,6 +19,121 @@ import javax.annotation.Nullable;
 /**
  * Manages a service connector for app service.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.cosmosdb.Account;
+ * import com.pulumi.azure.cosmosdb.AccountArgs;
+ * import com.pulumi.azure.cosmosdb.inputs.AccountConsistencyPolicyArgs;
+ * import com.pulumi.azure.cosmosdb.inputs.AccountGeoLocationArgs;
+ * import com.pulumi.azure.cosmosdb.SqlDatabase;
+ * import com.pulumi.azure.cosmosdb.SqlDatabaseArgs;
+ * import com.pulumi.azure.cosmosdb.SqlContainer;
+ * import com.pulumi.azure.cosmosdb.SqlContainerArgs;
+ * import com.pulumi.azure.appservice.ServicePlan;
+ * import com.pulumi.azure.appservice.ServicePlanArgs;
+ * import com.pulumi.azure.appservice.LinuxWebApp;
+ * import com.pulumi.azure.appservice.LinuxWebAppArgs;
+ * import com.pulumi.azure.appservice.inputs.LinuxWebAppSiteConfigArgs;
+ * import com.pulumi.azure.appservice.Connection;
+ * import com.pulumi.azure.appservice.ConnectionArgs;
+ * import com.pulumi.azure.appservice.inputs.ConnectionAuthenticationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("example-resources")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
+ *             .name("example-cosmosdb-account")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .offerType("Standard")
+ *             .kind("GlobalDocumentDB")
+ *             .consistencyPolicy(AccountConsistencyPolicyArgs.builder()
+ *                 .consistencyLevel("BoundedStaleness")
+ *                 .maxIntervalInSeconds(10)
+ *                 .maxStalenessPrefix(200)
+ *                 .build())
+ *             .geoLocations(AccountGeoLocationArgs.builder()
+ *                 .location(example.location())
+ *                 .failoverPriority(0)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleSqlDatabase = new SqlDatabase("exampleSqlDatabase", SqlDatabaseArgs.builder()
+ *             .name("cosmos-sql-db")
+ *             .resourceGroupName(exampleAccount.resourceGroupName())
+ *             .accountName(exampleAccount.name())
+ *             .throughput(400)
+ *             .build());
+ * 
+ *         var exampleSqlContainer = new SqlContainer("exampleSqlContainer", SqlContainerArgs.builder()
+ *             .name("example-container")
+ *             .resourceGroupName(exampleAccount.resourceGroupName())
+ *             .accountName(exampleAccount.name())
+ *             .databaseName(exampleSqlDatabase.name())
+ *             .partitionKeyPath("/definition")
+ *             .build());
+ * 
+ *         var exampleServicePlan = new ServicePlan("exampleServicePlan", ServicePlanArgs.builder()
+ *             .location(example.location())
+ *             .name("example-serviceplan")
+ *             .resourceGroupName(example.name())
+ *             .skuName("P1v2")
+ *             .osType("Linux")
+ *             .build());
+ * 
+ *         var exampleLinuxWebApp = new LinuxWebApp("exampleLinuxWebApp", LinuxWebAppArgs.builder()
+ *             .location(example.location())
+ *             .name("example-linuxwebapp")
+ *             .resourceGroupName(example.name())
+ *             .servicePlanId(exampleServicePlan.id())
+ *             .siteConfig(LinuxWebAppSiteConfigArgs.builder()
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleConnection = new Connection("exampleConnection", ConnectionArgs.builder()
+ *             .name("example-serviceconnector")
+ *             .appServiceId(exampleLinuxWebApp.id())
+ *             .targetResourceId(exampleSqlDatabase.id())
+ *             .authentication(ConnectionAuthenticationArgs.builder()
+ *                 .type("systemAssignedIdentity")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.ServiceLinker` - 2024-04-01, 2022-05-01
+ * 
  * ## Import
  * 
  * Service Connector for app service can be imported using the `resource id`, e.g.

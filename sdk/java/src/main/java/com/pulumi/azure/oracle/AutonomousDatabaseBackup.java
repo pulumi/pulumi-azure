@@ -18,6 +18,64 @@ import javax.annotation.Nullable;
 /**
  * Manages an Oracle Autonomous Database Backup in Azure.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.oracle.AutonomousDatabase;
+ * import com.pulumi.azure.oracle.AutonomousDatabaseArgs;
+ * import com.pulumi.azure.oracle.AutonomousDatabaseBackup;
+ * import com.pulumi.azure.oracle.AutonomousDatabaseBackupArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("example-resources")
+ *             .location("East US")
+ *             .build());
+ * 
+ *         var exampleAutonomousDatabase = new AutonomousDatabase("exampleAutonomousDatabase", AutonomousDatabaseArgs.builder()
+ *             .name("example-adb")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .build());
+ * 
+ *         var exampleAutonomousDatabaseBackup = new AutonomousDatabaseBackup("exampleAutonomousDatabaseBackup", AutonomousDatabaseBackupArgs.builder()
+ *             .name("example-backup")
+ *             .autonomousDatabaseId(exampleAutonomousDatabase.id())
+ *             .retentionPeriodInDays(120)
+ *             .backupType("Full")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Oracle.Database` - 2025-03-01
+ * 
  * ## Import
  * 
  * Autonomous Database Backups can be imported using the `id`, e.g.

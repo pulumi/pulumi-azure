@@ -78,14 +78,14 @@ public final class IntegrationAccountBatchConfigurationState extends com.pulumi.
     }
 
     /**
-     * A `release_criteria` block as documented below, which is used to select the criteria to meet before processing each batch.
+     * A `releaseCriteria` block as documented below, which is used to select the criteria to meet before processing each batch.
      * 
      */
     @Import(name="releaseCriteria")
     private @Nullable Output<IntegrationAccountBatchConfigurationReleaseCriteriaArgs> releaseCriteria;
 
     /**
-     * @return A `release_criteria` block as documented below, which is used to select the criteria to meet before processing each batch.
+     * @return A `releaseCriteria` block as documented below, which is used to select the criteria to meet before processing each batch.
      * 
      */
     public Optional<Output<IntegrationAccountBatchConfigurationReleaseCriteriaArgs>> releaseCriteria() {
@@ -221,7 +221,7 @@ public final class IntegrationAccountBatchConfigurationState extends com.pulumi.
         }
 
         /**
-         * @param releaseCriteria A `release_criteria` block as documented below, which is used to select the criteria to meet before processing each batch.
+         * @param releaseCriteria A `releaseCriteria` block as documented below, which is used to select the criteria to meet before processing each batch.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class IntegrationAccountBatchConfigurationState extends com.pulumi.
         }
 
         /**
-         * @param releaseCriteria A `release_criteria` block as documented below, which is used to select the criteria to meet before processing each batch.
+         * @param releaseCriteria A `releaseCriteria` block as documented below, which is used to select the criteria to meet before processing each batch.
          * 
          * @return builder
          * 

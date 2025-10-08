@@ -65,7 +65,7 @@ namespace Pulumi.Azure.LogicApps
     public partial class TriggerHttpRequest : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group and security_center_automation.
+        /// The URL of the Trigger within the Logic App Workflow. For use with certain resources like MonitorActionGroup and security_center_automation.
         /// </summary>
         [Output("callbackUrl")]
         public Output<string> CallbackUrl { get; private set; } = null!;
@@ -93,7 +93,7 @@ namespace Pulumi.Azure.LogicApps
         /// <summary>
         /// Specifies the Relative Path used for this Request.
         /// 
-        /// &gt; **NOTE:** When `relative_path` is set a `method` must also be set.
+        /// &gt; **NOTE:** When `RelativePath` is set a `Method` must also be set.
         /// </summary>
         [Output("relativePath")]
         public Output<string?> RelativePath { get; private set; } = null!;
@@ -173,7 +173,7 @@ namespace Pulumi.Azure.LogicApps
         /// <summary>
         /// Specifies the Relative Path used for this Request.
         /// 
-        /// &gt; **NOTE:** When `relative_path` is set a `method` must also be set.
+        /// &gt; **NOTE:** When `RelativePath` is set a `Method` must also be set.
         /// </summary>
         [Input("relativePath")]
         public Input<string>? RelativePath { get; set; }
@@ -193,7 +193,7 @@ namespace Pulumi.Azure.LogicApps
     public sealed class TriggerHttpRequestState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group and security_center_automation.
+        /// The URL of the Trigger within the Logic App Workflow. For use with certain resources like MonitorActionGroup and security_center_automation.
         /// </summary>
         [Input("callbackUrl")]
         public Input<string>? CallbackUrl { get; set; }
@@ -221,7 +221,7 @@ namespace Pulumi.Azure.LogicApps
         /// <summary>
         /// Specifies the Relative Path used for this Request.
         /// 
-        /// &gt; **NOTE:** When `relative_path` is set a `method` must also be set.
+        /// &gt; **NOTE:** When `RelativePath` is set a `Method` must also be set.
         /// </summary>
         [Input("relativePath")]
         public Input<string>? RelativePath { get; set; }

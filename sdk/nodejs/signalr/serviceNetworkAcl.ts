@@ -9,6 +9,70 @@ import * as utilities from "../utilities";
 /**
  * Manages the Network ACL for a SignalR service.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleService = new azure.signalr.Service("example", {
+ *     name: "example-signalr",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     sku: {
+ *         name: "Standard_S1",
+ *         capacity: 1,
+ *     },
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-vnet",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     addressSpaces: ["10.5.0.0/16"],
+ * });
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "example-subnet",
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.5.2.0/24"],
+ *     enforcePrivateLinkEndpointNetworkPolicies: true,
+ * });
+ * const exampleEndpoint = new azure.privatelink.Endpoint("example", {
+ *     name: "example-privateendpoint",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     subnetId: exampleSubnet.id,
+ *     privateServiceConnection: {
+ *         name: "psc-sig-test",
+ *         isManualConnection: false,
+ *         privateConnectionResourceId: exampleService.id,
+ *         subresourceNames: ["signalr"],
+ *     },
+ * });
+ * const exampleServiceNetworkAcl = new azure.signalr.ServiceNetworkAcl("example", {
+ *     signalrServiceId: exampleService.id,
+ *     defaultAction: "Deny",
+ *     publicNetwork: {
+ *         allowedRequestTypes: ["ClientConnection"],
+ *     },
+ *     privateEndpoints: [{
+ *         id: exampleEndpoint.id,
+ *         allowedRequestTypes: ["ServerConnection"],
+ *     }],
+ * });
+ * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.SignalRService` - 2024-03-01
+ *
  * ## Import
  *
  * Network ACLs for a SignalR service can be imported using the `resource id`, e.g.

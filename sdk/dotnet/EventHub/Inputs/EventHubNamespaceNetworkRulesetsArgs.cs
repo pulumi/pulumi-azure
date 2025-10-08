@@ -22,7 +22,7 @@ namespace Pulumi.Azure.EventHub.Inputs
         private InputList<Inputs.EventHubNamespaceNetworkRulesetsIpRuleArgs>? _ipRules;
 
         /// <summary>
-        /// One or more `ip_rule` blocks as defined below.
+        /// One or more `IpRule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.EventHubNamespaceNetworkRulesetsIpRuleArgs> IpRules
         {
@@ -31,7 +31,7 @@ namespace Pulumi.Azure.EventHub.Inputs
         }
 
         /// <summary>
-        /// Is public network access enabled for the EventHub Namespace? Defaults to `true`.
+        /// Is public network access enabled for the EventHub Namespace? Defaults to `True`.
         /// 
         /// &gt; **Note:** The public network access setting at the network rule sets level should be the same as it's at the namespace level.
         /// </summary>
@@ -48,7 +48,7 @@ namespace Pulumi.Azure.EventHub.Inputs
         private InputList<Inputs.EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgs>? _virtualNetworkRules;
 
         /// <summary>
-        /// One or more `virtual_network_rule` blocks as defined below.
+        /// One or more `VirtualNetworkRule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgs> VirtualNetworkRules
         {

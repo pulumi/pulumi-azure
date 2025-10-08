@@ -14,11 +14,11 @@ namespace Pulumi.Azure.PaloAlto.Outputs
     public sealed class NextGenerationFirewallVirtualHubPanoramaDestinationNat
     {
         /// <summary>
-        /// A `backend_config` block as defined above.
+        /// A `BackendConfig` block as defined above.
         /// </summary>
         public readonly Outputs.NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfig? BackendConfig;
         /// <summary>
-        /// A `frontend_config` block as defined below.
+        /// A `FrontendConfig` block as defined below.
         /// </summary>
         public readonly Outputs.NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfig? FrontendConfig;
         /// <summary>

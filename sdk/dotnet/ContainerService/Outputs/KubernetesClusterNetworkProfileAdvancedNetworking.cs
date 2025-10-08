@@ -14,11 +14,11 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class KubernetesClusterNetworkProfileAdvancedNetworking
     {
         /// <summary>
-        /// Is observability enabled? Defaults to `false`.
+        /// Is observability enabled? Defaults to `False`.
         /// </summary>
         public readonly bool? ObservabilityEnabled;
         /// <summary>
-        /// Is security enabled? Defaults to `false`.
+        /// Is security enabled? Defaults to `False`.
         /// </summary>
         public readonly bool? SecurityEnabled;
 

@@ -17,6 +17,138 @@ import javax.annotation.Nullable;
 /**
  * Manages a Container App Custom Domain.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.dns.Zone;
+ * import com.pulumi.azure.dns.ZoneArgs;
+ * import com.pulumi.azure.operationalinsights.AnalyticsWorkspace;
+ * import com.pulumi.azure.operationalinsights.AnalyticsWorkspaceArgs;
+ * import com.pulumi.azure.containerapp.Environment;
+ * import com.pulumi.azure.containerapp.EnvironmentArgs;
+ * import com.pulumi.azure.containerapp.App;
+ * import com.pulumi.azure.containerapp.AppArgs;
+ * import com.pulumi.azure.containerapp.inputs.AppTemplateArgs;
+ * import com.pulumi.azure.containerapp.inputs.AppIngressArgs;
+ * import com.pulumi.azure.dns.TxtRecord;
+ * import com.pulumi.azure.dns.TxtRecordArgs;
+ * import com.pulumi.azure.dns.inputs.TxtRecordRecordArgs;
+ * import com.pulumi.azure.containerapp.EnvironmentCertificate;
+ * import com.pulumi.azure.containerapp.EnvironmentCertificateArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.Filebase64Args;
+ * import com.pulumi.azure.containerapp.CustomDomain;
+ * import com.pulumi.azure.containerapp.CustomDomainArgs;
+ * import com.pulumi.std.inputs.TrimprefixArgs;
+ * import com.pulumi.std.inputs.TrimsuffixArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("example-resources")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()
+ *             .name("contoso.com")
+ *             .resourceGroupName(example.name())
+ *             .build());
+ * 
+ *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()
+ *             .name("example")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .sku("PerGB2018")
+ *             .retentionInDays(30)
+ *             .build());
+ * 
+ *         var exampleEnvironment = new Environment("exampleEnvironment", EnvironmentArgs.builder()
+ *             .name("Example-Environment")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .logAnalyticsWorkspaceId(exampleAnalyticsWorkspace.id())
+ *             .build());
+ * 
+ *         var exampleApp = new App("exampleApp", AppArgs.builder()
+ *             .name("example-app")
+ *             .containerAppEnvironmentId(exampleEnvironment.id())
+ *             .resourceGroupName(example.name())
+ *             .revisionMode("Single")
+ *             .template(AppTemplateArgs.builder()
+ *                 .containers(AppTemplateContainerArgs.builder()
+ *                     .name("examplecontainerapp")
+ *                     .image("mcr.microsoft.com/k8se/quickstart:latest")
+ *                     .cpu(0.25)
+ *                     .memory("0.5Gi")
+ *                     .build())
+ *                 .build())
+ *             .ingress(AppIngressArgs.builder()
+ *                 .allowInsecureConnections(false)
+ *                 .externalEnabled(true)
+ *                 .targetPort(5000)
+ *                 .transport("http")
+ *                 .trafficWeights(AppIngressTrafficWeightArgs.builder()
+ *                     .latestRevision(true)
+ *                     .percentage(100)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleTxtRecord = new TxtRecord("exampleTxtRecord", TxtRecordArgs.builder()
+ *             .name("asuid.example")
+ *             .resourceGroupName(exampleZone.resourceGroupName())
+ *             .zoneName(exampleZone.name())
+ *             .ttl(300)
+ *             .records(TxtRecordRecordArgs.builder()
+ *                 .value(exampleApp.customDomainVerificationId())
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleEnvironmentCertificate = new EnvironmentCertificate("exampleEnvironmentCertificate", EnvironmentCertificateArgs.builder()
+ *             .name("myfriendlyname")
+ *             .containerAppEnvironmentId(exampleEnvironment.id())
+ *             .certificateBlob(StdFunctions.filebase64(Filebase64Args.builder()
+ *                 .input("path/to/certificate_file.pfx")
+ *                 .build()).result())
+ *             .certificatePassword("$3cretSqu1rreL")
+ *             .build());
+ * 
+ *         var exampleCustomDomain = new CustomDomain("exampleCustomDomain", CustomDomainArgs.builder()
+ *             .name(StdFunctions.trimsuffix(TrimsuffixArgs.builder()
+ *                 .input(StdFunctions.trimprefix(TrimprefixArgs.builder()
+ *                     .input(api.fqdn())
+ *                     .prefix("asuid.")
+ *                     .build()).result())
+ *                 .suffix(".")
+ *                 .build()).result())
+ *             .containerAppId(exampleApp.id())
+ *             .containerAppEnvironmentCertificateId(exampleEnvironmentCertificate.id())
+ *             .certificateBindingType("SniEnabled")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ### Managed Certificate
  * 
  * <pre>
@@ -139,7 +271,7 @@ public class CustomDomain extends com.pulumi.resources.CustomResource {
         return this.containerAppId;
     }
     /**
-     * The fully qualified name of the Custom Domain. Must be the CN or a named SAN in the certificate specified by the `container_app_environment_certificate_id`. Changing this forces a new resource to be created.
+     * The fully qualified name of the Custom Domain. Must be the CN or a named SAN in the certificate specified by the `containerAppEnvironmentCertificateId`. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** The Custom Domain verification TXT record requires a prefix of `asuid.`, however, this must be trimmed from the `name` property here. See the [official docs](https://learn.microsoft.com/en-us/azure/container-apps/custom-domains-certificates) for more information.
      * 
@@ -148,7 +280,7 @@ public class CustomDomain extends com.pulumi.resources.CustomResource {
     private Output<String> name;
 
     /**
-     * @return The fully qualified name of the Custom Domain. Must be the CN or a named SAN in the certificate specified by the `container_app_environment_certificate_id`. Changing this forces a new resource to be created.
+     * @return The fully qualified name of the Custom Domain. Must be the CN or a named SAN in the certificate specified by the `containerAppEnvironmentCertificateId`. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** The Custom Domain verification TXT record requires a prefix of `asuid.`, however, this must be trimmed from the `name` property here. See the [official docs](https://learn.microsoft.com/en-us/azure/container-apps/custom-domains-certificates) for more information.
      * 

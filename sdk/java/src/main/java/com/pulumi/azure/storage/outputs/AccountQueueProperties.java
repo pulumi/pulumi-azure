@@ -16,12 +16,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AccountQueueProperties {
     /**
-     * @return A `cors_rule` block as defined above.
+     * @return A `corsRule` block as defined above.
      * 
      */
     private @Nullable List<AccountQueuePropertiesCorsRule> corsRules;
     /**
-     * @return A `hour_metrics` block as defined below.
+     * @return A `hourMetrics` block as defined below.
      * 
      */
     private @Nullable AccountQueuePropertiesHourMetrics hourMetrics;
@@ -31,21 +31,21 @@ public final class AccountQueueProperties {
      */
     private @Nullable AccountQueuePropertiesLogging logging;
     /**
-     * @return A `minute_metrics` block as defined below.
+     * @return A `minuteMetrics` block as defined below.
      * 
      */
     private @Nullable AccountQueuePropertiesMinuteMetrics minuteMetrics;
 
     private AccountQueueProperties() {}
     /**
-     * @return A `cors_rule` block as defined above.
+     * @return A `corsRule` block as defined above.
      * 
      */
     public List<AccountQueuePropertiesCorsRule> corsRules() {
         return this.corsRules == null ? List.of() : this.corsRules;
     }
     /**
-     * @return A `hour_metrics` block as defined below.
+     * @return A `hourMetrics` block as defined below.
      * 
      */
     public Optional<AccountQueuePropertiesHourMetrics> hourMetrics() {
@@ -59,7 +59,7 @@ public final class AccountQueueProperties {
         return Optional.ofNullable(this.logging);
     }
     /**
-     * @return A `minute_metrics` block as defined below.
+     * @return A `minuteMetrics` block as defined below.
      * 
      */
     public Optional<AccountQueuePropertiesMinuteMetrics> minuteMetrics() {

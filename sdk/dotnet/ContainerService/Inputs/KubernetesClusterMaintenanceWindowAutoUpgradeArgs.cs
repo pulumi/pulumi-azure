@@ -46,7 +46,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         private InputList<Inputs.KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArgs>? _notAlloweds;
 
         /// <summary>
-        /// One or more `not_allowed` block as defined below.
+        /// One or more `NotAllowed` block as defined below.
         /// </summary>
         public InputList<Inputs.KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArgs> NotAlloweds
         {
@@ -61,7 +61,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string>? StartDate { get; set; }
 
         /// <summary>
-        /// The time for maintenance to begin, based on the timezone determined by `utc_offset`. Format is `HH:mm`.
+        /// The time for maintenance to begin, based on the timezone determined by `UtcOffset`. Format is `HH:mm`.
         /// </summary>
         [Input("startTime")]
         public Input<string>? StartTime { get; set; }
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string>? UtcOffset { get; set; }
 
         /// <summary>
-        /// Specifies on which instance of the allowed days specified in `day_of_week` the maintenance occurs. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
+        /// Specifies on which instance of the allowed days specified in `DayOfWeek` the maintenance occurs. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
         /// Required in combination with relative monthly frequency.
         /// </summary>
         [Input("weekIndex")]

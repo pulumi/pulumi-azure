@@ -158,7 +158,7 @@ namespace Pulumi.Azure.KeyVault
         public Output<string> SasTemplateUri { get; private set; } = null!;
 
         /// <summary>
-        /// The type of SAS token the SAS definition will create. Possible values are `account` and `service`.
+        /// The type of SAS token the SAS definition will create. Possible values are `Account` and `Service`.
         /// </summary>
         [Output("sasType")]
         public Output<string> SasType { get; private set; } = null!;
@@ -246,7 +246,7 @@ namespace Pulumi.Azure.KeyVault
         public Input<string> SasTemplateUri { get; set; } = null!;
 
         /// <summary>
-        /// The type of SAS token the SAS definition will create. Possible values are `account` and `service`.
+        /// The type of SAS token the SAS definition will create. Possible values are `Account` and `Service`.
         /// </summary>
         [Input("sasType", required: true)]
         public Input<string> SasType { get; set; } = null!;
@@ -296,7 +296,7 @@ namespace Pulumi.Azure.KeyVault
         public Input<string>? SasTemplateUri { get; set; }
 
         /// <summary>
-        /// The type of SAS token the SAS definition will create. Possible values are `account` and `service`.
+        /// The type of SAS token the SAS definition will create. Possible values are `Account` and `Service`.
         /// </summary>
         [Input("sasType")]
         public Input<string>? SasType { get; set; }

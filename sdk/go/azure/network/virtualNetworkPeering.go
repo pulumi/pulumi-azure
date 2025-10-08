@@ -83,6 +83,8 @@ import (
 //
 // ```
 //
+// ### Global Virtual Network Peering)
+//
 // ### Triggers)
 //
 // ```go

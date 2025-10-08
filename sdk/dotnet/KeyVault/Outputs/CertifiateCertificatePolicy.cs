@@ -14,23 +14,23 @@ namespace Pulumi.Azure.KeyVault.Outputs
     public sealed class CertifiateCertificatePolicy
     {
         /// <summary>
-        /// A `issuer_parameters` block as defined below.
+        /// A `IssuerParameters` block as defined below.
         /// </summary>
         public readonly Outputs.CertifiateCertificatePolicyIssuerParameters IssuerParameters;
         /// <summary>
-        /// A `key_properties` block as defined below.
+        /// A `KeyProperties` block as defined below.
         /// </summary>
         public readonly Outputs.CertifiateCertificatePolicyKeyProperties KeyProperties;
         /// <summary>
-        /// A `lifetime_action` block as defined below.
+        /// A `LifetimeAction` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.CertifiateCertificatePolicyLifetimeAction> LifetimeActions;
         /// <summary>
-        /// A `secret_properties` block as defined below.
+        /// A `SecretProperties` block as defined below.
         /// </summary>
         public readonly Outputs.CertifiateCertificatePolicySecretProperties SecretProperties;
         /// <summary>
-        /// A `x509_certificate_properties` block as defined below. Required when `certificate` block is not specified.
+        /// A `X509CertificateProperties` block as defined below. Required when `Certificate` block is not specified.
         /// </summary>
         public readonly Outputs.CertifiateCertificatePolicyX509CertificateProperties? X509CertificateProperties;
 

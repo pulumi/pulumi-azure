@@ -33,14 +33,14 @@ public final class DiagnosticFrontendResponseDataMaskingArgs extends com.pulumi.
     }
 
     /**
-     * A `query_params` block as defined below.
+     * A `queryParams` block as defined below.
      * 
      */
     @Import(name="queryParams")
     private @Nullable Output<List<DiagnosticFrontendResponseDataMaskingQueryParamArgs>> queryParams;
 
     /**
-     * @return A `query_params` block as defined below.
+     * @return A `queryParams` block as defined below.
      * 
      */
     public Optional<Output<List<DiagnosticFrontendResponseDataMaskingQueryParamArgs>>> queryParams() {
@@ -104,7 +104,7 @@ public final class DiagnosticFrontendResponseDataMaskingArgs extends com.pulumi.
         }
 
         /**
-         * @param queryParams A `query_params` block as defined below.
+         * @param queryParams A `queryParams` block as defined below.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class DiagnosticFrontendResponseDataMaskingArgs extends com.pulumi.
         }
 
         /**
-         * @param queryParams A `query_params` block as defined below.
+         * @param queryParams A `queryParams` block as defined below.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class DiagnosticFrontendResponseDataMaskingArgs extends com.pulumi.
         }
 
         /**
-         * @param queryParams A `query_params` block as defined below.
+         * @param queryParams A `queryParams` block as defined below.
          * 
          * @return builder
          * 

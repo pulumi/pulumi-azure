@@ -16,7 +16,7 @@ import java.util.Objects;
 @CustomType
 public final class GetFactoryResult {
     /**
-     * @return A `github_configuration` block as defined below.
+     * @return A `githubConfiguration` block as defined below.
      * 
      */
     private List<GetFactoryGithubConfiguration> githubConfigurations;
@@ -43,14 +43,14 @@ public final class GetFactoryResult {
      */
     private Map<String,String> tags;
     /**
-     * @return A `vsts_configuration` block as defined below.
+     * @return A `vstsConfiguration` block as defined below.
      * 
      */
     private List<GetFactoryVstsConfiguration> vstsConfigurations;
 
     private GetFactoryResult() {}
     /**
-     * @return A `github_configuration` block as defined below.
+     * @return A `githubConfiguration` block as defined below.
      * 
      */
     public List<GetFactoryGithubConfiguration> githubConfigurations() {
@@ -91,7 +91,7 @@ public final class GetFactoryResult {
         return this.tags;
     }
     /**
-     * @return A `vsts_configuration` block as defined below.
+     * @return A `vstsConfiguration` block as defined below.
      * 
      */
     public List<GetFactoryVstsConfiguration> vstsConfigurations() {

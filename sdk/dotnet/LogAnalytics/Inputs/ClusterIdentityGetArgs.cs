@@ -18,7 +18,7 @@ namespace Pulumi.Azure.LogAnalytics.Inputs
         /// <summary>
         /// A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App Slot.
         /// 
-        /// &gt; **Note:** This is required when `type` is set to `UserAssigned`.
+        /// &gt; **Note:** This is required when `Type` is set to `UserAssigned`.
         /// </summary>
         public InputList<string> IdentityIds
         {
@@ -41,7 +41,7 @@ namespace Pulumi.Azure.LogAnalytics.Inputs
         /// <summary>
         /// Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. Possible values are `SystemAssigned` and  `UserAssigned`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Log Analytics Cluster has been created. More details are available below.
+        /// &gt; **Note:** The assigned `PrincipalId` and `TenantId` can be retrieved after the identity `Type` has been set to `SystemAssigned` and the Log Analytics Cluster has been created. More details are available below.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

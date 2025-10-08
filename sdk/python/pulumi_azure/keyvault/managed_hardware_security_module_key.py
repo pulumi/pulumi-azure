@@ -362,6 +362,62 @@ class ManagedHardwareSecurityModuleKey(pulumi.CustomResource):
 
         > **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Managed Hardware Security Module Key resource on destroy, rather than the default soft-delete. See `purge_soft_deleted_hardware_security_modules_on_destroy` for more information.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example = azure.keyvault.ManagedHardwareSecurityModule("example",
+            name="example",
+            resource_group_name=example_azurerm_resource_group["name"],
+            location=example_azurerm_resource_group["location"],
+            sku_name="Standard_B1",
+            tenant_id=current.tenant_id,
+            admin_object_ids=[current.object_id],
+            purge_protection_enabled=False,
+            active_config=[{
+                "securityDomainCertificate": [
+                    cert[0]["id"],
+                    cert[1]["id"],
+                    cert[2]["id"],
+                ],
+                "securityDomainQuorum": 2,
+            }])
+        # this gives your service principal the HSM Crypto User role which lets you create and destroy hsm keys
+        hsm_crypto_user = azure.keyvault.ManagedHardwareSecurityModuleRoleAssignment("hsm-crypto-user",
+            managed_hsm_id=test["id"],
+            name="1e243909-064c-6ac3-84e9-1c8bf8d6ad22",
+            scope="/keys",
+            role_definition_id="/Microsoft.KeyVault/providers/Microsoft.Authorization/roleDefinitions/21dbd100-6940-42c2-9190-5d6cb909625b",
+            principal_id=current.object_id)
+        # this gives your service principal the HSM Crypto Officer role which lets you purge hsm keys
+        hsm_crypto_officer = azure.keyvault.ManagedHardwareSecurityModuleRoleAssignment("hsm-crypto-officer",
+            managed_hsm_id=test["id"],
+            name="1e243909-064c-6ac3-84e9-1c8bf8d6ad23",
+            scope="/keys",
+            role_definition_id="/Microsoft.KeyVault/providers/Microsoft.Authorization/roleDefinitions/515eb02d-2335-4d2d-92f2-b1cbdf9c3778",
+            principal_id=current.object_id)
+        example_managed_hardware_security_module_key = azure.keyvault.ManagedHardwareSecurityModuleKey("example",
+            name="example",
+            managed_hsm_id=test["id"],
+            key_type="EC-HSM",
+            curve="P-521",
+            key_opts=["sign"],
+            opts = pulumi.ResourceOptions(depends_on=[
+                    test_azurerm_key_vault_managed_hardware_security_module_role_assignment,
+                    test1,
+                ]))
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.KeyVault` - 2023-07-01
+
         ## Import
 
         Key Vault Managed Hardware Security Module Key can be imported using the `resource id`, e.g.
@@ -394,6 +450,62 @@ class ManagedHardwareSecurityModuleKey(pulumi.CustomResource):
         Manages a Key Vault Managed Hardware Security Module Key.
 
         > **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Managed Hardware Security Module Key resource on destroy, rather than the default soft-delete. See `purge_soft_deleted_hardware_security_modules_on_destroy` for more information.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example = azure.keyvault.ManagedHardwareSecurityModule("example",
+            name="example",
+            resource_group_name=example_azurerm_resource_group["name"],
+            location=example_azurerm_resource_group["location"],
+            sku_name="Standard_B1",
+            tenant_id=current.tenant_id,
+            admin_object_ids=[current.object_id],
+            purge_protection_enabled=False,
+            active_config=[{
+                "securityDomainCertificate": [
+                    cert[0]["id"],
+                    cert[1]["id"],
+                    cert[2]["id"],
+                ],
+                "securityDomainQuorum": 2,
+            }])
+        # this gives your service principal the HSM Crypto User role which lets you create and destroy hsm keys
+        hsm_crypto_user = azure.keyvault.ManagedHardwareSecurityModuleRoleAssignment("hsm-crypto-user",
+            managed_hsm_id=test["id"],
+            name="1e243909-064c-6ac3-84e9-1c8bf8d6ad22",
+            scope="/keys",
+            role_definition_id="/Microsoft.KeyVault/providers/Microsoft.Authorization/roleDefinitions/21dbd100-6940-42c2-9190-5d6cb909625b",
+            principal_id=current.object_id)
+        # this gives your service principal the HSM Crypto Officer role which lets you purge hsm keys
+        hsm_crypto_officer = azure.keyvault.ManagedHardwareSecurityModuleRoleAssignment("hsm-crypto-officer",
+            managed_hsm_id=test["id"],
+            name="1e243909-064c-6ac3-84e9-1c8bf8d6ad23",
+            scope="/keys",
+            role_definition_id="/Microsoft.KeyVault/providers/Microsoft.Authorization/roleDefinitions/515eb02d-2335-4d2d-92f2-b1cbdf9c3778",
+            principal_id=current.object_id)
+        example_managed_hardware_security_module_key = azure.keyvault.ManagedHardwareSecurityModuleKey("example",
+            name="example",
+            managed_hsm_id=test["id"],
+            key_type="EC-HSM",
+            curve="P-521",
+            key_opts=["sign"],
+            opts = pulumi.ResourceOptions(depends_on=[
+                    test_azurerm_key_vault_managed_hardware_security_module_role_assignment,
+                    test1,
+                ]))
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.KeyVault` - 2023-07-01
 
         ## Import
 

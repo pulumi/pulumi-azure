@@ -166,7 +166,7 @@ namespace Pulumi.Azure.Network
     public partial class FirewallPolicyRuleCollectionGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// One or more `application_rule_collection` blocks as defined below.
+        /// One or more `ApplicationRuleCollection` blocks as defined below.
         /// </summary>
         [Output("applicationRuleCollections")]
         public Output<ImmutableArray<Outputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollection>> ApplicationRuleCollections { get; private set; } = null!;
@@ -184,13 +184,13 @@ namespace Pulumi.Azure.Network
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `nat_rule_collection` blocks as defined below.
+        /// One or more `NatRuleCollection` blocks as defined below.
         /// </summary>
         [Output("natRuleCollections")]
         public Output<ImmutableArray<Outputs.FirewallPolicyRuleCollectionGroupNatRuleCollection>> NatRuleCollections { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `network_rule_collection` blocks as defined below.
+        /// One or more `NetworkRuleCollection` blocks as defined below.
         /// </summary>
         [Output("networkRuleCollections")]
         public Output<ImmutableArray<Outputs.FirewallPolicyRuleCollectionGroupNetworkRuleCollection>> NetworkRuleCollections { get; private set; } = null!;
@@ -251,7 +251,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs>? _applicationRuleCollections;
 
         /// <summary>
-        /// One or more `application_rule_collection` blocks as defined below.
+        /// One or more `ApplicationRuleCollection` blocks as defined below.
         /// </summary>
         public InputList<Inputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs> ApplicationRuleCollections
         {
@@ -275,7 +275,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs>? _natRuleCollections;
 
         /// <summary>
-        /// One or more `nat_rule_collection` blocks as defined below.
+        /// One or more `NatRuleCollection` blocks as defined below.
         /// </summary>
         public InputList<Inputs.FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs> NatRuleCollections
         {
@@ -287,7 +287,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs>? _networkRuleCollections;
 
         /// <summary>
-        /// One or more `network_rule_collection` blocks as defined below.
+        /// One or more `NetworkRuleCollection` blocks as defined below.
         /// </summary>
         public InputList<Inputs.FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs> NetworkRuleCollections
         {
@@ -313,7 +313,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionGetArgs>? _applicationRuleCollections;
 
         /// <summary>
-        /// One or more `application_rule_collection` blocks as defined below.
+        /// One or more `ApplicationRuleCollection` blocks as defined below.
         /// </summary>
         public InputList<Inputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionGetArgs> ApplicationRuleCollections
         {
@@ -337,7 +337,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.FirewallPolicyRuleCollectionGroupNatRuleCollectionGetArgs>? _natRuleCollections;
 
         /// <summary>
-        /// One or more `nat_rule_collection` blocks as defined below.
+        /// One or more `NatRuleCollection` blocks as defined below.
         /// </summary>
         public InputList<Inputs.FirewallPolicyRuleCollectionGroupNatRuleCollectionGetArgs> NatRuleCollections
         {
@@ -349,7 +349,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.FirewallPolicyRuleCollectionGroupNetworkRuleCollectionGetArgs>? _networkRuleCollections;
 
         /// <summary>
-        /// One or more `network_rule_collection` blocks as defined below.
+        /// One or more `NetworkRuleCollection` blocks as defined below.
         /// </summary>
         public InputList<Inputs.FirewallPolicyRuleCollectionGroupNetworkRuleCollectionGetArgs> NetworkRuleCollections
         {

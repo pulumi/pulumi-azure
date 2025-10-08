@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ProfileMonitorConfig {
     /**
-     * @return One or more `custom_header` blocks as defined below.
+     * @return One or more `customHeader` blocks as defined below.
      * 
      */
     private @Nullable List<ProfileMonitorConfigCustomHeader> customHeaders;
@@ -46,7 +46,7 @@ public final class ProfileMonitorConfig {
      */
     private String protocol;
     /**
-     * @return The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If `interval_in_seconds` is set to `30`, then `timeout_in_seconds` can be between `5` and `10`. The default value is `10`. If `interval_in_seconds` is set to `10`, then valid values are between `5` and `9` and `timeout_in_seconds` is required.
+     * @return The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If `intervalInSeconds` is set to `30`, then `timeoutInSeconds` can be between `5` and `10`. The default value is `10`. If `intervalInSeconds` is set to `10`, then valid values are between `5` and `9` and `timeoutInSeconds` is required.
      * 
      */
     private @Nullable Integer timeoutInSeconds;
@@ -58,7 +58,7 @@ public final class ProfileMonitorConfig {
 
     private ProfileMonitorConfig() {}
     /**
-     * @return One or more `custom_header` blocks as defined below.
+     * @return One or more `customHeader` blocks as defined below.
      * 
      */
     public List<ProfileMonitorConfigCustomHeader> customHeaders() {
@@ -100,7 +100,7 @@ public final class ProfileMonitorConfig {
         return this.protocol;
     }
     /**
-     * @return The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If `interval_in_seconds` is set to `30`, then `timeout_in_seconds` can be between `5` and `10`. The default value is `10`. If `interval_in_seconds` is set to `10`, then valid values are between `5` and `9` and `timeout_in_seconds` is required.
+     * @return The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If `intervalInSeconds` is set to `30`, then `timeoutInSeconds` can be between `5` and `10`. The default value is `10`. If `intervalInSeconds` is set to `10`, then valid values are between `5` and `9` and `timeoutInSeconds` is required.
      * 
      */
     public Optional<Integer> timeoutInSeconds() {

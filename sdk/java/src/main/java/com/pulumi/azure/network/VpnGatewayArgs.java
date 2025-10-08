@@ -36,14 +36,14 @@ public final class VpnGatewayArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `bgp_settings` block as defined below.
+     * A `bgpSettings` block as defined below.
      * 
      */
     @Import(name="bgpSettings")
     private @Nullable Output<VpnGatewayBgpSettingsArgs> bgpSettings;
 
     /**
-     * @return A `bgp_settings` block as defined below.
+     * @return A `bgpSettings` block as defined below.
      * 
      */
     public Optional<Output<VpnGatewayBgpSettingsArgs>> bgpSettings() {
@@ -209,7 +209,7 @@ public final class VpnGatewayArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bgpSettings A `bgp_settings` block as defined below.
+         * @param bgpSettings A `bgpSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -220,7 +220,7 @@ public final class VpnGatewayArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bgpSettings A `bgp_settings` block as defined below.
+         * @param bgpSettings A `bgpSettings` block as defined below.
          * 
          * @return builder
          * 

@@ -14,6 +14,83 @@ import (
 
 // Manages a Stream Analytics Output to a ServiceBus Queue.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/servicebus"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/streamanalytics"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("rg-example"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example := streamanalytics.LookupJobOutput(ctx, streamanalytics.GetJobOutputArgs{
+//				Name:              pulumi.String("example-job"),
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			}, nil)
+//			exampleNamespace, err := servicebus.NewNamespace(ctx, "example", &servicebus.NamespaceArgs{
+//				Name:              pulumi.String("example-namespace"),
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("Standard"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleQueue, err := servicebus.NewQueue(ctx, "example", &servicebus.QueueArgs{
+//				Name:               pulumi.String("example-queue"),
+//				NamespaceId:        exampleNamespace.ID(),
+//				EnablePartitioning: true,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = streamanalytics.NewOutputServiceBusQueue(ctx, "example", &streamanalytics.OutputServiceBusQueueArgs{
+//				Name: pulumi.String("blob-storage-output"),
+//				StreamAnalyticsJobName: pulumi.String(example.ApplyT(func(example streamanalytics.GetJobResult) (*string, error) {
+//					return &example.Name, nil
+//				}).(pulumi.StringPtrOutput)),
+//				ResourceGroupName: pulumi.String(example.ApplyT(func(example streamanalytics.GetJobResult) (*string, error) {
+//					return &example.ResourceGroupName, nil
+//				}).(pulumi.StringPtrOutput)),
+//				QueueName:              exampleQueue.Name,
+//				ServicebusNamespace:    exampleNamespace.Name,
+//				SharedAccessPolicyKey:  exampleNamespace.DefaultPrimaryKey,
+//				SharedAccessPolicyName: pulumi.String("RootManageSharedAccessKey"),
+//				Serialization: &streamanalytics.OutputServiceBusQueueSerializationArgs{
+//					Type:   pulumi.String("Csv"),
+//					Format: pulumi.String("Array"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.StreamAnalytics` - 2021-10-01-preview
+//
 // ## Import
 //
 // Stream Analytics Output ServiceBus Queue's can be imported using the `resource id`, e.g.

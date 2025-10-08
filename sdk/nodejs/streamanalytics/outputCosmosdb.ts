@@ -7,6 +7,66 @@ import * as utilities from "../utilities";
 /**
  * Manages a Stream Analytics Output to CosmosDB.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "rg-example",
+ *     location: "West Europe",
+ * });
+ * const example = azure.streamanalytics.getJobOutput({
+ *     name: "example-job",
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleAccount = new azure.cosmosdb.Account("example", {
+ *     name: "exampledb",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     offerType: "Standard",
+ *     kind: "GlobalDocumentDB",
+ *     consistencyPolicy: {
+ *         consistencyLevel: "BoundedStaleness",
+ *         maxIntervalInSeconds: 10,
+ *         maxStalenessPrefix: 200,
+ *     },
+ *     geoLocations: [{
+ *         location: exampleResourceGroup.location,
+ *         failoverPriority: 0,
+ *     }],
+ * });
+ * const exampleSqlDatabase = new azure.cosmosdb.SqlDatabase("example", {
+ *     name: "cosmos-sql-db",
+ *     resourceGroupName: exampleAccount.resourceGroupName,
+ *     accountName: exampleAccount.name,
+ *     throughput: 400,
+ * });
+ * const exampleSqlContainer = new azure.cosmosdb.SqlContainer("example", {
+ *     name: "examplecontainer",
+ *     resourceGroupName: exampleAccount.resourceGroupName,
+ *     accountName: exampleAccount.name,
+ *     databaseName: exampleSqlDatabase.name,
+ *     partitionKeyPath: "foo",
+ * });
+ * const exampleOutputCosmosdb = new azure.streamanalytics.OutputCosmosdb("example", {
+ *     name: "output-to-cosmosdb",
+ *     streamAnalyticsJobId: example.apply(example => example.id),
+ *     cosmosdbAccountKey: exampleAccount.primaryKey,
+ *     cosmosdbSqlDatabaseId: exampleSqlDatabase.id,
+ *     containerName: exampleSqlContainer.name,
+ *     documentId: "exampledocumentid",
+ * });
+ * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.StreamAnalytics` - 2021-10-01-preview
+ *
  * ## Import
  *
  * Stream Analytics Outputs for CosmosDB can be imported using the `resource id`, e.g.

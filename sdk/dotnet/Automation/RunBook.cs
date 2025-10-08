@@ -75,7 +75,7 @@ namespace Pulumi.Azure.Automation
         /// <summary>
         /// The desired content of the runbook.
         /// 
-        /// &gt; **Note:** The Azure API requires a `publish_content_link` to be supplied even when specifying your own `content`.
+        /// &gt; **Note:** The Azure API requires a `PublishContentLink` to be supplied even when specifying your own `Content`.
         /// </summary>
         [Output("content")]
         public Output<string> Content { get; private set; } = null!;
@@ -87,15 +87,15 @@ namespace Pulumi.Azure.Automation
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// A `draft` block as defined below.
+        /// A `Draft` block as defined below.
         /// </summary>
         [Output("draft")]
         public Output<Outputs.RunBookDraft?> Draft { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `job_schedule` block as defined below.
+        /// One or more `JobSchedule` block as defined below.
         /// 
-        /// &gt; **Note:** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `job_schedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
+        /// &gt; **Note:** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `JobSchedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
         /// </summary>
         [Output("jobSchedules")]
         public Output<ImmutableArray<Outputs.RunBookJobSchedule>> JobSchedules { get; private set; } = null!;
@@ -131,7 +131,7 @@ namespace Pulumi.Azure.Automation
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// One `publish_content_link` block as defined below.
+        /// One `PublishContentLink` block as defined below.
         /// </summary>
         [Output("publishContentLink")]
         public Output<Outputs.RunBookPublishContentLink?> PublishContentLink { get; private set; } = null!;
@@ -209,7 +209,7 @@ namespace Pulumi.Azure.Automation
         /// <summary>
         /// The desired content of the runbook.
         /// 
-        /// &gt; **Note:** The Azure API requires a `publish_content_link` to be supplied even when specifying your own `content`.
+        /// &gt; **Note:** The Azure API requires a `PublishContentLink` to be supplied even when specifying your own `Content`.
         /// </summary>
         [Input("content")]
         public Input<string>? Content { get; set; }
@@ -221,7 +221,7 @@ namespace Pulumi.Azure.Automation
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A `draft` block as defined below.
+        /// A `Draft` block as defined below.
         /// </summary>
         [Input("draft")]
         public Input<Inputs.RunBookDraftArgs>? Draft { get; set; }
@@ -230,9 +230,9 @@ namespace Pulumi.Azure.Automation
         private InputList<Inputs.RunBookJobScheduleArgs>? _jobSchedules;
 
         /// <summary>
-        /// One or more `job_schedule` block as defined below.
+        /// One or more `JobSchedule` block as defined below.
         /// 
-        /// &gt; **Note:** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `job_schedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
+        /// &gt; **Note:** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `JobSchedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
         /// </summary>
         public InputList<Inputs.RunBookJobScheduleArgs> JobSchedules
         {
@@ -271,7 +271,7 @@ namespace Pulumi.Azure.Automation
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// One `publish_content_link` block as defined below.
+        /// One `PublishContentLink` block as defined below.
         /// </summary>
         [Input("publishContentLink")]
         public Input<Inputs.RunBookPublishContentLinkArgs>? PublishContentLink { get; set; }
@@ -317,7 +317,7 @@ namespace Pulumi.Azure.Automation
         /// <summary>
         /// The desired content of the runbook.
         /// 
-        /// &gt; **Note:** The Azure API requires a `publish_content_link` to be supplied even when specifying your own `content`.
+        /// &gt; **Note:** The Azure API requires a `PublishContentLink` to be supplied even when specifying your own `Content`.
         /// </summary>
         [Input("content")]
         public Input<string>? Content { get; set; }
@@ -329,7 +329,7 @@ namespace Pulumi.Azure.Automation
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A `draft` block as defined below.
+        /// A `Draft` block as defined below.
         /// </summary>
         [Input("draft")]
         public Input<Inputs.RunBookDraftGetArgs>? Draft { get; set; }
@@ -338,9 +338,9 @@ namespace Pulumi.Azure.Automation
         private InputList<Inputs.RunBookJobScheduleGetArgs>? _jobSchedules;
 
         /// <summary>
-        /// One or more `job_schedule` block as defined below.
+        /// One or more `JobSchedule` block as defined below.
         /// 
-        /// &gt; **Note:** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `job_schedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
+        /// &gt; **Note:** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `JobSchedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
         /// </summary>
         public InputList<Inputs.RunBookJobScheduleGetArgs> JobSchedules
         {
@@ -379,7 +379,7 @@ namespace Pulumi.Azure.Automation
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// One `publish_content_link` block as defined below.
+        /// One `PublishContentLink` block as defined below.
         /// </summary>
         [Input("publishContentLink")]
         public Input<Inputs.RunBookPublishContentLinkGetArgs>? PublishContentLink { get; set; }

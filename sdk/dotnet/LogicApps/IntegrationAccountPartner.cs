@@ -73,7 +73,7 @@ namespace Pulumi.Azure.LogicApps
     public partial class IntegrationAccountPartner : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A `business_identity` block as documented below.
+        /// A `BusinessIdentity` block as documented below.
         /// </summary>
         [Output("businessIdentities")]
         public Output<ImmutableArray<Outputs.IntegrationAccountPartnerBusinessIdentity>> BusinessIdentities { get; private set; } = null!;
@@ -152,7 +152,7 @@ namespace Pulumi.Azure.LogicApps
         private InputList<Inputs.IntegrationAccountPartnerBusinessIdentityArgs>? _businessIdentities;
 
         /// <summary>
-        /// A `business_identity` block as documented below.
+        /// A `BusinessIdentity` block as documented below.
         /// </summary>
         public InputList<Inputs.IntegrationAccountPartnerBusinessIdentityArgs> BusinessIdentities
         {
@@ -196,7 +196,7 @@ namespace Pulumi.Azure.LogicApps
         private InputList<Inputs.IntegrationAccountPartnerBusinessIdentityGetArgs>? _businessIdentities;
 
         /// <summary>
-        /// A `business_identity` block as documented below.
+        /// A `BusinessIdentity` block as documented below.
         /// </summary>
         public InputList<Inputs.IntegrationAccountPartnerBusinessIdentityGetArgs> BusinessIdentities
         {

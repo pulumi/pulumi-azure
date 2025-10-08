@@ -85,6 +85,150 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### With Storage Account Behind VNet And Firewall
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.mssql.Server;
+ * import com.pulumi.azure.mssql.ServerArgs;
+ * import com.pulumi.azure.mssql.inputs.ServerIdentityArgs;
+ * import com.pulumi.azure.authorization.Assignment;
+ * import com.pulumi.azure.authorization.AssignmentArgs;
+ * import com.pulumi.azurerm.sqlVirtualNetworkRule;
+ * import com.pulumi.azurerm.sqlVirtualNetworkRuleArgs;
+ * import com.pulumi.azurerm.sqlFirewallRule;
+ * import com.pulumi.azurerm.sqlFirewallRuleArgs;
+ * import com.pulumi.azure.storage.Account;
+ * import com.pulumi.azure.storage.AccountArgs;
+ * import com.pulumi.azure.storage.inputs.AccountNetworkRulesArgs;
+ * import com.pulumi.azure.storage.inputs.AccountIdentityArgs;
+ * import com.pulumi.azure.mssql.ServerExtendedAuditingPolicy;
+ * import com.pulumi.azure.mssql.ServerExtendedAuditingPolicyArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var primary = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+ *             .build());
+ * 
+ *         final var example = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+ * 
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
+ *             .name("example")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
+ *             .name("virtnetname-1")
+ *             .addressSpaces("10.0.0.0/16")
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .build());
+ * 
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
+ *             .name("subnetname-1")
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes("10.0.2.0/24")
+ *             .serviceEndpoints(            
+ *                 "Microsoft.Sql",
+ *                 "Microsoft.Storage")
+ *             .enforcePrivateLinkEndpointNetworkPolicies(true)
+ *             .build());
+ * 
+ *         var exampleServer = new Server("exampleServer", ServerArgs.builder()
+ *             .name("example-sqlserver")
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .version("12.0")
+ *             .administratorLogin("missadministrator")
+ *             .administratorLoginPassword("AdminPassword123!")
+ *             .minimumTlsVersion("1.2")
+ *             .identity(ServerIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()
+ *             .scope(primary.id())
+ *             .roleDefinitionName("Storage Blob Data Contributor")
+ *             .principalId(exampleServer.identity().applyValue(_identity -> _identity.principalId()))
+ *             .build());
+ * 
+ *         var sqlvnetrule = new SqlVirtualNetworkRule("sqlvnetrule", SqlVirtualNetworkRuleArgs.builder()
+ *             .name("sql-vnet-rule")
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .serverName(exampleServer.name())
+ *             .subnetId(exampleSubnet.id())
+ *             .build());
+ * 
+ *         var exampleSqlFirewallRule = new SqlFirewallRule("exampleSqlFirewallRule", SqlFirewallRuleArgs.builder()
+ *             .name("FirewallRule1")
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .serverName(exampleServer.name())
+ *             .startIpAddress("0.0.0.0")
+ *             .endIpAddress("0.0.0.0")
+ *             .build());
+ * 
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
+ *             .name("examplesa")
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
+ *             .accountKind("StorageV2")
+ *             .allowNestedItemsToBePublic(false)
+ *             .networkRules(AccountNetworkRulesArgs.builder()
+ *                 .defaultAction("Deny")
+ *                 .ipRules("127.0.0.1")
+ *                 .virtualNetworkSubnetIds(exampleSubnet.id())
+ *                 .bypasses("AzureServices")
+ *                 .build())
+ *             .identity(AccountIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleServerExtendedAuditingPolicy = new ServerExtendedAuditingPolicy("exampleServerExtendedAuditingPolicy", ServerExtendedAuditingPolicyArgs.builder()
+ *             .storageEndpoint(exampleAccount.primaryBlobEndpoint())
+ *             .serverId(exampleServer.id())
+ *             .retentionInDays(6)
+ *             .logMonitoringEnabled(false)
+ *             .storageAccountSubscriptionId(primaryAzurermSubscription.subscriptionId())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     exampleAssignment,
+ *                     exampleAccount)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * MS SQL Server Extended Auditing Policies can be imported using the `resource id`, e.g.
@@ -113,7 +257,7 @@ public class ServerExtendedAuditingPolicy extends com.pulumi.resources.CustomRes
     /**
      * Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
      * 
-     * &gt; **Note:** If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
+     * &gt; **Note:** If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
@@ -122,7 +266,7 @@ public class ServerExtendedAuditingPolicy extends com.pulumi.resources.CustomRes
     /**
      * @return Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
      * 
-     * &gt; **Note:** If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
+     * &gt; **Note:** If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
      * 
      */
     public Output<Optional<Boolean>> enabled() {
@@ -199,14 +343,14 @@ public class ServerExtendedAuditingPolicy extends com.pulumi.resources.CustomRes
         return Codegen.optional(this.storageAccountAccessKey);
     }
     /**
-     * Is `storage_account_access_key` value the storage&#39;s secondary key?
+     * Is `storageAccountAccessKey` value the storage&#39;s secondary key?
      * 
      */
     @Export(name="storageAccountAccessKeyIsSecondary", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> storageAccountAccessKeyIsSecondary;
 
     /**
-     * @return Is `storage_account_access_key` value the storage&#39;s secondary key?
+     * @return Is `storageAccountAccessKey` value the storage&#39;s secondary key?
      * 
      */
     public Output<Optional<Boolean>> storageAccountAccessKeyIsSecondary() {

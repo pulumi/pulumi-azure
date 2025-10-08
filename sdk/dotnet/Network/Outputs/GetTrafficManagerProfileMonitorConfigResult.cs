@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class GetTrafficManagerProfileMonitorConfigResult
     {
         /// <summary>
-        /// One or more `custom_header` blocks as defined below.
+        /// One or more `CustomHeader` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetTrafficManagerProfileMonitorConfigCustomHeaderResult> CustomHeaders;
         /// <summary>

@@ -62,7 +62,7 @@ namespace Pulumi.Azure.Sentinel
     public partial class DataConnectorOffice365 : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Should the Exchange data connector be enabled? Defaults to `true`.
+        /// Should the Exchange data connector be enabled? Defaults to `True`.
         /// </summary>
         [Output("exchangeEnabled")]
         public Output<bool?> ExchangeEnabled { get; private set; } = null!;
@@ -80,15 +80,15 @@ namespace Pulumi.Azure.Sentinel
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Should the SharePoint data connector be enabled? Defaults to `true`.
+        /// Should the SharePoint data connector be enabled? Defaults to `True`.
         /// </summary>
         [Output("sharepointEnabled")]
         public Output<bool?> SharepointEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Should the Microsoft Teams data connector be enabled? Defaults to `true`.
+        /// Should the Microsoft Teams data connector be enabled? Defaults to `True`.
         /// 
-        /// &gt; **Note:** At least one of `exchange_enabled`, `sharedpoint_enabled` and `teams_enabled` has to be specified.
+        /// &gt; **Note:** At least one of `ExchangeEnabled`, `SharedpointEnabled` and `TeamsEnabled` has to be specified.
         /// </summary>
         [Output("teamsEnabled")]
         public Output<bool?> TeamsEnabled { get; private set; } = null!;
@@ -148,7 +148,7 @@ namespace Pulumi.Azure.Sentinel
     public sealed class DataConnectorOffice365Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should the Exchange data connector be enabled? Defaults to `true`.
+        /// Should the Exchange data connector be enabled? Defaults to `True`.
         /// </summary>
         [Input("exchangeEnabled")]
         public Input<bool>? ExchangeEnabled { get; set; }
@@ -166,15 +166,15 @@ namespace Pulumi.Azure.Sentinel
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Should the SharePoint data connector be enabled? Defaults to `true`.
+        /// Should the SharePoint data connector be enabled? Defaults to `True`.
         /// </summary>
         [Input("sharepointEnabled")]
         public Input<bool>? SharepointEnabled { get; set; }
 
         /// <summary>
-        /// Should the Microsoft Teams data connector be enabled? Defaults to `true`.
+        /// Should the Microsoft Teams data connector be enabled? Defaults to `True`.
         /// 
-        /// &gt; **Note:** At least one of `exchange_enabled`, `sharedpoint_enabled` and `teams_enabled` has to be specified.
+        /// &gt; **Note:** At least one of `ExchangeEnabled`, `SharedpointEnabled` and `TeamsEnabled` has to be specified.
         /// </summary>
         [Input("teamsEnabled")]
         public Input<bool>? TeamsEnabled { get; set; }
@@ -196,7 +196,7 @@ namespace Pulumi.Azure.Sentinel
     public sealed class DataConnectorOffice365State : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should the Exchange data connector be enabled? Defaults to `true`.
+        /// Should the Exchange data connector be enabled? Defaults to `True`.
         /// </summary>
         [Input("exchangeEnabled")]
         public Input<bool>? ExchangeEnabled { get; set; }
@@ -214,15 +214,15 @@ namespace Pulumi.Azure.Sentinel
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Should the SharePoint data connector be enabled? Defaults to `true`.
+        /// Should the SharePoint data connector be enabled? Defaults to `True`.
         /// </summary>
         [Input("sharepointEnabled")]
         public Input<bool>? SharepointEnabled { get; set; }
 
         /// <summary>
-        /// Should the Microsoft Teams data connector be enabled? Defaults to `true`.
+        /// Should the Microsoft Teams data connector be enabled? Defaults to `True`.
         /// 
-        /// &gt; **Note:** At least one of `exchange_enabled`, `sharedpoint_enabled` and `teams_enabled` has to be specified.
+        /// &gt; **Note:** At least one of `ExchangeEnabled`, `SharedpointEnabled` and `TeamsEnabled` has to be specified.
         /// </summary>
         [Input("teamsEnabled")]
         public Input<bool>? TeamsEnabled { get; set; }

@@ -13,13 +13,13 @@ namespace Pulumi.Azure.Cdn.Inputs
     public sealed class EndpointDeliveryRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `cache_expiration_action` block as defined above.
+        /// A `CacheExpirationAction` block as defined above.
         /// </summary>
         [Input("cacheExpirationAction")]
         public Input<Inputs.EndpointDeliveryRuleCacheExpirationActionGetArgs>? CacheExpirationAction { get; set; }
 
         /// <summary>
-        /// A `cache_key_query_string_action` block as defined above.
+        /// A `CacheKeyQueryStringAction` block as defined above.
         /// </summary>
         [Input("cacheKeyQueryStringAction")]
         public Input<Inputs.EndpointDeliveryRuleCacheKeyQueryStringActionGetArgs>? CacheKeyQueryStringAction { get; set; }
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         private InputList<Inputs.EndpointDeliveryRuleCookiesConditionGetArgs>? _cookiesConditions;
 
         /// <summary>
-        /// A `cookies_condition` block as defined above.
+        /// A `CookiesCondition` block as defined above.
         /// </summary>
         public InputList<Inputs.EndpointDeliveryRuleCookiesConditionGetArgs> CookiesConditions
         {
@@ -37,7 +37,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         }
 
         /// <summary>
-        /// A `device_condition` block as defined below.
+        /// A `DeviceCondition` block as defined below.
         /// </summary>
         [Input("deviceCondition")]
         public Input<Inputs.EndpointDeliveryRuleDeviceConditionGetArgs>? DeviceCondition { get; set; }
@@ -46,7 +46,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         private InputList<Inputs.EndpointDeliveryRuleHttpVersionConditionGetArgs>? _httpVersionConditions;
 
         /// <summary>
-        /// A `http_version_condition` block as defined below.
+        /// A `HttpVersionCondition` block as defined below.
         /// </summary>
         public InputList<Inputs.EndpointDeliveryRuleHttpVersionConditionGetArgs> HttpVersionConditions
         {
@@ -58,7 +58,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         private InputList<Inputs.EndpointDeliveryRuleModifyRequestHeaderActionGetArgs>? _modifyRequestHeaderActions;
 
         /// <summary>
-        /// A `modify_request_header_action` block as defined below.
+        /// A `ModifyRequestHeaderAction` block as defined below.
         /// </summary>
         public InputList<Inputs.EndpointDeliveryRuleModifyRequestHeaderActionGetArgs> ModifyRequestHeaderActions
         {
@@ -70,7 +70,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         private InputList<Inputs.EndpointDeliveryRuleModifyResponseHeaderActionGetArgs>? _modifyResponseHeaderActions;
 
         /// <summary>
-        /// A `modify_response_header_action` block as defined below.
+        /// A `ModifyResponseHeaderAction` block as defined below.
         /// </summary>
         public InputList<Inputs.EndpointDeliveryRuleModifyResponseHeaderActionGetArgs> ModifyResponseHeaderActions
         {
@@ -94,7 +94,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         private InputList<Inputs.EndpointDeliveryRulePostArgConditionGetArgs>? _postArgConditions;
 
         /// <summary>
-        /// A `post_arg_condition` block as defined below.
+        /// A `PostArgCondition` block as defined below.
         /// </summary>
         public InputList<Inputs.EndpointDeliveryRulePostArgConditionGetArgs> PostArgConditions
         {
@@ -106,7 +106,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         private InputList<Inputs.EndpointDeliveryRuleQueryStringConditionGetArgs>? _queryStringConditions;
 
         /// <summary>
-        /// A `query_string_condition` block as defined below.
+        /// A `QueryStringCondition` block as defined below.
         /// </summary>
         public InputList<Inputs.EndpointDeliveryRuleQueryStringConditionGetArgs> QueryStringConditions
         {
@@ -118,7 +118,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         private InputList<Inputs.EndpointDeliveryRuleRemoteAddressConditionGetArgs>? _remoteAddressConditions;
 
         /// <summary>
-        /// A `remote_address_condition` block as defined below.
+        /// A `RemoteAddressCondition` block as defined below.
         /// </summary>
         public InputList<Inputs.EndpointDeliveryRuleRemoteAddressConditionGetArgs> RemoteAddressConditions
         {
@@ -130,7 +130,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         private InputList<Inputs.EndpointDeliveryRuleRequestBodyConditionGetArgs>? _requestBodyConditions;
 
         /// <summary>
-        /// A `request_body_condition` block as defined below.
+        /// A `RequestBodyCondition` block as defined below.
         /// </summary>
         public InputList<Inputs.EndpointDeliveryRuleRequestBodyConditionGetArgs> RequestBodyConditions
         {
@@ -142,7 +142,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         private InputList<Inputs.EndpointDeliveryRuleRequestHeaderConditionGetArgs>? _requestHeaderConditions;
 
         /// <summary>
-        /// A `request_header_condition` block as defined below.
+        /// A `RequestHeaderCondition` block as defined below.
         /// </summary>
         public InputList<Inputs.EndpointDeliveryRuleRequestHeaderConditionGetArgs> RequestHeaderConditions
         {
@@ -151,13 +151,13 @@ namespace Pulumi.Azure.Cdn.Inputs
         }
 
         /// <summary>
-        /// A `request_method_condition` block as defined below.
+        /// A `RequestMethodCondition` block as defined below.
         /// </summary>
         [Input("requestMethodCondition")]
         public Input<Inputs.EndpointDeliveryRuleRequestMethodConditionGetArgs>? RequestMethodCondition { get; set; }
 
         /// <summary>
-        /// A `request_scheme_condition` block as defined below.
+        /// A `RequestSchemeCondition` block as defined below.
         /// </summary>
         [Input("requestSchemeCondition")]
         public Input<Inputs.EndpointDeliveryRuleRequestSchemeConditionGetArgs>? RequestSchemeCondition { get; set; }
@@ -166,7 +166,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         private InputList<Inputs.EndpointDeliveryRuleRequestUriConditionGetArgs>? _requestUriConditions;
 
         /// <summary>
-        /// A `request_uri_condition` block as defined below.
+        /// A `RequestUriCondition` block as defined below.
         /// </summary>
         public InputList<Inputs.EndpointDeliveryRuleRequestUriConditionGetArgs> RequestUriConditions
         {
@@ -178,7 +178,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         private InputList<Inputs.EndpointDeliveryRuleUrlFileExtensionConditionGetArgs>? _urlFileExtensionConditions;
 
         /// <summary>
-        /// A `url_file_extension_condition` block as defined below.
+        /// A `UrlFileExtensionCondition` block as defined below.
         /// </summary>
         public InputList<Inputs.EndpointDeliveryRuleUrlFileExtensionConditionGetArgs> UrlFileExtensionConditions
         {
@@ -190,7 +190,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         private InputList<Inputs.EndpointDeliveryRuleUrlFileNameConditionGetArgs>? _urlFileNameConditions;
 
         /// <summary>
-        /// A `url_file_name_condition` block as defined below.
+        /// A `UrlFileNameCondition` block as defined below.
         /// </summary>
         public InputList<Inputs.EndpointDeliveryRuleUrlFileNameConditionGetArgs> UrlFileNameConditions
         {
@@ -202,7 +202,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         private InputList<Inputs.EndpointDeliveryRuleUrlPathConditionGetArgs>? _urlPathConditions;
 
         /// <summary>
-        /// A `url_path_condition` block as defined below.
+        /// A `UrlPathCondition` block as defined below.
         /// </summary>
         public InputList<Inputs.EndpointDeliveryRuleUrlPathConditionGetArgs> UrlPathConditions
         {
@@ -211,13 +211,13 @@ namespace Pulumi.Azure.Cdn.Inputs
         }
 
         /// <summary>
-        /// A `url_redirect_action` block as defined below.
+        /// A `UrlRedirectAction` block as defined below.
         /// </summary>
         [Input("urlRedirectAction")]
         public Input<Inputs.EndpointDeliveryRuleUrlRedirectActionGetArgs>? UrlRedirectAction { get; set; }
 
         /// <summary>
-        /// A `url_rewrite_action` block as defined below.
+        /// A `UrlRewriteAction` block as defined below.
         /// </summary>
         [Input("urlRewriteAction")]
         public Input<Inputs.EndpointDeliveryRuleUrlRewriteActionGetArgs>? UrlRewriteAction { get; set; }

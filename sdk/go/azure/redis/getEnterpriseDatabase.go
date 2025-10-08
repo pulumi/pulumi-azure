@@ -12,6 +12,15 @@ import (
 )
 
 // Use this data source to access information about an existing Redis Enterprise Database
+//
+// ## Example Usage
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.Cache` - 2024-10-01
 func LookupEnterpriseDatabase(ctx *pulumi.Context, args *LookupEnterpriseDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupEnterpriseDatabaseResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEnterpriseDatabaseResult

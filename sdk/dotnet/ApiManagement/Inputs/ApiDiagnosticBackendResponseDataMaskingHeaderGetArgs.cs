@@ -13,7 +13,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
     public sealed class ApiDiagnosticBackendResponseDataMaskingHeaderGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
+        /// The data masking mode. Possible values are `Mask` and `Hide` for `QueryParams`. The only possible value is `Mask` for `Headers`.
         /// </summary>
         [Input("mode", required: true)]
         public Input<string> Mode { get; set; } = null!;

@@ -84,15 +84,15 @@ namespace Pulumi.Azure.ContainerService
         public Output<string?> AgentPoolName { get; private set; } = null!;
 
         /// <summary>
-        /// A `agent_setting` block as defined below.
+        /// A `AgentSetting` block as defined below.
         /// 
-        /// &gt; **Note:** Only one of `agent_pool_name` and `agent_setting` can be specified.
+        /// &gt; **Note:** Only one of `AgentPoolName` and `AgentSetting` can be specified.
         /// </summary>
         [Output("agentSetting")]
         public Output<Outputs.RegistryTaskAgentSetting?> AgentSetting { get; private set; } = null!;
 
         /// <summary>
-        /// A `base_image_trigger` block as defined below.
+        /// A `BaseImageTrigger` block as defined below.
         /// </summary>
         [Output("baseImageTrigger")]
         public Output<Outputs.RegistryTaskBaseImageTrigger?> BaseImageTrigger { get; private set; } = null!;
@@ -104,39 +104,39 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> ContainerRegistryId { get; private set; } = null!;
 
         /// <summary>
-        /// A `docker_step` block as defined below.
+        /// A `DockerStep` block as defined below.
         /// </summary>
         [Output("dockerStep")]
         public Output<Outputs.RegistryTaskDockerStep?> DockerStep { get; private set; } = null!;
 
         /// <summary>
-        /// Should this Container Registry Task be enabled? Defaults to `true`.
+        /// Should this Container Registry Task be enabled? Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// A `encoded_step` block as defined below.
+        /// A `EncodedStep` block as defined below.
         /// </summary>
         [Output("encodedStep")]
         public Output<Outputs.RegistryTaskEncodedStep?> EncodedStep { get; private set; } = null!;
 
         /// <summary>
-        /// A `file_step` block as defined below.
+        /// A `FileStep` block as defined below.
         /// 
-        /// &gt; **Note:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
+        /// &gt; **Note:** For non-system task (when `IsSystemTask` is set to `False`), one and only one of the `DockerStep`, `EncodedStep` and `FileStep` should be specified.
         /// </summary>
         [Output("fileStep")]
         public Output<Outputs.RegistryTaskFileStep?> FileStep { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.RegistryTaskIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// Whether this Container Registry Task is a system task. Changing this forces a new Container Registry Task to be created. Defaults to `false`.
+        /// Whether this Container Registry Task is a system task. Changing this forces a new Container Registry Task to be created. Defaults to `False`.
         /// </summary>
         [Output("isSystemTask")]
         public Output<bool?> IsSystemTask { get; private set; } = null!;
@@ -151,9 +151,9 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `platform` block as defined below.
+        /// A `Platform` block as defined below.
         /// 
-        /// &gt; **Note:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
+        /// &gt; **Note:** The `Platform` is required for non-system task (when `IsSystemTask` is set to `False`).
         /// </summary>
         [Output("platform")]
         public Output<Outputs.RegistryTaskPlatform?> Platform { get; private set; } = null!;
@@ -162,7 +162,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<Outputs.RegistryTaskRegistryCredential?> RegistryCredential { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `source_trigger` blocks as defined below.
+        /// One or more `SourceTrigger` blocks as defined below.
         /// </summary>
         [Output("sourceTriggers")]
         public Output<ImmutableArray<Outputs.RegistryTaskSourceTrigger>> SourceTriggers { get; private set; } = null!;
@@ -174,7 +174,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<int?> TimeoutInSeconds { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `timer_trigger` blocks as defined below.
+        /// One or more `TimerTrigger` blocks as defined below.
         /// </summary>
         [Output("timerTriggers")]
         public Output<ImmutableArray<Outputs.RegistryTaskTimerTrigger>> TimerTriggers { get; private set; } = null!;
@@ -232,15 +232,15 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? AgentPoolName { get; set; }
 
         /// <summary>
-        /// A `agent_setting` block as defined below.
+        /// A `AgentSetting` block as defined below.
         /// 
-        /// &gt; **Note:** Only one of `agent_pool_name` and `agent_setting` can be specified.
+        /// &gt; **Note:** Only one of `AgentPoolName` and `AgentSetting` can be specified.
         /// </summary>
         [Input("agentSetting")]
         public Input<Inputs.RegistryTaskAgentSettingArgs>? AgentSetting { get; set; }
 
         /// <summary>
-        /// A `base_image_trigger` block as defined below.
+        /// A `BaseImageTrigger` block as defined below.
         /// </summary>
         [Input("baseImageTrigger")]
         public Input<Inputs.RegistryTaskBaseImageTriggerArgs>? BaseImageTrigger { get; set; }
@@ -252,39 +252,39 @@ namespace Pulumi.Azure.ContainerService
         public Input<string> ContainerRegistryId { get; set; } = null!;
 
         /// <summary>
-        /// A `docker_step` block as defined below.
+        /// A `DockerStep` block as defined below.
         /// </summary>
         [Input("dockerStep")]
         public Input<Inputs.RegistryTaskDockerStepArgs>? DockerStep { get; set; }
 
         /// <summary>
-        /// Should this Container Registry Task be enabled? Defaults to `true`.
+        /// Should this Container Registry Task be enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// A `encoded_step` block as defined below.
+        /// A `EncodedStep` block as defined below.
         /// </summary>
         [Input("encodedStep")]
         public Input<Inputs.RegistryTaskEncodedStepArgs>? EncodedStep { get; set; }
 
         /// <summary>
-        /// A `file_step` block as defined below.
+        /// A `FileStep` block as defined below.
         /// 
-        /// &gt; **Note:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
+        /// &gt; **Note:** For non-system task (when `IsSystemTask` is set to `False`), one and only one of the `DockerStep`, `EncodedStep` and `FileStep` should be specified.
         /// </summary>
         [Input("fileStep")]
         public Input<Inputs.RegistryTaskFileStepArgs>? FileStep { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.RegistryTaskIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Whether this Container Registry Task is a system task. Changing this forces a new Container Registry Task to be created. Defaults to `false`.
+        /// Whether this Container Registry Task is a system task. Changing this forces a new Container Registry Task to be created. Defaults to `False`.
         /// </summary>
         [Input("isSystemTask")]
         public Input<bool>? IsSystemTask { get; set; }
@@ -299,9 +299,9 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `platform` block as defined below.
+        /// A `Platform` block as defined below.
         /// 
-        /// &gt; **Note:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
+        /// &gt; **Note:** The `Platform` is required for non-system task (when `IsSystemTask` is set to `False`).
         /// </summary>
         [Input("platform")]
         public Input<Inputs.RegistryTaskPlatformArgs>? Platform { get; set; }
@@ -313,7 +313,7 @@ namespace Pulumi.Azure.ContainerService
         private InputList<Inputs.RegistryTaskSourceTriggerArgs>? _sourceTriggers;
 
         /// <summary>
-        /// One or more `source_trigger` blocks as defined below.
+        /// One or more `SourceTrigger` blocks as defined below.
         /// </summary>
         public InputList<Inputs.RegistryTaskSourceTriggerArgs> SourceTriggers
         {
@@ -336,7 +336,7 @@ namespace Pulumi.Azure.ContainerService
         private InputList<Inputs.RegistryTaskTimerTriggerArgs>? _timerTriggers;
 
         /// <summary>
-        /// One or more `timer_trigger` blocks as defined below.
+        /// One or more `TimerTrigger` blocks as defined below.
         /// </summary>
         public InputList<Inputs.RegistryTaskTimerTriggerArgs> TimerTriggers
         {
@@ -359,15 +359,15 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? AgentPoolName { get; set; }
 
         /// <summary>
-        /// A `agent_setting` block as defined below.
+        /// A `AgentSetting` block as defined below.
         /// 
-        /// &gt; **Note:** Only one of `agent_pool_name` and `agent_setting` can be specified.
+        /// &gt; **Note:** Only one of `AgentPoolName` and `AgentSetting` can be specified.
         /// </summary>
         [Input("agentSetting")]
         public Input<Inputs.RegistryTaskAgentSettingGetArgs>? AgentSetting { get; set; }
 
         /// <summary>
-        /// A `base_image_trigger` block as defined below.
+        /// A `BaseImageTrigger` block as defined below.
         /// </summary>
         [Input("baseImageTrigger")]
         public Input<Inputs.RegistryTaskBaseImageTriggerGetArgs>? BaseImageTrigger { get; set; }
@@ -379,39 +379,39 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? ContainerRegistryId { get; set; }
 
         /// <summary>
-        /// A `docker_step` block as defined below.
+        /// A `DockerStep` block as defined below.
         /// </summary>
         [Input("dockerStep")]
         public Input<Inputs.RegistryTaskDockerStepGetArgs>? DockerStep { get; set; }
 
         /// <summary>
-        /// Should this Container Registry Task be enabled? Defaults to `true`.
+        /// Should this Container Registry Task be enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// A `encoded_step` block as defined below.
+        /// A `EncodedStep` block as defined below.
         /// </summary>
         [Input("encodedStep")]
         public Input<Inputs.RegistryTaskEncodedStepGetArgs>? EncodedStep { get; set; }
 
         /// <summary>
-        /// A `file_step` block as defined below.
+        /// A `FileStep` block as defined below.
         /// 
-        /// &gt; **Note:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
+        /// &gt; **Note:** For non-system task (when `IsSystemTask` is set to `False`), one and only one of the `DockerStep`, `EncodedStep` and `FileStep` should be specified.
         /// </summary>
         [Input("fileStep")]
         public Input<Inputs.RegistryTaskFileStepGetArgs>? FileStep { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.RegistryTaskIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Whether this Container Registry Task is a system task. Changing this forces a new Container Registry Task to be created. Defaults to `false`.
+        /// Whether this Container Registry Task is a system task. Changing this forces a new Container Registry Task to be created. Defaults to `False`.
         /// </summary>
         [Input("isSystemTask")]
         public Input<bool>? IsSystemTask { get; set; }
@@ -426,9 +426,9 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `platform` block as defined below.
+        /// A `Platform` block as defined below.
         /// 
-        /// &gt; **Note:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
+        /// &gt; **Note:** The `Platform` is required for non-system task (when `IsSystemTask` is set to `False`).
         /// </summary>
         [Input("platform")]
         public Input<Inputs.RegistryTaskPlatformGetArgs>? Platform { get; set; }
@@ -440,7 +440,7 @@ namespace Pulumi.Azure.ContainerService
         private InputList<Inputs.RegistryTaskSourceTriggerGetArgs>? _sourceTriggers;
 
         /// <summary>
-        /// One or more `source_trigger` blocks as defined below.
+        /// One or more `SourceTrigger` blocks as defined below.
         /// </summary>
         public InputList<Inputs.RegistryTaskSourceTriggerGetArgs> SourceTriggers
         {
@@ -463,7 +463,7 @@ namespace Pulumi.Azure.ContainerService
         private InputList<Inputs.RegistryTaskTimerTriggerGetArgs>? _timerTriggers;
 
         /// <summary>
-        /// One or more `timer_trigger` blocks as defined below.
+        /// One or more `TimerTrigger` blocks as defined below.
         /// </summary>
         public InputList<Inputs.RegistryTaskTimerTriggerGetArgs> TimerTriggers
         {

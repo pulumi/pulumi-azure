@@ -18,15 +18,15 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly bool? AcceleratedNetworking;
         /// <summary>
-        /// A `dns_settings` block as documented below.
+        /// A `DnsSettings` block as documented below.
         /// </summary>
         public readonly Outputs.ScaleSetNetworkProfileDnsSettings? DnsSettings;
         /// <summary>
-        /// An `ip_configuration` block as documented below.
+        /// An `IpConfiguration` block as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.ScaleSetNetworkProfileIpConfiguration> IpConfigurations;
         /// <summary>
-        /// Whether IP forwarding is enabled on this NIC. Defaults to `false`.
+        /// Whether IP forwarding is enabled on this NIC. Defaults to `False`.
         /// </summary>
         public readonly bool? IpForwarding;
         /// <summary>

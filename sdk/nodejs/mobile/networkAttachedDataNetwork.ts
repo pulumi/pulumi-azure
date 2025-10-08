@@ -9,6 +9,94 @@ import * as utilities from "../utilities";
 /**
  * Manages a Mobile Network Attached Data Network.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleDevice = new azure.databoxedge.Device("example", {
+ *     name: "example-device",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     skuName: "EdgeP_Base-Standard",
+ * });
+ * const exampleNetwork = new azure.mobile.Network("example", {
+ *     name: "example-mn",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     mobileCountryCode: "001",
+ *     mobileNetworkCode: "01",
+ * });
+ * const exampleNetworkPacketCoreControlPlane = new azure.mobile.NetworkPacketCoreControlPlane("example", {
+ *     name: "example-mnpccp",
+ *     resourceGroupName: example.name,
+ *     location: "West Europe",
+ *     sku: "G0",
+ *     mobileNetworkId: exampleNetwork.id,
+ *     controlPlaneAccessName: "default-interface",
+ *     controlPlaneAccessIpv4Address: "192.168.1.199",
+ *     controlPlaneAccessIpv4Gateway: "192.168.1.1",
+ *     controlPlaneAccessIpv4Subnet: "192.168.1.0/25",
+ *     platform: {
+ *         type: "AKS-HCI",
+ *         edgeDeviceId: exampleDevice.id,
+ *     },
+ * });
+ * const exampleNetworkPacketCoreDataPlane = new azure.mobile.NetworkPacketCoreDataPlane("example", {
+ *     name: "example-mnpcdp",
+ *     mobileNetworkPacketCoreControlPlaneId: exampleNetworkPacketCoreControlPlane.id,
+ *     location: example.location,
+ *     userPlaneAccessName: "default-interface",
+ *     userPlaneAccessIpv4Address: "192.168.1.199",
+ *     userPlaneAccessIpv4Gateway: "192.168.1.1",
+ *     userPlaneAccessIpv4Subnet: "192.168.1.0/25",
+ * });
+ * const exampleNetworkDataNetwork = new azure.mobile.NetworkDataNetwork("example", {
+ *     name: "example-data-network",
+ *     mobileNetworkId: exampleNetwork.id,
+ *     location: example.location,
+ * });
+ * const exampleNetworkAttachedDataNetwork = new azure.mobile.NetworkAttachedDataNetwork("example", {
+ *     mobileNetworkDataNetworkName: exampleNetworkDataNetwork.name,
+ *     mobileNetworkPacketCoreDataPlaneId: exampleNetworkPacketCoreDataPlane.id,
+ *     location: example.location,
+ *     dnsAddresses: ["1.1.1.1"],
+ *     userEquipmentAddressPoolPrefixes: ["2.4.1.0/24"],
+ *     userEquipmentStaticAddressPoolPrefixes: ["2.4.2.0/24"],
+ *     userPlaneAccessName: "test",
+ *     userPlaneAccessIpv4Address: "10.204.141.4",
+ *     userPlaneAccessIpv4Gateway: "10.204.141.1",
+ *     userPlaneAccessIpv4Subnet: "10.204.141.0/24",
+ *     networkAddressPortTranslation: {
+ *         pinholeMaximumNumber: 65536,
+ *         icmpPinholeTimeoutInSeconds: 30,
+ *         tcpPinholeTimeoutInSeconds: 100,
+ *         udpPinholeTimeoutInSeconds: 39,
+ *         portRange: {
+ *             maximum: 49999,
+ *             minimum: 1024,
+ *         },
+ *         tcpPortReuseMinimumHoldTimeInSeconds: 120,
+ *         udpTcpPortReuseMinimumHoldTimeInSeconds: 60,
+ *     },
+ *     tags: {
+ *         key: "value",
+ *     },
+ * });
+ * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.MobileNetwork` - 2022-11-01
+ *
  * ## Import
  *
  * Mobile Network Attached Data Network can be imported using the `resource id`, e.g.

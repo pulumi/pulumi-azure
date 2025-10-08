@@ -71,7 +71,7 @@ public final class AlertRuleAnomalyBuiltInState extends com.pulumi.resources.Res
     /**
      * The Display Name of the built-in Anomaly Alert Rule.
      * 
-     * &gt; **Note:** One of `name` or `display_name` block must be specified.
+     * &gt; **Note:** One of `name` or `displayName` block must be specified.
      * 
      */
     @Import(name="displayName")
@@ -80,7 +80,7 @@ public final class AlertRuleAnomalyBuiltInState extends com.pulumi.resources.Res
     /**
      * @return The Display Name of the built-in Anomaly Alert Rule.
      * 
-     * &gt; **Note:** One of `name` or `display_name` block must be specified.
+     * &gt; **Note:** One of `name` or `displayName` block must be specified.
      * 
      */
     public Optional<Output<String>> displayName() {
@@ -148,14 +148,14 @@ public final class AlertRuleAnomalyBuiltInState extends com.pulumi.resources.Res
     }
 
     /**
-     * A list of `multi_select_observation` blocks as defined below.
+     * A list of `multiSelectObservation` blocks as defined below.
      * 
      */
     @Import(name="multiSelectObservations")
     private @Nullable Output<List<AlertRuleAnomalyBuiltInMultiSelectObservationArgs>> multiSelectObservations;
 
     /**
-     * @return A list of `multi_select_observation` blocks as defined below.
+     * @return A list of `multiSelectObservation` blocks as defined below.
      * 
      */
     public Optional<Output<List<AlertRuleAnomalyBuiltInMultiSelectObservationArgs>>> multiSelectObservations() {
@@ -178,14 +178,14 @@ public final class AlertRuleAnomalyBuiltInState extends com.pulumi.resources.Res
     }
 
     /**
-     * A list of `prioritized_exclude_observation` blocks as defined below.
+     * A list of `prioritizedExcludeObservation` blocks as defined below.
      * 
      */
     @Import(name="prioritizedExcludeObservations")
     private @Nullable Output<List<AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArgs>> prioritizedExcludeObservations;
 
     /**
-     * @return A list of `prioritized_exclude_observation` blocks as defined below.
+     * @return A list of `prioritizedExcludeObservation` blocks as defined below.
      * 
      */
     public Optional<Output<List<AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArgs>>> prioritizedExcludeObservations() {
@@ -193,14 +193,14 @@ public final class AlertRuleAnomalyBuiltInState extends com.pulumi.resources.Res
     }
 
     /**
-     * A `required_data_connector` block as defined below.
+     * A `requiredDataConnector` block as defined below.
      * 
      */
     @Import(name="requiredDataConnectors")
     private @Nullable Output<List<AlertRuleAnomalyBuiltInRequiredDataConnectorArgs>> requiredDataConnectors;
 
     /**
-     * @return A `required_data_connector` block as defined below.
+     * @return A `requiredDataConnector` block as defined below.
      * 
      */
     public Optional<Output<List<AlertRuleAnomalyBuiltInRequiredDataConnectorArgs>>> requiredDataConnectors() {
@@ -223,14 +223,14 @@ public final class AlertRuleAnomalyBuiltInState extends com.pulumi.resources.Res
     }
 
     /**
-     * A list of `single_select_observation` blocks as defined below.
+     * A list of `singleSelectObservation` blocks as defined below.
      * 
      */
     @Import(name="singleSelectObservations")
     private @Nullable Output<List<AlertRuleAnomalyBuiltInSingleSelectObservationArgs>> singleSelectObservations;
 
     /**
-     * @return A list of `single_select_observation` blocks as defined below.
+     * @return A list of `singleSelectObservation` blocks as defined below.
      * 
      */
     public Optional<Output<List<AlertRuleAnomalyBuiltInSingleSelectObservationArgs>>> singleSelectObservations() {
@@ -268,14 +268,14 @@ public final class AlertRuleAnomalyBuiltInState extends com.pulumi.resources.Res
     }
 
     /**
-     * A list of `threshold_observation` blocks as defined below.
+     * A list of `thresholdObservation` blocks as defined below.
      * 
      */
     @Import(name="thresholdObservations")
     private @Nullable Output<List<AlertRuleAnomalyBuiltInThresholdObservationArgs>> thresholdObservations;
 
     /**
-     * @return A list of `threshold_observation` blocks as defined below.
+     * @return A list of `thresholdObservation` blocks as defined below.
      * 
      */
     public Optional<Output<List<AlertRuleAnomalyBuiltInThresholdObservationArgs>>> thresholdObservations() {
@@ -388,7 +388,7 @@ public final class AlertRuleAnomalyBuiltInState extends com.pulumi.resources.Res
         /**
          * @param displayName The Display Name of the built-in Anomaly Alert Rule.
          * 
-         * &gt; **Note:** One of `name` or `display_name` block must be specified.
+         * &gt; **Note:** One of `name` or `displayName` block must be specified.
          * 
          * @return builder
          * 
@@ -401,7 +401,7 @@ public final class AlertRuleAnomalyBuiltInState extends com.pulumi.resources.Res
         /**
          * @param displayName The Display Name of the built-in Anomaly Alert Rule.
          * 
-         * &gt; **Note:** One of `name` or `display_name` block must be specified.
+         * &gt; **Note:** One of `name` or `displayName` block must be specified.
          * 
          * @return builder
          * 
@@ -495,7 +495,7 @@ public final class AlertRuleAnomalyBuiltInState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param multiSelectObservations A list of `multi_select_observation` blocks as defined below.
+         * @param multiSelectObservations A list of `multiSelectObservation` blocks as defined below.
          * 
          * @return builder
          * 
@@ -506,7 +506,7 @@ public final class AlertRuleAnomalyBuiltInState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param multiSelectObservations A list of `multi_select_observation` blocks as defined below.
+         * @param multiSelectObservations A list of `multiSelectObservation` blocks as defined below.
          * 
          * @return builder
          * 
@@ -516,7 +516,7 @@ public final class AlertRuleAnomalyBuiltInState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param multiSelectObservations A list of `multi_select_observation` blocks as defined below.
+         * @param multiSelectObservations A list of `multiSelectObservation` blocks as defined below.
          * 
          * @return builder
          * 
@@ -547,7 +547,7 @@ public final class AlertRuleAnomalyBuiltInState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param prioritizedExcludeObservations A list of `prioritized_exclude_observation` blocks as defined below.
+         * @param prioritizedExcludeObservations A list of `prioritizedExcludeObservation` blocks as defined below.
          * 
          * @return builder
          * 
@@ -558,7 +558,7 @@ public final class AlertRuleAnomalyBuiltInState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param prioritizedExcludeObservations A list of `prioritized_exclude_observation` blocks as defined below.
+         * @param prioritizedExcludeObservations A list of `prioritizedExcludeObservation` blocks as defined below.
          * 
          * @return builder
          * 
@@ -568,7 +568,7 @@ public final class AlertRuleAnomalyBuiltInState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param prioritizedExcludeObservations A list of `prioritized_exclude_observation` blocks as defined below.
+         * @param prioritizedExcludeObservations A list of `prioritizedExcludeObservation` blocks as defined below.
          * 
          * @return builder
          * 
@@ -578,7 +578,7 @@ public final class AlertRuleAnomalyBuiltInState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param requiredDataConnectors A `required_data_connector` block as defined below.
+         * @param requiredDataConnectors A `requiredDataConnector` block as defined below.
          * 
          * @return builder
          * 
@@ -589,7 +589,7 @@ public final class AlertRuleAnomalyBuiltInState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param requiredDataConnectors A `required_data_connector` block as defined below.
+         * @param requiredDataConnectors A `requiredDataConnector` block as defined below.
          * 
          * @return builder
          * 
@@ -599,7 +599,7 @@ public final class AlertRuleAnomalyBuiltInState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param requiredDataConnectors A `required_data_connector` block as defined below.
+         * @param requiredDataConnectors A `requiredDataConnector` block as defined below.
          * 
          * @return builder
          * 
@@ -630,7 +630,7 @@ public final class AlertRuleAnomalyBuiltInState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param singleSelectObservations A list of `single_select_observation` blocks as defined below.
+         * @param singleSelectObservations A list of `singleSelectObservation` blocks as defined below.
          * 
          * @return builder
          * 
@@ -641,7 +641,7 @@ public final class AlertRuleAnomalyBuiltInState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param singleSelectObservations A list of `single_select_observation` blocks as defined below.
+         * @param singleSelectObservations A list of `singleSelectObservation` blocks as defined below.
          * 
          * @return builder
          * 
@@ -651,7 +651,7 @@ public final class AlertRuleAnomalyBuiltInState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param singleSelectObservations A list of `single_select_observation` blocks as defined below.
+         * @param singleSelectObservations A list of `singleSelectObservation` blocks as defined below.
          * 
          * @return builder
          * 
@@ -723,7 +723,7 @@ public final class AlertRuleAnomalyBuiltInState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param thresholdObservations A list of `threshold_observation` blocks as defined below.
+         * @param thresholdObservations A list of `thresholdObservation` blocks as defined below.
          * 
          * @return builder
          * 
@@ -734,7 +734,7 @@ public final class AlertRuleAnomalyBuiltInState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param thresholdObservations A list of `threshold_observation` blocks as defined below.
+         * @param thresholdObservations A list of `thresholdObservation` blocks as defined below.
          * 
          * @return builder
          * 
@@ -744,7 +744,7 @@ public final class AlertRuleAnomalyBuiltInState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param thresholdObservations A list of `threshold_observation` blocks as defined below.
+         * @param thresholdObservations A list of `thresholdObservation` blocks as defined below.
          * 
          * @return builder
          * 

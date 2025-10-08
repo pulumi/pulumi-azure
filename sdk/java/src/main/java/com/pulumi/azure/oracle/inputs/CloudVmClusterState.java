@@ -83,14 +83,14 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A `data_collection_options` block as defined below. Changing this forces a new Cloud VM Cluster to be created.
+     * A `dataCollectionOptions` block as defined below. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     @Import(name="dataCollectionOptions")
     private @Nullable Output<CloudVmClusterDataCollectionOptionsArgs> dataCollectionOptions;
 
     /**
-     * @return A `data_collection_options` block as defined below. Changing this forces a new Cloud VM Cluster to be created.
+     * @return A `dataCollectionOptions` block as defined below. Changing this forces a new Cloud VM Cluster to be created.
      * 
      */
     public Optional<Output<CloudVmClusterDataCollectionOptionsArgs>> dataCollectionOptions() {
@@ -188,14 +188,14 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A `file_system_configuration` block as defined below.
+     * A `fileSystemConfiguration` block as defined below.
      * 
      */
     @Import(name="fileSystemConfigurations")
     private @Nullable Output<List<CloudVmClusterFileSystemConfigurationArgs>> fileSystemConfigurations;
 
     /**
-     * @return A `file_system_configuration` block as defined below.
+     * @return A `fileSystemConfiguration` block as defined below.
      * 
      */
     public Optional<Output<List<CloudVmClusterFileSystemConfigurationArgs>>> fileSystemConfigurations() {
@@ -642,7 +642,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param dataCollectionOptions A `data_collection_options` block as defined below. Changing this forces a new Cloud VM Cluster to be created.
+         * @param dataCollectionOptions A `dataCollectionOptions` block as defined below. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -653,7 +653,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param dataCollectionOptions A `data_collection_options` block as defined below. Changing this forces a new Cloud VM Cluster to be created.
+         * @param dataCollectionOptions A `dataCollectionOptions` block as defined below. Changing this forces a new Cloud VM Cluster to be created.
          * 
          * @return builder
          * 
@@ -799,7 +799,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param fileSystemConfigurations A `file_system_configuration` block as defined below.
+         * @param fileSystemConfigurations A `fileSystemConfiguration` block as defined below.
          * 
          * @return builder
          * 
@@ -810,7 +810,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param fileSystemConfigurations A `file_system_configuration` block as defined below.
+         * @param fileSystemConfigurations A `fileSystemConfiguration` block as defined below.
          * 
          * @return builder
          * 
@@ -820,7 +820,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param fileSystemConfigurations A `file_system_configuration` block as defined below.
+         * @param fileSystemConfigurations A `fileSystemConfiguration` block as defined below.
          * 
          * @return builder
          * 

@@ -13,7 +13,7 @@ namespace Pulumi.Azure.NetApp.Inputs
     public sealed class VolumeGroupSapHanaVolumeDataProtectionReplicationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        /// The endpoint type. Possible values are `Dst` and `Src`. Defaults to `Dst`. Changing this forces a new Application Volume Group to be created and data will be lost.
         /// </summary>
         [Input("endpointType")]
         public Input<string>? EndpointType { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Azure.NetApp.Inputs
         public Input<string> RemoteVolumeResourceId { get; set; } = null!;
 
         /// <summary>
-        /// eplication frequency. Possible values are `10minutes`, `daily` and `hourly`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        /// eplication frequency. Possible values are `10minutes`, `Daily` and `Hourly`. Changing this forces a new Application Volume Group to be created and data will be lost.
         /// </summary>
         [Input("replicationFrequency", required: true)]
         public Input<string> ReplicationFrequency { get; set; } = null!;

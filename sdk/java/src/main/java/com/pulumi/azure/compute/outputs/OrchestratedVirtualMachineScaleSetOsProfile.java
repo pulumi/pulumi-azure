@@ -21,12 +21,12 @@ public final class OrchestratedVirtualMachineScaleSetOsProfile {
      */
     private @Nullable String customData;
     /**
-     * @return A `linux_configuration` block as documented below.
+     * @return A `linuxConfiguration` block as documented below.
      * 
      */
     private @Nullable OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration linuxConfiguration;
     /**
-     * @return A `windows_configuration` block as documented below.
+     * @return A `windowsConfiguration` block as documented below.
      * 
      */
     private @Nullable OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration windowsConfiguration;
@@ -42,14 +42,14 @@ public final class OrchestratedVirtualMachineScaleSetOsProfile {
         return Optional.ofNullable(this.customData);
     }
     /**
-     * @return A `linux_configuration` block as documented below.
+     * @return A `linuxConfiguration` block as documented below.
      * 
      */
     public Optional<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration> linuxConfiguration() {
         return Optional.ofNullable(this.linuxConfiguration);
     }
     /**
-     * @return A `windows_configuration` block as documented below.
+     * @return A `windowsConfiguration` block as documented below.
      * 
      */
     public Optional<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration> windowsConfiguration() {

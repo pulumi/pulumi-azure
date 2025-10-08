@@ -116,7 +116,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> OperationId { get; private set; } = null!;
 
         /// <summary>
-        /// A `request` block as defined below.
+        /// A `Request` block as defined below.
         /// </summary>
         [Output("request")]
         public Output<Outputs.ApiOperationRequest> Request { get; private set; } = null!;
@@ -128,13 +128,13 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `response` blocks as defined below.
+        /// One or more `Response` blocks as defined below.
         /// </summary>
         [Output("responses")]
         public Output<ImmutableArray<Outputs.ApiOperationResponse>> Responses { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `template_parameter` blocks as defined below. Required if `url_template` contains one or more parameters.
+        /// One or more `TemplateParameter` blocks as defined below. Required if `UrlTemplate` contains one or more parameters.
         /// </summary>
         [Output("templateParameters")]
         public Output<ImmutableArray<Outputs.ApiOperationTemplateParameter>> TemplateParameters { get; private set; } = null!;
@@ -228,7 +228,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string> OperationId { get; set; } = null!;
 
         /// <summary>
-        /// A `request` block as defined below.
+        /// A `Request` block as defined below.
         /// </summary>
         [Input("request")]
         public Input<Inputs.ApiOperationRequestArgs>? Request { get; set; }
@@ -243,7 +243,7 @@ namespace Pulumi.Azure.ApiManagement
         private InputList<Inputs.ApiOperationResponseArgs>? _responses;
 
         /// <summary>
-        /// One or more `response` blocks as defined below.
+        /// One or more `Response` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApiOperationResponseArgs> Responses
         {
@@ -255,7 +255,7 @@ namespace Pulumi.Azure.ApiManagement
         private InputList<Inputs.ApiOperationTemplateParameterArgs>? _templateParameters;
 
         /// <summary>
-        /// One or more `template_parameter` blocks as defined below. Required if `url_template` contains one or more parameters.
+        /// One or more `TemplateParameter` blocks as defined below. Required if `UrlTemplate` contains one or more parameters.
         /// </summary>
         public InputList<Inputs.ApiOperationTemplateParameterArgs> TemplateParameters
         {
@@ -314,7 +314,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? OperationId { get; set; }
 
         /// <summary>
-        /// A `request` block as defined below.
+        /// A `Request` block as defined below.
         /// </summary>
         [Input("request")]
         public Input<Inputs.ApiOperationRequestGetArgs>? Request { get; set; }
@@ -329,7 +329,7 @@ namespace Pulumi.Azure.ApiManagement
         private InputList<Inputs.ApiOperationResponseGetArgs>? _responses;
 
         /// <summary>
-        /// One or more `response` blocks as defined below.
+        /// One or more `Response` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApiOperationResponseGetArgs> Responses
         {
@@ -341,7 +341,7 @@ namespace Pulumi.Azure.ApiManagement
         private InputList<Inputs.ApiOperationTemplateParameterGetArgs>? _templateParameters;
 
         /// <summary>
-        /// One or more `template_parameter` blocks as defined below. Required if `url_template` contains one or more parameters.
+        /// One or more `TemplateParameter` blocks as defined below. Required if `UrlTemplate` contains one or more parameters.
         /// </summary>
         public InputList<Inputs.ApiOperationTemplateParameterGetArgs> TemplateParameters
         {
