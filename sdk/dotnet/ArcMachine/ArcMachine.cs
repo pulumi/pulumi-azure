@@ -66,7 +66,7 @@ namespace Pulumi.Azure.ArcMachine
     public partial class ArcMachine : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ArcMachineIdentity?> Identity { get; private set; } = null!;
@@ -148,7 +148,7 @@ namespace Pulumi.Azure.ArcMachine
     public sealed class ArcMachineArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ArcMachineIdentityArgs>? Identity { get; set; }
@@ -198,7 +198,7 @@ namespace Pulumi.Azure.ArcMachine
     public sealed class ArcMachineState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ArcMachineIdentityGetArgs>? Identity { get; set; }

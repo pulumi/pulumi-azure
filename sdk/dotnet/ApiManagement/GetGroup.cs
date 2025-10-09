@@ -200,7 +200,7 @@ namespace Pulumi.Azure.ApiManagement
         public readonly string Name;
         public readonly string ResourceGroupName;
         /// <summary>
-        /// The type of this API Management Group, such as `custom` or `external`.
+        /// The type of this API Management Group, such as `Custom` or `External`.
         /// </summary>
         public readonly string Type;
 

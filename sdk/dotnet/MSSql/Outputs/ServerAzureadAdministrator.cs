@@ -14,7 +14,7 @@ namespace Pulumi.Azure.MSSql.Outputs
     public sealed class ServerAzureadAdministrator
     {
         /// <summary>
-        /// Specifies whether only AD Users and administrators (e.g. `azuread_administrator[0].login_username`) can be used to login, or also local database users (e.g. `administrator_login`). When `true`, the `administrator_login` and `administrator_login_password` properties can be omitted.
+        /// Specifies whether only AD Users and administrators (e.g. `azuread_administrator[0].login_username`) can be used to login, or also local database users (e.g. `AdministratorLogin`). When `True`, the `AdministratorLogin` and `AdministratorLoginPassword` properties can be omitted.
         /// </summary>
         public readonly bool? AzureadAuthenticationOnly;
         /// <summary>

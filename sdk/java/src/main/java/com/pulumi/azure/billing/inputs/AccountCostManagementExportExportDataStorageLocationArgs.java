@@ -32,7 +32,7 @@ public final class AccountCostManagementExportExportDataStorageLocationArgs exte
     /**
      * The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** The Resource Manager ID of a Storage Container is exposed via the `resource_manager_id` attribute of the `azure.storage.Container` resource.
+     * &gt; **Note:** The Resource Manager ID of a Storage Container is exposed via the `resourceManagerId` attribute of the `azure.storage.Container` resource.
      * 
      */
     @Import(name="rootFolderPath", required=true)
@@ -41,7 +41,7 @@ public final class AccountCostManagementExportExportDataStorageLocationArgs exte
     /**
      * @return The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** The Resource Manager ID of a Storage Container is exposed via the `resource_manager_id` attribute of the `azure.storage.Container` resource.
+     * &gt; **Note:** The Resource Manager ID of a Storage Container is exposed via the `resourceManagerId` attribute of the `azure.storage.Container` resource.
      * 
      */
     public Output<String> rootFolderPath() {
@@ -97,7 +97,7 @@ public final class AccountCostManagementExportExportDataStorageLocationArgs exte
         /**
          * @param rootFolderPath The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** The Resource Manager ID of a Storage Container is exposed via the `resource_manager_id` attribute of the `azure.storage.Container` resource.
+         * &gt; **Note:** The Resource Manager ID of a Storage Container is exposed via the `resourceManagerId` attribute of the `azure.storage.Container` resource.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class AccountCostManagementExportExportDataStorageLocationArgs exte
         /**
          * @param rootFolderPath The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** The Resource Manager ID of a Storage Container is exposed via the `resource_manager_id` attribute of the `azure.storage.Container` resource.
+         * &gt; **Note:** The Resource Manager ID of a Storage Container is exposed via the `resourceManagerId` attribute of the `azure.storage.Container` resource.
          * 
          * @return builder
          * 

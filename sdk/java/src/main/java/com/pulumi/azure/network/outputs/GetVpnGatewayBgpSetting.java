@@ -25,12 +25,12 @@ public final class GetVpnGatewayBgpSetting {
      */
     private String bgpPeeringAddress;
     /**
-     * @return an `instance_bgp_peering_address` block as defined below.
+     * @return an `instanceBgpPeeringAddress` block as defined below.
      * 
      */
     private List<GetVpnGatewayBgpSettingInstance0BgpPeeringAddress> instance0BgpPeeringAddresses;
     /**
-     * @return an `instance_bgp_peering_address` block as defined below.
+     * @return an `instanceBgpPeeringAddress` block as defined below.
      * 
      */
     private List<GetVpnGatewayBgpSettingInstance1BgpPeeringAddress> instance1BgpPeeringAddresses;
@@ -56,14 +56,14 @@ public final class GetVpnGatewayBgpSetting {
         return this.bgpPeeringAddress;
     }
     /**
-     * @return an `instance_bgp_peering_address` block as defined below.
+     * @return an `instanceBgpPeeringAddress` block as defined below.
      * 
      */
     public List<GetVpnGatewayBgpSettingInstance0BgpPeeringAddress> instance0BgpPeeringAddresses() {
         return this.instance0BgpPeeringAddresses;
     }
     /**
-     * @return an `instance_bgp_peering_address` block as defined below.
+     * @return an `instanceBgpPeeringAddress` block as defined below.
      * 
      */
     public List<GetVpnGatewayBgpSettingInstance1BgpPeeringAddress> instance1BgpPeeringAddresses() {

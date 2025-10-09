@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Mobile.Outputs
         /// </summary>
         public readonly int? PinholeMaximumNumber;
         /// <summary>
-        /// A `port_range` block as defined below.
+        /// A `PortRange` block as defined below.
         /// </summary>
         public readonly Outputs.NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange? PortRange;
         /// <summary>

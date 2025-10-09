@@ -104,7 +104,7 @@ namespace Pulumi.Azure.CosmosDB
         /// <summary>
         /// A list of Mongo Roles that are inherited to the Mongo User Definition.
         /// 
-        /// &gt; **Note:** The role that needs to be inherited should exist in the Mongo DB of `cosmos_mongo_database_id`.
+        /// &gt; **Note:** The role that needs to be inherited should exist in the Mongo DB of `CosmosMongoDatabaseId`.
         /// </summary>
         [Output("inheritedRoleNames")]
         public Output<ImmutableArray<string>> InheritedRoleNames { get; private set; } = null!;
@@ -183,7 +183,7 @@ namespace Pulumi.Azure.CosmosDB
         /// <summary>
         /// A list of Mongo Roles that are inherited to the Mongo User Definition.
         /// 
-        /// &gt; **Note:** The role that needs to be inherited should exist in the Mongo DB of `cosmos_mongo_database_id`.
+        /// &gt; **Note:** The role that needs to be inherited should exist in the Mongo DB of `CosmosMongoDatabaseId`.
         /// </summary>
         public InputList<string> InheritedRoleNames
         {
@@ -233,7 +233,7 @@ namespace Pulumi.Azure.CosmosDB
         /// <summary>
         /// A list of Mongo Roles that are inherited to the Mongo User Definition.
         /// 
-        /// &gt; **Note:** The role that needs to be inherited should exist in the Mongo DB of `cosmos_mongo_database_id`.
+        /// &gt; **Note:** The role that needs to be inherited should exist in the Mongo DB of `CosmosMongoDatabaseId`.
         /// </summary>
         public InputList<string> InheritedRoleNames
         {

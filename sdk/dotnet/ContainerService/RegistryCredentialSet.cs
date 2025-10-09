@@ -16,7 +16,7 @@ namespace Pulumi.Azure.ContainerService
     /// 
     /// ### Minimal)
     /// 
-    /// &gt; **Note:** Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `azure.keyvault.AccessPolicy` resource.
+    /// &gt; **Note:** Be aware that you will need to permit the Identity that is created for the Container Registry to have `Get` on secrets to the Key Vault, e.g. using the `azure.keyvault.AccessPolicy` resource.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -177,7 +177,7 @@ namespace Pulumi.Azure.ContainerService
     public partial class RegistryCredentialSet : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A `authentication_credentials` block as defined below.
+        /// A `AuthenticationCredentials` block as defined below.
         /// </summary>
         [Output("authenticationCredentials")]
         public Output<Outputs.RegistryCredentialSetAuthenticationCredentials> AuthenticationCredentials { get; private set; } = null!;
@@ -189,7 +189,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> ContainerRegistryId { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.RegistryCredentialSetIdentity> Identity { get; private set; } = null!;
@@ -253,7 +253,7 @@ namespace Pulumi.Azure.ContainerService
     public sealed class RegistryCredentialSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `authentication_credentials` block as defined below.
+        /// A `AuthenticationCredentials` block as defined below.
         /// </summary>
         [Input("authenticationCredentials", required: true)]
         public Input<Inputs.RegistryCredentialSetAuthenticationCredentialsArgs> AuthenticationCredentials { get; set; } = null!;
@@ -265,7 +265,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string> ContainerRegistryId { get; set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity", required: true)]
         public Input<Inputs.RegistryCredentialSetIdentityArgs> Identity { get; set; } = null!;
@@ -291,7 +291,7 @@ namespace Pulumi.Azure.ContainerService
     public sealed class RegistryCredentialSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `authentication_credentials` block as defined below.
+        /// A `AuthenticationCredentials` block as defined below.
         /// </summary>
         [Input("authenticationCredentials")]
         public Input<Inputs.RegistryCredentialSetAuthenticationCredentialsGetArgs>? AuthenticationCredentials { get; set; }
@@ -303,7 +303,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? ContainerRegistryId { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.RegistryCredentialSetIdentityGetArgs>? Identity { get; set; }

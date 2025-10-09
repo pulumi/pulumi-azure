@@ -24,7 +24,7 @@ public final class SingleNodeVirtualInstanceSingleServerConfiguration {
      */
     private @Nullable String databaseType;
     /**
-     * @return One or more `disk_volume_configuration` blocks as defined below. Changing this forces a new resource to be created.
+     * @return One or more `diskVolumeConfiguration` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable List<SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfiguration> diskVolumeConfigurations;
@@ -39,12 +39,12 @@ public final class SingleNodeVirtualInstanceSingleServerConfiguration {
      */
     private String subnetId;
     /**
-     * @return A `virtual_machine_configuration` block as defined below. Changing this forces a new resource to be created.
+     * @return A `virtualMachineConfiguration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     private SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfiguration virtualMachineConfiguration;
     /**
-     * @return A `virtual_machine_resource_names` block as defined below. Changing this forces a new resource to be created.
+     * @return A `virtualMachineResourceNames` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNames virtualMachineResourceNames;
@@ -61,7 +61,7 @@ public final class SingleNodeVirtualInstanceSingleServerConfiguration {
         return Optional.ofNullable(this.databaseType);
     }
     /**
-     * @return One or more `disk_volume_configuration` blocks as defined below. Changing this forces a new resource to be created.
+     * @return One or more `diskVolumeConfiguration` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public List<SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfiguration> diskVolumeConfigurations() {
@@ -82,14 +82,14 @@ public final class SingleNodeVirtualInstanceSingleServerConfiguration {
         return this.subnetId;
     }
     /**
-     * @return A `virtual_machine_configuration` block as defined below. Changing this forces a new resource to be created.
+     * @return A `virtualMachineConfiguration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfiguration virtualMachineConfiguration() {
         return this.virtualMachineConfiguration;
     }
     /**
-     * @return A `virtual_machine_resource_names` block as defined below. Changing this forces a new resource to be created.
+     * @return A `virtualMachineResourceNames` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNames> virtualMachineResourceNames() {

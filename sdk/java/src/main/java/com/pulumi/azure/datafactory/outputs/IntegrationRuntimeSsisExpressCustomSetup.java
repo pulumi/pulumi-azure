@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class IntegrationRuntimeSsisExpressCustomSetup {
     /**
-     * @return One or more `command_key` blocks as defined below.
+     * @return One or more `commandKey` blocks as defined below.
      * 
      */
     private @Nullable List<IntegrationRuntimeSsisExpressCustomSetupCommandKey> commandKeys;
@@ -33,14 +33,14 @@ public final class IntegrationRuntimeSsisExpressCustomSetup {
     /**
      * @return The version of Azure Powershell installed for the Azure-SSIS Integration Runtime.
      * 
-     * &gt; **Note:** At least one of `env`, `powershell_version`, `component` and `command_key` should be specified.
+     * &gt; **Note:** At least one of `env`, `powershellVersion`, `component` and `commandKey` should be specified.
      * 
      */
     private @Nullable String powershellVersion;
 
     private IntegrationRuntimeSsisExpressCustomSetup() {}
     /**
-     * @return One or more `command_key` blocks as defined below.
+     * @return One or more `commandKey` blocks as defined below.
      * 
      */
     public List<IntegrationRuntimeSsisExpressCustomSetupCommandKey> commandKeys() {
@@ -63,7 +63,7 @@ public final class IntegrationRuntimeSsisExpressCustomSetup {
     /**
      * @return The version of Azure Powershell installed for the Azure-SSIS Integration Runtime.
      * 
-     * &gt; **Note:** At least one of `env`, `powershell_version`, `component` and `command_key` should be specified.
+     * &gt; **Note:** At least one of `env`, `powershellVersion`, `component` and `commandKey` should be specified.
      * 
      */
     public Optional<String> powershellVersion() {

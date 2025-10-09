@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class ApplicationGatewayHttpListener
     {
         /// <summary>
-        /// One or more `custom_error_configuration` blocks as defined below.
+        /// One or more `CustomErrorConfiguration` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationGatewayHttpListenerCustomErrorConfiguration> CustomErrorConfigurations;
         /// <summary>
@@ -44,7 +44,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// <summary>
         /// A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
         /// 
-        /// &gt; **Note:** The `host_names` and `host_name` are mutually exclusive and cannot both be set.
+        /// &gt; **Note:** The `HostNames` and `HostName` are mutually exclusive and cannot both be set.
         /// </summary>
         public readonly ImmutableArray<string> HostNames;
         /// <summary>
@@ -60,7 +60,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string Protocol;
         /// <summary>
-        /// Should Server Name Indication be Required? Defaults to `false`.
+        /// Should Server Name Indication be Required? Defaults to `False`.
         /// </summary>
         public readonly bool? RequireSni;
         /// <summary>

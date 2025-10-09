@@ -14,19 +14,19 @@ namespace Pulumi.Azure.WebPubSub.Outputs
     public sealed class ServiceLiveTrace
     {
         /// <summary>
-        /// Whether the log category `ConnectivityLogs` is enabled? Defaults to `true`
+        /// Whether the log category `ConnectivityLogs` is enabled? Defaults to `True`
         /// </summary>
         public readonly bool? ConnectivityLogsEnabled;
         /// <summary>
-        /// Whether the live trace is enabled? Defaults to `true`.
+        /// Whether the live trace is enabled? Defaults to `True`.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// Whether the log category `HttpRequestLogs` is enabled? Defaults to `true`
+        /// Whether the log category `HttpRequestLogs` is enabled? Defaults to `True`
         /// </summary>
         public readonly bool? HttpRequestLogsEnabled;
         /// <summary>
-        /// Whether the log category `MessagingLogs` is enabled? Defaults to `true`
+        /// Whether the log category `MessagingLogs` is enabled? Defaults to `True`
         /// </summary>
         public readonly bool? MessagingLogsEnabled;
 

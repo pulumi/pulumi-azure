@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 /**
  * Manages a Management Group Subscription Association.
  * 
- * !&gt; **Note:** When using this resource, configuring `subscription_ids` on the `azure.management.Group` resource is not supported.
+ * !&gt; **Note:** When using this resource, configuring `subscriptionIds` on the `azure.management.Group` resource is not supported.
  * 
  * ## Example Usage
  * 

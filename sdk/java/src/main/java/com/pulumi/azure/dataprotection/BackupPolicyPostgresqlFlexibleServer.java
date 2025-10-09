@@ -158,14 +158,14 @@ public class BackupPolicyPostgresqlFlexibleServer extends com.pulumi.resources.C
         return this.backupRepeatingTimeIntervals;
     }
     /**
-     * A `default_retention_rule` block as defined below. Changing this forces a new resource to be created.
+     * A `defaultRetentionRule` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="defaultRetentionRule", refs={BackupPolicyPostgresqlFlexibleServerDefaultRetentionRule.class}, tree="[0]")
     private Output<BackupPolicyPostgresqlFlexibleServerDefaultRetentionRule> defaultRetentionRule;
 
     /**
-     * @return A `default_retention_rule` block as defined below. Changing this forces a new resource to be created.
+     * @return A `defaultRetentionRule` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<BackupPolicyPostgresqlFlexibleServerDefaultRetentionRule> defaultRetentionRule() {
@@ -186,14 +186,14 @@ public class BackupPolicyPostgresqlFlexibleServer extends com.pulumi.resources.C
         return this.name;
     }
     /**
-     * One or more `retention_rule` blocks as defined below. Changing this forces a new resource to be created.
+     * One or more `retentionRule` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="retentionRules", refs={List.class,BackupPolicyPostgresqlFlexibleServerRetentionRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<BackupPolicyPostgresqlFlexibleServerRetentionRule>> retentionRules;
 
     /**
-     * @return One or more `retention_rule` blocks as defined below. Changing this forces a new resource to be created.
+     * @return One or more `retentionRule` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<List<BackupPolicyPostgresqlFlexibleServerRetentionRule>>> retentionRules() {

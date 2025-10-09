@@ -99,14 +99,14 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
     }
 
     /**
-     * A `post_task` blocks as defined below.
+     * A `postTask` blocks as defined below.
      * 
      */
     @Import(name="postTask")
     private @Nullable Output<SoftwareUpdateConfigurationPostTaskArgs> postTask;
 
     /**
-     * @return A `post_task` blocks as defined below.
+     * @return A `postTask` blocks as defined below.
      * 
      */
     public Optional<Output<SoftwareUpdateConfigurationPostTaskArgs>> postTask() {
@@ -114,14 +114,14 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
     }
 
     /**
-     * A `pre_task` blocks as defined below.
+     * A `preTask` blocks as defined below.
      * 
      */
     @Import(name="preTask")
     private @Nullable Output<SoftwareUpdateConfigurationPreTaskArgs> preTask;
 
     /**
-     * @return A `pre_task` blocks as defined below.
+     * @return A `preTask` blocks as defined below.
      * 
      */
     public Optional<Output<SoftwareUpdateConfigurationPreTaskArgs>> preTask() {
@@ -342,7 +342,7 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param postTask A `post_task` blocks as defined below.
+         * @param postTask A `postTask` blocks as defined below.
          * 
          * @return builder
          * 
@@ -353,7 +353,7 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param postTask A `post_task` blocks as defined below.
+         * @param postTask A `postTask` blocks as defined below.
          * 
          * @return builder
          * 
@@ -363,7 +363,7 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param preTask A `pre_task` blocks as defined below.
+         * @param preTask A `preTask` blocks as defined below.
          * 
          * @return builder
          * 
@@ -374,7 +374,7 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param preTask A `pre_task` blocks as defined below.
+         * @param preTask A `preTask` blocks as defined below.
          * 
          * @return builder
          * 

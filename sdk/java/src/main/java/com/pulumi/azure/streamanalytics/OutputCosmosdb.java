@@ -18,6 +18,15 @@ import javax.annotation.Nullable;
 /**
  * Manages a Stream Analytics Output to CosmosDB.
  * 
+ * ## Example Usage
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.StreamAnalytics` - 2021-10-01-preview
+ * 
  * ## Import
  * 
  * Stream Analytics Outputs for CosmosDB can be imported using the `resource id`, e.g.
@@ -114,14 +123,14 @@ public class OutputCosmosdb extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The name of the field in output events used to specify the key for partitioning output across collections. If `container_name` contains `{partition}` token, this property is required to be specified.
+     * The name of the field in output events used to specify the key for partitioning output across collections. If `containerName` contains `{partition}` token, this property is required to be specified.
      * 
      */
     @Export(name="partitionKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> partitionKey;
 
     /**
-     * @return The name of the field in output events used to specify the key for partitioning output across collections. If `container_name` contains `{partition}` token, this property is required to be specified.
+     * @return The name of the field in output events used to specify the key for partitioning output across collections. If `containerName` contains `{partition}` token, this property is required to be specified.
      * 
      */
     public Output<Optional<String>> partitionKey() {

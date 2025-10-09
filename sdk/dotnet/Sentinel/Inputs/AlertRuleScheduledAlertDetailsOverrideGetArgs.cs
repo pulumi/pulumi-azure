@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Sentinel.Inputs
         private InputList<Inputs.AlertRuleScheduledAlertDetailsOverrideDynamicPropertyGetArgs>? _dynamicProperties;
 
         /// <summary>
-        /// A list of `dynamic_property` blocks as defined below.
+        /// A list of `DynamicProperty` blocks as defined below.
         /// </summary>
         public InputList<Inputs.AlertRuleScheduledAlertDetailsOverrideDynamicPropertyGetArgs> DynamicProperties
         {

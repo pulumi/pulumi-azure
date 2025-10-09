@@ -13,15 +13,15 @@ namespace Pulumi.Azure.HDInsight.Inputs
     public sealed class SparkClusterRolesWorkerNodeAutoscaleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `capacity` block as defined below.
+        /// A `Capacity` block as defined below.
         /// </summary>
         [Input("capacity")]
         public Input<Inputs.SparkClusterRolesWorkerNodeAutoscaleCapacityGetArgs>? Capacity { get; set; }
 
         /// <summary>
-        /// A `recurrence` block as defined below.
+        /// A `Recurrence` block as defined below.
         /// 
-        /// &gt; **Note:** Either a `capacity` or `recurrence` block must be specified - but not both.
+        /// &gt; **Note:** Either a `Capacity` or `Recurrence` block must be specified - but not both.
         /// </summary>
         [Input("recurrence")]
         public Input<Inputs.SparkClusterRolesWorkerNodeAutoscaleRecurrenceGetArgs>? Recurrence { get; set; }

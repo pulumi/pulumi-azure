@@ -147,10 +147,10 @@ public class OutboundRule extends com.pulumi.resources.CustomResource {
     }
     /**
      * @deprecated
-     * This property is being deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider.
+     * This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
      * 
      */
-    @Deprecated /* This property is being deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider. */
+    @Deprecated /* This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider. */
     @Export(name="enableTcpReset", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enableTcpReset;
 
@@ -158,14 +158,14 @@ public class OutboundRule extends com.pulumi.resources.CustomResource {
         return this.enableTcpReset;
     }
     /**
-     * One or more `frontend_ip_configuration` blocks as defined below.
+     * One or more `frontendIpConfiguration` blocks as defined below.
      * 
      */
     @Export(name="frontendIpConfigurations", refs={List.class,OutboundRuleFrontendIpConfiguration.class}, tree="[0,1]")
     private Output</* @Nullable */ List<OutboundRuleFrontendIpConfiguration>> frontendIpConfigurations;
 
     /**
-     * @return One or more `frontend_ip_configuration` blocks as defined below.
+     * @return One or more `frontendIpConfiguration` blocks as defined below.
      * 
      */
     public Output<Optional<List<OutboundRuleFrontendIpConfiguration>>> frontendIpConfigurations() {

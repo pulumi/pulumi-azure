@@ -87,7 +87,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string> PrimaryAuthorizationKey { get; private set; } = null!;
 
         /// <summary>
-        /// A `rbac_authorization` block as defined below. Changing this forces a new resource to be created.
+        /// A `RbacAuthorization` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("rbacAuthorizations")]
         public Output<ImmutableArray<Outputs.IntegrationRuntimeSelfHostedRbacAuthorization>> RbacAuthorizations { get; private set; } = null!;
@@ -172,7 +172,7 @@ namespace Pulumi.Azure.DataFactory
         private InputList<Inputs.IntegrationRuntimeSelfHostedRbacAuthorizationArgs>? _rbacAuthorizations;
 
         /// <summary>
-        /// A `rbac_authorization` block as defined below. Changing this forces a new resource to be created.
+        /// A `RbacAuthorization` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.IntegrationRuntimeSelfHostedRbacAuthorizationArgs> RbacAuthorizations
         {
@@ -222,7 +222,7 @@ namespace Pulumi.Azure.DataFactory
         private InputList<Inputs.IntegrationRuntimeSelfHostedRbacAuthorizationGetArgs>? _rbacAuthorizations;
 
         /// <summary>
-        /// A `rbac_authorization` block as defined below. Changing this forces a new resource to be created.
+        /// A `RbacAuthorization` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.IntegrationRuntimeSelfHostedRbacAuthorizationGetArgs> RbacAuthorizations
         {

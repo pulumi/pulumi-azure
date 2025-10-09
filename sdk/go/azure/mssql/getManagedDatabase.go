@@ -12,6 +12,15 @@ import (
 )
 
 // Use this data source to access information about an existing Azure SQL Azure Managed Database.
+//
+// ## Example Usage
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.Sql` - 2023-08-01-preview
 func LookupManagedDatabase(ctx *pulumi.Context, args *LookupManagedDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupManagedDatabaseResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupManagedDatabaseResult

@@ -20,14 +20,14 @@ public final class KeyState extends com.pulumi.resources.ResourceArgs {
     public static final KeyState Empty = new KeyState();
 
     /**
-     * Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
+     * Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="curve")
     private @Nullable Output<String> curve;
 
     /**
-     * @return Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
+     * @return Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> curve() {
@@ -84,14 +84,14 @@ public final class KeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
+     * Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `keyType` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="keySize")
     private @Nullable Output<Integer> keySize;
 
     /**
-     * @return Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
+     * @return Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `keyType` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Integer>> keySize() {
@@ -161,7 +161,7 @@ public final class KeyState extends com.pulumi.resources.ResourceArgs {
     /**
      * Key not usable before the provided UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;).
      * 
-     * &gt; **Note:** Once `expiration_date` is set, it&#39;s not possible to unset the key even if it is deleted &amp; recreated as underlying Azure API uses the restore of the purged key.
+     * &gt; **Note:** Once `expirationDate` is set, it&#39;s not possible to unset the key even if it is deleted &amp; recreated as underlying Azure API uses the restore of the purged key.
      * 
      */
     @Import(name="notBeforeDate")
@@ -170,7 +170,7 @@ public final class KeyState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Key not usable before the provided UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;).
      * 
-     * &gt; **Note:** Once `expiration_date` is set, it&#39;s not possible to unset the key even if it is deleted &amp; recreated as underlying Azure API uses the restore of the purged key.
+     * &gt; **Note:** Once `expirationDate` is set, it&#39;s not possible to unset the key even if it is deleted &amp; recreated as underlying Azure API uses the restore of the purged key.
      * 
      */
     public Optional<Output<String>> notBeforeDate() {
@@ -238,14 +238,14 @@ public final class KeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `rotation_policy` block as defined below.
+     * A `rotationPolicy` block as defined below.
      * 
      */
     @Import(name="rotationPolicy")
     private @Nullable Output<KeyRotationPolicyArgs> rotationPolicy;
 
     /**
-     * @return A `rotation_policy` block as defined below.
+     * @return A `rotationPolicy` block as defined below.
      * 
      */
     public Optional<Output<KeyRotationPolicyArgs>> rotationPolicy() {
@@ -371,7 +371,7 @@ public final class KeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param curve Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
+         * @param curve Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -382,7 +382,7 @@ public final class KeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param curve Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
+         * @param curve Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -469,7 +469,7 @@ public final class KeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keySize Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
+         * @param keySize Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `keyType` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -480,7 +480,7 @@ public final class KeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keySize Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
+         * @param keySize Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `keyType` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -576,7 +576,7 @@ public final class KeyState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param notBeforeDate Key not usable before the provided UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;).
          * 
-         * &gt; **Note:** Once `expiration_date` is set, it&#39;s not possible to unset the key even if it is deleted &amp; recreated as underlying Azure API uses the restore of the purged key.
+         * &gt; **Note:** Once `expirationDate` is set, it&#39;s not possible to unset the key even if it is deleted &amp; recreated as underlying Azure API uses the restore of the purged key.
          * 
          * @return builder
          * 
@@ -589,7 +589,7 @@ public final class KeyState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param notBeforeDate Key not usable before the provided UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;).
          * 
-         * &gt; **Note:** Once `expiration_date` is set, it&#39;s not possible to unset the key even if it is deleted &amp; recreated as underlying Azure API uses the restore of the purged key.
+         * &gt; **Note:** Once `expirationDate` is set, it&#39;s not possible to unset the key even if it is deleted &amp; recreated as underlying Azure API uses the restore of the purged key.
          * 
          * @return builder
          * 
@@ -683,7 +683,7 @@ public final class KeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rotationPolicy A `rotation_policy` block as defined below.
+         * @param rotationPolicy A `rotationPolicy` block as defined below.
          * 
          * @return builder
          * 
@@ -694,7 +694,7 @@ public final class KeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rotationPolicy A `rotation_policy` block as defined below.
+         * @param rotationPolicy A `rotationPolicy` block as defined below.
          * 
          * @return builder
          * 

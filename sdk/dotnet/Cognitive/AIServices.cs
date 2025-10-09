@@ -62,15 +62,15 @@ namespace Pulumi.Azure.Cognitive
     public partial class AIServices : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
+        /// The subdomain name used for token-based authentication. This property is required when `NetworkAcls` is specified. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** If you do not specify a `custom_subdomain_name` then you will not be able to attach a Private Endpoint to the resource.
+        /// &gt; **Note:** If you do not specify a `CustomSubdomainName` then you will not be able to attach a Private Endpoint to the resource.
         /// </summary>
         [Output("customSubdomainName")]
         public Output<string?> CustomSubdomainName { get; private set; } = null!;
 
         /// <summary>
-        /// A `customer_managed_key` block as documented below.
+        /// A `CustomerManagedKey` block as documented below.
         /// </summary>
         [Output("customerManagedKey")]
         public Output<Outputs.AIServicesCustomerManagedKey?> CustomerManagedKey { get; private set; } = null!;
@@ -88,13 +88,13 @@ namespace Pulumi.Azure.Cognitive
         public Output<ImmutableArray<string>> Fqdns { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.AIServicesIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// Whether local authentication is enabled for the AI Services Account. Defaults to `true`.
+        /// Whether local authentication is enabled for the AI Services Account. Defaults to `True`.
         /// </summary>
         [Output("localAuthenticationEnabled")]
         public Output<bool?> LocalAuthenticationEnabled { get; private set; } = null!;
@@ -112,13 +112,13 @@ namespace Pulumi.Azure.Cognitive
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `network_acls` block as defined below. When this property is specified, `custom_subdomain_name` is also required to be set.
+        /// A `NetworkAcls` block as defined below. When this property is specified, `CustomSubdomainName` is also required to be set.
         /// </summary>
         [Output("networkAcls")]
         public Output<Outputs.AIServicesNetworkAcls?> NetworkAcls { get; private set; } = null!;
 
         /// <summary>
-        /// Whether outbound network access is restricted for the AI Services Account. Defaults to `false`.
+        /// Whether outbound network access is restricted for the AI Services Account. Defaults to `False`.
         /// </summary>
         [Output("outboundNetworkAccessRestricted")]
         public Output<bool?> OutboundNetworkAccessRestricted { get; private set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.Azure.Cognitive
         public Output<string> SkuName { get; private set; } = null!;
 
         /// <summary>
-        /// A `storage` block as defined below.
+        /// A `Storage` block as defined below.
         /// </summary>
         [Output("storages")]
         public Output<ImmutableArray<Outputs.AIServicesStorage>> Storages { get; private set; } = null!;
@@ -219,15 +219,15 @@ namespace Pulumi.Azure.Cognitive
     public sealed class AIServicesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
+        /// The subdomain name used for token-based authentication. This property is required when `NetworkAcls` is specified. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** If you do not specify a `custom_subdomain_name` then you will not be able to attach a Private Endpoint to the resource.
+        /// &gt; **Note:** If you do not specify a `CustomSubdomainName` then you will not be able to attach a Private Endpoint to the resource.
         /// </summary>
         [Input("customSubdomainName")]
         public Input<string>? CustomSubdomainName { get; set; }
 
         /// <summary>
-        /// A `customer_managed_key` block as documented below.
+        /// A `CustomerManagedKey` block as documented below.
         /// </summary>
         [Input("customerManagedKey")]
         public Input<Inputs.AIServicesCustomerManagedKeyArgs>? CustomerManagedKey { get; set; }
@@ -245,13 +245,13 @@ namespace Pulumi.Azure.Cognitive
         }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.AIServicesIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Whether local authentication is enabled for the AI Services Account. Defaults to `true`.
+        /// Whether local authentication is enabled for the AI Services Account. Defaults to `True`.
         /// </summary>
         [Input("localAuthenticationEnabled")]
         public Input<bool>? LocalAuthenticationEnabled { get; set; }
@@ -269,13 +269,13 @@ namespace Pulumi.Azure.Cognitive
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `network_acls` block as defined below. When this property is specified, `custom_subdomain_name` is also required to be set.
+        /// A `NetworkAcls` block as defined below. When this property is specified, `CustomSubdomainName` is also required to be set.
         /// </summary>
         [Input("networkAcls")]
         public Input<Inputs.AIServicesNetworkAclsArgs>? NetworkAcls { get; set; }
 
         /// <summary>
-        /// Whether outbound network access is restricted for the AI Services Account. Defaults to `false`.
+        /// Whether outbound network access is restricted for the AI Services Account. Defaults to `False`.
         /// </summary>
         [Input("outboundNetworkAccessRestricted")]
         public Input<bool>? OutboundNetworkAccessRestricted { get; set; }
@@ -304,7 +304,7 @@ namespace Pulumi.Azure.Cognitive
         private InputList<Inputs.AIServicesStorageArgs>? _storages;
 
         /// <summary>
-        /// A `storage` block as defined below.
+        /// A `Storage` block as defined below.
         /// </summary>
         public InputList<Inputs.AIServicesStorageArgs> Storages
         {
@@ -333,15 +333,15 @@ namespace Pulumi.Azure.Cognitive
     public sealed class AIServicesState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
+        /// The subdomain name used for token-based authentication. This property is required when `NetworkAcls` is specified. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** If you do not specify a `custom_subdomain_name` then you will not be able to attach a Private Endpoint to the resource.
+        /// &gt; **Note:** If you do not specify a `CustomSubdomainName` then you will not be able to attach a Private Endpoint to the resource.
         /// </summary>
         [Input("customSubdomainName")]
         public Input<string>? CustomSubdomainName { get; set; }
 
         /// <summary>
-        /// A `customer_managed_key` block as documented below.
+        /// A `CustomerManagedKey` block as documented below.
         /// </summary>
         [Input("customerManagedKey")]
         public Input<Inputs.AIServicesCustomerManagedKeyGetArgs>? CustomerManagedKey { get; set; }
@@ -365,13 +365,13 @@ namespace Pulumi.Azure.Cognitive
         }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.AIServicesIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Whether local authentication is enabled for the AI Services Account. Defaults to `true`.
+        /// Whether local authentication is enabled for the AI Services Account. Defaults to `True`.
         /// </summary>
         [Input("localAuthenticationEnabled")]
         public Input<bool>? LocalAuthenticationEnabled { get; set; }
@@ -389,13 +389,13 @@ namespace Pulumi.Azure.Cognitive
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `network_acls` block as defined below. When this property is specified, `custom_subdomain_name` is also required to be set.
+        /// A `NetworkAcls` block as defined below. When this property is specified, `CustomSubdomainName` is also required to be set.
         /// </summary>
         [Input("networkAcls")]
         public Input<Inputs.AIServicesNetworkAclsGetArgs>? NetworkAcls { get; set; }
 
         /// <summary>
-        /// Whether outbound network access is restricted for the AI Services Account. Defaults to `false`.
+        /// Whether outbound network access is restricted for the AI Services Account. Defaults to `False`.
         /// </summary>
         [Input("outboundNetworkAccessRestricted")]
         public Input<bool>? OutboundNetworkAccessRestricted { get; set; }
@@ -456,7 +456,7 @@ namespace Pulumi.Azure.Cognitive
         private InputList<Inputs.AIServicesStorageGetArgs>? _storages;
 
         /// <summary>
-        /// A `storage` block as defined below.
+        /// A `Storage` block as defined below.
         /// </summary>
         public InputList<Inputs.AIServicesStorageGetArgs> Storages
         {

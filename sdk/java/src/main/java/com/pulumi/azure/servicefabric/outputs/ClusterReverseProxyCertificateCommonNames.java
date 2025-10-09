@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class ClusterReverseProxyCertificateCommonNames {
     /**
-     * @return A `common_names` block as defined below.
+     * @return A `commonNames` block as defined below.
      * 
      */
     private List<ClusterReverseProxyCertificateCommonNamesCommonName> commonNames;
@@ -25,7 +25,7 @@ public final class ClusterReverseProxyCertificateCommonNames {
 
     private ClusterReverseProxyCertificateCommonNames() {}
     /**
-     * @return A `common_names` block as defined below.
+     * @return A `commonNames` block as defined below.
      * 
      */
     public List<ClusterReverseProxyCertificateCommonNamesCommonName> commonNames() {

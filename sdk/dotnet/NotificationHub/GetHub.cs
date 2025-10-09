@@ -181,11 +181,11 @@ namespace Pulumi.Azure.NotificationHub
     public sealed class GetHubResult
     {
         /// <summary>
-        /// A `apns_credential` block as defined below.
+        /// A `ApnsCredential` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetHubApnsCredentialResult> ApnsCredentials;
         /// <summary>
-        /// A `gcm_credential` block as defined below.
+        /// A `GcmCredential` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetHubGcmCredentialResult> GcmCredentials;
         /// <summary>

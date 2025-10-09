@@ -18,7 +18,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string AdminUsername;
         /// <summary>
-        /// An `ssh_key` block as defined below.
+        /// An `SshKey` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterLinuxProfileSshKeyResult> SshKeys;
 

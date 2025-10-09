@@ -18,14 +18,14 @@ public final class ProtectionContainerMappingArgs extends com.pulumi.resources.R
     public static final ProtectionContainerMappingArgs Empty = new ProtectionContainerMappingArgs();
 
     /**
-     * a `automatic_update` block defined as below.
+     * a `automaticUpdate` block defined as below.
      * 
      */
     @Import(name="automaticUpdate")
     private @Nullable Output<ProtectionContainerMappingAutomaticUpdateArgs> automaticUpdate;
 
     /**
-     * @return a `automatic_update` block defined as below.
+     * @return a `automaticUpdate` block defined as below.
      * 
      */
     public Optional<Output<ProtectionContainerMappingAutomaticUpdateArgs>> automaticUpdate() {
@@ -169,7 +169,7 @@ public final class ProtectionContainerMappingArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param automaticUpdate a `automatic_update` block defined as below.
+         * @param automaticUpdate a `automaticUpdate` block defined as below.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class ProtectionContainerMappingArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param automaticUpdate a `automatic_update` block defined as below.
+         * @param automaticUpdate a `automaticUpdate` block defined as below.
          * 
          * @return builder
          * 

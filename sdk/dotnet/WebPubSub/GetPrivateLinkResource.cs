@@ -188,7 +188,7 @@ namespace Pulumi.Azure.WebPubSub
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A `shared_private_link_resource_types` block as defined below.
+        /// A `SharedPrivateLinkResourceTypes` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPrivateLinkResourceSharedPrivateLinkResourceTypeResult> SharedPrivateLinkResourceTypes;
         public readonly string WebPubsubId;

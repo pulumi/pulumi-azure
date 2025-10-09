@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WindowsWebAppSlotLogsHttpLogs {
     /**
-     * @return A `azure_blob_storage_http` block as defined above.
+     * @return A `azureBlobStorageHttp` block as defined above.
      * 
      */
     private @Nullable WindowsWebAppSlotLogsHttpLogsAzureBlobStorage azureBlobStorage;
     /**
-     * @return A `file_system` block as defined above.
+     * @return A `fileSystem` block as defined above.
      * 
      */
     private @Nullable WindowsWebAppSlotLogsHttpLogsFileSystem fileSystem;
 
     private WindowsWebAppSlotLogsHttpLogs() {}
     /**
-     * @return A `azure_blob_storage_http` block as defined above.
+     * @return A `azureBlobStorageHttp` block as defined above.
      * 
      */
     public Optional<WindowsWebAppSlotLogsHttpLogsAzureBlobStorage> azureBlobStorage() {
         return Optional.ofNullable(this.azureBlobStorage);
     }
     /**
-     * @return A `file_system` block as defined above.
+     * @return A `fileSystem` block as defined above.
      * 
      */
     public Optional<WindowsWebAppSlotLogsHttpLogsFileSystem> fileSystem() {

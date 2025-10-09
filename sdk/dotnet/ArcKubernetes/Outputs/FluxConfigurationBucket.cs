@@ -38,7 +38,7 @@ namespace Pulumi.Azure.ArcKubernetes.Outputs
         /// </summary>
         public readonly int? TimeoutInSeconds;
         /// <summary>
-        /// Specify whether to communicate with a bucket using TLS is enabled. Defaults to `true`.
+        /// Specify whether to communicate with a bucket using TLS is enabled. Defaults to `True`.
         /// </summary>
         public readonly bool? TlsEnabled;
         /// <summary>

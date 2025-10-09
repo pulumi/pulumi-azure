@@ -14,23 +14,23 @@ namespace Pulumi.Azure.KeyVault.Outputs
     public sealed class GetCertificateCertificatePolicyResult
     {
         /// <summary>
-        /// A `issuer_parameters` block as defined below.
+        /// A `IssuerParameters` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCertificateCertificatePolicyIssuerParameterResult> IssuerParameters;
         /// <summary>
-        /// A `key_properties` block as defined below.
+        /// A `KeyProperties` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCertificateCertificatePolicyKeyPropertyResult> KeyProperties;
         /// <summary>
-        /// A `lifetime_action` block as defined below.
+        /// A `LifetimeAction` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCertificateCertificatePolicyLifetimeActionResult> LifetimeActions;
         /// <summary>
-        /// A `secret_properties` block as defined below.
+        /// A `SecretProperties` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCertificateCertificatePolicySecretPropertyResult> SecretProperties;
         /// <summary>
-        /// An `x509_certificate_properties` block as defined below.
+        /// An `X509CertificateProperties` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCertificateCertificatePolicyX509CertificatePropertyResult> X509CertificateProperties;
 

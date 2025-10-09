@@ -104,7 +104,7 @@ namespace Pulumi.Azure.DataShare
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `snapshot_schedule` block as defined below.
+        /// A `SnapshotSchedule` block as defined below.
         /// </summary>
         [Output("snapshotSchedule")]
         public Output<Outputs.ShareSnapshotSchedule?> SnapshotSchedule { get; private set; } = null!;
@@ -186,7 +186,7 @@ namespace Pulumi.Azure.DataShare
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `snapshot_schedule` block as defined below.
+        /// A `SnapshotSchedule` block as defined below.
         /// </summary>
         [Input("snapshotSchedule")]
         public Input<Inputs.ShareSnapshotScheduleArgs>? SnapshotSchedule { get; set; }
@@ -230,7 +230,7 @@ namespace Pulumi.Azure.DataShare
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `snapshot_schedule` block as defined below.
+        /// A `SnapshotSchedule` block as defined below.
         /// </summary>
         [Input("snapshotSchedule")]
         public Input<Inputs.ShareSnapshotScheduleGetArgs>? SnapshotSchedule { get; set; }

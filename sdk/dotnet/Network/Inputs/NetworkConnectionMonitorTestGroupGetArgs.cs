@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Network.Inputs
         }
 
         /// <summary>
-        /// Should the test group be enabled? Defaults to `true`.
+        /// Should the test group be enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

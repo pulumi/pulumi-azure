@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 /**
  * Manages a Customer Managed Key for a Cognitive Services Account.
  * 
- * &gt; **Note:** It&#39;s possible to define a Customer Managed Key both within the `azure.cognitive.Account` resource via the `customer_managed_key` block and by using the `azure.cognitive.AccountCustomerManagedKey` resource. However it&#39;s not possible to use both methods to manage a Customer Managed Key for a Cognitive Account, since there&#39;ll be conflicts.
+ * &gt; **Note:** It&#39;s possible to define a Customer Managed Key both within the `azure.cognitive.Account` resource via the `customerManagedKey` block and by using the `azure.cognitive.AccountCustomerManagedKey` resource. However it&#39;s not possible to use both methods to manage a Customer Managed Key for a Cognitive Account, since there&#39;ll be conflicts.
  * 
  * ## Example Usage
  * 

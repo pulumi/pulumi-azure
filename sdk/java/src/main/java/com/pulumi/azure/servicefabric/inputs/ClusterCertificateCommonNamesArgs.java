@@ -17,14 +17,14 @@ public final class ClusterCertificateCommonNamesArgs extends com.pulumi.resource
     public static final ClusterCertificateCommonNamesArgs Empty = new ClusterCertificateCommonNamesArgs();
 
     /**
-     * A `common_names` block as defined below.
+     * A `commonNames` block as defined below.
      * 
      */
     @Import(name="commonNames", required=true)
     private Output<List<ClusterCertificateCommonNamesCommonNameArgs>> commonNames;
 
     /**
-     * @return A `common_names` block as defined below.
+     * @return A `commonNames` block as defined below.
      * 
      */
     public Output<List<ClusterCertificateCommonNamesCommonNameArgs>> commonNames() {
@@ -72,7 +72,7 @@ public final class ClusterCertificateCommonNamesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param commonNames A `common_names` block as defined below.
+         * @param commonNames A `commonNames` block as defined below.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ClusterCertificateCommonNamesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param commonNames A `common_names` block as defined below.
+         * @param commonNames A `commonNames` block as defined below.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class ClusterCertificateCommonNamesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param commonNames A `common_names` block as defined below.
+         * @param commonNames A `commonNames` block as defined below.
          * 
          * @return builder
          * 

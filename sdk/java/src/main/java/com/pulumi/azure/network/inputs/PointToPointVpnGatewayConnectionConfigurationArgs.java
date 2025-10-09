@@ -65,14 +65,14 @@ public final class PointToPointVpnGatewayConnectionConfigurationArgs extends com
     }
 
     /**
-     * A `vpn_client_address_pool` block as defined below.
+     * A `vpnClientAddressPool` block as defined below.
      * 
      */
     @Import(name="vpnClientAddressPool", required=true)
     private Output<PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs> vpnClientAddressPool;
 
     /**
-     * @return A `vpn_client_address_pool` block as defined below.
+     * @return A `vpnClientAddressPool` block as defined below.
      * 
      */
     public Output<PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs> vpnClientAddressPool() {
@@ -170,7 +170,7 @@ public final class PointToPointVpnGatewayConnectionConfigurationArgs extends com
         }
 
         /**
-         * @param vpnClientAddressPool A `vpn_client_address_pool` block as defined below.
+         * @param vpnClientAddressPool A `vpnClientAddressPool` block as defined below.
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class PointToPointVpnGatewayConnectionConfigurationArgs extends com
         }
 
         /**
-         * @param vpnClientAddressPool A `vpn_client_address_pool` block as defined below.
+         * @param vpnClientAddressPool A `vpnClientAddressPool` block as defined below.
          * 
          * @return builder
          * 

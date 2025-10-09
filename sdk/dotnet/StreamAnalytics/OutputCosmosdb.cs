@@ -12,6 +12,15 @@ namespace Pulumi.Azure.StreamAnalytics
     /// <summary>
     /// Manages a Stream Analytics Output to CosmosDB.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.StreamAnalytics` - 2021-10-01-preview
+    /// 
     /// ## Import
     /// 
     /// Stream Analytics Outputs for CosmosDB can be imported using the `resource id`, e.g.
@@ -60,7 +69,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the field in output events used to specify the key for partitioning output across collections. If `container_name` contains `{partition}` token, this property is required to be specified.
+        /// The name of the field in output events used to specify the key for partitioning output across collections. If `ContainerName` contains `{partition}` token, this property is required to be specified.
         /// </summary>
         [Output("partitionKey")]
         public Output<string?> PartitionKey { get; private set; } = null!;
@@ -168,7 +177,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the field in output events used to specify the key for partitioning output across collections. If `container_name` contains `{partition}` token, this property is required to be specified.
+        /// The name of the field in output events used to specify the key for partitioning output across collections. If `ContainerName` contains `{partition}` token, this property is required to be specified.
         /// </summary>
         [Input("partitionKey")]
         public Input<string>? PartitionKey { get; set; }
@@ -234,7 +243,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the field in output events used to specify the key for partitioning output across collections. If `container_name` contains `{partition}` token, this property is required to be specified.
+        /// The name of the field in output events used to specify the key for partitioning output across collections. If `ContainerName` contains `{partition}` token, this property is required to be specified.
         /// </summary>
         [Input("partitionKey")]
         public Input<string>? PartitionKey { get; set; }

@@ -36,7 +36,7 @@ public final class GetRoleAssignmentsRoleAssignment {
      */
     private String principalId;
     /**
-     * @return The type of the `principal_id`.
+     * @return The type of the `principalId`.
      * 
      */
     private String principalType;
@@ -98,7 +98,7 @@ public final class GetRoleAssignmentsRoleAssignment {
         return this.principalId;
     }
     /**
-     * @return The type of the `principal_id`.
+     * @return The type of the `principalId`.
      * 
      */
     public String principalType() {

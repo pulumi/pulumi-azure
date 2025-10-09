@@ -31,14 +31,14 @@ public final class VirtualNetworkSwiftConnectionState extends com.pulumi.resourc
     }
 
     /**
-     * The ID of the subnet the app service will be associated to (the subnet must have a `service_delegation` configured for `Microsoft.Web/serverFarms`).
+     * The ID of the subnet the app service will be associated to (the subnet must have a `serviceDelegation` configured for `Microsoft.Web/serverFarms`).
      * 
      */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
     /**
-     * @return The ID of the subnet the app service will be associated to (the subnet must have a `service_delegation` configured for `Microsoft.Web/serverFarms`).
+     * @return The ID of the subnet the app service will be associated to (the subnet must have a `serviceDelegation` configured for `Microsoft.Web/serverFarms`).
      * 
      */
     public Optional<Output<String>> subnetId() {
@@ -92,7 +92,7 @@ public final class VirtualNetworkSwiftConnectionState extends com.pulumi.resourc
         }
 
         /**
-         * @param subnetId The ID of the subnet the app service will be associated to (the subnet must have a `service_delegation` configured for `Microsoft.Web/serverFarms`).
+         * @param subnetId The ID of the subnet the app service will be associated to (the subnet must have a `serviceDelegation` configured for `Microsoft.Web/serverFarms`).
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class VirtualNetworkSwiftConnectionState extends com.pulumi.resourc
         }
 
         /**
-         * @param subnetId The ID of the subnet the app service will be associated to (the subnet must have a `service_delegation` configured for `Microsoft.Web/serverFarms`).
+         * @param subnetId The ID of the subnet the app service will be associated to (the subnet must have a `serviceDelegation` configured for `Microsoft.Web/serverFarms`).
          * 
          * @return builder
          * 

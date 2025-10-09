@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Batch.Outputs
         /// </summary>
         public readonly string? DefaultAction;
         /// <summary>
-        /// One or more `ip_rule` blocks as defined below.
+        /// One or more `IpRule` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AccountNetworkProfileNodeManagementAccessIpRule> IpRules;
 

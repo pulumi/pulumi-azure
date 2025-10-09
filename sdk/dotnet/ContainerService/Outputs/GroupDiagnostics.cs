@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class GroupDiagnostics
     {
         /// <summary>
-        /// A `log_analytics` block as defined below. Changing this forces a new resource to be created.
+        /// A `LogAnalytics` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public readonly Outputs.GroupDiagnosticsLogAnalytics LogAnalytics;
 

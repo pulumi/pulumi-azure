@@ -158,7 +158,7 @@ namespace Pulumi.Azure.MachineLearning
         /// <summary>
         /// The purpose of the Inference Cluster. Options are `DevTest`, `DenseProd` and `FastProd`. If used for Development or Testing, use `DevTest` here. Default purpose is `FastProd`, which is recommended for production workloads. Changing this forces a new Machine Learning Inference Cluster to be created.
         /// 
-        /// &gt; **Note:** When creating or attaching a cluster, if the cluster will be used for production (`cluster_purpose = "FastProd"`), then it must contain at least 12 virtual CPUs. The number of virtual CPUs can be calculated by multiplying the number of nodes in the cluster by the number of cores provided by the VM size selected. For example, if you use a VM size of "Standard_D3_v2", which has 4 virtual cores, then you should select 3 or greater as the number of nodes.
+        /// &gt; **Note:** When creating or attaching a cluster, if the cluster will be used for production (`ClusterPurpose = "FastProd"`), then it must contain at least 12 virtual CPUs. The number of virtual CPUs can be calculated by multiplying the number of nodes in the cluster by the number of cores provided by the VM size selected. For example, if you use a VM size of "Standard_D3_v2", which has 4 virtual cores, then you should select 3 or greater as the number of nodes.
         /// </summary>
         [Output("clusterPurpose")]
         public Output<string?> ClusterPurpose { get; private set; } = null!;
@@ -170,7 +170,7 @@ namespace Pulumi.Azure.MachineLearning
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
+        /// An `Identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.InferenceClusterIdentity?> Identity { get; private set; } = null!;
@@ -200,7 +200,7 @@ namespace Pulumi.Azure.MachineLearning
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `ssl` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
+        /// A `Ssl` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
         /// </summary>
         [Output("ssl")]
         public Output<Outputs.InferenceClusterSsl?> Ssl { get; private set; } = null!;
@@ -260,7 +260,7 @@ namespace Pulumi.Azure.MachineLearning
         /// <summary>
         /// The purpose of the Inference Cluster. Options are `DevTest`, `DenseProd` and `FastProd`. If used for Development or Testing, use `DevTest` here. Default purpose is `FastProd`, which is recommended for production workloads. Changing this forces a new Machine Learning Inference Cluster to be created.
         /// 
-        /// &gt; **Note:** When creating or attaching a cluster, if the cluster will be used for production (`cluster_purpose = "FastProd"`), then it must contain at least 12 virtual CPUs. The number of virtual CPUs can be calculated by multiplying the number of nodes in the cluster by the number of cores provided by the VM size selected. For example, if you use a VM size of "Standard_D3_v2", which has 4 virtual cores, then you should select 3 or greater as the number of nodes.
+        /// &gt; **Note:** When creating or attaching a cluster, if the cluster will be used for production (`ClusterPurpose = "FastProd"`), then it must contain at least 12 virtual CPUs. The number of virtual CPUs can be calculated by multiplying the number of nodes in the cluster by the number of cores provided by the VM size selected. For example, if you use a VM size of "Standard_D3_v2", which has 4 virtual cores, then you should select 3 or greater as the number of nodes.
         /// </summary>
         [Input("clusterPurpose")]
         public Input<string>? ClusterPurpose { get; set; }
@@ -272,7 +272,7 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
+        /// An `Identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.InferenceClusterIdentityArgs>? Identity { get; set; }
@@ -302,7 +302,7 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `ssl` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
+        /// A `Ssl` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
         /// </summary>
         [Input("ssl")]
         public Input<Inputs.InferenceClusterSslArgs>? Ssl { get; set; }
@@ -330,7 +330,7 @@ namespace Pulumi.Azure.MachineLearning
         /// <summary>
         /// The purpose of the Inference Cluster. Options are `DevTest`, `DenseProd` and `FastProd`. If used for Development or Testing, use `DevTest` here. Default purpose is `FastProd`, which is recommended for production workloads. Changing this forces a new Machine Learning Inference Cluster to be created.
         /// 
-        /// &gt; **Note:** When creating or attaching a cluster, if the cluster will be used for production (`cluster_purpose = "FastProd"`), then it must contain at least 12 virtual CPUs. The number of virtual CPUs can be calculated by multiplying the number of nodes in the cluster by the number of cores provided by the VM size selected. For example, if you use a VM size of "Standard_D3_v2", which has 4 virtual cores, then you should select 3 or greater as the number of nodes.
+        /// &gt; **Note:** When creating or attaching a cluster, if the cluster will be used for production (`ClusterPurpose = "FastProd"`), then it must contain at least 12 virtual CPUs. The number of virtual CPUs can be calculated by multiplying the number of nodes in the cluster by the number of cores provided by the VM size selected. For example, if you use a VM size of "Standard_D3_v2", which has 4 virtual cores, then you should select 3 or greater as the number of nodes.
         /// </summary>
         [Input("clusterPurpose")]
         public Input<string>? ClusterPurpose { get; set; }
@@ -342,7 +342,7 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
+        /// An `Identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.InferenceClusterIdentityGetArgs>? Identity { get; set; }
@@ -372,7 +372,7 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `ssl` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
+        /// A `Ssl` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
         /// </summary>
         [Input("ssl")]
         public Input<Inputs.InferenceClusterSslGetArgs>? Ssl { get; set; }

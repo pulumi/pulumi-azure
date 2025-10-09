@@ -30,7 +30,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool RollbackEnabled;
         /// <summary>
-        /// Uses Mercurial if `true`, otherwise uses Git.
+        /// Uses Mercurial if `True`, otherwise uses Git.
         /// </summary>
         public readonly bool UseMercurial;
 

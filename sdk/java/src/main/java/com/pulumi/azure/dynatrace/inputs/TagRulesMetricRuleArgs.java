@@ -19,14 +19,14 @@ public final class TagRulesMetricRuleArgs extends com.pulumi.resources.ResourceA
     public static final TagRulesMetricRuleArgs Empty = new TagRulesMetricRuleArgs();
 
     /**
-     * Filtering tag for the metric rule. A `filtering_tag` block as defined below.
+     * Filtering tag for the metric rule. A `filteringTag` block as defined below.
      * 
      */
     @Import(name="filteringTags", required=true)
     private Output<List<TagRulesMetricRuleFilteringTagArgs>> filteringTags;
 
     /**
-     * @return Filtering tag for the metric rule. A `filtering_tag` block as defined below.
+     * @return Filtering tag for the metric rule. A `filteringTag` block as defined below.
      * 
      */
     public Output<List<TagRulesMetricRuleFilteringTagArgs>> filteringTags() {
@@ -74,7 +74,7 @@ public final class TagRulesMetricRuleArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param filteringTags Filtering tag for the metric rule. A `filtering_tag` block as defined below.
+         * @param filteringTags Filtering tag for the metric rule. A `filteringTag` block as defined below.
          * 
          * @return builder
          * 
@@ -85,7 +85,7 @@ public final class TagRulesMetricRuleArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param filteringTags Filtering tag for the metric rule. A `filtering_tag` block as defined below.
+         * @param filteringTags Filtering tag for the metric rule. A `filteringTag` block as defined below.
          * 
          * @return builder
          * 
@@ -95,7 +95,7 @@ public final class TagRulesMetricRuleArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param filteringTags Filtering tag for the metric rule. A `filtering_tag` block as defined below.
+         * @param filteringTags Filtering tag for the metric rule. A `filteringTag` block as defined below.
          * 
          * @return builder
          * 

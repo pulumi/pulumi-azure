@@ -19,15 +19,15 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<string> Caching { get; set; } = null!;
 
         /// <summary>
-        /// A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
+        /// A `DiffDiskSettings` block as defined above. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment). Additionally, this property cannot be set when an existing Managed Disk is used to create the Virtual Machine by setting `os_managed_disk_id`.
+        /// &gt; **NOTE:** `DiffDiskSettings` can only be set when `Caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment). Additionally, this property cannot be set when an existing Managed Disk is used to create the Virtual Machine by setting `OsManagedDiskId`.
         /// </summary>
         [Input("diffDiskSettings")]
         public Input<Inputs.WindowsVirtualMachineOsDiskDiffDiskSettingsArgs>? DiffDiskSettings { get; set; }
 
         /// <summary>
-        /// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
+        /// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk. Conflicts with `SecureVmDiskEncryptionSetId`.
         /// 
         /// &gt; **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
         /// </summary>
@@ -51,15 +51,15 @@ namespace Pulumi.Azure.Compute.Inputs
         /// <summary>
         /// The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** a value for `name` cannot be specified if/when the Virtual Machine has been created using an existing Managed Disk for the OS by setting `os_managed_disk_id`.
+        /// &gt; **Note:** a value for `Name` cannot be specified if/when the Virtual Machine has been created using an existing Managed Disk for the OS by setting `OsManagedDiskId`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
+        /// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `DiskEncryptionSetId`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** `secure_vm_disk_encryption_set_id` can only be specified when `security_encryption_type` is set to `DiskWithVMGuestState`.
+        /// &gt; **NOTE:** `SecureVmDiskEncryptionSetId` can only be specified when `SecurityEncryptionType` is set to `DiskWithVMGuestState`.
         /// </summary>
         [Input("secureVmDiskEncryptionSetId")]
         public Input<string>? SecureVmDiskEncryptionSetId { get; set; }
@@ -67,9 +67,9 @@ namespace Pulumi.Azure.Compute.Inputs
         /// <summary>
         /// Encryption Type when the Virtual Machine is a Confidential VM. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** `vtpm_enabled` must be set to `true` when `security_encryption_type` is specified.
+        /// &gt; **NOTE:** `VtpmEnabled` must be set to `True` when `SecurityEncryptionType` is specified.
         /// 
-        /// &gt; **NOTE:** `encryption_at_host_enabled` cannot be set to `true` when `security_encryption_type` is set to `DiskWithVMGuestState`.
+        /// &gt; **NOTE:** `EncryptionAtHostEnabled` cannot be set to `True` when `SecurityEncryptionType` is set to `DiskWithVMGuestState`.
         /// </summary>
         [Input("securityEncryptionType")]
         public Input<string>? SecurityEncryptionType { get; set; }
@@ -77,15 +77,15 @@ namespace Pulumi.Azure.Compute.Inputs
         /// <summary>
         /// The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+        /// &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `OsManagedDiskId`.
         /// </summary>
         [Input("storageAccountType")]
         public Input<string>? StorageAccountType { get; set; }
 
         /// <summary>
-        /// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
+        /// Should Write Accelerator be Enabled for this OS Disk? Defaults to `False`.
         /// 
-        /// &gt; **NOTE:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
+        /// &gt; **NOTE:** This requires that the `StorageAccountType` is set to `Premium_LRS` and that `Caching` is set to `None`.
         /// </summary>
         [Input("writeAcceleratorEnabled")]
         public Input<bool>? WriteAcceleratorEnabled { get; set; }

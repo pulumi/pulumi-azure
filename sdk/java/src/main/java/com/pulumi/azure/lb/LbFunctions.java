@@ -797,12 +797,30 @@ public final class LbFunctions {
     /**
      * Use this data source to access information about an existing Load Balancer Rule.
      * 
+     * ## Example Usage
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network` - 2023-09-01
+     * 
      */
     public static Output<GetLBRuleResult> getLBRule(GetLBRuleArgs args) {
         return getLBRule(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Load Balancer Rule.
+     * 
+     * ## Example Usage
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network` - 2023-09-01
      * 
      */
     public static CompletableFuture<GetLBRuleResult> getLBRulePlain(GetLBRulePlainArgs args) {
@@ -811,6 +829,15 @@ public final class LbFunctions {
     /**
      * Use this data source to access information about an existing Load Balancer Rule.
      * 
+     * ## Example Usage
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network` - 2023-09-01
+     * 
      */
     public static Output<GetLBRuleResult> getLBRule(GetLBRuleArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:lb/getLBRule:getLBRule", TypeShape.of(GetLBRuleResult.class), args, Utilities.withVersion(options));
@@ -818,12 +845,30 @@ public final class LbFunctions {
     /**
      * Use this data source to access information about an existing Load Balancer Rule.
      * 
+     * ## Example Usage
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network` - 2023-09-01
+     * 
      */
     public static Output<GetLBRuleResult> getLBRule(GetLBRuleArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:lb/getLBRule:getLBRule", TypeShape.of(GetLBRuleResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Load Balancer Rule.
+     * 
+     * ## Example Usage
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network` - 2023-09-01
      * 
      */
     public static CompletableFuture<GetLBRuleResult> getLBRulePlain(GetLBRulePlainArgs args, InvokeOptions options) {

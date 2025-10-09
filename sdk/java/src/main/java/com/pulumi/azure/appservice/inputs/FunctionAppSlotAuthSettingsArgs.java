@@ -26,14 +26,14 @@ public final class FunctionAppSlotAuthSettingsArgs extends com.pulumi.resources.
     public static final FunctionAppSlotAuthSettingsArgs Empty = new FunctionAppSlotAuthSettingsArgs();
 
     /**
-     * An `active_directory` block as defined below.
+     * An `activeDirectory` block as defined below.
      * 
      */
     @Import(name="activeDirectory")
     private @Nullable Output<FunctionAppSlotAuthSettingsActiveDirectoryArgs> activeDirectory;
 
     /**
-     * @return An `active_directory` block as defined below.
+     * @return An `activeDirectory` block as defined below.
      * 
      */
     public Optional<Output<FunctionAppSlotAuthSettingsActiveDirectoryArgs>> activeDirectory() {
@@ -73,7 +73,7 @@ public final class FunctionAppSlotAuthSettingsArgs extends com.pulumi.resources.
     /**
      * The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
      * 
-     * &gt; **NOTE:** When using multiple providers, the default provider must be set for settings like `unauthenticated_client_action` to work.
+     * &gt; **NOTE:** When using multiple providers, the default provider must be set for settings like `unauthenticatedClientAction` to work.
      * 
      */
     @Import(name="defaultProvider")
@@ -82,7 +82,7 @@ public final class FunctionAppSlotAuthSettingsArgs extends com.pulumi.resources.
     /**
      * @return The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
      * 
-     * &gt; **NOTE:** When using multiple providers, the default provider must be set for settings like `unauthenticated_client_action` to work.
+     * &gt; **NOTE:** When using multiple providers, the default provider must be set for settings like `unauthenticatedClientAction` to work.
      * 
      */
     public Optional<Output<String>> defaultProvider() {
@@ -277,7 +277,7 @@ public final class FunctionAppSlotAuthSettingsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param activeDirectory An `active_directory` block as defined below.
+         * @param activeDirectory An `activeDirectory` block as defined below.
          * 
          * @return builder
          * 
@@ -288,7 +288,7 @@ public final class FunctionAppSlotAuthSettingsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param activeDirectory An `active_directory` block as defined below.
+         * @param activeDirectory An `activeDirectory` block as defined below.
          * 
          * @return builder
          * 
@@ -352,7 +352,7 @@ public final class FunctionAppSlotAuthSettingsArgs extends com.pulumi.resources.
         /**
          * @param defaultProvider The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
          * 
-         * &gt; **NOTE:** When using multiple providers, the default provider must be set for settings like `unauthenticated_client_action` to work.
+         * &gt; **NOTE:** When using multiple providers, the default provider must be set for settings like `unauthenticatedClientAction` to work.
          * 
          * @return builder
          * 
@@ -365,7 +365,7 @@ public final class FunctionAppSlotAuthSettingsArgs extends com.pulumi.resources.
         /**
          * @param defaultProvider The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
          * 
-         * &gt; **NOTE:** When using multiple providers, the default provider must be set for settings like `unauthenticated_client_action` to work.
+         * &gt; **NOTE:** When using multiple providers, the default provider must be set for settings like `unauthenticatedClientAction` to work.
          * 
          * @return builder
          * 

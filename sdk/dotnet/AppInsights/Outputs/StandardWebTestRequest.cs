@@ -18,11 +18,11 @@ namespace Pulumi.Azure.AppInsights.Outputs
         /// </summary>
         public readonly string? Body;
         /// <summary>
-        /// Should the following of redirects be enabled? Defaults to `true`.
+        /// Should the following of redirects be enabled? Defaults to `True`.
         /// </summary>
         public readonly bool? FollowRedirectsEnabled;
         /// <summary>
-        /// One or more `header` blocks as defined above.
+        /// One or more `Header` blocks as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.StandardWebTestRequestHeader> Headers;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Azure.AppInsights.Outputs
         /// </summary>
         public readonly string? HttpVerb;
         /// <summary>
-        /// Should the parsing of dependend requests be enabled? Defaults to `true`.
+        /// Should the parsing of dependend requests be enabled? Defaults to `True`.
         /// </summary>
         public readonly bool? ParseDependentRequestsEnabled;
         /// <summary>

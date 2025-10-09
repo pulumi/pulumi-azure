@@ -17,21 +17,21 @@ public final class GetVirtualNetworkGatewayVpnClientConfiguration {
      * @return The client id of the Azure VPN application.
      * See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
      * This setting is incompatible with the use of
-     * `root_certificate` and `revoked_certificate`, `radius_server_address`, and `radius_server_secret`.
+     * `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
      * 
      */
     private String aadAudience;
     /**
      * @return The STS url for your tenant
      * This setting is incompatible with the use of
-     * `root_certificate` and `revoked_certificate`, `radius_server_address`, and `radius_server_secret`.
+     * `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
      * 
      */
     private String aadIssuer;
     /**
      * @return AzureAD Tenant URL
      * This setting is incompatible with the use of
-     * `root_certificate` and `revoked_certificate`, `radius_server_address`, and `radius_server_secret`.
+     * `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
      * 
      */
     private String aadTenant;
@@ -45,31 +45,31 @@ public final class GetVirtualNetworkGatewayVpnClientConfiguration {
     /**
      * @return The address of the Radius server.
      * This setting is incompatible with the use of
-     * `aad_tenant`, `aad_audience`, `aad_issuer`, `root_certificate` and `revoked_certificate`.
+     * `aadTenant`, `aadAudience`, `aadIssuer`, `rootCertificate` and `revokedCertificate`.
      * 
      */
     private String radiusServerAddress;
     /**
      * @return The secret used by the Radius server.
      * This setting is incompatible with the use of
-     * `aad_tenant`, `aad_audience`, `aad_issuer`, `root_certificate` and `revoked_certificate`.
+     * `aadTenant`, `aadAudience`, `aadIssuer`, `rootCertificate` and `revokedCertificate`.
      * 
      */
     private String radiusServerSecret;
     /**
-     * @return One or more `revoked_certificate` blocks which
+     * @return One or more `revokedCertificate` blocks which
      * are defined below.
      * This setting is incompatible with the use of
-     * `aad_tenant`, `aad_audience`, `aad_issuer`, `radius_server_address`, and `radius_server_secret`.
+     * `aadTenant`, `aadAudience`, `aadIssuer`, `radiusServerAddress`, and `radiusServerSecret`.
      * 
      */
     private List<GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificate> revokedCertificates;
     /**
-     * @return One or more `root_certificate` blocks which are
+     * @return One or more `rootCertificate` blocks which are
      * defined below. These root certificates are used to sign the client certificate
      * used by the VPN clients to connect to the gateway.
      * This setting is incompatible with the use of
-     * `aad_tenant`, `aad_audience`, `aad_issuer`, `radius_server_address`, and `radius_server_secret`.
+     * `aadTenant`, `aadAudience`, `aadIssuer`, `radiusServerAddress`, and `radiusServerSecret`.
      * 
      */
     private List<GetVirtualNetworkGatewayVpnClientConfigurationRootCertificate> rootCertificates;
@@ -85,7 +85,7 @@ public final class GetVirtualNetworkGatewayVpnClientConfiguration {
      * @return The client id of the Azure VPN application.
      * See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
      * This setting is incompatible with the use of
-     * `root_certificate` and `revoked_certificate`, `radius_server_address`, and `radius_server_secret`.
+     * `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
      * 
      */
     public String aadAudience() {
@@ -94,7 +94,7 @@ public final class GetVirtualNetworkGatewayVpnClientConfiguration {
     /**
      * @return The STS url for your tenant
      * This setting is incompatible with the use of
-     * `root_certificate` and `revoked_certificate`, `radius_server_address`, and `radius_server_secret`.
+     * `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
      * 
      */
     public String aadIssuer() {
@@ -103,7 +103,7 @@ public final class GetVirtualNetworkGatewayVpnClientConfiguration {
     /**
      * @return AzureAD Tenant URL
      * This setting is incompatible with the use of
-     * `root_certificate` and `revoked_certificate`, `radius_server_address`, and `radius_server_secret`.
+     * `rootCertificate` and `revokedCertificate`, `radiusServerAddress`, and `radiusServerSecret`.
      * 
      */
     public String aadTenant() {
@@ -121,7 +121,7 @@ public final class GetVirtualNetworkGatewayVpnClientConfiguration {
     /**
      * @return The address of the Radius server.
      * This setting is incompatible with the use of
-     * `aad_tenant`, `aad_audience`, `aad_issuer`, `root_certificate` and `revoked_certificate`.
+     * `aadTenant`, `aadAudience`, `aadIssuer`, `rootCertificate` and `revokedCertificate`.
      * 
      */
     public String radiusServerAddress() {
@@ -130,28 +130,28 @@ public final class GetVirtualNetworkGatewayVpnClientConfiguration {
     /**
      * @return The secret used by the Radius server.
      * This setting is incompatible with the use of
-     * `aad_tenant`, `aad_audience`, `aad_issuer`, `root_certificate` and `revoked_certificate`.
+     * `aadTenant`, `aadAudience`, `aadIssuer`, `rootCertificate` and `revokedCertificate`.
      * 
      */
     public String radiusServerSecret() {
         return this.radiusServerSecret;
     }
     /**
-     * @return One or more `revoked_certificate` blocks which
+     * @return One or more `revokedCertificate` blocks which
      * are defined below.
      * This setting is incompatible with the use of
-     * `aad_tenant`, `aad_audience`, `aad_issuer`, `radius_server_address`, and `radius_server_secret`.
+     * `aadTenant`, `aadAudience`, `aadIssuer`, `radiusServerAddress`, and `radiusServerSecret`.
      * 
      */
     public List<GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificate> revokedCertificates() {
         return this.revokedCertificates;
     }
     /**
-     * @return One or more `root_certificate` blocks which are
+     * @return One or more `rootCertificate` blocks which are
      * defined below. These root certificates are used to sign the client certificate
      * used by the VPN clients to connect to the gateway.
      * This setting is incompatible with the use of
-     * `aad_tenant`, `aad_audience`, `aad_issuer`, `radius_server_address`, and `radius_server_secret`.
+     * `aadTenant`, `aadAudience`, `aadIssuer`, `radiusServerAddress`, and `radiusServerSecret`.
      * 
      */
     public List<GetVirtualNetworkGatewayVpnClientConfigurationRootCertificate> rootCertificates() {

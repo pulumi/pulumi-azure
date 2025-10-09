@@ -37,7 +37,7 @@ public final class GetResolverForwardingRuleResult {
     private Map<String,String> metadata;
     private String name;
     /**
-     * @return A list of `target_dns_servers` block as defined below.
+     * @return A list of `targetDnsServers` block as defined below.
      * 
      */
     private List<GetResolverForwardingRuleTargetDnsServer> targetDnsServers;
@@ -78,7 +78,7 @@ public final class GetResolverForwardingRuleResult {
         return this.name;
     }
     /**
-     * @return A list of `target_dns_servers` block as defined below.
+     * @return A list of `targetDnsServers` block as defined below.
      * 
      */
     public List<GetResolverForwardingRuleTargetDnsServer> targetDnsServers() {

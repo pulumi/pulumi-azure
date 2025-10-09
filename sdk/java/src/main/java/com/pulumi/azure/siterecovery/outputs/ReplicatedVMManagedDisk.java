@@ -24,14 +24,14 @@ public final class ReplicatedVMManagedDisk {
      */
     private String stagingStorageAccountId;
     /**
-     * @return A `target_disk_encryption` block as defined below.
+     * @return A `targetDiskEncryption` block as defined below.
      * 
      */
     private @Nullable ReplicatedVMManagedDiskTargetDiskEncryption targetDiskEncryption;
     /**
      * @return The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Creating replicated vm with `target_disk_encryption_set_id` wil take more time (up to 5 hours), please extend the `timeout` for `create`.
+     * &gt; **Note:** Creating replicated vm with `targetDiskEncryptionSetId` wil take more time (up to 5 hours), please extend the `timeout` for `create`.
      * 
      */
     private @Nullable String targetDiskEncryptionSetId;
@@ -67,7 +67,7 @@ public final class ReplicatedVMManagedDisk {
         return this.stagingStorageAccountId;
     }
     /**
-     * @return A `target_disk_encryption` block as defined below.
+     * @return A `targetDiskEncryption` block as defined below.
      * 
      */
     public Optional<ReplicatedVMManagedDiskTargetDiskEncryption> targetDiskEncryption() {
@@ -76,7 +76,7 @@ public final class ReplicatedVMManagedDisk {
     /**
      * @return The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Creating replicated vm with `target_disk_encryption_set_id` wil take more time (up to 5 hours), please extend the `timeout` for `create`.
+     * &gt; **Note:** Creating replicated vm with `targetDiskEncryptionSetId` wil take more time (up to 5 hours), please extend the `timeout` for `create`.
      * 
      */
     public Optional<String> targetDiskEncryptionSetId() {

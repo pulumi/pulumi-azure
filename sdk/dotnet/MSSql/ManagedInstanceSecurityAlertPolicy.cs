@@ -12,6 +12,15 @@ namespace Pulumi.Azure.MSSql
     /// <summary>
     /// Manages a Security Alert Policy for an MS SQL Managed Instance.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Sql` - 2023-08-01-preview
+    /// 
     /// ## Import
     /// 
     /// MS SQL Managed Instance Security Alert Policy can be imported using the `resource id`, e.g.
@@ -30,7 +39,7 @@ namespace Pulumi.Azure.MSSql
         public Output<ImmutableArray<string>> DisabledAlerts { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
+        /// Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `False`.
         /// </summary>
         [Output("emailAccountAdminsEnabled")]
         public Output<bool?> EmailAccountAdminsEnabled { get; private set; } = null!;
@@ -42,7 +51,7 @@ namespace Pulumi.Azure.MSSql
         public Output<ImmutableArray<string>> EmailAddresses { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`.
+        /// Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `True`, `False`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -66,9 +75,9 @@ namespace Pulumi.Azure.MSSql
         public Output<int?> RetentionDays { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storage_endpoint` to specify a storage account blob endpoint.
+        /// Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `StorageEndpoint` to specify a storage account blob endpoint.
         /// 
-        /// &gt; **Note:** Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `azure.mssql.ManagedInstanceSecurityAlertPolicy` with `storage_endpoint` for now.
+        /// &gt; **Note:** Please note that storage accounts configured with `SharedAccessKeyEnabled = false` cannot be used to configure `azure.mssql.ManagedInstanceSecurityAlertPolicy` with `StorageEndpoint` for now.
         /// </summary>
         [Output("storageAccountAccessKey")]
         public Output<string?> StorageAccountAccessKey { get; private set; } = null!;
@@ -142,7 +151,7 @@ namespace Pulumi.Azure.MSSql
         }
 
         /// <summary>
-        /// Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
+        /// Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `False`.
         /// </summary>
         [Input("emailAccountAdminsEnabled")]
         public Input<bool>? EmailAccountAdminsEnabled { get; set; }
@@ -160,7 +169,7 @@ namespace Pulumi.Azure.MSSql
         }
 
         /// <summary>
-        /// Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`.
+        /// Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `True`, `False`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -187,9 +196,9 @@ namespace Pulumi.Azure.MSSql
         private Input<string>? _storageAccountAccessKey;
 
         /// <summary>
-        /// Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storage_endpoint` to specify a storage account blob endpoint.
+        /// Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `StorageEndpoint` to specify a storage account blob endpoint.
         /// 
-        /// &gt; **Note:** Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `azure.mssql.ManagedInstanceSecurityAlertPolicy` with `storage_endpoint` for now.
+        /// &gt; **Note:** Please note that storage accounts configured with `SharedAccessKeyEnabled = false` cannot be used to configure `azure.mssql.ManagedInstanceSecurityAlertPolicy` with `StorageEndpoint` for now.
         /// </summary>
         public Input<string>? StorageAccountAccessKey
         {
@@ -228,7 +237,7 @@ namespace Pulumi.Azure.MSSql
         }
 
         /// <summary>
-        /// Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
+        /// Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `False`.
         /// </summary>
         [Input("emailAccountAdminsEnabled")]
         public Input<bool>? EmailAccountAdminsEnabled { get; set; }
@@ -246,7 +255,7 @@ namespace Pulumi.Azure.MSSql
         }
 
         /// <summary>
-        /// Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`.
+        /// Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `True`, `False`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -273,9 +282,9 @@ namespace Pulumi.Azure.MSSql
         private Input<string>? _storageAccountAccessKey;
 
         /// <summary>
-        /// Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storage_endpoint` to specify a storage account blob endpoint.
+        /// Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `StorageEndpoint` to specify a storage account blob endpoint.
         /// 
-        /// &gt; **Note:** Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `azure.mssql.ManagedInstanceSecurityAlertPolicy` with `storage_endpoint` for now.
+        /// &gt; **Note:** Please note that storage accounts configured with `SharedAccessKeyEnabled = false` cannot be used to configure `azure.mssql.ManagedInstanceSecurityAlertPolicy` with `StorageEndpoint` for now.
         /// </summary>
         public Input<string>? StorageAccountAccessKey
         {

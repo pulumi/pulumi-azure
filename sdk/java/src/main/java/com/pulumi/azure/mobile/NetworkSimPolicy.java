@@ -270,14 +270,14 @@ public class NetworkSimPolicy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A `user_equipment_aggregate_maximum_bit_rate` block as defined below.
+     * A `userEquipmentAggregateMaximumBitRate` block as defined below.
      * 
      */
     @Export(name="userEquipmentAggregateMaximumBitRate", refs={NetworkSimPolicyUserEquipmentAggregateMaximumBitRate.class}, tree="[0]")
     private Output<NetworkSimPolicyUserEquipmentAggregateMaximumBitRate> userEquipmentAggregateMaximumBitRate;
 
     /**
-     * @return A `user_equipment_aggregate_maximum_bit_rate` block as defined below.
+     * @return A `userEquipmentAggregateMaximumBitRate` block as defined below.
      * 
      */
     public Output<NetworkSimPolicyUserEquipmentAggregateMaximumBitRate> userEquipmentAggregateMaximumBitRate() {

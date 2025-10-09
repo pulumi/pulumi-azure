@@ -67,14 +67,14 @@ public final class DataFlowSourceArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A `linked_service` block as defined below.
+     * A `linkedService` block as defined below.
      * 
      */
     @Import(name="linkedService")
     private @Nullable Output<DataFlowSourceLinkedServiceArgs> linkedService;
 
     /**
-     * @return A `linked_service` block as defined below.
+     * @return A `linkedService` block as defined below.
      * 
      */
     public Optional<Output<DataFlowSourceLinkedServiceArgs>> linkedService() {
@@ -97,14 +97,14 @@ public final class DataFlowSourceArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A `rejected_linked_service` block as defined below.
+     * A `rejectedLinkedService` block as defined below.
      * 
      */
     @Import(name="rejectedLinkedService")
     private @Nullable Output<DataFlowSourceRejectedLinkedServiceArgs> rejectedLinkedService;
 
     /**
-     * @return A `rejected_linked_service` block as defined below.
+     * @return A `rejectedLinkedService` block as defined below.
      * 
      */
     public Optional<Output<DataFlowSourceRejectedLinkedServiceArgs>> rejectedLinkedService() {
@@ -112,14 +112,14 @@ public final class DataFlowSourceArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A `schema_linked_service` block as defined below.
+     * A `schemaLinkedService` block as defined below.
      * 
      */
     @Import(name="schemaLinkedService")
     private @Nullable Output<DataFlowSourceSchemaLinkedServiceArgs> schemaLinkedService;
 
     /**
-     * @return A `schema_linked_service` block as defined below.
+     * @return A `schemaLinkedService` block as defined below.
      * 
      */
     public Optional<Output<DataFlowSourceSchemaLinkedServiceArgs>> schemaLinkedService() {
@@ -220,7 +220,7 @@ public final class DataFlowSourceArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param linkedService A `linked_service` block as defined below.
+         * @param linkedService A `linkedService` block as defined below.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class DataFlowSourceArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param linkedService A `linked_service` block as defined below.
+         * @param linkedService A `linkedService` block as defined below.
          * 
          * @return builder
          * 
@@ -262,7 +262,7 @@ public final class DataFlowSourceArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param rejectedLinkedService A `rejected_linked_service` block as defined below.
+         * @param rejectedLinkedService A `rejectedLinkedService` block as defined below.
          * 
          * @return builder
          * 
@@ -273,7 +273,7 @@ public final class DataFlowSourceArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param rejectedLinkedService A `rejected_linked_service` block as defined below.
+         * @param rejectedLinkedService A `rejectedLinkedService` block as defined below.
          * 
          * @return builder
          * 
@@ -283,7 +283,7 @@ public final class DataFlowSourceArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param schemaLinkedService A `schema_linked_service` block as defined below.
+         * @param schemaLinkedService A `schemaLinkedService` block as defined below.
          * 
          * @return builder
          * 
@@ -294,7 +294,7 @@ public final class DataFlowSourceArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param schemaLinkedService A `schema_linked_service` block as defined below.
+         * @param schemaLinkedService A `schemaLinkedService` block as defined below.
          * 
          * @return builder
          * 

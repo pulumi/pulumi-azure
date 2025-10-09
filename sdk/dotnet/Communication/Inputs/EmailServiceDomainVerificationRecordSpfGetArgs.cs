@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Communication.Inputs
     public sealed class EmailServiceDomainVerificationRecordSpfGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the Email Communication Service resource. If `domain_management` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
+        /// The name of the Email Communication Service resource. If `DomainManagement` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

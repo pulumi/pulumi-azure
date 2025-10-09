@@ -19,13 +19,13 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         public Input<string> AppId { get; set; } = null!;
 
         /// <summary>
-        /// The port which the application is listening on. This is the same as the `ingress` port.
+        /// The port which the application is listening on. This is the same as the `Ingress` port.
         /// </summary>
         [Input("appPort")]
         public Input<int>? AppPort { get; set; }
 
         /// <summary>
-        /// The protocol for the app. Possible values include `http` and `grpc`. Defaults to `http`.
+        /// The protocol for the app. Possible values include `Http` and `Grpc`. Defaults to `Http`.
         /// </summary>
         [Input("appProtocol")]
         public Input<string>? AppProtocol { get; set; }

@@ -32,7 +32,7 @@ public final class ScaleSetStandbyPoolElasticityProfileArgs extends com.pulumi.r
     /**
      * Specifies the desired minimum number of virtual machines in the standby pool.
      * 
-     * &gt; **Note:** `min_ready_capacity` cannot exceed `max_ready_capacity`.
+     * &gt; **Note:** `minReadyCapacity` cannot exceed `maxReadyCapacity`.
      * 
      */
     @Import(name="minReadyCapacity", required=true)
@@ -41,7 +41,7 @@ public final class ScaleSetStandbyPoolElasticityProfileArgs extends com.pulumi.r
     /**
      * @return Specifies the desired minimum number of virtual machines in the standby pool.
      * 
-     * &gt; **Note:** `min_ready_capacity` cannot exceed `max_ready_capacity`.
+     * &gt; **Note:** `minReadyCapacity` cannot exceed `maxReadyCapacity`.
      * 
      */
     public Output<Integer> minReadyCapacity() {
@@ -97,7 +97,7 @@ public final class ScaleSetStandbyPoolElasticityProfileArgs extends com.pulumi.r
         /**
          * @param minReadyCapacity Specifies the desired minimum number of virtual machines in the standby pool.
          * 
-         * &gt; **Note:** `min_ready_capacity` cannot exceed `max_ready_capacity`.
+         * &gt; **Note:** `minReadyCapacity` cannot exceed `maxReadyCapacity`.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class ScaleSetStandbyPoolElasticityProfileArgs extends com.pulumi.r
         /**
          * @param minReadyCapacity Specifies the desired minimum number of virtual machines in the standby pool.
          * 
-         * &gt; **Note:** `min_ready_capacity` cannot exceed `max_ready_capacity`.
+         * &gt; **Note:** `minReadyCapacity` cannot exceed `maxReadyCapacity`.
          * 
          * @return builder
          * 

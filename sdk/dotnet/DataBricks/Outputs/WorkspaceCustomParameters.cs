@@ -22,19 +22,19 @@ namespace Pulumi.Azure.DataBricks.Outputs
         /// </summary>
         public readonly string? NatGatewayName;
         /// <summary>
-        /// Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `true`.
+        /// Are public IP Addresses not allowed? Possible values are `True` or `False`. Defaults to `True`.
         /// 
-        /// &gt; **Note:** Updating `no_public_ip` parameter is only allowed if the value is changing from `false` to `true` and only for VNet-injected workspaces.
+        /// &gt; **Note:** Updating `NoPublicIp` parameter is only allowed if the value is changing from `False` to `True` and only for VNet-injected workspaces.
         /// 
-        /// &gt; **Note:** In `v3.104.0` and higher of the provider the `no_public_ip` parameter will now default to `true` instead of `false`.
+        /// &gt; **Note:** In `v3.104.0` and higher of the provider the `NoPublicIp` parameter will now default to `True` instead of `False`.
         /// </summary>
         public readonly bool? NoPublicIp;
         /// <summary>
-        /// The name of the Private Subnet within the Virtual Network. Required if `virtual_network_id` is set. Changing this forces a new resource to be created.
+        /// The name of the Private Subnet within the Virtual Network. Required if `VirtualNetworkId` is set. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? PrivateSubnetName;
         /// <summary>
-        /// The resource ID of the `azure.network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `private_subnet_name` field. This is the same as the ID of the subnet referred to by the `private_subnet_name` field. Required if `virtual_network_id` is set.
+        /// The resource ID of the `azure.network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `PrivateSubnetName` field. This is the same as the ID of the subnet referred to by the `PrivateSubnetName` field. Required if `VirtualNetworkId` is set.
         /// </summary>
         public readonly string? PrivateSubnetNetworkSecurityGroupAssociationId;
         /// <summary>
@@ -42,15 +42,15 @@ namespace Pulumi.Azure.DataBricks.Outputs
         /// </summary>
         public readonly string? PublicIpName;
         /// <summary>
-        /// The name of the Public Subnet within the Virtual Network. Required if `virtual_network_id` is set. Changing this forces a new resource to be created.
+        /// The name of the Public Subnet within the Virtual Network. Required if `VirtualNetworkId` is set. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? PublicSubnetName;
         /// <summary>
-        /// The resource ID of the `azure.network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `public_subnet_name` field. This is the same as the ID of the subnet referred to by the `public_subnet_name` field. Required if `virtual_network_id` is set.
+        /// The resource ID of the `azure.network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `PublicSubnetName` field. This is the same as the ID of the subnet referred to by the `PublicSubnetName` field. Required if `VirtualNetworkId` is set.
         /// </summary>
         public readonly string? PublicSubnetNetworkSecurityGroupAssociationId;
         /// <summary>
-        /// Default Databricks File Storage account name. Defaults to a randomized name(e.g. `dbstoragel6mfeghoe5kxu`). Changing this forces a new resource to be created.
+        /// Default Databricks File Storage account name. Defaults to a randomized name(e.g. `Dbstoragel6mfeghoe5kxu`). Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? StorageAccountName;
         /// <summary>
@@ -64,7 +64,7 @@ namespace Pulumi.Azure.DataBricks.Outputs
         /// <summary>
         /// Address prefix for Managed virtual network. Defaults to `10.139`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** Databricks requires that a network security group is associated with the `public` and `private` subnets when a `virtual_network_id` has been defined. Both `public` and `private` subnets must be delegated to `Microsoft.Databricks/workspaces`. For more information about subnet delegation see the [product documentation](https://docs.microsoft.com/azure/virtual-network/subnet-delegation-overview).
+        /// &gt; **Note:** Databricks requires that a network security group is associated with the `Public` and `Private` subnets when a `VirtualNetworkId` has been defined. Both `Public` and `Private` subnets must be delegated to `Microsoft.Databricks/workspaces`. For more information about subnet delegation see the [product documentation](https://docs.microsoft.com/azure/virtual-network/subnet-delegation-overview).
         /// </summary>
         public readonly string? VnetAddressPrefix;
 

@@ -146,28 +146,28 @@ public class IotHubDps extends com.pulumi.resources.CustomResource {
         return this.idScope;
     }
     /**
-     * An `ip_filter_rule` block as defined below.
+     * An `ipFilterRule` block as defined below.
      * 
      */
     @Export(name="ipFilterRules", refs={List.class,IotHubDpsIpFilterRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<IotHubDpsIpFilterRule>> ipFilterRules;
 
     /**
-     * @return An `ip_filter_rule` block as defined below.
+     * @return An `ipFilterRule` block as defined below.
      * 
      */
     public Output<Optional<List<IotHubDpsIpFilterRule>>> ipFilterRules() {
         return Codegen.optional(this.ipFilterRules);
     }
     /**
-     * A `linked_hub` block as defined below.
+     * A `linkedHub` block as defined below.
      * 
      */
     @Export(name="linkedHubs", refs={List.class,IotHubDpsLinkedHub.class}, tree="[0,1]")
     private Output</* @Nullable */ List<IotHubDpsLinkedHub>> linkedHubs;
 
     /**
-     * @return A `linked_hub` block as defined below.
+     * @return A `linkedHub` block as defined below.
      * 
      */
     public Output<Optional<List<IotHubDpsLinkedHub>>> linkedHubs() {

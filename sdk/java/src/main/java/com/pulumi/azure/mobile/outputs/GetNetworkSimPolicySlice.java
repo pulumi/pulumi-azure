@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetNetworkSimPolicySlice {
     /**
-     * @return An array of `data_network` block as defined below.
+     * @return An array of `dataNetwork` block as defined below.
      * 
      */
     private List<GetNetworkSimPolicySliceDataNetwork> dataNetworks;
@@ -30,7 +30,7 @@ public final class GetNetworkSimPolicySlice {
 
     private GetNetworkSimPolicySlice() {}
     /**
-     * @return An array of `data_network` block as defined below.
+     * @return An array of `dataNetwork` block as defined below.
      * 
      */
     public List<GetNetworkSimPolicySliceDataNetwork> dataNetworks() {

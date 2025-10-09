@@ -14,11 +14,11 @@ namespace Pulumi.Azure.PrivateLink.Outputs
     public sealed class EndpointPrivateDnsZoneConfigRecordSet
     {
         /// <summary>
-        /// The fully qualified domain name to the `private_dns_zone`.
+        /// The fully qualified domain name to the `PrivateDnsZone`.
         /// </summary>
         public readonly string? Fqdn;
         /// <summary>
-        /// A list of all IP Addresses that map to the `private_dns_zone` fqdn.
+        /// A list of all IP Addresses that map to the `PrivateDnsZone` fqdn.
         /// </summary>
         public readonly ImmutableArray<string> IpAddresses;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Azure.PrivateLink.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The time to live for each connection to the `private_dns_zone`.
+        /// The time to live for each connection to the `PrivateDnsZone`.
         /// </summary>
         public readonly int? Ttl;
         /// <summary>

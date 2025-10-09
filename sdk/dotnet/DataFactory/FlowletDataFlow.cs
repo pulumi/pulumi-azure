@@ -275,19 +275,19 @@ namespace Pulumi.Azure.DataFactory
         public Output<ImmutableArray<string>> ScriptLines { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `sink` blocks as defined below.
+        /// One or more `Sink` blocks as defined below.
         /// </summary>
         [Output("sinks")]
         public Output<ImmutableArray<Outputs.FlowletDataFlowSink>> Sinks { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `source` blocks as defined below.
+        /// One or more `Source` blocks as defined below.
         /// </summary>
         [Output("sources")]
         public Output<ImmutableArray<Outputs.FlowletDataFlowSource>> Sources { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `transformation` blocks as defined below.
+        /// One or more `Transformation` blocks as defined below.
         /// </summary>
         [Output("transformations")]
         public Output<ImmutableArray<Outputs.FlowletDataFlowTransformation>> Transformations { get; private set; } = null!;
@@ -396,7 +396,7 @@ namespace Pulumi.Azure.DataFactory
         private InputList<Inputs.FlowletDataFlowSinkArgs>? _sinks;
 
         /// <summary>
-        /// One or more `sink` blocks as defined below.
+        /// One or more `Sink` blocks as defined below.
         /// </summary>
         public InputList<Inputs.FlowletDataFlowSinkArgs> Sinks
         {
@@ -408,7 +408,7 @@ namespace Pulumi.Azure.DataFactory
         private InputList<Inputs.FlowletDataFlowSourceArgs>? _sources;
 
         /// <summary>
-        /// One or more `source` blocks as defined below.
+        /// One or more `Source` blocks as defined below.
         /// </summary>
         public InputList<Inputs.FlowletDataFlowSourceArgs> Sources
         {
@@ -420,7 +420,7 @@ namespace Pulumi.Azure.DataFactory
         private InputList<Inputs.FlowletDataFlowTransformationArgs>? _transformations;
 
         /// <summary>
-        /// One or more `transformation` blocks as defined below.
+        /// One or more `Transformation` blocks as defined below.
         /// </summary>
         public InputList<Inputs.FlowletDataFlowTransformationArgs> Transformations
         {
@@ -494,7 +494,7 @@ namespace Pulumi.Azure.DataFactory
         private InputList<Inputs.FlowletDataFlowSinkGetArgs>? _sinks;
 
         /// <summary>
-        /// One or more `sink` blocks as defined below.
+        /// One or more `Sink` blocks as defined below.
         /// </summary>
         public InputList<Inputs.FlowletDataFlowSinkGetArgs> Sinks
         {
@@ -506,7 +506,7 @@ namespace Pulumi.Azure.DataFactory
         private InputList<Inputs.FlowletDataFlowSourceGetArgs>? _sources;
 
         /// <summary>
-        /// One or more `source` blocks as defined below.
+        /// One or more `Source` blocks as defined below.
         /// </summary>
         public InputList<Inputs.FlowletDataFlowSourceGetArgs> Sources
         {
@@ -518,7 +518,7 @@ namespace Pulumi.Azure.DataFactory
         private InputList<Inputs.FlowletDataFlowTransformationGetArgs>? _transformations;
 
         /// <summary>
-        /// One or more `transformation` blocks as defined below.
+        /// One or more `Transformation` blocks as defined below.
         /// </summary>
         public InputList<Inputs.FlowletDataFlowTransformationGetArgs> Transformations
         {

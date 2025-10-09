@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ApplicationGatewayWafConfiguration {
     /**
-     * @return One or more `disabled_rule_group` blocks as defined below.
+     * @return One or more `disabledRuleGroup` blocks as defined below.
      * 
      */
     private @Nullable List<ApplicationGatewayWafConfigurationDisabledRuleGroup> disabledRuleGroups;
@@ -65,7 +65,7 @@ public final class ApplicationGatewayWafConfiguration {
 
     private ApplicationGatewayWafConfiguration() {}
     /**
-     * @return One or more `disabled_rule_group` blocks as defined below.
+     * @return One or more `disabledRuleGroup` blocks as defined below.
      * 
      */
     public List<ApplicationGatewayWafConfigurationDisabledRuleGroup> disabledRuleGroups() {

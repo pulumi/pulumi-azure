@@ -18,7 +18,7 @@ namespace Pulumi.Azure.DevTest.Outputs
         /// </summary>
         public readonly string? Email;
         /// <summary>
-        /// Whether to enable pre-shutdown notifications. Possible values are `true` and `false`.
+        /// Whether to enable pre-shutdown notifications. Possible values are `True` and `False`.
         /// </summary>
         public readonly bool Enabled;
         /// <summary>

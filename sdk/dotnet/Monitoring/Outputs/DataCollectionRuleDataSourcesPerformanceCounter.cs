@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
     public sealed class DataCollectionRuleDataSourcesPerformanceCounter
     {
         /// <summary>
-        /// Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
+        /// Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `Typeperf`. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
         /// </summary>
         public readonly ImmutableArray<string> CounterSpecifiers;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `1800` inclusive. `sampling_frequency_in_seconds` must be equal to `60` seconds for counters collected with `Microsoft-InsightsMetrics` stream.
+        /// The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `1800` inclusive. `SamplingFrequencyInSeconds` must be equal to `60` seconds for counters collected with `Microsoft-InsightsMetrics` stream.
         /// </summary>
         public readonly int SamplingFrequencyInSeconds;
         /// <summary>

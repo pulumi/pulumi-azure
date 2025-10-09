@@ -16,7 +16,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         private InputList<Inputs.JobTemplateContainerArgs>? _containers;
 
         /// <summary>
-        /// A `container` block as defined below.
+        /// A `Container` block as defined below.
         /// </summary>
         public InputList<Inputs.JobTemplateContainerArgs> Containers
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         private InputList<Inputs.JobTemplateInitContainerArgs>? _initContainers;
 
         /// <summary>
-        /// A `init_container` block as defined below.
+        /// A `InitContainer` block as defined below.
         /// </summary>
         public InputList<Inputs.JobTemplateInitContainerArgs> InitContainers
         {
@@ -40,7 +40,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         private InputList<Inputs.JobTemplateVolumeArgs>? _volumes;
 
         /// <summary>
-        /// A `volume` block as defined below.
+        /// A `Volume` block as defined below.
         /// </summary>
         public InputList<Inputs.JobTemplateVolumeArgs> Volumes
         {

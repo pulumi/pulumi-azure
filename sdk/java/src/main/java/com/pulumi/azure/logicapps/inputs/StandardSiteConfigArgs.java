@@ -157,18 +157,18 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A list of `ip_restriction` objects representing IP restrictions as defined below.
+     * A list of `ipRestriction` objects representing IP restrictions as defined below.
      * 
-     * &gt; **Note:** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+     * &gt; **Note:** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
      * 
      */
     @Import(name="ipRestrictions")
     private @Nullable Output<List<StandardSiteConfigIpRestrictionArgs>> ipRestrictions;
 
     /**
-     * @return A list of `ip_restriction` objects representing IP restrictions as defined below.
+     * @return A list of `ipRestriction` objects representing IP restrictions as defined below.
      * 
-     * &gt; **Note:** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+     * &gt; **Note:** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
      * 
      */
     public Optional<Output<List<StandardSiteConfigIpRestrictionArgs>>> ipRestrictions() {
@@ -178,7 +178,7 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
     /**
      * Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`.
      * 
-     * &gt; **Note:** You must set `os_type` in `azure.appservice.ServicePlan` to `Linux` when this property is set.
+     * &gt; **Note:** You must set `osType` in `azure.appservice.ServicePlan` to `Linux` when this property is set.
      * 
      */
     @Import(name="linuxFxVersion")
@@ -187,7 +187,7 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
     /**
      * @return Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`.
      * 
-     * &gt; **Note:** You must set `os_type` in `azure.appservice.ServicePlan` to `Linux` when this property is set.
+     * &gt; **Note:** You must set `osType` in `azure.appservice.ServicePlan` to `Linux` when this property is set.
      * 
      */
     public Optional<Output<String>> linuxFxVersion() {
@@ -230,19 +230,19 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
 
     /**
      * @deprecated
-     * the `site_config.public_network_access_enabled` property has been superseded by the `public_network_access` property and will be removed in v5.0 of the AzureRM Provider.
+     * the `site_config.public_network_access_enabled` property has been superseded by the `publicNetworkAccess` property and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* the `site_config.public_network_access_enabled` property has been superseded by the `public_network_access` property and will be removed in v5.0 of the AzureRM Provider. */
+    @Deprecated /* the `site_config.public_network_access_enabled` property has been superseded by the `publicNetworkAccess` property and will be removed in v5.0 of the AzureRM Provider. */
     @Import(name="publicNetworkAccessEnabled")
     private @Nullable Output<Boolean> publicNetworkAccessEnabled;
 
     /**
      * @deprecated
-     * the `site_config.public_network_access_enabled` property has been superseded by the `public_network_access` property and will be removed in v5.0 of the AzureRM Provider.
+     * the `site_config.public_network_access_enabled` property has been superseded by the `publicNetworkAccess` property and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* the `site_config.public_network_access_enabled` property has been superseded by the `public_network_access` property and will be removed in v5.0 of the AzureRM Provider. */
+    @Deprecated /* the `site_config.public_network_access_enabled` property has been superseded by the `publicNetworkAccess` property and will be removed in v5.0 of the AzureRM Provider. */
     public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
         return Optional.ofNullable(this.publicNetworkAccessEnabled);
     }
@@ -263,18 +263,18 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A list of `scm_ip_restriction` objects representing SCM IP restrictions as defined below.
+     * A list of `scmIpRestriction` objects representing SCM IP restrictions as defined below.
      * 
-     * &gt; **Note:** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+     * &gt; **Note:** User has to explicitly set `scmIpRestriction` to empty slice (`[]`) to remove it.
      * 
      */
     @Import(name="scmIpRestrictions")
     private @Nullable Output<List<StandardSiteConfigScmIpRestrictionArgs>> scmIpRestrictions;
 
     /**
-     * @return A list of `scm_ip_restriction` objects representing SCM IP restrictions as defined below.
+     * @return A list of `scmIpRestriction` objects representing SCM IP restrictions as defined below.
      * 
-     * &gt; **Note:** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+     * &gt; **Note:** User has to explicitly set `scmIpRestriction` to empty slice (`[]`) to remove it.
      * 
      */
     public Optional<Output<List<StandardSiteConfigScmIpRestrictionArgs>>> scmIpRestrictions() {
@@ -316,14 +316,14 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Should the Logic App `ip_restriction` configuration be used for the SCM too. Defaults to `false`.
+     * Should the Logic App `ipRestriction` configuration be used for the SCM too. Defaults to `false`.
      * 
      */
     @Import(name="scmUseMainIpRestriction")
     private @Nullable Output<Boolean> scmUseMainIpRestriction;
 
     /**
-     * @return Should the Logic App `ip_restriction` configuration be used for the SCM too. Defaults to `false`.
+     * @return Should the Logic App `ipRestriction` configuration be used for the SCM too. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> scmUseMainIpRestriction() {
@@ -333,7 +333,7 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
     /**
      * Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
      * 
-     * &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+     * &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
      * 
      */
     @Import(name="use32BitWorkerProcess")
@@ -342,7 +342,7 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
     /**
      * @return Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
      * 
-     * &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+     * &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
      * 
      */
     public Optional<Output<Boolean>> use32BitWorkerProcess() {
@@ -614,9 +614,9 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param ipRestrictions A list of `ip_restriction` objects representing IP restrictions as defined below.
+         * @param ipRestrictions A list of `ipRestriction` objects representing IP restrictions as defined below.
          * 
-         * &gt; **Note:** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+         * &gt; **Note:** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -627,9 +627,9 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param ipRestrictions A list of `ip_restriction` objects representing IP restrictions as defined below.
+         * @param ipRestrictions A list of `ipRestriction` objects representing IP restrictions as defined below.
          * 
-         * &gt; **Note:** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+         * &gt; **Note:** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -639,9 +639,9 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param ipRestrictions A list of `ip_restriction` objects representing IP restrictions as defined below.
+         * @param ipRestrictions A list of `ipRestriction` objects representing IP restrictions as defined below.
          * 
-         * &gt; **Note:** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+         * &gt; **Note:** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -653,7 +653,7 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
         /**
          * @param linuxFxVersion Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`.
          * 
-         * &gt; **Note:** You must set `os_type` in `azure.appservice.ServicePlan` to `Linux` when this property is set.
+         * &gt; **Note:** You must set `osType` in `azure.appservice.ServicePlan` to `Linux` when this property is set.
          * 
          * @return builder
          * 
@@ -666,7 +666,7 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
         /**
          * @param linuxFxVersion Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`.
          * 
-         * &gt; **Note:** You must set `os_type` in `azure.appservice.ServicePlan` to `Linux` when this property is set.
+         * &gt; **Note:** You must set `osType` in `azure.appservice.ServicePlan` to `Linux` when this property is set.
          * 
          * @return builder
          * 
@@ -725,10 +725,10 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          * @deprecated
-         * the `site_config.public_network_access_enabled` property has been superseded by the `public_network_access` property and will be removed in v5.0 of the AzureRM Provider.
+         * the `site_config.public_network_access_enabled` property has been superseded by the `publicNetworkAccess` property and will be removed in v5.0 of the AzureRM Provider.
          * 
          */
-        @Deprecated /* the `site_config.public_network_access_enabled` property has been superseded by the `public_network_access` property and will be removed in v5.0 of the AzureRM Provider. */
+        @Deprecated /* the `site_config.public_network_access_enabled` property has been superseded by the `publicNetworkAccess` property and will be removed in v5.0 of the AzureRM Provider. */
         public Builder publicNetworkAccessEnabled(@Nullable Output<Boolean> publicNetworkAccessEnabled) {
             $.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
             return this;
@@ -738,10 +738,10 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          * @deprecated
-         * the `site_config.public_network_access_enabled` property has been superseded by the `public_network_access` property and will be removed in v5.0 of the AzureRM Provider.
+         * the `site_config.public_network_access_enabled` property has been superseded by the `publicNetworkAccess` property and will be removed in v5.0 of the AzureRM Provider.
          * 
          */
-        @Deprecated /* the `site_config.public_network_access_enabled` property has been superseded by the `public_network_access` property and will be removed in v5.0 of the AzureRM Provider. */
+        @Deprecated /* the `site_config.public_network_access_enabled` property has been superseded by the `publicNetworkAccess` property and will be removed in v5.0 of the AzureRM Provider. */
         public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
             return publicNetworkAccessEnabled(Output.of(publicNetworkAccessEnabled));
         }
@@ -768,9 +768,9 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param scmIpRestrictions A list of `scm_ip_restriction` objects representing SCM IP restrictions as defined below.
+         * @param scmIpRestrictions A list of `scmIpRestriction` objects representing SCM IP restrictions as defined below.
          * 
-         * &gt; **Note:** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+         * &gt; **Note:** User has to explicitly set `scmIpRestriction` to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -781,9 +781,9 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param scmIpRestrictions A list of `scm_ip_restriction` objects representing SCM IP restrictions as defined below.
+         * @param scmIpRestrictions A list of `scmIpRestriction` objects representing SCM IP restrictions as defined below.
          * 
-         * &gt; **Note:** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+         * &gt; **Note:** User has to explicitly set `scmIpRestriction` to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -793,9 +793,9 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param scmIpRestrictions A list of `scm_ip_restriction` objects representing SCM IP restrictions as defined below.
+         * @param scmIpRestrictions A list of `scmIpRestriction` objects representing SCM IP restrictions as defined below.
          * 
-         * &gt; **Note:** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+         * &gt; **Note:** User has to explicitly set `scmIpRestriction` to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -851,7 +851,7 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param scmUseMainIpRestriction Should the Logic App `ip_restriction` configuration be used for the SCM too. Defaults to `false`.
+         * @param scmUseMainIpRestriction Should the Logic App `ipRestriction` configuration be used for the SCM too. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -862,7 +862,7 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param scmUseMainIpRestriction Should the Logic App `ip_restriction` configuration be used for the SCM too. Defaults to `false`.
+         * @param scmUseMainIpRestriction Should the Logic App `ipRestriction` configuration be used for the SCM too. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -874,7 +874,7 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
         /**
          * @param use32BitWorkerProcess Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
          * 
-         * &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+         * &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
          * 
          * @return builder
          * 
@@ -887,7 +887,7 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
         /**
          * @param use32BitWorkerProcess Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
          * 
-         * &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+         * &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
          * 
          * @return builder
          * 

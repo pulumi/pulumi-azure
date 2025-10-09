@@ -18,14 +18,14 @@ public final class VmwareReplicatedVmNetworkInterfaceArgs extends com.pulumi.res
     public static final VmwareReplicatedVmNetworkInterfaceArgs Empty = new VmwareReplicatedVmNetworkInterfaceArgs();
 
     /**
-     * Whether this `network_interface` is primary for the replicated VM.
+     * Whether this `networkInterface` is primary for the replicated VM.
      * 
      */
     @Import(name="isPrimary", required=true)
     private Output<Boolean> isPrimary;
 
     /**
-     * @return Whether this `network_interface` is primary for the replicated VM.
+     * @return Whether this `networkInterface` is primary for the replicated VM.
      * 
      */
     public Output<Boolean> isPrimary() {
@@ -121,7 +121,7 @@ public final class VmwareReplicatedVmNetworkInterfaceArgs extends com.pulumi.res
         }
 
         /**
-         * @param isPrimary Whether this `network_interface` is primary for the replicated VM.
+         * @param isPrimary Whether this `networkInterface` is primary for the replicated VM.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class VmwareReplicatedVmNetworkInterfaceArgs extends com.pulumi.res
         }
 
         /**
-         * @param isPrimary Whether this `network_interface` is primary for the replicated VM.
+         * @param isPrimary Whether this `networkInterface` is primary for the replicated VM.
          * 
          * @return builder
          * 

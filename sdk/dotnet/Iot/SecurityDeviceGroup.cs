@@ -96,7 +96,7 @@ namespace Pulumi.Azure.Iot
     public partial class SecurityDeviceGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// an `allow_rule` blocks as defined below.
+        /// an `AllowRule` blocks as defined below.
         /// </summary>
         [Output("allowRule")]
         public Output<Outputs.SecurityDeviceGroupAllowRule?> AllowRule { get; private set; } = null!;
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.Iot
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `range_rule` blocks as defined below.
+        /// One or more `RangeRule` blocks as defined below.
         /// </summary>
         [Output("rangeRules")]
         public Output<ImmutableArray<Outputs.SecurityDeviceGroupRangeRule>> RangeRules { get; private set; } = null!;
@@ -166,7 +166,7 @@ namespace Pulumi.Azure.Iot
     public sealed class SecurityDeviceGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// an `allow_rule` blocks as defined below.
+        /// an `AllowRule` blocks as defined below.
         /// </summary>
         [Input("allowRule")]
         public Input<Inputs.SecurityDeviceGroupAllowRuleArgs>? AllowRule { get; set; }
@@ -187,7 +187,7 @@ namespace Pulumi.Azure.Iot
         private InputList<Inputs.SecurityDeviceGroupRangeRuleArgs>? _rangeRules;
 
         /// <summary>
-        /// One or more `range_rule` blocks as defined below.
+        /// One or more `RangeRule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.SecurityDeviceGroupRangeRuleArgs> RangeRules
         {
@@ -204,7 +204,7 @@ namespace Pulumi.Azure.Iot
     public sealed class SecurityDeviceGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// an `allow_rule` blocks as defined below.
+        /// an `AllowRule` blocks as defined below.
         /// </summary>
         [Input("allowRule")]
         public Input<Inputs.SecurityDeviceGroupAllowRuleGetArgs>? AllowRule { get; set; }
@@ -225,7 +225,7 @@ namespace Pulumi.Azure.Iot
         private InputList<Inputs.SecurityDeviceGroupRangeRuleGetArgs>? _rangeRules;
 
         /// <summary>
-        /// One or more `range_rule` blocks as defined below.
+        /// One or more `RangeRule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.SecurityDeviceGroupRangeRuleGetArgs> RangeRules
         {

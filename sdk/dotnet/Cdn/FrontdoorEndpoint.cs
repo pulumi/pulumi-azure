@@ -66,7 +66,7 @@ namespace Pulumi.Azure.Cdn
         public Output<string> CdnFrontdoorProfileId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if this Front Door Endpoint is enabled? Defaults to `true`.
+        /// Specifies if this Front Door Endpoint is enabled? Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -142,7 +142,7 @@ namespace Pulumi.Azure.Cdn
         public Input<string> CdnFrontdoorProfileId { get; set; } = null!;
 
         /// <summary>
-        /// Specifies if this Front Door Endpoint is enabled? Defaults to `true`.
+        /// Specifies if this Front Door Endpoint is enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -180,7 +180,7 @@ namespace Pulumi.Azure.Cdn
         public Input<string>? CdnFrontdoorProfileId { get; set; }
 
         /// <summary>
-        /// Specifies if this Front Door Endpoint is enabled? Defaults to `true`.
+        /// Specifies if this Front Door Endpoint is enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

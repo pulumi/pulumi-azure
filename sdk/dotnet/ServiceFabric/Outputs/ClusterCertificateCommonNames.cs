@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ServiceFabric.Outputs
     public sealed class ClusterCertificateCommonNames
     {
         /// <summary>
-        /// A `common_names` block as defined below.
+        /// A `CommonNames` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.ClusterCertificateCommonNamesCommonName> CommonNames;
         /// <summary>

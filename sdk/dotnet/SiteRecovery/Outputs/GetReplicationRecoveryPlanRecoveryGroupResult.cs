@@ -14,11 +14,11 @@ namespace Pulumi.Azure.SiteRecovery.Outputs
     public sealed class GetReplicationRecoveryPlanRecoveryGroupResult
     {
         /// <summary>
-        /// one or more `action` block. which will be executed after the group recovery.
+        /// one or more `Action` block. which will be executed after the group recovery.
         /// </summary>
         public readonly ImmutableArray<ImmutableArray<Outputs.GetReplicationRecoveryPlanRecoveryGroupPostActionResult>> PostActions;
         /// <summary>
-        /// one or more `action` block. which will be executed before the group recovery.
+        /// one or more `Action` block. which will be executed before the group recovery.
         /// </summary>
         public readonly ImmutableArray<ImmutableArray<Outputs.GetReplicationRecoveryPlanRecoveryGroupPreActionResult>> PreActions;
         /// <summary>

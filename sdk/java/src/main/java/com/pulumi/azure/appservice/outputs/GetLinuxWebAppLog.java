@@ -14,7 +14,7 @@ import java.util.Objects;
 @CustomType
 public final class GetLinuxWebAppLog {
     /**
-     * @return A `application_logs` block as defined above.
+     * @return A `applicationLogs` block as defined above.
      * 
      */
     private List<GetLinuxWebAppLogApplicationLog> applicationLogs;
@@ -29,14 +29,14 @@ public final class GetLinuxWebAppLog {
      */
     private Boolean failedRequestTracing;
     /**
-     * @return An `http_logs` block as defined above.
+     * @return An `httpLogs` block as defined above.
      * 
      */
     private List<GetLinuxWebAppLogHttpLog> httpLogs;
 
     private GetLinuxWebAppLog() {}
     /**
-     * @return A `application_logs` block as defined above.
+     * @return A `applicationLogs` block as defined above.
      * 
      */
     public List<GetLinuxWebAppLogApplicationLog> applicationLogs() {
@@ -57,7 +57,7 @@ public final class GetLinuxWebAppLog {
         return this.failedRequestTracing;
     }
     /**
-     * @return An `http_logs` block as defined above.
+     * @return An `httpLogs` block as defined above.
      * 
      */
     public List<GetLinuxWebAppLogHttpLog> httpLogs() {

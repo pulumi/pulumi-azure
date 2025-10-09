@@ -12,6 +12,15 @@ namespace Pulumi.Azure.MSSql
     /// <summary>
     /// Manages Start Stop Schedules for an MS SQL Managed Instance.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Sql` - 2023-08-01-preview
+    /// 
     /// ## Import
     /// 
     /// MS SQL Managed Instance Start Stop Schedule can be imported using the `resource id`, e.g.
@@ -48,7 +57,7 @@ namespace Pulumi.Azure.MSSql
         public Output<string> NextRunAction { get; private set; } = null!;
 
         /// <summary>
-        /// A `schedule` block as defined below.
+        /// A `Schedule` block as defined below.
         /// </summary>
         [Output("schedules")]
         public Output<ImmutableArray<Outputs.ManagedInstanceStartStopScheduleSchedule>> Schedules { get; private set; } = null!;
@@ -121,7 +130,7 @@ namespace Pulumi.Azure.MSSql
         private InputList<Inputs.ManagedInstanceStartStopScheduleScheduleArgs>? _schedules;
 
         /// <summary>
-        /// A `schedule` block as defined below.
+        /// A `Schedule` block as defined below.
         /// </summary>
         public InputList<Inputs.ManagedInstanceStartStopScheduleScheduleArgs> Schedules
         {
@@ -171,7 +180,7 @@ namespace Pulumi.Azure.MSSql
         private InputList<Inputs.ManagedInstanceStartStopScheduleScheduleGetArgs>? _schedules;
 
         /// <summary>
-        /// A `schedule` block as defined below.
+        /// A `Schedule` block as defined below.
         /// </summary>
         public InputList<Inputs.ManagedInstanceStartStopScheduleScheduleGetArgs> Schedules
         {

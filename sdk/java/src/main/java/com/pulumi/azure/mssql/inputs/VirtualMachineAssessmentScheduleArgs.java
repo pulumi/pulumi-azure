@@ -35,7 +35,7 @@ public final class VirtualMachineAssessmentScheduleArgs extends com.pulumi.resou
     /**
      * How many months between assessment runs. Valid values are between `1` and `5`.
      * 
-     * &gt; **Note:** Either one of `weekly_interval` or `monthly_occurrence` must be specified.
+     * &gt; **Note:** Either one of `weeklyInterval` or `monthlyOccurrence` must be specified.
      * 
      */
     @Import(name="monthlyOccurrence")
@@ -44,7 +44,7 @@ public final class VirtualMachineAssessmentScheduleArgs extends com.pulumi.resou
     /**
      * @return How many months between assessment runs. Valid values are between `1` and `5`.
      * 
-     * &gt; **Note:** Either one of `weekly_interval` or `monthly_occurrence` must be specified.
+     * &gt; **Note:** Either one of `weeklyInterval` or `monthlyOccurrence` must be specified.
      * 
      */
     public Optional<Output<Integer>> monthlyOccurrence() {
@@ -132,7 +132,7 @@ public final class VirtualMachineAssessmentScheduleArgs extends com.pulumi.resou
         /**
          * @param monthlyOccurrence How many months between assessment runs. Valid values are between `1` and `5`.
          * 
-         * &gt; **Note:** Either one of `weekly_interval` or `monthly_occurrence` must be specified.
+         * &gt; **Note:** Either one of `weeklyInterval` or `monthlyOccurrence` must be specified.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class VirtualMachineAssessmentScheduleArgs extends com.pulumi.resou
         /**
          * @param monthlyOccurrence How many months between assessment runs. Valid values are between `1` and `5`.
          * 
-         * &gt; **Note:** Either one of `weekly_interval` or `monthly_occurrence` must be specified.
+         * &gt; **Note:** Either one of `weeklyInterval` or `monthlyOccurrence` must be specified.
          * 
          * @return builder
          * 

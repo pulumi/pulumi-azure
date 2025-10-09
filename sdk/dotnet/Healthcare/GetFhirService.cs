@@ -104,7 +104,7 @@ namespace Pulumi.Azure.Healthcare
         /// </summary>
         public readonly ImmutableArray<string> AccessPolicyObjectIds;
         /// <summary>
-        /// The `authentication` block as defined below.
+        /// The `Authentication` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFhirServiceAuthenticationResult> Authentications;
         /// <summary>
@@ -116,7 +116,7 @@ namespace Pulumi.Azure.Healthcare
         /// </summary>
         public readonly ImmutableArray<string> ContainerRegistryLoginServerUrls;
         /// <summary>
-        /// The `cors` block as defined below.
+        /// The `Cors` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFhirServiceCorResult> Cors;
         /// <summary>
@@ -124,7 +124,7 @@ namespace Pulumi.Azure.Healthcare
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The `identity` block as defined below.
+        /// The `Identity` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFhirServiceIdentityResult> Identities;
         /// <summary>

@@ -144,7 +144,7 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections`, `Floating`, `MaxConnections` and `None`.
      * 
-     * &gt; **Note:** `auxiliary_mode` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+     * &gt; **Note:** `auxiliaryMode` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
      * 
      */
     @Export(name="auxiliaryMode", refs={String.class}, tree="[0]")
@@ -153,7 +153,7 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections`, `Floating`, `MaxConnections` and `None`.
      * 
-     * &gt; **Note:** `auxiliary_mode` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+     * &gt; **Note:** `auxiliaryMode` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
      * 
      */
     public Output<Optional<String>> auxiliaryMode() {
@@ -162,7 +162,7 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A8`, `A4`, `A1`, `A2` and `None`.
      * 
-     * &gt; **Note:** `auxiliary_sku` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+     * &gt; **Note:** `auxiliarySku` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
      * 
      */
     @Export(name="auxiliarySku", refs={String.class}, tree="[0]")
@@ -171,7 +171,7 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A8`, `A4`, `A1`, `A2` and `None`.
      * 
-     * &gt; **Note:** `auxiliary_sku` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+     * &gt; **Note:** `auxiliarySku` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
      * 
      */
     public Output<Optional<String>> auxiliarySku() {
@@ -224,28 +224,28 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.internalDnsNameLabel);
     }
     /**
-     * Even if `internal_dns_name_label` is not specified, a DNS entry is created for the primary NIC of the VM. This DNS name can be constructed by concatenating the VM name with the value of `internal_domain_name_suffix`.
+     * Even if `internalDnsNameLabel` is not specified, a DNS entry is created for the primary NIC of the VM. This DNS name can be constructed by concatenating the VM name with the value of `internalDomainNameSuffix`.
      * 
      */
     @Export(name="internalDomainNameSuffix", refs={String.class}, tree="[0]")
     private Output<String> internalDomainNameSuffix;
 
     /**
-     * @return Even if `internal_dns_name_label` is not specified, a DNS entry is created for the primary NIC of the VM. This DNS name can be constructed by concatenating the VM name with the value of `internal_domain_name_suffix`.
+     * @return Even if `internalDnsNameLabel` is not specified, a DNS entry is created for the primary NIC of the VM. This DNS name can be constructed by concatenating the VM name with the value of `internalDomainNameSuffix`.
      * 
      */
     public Output<String> internalDomainNameSuffix() {
         return this.internalDomainNameSuffix;
     }
     /**
-     * One or more `ip_configuration` blocks as defined below.
+     * One or more `ipConfiguration` blocks as defined below.
      * 
      */
     @Export(name="ipConfigurations", refs={List.class,NetworkInterfaceIpConfiguration.class}, tree="[0,1]")
     private Output<List<NetworkInterfaceIpConfiguration>> ipConfigurations;
 
     /**
-     * @return One or more `ip_configuration` blocks as defined below.
+     * @return One or more `ipConfiguration` blocks as defined below.
      * 
      */
     public Output<List<NetworkInterfaceIpConfiguration>> ipConfigurations() {

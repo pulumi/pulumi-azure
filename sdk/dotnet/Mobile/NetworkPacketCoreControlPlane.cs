@@ -138,7 +138,7 @@ namespace Pulumi.Azure.Mobile
         public Output<string?> CoreNetworkTechnology { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.NetworkPacketCoreControlPlaneIdentity?> Identity { get; private set; } = null!;
@@ -150,7 +150,7 @@ namespace Pulumi.Azure.Mobile
         public Output<string?> InteroperabilitySettingsJson { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `local_diagnostics_access` blocks as defined below. Specifies the Kubernetes ingress configuration that controls access to the packet core diagnostics through local APIs.
+        /// One or more `LocalDiagnosticsAccess` blocks as defined below. Specifies the Kubernetes ingress configuration that controls access to the packet core diagnostics through local APIs.
         /// </summary>
         [Output("localDiagnosticsAccess")]
         public Output<Outputs.NetworkPacketCoreControlPlaneLocalDiagnosticsAccess> LocalDiagnosticsAccess { get; private set; } = null!;
@@ -168,7 +168,7 @@ namespace Pulumi.Azure.Mobile
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `platform` block as defined below.
+        /// A `Platform` block as defined below.
         /// </summary>
         [Output("platform")]
         public Output<Outputs.NetworkPacketCoreControlPlanePlatform?> Platform { get; private set; } = null!;
@@ -286,7 +286,7 @@ namespace Pulumi.Azure.Mobile
         public Input<string>? CoreNetworkTechnology { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.NetworkPacketCoreControlPlaneIdentityArgs>? Identity { get; set; }
@@ -298,7 +298,7 @@ namespace Pulumi.Azure.Mobile
         public Input<string>? InteroperabilitySettingsJson { get; set; }
 
         /// <summary>
-        /// One or more `local_diagnostics_access` blocks as defined below. Specifies the Kubernetes ingress configuration that controls access to the packet core diagnostics through local APIs.
+        /// One or more `LocalDiagnosticsAccess` blocks as defined below. Specifies the Kubernetes ingress configuration that controls access to the packet core diagnostics through local APIs.
         /// </summary>
         [Input("localDiagnosticsAccess", required: true)]
         public Input<Inputs.NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs> LocalDiagnosticsAccess { get; set; } = null!;
@@ -316,7 +316,7 @@ namespace Pulumi.Azure.Mobile
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `platform` block as defined below.
+        /// A `Platform` block as defined below.
         /// </summary>
         [Input("platform")]
         public Input<Inputs.NetworkPacketCoreControlPlanePlatformArgs>? Platform { get; set; }
@@ -408,7 +408,7 @@ namespace Pulumi.Azure.Mobile
         public Input<string>? CoreNetworkTechnology { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.NetworkPacketCoreControlPlaneIdentityGetArgs>? Identity { get; set; }
@@ -420,7 +420,7 @@ namespace Pulumi.Azure.Mobile
         public Input<string>? InteroperabilitySettingsJson { get; set; }
 
         /// <summary>
-        /// One or more `local_diagnostics_access` blocks as defined below. Specifies the Kubernetes ingress configuration that controls access to the packet core diagnostics through local APIs.
+        /// One or more `LocalDiagnosticsAccess` blocks as defined below. Specifies the Kubernetes ingress configuration that controls access to the packet core diagnostics through local APIs.
         /// </summary>
         [Input("localDiagnosticsAccess")]
         public Input<Inputs.NetworkPacketCoreControlPlaneLocalDiagnosticsAccessGetArgs>? LocalDiagnosticsAccess { get; set; }
@@ -438,7 +438,7 @@ namespace Pulumi.Azure.Mobile
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `platform` block as defined below.
+        /// A `Platform` block as defined below.
         /// </summary>
         [Input("platform")]
         public Input<Inputs.NetworkPacketCoreControlPlanePlatformGetArgs>? Platform { get; set; }

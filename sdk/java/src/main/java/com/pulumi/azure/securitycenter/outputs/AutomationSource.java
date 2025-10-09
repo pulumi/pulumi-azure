@@ -19,9 +19,9 @@ public final class AutomationSource {
      */
     private String eventSource;
     /**
-     * @return A set of rules which evaluate upon event and data interception. This is defined in one or more `rule_set` blocks as defined below.
+     * @return A set of rules which evaluate upon event and data interception. This is defined in one or more `ruleSet` blocks as defined below.
      * 
-     * &gt; **Note:** When multiple `rule_set` block are provided, a logical &#39;OR&#39; is applied to the evaluation of them.
+     * &gt; **Note:** When multiple `ruleSet` block are provided, a logical &#39;OR&#39; is applied to the evaluation of them.
      * 
      */
     private @Nullable List<AutomationSourceRuleSet> ruleSets;
@@ -35,9 +35,9 @@ public final class AutomationSource {
         return this.eventSource;
     }
     /**
-     * @return A set of rules which evaluate upon event and data interception. This is defined in one or more `rule_set` blocks as defined below.
+     * @return A set of rules which evaluate upon event and data interception. This is defined in one or more `ruleSet` blocks as defined below.
      * 
-     * &gt; **Note:** When multiple `rule_set` block are provided, a logical &#39;OR&#39; is applied to the evaluation of them.
+     * &gt; **Note:** When multiple `ruleSet` block are provided, a logical &#39;OR&#39; is applied to the evaluation of them.
      * 
      */
     public List<AutomationSourceRuleSet> ruleSets() {

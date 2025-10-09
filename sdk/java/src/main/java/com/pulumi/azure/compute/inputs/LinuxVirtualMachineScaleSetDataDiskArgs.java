@@ -119,7 +119,7 @@ public final class LinuxVirtualMachineScaleSetDataDiskArgs extends com.pulumi.re
     /**
      * The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
      * 
-     * &gt; **Note:** `UltraSSD_LRS` is only supported when `ultra_ssd_enabled` within the `additional_capabilities` block is enabled.
+     * &gt; **Note:** `UltraSSD_LRS` is only supported when `ultraSsdEnabled` within the `additionalCapabilities` block is enabled.
      * 
      */
     @Import(name="storageAccountType", required=true)
@@ -128,7 +128,7 @@ public final class LinuxVirtualMachineScaleSetDataDiskArgs extends com.pulumi.re
     /**
      * @return The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
      * 
-     * &gt; **Note:** `UltraSSD_LRS` is only supported when `ultra_ssd_enabled` within the `additional_capabilities` block is enabled.
+     * &gt; **Note:** `UltraSSD_LRS` is only supported when `ultraSsdEnabled` within the `additionalCapabilities` block is enabled.
      * 
      */
     public Output<String> storageAccountType() {
@@ -136,14 +136,14 @@ public final class LinuxVirtualMachineScaleSetDataDiskArgs extends com.pulumi.re
     }
 
     /**
-     * Specifies the Read-Write IOPS for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+     * Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
      * 
      */
     @Import(name="ultraSsdDiskIopsReadWrite")
     private @Nullable Output<Integer> ultraSsdDiskIopsReadWrite;
 
     /**
-     * @return Specifies the Read-Write IOPS for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+     * @return Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
      * 
      */
     public Optional<Output<Integer>> ultraSsdDiskIopsReadWrite() {
@@ -151,14 +151,14 @@ public final class LinuxVirtualMachineScaleSetDataDiskArgs extends com.pulumi.re
     }
 
     /**
-     * Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+     * Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
      * 
      */
     @Import(name="ultraSsdDiskMbpsReadWrite")
     private @Nullable Output<Integer> ultraSsdDiskMbpsReadWrite;
 
     /**
-     * @return Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+     * @return Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
      * 
      */
     public Optional<Output<Integer>> ultraSsdDiskMbpsReadWrite() {
@@ -168,7 +168,7 @@ public final class LinuxVirtualMachineScaleSetDataDiskArgs extends com.pulumi.re
     /**
      * Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
      * 
-     * &gt; **Note:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
+     * &gt; **Note:** This requires that the `storageAccountType` is set to `Premium_LRS` and that `caching` is set to `None`.
      * 
      */
     @Import(name="writeAcceleratorEnabled")
@@ -177,7 +177,7 @@ public final class LinuxVirtualMachineScaleSetDataDiskArgs extends com.pulumi.re
     /**
      * @return Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
      * 
-     * &gt; **Note:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
+     * &gt; **Note:** This requires that the `storageAccountType` is set to `Premium_LRS` and that `caching` is set to `None`.
      * 
      */
     public Optional<Output<Boolean>> writeAcceleratorEnabled() {
@@ -354,7 +354,7 @@ public final class LinuxVirtualMachineScaleSetDataDiskArgs extends com.pulumi.re
         /**
          * @param storageAccountType The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
          * 
-         * &gt; **Note:** `UltraSSD_LRS` is only supported when `ultra_ssd_enabled` within the `additional_capabilities` block is enabled.
+         * &gt; **Note:** `UltraSSD_LRS` is only supported when `ultraSsdEnabled` within the `additionalCapabilities` block is enabled.
          * 
          * @return builder
          * 
@@ -367,7 +367,7 @@ public final class LinuxVirtualMachineScaleSetDataDiskArgs extends com.pulumi.re
         /**
          * @param storageAccountType The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
          * 
-         * &gt; **Note:** `UltraSSD_LRS` is only supported when `ultra_ssd_enabled` within the `additional_capabilities` block is enabled.
+         * &gt; **Note:** `UltraSSD_LRS` is only supported when `ultraSsdEnabled` within the `additionalCapabilities` block is enabled.
          * 
          * @return builder
          * 
@@ -377,7 +377,7 @@ public final class LinuxVirtualMachineScaleSetDataDiskArgs extends com.pulumi.re
         }
 
         /**
-         * @param ultraSsdDiskIopsReadWrite Specifies the Read-Write IOPS for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+         * @param ultraSsdDiskIopsReadWrite Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
          * 
          * @return builder
          * 
@@ -388,7 +388,7 @@ public final class LinuxVirtualMachineScaleSetDataDiskArgs extends com.pulumi.re
         }
 
         /**
-         * @param ultraSsdDiskIopsReadWrite Specifies the Read-Write IOPS for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+         * @param ultraSsdDiskIopsReadWrite Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
          * 
          * @return builder
          * 
@@ -398,7 +398,7 @@ public final class LinuxVirtualMachineScaleSetDataDiskArgs extends com.pulumi.re
         }
 
         /**
-         * @param ultraSsdDiskMbpsReadWrite Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+         * @param ultraSsdDiskMbpsReadWrite Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
          * 
          * @return builder
          * 
@@ -409,7 +409,7 @@ public final class LinuxVirtualMachineScaleSetDataDiskArgs extends com.pulumi.re
         }
 
         /**
-         * @param ultraSsdDiskMbpsReadWrite Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+         * @param ultraSsdDiskMbpsReadWrite Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
          * 
          * @return builder
          * 
@@ -421,7 +421,7 @@ public final class LinuxVirtualMachineScaleSetDataDiskArgs extends com.pulumi.re
         /**
          * @param writeAcceleratorEnabled Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
          * 
-         * &gt; **Note:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
+         * &gt; **Note:** This requires that the `storageAccountType` is set to `Premium_LRS` and that `caching` is set to `None`.
          * 
          * @return builder
          * 
@@ -434,7 +434,7 @@ public final class LinuxVirtualMachineScaleSetDataDiskArgs extends com.pulumi.re
         /**
          * @param writeAcceleratorEnabled Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
          * 
-         * &gt; **Note:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
+         * &gt; **Note:** This requires that the `storageAccountType` is set to `Premium_LRS` and that `caching` is set to `None`.
          * 
          * @return builder
          * 

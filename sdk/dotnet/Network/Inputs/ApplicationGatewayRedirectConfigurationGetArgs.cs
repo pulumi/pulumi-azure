@@ -19,13 +19,13 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Whether to include the path in the redirected URL. Defaults to `false`
+        /// Whether to include the path in the redirected URL. Defaults to `False`
         /// </summary>
         [Input("includePath")]
         public Input<bool>? IncludePath { get; set; }
 
         /// <summary>
-        /// Whether to include the query string in the redirected URL. Default to `false`
+        /// Whether to include the query string in the redirected URL. Default to `False`
         /// </summary>
         [Input("includeQueryString")]
         public Input<bool>? IncludeQueryString { get; set; }
@@ -46,13 +46,13 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string>? TargetListenerId { get; set; }
 
         /// <summary>
-        /// The name of the listener to redirect to. Cannot be set if `target_url` is set.
+        /// The name of the listener to redirect to. Cannot be set if `TargetUrl` is set.
         /// </summary>
         [Input("targetListenerName")]
         public Input<string>? TargetListenerName { get; set; }
 
         /// <summary>
-        /// The URL to redirect the request to. Cannot be set if `target_listener_name` is set.
+        /// The URL to redirect the request to. Cannot be set if `TargetListenerName` is set.
         /// </summary>
         [Input("targetUrl")]
         public Input<string>? TargetUrl { get; set; }

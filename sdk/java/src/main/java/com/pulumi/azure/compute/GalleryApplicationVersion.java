@@ -227,14 +227,14 @@ public class GalleryApplicationVersion extends com.pulumi.resources.CustomResour
         return this.location;
     }
     /**
-     * A `manage_action` block as defined below.
+     * A `manageAction` block as defined below.
      * 
      */
     @Export(name="manageAction", refs={GalleryApplicationVersionManageAction.class}, tree="[0]")
     private Output<GalleryApplicationVersionManageAction> manageAction;
 
     /**
-     * @return A `manage_action` block as defined below.
+     * @return A `manageAction` block as defined below.
      * 
      */
     public Output<GalleryApplicationVersionManageAction> manageAction() {
@@ -297,14 +297,14 @@ public class GalleryApplicationVersion extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.tags);
     }
     /**
-     * One or more `target_region` blocks as defined below.
+     * One or more `targetRegion` blocks as defined below.
      * 
      */
     @Export(name="targetRegions", refs={List.class,GalleryApplicationVersionTargetRegion.class}, tree="[0,1]")
     private Output<List<GalleryApplicationVersionTargetRegion>> targetRegions;
 
     /**
-     * @return One or more `target_region` blocks as defined below.
+     * @return One or more `targetRegion` blocks as defined below.
      * 
      */
     public Output<List<GalleryApplicationVersionTargetRegion>> targetRegions() {

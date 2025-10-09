@@ -34,14 +34,14 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `frontend_ip_configuration` blocks as documented below.
+     * One or more `frontendIpConfiguration` blocks as documented below.
      * 
      */
     @Import(name="frontendIpConfigurations")
     private @Nullable Output<List<LoadBalancerFrontendIpConfigurationArgs>> frontendIpConfigurations;
 
     /**
-     * @return One or more `frontend_ip_configuration` blocks as documented below.
+     * @return One or more `frontendIpConfiguration` blocks as documented below.
      * 
      */
     public Optional<Output<List<LoadBalancerFrontendIpConfigurationArgs>>> frontendIpConfigurations() {
@@ -94,14 +94,14 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The list of private IP address assigned to the load balancer in `frontend_ip_configuration` blocks, if any.
+     * The list of private IP address assigned to the load balancer in `frontendIpConfiguration` blocks, if any.
      * 
      */
     @Import(name="privateIpAddresses")
     private @Nullable Output<List<String>> privateIpAddresses;
 
     /**
-     * @return The list of private IP address assigned to the load balancer in `frontend_ip_configuration` blocks, if any.
+     * @return The list of private IP address assigned to the load balancer in `frontendIpConfiguration` blocks, if any.
      * 
      */
     public Optional<Output<List<String>>> privateIpAddresses() {
@@ -158,14 +158,14 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * `sku_tier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
+     * `skuTier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="skuTier")
     private @Nullable Output<String> skuTier;
 
     /**
-     * @return `sku_tier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
+     * @return `skuTier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> skuTier() {
@@ -259,7 +259,7 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param frontendIpConfigurations One or more `frontend_ip_configuration` blocks as documented below.
+         * @param frontendIpConfigurations One or more `frontendIpConfiguration` blocks as documented below.
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param frontendIpConfigurations One or more `frontend_ip_configuration` blocks as documented below.
+         * @param frontendIpConfigurations One or more `frontendIpConfiguration` blocks as documented below.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param frontendIpConfigurations One or more `frontend_ip_configuration` blocks as documented below.
+         * @param frontendIpConfigurations One or more `frontendIpConfiguration` blocks as documented below.
          * 
          * @return builder
          * 
@@ -353,7 +353,7 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateIpAddresses The list of private IP address assigned to the load balancer in `frontend_ip_configuration` blocks, if any.
+         * @param privateIpAddresses The list of private IP address assigned to the load balancer in `frontendIpConfiguration` blocks, if any.
          * 
          * @return builder
          * 
@@ -364,7 +364,7 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateIpAddresses The list of private IP address assigned to the load balancer in `frontend_ip_configuration` blocks, if any.
+         * @param privateIpAddresses The list of private IP address assigned to the load balancer in `frontendIpConfiguration` blocks, if any.
          * 
          * @return builder
          * 
@@ -374,7 +374,7 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateIpAddresses The list of private IP address assigned to the load balancer in `frontend_ip_configuration` blocks, if any.
+         * @param privateIpAddresses The list of private IP address assigned to the load balancer in `frontendIpConfiguration` blocks, if any.
          * 
          * @return builder
          * 
@@ -451,7 +451,7 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skuTier `sku_tier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
+         * @param skuTier `skuTier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -462,7 +462,7 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skuTier `sku_tier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
+         * @param skuTier `skuTier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

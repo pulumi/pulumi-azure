@@ -13,7 +13,7 @@ namespace Pulumi.Azure.AppService.Inputs
     public sealed class LinuxFunctionAppSlotBackupGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should this backup job be enabled? Defaults to `true`.
+        /// Should this backup job be enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// a `schedule` block as detailed below.
+        /// a `Schedule` block as detailed below.
         /// </summary>
         [Input("schedule", required: true)]
         public Input<Inputs.LinuxFunctionAppSlotBackupScheduleGetArgs> Schedule { get; set; } = null!;

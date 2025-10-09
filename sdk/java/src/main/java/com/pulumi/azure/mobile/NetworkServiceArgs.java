@@ -67,14 +67,14 @@ public final class NetworkServiceArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A `pcc_rule` block as defined below. The set of PCC Rules that make up this service.
+     * A `pccRule` block as defined below. The set of PCC Rules that make up this service.
      * 
      */
     @Import(name="pccRules", required=true)
     private Output<List<NetworkServicePccRuleArgs>> pccRules;
 
     /**
-     * @return A `pcc_rule` block as defined below. The set of PCC Rules that make up this service.
+     * @return A `pccRule` block as defined below. The set of PCC Rules that make up this service.
      * 
      */
     public Output<List<NetworkServicePccRuleArgs>> pccRules() {
@@ -97,14 +97,14 @@ public final class NetworkServiceArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A `service_qos_policy` block as defined below. The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a `pcc_rule`. If this field is not specified then the `sim_policy` of User Equipment (UE) will define the QoS settings.
+     * A `serviceQosPolicy` block as defined below. The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a `pccRule`. If this field is not specified then the `simPolicy` of User Equipment (UE) will define the QoS settings.
      * 
      */
     @Import(name="serviceQosPolicy")
     private @Nullable Output<NetworkServiceServiceQosPolicyArgs> serviceQosPolicy;
 
     /**
-     * @return A `service_qos_policy` block as defined below. The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a `pcc_rule`. If this field is not specified then the `sim_policy` of User Equipment (UE) will define the QoS settings.
+     * @return A `serviceQosPolicy` block as defined below. The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a `pccRule`. If this field is not specified then the `simPolicy` of User Equipment (UE) will define the QoS settings.
      * 
      */
     public Optional<Output<NetworkServiceServiceQosPolicyArgs>> serviceQosPolicy() {
@@ -220,7 +220,7 @@ public final class NetworkServiceArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param pccRules A `pcc_rule` block as defined below. The set of PCC Rules that make up this service.
+         * @param pccRules A `pccRule` block as defined below. The set of PCC Rules that make up this service.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class NetworkServiceArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param pccRules A `pcc_rule` block as defined below. The set of PCC Rules that make up this service.
+         * @param pccRules A `pccRule` block as defined below. The set of PCC Rules that make up this service.
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class NetworkServiceArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param pccRules A `pcc_rule` block as defined below. The set of PCC Rules that make up this service.
+         * @param pccRules A `pccRule` block as defined below. The set of PCC Rules that make up this service.
          * 
          * @return builder
          * 
@@ -272,7 +272,7 @@ public final class NetworkServiceArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param serviceQosPolicy A `service_qos_policy` block as defined below. The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a `pcc_rule`. If this field is not specified then the `sim_policy` of User Equipment (UE) will define the QoS settings.
+         * @param serviceQosPolicy A `serviceQosPolicy` block as defined below. The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a `pccRule`. If this field is not specified then the `simPolicy` of User Equipment (UE) will define the QoS settings.
          * 
          * @return builder
          * 
@@ -283,7 +283,7 @@ public final class NetworkServiceArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param serviceQosPolicy A `service_qos_policy` block as defined below. The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a `pcc_rule`. If this field is not specified then the `sim_policy` of User Equipment (UE) will define the QoS settings.
+         * @param serviceQosPolicy A `serviceQosPolicy` block as defined below. The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a `pccRule`. If this field is not specified then the `simPolicy` of User Equipment (UE) will define the QoS settings.
          * 
          * @return builder
          * 

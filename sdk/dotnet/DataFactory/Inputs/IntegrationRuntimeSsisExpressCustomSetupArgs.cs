@@ -16,7 +16,7 @@ namespace Pulumi.Azure.DataFactory.Inputs
         private InputList<Inputs.IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs>? _commandKeys;
 
         /// <summary>
-        /// One or more `command_key` blocks as defined below.
+        /// One or more `CommandKey` blocks as defined below.
         /// </summary>
         public InputList<Inputs.IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs> CommandKeys
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.DataFactory.Inputs
         private InputList<Inputs.IntegrationRuntimeSsisExpressCustomSetupComponentArgs>? _components;
 
         /// <summary>
-        /// One or more `component` blocks as defined below.
+        /// One or more `Component` blocks as defined below.
         /// </summary>
         public InputList<Inputs.IntegrationRuntimeSsisExpressCustomSetupComponentArgs> Components
         {
@@ -51,7 +51,7 @@ namespace Pulumi.Azure.DataFactory.Inputs
         /// <summary>
         /// The version of Azure Powershell installed for the Azure-SSIS Integration Runtime.
         /// 
-        /// &gt; **Note:** At least one of `env`, `powershell_version`, `component` and `command_key` should be specified.
+        /// &gt; **Note:** At least one of `Env`, `PowershellVersion`, `Component` and `CommandKey` should be specified.
         /// </summary>
         [Input("powershellVersion")]
         public Input<string>? PowershellVersion { get; set; }

@@ -106,14 +106,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:monitoring/aadDiagnosticSetting:AadDiagnosticSetting")
 public class AadDiagnosticSetting extends com.pulumi.resources.CustomResource {
     /**
-     * One or more `enabled_log` blocks as defined below.
+     * One or more `enabledLog` blocks as defined below.
      * 
      */
     @Export(name="enabledLogs", refs={List.class,AadDiagnosticSettingEnabledLog.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AadDiagnosticSettingEnabledLog>> enabledLogs;
 
     /**
-     * @return One or more `enabled_log` blocks as defined below.
+     * @return One or more `enabledLog` blocks as defined below.
      * 
      */
     public Output<Optional<List<AadDiagnosticSettingEnabledLog>>> enabledLogs() {
@@ -182,7 +182,7 @@ public class AadDiagnosticSetting extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** One of `eventhub_authorization_rule_id`, `log_analytics_workspace_id` and `storage_account_id` must be specified.
+     * &gt; **Note:** One of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId` and `storageAccountId` must be specified.
      * 
      */
     @Export(name="storageAccountId", refs={String.class}, tree="[0]")
@@ -191,7 +191,7 @@ public class AadDiagnosticSetting extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** One of `eventhub_authorization_rule_id`, `log_analytics_workspace_id` and `storage_account_id` must be specified.
+     * &gt; **Note:** One of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId` and `storageAccountId` must be specified.
      * 
      */
     public Output<Optional<String>> storageAccountId() {

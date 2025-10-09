@@ -14,6 +14,8 @@ import (
 
 // Manages a SQL Stored Procedure within a Cosmos DB Account SQL Database.
 //
+// ## Example Usage
+//
 // ## Import
 //
 // CosmosDB SQL Stored Procedures can be imported using the `resource id`, e.g.

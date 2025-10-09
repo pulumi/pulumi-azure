@@ -33,14 +33,14 @@ public final class WindowsWebAppSlotSiteConfigAutoHealSettingActionArgs extends 
     }
 
     /**
-     * A `custom_action` block as defined below.
+     * A `customAction` block as defined below.
      * 
      */
     @Import(name="customAction")
     private @Nullable Output<WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomActionArgs> customAction;
 
     /**
-     * @return A `custom_action` block as defined below.
+     * @return A `customAction` block as defined below.
      * 
      */
     public Optional<Output<WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomActionArgs>> customAction() {
@@ -110,7 +110,7 @@ public final class WindowsWebAppSlotSiteConfigAutoHealSettingActionArgs extends 
         }
 
         /**
-         * @param customAction A `custom_action` block as defined below.
+         * @param customAction A `customAction` block as defined below.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class WindowsWebAppSlotSiteConfigAutoHealSettingActionArgs extends 
         }
 
         /**
-         * @param customAction A `custom_action` block as defined below.
+         * @param customAction A `customAction` block as defined below.
          * 
          * @return builder
          * 

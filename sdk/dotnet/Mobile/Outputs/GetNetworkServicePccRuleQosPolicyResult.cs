@@ -18,11 +18,11 @@ namespace Pulumi.Azure.Mobile.Outputs
         /// </summary>
         public readonly int AllocationAndRetentionPriorityLevel;
         /// <summary>
-        /// A `guaranteed_bit_rate` block as defined below. The Guaranteed Bit Rate (GBR) for all service data flows that use this PCC Rule.
+        /// A `GuaranteedBitRate` block as defined below. The Guaranteed Bit Rate (GBR) for all service data flows that use this PCC Rule.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworkServicePccRuleQosPolicyGuaranteedBitRateResult> GuaranteedBitRates;
         /// <summary>
-        /// A `maximum_bit_rate` block as defined below. The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
+        /// A `MaximumBitRate` block as defined below. The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworkServicePccRuleQosPolicyMaximumBitRateResult> MaximumBitRates;
         /// <summary>

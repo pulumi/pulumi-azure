@@ -14,15 +14,15 @@ namespace Pulumi.Azure.Batch.Outputs
     public sealed class PoolNetworkConfiguration
     {
         /// <summary>
-        /// Whether to enable accelerated networking. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Whether to enable accelerated networking. Possible values are `True` and `False`. Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly bool? AcceleratedNetworkingEnabled;
         /// <summary>
-        /// The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created. Defaults to `none`.
+        /// The scope of dynamic vnet assignment. Allowed values: `None`, `Job`. Changing this forces a new resource to be created. Defaults to `None`.
         /// </summary>
         public readonly string? DynamicVnetAssignmentScope;
         /// <summary>
-        /// A list of `endpoint_configuration` blocks that can be used to address specific ports on an individual compute node externally as defined below. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created.
+        /// A list of `EndpointConfiguration` blocks that can be used to address specific ports on an individual compute node externally as defined below. Set as documented in the InboundNatPools block below. Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableArray<Outputs.PoolNetworkConfigurationEndpointConfiguration> EndpointConfigurations;
         /// <summary>

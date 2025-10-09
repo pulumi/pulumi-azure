@@ -19,7 +19,7 @@ public final class BackupPolicyBlobStorageRetentionRule {
      */
     private BackupPolicyBlobStorageRetentionRuleCriteria criteria;
     /**
-     * @return A `life_cycle` block as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
+     * @return A `lifeCycle` block as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
      * 
      */
     private BackupPolicyBlobStorageRetentionRuleLifeCycle lifeCycle;
@@ -43,7 +43,7 @@ public final class BackupPolicyBlobStorageRetentionRule {
         return this.criteria;
     }
     /**
-     * @return A `life_cycle` block as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
+     * @return A `lifeCycle` block as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
      * 
      */
     public BackupPolicyBlobStorageRetentionRuleLifeCycle lifeCycle() {

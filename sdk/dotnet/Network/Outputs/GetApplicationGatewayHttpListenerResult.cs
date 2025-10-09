@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class GetApplicationGatewayHttpListenerResult
     {
         /// <summary>
-        /// One or more `custom_error_configuration` blocks as defined below.
+        /// One or more `CustomErrorConfiguration` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationGatewayHttpListenerCustomErrorConfigurationResult> CustomErrorConfigurations;
         /// <summary>

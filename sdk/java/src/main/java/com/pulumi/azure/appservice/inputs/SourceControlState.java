@@ -52,14 +52,14 @@ public final class SourceControlState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A `github_action_configuration` block as defined below. Changing this forces a new resource to be created.
+     * A `githubActionConfiguration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="githubActionConfiguration")
     private @Nullable Output<SourceControlGithubActionConfigurationArgs> githubActionConfiguration;
 
     /**
-     * @return A `github_action_configuration` block as defined below. Changing this forces a new resource to be created.
+     * @return A `githubActionConfiguration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<SourceControlGithubActionConfigurationArgs>> githubActionConfiguration() {
@@ -84,7 +84,7 @@ public final class SourceControlState extends com.pulumi.resources.ResourceArgs 
     /**
      * Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Azure can typically set this value automatically based on the `repo_url` value.
+     * &gt; **Note:** Azure can typically set this value automatically based on the `repoUrl` value.
      * 
      */
     @Import(name="rollbackEnabled")
@@ -93,7 +93,7 @@ public final class SourceControlState extends com.pulumi.resources.ResourceArgs 
     /**
      * @return Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Azure can typically set this value automatically based on the `repo_url` value.
+     * &gt; **Note:** Azure can typically set this value automatically based on the `repoUrl` value.
      * 
      */
     public Optional<Output<Boolean>> rollbackEnabled() {
@@ -255,7 +255,7 @@ public final class SourceControlState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param githubActionConfiguration A `github_action_configuration` block as defined below. Changing this forces a new resource to be created.
+         * @param githubActionConfiguration A `githubActionConfiguration` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -266,7 +266,7 @@ public final class SourceControlState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param githubActionConfiguration A `github_action_configuration` block as defined below. Changing this forces a new resource to be created.
+         * @param githubActionConfiguration A `githubActionConfiguration` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -299,7 +299,7 @@ public final class SourceControlState extends com.pulumi.resources.ResourceArgs 
         /**
          * @param rollbackEnabled Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** Azure can typically set this value automatically based on the `repo_url` value.
+         * &gt; **Note:** Azure can typically set this value automatically based on the `repoUrl` value.
          * 
          * @return builder
          * 
@@ -312,7 +312,7 @@ public final class SourceControlState extends com.pulumi.resources.ResourceArgs 
         /**
          * @param rollbackEnabled Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** Azure can typically set this value automatically based on the `repo_url` value.
+         * &gt; **Note:** Azure can typically set this value automatically based on the `repoUrl` value.
          * 
          * @return builder
          * 

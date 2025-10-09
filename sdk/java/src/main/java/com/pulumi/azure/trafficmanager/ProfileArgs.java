@@ -22,14 +22,14 @@ public final class ProfileArgs extends com.pulumi.resources.ResourceArgs {
     public static final ProfileArgs Empty = new ProfileArgs();
 
     /**
-     * This block specifies the DNS configuration of the Profile. One `dns_config` block as defined below.
+     * This block specifies the DNS configuration of the Profile. One `dnsConfig` block as defined below.
      * 
      */
     @Import(name="dnsConfig", required=true)
     private Output<ProfileDnsConfigArgs> dnsConfig;
 
     /**
-     * @return This block specifies the DNS configuration of the Profile. One `dns_config` block as defined below.
+     * @return This block specifies the DNS configuration of the Profile. One `dnsConfig` block as defined below.
      * 
      */
     public Output<ProfileDnsConfigArgs> dnsConfig() {
@@ -39,7 +39,7 @@ public final class ProfileArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
      * 
-     * &gt; **Note:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
+     * &gt; **Note:** `maxReturn` must be set when the `trafficRoutingMethod` is `MultiValue`.
      * 
      */
     @Import(name="maxReturn")
@@ -48,7 +48,7 @@ public final class ProfileArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
      * 
-     * &gt; **Note:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
+     * &gt; **Note:** `maxReturn` must be set when the `trafficRoutingMethod` is `MultiValue`.
      * 
      */
     public Optional<Output<Integer>> maxReturn() {
@@ -56,14 +56,14 @@ public final class ProfileArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * This block specifies the Endpoint monitoring configuration for the Profile. One `monitor_config` block as defined below.
+     * This block specifies the Endpoint monitoring configuration for the Profile. One `monitorConfig` block as defined below.
      * 
      */
     @Import(name="monitorConfig", required=true)
     private Output<ProfileMonitorConfigArgs> monitorConfig;
 
     /**
-     * @return This block specifies the Endpoint monitoring configuration for the Profile. One `monitor_config` block as defined below.
+     * @return This block specifies the Endpoint monitoring configuration for the Profile. One `monitorConfig` block as defined below.
      * 
      */
     public Output<ProfileMonitorConfigArgs> monitorConfig() {
@@ -205,7 +205,7 @@ public final class ProfileArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsConfig This block specifies the DNS configuration of the Profile. One `dns_config` block as defined below.
+         * @param dnsConfig This block specifies the DNS configuration of the Profile. One `dnsConfig` block as defined below.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class ProfileArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsConfig This block specifies the DNS configuration of the Profile. One `dns_config` block as defined below.
+         * @param dnsConfig This block specifies the DNS configuration of the Profile. One `dnsConfig` block as defined below.
          * 
          * @return builder
          * 
@@ -228,7 +228,7 @@ public final class ProfileArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param maxReturn The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
          * 
-         * &gt; **Note:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
+         * &gt; **Note:** `maxReturn` must be set when the `trafficRoutingMethod` is `MultiValue`.
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class ProfileArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param maxReturn The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
          * 
-         * &gt; **Note:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
+         * &gt; **Note:** `maxReturn` must be set when the `trafficRoutingMethod` is `MultiValue`.
          * 
          * @return builder
          * 
@@ -251,7 +251,7 @@ public final class ProfileArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param monitorConfig This block specifies the Endpoint monitoring configuration for the Profile. One `monitor_config` block as defined below.
+         * @param monitorConfig This block specifies the Endpoint monitoring configuration for the Profile. One `monitorConfig` block as defined below.
          * 
          * @return builder
          * 
@@ -262,7 +262,7 @@ public final class ProfileArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param monitorConfig This block specifies the Endpoint monitoring configuration for the Profile. One `monitor_config` block as defined below.
+         * @param monitorConfig This block specifies the Endpoint monitoring configuration for the Profile. One `monitorConfig` block as defined below.
          * 
          * @return builder
          * 

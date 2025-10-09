@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Consumption.Outputs
         /// </summary>
         public readonly ImmutableArray<string> ContactEmails;
         /// <summary>
-        /// Should the notification be enabled? Defaults to `true`.
+        /// Should the notification be enabled? Defaults to `True`.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>

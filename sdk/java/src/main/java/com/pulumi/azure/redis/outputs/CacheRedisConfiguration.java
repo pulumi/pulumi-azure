@@ -21,7 +21,7 @@ public final class CacheRedisConfiguration {
     /**
      * @return Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
      * 
-     * &gt; **NOTE:** `aof_backup_enabled` can only be set when SKU is `Premium`.
+     * &gt; **NOTE:** `aofBackupEnabled` can only be set when SKU is `Premium`.
      * 
      */
     private @Nullable Boolean aofBackupEnabled;
@@ -40,7 +40,7 @@ public final class CacheRedisConfiguration {
     /**
      * @return If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
      * 
-     * &gt; **NOTE:** `authentication_enabled` can only be set to `false` if a `subnet_id` is specified; and only works if there aren&#39;t existing instances within the subnet with `authentication_enabled` set to `true`.
+     * &gt; **NOTE:** `authenticationEnabled` can only be set to `false` if a `subnetId` is specified; and only works if there aren&#39;t existing instances within the subnet with `authenticationEnabled` set to `true`.
      * 
      */
     private @Nullable Boolean authenticationEnabled;
@@ -82,7 +82,7 @@ public final class CacheRedisConfiguration {
     /**
      * @return Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
      * 
-     * &gt; **NOTE:** If `rdb_backup_enabled` set to `true`, `rdb_storage_connection_string` must also be set.
+     * &gt; **NOTE:** If `rdbBackupEnabled` set to `true`, `rdbStorageConnectionString` must also be set.
      * 
      */
     private @Nullable Boolean rdbBackupEnabled;
@@ -120,7 +120,7 @@ public final class CacheRedisConfiguration {
     /**
      * @return Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
      * 
-     * &gt; **NOTE:** `aof_backup_enabled` can only be set when SKU is `Premium`.
+     * &gt; **NOTE:** `aofBackupEnabled` can only be set when SKU is `Premium`.
      * 
      */
     public Optional<Boolean> aofBackupEnabled() {
@@ -145,7 +145,7 @@ public final class CacheRedisConfiguration {
     /**
      * @return If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
      * 
-     * &gt; **NOTE:** `authentication_enabled` can only be set to `false` if a `subnet_id` is specified; and only works if there aren&#39;t existing instances within the subnet with `authentication_enabled` set to `true`.
+     * &gt; **NOTE:** `authenticationEnabled` can only be set to `false` if a `subnetId` is specified; and only works if there aren&#39;t existing instances within the subnet with `authenticationEnabled` set to `true`.
      * 
      */
     public Optional<Boolean> authenticationEnabled() {
@@ -203,7 +203,7 @@ public final class CacheRedisConfiguration {
     /**
      * @return Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
      * 
-     * &gt; **NOTE:** If `rdb_backup_enabled` set to `true`, `rdb_storage_connection_string` must also be set.
+     * &gt; **NOTE:** If `rdbBackupEnabled` set to `true`, `rdbStorageConnectionString` must also be set.
      * 
      */
     public Optional<Boolean> rdbBackupEnabled() {

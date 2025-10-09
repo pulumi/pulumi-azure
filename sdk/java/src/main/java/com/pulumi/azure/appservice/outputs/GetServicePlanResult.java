@@ -50,7 +50,7 @@ public final class GetServicePlanResult {
      */
     private Boolean perSiteScalingEnabled;
     /**
-     * @return Whether this is a reserved Service Plan Type. `true` if `os_type` is `Linux`, otherwise `false`.
+     * @return Whether this is a reserved Service Plan Type. `true` if `osType` is `Linux`, otherwise `false`.
      * 
      */
     private Boolean reserved;
@@ -130,7 +130,7 @@ public final class GetServicePlanResult {
         return this.perSiteScalingEnabled;
     }
     /**
-     * @return Whether this is a reserved Service Plan Type. `true` if `os_type` is `Linux`, otherwise `false`.
+     * @return Whether this is a reserved Service Plan Type. `true` if `osType` is `Linux`, otherwise `false`.
      * 
      */
     public Boolean reserved() {

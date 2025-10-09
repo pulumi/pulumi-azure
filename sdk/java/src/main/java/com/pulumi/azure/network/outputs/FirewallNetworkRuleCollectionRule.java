@@ -28,7 +28,7 @@ public final class FirewallNetworkRuleCollectionRule {
      * 
      * &gt; **Note:** [You must enable DNS Proxy to use FQDNs in your network rules](https://docs.microsoft.com/azure/firewall/fqdn-filtering-network-rules).
      * 
-     * &gt; **Note:** At least one of `destination_addresses`, `destination_ip_groups` and `destination_fqdns` must be specified for a rule.
+     * &gt; **Note:** At least one of `destinationAddresses`, `destinationIpGroups` and `destinationFqdns` must be specified for a rule.
      * 
      */
     private @Nullable List<String> destinationFqdns;
@@ -60,7 +60,7 @@ public final class FirewallNetworkRuleCollectionRule {
     /**
      * @return A list of IP Group IDs for the rule.
      * 
-     * &gt; **Note:** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
+     * &gt; **Note:** At least one of `sourceAddresses` and `sourceIpGroups` must be specified for a rule.
      * 
      */
     private @Nullable List<String> sourceIpGroups;
@@ -85,7 +85,7 @@ public final class FirewallNetworkRuleCollectionRule {
      * 
      * &gt; **Note:** [You must enable DNS Proxy to use FQDNs in your network rules](https://docs.microsoft.com/azure/firewall/fqdn-filtering-network-rules).
      * 
-     * &gt; **Note:** At least one of `destination_addresses`, `destination_ip_groups` and `destination_fqdns` must be specified for a rule.
+     * &gt; **Note:** At least one of `destinationAddresses`, `destinationIpGroups` and `destinationFqdns` must be specified for a rule.
      * 
      */
     public List<String> destinationFqdns() {
@@ -129,7 +129,7 @@ public final class FirewallNetworkRuleCollectionRule {
     /**
      * @return A list of IP Group IDs for the rule.
      * 
-     * &gt; **Note:** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
+     * &gt; **Note:** At least one of `sourceAddresses` and `sourceIpGroups` must be specified for a rule.
      * 
      */
     public List<String> sourceIpGroups() {

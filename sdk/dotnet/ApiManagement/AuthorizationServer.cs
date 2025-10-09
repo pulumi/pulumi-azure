@@ -89,7 +89,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<ImmutableArray<string>> AuthorizationMethods { get; private set; } = null!;
 
         /// <summary>
-        /// The mechanism by which Access Tokens are passed to the API. Possible values are `authorizationHeader` and `query`.
+        /// The mechanism by which Access Tokens are passed to the API. Possible values are `authorizationHeader` and `Query`.
         /// </summary>
         [Output("bearerTokenSendingMethods")]
         public Output<ImmutableArray<string>> BearerTokenSendingMethods { get; private set; } = null!;
@@ -137,7 +137,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// Form of Authorization Grants required when requesting an Access Token. Possible values are `authorizationCode`, `clientCredentials`, `implicit` and `resourceOwnerPassword`.
+        /// Form of Authorization Grants required when requesting an Access Token. Possible values are `authorizationCode`, `clientCredentials`, `Implicit` and `resourceOwnerPassword`.
         /// </summary>
         [Output("grantTypes")]
         public Output<ImmutableArray<string>> GrantTypes { get; private set; } = null!;
@@ -157,7 +157,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The password associated with the Resource Owner.
         /// 
-        /// &gt; **Note:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
+        /// &gt; **Note:** This can only be specified when `GrantType` includes `resourceOwnerPassword`.
         /// </summary>
         [Output("resourceOwnerPassword")]
         public Output<string?> ResourceOwnerPassword { get; private set; } = null!;
@@ -165,19 +165,19 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The username associated with the Resource Owner.
         /// 
-        /// &gt; **Note:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
+        /// &gt; **Note:** This can only be specified when `GrantType` includes `resourceOwnerPassword`.
         /// </summary>
         [Output("resourceOwnerUsername")]
         public Output<string?> ResourceOwnerUsername { get; private set; } = null!;
 
         /// <summary>
-        /// Does this Authorization Server support State? If this is set to `true` the client may use the state parameter to raise protocol security.
+        /// Does this Authorization Server support State? If this is set to `True` the client may use the state parameter to raise protocol security.
         /// </summary>
         [Output("supportState")]
         public Output<bool?> SupportState { get; private set; } = null!;
 
         /// <summary>
-        /// A `token_body_parameter` block as defined below.
+        /// A `TokenBodyParameter` block as defined below.
         /// </summary>
         [Output("tokenBodyParameters")]
         public Output<ImmutableArray<Outputs.AuthorizationServerTokenBodyParameter>> TokenBodyParameters { get; private set; } = null!;
@@ -269,7 +269,7 @@ namespace Pulumi.Azure.ApiManagement
         private InputList<string>? _bearerTokenSendingMethods;
 
         /// <summary>
-        /// The mechanism by which Access Tokens are passed to the API. Possible values are `authorizationHeader` and `query`.
+        /// The mechanism by which Access Tokens are passed to the API. Possible values are `authorizationHeader` and `Query`.
         /// </summary>
         public InputList<string> BearerTokenSendingMethods
         {
@@ -339,7 +339,7 @@ namespace Pulumi.Azure.ApiManagement
         private InputList<string>? _grantTypes;
 
         /// <summary>
-        /// Form of Authorization Grants required when requesting an Access Token. Possible values are `authorizationCode`, `clientCredentials`, `implicit` and `resourceOwnerPassword`.
+        /// Form of Authorization Grants required when requesting an Access Token. Possible values are `authorizationCode`, `clientCredentials`, `Implicit` and `resourceOwnerPassword`.
         /// </summary>
         public InputList<string> GrantTypes
         {
@@ -365,7 +365,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The password associated with the Resource Owner.
         /// 
-        /// &gt; **Note:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
+        /// &gt; **Note:** This can only be specified when `GrantType` includes `resourceOwnerPassword`.
         /// </summary>
         public Input<string>? ResourceOwnerPassword
         {
@@ -380,13 +380,13 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The username associated with the Resource Owner.
         /// 
-        /// &gt; **Note:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
+        /// &gt; **Note:** This can only be specified when `GrantType` includes `resourceOwnerPassword`.
         /// </summary>
         [Input("resourceOwnerUsername")]
         public Input<string>? ResourceOwnerUsername { get; set; }
 
         /// <summary>
-        /// Does this Authorization Server support State? If this is set to `true` the client may use the state parameter to raise protocol security.
+        /// Does this Authorization Server support State? If this is set to `True` the client may use the state parameter to raise protocol security.
         /// </summary>
         [Input("supportState")]
         public Input<bool>? SupportState { get; set; }
@@ -395,7 +395,7 @@ namespace Pulumi.Azure.ApiManagement
         private InputList<Inputs.AuthorizationServerTokenBodyParameterArgs>? _tokenBodyParameters;
 
         /// <summary>
-        /// A `token_body_parameter` block as defined below.
+        /// A `TokenBodyParameter` block as defined below.
         /// </summary>
         public InputList<Inputs.AuthorizationServerTokenBodyParameterArgs> TokenBodyParameters
         {
@@ -447,7 +447,7 @@ namespace Pulumi.Azure.ApiManagement
         private InputList<string>? _bearerTokenSendingMethods;
 
         /// <summary>
-        /// The mechanism by which Access Tokens are passed to the API. Possible values are `authorizationHeader` and `query`.
+        /// The mechanism by which Access Tokens are passed to the API. Possible values are `authorizationHeader` and `Query`.
         /// </summary>
         public InputList<string> BearerTokenSendingMethods
         {
@@ -517,7 +517,7 @@ namespace Pulumi.Azure.ApiManagement
         private InputList<string>? _grantTypes;
 
         /// <summary>
-        /// Form of Authorization Grants required when requesting an Access Token. Possible values are `authorizationCode`, `clientCredentials`, `implicit` and `resourceOwnerPassword`.
+        /// Form of Authorization Grants required when requesting an Access Token. Possible values are `authorizationCode`, `clientCredentials`, `Implicit` and `resourceOwnerPassword`.
         /// </summary>
         public InputList<string> GrantTypes
         {
@@ -543,7 +543,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The password associated with the Resource Owner.
         /// 
-        /// &gt; **Note:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
+        /// &gt; **Note:** This can only be specified when `GrantType` includes `resourceOwnerPassword`.
         /// </summary>
         public Input<string>? ResourceOwnerPassword
         {
@@ -558,13 +558,13 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The username associated with the Resource Owner.
         /// 
-        /// &gt; **Note:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
+        /// &gt; **Note:** This can only be specified when `GrantType` includes `resourceOwnerPassword`.
         /// </summary>
         [Input("resourceOwnerUsername")]
         public Input<string>? ResourceOwnerUsername { get; set; }
 
         /// <summary>
-        /// Does this Authorization Server support State? If this is set to `true` the client may use the state parameter to raise protocol security.
+        /// Does this Authorization Server support State? If this is set to `True` the client may use the state parameter to raise protocol security.
         /// </summary>
         [Input("supportState")]
         public Input<bool>? SupportState { get; set; }
@@ -573,7 +573,7 @@ namespace Pulumi.Azure.ApiManagement
         private InputList<Inputs.AuthorizationServerTokenBodyParameterGetArgs>? _tokenBodyParameters;
 
         /// <summary>
-        /// A `token_body_parameter` block as defined below.
+        /// A `TokenBodyParameter` block as defined below.
         /// </summary>
         public InputList<Inputs.AuthorizationServerTokenBodyParameterGetArgs> TokenBodyParameters
         {

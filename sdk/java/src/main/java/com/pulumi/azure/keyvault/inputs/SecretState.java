@@ -153,18 +153,18 @@ public final class SecretState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An integer value used to trigger an update for `value_wo`. This property should be incremented when updating `value_wo`.
+     * An integer value used to trigger an update for `valueWo`. This property should be incremented when updating `valueWo`.
      * 
-     * &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file(&#34;my_secret_file&#34;), &#34;/\n/&#34;, &#34;\n&#34;)` or `base64encode(file(&#34;my_secret_file&#34;))`, respectively.
+     * &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file(&#34;mySecretFile&#34;), &#34;/\n/&#34;, &#34;\n&#34;)` or `base64encode(file(&#34;mySecretFile&#34;))`, respectively.
      * 
      */
     @Import(name="valueWoVersion")
     private @Nullable Output<Integer> valueWoVersion;
 
     /**
-     * @return An integer value used to trigger an update for `value_wo`. This property should be incremented when updating `value_wo`.
+     * @return An integer value used to trigger an update for `valueWo`. This property should be incremented when updating `valueWo`.
      * 
-     * &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file(&#34;my_secret_file&#34;), &#34;/\n/&#34;, &#34;\n&#34;)` or `base64encode(file(&#34;my_secret_file&#34;))`, respectively.
+     * &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file(&#34;mySecretFile&#34;), &#34;/\n/&#34;, &#34;\n&#34;)` or `base64encode(file(&#34;mySecretFile&#34;))`, respectively.
      * 
      */
     public Optional<Output<Integer>> valueWoVersion() {
@@ -426,9 +426,9 @@ public final class SecretState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param valueWoVersion An integer value used to trigger an update for `value_wo`. This property should be incremented when updating `value_wo`.
+         * @param valueWoVersion An integer value used to trigger an update for `valueWo`. This property should be incremented when updating `valueWo`.
          * 
-         * &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file(&#34;my_secret_file&#34;), &#34;/\n/&#34;, &#34;\n&#34;)` or `base64encode(file(&#34;my_secret_file&#34;))`, respectively.
+         * &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file(&#34;mySecretFile&#34;), &#34;/\n/&#34;, &#34;\n&#34;)` or `base64encode(file(&#34;mySecretFile&#34;))`, respectively.
          * 
          * @return builder
          * 
@@ -439,9 +439,9 @@ public final class SecretState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param valueWoVersion An integer value used to trigger an update for `value_wo`. This property should be incremented when updating `value_wo`.
+         * @param valueWoVersion An integer value used to trigger an update for `valueWo`. This property should be incremented when updating `valueWo`.
          * 
-         * &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file(&#34;my_secret_file&#34;), &#34;/\n/&#34;, &#34;\n&#34;)` or `base64encode(file(&#34;my_secret_file&#34;))`, respectively.
+         * &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file(&#34;mySecretFile&#34;), &#34;/\n/&#34;, &#34;\n&#34;)` or `base64encode(file(&#34;mySecretFile&#34;))`, respectively.
          * 
          * @return builder
          * 

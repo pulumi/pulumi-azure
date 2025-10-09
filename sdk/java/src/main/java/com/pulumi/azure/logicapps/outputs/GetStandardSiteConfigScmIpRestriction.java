@@ -20,7 +20,7 @@ public final class GetStandardSiteConfigScmIpRestriction {
      */
     private @Nullable String action;
     /**
-     * @return The `headers` block for this specific `ip_restriction` as defined below.
+     * @return The `headers` block for this specific `ipRestriction` as defined below.
      * 
      */
     private GetStandardSiteConfigScmIpRestrictionHeaders headers;
@@ -59,7 +59,7 @@ public final class GetStandardSiteConfigScmIpRestriction {
         return Optional.ofNullable(this.action);
     }
     /**
-     * @return The `headers` block for this specific `ip_restriction` as defined below.
+     * @return The `headers` block for this specific `ipRestriction` as defined below.
      * 
      */
     public GetStandardSiteConfigScmIpRestrictionHeaders headers() {

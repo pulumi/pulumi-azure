@@ -16,7 +16,7 @@ public final class WindowsWebAppSlotAuthSettingsActiveDirectory {
     /**
      * @return Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
      * 
-     * &gt; **Note:** The `client_id` value is always considered an allowed audience, so should not be included.
+     * &gt; **Note:** The `clientId` value is always considered an allowed audience, so should not be included.
      * 
      */
     private @Nullable List<String> allowedAudiences;
@@ -26,12 +26,12 @@ public final class WindowsWebAppSlotAuthSettingsActiveDirectory {
      */
     private String clientId;
     /**
-     * @return The Client Secret for the Client ID. Cannot be used with `client_secret_setting_name`.
+     * @return The Client Secret for the Client ID. Cannot be used with `clientSecretSettingName`.
      * 
      */
     private @Nullable String clientSecret;
     /**
-     * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+     * @return The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
      * 
      */
     private @Nullable String clientSecretSettingName;
@@ -40,7 +40,7 @@ public final class WindowsWebAppSlotAuthSettingsActiveDirectory {
     /**
      * @return Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
      * 
-     * &gt; **Note:** The `client_id` value is always considered an allowed audience, so should not be included.
+     * &gt; **Note:** The `clientId` value is always considered an allowed audience, so should not be included.
      * 
      */
     public List<String> allowedAudiences() {
@@ -54,14 +54,14 @@ public final class WindowsWebAppSlotAuthSettingsActiveDirectory {
         return this.clientId;
     }
     /**
-     * @return The Client Secret for the Client ID. Cannot be used with `client_secret_setting_name`.
+     * @return The Client Secret for the Client ID. Cannot be used with `clientSecretSettingName`.
      * 
      */
     public Optional<String> clientSecret() {
         return Optional.ofNullable(this.clientSecret);
     }
     /**
-     * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+     * @return The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
      * 
      */
     public Optional<String> clientSecretSettingName() {

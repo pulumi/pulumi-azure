@@ -131,7 +131,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     /**
      * The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Either `data` or `key_vault_secret_id` must be specified - but not both.
+     * &gt; **Note:** Either `data` or `keyVaultSecretId` must be specified - but not both.
      * 
      */
     @Import(name="resourceGroupName")
@@ -140,7 +140,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Either `data` or `key_vault_secret_id` must be specified - but not both.
+     * &gt; **Note:** Either `data` or `keyVaultSecretId` must be specified - but not both.
      * 
      */
     public Optional<Output<String>> resourceGroupName() {
@@ -368,7 +368,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param resourceGroupName The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** Either `data` or `key_vault_secret_id` must be specified - but not both.
+         * &gt; **Note:** Either `data` or `keyVaultSecretId` must be specified - but not both.
          * 
          * @return builder
          * 
@@ -381,7 +381,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param resourceGroupName The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** Either `data` or `key_vault_secret_id` must be specified - but not both.
+         * &gt; **Note:** Either `data` or `keyVaultSecretId` must be specified - but not both.
          * 
          * @return builder
          * 

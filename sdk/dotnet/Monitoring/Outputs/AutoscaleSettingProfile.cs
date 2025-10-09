@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Monitoring.Outputs
     public sealed class AutoscaleSettingProfile
     {
         /// <summary>
-        /// A `capacity` block as defined below.
+        /// A `Capacity` block as defined below.
         /// </summary>
         public readonly Outputs.AutoscaleSettingProfileCapacity Capacity;
         /// <summary>
-        /// A `fixed_date` block as defined below. This cannot be specified if a `recurrence` block is specified.
+        /// A `FixedDate` block as defined below. This cannot be specified if a `Recurrence` block is specified.
         /// </summary>
         public readonly Outputs.AutoscaleSettingProfileFixedDate? FixedDate;
         /// <summary>
@@ -26,11 +26,11 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// A `recurrence` block as defined below. This cannot be specified if a `fixed_date` block is specified.
+        /// A `Recurrence` block as defined below. This cannot be specified if a `FixedDate` block is specified.
         /// </summary>
         public readonly Outputs.AutoscaleSettingProfileRecurrence? Recurrence;
         /// <summary>
-        /// One or more (up to 10) `rule` blocks as defined below.
+        /// One or more (up to 10) `Rule` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AutoscaleSettingProfileRule> Rules;
 

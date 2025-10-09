@@ -74,19 +74,19 @@ namespace Pulumi.Azure.AppService
         public Output<ImmutableDictionary<string, string>?> AppSettings { get; private set; } = null!;
 
         /// <summary>
-        /// A `auth_settings` block as defined below.
+        /// A `AuthSettings` block as defined below.
         /// </summary>
         [Output("authSettings")]
         public Output<Outputs.LinuxWebAppAuthSettings?> AuthSettings { get; private set; } = null!;
 
         /// <summary>
-        /// An `auth_settings_v2` block as defined below.
+        /// An `AuthSettingsV2` block as defined below.
         /// </summary>
         [Output("authSettingsV2")]
         public Output<Outputs.LinuxWebAppAuthSettingsV2?> AuthSettingsV2 { get; private set; } = null!;
 
         /// <summary>
-        /// A `backup` block as defined below.
+        /// A `Backup` block as defined below.
         /// </summary>
         [Output("backup")]
         public Output<Outputs.LinuxWebAppBackup?> Backup { get; private set; } = null!;
@@ -110,13 +110,13 @@ namespace Pulumi.Azure.AppService
         public Output<string?> ClientCertificateExclusionPaths { get; private set; } = null!;
 
         /// <summary>
-        /// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`. Defaults to `Required`.
+        /// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `ClientCertificateEnabled` is `False`. Defaults to `Required`.
         /// </summary>
         [Output("clientCertificateMode")]
         public Output<string?> ClientCertificateMode { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `connection_string` blocks as defined below.
+        /// One or more `ConnectionString` blocks as defined below.
         /// </summary>
         [Output("connectionStrings")]
         public Output<ImmutableArray<Outputs.LinuxWebAppConnectionString>> ConnectionStrings { get; private set; } = null!;
@@ -134,13 +134,13 @@ namespace Pulumi.Azure.AppService
         public Output<string> DefaultHostname { get; private set; } = null!;
 
         /// <summary>
-        /// Should the Linux Web App be enabled? Defaults to `true`.
+        /// Should the Linux Web App be enabled? Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
+        /// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `True`.
         /// </summary>
         [Output("ftpPublishBasicAuthenticationEnabled")]
         public Output<bool?> FtpPublishBasicAuthenticationEnabled { get; private set; } = null!;
@@ -152,19 +152,19 @@ namespace Pulumi.Azure.AppService
         public Output<string> HostingEnvironmentId { get; private set; } = null!;
 
         /// <summary>
-        /// Should the Linux Web App require HTTPS connections. Defaults to `false`.
+        /// Should the Linux Web App require HTTPS connections. Defaults to `False`.
         /// </summary>
         [Output("httpsOnly")]
         public Output<bool?> HttpsOnly { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.LinuxWebAppIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
+        /// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `Identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
         /// </summary>
         [Output("keyVaultReferenceIdentityId")]
         public Output<string> KeyVaultReferenceIdentityId { get; private set; } = null!;
@@ -182,7 +182,7 @@ namespace Pulumi.Azure.AppService
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// A `logs` block as defined below.
+        /// A `Logs` block as defined below.
         /// </summary>
         [Output("logs")]
         public Output<Outputs.LinuxWebAppLogs?> Logs { get; private set; } = null!;
@@ -209,13 +209,13 @@ namespace Pulumi.Azure.AppService
         public Output<ImmutableArray<string>> PossibleOutboundIpAddressLists { get; private set; } = null!;
 
         /// <summary>
-        /// A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+        /// A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `OutboundIpAddresses`.
         /// </summary>
         [Output("possibleOutboundIpAddresses")]
         public Output<string> PossibleOutboundIpAddresses { get; private set; } = null!;
 
         /// <summary>
-        /// Should public network access be enabled for the Web App. Defaults to `true`.
+        /// Should public network access be enabled for the Web App. Defaults to `True`.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
@@ -233,25 +233,25 @@ namespace Pulumi.Azure.AppService
         public Output<string> ServicePlanId { get; private set; } = null!;
 
         /// <summary>
-        /// A `site_config` block as defined below.
+        /// A `SiteConfig` block as defined below.
         /// </summary>
         [Output("siteConfig")]
         public Output<Outputs.LinuxWebAppSiteConfig> SiteConfig { get; private set; } = null!;
 
         /// <summary>
-        /// A `site_credential` block as defined below.
+        /// A `SiteCredential` block as defined below.
         /// </summary>
         [Output("siteCredentials")]
         public Output<ImmutableArray<Outputs.LinuxWebAppSiteCredential>> SiteCredentials { get; private set; } = null!;
 
         /// <summary>
-        /// A `sticky_settings` block as defined below.
+        /// A `StickySettings` block as defined below.
         /// </summary>
         [Output("stickySettings")]
         public Output<Outputs.LinuxWebAppStickySettings?> StickySettings { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `storage_account` blocks as defined below.
+        /// One or more `StorageAccount` blocks as defined below.
         /// </summary>
         [Output("storageAccounts")]
         public Output<ImmutableArray<Outputs.LinuxWebAppStorageAccount>> StorageAccounts { get; private set; } = null!;
@@ -263,7 +263,7 @@ namespace Pulumi.Azure.AppService
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+        /// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `False`.
         /// </summary>
         [Output("virtualNetworkBackupRestoreEnabled")]
         public Output<bool?> VirtualNetworkBackupRestoreEnabled { get; private set; } = null!;
@@ -272,17 +272,17 @@ namespace Pulumi.Azure.AppService
         public Output<string?> VirtualNetworkSubnetId { get; private set; } = null!;
 
         /// <summary>
-        /// Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+        /// Should the traffic for the image pull be routed over virtual network enabled. Defaults to `False`.
         /// 
-        /// &gt; **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
+        /// &gt; **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `True` when running in an App Service Environment.
         /// </summary>
         [Output("vnetImagePullEnabled")]
         public Output<bool?> VnetImagePullEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
+        /// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `True`.
         /// 
-        /// &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+        /// &gt; **Note:** Setting this value to true will disable the ability to use `ZipDeployFile` which currently relies on the default publishing profile.
         /// </summary>
         [Output("webdeployPublishBasicAuthenticationEnabled")]
         public Output<bool?> WebdeployPublishBasicAuthenticationEnabled { get; private set; } = null!;
@@ -290,7 +290,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The local path and filename of the Zip packaged application to deploy to this Linux Web App.
         /// 
-        /// &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
+        /// &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `AppSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
         /// </summary>
         [Output("zipDeployFile")]
         public Output<string> ZipDeployFile { get; private set; } = null!;
@@ -359,19 +359,19 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// A `auth_settings` block as defined below.
+        /// A `AuthSettings` block as defined below.
         /// </summary>
         [Input("authSettings")]
         public Input<Inputs.LinuxWebAppAuthSettingsArgs>? AuthSettings { get; set; }
 
         /// <summary>
-        /// An `auth_settings_v2` block as defined below.
+        /// An `AuthSettingsV2` block as defined below.
         /// </summary>
         [Input("authSettingsV2")]
         public Input<Inputs.LinuxWebAppAuthSettingsV2Args>? AuthSettingsV2 { get; set; }
 
         /// <summary>
-        /// A `backup` block as defined below.
+        /// A `Backup` block as defined below.
         /// </summary>
         [Input("backup")]
         public Input<Inputs.LinuxWebAppBackupArgs>? Backup { get; set; }
@@ -395,7 +395,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? ClientCertificateExclusionPaths { get; set; }
 
         /// <summary>
-        /// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`. Defaults to `Required`.
+        /// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `ClientCertificateEnabled` is `False`. Defaults to `Required`.
         /// </summary>
         [Input("clientCertificateMode")]
         public Input<string>? ClientCertificateMode { get; set; }
@@ -404,7 +404,7 @@ namespace Pulumi.Azure.AppService
         private InputList<Inputs.LinuxWebAppConnectionStringArgs>? _connectionStrings;
 
         /// <summary>
-        /// One or more `connection_string` blocks as defined below.
+        /// One or more `ConnectionString` blocks as defined below.
         /// </summary>
         public InputList<Inputs.LinuxWebAppConnectionStringArgs> ConnectionStrings
         {
@@ -413,31 +413,31 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// Should the Linux Web App be enabled? Defaults to `true`.
+        /// Should the Linux Web App be enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
+        /// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `True`.
         /// </summary>
         [Input("ftpPublishBasicAuthenticationEnabled")]
         public Input<bool>? FtpPublishBasicAuthenticationEnabled { get; set; }
 
         /// <summary>
-        /// Should the Linux Web App require HTTPS connections. Defaults to `false`.
+        /// Should the Linux Web App require HTTPS connections. Defaults to `False`.
         /// </summary>
         [Input("httpsOnly")]
         public Input<bool>? HttpsOnly { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.LinuxWebAppIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
+        /// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `Identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
         /// </summary>
         [Input("keyVaultReferenceIdentityId")]
         public Input<string>? KeyVaultReferenceIdentityId { get; set; }
@@ -449,7 +449,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A `logs` block as defined below.
+        /// A `Logs` block as defined below.
         /// </summary>
         [Input("logs")]
         public Input<Inputs.LinuxWebAppLogsArgs>? Logs { get; set; }
@@ -458,7 +458,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Should public network access be enabled for the Web App. Defaults to `true`.
+        /// Should public network access be enabled for the Web App. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -476,13 +476,13 @@ namespace Pulumi.Azure.AppService
         public Input<string> ServicePlanId { get; set; } = null!;
 
         /// <summary>
-        /// A `site_config` block as defined below.
+        /// A `SiteConfig` block as defined below.
         /// </summary>
         [Input("siteConfig", required: true)]
         public Input<Inputs.LinuxWebAppSiteConfigArgs> SiteConfig { get; set; } = null!;
 
         /// <summary>
-        /// A `sticky_settings` block as defined below.
+        /// A `StickySettings` block as defined below.
         /// </summary>
         [Input("stickySettings")]
         public Input<Inputs.LinuxWebAppStickySettingsArgs>? StickySettings { get; set; }
@@ -491,7 +491,7 @@ namespace Pulumi.Azure.AppService
         private InputList<Inputs.LinuxWebAppStorageAccountArgs>? _storageAccounts;
 
         /// <summary>
-        /// One or more `storage_account` blocks as defined below.
+        /// One or more `StorageAccount` blocks as defined below.
         /// </summary>
         public InputList<Inputs.LinuxWebAppStorageAccountArgs> StorageAccounts
         {
@@ -512,7 +512,7 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+        /// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `False`.
         /// </summary>
         [Input("virtualNetworkBackupRestoreEnabled")]
         public Input<bool>? VirtualNetworkBackupRestoreEnabled { get; set; }
@@ -521,17 +521,17 @@ namespace Pulumi.Azure.AppService
         public Input<string>? VirtualNetworkSubnetId { get; set; }
 
         /// <summary>
-        /// Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+        /// Should the traffic for the image pull be routed over virtual network enabled. Defaults to `False`.
         /// 
-        /// &gt; **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
+        /// &gt; **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `True` when running in an App Service Environment.
         /// </summary>
         [Input("vnetImagePullEnabled")]
         public Input<bool>? VnetImagePullEnabled { get; set; }
 
         /// <summary>
-        /// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
+        /// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `True`.
         /// 
-        /// &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+        /// &gt; **Note:** Setting this value to true will disable the ability to use `ZipDeployFile` which currently relies on the default publishing profile.
         /// </summary>
         [Input("webdeployPublishBasicAuthenticationEnabled")]
         public Input<bool>? WebdeployPublishBasicAuthenticationEnabled { get; set; }
@@ -539,7 +539,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The local path and filename of the Zip packaged application to deploy to this Linux Web App.
         /// 
-        /// &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
+        /// &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `AppSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
         /// </summary>
         [Input("zipDeployFile")]
         public Input<string>? ZipDeployFile { get; set; }
@@ -565,19 +565,19 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// A `auth_settings` block as defined below.
+        /// A `AuthSettings` block as defined below.
         /// </summary>
         [Input("authSettings")]
         public Input<Inputs.LinuxWebAppAuthSettingsGetArgs>? AuthSettings { get; set; }
 
         /// <summary>
-        /// An `auth_settings_v2` block as defined below.
+        /// An `AuthSettingsV2` block as defined below.
         /// </summary>
         [Input("authSettingsV2")]
         public Input<Inputs.LinuxWebAppAuthSettingsV2GetArgs>? AuthSettingsV2 { get; set; }
 
         /// <summary>
-        /// A `backup` block as defined below.
+        /// A `Backup` block as defined below.
         /// </summary>
         [Input("backup")]
         public Input<Inputs.LinuxWebAppBackupGetArgs>? Backup { get; set; }
@@ -601,7 +601,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? ClientCertificateExclusionPaths { get; set; }
 
         /// <summary>
-        /// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`. Defaults to `Required`.
+        /// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `ClientCertificateEnabled` is `False`. Defaults to `Required`.
         /// </summary>
         [Input("clientCertificateMode")]
         public Input<string>? ClientCertificateMode { get; set; }
@@ -610,7 +610,7 @@ namespace Pulumi.Azure.AppService
         private InputList<Inputs.LinuxWebAppConnectionStringGetArgs>? _connectionStrings;
 
         /// <summary>
-        /// One or more `connection_string` blocks as defined below.
+        /// One or more `ConnectionString` blocks as defined below.
         /// </summary>
         public InputList<Inputs.LinuxWebAppConnectionStringGetArgs> ConnectionStrings
         {
@@ -641,13 +641,13 @@ namespace Pulumi.Azure.AppService
         public Input<string>? DefaultHostname { get; set; }
 
         /// <summary>
-        /// Should the Linux Web App be enabled? Defaults to `true`.
+        /// Should the Linux Web App be enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
+        /// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `True`.
         /// </summary>
         [Input("ftpPublishBasicAuthenticationEnabled")]
         public Input<bool>? FtpPublishBasicAuthenticationEnabled { get; set; }
@@ -659,19 +659,19 @@ namespace Pulumi.Azure.AppService
         public Input<string>? HostingEnvironmentId { get; set; }
 
         /// <summary>
-        /// Should the Linux Web App require HTTPS connections. Defaults to `false`.
+        /// Should the Linux Web App require HTTPS connections. Defaults to `False`.
         /// </summary>
         [Input("httpsOnly")]
         public Input<bool>? HttpsOnly { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.LinuxWebAppIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
+        /// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `Identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
         /// </summary>
         [Input("keyVaultReferenceIdentityId")]
         public Input<string>? KeyVaultReferenceIdentityId { get; set; }
@@ -689,7 +689,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A `logs` block as defined below.
+        /// A `Logs` block as defined below.
         /// </summary>
         [Input("logs")]
         public Input<Inputs.LinuxWebAppLogsGetArgs>? Logs { get; set; }
@@ -728,13 +728,13 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+        /// A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `OutboundIpAddresses`.
         /// </summary>
         [Input("possibleOutboundIpAddresses")]
         public Input<string>? PossibleOutboundIpAddresses { get; set; }
 
         /// <summary>
-        /// Should public network access be enabled for the Web App. Defaults to `true`.
+        /// Should public network access be enabled for the Web App. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -752,7 +752,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? ServicePlanId { get; set; }
 
         /// <summary>
-        /// A `site_config` block as defined below.
+        /// A `SiteConfig` block as defined below.
         /// </summary>
         [Input("siteConfig")]
         public Input<Inputs.LinuxWebAppSiteConfigGetArgs>? SiteConfig { get; set; }
@@ -761,7 +761,7 @@ namespace Pulumi.Azure.AppService
         private InputList<Inputs.LinuxWebAppSiteCredentialGetArgs>? _siteCredentials;
 
         /// <summary>
-        /// A `site_credential` block as defined below.
+        /// A `SiteCredential` block as defined below.
         /// </summary>
         public InputList<Inputs.LinuxWebAppSiteCredentialGetArgs> SiteCredentials
         {
@@ -774,7 +774,7 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// A `sticky_settings` block as defined below.
+        /// A `StickySettings` block as defined below.
         /// </summary>
         [Input("stickySettings")]
         public Input<Inputs.LinuxWebAppStickySettingsGetArgs>? StickySettings { get; set; }
@@ -783,7 +783,7 @@ namespace Pulumi.Azure.AppService
         private InputList<Inputs.LinuxWebAppStorageAccountGetArgs>? _storageAccounts;
 
         /// <summary>
-        /// One or more `storage_account` blocks as defined below.
+        /// One or more `StorageAccount` blocks as defined below.
         /// </summary>
         public InputList<Inputs.LinuxWebAppStorageAccountGetArgs> StorageAccounts
         {
@@ -804,7 +804,7 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+        /// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `False`.
         /// </summary>
         [Input("virtualNetworkBackupRestoreEnabled")]
         public Input<bool>? VirtualNetworkBackupRestoreEnabled { get; set; }
@@ -813,17 +813,17 @@ namespace Pulumi.Azure.AppService
         public Input<string>? VirtualNetworkSubnetId { get; set; }
 
         /// <summary>
-        /// Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+        /// Should the traffic for the image pull be routed over virtual network enabled. Defaults to `False`.
         /// 
-        /// &gt; **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
+        /// &gt; **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `True` when running in an App Service Environment.
         /// </summary>
         [Input("vnetImagePullEnabled")]
         public Input<bool>? VnetImagePullEnabled { get; set; }
 
         /// <summary>
-        /// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
+        /// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `True`.
         /// 
-        /// &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+        /// &gt; **Note:** Setting this value to true will disable the ability to use `ZipDeployFile` which currently relies on the default publishing profile.
         /// </summary>
         [Input("webdeployPublishBasicAuthenticationEnabled")]
         public Input<bool>? WebdeployPublishBasicAuthenticationEnabled { get; set; }
@@ -831,7 +831,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The local path and filename of the Zip packaged application to deploy to this Linux Web App.
         /// 
-        /// &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
+        /// &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `AppSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
         /// </summary>
         [Input("zipDeployFile")]
         public Input<string>? ZipDeployFile { get; set; }

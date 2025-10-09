@@ -133,7 +133,7 @@ public class NetworkSimGroup extends com.pulumi.resources.CustomResource {
     /**
      * An `identity` block as defined below.
      * 
-     * &gt; **Note:** A `UserAssigned` identity must be specified when `encryption_key_url` is specified.
+     * &gt; **Note:** A `UserAssigned` identity must be specified when `encryptionKeyUrl` is specified.
      * 
      */
     @Export(name="identity", refs={NetworkSimGroupIdentity.class}, tree="[0]")
@@ -142,7 +142,7 @@ public class NetworkSimGroup extends com.pulumi.resources.CustomResource {
     /**
      * @return An `identity` block as defined below.
      * 
-     * &gt; **Note:** A `UserAssigned` identity must be specified when `encryption_key_url` is specified.
+     * &gt; **Note:** A `UserAssigned` identity must be specified when `encryptionKeyUrl` is specified.
      * 
      */
     public Output<Optional<NetworkSimGroupIdentity>> identity() {

@@ -15,7 +15,7 @@ namespace Pulumi.Azure.MSSql.Inputs
         /// <summary>
         /// The name of the MS SQL Database.
         /// 
-        /// &gt; **Note:** This cannot be set in combination with `elastic_pool_name`.
+        /// &gt; **Note:** This cannot be set in combination with `ElasticPoolName`.
         /// </summary>
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
@@ -23,7 +23,7 @@ namespace Pulumi.Azure.MSSql.Inputs
         /// <summary>
         /// The name of the MS SQL Elastic Pool.
         /// 
-        /// &gt; **Note:** This cannot be set in combination with `database_name`.
+        /// &gt; **Note:** This cannot be set in combination with `DatabaseName`.
         /// </summary>
         [Input("elasticPoolName")]
         public Input<string>? ElasticPoolName { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Azure.MSSql.Inputs
         /// <summary>
         /// The ID of the job credential to use during execution of jobs.
         /// 
-        /// &gt; **Note:** This is required when `membership_type` is `Include`, unless `database_name` is set.
+        /// &gt; **Note:** This is required when `MembershipType` is `Include`, unless `DatabaseName` is set.
         /// </summary>
         [Input("jobCredentialId")]
         public Input<string>? JobCredentialId { get; set; }
@@ -49,7 +49,7 @@ namespace Pulumi.Azure.MSSql.Inputs
         public Input<string> ServerName { get; set; } = null!;
 
         /// <summary>
-        /// The job target type. This value is computed based on `server_name`, `database_name`, and `elastic_pool_name`.
+        /// The job target type. This value is computed based on `ServerName`, `DatabaseName`, and `ElasticPoolName`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

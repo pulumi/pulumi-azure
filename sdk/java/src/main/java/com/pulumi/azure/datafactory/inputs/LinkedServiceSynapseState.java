@@ -113,14 +113,14 @@ public final class LinkedServiceSynapseState extends com.pulumi.resources.Resour
     }
 
     /**
-     * A `key_vault_password` block as defined below. Use this argument to store Synapse password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+     * A `keyVaultPassword` block as defined below. Use this argument to store Synapse password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
      * 
      */
     @Import(name="keyVaultPassword")
     private @Nullable Output<LinkedServiceSynapseKeyVaultPasswordArgs> keyVaultPassword;
 
     /**
-     * @return A `key_vault_password` block as defined below. Use this argument to store Synapse password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+     * @return A `keyVaultPassword` block as defined below. Use this argument to store Synapse password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
      * 
      */
     public Optional<Output<LinkedServiceSynapseKeyVaultPasswordArgs>> keyVaultPassword() {
@@ -330,7 +330,7 @@ public final class LinkedServiceSynapseState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param keyVaultPassword A `key_vault_password` block as defined below. Use this argument to store Synapse password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+         * @param keyVaultPassword A `keyVaultPassword` block as defined below. Use this argument to store Synapse password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
          * 
          * @return builder
          * 
@@ -341,7 +341,7 @@ public final class LinkedServiceSynapseState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param keyVaultPassword A `key_vault_password` block as defined below. Use this argument to store Synapse password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+         * @param keyVaultPassword A `keyVaultPassword` block as defined below. Use this argument to store Synapse password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
          * 
          * @return builder
          * 

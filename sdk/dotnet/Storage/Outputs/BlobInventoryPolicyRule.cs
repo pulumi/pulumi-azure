@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Storage.Outputs
     public sealed class BlobInventoryPolicyRule
     {
         /// <summary>
-        /// A `filter` block as defined above.
+        /// A `Filter` block as defined above.
         /// </summary>
         public readonly Outputs.BlobInventoryPolicyRuleFilter? Filter;
         /// <summary>

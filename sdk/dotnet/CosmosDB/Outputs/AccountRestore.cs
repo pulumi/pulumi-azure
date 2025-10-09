@@ -14,11 +14,11 @@ namespace Pulumi.Azure.CosmosDB.Outputs
     public sealed class AccountRestore
     {
         /// <summary>
-        /// A `database` block as defined below. Changing this forces a new resource to be created.
+        /// A `Database` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableArray<Outputs.AccountRestoreDatabase> Databases;
         /// <summary>
-        /// One or more `gremlin_database` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `GremlinDatabase` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableArray<Outputs.AccountRestoreGremlinDatabase> GremlinDatabases;
         /// <summary>

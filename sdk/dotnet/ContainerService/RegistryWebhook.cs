@@ -78,7 +78,7 @@ namespace Pulumi.Azure.ContainerService
     public partial class RegistryWebhook : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A list of actions that trigger the Webhook to post notifications. At least one action needs to be specified. Valid values are: `push`, `delete`, `quarantine`, `chart_push`, `chart_delete`
+        /// A list of actions that trigger the Webhook to post notifications. At least one action needs to be specified. Valid values are: `Push`, `Delete`, `Quarantine`, `ChartPush`, `ChartDelete`
         /// </summary>
         [Output("actions")]
         public Output<ImmutableArray<string>> Actions { get; private set; } = null!;
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for 'foo:bar' only. `foo` is equivalent to `foo:latest`. Empty means all events. Defaults to `""`.
+        /// Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `Foo`. `foo:bar` means events for 'foo:bar' only. `Foo` is equivalent to `foo:latest`. Empty means all events. Defaults to `""`.
         /// </summary>
         [Output("scope")]
         public Output<string?> Scope { get; private set; } = null!;
@@ -126,7 +126,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> ServiceUri { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if this Webhook triggers notifications or not. Valid values: `enabled` and `disabled`. Default is `enabled`.
+        /// Specifies if this Webhook triggers notifications or not. Valid values: `Enabled` and `Disabled`. Default is `Enabled`.
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
@@ -191,7 +191,7 @@ namespace Pulumi.Azure.ContainerService
         private InputList<string>? _actions;
 
         /// <summary>
-        /// A list of actions that trigger the Webhook to post notifications. At least one action needs to be specified. Valid values are: `push`, `delete`, `quarantine`, `chart_push`, `chart_delete`
+        /// A list of actions that trigger the Webhook to post notifications. At least one action needs to be specified. Valid values are: `Push`, `Delete`, `Quarantine`, `ChartPush`, `ChartDelete`
         /// </summary>
         public InputList<string> Actions
         {
@@ -236,7 +236,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for 'foo:bar' only. `foo` is equivalent to `foo:latest`. Empty means all events. Defaults to `""`.
+        /// Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `Foo`. `foo:bar` means events for 'foo:bar' only. `Foo` is equivalent to `foo:latest`. Empty means all events. Defaults to `""`.
         /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }
@@ -248,7 +248,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string> ServiceUri { get; set; } = null!;
 
         /// <summary>
-        /// Specifies if this Webhook triggers notifications or not. Valid values: `enabled` and `disabled`. Default is `enabled`.
+        /// Specifies if this Webhook triggers notifications or not. Valid values: `Enabled` and `Disabled`. Default is `Enabled`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -277,7 +277,7 @@ namespace Pulumi.Azure.ContainerService
         private InputList<string>? _actions;
 
         /// <summary>
-        /// A list of actions that trigger the Webhook to post notifications. At least one action needs to be specified. Valid values are: `push`, `delete`, `quarantine`, `chart_push`, `chart_delete`
+        /// A list of actions that trigger the Webhook to post notifications. At least one action needs to be specified. Valid values are: `Push`, `Delete`, `Quarantine`, `ChartPush`, `ChartDelete`
         /// </summary>
         public InputList<string> Actions
         {
@@ -322,7 +322,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for 'foo:bar' only. `foo` is equivalent to `foo:latest`. Empty means all events. Defaults to `""`.
+        /// Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `Foo`. `foo:bar` means events for 'foo:bar' only. `Foo` is equivalent to `foo:latest`. Empty means all events. Defaults to `""`.
         /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }
@@ -334,7 +334,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? ServiceUri { get; set; }
 
         /// <summary>
-        /// Specifies if this Webhook triggers notifications or not. Valid values: `enabled` and `disabled`. Default is `enabled`.
+        /// Specifies if this Webhook triggers notifications or not. Valid values: `Enabled` and `Disabled`. Default is `Enabled`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

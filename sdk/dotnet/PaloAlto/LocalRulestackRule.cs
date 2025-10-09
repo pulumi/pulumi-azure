@@ -102,7 +102,7 @@ namespace Pulumi.Azure.PaloAlto
         public Output<string?> AuditComment { get; private set; } = null!;
 
         /// <summary>
-        /// A `category` block as defined below.
+        /// A `Category` block as defined below.
         /// </summary>
         [Output("category")]
         public Output<Outputs.LocalRulestackRuleCategory?> Category { get; private set; } = null!;
@@ -120,25 +120,25 @@ namespace Pulumi.Azure.PaloAlto
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `destination` blocks as defined below.
+        /// One or more `Destination` blocks as defined below.
         /// </summary>
         [Output("destination")]
         public Output<Outputs.LocalRulestackRuleDestination> Destination { get; private set; } = null!;
 
         /// <summary>
-        /// Should this Rule be enabled? Defaults to `true`.
+        /// Should this Rule be enabled? Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the certificate for inbound inspection. Only valid when `decryption_rule_type` is set to `SSLInboundInspection`.
+        /// The ID of the certificate for inbound inspection. Only valid when `DecryptionRuleType` is set to `SSLInboundInspection`.
         /// </summary>
         [Output("inspectionCertificateId")]
         public Output<string?> InspectionCertificateId { get; private set; } = null!;
 
         /// <summary>
-        /// Should Logging be enabled? Defaults to `false`.
+        /// Should Logging be enabled? Defaults to `False`.
         /// </summary>
         [Output("loggingEnabled")]
         public Output<bool?> LoggingEnabled { get; private set; } = null!;
@@ -150,13 +150,13 @@ namespace Pulumi.Azure.PaloAlto
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Should the inverse of the Destination configuration be used. Defaults to `false`.
+        /// Should the inverse of the Destination configuration be used. Defaults to `False`.
         /// </summary>
         [Output("negateDestination")]
         public Output<bool?> NegateDestination { get; private set; } = null!;
 
         /// <summary>
-        /// Should the inverse of the Source configuration be used. Defaults to `false`.
+        /// Should the inverse of the Source configuration be used. Defaults to `False`.
         /// </summary>
         [Output("negateSource")]
         public Output<bool?> NegateSource { get; private set; } = null!;
@@ -170,15 +170,15 @@ namespace Pulumi.Azure.PaloAlto
         public Output<int> Priority { get; private set; } = null!;
 
         /// <summary>
-        /// The Protocol and port to use in the form `[protocol]:[port_number]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocol_ports`. Defaults to `application-default`.
+        /// The Protocol and port to use in the form `[protocol]:[PortNumber]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `ProtocolPorts`. Defaults to `application-default`.
         /// 
-        /// &gt; **Note:** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocol_ports` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `protocol`.
+        /// &gt; **Note:** In 4.0 or later versions, the default of `Protocol` will no longer be set by provider, exactly one of `Protocol` and `ProtocolPorts` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `Protocol`.
         /// </summary>
         [Output("protocol")]
         public Output<string?> Protocol { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Conflicts with `protocol`.
+        /// Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Conflicts with `Protocol`.
         /// </summary>
         [Output("protocolPorts")]
         public Output<ImmutableArray<string>> ProtocolPorts { get; private set; } = null!;
@@ -190,7 +190,7 @@ namespace Pulumi.Azure.PaloAlto
         public Output<string> RulestackId { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `source` blocks as defined below.
+        /// One or more `Source` blocks as defined below.
         /// </summary>
         [Output("source")]
         public Output<Outputs.LocalRulestackRuleSource> Source { get; private set; } = null!;
@@ -272,7 +272,7 @@ namespace Pulumi.Azure.PaloAlto
         public Input<string>? AuditComment { get; set; }
 
         /// <summary>
-        /// A `category` block as defined below.
+        /// A `Category` block as defined below.
         /// </summary>
         [Input("category")]
         public Input<Inputs.LocalRulestackRuleCategoryArgs>? Category { get; set; }
@@ -290,25 +290,25 @@ namespace Pulumi.Azure.PaloAlto
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// One or more `destination` blocks as defined below.
+        /// One or more `Destination` blocks as defined below.
         /// </summary>
         [Input("destination", required: true)]
         public Input<Inputs.LocalRulestackRuleDestinationArgs> Destination { get; set; } = null!;
 
         /// <summary>
-        /// Should this Rule be enabled? Defaults to `true`.
+        /// Should this Rule be enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The ID of the certificate for inbound inspection. Only valid when `decryption_rule_type` is set to `SSLInboundInspection`.
+        /// The ID of the certificate for inbound inspection. Only valid when `DecryptionRuleType` is set to `SSLInboundInspection`.
         /// </summary>
         [Input("inspectionCertificateId")]
         public Input<string>? InspectionCertificateId { get; set; }
 
         /// <summary>
-        /// Should Logging be enabled? Defaults to `false`.
+        /// Should Logging be enabled? Defaults to `False`.
         /// </summary>
         [Input("loggingEnabled")]
         public Input<bool>? LoggingEnabled { get; set; }
@@ -320,13 +320,13 @@ namespace Pulumi.Azure.PaloAlto
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Should the inverse of the Destination configuration be used. Defaults to `false`.
+        /// Should the inverse of the Destination configuration be used. Defaults to `False`.
         /// </summary>
         [Input("negateDestination")]
         public Input<bool>? NegateDestination { get; set; }
 
         /// <summary>
-        /// Should the inverse of the Source configuration be used. Defaults to `false`.
+        /// Should the inverse of the Source configuration be used. Defaults to `False`.
         /// </summary>
         [Input("negateSource")]
         public Input<bool>? NegateSource { get; set; }
@@ -340,9 +340,9 @@ namespace Pulumi.Azure.PaloAlto
         public Input<int> Priority { get; set; } = null!;
 
         /// <summary>
-        /// The Protocol and port to use in the form `[protocol]:[port_number]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocol_ports`. Defaults to `application-default`.
+        /// The Protocol and port to use in the form `[protocol]:[PortNumber]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `ProtocolPorts`. Defaults to `application-default`.
         /// 
-        /// &gt; **Note:** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocol_ports` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `protocol`.
+        /// &gt; **Note:** In 4.0 or later versions, the default of `Protocol` will no longer be set by provider, exactly one of `Protocol` and `ProtocolPorts` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `Protocol`.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
@@ -351,7 +351,7 @@ namespace Pulumi.Azure.PaloAlto
         private InputList<string>? _protocolPorts;
 
         /// <summary>
-        /// Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Conflicts with `protocol`.
+        /// Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Conflicts with `Protocol`.
         /// </summary>
         public InputList<string> ProtocolPorts
         {
@@ -366,7 +366,7 @@ namespace Pulumi.Azure.PaloAlto
         public Input<string> RulestackId { get; set; } = null!;
 
         /// <summary>
-        /// One or more `source` blocks as defined below.
+        /// One or more `Source` blocks as defined below.
         /// </summary>
         [Input("source", required: true)]
         public Input<Inputs.LocalRulestackRuleSourceArgs> Source { get; set; } = null!;
@@ -416,7 +416,7 @@ namespace Pulumi.Azure.PaloAlto
         public Input<string>? AuditComment { get; set; }
 
         /// <summary>
-        /// A `category` block as defined below.
+        /// A `Category` block as defined below.
         /// </summary>
         [Input("category")]
         public Input<Inputs.LocalRulestackRuleCategoryGetArgs>? Category { get; set; }
@@ -434,25 +434,25 @@ namespace Pulumi.Azure.PaloAlto
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// One or more `destination` blocks as defined below.
+        /// One or more `Destination` blocks as defined below.
         /// </summary>
         [Input("destination")]
         public Input<Inputs.LocalRulestackRuleDestinationGetArgs>? Destination { get; set; }
 
         /// <summary>
-        /// Should this Rule be enabled? Defaults to `true`.
+        /// Should this Rule be enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The ID of the certificate for inbound inspection. Only valid when `decryption_rule_type` is set to `SSLInboundInspection`.
+        /// The ID of the certificate for inbound inspection. Only valid when `DecryptionRuleType` is set to `SSLInboundInspection`.
         /// </summary>
         [Input("inspectionCertificateId")]
         public Input<string>? InspectionCertificateId { get; set; }
 
         /// <summary>
-        /// Should Logging be enabled? Defaults to `false`.
+        /// Should Logging be enabled? Defaults to `False`.
         /// </summary>
         [Input("loggingEnabled")]
         public Input<bool>? LoggingEnabled { get; set; }
@@ -464,13 +464,13 @@ namespace Pulumi.Azure.PaloAlto
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Should the inverse of the Destination configuration be used. Defaults to `false`.
+        /// Should the inverse of the Destination configuration be used. Defaults to `False`.
         /// </summary>
         [Input("negateDestination")]
         public Input<bool>? NegateDestination { get; set; }
 
         /// <summary>
-        /// Should the inverse of the Source configuration be used. Defaults to `false`.
+        /// Should the inverse of the Source configuration be used. Defaults to `False`.
         /// </summary>
         [Input("negateSource")]
         public Input<bool>? NegateSource { get; set; }
@@ -484,9 +484,9 @@ namespace Pulumi.Azure.PaloAlto
         public Input<int>? Priority { get; set; }
 
         /// <summary>
-        /// The Protocol and port to use in the form `[protocol]:[port_number]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocol_ports`. Defaults to `application-default`.
+        /// The Protocol and port to use in the form `[protocol]:[PortNumber]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `ProtocolPorts`. Defaults to `application-default`.
         /// 
-        /// &gt; **Note:** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocol_ports` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `protocol`.
+        /// &gt; **Note:** In 4.0 or later versions, the default of `Protocol` will no longer be set by provider, exactly one of `Protocol` and `ProtocolPorts` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `Protocol`.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
@@ -495,7 +495,7 @@ namespace Pulumi.Azure.PaloAlto
         private InputList<string>? _protocolPorts;
 
         /// <summary>
-        /// Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Conflicts with `protocol`.
+        /// Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Conflicts with `Protocol`.
         /// </summary>
         public InputList<string> ProtocolPorts
         {
@@ -510,7 +510,7 @@ namespace Pulumi.Azure.PaloAlto
         public Input<string>? RulestackId { get; set; }
 
         /// <summary>
-        /// One or more `source` blocks as defined below.
+        /// One or more `Source` blocks as defined below.
         /// </summary>
         [Input("source")]
         public Input<Inputs.LocalRulestackRuleSourceGetArgs>? Source { get; set; }

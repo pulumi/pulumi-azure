@@ -60,14 +60,14 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `default_access_policy` block as defined below.
+     * A `defaultAccessPolicy` block as defined below.
      * 
      */
     @Import(name="defaultAccessPolicy")
     private @Nullable Output<CacheDefaultAccessPolicyArgs> defaultAccessPolicy;
 
     /**
-     * @return A `default_access_policy` block as defined below.
+     * @return A `defaultAccessPolicy` block as defined below.
      * 
      */
     public Optional<Output<CacheDefaultAccessPolicyArgs>> defaultAccessPolicy() {
@@ -75,14 +75,14 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `directory_active_directory` block as defined below.
+     * A `directoryActiveDirectory` block as defined below.
      * 
      */
     @Import(name="directoryActiveDirectory")
     private @Nullable Output<CacheDirectoryActiveDirectoryArgs> directoryActiveDirectory;
 
     /**
-     * @return A `directory_active_directory` block as defined below.
+     * @return A `directoryActiveDirectory` block as defined below.
      * 
      */
     public Optional<Output<CacheDirectoryActiveDirectoryArgs>> directoryActiveDirectory() {
@@ -90,14 +90,14 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `directory_flat_file` block as defined below.
+     * A `directoryFlatFile` block as defined below.
      * 
      */
     @Import(name="directoryFlatFile")
     private @Nullable Output<CacheDirectoryFlatFileArgs> directoryFlatFile;
 
     /**
-     * @return A `directory_flat_file` block as defined below.
+     * @return A `directoryFlatFile` block as defined below.
      * 
      */
     public Optional<Output<CacheDirectoryFlatFileArgs>> directoryFlatFile() {
@@ -105,18 +105,18 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `directory_ldap` block as defined below.
+     * A `directoryLdap` block as defined below.
      * 
-     * &gt; **Note:** Only one of `directory_active_directory`, `directory_flat_file` and `directory_ldap` can be set.
+     * &gt; **Note:** Only one of `directoryActiveDirectory`, `directoryFlatFile` and `directoryLdap` can be set.
      * 
      */
     @Import(name="directoryLdap")
     private @Nullable Output<CacheDirectoryLdapArgs> directoryLdap;
 
     /**
-     * @return A `directory_ldap` block as defined below.
+     * @return A `directoryLdap` block as defined below.
      * 
-     * &gt; **Note:** Only one of `directory_active_directory`, `directory_flat_file` and `directory_ldap` can be set.
+     * &gt; **Note:** Only one of `directoryActiveDirectory`, `directoryFlatFile` and `directoryLdap` can be set.
      * 
      */
     public Optional<Output<CacheDirectoryLdapArgs>> directoryLdap() {
@@ -379,7 +379,7 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultAccessPolicy A `default_access_policy` block as defined below.
+         * @param defaultAccessPolicy A `defaultAccessPolicy` block as defined below.
          * 
          * @return builder
          * 
@@ -390,7 +390,7 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultAccessPolicy A `default_access_policy` block as defined below.
+         * @param defaultAccessPolicy A `defaultAccessPolicy` block as defined below.
          * 
          * @return builder
          * 
@@ -400,7 +400,7 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param directoryActiveDirectory A `directory_active_directory` block as defined below.
+         * @param directoryActiveDirectory A `directoryActiveDirectory` block as defined below.
          * 
          * @return builder
          * 
@@ -411,7 +411,7 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param directoryActiveDirectory A `directory_active_directory` block as defined below.
+         * @param directoryActiveDirectory A `directoryActiveDirectory` block as defined below.
          * 
          * @return builder
          * 
@@ -421,7 +421,7 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param directoryFlatFile A `directory_flat_file` block as defined below.
+         * @param directoryFlatFile A `directoryFlatFile` block as defined below.
          * 
          * @return builder
          * 
@@ -432,7 +432,7 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param directoryFlatFile A `directory_flat_file` block as defined below.
+         * @param directoryFlatFile A `directoryFlatFile` block as defined below.
          * 
          * @return builder
          * 
@@ -442,9 +442,9 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param directoryLdap A `directory_ldap` block as defined below.
+         * @param directoryLdap A `directoryLdap` block as defined below.
          * 
-         * &gt; **Note:** Only one of `directory_active_directory`, `directory_flat_file` and `directory_ldap` can be set.
+         * &gt; **Note:** Only one of `directoryActiveDirectory`, `directoryFlatFile` and `directoryLdap` can be set.
          * 
          * @return builder
          * 
@@ -455,9 +455,9 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param directoryLdap A `directory_ldap` block as defined below.
+         * @param directoryLdap A `directoryLdap` block as defined below.
          * 
-         * &gt; **Note:** Only one of `directory_active_directory`, `directory_flat_file` and `directory_ldap` can be set.
+         * &gt; **Note:** Only one of `directoryActiveDirectory`, `directoryFlatFile` and `directoryLdap` can be set.
          * 
          * @return builder
          * 

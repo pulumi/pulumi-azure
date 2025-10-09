@@ -155,28 +155,28 @@ public class FailoverGroup extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A `partner_server` block as defined below.
+     * A `partnerServer` block as defined below.
      * 
      */
     @Export(name="partnerServers", refs={List.class,FailoverGroupPartnerServer.class}, tree="[0,1]")
     private Output<List<FailoverGroupPartnerServer>> partnerServers;
 
     /**
-     * @return A `partner_server` block as defined below.
+     * @return A `partnerServer` block as defined below.
      * 
      */
     public Output<List<FailoverGroupPartnerServer>> partnerServers() {
         return this.partnerServers;
     }
     /**
-     * A `read_write_endpoint_failover_policy` block as defined below.
+     * A `readWriteEndpointFailoverPolicy` block as defined below.
      * 
      */
     @Export(name="readWriteEndpointFailoverPolicy", refs={FailoverGroupReadWriteEndpointFailoverPolicy.class}, tree="[0]")
     private Output<FailoverGroupReadWriteEndpointFailoverPolicy> readWriteEndpointFailoverPolicy;
 
     /**
-     * @return A `read_write_endpoint_failover_policy` block as defined below.
+     * @return A `readWriteEndpointFailoverPolicy` block as defined below.
      * 
      */
     public Output<FailoverGroupReadWriteEndpointFailoverPolicy> readWriteEndpointFailoverPolicy() {

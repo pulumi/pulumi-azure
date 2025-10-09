@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Monitoring.Outputs
     public sealed class GetDataCollectionRuleStreamDeclarationResult
     {
         /// <summary>
-        /// One or more `column` blocks as defined above.
+        /// One or more `Column` blocks as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDataCollectionRuleStreamDeclarationColumnResult> Columns;
         /// <summary>
-        /// The name of the custom stream. This name should be unique across all `stream_declaration` blocks.
+        /// The name of the custom stream. This name should be unique across all `StreamDeclaration` blocks.
         /// </summary>
         public readonly string StreamName;
 

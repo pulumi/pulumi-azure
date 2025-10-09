@@ -22,17 +22,17 @@ public final class GremlinGraphIndexPolicy {
      */
     private @Nullable Boolean automatic;
     /**
-     * @return One or more `composite_index` blocks as defined below.
+     * @return One or more `compositeIndex` blocks as defined below.
      * 
      */
     private @Nullable List<GremlinGraphIndexPolicyCompositeIndex> compositeIndices;
     /**
-     * @return List of paths to exclude from indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
+     * @return List of paths to exclude from indexing. Required if `indexingMode` is `Consistent` or `Lazy`.
      * 
      */
     private @Nullable List<String> excludedPaths;
     /**
-     * @return List of paths to include in the indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
+     * @return List of paths to include in the indexing. Required if `indexingMode` is `Consistent` or `Lazy`.
      * 
      */
     private @Nullable List<String> includedPaths;
@@ -42,7 +42,7 @@ public final class GremlinGraphIndexPolicy {
      */
     private String indexingMode;
     /**
-     * @return One or more `spatial_index` blocks as defined below.
+     * @return One or more `spatialIndex` blocks as defined below.
      * 
      */
     private @Nullable List<GremlinGraphIndexPolicySpatialIndex> spatialIndices;
@@ -56,21 +56,21 @@ public final class GremlinGraphIndexPolicy {
         return Optional.ofNullable(this.automatic);
     }
     /**
-     * @return One or more `composite_index` blocks as defined below.
+     * @return One or more `compositeIndex` blocks as defined below.
      * 
      */
     public List<GremlinGraphIndexPolicyCompositeIndex> compositeIndices() {
         return this.compositeIndices == null ? List.of() : this.compositeIndices;
     }
     /**
-     * @return List of paths to exclude from indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
+     * @return List of paths to exclude from indexing. Required if `indexingMode` is `Consistent` or `Lazy`.
      * 
      */
     public List<String> excludedPaths() {
         return this.excludedPaths == null ? List.of() : this.excludedPaths;
     }
     /**
-     * @return List of paths to include in the indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
+     * @return List of paths to include in the indexing. Required if `indexingMode` is `Consistent` or `Lazy`.
      * 
      */
     public List<String> includedPaths() {
@@ -84,7 +84,7 @@ public final class GremlinGraphIndexPolicy {
         return this.indexingMode;
     }
     /**
-     * @return One or more `spatial_index` blocks as defined below.
+     * @return One or more `spatialIndex` blocks as defined below.
      * 
      */
     public List<GremlinGraphIndexPolicySpatialIndex> spatialIndices() {

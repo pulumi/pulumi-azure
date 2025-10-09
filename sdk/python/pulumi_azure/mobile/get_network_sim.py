@@ -170,6 +170,15 @@ def get_network_sim(mobile_network_sim_group_id: Optional[_builtins.str] = None,
     """
     Get information about a Mobile Network Sim.
 
+    ## Example Usage
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.MobileNetwork` - 2022-11-01
+
 
     :param _builtins.str mobile_network_sim_group_id: The ID of the Mobile Network which the Mobile Network Sim belongs to.
     :param _builtins.str name: The name which should be used for this Mobile Network Sim.
@@ -197,6 +206,15 @@ def get_network_sim_output(mobile_network_sim_group_id: Optional[pulumi.Input[_b
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkSimResult]:
     """
     Get information about a Mobile Network Sim.
+
+    ## Example Usage
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.MobileNetwork` - 2022-11-01
 
 
     :param _builtins.str mobile_network_sim_group_id: The ID of the Mobile Network which the Mobile Network Sim belongs to.

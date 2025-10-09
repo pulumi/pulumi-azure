@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FrontdoorFirewallPolicyLogScrubbingScrubbingRule {
     /**
-     * @return Is this `scrubbing_rule` enabled? Defaults to `true`.
+     * @return Is this `scrubbingRule` enabled? Defaults to `true`.
      * 
      */
     private @Nullable Boolean enabled;
@@ -26,12 +26,12 @@ public final class FrontdoorFirewallPolicyLogScrubbingScrubbingRule {
      */
     private String matchVariable;
     /**
-     * @return When the `match_variable` is a collection, operate on the `selector` to specify which elements in the collection this `scrubbing_rule` applies to. Possible values are `Equals` or `EqualsAny`. Defaults to `Equals`.
+     * @return When the `matchVariable` is a collection, operate on the `selector` to specify which elements in the collection this `scrubbingRule` applies to. Possible values are `Equals` or `EqualsAny`. Defaults to `Equals`.
      * 
      */
     private @Nullable String operator;
     /**
-     * @return When the `match_variable` is a collection, the `operator` is used to specify which elements in the collection this `scrubbing_rule` applies to.
+     * @return When the `matchVariable` is a collection, the `operator` is used to specify which elements in the collection this `scrubbingRule` applies to.
      * 
      * &gt; **Note:** The `selector` field cannot be set if the `operator` is set to `EqualsAny`.
      * 
@@ -40,7 +40,7 @@ public final class FrontdoorFirewallPolicyLogScrubbingScrubbingRule {
 
     private FrontdoorFirewallPolicyLogScrubbingScrubbingRule() {}
     /**
-     * @return Is this `scrubbing_rule` enabled? Defaults to `true`.
+     * @return Is this `scrubbingRule` enabled? Defaults to `true`.
      * 
      */
     public Optional<Boolean> enabled() {
@@ -56,14 +56,14 @@ public final class FrontdoorFirewallPolicyLogScrubbingScrubbingRule {
         return this.matchVariable;
     }
     /**
-     * @return When the `match_variable` is a collection, operate on the `selector` to specify which elements in the collection this `scrubbing_rule` applies to. Possible values are `Equals` or `EqualsAny`. Defaults to `Equals`.
+     * @return When the `matchVariable` is a collection, operate on the `selector` to specify which elements in the collection this `scrubbingRule` applies to. Possible values are `Equals` or `EqualsAny`. Defaults to `Equals`.
      * 
      */
     public Optional<String> operator() {
         return Optional.ofNullable(this.operator);
     }
     /**
-     * @return When the `match_variable` is a collection, the `operator` is used to specify which elements in the collection this `scrubbing_rule` applies to.
+     * @return When the `matchVariable` is a collection, the `operator` is used to specify which elements in the collection this `scrubbingRule` applies to.
      * 
      * &gt; **Note:** The `selector` field cannot be set if the `operator` is set to `EqualsAny`.
      * 

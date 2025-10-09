@@ -147,14 +147,14 @@ public class IotHubDeviceUpdateInstance extends com.pulumi.resources.CustomResou
         return Codegen.optional(this.diagnosticEnabled);
     }
     /**
-     * A `diagnostic_storage_account` block as defined below.
+     * A `diagnosticStorageAccount` block as defined below.
      * 
      */
     @Export(name="diagnosticStorageAccount", refs={IotHubDeviceUpdateInstanceDiagnosticStorageAccount.class}, tree="[0]")
     private Output</* @Nullable */ IotHubDeviceUpdateInstanceDiagnosticStorageAccount> diagnosticStorageAccount;
 
     /**
-     * @return A `diagnostic_storage_account` block as defined below.
+     * @return A `diagnosticStorageAccount` block as defined below.
      * 
      */
     public Output<Optional<IotHubDeviceUpdateInstanceDiagnosticStorageAccount>> diagnosticStorageAccount() {

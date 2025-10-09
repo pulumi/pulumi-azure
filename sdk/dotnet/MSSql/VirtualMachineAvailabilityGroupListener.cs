@@ -30,15 +30,15 @@ namespace Pulumi.Azure.MSSql
         public Output<string?> AvailabilityGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `load_balancer_configuration` block as defined below. Changing this forces a new resource to be created.
+        /// A `LoadBalancerConfiguration` block as defined below. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** Either one of `load_balancer_configuration` or `multi_subnet_ip_configuration` must be specified.
+        /// &gt; **Note:** Either one of `LoadBalancerConfiguration` or `MultiSubnetIpConfiguration` must be specified.
         /// </summary>
         [Output("loadBalancerConfiguration")]
         public Output<Outputs.VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration?> LoadBalancerConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `multi_subnet_ip_configuration` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `MultiSubnetIpConfiguration` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("multiSubnetIpConfigurations")]
         public Output<ImmutableArray<Outputs.VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration>> MultiSubnetIpConfigurations { get; private set; } = null!;
@@ -56,7 +56,7 @@ namespace Pulumi.Azure.MSSql
         public Output<int?> Port { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `replica` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `Replica` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("replicas")]
         public Output<ImmutableArray<Outputs.VirtualMachineAvailabilityGroupListenerReplica>> Replicas { get; private set; } = null!;
@@ -120,9 +120,9 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? AvailabilityGroupName { get; set; }
 
         /// <summary>
-        /// A `load_balancer_configuration` block as defined below. Changing this forces a new resource to be created.
+        /// A `LoadBalancerConfiguration` block as defined below. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** Either one of `load_balancer_configuration` or `multi_subnet_ip_configuration` must be specified.
+        /// &gt; **Note:** Either one of `LoadBalancerConfiguration` or `MultiSubnetIpConfiguration` must be specified.
         /// </summary>
         [Input("loadBalancerConfiguration")]
         public Input<Inputs.VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs>? LoadBalancerConfiguration { get; set; }
@@ -131,7 +131,7 @@ namespace Pulumi.Azure.MSSql
         private InputList<Inputs.VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs>? _multiSubnetIpConfigurations;
 
         /// <summary>
-        /// One or more `multi_subnet_ip_configuration` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `MultiSubnetIpConfiguration` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs> MultiSubnetIpConfigurations
         {
@@ -155,7 +155,7 @@ namespace Pulumi.Azure.MSSql
         private InputList<Inputs.VirtualMachineAvailabilityGroupListenerReplicaArgs>? _replicas;
 
         /// <summary>
-        /// One or more `replica` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `Replica` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.VirtualMachineAvailabilityGroupListenerReplicaArgs> Replicas
         {
@@ -184,9 +184,9 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? AvailabilityGroupName { get; set; }
 
         /// <summary>
-        /// A `load_balancer_configuration` block as defined below. Changing this forces a new resource to be created.
+        /// A `LoadBalancerConfiguration` block as defined below. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** Either one of `load_balancer_configuration` or `multi_subnet_ip_configuration` must be specified.
+        /// &gt; **Note:** Either one of `LoadBalancerConfiguration` or `MultiSubnetIpConfiguration` must be specified.
         /// </summary>
         [Input("loadBalancerConfiguration")]
         public Input<Inputs.VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationGetArgs>? LoadBalancerConfiguration { get; set; }
@@ -195,7 +195,7 @@ namespace Pulumi.Azure.MSSql
         private InputList<Inputs.VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationGetArgs>? _multiSubnetIpConfigurations;
 
         /// <summary>
-        /// One or more `multi_subnet_ip_configuration` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `MultiSubnetIpConfiguration` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationGetArgs> MultiSubnetIpConfigurations
         {
@@ -219,7 +219,7 @@ namespace Pulumi.Azure.MSSql
         private InputList<Inputs.VirtualMachineAvailabilityGroupListenerReplicaGetArgs>? _replicas;
 
         /// <summary>
-        /// One or more `replica` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `Replica` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.VirtualMachineAvailabilityGroupListenerReplicaGetArgs> Replicas
         {

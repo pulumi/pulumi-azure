@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Orbital.Inputs
         private InputList<Inputs.ContactProfileLinkChannelArgs>? _channels;
 
         /// <summary>
-        /// A list of contact profile link channels. A `channels` block as defined below.
+        /// A list of contact profile link channels. A `Channels` block as defined below.
         /// </summary>
         public InputList<Inputs.ContactProfileLinkChannelArgs> Channels
         {

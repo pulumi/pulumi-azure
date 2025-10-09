@@ -47,14 +47,14 @@ public final class EndpointStorageContainerState extends com.pulumi.resources.Re
     }
 
     /**
-     * The connection string for the endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `keyBased`.
+     * The connection string for the endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `keyBased`.
      * 
      */
     @Import(name="connectionString")
     private @Nullable Output<String> connectionString;
 
     /**
-     * @return The connection string for the endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `keyBased`.
+     * @return The connection string for the endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `keyBased`.
      * 
      */
     public Optional<Output<String>> connectionString() {
@@ -92,14 +92,14 @@ public final class EndpointStorageContainerState extends com.pulumi.resources.Re
     }
 
     /**
-     * URI of the Storage Container endpoint. This corresponds to the `primary_blob_endpoint` of the parent storage account. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+     * URI of the Storage Container endpoint. This corresponds to the `primaryBlobEndpoint` of the parent storage account. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
      * 
      */
     @Import(name="endpointUri")
     private @Nullable Output<String> endpointUri;
 
     /**
-     * @return URI of the Storage Container endpoint. This corresponds to the `primary_blob_endpoint` of the parent storage account. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+     * @return URI of the Storage Container endpoint. This corresponds to the `primaryBlobEndpoint` of the parent storage account. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
      * 
      */
     public Optional<Output<String>> endpointUri() {
@@ -124,7 +124,7 @@ public final class EndpointStorageContainerState extends com.pulumi.resources.Re
     /**
      * ID of the User Managed Identity used to authenticate against the storage endpoint.
      * 
-     * &gt; **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
+     * &gt; **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
      * 
      */
     @Import(name="identityId")
@@ -133,7 +133,7 @@ public final class EndpointStorageContainerState extends com.pulumi.resources.Re
     /**
      * @return ID of the User Managed Identity used to authenticate against the storage endpoint.
      * 
-     * &gt; **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
+     * &gt; **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
      * 
      */
     public Optional<Output<String>> identityId() {
@@ -203,7 +203,7 @@ public final class EndpointStorageContainerState extends com.pulumi.resources.Re
     /**
      * The subscription ID for the endpoint.
      * 
-     * &gt; **Note:** When `subscription_id` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
+     * &gt; **Note:** When `subscriptionId` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
      * 
      */
     @Import(name="subscriptionId")
@@ -212,7 +212,7 @@ public final class EndpointStorageContainerState extends com.pulumi.resources.Re
     /**
      * @return The subscription ID for the endpoint.
      * 
-     * &gt; **Note:** When `subscription_id` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
+     * &gt; **Note:** When `subscriptionId` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
      * 
      */
     public Optional<Output<String>> subscriptionId() {
@@ -298,7 +298,7 @@ public final class EndpointStorageContainerState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param connectionString The connection string for the endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `keyBased`.
+         * @param connectionString The connection string for the endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `keyBased`.
          * 
          * @return builder
          * 
@@ -309,7 +309,7 @@ public final class EndpointStorageContainerState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param connectionString The connection string for the endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `keyBased`.
+         * @param connectionString The connection string for the endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `keyBased`.
          * 
          * @return builder
          * 
@@ -361,7 +361,7 @@ public final class EndpointStorageContainerState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param endpointUri URI of the Storage Container endpoint. This corresponds to the `primary_blob_endpoint` of the parent storage account. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+         * @param endpointUri URI of the Storage Container endpoint. This corresponds to the `primaryBlobEndpoint` of the parent storage account. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
          * 
          * @return builder
          * 
@@ -372,7 +372,7 @@ public final class EndpointStorageContainerState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param endpointUri URI of the Storage Container endpoint. This corresponds to the `primary_blob_endpoint` of the parent storage account. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+         * @param endpointUri URI of the Storage Container endpoint. This corresponds to the `primaryBlobEndpoint` of the parent storage account. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
          * 
          * @return builder
          * 
@@ -405,7 +405,7 @@ public final class EndpointStorageContainerState extends com.pulumi.resources.Re
         /**
          * @param identityId ID of the User Managed Identity used to authenticate against the storage endpoint.
          * 
-         * &gt; **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
+         * &gt; **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
          * 
          * @return builder
          * 
@@ -418,7 +418,7 @@ public final class EndpointStorageContainerState extends com.pulumi.resources.Re
         /**
          * @param identityId ID of the User Managed Identity used to authenticate against the storage endpoint.
          * 
-         * &gt; **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
+         * &gt; **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
          * 
          * @return builder
          * 
@@ -514,7 +514,7 @@ public final class EndpointStorageContainerState extends com.pulumi.resources.Re
         /**
          * @param subscriptionId The subscription ID for the endpoint.
          * 
-         * &gt; **Note:** When `subscription_id` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
+         * &gt; **Note:** When `subscriptionId` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
          * 
          * @return builder
          * 
@@ -527,7 +527,7 @@ public final class EndpointStorageContainerState extends com.pulumi.resources.Re
         /**
          * @param subscriptionId The subscription ID for the endpoint.
          * 
-         * &gt; **Note:** When `subscription_id` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
+         * &gt; **Note:** When `subscriptionId` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
          * 
          * @return builder
          * 

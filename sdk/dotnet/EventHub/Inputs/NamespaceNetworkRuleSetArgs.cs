@@ -34,7 +34,7 @@ namespace Pulumi.Azure.EventHub.Inputs
         private InputList<Inputs.NamespaceNetworkRuleSetNetworkRuleArgs>? _networkRules;
 
         /// <summary>
-        /// One or more `network_rules` blocks as defined below.
+        /// One or more `NetworkRules` blocks as defined below.
         /// </summary>
         public InputList<Inputs.NamespaceNetworkRuleSetNetworkRuleArgs> NetworkRules
         {
@@ -43,9 +43,9 @@ namespace Pulumi.Azure.EventHub.Inputs
         }
 
         /// <summary>
-        /// Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
+        /// Whether to allow traffic over public network. Possible values are `True` and `False`. Defaults to `True`.
         /// 
-        /// &gt; **Note:** To disable public network access, you must also configure the property `public_network_access_enabled`.
+        /// &gt; **Note:** To disable public network access, you must also configure the property `PublicNetworkAccessEnabled`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }

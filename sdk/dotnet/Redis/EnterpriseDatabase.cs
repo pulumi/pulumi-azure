@@ -120,7 +120,7 @@ namespace Pulumi.Azure.Redis
         public Output<ImmutableArray<string>> LinkedDatabaseIds { get; private set; } = null!;
 
         /// <summary>
-        /// A `module` block as defined below. Changing this forces a new resource to be created.
+        /// A `Module` block as defined below. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
         /// </summary>
@@ -128,7 +128,7 @@ namespace Pulumi.Azure.Redis
         public Output<ImmutableArray<Outputs.EnterpriseDatabaseModule>> Modules { get; private set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
+        /// The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `Default`. Defaults to `Default`. Changing this forces a new Redis Enterprise Database to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -250,7 +250,7 @@ namespace Pulumi.Azure.Redis
         private InputList<Inputs.EnterpriseDatabaseModuleArgs>? _modules;
 
         /// <summary>
-        /// A `module` block as defined below. Changing this forces a new resource to be created.
+        /// A `Module` block as defined below. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
         /// </summary>
@@ -261,7 +261,7 @@ namespace Pulumi.Azure.Redis
         }
 
         /// <summary>
-        /// The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
+        /// The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `Default`. Defaults to `Default`. Changing this forces a new Redis Enterprise Database to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -328,7 +328,7 @@ namespace Pulumi.Azure.Redis
         private InputList<Inputs.EnterpriseDatabaseModuleGetArgs>? _modules;
 
         /// <summary>
-        /// A `module` block as defined below. Changing this forces a new resource to be created.
+        /// A `Module` block as defined below. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
         /// </summary>
@@ -339,7 +339,7 @@ namespace Pulumi.Azure.Redis
         }
 
         /// <summary>
-        /// The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
+        /// The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `Default`. Defaults to `Default`. Changing this forces a new Redis Enterprise Database to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

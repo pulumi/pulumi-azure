@@ -165,14 +165,14 @@ public class SpringCloudCustomizedAccelerator extends com.pulumi.resources.Custo
         return Codegen.optional(this.displayName);
     }
     /**
-     * A `git_repository` block as defined below.
+     * A `gitRepository` block as defined below.
      * 
      */
     @Export(name="gitRepository", refs={SpringCloudCustomizedAcceleratorGitRepository.class}, tree="[0]")
     private Output<SpringCloudCustomizedAcceleratorGitRepository> gitRepository;
 
     /**
-     * @return A `git_repository` block as defined below.
+     * @return A `gitRepository` block as defined below.
      * 
      */
     public Output<SpringCloudCustomizedAcceleratorGitRepository> gitRepository() {

@@ -95,31 +95,31 @@ namespace Pulumi.Azure.NewRelic
     public partial class TagRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Whether activity logs from Azure resources should be sent for the Monitor resource. Defaults to `false`.
+        /// Whether activity logs from Azure resources should be sent for the Monitor resource. Defaults to `False`.
         /// </summary>
         [Output("activityLogEnabled")]
         public Output<bool?> ActivityLogEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Whether Azure Active Directory logs should be sent for the Monitor resource. Defaults to `false`.
+        /// Whether Azure Active Directory logs should be sent for the Monitor resource. Defaults to `False`.
         /// </summary>
         [Output("azureActiveDirectoryLogEnabled")]
         public Output<bool?> AzureActiveDirectoryLogEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A `log_tag_filter` block as defined below.
+        /// A `LogTagFilter` block as defined below.
         /// </summary>
         [Output("logTagFilters")]
         public Output<ImmutableArray<Outputs.TagRuleLogTagFilter>> LogTagFilters { get; private set; } = null!;
 
         /// <summary>
-        /// Whether metrics should be sent for the Monitor resource. Defaults to `false`.
+        /// Whether metrics should be sent for the Monitor resource. Defaults to `False`.
         /// </summary>
         [Output("metricEnabled")]
         public Output<bool?> MetricEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A `metric_tag_filter` block as defined below.
+        /// A `MetricTagFilter` block as defined below.
         /// </summary>
         [Output("metricTagFilters")]
         public Output<ImmutableArray<Outputs.TagRuleMetricTagFilter>> MetricTagFilters { get; private set; } = null!;
@@ -131,7 +131,7 @@ namespace Pulumi.Azure.NewRelic
         public Output<string> MonitorId { get; private set; } = null!;
 
         /// <summary>
-        /// Whether subscription logs should be sent for the Monitor resource. Defaults to `false`.
+        /// Whether subscription logs should be sent for the Monitor resource. Defaults to `False`.
         /// </summary>
         [Output("subscriptionLogEnabled")]
         public Output<bool?> SubscriptionLogEnabled { get; private set; } = null!;
@@ -183,13 +183,13 @@ namespace Pulumi.Azure.NewRelic
     public sealed class TagRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether activity logs from Azure resources should be sent for the Monitor resource. Defaults to `false`.
+        /// Whether activity logs from Azure resources should be sent for the Monitor resource. Defaults to `False`.
         /// </summary>
         [Input("activityLogEnabled")]
         public Input<bool>? ActivityLogEnabled { get; set; }
 
         /// <summary>
-        /// Whether Azure Active Directory logs should be sent for the Monitor resource. Defaults to `false`.
+        /// Whether Azure Active Directory logs should be sent for the Monitor resource. Defaults to `False`.
         /// </summary>
         [Input("azureActiveDirectoryLogEnabled")]
         public Input<bool>? AzureActiveDirectoryLogEnabled { get; set; }
@@ -198,7 +198,7 @@ namespace Pulumi.Azure.NewRelic
         private InputList<Inputs.TagRuleLogTagFilterArgs>? _logTagFilters;
 
         /// <summary>
-        /// A `log_tag_filter` block as defined below.
+        /// A `LogTagFilter` block as defined below.
         /// </summary>
         public InputList<Inputs.TagRuleLogTagFilterArgs> LogTagFilters
         {
@@ -207,7 +207,7 @@ namespace Pulumi.Azure.NewRelic
         }
 
         /// <summary>
-        /// Whether metrics should be sent for the Monitor resource. Defaults to `false`.
+        /// Whether metrics should be sent for the Monitor resource. Defaults to `False`.
         /// </summary>
         [Input("metricEnabled")]
         public Input<bool>? MetricEnabled { get; set; }
@@ -216,7 +216,7 @@ namespace Pulumi.Azure.NewRelic
         private InputList<Inputs.TagRuleMetricTagFilterArgs>? _metricTagFilters;
 
         /// <summary>
-        /// A `metric_tag_filter` block as defined below.
+        /// A `MetricTagFilter` block as defined below.
         /// </summary>
         public InputList<Inputs.TagRuleMetricTagFilterArgs> MetricTagFilters
         {
@@ -231,7 +231,7 @@ namespace Pulumi.Azure.NewRelic
         public Input<string> MonitorId { get; set; } = null!;
 
         /// <summary>
-        /// Whether subscription logs should be sent for the Monitor resource. Defaults to `false`.
+        /// Whether subscription logs should be sent for the Monitor resource. Defaults to `False`.
         /// </summary>
         [Input("subscriptionLogEnabled")]
         public Input<bool>? SubscriptionLogEnabled { get; set; }
@@ -245,13 +245,13 @@ namespace Pulumi.Azure.NewRelic
     public sealed class TagRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether activity logs from Azure resources should be sent for the Monitor resource. Defaults to `false`.
+        /// Whether activity logs from Azure resources should be sent for the Monitor resource. Defaults to `False`.
         /// </summary>
         [Input("activityLogEnabled")]
         public Input<bool>? ActivityLogEnabled { get; set; }
 
         /// <summary>
-        /// Whether Azure Active Directory logs should be sent for the Monitor resource. Defaults to `false`.
+        /// Whether Azure Active Directory logs should be sent for the Monitor resource. Defaults to `False`.
         /// </summary>
         [Input("azureActiveDirectoryLogEnabled")]
         public Input<bool>? AzureActiveDirectoryLogEnabled { get; set; }
@@ -260,7 +260,7 @@ namespace Pulumi.Azure.NewRelic
         private InputList<Inputs.TagRuleLogTagFilterGetArgs>? _logTagFilters;
 
         /// <summary>
-        /// A `log_tag_filter` block as defined below.
+        /// A `LogTagFilter` block as defined below.
         /// </summary>
         public InputList<Inputs.TagRuleLogTagFilterGetArgs> LogTagFilters
         {
@@ -269,7 +269,7 @@ namespace Pulumi.Azure.NewRelic
         }
 
         /// <summary>
-        /// Whether metrics should be sent for the Monitor resource. Defaults to `false`.
+        /// Whether metrics should be sent for the Monitor resource. Defaults to `False`.
         /// </summary>
         [Input("metricEnabled")]
         public Input<bool>? MetricEnabled { get; set; }
@@ -278,7 +278,7 @@ namespace Pulumi.Azure.NewRelic
         private InputList<Inputs.TagRuleMetricTagFilterGetArgs>? _metricTagFilters;
 
         /// <summary>
-        /// A `metric_tag_filter` block as defined below.
+        /// A `MetricTagFilter` block as defined below.
         /// </summary>
         public InputList<Inputs.TagRuleMetricTagFilterGetArgs> MetricTagFilters
         {
@@ -293,7 +293,7 @@ namespace Pulumi.Azure.NewRelic
         public Input<string>? MonitorId { get; set; }
 
         /// <summary>
-        /// Whether subscription logs should be sent for the Monitor resource. Defaults to `false`.
+        /// Whether subscription logs should be sent for the Monitor resource. Defaults to `False`.
         /// </summary>
         [Input("subscriptionLogEnabled")]
         public Input<bool>? SubscriptionLogEnabled { get; set; }

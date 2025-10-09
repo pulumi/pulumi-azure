@@ -16,12 +16,12 @@ import java.util.Objects;
 @CustomType
 public final class GetRoleManagementPolicyResult {
     /**
-     * @return An `activation_rules` block as defined below.
+     * @return An `activationRules` block as defined below.
      * 
      */
     private List<GetRoleManagementPolicyActivationRule> activationRules;
     /**
-     * @return An `active_assignment_rules` block as defined below.
+     * @return An `activeAssignmentRules` block as defined below.
      * 
      */
     private List<GetRoleManagementPolicyActiveAssignmentRule> activeAssignmentRules;
@@ -31,7 +31,7 @@ public final class GetRoleManagementPolicyResult {
      */
     private String description;
     /**
-     * @return An `eligible_assignment_rules` block as defined below.
+     * @return An `eligibleAssignmentRules` block as defined below.
      * 
      */
     private List<GetRoleManagementPolicyEligibleAssignmentRule> eligibleAssignmentRules;
@@ -46,7 +46,7 @@ public final class GetRoleManagementPolicyResult {
      */
     private String name;
     /**
-     * @return A `notification_rules` block as defined below.
+     * @return A `notificationRules` block as defined below.
      * 
      */
     private List<GetRoleManagementPolicyNotificationRule> notificationRules;
@@ -55,14 +55,14 @@ public final class GetRoleManagementPolicyResult {
 
     private GetRoleManagementPolicyResult() {}
     /**
-     * @return An `activation_rules` block as defined below.
+     * @return An `activationRules` block as defined below.
      * 
      */
     public List<GetRoleManagementPolicyActivationRule> activationRules() {
         return this.activationRules;
     }
     /**
-     * @return An `active_assignment_rules` block as defined below.
+     * @return An `activeAssignmentRules` block as defined below.
      * 
      */
     public List<GetRoleManagementPolicyActiveAssignmentRule> activeAssignmentRules() {
@@ -76,7 +76,7 @@ public final class GetRoleManagementPolicyResult {
         return this.description;
     }
     /**
-     * @return An `eligible_assignment_rules` block as defined below.
+     * @return An `eligibleAssignmentRules` block as defined below.
      * 
      */
     public List<GetRoleManagementPolicyEligibleAssignmentRule> eligibleAssignmentRules() {
@@ -97,7 +97,7 @@ public final class GetRoleManagementPolicyResult {
         return this.name;
     }
     /**
-     * @return A `notification_rules` block as defined below.
+     * @return A `notificationRules` block as defined below.
      * 
      */
     public List<GetRoleManagementPolicyNotificationRule> notificationRules() {

@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class PolicyVMTieringPolicy {
     /**
-     * @return An `archived_restore_point` block as defined below.
+     * @return An `archivedRestorePoint` block as defined below.
      * 
      */
     private PolicyVMTieringPolicyArchivedRestorePoint archivedRestorePoint;
 
     private PolicyVMTieringPolicy() {}
     /**
-     * @return An `archived_restore_point` block as defined below.
+     * @return An `archivedRestorePoint` block as defined below.
      * 
      */
     public PolicyVMTieringPolicyArchivedRestorePoint archivedRestorePoint() {

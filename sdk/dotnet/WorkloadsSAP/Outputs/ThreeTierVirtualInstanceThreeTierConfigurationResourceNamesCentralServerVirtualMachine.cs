@@ -14,7 +14,7 @@ namespace Pulumi.Azure.WorkloadsSAP.Outputs
     public sealed class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachine
     {
         /// <summary>
-        /// One or more `data_disk` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `DataDisk` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableArray<Outputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineDataDisk> DataDisks;
         /// <summary>

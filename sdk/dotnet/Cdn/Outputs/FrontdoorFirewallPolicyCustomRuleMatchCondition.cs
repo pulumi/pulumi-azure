@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Cdn.Outputs
     public sealed class FrontdoorFirewallPolicyCustomRuleMatchCondition
     {
         /// <summary>
-        /// Up to `600` possible values to match. Limit is in total across all `match_condition` blocks and `match_values` arguments. String value itself can be up to `256` characters in length.
+        /// Up to `600` possible values to match. Limit is in total across all `MatchCondition` blocks and `MatchValues` arguments. String value itself can be up to `256` characters in length.
         /// </summary>
         public readonly ImmutableArray<string> MatchValues;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Cdn.Outputs
         /// </summary>
         public readonly string Operator;
         /// <summary>
-        /// Match against a specific key if the `match_variable` is `QueryString`, `PostArgs`, `RequestHeader`, or `Cookies`.
+        /// Match against a specific key if the `MatchVariable` is `QueryString`, `PostArgs`, `RequestHeader`, or `Cookies`.
         /// </summary>
         public readonly string? Selector;
         /// <summary>

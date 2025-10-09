@@ -109,14 +109,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:synapse/sqlPool:SqlPool")
 public class SqlPool extends com.pulumi.resources.CustomResource {
     /**
-     * The name of the collation to use with this pool, only applicable when `create_mode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new Synapse SQL Pool to be created.
+     * The name of the collation to use with this pool, only applicable when `createMode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new Synapse SQL Pool to be created.
      * 
      */
     @Export(name="collation", refs={String.class}, tree="[0]")
     private Output<String> collation;
 
     /**
-     * @return The name of the collation to use with this pool, only applicable when `create_mode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new Synapse SQL Pool to be created.
+     * @return The name of the collation to use with this pool, only applicable when `createMode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new Synapse SQL Pool to be created.
      * 
      */
     public Output<String> collation() {
@@ -179,28 +179,28 @@ public class SqlPool extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `create_mode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created.
+     * The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `createMode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created.
      * 
      */
     @Export(name="recoveryDatabaseId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> recoveryDatabaseId;
 
     /**
-     * @return The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `create_mode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created.
+     * @return The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `createMode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created.
      * 
      */
     public Output<Optional<String>> recoveryDatabaseId() {
         return Codegen.optional(this.recoveryDatabaseId);
     }
     /**
-     * A `restore` block as defined below. Only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new Synapse SQL Pool to be created.
+     * A `restore` block as defined below. Only applicable when `createMode` is set to `PointInTimeRestore`. Changing this forces a new Synapse SQL Pool to be created.
      * 
      */
     @Export(name="restore", refs={SqlPoolRestore.class}, tree="[0]")
     private Output</* @Nullable */ SqlPoolRestore> restore;
 
     /**
-     * @return A `restore` block as defined below. Only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new Synapse SQL Pool to be created.
+     * @return A `restore` block as defined below. Only applicable when `createMode` is set to `PointInTimeRestore`. Changing this forces a new Synapse SQL Pool to be created.
      * 
      */
     public Output<Optional<SqlPoolRestore>> restore() {

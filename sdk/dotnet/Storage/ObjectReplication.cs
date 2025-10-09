@@ -124,7 +124,7 @@ namespace Pulumi.Azure.Storage
         public Output<string> DestinationStorageAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `rules` blocks as defined below.
+        /// One or more `Rules` blocks as defined below.
         /// </summary>
         [Output("rules")]
         public Output<ImmutableArray<Outputs.ObjectReplicationRule>> Rules { get; private set; } = null!;
@@ -197,7 +197,7 @@ namespace Pulumi.Azure.Storage
         private InputList<Inputs.ObjectReplicationRuleArgs>? _rules;
 
         /// <summary>
-        /// One or more `rules` blocks as defined below.
+        /// One or more `Rules` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ObjectReplicationRuleArgs> Rules
         {
@@ -235,7 +235,7 @@ namespace Pulumi.Azure.Storage
         private InputList<Inputs.ObjectReplicationRuleGetArgs>? _rules;
 
         /// <summary>
-        /// One or more `rules` blocks as defined below.
+        /// One or more `Rules` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ObjectReplicationRuleGetArgs> Rules
         {

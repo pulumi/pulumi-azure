@@ -111,7 +111,7 @@ namespace Pulumi.Azure.PrivateDns
     public partial class ResolverInboundEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// One `ip_configurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+        /// One `IpConfigurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
         /// </summary>
         [Output("ipConfigurations")]
         public Output<Outputs.ResolverInboundEndpointIpConfigurations> IpConfigurations { get; private set; } = null!;
@@ -187,7 +187,7 @@ namespace Pulumi.Azure.PrivateDns
     public sealed class ResolverInboundEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// One `ip_configurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+        /// One `IpConfigurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
         /// </summary>
         [Input("ipConfigurations", required: true)]
         public Input<Inputs.ResolverInboundEndpointIpConfigurationsArgs> IpConfigurations { get; set; } = null!;
@@ -231,7 +231,7 @@ namespace Pulumi.Azure.PrivateDns
     public sealed class ResolverInboundEndpointState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// One `ip_configurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+        /// One `IpConfigurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
         /// </summary>
         [Input("ipConfigurations")]
         public Input<Inputs.ResolverInboundEndpointIpConfigurationsGetArgs>? IpConfigurations { get; set; }

@@ -31,14 +31,14 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `authentication_configuration` block as defined below.
+     * An `authenticationConfiguration` block as defined below.
      * 
      */
     @Import(name="authenticationConfiguration")
     private @Nullable Output<ServiceAuthenticationConfigurationArgs> authenticationConfiguration;
 
     /**
-     * @return An `authentication_configuration` block as defined below.
+     * @return An `authenticationConfiguration` block as defined below.
      * 
      */
     public Optional<Output<ServiceAuthenticationConfigurationArgs>> authenticationConfiguration() {
@@ -61,14 +61,14 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `cors_configuration` block as defined below.
+     * A `corsConfiguration` block as defined below.
      * 
      */
     @Import(name="corsConfiguration")
     private @Nullable Output<ServiceCorsConfigurationArgs> corsConfiguration;
 
     /**
-     * @return A `cors_configuration` block as defined below.
+     * @return A `corsConfiguration` block as defined below.
      * 
      */
     public Optional<Output<ServiceCorsConfigurationArgs>> corsConfiguration() {
@@ -268,7 +268,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authenticationConfiguration An `authentication_configuration` block as defined below.
+         * @param authenticationConfiguration An `authenticationConfiguration` block as defined below.
          * 
          * @return builder
          * 
@@ -279,7 +279,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authenticationConfiguration An `authentication_configuration` block as defined below.
+         * @param authenticationConfiguration An `authenticationConfiguration` block as defined below.
          * 
          * @return builder
          * 
@@ -310,7 +310,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param corsConfiguration A `cors_configuration` block as defined below.
+         * @param corsConfiguration A `corsConfiguration` block as defined below.
          * 
          * @return builder
          * 
@@ -321,7 +321,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param corsConfiguration A `cors_configuration` block as defined below.
+         * @param corsConfiguration A `corsConfiguration` block as defined below.
          * 
          * @return builder
          * 

@@ -12,11 +12,11 @@ namespace Pulumi.Azure.Cdn
     /// <summary>
     /// Manages a Custom Domain for a CDN (classic) Endpoint.
     /// 
-    /// !&gt; **Note:** Support for the CDN (classic) `sku` `Standard_Akamai` was deprecated from Azure on `October 31, 2023` and is no longer available.
+    /// !&gt; **Note:** Support for the CDN (classic) `Sku` `Standard_Akamai` was deprecated from Azure on `October 31, 2023` and is no longer available.
     /// 
-    /// !&gt; **Note:** Support for the CDN (classic) `sku` values `Standard_Verizon` and `Premium_Verizon` were deprecated from Azure on `January 15, 2025` and are no longer available.
+    /// !&gt; **Note:** Support for the CDN (classic) `Sku` values `Standard_Verizon` and `Premium_Verizon` were deprecated from Azure on `January 15, 2025` and are no longer available.
     /// 
-    /// !&gt; **Note:** Support for the CDN (classic) `sku` values `Standard_Microsoft` and `Standard_ChinaCdn` will be deprecated from Azure on `October 1, 2025` and will no longer be available, however, modifications to existing CDN (classic) resources will continue to be supported until the API reaches full retirement on `September 30, 2027`.
+    /// !&gt; **Note:** Support for the CDN (classic) `Sku` values `Standard_Microsoft` and `Standard_ChinaCdn` will be deprecated from Azure on `October 1, 2025` and will no longer be available, however, modifications to existing CDN (classic) resources will continue to be supported until the API reaches full retirement on `September 30, 2027`.
     /// 
     /// ## Example Usage
     /// 
@@ -115,7 +115,7 @@ namespace Pulumi.Azure.Cdn
         public Output<string> CdnEndpointId { get; private set; } = null!;
 
         /// <summary>
-        /// A `cdn_managed_https` block as defined below.
+        /// A `CdnManagedHttps` block as defined below.
         /// </summary>
         [Output("cdnManagedHttps")]
         public Output<Outputs.EndpointCustomDomainCdnManagedHttps?> CdnManagedHttps { get; private set; } = null!;
@@ -133,9 +133,9 @@ namespace Pulumi.Azure.Cdn
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `user_managed_https` block as defined below.
+        /// A `UserManagedHttps` block as defined below.
         /// 
-        /// &gt; **Note:** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
+        /// &gt; **Note:** Only one of `CdnManagedHttps` and `UserManagedHttps` can be specified.
         /// </summary>
         [Output("userManagedHttps")]
         public Output<Outputs.EndpointCustomDomainUserManagedHttps?> UserManagedHttps { get; private set; } = null!;
@@ -193,7 +193,7 @@ namespace Pulumi.Azure.Cdn
         public Input<string> CdnEndpointId { get; set; } = null!;
 
         /// <summary>
-        /// A `cdn_managed_https` block as defined below.
+        /// A `CdnManagedHttps` block as defined below.
         /// </summary>
         [Input("cdnManagedHttps")]
         public Input<Inputs.EndpointCustomDomainCdnManagedHttpsArgs>? CdnManagedHttps { get; set; }
@@ -211,9 +211,9 @@ namespace Pulumi.Azure.Cdn
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `user_managed_https` block as defined below.
+        /// A `UserManagedHttps` block as defined below.
         /// 
-        /// &gt; **Note:** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
+        /// &gt; **Note:** Only one of `CdnManagedHttps` and `UserManagedHttps` can be specified.
         /// </summary>
         [Input("userManagedHttps")]
         public Input<Inputs.EndpointCustomDomainUserManagedHttpsArgs>? UserManagedHttps { get; set; }
@@ -233,7 +233,7 @@ namespace Pulumi.Azure.Cdn
         public Input<string>? CdnEndpointId { get; set; }
 
         /// <summary>
-        /// A `cdn_managed_https` block as defined below.
+        /// A `CdnManagedHttps` block as defined below.
         /// </summary>
         [Input("cdnManagedHttps")]
         public Input<Inputs.EndpointCustomDomainCdnManagedHttpsGetArgs>? CdnManagedHttps { get; set; }
@@ -251,9 +251,9 @@ namespace Pulumi.Azure.Cdn
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `user_managed_https` block as defined below.
+        /// A `UserManagedHttps` block as defined below.
         /// 
-        /// &gt; **Note:** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
+        /// &gt; **Note:** Only one of `CdnManagedHttps` and `UserManagedHttps` can be specified.
         /// </summary>
         [Input("userManagedHttps")]
         public Input<Inputs.EndpointCustomDomainUserManagedHttpsGetArgs>? UserManagedHttps { get; set; }

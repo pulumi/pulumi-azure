@@ -56,7 +56,7 @@ public final class SoftwareUpdateConfigurationSchedule {
     private @Nullable Boolean isEnabled;
     private @Nullable String lastModifiedTime;
     /**
-     * @return List of `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields as defined below.
+     * @return List of `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields as defined below.
      * 
      */
     private @Nullable SoftwareUpdateConfigurationScheduleMonthlyOccurrence monthlyOccurrence;
@@ -134,7 +134,7 @@ public final class SoftwareUpdateConfigurationSchedule {
         return Optional.ofNullable(this.lastModifiedTime);
     }
     /**
-     * @return List of `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields as defined below.
+     * @return List of `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields as defined below.
      * 
      */
     public Optional<SoftwareUpdateConfigurationScheduleMonthlyOccurrence> monthlyOccurrence() {

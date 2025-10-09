@@ -48,14 +48,14 @@ public final class NetworkInterfaceIpConfigurationArgs extends com.pulumi.resour
     }
 
     /**
-     * Is this the Primary IP Configuration? Must be `true` for the first `ip_configuration` when multiple are specified. Defaults to `false`.
+     * Is this the Primary IP Configuration? Must be `true` for the first `ipConfiguration` when multiple are specified. Defaults to `false`.
      * 
      */
     @Import(name="primary")
     private @Nullable Output<Boolean> primary;
 
     /**
-     * @return Is this the Primary IP Configuration? Must be `true` for the first `ip_configuration` when multiple are specified. Defaults to `false`.
+     * @return Is this the Primary IP Configuration? Must be `true` for the first `ipConfiguration` when multiple are specified. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> primary() {
@@ -129,7 +129,7 @@ public final class NetworkInterfaceIpConfigurationArgs extends com.pulumi.resour
     /**
      * The ID of the Subnet where this Network Interface should be located in.
      * 
-     * &gt; **Note:** This is required when `private_ip_address_version` is set to `IPv4`.
+     * &gt; **Note:** This is required when `privateIpAddressVersion` is set to `IPv4`.
      * 
      */
     @Import(name="subnetId")
@@ -138,7 +138,7 @@ public final class NetworkInterfaceIpConfigurationArgs extends com.pulumi.resour
     /**
      * @return The ID of the Subnet where this Network Interface should be located in.
      * 
-     * &gt; **Note:** This is required when `private_ip_address_version` is set to `IPv4`.
+     * &gt; **Note:** This is required when `privateIpAddressVersion` is set to `IPv4`.
      * 
      */
     public Optional<Output<String>> subnetId() {
@@ -219,7 +219,7 @@ public final class NetworkInterfaceIpConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param primary Is this the Primary IP Configuration? Must be `true` for the first `ip_configuration` when multiple are specified. Defaults to `false`.
+         * @param primary Is this the Primary IP Configuration? Must be `true` for the first `ipConfiguration` when multiple are specified. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class NetworkInterfaceIpConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param primary Is this the Primary IP Configuration? Must be `true` for the first `ip_configuration` when multiple are specified. Defaults to `false`.
+         * @param primary Is this the Primary IP Configuration? Must be `true` for the first `ipConfiguration` when multiple are specified. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -330,7 +330,7 @@ public final class NetworkInterfaceIpConfigurationArgs extends com.pulumi.resour
         /**
          * @param subnetId The ID of the Subnet where this Network Interface should be located in.
          * 
-         * &gt; **Note:** This is required when `private_ip_address_version` is set to `IPv4`.
+         * &gt; **Note:** This is required when `privateIpAddressVersion` is set to `IPv4`.
          * 
          * @return builder
          * 
@@ -343,7 +343,7 @@ public final class NetworkInterfaceIpConfigurationArgs extends com.pulumi.resour
         /**
          * @param subnetId The ID of the Subnet where this Network Interface should be located in.
          * 
-         * &gt; **Note:** This is required when `private_ip_address_version` is set to `IPv4`.
+         * &gt; **Note:** This is required when `privateIpAddressVersion` is set to `IPv4`.
          * 
          * @return builder
          * 

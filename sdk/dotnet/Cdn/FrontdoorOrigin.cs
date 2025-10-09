@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Cdn
     /// <summary>
     /// Manages a Front Door (standard/premium) Origin.
     /// 
-    /// !&gt; **Note:** If you are attempting to implement an Origin that uses its own Private Link Service with a Load Balancer the Profile resource in your configuration file **must** have a `depends_on` meta-argument which references the `azure.privatedns.LinkService`, see `Example Usage With Private Link Service` below.
+    /// !&gt; **Note:** If you are attempting to implement an Origin that uses its own Private Link Service with a Load Balancer the Profile resource in your configuration file **must** have a `DependsOn` meta-argument which references the `azure.privatedns.LinkService`, see `Example Usage With Private Link Service` below.
     /// 
     /// ## Example Usage
     /// 
@@ -307,7 +307,7 @@ namespace Pulumi.Azure.Cdn
         public Output<bool> CertificateNameCheckEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
+        /// Should the origin be enabled? Possible values are `True` or `False`. Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -353,9 +353,9 @@ namespace Pulumi.Azure.Cdn
         public Output<int?> Priority { get; private set; } = null!;
 
         /// <summary>
-        /// A `private_link` block as defined below.
+        /// A `PrivateLink` block as defined below.
         /// 
-        /// &gt; **Note:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificate_name_check_enabled` field is set to `true`.
+        /// &gt; **Note:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `CertificateNameCheckEnabled` field is set to `True`.
         /// </summary>
         [Output("privateLink")]
         public Output<Outputs.FrontdoorOriginPrivateLink?> PrivateLink { get; private set; } = null!;
@@ -425,7 +425,7 @@ namespace Pulumi.Azure.Cdn
         public Input<bool> CertificateNameCheckEnabled { get; set; } = null!;
 
         /// <summary>
-        /// Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
+        /// Should the origin be enabled? Possible values are `True` or `False`. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -471,9 +471,9 @@ namespace Pulumi.Azure.Cdn
         public Input<int>? Priority { get; set; }
 
         /// <summary>
-        /// A `private_link` block as defined below.
+        /// A `PrivateLink` block as defined below.
         /// 
-        /// &gt; **Note:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificate_name_check_enabled` field is set to `true`.
+        /// &gt; **Note:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `CertificateNameCheckEnabled` field is set to `True`.
         /// </summary>
         [Input("privateLink")]
         public Input<Inputs.FrontdoorOriginPrivateLinkArgs>? PrivateLink { get; set; }
@@ -505,7 +505,7 @@ namespace Pulumi.Azure.Cdn
         public Input<bool>? CertificateNameCheckEnabled { get; set; }
 
         /// <summary>
-        /// Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
+        /// Should the origin be enabled? Possible values are `True` or `False`. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -551,9 +551,9 @@ namespace Pulumi.Azure.Cdn
         public Input<int>? Priority { get; set; }
 
         /// <summary>
-        /// A `private_link` block as defined below.
+        /// A `PrivateLink` block as defined below.
         /// 
-        /// &gt; **Note:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificate_name_check_enabled` field is set to `true`.
+        /// &gt; **Note:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `CertificateNameCheckEnabled` field is set to `True`.
         /// </summary>
         [Input("privateLink")]
         public Input<Inputs.FrontdoorOriginPrivateLinkGetArgs>? PrivateLink { get; set; }

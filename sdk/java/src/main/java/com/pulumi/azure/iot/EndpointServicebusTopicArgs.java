@@ -32,14 +32,14 @@ public final class EndpointServicebusTopicArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The connection string for the endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `keyBased`.
+     * The connection string for the endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `keyBased`.
      * 
      */
     @Import(name="connectionString")
     private @Nullable Output<String> connectionString;
 
     /**
-     * @return The connection string for the endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `keyBased`.
+     * @return The connection string for the endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `keyBased`.
      * 
      */
     public Optional<Output<String>> connectionString() {
@@ -47,14 +47,14 @@ public final class EndpointServicebusTopicArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * URI of the Service Bus endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+     * URI of the Service Bus endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
      * 
      */
     @Import(name="endpointUri")
     private @Nullable Output<String> endpointUri;
 
     /**
-     * @return URI of the Service Bus endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+     * @return URI of the Service Bus endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
      * 
      */
     public Optional<Output<String>> endpointUri() {
@@ -62,14 +62,14 @@ public final class EndpointServicebusTopicArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Name of the Service Bus Topic. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+     * Name of the Service Bus Topic. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
      * 
      */
     @Import(name="entityPath")
     private @Nullable Output<String> entityPath;
 
     /**
-     * @return Name of the Service Bus Topic. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+     * @return Name of the Service Bus Topic. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
      * 
      */
     public Optional<Output<String>> entityPath() {
@@ -79,7 +79,7 @@ public final class EndpointServicebusTopicArgs extends com.pulumi.resources.Reso
     /**
      * ID of the User Managed Identity used to authenticate against the Service Bus Topic endpoint.
      * 
-     * &gt; **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
+     * &gt; **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
      * 
      */
     @Import(name="identityId")
@@ -88,7 +88,7 @@ public final class EndpointServicebusTopicArgs extends com.pulumi.resources.Reso
     /**
      * @return ID of the User Managed Identity used to authenticate against the Service Bus Topic endpoint.
      * 
-     * &gt; **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
+     * &gt; **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
      * 
      */
     public Optional<Output<String>> identityId() {
@@ -143,7 +143,7 @@ public final class EndpointServicebusTopicArgs extends com.pulumi.resources.Reso
     /**
      * The subscription ID for the endpoint.
      * 
-     * &gt; **Note:** When `subscription_id` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
+     * &gt; **Note:** When `subscriptionId` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
      * 
      */
     @Import(name="subscriptionId")
@@ -152,7 +152,7 @@ public final class EndpointServicebusTopicArgs extends com.pulumi.resources.Reso
     /**
      * @return The subscription ID for the endpoint.
      * 
-     * &gt; **Note:** When `subscription_id` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
+     * &gt; **Note:** When `subscriptionId` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
      * 
      */
     public Optional<Output<String>> subscriptionId() {
@@ -213,7 +213,7 @@ public final class EndpointServicebusTopicArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param connectionString The connection string for the endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `keyBased`.
+         * @param connectionString The connection string for the endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `keyBased`.
          * 
          * @return builder
          * 
@@ -224,7 +224,7 @@ public final class EndpointServicebusTopicArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param connectionString The connection string for the endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `keyBased`.
+         * @param connectionString The connection string for the endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `keyBased`.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class EndpointServicebusTopicArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param endpointUri URI of the Service Bus endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+         * @param endpointUri URI of the Service Bus endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class EndpointServicebusTopicArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param endpointUri URI of the Service Bus endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+         * @param endpointUri URI of the Service Bus endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class EndpointServicebusTopicArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param entityPath Name of the Service Bus Topic. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+         * @param entityPath Name of the Service Bus Topic. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
          * 
          * @return builder
          * 
@@ -266,7 +266,7 @@ public final class EndpointServicebusTopicArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param entityPath Name of the Service Bus Topic. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+         * @param entityPath Name of the Service Bus Topic. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
          * 
          * @return builder
          * 
@@ -278,7 +278,7 @@ public final class EndpointServicebusTopicArgs extends com.pulumi.resources.Reso
         /**
          * @param identityId ID of the User Managed Identity used to authenticate against the Service Bus Topic endpoint.
          * 
-         * &gt; **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
+         * &gt; **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class EndpointServicebusTopicArgs extends com.pulumi.resources.Reso
         /**
          * @param identityId ID of the User Managed Identity used to authenticate against the Service Bus Topic endpoint.
          * 
-         * &gt; **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
+         * &gt; **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
          * 
          * @return builder
          * 
@@ -366,7 +366,7 @@ public final class EndpointServicebusTopicArgs extends com.pulumi.resources.Reso
         /**
          * @param subscriptionId The subscription ID for the endpoint.
          * 
-         * &gt; **Note:** When `subscription_id` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
+         * &gt; **Note:** When `subscriptionId` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
          * 
          * @return builder
          * 
@@ -379,7 +379,7 @@ public final class EndpointServicebusTopicArgs extends com.pulumi.resources.Reso
         /**
          * @param subscriptionId The subscription ID for the endpoint.
          * 
-         * &gt; **Note:** When `subscription_id` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
+         * &gt; **Note:** When `subscriptionId` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
          * 
          * @return builder
          * 

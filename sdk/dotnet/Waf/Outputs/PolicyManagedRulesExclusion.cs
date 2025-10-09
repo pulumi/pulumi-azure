@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Waf.Outputs
     public sealed class PolicyManagedRulesExclusion
     {
         /// <summary>
-        /// One or more `excluded_rule_set` block defined below.
+        /// One or more `ExcludedRuleSet` block defined below.
         /// </summary>
         public readonly Outputs.PolicyManagedRulesExclusionExcludedRuleSet? ExcludedRuleSet;
         /// <summary>

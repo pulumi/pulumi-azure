@@ -179,13 +179,13 @@ namespace Pulumi.Azure.Pim
     public partial class RoleManagementPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An `activation_rules` block as defined below.
+        /// An `ActivationRules` block as defined below.
         /// </summary>
         [Output("activationRules")]
         public Output<Outputs.RoleManagementPolicyActivationRules> ActivationRules { get; private set; } = null!;
 
         /// <summary>
-        /// An `active_assignment_rules` block as defined below.
+        /// An `ActiveAssignmentRules` block as defined below.
         /// </summary>
         [Output("activeAssignmentRules")]
         public Output<Outputs.RoleManagementPolicyActiveAssignmentRules> ActiveAssignmentRules { get; private set; } = null!;
@@ -197,7 +197,7 @@ namespace Pulumi.Azure.Pim
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// An `eligible_assignment_rules` block as defined below.
+        /// An `EligibleAssignmentRules` block as defined below.
         /// </summary>
         [Output("eligibleAssignmentRules")]
         public Output<Outputs.RoleManagementPolicyEligibleAssignmentRules> EligibleAssignmentRules { get; private set; } = null!;
@@ -209,7 +209,7 @@ namespace Pulumi.Azure.Pim
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `notification_rules` block as defined below.
+        /// A `NotificationRules` block as defined below.
         /// </summary>
         [Output("notificationRules")]
         public Output<Outputs.RoleManagementPolicyNotificationRules> NotificationRules { get; private set; } = null!;
@@ -273,25 +273,25 @@ namespace Pulumi.Azure.Pim
     public sealed class RoleManagementPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `activation_rules` block as defined below.
+        /// An `ActivationRules` block as defined below.
         /// </summary>
         [Input("activationRules")]
         public Input<Inputs.RoleManagementPolicyActivationRulesArgs>? ActivationRules { get; set; }
 
         /// <summary>
-        /// An `active_assignment_rules` block as defined below.
+        /// An `ActiveAssignmentRules` block as defined below.
         /// </summary>
         [Input("activeAssignmentRules")]
         public Input<Inputs.RoleManagementPolicyActiveAssignmentRulesArgs>? ActiveAssignmentRules { get; set; }
 
         /// <summary>
-        /// An `eligible_assignment_rules` block as defined below.
+        /// An `EligibleAssignmentRules` block as defined below.
         /// </summary>
         [Input("eligibleAssignmentRules")]
         public Input<Inputs.RoleManagementPolicyEligibleAssignmentRulesArgs>? EligibleAssignmentRules { get; set; }
 
         /// <summary>
-        /// A `notification_rules` block as defined below.
+        /// A `NotificationRules` block as defined below.
         /// </summary>
         [Input("notificationRules")]
         public Input<Inputs.RoleManagementPolicyNotificationRulesArgs>? NotificationRules { get; set; }
@@ -317,13 +317,13 @@ namespace Pulumi.Azure.Pim
     public sealed class RoleManagementPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `activation_rules` block as defined below.
+        /// An `ActivationRules` block as defined below.
         /// </summary>
         [Input("activationRules")]
         public Input<Inputs.RoleManagementPolicyActivationRulesGetArgs>? ActivationRules { get; set; }
 
         /// <summary>
-        /// An `active_assignment_rules` block as defined below.
+        /// An `ActiveAssignmentRules` block as defined below.
         /// </summary>
         [Input("activeAssignmentRules")]
         public Input<Inputs.RoleManagementPolicyActiveAssignmentRulesGetArgs>? ActiveAssignmentRules { get; set; }
@@ -335,7 +335,7 @@ namespace Pulumi.Azure.Pim
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// An `eligible_assignment_rules` block as defined below.
+        /// An `EligibleAssignmentRules` block as defined below.
         /// </summary>
         [Input("eligibleAssignmentRules")]
         public Input<Inputs.RoleManagementPolicyEligibleAssignmentRulesGetArgs>? EligibleAssignmentRules { get; set; }
@@ -347,7 +347,7 @@ namespace Pulumi.Azure.Pim
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `notification_rules` block as defined below.
+        /// A `NotificationRules` block as defined below.
         /// </summary>
         [Input("notificationRules")]
         public Input<Inputs.RoleManagementPolicyNotificationRulesGetArgs>? NotificationRules { get; set; }

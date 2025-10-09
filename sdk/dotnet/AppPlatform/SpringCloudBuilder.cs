@@ -77,7 +77,7 @@ namespace Pulumi.Azure.AppPlatform
     public partial class SpringCloudBuilder : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// One or more `build_pack_group` blocks as defined below.
+        /// One or more `BuildPackGroup` blocks as defined below.
         /// </summary>
         [Output("buildPackGroups")]
         public Output<ImmutableArray<Outputs.SpringCloudBuilderBuildPackGroup>> BuildPackGroups { get; private set; } = null!;
@@ -95,7 +95,7 @@ namespace Pulumi.Azure.AppPlatform
         public Output<string> SpringCloudServiceId { get; private set; } = null!;
 
         /// <summary>
-        /// A `stack` block as defined below.
+        /// A `Stack` block as defined below.
         /// </summary>
         [Output("stack")]
         public Output<Outputs.SpringCloudBuilderStack> Stack { get; private set; } = null!;
@@ -150,7 +150,7 @@ namespace Pulumi.Azure.AppPlatform
         private InputList<Inputs.SpringCloudBuilderBuildPackGroupArgs>? _buildPackGroups;
 
         /// <summary>
-        /// One or more `build_pack_group` blocks as defined below.
+        /// One or more `BuildPackGroup` blocks as defined below.
         /// </summary>
         public InputList<Inputs.SpringCloudBuilderBuildPackGroupArgs> BuildPackGroups
         {
@@ -171,7 +171,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string> SpringCloudServiceId { get; set; } = null!;
 
         /// <summary>
-        /// A `stack` block as defined below.
+        /// A `Stack` block as defined below.
         /// </summary>
         [Input("stack", required: true)]
         public Input<Inputs.SpringCloudBuilderStackArgs> Stack { get; set; } = null!;
@@ -188,7 +188,7 @@ namespace Pulumi.Azure.AppPlatform
         private InputList<Inputs.SpringCloudBuilderBuildPackGroupGetArgs>? _buildPackGroups;
 
         /// <summary>
-        /// One or more `build_pack_group` blocks as defined below.
+        /// One or more `BuildPackGroup` blocks as defined below.
         /// </summary>
         public InputList<Inputs.SpringCloudBuilderBuildPackGroupGetArgs> BuildPackGroups
         {
@@ -209,7 +209,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string>? SpringCloudServiceId { get; set; }
 
         /// <summary>
-        /// A `stack` block as defined below.
+        /// A `Stack` block as defined below.
         /// </summary>
         [Input("stack")]
         public Input<Inputs.SpringCloudBuilderStackGetArgs>? Stack { get; set; }

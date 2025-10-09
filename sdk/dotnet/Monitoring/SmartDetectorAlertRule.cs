@@ -85,7 +85,7 @@ namespace Pulumi.Azure.Monitoring
     public partial class SmartDetectorAlertRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An `action_group` block as defined below.
+        /// An `ActionGroup` block as defined below.
         /// </summary>
         [Output("actionGroup")]
         public Output<Outputs.SmartDetectorAlertRuleActionGroup> ActionGroup { get; private set; } = null!;
@@ -103,7 +103,7 @@ namespace Pulumi.Azure.Monitoring
         public Output<string> DetectorType { get; private set; } = null!;
 
         /// <summary>
-        /// Is the Smart Detector Alert Rule enabled? Defaults to `true`.
+        /// Is the Smart Detector Alert Rule enabled? Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -197,7 +197,7 @@ namespace Pulumi.Azure.Monitoring
     public sealed class SmartDetectorAlertRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `action_group` block as defined below.
+        /// An `ActionGroup` block as defined below.
         /// </summary>
         [Input("actionGroup", required: true)]
         public Input<Inputs.SmartDetectorAlertRuleActionGroupArgs> ActionGroup { get; set; } = null!;
@@ -215,7 +215,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string> DetectorType { get; set; } = null!;
 
         /// <summary>
-        /// Is the Smart Detector Alert Rule enabled? Defaults to `true`.
+        /// Is the Smart Detector Alert Rule enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -283,7 +283,7 @@ namespace Pulumi.Azure.Monitoring
     public sealed class SmartDetectorAlertRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `action_group` block as defined below.
+        /// An `ActionGroup` block as defined below.
         /// </summary>
         [Input("actionGroup")]
         public Input<Inputs.SmartDetectorAlertRuleActionGroupGetArgs>? ActionGroup { get; set; }
@@ -301,7 +301,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? DetectorType { get; set; }
 
         /// <summary>
-        /// Is the Smart Detector Alert Rule enabled? Defaults to `true`.
+        /// Is the Smart Detector Alert Rule enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

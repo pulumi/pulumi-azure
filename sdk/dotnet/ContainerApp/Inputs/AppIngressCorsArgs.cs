@@ -13,7 +13,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
     public sealed class AppIngressCorsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether user credentials are allowed in the cross-origin request is enabled. Defaults to `false`.
+        /// Whether user credentials are allowed in the cross-origin request is enabled. Defaults to `False`.
         /// </summary>
         [Input("allowCredentialsEnabled")]
         public Input<bool>? AllowCredentialsEnabled { get; set; }

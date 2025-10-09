@@ -20,7 +20,7 @@ public final class FrontdoorRuleConditionsSocketAddressConditionArgs extends com
     /**
      * Specify one or more IP address ranges. If multiple IP address ranges are specified, they&#39;re evaluated using `OR` logic.
      * 
-     * &gt; **Note:** See the `Specifying IP Address Ranges` section below on how to correctly define the `match_values` field.
+     * &gt; **Note:** See the `Specifying IP Address Ranges` section below on how to correctly define the `matchValues` field.
      * 
      */
     @Import(name="matchValues")
@@ -29,7 +29,7 @@ public final class FrontdoorRuleConditionsSocketAddressConditionArgs extends com
     /**
      * @return Specify one or more IP address ranges. If multiple IP address ranges are specified, they&#39;re evaluated using `OR` logic.
      * 
-     * &gt; **Note:** See the `Specifying IP Address Ranges` section below on how to correctly define the `match_values` field.
+     * &gt; **Note:** See the `Specifying IP Address Ranges` section below on how to correctly define the `matchValues` field.
      * 
      */
     public Optional<Output<List<String>>> matchValues() {
@@ -54,7 +54,7 @@ public final class FrontdoorRuleConditionsSocketAddressConditionArgs extends com
     /**
      * The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IPMatch`.
      * 
-     * &gt; **Note:** If the value of the `operator` field is set to `IpMatch` then the `match_values` field is also required.
+     * &gt; **Note:** If the value of the `operator` field is set to `IpMatch` then the `matchValues` field is also required.
      * 
      */
     @Import(name="operator")
@@ -63,7 +63,7 @@ public final class FrontdoorRuleConditionsSocketAddressConditionArgs extends com
     /**
      * @return The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IPMatch`.
      * 
-     * &gt; **Note:** If the value of the `operator` field is set to `IpMatch` then the `match_values` field is also required.
+     * &gt; **Note:** If the value of the `operator` field is set to `IpMatch` then the `matchValues` field is also required.
      * 
      */
     public Optional<Output<String>> operator() {
@@ -99,7 +99,7 @@ public final class FrontdoorRuleConditionsSocketAddressConditionArgs extends com
         /**
          * @param matchValues Specify one or more IP address ranges. If multiple IP address ranges are specified, they&#39;re evaluated using `OR` logic.
          * 
-         * &gt; **Note:** See the `Specifying IP Address Ranges` section below on how to correctly define the `match_values` field.
+         * &gt; **Note:** See the `Specifying IP Address Ranges` section below on how to correctly define the `matchValues` field.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class FrontdoorRuleConditionsSocketAddressConditionArgs extends com
         /**
          * @param matchValues Specify one or more IP address ranges. If multiple IP address ranges are specified, they&#39;re evaluated using `OR` logic.
          * 
-         * &gt; **Note:** See the `Specifying IP Address Ranges` section below on how to correctly define the `match_values` field.
+         * &gt; **Note:** See the `Specifying IP Address Ranges` section below on how to correctly define the `matchValues` field.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class FrontdoorRuleConditionsSocketAddressConditionArgs extends com
         /**
          * @param matchValues Specify one or more IP address ranges. If multiple IP address ranges are specified, they&#39;re evaluated using `OR` logic.
          * 
-         * &gt; **Note:** See the `Specifying IP Address Ranges` section below on how to correctly define the `match_values` field.
+         * &gt; **Note:** See the `Specifying IP Address Ranges` section below on how to correctly define the `matchValues` field.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class FrontdoorRuleConditionsSocketAddressConditionArgs extends com
         /**
          * @param operator The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IPMatch`.
          * 
-         * &gt; **Note:** If the value of the `operator` field is set to `IpMatch` then the `match_values` field is also required.
+         * &gt; **Note:** If the value of the `operator` field is set to `IpMatch` then the `matchValues` field is also required.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class FrontdoorRuleConditionsSocketAddressConditionArgs extends com
         /**
          * @param operator The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IPMatch`.
          * 
-         * &gt; **Note:** If the value of the `operator` field is set to `IpMatch` then the `match_values` field is also required.
+         * &gt; **Note:** If the value of the `operator` field is set to `IpMatch` then the `matchValues` field is also required.
          * 
          * @return builder
          * 

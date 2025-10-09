@@ -25,13 +25,13 @@ namespace Pulumi.Azure.LogicApps.Inputs
         public Input<string> Frequency { get; set; } = null!;
 
         /// <summary>
-        /// The number of `frequency`s between runs.
+        /// The number of `Frequency`s between runs.
         /// </summary>
         [Input("interval", required: true)]
         public Input<int> Interval { get; set; } = null!;
 
         /// <summary>
-        /// A `schedule` block as documented below.
+        /// A `Schedule` block as documented below.
         /// </summary>
         [Input("schedule")]
         public Input<Inputs.IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs>? Schedule { get; set; }

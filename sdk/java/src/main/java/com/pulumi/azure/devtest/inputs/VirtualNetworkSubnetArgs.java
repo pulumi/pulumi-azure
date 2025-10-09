@@ -32,14 +32,14 @@ public final class VirtualNetworkSubnetArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A `shared_public_ip_address` block as defined below.
+     * A `sharedPublicIpAddress` block as defined below.
      * 
      */
     @Import(name="sharedPublicIpAddress")
     private @Nullable Output<VirtualNetworkSubnetSharedPublicIpAddressArgs> sharedPublicIpAddress;
 
     /**
-     * @return A `shared_public_ip_address` block as defined below.
+     * @return A `sharedPublicIpAddress` block as defined below.
      * 
      */
     public Optional<Output<VirtualNetworkSubnetSharedPublicIpAddressArgs>> sharedPublicIpAddress() {
@@ -125,7 +125,7 @@ public final class VirtualNetworkSubnetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param sharedPublicIpAddress A `shared_public_ip_address` block as defined below.
+         * @param sharedPublicIpAddress A `sharedPublicIpAddress` block as defined below.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class VirtualNetworkSubnetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param sharedPublicIpAddress A `shared_public_ip_address` block as defined below.
+         * @param sharedPublicIpAddress A `sharedPublicIpAddress` block as defined below.
          * 
          * @return builder
          * 

@@ -64,7 +64,7 @@ namespace Pulumi.Azure.DataFactory.Inputs
         private InputList<Inputs.TriggerScheduleScheduleMonthlyArgs>? _monthlies;
 
         /// <summary>
-        /// A `monthly` block as documented below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
+        /// A `Monthly` block as documented below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
         /// </summary>
         public InputList<Inputs.TriggerScheduleScheduleMonthlyArgs> Monthlies
         {

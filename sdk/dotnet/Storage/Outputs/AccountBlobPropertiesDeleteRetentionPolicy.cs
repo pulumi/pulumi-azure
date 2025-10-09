@@ -18,9 +18,9 @@ namespace Pulumi.Azure.Storage.Outputs
         /// </summary>
         public readonly int? Days;
         /// <summary>
-        /// Indicates whether permanent deletion of the soft deleted blob versions and snapshots is allowed. Defaults to `false`.
+        /// Indicates whether permanent deletion of the soft deleted blob versions and snapshots is allowed. Defaults to `False`.
         /// 
-        /// &gt; **Note:** `permanent_delete_enabled` cannot be set to true if a `restore_policy` block is defined.
+        /// &gt; **Note:** `PermanentDeleteEnabled` cannot be set to true if a `RestorePolicy` block is defined.
         /// </summary>
         public readonly bool? PermanentDeleteEnabled;
 

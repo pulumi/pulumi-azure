@@ -94,7 +94,7 @@ namespace Pulumi.Azure.PrivateDns
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// An `soa_record` block as defined below. Changing this forces a new resource to be created.
+        /// An `SoaRecord` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("soaRecord")]
         public Output<Outputs.ZoneSoaRecord> SoaRecord { get; private set; } = null!;
@@ -166,7 +166,7 @@ namespace Pulumi.Azure.PrivateDns
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// An `soa_record` block as defined below. Changing this forces a new resource to be created.
+        /// An `SoaRecord` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("soaRecord")]
         public Input<Inputs.ZoneSoaRecordArgs>? SoaRecord { get; set; }
@@ -230,7 +230,7 @@ namespace Pulumi.Azure.PrivateDns
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// An `soa_record` block as defined below. Changing this forces a new resource to be created.
+        /// An `SoaRecord` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("soaRecord")]
         public Input<Inputs.ZoneSoaRecordGetArgs>? SoaRecord { get; set; }

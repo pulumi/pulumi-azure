@@ -67,23 +67,23 @@ namespace Pulumi.Azure.NotificationHub
     public partial class Hub : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A `apns_credential` block as defined below.
+        /// A `ApnsCredential` block as defined below.
         /// 
-        /// &gt; **Note:** Removing the `apns_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
+        /// &gt; **Note:** Removing the `ApnsCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
         /// </summary>
         [Output("apnsCredential")]
         public Output<Outputs.HubApnsCredential?> ApnsCredential { get; private set; } = null!;
 
         /// <summary>
-        /// A `browser_credential` block as defined below.
+        /// A `BrowserCredential` block as defined below.
         /// </summary>
         [Output("browserCredential")]
         public Output<Outputs.HubBrowserCredential?> BrowserCredential { get; private set; } = null!;
 
         /// <summary>
-        /// A `gcm_credential` block as defined below.
+        /// A `GcmCredential` block as defined below.
         /// 
-        /// &gt; **Note:** Removing the `gcm_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
+        /// &gt; **Note:** Removing the `GcmCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
         /// </summary>
         [Output("gcmCredential")]
         public Output<Outputs.HubGcmCredential?> GcmCredential { get; private set; } = null!;
@@ -165,23 +165,23 @@ namespace Pulumi.Azure.NotificationHub
     public sealed class HubArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `apns_credential` block as defined below.
+        /// A `ApnsCredential` block as defined below.
         /// 
-        /// &gt; **Note:** Removing the `apns_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
+        /// &gt; **Note:** Removing the `ApnsCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
         /// </summary>
         [Input("apnsCredential")]
         public Input<Inputs.HubApnsCredentialArgs>? ApnsCredential { get; set; }
 
         /// <summary>
-        /// A `browser_credential` block as defined below.
+        /// A `BrowserCredential` block as defined below.
         /// </summary>
         [Input("browserCredential")]
         public Input<Inputs.HubBrowserCredentialArgs>? BrowserCredential { get; set; }
 
         /// <summary>
-        /// A `gcm_credential` block as defined below.
+        /// A `GcmCredential` block as defined below.
         /// 
-        /// &gt; **Note:** Removing the `gcm_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
+        /// &gt; **Note:** Removing the `GcmCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
         /// </summary>
         [Input("gcmCredential")]
         public Input<Inputs.HubGcmCredentialArgs>? GcmCredential { get; set; }
@@ -231,23 +231,23 @@ namespace Pulumi.Azure.NotificationHub
     public sealed class HubState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `apns_credential` block as defined below.
+        /// A `ApnsCredential` block as defined below.
         /// 
-        /// &gt; **Note:** Removing the `apns_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
+        /// &gt; **Note:** Removing the `ApnsCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
         /// </summary>
         [Input("apnsCredential")]
         public Input<Inputs.HubApnsCredentialGetArgs>? ApnsCredential { get; set; }
 
         /// <summary>
-        /// A `browser_credential` block as defined below.
+        /// A `BrowserCredential` block as defined below.
         /// </summary>
         [Input("browserCredential")]
         public Input<Inputs.HubBrowserCredentialGetArgs>? BrowserCredential { get; set; }
 
         /// <summary>
-        /// A `gcm_credential` block as defined below.
+        /// A `GcmCredential` block as defined below.
         /// 
-        /// &gt; **Note:** Removing the `gcm_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
+        /// &gt; **Note:** Removing the `GcmCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
         /// </summary>
         [Input("gcmCredential")]
         public Input<Inputs.HubGcmCredentialGetArgs>? GcmCredential { get; set; }

@@ -34,7 +34,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool? UseCustomRuntime;
         /// <summary>
-        /// Should the DotNet process use an isolated runtime. Defaults to `false`.
+        /// Should the DotNet process use an isolated runtime. Defaults to `False`.
         /// </summary>
         public readonly bool? UseDotnetIsolatedRuntime;
 

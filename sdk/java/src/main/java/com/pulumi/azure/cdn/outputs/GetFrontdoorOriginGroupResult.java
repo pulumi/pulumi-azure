@@ -21,7 +21,7 @@ public final class GetFrontdoorOriginGroupResult {
      */
     private String cdnFrontdoorProfileId;
     /**
-     * @return A `health_probe` block as defined below.
+     * @return A `healthProbe` block as defined below.
      * 
      */
     private List<GetFrontdoorOriginGroupHealthProbe> healthProbes;
@@ -31,7 +31,7 @@ public final class GetFrontdoorOriginGroupResult {
      */
     private String id;
     /**
-     * @return A `load_balancing` block as defined below.
+     * @return A `loadBalancing` block as defined below.
      * 
      */
     private List<GetFrontdoorOriginGroupLoadBalancing> loadBalancings;
@@ -54,7 +54,7 @@ public final class GetFrontdoorOriginGroupResult {
         return this.cdnFrontdoorProfileId;
     }
     /**
-     * @return A `health_probe` block as defined below.
+     * @return A `healthProbe` block as defined below.
      * 
      */
     public List<GetFrontdoorOriginGroupHealthProbe> healthProbes() {
@@ -68,7 +68,7 @@ public final class GetFrontdoorOriginGroupResult {
         return this.id;
     }
     /**
-     * @return A `load_balancing` block as defined below.
+     * @return A `loadBalancing` block as defined below.
      * 
      */
     public List<GetFrontdoorOriginGroupLoadBalancing> loadBalancings() {

@@ -159,25 +159,25 @@ public class Hub extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.anonymousConnectionsEnabled);
     }
     /**
-     * An `event_handler` block as defined below.
+     * An `eventHandler` block as defined below.
      * 
-     * &gt; **Note:** User can change the order of `event_handler` to change the priority accordingly.
+     * &gt; **Note:** User can change the order of `eventHandler` to change the priority accordingly.
      * 
      */
     @Export(name="eventHandlers", refs={List.class,HubEventHandler.class}, tree="[0,1]")
     private Output</* @Nullable */ List<HubEventHandler>> eventHandlers;
 
     /**
-     * @return An `event_handler` block as defined below.
+     * @return An `eventHandler` block as defined below.
      * 
-     * &gt; **Note:** User can change the order of `event_handler` to change the priority accordingly.
+     * &gt; **Note:** User can change the order of `eventHandler` to change the priority accordingly.
      * 
      */
     public Output<Optional<List<HubEventHandler>>> eventHandlers() {
         return Codegen.optional(this.eventHandlers);
     }
     /**
-     * An `event_listener` block as defined below.
+     * An `eventListener` block as defined below.
      * 
      * &gt; **Note:** The managed identity of Web PubSub service must be enabled and the identity must have the &#34;Azure Event Hubs Data sender&#34; role to access the Event Hub.
      * 
@@ -186,7 +186,7 @@ public class Hub extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ List<HubEventListener>> eventListeners;
 
     /**
-     * @return An `event_listener` block as defined below.
+     * @return An `eventListener` block as defined below.
      * 
      * &gt; **Note:** The managed identity of Web PubSub service must be enabled and the identity must have the &#34;Azure Event Hubs Data sender&#34; role to access the Event Hub.
      * 

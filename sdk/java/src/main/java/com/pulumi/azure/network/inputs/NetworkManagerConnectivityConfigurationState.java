@@ -20,14 +20,14 @@ public final class NetworkManagerConnectivityConfigurationState extends com.pulu
     public static final NetworkManagerConnectivityConfigurationState Empty = new NetworkManagerConnectivityConfigurationState();
 
     /**
-     * One or more `applies_to_group` blocks as defined below.
+     * One or more `appliesToGroup` blocks as defined below.
      * 
      */
     @Import(name="appliesToGroups")
     private @Nullable Output<List<NetworkManagerConnectivityConfigurationAppliesToGroupArgs>> appliesToGroups;
 
     /**
-     * @return One or more `applies_to_group` blocks as defined below.
+     * @return One or more `appliesToGroup` blocks as defined below.
      * 
      */
     public Optional<Output<List<NetworkManagerConnectivityConfigurationAppliesToGroupArgs>>> appliesToGroups() {
@@ -171,7 +171,7 @@ public final class NetworkManagerConnectivityConfigurationState extends com.pulu
         }
 
         /**
-         * @param appliesToGroups One or more `applies_to_group` blocks as defined below.
+         * @param appliesToGroups One or more `appliesToGroup` blocks as defined below.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class NetworkManagerConnectivityConfigurationState extends com.pulu
         }
 
         /**
-         * @param appliesToGroups One or more `applies_to_group` blocks as defined below.
+         * @param appliesToGroups One or more `appliesToGroup` blocks as defined below.
          * 
          * @return builder
          * 
@@ -192,7 +192,7 @@ public final class NetworkManagerConnectivityConfigurationState extends com.pulu
         }
 
         /**
-         * @param appliesToGroups One or more `applies_to_group` blocks as defined below.
+         * @param appliesToGroups One or more `appliesToGroup` blocks as defined below.
          * 
          * @return builder
          * 

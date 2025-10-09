@@ -14,11 +14,11 @@ namespace Pulumi.Azure.FrontDoor.Outputs
     public sealed class FirewallPolicyManagedRule
     {
         /// <summary>
-        /// One or more `exclusion` blocks as defined below.
+        /// One or more `Exclusion` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FirewallPolicyManagedRuleExclusion> Exclusions;
         /// <summary>
-        /// One or more `override` blocks as defined below.
+        /// One or more `Override` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FirewallPolicyManagedRuleOverride> Overrides;
         /// <summary>

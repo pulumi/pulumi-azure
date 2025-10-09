@@ -33,7 +33,7 @@ public final class ClusterIdentity {
     /**
      * @return Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. Possible values are `SystemAssigned` and  `UserAssigned`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Log Analytics Cluster has been created. More details are available below.
+     * &gt; **Note:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Log Analytics Cluster has been created. More details are available below.
      * 
      */
     private String type;
@@ -65,7 +65,7 @@ public final class ClusterIdentity {
     /**
      * @return Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. Possible values are `SystemAssigned` and  `UserAssigned`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Log Analytics Cluster has been created. More details are available below.
+     * &gt; **Note:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Log Analytics Cluster has been created. More details are available below.
      * 
      */
     public String type() {

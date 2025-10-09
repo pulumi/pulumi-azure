@@ -31,7 +31,7 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// Should zone redundancy be enabled for this region? Defaults to `false`.
+        /// Should zone redundancy be enabled for this region? Defaults to `False`.
         /// </summary>
         [Input("zoneRedundant")]
         public Input<bool>? ZoneRedundant { get; set; }

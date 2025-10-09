@@ -151,14 +151,14 @@ public class Zone extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * An `soa_record` block as defined below.
+     * An `soaRecord` block as defined below.
      * 
      */
     @Export(name="soaRecord", refs={ZoneSoaRecord.class}, tree="[0]")
     private Output<ZoneSoaRecord> soaRecord;
 
     /**
-     * @return An `soa_record` block as defined below.
+     * @return An `soaRecord` block as defined below.
      * 
      */
     public Output<ZoneSoaRecord> soaRecord() {

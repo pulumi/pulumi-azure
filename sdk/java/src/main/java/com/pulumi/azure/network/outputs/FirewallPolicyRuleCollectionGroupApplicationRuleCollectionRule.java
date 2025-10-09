@@ -25,12 +25,12 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
     private @Nullable List<String> destinationFqdnTags;
     private @Nullable List<String> destinationFqdns;
     /**
-     * @return Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destination_fqdns`.
+     * @return Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destinationFqdns`.
      * 
      */
     private @Nullable List<String> destinationUrls;
     /**
-     * @return Specifies a list of HTTP/HTTPS headers to insert. One or more `http_headers` blocks as defined below.
+     * @return Specifies a list of HTTP/HTTPS headers to insert. One or more `httpHeaders` blocks as defined below.
      * 
      */
     private @Nullable List<FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeader> httpHeaders;
@@ -43,7 +43,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
     private @Nullable List<String> sourceAddresses;
     private @Nullable List<String> sourceIpGroups;
     /**
-     * @return Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
+     * @return Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destinationUrls`. Needs Premium SKU for Firewall Policy.
      * 
      */
     private @Nullable Boolean terminateTls;
@@ -71,14 +71,14 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         return this.destinationFqdns == null ? List.of() : this.destinationFqdns;
     }
     /**
-     * @return Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destination_fqdns`.
+     * @return Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destinationFqdns`.
      * 
      */
     public List<String> destinationUrls() {
         return this.destinationUrls == null ? List.of() : this.destinationUrls;
     }
     /**
-     * @return Specifies a list of HTTP/HTTPS headers to insert. One or more `http_headers` blocks as defined below.
+     * @return Specifies a list of HTTP/HTTPS headers to insert. One or more `httpHeaders` blocks as defined below.
      * 
      */
     public List<FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeader> httpHeaders() {
@@ -101,7 +101,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         return this.sourceIpGroups == null ? List.of() : this.sourceIpGroups;
     }
     /**
-     * @return Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
+     * @return Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destinationUrls`. Needs Premium SKU for Firewall Policy.
      * 
      */
     public Optional<Boolean> terminateTls() {

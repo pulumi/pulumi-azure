@@ -88,7 +88,7 @@ namespace Pulumi.Azure.AppPlatform
         public Output<string?> ConnectionString { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the Spring Cloud Application Performance Monitoring resource for Application Insights is enabled globally. Defaults to `false`.
+        /// Specifies whether the Spring Cloud Application Performance Monitoring resource for Application Insights is enabled globally. Defaults to `False`.
         /// </summary>
         [Output("globallyEnabled")]
         public Output<bool?> GloballyEnabled { get; private set; } = null!;
@@ -182,7 +182,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string>? ConnectionString { get; set; }
 
         /// <summary>
-        /// Specifies whether the Spring Cloud Application Performance Monitoring resource for Application Insights is enabled globally. Defaults to `false`.
+        /// Specifies whether the Spring Cloud Application Performance Monitoring resource for Application Insights is enabled globally. Defaults to `False`.
         /// </summary>
         [Input("globallyEnabled")]
         public Input<bool>? GloballyEnabled { get; set; }
@@ -238,7 +238,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string>? ConnectionString { get; set; }
 
         /// <summary>
-        /// Specifies whether the Spring Cloud Application Performance Monitoring resource for Application Insights is enabled globally. Defaults to `false`.
+        /// Specifies whether the Spring Cloud Application Performance Monitoring resource for Application Insights is enabled globally. Defaults to `False`.
         /// </summary>
         [Input("globallyEnabled")]
         public Input<bool>? GloballyEnabled { get; set; }

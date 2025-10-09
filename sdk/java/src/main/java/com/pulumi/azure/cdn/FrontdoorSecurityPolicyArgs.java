@@ -48,14 +48,14 @@ public final class FrontdoorSecurityPolicyArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * An `security_policies` block as defined below.
+     * An `securityPolicies` block as defined below.
      * 
      */
     @Import(name="securityPolicies", required=true)
     private Output<FrontdoorSecurityPolicySecurityPoliciesArgs> securityPolicies;
 
     /**
-     * @return An `security_policies` block as defined below.
+     * @return An `securityPolicies` block as defined below.
      * 
      */
     public Output<FrontdoorSecurityPolicySecurityPoliciesArgs> securityPolicies() {
@@ -131,7 +131,7 @@ public final class FrontdoorSecurityPolicyArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param securityPolicies An `security_policies` block as defined below.
+         * @param securityPolicies An `securityPolicies` block as defined below.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class FrontdoorSecurityPolicyArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param securityPolicies An `security_policies` block as defined below.
+         * @param securityPolicies An `securityPolicies` block as defined below.
          * 
          * @return builder
          * 

@@ -14,19 +14,19 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class KubernetesClusterStorageProfile
     {
         /// <summary>
-        /// Is the Blob CSI driver enabled? Defaults to `false`.
+        /// Is the Blob CSI driver enabled? Defaults to `False`.
         /// </summary>
         public readonly bool? BlobDriverEnabled;
         /// <summary>
-        /// Is the Disk CSI driver enabled? Defaults to `true`.
+        /// Is the Disk CSI driver enabled? Defaults to `True`.
         /// </summary>
         public readonly bool? DiskDriverEnabled;
         /// <summary>
-        /// Is the File CSI driver enabled? Defaults to `true`.
+        /// Is the File CSI driver enabled? Defaults to `True`.
         /// </summary>
         public readonly bool? FileDriverEnabled;
         /// <summary>
-        /// Is the Snapshot Controller enabled? Defaults to `true`.
+        /// Is the Snapshot Controller enabled? Defaults to `True`.
         /// </summary>
         public readonly bool? SnapshotControllerEnabled;
 

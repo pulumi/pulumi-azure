@@ -256,7 +256,7 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
     /**
      * Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `false`.
      * 
-     * &gt; **Note:** `mtls_connection_required`  must be set to `true` for all workload types except &#39;APEX&#39; when creating a database with public access.
+     * &gt; **Note:** `mtlsConnectionRequired`  must be set to `true` for all workload types except &#39;APEX&#39; when creating a database with public access.
      * 
      */
     @Import(name="mtlsConnectionRequired")
@@ -265,7 +265,7 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
     /**
      * @return Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `false`.
      * 
-     * &gt; **Note:** `mtls_connection_required`  must be set to `true` for all workload types except &#39;APEX&#39; when creating a database with public access.
+     * &gt; **Note:** `mtlsConnectionRequired`  must be set to `true` for all workload types except &#39;APEX&#39; when creating a database with public access.
      * 
      */
     public Optional<Output<Boolean>> mtlsConnectionRequired() {
@@ -737,7 +737,7 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
         /**
          * @param mtlsConnectionRequired Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `false`.
          * 
-         * &gt; **Note:** `mtls_connection_required`  must be set to `true` for all workload types except &#39;APEX&#39; when creating a database with public access.
+         * &gt; **Note:** `mtlsConnectionRequired`  must be set to `true` for all workload types except &#39;APEX&#39; when creating a database with public access.
          * 
          * @return builder
          * 
@@ -750,7 +750,7 @@ public final class AutonomousDatabaseState extends com.pulumi.resources.Resource
         /**
          * @param mtlsConnectionRequired Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `false`.
          * 
-         * &gt; **Note:** `mtls_connection_required`  must be set to `true` for all workload types except &#39;APEX&#39; when creating a database with public access.
+         * &gt; **Note:** `mtlsConnectionRequired`  must be set to `true` for all workload types except &#39;APEX&#39; when creating a database with public access.
          * 
          * @return builder
          * 

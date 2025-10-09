@@ -22,7 +22,7 @@ public final class SystemTopicIdentityArgs extends com.pulumi.resources.Resource
      * 
      * &gt; **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
      * 
-     * &gt; **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid System Topic has been created.
+     * &gt; **Note:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Event Grid System Topic has been created.
      * 
      */
     @Import(name="identityIds")
@@ -33,7 +33,7 @@ public final class SystemTopicIdentityArgs extends com.pulumi.resources.Resource
      * 
      * &gt; **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
      * 
-     * &gt; **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid System Topic has been created.
+     * &gt; **Note:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Event Grid System Topic has been created.
      * 
      */
     public Optional<Output<List<String>>> identityIds() {
@@ -117,7 +117,7 @@ public final class SystemTopicIdentityArgs extends com.pulumi.resources.Resource
          * 
          * &gt; **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          * 
-         * &gt; **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid System Topic has been created.
+         * &gt; **Note:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Event Grid System Topic has been created.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class SystemTopicIdentityArgs extends com.pulumi.resources.Resource
          * 
          * &gt; **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          * 
-         * &gt; **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid System Topic has been created.
+         * &gt; **Note:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Event Grid System Topic has been created.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class SystemTopicIdentityArgs extends com.pulumi.resources.Resource
          * 
          * &gt; **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          * 
-         * &gt; **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid System Topic has been created.
+         * &gt; **Note:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Event Grid System Topic has been created.
          * 
          * @return builder
          * 

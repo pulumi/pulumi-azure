@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AppServiceAuthSettings {
     /**
-     * @return A `active_directory` block as defined below.
+     * @return A `activeDirectory` block as defined below.
      * 
      */
     private @Nullable AppServiceAuthSettingsActiveDirectory activeDirectory;
@@ -39,7 +39,7 @@ public final class AppServiceAuthSettings {
     /**
      * @return The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
      * 
-     * &gt; **NOTE:** When using multiple providers, the default provider must be set for settings like `unauthenticated_client_action` to work.
+     * &gt; **NOTE:** When using multiple providers, the default provider must be set for settings like `unauthenticatedClientAction` to work.
      * 
      */
     private @Nullable String defaultProvider;
@@ -96,7 +96,7 @@ public final class AppServiceAuthSettings {
 
     private AppServiceAuthSettings() {}
     /**
-     * @return A `active_directory` block as defined below.
+     * @return A `activeDirectory` block as defined below.
      * 
      */
     public Optional<AppServiceAuthSettingsActiveDirectory> activeDirectory() {
@@ -119,7 +119,7 @@ public final class AppServiceAuthSettings {
     /**
      * @return The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
      * 
-     * &gt; **NOTE:** When using multiple providers, the default provider must be set for settings like `unauthenticated_client_action` to work.
+     * &gt; **NOTE:** When using multiple providers, the default provider must be set for settings like `unauthenticatedClientAction` to work.
      * 
      */
     public Optional<String> defaultProvider() {

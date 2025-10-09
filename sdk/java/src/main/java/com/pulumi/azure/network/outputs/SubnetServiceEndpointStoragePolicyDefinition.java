@@ -24,14 +24,14 @@ public final class SubnetServiceEndpointStoragePolicyDefinition {
      */
     private String name;
     /**
-     * @return The type of service resources. Valid values are `Microsoft.Storage` or `Global`. When the `service_resources` property contains resource IDs, this property must be `Microsoft.Storage`. When the `service_resources` property contains Aliases, this property must be `Global`. Defaults to `Microsoft.Storage`.
+     * @return The type of service resources. Valid values are `Microsoft.Storage` or `Global`. When the `serviceResources` property contains resource IDs, this property must be `Microsoft.Storage`. When the `serviceResources` property contains Aliases, this property must be `Global`. Defaults to `Microsoft.Storage`.
      * 
      */
     private @Nullable String service;
     /**
      * @return Specifies a list of resources or aliases that this Subnet Service Endpoint Storage Policy Definition applies to.
      * 
-     * &gt; **Note:** The `service_resources` property must contain either Aliases or Resource IDs, but not both.
+     * &gt; **Note:** The `serviceResources` property must contain either Aliases or Resource IDs, but not both.
      * 
      */
     private List<String> serviceResources;
@@ -52,7 +52,7 @@ public final class SubnetServiceEndpointStoragePolicyDefinition {
         return this.name;
     }
     /**
-     * @return The type of service resources. Valid values are `Microsoft.Storage` or `Global`. When the `service_resources` property contains resource IDs, this property must be `Microsoft.Storage`. When the `service_resources` property contains Aliases, this property must be `Global`. Defaults to `Microsoft.Storage`.
+     * @return The type of service resources. Valid values are `Microsoft.Storage` or `Global`. When the `serviceResources` property contains resource IDs, this property must be `Microsoft.Storage`. When the `serviceResources` property contains Aliases, this property must be `Global`. Defaults to `Microsoft.Storage`.
      * 
      */
     public Optional<String> service() {
@@ -61,7 +61,7 @@ public final class SubnetServiceEndpointStoragePolicyDefinition {
     /**
      * @return Specifies a list of resources or aliases that this Subnet Service Endpoint Storage Policy Definition applies to.
      * 
-     * &gt; **Note:** The `service_resources` property must contain either Aliases or Resource IDs, but not both.
+     * &gt; **Note:** The `serviceResources` property must contain either Aliases or Resource IDs, but not both.
      * 
      */
     public List<String> serviceResources() {

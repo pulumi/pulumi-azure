@@ -116,13 +116,13 @@ namespace Pulumi.Azure.NewRelic
         /// <summary>
         /// Specifies the account id. Changing this forces a new Azure Native New Relic Monitor to be created.
         /// 
-        /// &gt; **Note:** The value of `account_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
+        /// &gt; **Note:** The value of `AccountId` must come from an Azure Native New Relic Monitor instance of another different subscription.
         /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
+        /// An `Identity` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.MonitorIdentity?> Identity { get; private set; } = null!;
@@ -154,13 +154,13 @@ namespace Pulumi.Azure.NewRelic
         /// <summary>
         /// Specifies the organization id. Changing this forces a new Azure Native New Relic Monitor to be created.
         /// 
-        /// &gt; **Note:** The value of `organization_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
+        /// &gt; **Note:** The value of `OrganizationId` must come from an Azure Native New Relic Monitor instance of another different subscription.
         /// </summary>
         [Output("organizationId")]
         public Output<string> OrganizationId { get; private set; } = null!;
 
         /// <summary>
-        /// A `plan` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
+        /// A `Plan` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
         /// </summary>
         [Output("plan")]
         public Output<Outputs.MonitorPlan> Plan { get; private set; } = null!;
@@ -172,7 +172,7 @@ namespace Pulumi.Azure.NewRelic
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `user` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
+        /// A `User` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
         /// </summary>
         [Output("user")]
         public Output<Outputs.MonitorUser> User { get; private set; } = null!;
@@ -242,13 +242,13 @@ namespace Pulumi.Azure.NewRelic
         /// <summary>
         /// Specifies the account id. Changing this forces a new Azure Native New Relic Monitor to be created.
         /// 
-        /// &gt; **Note:** The value of `account_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
+        /// &gt; **Note:** The value of `AccountId` must come from an Azure Native New Relic Monitor instance of another different subscription.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
+        /// An `Identity` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.MonitorIdentityArgs>? Identity { get; set; }
@@ -290,13 +290,13 @@ namespace Pulumi.Azure.NewRelic
         /// <summary>
         /// Specifies the organization id. Changing this forces a new Azure Native New Relic Monitor to be created.
         /// 
-        /// &gt; **Note:** The value of `organization_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
+        /// &gt; **Note:** The value of `OrganizationId` must come from an Azure Native New Relic Monitor instance of another different subscription.
         /// </summary>
         [Input("organizationId")]
         public Input<string>? OrganizationId { get; set; }
 
         /// <summary>
-        /// A `plan` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
+        /// A `Plan` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
         /// </summary>
         [Input("plan", required: true)]
         public Input<Inputs.MonitorPlanArgs> Plan { get; set; } = null!;
@@ -308,7 +308,7 @@ namespace Pulumi.Azure.NewRelic
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `user` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
+        /// A `User` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
         /// </summary>
         [Input("user", required: true)]
         public Input<Inputs.MonitorUserArgs> User { get; set; } = null!;
@@ -336,13 +336,13 @@ namespace Pulumi.Azure.NewRelic
         /// <summary>
         /// Specifies the account id. Changing this forces a new Azure Native New Relic Monitor to be created.
         /// 
-        /// &gt; **Note:** The value of `account_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
+        /// &gt; **Note:** The value of `AccountId` must come from an Azure Native New Relic Monitor instance of another different subscription.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
+        /// An `Identity` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.MonitorIdentityGetArgs>? Identity { get; set; }
@@ -384,13 +384,13 @@ namespace Pulumi.Azure.NewRelic
         /// <summary>
         /// Specifies the organization id. Changing this forces a new Azure Native New Relic Monitor to be created.
         /// 
-        /// &gt; **Note:** The value of `organization_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
+        /// &gt; **Note:** The value of `OrganizationId` must come from an Azure Native New Relic Monitor instance of another different subscription.
         /// </summary>
         [Input("organizationId")]
         public Input<string>? OrganizationId { get; set; }
 
         /// <summary>
-        /// A `plan` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
+        /// A `Plan` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
         /// </summary>
         [Input("plan")]
         public Input<Inputs.MonitorPlanGetArgs>? Plan { get; set; }
@@ -402,7 +402,7 @@ namespace Pulumi.Azure.NewRelic
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// A `user` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
+        /// A `User` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
         /// </summary>
         [Input("user")]
         public Input<Inputs.MonitorUserGetArgs>? User { get; set; }

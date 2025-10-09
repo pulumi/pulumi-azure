@@ -14,9 +14,9 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class SharedImageGallerySharing
     {
         /// <summary>
-        /// A `community_gallery` block as defined below. Changing this forces a new resource to be created.
+        /// A `CommunityGallery` block as defined below. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** `community_gallery` must be set when `permission` is set to `Community`.
+        /// &gt; **Note:** `CommunityGallery` must be set when `Permission` is set to `Community`.
         /// </summary>
         public readonly Outputs.SharedImageGallerySharingCommunityGallery? CommunityGallery;
         /// <summary>

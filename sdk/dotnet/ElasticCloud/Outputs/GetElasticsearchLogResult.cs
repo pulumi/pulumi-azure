@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ElasticCloud.Outputs
     public sealed class GetElasticsearchLogResult
     {
         /// <summary>
-        /// A list of `filtering_tag` blocks as defined above.
+        /// A list of `FilteringTag` blocks as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetElasticsearchLogFilteringTagResult> FilteringTags;
         /// <summary>

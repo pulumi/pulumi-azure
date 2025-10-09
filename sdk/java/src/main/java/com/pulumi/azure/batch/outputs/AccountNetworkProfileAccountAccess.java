@@ -19,7 +19,7 @@ public final class AccountNetworkProfileAccountAccess {
      */
     private @Nullable String defaultAction;
     /**
-     * @return One or more `ip_rule` blocks as defined below.
+     * @return One or more `ipRule` blocks as defined below.
      * 
      */
     private @Nullable List<AccountNetworkProfileAccountAccessIpRule> ipRules;
@@ -33,7 +33,7 @@ public final class AccountNetworkProfileAccountAccess {
         return Optional.ofNullable(this.defaultAction);
     }
     /**
-     * @return One or more `ip_rule` blocks as defined below.
+     * @return One or more `ipRule` blocks as defined below.
      * 
      */
     public List<AccountNetworkProfileAccountAccessIpRule> ipRules() {

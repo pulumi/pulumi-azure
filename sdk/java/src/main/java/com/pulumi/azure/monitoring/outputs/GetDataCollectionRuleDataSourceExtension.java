@@ -22,7 +22,7 @@ public final class GetDataCollectionRuleDataSourceExtension {
      */
     private String extensionName;
     /**
-     * @return Specifies a list of data sources this extension needs data from. An item should be a name of a supported data source which produces only one stream. Supported data sources type: `performance_counter`, `windows_event_log`,and `syslog`.
+     * @return Specifies a list of data sources this extension needs data from. An item should be a name of a supported data source which produces only one stream. Supported data sources type: `performanceCounter`, `windowsEventLog`,and `syslog`.
      * 
      */
     private List<String> inputDataSources;
@@ -53,7 +53,7 @@ public final class GetDataCollectionRuleDataSourceExtension {
         return this.extensionName;
     }
     /**
-     * @return Specifies a list of data sources this extension needs data from. An item should be a name of a supported data source which produces only one stream. Supported data sources type: `performance_counter`, `windows_event_log`,and `syslog`.
+     * @return Specifies a list of data sources this extension needs data from. An item should be a name of a supported data source which produces only one stream. Supported data sources type: `performanceCounter`, `windowsEventLog`,and `syslog`.
      * 
      */
     public List<String> inputDataSources() {

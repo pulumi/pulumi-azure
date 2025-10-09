@@ -14,21 +14,21 @@ namespace Pulumi.Azure.DesktopVirtualization.Outputs
     public sealed class HostPoolScheduledAgentUpdates
     {
         /// <summary>
-        /// Enables or disables scheduled updates of the AVD agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts. If this is enabled then up to two `schedule` blocks must be defined. Default is `false`.
+        /// Enables or disables scheduled updates of the AVD agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts. If this is enabled then up to two `Schedule` blocks must be defined. Default is `False`.
         /// 
-        /// &gt; **Note:** if `enabled` is set to `true` then at least one and a maximum of two `schedule` blocks must be provided.
+        /// &gt; **Note:** if `Enabled` is set to `True` then at least one and a maximum of two `Schedule` blocks must be provided.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// A `schedule` block as defined below. A maximum of two blocks can be added.
+        /// A `Schedule` block as defined below. A maximum of two blocks can be added.
         /// </summary>
         public readonly ImmutableArray<Outputs.HostPoolScheduledAgentUpdatesSchedule> Schedules;
         /// <summary>
-        /// Specifies the time zone in which the agent update schedule will apply, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). If `use_session_host_timezone` is enabled then it will override this setting. Default is `UTC`
+        /// Specifies the time zone in which the agent update schedule will apply, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). If `UseSessionHostTimezone` is enabled then it will override this setting. Default is `UTC`
         /// </summary>
         public readonly string? Timezone;
         /// <summary>
-        /// Specifies whether scheduled agent updates should be applied based on the timezone of the affected session host. If configured then this setting overrides `timezone`. Default is `false`.
+        /// Specifies whether scheduled agent updates should be applied based on the timezone of the affected session host. If configured then this setting overrides `Timezone`. Default is `False`.
         /// </summary>
         public readonly bool? UseSessionHostTimezone;
 

@@ -107,7 +107,7 @@ namespace Pulumi.Azure.ArcKubernetes
         public Output<string> ExtensionType { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
+        /// An `Identity` block as defined below. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ClusterExtensionIdentity> Identity { get; private set; } = null!;
@@ -225,7 +225,7 @@ namespace Pulumi.Azure.ArcKubernetes
         public Input<string> ExtensionType { get; set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
+        /// An `Identity` block as defined below. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
         /// </summary>
         [Input("identity", required: true)]
         public Input<Inputs.ClusterExtensionIdentityArgs> Identity { get; set; } = null!;
@@ -311,7 +311,7 @@ namespace Pulumi.Azure.ArcKubernetes
         public Input<string>? ExtensionType { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
+        /// An `Identity` block as defined below. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ClusterExtensionIdentityGetArgs>? Identity { get; set; }

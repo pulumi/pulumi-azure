@@ -83,13 +83,13 @@ namespace Pulumi.Azure.DevCenter
     public partial class Catalog : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A `catalog_adogit` block as defined below.
+        /// A `CatalogAdogit` block as defined below.
         /// </summary>
         [Output("catalogAdogit")]
         public Output<Outputs.CatalogCatalogAdogit?> CatalogAdogit { get; private set; } = null!;
 
         /// <summary>
-        /// A `catalog_github` block as defined below.
+        /// A `CatalogGithub` block as defined below.
         /// </summary>
         [Output("catalogGithub")]
         public Output<Outputs.CatalogCatalogGithub?> CatalogGithub { get; private set; } = null!;
@@ -159,13 +159,13 @@ namespace Pulumi.Azure.DevCenter
     public sealed class CatalogArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `catalog_adogit` block as defined below.
+        /// A `CatalogAdogit` block as defined below.
         /// </summary>
         [Input("catalogAdogit")]
         public Input<Inputs.CatalogCatalogAdogitArgs>? CatalogAdogit { get; set; }
 
         /// <summary>
-        /// A `catalog_github` block as defined below.
+        /// A `CatalogGithub` block as defined below.
         /// </summary>
         [Input("catalogGithub")]
         public Input<Inputs.CatalogCatalogGithubArgs>? CatalogGithub { get; set; }
@@ -197,13 +197,13 @@ namespace Pulumi.Azure.DevCenter
     public sealed class CatalogState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `catalog_adogit` block as defined below.
+        /// A `CatalogAdogit` block as defined below.
         /// </summary>
         [Input("catalogAdogit")]
         public Input<Inputs.CatalogCatalogAdogitGetArgs>? CatalogAdogit { get; set; }
 
         /// <summary>
-        /// A `catalog_github` block as defined below.
+        /// A `CatalogGithub` block as defined below.
         /// </summary>
         [Input("catalogGithub")]
         public Input<Inputs.CatalogCatalogGithubGetArgs>? CatalogGithub { get; set; }

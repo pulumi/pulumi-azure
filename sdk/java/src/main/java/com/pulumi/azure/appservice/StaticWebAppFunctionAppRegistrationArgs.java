@@ -19,7 +19,7 @@ public final class StaticWebAppFunctionAppRegistrationArgs extends com.pulumi.re
      * 
      * &gt; **Note:** Only one Function App can be connected to a Static Web App. Multiple Function Apps are not currently supported.
      * 
-     * &gt; **Note:** Connecting a Function App resource to a Static Web App resource updates the Function App to use AuthV2 and configures the `azure_static_web_app_v2` which may need to be accounted for by the use of `ignore_changes` depending on the existing `auth_settings_v2` configuration of the target Function App.
+     * &gt; **Note:** Connecting a Function App resource to a Static Web App resource updates the Function App to use AuthV2 and configures the `azureStaticWebAppV2` which may need to be accounted for by the use of `ignoreChanges` depending on the existing `authSettingsV2` configuration of the target Function App.
      * 
      */
     @Import(name="functionAppId", required=true)
@@ -30,7 +30,7 @@ public final class StaticWebAppFunctionAppRegistrationArgs extends com.pulumi.re
      * 
      * &gt; **Note:** Only one Function App can be connected to a Static Web App. Multiple Function Apps are not currently supported.
      * 
-     * &gt; **Note:** Connecting a Function App resource to a Static Web App resource updates the Function App to use AuthV2 and configures the `azure_static_web_app_v2` which may need to be accounted for by the use of `ignore_changes` depending on the existing `auth_settings_v2` configuration of the target Function App.
+     * &gt; **Note:** Connecting a Function App resource to a Static Web App resource updates the Function App to use AuthV2 and configures the `azureStaticWebAppV2` which may need to be accounted for by the use of `ignoreChanges` depending on the existing `authSettingsV2` configuration of the target Function App.
      * 
      */
     public Output<String> functionAppId() {
@@ -82,7 +82,7 @@ public final class StaticWebAppFunctionAppRegistrationArgs extends com.pulumi.re
          * 
          * &gt; **Note:** Only one Function App can be connected to a Static Web App. Multiple Function Apps are not currently supported.
          * 
-         * &gt; **Note:** Connecting a Function App resource to a Static Web App resource updates the Function App to use AuthV2 and configures the `azure_static_web_app_v2` which may need to be accounted for by the use of `ignore_changes` depending on the existing `auth_settings_v2` configuration of the target Function App.
+         * &gt; **Note:** Connecting a Function App resource to a Static Web App resource updates the Function App to use AuthV2 and configures the `azureStaticWebAppV2` which may need to be accounted for by the use of `ignoreChanges` depending on the existing `authSettingsV2` configuration of the target Function App.
          * 
          * @return builder
          * 
@@ -97,7 +97,7 @@ public final class StaticWebAppFunctionAppRegistrationArgs extends com.pulumi.re
          * 
          * &gt; **Note:** Only one Function App can be connected to a Static Web App. Multiple Function Apps are not currently supported.
          * 
-         * &gt; **Note:** Connecting a Function App resource to a Static Web App resource updates the Function App to use AuthV2 and configures the `azure_static_web_app_v2` which may need to be accounted for by the use of `ignore_changes` depending on the existing `auth_settings_v2` configuration of the target Function App.
+         * &gt; **Note:** Connecting a Function App resource to a Static Web App resource updates the Function App to use AuthV2 and configures the `azureStaticWebAppV2` which may need to be accounted for by the use of `ignoreChanges` depending on the existing `authSettingsV2` configuration of the target Function App.
          * 
          * @return builder
          * 

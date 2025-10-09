@@ -159,14 +159,14 @@ public class ExadataInfrastructure extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * One or more `maintenance_window` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
+     * One or more `maintenanceWindow` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     @Export(name="maintenanceWindows", refs={List.class,ExadataInfrastructureMaintenanceWindow.class}, tree="[0,1]")
     private Output<List<ExadataInfrastructureMaintenanceWindow>> maintenanceWindows;
 
     /**
-     * @return One or more `maintenance_window` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
+     * @return One or more `maintenanceWindow` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
     public Output<List<ExadataInfrastructureMaintenanceWindow>> maintenanceWindows() {

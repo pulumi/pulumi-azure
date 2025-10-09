@@ -34,7 +34,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         private InputList<Inputs.GroupContainerReadinessProbeHttpGetGetArgs>? _httpGets;
 
         /// <summary>
-        /// The definition of the http_get for this container as documented in the `http_get` block below. Changing this forces a new resource to be created.
+        /// The definition of the HttpGet for this container as documented in the `HttpGet` block below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.GroupContainerReadinessProbeHttpGetGetArgs> HttpGets
         {

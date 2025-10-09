@@ -24,14 +24,14 @@ public final class DataCollectionRuleDestinationsArgs extends com.pulumi.resourc
     public static final DataCollectionRuleDestinationsArgs Empty = new DataCollectionRuleDestinationsArgs();
 
     /**
-     * A `azure_monitor_metrics` block as defined above.
+     * A `azureMonitorMetrics` block as defined above.
      * 
      */
     @Import(name="azureMonitorMetrics")
     private @Nullable Output<DataCollectionRuleDestinationsAzureMonitorMetricsArgs> azureMonitorMetrics;
 
     /**
-     * @return A `azure_monitor_metrics` block as defined above.
+     * @return A `azureMonitorMetrics` block as defined above.
      * 
      */
     public Optional<Output<DataCollectionRuleDestinationsAzureMonitorMetricsArgs>> azureMonitorMetrics() {
@@ -39,14 +39,14 @@ public final class DataCollectionRuleDestinationsArgs extends com.pulumi.resourc
     }
 
     /**
-     * One or more `event_hub` blocks as defined below.
+     * One or more `eventHub` blocks as defined below.
      * 
      */
     @Import(name="eventHub")
     private @Nullable Output<DataCollectionRuleDestinationsEventHubArgs> eventHub;
 
     /**
-     * @return One or more `event_hub` blocks as defined below.
+     * @return One or more `eventHub` blocks as defined below.
      * 
      */
     public Optional<Output<DataCollectionRuleDestinationsEventHubArgs>> eventHub() {
@@ -54,14 +54,14 @@ public final class DataCollectionRuleDestinationsArgs extends com.pulumi.resourc
     }
 
     /**
-     * One or more `event_hub` blocks as defined below.
+     * One or more `eventHub` blocks as defined below.
      * 
      */
     @Import(name="eventHubDirect")
     private @Nullable Output<DataCollectionRuleDestinationsEventHubDirectArgs> eventHubDirect;
 
     /**
-     * @return One or more `event_hub` blocks as defined below.
+     * @return One or more `eventHub` blocks as defined below.
      * 
      */
     public Optional<Output<DataCollectionRuleDestinationsEventHubDirectArgs>> eventHubDirect() {
@@ -69,14 +69,14 @@ public final class DataCollectionRuleDestinationsArgs extends com.pulumi.resourc
     }
 
     /**
-     * One or more `log_analytics` blocks as defined below.
+     * One or more `logAnalytics` blocks as defined below.
      * 
      */
     @Import(name="logAnalytics")
     private @Nullable Output<List<DataCollectionRuleDestinationsLogAnalyticArgs>> logAnalytics;
 
     /**
-     * @return One or more `log_analytics` blocks as defined below.
+     * @return One or more `logAnalytics` blocks as defined below.
      * 
      */
     public Optional<Output<List<DataCollectionRuleDestinationsLogAnalyticArgs>>> logAnalytics() {
@@ -84,14 +84,14 @@ public final class DataCollectionRuleDestinationsArgs extends com.pulumi.resourc
     }
 
     /**
-     * One or more `monitor_account` blocks as defined below.
+     * One or more `monitorAccount` blocks as defined below.
      * 
      */
     @Import(name="monitorAccounts")
     private @Nullable Output<List<DataCollectionRuleDestinationsMonitorAccountArgs>> monitorAccounts;
 
     /**
-     * @return One or more `monitor_account` blocks as defined below.
+     * @return One or more `monitorAccount` blocks as defined below.
      * 
      */
     public Optional<Output<List<DataCollectionRuleDestinationsMonitorAccountArgs>>> monitorAccounts() {
@@ -99,14 +99,14 @@ public final class DataCollectionRuleDestinationsArgs extends com.pulumi.resourc
     }
 
     /**
-     * One or more `storage_blob_direct` blocks as defined below.
+     * One or more `storageBlobDirect` blocks as defined below.
      * 
      */
     @Import(name="storageBlobDirects")
     private @Nullable Output<List<DataCollectionRuleDestinationsStorageBlobDirectArgs>> storageBlobDirects;
 
     /**
-     * @return One or more `storage_blob_direct` blocks as defined below.
+     * @return One or more `storageBlobDirect` blocks as defined below.
      * 
      */
     public Optional<Output<List<DataCollectionRuleDestinationsStorageBlobDirectArgs>>> storageBlobDirects() {
@@ -114,14 +114,14 @@ public final class DataCollectionRuleDestinationsArgs extends com.pulumi.resourc
     }
 
     /**
-     * One or more `storage_blob` blocks as defined below.
+     * One or more `storageBlob` blocks as defined below.
      * 
      */
     @Import(name="storageBlobs")
     private @Nullable Output<List<DataCollectionRuleDestinationsStorageBlobArgs>> storageBlobs;
 
     /**
-     * @return One or more `storage_blob` blocks as defined below.
+     * @return One or more `storageBlob` blocks as defined below.
      * 
      */
     public Optional<Output<List<DataCollectionRuleDestinationsStorageBlobArgs>>> storageBlobs() {
@@ -129,22 +129,22 @@ public final class DataCollectionRuleDestinationsArgs extends com.pulumi.resourc
     }
 
     /**
-     * One or more `storage_table_direct` blocks as defined below.
+     * One or more `storageTableDirect` blocks as defined below.
      * 
-     * &gt; **Note:** `event_hub_direct`, `storage_blob_direct`, and `storage_table_direct` are only available for rules of kind `AgentDirectToStore`.
+     * &gt; **Note:** `eventHubDirect`, `storageBlobDirect`, and `storageTableDirect` are only available for rules of kind `AgentDirectToStore`.
      * 
-     * &gt; **Note:** At least one of `azure_monitor_metrics`, `event_hub`, `event_hub_direct`, `log_analytics`, `monitor_account`, `storage_blob`, `storage_blob_direct`,and `storage_table_direct` blocks must be specified.
+     * &gt; **Note:** At least one of `azureMonitorMetrics`, `eventHub`, `eventHubDirect`, `logAnalytics`, `monitorAccount`, `storageBlob`, `storageBlobDirect`,and `storageTableDirect` blocks must be specified.
      * 
      */
     @Import(name="storageTableDirects")
     private @Nullable Output<List<DataCollectionRuleDestinationsStorageTableDirectArgs>> storageTableDirects;
 
     /**
-     * @return One or more `storage_table_direct` blocks as defined below.
+     * @return One or more `storageTableDirect` blocks as defined below.
      * 
-     * &gt; **Note:** `event_hub_direct`, `storage_blob_direct`, and `storage_table_direct` are only available for rules of kind `AgentDirectToStore`.
+     * &gt; **Note:** `eventHubDirect`, `storageBlobDirect`, and `storageTableDirect` are only available for rules of kind `AgentDirectToStore`.
      * 
-     * &gt; **Note:** At least one of `azure_monitor_metrics`, `event_hub`, `event_hub_direct`, `log_analytics`, `monitor_account`, `storage_blob`, `storage_blob_direct`,and `storage_table_direct` blocks must be specified.
+     * &gt; **Note:** At least one of `azureMonitorMetrics`, `eventHub`, `eventHubDirect`, `logAnalytics`, `monitorAccount`, `storageBlob`, `storageBlobDirect`,and `storageTableDirect` blocks must be specified.
      * 
      */
     public Optional<Output<List<DataCollectionRuleDestinationsStorageTableDirectArgs>>> storageTableDirects() {
@@ -183,7 +183,7 @@ public final class DataCollectionRuleDestinationsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param azureMonitorMetrics A `azure_monitor_metrics` block as defined above.
+         * @param azureMonitorMetrics A `azureMonitorMetrics` block as defined above.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class DataCollectionRuleDestinationsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param azureMonitorMetrics A `azure_monitor_metrics` block as defined above.
+         * @param azureMonitorMetrics A `azureMonitorMetrics` block as defined above.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class DataCollectionRuleDestinationsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param eventHub One or more `event_hub` blocks as defined below.
+         * @param eventHub One or more `eventHub` blocks as defined below.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class DataCollectionRuleDestinationsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param eventHub One or more `event_hub` blocks as defined below.
+         * @param eventHub One or more `eventHub` blocks as defined below.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class DataCollectionRuleDestinationsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param eventHubDirect One or more `event_hub` blocks as defined below.
+         * @param eventHubDirect One or more `eventHub` blocks as defined below.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class DataCollectionRuleDestinationsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param eventHubDirect One or more `event_hub` blocks as defined below.
+         * @param eventHubDirect One or more `eventHub` blocks as defined below.
          * 
          * @return builder
          * 
@@ -246,7 +246,7 @@ public final class DataCollectionRuleDestinationsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param logAnalytics One or more `log_analytics` blocks as defined below.
+         * @param logAnalytics One or more `logAnalytics` blocks as defined below.
          * 
          * @return builder
          * 
@@ -257,7 +257,7 @@ public final class DataCollectionRuleDestinationsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param logAnalytics One or more `log_analytics` blocks as defined below.
+         * @param logAnalytics One or more `logAnalytics` blocks as defined below.
          * 
          * @return builder
          * 
@@ -267,7 +267,7 @@ public final class DataCollectionRuleDestinationsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param logAnalytics One or more `log_analytics` blocks as defined below.
+         * @param logAnalytics One or more `logAnalytics` blocks as defined below.
          * 
          * @return builder
          * 
@@ -277,7 +277,7 @@ public final class DataCollectionRuleDestinationsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param monitorAccounts One or more `monitor_account` blocks as defined below.
+         * @param monitorAccounts One or more `monitorAccount` blocks as defined below.
          * 
          * @return builder
          * 
@@ -288,7 +288,7 @@ public final class DataCollectionRuleDestinationsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param monitorAccounts One or more `monitor_account` blocks as defined below.
+         * @param monitorAccounts One or more `monitorAccount` blocks as defined below.
          * 
          * @return builder
          * 
@@ -298,7 +298,7 @@ public final class DataCollectionRuleDestinationsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param monitorAccounts One or more `monitor_account` blocks as defined below.
+         * @param monitorAccounts One or more `monitorAccount` blocks as defined below.
          * 
          * @return builder
          * 
@@ -308,7 +308,7 @@ public final class DataCollectionRuleDestinationsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param storageBlobDirects One or more `storage_blob_direct` blocks as defined below.
+         * @param storageBlobDirects One or more `storageBlobDirect` blocks as defined below.
          * 
          * @return builder
          * 
@@ -319,7 +319,7 @@ public final class DataCollectionRuleDestinationsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param storageBlobDirects One or more `storage_blob_direct` blocks as defined below.
+         * @param storageBlobDirects One or more `storageBlobDirect` blocks as defined below.
          * 
          * @return builder
          * 
@@ -329,7 +329,7 @@ public final class DataCollectionRuleDestinationsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param storageBlobDirects One or more `storage_blob_direct` blocks as defined below.
+         * @param storageBlobDirects One or more `storageBlobDirect` blocks as defined below.
          * 
          * @return builder
          * 
@@ -339,7 +339,7 @@ public final class DataCollectionRuleDestinationsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param storageBlobs One or more `storage_blob` blocks as defined below.
+         * @param storageBlobs One or more `storageBlob` blocks as defined below.
          * 
          * @return builder
          * 
@@ -350,7 +350,7 @@ public final class DataCollectionRuleDestinationsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param storageBlobs One or more `storage_blob` blocks as defined below.
+         * @param storageBlobs One or more `storageBlob` blocks as defined below.
          * 
          * @return builder
          * 
@@ -360,7 +360,7 @@ public final class DataCollectionRuleDestinationsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param storageBlobs One or more `storage_blob` blocks as defined below.
+         * @param storageBlobs One or more `storageBlob` blocks as defined below.
          * 
          * @return builder
          * 
@@ -370,11 +370,11 @@ public final class DataCollectionRuleDestinationsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param storageTableDirects One or more `storage_table_direct` blocks as defined below.
+         * @param storageTableDirects One or more `storageTableDirect` blocks as defined below.
          * 
-         * &gt; **Note:** `event_hub_direct`, `storage_blob_direct`, and `storage_table_direct` are only available for rules of kind `AgentDirectToStore`.
+         * &gt; **Note:** `eventHubDirect`, `storageBlobDirect`, and `storageTableDirect` are only available for rules of kind `AgentDirectToStore`.
          * 
-         * &gt; **Note:** At least one of `azure_monitor_metrics`, `event_hub`, `event_hub_direct`, `log_analytics`, `monitor_account`, `storage_blob`, `storage_blob_direct`,and `storage_table_direct` blocks must be specified.
+         * &gt; **Note:** At least one of `azureMonitorMetrics`, `eventHub`, `eventHubDirect`, `logAnalytics`, `monitorAccount`, `storageBlob`, `storageBlobDirect`,and `storageTableDirect` blocks must be specified.
          * 
          * @return builder
          * 
@@ -385,11 +385,11 @@ public final class DataCollectionRuleDestinationsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param storageTableDirects One or more `storage_table_direct` blocks as defined below.
+         * @param storageTableDirects One or more `storageTableDirect` blocks as defined below.
          * 
-         * &gt; **Note:** `event_hub_direct`, `storage_blob_direct`, and `storage_table_direct` are only available for rules of kind `AgentDirectToStore`.
+         * &gt; **Note:** `eventHubDirect`, `storageBlobDirect`, and `storageTableDirect` are only available for rules of kind `AgentDirectToStore`.
          * 
-         * &gt; **Note:** At least one of `azure_monitor_metrics`, `event_hub`, `event_hub_direct`, `log_analytics`, `monitor_account`, `storage_blob`, `storage_blob_direct`,and `storage_table_direct` blocks must be specified.
+         * &gt; **Note:** At least one of `azureMonitorMetrics`, `eventHub`, `eventHubDirect`, `logAnalytics`, `monitorAccount`, `storageBlob`, `storageBlobDirect`,and `storageTableDirect` blocks must be specified.
          * 
          * @return builder
          * 
@@ -399,11 +399,11 @@ public final class DataCollectionRuleDestinationsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param storageTableDirects One or more `storage_table_direct` blocks as defined below.
+         * @param storageTableDirects One or more `storageTableDirect` blocks as defined below.
          * 
-         * &gt; **Note:** `event_hub_direct`, `storage_blob_direct`, and `storage_table_direct` are only available for rules of kind `AgentDirectToStore`.
+         * &gt; **Note:** `eventHubDirect`, `storageBlobDirect`, and `storageTableDirect` are only available for rules of kind `AgentDirectToStore`.
          * 
-         * &gt; **Note:** At least one of `azure_monitor_metrics`, `event_hub`, `event_hub_direct`, `log_analytics`, `monitor_account`, `storage_blob`, `storage_blob_direct`,and `storage_table_direct` blocks must be specified.
+         * &gt; **Note:** At least one of `azureMonitorMetrics`, `eventHub`, `eventHubDirect`, `logAnalytics`, `monitorAccount`, `storageBlob`, `storageBlobDirect`,and `storageTableDirect` blocks must be specified.
          * 
          * @return builder
          * 

@@ -23,7 +23,7 @@ public final class BackupVaultArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Whether to enable cross-region restore for the Backup Vault.
      * 
-     * &gt; **Note:** The `cross_region_restore_enabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `cross_region_restore_enabled` is enabled, it cannot be disabled.
+     * &gt; **Note:** The `crossRegionRestoreEnabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `crossRegionRestoreEnabled` is enabled, it cannot be disabled.
      * 
      */
     @Import(name="crossRegionRestoreEnabled")
@@ -32,7 +32,7 @@ public final class BackupVaultArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Whether to enable cross-region restore for the Backup Vault.
      * 
-     * &gt; **Note:** The `cross_region_restore_enabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `cross_region_restore_enabled` is enabled, it cannot be disabled.
+     * &gt; **Note:** The `crossRegionRestoreEnabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `crossRegionRestoreEnabled` is enabled, it cannot be disabled.
      * 
      */
     public Optional<Output<Boolean>> crossRegionRestoreEnabled() {
@@ -151,7 +151,7 @@ public final class BackupVaultArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The soft delete retention duration for this Backup Vault. Possible values are between `14` and `180`. Defaults to `14`.
      * 
-     * &gt; **Note:** The `retention_duration_in_days` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retention_duration_in_days` is required when the `soft_delete` is set to `On`.
+     * &gt; **Note:** The `retentionDurationInDays` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retentionDurationInDays` is required when the `softDelete` is set to `On`.
      * 
      */
     @Import(name="retentionDurationInDays")
@@ -160,7 +160,7 @@ public final class BackupVaultArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The soft delete retention duration for this Backup Vault. Possible values are between `14` and `180`. Defaults to `14`.
      * 
-     * &gt; **Note:** The `retention_duration_in_days` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retention_duration_in_days` is required when the `soft_delete` is set to `On`.
+     * &gt; **Note:** The `retentionDurationInDays` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retentionDurationInDays` is required when the `softDelete` is set to `On`.
      * 
      */
     public Optional<Output<Double>> retentionDurationInDays() {
@@ -170,7 +170,7 @@ public final class BackupVaultArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off`, and `On`. Defaults to `On`.
      * 
-     * &gt; **Note:** Once the `soft_delete` is set to `AlwaysOn`, the setting cannot be changed.
+     * &gt; **Note:** Once the `softDelete` is set to `AlwaysOn`, the setting cannot be changed.
      * 
      */
     @Import(name="softDelete")
@@ -179,7 +179,7 @@ public final class BackupVaultArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off`, and `On`. Defaults to `On`.
      * 
-     * &gt; **Note:** Once the `soft_delete` is set to `AlwaysOn`, the setting cannot be changed.
+     * &gt; **Note:** Once the `softDelete` is set to `AlwaysOn`, the setting cannot be changed.
      * 
      */
     public Optional<Output<String>> softDelete() {
@@ -238,7 +238,7 @@ public final class BackupVaultArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param crossRegionRestoreEnabled Whether to enable cross-region restore for the Backup Vault.
          * 
-         * &gt; **Note:** The `cross_region_restore_enabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `cross_region_restore_enabled` is enabled, it cannot be disabled.
+         * &gt; **Note:** The `crossRegionRestoreEnabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `crossRegionRestoreEnabled` is enabled, it cannot be disabled.
          * 
          * @return builder
          * 
@@ -251,7 +251,7 @@ public final class BackupVaultArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param crossRegionRestoreEnabled Whether to enable cross-region restore for the Backup Vault.
          * 
-         * &gt; **Note:** The `cross_region_restore_enabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `cross_region_restore_enabled` is enabled, it cannot be disabled.
+         * &gt; **Note:** The `crossRegionRestoreEnabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `crossRegionRestoreEnabled` is enabled, it cannot be disabled.
          * 
          * @return builder
          * 
@@ -414,7 +414,7 @@ public final class BackupVaultArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param retentionDurationInDays The soft delete retention duration for this Backup Vault. Possible values are between `14` and `180`. Defaults to `14`.
          * 
-         * &gt; **Note:** The `retention_duration_in_days` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retention_duration_in_days` is required when the `soft_delete` is set to `On`.
+         * &gt; **Note:** The `retentionDurationInDays` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retentionDurationInDays` is required when the `softDelete` is set to `On`.
          * 
          * @return builder
          * 
@@ -427,7 +427,7 @@ public final class BackupVaultArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param retentionDurationInDays The soft delete retention duration for this Backup Vault. Possible values are between `14` and `180`. Defaults to `14`.
          * 
-         * &gt; **Note:** The `retention_duration_in_days` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retention_duration_in_days` is required when the `soft_delete` is set to `On`.
+         * &gt; **Note:** The `retentionDurationInDays` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retentionDurationInDays` is required when the `softDelete` is set to `On`.
          * 
          * @return builder
          * 
@@ -439,7 +439,7 @@ public final class BackupVaultArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param softDelete The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off`, and `On`. Defaults to `On`.
          * 
-         * &gt; **Note:** Once the `soft_delete` is set to `AlwaysOn`, the setting cannot be changed.
+         * &gt; **Note:** Once the `softDelete` is set to `AlwaysOn`, the setting cannot be changed.
          * 
          * @return builder
          * 
@@ -452,7 +452,7 @@ public final class BackupVaultArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param softDelete The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off`, and `On`. Defaults to `On`.
          * 
-         * &gt; **Note:** Once the `soft_delete` is set to `AlwaysOn`, the setting cannot be changed.
+         * &gt; **Note:** Once the `softDelete` is set to `AlwaysOn`, the setting cannot be changed.
          * 
          * @return builder
          * 

@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Maps.Outputs
         /// <summary>
         /// A list of User Assigned Managed Identity IDs to be assigned to this Azure Maps Account.
         /// 
-        /// &gt; **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        /// &gt; **Note:** This is required when `Type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>

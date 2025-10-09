@@ -27,7 +27,7 @@ namespace Pulumi.Azure.MachineLearning.Inputs
         /// <summary>
         /// The name of online store connection.
         /// 
-        /// &gt; **Note:** `feature_store` must be set when`kind` is `FeatureStore`
+        /// &gt; **Note:** `FeatureStore` must be set when`Kind` is `FeatureStore`
         /// </summary>
         [Input("onlineConnectionName")]
         public Input<string>? OnlineConnectionName { get; set; }

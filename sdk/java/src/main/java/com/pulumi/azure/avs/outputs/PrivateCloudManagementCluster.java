@@ -25,7 +25,7 @@ public final class PrivateCloudManagementCluster {
      */
     private @Nullable Integer id;
     /**
-     * @return The size of the management cluster. This field can not updated with `internet_connection_enabled` together.
+     * @return The size of the management cluster. This field can not updated with `internetConnectionEnabled` together.
      * 
      */
     private Integer size;
@@ -46,7 +46,7 @@ public final class PrivateCloudManagementCluster {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return The size of the management cluster. This field can not updated with `internet_connection_enabled` together.
+     * @return The size of the management cluster. This field can not updated with `internetConnectionEnabled` together.
      * 
      */
     public Integer size() {

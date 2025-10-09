@@ -86,7 +86,7 @@ namespace Pulumi.Azure.StreamAnalytics
     public partial class FunctionJavascriptUda : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// One or more `input` blocks as defined below.
+        /// One or more `Input` blocks as defined below.
         /// </summary>
         [Output("inputs")]
         public Output<ImmutableArray<Outputs.FunctionJavascriptUdaInput>> Inputs { get; private set; } = null!;
@@ -98,7 +98,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// An `output` block as defined below.
+        /// An `Output` block as defined below.
         /// </summary>
         [Output("output")]
         public Output<Outputs.FunctionJavascriptUdaOutput> Output { get; private set; } = null!;
@@ -165,7 +165,7 @@ namespace Pulumi.Azure.StreamAnalytics
         private InputList<Inputs.FunctionJavascriptUdaInputArgs>? _inputs;
 
         /// <summary>
-        /// One or more `input` blocks as defined below.
+        /// One or more `Input` blocks as defined below.
         /// </summary>
         public InputList<Inputs.FunctionJavascriptUdaInputArgs> Inputs
         {
@@ -180,7 +180,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// An `output` block as defined below.
+        /// An `Output` block as defined below.
         /// </summary>
         [Input("output", required: true)]
         public Input<Inputs.FunctionJavascriptUdaOutputArgs> Output { get; set; } = null!;
@@ -209,7 +209,7 @@ namespace Pulumi.Azure.StreamAnalytics
         private InputList<Inputs.FunctionJavascriptUdaInputGetArgs>? _inputs;
 
         /// <summary>
-        /// One or more `input` blocks as defined below.
+        /// One or more `Input` blocks as defined below.
         /// </summary>
         public InputList<Inputs.FunctionJavascriptUdaInputGetArgs> Inputs
         {
@@ -224,7 +224,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// An `output` block as defined below.
+        /// An `Output` block as defined below.
         /// </summary>
         [Input("output")]
         public Input<Inputs.FunctionJavascriptUdaOutputGetArgs>? Output { get; set; }

@@ -22,7 +22,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly int? FailureThreshold;
         /// <summary>
-        /// The definition of the http_get for this container as documented in the `http_get` block below. Changing this forces a new resource to be created.
+        /// The definition of the HttpGet for this container as documented in the `HttpGet` block below. Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableArray<Outputs.GroupContainerLivenessProbeHttpGet> HttpGets;
         /// <summary>

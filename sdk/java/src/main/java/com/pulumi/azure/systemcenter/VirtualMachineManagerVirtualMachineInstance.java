@@ -197,32 +197,32 @@ public class VirtualMachineManagerVirtualMachineInstance extends com.pulumi.reso
         return this.infrastructure;
     }
     /**
-     * A `network_interface` block as defined below.
+     * A `networkInterface` block as defined below.
      * 
-     * &gt; **Note:** This resource will be restarted while updating `network_interface`.
+     * &gt; **Note:** This resource will be restarted while updating `networkInterface`.
      * 
      */
     @Export(name="networkInterfaces", refs={List.class,VirtualMachineManagerVirtualMachineInstanceNetworkInterface.class}, tree="[0,1]")
     private Output</* @Nullable */ List<VirtualMachineManagerVirtualMachineInstanceNetworkInterface>> networkInterfaces;
 
     /**
-     * @return A `network_interface` block as defined below.
+     * @return A `networkInterface` block as defined below.
      * 
-     * &gt; **Note:** This resource will be restarted while updating `network_interface`.
+     * &gt; **Note:** This resource will be restarted while updating `networkInterface`.
      * 
      */
     public Output<Optional<List<VirtualMachineManagerVirtualMachineInstanceNetworkInterface>>> networkInterfaces() {
         return Codegen.optional(this.networkInterfaces);
     }
     /**
-     * An `operating_system` block as defined below. Changing this forces a new resource to be created.
+     * An `operatingSystem` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="operatingSystem", refs={VirtualMachineManagerVirtualMachineInstanceOperatingSystem.class}, tree="[0]")
     private Output</* @Nullable */ VirtualMachineManagerVirtualMachineInstanceOperatingSystem> operatingSystem;
 
     /**
-     * @return An `operating_system` block as defined below. Changing this forces a new resource to be created.
+     * @return An `operatingSystem` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<VirtualMachineManagerVirtualMachineInstanceOperatingSystem>> operatingSystem() {
@@ -243,18 +243,18 @@ public class VirtualMachineManagerVirtualMachineInstance extends com.pulumi.reso
         return this.scopedResourceId;
     }
     /**
-     * A `storage_disk` block as defined below.
+     * A `storageDisk` block as defined below.
      * 
-     * &gt; **Note:** This resource will be restarted while updating `storage_disk`.
+     * &gt; **Note:** This resource will be restarted while updating `storageDisk`.
      * 
      */
     @Export(name="storageDisks", refs={List.class,VirtualMachineManagerVirtualMachineInstanceStorageDisk.class}, tree="[0,1]")
     private Output</* @Nullable */ List<VirtualMachineManagerVirtualMachineInstanceStorageDisk>> storageDisks;
 
     /**
-     * @return A `storage_disk` block as defined below.
+     * @return A `storageDisk` block as defined below.
      * 
-     * &gt; **Note:** This resource will be restarted while updating `storage_disk`.
+     * &gt; **Note:** This resource will be restarted while updating `storageDisk`.
      * 
      */
     public Output<Optional<List<VirtualMachineManagerVirtualMachineInstanceStorageDisk>>> storageDisks() {

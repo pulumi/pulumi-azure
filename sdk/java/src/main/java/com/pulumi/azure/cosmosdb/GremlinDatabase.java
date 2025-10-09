@@ -95,7 +95,7 @@ public class GremlinDatabase extends com.pulumi.resources.CustomResource {
         return this.accountName;
     }
     /**
-     * An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
      * 
      * &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
      * 
@@ -104,7 +104,7 @@ public class GremlinDatabase extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ GremlinDatabaseAutoscaleSettings> autoscaleSettings;
 
     /**
-     * @return An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+     * @return An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
      * 
      * &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
      * 

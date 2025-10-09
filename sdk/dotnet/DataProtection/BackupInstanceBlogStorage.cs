@@ -121,7 +121,7 @@ namespace Pulumi.Azure.DataProtection
         /// <summary>
         /// The list of the container names of the source Storage Account.
         /// 
-        /// &gt; **Note:** The `storage_account_container_names` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storage_account_container_names` will force a new resource to be created since it can't be removed once specified.
+        /// &gt; **Note:** The `StorageAccountContainerNames` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `StorageAccountContainerNames` will force a new resource to be created since it can't be removed once specified.
         /// </summary>
         [Output("storageAccountContainerNames")]
         public Output<ImmutableArray<string>> StorageAccountContainerNames { get; private set; } = null!;
@@ -208,7 +208,7 @@ namespace Pulumi.Azure.DataProtection
         /// <summary>
         /// The list of the container names of the source Storage Account.
         /// 
-        /// &gt; **Note:** The `storage_account_container_names` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storage_account_container_names` will force a new resource to be created since it can't be removed once specified.
+        /// &gt; **Note:** The `StorageAccountContainerNames` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `StorageAccountContainerNames` will force a new resource to be created since it can't be removed once specified.
         /// </summary>
         public InputList<string> StorageAccountContainerNames
         {
@@ -260,7 +260,7 @@ namespace Pulumi.Azure.DataProtection
         /// <summary>
         /// The list of the container names of the source Storage Account.
         /// 
-        /// &gt; **Note:** The `storage_account_container_names` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storage_account_container_names` will force a new resource to be created since it can't be removed once specified.
+        /// &gt; **Note:** The `StorageAccountContainerNames` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `StorageAccountContainerNames` will force a new resource to be created since it can't be removed once specified.
         /// </summary>
         public InputList<string> StorageAccountContainerNames
         {

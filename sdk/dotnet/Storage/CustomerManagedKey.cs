@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Storage
     /// <summary>
     /// Manages a Customer Managed Key for a Storage Account.
     /// 
-    /// &gt; **Note:** It's possible to define a Customer Managed Key both within the `azure.storage.Account` resource via the `customer_managed_key` block and by using the `azure.storage.CustomerManagedKey` resource. However it's not possible to use both methods to manage a Customer Managed Key for a Storage Account, since there'll be conflicts.
+    /// &gt; **Note:** It's possible to define a Customer Managed Key both within the `azure.storage.Account` resource via the `CustomerManagedKey` block and by using the `azure.storage.CustomerManagedKey` resource. However it's not possible to use both methods to manage a Customer Managed Key for a Storage Account, since there'll be conflicts.
     /// 
     /// ## Example Usage
     /// 
@@ -169,7 +169,7 @@ namespace Pulumi.Azure.Storage
         public Output<string?> KeyVaultId { get; private set; } = null!;
 
         /// <summary>
-        /// URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
+        /// URI pointing at the Key Vault. Required when using `FederatedIdentityClientId`. Exactly one of `ManagedHsmKeyId`, `KeyVaultId`, or `KeyVaultUri` must be specified.
         /// </summary>
         [Output("keyVaultUri")]
         public Output<string> KeyVaultUri { get; private set; } = null!;
@@ -181,7 +181,7 @@ namespace Pulumi.Azure.Storage
         public Output<string?> KeyVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Key ID of a key in a managed HSM.  Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
+        /// Key ID of a key in a managed HSM.  Exactly one of `ManagedHsmKeyId`, `KeyVaultId`, or `KeyVaultUri` must be specified.
         /// </summary>
         [Output("managedHsmKeyId")]
         public Output<string?> ManagedHsmKeyId { get; private set; } = null!;
@@ -260,7 +260,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? KeyVaultId { get; set; }
 
         /// <summary>
-        /// URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
+        /// URI pointing at the Key Vault. Required when using `FederatedIdentityClientId`. Exactly one of `ManagedHsmKeyId`, `KeyVaultId`, or `KeyVaultUri` must be specified.
         /// </summary>
         [Input("keyVaultUri")]
         public Input<string>? KeyVaultUri { get; set; }
@@ -272,7 +272,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? KeyVersion { get; set; }
 
         /// <summary>
-        /// Key ID of a key in a managed HSM.  Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
+        /// Key ID of a key in a managed HSM.  Exactly one of `ManagedHsmKeyId`, `KeyVaultId`, or `KeyVaultUri` must be specified.
         /// </summary>
         [Input("managedHsmKeyId")]
         public Input<string>? ManagedHsmKeyId { get; set; }
@@ -313,7 +313,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? KeyVaultId { get; set; }
 
         /// <summary>
-        /// URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
+        /// URI pointing at the Key Vault. Required when using `FederatedIdentityClientId`. Exactly one of `ManagedHsmKeyId`, `KeyVaultId`, or `KeyVaultUri` must be specified.
         /// </summary>
         [Input("keyVaultUri")]
         public Input<string>? KeyVaultUri { get; set; }
@@ -325,7 +325,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? KeyVersion { get; set; }
 
         /// <summary>
-        /// Key ID of a key in a managed HSM.  Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
+        /// Key ID of a key in a managed HSM.  Exactly one of `ManagedHsmKeyId`, `KeyVaultId`, or `KeyVaultUri` must be specified.
         /// </summary>
         [Input("managedHsmKeyId")]
         public Input<string>? ManagedHsmKeyId { get; set; }

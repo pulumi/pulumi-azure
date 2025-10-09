@@ -72,7 +72,7 @@ namespace Pulumi.Azure.LogicApps
         public Output<string> IntegrationAccountName { get; private set; } = null!;
 
         /// <summary>
-        /// A `key_vault_key` block as documented below.
+        /// A `KeyVaultKey` block as documented below.
         /// </summary>
         [Output("keyVaultKey")]
         public Output<Outputs.IntegrationAccountCertificateKeyVaultKey?> KeyVaultKey { get; private set; } = null!;
@@ -154,7 +154,7 @@ namespace Pulumi.Azure.LogicApps
         public Input<string> IntegrationAccountName { get; set; } = null!;
 
         /// <summary>
-        /// A `key_vault_key` block as documented below.
+        /// A `KeyVaultKey` block as documented below.
         /// </summary>
         [Input("keyVaultKey")]
         public Input<Inputs.IntegrationAccountCertificateKeyVaultKeyArgs>? KeyVaultKey { get; set; }
@@ -198,7 +198,7 @@ namespace Pulumi.Azure.LogicApps
         public Input<string>? IntegrationAccountName { get; set; }
 
         /// <summary>
-        /// A `key_vault_key` block as documented below.
+        /// A `KeyVaultKey` block as documented below.
         /// </summary>
         [Input("keyVaultKey")]
         public Input<Inputs.IntegrationAccountCertificateKeyVaultKeyGetArgs>? KeyVaultKey { get; set; }

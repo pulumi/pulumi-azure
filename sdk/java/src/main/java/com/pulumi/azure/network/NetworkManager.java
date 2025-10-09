@@ -96,14 +96,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:network/networkManager:NetworkManager")
 public class NetworkManager extends com.pulumi.resources.CustomResource {
     /**
-     * One or more `cross_tenant_scopes` blocks as defined below.
+     * One or more `crossTenantScopes` blocks as defined below.
      * 
      */
     @Export(name="crossTenantScopes", refs={List.class,NetworkManagerCrossTenantScope.class}, tree="[0,1]")
     private Output<List<NetworkManagerCrossTenantScope>> crossTenantScopes;
 
     /**
-     * @return One or more `cross_tenant_scopes` blocks as defined below.
+     * @return One or more `crossTenantScopes` blocks as defined below.
      * 
      */
     public Output<List<NetworkManagerCrossTenantScope>> crossTenantScopes() {

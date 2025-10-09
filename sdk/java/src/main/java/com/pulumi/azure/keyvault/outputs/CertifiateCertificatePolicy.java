@@ -18,62 +18,62 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CertifiateCertificatePolicy {
     /**
-     * @return A `issuer_parameters` block as defined below.
+     * @return A `issuerParameters` block as defined below.
      * 
      */
     private CertifiateCertificatePolicyIssuerParameters issuerParameters;
     /**
-     * @return A `key_properties` block as defined below.
+     * @return A `keyProperties` block as defined below.
      * 
      */
     private CertifiateCertificatePolicyKeyProperties keyProperties;
     /**
-     * @return A `lifetime_action` block as defined below.
+     * @return A `lifetimeAction` block as defined below.
      * 
      */
     private @Nullable List<CertifiateCertificatePolicyLifetimeAction> lifetimeActions;
     /**
-     * @return A `secret_properties` block as defined below.
+     * @return A `secretProperties` block as defined below.
      * 
      */
     private CertifiateCertificatePolicySecretProperties secretProperties;
     /**
-     * @return A `x509_certificate_properties` block as defined below. Required when `certificate` block is not specified.
+     * @return A `x509CertificateProperties` block as defined below. Required when `certificate` block is not specified.
      * 
      */
     private @Nullable CertifiateCertificatePolicyX509CertificateProperties x509CertificateProperties;
 
     private CertifiateCertificatePolicy() {}
     /**
-     * @return A `issuer_parameters` block as defined below.
+     * @return A `issuerParameters` block as defined below.
      * 
      */
     public CertifiateCertificatePolicyIssuerParameters issuerParameters() {
         return this.issuerParameters;
     }
     /**
-     * @return A `key_properties` block as defined below.
+     * @return A `keyProperties` block as defined below.
      * 
      */
     public CertifiateCertificatePolicyKeyProperties keyProperties() {
         return this.keyProperties;
     }
     /**
-     * @return A `lifetime_action` block as defined below.
+     * @return A `lifetimeAction` block as defined below.
      * 
      */
     public List<CertifiateCertificatePolicyLifetimeAction> lifetimeActions() {
         return this.lifetimeActions == null ? List.of() : this.lifetimeActions;
     }
     /**
-     * @return A `secret_properties` block as defined below.
+     * @return A `secretProperties` block as defined below.
      * 
      */
     public CertifiateCertificatePolicySecretProperties secretProperties() {
         return this.secretProperties;
     }
     /**
-     * @return A `x509_certificate_properties` block as defined below. Required when `certificate` block is not specified.
+     * @return A `x509CertificateProperties` block as defined below. Required when `certificate` block is not specified.
      * 
      */
     public Optional<CertifiateCertificatePolicyX509CertificateProperties> x509CertificateProperties() {

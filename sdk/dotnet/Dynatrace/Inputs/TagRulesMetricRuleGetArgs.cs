@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Dynatrace.Inputs
         private InputList<Inputs.TagRulesMetricRuleFilteringTagGetArgs>? _filteringTags;
 
         /// <summary>
-        /// Filtering tag for the metric rule. A `filtering_tag` block as defined below.
+        /// Filtering tag for the metric rule. A `FilteringTag` block as defined below.
         /// </summary>
         public InputList<Inputs.TagRulesMetricRuleFilteringTagGetArgs> FilteringTags
         {
@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Dynatrace.Inputs
         }
 
         /// <summary>
-        /// If sending metrics is enabled. The default value is `false`.
+        /// If sending metrics is enabled. The default value is `False`.
         /// </summary>
         [Input("sendingMetricsEnabled")]
         public Input<bool>? SendingMetricsEnabled { get; set; }

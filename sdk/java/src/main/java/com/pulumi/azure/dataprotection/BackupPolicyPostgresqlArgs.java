@@ -79,14 +79,14 @@ public final class BackupPolicyPostgresqlArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
+     * One or more `retentionRule` blocks as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
      * 
      */
     @Import(name="retentionRules")
     private @Nullable Output<List<BackupPolicyPostgresqlRetentionRuleArgs>> retentionRules;
 
     /**
-     * @return One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
+     * @return One or more `retentionRule` blocks as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
      * 
      */
     public Optional<Output<List<BackupPolicyPostgresqlRetentionRuleArgs>>> retentionRules() {
@@ -248,7 +248,7 @@ public final class BackupPolicyPostgresqlArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param retentionRules One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
+         * @param retentionRules One or more `retentionRule` blocks as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class BackupPolicyPostgresqlArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param retentionRules One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
+         * @param retentionRules One or more `retentionRule` blocks as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class BackupPolicyPostgresqlArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param retentionRules One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
+         * @param retentionRules One or more `retentionRule` blocks as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
          * 
          * @return builder
          * 

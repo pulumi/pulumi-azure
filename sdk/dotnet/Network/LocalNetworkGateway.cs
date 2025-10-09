@@ -68,7 +68,7 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableArray<string>> AddressSpaces { get; private set; } = null!;
 
         /// <summary>
-        /// A `bgp_settings` block as defined below containing the Local Network Gateway's BGP speaker settings.
+        /// A `BgpSettings` block as defined below containing the Local Network Gateway's BGP speaker settings.
         /// </summary>
         [Output("bgpSettings")]
         public Output<Outputs.LocalNetworkGatewayBgpSettings?> BgpSettings { get; private set; } = null!;
@@ -82,7 +82,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The gateway FQDN to connect with.
         /// 
-        /// &gt; **Note:** Either `gateway_address` or `gateway_fqdn` should be specified.
+        /// &gt; **Note:** Either `GatewayAddress` or `GatewayFqdn` should be specified.
         /// </summary>
         [Output("gatewayFqdn")]
         public Output<string?> GatewayFqdn { get; private set; } = null!;
@@ -170,7 +170,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// A `bgp_settings` block as defined below containing the Local Network Gateway's BGP speaker settings.
+        /// A `BgpSettings` block as defined below containing the Local Network Gateway's BGP speaker settings.
         /// </summary>
         [Input("bgpSettings")]
         public Input<Inputs.LocalNetworkGatewayBgpSettingsArgs>? BgpSettings { get; set; }
@@ -184,7 +184,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The gateway FQDN to connect with.
         /// 
-        /// &gt; **Note:** Either `gateway_address` or `gateway_fqdn` should be specified.
+        /// &gt; **Note:** Either `GatewayAddress` or `GatewayFqdn` should be specified.
         /// </summary>
         [Input("gatewayFqdn")]
         public Input<string>? GatewayFqdn { get; set; }
@@ -240,7 +240,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// A `bgp_settings` block as defined below containing the Local Network Gateway's BGP speaker settings.
+        /// A `BgpSettings` block as defined below containing the Local Network Gateway's BGP speaker settings.
         /// </summary>
         [Input("bgpSettings")]
         public Input<Inputs.LocalNetworkGatewayBgpSettingsGetArgs>? BgpSettings { get; set; }
@@ -254,7 +254,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The gateway FQDN to connect with.
         /// 
-        /// &gt; **Note:** Either `gateway_address` or `gateway_fqdn` should be specified.
+        /// &gt; **Note:** Either `GatewayAddress` or `GatewayFqdn` should be specified.
         /// </summary>
         [Input("gatewayFqdn")]
         public Input<string>? GatewayFqdn { get; set; }

@@ -25,7 +25,7 @@ namespace Pulumi.Azure.LogicApps.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The `headers` block for this specific `ip_restriction` as defined below.
+        /// The `Headers` block for this specific `IpRestriction` as defined below.
         /// </summary>
         [Input("headers")]
         public Input<Inputs.StandardSiteConfigScmIpRestrictionHeadersArgs>? Headers { get; set; }
@@ -57,7 +57,7 @@ namespace Pulumi.Azure.LogicApps.Inputs
         /// <summary>
         /// The Virtual Network Subnet ID used for this IP Restriction.
         /// 
-        /// &gt; **Note:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+        /// &gt; **Note:** One of either `IpAddress`, `ServiceTag` or `VirtualNetworkSubnetId` must be specified.
         /// </summary>
         [Input("virtualNetworkSubnetId")]
         public Input<string>? VirtualNetworkSubnetId { get; set; }

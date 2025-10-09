@@ -26,7 +26,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// </summary>
         public readonly ImmutableArray<int> MonthDays;
         /// <summary>
-        /// A `monthly` block as documented below.
+        /// A `Monthly` block as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly> Monthlies;
         /// <summary>

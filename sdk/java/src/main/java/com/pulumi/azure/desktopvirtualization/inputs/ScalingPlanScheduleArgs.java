@@ -125,14 +125,14 @@ public final class ScalingPlanScheduleArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Whether users will be forced to log-off session hosts once the `ramp_down_wait_time_minutes` value has been exceeded during the Ramp-Down period. Possible values are `true` and `false`.
+     * Whether users will be forced to log-off session hosts once the `rampDownWaitTimeMinutes` value has been exceeded during the Ramp-Down period. Possible values are `true` and `false`.
      * 
      */
     @Import(name="rampDownForceLogoffUsers", required=true)
     private Output<Boolean> rampDownForceLogoffUsers;
 
     /**
-     * @return Whether users will be forced to log-off session hosts once the `ramp_down_wait_time_minutes` value has been exceeded during the Ramp-Down period. Possible values are `true` and `false`.
+     * @return Whether users will be forced to log-off session hosts once the `rampDownWaitTimeMinutes` value has been exceeded during the Ramp-Down period. Possible values are `true` and `false`.
      * 
      */
     public Output<Boolean> rampDownForceLogoffUsers() {
@@ -488,7 +488,7 @@ public final class ScalingPlanScheduleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param rampDownForceLogoffUsers Whether users will be forced to log-off session hosts once the `ramp_down_wait_time_minutes` value has been exceeded during the Ramp-Down period. Possible values are `true` and `false`.
+         * @param rampDownForceLogoffUsers Whether users will be forced to log-off session hosts once the `rampDownWaitTimeMinutes` value has been exceeded during the Ramp-Down period. Possible values are `true` and `false`.
          * 
          * @return builder
          * 
@@ -499,7 +499,7 @@ public final class ScalingPlanScheduleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param rampDownForceLogoffUsers Whether users will be forced to log-off session hosts once the `ramp_down_wait_time_minutes` value has been exceeded during the Ramp-Down period. Possible values are `true` and `false`.
+         * @param rampDownForceLogoffUsers Whether users will be forced to log-off session hosts once the `rampDownWaitTimeMinutes` value has been exceeded during the Ramp-Down period. Possible values are `true` and `false`.
          * 
          * @return builder
          * 

@@ -49,14 +49,14 @@ public final class ApplicationGatewayRewriteRuleSetArgs extends com.pulumi.resou
     }
 
     /**
-     * One or more `rewrite_rule` blocks as defined below.
+     * One or more `rewriteRule` blocks as defined below.
      * 
      */
     @Import(name="rewriteRules")
     private @Nullable Output<List<ApplicationGatewayRewriteRuleSetRewriteRuleArgs>> rewriteRules;
 
     /**
-     * @return One or more `rewrite_rule` blocks as defined below.
+     * @return One or more `rewriteRule` blocks as defined below.
      * 
      */
     public Optional<Output<List<ApplicationGatewayRewriteRuleSetRewriteRuleArgs>>> rewriteRules() {
@@ -132,7 +132,7 @@ public final class ApplicationGatewayRewriteRuleSetArgs extends com.pulumi.resou
         }
 
         /**
-         * @param rewriteRules One or more `rewrite_rule` blocks as defined below.
+         * @param rewriteRules One or more `rewriteRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class ApplicationGatewayRewriteRuleSetArgs extends com.pulumi.resou
         }
 
         /**
-         * @param rewriteRules One or more `rewrite_rule` blocks as defined below.
+         * @param rewriteRules One or more `rewriteRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class ApplicationGatewayRewriteRuleSetArgs extends com.pulumi.resou
         }
 
         /**
-         * @param rewriteRules One or more `rewrite_rule` blocks as defined below.
+         * @param rewriteRules One or more `rewriteRule` blocks as defined below.
          * 
          * @return builder
          * 

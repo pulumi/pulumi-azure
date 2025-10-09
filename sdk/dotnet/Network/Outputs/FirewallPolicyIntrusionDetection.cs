@@ -22,11 +22,11 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<string> PrivateRanges;
         /// <summary>
-        /// One or more `signature_overrides` blocks as defined below.
+        /// One or more `SignatureOverrides` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FirewallPolicyIntrusionDetectionSignatureOverride> SignatureOverrides;
         /// <summary>
-        /// One or more `traffic_bypass` blocks as defined below.
+        /// One or more `TrafficBypass` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FirewallPolicyIntrusionDetectionTrafficBypass> TrafficBypasses;
 

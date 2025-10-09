@@ -26,7 +26,7 @@ public final class GetKubernetesServiceVersionsResult {
     private String id;
     private @Nullable Boolean includePreview;
     /**
-     * @return The most recent version available. If `include_preview == false`, this is the most recent non-preview version available.
+     * @return The most recent version available. If `includePreview == false`, this is the most recent non-preview version available.
      * 
      */
     private String latestVersion;
@@ -57,7 +57,7 @@ public final class GetKubernetesServiceVersionsResult {
         return Optional.ofNullable(this.includePreview);
     }
     /**
-     * @return The most recent version available. If `include_preview == false`, this is the most recent non-preview version available.
+     * @return The most recent version available. If `includePreview == false`, this is the most recent non-preview version available.
      * 
      */
     public String latestVersion() {

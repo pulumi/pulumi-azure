@@ -14,11 +14,11 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class WindowsWebAppSiteConfigAutoHealSetting
     {
         /// <summary>
-        /// An `action` block as defined above.
+        /// An `Action` block as defined above.
         /// </summary>
         public readonly Outputs.WindowsWebAppSiteConfigAutoHealSettingAction Action;
         /// <summary>
-        /// A `trigger` block as defined below.
+        /// A `Trigger` block as defined below.
         /// </summary>
         public readonly Outputs.WindowsWebAppSiteConfigAutoHealSettingTrigger Trigger;
 

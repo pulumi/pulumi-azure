@@ -13,7 +13,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
     public sealed class ServiceDelegationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should subscription requests be delegated to an external url? Defaults to `false`.
+        /// Should subscription requests be delegated to an external url? Defaults to `False`.
         /// </summary>
         [Input("subscriptionsEnabled")]
         public Input<bool>? SubscriptionsEnabled { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public Input<string>? Url { get; set; }
 
         /// <summary>
-        /// Should user registration requests be delegated to an external url? Defaults to `false`.
+        /// Should user registration requests be delegated to an external url? Defaults to `False`.
         /// </summary>
         [Input("userRegistrationEnabled")]
         public Input<bool>? UserRegistrationEnabled { get; set; }

@@ -19,14 +19,14 @@ public final class AccountSharePropertiesArgs extends com.pulumi.resources.Resou
     public static final AccountSharePropertiesArgs Empty = new AccountSharePropertiesArgs();
 
     /**
-     * A `cors_rule` block as defined below.
+     * A `corsRule` block as defined below.
      * 
      */
     @Import(name="corsRules")
     private @Nullable Output<List<AccountSharePropertiesCorsRuleArgs>> corsRules;
 
     /**
-     * @return A `cors_rule` block as defined below.
+     * @return A `corsRule` block as defined below.
      * 
      */
     public Optional<Output<List<AccountSharePropertiesCorsRuleArgs>>> corsRules() {
@@ -34,14 +34,14 @@ public final class AccountSharePropertiesArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * A `retention_policy` block as defined below.
+     * A `retentionPolicy` block as defined below.
      * 
      */
     @Import(name="retentionPolicy")
     private @Nullable Output<AccountSharePropertiesRetentionPolicyArgs> retentionPolicy;
 
     /**
-     * @return A `retention_policy` block as defined below.
+     * @return A `retentionPolicy` block as defined below.
      * 
      */
     public Optional<Output<AccountSharePropertiesRetentionPolicyArgs>> retentionPolicy() {
@@ -90,7 +90,7 @@ public final class AccountSharePropertiesArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param corsRules A `cors_rule` block as defined below.
+         * @param corsRules A `corsRule` block as defined below.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class AccountSharePropertiesArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param corsRules A `cors_rule` block as defined below.
+         * @param corsRules A `corsRule` block as defined below.
          * 
          * @return builder
          * 
@@ -111,7 +111,7 @@ public final class AccountSharePropertiesArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param corsRules A `cors_rule` block as defined below.
+         * @param corsRules A `corsRule` block as defined below.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class AccountSharePropertiesArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param retentionPolicy A `retention_policy` block as defined below.
+         * @param retentionPolicy A `retentionPolicy` block as defined below.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class AccountSharePropertiesArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param retentionPolicy A `retention_policy` block as defined below.
+         * @param retentionPolicy A `retentionPolicy` block as defined below.
          * 
          * @return builder
          * 

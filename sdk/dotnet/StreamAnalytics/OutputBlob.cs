@@ -115,7 +115,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Output<string?> BlobWriteMode { get; private set; } = null!;
 
         /// <summary>
-        /// The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
+        /// The date format. Wherever `{date}` appears in `PathPattern`, the value of this property is used as the date format instead.
         /// </summary>
         [Output("dateFormat")]
         public Output<string> DateFormat { get; private set; } = null!;
@@ -139,7 +139,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `serialization` block as defined below.
+        /// A `Serialization` block as defined below.
         /// </summary>
         [Output("serialization")]
         public Output<Outputs.OutputBlobSerialization> Serialization { get; private set; } = null!;
@@ -169,7 +169,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Output<string> StreamAnalyticsJobName { get; private set; } = null!;
 
         /// <summary>
-        /// The time format. Wherever `{time}` appears in `path_pattern`, the value of this property is used as the time format instead.
+        /// The time format. Wherever `{time}` appears in `PathPattern`, the value of this property is used as the time format instead.
         /// </summary>
         [Output("timeFormat")]
         public Output<string> TimeFormat { get; private set; } = null!;
@@ -249,7 +249,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string>? BlobWriteMode { get; set; }
 
         /// <summary>
-        /// The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
+        /// The date format. Wherever `{date}` appears in `PathPattern`, the value of this property is used as the date format instead.
         /// </summary>
         [Input("dateFormat", required: true)]
         public Input<string> DateFormat { get; set; } = null!;
@@ -273,7 +273,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `serialization` block as defined below.
+        /// A `Serialization` block as defined below.
         /// </summary>
         [Input("serialization", required: true)]
         public Input<Inputs.OutputBlobSerializationArgs> Serialization { get; set; } = null!;
@@ -313,7 +313,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string> StreamAnalyticsJobName { get; set; } = null!;
 
         /// <summary>
-        /// The time format. Wherever `{time}` appears in `path_pattern`, the value of this property is used as the time format instead.
+        /// The time format. Wherever `{time}` appears in `PathPattern`, the value of this property is used as the time format instead.
         /// </summary>
         [Input("timeFormat", required: true)]
         public Input<string> TimeFormat { get; set; } = null!;
@@ -351,7 +351,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string>? BlobWriteMode { get; set; }
 
         /// <summary>
-        /// The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
+        /// The date format. Wherever `{date}` appears in `PathPattern`, the value of this property is used as the date format instead.
         /// </summary>
         [Input("dateFormat")]
         public Input<string>? DateFormat { get; set; }
@@ -375,7 +375,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// A `serialization` block as defined below.
+        /// A `Serialization` block as defined below.
         /// </summary>
         [Input("serialization")]
         public Input<Inputs.OutputBlobSerializationGetArgs>? Serialization { get; set; }
@@ -415,7 +415,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string>? StreamAnalyticsJobName { get; set; }
 
         /// <summary>
-        /// The time format. Wherever `{time}` appears in `path_pattern`, the value of this property is used as the time format instead.
+        /// The time format. Wherever `{time}` appears in `PathPattern`, the value of this property is used as the time format instead.
         /// </summary>
         [Input("timeFormat")]
         public Input<string>? TimeFormat { get; set; }

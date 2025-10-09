@@ -61,7 +61,7 @@ namespace Pulumi.Azure.CostManagement
     public partial class ScheduledAction : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// UTC day on which cost analysis data will be emailed. Must be between `1` and `31`. This property is applicable when `frequency` is `Monthly`.
+        /// UTC day on which cost analysis data will be emailed. Must be between `1` and `31`. This property is applicable when `Frequency` is `Monthly`.
         /// </summary>
         [Output("dayOfMonth")]
         public Output<int?> DayOfMonth { get; private set; } = null!;
@@ -103,7 +103,7 @@ namespace Pulumi.Azure.CostManagement
         public Output<string> EndDate { get; private set; } = null!;
 
         /// <summary>
-        /// Frequency of the schedule. Possible values are `Daily`, `Monthly` and `Weekly`. Value `Monthly` requires either `weeks_of_month` and `days_of_week` or `day_of_month` to be specified. Value `Weekly` requires `days_of_week` to be specified.
+        /// Frequency of the schedule. Possible values are `Daily`, `Monthly` and `Weekly`. Value `Monthly` requires either `WeeksOfMonth` and `DaysOfWeek` or `DayOfMonth` to be specified. Value `Weekly` requires `DaysOfWeek` to be specified.
         /// </summary>
         [Output("frequency")]
         public Output<string> Frequency { get; private set; } = null!;
@@ -139,7 +139,7 @@ namespace Pulumi.Azure.CostManagement
         public Output<string> ViewId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `days_of_week`. Possible values are `First`, `Fourth`, `Last`, `Second` and `Third`.
+        /// Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `Frequency` is `Monthly` and used in combination with `DaysOfWeek`. Possible values are `First`, `Fourth`, `Last`, `Second` and `Third`.
         /// </summary>
         [Output("weeksOfMonths")]
         public Output<ImmutableArray<string>> WeeksOfMonths { get; private set; } = null!;
@@ -191,7 +191,7 @@ namespace Pulumi.Azure.CostManagement
     public sealed class ScheduledActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// UTC day on which cost analysis data will be emailed. Must be between `1` and `31`. This property is applicable when `frequency` is `Monthly`.
+        /// UTC day on which cost analysis data will be emailed. Must be between `1` and `31`. This property is applicable when `Frequency` is `Monthly`.
         /// </summary>
         [Input("dayOfMonth")]
         public Input<int>? DayOfMonth { get; set; }
@@ -245,7 +245,7 @@ namespace Pulumi.Azure.CostManagement
         public Input<string> EndDate { get; set; } = null!;
 
         /// <summary>
-        /// Frequency of the schedule. Possible values are `Daily`, `Monthly` and `Weekly`. Value `Monthly` requires either `weeks_of_month` and `days_of_week` or `day_of_month` to be specified. Value `Weekly` requires `days_of_week` to be specified.
+        /// Frequency of the schedule. Possible values are `Daily`, `Monthly` and `Weekly`. Value `Monthly` requires either `WeeksOfMonth` and `DaysOfWeek` or `DayOfMonth` to be specified. Value `Weekly` requires `DaysOfWeek` to be specified.
         /// </summary>
         [Input("frequency", required: true)]
         public Input<string> Frequency { get; set; } = null!;
@@ -284,7 +284,7 @@ namespace Pulumi.Azure.CostManagement
         private InputList<string>? _weeksOfMonths;
 
         /// <summary>
-        /// Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `days_of_week`. Possible values are `First`, `Fourth`, `Last`, `Second` and `Third`.
+        /// Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `Frequency` is `Monthly` and used in combination with `DaysOfWeek`. Possible values are `First`, `Fourth`, `Last`, `Second` and `Third`.
         /// </summary>
         public InputList<string> WeeksOfMonths
         {
@@ -301,7 +301,7 @@ namespace Pulumi.Azure.CostManagement
     public sealed class ScheduledActionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// UTC day on which cost analysis data will be emailed. Must be between `1` and `31`. This property is applicable when `frequency` is `Monthly`.
+        /// UTC day on which cost analysis data will be emailed. Must be between `1` and `31`. This property is applicable when `Frequency` is `Monthly`.
         /// </summary>
         [Input("dayOfMonth")]
         public Input<int>? DayOfMonth { get; set; }
@@ -355,7 +355,7 @@ namespace Pulumi.Azure.CostManagement
         public Input<string>? EndDate { get; set; }
 
         /// <summary>
-        /// Frequency of the schedule. Possible values are `Daily`, `Monthly` and `Weekly`. Value `Monthly` requires either `weeks_of_month` and `days_of_week` or `day_of_month` to be specified. Value `Weekly` requires `days_of_week` to be specified.
+        /// Frequency of the schedule. Possible values are `Daily`, `Monthly` and `Weekly`. Value `Monthly` requires either `WeeksOfMonth` and `DaysOfWeek` or `DayOfMonth` to be specified. Value `Weekly` requires `DaysOfWeek` to be specified.
         /// </summary>
         [Input("frequency")]
         public Input<string>? Frequency { get; set; }
@@ -394,7 +394,7 @@ namespace Pulumi.Azure.CostManagement
         private InputList<string>? _weeksOfMonths;
 
         /// <summary>
-        /// Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `days_of_week`. Possible values are `First`, `Fourth`, `Last`, `Second` and `Third`.
+        /// Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `Frequency` is `Monthly` and used in combination with `DaysOfWeek`. Possible values are `First`, `Fourth`, `Last`, `Second` and `Third`.
         /// </summary>
         public InputList<string> WeeksOfMonths
         {

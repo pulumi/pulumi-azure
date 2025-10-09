@@ -19,14 +19,14 @@ public final class SecurityDeviceGroupState extends com.pulumi.resources.Resourc
     public static final SecurityDeviceGroupState Empty = new SecurityDeviceGroupState();
 
     /**
-     * an `allow_rule` blocks as defined below.
+     * an `allowRule` blocks as defined below.
      * 
      */
     @Import(name="allowRule")
     private @Nullable Output<SecurityDeviceGroupAllowRuleArgs> allowRule;
 
     /**
-     * @return an `allow_rule` blocks as defined below.
+     * @return an `allowRule` blocks as defined below.
      * 
      */
     public Optional<Output<SecurityDeviceGroupAllowRuleArgs>> allowRule() {
@@ -64,14 +64,14 @@ public final class SecurityDeviceGroupState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * One or more `range_rule` blocks as defined below.
+     * One or more `rangeRule` blocks as defined below.
      * 
      */
     @Import(name="rangeRules")
     private @Nullable Output<List<SecurityDeviceGroupRangeRuleArgs>> rangeRules;
 
     /**
-     * @return One or more `range_rule` blocks as defined below.
+     * @return One or more `rangeRule` blocks as defined below.
      * 
      */
     public Optional<Output<List<SecurityDeviceGroupRangeRuleArgs>>> rangeRules() {
@@ -106,7 +106,7 @@ public final class SecurityDeviceGroupState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param allowRule an `allow_rule` blocks as defined below.
+         * @param allowRule an `allowRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class SecurityDeviceGroupState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param allowRule an `allow_rule` blocks as defined below.
+         * @param allowRule an `allowRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class SecurityDeviceGroupState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param rangeRules One or more `range_rule` blocks as defined below.
+         * @param rangeRules One or more `rangeRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class SecurityDeviceGroupState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param rangeRules One or more `range_rule` blocks as defined below.
+         * @param rangeRules One or more `rangeRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class SecurityDeviceGroupState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param rangeRules One or more `range_rule` blocks as defined below.
+         * @param rangeRules One or more `rangeRule` blocks as defined below.
          * 
          * @return builder
          * 

@@ -154,7 +154,7 @@ namespace Pulumi.Azure.DataboxEdge
     public sealed class GetDeviceResult
     {
         /// <summary>
-        /// A `device_properties` block as defined below.
+        /// A `DeviceProperties` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDeviceDevicePropertyResult> DeviceProperties;
         /// <summary>
@@ -168,7 +168,7 @@ namespace Pulumi.Azure.DataboxEdge
         public readonly string Name;
         public readonly string ResourceGroupName;
         /// <summary>
-        /// The `sku_name` is comprised of two segments separated by a hyphen (e.g. `TEA_1Node_UPS_Heater-Standard`). The first segment of the `sku_name` defines the `name` of the SKU. The second segment defines the `tier` of the `sku_name`. For more information see the product documentation.
+        /// The `SkuName` is comprised of two segments separated by a hyphen (e.g. `TEA_1Node_UPS_Heater-Standard`). The first segment of the `SkuName` defines the `Name` of the SKU. The second segment defines the `Tier` of the `SkuName`. For more information see the product documentation.
         /// </summary>
         public readonly string SkuName;
         /// <summary>

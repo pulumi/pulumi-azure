@@ -87,7 +87,7 @@ namespace Pulumi.Azure.Compute
         public Output<string> AttachedVirtualMachineScaleSetId { get; private set; } = null!;
 
         /// <summary>
-        /// An `elasticity_profile` block as defined below.
+        /// An `ElasticityProfile` block as defined below.
         /// </summary>
         [Output("elasticityProfile")]
         public Output<Outputs.ScaleSetStandbyPoolElasticityProfile> ElasticityProfile { get; private set; } = null!;
@@ -175,7 +175,7 @@ namespace Pulumi.Azure.Compute
         public Input<string> AttachedVirtualMachineScaleSetId { get; set; } = null!;
 
         /// <summary>
-        /// An `elasticity_profile` block as defined below.
+        /// An `ElasticityProfile` block as defined below.
         /// </summary>
         [Input("elasticityProfile", required: true)]
         public Input<Inputs.ScaleSetStandbyPoolElasticityProfileArgs> ElasticityProfile { get; set; } = null!;
@@ -231,7 +231,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? AttachedVirtualMachineScaleSetId { get; set; }
 
         /// <summary>
-        /// An `elasticity_profile` block as defined below.
+        /// An `ElasticityProfile` block as defined below.
         /// </summary>
         [Input("elasticityProfile")]
         public Input<Inputs.ScaleSetStandbyPoolElasticityProfileGetArgs>? ElasticityProfile { get; set; }

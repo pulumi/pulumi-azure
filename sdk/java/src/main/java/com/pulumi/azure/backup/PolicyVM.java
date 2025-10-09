@@ -138,32 +138,32 @@ public class PolicyVM extends com.pulumi.resources.CustomResource {
         return this.backup;
     }
     /**
-     * Specifies the instant restore resource group name as documented in the `instant_restore_resource_group` block below.
+     * Specifies the instant restore resource group name as documented in the `instantRestoreResourceGroup` block below.
      * 
      */
     @Export(name="instantRestoreResourceGroup", refs={PolicyVMInstantRestoreResourceGroup.class}, tree="[0]")
     private Output</* @Nullable */ PolicyVMInstantRestoreResourceGroup> instantRestoreResourceGroup;
 
     /**
-     * @return Specifies the instant restore resource group name as documented in the `instant_restore_resource_group` block below.
+     * @return Specifies the instant restore resource group name as documented in the `instantRestoreResourceGroup` block below.
      * 
      */
     public Output<Optional<PolicyVMInstantRestoreResourceGroup>> instantRestoreResourceGroup() {
         return Codegen.optional(this.instantRestoreResourceGroup);
     }
     /**
-     * Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policy_type` is `V1`, and `1` to `30` when `policy_type` is `V2`.
+     * Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policyType` is `V1`, and `1` to `30` when `policyType` is `V2`.
      * 
-     * &gt; **Note:** `instant_restore_retention_days` **must** be set to `5` if the backup frequency is set to `Weekly`.
+     * &gt; **Note:** `instantRestoreRetentionDays` **must** be set to `5` if the backup frequency is set to `Weekly`.
      * 
      */
     @Export(name="instantRestoreRetentionDays", refs={Integer.class}, tree="[0]")
     private Output<Integer> instantRestoreRetentionDays;
 
     /**
-     * @return Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policy_type` is `V1`, and `1` to `30` when `policy_type` is `V2`.
+     * @return Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policyType` is `V1`, and `1` to `30` when `policyType` is `V2`.
      * 
-     * &gt; **Note:** `instant_restore_retention_days` **must** be set to `5` if the backup frequency is set to `Weekly`.
+     * &gt; **Note:** `instantRestoreRetentionDays` **must** be set to `5` if the backup frequency is set to `Weekly`.
      * 
      */
     public Output<Integer> instantRestoreRetentionDays() {
@@ -226,70 +226,70 @@ public class PolicyVM extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * Configures the policy daily retention as documented in the `retention_daily` block below. Required when backup frequency is `Daily`.
+     * Configures the policy daily retention as documented in the `retentionDaily` block below. Required when backup frequency is `Daily`.
      * 
      */
     @Export(name="retentionDaily", refs={PolicyVMRetentionDaily.class}, tree="[0]")
     private Output</* @Nullable */ PolicyVMRetentionDaily> retentionDaily;
 
     /**
-     * @return Configures the policy daily retention as documented in the `retention_daily` block below. Required when backup frequency is `Daily`.
+     * @return Configures the policy daily retention as documented in the `retentionDaily` block below. Required when backup frequency is `Daily`.
      * 
      */
     public Output<Optional<PolicyVMRetentionDaily>> retentionDaily() {
         return Codegen.optional(this.retentionDaily);
     }
     /**
-     * Configures the policy monthly retention as documented in the `retention_monthly` block below.
+     * Configures the policy monthly retention as documented in the `retentionMonthly` block below.
      * 
      */
     @Export(name="retentionMonthly", refs={PolicyVMRetentionMonthly.class}, tree="[0]")
     private Output</* @Nullable */ PolicyVMRetentionMonthly> retentionMonthly;
 
     /**
-     * @return Configures the policy monthly retention as documented in the `retention_monthly` block below.
+     * @return Configures the policy monthly retention as documented in the `retentionMonthly` block below.
      * 
      */
     public Output<Optional<PolicyVMRetentionMonthly>> retentionMonthly() {
         return Codegen.optional(this.retentionMonthly);
     }
     /**
-     * Configures the policy weekly retention as documented in the `retention_weekly` block below. Required when backup frequency is `Weekly`.
+     * Configures the policy weekly retention as documented in the `retentionWeekly` block below. Required when backup frequency is `Weekly`.
      * 
      */
     @Export(name="retentionWeekly", refs={PolicyVMRetentionWeekly.class}, tree="[0]")
     private Output</* @Nullable */ PolicyVMRetentionWeekly> retentionWeekly;
 
     /**
-     * @return Configures the policy weekly retention as documented in the `retention_weekly` block below. Required when backup frequency is `Weekly`.
+     * @return Configures the policy weekly retention as documented in the `retentionWeekly` block below. Required when backup frequency is `Weekly`.
      * 
      */
     public Output<Optional<PolicyVMRetentionWeekly>> retentionWeekly() {
         return Codegen.optional(this.retentionWeekly);
     }
     /**
-     * Configures the policy yearly retention as documented in the `retention_yearly` block below.
+     * Configures the policy yearly retention as documented in the `retentionYearly` block below.
      * 
      */
     @Export(name="retentionYearly", refs={PolicyVMRetentionYearly.class}, tree="[0]")
     private Output</* @Nullable */ PolicyVMRetentionYearly> retentionYearly;
 
     /**
-     * @return Configures the policy yearly retention as documented in the `retention_yearly` block below.
+     * @return Configures the policy yearly retention as documented in the `retentionYearly` block below.
      * 
      */
     public Output<Optional<PolicyVMRetentionYearly>> retentionYearly() {
         return Codegen.optional(this.retentionYearly);
     }
     /**
-     * A `tiering_policy` block as defined below.
+     * A `tieringPolicy` block as defined below.
      * 
      */
     @Export(name="tieringPolicy", refs={PolicyVMTieringPolicy.class}, tree="[0]")
     private Output</* @Nullable */ PolicyVMTieringPolicy> tieringPolicy;
 
     /**
-     * @return A `tiering_policy` block as defined below.
+     * @return A `tieringPolicy` block as defined below.
      * 
      */
     public Output<Optional<PolicyVMTieringPolicy>> tieringPolicy() {

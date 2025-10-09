@@ -37,18 +37,18 @@ public final class VaultArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
+     * Is cross region restore enabled for this Vault? Only can be `true`, when `storageModeType` is `GeoRedundant`. Defaults to `false`.
      * 
-     * &gt; **Note:** Once `cross_region_restore_enabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
+     * &gt; **Note:** Once `crossRegionRestoreEnabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
      * 
      */
     @Import(name="crossRegionRestoreEnabled")
     private @Nullable Output<Boolean> crossRegionRestoreEnabled;
 
     /**
-     * @return Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
+     * @return Is cross region restore enabled for this Vault? Only can be `true`, when `storageModeType` is `GeoRedundant`. Defaults to `false`.
      * 
-     * &gt; **Note:** Once `cross_region_restore_enabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
+     * &gt; **Note:** Once `crossRegionRestoreEnabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
      * 
      */
     public Optional<Output<Boolean>> crossRegionRestoreEnabled() {
@@ -302,9 +302,9 @@ public final class VaultArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param crossRegionRestoreEnabled Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
+         * @param crossRegionRestoreEnabled Is cross region restore enabled for this Vault? Only can be `true`, when `storageModeType` is `GeoRedundant`. Defaults to `false`.
          * 
-         * &gt; **Note:** Once `cross_region_restore_enabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
+         * &gt; **Note:** Once `crossRegionRestoreEnabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
          * 
          * @return builder
          * 
@@ -315,9 +315,9 @@ public final class VaultArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param crossRegionRestoreEnabled Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
+         * @param crossRegionRestoreEnabled Is cross region restore enabled for this Vault? Only can be `true`, when `storageModeType` is `GeoRedundant`. Defaults to `false`.
          * 
-         * &gt; **Note:** Once `cross_region_restore_enabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
+         * &gt; **Note:** Once `crossRegionRestoreEnabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
          * 
          * @return builder
          * 

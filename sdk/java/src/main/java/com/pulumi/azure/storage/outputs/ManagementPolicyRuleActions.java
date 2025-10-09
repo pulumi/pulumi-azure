@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ManagementPolicyRuleActions {
     /**
-     * @return A `base_blob` block as documented below.
+     * @return A `baseBlob` block as documented below.
      * 
      */
     private @Nullable ManagementPolicyRuleActionsBaseBlob baseBlob;
@@ -31,7 +31,7 @@ public final class ManagementPolicyRuleActions {
 
     private ManagementPolicyRuleActions() {}
     /**
-     * @return A `base_blob` block as documented below.
+     * @return A `baseBlob` block as documented below.
      * 
      */
     public Optional<ManagementPolicyRuleActionsBaseBlob> baseBlob() {

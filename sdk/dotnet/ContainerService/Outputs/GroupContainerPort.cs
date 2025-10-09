@@ -20,7 +20,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// <summary>
         /// The network protocol associated with port. Possible values are `TCP` &amp; `UDP`. Changing this forces a new resource to be created. Defaults to `TCP`.
         /// 
-        /// &gt; **Note:** Omitting these blocks will default the exposed ports on the group to all ports on all containers defined in the `container` blocks of this group.
+        /// &gt; **Note:** Omitting these blocks will default the exposed ports on the group to all ports on all containers defined in the `Container` blocks of this group.
         /// </summary>
         public readonly string? Protocol;
 

@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class ExpressRouteCircuitPeeringIpv6
     {
         /// <summary>
-        /// A boolean value indicating whether the IPv6 peering is enabled. Defaults to `true`.
+        /// A boolean value indicating whether the IPv6 peering is enabled. Defaults to `True`.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// A `microsoft_peering` block as defined below.
+        /// A `MicrosoftPeering` block as defined below.
         /// </summary>
         public readonly Outputs.ExpressRouteCircuitPeeringIpv6MicrosoftPeering? MicrosoftPeering;
         /// <summary>
@@ -26,9 +26,9 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string PrimaryPeerAddressPrefix;
         /// <summary>
-        /// The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+        /// The ID of the Route Filter. Only available when `PeeringType` is set to `MicrosoftPeering`.
         /// 
-        /// &gt; **Note:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
+        /// &gt; **Note:** `Ipv6` can be specified when `PeeringType` is `MicrosoftPeering` or `AzurePrivatePeering`
         /// </summary>
         public readonly string? RouteFilterId;
         /// <summary>

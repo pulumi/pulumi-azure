@@ -22,19 +22,19 @@ namespace Pulumi.Azure.Storage.Outputs
         /// </summary>
         public readonly string DomainName;
         /// <summary>
-        /// Specifies the security identifier (SID). This is required when `directory_type` is set to `AD`.
+        /// Specifies the security identifier (SID). This is required when `DirectoryType` is set to `AD`.
         /// </summary>
         public readonly string? DomainSid;
         /// <summary>
-        /// Specifies the Active Directory forest. This is required when `directory_type` is set to `AD`.
+        /// Specifies the Active Directory forest. This is required when `DirectoryType` is set to `AD`.
         /// </summary>
         public readonly string? ForestName;
         /// <summary>
-        /// Specifies the NetBIOS domain name. This is required when `directory_type` is set to `AD`.
+        /// Specifies the NetBIOS domain name. This is required when `DirectoryType` is set to `AD`.
         /// </summary>
         public readonly string? NetbiosDomainName;
         /// <summary>
-        /// Specifies the security identifier (SID) for Azure Storage. This is required when `directory_type` is set to `AD`.
+        /// Specifies the security identifier (SID) for Azure Storage. This is required when `DirectoryType` is set to `AD`.
         /// </summary>
         public readonly string? StorageSid;
 

@@ -69,7 +69,7 @@ namespace Pulumi.Azure.SiteRecovery
         /// <summary>
         /// Specifies the frequency(in minutes) at which to create application consistent recovery points.
         /// 
-        /// &gt; **Note:** The value of `application_consistent_snapshot_frequency_in_minutes` must be less than or equal to the value of `recovery_point_retention_in_minutes`.
+        /// &gt; **Note:** The value of `ApplicationConsistentSnapshotFrequencyInMinutes` must be less than or equal to the value of `RecoveryPointRetentionInMinutes`.
         /// </summary>
         [Output("applicationConsistentSnapshotFrequencyInMinutes")]
         public Output<int> ApplicationConsistentSnapshotFrequencyInMinutes { get; private set; } = null!;
@@ -147,7 +147,7 @@ namespace Pulumi.Azure.SiteRecovery
         /// <summary>
         /// Specifies the frequency(in minutes) at which to create application consistent recovery points.
         /// 
-        /// &gt; **Note:** The value of `application_consistent_snapshot_frequency_in_minutes` must be less than or equal to the value of `recovery_point_retention_in_minutes`.
+        /// &gt; **Note:** The value of `ApplicationConsistentSnapshotFrequencyInMinutes` must be less than or equal to the value of `RecoveryPointRetentionInMinutes`.
         /// </summary>
         [Input("applicationConsistentSnapshotFrequencyInMinutes", required: true)]
         public Input<int> ApplicationConsistentSnapshotFrequencyInMinutes { get; set; } = null!;
@@ -187,7 +187,7 @@ namespace Pulumi.Azure.SiteRecovery
         /// <summary>
         /// Specifies the frequency(in minutes) at which to create application consistent recovery points.
         /// 
-        /// &gt; **Note:** The value of `application_consistent_snapshot_frequency_in_minutes` must be less than or equal to the value of `recovery_point_retention_in_minutes`.
+        /// &gt; **Note:** The value of `ApplicationConsistentSnapshotFrequencyInMinutes` must be less than or equal to the value of `RecoveryPointRetentionInMinutes`.
         /// </summary>
         [Input("applicationConsistentSnapshotFrequencyInMinutes")]
         public Input<int>? ApplicationConsistentSnapshotFrequencyInMinutes { get; set; }

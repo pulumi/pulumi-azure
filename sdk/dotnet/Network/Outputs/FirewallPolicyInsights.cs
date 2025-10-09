@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class FirewallPolicyInsights
     {
         /// <summary>
-        /// The ID of the default Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to, when there is no location matches in the `log_analytics_workspace`.
+        /// The ID of the default Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to, when there is no location matches in the `LogAnalyticsWorkspace`.
         /// </summary>
         public readonly string DefaultLogAnalyticsWorkspaceId;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
-        /// A list of `log_analytics_workspace` block as defined below.
+        /// A list of `LogAnalyticsWorkspace` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FirewallPolicyInsightsLogAnalyticsWorkspace> LogAnalyticsWorkspaces;
         /// <summary>

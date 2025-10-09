@@ -62,14 +62,14 @@ public final class ExpressRouteConnectionRoutingArgs extends com.pulumi.resource
     }
 
     /**
-     * A `propagated_route_table` block as defined below.
+     * A `propagatedRouteTable` block as defined below.
      * 
      */
     @Import(name="propagatedRouteTable")
     private @Nullable Output<ExpressRouteConnectionRoutingPropagatedRouteTableArgs> propagatedRouteTable;
 
     /**
-     * @return A `propagated_route_table` block as defined below.
+     * @return A `propagatedRouteTable` block as defined below.
      * 
      */
     public Optional<Output<ExpressRouteConnectionRoutingPropagatedRouteTableArgs>> propagatedRouteTable() {
@@ -167,7 +167,7 @@ public final class ExpressRouteConnectionRoutingArgs extends com.pulumi.resource
         }
 
         /**
-         * @param propagatedRouteTable A `propagated_route_table` block as defined below.
+         * @param propagatedRouteTable A `propagatedRouteTable` block as defined below.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class ExpressRouteConnectionRoutingArgs extends com.pulumi.resource
         }
 
         /**
-         * @param propagatedRouteTable A `propagated_route_table` block as defined below.
+         * @param propagatedRouteTable A `propagatedRouteTable` block as defined below.
          * 
          * @return builder
          * 

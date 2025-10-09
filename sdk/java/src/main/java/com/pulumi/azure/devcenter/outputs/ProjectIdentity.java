@@ -16,7 +16,7 @@ public final class ProjectIdentity {
     /**
      * @return The ID of the User Assigned Identity which should be assigned to this Dev Center Project.
      * 
-     * &gt; **Note:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * &gt; **Note:** `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
      * 
      */
     private @Nullable List<String> identityIds;
@@ -40,7 +40,7 @@ public final class ProjectIdentity {
     /**
      * @return The ID of the User Assigned Identity which should be assigned to this Dev Center Project.
      * 
-     * &gt; **Note:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * &gt; **Note:** `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
      * 
      */
     public List<String> identityIds() {

@@ -50,7 +50,7 @@ public final class GetStorageContainerArgs extends com.pulumi.resources.InvokeAr
     /**
      * The id of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
      * 
-     * &gt; **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+     * &gt; **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
      * 
      */
     @Import(name="storageAccountId")
@@ -59,7 +59,7 @@ public final class GetStorageContainerArgs extends com.pulumi.resources.InvokeAr
     /**
      * @return The id of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
      * 
-     * &gt; **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+     * &gt; **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
      * 
      */
     public Optional<Output<String>> storageAccountId() {
@@ -67,14 +67,14 @@ public final class GetStorageContainerArgs extends com.pulumi.resources.InvokeAr
     }
 
     /**
-     * The name of the Storage Account where the Container exists. This property is deprecated in favour of `storage_account_id`.
+     * The name of the Storage Account where the Container exists. This property is deprecated in favour of `storageAccountId`.
      * 
      */
     @Import(name="storageAccountName")
     private @Nullable Output<String> storageAccountName;
 
     /**
-     * @return The name of the Storage Account where the Container exists. This property is deprecated in favour of `storage_account_id`.
+     * @return The name of the Storage Account where the Container exists. This property is deprecated in favour of `storageAccountId`.
      * 
      */
     public Optional<Output<String>> storageAccountName() {
@@ -153,7 +153,7 @@ public final class GetStorageContainerArgs extends com.pulumi.resources.InvokeAr
         /**
          * @param storageAccountId The id of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
          * 
-         * &gt; **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+         * &gt; **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class GetStorageContainerArgs extends com.pulumi.resources.InvokeAr
         /**
          * @param storageAccountId The id of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
          * 
-         * &gt; **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+         * &gt; **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class GetStorageContainerArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param storageAccountName The name of the Storage Account where the Container exists. This property is deprecated in favour of `storage_account_id`.
+         * @param storageAccountName The name of the Storage Account where the Container exists. This property is deprecated in favour of `storageAccountId`.
          * 
          * @return builder
          * 
@@ -187,7 +187,7 @@ public final class GetStorageContainerArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param storageAccountName The name of the Storage Account where the Container exists. This property is deprecated in favour of `storage_account_id`.
+         * @param storageAccountName The name of the Storage Account where the Container exists. This property is deprecated in favour of `storageAccountId`.
          * 
          * @return builder
          * 
