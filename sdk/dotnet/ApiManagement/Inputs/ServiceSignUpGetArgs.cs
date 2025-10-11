@@ -19,7 +19,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public Input<bool> Enabled { get; set; } = null!;
 
         /// <summary>
-        /// A `terms_of_service` block as defined below.
+        /// A `TermsOfService` block as defined below.
         /// </summary>
         [Input("termsOfService", required: true)]
         public Input<Inputs.ServiceSignUpTermsOfServiceGetArgs> TermsOfService { get; set; } = null!;

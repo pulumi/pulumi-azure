@@ -50,28 +50,28 @@ public class DataCollectionRule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dataCollectionEndpointId);
     }
     /**
-     * One or more `data_flow` blocks as defined below.
+     * One or more `dataFlow` blocks as defined below.
      * 
      */
     @Export(name="dataFlows", refs={List.class,DataCollectionRuleDataFlow.class}, tree="[0,1]")
     private Output<List<DataCollectionRuleDataFlow>> dataFlows;
 
     /**
-     * @return One or more `data_flow` blocks as defined below.
+     * @return One or more `dataFlow` blocks as defined below.
      * 
      */
     public Output<List<DataCollectionRuleDataFlow>> dataFlows() {
         return this.dataFlows;
     }
     /**
-     * A `data_sources` block as defined below. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
+     * A `dataSources` block as defined below. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
      * 
      */
     @Export(name="dataSources", refs={DataCollectionRuleDataSources.class}, tree="[0]")
     private Output</* @Nullable */ DataCollectionRuleDataSources> dataSources;
 
     /**
-     * @return A `data_sources` block as defined below. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
+     * @return A `dataSources` block as defined below. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
      * 
      */
     public Output<Optional<DataCollectionRuleDataSources>> dataSources() {
@@ -134,7 +134,7 @@ public class DataCollectionRule extends com.pulumi.resources.CustomResource {
         return this.immutableId;
     }
     /**
-     * The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+     * The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
      * 
      * &gt; **Note:** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
      * 
@@ -143,7 +143,7 @@ public class DataCollectionRule extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> kind;
 
     /**
-     * @return The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+     * @return The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
      * 
      * &gt; **Note:** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
      * 
@@ -194,14 +194,14 @@ public class DataCollectionRule extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * A `stream_declaration` block as defined below.
+     * A `streamDeclaration` block as defined below.
      * 
      */
     @Export(name="streamDeclarations", refs={List.class,DataCollectionRuleStreamDeclaration.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DataCollectionRuleStreamDeclaration>> streamDeclarations;
 
     /**
-     * @return A `stream_declaration` block as defined below.
+     * @return A `streamDeclaration` block as defined below.
      * 
      */
     public Output<Optional<List<DataCollectionRuleStreamDeclaration>>> streamDeclarations() {

@@ -177,7 +177,7 @@ namespace Pulumi.Azure.Iot
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A `identity` block as defined below.
+        /// A `Identity` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetIotHubIdentityResult> Identities;
         public readonly string Name;

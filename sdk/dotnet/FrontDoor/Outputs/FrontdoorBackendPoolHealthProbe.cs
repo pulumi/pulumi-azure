@@ -14,7 +14,7 @@ namespace Pulumi.Azure.FrontDoor.Outputs
     public sealed class FrontdoorBackendPoolHealthProbe
     {
         /// <summary>
-        /// Is this health probe enabled? Defaults to `true`.
+        /// Is this health probe enabled? Defaults to `True`.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>

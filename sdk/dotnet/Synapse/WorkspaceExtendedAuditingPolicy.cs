@@ -91,7 +91,7 @@ namespace Pulumi.Azure.Synapse
     public partial class WorkspaceExtendedAuditingPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor. Defaults to `true`.
+        /// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor. Defaults to `True`.
         /// </summary>
         [Output("logMonitoringEnabled")]
         public Output<bool?> LogMonitoringEnabled { get; private set; } = null!;
@@ -109,7 +109,7 @@ namespace Pulumi.Azure.Synapse
         public Output<string?> StorageAccountAccessKey { get; private set; } = null!;
 
         /// <summary>
-        /// Is `storage_account_access_key` value the storage's secondary key?
+        /// Is `StorageAccountAccessKey` value the storage's secondary key?
         /// </summary>
         [Output("storageAccountAccessKeyIsSecondary")]
         public Output<bool?> StorageAccountAccessKeyIsSecondary { get; private set; } = null!;
@@ -177,7 +177,7 @@ namespace Pulumi.Azure.Synapse
     public sealed class WorkspaceExtendedAuditingPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor. Defaults to `true`.
+        /// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor. Defaults to `True`.
         /// </summary>
         [Input("logMonitoringEnabled")]
         public Input<bool>? LogMonitoringEnabled { get; set; }
@@ -205,7 +205,7 @@ namespace Pulumi.Azure.Synapse
         }
 
         /// <summary>
-        /// Is `storage_account_access_key` value the storage's secondary key?
+        /// Is `StorageAccountAccessKey` value the storage's secondary key?
         /// </summary>
         [Input("storageAccountAccessKeyIsSecondary")]
         public Input<bool>? StorageAccountAccessKeyIsSecondary { get; set; }
@@ -231,7 +231,7 @@ namespace Pulumi.Azure.Synapse
     public sealed class WorkspaceExtendedAuditingPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor. Defaults to `true`.
+        /// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor. Defaults to `True`.
         /// </summary>
         [Input("logMonitoringEnabled")]
         public Input<bool>? LogMonitoringEnabled { get; set; }
@@ -259,7 +259,7 @@ namespace Pulumi.Azure.Synapse
         }
 
         /// <summary>
-        /// Is `storage_account_access_key` value the storage's secondary key?
+        /// Is `StorageAccountAccessKey` value the storage's secondary key?
         /// </summary>
         [Input("storageAccountAccessKeyIsSecondary")]
         public Input<bool>? StorageAccountAccessKeyIsSecondary { get; set; }

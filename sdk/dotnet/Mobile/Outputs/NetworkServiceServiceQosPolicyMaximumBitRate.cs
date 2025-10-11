@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Mobile.Outputs
     public sealed class NetworkServiceServiceQosPolicyMaximumBitRate
     {
         /// <summary>
-        /// Downlink bit rate. Must be a number followed by `bps`, `Kbps`, `Mbps`, `Gbps` or `Tbps`.
+        /// Downlink bit rate. Must be a number followed by `Bps`, `Kbps`, `Mbps`, `Gbps` or `Tbps`.
         /// </summary>
         public readonly string Downlink;
         /// <summary>
-        /// Uplink bit rate. Must be a number followed by `bps`, `Kbps`, `Mbps`, `Gbps` or `Tbps`.
+        /// Uplink bit rate. Must be a number followed by `Bps`, `Kbps`, `Mbps`, `Gbps` or `Tbps`.
         /// </summary>
         public readonly string Uplink;
 

@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Waf.Outputs
     public sealed class PolicyPolicySettingsLogScrubbing
     {
         /// <summary>
-        /// Whether the log scrubbing is enabled or disabled. Defaults to `true`.
+        /// Whether the log scrubbing is enabled or disabled. Defaults to `True`.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// One or more `scrubbing_rule` blocks as define below.
+        /// One or more `ScrubbingRule` blocks as define below.
         /// </summary>
         public readonly ImmutableArray<Outputs.PolicyPolicySettingsLogScrubbingRule> Rules;
 

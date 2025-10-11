@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Healthcare.Outputs
     public sealed class DicomServiceCors
     {
         /// <summary>
-        /// Whether to allow credentials in CORS. Defaults to `false`.
+        /// Whether to allow credentials in CORS. Defaults to `False`.
         /// </summary>
         public readonly bool? AllowCredentials;
         /// <summary>

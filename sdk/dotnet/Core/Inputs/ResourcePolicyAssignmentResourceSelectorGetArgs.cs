@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Core.Inputs
         private InputList<Inputs.ResourcePolicyAssignmentResourceSelectorSelectorGetArgs>? _selectors;
 
         /// <summary>
-        /// One or more `resource_selector` block as defined below.
+        /// One or more `ResourceSelector` block as defined below.
         /// </summary>
         public InputList<Inputs.ResourcePolicyAssignmentResourceSelectorSelectorGetArgs> Selectors
         {

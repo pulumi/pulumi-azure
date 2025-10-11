@@ -63,14 +63,14 @@ public final class ExperimentStepBranchActionArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The name of the Selector to which this action should apply to. This must be specified if the `action_type` is `continuous` or `discrete`.
+     * The name of the Selector to which this action should apply to. This must be specified if the `actionType` is `continuous` or `discrete`.
      * 
      */
     @Import(name="selectorName")
     private @Nullable Output<String> selectorName;
 
     /**
-     * @return The name of the Selector to which this action should apply to. This must be specified if the `action_type` is `continuous` or `discrete`.
+     * @return The name of the Selector to which this action should apply to. This must be specified if the `actionType` is `continuous` or `discrete`.
      * 
      */
     public Optional<Output<String>> selectorName() {
@@ -78,14 +78,14 @@ public final class ExperimentStepBranchActionArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The Unique Resource Name of the action, this value is provided by the `azure.chaosstudio.Capability` resource e.g. `azurerm_chaos_studio_capability.example.urn`. This must be specified if the `action_type` is `continuous` or `discrete`.
+     * The Unique Resource Name of the action, this value is provided by the `azure.chaosstudio.Capability` resource e.g. `azurerm_chaos_studio_capability.example.urn`. This must be specified if the `actionType` is `continuous` or `discrete`.
      * 
      */
     @Import(name="urn")
     private @Nullable Output<String> urn;
 
     /**
-     * @return The Unique Resource Name of the action, this value is provided by the `azure.chaosstudio.Capability` resource e.g. `azurerm_chaos_studio_capability.example.urn`. This must be specified if the `action_type` is `continuous` or `discrete`.
+     * @return The Unique Resource Name of the action, this value is provided by the `azure.chaosstudio.Capability` resource e.g. `azurerm_chaos_studio_capability.example.urn`. This must be specified if the `actionType` is `continuous` or `discrete`.
      * 
      */
     public Optional<Output<String>> urn() {
@@ -184,7 +184,7 @@ public final class ExperimentStepBranchActionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param selectorName The name of the Selector to which this action should apply to. This must be specified if the `action_type` is `continuous` or `discrete`.
+         * @param selectorName The name of the Selector to which this action should apply to. This must be specified if the `actionType` is `continuous` or `discrete`.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class ExperimentStepBranchActionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param selectorName The name of the Selector to which this action should apply to. This must be specified if the `action_type` is `continuous` or `discrete`.
+         * @param selectorName The name of the Selector to which this action should apply to. This must be specified if the `actionType` is `continuous` or `discrete`.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class ExperimentStepBranchActionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param urn The Unique Resource Name of the action, this value is provided by the `azure.chaosstudio.Capability` resource e.g. `azurerm_chaos_studio_capability.example.urn`. This must be specified if the `action_type` is `continuous` or `discrete`.
+         * @param urn The Unique Resource Name of the action, this value is provided by the `azure.chaosstudio.Capability` resource e.g. `azurerm_chaos_studio_capability.example.urn`. This must be specified if the `actionType` is `continuous` or `discrete`.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class ExperimentStepBranchActionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param urn The Unique Resource Name of the action, this value is provided by the `azure.chaosstudio.Capability` resource e.g. `azurerm_chaos_studio_capability.example.urn`. This must be specified if the `action_type` is `continuous` or `discrete`.
+         * @param urn The Unique Resource Name of the action, this value is provided by the `azure.chaosstudio.Capability` resource e.g. `azurerm_chaos_studio_capability.example.urn`. This must be specified if the `actionType` is `continuous` or `discrete`.
          * 
          * @return builder
          * 

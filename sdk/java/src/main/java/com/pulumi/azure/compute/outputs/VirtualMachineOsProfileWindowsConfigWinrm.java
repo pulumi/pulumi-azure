@@ -13,9 +13,9 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VirtualMachineOsProfileWindowsConfigWinrm {
     /**
-     * @return The ID of the Key Vault Secret which contains the encrypted Certificate which should be installed on the Virtual Machine. This certificate must also be specified in the `vault_certificates` block within the `os_profile_secrets` block.
+     * @return The ID of the Key Vault Secret which contains the encrypted Certificate which should be installed on the Virtual Machine. This certificate must also be specified in the `vaultCertificates` block within the `osProfileSecrets` block.
      * 
-     * &gt; **NOTE:** This can be sourced from the `secret_id` field on the `azure.keyvault.Certificate` resource.
+     * &gt; **NOTE:** This can be sourced from the `secretId` field on the `azure.keyvault.Certificate` resource.
      * 
      */
     private @Nullable String certificateUrl;
@@ -27,9 +27,9 @@ public final class VirtualMachineOsProfileWindowsConfigWinrm {
 
     private VirtualMachineOsProfileWindowsConfigWinrm() {}
     /**
-     * @return The ID of the Key Vault Secret which contains the encrypted Certificate which should be installed on the Virtual Machine. This certificate must also be specified in the `vault_certificates` block within the `os_profile_secrets` block.
+     * @return The ID of the Key Vault Secret which contains the encrypted Certificate which should be installed on the Virtual Machine. This certificate must also be specified in the `vaultCertificates` block within the `osProfileSecrets` block.
      * 
-     * &gt; **NOTE:** This can be sourced from the `secret_id` field on the `azure.keyvault.Certificate` resource.
+     * &gt; **NOTE:** This can be sourced from the `secretId` field on the `azure.keyvault.Certificate` resource.
      * 
      */
     public Optional<String> certificateUrl() {

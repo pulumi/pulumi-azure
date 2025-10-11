@@ -47,17 +47,17 @@ namespace Pulumi.Azure.DevCenter
     /// 
     /// ## Blocks Reference
     /// 
-    /// ### `identity` Block
+    /// ### `Identity` Block
     /// 
-    /// The `identity` block supports the following arguments:
+    /// The `Identity` block supports the following arguments:
     /// 
-    /// * `type` - (Required) Specifies the type of Managed Identity that should be assigned to this Dev Center. Possible values are `SystemAssigned`, `SystemAssigned, UserAssigned` and `UserAssigned`.
-    /// * `identity_ids` - (Optional) A list of the User Assigned Identity IDs that should be assigned to this Dev Center.
+    /// * `Type` - (Required) Specifies the type of Managed Identity that should be assigned to this Dev Center. Possible values are `SystemAssigned`, `SystemAssigned, UserAssigned` and `UserAssigned`.
+    /// * `IdentityIds` - (Optional) A list of the User Assigned Identity IDs that should be assigned to this Dev Center.
     /// 
-    /// In addition to the arguments defined above, the `identity` block exports the following attributes:
+    /// In addition to the arguments defined above, the `Identity` block exports the following attributes:
     /// 
-    /// * `principal_id` - The Principal ID for the System-Assigned Managed Identity assigned to this Dev Center.
-    /// * `tenant_id` - The Tenant ID for the System-Assigned Managed Identity assigned to this Dev Center.
+    /// * `PrincipalId` - The Principal ID for the System-Assigned Managed Identity assigned to this Dev Center.
+    /// * `TenantId` - The Tenant ID for the System-Assigned Managed Identity assigned to this Dev Center.
     /// 
     /// ## API Providers
     /// 
@@ -90,7 +90,7 @@ namespace Pulumi.Azure.DevCenter
         public Output<string> DevCenterUri { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Dev Center.
+        /// An `Identity` block as defined below. Specifies the Managed Identity which should be assigned to this Dev Center.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.DevCenterIdentity?> Identity { get; private set; } = null!;
@@ -108,7 +108,7 @@ namespace Pulumi.Azure.DevCenter
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the project catalogs associated with projects in this Dev Center are allowed to sync catalog items. Defaults to `false`.
+        /// Whether the project catalogs associated with projects in this Dev Center are allowed to sync catalog items. Defaults to `False`.
         /// </summary>
         [Output("projectCatalogItemSyncEnabled")]
         public Output<bool?> ProjectCatalogItemSyncEnabled { get; private set; } = null!;
@@ -172,7 +172,7 @@ namespace Pulumi.Azure.DevCenter
     public sealed class DevCenterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Dev Center.
+        /// An `Identity` block as defined below. Specifies the Managed Identity which should be assigned to this Dev Center.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.DevCenterIdentityArgs>? Identity { get; set; }
@@ -190,7 +190,7 @@ namespace Pulumi.Azure.DevCenter
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether the project catalogs associated with projects in this Dev Center are allowed to sync catalog items. Defaults to `false`.
+        /// Whether the project catalogs associated with projects in this Dev Center are allowed to sync catalog items. Defaults to `False`.
         /// </summary>
         [Input("projectCatalogItemSyncEnabled")]
         public Input<bool>? ProjectCatalogItemSyncEnabled { get; set; }
@@ -228,7 +228,7 @@ namespace Pulumi.Azure.DevCenter
         public Input<string>? DevCenterUri { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Dev Center.
+        /// An `Identity` block as defined below. Specifies the Managed Identity which should be assigned to this Dev Center.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.DevCenterIdentityGetArgs>? Identity { get; set; }
@@ -246,7 +246,7 @@ namespace Pulumi.Azure.DevCenter
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether the project catalogs associated with projects in this Dev Center are allowed to sync catalog items. Defaults to `false`.
+        /// Whether the project catalogs associated with projects in this Dev Center are allowed to sync catalog items. Defaults to `False`.
         /// </summary>
         [Input("projectCatalogItemSyncEnabled")]
         public Input<bool>? ProjectCatalogItemSyncEnabled { get; set; }

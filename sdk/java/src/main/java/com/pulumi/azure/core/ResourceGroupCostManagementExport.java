@@ -125,28 +125,28 @@ public class ResourceGroupCostManagementExport extends com.pulumi.resources.Cust
         return Codegen.optional(this.active);
     }
     /**
-     * A `export_data_options` block as defined below.
+     * A `exportDataOptions` block as defined below.
      * 
      */
     @Export(name="exportDataOptions", refs={ResourceGroupCostManagementExportExportDataOptions.class}, tree="[0]")
     private Output<ResourceGroupCostManagementExportExportDataOptions> exportDataOptions;
 
     /**
-     * @return A `export_data_options` block as defined below.
+     * @return A `exportDataOptions` block as defined below.
      * 
      */
     public Output<ResourceGroupCostManagementExportExportDataOptions> exportDataOptions() {
         return this.exportDataOptions;
     }
     /**
-     * A `export_data_storage_location` block as defined below.
+     * A `exportDataStorageLocation` block as defined below.
      * 
      */
     @Export(name="exportDataStorageLocation", refs={ResourceGroupCostManagementExportExportDataStorageLocation.class}, tree="[0]")
     private Output<ResourceGroupCostManagementExportExportDataStorageLocation> exportDataStorageLocation;
 
     /**
-     * @return A `export_data_storage_location` block as defined below.
+     * @return A `exportDataStorageLocation` block as defined below.
      * 
      */
     public Output<ResourceGroupCostManagementExportExportDataStorageLocation> exportDataStorageLocation() {

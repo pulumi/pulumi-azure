@@ -27,7 +27,7 @@ public final class GetWindowsWebAppSiteConfigApplicationStack {
      */
     private String dockerRegistryPassword;
     /**
-     * @return The URL of the container registry where the `docker_image_name` is located.
+     * @return The URL of the container registry where the `dockerImageName` is located.
      * 
      */
     private String dockerRegistryUrl;
@@ -99,7 +99,7 @@ public final class GetWindowsWebAppSiteConfigApplicationStack {
         return this.dockerRegistryPassword;
     }
     /**
-     * @return The URL of the container registry where the `docker_image_name` is located.
+     * @return The URL of the container registry where the `dockerImageName` is located.
      * 
      */
     public String dockerRegistryUrl() {

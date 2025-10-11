@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ServiceFabric.Outputs
     public sealed class ManagedClusterNodeTypeVmSecret
     {
         /// <summary>
-        /// One or more `certificates` blocks as defined above.
+        /// One or more `Certificates` blocks as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.ManagedClusterNodeTypeVmSecretCertificate> Certificates;
         /// <summary>

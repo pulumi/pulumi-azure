@@ -95,7 +95,7 @@ namespace Pulumi.Azure.AppPlatform
         public Output<string?> Generation { get; private set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
+        /// The name which should be used for this Spring Cloud Configuration Service. The only possible value is `Default`. Changing this forces a new Spring Cloud Configuration Service to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -107,7 +107,7 @@ namespace Pulumi.Azure.AppPlatform
         public Output<int?> RefreshIntervalInSeconds { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `repository` blocks as defined below.
+        /// One or more `Repository` blocks as defined below.
         /// </summary>
         [Output("repositories")]
         public Output<ImmutableArray<Outputs.SpringCloudConfigurationServiceRepository>> Repositories { get; private set; } = null!;
@@ -171,7 +171,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string>? Generation { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
+        /// The name which should be used for this Spring Cloud Configuration Service. The only possible value is `Default`. Changing this forces a new Spring Cloud Configuration Service to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -186,7 +186,7 @@ namespace Pulumi.Azure.AppPlatform
         private InputList<Inputs.SpringCloudConfigurationServiceRepositoryArgs>? _repositories;
 
         /// <summary>
-        /// One or more `repository` blocks as defined below.
+        /// One or more `Repository` blocks as defined below.
         /// </summary>
         public InputList<Inputs.SpringCloudConfigurationServiceRepositoryArgs> Repositories
         {
@@ -215,7 +215,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string>? Generation { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
+        /// The name which should be used for this Spring Cloud Configuration Service. The only possible value is `Default`. Changing this forces a new Spring Cloud Configuration Service to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -230,7 +230,7 @@ namespace Pulumi.Azure.AppPlatform
         private InputList<Inputs.SpringCloudConfigurationServiceRepositoryGetArgs>? _repositories;
 
         /// <summary>
-        /// One or more `repository` blocks as defined below.
+        /// One or more `Repository` blocks as defined below.
         /// </summary>
         public InputList<Inputs.SpringCloudConfigurationServiceRepositoryGetArgs> Repositories
         {

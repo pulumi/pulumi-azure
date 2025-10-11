@@ -35,7 +35,7 @@ public final class FluxConfigurationBlobStorage {
      */
     private @Nullable String sasToken;
     /**
-     * @return A `service_principal` block as defined below.
+     * @return A `servicePrincipal` block as defined below.
      * 
      */
     private @Nullable FluxConfigurationBlobStorageServicePrincipal servicePrincipal;
@@ -80,7 +80,7 @@ public final class FluxConfigurationBlobStorage {
         return Optional.ofNullable(this.sasToken);
     }
     /**
-     * @return A `service_principal` block as defined below.
+     * @return A `servicePrincipal` block as defined below.
      * 
      */
     public Optional<FluxConfigurationBlobStorageServicePrincipal> servicePrincipal() {

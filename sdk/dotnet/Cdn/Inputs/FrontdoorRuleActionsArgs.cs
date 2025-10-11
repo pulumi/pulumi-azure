@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         private InputList<Inputs.FrontdoorRuleActionsRequestHeaderActionArgs>? _requestHeaderActions;
 
         /// <summary>
-        /// A `request_header_action` block as defined below.
+        /// A `RequestHeaderAction` block as defined below.
         /// </summary>
         public InputList<Inputs.FrontdoorRuleActionsRequestHeaderActionArgs> RequestHeaderActions
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         private InputList<Inputs.FrontdoorRuleActionsResponseHeaderActionArgs>? _responseHeaderActions;
 
         /// <summary>
-        /// A `response_header_action` block as defined below.
+        /// A `ResponseHeaderAction` block as defined below.
         /// </summary>
         public InputList<Inputs.FrontdoorRuleActionsResponseHeaderActionArgs> ResponseHeaderActions
         {
@@ -37,19 +37,19 @@ namespace Pulumi.Azure.Cdn.Inputs
         }
 
         /// <summary>
-        /// A `route_configuration_override_action` block as defined below.
+        /// A `RouteConfigurationOverrideAction` block as defined below.
         /// </summary>
         [Input("routeConfigurationOverrideAction")]
         public Input<Inputs.FrontdoorRuleActionsRouteConfigurationOverrideActionArgs>? RouteConfigurationOverrideAction { get; set; }
 
         /// <summary>
-        /// A `url_redirect_action` block as defined below. You may **not** have a `url_redirect_action` **and** a `url_rewrite_action` defined in the same `actions` block.
+        /// A `UrlRedirectAction` block as defined below. You may **not** have a `UrlRedirectAction` **and** a `UrlRewriteAction` defined in the same `Actions` block.
         /// </summary>
         [Input("urlRedirectAction")]
         public Input<Inputs.FrontdoorRuleActionsUrlRedirectActionArgs>? UrlRedirectAction { get; set; }
 
         /// <summary>
-        /// A `url_rewrite_action` block as defined below. You may **not** have a `url_rewrite_action` **and** a `url_redirect_action` defined in the same `actions` block.
+        /// A `UrlRewriteAction` block as defined below. You may **not** have a `UrlRewriteAction` **and** a `UrlRedirectAction` defined in the same `Actions` block.
         /// </summary>
         [Input("urlRewriteAction")]
         public Input<Inputs.FrontdoorRuleActionsUrlRewriteActionArgs>? UrlRewriteAction { get; set; }

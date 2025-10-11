@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Batch.Outputs
         /// </summary>
         public readonly string ElevationLevel;
         /// <summary>
-        /// The `linux_user_configuration` block defined below is a linux-specific user configuration for the user account. This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
+        /// The `LinuxUserConfiguration` block defined below is a linux-specific user configuration for the user account. This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
         /// </summary>
         public readonly ImmutableArray<Outputs.PoolUserAccountLinuxUserConfiguration> LinuxUserConfigurations;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Batch.Outputs
         /// </summary>
         public readonly string Password;
         /// <summary>
-        /// The `windows_user_configuration` block defined below is a windows-specific user configuration for the user account. This property can only be specified if the user is on a Windows pool. If not specified and on a Windows pool, the user is created with the default options.
+        /// The `WindowsUserConfiguration` block defined below is a windows-specific user configuration for the user account. This property can only be specified if the user is on a Windows pool. If not specified and on a Windows pool, the user is created with the default options.
         /// </summary>
         public readonly ImmutableArray<Outputs.PoolUserAccountWindowsUserConfiguration> WindowsUserConfigurations;
 

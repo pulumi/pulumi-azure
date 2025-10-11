@@ -185,61 +185,61 @@ namespace Pulumi.Azure.Monitoring
     public partial class ActionGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// One or more `arm_role_receiver` blocks as defined below.
+        /// One or more `ArmRoleReceiver` blocks as defined below.
         /// </summary>
         [Output("armRoleReceivers")]
         public Output<ImmutableArray<Outputs.ActionGroupArmRoleReceiver>> ArmRoleReceivers { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `automation_runbook_receiver` blocks as defined below.
+        /// One or more `AutomationRunbookReceiver` blocks as defined below.
         /// </summary>
         [Output("automationRunbookReceivers")]
         public Output<ImmutableArray<Outputs.ActionGroupAutomationRunbookReceiver>> AutomationRunbookReceivers { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `azure_app_push_receiver` blocks as defined below.
+        /// One or more `AzureAppPushReceiver` blocks as defined below.
         /// </summary>
         [Output("azureAppPushReceivers")]
         public Output<ImmutableArray<Outputs.ActionGroupAzureAppPushReceiver>> AzureAppPushReceivers { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `azure_function_receiver` blocks as defined below.
+        /// One or more `AzureFunctionReceiver` blocks as defined below.
         /// </summary>
         [Output("azureFunctionReceivers")]
         public Output<ImmutableArray<Outputs.ActionGroupAzureFunctionReceiver>> AzureFunctionReceivers { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `email_receiver` blocks as defined below.
+        /// One or more `EmailReceiver` blocks as defined below.
         /// </summary>
         [Output("emailReceivers")]
         public Output<ImmutableArray<Outputs.ActionGroupEmailReceiver>> EmailReceivers { get; private set; } = null!;
 
         /// <summary>
-        /// Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`.
+        /// Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `event_hub_receiver` blocks as defined below.
+        /// One or more `EventHubReceiver` blocks as defined below.
         /// </summary>
         [Output("eventHubReceivers")]
         public Output<ImmutableArray<Outputs.ActionGroupEventHubReceiver>> EventHubReceivers { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `itsm_receiver` blocks as defined below.
+        /// One or more `ItsmReceiver` blocks as defined below.
         /// </summary>
         [Output("itsmReceivers")]
         public Output<ImmutableArray<Outputs.ActionGroupItsmReceiver>> ItsmReceivers { get; private set; } = null!;
 
         /// <summary>
-        /// The Azure Region where the Action Group should exist. Changing this forces a new Action Group to be created. Defaults to `global`.
+        /// The Azure Region where the Action Group should exist. Changing this forces a new Action Group to be created. Defaults to `Global`.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `logic_app_receiver` blocks as defined below.
+        /// One or more `LogicAppReceiver` blocks as defined below.
         /// </summary>
         [Output("logicAppReceivers")]
         public Output<ImmutableArray<Outputs.ActionGroupLogicAppReceiver>> LogicAppReceivers { get; private set; } = null!;
@@ -263,7 +263,7 @@ namespace Pulumi.Azure.Monitoring
         public Output<string> ShortName { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `sms_receiver` blocks as defined below.
+        /// One or more `SmsReceiver` blocks as defined below.
         /// </summary>
         [Output("smsReceivers")]
         public Output<ImmutableArray<Outputs.ActionGroupSmsReceiver>> SmsReceivers { get; private set; } = null!;
@@ -275,13 +275,13 @@ namespace Pulumi.Azure.Monitoring
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `voice_receiver` blocks as defined below.
+        /// One or more `VoiceReceiver` blocks as defined below.
         /// </summary>
         [Output("voiceReceivers")]
         public Output<ImmutableArray<Outputs.ActionGroupVoiceReceiver>> VoiceReceivers { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `webhook_receiver` blocks as defined below.
+        /// One or more `WebhookReceiver` blocks as defined below.
         /// </summary>
         [Output("webhookReceivers")]
         public Output<ImmutableArray<Outputs.ActionGroupWebhookReceiver>> WebhookReceivers { get; private set; } = null!;
@@ -336,7 +336,7 @@ namespace Pulumi.Azure.Monitoring
         private InputList<Inputs.ActionGroupArmRoleReceiverArgs>? _armRoleReceivers;
 
         /// <summary>
-        /// One or more `arm_role_receiver` blocks as defined below.
+        /// One or more `ArmRoleReceiver` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ActionGroupArmRoleReceiverArgs> ArmRoleReceivers
         {
@@ -348,7 +348,7 @@ namespace Pulumi.Azure.Monitoring
         private InputList<Inputs.ActionGroupAutomationRunbookReceiverArgs>? _automationRunbookReceivers;
 
         /// <summary>
-        /// One or more `automation_runbook_receiver` blocks as defined below.
+        /// One or more `AutomationRunbookReceiver` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ActionGroupAutomationRunbookReceiverArgs> AutomationRunbookReceivers
         {
@@ -360,7 +360,7 @@ namespace Pulumi.Azure.Monitoring
         private InputList<Inputs.ActionGroupAzureAppPushReceiverArgs>? _azureAppPushReceivers;
 
         /// <summary>
-        /// One or more `azure_app_push_receiver` blocks as defined below.
+        /// One or more `AzureAppPushReceiver` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ActionGroupAzureAppPushReceiverArgs> AzureAppPushReceivers
         {
@@ -372,7 +372,7 @@ namespace Pulumi.Azure.Monitoring
         private InputList<Inputs.ActionGroupAzureFunctionReceiverArgs>? _azureFunctionReceivers;
 
         /// <summary>
-        /// One or more `azure_function_receiver` blocks as defined below.
+        /// One or more `AzureFunctionReceiver` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ActionGroupAzureFunctionReceiverArgs> AzureFunctionReceivers
         {
@@ -384,7 +384,7 @@ namespace Pulumi.Azure.Monitoring
         private InputList<Inputs.ActionGroupEmailReceiverArgs>? _emailReceivers;
 
         /// <summary>
-        /// One or more `email_receiver` blocks as defined below.
+        /// One or more `EmailReceiver` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ActionGroupEmailReceiverArgs> EmailReceivers
         {
@@ -393,7 +393,7 @@ namespace Pulumi.Azure.Monitoring
         }
 
         /// <summary>
-        /// Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`.
+        /// Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -402,7 +402,7 @@ namespace Pulumi.Azure.Monitoring
         private InputList<Inputs.ActionGroupEventHubReceiverArgs>? _eventHubReceivers;
 
         /// <summary>
-        /// One or more `event_hub_receiver` blocks as defined below.
+        /// One or more `EventHubReceiver` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ActionGroupEventHubReceiverArgs> EventHubReceivers
         {
@@ -414,7 +414,7 @@ namespace Pulumi.Azure.Monitoring
         private InputList<Inputs.ActionGroupItsmReceiverArgs>? _itsmReceivers;
 
         /// <summary>
-        /// One or more `itsm_receiver` blocks as defined below.
+        /// One or more `ItsmReceiver` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ActionGroupItsmReceiverArgs> ItsmReceivers
         {
@@ -423,7 +423,7 @@ namespace Pulumi.Azure.Monitoring
         }
 
         /// <summary>
-        /// The Azure Region where the Action Group should exist. Changing this forces a new Action Group to be created. Defaults to `global`.
+        /// The Azure Region where the Action Group should exist. Changing this forces a new Action Group to be created. Defaults to `Global`.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -432,7 +432,7 @@ namespace Pulumi.Azure.Monitoring
         private InputList<Inputs.ActionGroupLogicAppReceiverArgs>? _logicAppReceivers;
 
         /// <summary>
-        /// One or more `logic_app_receiver` blocks as defined below.
+        /// One or more `LogicAppReceiver` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ActionGroupLogicAppReceiverArgs> LogicAppReceivers
         {
@@ -462,7 +462,7 @@ namespace Pulumi.Azure.Monitoring
         private InputList<Inputs.ActionGroupSmsReceiverArgs>? _smsReceivers;
 
         /// <summary>
-        /// One or more `sms_receiver` blocks as defined below.
+        /// One or more `SmsReceiver` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ActionGroupSmsReceiverArgs> SmsReceivers
         {
@@ -486,7 +486,7 @@ namespace Pulumi.Azure.Monitoring
         private InputList<Inputs.ActionGroupVoiceReceiverArgs>? _voiceReceivers;
 
         /// <summary>
-        /// One or more `voice_receiver` blocks as defined below.
+        /// One or more `VoiceReceiver` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ActionGroupVoiceReceiverArgs> VoiceReceivers
         {
@@ -498,7 +498,7 @@ namespace Pulumi.Azure.Monitoring
         private InputList<Inputs.ActionGroupWebhookReceiverArgs>? _webhookReceivers;
 
         /// <summary>
-        /// One or more `webhook_receiver` blocks as defined below.
+        /// One or more `WebhookReceiver` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ActionGroupWebhookReceiverArgs> WebhookReceivers
         {
@@ -518,7 +518,7 @@ namespace Pulumi.Azure.Monitoring
         private InputList<Inputs.ActionGroupArmRoleReceiverGetArgs>? _armRoleReceivers;
 
         /// <summary>
-        /// One or more `arm_role_receiver` blocks as defined below.
+        /// One or more `ArmRoleReceiver` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ActionGroupArmRoleReceiverGetArgs> ArmRoleReceivers
         {
@@ -530,7 +530,7 @@ namespace Pulumi.Azure.Monitoring
         private InputList<Inputs.ActionGroupAutomationRunbookReceiverGetArgs>? _automationRunbookReceivers;
 
         /// <summary>
-        /// One or more `automation_runbook_receiver` blocks as defined below.
+        /// One or more `AutomationRunbookReceiver` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ActionGroupAutomationRunbookReceiverGetArgs> AutomationRunbookReceivers
         {
@@ -542,7 +542,7 @@ namespace Pulumi.Azure.Monitoring
         private InputList<Inputs.ActionGroupAzureAppPushReceiverGetArgs>? _azureAppPushReceivers;
 
         /// <summary>
-        /// One or more `azure_app_push_receiver` blocks as defined below.
+        /// One or more `AzureAppPushReceiver` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ActionGroupAzureAppPushReceiverGetArgs> AzureAppPushReceivers
         {
@@ -554,7 +554,7 @@ namespace Pulumi.Azure.Monitoring
         private InputList<Inputs.ActionGroupAzureFunctionReceiverGetArgs>? _azureFunctionReceivers;
 
         /// <summary>
-        /// One or more `azure_function_receiver` blocks as defined below.
+        /// One or more `AzureFunctionReceiver` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ActionGroupAzureFunctionReceiverGetArgs> AzureFunctionReceivers
         {
@@ -566,7 +566,7 @@ namespace Pulumi.Azure.Monitoring
         private InputList<Inputs.ActionGroupEmailReceiverGetArgs>? _emailReceivers;
 
         /// <summary>
-        /// One or more `email_receiver` blocks as defined below.
+        /// One or more `EmailReceiver` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ActionGroupEmailReceiverGetArgs> EmailReceivers
         {
@@ -575,7 +575,7 @@ namespace Pulumi.Azure.Monitoring
         }
 
         /// <summary>
-        /// Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`.
+        /// Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -584,7 +584,7 @@ namespace Pulumi.Azure.Monitoring
         private InputList<Inputs.ActionGroupEventHubReceiverGetArgs>? _eventHubReceivers;
 
         /// <summary>
-        /// One or more `event_hub_receiver` blocks as defined below.
+        /// One or more `EventHubReceiver` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ActionGroupEventHubReceiverGetArgs> EventHubReceivers
         {
@@ -596,7 +596,7 @@ namespace Pulumi.Azure.Monitoring
         private InputList<Inputs.ActionGroupItsmReceiverGetArgs>? _itsmReceivers;
 
         /// <summary>
-        /// One or more `itsm_receiver` blocks as defined below.
+        /// One or more `ItsmReceiver` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ActionGroupItsmReceiverGetArgs> ItsmReceivers
         {
@@ -605,7 +605,7 @@ namespace Pulumi.Azure.Monitoring
         }
 
         /// <summary>
-        /// The Azure Region where the Action Group should exist. Changing this forces a new Action Group to be created. Defaults to `global`.
+        /// The Azure Region where the Action Group should exist. Changing this forces a new Action Group to be created. Defaults to `Global`.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -614,7 +614,7 @@ namespace Pulumi.Azure.Monitoring
         private InputList<Inputs.ActionGroupLogicAppReceiverGetArgs>? _logicAppReceivers;
 
         /// <summary>
-        /// One or more `logic_app_receiver` blocks as defined below.
+        /// One or more `LogicAppReceiver` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ActionGroupLogicAppReceiverGetArgs> LogicAppReceivers
         {
@@ -644,7 +644,7 @@ namespace Pulumi.Azure.Monitoring
         private InputList<Inputs.ActionGroupSmsReceiverGetArgs>? _smsReceivers;
 
         /// <summary>
-        /// One or more `sms_receiver` blocks as defined below.
+        /// One or more `SmsReceiver` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ActionGroupSmsReceiverGetArgs> SmsReceivers
         {
@@ -668,7 +668,7 @@ namespace Pulumi.Azure.Monitoring
         private InputList<Inputs.ActionGroupVoiceReceiverGetArgs>? _voiceReceivers;
 
         /// <summary>
-        /// One or more `voice_receiver` blocks as defined below.
+        /// One or more `VoiceReceiver` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ActionGroupVoiceReceiverGetArgs> VoiceReceivers
         {
@@ -680,7 +680,7 @@ namespace Pulumi.Azure.Monitoring
         private InputList<Inputs.ActionGroupWebhookReceiverGetArgs>? _webhookReceivers;
 
         /// <summary>
-        /// One or more `webhook_receiver` blocks as defined below.
+        /// One or more `WebhookReceiver` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ActionGroupWebhookReceiverGetArgs> WebhookReceivers
         {

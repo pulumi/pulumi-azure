@@ -115,14 +115,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `language_extension` block as defined below.
+     * A `languageExtension` block as defined below.
      * 
      */
     @Import(name="languageExtension")
     private @Nullable Output<List<ClusterLanguageExtensionArgs>> languageExtension;
 
     /**
-     * @return A `language_extension` block as defined below.
+     * @return A `languageExtension` block as defined below.
      * 
      */
     public Optional<Output<List<ClusterLanguageExtensionArgs>>> languageExtension() {
@@ -131,19 +131,19 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @deprecated
-     * `language_extensions` has been deprecated in favour of `language_extension` and will be removed in v5.0 of the AzureRM provider
+     * `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `language_extensions` has been deprecated in favour of `language_extension` and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated /* `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider */
     @Import(name="languageExtensions")
     private @Nullable Output<List<ClusterLanguageExtensionArgs>> languageExtensions;
 
     /**
      * @deprecated
-     * `language_extensions` has been deprecated in favour of `language_extension` and will be removed in v5.0 of the AzureRM provider
+     * `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider
      * 
      */
-    @Deprecated /* `language_extensions` has been deprecated in favour of `language_extension` and will be removed in v5.0 of the AzureRM provider */
+    @Deprecated /* `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider */
     public Optional<Output<List<ClusterLanguageExtensionArgs>>> languageExtensions() {
         return Optional.ofNullable(this.languageExtensions);
     }
@@ -179,14 +179,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `optimized_auto_scale` block as defined below.
+     * An `optimizedAutoScale` block as defined below.
      * 
      */
     @Import(name="optimizedAutoScale")
     private @Nullable Output<ClusterOptimizedAutoScaleArgs> optimizedAutoScale;
 
     /**
-     * @return An `optimized_auto_scale` block as defined below.
+     * @return An `optimizedAutoScale` block as defined below.
      * 
      */
     public Optional<Output<ClusterOptimizedAutoScaleArgs>> optimizedAutoScale() {
@@ -314,18 +314,18 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = [&#34;*&#34;]` to explicitly allow all other tenants, `trusted_external_tenants = [&#34;MyTenantOnly&#34;]` for only your tenant or `trusted_external_tenants = [&#34;&lt;tenantId1&gt;&#34;, &#34;&lt;tenantIdx&gt;&#34;]` to allow specific other tenants.
+     * Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trustedExternalTenants = [&#34;*&#34;]` to explicitly allow all other tenants, `trustedExternalTenants = [&#34;MyTenantOnly&#34;]` for only your tenant or `trustedExternalTenants = [&#34;&lt;tenantId1&gt;&#34;, &#34;&lt;tenantIdx&gt;&#34;]` to allow specific other tenants.
      * 
-     * &gt; **Note:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = [&#34;MyTenantOnly&#34;]` to `trusted_external_tenants = []`.
+     * &gt; **Note:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trustedExternalTenants = [&#34;MyTenantOnly&#34;]` to `trustedExternalTenants = []`.
      * 
      */
     @Import(name="trustedExternalTenants")
     private @Nullable Output<List<String>> trustedExternalTenants;
 
     /**
-     * @return Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = [&#34;*&#34;]` to explicitly allow all other tenants, `trusted_external_tenants = [&#34;MyTenantOnly&#34;]` for only your tenant or `trusted_external_tenants = [&#34;&lt;tenantId1&gt;&#34;, &#34;&lt;tenantIdx&gt;&#34;]` to allow specific other tenants.
+     * @return Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trustedExternalTenants = [&#34;*&#34;]` to explicitly allow all other tenants, `trustedExternalTenants = [&#34;MyTenantOnly&#34;]` for only your tenant or `trustedExternalTenants = [&#34;&lt;tenantId1&gt;&#34;, &#34;&lt;tenantIdx&gt;&#34;]` to allow specific other tenants.
      * 
-     * &gt; **Note:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = [&#34;MyTenantOnly&#34;]` to `trusted_external_tenants = []`.
+     * &gt; **Note:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trustedExternalTenants = [&#34;MyTenantOnly&#34;]` to `trustedExternalTenants = []`.
      * 
      */
     public Optional<Output<List<String>>> trustedExternalTenants() {
@@ -334,19 +334,19 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @deprecated
-     * The `virtual_network_configuration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192
+     * The `virtualNetworkConfiguration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192
      * 
      */
-    @Deprecated /* The `virtual_network_configuration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192 */
+    @Deprecated /* The `virtualNetworkConfiguration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192 */
     @Import(name="virtualNetworkConfiguration")
     private @Nullable Output<ClusterVirtualNetworkConfigurationArgs> virtualNetworkConfiguration;
 
     /**
      * @deprecated
-     * The `virtual_network_configuration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192
+     * The `virtualNetworkConfiguration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192
      * 
      */
-    @Deprecated /* The `virtual_network_configuration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192 */
+    @Deprecated /* The `virtualNetworkConfiguration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192 */
     public Optional<Output<ClusterVirtualNetworkConfigurationArgs>> virtualNetworkConfiguration() {
         return Optional.ofNullable(this.virtualNetworkConfiguration);
     }
@@ -558,7 +558,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param languageExtension A `language_extension` block as defined below.
+         * @param languageExtension A `languageExtension` block as defined below.
          * 
          * @return builder
          * 
@@ -569,7 +569,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param languageExtension A `language_extension` block as defined below.
+         * @param languageExtension A `languageExtension` block as defined below.
          * 
          * @return builder
          * 
@@ -579,7 +579,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param languageExtension A `language_extension` block as defined below.
+         * @param languageExtension A `languageExtension` block as defined below.
          * 
          * @return builder
          * 
@@ -592,10 +592,10 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * `language_extensions` has been deprecated in favour of `language_extension` and will be removed in v5.0 of the AzureRM provider
+         * `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider
          * 
          */
-        @Deprecated /* `language_extensions` has been deprecated in favour of `language_extension` and will be removed in v5.0 of the AzureRM provider */
+        @Deprecated /* `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider */
         public Builder languageExtensions(@Nullable Output<List<ClusterLanguageExtensionArgs>> languageExtensions) {
             $.languageExtensions = languageExtensions;
             return this;
@@ -605,10 +605,10 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * `language_extensions` has been deprecated in favour of `language_extension` and will be removed in v5.0 of the AzureRM provider
+         * `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider
          * 
          */
-        @Deprecated /* `language_extensions` has been deprecated in favour of `language_extension` and will be removed in v5.0 of the AzureRM provider */
+        @Deprecated /* `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider */
         public Builder languageExtensions(List<ClusterLanguageExtensionArgs> languageExtensions) {
             return languageExtensions(Output.of(languageExtensions));
         }
@@ -617,10 +617,10 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * `language_extensions` has been deprecated in favour of `language_extension` and will be removed in v5.0 of the AzureRM provider
+         * `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider
          * 
          */
-        @Deprecated /* `language_extensions` has been deprecated in favour of `language_extension` and will be removed in v5.0 of the AzureRM provider */
+        @Deprecated /* `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider */
         public Builder languageExtensions(ClusterLanguageExtensionArgs... languageExtensions) {
             return languageExtensions(List.of(languageExtensions));
         }
@@ -668,7 +668,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param optimizedAutoScale An `optimized_auto_scale` block as defined below.
+         * @param optimizedAutoScale An `optimizedAutoScale` block as defined below.
          * 
          * @return builder
          * 
@@ -679,7 +679,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param optimizedAutoScale An `optimized_auto_scale` block as defined below.
+         * @param optimizedAutoScale An `optimizedAutoScale` block as defined below.
          * 
          * @return builder
          * 
@@ -857,9 +857,9 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param trustedExternalTenants Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = [&#34;*&#34;]` to explicitly allow all other tenants, `trusted_external_tenants = [&#34;MyTenantOnly&#34;]` for only your tenant or `trusted_external_tenants = [&#34;&lt;tenantId1&gt;&#34;, &#34;&lt;tenantIdx&gt;&#34;]` to allow specific other tenants.
+         * @param trustedExternalTenants Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trustedExternalTenants = [&#34;*&#34;]` to explicitly allow all other tenants, `trustedExternalTenants = [&#34;MyTenantOnly&#34;]` for only your tenant or `trustedExternalTenants = [&#34;&lt;tenantId1&gt;&#34;, &#34;&lt;tenantIdx&gt;&#34;]` to allow specific other tenants.
          * 
-         * &gt; **Note:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = [&#34;MyTenantOnly&#34;]` to `trusted_external_tenants = []`.
+         * &gt; **Note:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trustedExternalTenants = [&#34;MyTenantOnly&#34;]` to `trustedExternalTenants = []`.
          * 
          * @return builder
          * 
@@ -870,9 +870,9 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param trustedExternalTenants Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = [&#34;*&#34;]` to explicitly allow all other tenants, `trusted_external_tenants = [&#34;MyTenantOnly&#34;]` for only your tenant or `trusted_external_tenants = [&#34;&lt;tenantId1&gt;&#34;, &#34;&lt;tenantIdx&gt;&#34;]` to allow specific other tenants.
+         * @param trustedExternalTenants Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trustedExternalTenants = [&#34;*&#34;]` to explicitly allow all other tenants, `trustedExternalTenants = [&#34;MyTenantOnly&#34;]` for only your tenant or `trustedExternalTenants = [&#34;&lt;tenantId1&gt;&#34;, &#34;&lt;tenantIdx&gt;&#34;]` to allow specific other tenants.
          * 
-         * &gt; **Note:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = [&#34;MyTenantOnly&#34;]` to `trusted_external_tenants = []`.
+         * &gt; **Note:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trustedExternalTenants = [&#34;MyTenantOnly&#34;]` to `trustedExternalTenants = []`.
          * 
          * @return builder
          * 
@@ -882,9 +882,9 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param trustedExternalTenants Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = [&#34;*&#34;]` to explicitly allow all other tenants, `trusted_external_tenants = [&#34;MyTenantOnly&#34;]` for only your tenant or `trusted_external_tenants = [&#34;&lt;tenantId1&gt;&#34;, &#34;&lt;tenantIdx&gt;&#34;]` to allow specific other tenants.
+         * @param trustedExternalTenants Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trustedExternalTenants = [&#34;*&#34;]` to explicitly allow all other tenants, `trustedExternalTenants = [&#34;MyTenantOnly&#34;]` for only your tenant or `trustedExternalTenants = [&#34;&lt;tenantId1&gt;&#34;, &#34;&lt;tenantIdx&gt;&#34;]` to allow specific other tenants.
          * 
-         * &gt; **Note:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = [&#34;MyTenantOnly&#34;]` to `trusted_external_tenants = []`.
+         * &gt; **Note:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trustedExternalTenants = [&#34;MyTenantOnly&#34;]` to `trustedExternalTenants = []`.
          * 
          * @return builder
          * 
@@ -897,10 +897,10 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * The `virtual_network_configuration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192
+         * The `virtualNetworkConfiguration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192
          * 
          */
-        @Deprecated /* The `virtual_network_configuration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192 */
+        @Deprecated /* The `virtualNetworkConfiguration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192 */
         public Builder virtualNetworkConfiguration(@Nullable Output<ClusterVirtualNetworkConfigurationArgs> virtualNetworkConfiguration) {
             $.virtualNetworkConfiguration = virtualNetworkConfiguration;
             return this;
@@ -910,10 +910,10 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * The `virtual_network_configuration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192
+         * The `virtualNetworkConfiguration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192
          * 
          */
-        @Deprecated /* The `virtual_network_configuration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192 */
+        @Deprecated /* The `virtualNetworkConfiguration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192 */
         public Builder virtualNetworkConfiguration(ClusterVirtualNetworkConfigurationArgs virtualNetworkConfiguration) {
             return virtualNetworkConfiguration(Output.of(virtualNetworkConfiguration));
         }

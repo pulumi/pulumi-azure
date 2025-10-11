@@ -14,17 +14,17 @@ namespace Pulumi.Azure.Storage.Outputs
     public sealed class ManagementPolicyRuleActionsBaseBlob
     {
         /// <summary>
-        /// Whether a blob should automatically be tiered from cool back to hot if it's accessed again after being tiered to cool. Defaults to `false`.
+        /// Whether a blob should automatically be tiered from cool back to hot if it's accessed again after being tiered to cool. Defaults to `False`.
         /// 
-        /// &gt; **Note:** The `auto_tier_to_hot_from_cool_enabled` must be used together with `tier_to_cool_after_days_since_last_access_time_greater_than`.
+        /// &gt; **Note:** The `AutoTierToHotFromCoolEnabled` must be used together with `TierToCoolAfterDaysSinceLastAccessTimeGreaterThan`.
         /// </summary>
         public readonly bool? AutoTierToHotFromCoolEnabled;
         /// <summary>
         /// The age in days after creation to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
         /// 
-        /// &gt; **Note:** The `delete_after_days_since_modification_greater_than`, `delete_after_days_since_last_access_time_greater_than` and `delete_after_days_since_creation_greater_than` can not be set at the same time.
+        /// &gt; **Note:** The `DeleteAfterDaysSinceModificationGreaterThan`, `DeleteAfterDaysSinceLastAccessTimeGreaterThan` and `DeleteAfterDaysSinceCreationGreaterThan` can not be set at the same time.
         /// 
-        /// &gt; **Note:** The `last_access_time_enabled` must be set to `true` in the `azure.storage.Account` in order to use `tier_to_cool_after_days_since_last_access_time_greater_than`, `tier_to_archive_after_days_since_last_access_time_greater_than` and `delete_after_days_since_last_access_time_greater_than`.
+        /// &gt; **Note:** The `LastAccessTimeEnabled` must be set to `True` in the `azure.storage.Account` in order to use `TierToCoolAfterDaysSinceLastAccessTimeGreaterThan`, `TierToArchiveAfterDaysSinceLastAccessTimeGreaterThan` and `DeleteAfterDaysSinceLastAccessTimeGreaterThan`.
         /// </summary>
         public readonly int? DeleteAfterDaysSinceCreationGreaterThan;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Azure.Storage.Outputs
         /// <summary>
         /// The age in days after creation to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and `99999`. Defaults to `-1`.
         /// 
-        /// &gt; **Note:** The `tier_to_archive_after_days_since_modification_greater_than`, `tier_to_archive_after_days_since_last_access_time_greater_than` and `tier_to_archive_after_days_since_creation_greater_than` can not be set at the same time.
+        /// &gt; **Note:** The `TierToArchiveAfterDaysSinceModificationGreaterThan`, `TierToArchiveAfterDaysSinceLastAccessTimeGreaterThan` and `TierToArchiveAfterDaysSinceCreationGreaterThan` can not be set at the same time.
         /// </summary>
         public readonly int? TierToArchiveAfterDaysSinceCreationGreaterThan;
         /// <summary>
@@ -56,7 +56,7 @@ namespace Pulumi.Azure.Storage.Outputs
         /// <summary>
         /// The age in days after creation to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
         /// 
-        /// &gt; **Note:** The `tier_to_cool_after_days_since_modification_greater_than`, `tier_to_cool_after_days_since_last_access_time_greater_than` and `tier_to_cool_after_days_since_creation_greater_than` can not be set at the same time.
+        /// &gt; **Note:** The `TierToCoolAfterDaysSinceModificationGreaterThan`, `TierToCoolAfterDaysSinceLastAccessTimeGreaterThan` and `TierToCoolAfterDaysSinceCreationGreaterThan` can not be set at the same time.
         /// </summary>
         public readonly int? TierToColdAfterDaysSinceCreationGreaterThan;
         /// <summary>
@@ -70,7 +70,7 @@ namespace Pulumi.Azure.Storage.Outputs
         /// <summary>
         /// The age in days after creation to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
         /// 
-        /// &gt; **Note:** The `tier_to_cool_after_days_since_modification_greater_than`, `tier_to_cool_after_days_since_last_access_time_greater_than` and `tier_to_cool_after_days_since_creation_greater_than` can not be set at the same time.
+        /// &gt; **Note:** The `TierToCoolAfterDaysSinceModificationGreaterThan`, `TierToCoolAfterDaysSinceLastAccessTimeGreaterThan` and `TierToCoolAfterDaysSinceCreationGreaterThan` can not be set at the same time.
         /// </summary>
         public readonly int? TierToCoolAfterDaysSinceCreationGreaterThan;
         /// <summary>

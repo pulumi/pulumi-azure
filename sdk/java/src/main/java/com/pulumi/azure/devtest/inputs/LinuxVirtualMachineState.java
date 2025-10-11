@@ -66,14 +66,14 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A `gallery_image_reference` block as defined below.
+     * A `galleryImageReference` block as defined below.
      * 
      */
     @Import(name="galleryImageReference")
     private @Nullable Output<LinuxVirtualMachineGalleryImageReferenceArgs> galleryImageReference;
 
     /**
-     * @return A `gallery_image_reference` block as defined below.
+     * @return A `galleryImageReference` block as defined below.
      * 
      */
     public Optional<Output<LinuxVirtualMachineGalleryImageReferenceArgs>> galleryImageReference() {
@@ -81,18 +81,18 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
+     * One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
+     * &gt; **Note:** If any `inboundNatRule` blocks are specified then `disallowPublicIpAddress` must be set to `true`.
      * 
      */
     @Import(name="inboundNatRules")
     private @Nullable Output<List<LinuxVirtualMachineInboundNatRuleArgs>> inboundNatRules;
 
     /**
-     * @return One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
+     * @return One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
+     * &gt; **Note:** If any `inboundNatRule` blocks are specified then `disallowPublicIpAddress` must be set to `true`.
      * 
      */
     public Optional<Output<List<LinuxVirtualMachineInboundNatRuleArgs>>> inboundNatRules() {
@@ -162,7 +162,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
     /**
      * Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** The validation requirements for the Name change based on the `os_type` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
+     * &gt; **Note:** The validation requirements for the Name change based on the `osType` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
      * 
      */
     @Import(name="name")
@@ -171,7 +171,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
     /**
      * @return Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** The validation requirements for the Name change based on the `os_type` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
+     * &gt; **Note:** The validation requirements for the Name change based on the `osType` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
      * 
      */
     public Optional<Output<String>> name() {
@@ -241,7 +241,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
     /**
      * The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** One or either `password` or `ssh_key` must be specified.
+     * &gt; **Note:** One or either `password` or `sshKey` must be specified.
      * 
      */
     @Import(name="sshKey")
@@ -250,7 +250,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
     /**
      * @return The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** One or either `password` or `ssh_key` must be specified.
+     * &gt; **Note:** One or either `password` or `sshKey` must be specified.
      * 
      */
     public Optional<Output<String>> sshKey() {
@@ -423,7 +423,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param galleryImageReference A `gallery_image_reference` block as defined below.
+         * @param galleryImageReference A `galleryImageReference` block as defined below.
          * 
          * @return builder
          * 
@@ -434,7 +434,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param galleryImageReference A `gallery_image_reference` block as defined below.
+         * @param galleryImageReference A `galleryImageReference` block as defined below.
          * 
          * @return builder
          * 
@@ -444,9 +444,9 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param inboundNatRules One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
+         * @param inboundNatRules One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
+         * &gt; **Note:** If any `inboundNatRule` blocks are specified then `disallowPublicIpAddress` must be set to `true`.
          * 
          * @return builder
          * 
@@ -457,9 +457,9 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param inboundNatRules One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
+         * @param inboundNatRules One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
+         * &gt; **Note:** If any `inboundNatRule` blocks are specified then `disallowPublicIpAddress` must be set to `true`.
          * 
          * @return builder
          * 
@@ -469,9 +469,9 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param inboundNatRules One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
+         * @param inboundNatRules One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
+         * &gt; **Note:** If any `inboundNatRule` blocks are specified then `disallowPublicIpAddress` must be set to `true`.
          * 
          * @return builder
          * 
@@ -567,7 +567,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         /**
          * @param name Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** The validation requirements for the Name change based on the `os_type` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
+         * &gt; **Note:** The validation requirements for the Name change based on the `osType` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
          * 
          * @return builder
          * 
@@ -580,7 +580,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         /**
          * @param name Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** The validation requirements for the Name change based on the `os_type` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
+         * &gt; **Note:** The validation requirements for the Name change based on the `osType` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
          * 
          * @return builder
          * 
@@ -676,7 +676,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         /**
          * @param sshKey The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** One or either `password` or `ssh_key` must be specified.
+         * &gt; **Note:** One or either `password` or `sshKey` must be specified.
          * 
          * @return builder
          * 
@@ -689,7 +689,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         /**
          * @param sshKey The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** One or either `password` or `ssh_key` must be specified.
+         * &gt; **Note:** One or either `password` or `sshKey` must be specified.
          * 
          * @return builder
          * 

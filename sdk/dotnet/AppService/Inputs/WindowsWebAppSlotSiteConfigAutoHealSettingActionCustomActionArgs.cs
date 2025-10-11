@@ -13,13 +13,13 @@ namespace Pulumi.Azure.AppService.Inputs
     public sealed class WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The executable to run for the `custom_action`.
+        /// The executable to run for the `CustomAction`.
         /// </summary>
         [Input("executable", required: true)]
         public Input<string> Executable { get; set; } = null!;
 
         /// <summary>
-        /// The parameters to pass to the specified `executable`.
+        /// The parameters to pass to the specified `Executable`.
         /// </summary>
         [Input("parameters")]
         public Input<string>? Parameters { get; set; }

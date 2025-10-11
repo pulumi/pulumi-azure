@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 /**
  * Manages a Resource Group Template Deployment.
  * 
- * &gt; **Note:** This resource will automatically attempt to delete resources deployed by the ARM Template when it is deleted. This behavior can be disabled in the provider `features` block by setting the `delete_nested_items_during_deletion` field to `false` within the `template_deployment` block.
+ * &gt; **Note:** This resource will automatically attempt to delete resources deployed by the ARM Template when it is deleted. This behavior can be disabled in the provider `features` block by setting the `deleteNestedItemsDuringDeletion` field to `false` within the `templateDeployment` block.
  * 
  * ## Import
  * 
@@ -50,7 +50,7 @@ public class ResourceGroupTemplateDeployment extends com.pulumi.resources.Custom
     /**
      * The Deployment Mode for this Resource Group Template Deployment. Possible values are `Complete` (where resources in the Resource Group not specified in the ARM Template will be destroyed) and `Incremental` (where resources are additive only).
      * 
-     * &gt; **Note:** If `deployment_mode` is set to `Complete` then resources within this Resource Group which are not defined in the ARM Template will be deleted.
+     * &gt; **Note:** If `deploymentMode` is set to `Complete` then resources within this Resource Group which are not defined in the ARM Template will be deleted.
      * 
      */
     @Export(name="deploymentMode", refs={String.class}, tree="[0]")
@@ -59,7 +59,7 @@ public class ResourceGroupTemplateDeployment extends com.pulumi.resources.Custom
     /**
      * @return The Deployment Mode for this Resource Group Template Deployment. Possible values are `Complete` (where resources in the Resource Group not specified in the ARM Template will be destroyed) and `Incremental` (where resources are additive only).
      * 
-     * &gt; **Note:** If `deployment_mode` is set to `Complete` then resources within this Resource Group which are not defined in the ARM Template will be deleted.
+     * &gt; **Note:** If `deploymentMode` is set to `Complete` then resources within this Resource Group which are not defined in the ARM Template will be deleted.
      * 
      */
     public Output<String> deploymentMode() {
@@ -140,28 +140,28 @@ public class ResourceGroupTemplateDeployment extends com.pulumi.resources.Custom
         return Codegen.optional(this.tags);
     }
     /**
-     * The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `template_spec_version_id`.
+     * The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `templateSpecVersionId`.
      * 
      */
     @Export(name="templateContent", refs={String.class}, tree="[0]")
     private Output<String> templateContent;
 
     /**
-     * @return The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `template_spec_version_id`.
+     * @return The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `templateSpecVersionId`.
      * 
      */
     public Output<String> templateContent() {
         return this.templateContent;
     }
     /**
-     * The ID of the Template Spec Version to deploy. Cannot be specified with `template_content`.
+     * The ID of the Template Spec Version to deploy. Cannot be specified with `templateContent`.
      * 
      */
     @Export(name="templateSpecVersionId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> templateSpecVersionId;
 
     /**
-     * @return The ID of the Template Spec Version to deploy. Cannot be specified with `template_content`.
+     * @return The ID of the Template Spec Version to deploy. Cannot be specified with `templateContent`.
      * 
      */
     public Output<Optional<String>> templateSpecVersionId() {

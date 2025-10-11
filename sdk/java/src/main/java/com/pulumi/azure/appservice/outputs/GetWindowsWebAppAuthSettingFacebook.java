@@ -22,7 +22,7 @@ public final class GetWindowsWebAppAuthSettingFacebook {
      */
     private String appSecret;
     /**
-     * @return The app setting name that contains the `app_secret` value used for Facebook login.
+     * @return The app setting name that contains the `appSecret` value used for Facebook login.
      * 
      */
     private String appSecretSettingName;
@@ -48,7 +48,7 @@ public final class GetWindowsWebAppAuthSettingFacebook {
         return this.appSecret;
     }
     /**
-     * @return The app setting name that contains the `app_secret` value used for Facebook login.
+     * @return The app setting name that contains the `appSecret` value used for Facebook login.
      * 
      */
     public String appSecretSettingName() {

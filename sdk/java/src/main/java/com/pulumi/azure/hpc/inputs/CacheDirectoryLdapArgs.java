@@ -64,14 +64,14 @@ public final class CacheDirectoryLdapArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificate_validation_uri` is provided.
+     * Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificateValidationUri` is provided.
      * 
      */
     @Import(name="downloadCertificateAutomatically")
     private @Nullable Output<Boolean> downloadCertificateAutomatically;
 
     /**
-     * @return Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificate_validation_uri` is provided.
+     * @return Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificateValidationUri` is provided.
      * 
      */
     public Optional<Output<Boolean>> downloadCertificateAutomatically() {
@@ -201,7 +201,7 @@ public final class CacheDirectoryLdapArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param downloadCertificateAutomatically Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificate_validation_uri` is provided.
+         * @param downloadCertificateAutomatically Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificateValidationUri` is provided.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class CacheDirectoryLdapArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param downloadCertificateAutomatically Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificate_validation_uri` is provided.
+         * @param downloadCertificateAutomatically Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificateValidationUri` is provided.
          * 
          * @return builder
          * 

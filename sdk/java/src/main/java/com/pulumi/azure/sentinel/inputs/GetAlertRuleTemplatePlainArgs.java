@@ -16,18 +16,18 @@ public final class GetAlertRuleTemplatePlainArgs extends com.pulumi.resources.In
     public static final GetAlertRuleTemplatePlainArgs Empty = new GetAlertRuleTemplatePlainArgs();
 
     /**
-     * The display name of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
+     * The display name of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
      * 
-     * &gt; **Note:** As `display_name` is not unique, errors may occur when there are multiple Sentinel Alert Rule Template with same `display_name`.
+     * &gt; **Note:** As `displayName` is not unique, errors may occur when there are multiple Sentinel Alert Rule Template with same `displayName`.
      * 
      */
     @Import(name="displayName")
     private @Nullable String displayName;
 
     /**
-     * @return The display name of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
+     * @return The display name of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
      * 
-     * &gt; **Note:** As `display_name` is not unique, errors may occur when there are multiple Sentinel Alert Rule Template with same `display_name`.
+     * &gt; **Note:** As `displayName` is not unique, errors may occur when there are multiple Sentinel Alert Rule Template with same `displayName`.
      * 
      */
     public Optional<String> displayName() {
@@ -50,14 +50,14 @@ public final class GetAlertRuleTemplatePlainArgs extends com.pulumi.resources.In
     }
 
     /**
-     * The name of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
+     * The name of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
      * 
      */
     @Import(name="name")
     private @Nullable String name;
 
     /**
-     * @return The name of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
+     * @return The name of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
      * 
      */
     public Optional<String> name() {
@@ -91,9 +91,9 @@ public final class GetAlertRuleTemplatePlainArgs extends com.pulumi.resources.In
         }
 
         /**
-         * @param displayName The display name of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
+         * @param displayName The display name of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
          * 
-         * &gt; **Note:** As `display_name` is not unique, errors may occur when there are multiple Sentinel Alert Rule Template with same `display_name`.
+         * &gt; **Note:** As `displayName` is not unique, errors may occur when there are multiple Sentinel Alert Rule Template with same `displayName`.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class GetAlertRuleTemplatePlainArgs extends com.pulumi.resources.In
         }
 
         /**
-         * @param name The name of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
+         * @param name The name of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
          * 
          * @return builder
          * 

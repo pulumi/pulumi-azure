@@ -24,7 +24,7 @@ public final class EndpointPrivateDnsZoneGroup {
      */
     private String name;
     /**
-     * @return Specifies the list of Private DNS Zones to include within the `private_dns_zone_group`.
+     * @return Specifies the list of Private DNS Zones to include within the `privateDnsZoneGroup`.
      * 
      */
     private List<String> privateDnsZoneIds;
@@ -45,7 +45,7 @@ public final class EndpointPrivateDnsZoneGroup {
         return this.name;
     }
     /**
-     * @return Specifies the list of Private DNS Zones to include within the `private_dns_zone_group`.
+     * @return Specifies the list of Private DNS Zones to include within the `privateDnsZoneGroup`.
      * 
      */
     public List<String> privateDnsZoneIds() {

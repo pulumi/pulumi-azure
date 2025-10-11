@@ -41,7 +41,7 @@ public final class JobTemplateInitContainer {
     /**
      * @return The amount of ephemeral storage available to the Container App.
      * 
-     * &gt; **Note:** `ephemeral_storage` is currently in preview and not configurable at this time.
+     * &gt; **Note:** `ephemeralStorage` is currently in preview and not configurable at this time.
      * 
      */
     private @Nullable String ephemeralStorage;
@@ -63,7 +63,7 @@ public final class JobTemplateInitContainer {
      */
     private String name;
     /**
-     * @return A `volume_mounts` block as detailed below.
+     * @return A `volumeMounts` block as detailed below.
      * 
      */
     private @Nullable List<JobTemplateInitContainerVolumeMount> volumeMounts;
@@ -102,7 +102,7 @@ public final class JobTemplateInitContainer {
     /**
      * @return The amount of ephemeral storage available to the Container App.
      * 
-     * &gt; **Note:** `ephemeral_storage` is currently in preview and not configurable at this time.
+     * &gt; **Note:** `ephemeralStorage` is currently in preview and not configurable at this time.
      * 
      */
     public Optional<String> ephemeralStorage() {
@@ -132,7 +132,7 @@ public final class JobTemplateInitContainer {
         return this.name;
     }
     /**
-     * @return A `volume_mounts` block as detailed below.
+     * @return A `volumeMounts` block as detailed below.
      * 
      */
     public List<JobTemplateInitContainerVolumeMount> volumeMounts() {

@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Synapse.Inputs
         public Input<string> Content { get; set; } = null!;
 
         /// <summary>
-        /// The name of the file where the spark configuration `content` will be stored.
+        /// The name of the file where the spark configuration `Content` will be stored.
         /// </summary>
         [Input("filename", required: true)]
         public Input<string> Filename { get; set; } = null!;

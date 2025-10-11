@@ -174,7 +174,7 @@ namespace Pulumi.Azure.LoadTest
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// An `encryption` block as defined below.
+        /// An `Encryption` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetEncryptionResult> Encryptions;
         /// <summary>
@@ -182,7 +182,7 @@ namespace Pulumi.Azure.LoadTest
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetIdentityResult> Identities;
         /// <summary>

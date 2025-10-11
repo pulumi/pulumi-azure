@@ -175,7 +175,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> Folder { get; private set; } = null!;
 
         /// <summary>
-        /// A `linked_service` block as defined below.
+        /// A `LinkedService` block as defined below.
         /// </summary>
         [Output("linkedService")]
         public Output<Outputs.CustomDatasetLinkedService> LinkedService { get; private set; } = null!;
@@ -299,7 +299,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Folder { get; set; }
 
         /// <summary>
-        /// A `linked_service` block as defined below.
+        /// A `LinkedService` block as defined below.
         /// </summary>
         [Input("linkedService", required: true)]
         public Input<Inputs.CustomDatasetLinkedServiceArgs> LinkedService { get; set; } = null!;
@@ -391,7 +391,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Folder { get; set; }
 
         /// <summary>
-        /// A `linked_service` block as defined below.
+        /// A `LinkedService` block as defined below.
         /// </summary>
         [Input("linkedService")]
         public Input<Inputs.CustomDatasetLinkedServiceGetArgs>? LinkedService { get; set; }

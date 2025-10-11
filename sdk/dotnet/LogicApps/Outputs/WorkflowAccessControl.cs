@@ -14,19 +14,19 @@ namespace Pulumi.Azure.LogicApps.Outputs
     public sealed class WorkflowAccessControl
     {
         /// <summary>
-        /// A `action` block as defined below.
+        /// A `Action` block as defined below.
         /// </summary>
         public readonly Outputs.WorkflowAccessControlAction? Action;
         /// <summary>
-        /// A `content` block as defined below.
+        /// A `Content` block as defined below.
         /// </summary>
         public readonly Outputs.WorkflowAccessControlContent? Content;
         /// <summary>
-        /// A `trigger` block as defined below.
+        /// A `Trigger` block as defined below.
         /// </summary>
         public readonly Outputs.WorkflowAccessControlTrigger? Trigger;
         /// <summary>
-        /// A `workflow_management` block as defined below.
+        /// A `WorkflowManagement` block as defined below.
         /// </summary>
         public readonly Outputs.WorkflowAccessControlWorkflowManagement? WorkflowManagement;
 

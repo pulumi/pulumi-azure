@@ -26,7 +26,7 @@ public final class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationP
      */
     private @Nullable Integer idleTimeoutInMinutes;
     /**
-     * @return One or more `ip_tag` blocks as defined above. Changing this forces a new resource to be created.
+     * @return One or more `ipTag` blocks as defined above. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable List<WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag> ipTags;
@@ -64,7 +64,7 @@ public final class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationP
         return Optional.ofNullable(this.idleTimeoutInMinutes);
     }
     /**
-     * @return One or more `ip_tag` blocks as defined above. Changing this forces a new resource to be created.
+     * @return One or more `ipTag` blocks as defined above. Changing this forces a new resource to be created.
      * 
      */
     public List<WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag> ipTags() {

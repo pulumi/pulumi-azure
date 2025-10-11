@@ -89,7 +89,7 @@ namespace Pulumi.Azure.AppService
         public Output<string> Branch { get; private set; } = null!;
 
         /// <summary>
-        /// A `github_action_configuration` block as defined below. Changing this forces a new resource to be created.
+        /// A `GithubActionConfiguration` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("githubActionConfiguration")]
         public Output<Outputs.SourceControlGithubActionConfiguration?> GithubActionConfiguration { get; private set; } = null!;
@@ -101,9 +101,9 @@ namespace Pulumi.Azure.AppService
         public Output<string> RepoUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
+        /// Should the Deployment Rollback be enabled? Defaults to `False`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** Azure can typically set this value automatically based on the `repo_url` value.
+        /// &gt; **Note:** Azure can typically set this value automatically based on the `RepoUrl` value.
         /// </summary>
         [Output("rollbackEnabled")]
         public Output<bool?> RollbackEnabled { get; private set; } = null!;
@@ -121,13 +121,13 @@ namespace Pulumi.Azure.AppService
         public Output<bool?> UseLocalGit { get; private set; } = null!;
 
         /// <summary>
-        /// Should code be deployed manually. Set to `false` to enable continuous integration, such as webhooks into online repos such as GitHub. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Should code be deployed manually. Set to `False` to enable continuous integration, such as webhooks into online repos such as GitHub. Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("useManualIntegration")]
         public Output<bool?> UseManualIntegration { get; private set; } = null!;
 
         /// <summary>
-        /// The repository specified is Mercurial. Defaults to `false`. Changing this forces a new resource to be created.
+        /// The repository specified is Mercurial. Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("useMercurial")]
         public Output<bool?> UseMercurial { get; private set; } = null!;
@@ -199,7 +199,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? Branch { get; set; }
 
         /// <summary>
-        /// A `github_action_configuration` block as defined below. Changing this forces a new resource to be created.
+        /// A `GithubActionConfiguration` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("githubActionConfiguration")]
         public Input<Inputs.SourceControlGithubActionConfigurationArgs>? GithubActionConfiguration { get; set; }
@@ -211,9 +211,9 @@ namespace Pulumi.Azure.AppService
         public Input<string>? RepoUrl { get; set; }
 
         /// <summary>
-        /// Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
+        /// Should the Deployment Rollback be enabled? Defaults to `False`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** Azure can typically set this value automatically based on the `repo_url` value.
+        /// &gt; **Note:** Azure can typically set this value automatically based on the `RepoUrl` value.
         /// </summary>
         [Input("rollbackEnabled")]
         public Input<bool>? RollbackEnabled { get; set; }
@@ -225,13 +225,13 @@ namespace Pulumi.Azure.AppService
         public Input<bool>? UseLocalGit { get; set; }
 
         /// <summary>
-        /// Should code be deployed manually. Set to `false` to enable continuous integration, such as webhooks into online repos such as GitHub. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Should code be deployed manually. Set to `False` to enable continuous integration, such as webhooks into online repos such as GitHub. Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("useManualIntegration")]
         public Input<bool>? UseManualIntegration { get; set; }
 
         /// <summary>
-        /// The repository specified is Mercurial. Defaults to `false`. Changing this forces a new resource to be created.
+        /// The repository specified is Mercurial. Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("useMercurial")]
         public Input<bool>? UseMercurial { get; set; }
@@ -259,7 +259,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? Branch { get; set; }
 
         /// <summary>
-        /// A `github_action_configuration` block as defined below. Changing this forces a new resource to be created.
+        /// A `GithubActionConfiguration` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("githubActionConfiguration")]
         public Input<Inputs.SourceControlGithubActionConfigurationGetArgs>? GithubActionConfiguration { get; set; }
@@ -271,9 +271,9 @@ namespace Pulumi.Azure.AppService
         public Input<string>? RepoUrl { get; set; }
 
         /// <summary>
-        /// Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
+        /// Should the Deployment Rollback be enabled? Defaults to `False`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** Azure can typically set this value automatically based on the `repo_url` value.
+        /// &gt; **Note:** Azure can typically set this value automatically based on the `RepoUrl` value.
         /// </summary>
         [Input("rollbackEnabled")]
         public Input<bool>? RollbackEnabled { get; set; }
@@ -291,13 +291,13 @@ namespace Pulumi.Azure.AppService
         public Input<bool>? UseLocalGit { get; set; }
 
         /// <summary>
-        /// Should code be deployed manually. Set to `false` to enable continuous integration, such as webhooks into online repos such as GitHub. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Should code be deployed manually. Set to `False` to enable continuous integration, such as webhooks into online repos such as GitHub. Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("useManualIntegration")]
         public Input<bool>? UseManualIntegration { get; set; }
 
         /// <summary>
-        /// The repository specified is Mercurial. Defaults to `false`. Changing this forces a new resource to be created.
+        /// The repository specified is Mercurial. Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("useMercurial")]
         public Input<bool>? UseMercurial { get; set; }

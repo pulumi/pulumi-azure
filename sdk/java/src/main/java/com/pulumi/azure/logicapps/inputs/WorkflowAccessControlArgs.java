@@ -64,14 +64,14 @@ public final class WorkflowAccessControlArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * A `workflow_management` block as defined below.
+     * A `workflowManagement` block as defined below.
      * 
      */
     @Import(name="workflowManagement")
     private @Nullable Output<WorkflowAccessControlWorkflowManagementArgs> workflowManagement;
 
     /**
-     * @return A `workflow_management` block as defined below.
+     * @return A `workflowManagement` block as defined below.
      * 
      */
     public Optional<Output<WorkflowAccessControlWorkflowManagementArgs>> workflowManagement() {
@@ -169,7 +169,7 @@ public final class WorkflowAccessControlArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param workflowManagement A `workflow_management` block as defined below.
+         * @param workflowManagement A `workflowManagement` block as defined below.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class WorkflowAccessControlArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param workflowManagement A `workflow_management` block as defined below.
+         * @param workflowManagement A `workflowManagement` block as defined below.
          * 
          * @return builder
          * 

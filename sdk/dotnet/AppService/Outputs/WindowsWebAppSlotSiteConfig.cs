@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class WindowsWebAppSlotSiteConfig
     {
         /// <summary>
-        /// If this Windows Web App Slot is Always On enabled. Defaults to `true`.
+        /// If this Windows Web App Slot is Always On enabled. Defaults to `True`.
         /// </summary>
         public readonly bool? AlwaysOn;
         /// <summary>
@@ -30,11 +30,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? AppCommandLine;
         /// <summary>
-        /// A `application_stack` block as defined above.
+        /// A `ApplicationStack` block as defined above.
         /// </summary>
         public readonly Outputs.WindowsWebAppSlotSiteConfigApplicationStack? ApplicationStack;
         /// <summary>
-        /// A `auto_heal_setting` block as defined above. Required with `auto_heal`.
+        /// A `AutoHealSetting` block as defined above. Required with `AutoHeal`.
         /// </summary>
         public readonly Outputs.WindowsWebAppSlotSiteConfigAutoHealSetting? AutoHealSetting;
         /// <summary>
@@ -52,7 +52,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool? ContainerRegistryUseManagedIdentity;
         /// <summary>
-        /// A `cors` block as defined above.
+        /// A `Cors` block as defined above.
         /// </summary>
         public readonly Outputs.WindowsWebAppSlotSiteConfigCors? Cors;
         /// <summary>
@@ -62,11 +62,11 @@ namespace Pulumi.Azure.AppService.Outputs
         public readonly bool? DetailedErrorLoggingEnabled;
         public readonly string? FtpsState;
         /// <summary>
-        /// One or more `handler_mapping` blocks as defined below.
+        /// One or more `HandlerMapping` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.WindowsWebAppSlotSiteConfigHandlerMapping> HandlerMappings;
         /// <summary>
-        /// The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+        /// The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `HealthCheckPath`.
         /// </summary>
         public readonly int? HealthCheckEvictionTimeInMin;
         /// <summary>
@@ -78,11 +78,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool? Http2Enabled;
         /// <summary>
-        /// The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        /// The Default action for traffic that does not match any `IpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
         /// </summary>
         public readonly string? IpRestrictionDefaultAction;
         /// <summary>
-        /// One or more `ip_restriction` blocks as defined above.
+        /// One or more `IpRestriction` blocks as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.WindowsWebAppSlotSiteConfigIpRestriction> IpRestrictions;
         /// <summary>
@@ -90,7 +90,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? LoadBalancingMode;
         /// <summary>
-        /// Use Local MySQL. Defaults to `false`.
+        /// Use Local MySQL. Defaults to `False`.
         /// </summary>
         public readonly bool? LocalMysqlEnabled;
         /// <summary>
@@ -102,7 +102,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? MinimumTlsVersion;
         /// <summary>
-        /// Should Remote Debugging be enabled. Defaults to `false`.
+        /// Should Remote Debugging be enabled. Defaults to `False`.
         /// </summary>
         public readonly bool? RemoteDebuggingEnabled;
         /// <summary>
@@ -110,11 +110,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? RemoteDebuggingVersion;
         /// <summary>
-        /// The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        /// The Default action for traffic that does not match any `ScmIpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
         /// </summary>
         public readonly string? ScmIpRestrictionDefaultAction;
         /// <summary>
-        /// One or more `scm_ip_restriction` blocks as defined above.
+        /// One or more `ScmIpRestriction` blocks as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.WindowsWebAppSlotSiteConfigScmIpRestriction> ScmIpRestrictions;
         /// <summary>
@@ -123,7 +123,7 @@ namespace Pulumi.Azure.AppService.Outputs
         public readonly string? ScmMinimumTlsVersion;
         public readonly string? ScmType;
         /// <summary>
-        /// Should the Windows Web App Slot `ip_restriction` configuration be used for the SCM also.
+        /// Should the Windows Web App Slot `IpRestriction` configuration be used for the SCM also.
         /// </summary>
         public readonly bool? ScmUseMainIpRestriction;
         /// <summary>
@@ -131,15 +131,15 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool? Use32BitWorker;
         /// <summary>
-        /// One or more `virtual_application` blocks as defined below.
+        /// One or more `VirtualApplication` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.WindowsWebAppSlotSiteConfigVirtualApplication> VirtualApplications;
         /// <summary>
-        /// Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        /// Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `False`.
         /// </summary>
         public readonly bool? VnetRouteAllEnabled;
         /// <summary>
-        /// Should Web Sockets be enabled. Defaults to `false`.
+        /// Should Web Sockets be enabled. Defaults to `False`.
         /// </summary>
         public readonly bool? WebsocketsEnabled;
         public readonly string? WindowsFxVersion;

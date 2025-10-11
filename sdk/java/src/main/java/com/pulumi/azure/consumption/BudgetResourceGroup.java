@@ -229,14 +229,14 @@ public class BudgetResourceGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.timeGrain);
     }
     /**
-     * A `time_period` block as defined below.
+     * A `timePeriod` block as defined below.
      * 
      */
     @Export(name="timePeriod", refs={BudgetResourceGroupTimePeriod.class}, tree="[0]")
     private Output<BudgetResourceGroupTimePeriod> timePeriod;
 
     /**
-     * @return A `time_period` block as defined below.
+     * @return A `timePeriod` block as defined below.
      * 
      */
     public Output<BudgetResourceGroupTimePeriod> timePeriod() {

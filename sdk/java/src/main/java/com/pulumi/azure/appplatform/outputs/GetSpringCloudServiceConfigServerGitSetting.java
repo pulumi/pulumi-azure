@@ -15,7 +15,7 @@ import java.util.Objects;
 @CustomType
 public final class GetSpringCloudServiceConfigServerGitSetting {
     /**
-     * @return A `http_basic_auth` block as defined below.
+     * @return A `httpBasicAuth` block as defined below.
      * 
      */
     private List<GetSpringCloudServiceConfigServerGitSettingHttpBasicAuth> httpBasicAuths;
@@ -35,7 +35,7 @@ public final class GetSpringCloudServiceConfigServerGitSetting {
      */
     private List<String> searchPaths;
     /**
-     * @return A `ssh_auth` block as defined below.
+     * @return A `sshAuth` block as defined below.
      * 
      */
     private List<GetSpringCloudServiceConfigServerGitSettingSshAuth> sshAuths;
@@ -47,7 +47,7 @@ public final class GetSpringCloudServiceConfigServerGitSetting {
 
     private GetSpringCloudServiceConfigServerGitSetting() {}
     /**
-     * @return A `http_basic_auth` block as defined below.
+     * @return A `httpBasicAuth` block as defined below.
      * 
      */
     public List<GetSpringCloudServiceConfigServerGitSettingHttpBasicAuth> httpBasicAuths() {
@@ -75,7 +75,7 @@ public final class GetSpringCloudServiceConfigServerGitSetting {
         return this.searchPaths;
     }
     /**
-     * @return A `ssh_auth` block as defined below.
+     * @return A `sshAuth` block as defined below.
      * 
      */
     public List<GetSpringCloudServiceConfigServerGitSettingSshAuth> sshAuths() {

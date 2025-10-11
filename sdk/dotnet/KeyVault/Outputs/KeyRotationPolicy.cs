@@ -14,7 +14,7 @@ namespace Pulumi.Azure.KeyVault.Outputs
     public sealed class KeyRotationPolicy
     {
         /// <summary>
-        /// An `automatic` block as defined below.
+        /// An `Automatic` block as defined below.
         /// </summary>
         public readonly Outputs.KeyRotationPolicyAutomatic? Automatic;
         /// <summary>

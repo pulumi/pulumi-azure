@@ -37,14 +37,14 @@ public final class ApplicationGatewayBackendHttpSettingArgs extends com.pulumi.r
     }
 
     /**
-     * One or more `authentication_certificate_backend` blocks as defined below.
+     * One or more `authenticationCertificateBackend` blocks as defined below.
      * 
      */
     @Import(name="authenticationCertificates")
     private @Nullable Output<List<ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs>> authenticationCertificates;
 
     /**
-     * @return One or more `authentication_certificate_backend` blocks as defined below.
+     * @return One or more `authenticationCertificateBackend` blocks as defined below.
      * 
      */
     public Optional<Output<List<ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs>>> authenticationCertificates() {
@@ -52,14 +52,14 @@ public final class ApplicationGatewayBackendHttpSettingArgs extends com.pulumi.r
     }
 
     /**
-     * A `connection_draining` block as defined below.
+     * A `connectionDraining` block as defined below.
      * 
      */
     @Import(name="connectionDraining")
     private @Nullable Output<ApplicationGatewayBackendHttpSettingConnectionDrainingArgs> connectionDraining;
 
     /**
-     * @return A `connection_draining` block as defined below.
+     * @return A `connectionDraining` block as defined below.
      * 
      */
     public Optional<Output<ApplicationGatewayBackendHttpSettingConnectionDrainingArgs>> connectionDraining() {
@@ -82,14 +82,14 @@ public final class ApplicationGatewayBackendHttpSettingArgs extends com.pulumi.r
     }
 
     /**
-     * Host header to be sent to the backend servers. Cannot be set if `pick_host_name_from_backend_address` is set to `true`.
+     * Host header to be sent to the backend servers. Cannot be set if `pickHostNameFromBackendAddress` is set to `true`.
      * 
      */
     @Import(name="hostName")
     private @Nullable Output<String> hostName;
 
     /**
-     * @return Host header to be sent to the backend servers. Cannot be set if `pick_host_name_from_backend_address` is set to `true`.
+     * @return Host header to be sent to the backend servers. Cannot be set if `pickHostNameFromBackendAddress` is set to `true`.
      * 
      */
     public Optional<Output<String>> hostName() {
@@ -232,14 +232,14 @@ public final class ApplicationGatewayBackendHttpSettingArgs extends com.pulumi.r
     }
 
     /**
-     * A list of `trusted_root_certificate` names.
+     * A list of `trustedRootCertificate` names.
      * 
      */
     @Import(name="trustedRootCertificateNames")
     private @Nullable Output<List<String>> trustedRootCertificateNames;
 
     /**
-     * @return A list of `trusted_root_certificate` names.
+     * @return A list of `trustedRootCertificate` names.
      * 
      */
     public Optional<Output<List<String>>> trustedRootCertificateNames() {
@@ -306,7 +306,7 @@ public final class ApplicationGatewayBackendHttpSettingArgs extends com.pulumi.r
         }
 
         /**
-         * @param authenticationCertificates One or more `authentication_certificate_backend` blocks as defined below.
+         * @param authenticationCertificates One or more `authenticationCertificateBackend` blocks as defined below.
          * 
          * @return builder
          * 
@@ -317,7 +317,7 @@ public final class ApplicationGatewayBackendHttpSettingArgs extends com.pulumi.r
         }
 
         /**
-         * @param authenticationCertificates One or more `authentication_certificate_backend` blocks as defined below.
+         * @param authenticationCertificates One or more `authenticationCertificateBackend` blocks as defined below.
          * 
          * @return builder
          * 
@@ -327,7 +327,7 @@ public final class ApplicationGatewayBackendHttpSettingArgs extends com.pulumi.r
         }
 
         /**
-         * @param authenticationCertificates One or more `authentication_certificate_backend` blocks as defined below.
+         * @param authenticationCertificates One or more `authenticationCertificateBackend` blocks as defined below.
          * 
          * @return builder
          * 
@@ -337,7 +337,7 @@ public final class ApplicationGatewayBackendHttpSettingArgs extends com.pulumi.r
         }
 
         /**
-         * @param connectionDraining A `connection_draining` block as defined below.
+         * @param connectionDraining A `connectionDraining` block as defined below.
          * 
          * @return builder
          * 
@@ -348,7 +348,7 @@ public final class ApplicationGatewayBackendHttpSettingArgs extends com.pulumi.r
         }
 
         /**
-         * @param connectionDraining A `connection_draining` block as defined below.
+         * @param connectionDraining A `connectionDraining` block as defined below.
          * 
          * @return builder
          * 
@@ -379,7 +379,7 @@ public final class ApplicationGatewayBackendHttpSettingArgs extends com.pulumi.r
         }
 
         /**
-         * @param hostName Host header to be sent to the backend servers. Cannot be set if `pick_host_name_from_backend_address` is set to `true`.
+         * @param hostName Host header to be sent to the backend servers. Cannot be set if `pickHostNameFromBackendAddress` is set to `true`.
          * 
          * @return builder
          * 
@@ -390,7 +390,7 @@ public final class ApplicationGatewayBackendHttpSettingArgs extends com.pulumi.r
         }
 
         /**
-         * @param hostName Host header to be sent to the backend servers. Cannot be set if `pick_host_name_from_backend_address` is set to `true`.
+         * @param hostName Host header to be sent to the backend servers. Cannot be set if `pickHostNameFromBackendAddress` is set to `true`.
          * 
          * @return builder
          * 
@@ -589,7 +589,7 @@ public final class ApplicationGatewayBackendHttpSettingArgs extends com.pulumi.r
         }
 
         /**
-         * @param trustedRootCertificateNames A list of `trusted_root_certificate` names.
+         * @param trustedRootCertificateNames A list of `trustedRootCertificate` names.
          * 
          * @return builder
          * 
@@ -600,7 +600,7 @@ public final class ApplicationGatewayBackendHttpSettingArgs extends com.pulumi.r
         }
 
         /**
-         * @param trustedRootCertificateNames A list of `trusted_root_certificate` names.
+         * @param trustedRootCertificateNames A list of `trustedRootCertificate` names.
          * 
          * @return builder
          * 
@@ -610,7 +610,7 @@ public final class ApplicationGatewayBackendHttpSettingArgs extends com.pulumi.r
         }
 
         /**
-         * @param trustedRootCertificateNames A list of `trusted_root_certificate` names.
+         * @param trustedRootCertificateNames A list of `trustedRootCertificate` names.
          * 
          * @return builder
          * 

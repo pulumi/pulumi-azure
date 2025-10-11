@@ -20,7 +20,7 @@ public final class FrontdoorBackendPool {
      */
     private List<FrontdoorBackendPoolBackend> backends;
     /**
-     * @return Specifies the name of the `backend_pool_health_probe` block within this resource to use for this `Backend Pool`.
+     * @return Specifies the name of the `backendPoolHealthProbe` block within this resource to use for this `Backend Pool`.
      * 
      */
     private String healthProbeName;
@@ -30,7 +30,7 @@ public final class FrontdoorBackendPool {
      */
     private @Nullable String id;
     /**
-     * @return Specifies the name of the `backend_pool_load_balancing` block within this resource to use for this `Backend Pool`.
+     * @return Specifies the name of the `backendPoolLoadBalancing` block within this resource to use for this `Backend Pool`.
      * 
      */
     private String loadBalancingName;
@@ -49,7 +49,7 @@ public final class FrontdoorBackendPool {
         return this.backends;
     }
     /**
-     * @return Specifies the name of the `backend_pool_health_probe` block within this resource to use for this `Backend Pool`.
+     * @return Specifies the name of the `backendPoolHealthProbe` block within this resource to use for this `Backend Pool`.
      * 
      */
     public String healthProbeName() {
@@ -63,7 +63,7 @@ public final class FrontdoorBackendPool {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return Specifies the name of the `backend_pool_load_balancing` block within this resource to use for this `Backend Pool`.
+     * @return Specifies the name of the `backendPoolLoadBalancing` block within this resource to use for this `Backend Pool`.
      * 
      */
     public String loadBalancingName() {

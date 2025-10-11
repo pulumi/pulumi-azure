@@ -40,7 +40,7 @@ public final class VirtualNetworkGatewayVpnClientConfiguration {
      */
     private List<String> addressSpaces;
     /**
-     * @return An `ipsec_policy` block as defined below.
+     * @return An `ipsecPolicy` block as defined below.
      * 
      */
     private @Nullable VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy ipsecPolicy;
@@ -55,22 +55,22 @@ public final class VirtualNetworkGatewayVpnClientConfiguration {
      */
     private @Nullable String radiusServerSecret;
     /**
-     * @return One or more `radius_server` blocks as defined below.
+     * @return One or more `radiusServer` blocks as defined below.
      * 
      */
     private @Nullable List<VirtualNetworkGatewayVpnClientConfigurationRadiusServer> radiusServers;
     /**
-     * @return One or more `revoked_certificate` blocks which are defined below.
+     * @return One or more `revokedCertificate` blocks which are defined below.
      * 
      */
     private @Nullable List<VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate> revokedCertificates;
     /**
-     * @return One or more `root_certificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
+     * @return One or more `rootCertificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
      * 
      */
     private @Nullable List<VirtualNetworkGatewayVpnClientConfigurationRootCertificate> rootCertificates;
     /**
-     * @return One or more `virtual_network_gateway_client_connection` blocks as defined below.
+     * @return One or more `virtualNetworkGatewayClientConnection` blocks as defined below.
      * 
      */
     private @Nullable List<VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnection> virtualNetworkGatewayClientConnections;
@@ -78,7 +78,7 @@ public final class VirtualNetworkGatewayVpnClientConfiguration {
      * @return List of the vpn authentication types for the virtual network gateway.
      * The supported values are `AAD`, `Radius` and `Certificate`.
      * 
-     * &gt; **Note:** `vpn_auth_types` must be set when using multiple vpn authentication types.
+     * &gt; **Note:** `vpnAuthTypes` must be set when using multiple vpn authentication types.
      * 
      */
     private @Nullable List<String> vpnAuthTypes;
@@ -86,7 +86,7 @@ public final class VirtualNetworkGatewayVpnClientConfiguration {
      * @return List of the protocols supported by the vpn client.
      * The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
      * Values `SSTP` and `IkeV2` are incompatible with the use of
-     * `aad_tenant`, `aad_audience` and `aad_issuer`.
+     * `aadTenant`, `aadAudience` and `aadIssuer`.
      * 
      */
     private @Nullable List<String> vpnClientProtocols;
@@ -122,7 +122,7 @@ public final class VirtualNetworkGatewayVpnClientConfiguration {
         return this.addressSpaces;
     }
     /**
-     * @return An `ipsec_policy` block as defined below.
+     * @return An `ipsecPolicy` block as defined below.
      * 
      */
     public Optional<VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy> ipsecPolicy() {
@@ -143,28 +143,28 @@ public final class VirtualNetworkGatewayVpnClientConfiguration {
         return Optional.ofNullable(this.radiusServerSecret);
     }
     /**
-     * @return One or more `radius_server` blocks as defined below.
+     * @return One or more `radiusServer` blocks as defined below.
      * 
      */
     public List<VirtualNetworkGatewayVpnClientConfigurationRadiusServer> radiusServers() {
         return this.radiusServers == null ? List.of() : this.radiusServers;
     }
     /**
-     * @return One or more `revoked_certificate` blocks which are defined below.
+     * @return One or more `revokedCertificate` blocks which are defined below.
      * 
      */
     public List<VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate> revokedCertificates() {
         return this.revokedCertificates == null ? List.of() : this.revokedCertificates;
     }
     /**
-     * @return One or more `root_certificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
+     * @return One or more `rootCertificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
      * 
      */
     public List<VirtualNetworkGatewayVpnClientConfigurationRootCertificate> rootCertificates() {
         return this.rootCertificates == null ? List.of() : this.rootCertificates;
     }
     /**
-     * @return One or more `virtual_network_gateway_client_connection` blocks as defined below.
+     * @return One or more `virtualNetworkGatewayClientConnection` blocks as defined below.
      * 
      */
     public List<VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnection> virtualNetworkGatewayClientConnections() {
@@ -174,7 +174,7 @@ public final class VirtualNetworkGatewayVpnClientConfiguration {
      * @return List of the vpn authentication types for the virtual network gateway.
      * The supported values are `AAD`, `Radius` and `Certificate`.
      * 
-     * &gt; **Note:** `vpn_auth_types` must be set when using multiple vpn authentication types.
+     * &gt; **Note:** `vpnAuthTypes` must be set when using multiple vpn authentication types.
      * 
      */
     public List<String> vpnAuthTypes() {
@@ -184,7 +184,7 @@ public final class VirtualNetworkGatewayVpnClientConfiguration {
      * @return List of the protocols supported by the vpn client.
      * The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
      * Values `SSTP` and `IkeV2` are incompatible with the use of
-     * `aad_tenant`, `aad_audience` and `aad_issuer`.
+     * `aadTenant`, `aadAudience` and `aadIssuer`.
      * 
      */
     public List<String> vpnClientProtocols() {

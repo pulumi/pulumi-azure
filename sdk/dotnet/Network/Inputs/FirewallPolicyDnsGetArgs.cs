@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Network.Inputs
     public sealed class FirewallPolicyDnsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to enable DNS proxy on Firewalls attached to this Firewall Policy? Defaults to `false`.
+        /// Whether to enable DNS proxy on Firewalls attached to this Firewall Policy? Defaults to `False`.
         /// </summary>
         [Input("proxyEnabled")]
         public Input<bool>? ProxyEnabled { get; set; }

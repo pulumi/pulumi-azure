@@ -95,7 +95,7 @@ namespace Pulumi.Azure.Network
     public partial class SubnetServiceEndpointStoragePolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A `definition` block as defined below
+        /// A `Definition` block as defined below
         /// </summary>
         [Output("definitions")]
         public Output<ImmutableArray<Outputs.SubnetServiceEndpointStoragePolicyDefinition>> Definitions { get; private set; } = null!;
@@ -174,7 +174,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.SubnetServiceEndpointStoragePolicyDefinitionArgs>? _definitions;
 
         /// <summary>
-        /// A `definition` block as defined below
+        /// A `Definition` block as defined below
         /// </summary>
         public InputList<Inputs.SubnetServiceEndpointStoragePolicyDefinitionArgs> Definitions
         {
@@ -224,7 +224,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.SubnetServiceEndpointStoragePolicyDefinitionGetArgs>? _definitions;
 
         /// <summary>
-        /// A `definition` block as defined below
+        /// A `Definition` block as defined below
         /// </summary>
         public InputList<Inputs.SubnetServiceEndpointStoragePolicyDefinitionGetArgs> Definitions
         {

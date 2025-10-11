@@ -107,14 +107,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:network/trafficManagerProfile:TrafficManagerProfile")
 public class TrafficManagerProfile extends com.pulumi.resources.CustomResource {
     /**
-     * This block specifies the DNS configuration of the Profile. One `dns_config` block as defined below.
+     * This block specifies the DNS configuration of the Profile. One `dnsConfig` block as defined below.
      * 
      */
     @Export(name="dnsConfig", refs={TrafficManagerProfileDnsConfig.class}, tree="[0]")
     private Output<TrafficManagerProfileDnsConfig> dnsConfig;
 
     /**
-     * @return This block specifies the DNS configuration of the Profile. One `dns_config` block as defined below.
+     * @return This block specifies the DNS configuration of the Profile. One `dnsConfig` block as defined below.
      * 
      */
     public Output<TrafficManagerProfileDnsConfig> dnsConfig() {
@@ -137,7 +137,7 @@ public class TrafficManagerProfile extends com.pulumi.resources.CustomResource {
     /**
      * The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
      * 
-     * &gt; **Note:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
+     * &gt; **Note:** `maxReturn` must be set when the `trafficRoutingMethod` is `MultiValue`.
      * 
      */
     @Export(name="maxReturn", refs={Integer.class}, tree="[0]")
@@ -146,21 +146,21 @@ public class TrafficManagerProfile extends com.pulumi.resources.CustomResource {
     /**
      * @return The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
      * 
-     * &gt; **Note:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
+     * &gt; **Note:** `maxReturn` must be set when the `trafficRoutingMethod` is `MultiValue`.
      * 
      */
     public Output<Optional<Integer>> maxReturn() {
         return Codegen.optional(this.maxReturn);
     }
     /**
-     * This block specifies the Endpoint monitoring configuration for the Profile. One `monitor_config` block as defined below.
+     * This block specifies the Endpoint monitoring configuration for the Profile. One `monitorConfig` block as defined below.
      * 
      */
     @Export(name="monitorConfig", refs={TrafficManagerProfileMonitorConfig.class}, tree="[0]")
     private Output<TrafficManagerProfileMonitorConfig> monitorConfig;
 
     /**
-     * @return This block specifies the Endpoint monitoring configuration for the Profile. One `monitor_config` block as defined below.
+     * @return This block specifies the Endpoint monitoring configuration for the Profile. One `monitorConfig` block as defined below.
      * 
      */
     public Output<TrafficManagerProfileMonitorConfig> monitorConfig() {

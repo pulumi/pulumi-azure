@@ -86,14 +86,14 @@ public final class FirewallPolicyState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A `explicit_proxy` block as defined below.
+     * A `explicitProxy` block as defined below.
      * 
      */
     @Import(name="explicitProxy")
     private @Nullable Output<FirewallPolicyExplicitProxyArgs> explicitProxy;
 
     /**
-     * @return A `explicit_proxy` block as defined below.
+     * @return A `explicitProxy` block as defined below.
      * 
      */
     public Optional<Output<FirewallPolicyExplicitProxyArgs>> explicitProxy() {
@@ -146,14 +146,14 @@ public final class FirewallPolicyState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A `intrusion_detection` block as defined below.
+     * A `intrusionDetection` block as defined below.
      * 
      */
     @Import(name="intrusionDetection")
     private @Nullable Output<FirewallPolicyIntrusionDetectionArgs> intrusionDetection;
 
     /**
-     * @return A `intrusion_detection` block as defined below.
+     * @return A `intrusionDetection` block as defined below.
      * 
      */
     public Optional<Output<FirewallPolicyIntrusionDetectionArgs>> intrusionDetection() {
@@ -281,14 +281,14 @@ public final class FirewallPolicyState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A `threat_intelligence_allowlist` block as defined below.
+     * A `threatIntelligenceAllowlist` block as defined below.
      * 
      */
     @Import(name="threatIntelligenceAllowlist")
     private @Nullable Output<FirewallPolicyThreatIntelligenceAllowlistArgs> threatIntelligenceAllowlist;
 
     /**
-     * @return A `threat_intelligence_allowlist` block as defined below.
+     * @return A `threatIntelligenceAllowlist` block as defined below.
      * 
      */
     public Optional<Output<FirewallPolicyThreatIntelligenceAllowlistArgs>> threatIntelligenceAllowlist() {
@@ -311,14 +311,14 @@ public final class FirewallPolicyState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A `tls_certificate` block as defined below.
+     * A `tlsCertificate` block as defined below.
      * 
      */
     @Import(name="tlsCertificate")
     private @Nullable Output<FirewallPolicyTlsCertificateArgs> tlsCertificate;
 
     /**
-     * @return A `tls_certificate` block as defined below.
+     * @return A `tlsCertificate` block as defined below.
      * 
      */
     public Optional<Output<FirewallPolicyTlsCertificateArgs>> tlsCertificate() {
@@ -463,7 +463,7 @@ public final class FirewallPolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param explicitProxy A `explicit_proxy` block as defined below.
+         * @param explicitProxy A `explicitProxy` block as defined below.
          * 
          * @return builder
          * 
@@ -474,7 +474,7 @@ public final class FirewallPolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param explicitProxy A `explicit_proxy` block as defined below.
+         * @param explicitProxy A `explicitProxy` block as defined below.
          * 
          * @return builder
          * 
@@ -557,7 +557,7 @@ public final class FirewallPolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param intrusionDetection A `intrusion_detection` block as defined below.
+         * @param intrusionDetection A `intrusionDetection` block as defined below.
          * 
          * @return builder
          * 
@@ -568,7 +568,7 @@ public final class FirewallPolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param intrusionDetection A `intrusion_detection` block as defined below.
+         * @param intrusionDetection A `intrusionDetection` block as defined below.
          * 
          * @return builder
          * 
@@ -766,7 +766,7 @@ public final class FirewallPolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param threatIntelligenceAllowlist A `threat_intelligence_allowlist` block as defined below.
+         * @param threatIntelligenceAllowlist A `threatIntelligenceAllowlist` block as defined below.
          * 
          * @return builder
          * 
@@ -777,7 +777,7 @@ public final class FirewallPolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param threatIntelligenceAllowlist A `threat_intelligence_allowlist` block as defined below.
+         * @param threatIntelligenceAllowlist A `threatIntelligenceAllowlist` block as defined below.
          * 
          * @return builder
          * 
@@ -808,7 +808,7 @@ public final class FirewallPolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tlsCertificate A `tls_certificate` block as defined below.
+         * @param tlsCertificate A `tlsCertificate` block as defined below.
          * 
          * @return builder
          * 
@@ -819,7 +819,7 @@ public final class FirewallPolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tlsCertificate A `tls_certificate` block as defined below.
+         * @param tlsCertificate A `tlsCertificate` block as defined below.
          * 
          * @return builder
          * 

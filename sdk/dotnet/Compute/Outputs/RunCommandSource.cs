@@ -17,7 +17,7 @@ namespace Pulumi.Azure.Compute.Outputs
         public readonly string? Script;
         public readonly string? ScriptUri;
         /// <summary>
-        /// A `script_uri_managed_identity` block as defined above.
+        /// A `ScriptUriManagedIdentity` block as defined above.
         /// </summary>
         public readonly Outputs.RunCommandSourceScriptUriManagedIdentity? ScriptUriManagedIdentity;
 

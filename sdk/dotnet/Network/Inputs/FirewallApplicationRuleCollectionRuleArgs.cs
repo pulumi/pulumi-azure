@@ -40,7 +40,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<Inputs.FirewallApplicationRuleCollectionRuleProtocolArgs>? _protocols;
 
         /// <summary>
-        /// One or more `protocol` blocks as defined below.
+        /// One or more `Protocol` blocks as defined below.
         /// </summary>
         public InputList<Inputs.FirewallApplicationRuleCollectionRuleProtocolArgs> Protocols
         {
@@ -66,7 +66,7 @@ namespace Pulumi.Azure.Network.Inputs
         /// <summary>
         /// A list of source IP Group IDs for the rule.
         /// 
-        /// &gt; **Note:** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
+        /// &gt; **Note:** At least one of `SourceAddresses` and `SourceIpGroups` must be specified for a rule.
         /// </summary>
         public InputList<string> SourceIpGroups
         {

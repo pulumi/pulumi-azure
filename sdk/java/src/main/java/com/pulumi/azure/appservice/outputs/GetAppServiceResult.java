@@ -38,7 +38,7 @@ public final class GetAppServiceResult {
      */
     private Boolean clientCertEnabled;
     /**
-     * @return An `connection_string` block as defined below.
+     * @return An `connectionString` block as defined below.
      * 
      */
     private List<GetAppServiceConnectionString> connectionStrings;
@@ -88,24 +88,24 @@ public final class GetAppServiceResult {
      */
     private String outboundIpAddresses;
     /**
-     * @return A list of outbound IP addresses - such as `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;, &#34;52.143.43.17&#34;]` - not all of which are necessarily in use. Superset of `outbound_ip_address_list`.
+     * @return A list of outbound IP addresses - such as `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;, &#34;52.143.43.17&#34;]` - not all of which are necessarily in use. Superset of `outboundIpAddressList`.
      * 
      */
     private List<String> possibleOutboundIpAddressLists;
     /**
-     * @return A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+     * @return A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      * 
      */
     private String possibleOutboundIpAddresses;
     private String resourceGroupName;
     /**
-     * @return A `site_config` block as defined below.
+     * @return A `siteConfig` block as defined below.
      * 
      */
     private List<GetAppServiceSiteConfig> siteConfigs;
     private List<GetAppServiceSiteCredential> siteCredentials;
     /**
-     * @return A `source_control` block as defined below.
+     * @return A `sourceControl` block as defined below.
      * 
      */
     private List<GetAppServiceSourceControl> sourceControls;
@@ -145,7 +145,7 @@ public final class GetAppServiceResult {
         return this.clientCertEnabled;
     }
     /**
-     * @return An `connection_string` block as defined below.
+     * @return An `connectionString` block as defined below.
      * 
      */
     public List<GetAppServiceConnectionString> connectionStrings() {
@@ -215,14 +215,14 @@ public final class GetAppServiceResult {
         return this.outboundIpAddresses;
     }
     /**
-     * @return A list of outbound IP addresses - such as `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;, &#34;52.143.43.17&#34;]` - not all of which are necessarily in use. Superset of `outbound_ip_address_list`.
+     * @return A list of outbound IP addresses - such as `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;, &#34;52.143.43.17&#34;]` - not all of which are necessarily in use. Superset of `outboundIpAddressList`.
      * 
      */
     public List<String> possibleOutboundIpAddressLists() {
         return this.possibleOutboundIpAddressLists;
     }
     /**
-     * @return A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+     * @return A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      * 
      */
     public String possibleOutboundIpAddresses() {
@@ -232,7 +232,7 @@ public final class GetAppServiceResult {
         return this.resourceGroupName;
     }
     /**
-     * @return A `site_config` block as defined below.
+     * @return A `siteConfig` block as defined below.
      * 
      */
     public List<GetAppServiceSiteConfig> siteConfigs() {
@@ -242,7 +242,7 @@ public final class GetAppServiceResult {
         return this.siteCredentials;
     }
     /**
-     * @return A `source_control` block as defined below.
+     * @return A `sourceControl` block as defined below.
      * 
      */
     public List<GetAppServiceSourceControl> sourceControls() {

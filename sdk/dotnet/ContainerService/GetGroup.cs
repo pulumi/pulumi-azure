@@ -196,7 +196,7 @@ namespace Pulumi.Azure.ContainerService
     public sealed class GetGroupResult
     {
         /// <summary>
-        /// The FQDN of the Container Group instance derived from `dns_name_label`.
+        /// The FQDN of the Container Group instance derived from `DnsNameLabel`.
         /// </summary>
         public readonly string Fqdn;
         /// <summary>
@@ -204,7 +204,7 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A `identity` block as defined below.
+        /// A `Identity` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetGroupIdentityResult> Identities;
         /// <summary>

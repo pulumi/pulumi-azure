@@ -34,7 +34,7 @@ public final class ResourceGroupTemplateDeploymentState extends com.pulumi.resou
     /**
      * The Deployment Mode for this Resource Group Template Deployment. Possible values are `Complete` (where resources in the Resource Group not specified in the ARM Template will be destroyed) and `Incremental` (where resources are additive only).
      * 
-     * &gt; **Note:** If `deployment_mode` is set to `Complete` then resources within this Resource Group which are not defined in the ARM Template will be deleted.
+     * &gt; **Note:** If `deploymentMode` is set to `Complete` then resources within this Resource Group which are not defined in the ARM Template will be deleted.
      * 
      */
     @Import(name="deploymentMode")
@@ -43,7 +43,7 @@ public final class ResourceGroupTemplateDeploymentState extends com.pulumi.resou
     /**
      * @return The Deployment Mode for this Resource Group Template Deployment. Possible values are `Complete` (where resources in the Resource Group not specified in the ARM Template will be destroyed) and `Incremental` (where resources are additive only).
      * 
-     * &gt; **Note:** If `deployment_mode` is set to `Complete` then resources within this Resource Group which are not defined in the ARM Template will be deleted.
+     * &gt; **Note:** If `deploymentMode` is set to `Complete` then resources within this Resource Group which are not defined in the ARM Template will be deleted.
      * 
      */
     public Optional<Output<String>> deploymentMode() {
@@ -130,14 +130,14 @@ public final class ResourceGroupTemplateDeploymentState extends com.pulumi.resou
     }
 
     /**
-     * The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `template_spec_version_id`.
+     * The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `templateSpecVersionId`.
      * 
      */
     @Import(name="templateContent")
     private @Nullable Output<String> templateContent;
 
     /**
-     * @return The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `template_spec_version_id`.
+     * @return The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `templateSpecVersionId`.
      * 
      */
     public Optional<Output<String>> templateContent() {
@@ -145,14 +145,14 @@ public final class ResourceGroupTemplateDeploymentState extends com.pulumi.resou
     }
 
     /**
-     * The ID of the Template Spec Version to deploy. Cannot be specified with `template_content`.
+     * The ID of the Template Spec Version to deploy. Cannot be specified with `templateContent`.
      * 
      */
     @Import(name="templateSpecVersionId")
     private @Nullable Output<String> templateSpecVersionId;
 
     /**
-     * @return The ID of the Template Spec Version to deploy. Cannot be specified with `template_content`.
+     * @return The ID of the Template Spec Version to deploy. Cannot be specified with `templateContent`.
      * 
      */
     public Optional<Output<String>> templateSpecVersionId() {
@@ -215,7 +215,7 @@ public final class ResourceGroupTemplateDeploymentState extends com.pulumi.resou
         /**
          * @param deploymentMode The Deployment Mode for this Resource Group Template Deployment. Possible values are `Complete` (where resources in the Resource Group not specified in the ARM Template will be destroyed) and `Incremental` (where resources are additive only).
          * 
-         * &gt; **Note:** If `deployment_mode` is set to `Complete` then resources within this Resource Group which are not defined in the ARM Template will be deleted.
+         * &gt; **Note:** If `deploymentMode` is set to `Complete` then resources within this Resource Group which are not defined in the ARM Template will be deleted.
          * 
          * @return builder
          * 
@@ -228,7 +228,7 @@ public final class ResourceGroupTemplateDeploymentState extends com.pulumi.resou
         /**
          * @param deploymentMode The Deployment Mode for this Resource Group Template Deployment. Possible values are `Complete` (where resources in the Resource Group not specified in the ARM Template will be destroyed) and `Incremental` (where resources are additive only).
          * 
-         * &gt; **Note:** If `deployment_mode` is set to `Complete` then resources within this Resource Group which are not defined in the ARM Template will be deleted.
+         * &gt; **Note:** If `deploymentMode` is set to `Complete` then resources within this Resource Group which are not defined in the ARM Template will be deleted.
          * 
          * @return builder
          * 
@@ -347,7 +347,7 @@ public final class ResourceGroupTemplateDeploymentState extends com.pulumi.resou
         }
 
         /**
-         * @param templateContent The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `template_spec_version_id`.
+         * @param templateContent The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `templateSpecVersionId`.
          * 
          * @return builder
          * 
@@ -358,7 +358,7 @@ public final class ResourceGroupTemplateDeploymentState extends com.pulumi.resou
         }
 
         /**
-         * @param templateContent The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `template_spec_version_id`.
+         * @param templateContent The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `templateSpecVersionId`.
          * 
          * @return builder
          * 
@@ -368,7 +368,7 @@ public final class ResourceGroupTemplateDeploymentState extends com.pulumi.resou
         }
 
         /**
-         * @param templateSpecVersionId The ID of the Template Spec Version to deploy. Cannot be specified with `template_content`.
+         * @param templateSpecVersionId The ID of the Template Spec Version to deploy. Cannot be specified with `templateContent`.
          * 
          * @return builder
          * 
@@ -379,7 +379,7 @@ public final class ResourceGroupTemplateDeploymentState extends com.pulumi.resou
         }
 
         /**
-         * @param templateSpecVersionId The ID of the Template Spec Version to deploy. Cannot be specified with `template_content`.
+         * @param templateSpecVersionId The ID of the Template Spec Version to deploy. Cannot be specified with `templateContent`.
          * 
          * @return builder
          * 

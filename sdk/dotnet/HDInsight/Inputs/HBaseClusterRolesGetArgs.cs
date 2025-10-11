@@ -13,19 +13,19 @@ namespace Pulumi.Azure.HDInsight.Inputs
     public sealed class HBaseClusterRolesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `head_node` block as defined above.
+        /// A `HeadNode` block as defined above.
         /// </summary>
         [Input("headNode", required: true)]
         public Input<Inputs.HBaseClusterRolesHeadNodeGetArgs> HeadNode { get; set; } = null!;
 
         /// <summary>
-        /// A `worker_node` block as defined below.
+        /// A `WorkerNode` block as defined below.
         /// </summary>
         [Input("workerNode", required: true)]
         public Input<Inputs.HBaseClusterRolesWorkerNodeGetArgs> WorkerNode { get; set; } = null!;
 
         /// <summary>
-        /// A `zookeeper_node` block as defined below.
+        /// A `ZookeeperNode` block as defined below.
         /// </summary>
         [Input("zookeeperNode", required: true)]
         public Input<Inputs.HBaseClusterRolesZookeeperNodeGetArgs> ZookeeperNode { get; set; } = null!;

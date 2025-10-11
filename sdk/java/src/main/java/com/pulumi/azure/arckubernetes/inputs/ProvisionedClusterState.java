@@ -66,14 +66,14 @@ public final class ProvisionedClusterState extends com.pulumi.resources.Resource
     }
 
     /**
-     * An `azure_active_directory` block as defined below.
+     * An `azureActiveDirectory` block as defined below.
      * 
      */
     @Import(name="azureActiveDirectory")
     private @Nullable Output<ProvisionedClusterAzureActiveDirectoryArgs> azureActiveDirectory;
 
     /**
-     * @return An `azure_active_directory` block as defined below.
+     * @return An `azureActiveDirectory` block as defined below.
      * 
      */
     public Optional<Output<ProvisionedClusterAzureActiveDirectoryArgs>> azureActiveDirectory() {
@@ -347,7 +347,7 @@ public final class ProvisionedClusterState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param azureActiveDirectory An `azure_active_directory` block as defined below.
+         * @param azureActiveDirectory An `azureActiveDirectory` block as defined below.
          * 
          * @return builder
          * 
@@ -358,7 +358,7 @@ public final class ProvisionedClusterState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param azureActiveDirectory An `azure_active_directory` block as defined below.
+         * @param azureActiveDirectory An `azureActiveDirectory` block as defined below.
          * 
          * @return builder
          * 

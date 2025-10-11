@@ -22,11 +22,11 @@ namespace Pulumi.Azure.Automanage.Outputs
         /// </summary>
         public readonly string? PolicyName;
         /// <summary>
-        /// A `retention_policy` block as defined below.
+        /// A `RetentionPolicy` block as defined below.
         /// </summary>
         public readonly Outputs.ConfigurationBackupRetentionPolicy? RetentionPolicy;
         /// <summary>
-        /// A `schedule_policy` block as defined below.
+        /// A `SchedulePolicy` block as defined below.
         /// </summary>
         public readonly Outputs.ConfigurationBackupSchedulePolicy? SchedulePolicy;
         /// <summary>

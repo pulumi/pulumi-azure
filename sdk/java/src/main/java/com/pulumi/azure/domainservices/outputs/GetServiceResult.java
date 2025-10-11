@@ -56,14 +56,14 @@ public final class GetServiceResult {
      */
     private List<GetServiceNotification> notifications;
     /**
-     * @return One or more `replica_set` blocks as defined below.
+     * @return One or more `replicaSet` blocks as defined below.
      * 
      */
     private List<GetServiceReplicaSet> replicaSets;
     private String resourceGroupName;
     private String resourceId;
     /**
-     * @return A `secure_ldap` block as defined below.
+     * @return A `secureLdap` block as defined below.
      * 
      */
     private List<GetServiceSecureLdap> secureLdaps;
@@ -140,7 +140,7 @@ public final class GetServiceResult {
         return this.notifications;
     }
     /**
-     * @return One or more `replica_set` blocks as defined below.
+     * @return One or more `replicaSet` blocks as defined below.
      * 
      */
     public List<GetServiceReplicaSet> replicaSets() {
@@ -153,7 +153,7 @@ public final class GetServiceResult {
         return this.resourceId;
     }
     /**
-     * @return A `secure_ldap` block as defined below.
+     * @return A `secureLdap` block as defined below.
      * 
      */
     public List<GetServiceSecureLdap> secureLdaps() {

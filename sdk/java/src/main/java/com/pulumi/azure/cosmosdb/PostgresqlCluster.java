@@ -88,14 +88,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:cosmosdb/postgresqlCluster:PostgresqlCluster")
 public class PostgresqlCluster extends com.pulumi.resources.CustomResource {
     /**
-     * The password of the administrator login. This is required when `source_resource_id` is not set.
+     * The password of the administrator login. This is required when `sourceResourceId` is not set.
      * 
      */
     @Export(name="administratorLoginPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> administratorLoginPassword;
 
     /**
-     * @return The password of the administrator login. This is required when `source_resource_id` is not set.
+     * @return The password of the administrator login. This is required when `sourceResourceId` is not set.
      * 
      */
     public Output<Optional<String>> administratorLoginPassword() {
@@ -218,14 +218,14 @@ public class PostgresqlCluster extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * A `maintenance_window` block as defined below.
+     * A `maintenanceWindow` block as defined below.
      * 
      */
     @Export(name="maintenanceWindow", refs={PostgresqlClusterMaintenanceWindow.class}, tree="[0]")
     private Output</* @Nullable */ PostgresqlClusterMaintenanceWindow> maintenanceWindow;
 
     /**
-     * @return A `maintenance_window` block as defined below.
+     * @return A `maintenanceWindow` block as defined below.
      * 
      */
     public Output<Optional<PostgresqlClusterMaintenanceWindow>> maintenanceWindow() {

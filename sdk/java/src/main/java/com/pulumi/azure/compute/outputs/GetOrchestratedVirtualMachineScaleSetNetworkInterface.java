@@ -24,7 +24,7 @@ public final class GetOrchestratedVirtualMachineScaleSetNetworkInterface {
      */
     private List<String> dnsServers;
     /**
-     * @return An `ip_configuration` block as documented below.
+     * @return An `ipConfiguration` block as documented below.
      * 
      */
     private List<GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration> ipConfigurations;
@@ -44,7 +44,7 @@ public final class GetOrchestratedVirtualMachineScaleSetNetworkInterface {
      */
     private String networkSecurityGroupId;
     /**
-     * @return If this ip_configuration is the primary one.
+     * @return If this ipConfiguration is the primary one.
      * 
      */
     private Boolean primary;
@@ -65,7 +65,7 @@ public final class GetOrchestratedVirtualMachineScaleSetNetworkInterface {
         return this.dnsServers;
     }
     /**
-     * @return An `ip_configuration` block as documented below.
+     * @return An `ipConfiguration` block as documented below.
      * 
      */
     public List<GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration> ipConfigurations() {
@@ -93,7 +93,7 @@ public final class GetOrchestratedVirtualMachineScaleSetNetworkInterface {
         return this.networkSecurityGroupId;
     }
     /**
-     * @return If this ip_configuration is the primary one.
+     * @return If this ipConfiguration is the primary one.
      * 
      */
     public Boolean primary() {

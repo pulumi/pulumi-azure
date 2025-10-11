@@ -115,13 +115,13 @@ namespace Pulumi.Azure.Compute
     {
         /// <summary>
         /// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
-        /// * `Import` - Import a VHD file in to the managed disk (VHD specified with `source_uri`).
-        /// * `ImportSecure` - Securely import a VHD file in to the managed disk (VHD specified with `source_uri`).
+        /// * `Import` - Import a VHD file in to the managed disk (VHD specified with `SourceUri`).
+        /// * `ImportSecure` - Securely import a VHD file in to the managed disk (VHD specified with `SourceUri`).
         /// * `Empty` - Create an empty managed disk.
-        /// * `Copy` - Copy an existing managed disk or snapshot (specified with `source_resource_id`).
-        /// * `FromImage` - Copy a Platform Image (specified with `image_reference_id`)
-        /// * `Restore` - Set by Azure Backup or Site Recovery on a restored disk (specified with `source_resource_id`).
-        /// * `Upload` - Upload a VHD disk with the help of SAS URL (to be used with `upload_size_bytes`).
+        /// * `Copy` - Copy an existing managed disk or snapshot (specified with `SourceResourceId`).
+        /// * `FromImage` - Copy a Platform Image (specified with `ImageReferenceId`)
+        /// * `Restore` - Set by Azure Backup or Site Recovery on a restored disk (specified with `SourceResourceId`).
+        /// * `Upload` - Upload a VHD disk with the help of SAS URL (to be used with `UploadSizeBytes`).
         /// </summary>
         [Output("createOption")]
         public Output<string> CreateOption { get; private set; } = null!;
@@ -129,13 +129,13 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The ID of the disk access resource for using private endpoints on disks.
         /// 
-        /// &gt; **Note:** `disk_access_id` is only supported when `network_access_policy` is set to `AllowPrivate`.
+        /// &gt; **Note:** `DiskAccessId` is only supported when `NetworkAccessPolicy` is set to `AllowPrivate`.
         /// </summary>
         [Output("diskAccessId")]
         public Output<string?> DiskAccessId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
+        /// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `SecureVmDiskEncryptionSetId`.
         /// 
         /// &gt; **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
         /// 
@@ -178,15 +178,15 @@ namespace Pulumi.Azure.Compute
         public Output<string?> EdgeZone { get; private set; } = null!;
 
         /// <summary>
-        /// A `encryption_settings` block as defined below.
+        /// A `EncryptionSettings` block as defined below.
         /// 
-        /// &gt; **NOTE:** Removing `encryption_settings` forces a new resource to be created.
+        /// &gt; **NOTE:** Removing `EncryptionSettings` forces a new resource to be created.
         /// </summary>
         [Output("encryptionSettings")]
         public Output<Outputs.ManagedDiskEncryptionSettings?> EncryptionSettings { get; private set; } = null!;
 
         /// <summary>
-        /// ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified. Changing this forces a new resource to be created.
+        /// ID of a Gallery Image Version to copy when `CreateOption` is `FromImage`. This field cannot be specified if ImageReferenceId is specified. Changing this forces a new resource to be created.
         /// </summary>
         [Output("galleryImageReferenceId")]
         public Output<string?> GalleryImageReferenceId { get; private set; } = null!;
@@ -198,7 +198,7 @@ namespace Pulumi.Azure.Compute
         public Output<string?> HyperVGeneration { get; private set; } = null!;
 
         /// <summary>
-        /// ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified. Changing this forces a new resource to be created.
+        /// ID of an existing platform/marketplace disk image to copy when `CreateOption` is `FromImage`. This field cannot be specified if GalleryImageReferenceId is specified. Changing this forces a new resource to be created.
         /// </summary>
         [Output("imageReferenceId")]
         public Output<string?> ImageReferenceId { get; private set; } = null!;
@@ -220,7 +220,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
         /// 
-        /// &gt; **Note:** Premium SSD maxShares limit: `P15` and `P20` disks: 2. `P30`,`P40`,`P50` disks: 5. `P60`,`P70`,`P80` disks: 10. For ultra disks the `max_shares` minimum value is 1 and the maximum is 5.
+        /// &gt; **Note:** Premium SSD maxShares limit: `P15` and `P20` disks: 2. `P30`,`P40`,`P50` disks: 5. `P60`,`P70`,`P80` disks: 10. For ultra disks the `MaxShares` minimum value is 1 and the maximum is 5.
         /// </summary>
         [Output("maxShares")]
         public Output<int> MaxShares { get; private set; } = null!;
@@ -246,9 +246,9 @@ namespace Pulumi.Azure.Compute
         public Output<bool?> OnDemandBurstingEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether this Managed Disk should be optimized for frequent disk attachments (where a disk is attached/detached more than 5 times in a day). Defaults to `false`.
+        /// Specifies whether this Managed Disk should be optimized for frequent disk attachments (where a disk is attached/detached more than 5 times in a day). Defaults to `False`.
         /// 
-        /// &gt; **Note:** Setting `optimized_frequent_attach_enabled` to `true` causes the disks to not align with the fault domain of the Virtual Machine, which can have operational implications.
+        /// &gt; **Note:** Setting `OptimizedFrequentAttachEnabled` to `True` causes the disks to not align with the fault domain of the Virtual Machine, which can have operational implications.
         /// </summary>
         [Output("optimizedFrequentAttachEnabled")]
         public Output<bool?> OptimizedFrequentAttachEnabled { get; private set; } = null!;
@@ -260,13 +260,13 @@ namespace Pulumi.Azure.Compute
         public Output<string?> OsType { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("performancePlusEnabled")]
         public Output<bool?> PerformancePlusEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Whether it is allowed to access the disk via public network. Defaults to `true`.
+        /// Whether it is allowed to access the disk via public network. Defaults to `True`.
         /// 
         /// For more information on managed disks, such as sizing options and pricing, please check out the [Azure Documentation](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
         /// </summary>
@@ -280,9 +280,9 @@ namespace Pulumi.Azure.Compute
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
+        /// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `DiskEncryptionSetId`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** `secure_vm_disk_encryption_set_id` can only be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
+        /// &gt; **NOTE:** `SecureVmDiskEncryptionSetId` can only be specified when `SecurityType` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
         /// </summary>
         [Output("secureVmDiskEncryptionSetId")]
         public Output<string?> SecureVmDiskEncryptionSetId { get; private set; } = null!;
@@ -290,30 +290,30 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** When `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `create_option` must be one of `FromImage` or `ImportSecure`.
+        /// &gt; **NOTE:** When `SecurityType` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `CreateOption` must be one of `FromImage` or `ImportSecure`.
         /// 
         /// 
-        /// &gt; **NOTE:** `security_type` cannot be specified when `trusted_launch_enabled` is set to true.
+        /// &gt; **NOTE:** `SecurityType` cannot be specified when `TrustedLaunchEnabled` is set to true.
         /// 
-        /// &gt; **NOTE:** `secure_vm_disk_encryption_set_id` must be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
+        /// &gt; **NOTE:** `SecureVmDiskEncryptionSetId` must be specified when `SecurityType` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
         /// </summary>
         [Output("securityType")]
         public Output<string?> SecurityType { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`. Changing this forces a new resource to be created.
+        /// The ID of an existing Managed Disk or Snapshot to copy when `CreateOption` is `Copy` or the recovery point to restore when `CreateOption` is `Restore`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("sourceResourceId")]
         public Output<string?> SourceResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// URI to a valid VHD file to be used when `create_option` is `Import` or `ImportSecure`. Changing this forces a new resource to be created.
+        /// URI to a valid VHD file to be used when `CreateOption` is `Import` or `ImportSecure`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("sourceUri")]
         public Output<string> SourceUri { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import` or `ImportSecure`. Changing this forces a new resource to be created.
+        /// The ID of the Storage Account where the `SourceUri` is located. Required when `CreateOption` is set to `Import` or `ImportSecure`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("storageAccountId")]
         public Output<string?> StorageAccountId { get; private set; } = null!;
@@ -338,13 +338,13 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** Trusted Launch can only be enabled when `create_option` is `FromImage` or `Import`.
+        /// &gt; **Note:** Trusted Launch can only be enabled when `CreateOption` is `FromImage` or `Import`.
         /// </summary>
         [Output("trustedLaunchEnabled")]
         public Output<bool?> TrustedLaunchEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the size of the managed disk to create in bytes. Required when `create_option` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
+        /// Specifies the size of the managed disk to create in bytes. Required when `CreateOption` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
         /// </summary>
         [Output("uploadSizeBytes")]
         public Output<int?> UploadSizeBytes { get; private set; } = null!;
@@ -405,13 +405,13 @@ namespace Pulumi.Azure.Compute
     {
         /// <summary>
         /// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
-        /// * `Import` - Import a VHD file in to the managed disk (VHD specified with `source_uri`).
-        /// * `ImportSecure` - Securely import a VHD file in to the managed disk (VHD specified with `source_uri`).
+        /// * `Import` - Import a VHD file in to the managed disk (VHD specified with `SourceUri`).
+        /// * `ImportSecure` - Securely import a VHD file in to the managed disk (VHD specified with `SourceUri`).
         /// * `Empty` - Create an empty managed disk.
-        /// * `Copy` - Copy an existing managed disk or snapshot (specified with `source_resource_id`).
-        /// * `FromImage` - Copy a Platform Image (specified with `image_reference_id`)
-        /// * `Restore` - Set by Azure Backup or Site Recovery on a restored disk (specified with `source_resource_id`).
-        /// * `Upload` - Upload a VHD disk with the help of SAS URL (to be used with `upload_size_bytes`).
+        /// * `Copy` - Copy an existing managed disk or snapshot (specified with `SourceResourceId`).
+        /// * `FromImage` - Copy a Platform Image (specified with `ImageReferenceId`)
+        /// * `Restore` - Set by Azure Backup or Site Recovery on a restored disk (specified with `SourceResourceId`).
+        /// * `Upload` - Upload a VHD disk with the help of SAS URL (to be used with `UploadSizeBytes`).
         /// </summary>
         [Input("createOption", required: true)]
         public Input<string> CreateOption { get; set; } = null!;
@@ -419,13 +419,13 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The ID of the disk access resource for using private endpoints on disks.
         /// 
-        /// &gt; **Note:** `disk_access_id` is only supported when `network_access_policy` is set to `AllowPrivate`.
+        /// &gt; **Note:** `DiskAccessId` is only supported when `NetworkAccessPolicy` is set to `AllowPrivate`.
         /// </summary>
         [Input("diskAccessId")]
         public Input<string>? DiskAccessId { get; set; }
 
         /// <summary>
-        /// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
+        /// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `SecureVmDiskEncryptionSetId`.
         /// 
         /// &gt; **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
         /// 
@@ -468,15 +468,15 @@ namespace Pulumi.Azure.Compute
         public Input<string>? EdgeZone { get; set; }
 
         /// <summary>
-        /// A `encryption_settings` block as defined below.
+        /// A `EncryptionSettings` block as defined below.
         /// 
-        /// &gt; **NOTE:** Removing `encryption_settings` forces a new resource to be created.
+        /// &gt; **NOTE:** Removing `EncryptionSettings` forces a new resource to be created.
         /// </summary>
         [Input("encryptionSettings")]
         public Input<Inputs.ManagedDiskEncryptionSettingsArgs>? EncryptionSettings { get; set; }
 
         /// <summary>
-        /// ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified. Changing this forces a new resource to be created.
+        /// ID of a Gallery Image Version to copy when `CreateOption` is `FromImage`. This field cannot be specified if ImageReferenceId is specified. Changing this forces a new resource to be created.
         /// </summary>
         [Input("galleryImageReferenceId")]
         public Input<string>? GalleryImageReferenceId { get; set; }
@@ -488,7 +488,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? HyperVGeneration { get; set; }
 
         /// <summary>
-        /// ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified. Changing this forces a new resource to be created.
+        /// ID of an existing platform/marketplace disk image to copy when `CreateOption` is `FromImage`. This field cannot be specified if GalleryImageReferenceId is specified. Changing this forces a new resource to be created.
         /// </summary>
         [Input("imageReferenceId")]
         public Input<string>? ImageReferenceId { get; set; }
@@ -510,7 +510,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
         /// 
-        /// &gt; **Note:** Premium SSD maxShares limit: `P15` and `P20` disks: 2. `P30`,`P40`,`P50` disks: 5. `P60`,`P70`,`P80` disks: 10. For ultra disks the `max_shares` minimum value is 1 and the maximum is 5.
+        /// &gt; **Note:** Premium SSD maxShares limit: `P15` and `P20` disks: 2. `P30`,`P40`,`P50` disks: 5. `P60`,`P70`,`P80` disks: 10. For ultra disks the `MaxShares` minimum value is 1 and the maximum is 5.
         /// </summary>
         [Input("maxShares")]
         public Input<int>? MaxShares { get; set; }
@@ -536,9 +536,9 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? OnDemandBurstingEnabled { get; set; }
 
         /// <summary>
-        /// Specifies whether this Managed Disk should be optimized for frequent disk attachments (where a disk is attached/detached more than 5 times in a day). Defaults to `false`.
+        /// Specifies whether this Managed Disk should be optimized for frequent disk attachments (where a disk is attached/detached more than 5 times in a day). Defaults to `False`.
         /// 
-        /// &gt; **Note:** Setting `optimized_frequent_attach_enabled` to `true` causes the disks to not align with the fault domain of the Virtual Machine, which can have operational implications.
+        /// &gt; **Note:** Setting `OptimizedFrequentAttachEnabled` to `True` causes the disks to not align with the fault domain of the Virtual Machine, which can have operational implications.
         /// </summary>
         [Input("optimizedFrequentAttachEnabled")]
         public Input<bool>? OptimizedFrequentAttachEnabled { get; set; }
@@ -550,13 +550,13 @@ namespace Pulumi.Azure.Compute
         public Input<string>? OsType { get; set; }
 
         /// <summary>
-        /// Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("performancePlusEnabled")]
         public Input<bool>? PerformancePlusEnabled { get; set; }
 
         /// <summary>
-        /// Whether it is allowed to access the disk via public network. Defaults to `true`.
+        /// Whether it is allowed to access the disk via public network. Defaults to `True`.
         /// 
         /// For more information on managed disks, such as sizing options and pricing, please check out the [Azure Documentation](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
         /// </summary>
@@ -570,9 +570,9 @@ namespace Pulumi.Azure.Compute
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
+        /// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `DiskEncryptionSetId`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** `secure_vm_disk_encryption_set_id` can only be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
+        /// &gt; **NOTE:** `SecureVmDiskEncryptionSetId` can only be specified when `SecurityType` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
         /// </summary>
         [Input("secureVmDiskEncryptionSetId")]
         public Input<string>? SecureVmDiskEncryptionSetId { get; set; }
@@ -580,30 +580,30 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** When `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `create_option` must be one of `FromImage` or `ImportSecure`.
+        /// &gt; **NOTE:** When `SecurityType` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `CreateOption` must be one of `FromImage` or `ImportSecure`.
         /// 
         /// 
-        /// &gt; **NOTE:** `security_type` cannot be specified when `trusted_launch_enabled` is set to true.
+        /// &gt; **NOTE:** `SecurityType` cannot be specified when `TrustedLaunchEnabled` is set to true.
         /// 
-        /// &gt; **NOTE:** `secure_vm_disk_encryption_set_id` must be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
+        /// &gt; **NOTE:** `SecureVmDiskEncryptionSetId` must be specified when `SecurityType` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
         /// </summary>
         [Input("securityType")]
         public Input<string>? SecurityType { get; set; }
 
         /// <summary>
-        /// The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`. Changing this forces a new resource to be created.
+        /// The ID of an existing Managed Disk or Snapshot to copy when `CreateOption` is `Copy` or the recovery point to restore when `CreateOption` is `Restore`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sourceResourceId")]
         public Input<string>? SourceResourceId { get; set; }
 
         /// <summary>
-        /// URI to a valid VHD file to be used when `create_option` is `Import` or `ImportSecure`. Changing this forces a new resource to be created.
+        /// URI to a valid VHD file to be used when `CreateOption` is `Import` or `ImportSecure`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sourceUri")]
         public Input<string>? SourceUri { get; set; }
 
         /// <summary>
-        /// The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import` or `ImportSecure`. Changing this forces a new resource to be created.
+        /// The ID of the Storage Account where the `SourceUri` is located. Required when `CreateOption` is set to `Import` or `ImportSecure`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }
@@ -634,13 +634,13 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** Trusted Launch can only be enabled when `create_option` is `FromImage` or `Import`.
+        /// &gt; **Note:** Trusted Launch can only be enabled when `CreateOption` is `FromImage` or `Import`.
         /// </summary>
         [Input("trustedLaunchEnabled")]
         public Input<bool>? TrustedLaunchEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the size of the managed disk to create in bytes. Required when `create_option` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
+        /// Specifies the size of the managed disk to create in bytes. Required when `CreateOption` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
         /// </summary>
         [Input("uploadSizeBytes")]
         public Input<int>? UploadSizeBytes { get; set; }
@@ -663,13 +663,13 @@ namespace Pulumi.Azure.Compute
     {
         /// <summary>
         /// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
-        /// * `Import` - Import a VHD file in to the managed disk (VHD specified with `source_uri`).
-        /// * `ImportSecure` - Securely import a VHD file in to the managed disk (VHD specified with `source_uri`).
+        /// * `Import` - Import a VHD file in to the managed disk (VHD specified with `SourceUri`).
+        /// * `ImportSecure` - Securely import a VHD file in to the managed disk (VHD specified with `SourceUri`).
         /// * `Empty` - Create an empty managed disk.
-        /// * `Copy` - Copy an existing managed disk or snapshot (specified with `source_resource_id`).
-        /// * `FromImage` - Copy a Platform Image (specified with `image_reference_id`)
-        /// * `Restore` - Set by Azure Backup or Site Recovery on a restored disk (specified with `source_resource_id`).
-        /// * `Upload` - Upload a VHD disk with the help of SAS URL (to be used with `upload_size_bytes`).
+        /// * `Copy` - Copy an existing managed disk or snapshot (specified with `SourceResourceId`).
+        /// * `FromImage` - Copy a Platform Image (specified with `ImageReferenceId`)
+        /// * `Restore` - Set by Azure Backup or Site Recovery on a restored disk (specified with `SourceResourceId`).
+        /// * `Upload` - Upload a VHD disk with the help of SAS URL (to be used with `UploadSizeBytes`).
         /// </summary>
         [Input("createOption")]
         public Input<string>? CreateOption { get; set; }
@@ -677,13 +677,13 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The ID of the disk access resource for using private endpoints on disks.
         /// 
-        /// &gt; **Note:** `disk_access_id` is only supported when `network_access_policy` is set to `AllowPrivate`.
+        /// &gt; **Note:** `DiskAccessId` is only supported when `NetworkAccessPolicy` is set to `AllowPrivate`.
         /// </summary>
         [Input("diskAccessId")]
         public Input<string>? DiskAccessId { get; set; }
 
         /// <summary>
-        /// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
+        /// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `SecureVmDiskEncryptionSetId`.
         /// 
         /// &gt; **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
         /// 
@@ -726,15 +726,15 @@ namespace Pulumi.Azure.Compute
         public Input<string>? EdgeZone { get; set; }
 
         /// <summary>
-        /// A `encryption_settings` block as defined below.
+        /// A `EncryptionSettings` block as defined below.
         /// 
-        /// &gt; **NOTE:** Removing `encryption_settings` forces a new resource to be created.
+        /// &gt; **NOTE:** Removing `EncryptionSettings` forces a new resource to be created.
         /// </summary>
         [Input("encryptionSettings")]
         public Input<Inputs.ManagedDiskEncryptionSettingsGetArgs>? EncryptionSettings { get; set; }
 
         /// <summary>
-        /// ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified. Changing this forces a new resource to be created.
+        /// ID of a Gallery Image Version to copy when `CreateOption` is `FromImage`. This field cannot be specified if ImageReferenceId is specified. Changing this forces a new resource to be created.
         /// </summary>
         [Input("galleryImageReferenceId")]
         public Input<string>? GalleryImageReferenceId { get; set; }
@@ -746,7 +746,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? HyperVGeneration { get; set; }
 
         /// <summary>
-        /// ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified. Changing this forces a new resource to be created.
+        /// ID of an existing platform/marketplace disk image to copy when `CreateOption` is `FromImage`. This field cannot be specified if GalleryImageReferenceId is specified. Changing this forces a new resource to be created.
         /// </summary>
         [Input("imageReferenceId")]
         public Input<string>? ImageReferenceId { get; set; }
@@ -768,7 +768,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
         /// 
-        /// &gt; **Note:** Premium SSD maxShares limit: `P15` and `P20` disks: 2. `P30`,`P40`,`P50` disks: 5. `P60`,`P70`,`P80` disks: 10. For ultra disks the `max_shares` minimum value is 1 and the maximum is 5.
+        /// &gt; **Note:** Premium SSD maxShares limit: `P15` and `P20` disks: 2. `P30`,`P40`,`P50` disks: 5. `P60`,`P70`,`P80` disks: 10. For ultra disks the `MaxShares` minimum value is 1 and the maximum is 5.
         /// </summary>
         [Input("maxShares")]
         public Input<int>? MaxShares { get; set; }
@@ -794,9 +794,9 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? OnDemandBurstingEnabled { get; set; }
 
         /// <summary>
-        /// Specifies whether this Managed Disk should be optimized for frequent disk attachments (where a disk is attached/detached more than 5 times in a day). Defaults to `false`.
+        /// Specifies whether this Managed Disk should be optimized for frequent disk attachments (where a disk is attached/detached more than 5 times in a day). Defaults to `False`.
         /// 
-        /// &gt; **Note:** Setting `optimized_frequent_attach_enabled` to `true` causes the disks to not align with the fault domain of the Virtual Machine, which can have operational implications.
+        /// &gt; **Note:** Setting `OptimizedFrequentAttachEnabled` to `True` causes the disks to not align with the fault domain of the Virtual Machine, which can have operational implications.
         /// </summary>
         [Input("optimizedFrequentAttachEnabled")]
         public Input<bool>? OptimizedFrequentAttachEnabled { get; set; }
@@ -808,13 +808,13 @@ namespace Pulumi.Azure.Compute
         public Input<string>? OsType { get; set; }
 
         /// <summary>
-        /// Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("performancePlusEnabled")]
         public Input<bool>? PerformancePlusEnabled { get; set; }
 
         /// <summary>
-        /// Whether it is allowed to access the disk via public network. Defaults to `true`.
+        /// Whether it is allowed to access the disk via public network. Defaults to `True`.
         /// 
         /// For more information on managed disks, such as sizing options and pricing, please check out the [Azure Documentation](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
         /// </summary>
@@ -828,9 +828,9 @@ namespace Pulumi.Azure.Compute
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
+        /// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `DiskEncryptionSetId`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** `secure_vm_disk_encryption_set_id` can only be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
+        /// &gt; **NOTE:** `SecureVmDiskEncryptionSetId` can only be specified when `SecurityType` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
         /// </summary>
         [Input("secureVmDiskEncryptionSetId")]
         public Input<string>? SecureVmDiskEncryptionSetId { get; set; }
@@ -838,30 +838,30 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** When `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `create_option` must be one of `FromImage` or `ImportSecure`.
+        /// &gt; **NOTE:** When `SecurityType` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `CreateOption` must be one of `FromImage` or `ImportSecure`.
         /// 
         /// 
-        /// &gt; **NOTE:** `security_type` cannot be specified when `trusted_launch_enabled` is set to true.
+        /// &gt; **NOTE:** `SecurityType` cannot be specified when `TrustedLaunchEnabled` is set to true.
         /// 
-        /// &gt; **NOTE:** `secure_vm_disk_encryption_set_id` must be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
+        /// &gt; **NOTE:** `SecureVmDiskEncryptionSetId` must be specified when `SecurityType` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
         /// </summary>
         [Input("securityType")]
         public Input<string>? SecurityType { get; set; }
 
         /// <summary>
-        /// The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`. Changing this forces a new resource to be created.
+        /// The ID of an existing Managed Disk or Snapshot to copy when `CreateOption` is `Copy` or the recovery point to restore when `CreateOption` is `Restore`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sourceResourceId")]
         public Input<string>? SourceResourceId { get; set; }
 
         /// <summary>
-        /// URI to a valid VHD file to be used when `create_option` is `Import` or `ImportSecure`. Changing this forces a new resource to be created.
+        /// URI to a valid VHD file to be used when `CreateOption` is `Import` or `ImportSecure`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sourceUri")]
         public Input<string>? SourceUri { get; set; }
 
         /// <summary>
-        /// The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import` or `ImportSecure`. Changing this forces a new resource to be created.
+        /// The ID of the Storage Account where the `SourceUri` is located. Required when `CreateOption` is set to `Import` or `ImportSecure`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }
@@ -892,13 +892,13 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** Trusted Launch can only be enabled when `create_option` is `FromImage` or `Import`.
+        /// &gt; **Note:** Trusted Launch can only be enabled when `CreateOption` is `FromImage` or `Import`.
         /// </summary>
         [Input("trustedLaunchEnabled")]
         public Input<bool>? TrustedLaunchEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the size of the managed disk to create in bytes. Required when `create_option` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
+        /// Specifies the size of the managed disk to create in bytes. Required when `CreateOption` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
         /// </summary>
         [Input("uploadSizeBytes")]
         public Input<int>? UploadSizeBytes { get; set; }

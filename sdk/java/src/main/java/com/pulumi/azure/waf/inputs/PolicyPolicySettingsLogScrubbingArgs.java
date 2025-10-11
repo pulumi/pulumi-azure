@@ -33,14 +33,14 @@ public final class PolicyPolicySettingsLogScrubbingArgs extends com.pulumi.resou
     }
 
     /**
-     * One or more `scrubbing_rule` blocks as define below.
+     * One or more `scrubbingRule` blocks as define below.
      * 
      */
     @Import(name="rules")
     private @Nullable Output<List<PolicyPolicySettingsLogScrubbingRuleArgs>> rules;
 
     /**
-     * @return One or more `scrubbing_rule` blocks as define below.
+     * @return One or more `scrubbingRule` blocks as define below.
      * 
      */
     public Optional<Output<List<PolicyPolicySettingsLogScrubbingRuleArgs>>> rules() {
@@ -94,7 +94,7 @@ public final class PolicyPolicySettingsLogScrubbingArgs extends com.pulumi.resou
         }
 
         /**
-         * @param rules One or more `scrubbing_rule` blocks as define below.
+         * @param rules One or more `scrubbingRule` blocks as define below.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class PolicyPolicySettingsLogScrubbingArgs extends com.pulumi.resou
         }
 
         /**
-         * @param rules One or more `scrubbing_rule` blocks as define below.
+         * @param rules One or more `scrubbingRule` blocks as define below.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class PolicyPolicySettingsLogScrubbingArgs extends com.pulumi.resou
         }
 
         /**
-         * @param rules One or more `scrubbing_rule` blocks as define below.
+         * @param rules One or more `scrubbingRule` blocks as define below.
          * 
          * @return builder
          * 

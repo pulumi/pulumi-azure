@@ -18,11 +18,11 @@ namespace Pulumi.Azure.EventHub.Outputs
         /// </summary>
         public readonly string DefaultAction;
         /// <summary>
-        /// One or more `ip_rule` blocks as defined below.
+        /// One or more `IpRule` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.EventHubNamespaceNetworkRulesetsIpRule> IpRules;
         /// <summary>
-        /// Is public network access enabled for the EventHub Namespace? Defaults to `true`.
+        /// Is public network access enabled for the EventHub Namespace? Defaults to `True`.
         /// 
         /// &gt; **Note:** The public network access setting at the network rule sets level should be the same as it's at the namespace level.
         /// </summary>
@@ -32,7 +32,7 @@ namespace Pulumi.Azure.EventHub.Outputs
         /// </summary>
         public readonly bool? TrustedServiceAccessEnabled;
         /// <summary>
-        /// One or more `virtual_network_rule` blocks as defined below.
+        /// One or more `VirtualNetworkRule` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.EventHubNamespaceNetworkRulesetsVirtualNetworkRule> VirtualNetworkRules;
 

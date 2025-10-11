@@ -27,9 +27,9 @@ namespace Pulumi.Azure.Cdn.Inputs
         public Input<string> Operator { get; set; } = null!;
 
         /// <summary>
-        /// Selector for the value in the `match_variable` attribute this exclusion applies to.
+        /// Selector for the value in the `MatchVariable` attribute this exclusion applies to.
         /// 
-        /// &gt; **Note:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
+        /// &gt; **Note:** `Selector` must be set to `*` if `Operator` is set to `EqualsAny`.
         /// </summary>
         [Input("selector", required: true)]
         public Input<string> Selector { get; set; } = null!;

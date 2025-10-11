@@ -18,7 +18,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly ImmutableArray<string> AllowedOrigins;
         /// <summary>
-        /// Are credentials allowed in CORS requests? Defaults to `false`.
+        /// Are credentials allowed in CORS requests? Defaults to `False`.
         /// </summary>
         public readonly bool? SupportCredentials;
 

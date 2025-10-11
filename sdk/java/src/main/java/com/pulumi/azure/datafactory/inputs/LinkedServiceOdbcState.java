@@ -49,14 +49,14 @@ public final class LinkedServiceOdbcState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A `basic_authentication` block as defined below.
+     * A `basicAuthentication` block as defined below.
      * 
      */
     @Import(name="basicAuthentication")
     private @Nullable Output<LinkedServiceOdbcBasicAuthenticationArgs> basicAuthentication;
 
     /**
-     * @return A `basic_authentication` block as defined below.
+     * @return A `basicAuthentication` block as defined below.
      * 
      */
     public Optional<Output<LinkedServiceOdbcBasicAuthenticationArgs>> basicAuthentication() {
@@ -238,7 +238,7 @@ public final class LinkedServiceOdbcState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param basicAuthentication A `basic_authentication` block as defined below.
+         * @param basicAuthentication A `basicAuthentication` block as defined below.
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class LinkedServiceOdbcState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param basicAuthentication A `basic_authentication` block as defined below.
+         * @param basicAuthentication A `basicAuthentication` block as defined below.
          * 
          * @return builder
          * 

@@ -38,14 +38,14 @@ public final class CustomDomainArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `developer_portal` blocks as defined below.
+     * One or more `developerPortal` blocks as defined below.
      * 
      */
     @Import(name="developerPortals")
     private @Nullable Output<List<CustomDomainDeveloperPortalArgs>> developerPortals;
 
     /**
-     * @return One or more `developer_portal` blocks as defined below.
+     * @return One or more `developerPortal` blocks as defined below.
      * 
      */
     public Optional<Output<List<CustomDomainDeveloperPortalArgs>>> developerPortals() {
@@ -163,7 +163,7 @@ public final class CustomDomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param developerPortals One or more `developer_portal` blocks as defined below.
+         * @param developerPortals One or more `developerPortal` blocks as defined below.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class CustomDomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param developerPortals One or more `developer_portal` blocks as defined below.
+         * @param developerPortals One or more `developerPortal` blocks as defined below.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class CustomDomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param developerPortals One or more `developer_portal` blocks as defined below.
+         * @param developerPortals One or more `developerPortal` blocks as defined below.
          * 
          * @return builder
          * 

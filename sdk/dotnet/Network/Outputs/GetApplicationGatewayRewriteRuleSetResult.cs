@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// One or more `rewrite_rule` blocks as defined below.
+        /// One or more `RewriteRule` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationGatewayRewriteRuleSetRewriteRuleResult> RewriteRules;
 

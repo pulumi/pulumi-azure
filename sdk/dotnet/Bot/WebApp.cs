@@ -72,7 +72,7 @@ namespace Pulumi.Azure.Bot
         public Output<string?> DeveloperAppInsightsKey { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Web App Bot will be displayed as. This defaults to `name` if not specified.
+        /// The name of the Web App Bot will be displayed as. This defaults to `Name` if not specified.
         /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
@@ -211,7 +211,7 @@ namespace Pulumi.Azure.Bot
         public Input<string>? DeveloperAppInsightsKey { get; set; }
 
         /// <summary>
-        /// The name of the Web App Bot will be displayed as. This defaults to `name` if not specified.
+        /// The name of the Web App Bot will be displayed as. This defaults to `Name` if not specified.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
@@ -329,7 +329,7 @@ namespace Pulumi.Azure.Bot
         public Input<string>? DeveloperAppInsightsKey { get; set; }
 
         /// <summary>
-        /// The name of the Web App Bot will be displayed as. This defaults to `name` if not specified.
+        /// The name of the Web App Bot will be displayed as. This defaults to `Name` if not specified.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }

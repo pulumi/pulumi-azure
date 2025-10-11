@@ -166,11 +166,11 @@ namespace Pulumi.Azure.DevCenter
     public sealed class GetCatalogResult
     {
         /// <summary>
-        /// A `catalog_adogit` block as defined below.
+        /// A `CatalogAdogit` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCatalogCatalogAdogitResult> CatalogAdogits;
         /// <summary>
-        /// A `catalog_github` block as defined below.
+        /// A `CatalogGithub` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCatalogCatalogGithubResult> CatalogGithubs;
         public readonly string DevCenterId;

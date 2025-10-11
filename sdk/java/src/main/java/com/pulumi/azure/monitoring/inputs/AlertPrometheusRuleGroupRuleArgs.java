@@ -53,14 +53,14 @@ public final class AlertPrometheusRuleGroupRuleArgs extends com.pulumi.resources
     }
 
     /**
-     * An `alert_resolution` block as defined below.
+     * An `alertResolution` block as defined below.
      * 
      */
     @Import(name="alertResolution")
     private @Nullable Output<AlertPrometheusRuleGroupRuleAlertResolutionArgs> alertResolution;
 
     /**
-     * @return An `alert_resolution` block as defined below.
+     * @return An `alertResolution` block as defined below.
      * 
      */
     public Optional<Output<AlertPrometheusRuleGroupRuleAlertResolutionArgs>> alertResolution() {
@@ -258,7 +258,7 @@ public final class AlertPrometheusRuleGroupRuleArgs extends com.pulumi.resources
         }
 
         /**
-         * @param alertResolution An `alert_resolution` block as defined below.
+         * @param alertResolution An `alertResolution` block as defined below.
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class AlertPrometheusRuleGroupRuleArgs extends com.pulumi.resources
         }
 
         /**
-         * @param alertResolution An `alert_resolution` block as defined below.
+         * @param alertResolution An `alertResolution` block as defined below.
          * 
          * @return builder
          * 

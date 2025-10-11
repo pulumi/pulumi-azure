@@ -156,14 +156,14 @@ public final class DefinitionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of role definition id extracted from `policy_rule` required for remediation.
+     * A list of role definition id extracted from `policyRule` required for remediation.
      * 
      */
     @Import(name="roleDefinitionIds")
     private @Nullable Output<List<String>> roleDefinitionIds;
 
     /**
-     * @return A list of role definition id extracted from `policy_rule` required for remediation.
+     * @return A list of role definition id extracted from `policyRule` required for remediation.
      * 
      */
     public Optional<Output<List<String>>> roleDefinitionIds() {
@@ -397,7 +397,7 @@ public final class DefinitionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleDefinitionIds A list of role definition id extracted from `policy_rule` required for remediation.
+         * @param roleDefinitionIds A list of role definition id extracted from `policyRule` required for remediation.
          * 
          * @return builder
          * 
@@ -408,7 +408,7 @@ public final class DefinitionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleDefinitionIds A list of role definition id extracted from `policy_rule` required for remediation.
+         * @param roleDefinitionIds A list of role definition id extracted from `policyRule` required for remediation.
          * 
          * @return builder
          * 
@@ -418,7 +418,7 @@ public final class DefinitionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleDefinitionIds A list of role definition id extracted from `policy_rule` required for remediation.
+         * @param roleDefinitionIds A list of role definition id extracted from `policyRule` required for remediation.
          * 
          * @return builder
          * 

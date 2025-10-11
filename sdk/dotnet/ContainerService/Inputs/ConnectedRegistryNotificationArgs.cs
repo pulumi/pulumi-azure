@@ -13,7 +13,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
     public sealed class ConnectedRegistryNotificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The action of the artifact that wants to be subscribed for the Connected Registry. Possible values are `push`, `delete` and `*` (i.e. any).
+        /// The action of the artifact that wants to be subscribed for the Connected Registry. Possible values are `Push`, `Delete` and `*` (i.e. any).
         /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
@@ -21,7 +21,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         /// <summary>
         /// The digest of the artifact that wants to be subscribed for the Connected Registry.
         /// 
-        /// &gt; **Note:** One of either `tag` or `digest` can be specified.
+        /// &gt; **Note:** One of either `Tag` or `Digest` can be specified.
         /// </summary>
         [Input("digest")]
         public Input<string>? Digest { get; set; }

@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class SnapshotEncryptionSettings
     {
         /// <summary>
-        /// A `disk_encryption_key` block as defined below.
+        /// A `DiskEncryptionKey` block as defined below.
         /// </summary>
         public readonly Outputs.SnapshotEncryptionSettingsDiskEncryptionKey DiskEncryptionKey;
         /// <summary>
-        /// A `key_encryption_key` block as defined below.
+        /// A `KeyEncryptionKey` block as defined below.
         /// </summary>
         public readonly Outputs.SnapshotEncryptionSettingsKeyEncryptionKey? KeyEncryptionKey;
 

@@ -58,7 +58,7 @@ public final class ProtectedVMArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies Protection state of the backup. Possible values are `Protected`, `BackupsSuspended`, and `ProtectionStopped`.
      * 
-     * &gt; **Note:** `protection_state` cannot be set to `BackupsSuspended` unless the `azure.recoveryservices.Vault` has `immutability` set to `Unlocked` or `Locked`.
+     * &gt; **Note:** `protectionState` cannot be set to `BackupsSuspended` unless the `azure.recoveryservices.Vault` has `immutability` set to `Unlocked` or `Locked`.
      * 
      */
     @Import(name="protectionState")
@@ -67,7 +67,7 @@ public final class ProtectedVMArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Specifies Protection state of the backup. Possible values are `Protected`, `BackupsSuspended`, and `ProtectionStopped`.
      * 
-     * &gt; **Note:** `protection_state` cannot be set to `BackupsSuspended` unless the `azure.recoveryservices.Vault` has `immutability` set to `Unlocked` or `Locked`.
+     * &gt; **Note:** `protectionState` cannot be set to `BackupsSuspended` unless the `azure.recoveryservices.Vault` has `immutability` set to `Unlocked` or `Locked`.
      * 
      */
     public Optional<Output<String>> protectionState() {
@@ -107,7 +107,7 @@ public final class ProtectedVMArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the ID of the virtual machine to back up. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource. This allows the source virtual machine to be deleted without having to remove the backup.
+     * &gt; **Note:** After creation, the `sourceVmId` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource. This allows the source virtual machine to be deleted without having to remove the backup.
      * 
      */
     @Import(name="sourceVmId")
@@ -116,7 +116,7 @@ public final class ProtectedVMArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Specifies the ID of the virtual machine to back up. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource. This allows the source virtual machine to be deleted without having to remove the backup.
+     * &gt; **Note:** After creation, the `sourceVmId` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource. This allows the source virtual machine to be deleted without having to remove the backup.
      * 
      */
     public Optional<Output<String>> sourceVmId() {
@@ -227,7 +227,7 @@ public final class ProtectedVMArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param protectionState Specifies Protection state of the backup. Possible values are `Protected`, `BackupsSuspended`, and `ProtectionStopped`.
          * 
-         * &gt; **Note:** `protection_state` cannot be set to `BackupsSuspended` unless the `azure.recoveryservices.Vault` has `immutability` set to `Unlocked` or `Locked`.
+         * &gt; **Note:** `protectionState` cannot be set to `BackupsSuspended` unless the `azure.recoveryservices.Vault` has `immutability` set to `Unlocked` or `Locked`.
          * 
          * @return builder
          * 
@@ -240,7 +240,7 @@ public final class ProtectedVMArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param protectionState Specifies Protection state of the backup. Possible values are `Protected`, `BackupsSuspended`, and `ProtectionStopped`.
          * 
-         * &gt; **Note:** `protection_state` cannot be set to `BackupsSuspended` unless the `azure.recoveryservices.Vault` has `immutability` set to `Unlocked` or `Locked`.
+         * &gt; **Note:** `protectionState` cannot be set to `BackupsSuspended` unless the `azure.recoveryservices.Vault` has `immutability` set to `Unlocked` or `Locked`.
          * 
          * @return builder
          * 
@@ -294,7 +294,7 @@ public final class ProtectedVMArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param sourceVmId Specifies the ID of the virtual machine to back up. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource. This allows the source virtual machine to be deleted without having to remove the backup.
+         * &gt; **Note:** After creation, the `sourceVmId` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource. This allows the source virtual machine to be deleted without having to remove the backup.
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class ProtectedVMArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param sourceVmId Specifies the ID of the virtual machine to back up. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource. This allows the source virtual machine to be deleted without having to remove the backup.
+         * &gt; **Note:** After creation, the `sourceVmId` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource. This allows the source virtual machine to be deleted without having to remove the backup.
          * 
          * @return builder
          * 

@@ -113,14 +113,14 @@ public class ScaleSetStandbyPool extends com.pulumi.resources.CustomResource {
         return this.attachedVirtualMachineScaleSetId;
     }
     /**
-     * An `elasticity_profile` block as defined below.
+     * An `elasticityProfile` block as defined below.
      * 
      */
     @Export(name="elasticityProfile", refs={ScaleSetStandbyPoolElasticityProfile.class}, tree="[0]")
     private Output<ScaleSetStandbyPoolElasticityProfile> elasticityProfile;
 
     /**
-     * @return An `elasticity_profile` block as defined below.
+     * @return An `elasticityProfile` block as defined below.
      * 
      */
     public Output<ScaleSetStandbyPoolElasticityProfile> elasticityProfile() {

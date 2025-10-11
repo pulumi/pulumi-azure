@@ -18,11 +18,11 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// Whether to include the path in the redirected URL. Defaults to `false`
+        /// Whether to include the path in the redirected URL. Defaults to `False`
         /// </summary>
         public readonly bool? IncludePath;
         /// <summary>
-        /// Whether to include the query string in the redirected URL. Default to `false`
+        /// Whether to include the query string in the redirected URL. Default to `False`
         /// </summary>
         public readonly bool? IncludeQueryString;
         /// <summary>
@@ -35,11 +35,11 @@ namespace Pulumi.Azure.Network.Outputs
         public readonly string RedirectType;
         public readonly string? TargetListenerId;
         /// <summary>
-        /// The name of the listener to redirect to. Cannot be set if `target_url` is set.
+        /// The name of the listener to redirect to. Cannot be set if `TargetUrl` is set.
         /// </summary>
         public readonly string? TargetListenerName;
         /// <summary>
-        /// The URL to redirect the request to. Cannot be set if `target_listener_name` is set.
+        /// The URL to redirect the request to. Cannot be set if `TargetListenerName` is set.
         /// </summary>
         public readonly string? TargetUrl;
 

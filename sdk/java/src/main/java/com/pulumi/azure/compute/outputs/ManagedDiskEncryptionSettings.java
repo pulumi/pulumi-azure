@@ -14,26 +14,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ManagedDiskEncryptionSettings {
     /**
-     * @return A `disk_encryption_key` block as defined above.
+     * @return A `diskEncryptionKey` block as defined above.
      * 
      */
     private ManagedDiskEncryptionSettingsDiskEncryptionKey diskEncryptionKey;
     /**
-     * @return A `key_encryption_key` block as defined below.
+     * @return A `keyEncryptionKey` block as defined below.
      * 
      */
     private @Nullable ManagedDiskEncryptionSettingsKeyEncryptionKey keyEncryptionKey;
 
     private ManagedDiskEncryptionSettings() {}
     /**
-     * @return A `disk_encryption_key` block as defined above.
+     * @return A `diskEncryptionKey` block as defined above.
      * 
      */
     public ManagedDiskEncryptionSettingsDiskEncryptionKey diskEncryptionKey() {
         return this.diskEncryptionKey;
     }
     /**
-     * @return A `key_encryption_key` block as defined below.
+     * @return A `keyEncryptionKey` block as defined below.
      * 
      */
     public Optional<ManagedDiskEncryptionSettingsKeyEncryptionKey> keyEncryptionKey() {

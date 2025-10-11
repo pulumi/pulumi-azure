@@ -94,14 +94,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:logicapps/integrationAccountPartner:IntegrationAccountPartner")
 public class IntegrationAccountPartner extends com.pulumi.resources.CustomResource {
     /**
-     * A `business_identity` block as documented below.
+     * A `businessIdentity` block as documented below.
      * 
      */
     @Export(name="businessIdentities", refs={List.class,IntegrationAccountPartnerBusinessIdentity.class}, tree="[0,1]")
     private Output<List<IntegrationAccountPartnerBusinessIdentity>> businessIdentities;
 
     /**
-     * @return A `business_identity` block as documented below.
+     * @return A `businessIdentity` block as documented below.
      * 
      */
     public Output<List<IntegrationAccountPartnerBusinessIdentity>> businessIdentities() {

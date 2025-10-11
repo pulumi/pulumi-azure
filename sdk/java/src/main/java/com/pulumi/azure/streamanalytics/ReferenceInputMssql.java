@@ -129,14 +129,14 @@ public class ReferenceInputMssql extends com.pulumi.resources.CustomResource {
         return this.database;
     }
     /**
-     * The query used to retrieve incremental changes in the reference data from the MS SQL database. Cannot be set when `refresh_type` is `Static`.
+     * The query used to retrieve incremental changes in the reference data from the MS SQL database. Cannot be set when `refreshType` is `Static`.
      * 
      */
     @Export(name="deltaSnapshotQuery", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deltaSnapshotQuery;
 
     /**
-     * @return The query used to retrieve incremental changes in the reference data from the MS SQL database. Cannot be set when `refresh_type` is `Static`.
+     * @return The query used to retrieve incremental changes in the reference data from the MS SQL database. Cannot be set when `refreshType` is `Static`.
      * 
      */
     public Output<Optional<String>> deltaSnapshotQuery() {
@@ -185,14 +185,14 @@ public class ReferenceInputMssql extends com.pulumi.resources.CustomResource {
         return this.password;
     }
     /**
-     * The frequency in `hh:mm:ss` with which the reference data should be retrieved from the MS SQL database e.g. `00:20:00` for every 20 minutes. Must be set when `refresh_type` is `RefreshPeriodicallyWithFull` or `RefreshPeriodicallyWithDelta`.
+     * The frequency in `hh:mm:ss` with which the reference data should be retrieved from the MS SQL database e.g. `00:20:00` for every 20 minutes. Must be set when `refreshType` is `RefreshPeriodicallyWithFull` or `RefreshPeriodicallyWithDelta`.
      * 
      */
     @Export(name="refreshIntervalDuration", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> refreshIntervalDuration;
 
     /**
-     * @return The frequency in `hh:mm:ss` with which the reference data should be retrieved from the MS SQL database e.g. `00:20:00` for every 20 minutes. Must be set when `refresh_type` is `RefreshPeriodicallyWithFull` or `RefreshPeriodicallyWithDelta`.
+     * @return The frequency in `hh:mm:ss` with which the reference data should be retrieved from the MS SQL database e.g. `00:20:00` for every 20 minutes. Must be set when `refreshType` is `RefreshPeriodicallyWithFull` or `RefreshPeriodicallyWithDelta`.
      * 
      */
     public Output<Optional<String>> refreshIntervalDuration() {

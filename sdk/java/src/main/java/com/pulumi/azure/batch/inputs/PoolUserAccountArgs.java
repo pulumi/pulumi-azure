@@ -35,14 +35,14 @@ public final class PoolUserAccountArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The `linux_user_configuration` block defined below is a linux-specific user configuration for the user account. This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
+     * The `linuxUserConfiguration` block defined below is a linux-specific user configuration for the user account. This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
      * 
      */
     @Import(name="linuxUserConfigurations")
     private @Nullable Output<List<PoolUserAccountLinuxUserConfigurationArgs>> linuxUserConfigurations;
 
     /**
-     * @return The `linux_user_configuration` block defined below is a linux-specific user configuration for the user account. This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
+     * @return The `linuxUserConfiguration` block defined below is a linux-specific user configuration for the user account. This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
      * 
      */
     public Optional<Output<List<PoolUserAccountLinuxUserConfigurationArgs>>> linuxUserConfigurations() {
@@ -80,14 +80,14 @@ public final class PoolUserAccountArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The `windows_user_configuration` block defined below is a windows-specific user configuration for the user account. This property can only be specified if the user is on a Windows pool. If not specified and on a Windows pool, the user is created with the default options.
+     * The `windowsUserConfiguration` block defined below is a windows-specific user configuration for the user account. This property can only be specified if the user is on a Windows pool. If not specified and on a Windows pool, the user is created with the default options.
      * 
      */
     @Import(name="windowsUserConfigurations")
     private @Nullable Output<List<PoolUserAccountWindowsUserConfigurationArgs>> windowsUserConfigurations;
 
     /**
-     * @return The `windows_user_configuration` block defined below is a windows-specific user configuration for the user account. This property can only be specified if the user is on a Windows pool. If not specified and on a Windows pool, the user is created with the default options.
+     * @return The `windowsUserConfiguration` block defined below is a windows-specific user configuration for the user account. This property can only be specified if the user is on a Windows pool. If not specified and on a Windows pool, the user is created with the default options.
      * 
      */
     public Optional<Output<List<PoolUserAccountWindowsUserConfigurationArgs>>> windowsUserConfigurations() {
@@ -144,7 +144,7 @@ public final class PoolUserAccountArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param linuxUserConfigurations The `linux_user_configuration` block defined below is a linux-specific user configuration for the user account. This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
+         * @param linuxUserConfigurations The `linuxUserConfiguration` block defined below is a linux-specific user configuration for the user account. This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
          * 
          * @return builder
          * 
@@ -155,7 +155,7 @@ public final class PoolUserAccountArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param linuxUserConfigurations The `linux_user_configuration` block defined below is a linux-specific user configuration for the user account. This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
+         * @param linuxUserConfigurations The `linuxUserConfiguration` block defined below is a linux-specific user configuration for the user account. This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class PoolUserAccountArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param linuxUserConfigurations The `linux_user_configuration` block defined below is a linux-specific user configuration for the user account. This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
+         * @param linuxUserConfigurations The `linuxUserConfiguration` block defined below is a linux-specific user configuration for the user account. This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class PoolUserAccountArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param windowsUserConfigurations The `windows_user_configuration` block defined below is a windows-specific user configuration for the user account. This property can only be specified if the user is on a Windows pool. If not specified and on a Windows pool, the user is created with the default options.
+         * @param windowsUserConfigurations The `windowsUserConfiguration` block defined below is a windows-specific user configuration for the user account. This property can only be specified if the user is on a Windows pool. If not specified and on a Windows pool, the user is created with the default options.
          * 
          * @return builder
          * 
@@ -228,7 +228,7 @@ public final class PoolUserAccountArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param windowsUserConfigurations The `windows_user_configuration` block defined below is a windows-specific user configuration for the user account. This property can only be specified if the user is on a Windows pool. If not specified and on a Windows pool, the user is created with the default options.
+         * @param windowsUserConfigurations The `windowsUserConfiguration` block defined below is a windows-specific user configuration for the user account. This property can only be specified if the user is on a Windows pool. If not specified and on a Windows pool, the user is created with the default options.
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class PoolUserAccountArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param windowsUserConfigurations The `windows_user_configuration` block defined below is a windows-specific user configuration for the user account. This property can only be specified if the user is on a Windows pool. If not specified and on a Windows pool, the user is created with the default options.
+         * @param windowsUserConfigurations The `windowsUserConfiguration` block defined below is a windows-specific user configuration for the user account. This property can only be specified if the user is on a Windows pool. If not specified and on a Windows pool, the user is created with the default options.
          * 
          * @return builder
          * 

@@ -24,13 +24,13 @@ namespace Pulumi.Azure.HDInsight.Outputs
         /// </summary>
         public readonly string? Password;
         /// <summary>
-        /// The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
+        /// The script action which will run on the cluster. One or more `ScriptActions` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableArray<Outputs.KafkaClusterRolesWorkerNodeScriptAction> ScriptActions;
         /// <summary>
         /// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
+        /// &gt; **Note:** Either a `Password` or one or more `SshKeys` must be specified - but not both.
         /// </summary>
         public readonly ImmutableArray<string> SshKeys;
         /// <summary>

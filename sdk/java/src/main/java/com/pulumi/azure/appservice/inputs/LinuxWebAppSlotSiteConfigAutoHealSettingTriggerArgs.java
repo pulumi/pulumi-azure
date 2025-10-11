@@ -35,14 +35,14 @@ public final class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArgs extends c
     }
 
     /**
-     * A `slow_request` block as defined above.
+     * A `slowRequest` block as defined above.
      * 
      */
     @Import(name="slowRequest")
     private @Nullable Output<LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs> slowRequest;
 
     /**
-     * @return A `slow_request` block as defined above.
+     * @return A `slowRequest` block as defined above.
      * 
      */
     public Optional<Output<LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs>> slowRequest() {
@@ -50,14 +50,14 @@ public final class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArgs extends c
     }
 
     /**
-     * One or more `slow_request_with_path` blocks as defined above.
+     * One or more `slowRequestWithPath` blocks as defined above.
      * 
      */
     @Import(name="slowRequestWithPaths")
     private @Nullable Output<List<LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs>> slowRequestWithPaths;
 
     /**
-     * @return One or more `slow_request_with_path` blocks as defined above.
+     * @return One or more `slowRequestWithPath` blocks as defined above.
      * 
      */
     public Optional<Output<List<LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs>>> slowRequestWithPaths() {
@@ -65,14 +65,14 @@ public final class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArgs extends c
     }
 
     /**
-     * One or more `status_code` blocks as defined above.
+     * One or more `statusCode` blocks as defined above.
      * 
      */
     @Import(name="statusCodes")
     private @Nullable Output<List<LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs>> statusCodes;
 
     /**
-     * @return One or more `status_code` blocks as defined above.
+     * @return One or more `statusCode` blocks as defined above.
      * 
      */
     public Optional<Output<List<LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs>>> statusCodes() {
@@ -128,7 +128,7 @@ public final class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArgs extends c
         }
 
         /**
-         * @param slowRequest A `slow_request` block as defined above.
+         * @param slowRequest A `slowRequest` block as defined above.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArgs extends c
         }
 
         /**
-         * @param slowRequest A `slow_request` block as defined above.
+         * @param slowRequest A `slowRequest` block as defined above.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArgs extends c
         }
 
         /**
-         * @param slowRequestWithPaths One or more `slow_request_with_path` blocks as defined above.
+         * @param slowRequestWithPaths One or more `slowRequestWithPath` blocks as defined above.
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArgs extends c
         }
 
         /**
-         * @param slowRequestWithPaths One or more `slow_request_with_path` blocks as defined above.
+         * @param slowRequestWithPaths One or more `slowRequestWithPath` blocks as defined above.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArgs extends c
         }
 
         /**
-         * @param slowRequestWithPaths One or more `slow_request_with_path` blocks as defined above.
+         * @param slowRequestWithPaths One or more `slowRequestWithPath` blocks as defined above.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArgs extends c
         }
 
         /**
-         * @param statusCodes One or more `status_code` blocks as defined above.
+         * @param statusCodes One or more `statusCode` blocks as defined above.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArgs extends c
         }
 
         /**
-         * @param statusCodes One or more `status_code` blocks as defined above.
+         * @param statusCodes One or more `statusCode` blocks as defined above.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArgs extends c
         }
 
         /**
-         * @param statusCodes One or more `status_code` blocks as defined above.
+         * @param statusCodes One or more `statusCode` blocks as defined above.
          * 
          * @return builder
          * 

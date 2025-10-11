@@ -34,14 +34,14 @@ public final class ApplicationGatewayUrlPathMapArgs extends com.pulumi.resources
     }
 
     /**
-     * The Name of the Default Backend Address Pool which should be used for this URL Path Map. Cannot be set if `default_redirect_configuration_name` is set.
+     * The Name of the Default Backend Address Pool which should be used for this URL Path Map. Cannot be set if `defaultRedirectConfigurationName` is set.
      * 
      */
     @Import(name="defaultBackendAddressPoolName")
     private @Nullable Output<String> defaultBackendAddressPoolName;
 
     /**
-     * @return The Name of the Default Backend Address Pool which should be used for this URL Path Map. Cannot be set if `default_redirect_configuration_name` is set.
+     * @return The Name of the Default Backend Address Pool which should be used for this URL Path Map. Cannot be set if `defaultRedirectConfigurationName` is set.
      * 
      */
     public Optional<Output<String>> defaultBackendAddressPoolName() {
@@ -64,14 +64,14 @@ public final class ApplicationGatewayUrlPathMapArgs extends com.pulumi.resources
     }
 
     /**
-     * The Name of the Default Backend HTTP Settings Collection which should be used for this URL Path Map. Cannot be set if `default_redirect_configuration_name` is set.
+     * The Name of the Default Backend HTTP Settings Collection which should be used for this URL Path Map. Cannot be set if `defaultRedirectConfigurationName` is set.
      * 
      */
     @Import(name="defaultBackendHttpSettingsName")
     private @Nullable Output<String> defaultBackendHttpSettingsName;
 
     /**
-     * @return The Name of the Default Backend HTTP Settings Collection which should be used for this URL Path Map. Cannot be set if `default_redirect_configuration_name` is set.
+     * @return The Name of the Default Backend HTTP Settings Collection which should be used for this URL Path Map. Cannot be set if `defaultRedirectConfigurationName` is set.
      * 
      */
     public Optional<Output<String>> defaultBackendHttpSettingsName() {
@@ -94,18 +94,18 @@ public final class ApplicationGatewayUrlPathMapArgs extends com.pulumi.resources
     }
 
     /**
-     * The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either `default_backend_address_pool_name` or `default_backend_http_settings_name` is set.
+     * The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either `defaultBackendAddressPoolName` or `defaultBackendHttpSettingsName` is set.
      * 
-     * &gt; **Note:** Both `default_backend_address_pool_name` and `default_backend_http_settings_name` or `default_redirect_configuration_name` should be specified.
+     * &gt; **Note:** Both `defaultBackendAddressPoolName` and `defaultBackendHttpSettingsName` or `defaultRedirectConfigurationName` should be specified.
      * 
      */
     @Import(name="defaultRedirectConfigurationName")
     private @Nullable Output<String> defaultRedirectConfigurationName;
 
     /**
-     * @return The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either `default_backend_address_pool_name` or `default_backend_http_settings_name` is set.
+     * @return The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either `defaultBackendAddressPoolName` or `defaultBackendHttpSettingsName` is set.
      * 
-     * &gt; **Note:** Both `default_backend_address_pool_name` and `default_backend_http_settings_name` or `default_redirect_configuration_name` should be specified.
+     * &gt; **Note:** Both `defaultBackendAddressPoolName` and `defaultBackendHttpSettingsName` or `defaultRedirectConfigurationName` should be specified.
      * 
      */
     public Optional<Output<String>> defaultRedirectConfigurationName() {
@@ -165,14 +165,14 @@ public final class ApplicationGatewayUrlPathMapArgs extends com.pulumi.resources
     }
 
     /**
-     * One or more `path_rule` blocks as defined above.
+     * One or more `pathRule` blocks as defined above.
      * 
      */
     @Import(name="pathRules", required=true)
     private Output<List<ApplicationGatewayUrlPathMapPathRuleArgs>> pathRules;
 
     /**
-     * @return One or more `path_rule` blocks as defined above.
+     * @return One or more `pathRule` blocks as defined above.
      * 
      */
     public Output<List<ApplicationGatewayUrlPathMapPathRuleArgs>> pathRules() {
@@ -235,7 +235,7 @@ public final class ApplicationGatewayUrlPathMapArgs extends com.pulumi.resources
         }
 
         /**
-         * @param defaultBackendAddressPoolName The Name of the Default Backend Address Pool which should be used for this URL Path Map. Cannot be set if `default_redirect_configuration_name` is set.
+         * @param defaultBackendAddressPoolName The Name of the Default Backend Address Pool which should be used for this URL Path Map. Cannot be set if `defaultRedirectConfigurationName` is set.
          * 
          * @return builder
          * 
@@ -246,7 +246,7 @@ public final class ApplicationGatewayUrlPathMapArgs extends com.pulumi.resources
         }
 
         /**
-         * @param defaultBackendAddressPoolName The Name of the Default Backend Address Pool which should be used for this URL Path Map. Cannot be set if `default_redirect_configuration_name` is set.
+         * @param defaultBackendAddressPoolName The Name of the Default Backend Address Pool which should be used for this URL Path Map. Cannot be set if `defaultRedirectConfigurationName` is set.
          * 
          * @return builder
          * 
@@ -277,7 +277,7 @@ public final class ApplicationGatewayUrlPathMapArgs extends com.pulumi.resources
         }
 
         /**
-         * @param defaultBackendHttpSettingsName The Name of the Default Backend HTTP Settings Collection which should be used for this URL Path Map. Cannot be set if `default_redirect_configuration_name` is set.
+         * @param defaultBackendHttpSettingsName The Name of the Default Backend HTTP Settings Collection which should be used for this URL Path Map. Cannot be set if `defaultRedirectConfigurationName` is set.
          * 
          * @return builder
          * 
@@ -288,7 +288,7 @@ public final class ApplicationGatewayUrlPathMapArgs extends com.pulumi.resources
         }
 
         /**
-         * @param defaultBackendHttpSettingsName The Name of the Default Backend HTTP Settings Collection which should be used for this URL Path Map. Cannot be set if `default_redirect_configuration_name` is set.
+         * @param defaultBackendHttpSettingsName The Name of the Default Backend HTTP Settings Collection which should be used for this URL Path Map. Cannot be set if `defaultRedirectConfigurationName` is set.
          * 
          * @return builder
          * 
@@ -319,9 +319,9 @@ public final class ApplicationGatewayUrlPathMapArgs extends com.pulumi.resources
         }
 
         /**
-         * @param defaultRedirectConfigurationName The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either `default_backend_address_pool_name` or `default_backend_http_settings_name` is set.
+         * @param defaultRedirectConfigurationName The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either `defaultBackendAddressPoolName` or `defaultBackendHttpSettingsName` is set.
          * 
-         * &gt; **Note:** Both `default_backend_address_pool_name` and `default_backend_http_settings_name` or `default_redirect_configuration_name` should be specified.
+         * &gt; **Note:** Both `defaultBackendAddressPoolName` and `defaultBackendHttpSettingsName` or `defaultRedirectConfigurationName` should be specified.
          * 
          * @return builder
          * 
@@ -332,9 +332,9 @@ public final class ApplicationGatewayUrlPathMapArgs extends com.pulumi.resources
         }
 
         /**
-         * @param defaultRedirectConfigurationName The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either `default_backend_address_pool_name` or `default_backend_http_settings_name` is set.
+         * @param defaultRedirectConfigurationName The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either `defaultBackendAddressPoolName` or `defaultBackendHttpSettingsName` is set.
          * 
-         * &gt; **Note:** Both `default_backend_address_pool_name` and `default_backend_http_settings_name` or `default_redirect_configuration_name` should be specified.
+         * &gt; **Note:** Both `defaultBackendAddressPoolName` and `defaultBackendHttpSettingsName` or `defaultRedirectConfigurationName` should be specified.
          * 
          * @return builder
          * 
@@ -416,7 +416,7 @@ public final class ApplicationGatewayUrlPathMapArgs extends com.pulumi.resources
         }
 
         /**
-         * @param pathRules One or more `path_rule` blocks as defined above.
+         * @param pathRules One or more `pathRule` blocks as defined above.
          * 
          * @return builder
          * 
@@ -427,7 +427,7 @@ public final class ApplicationGatewayUrlPathMapArgs extends com.pulumi.resources
         }
 
         /**
-         * @param pathRules One or more `path_rule` blocks as defined above.
+         * @param pathRules One or more `pathRule` blocks as defined above.
          * 
          * @return builder
          * 
@@ -437,7 +437,7 @@ public final class ApplicationGatewayUrlPathMapArgs extends com.pulumi.resources
         }
 
         /**
-         * @param pathRules One or more `path_rule` blocks as defined above.
+         * @param pathRules One or more `pathRule` blocks as defined above.
          * 
          * @return builder
          * 

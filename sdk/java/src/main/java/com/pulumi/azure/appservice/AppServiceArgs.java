@@ -58,14 +58,14 @@ public final class AppServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `auth_settings` block as defined below.
+     * A `authSettings` block as defined below.
      * 
      */
     @Import(name="authSettings")
     private @Nullable Output<AppServiceAuthSettingsArgs> authSettings;
 
     /**
-     * @return A `auth_settings` block as defined below.
+     * @return A `authSettings` block as defined below.
      * 
      */
     public Optional<Output<AppServiceAuthSettingsArgs>> authSettings() {
@@ -118,14 +118,14 @@ public final class AppServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `client_cert_enabled` must be set to `true`, otherwise this parameter is ignored.
+     * Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `clientCertEnabled` must be set to `true`, otherwise this parameter is ignored.
      * 
      */
     @Import(name="clientCertMode")
     private @Nullable Output<String> clientCertMode;
 
     /**
-     * @return Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `client_cert_enabled` must be set to `true`, otherwise this parameter is ignored.
+     * @return Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `clientCertEnabled` must be set to `true`, otherwise this parameter is ignored.
      * 
      */
     public Optional<Output<String>> clientCertMode() {
@@ -133,14 +133,14 @@ public final class AppServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `connection_string` blocks as defined below.
+     * One or more `connectionString` blocks as defined below.
      * 
      */
     @Import(name="connectionStrings")
     private @Nullable Output<List<AppServiceConnectionStringArgs>> connectionStrings;
 
     /**
-     * @return One or more `connection_string` blocks as defined below.
+     * @return One or more `connectionString` blocks as defined below.
      * 
      */
     public Optional<Output<List<AppServiceConnectionStringArgs>>> connectionStrings() {
@@ -268,14 +268,14 @@ public final class AppServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `site_config` block as defined below.
+     * A `siteConfig` block as defined below.
      * 
      */
     @Import(name="siteConfig")
     private @Nullable Output<AppServiceSiteConfigArgs> siteConfig;
 
     /**
-     * @return A `site_config` block as defined below.
+     * @return A `siteConfig` block as defined below.
      * 
      */
     public Optional<Output<AppServiceSiteConfigArgs>> siteConfig() {
@@ -283,14 +283,14 @@ public final class AppServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `source_control` block as defined below.
+     * A `sourceControl` block as defined below.
      * 
      */
     @Import(name="sourceControl")
     private @Nullable Output<AppServiceSourceControlArgs> sourceControl;
 
     /**
-     * @return A `source_control` block as defined below.
+     * @return A `sourceControl` block as defined below.
      * 
      */
     public Optional<Output<AppServiceSourceControlArgs>> sourceControl() {
@@ -298,14 +298,14 @@ public final class AppServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `storage_account` blocks as defined below.
+     * One or more `storageAccount` blocks as defined below.
      * 
      */
     @Import(name="storageAccounts")
     private @Nullable Output<List<AppServiceStorageAccountArgs>> storageAccounts;
 
     /**
-     * @return One or more `storage_account` blocks as defined below.
+     * @return One or more `storageAccount` blocks as defined below.
      * 
      */
     public Optional<Output<List<AppServiceStorageAccountArgs>>> storageAccounts() {
@@ -413,7 +413,7 @@ public final class AppServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authSettings A `auth_settings` block as defined below.
+         * @param authSettings A `authSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -424,7 +424,7 @@ public final class AppServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authSettings A `auth_settings` block as defined below.
+         * @param authSettings A `authSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -497,7 +497,7 @@ public final class AppServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientCertMode Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `client_cert_enabled` must be set to `true`, otherwise this parameter is ignored.
+         * @param clientCertMode Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `clientCertEnabled` must be set to `true`, otherwise this parameter is ignored.
          * 
          * @return builder
          * 
@@ -508,7 +508,7 @@ public final class AppServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientCertMode Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `client_cert_enabled` must be set to `true`, otherwise this parameter is ignored.
+         * @param clientCertMode Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `clientCertEnabled` must be set to `true`, otherwise this parameter is ignored.
          * 
          * @return builder
          * 
@@ -518,7 +518,7 @@ public final class AppServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectionStrings One or more `connection_string` blocks as defined below.
+         * @param connectionStrings One or more `connectionString` blocks as defined below.
          * 
          * @return builder
          * 
@@ -529,7 +529,7 @@ public final class AppServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectionStrings One or more `connection_string` blocks as defined below.
+         * @param connectionStrings One or more `connectionString` blocks as defined below.
          * 
          * @return builder
          * 
@@ -539,7 +539,7 @@ public final class AppServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectionStrings One or more `connection_string` blocks as defined below.
+         * @param connectionStrings One or more `connectionString` blocks as defined below.
          * 
          * @return builder
          * 
@@ -717,7 +717,7 @@ public final class AppServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param siteConfig A `site_config` block as defined below.
+         * @param siteConfig A `siteConfig` block as defined below.
          * 
          * @return builder
          * 
@@ -728,7 +728,7 @@ public final class AppServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param siteConfig A `site_config` block as defined below.
+         * @param siteConfig A `siteConfig` block as defined below.
          * 
          * @return builder
          * 
@@ -738,7 +738,7 @@ public final class AppServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceControl A `source_control` block as defined below.
+         * @param sourceControl A `sourceControl` block as defined below.
          * 
          * @return builder
          * 
@@ -749,7 +749,7 @@ public final class AppServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceControl A `source_control` block as defined below.
+         * @param sourceControl A `sourceControl` block as defined below.
          * 
          * @return builder
          * 
@@ -759,7 +759,7 @@ public final class AppServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccounts One or more `storage_account` blocks as defined below.
+         * @param storageAccounts One or more `storageAccount` blocks as defined below.
          * 
          * @return builder
          * 
@@ -770,7 +770,7 @@ public final class AppServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccounts One or more `storage_account` blocks as defined below.
+         * @param storageAccounts One or more `storageAccount` blocks as defined below.
          * 
          * @return builder
          * 
@@ -780,7 +780,7 @@ public final class AppServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccounts One or more `storage_account` blocks as defined below.
+         * @param storageAccounts One or more `storageAccount` blocks as defined below.
          * 
          * @return builder
          * 

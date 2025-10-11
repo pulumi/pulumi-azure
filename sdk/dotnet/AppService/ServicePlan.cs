@@ -79,7 +79,7 @@ namespace Pulumi.Azure.AppService
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum number of workers to use in an Elastic SKU Plan or Premium Plan that have `premium_plan_auto_scale_enabled` set to `true`. Cannot be set unless using an Elastic or Premium SKU.
+        /// The maximum number of workers to use in an Elastic SKU Plan or Premium Plan that have `PremiumPlanAutoScaleEnabled` set to `True`. Cannot be set unless using an Elastic or Premium SKU.
         /// </summary>
         [Output("maximumElasticWorkerCount")]
         public Output<int> MaximumElasticWorkerCount { get; private set; } = null!;
@@ -97,19 +97,19 @@ namespace Pulumi.Azure.AppService
         public Output<string> OsType { get; private set; } = null!;
 
         /// <summary>
-        /// Should Per Site Scaling be enabled. Defaults to `false`.
+        /// Should Per Site Scaling be enabled. Defaults to `False`.
         /// </summary>
         [Output("perSiteScalingEnabled")]
         public Output<bool?> PerSiteScalingEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Should automatic scaling be enabled for the Premium SKU Plan. Defaults to `false`. Cannot be set unless using a Premium SKU.
+        /// Should automatic scaling be enabled for the Premium SKU Plan. Defaults to `False`. Cannot be set unless using a Premium SKU.
         /// </summary>
         [Output("premiumPlanAutoScaleEnabled")]
         public Output<bool?> PremiumPlanAutoScaleEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Whether this is a reserved Service Plan Type. `true` if `os_type` is `Linux`, otherwise `false`.
+        /// Whether this is a reserved Service Plan Type. `True` if `OsType` is `Linux`, otherwise `False`.
         /// </summary>
         [Output("reserved")]
         public Output<bool> Reserved { get; private set; } = null!;
@@ -145,9 +145,9 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// Should the Service Plan balance across Availability Zones in the region.
         /// 
-        /// &gt; **Note:** If this setting is set to `true` and the `worker_count` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
+        /// &gt; **Note:** If this setting is set to `True` and the `WorkerCount` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
         /// 
-        /// &gt; **Note:** `zone_balancing_enabled` can only be set to `true` on Consumption, Premium, Isolated, or Workflow SKUs. It can be disabled. To enable it, the `worker_count` must be greater than `1`, and the Service Plan must support more than one availability zone. In all other cases, changing this forces a new resource to be created. For more information, please see the [Availability Zone Support](https://learn.microsoft.com/en-us/azure/reliability/reliability-app-service?tabs=azurecli&amp;pivots=free-shared-basic#availability-zone-support).
+        /// &gt; **Note:** `ZoneBalancingEnabled` can only be set to `True` on Consumption, Premium, Isolated, or Workflow SKUs. It can be disabled. To enable it, the `WorkerCount` must be greater than `1`, and the Service Plan must support more than one availability zone. In all other cases, changing this forces a new resource to be created. For more information, please see the [Availability Zone Support](https://learn.microsoft.com/en-us/azure/reliability/reliability-app-service?tabs=azurecli&amp;pivots=free-shared-basic#availability-zone-support).
         /// </summary>
         [Output("zoneBalancingEnabled")]
         public Output<bool?> ZoneBalancingEnabled { get; private set; } = null!;
@@ -213,7 +213,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The maximum number of workers to use in an Elastic SKU Plan or Premium Plan that have `premium_plan_auto_scale_enabled` set to `true`. Cannot be set unless using an Elastic or Premium SKU.
+        /// The maximum number of workers to use in an Elastic SKU Plan or Premium Plan that have `PremiumPlanAutoScaleEnabled` set to `True`. Cannot be set unless using an Elastic or Premium SKU.
         /// </summary>
         [Input("maximumElasticWorkerCount")]
         public Input<int>? MaximumElasticWorkerCount { get; set; }
@@ -231,13 +231,13 @@ namespace Pulumi.Azure.AppService
         public Input<string> OsType { get; set; } = null!;
 
         /// <summary>
-        /// Should Per Site Scaling be enabled. Defaults to `false`.
+        /// Should Per Site Scaling be enabled. Defaults to `False`.
         /// </summary>
         [Input("perSiteScalingEnabled")]
         public Input<bool>? PerSiteScalingEnabled { get; set; }
 
         /// <summary>
-        /// Should automatic scaling be enabled for the Premium SKU Plan. Defaults to `false`. Cannot be set unless using a Premium SKU.
+        /// Should automatic scaling be enabled for the Premium SKU Plan. Defaults to `False`. Cannot be set unless using a Premium SKU.
         /// </summary>
         [Input("premiumPlanAutoScaleEnabled")]
         public Input<bool>? PremiumPlanAutoScaleEnabled { get; set; }
@@ -279,9 +279,9 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// Should the Service Plan balance across Availability Zones in the region.
         /// 
-        /// &gt; **Note:** If this setting is set to `true` and the `worker_count` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
+        /// &gt; **Note:** If this setting is set to `True` and the `WorkerCount` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
         /// 
-        /// &gt; **Note:** `zone_balancing_enabled` can only be set to `true` on Consumption, Premium, Isolated, or Workflow SKUs. It can be disabled. To enable it, the `worker_count` must be greater than `1`, and the Service Plan must support more than one availability zone. In all other cases, changing this forces a new resource to be created. For more information, please see the [Availability Zone Support](https://learn.microsoft.com/en-us/azure/reliability/reliability-app-service?tabs=azurecli&amp;pivots=free-shared-basic#availability-zone-support).
+        /// &gt; **Note:** `ZoneBalancingEnabled` can only be set to `True` on Consumption, Premium, Isolated, or Workflow SKUs. It can be disabled. To enable it, the `WorkerCount` must be greater than `1`, and the Service Plan must support more than one availability zone. In all other cases, changing this forces a new resource to be created. For more information, please see the [Availability Zone Support](https://learn.microsoft.com/en-us/azure/reliability/reliability-app-service?tabs=azurecli&amp;pivots=free-shared-basic#availability-zone-support).
         /// </summary>
         [Input("zoneBalancingEnabled")]
         public Input<bool>? ZoneBalancingEnabled { get; set; }
@@ -315,7 +315,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The maximum number of workers to use in an Elastic SKU Plan or Premium Plan that have `premium_plan_auto_scale_enabled` set to `true`. Cannot be set unless using an Elastic or Premium SKU.
+        /// The maximum number of workers to use in an Elastic SKU Plan or Premium Plan that have `PremiumPlanAutoScaleEnabled` set to `True`. Cannot be set unless using an Elastic or Premium SKU.
         /// </summary>
         [Input("maximumElasticWorkerCount")]
         public Input<int>? MaximumElasticWorkerCount { get; set; }
@@ -333,19 +333,19 @@ namespace Pulumi.Azure.AppService
         public Input<string>? OsType { get; set; }
 
         /// <summary>
-        /// Should Per Site Scaling be enabled. Defaults to `false`.
+        /// Should Per Site Scaling be enabled. Defaults to `False`.
         /// </summary>
         [Input("perSiteScalingEnabled")]
         public Input<bool>? PerSiteScalingEnabled { get; set; }
 
         /// <summary>
-        /// Should automatic scaling be enabled for the Premium SKU Plan. Defaults to `false`. Cannot be set unless using a Premium SKU.
+        /// Should automatic scaling be enabled for the Premium SKU Plan. Defaults to `False`. Cannot be set unless using a Premium SKU.
         /// </summary>
         [Input("premiumPlanAutoScaleEnabled")]
         public Input<bool>? PremiumPlanAutoScaleEnabled { get; set; }
 
         /// <summary>
-        /// Whether this is a reserved Service Plan Type. `true` if `os_type` is `Linux`, otherwise `false`.
+        /// Whether this is a reserved Service Plan Type. `True` if `OsType` is `Linux`, otherwise `False`.
         /// </summary>
         [Input("reserved")]
         public Input<bool>? Reserved { get; set; }
@@ -387,9 +387,9 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// Should the Service Plan balance across Availability Zones in the region.
         /// 
-        /// &gt; **Note:** If this setting is set to `true` and the `worker_count` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
+        /// &gt; **Note:** If this setting is set to `True` and the `WorkerCount` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
         /// 
-        /// &gt; **Note:** `zone_balancing_enabled` can only be set to `true` on Consumption, Premium, Isolated, or Workflow SKUs. It can be disabled. To enable it, the `worker_count` must be greater than `1`, and the Service Plan must support more than one availability zone. In all other cases, changing this forces a new resource to be created. For more information, please see the [Availability Zone Support](https://learn.microsoft.com/en-us/azure/reliability/reliability-app-service?tabs=azurecli&amp;pivots=free-shared-basic#availability-zone-support).
+        /// &gt; **Note:** `ZoneBalancingEnabled` can only be set to `True` on Consumption, Premium, Isolated, or Workflow SKUs. It can be disabled. To enable it, the `WorkerCount` must be greater than `1`, and the Service Plan must support more than one availability zone. In all other cases, changing this forces a new resource to be created. For more information, please see the [Availability Zone Support](https://learn.microsoft.com/en-us/azure/reliability/reliability-app-service?tabs=azurecli&amp;pivots=free-shared-basic#availability-zone-support).
         /// </summary>
         [Input("zoneBalancingEnabled")]
         public Input<bool>? ZoneBalancingEnabled { get; set; }

@@ -14,15 +14,15 @@ namespace Pulumi.Azure.ContainerApp.Outputs
     public sealed class JobTemplate
     {
         /// <summary>
-        /// A `container` block as defined below.
+        /// A `Container` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.JobTemplateContainer> Containers;
         /// <summary>
-        /// A `init_container` block as defined below.
+        /// A `InitContainer` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.JobTemplateInitContainer> InitContainers;
         /// <summary>
-        /// A `volume` block as defined below.
+        /// A `Volume` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.JobTemplateVolume> Volumes;
 

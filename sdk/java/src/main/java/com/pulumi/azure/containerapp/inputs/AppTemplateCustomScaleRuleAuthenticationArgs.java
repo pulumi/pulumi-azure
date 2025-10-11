@@ -30,14 +30,14 @@ public final class AppTemplateCustomScaleRuleAuthenticationArgs extends com.pulu
     }
 
     /**
-     * The Trigger Parameter name to use the supply the value retrieved from the `secret_name`.
+     * The Trigger Parameter name to use the supply the value retrieved from the `secretName`.
      * 
      */
     @Import(name="triggerParameter", required=true)
     private Output<String> triggerParameter;
 
     /**
-     * @return The Trigger Parameter name to use the supply the value retrieved from the `secret_name`.
+     * @return The Trigger Parameter name to use the supply the value retrieved from the `secretName`.
      * 
      */
     public Output<String> triggerParameter() {
@@ -91,7 +91,7 @@ public final class AppTemplateCustomScaleRuleAuthenticationArgs extends com.pulu
         }
 
         /**
-         * @param triggerParameter The Trigger Parameter name to use the supply the value retrieved from the `secret_name`.
+         * @param triggerParameter The Trigger Parameter name to use the supply the value retrieved from the `secretName`.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class AppTemplateCustomScaleRuleAuthenticationArgs extends com.pulu
         }
 
         /**
-         * @param triggerParameter The Trigger Parameter name to use the supply the value retrieved from the `secret_name`.
+         * @param triggerParameter The Trigger Parameter name to use the supply the value retrieved from the `secretName`.
          * 
          * @return builder
          * 

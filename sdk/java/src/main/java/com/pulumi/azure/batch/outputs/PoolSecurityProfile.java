@@ -30,9 +30,9 @@ public final class PoolSecurityProfile {
     /**
      * @return Whether to enable virtual trusted platform module (vTPM) for the Virtual Machine or Virtual Machine Scale Set. Possible values are `true` and `false`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** `security_profile` block can only be specified during creation and does not support updates.
+     * &gt; **Note:** `securityProfile` block can only be specified during creation and does not support updates.
      * 
-     * &gt; **Note:** `security_type` must be specified to set UEFI related properties including `secure_boot_enabled` and `vtpm_enabled`.
+     * &gt; **Note:** `securityType` must be specified to set UEFI related properties including `secureBootEnabled` and `vtpmEnabled`.
      * 
      */
     private @Nullable Boolean vtpmEnabled;
@@ -62,9 +62,9 @@ public final class PoolSecurityProfile {
     /**
      * @return Whether to enable virtual trusted platform module (vTPM) for the Virtual Machine or Virtual Machine Scale Set. Possible values are `true` and `false`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** `security_profile` block can only be specified during creation and does not support updates.
+     * &gt; **Note:** `securityProfile` block can only be specified during creation and does not support updates.
      * 
-     * &gt; **Note:** `security_type` must be specified to set UEFI related properties including `secure_boot_enabled` and `vtpm_enabled`.
+     * &gt; **Note:** `securityType` must be specified to set UEFI related properties including `secureBootEnabled` and `vtpmEnabled`.
      * 
      */
     public Optional<Boolean> vtpmEnabled() {

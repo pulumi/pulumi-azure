@@ -80,7 +80,7 @@ public final class CNameRecordState extends com.pulumi.resources.ResourceArgs {
     /**
      * A mapping of tags to assign to the resource.
      * 
-     * &gt; **Note:** either `record` OR `target_resource_id` must be specified, but not both.
+     * &gt; **Note:** either `record` OR `targetResourceId` must be specified, but not both.
      * 
      */
     @Import(name="tags")
@@ -89,7 +89,7 @@ public final class CNameRecordState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return A mapping of tags to assign to the resource.
      * 
-     * &gt; **Note:** either `record` OR `target_resource_id` must be specified, but not both.
+     * &gt; **Note:** either `record` OR `targetResourceId` must be specified, but not both.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -259,7 +259,7 @@ public final class CNameRecordState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tags A mapping of tags to assign to the resource.
          * 
-         * &gt; **Note:** either `record` OR `target_resource_id` must be specified, but not both.
+         * &gt; **Note:** either `record` OR `targetResourceId` must be specified, but not both.
          * 
          * @return builder
          * 
@@ -272,7 +272,7 @@ public final class CNameRecordState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tags A mapping of tags to assign to the resource.
          * 
-         * &gt; **Note:** either `record` OR `target_resource_id` must be specified, but not both.
+         * &gt; **Note:** either `record` OR `targetResourceId` must be specified, but not both.
          * 
          * @return builder
          * 

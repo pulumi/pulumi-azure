@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string>? BackendAddressPoolId { get; set; }
 
         /// <summary>
-        /// The Name of the Backend Address Pool which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
+        /// The Name of the Backend Address Pool which should be used for this Routing Rule. Cannot be set if `RedirectConfigurationName` is set.
         /// </summary>
         [Input("backendAddressPoolName")]
         public Input<string>? BackendAddressPoolName { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string>? BackendHttpSettingsId { get; set; }
 
         /// <summary>
-        /// The Name of the Backend HTTP Settings Collection which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
+        /// The Name of the Backend HTTP Settings Collection which should be used for this Routing Rule. Cannot be set if `RedirectConfigurationName` is set.
         /// </summary>
         [Input("backendHttpSettingsName")]
         public Input<string>? BackendHttpSettingsName { get; set; }
@@ -63,7 +63,7 @@ namespace Pulumi.Azure.Network.Inputs
         /// <summary>
         /// Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
         /// 
-        /// &gt; **Note:** `priority` is required when `sku[0].tier` is set to `*_v2`.
+        /// &gt; **Note:** `Priority` is required when `sku[0].tier` is set to `*_v2`.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
@@ -75,7 +75,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string>? RedirectConfigurationId { get; set; }
 
         /// <summary>
-        /// The Name of the Redirect Configuration which should be used for this Routing Rule. Cannot be set if either `backend_address_pool_name` or `backend_http_settings_name` is set.
+        /// The Name of the Redirect Configuration which should be used for this Routing Rule. Cannot be set if either `BackendAddressPoolName` or `BackendHttpSettingsName` is set.
         /// </summary>
         [Input("redirectConfigurationName")]
         public Input<string>? RedirectConfigurationName { get; set; }
@@ -89,7 +89,7 @@ namespace Pulumi.Azure.Network.Inputs
         /// <summary>
         /// The Name of the Rewrite Rule Set which should be used for this Routing Rule. Only valid for v2 SKUs.
         /// 
-        /// &gt; **Note:** `backend_address_pool_name`, `backend_http_settings_name`, `redirect_configuration_name`, and `rewrite_rule_set_name` are applicable only when `rule_type` is `Basic`.
+        /// &gt; **Note:** `BackendAddressPoolName`, `BackendHttpSettingsName`, `RedirectConfigurationName`, and `RewriteRuleSetName` are applicable only when `RuleType` is `Basic`.
         /// </summary>
         [Input("rewriteRuleSetName")]
         public Input<string>? RewriteRuleSetName { get; set; }

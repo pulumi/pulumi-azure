@@ -17,14 +17,14 @@ public final class WindowsWebAppLogsHttpLogsArgs extends com.pulumi.resources.Re
     public static final WindowsWebAppLogsHttpLogsArgs Empty = new WindowsWebAppLogsHttpLogsArgs();
 
     /**
-     * A `azure_blob_storage_http` block as defined below.
+     * A `azureBlobStorageHttp` block as defined below.
      * 
      */
     @Import(name="azureBlobStorage")
     private @Nullable Output<WindowsWebAppLogsHttpLogsAzureBlobStorageArgs> azureBlobStorage;
 
     /**
-     * @return A `azure_blob_storage_http` block as defined below.
+     * @return A `azureBlobStorageHttp` block as defined below.
      * 
      */
     public Optional<Output<WindowsWebAppLogsHttpLogsAzureBlobStorageArgs>> azureBlobStorage() {
@@ -32,14 +32,14 @@ public final class WindowsWebAppLogsHttpLogsArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * A `file_system` block as defined above.
+     * A `fileSystem` block as defined above.
      * 
      */
     @Import(name="fileSystem")
     private @Nullable Output<WindowsWebAppLogsHttpLogsFileSystemArgs> fileSystem;
 
     /**
-     * @return A `file_system` block as defined above.
+     * @return A `fileSystem` block as defined above.
      * 
      */
     public Optional<Output<WindowsWebAppLogsHttpLogsFileSystemArgs>> fileSystem() {
@@ -72,7 +72,7 @@ public final class WindowsWebAppLogsHttpLogsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param azureBlobStorage A `azure_blob_storage_http` block as defined below.
+         * @param azureBlobStorage A `azureBlobStorageHttp` block as defined below.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class WindowsWebAppLogsHttpLogsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param azureBlobStorage A `azure_blob_storage_http` block as defined below.
+         * @param azureBlobStorage A `azureBlobStorageHttp` block as defined below.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class WindowsWebAppLogsHttpLogsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param fileSystem A `file_system` block as defined above.
+         * @param fileSystem A `fileSystem` block as defined above.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class WindowsWebAppLogsHttpLogsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param fileSystem A `file_system` block as defined above.
+         * @param fileSystem A `fileSystem` block as defined above.
          * 
          * @return builder
          * 

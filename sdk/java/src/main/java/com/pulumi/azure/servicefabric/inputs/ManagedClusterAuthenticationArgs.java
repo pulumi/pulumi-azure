@@ -18,14 +18,14 @@ public final class ManagedClusterAuthenticationArgs extends com.pulumi.resources
     public static final ManagedClusterAuthenticationArgs Empty = new ManagedClusterAuthenticationArgs();
 
     /**
-     * A `active_directory` block as defined above.
+     * A `activeDirectory` block as defined above.
      * 
      */
     @Import(name="activeDirectory")
     private @Nullable Output<ManagedClusterAuthenticationActiveDirectoryArgs> activeDirectory;
 
     /**
-     * @return A `active_directory` block as defined above.
+     * @return A `activeDirectory` block as defined above.
      * 
      */
     public Optional<Output<ManagedClusterAuthenticationActiveDirectoryArgs>> activeDirectory() {
@@ -73,7 +73,7 @@ public final class ManagedClusterAuthenticationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param activeDirectory A `active_directory` block as defined above.
+         * @param activeDirectory A `activeDirectory` block as defined above.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class ManagedClusterAuthenticationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param activeDirectory A `active_directory` block as defined above.
+         * @param activeDirectory A `activeDirectory` block as defined above.
          * 
          * @return builder
          * 

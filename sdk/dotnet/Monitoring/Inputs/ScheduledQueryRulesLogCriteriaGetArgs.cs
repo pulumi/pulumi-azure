@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         private InputList<Inputs.ScheduledQueryRulesLogCriteriaDimensionGetArgs>? _dimensions;
 
         /// <summary>
-        /// A `dimension` block as defined below.
+        /// A `Dimension` block as defined below.
         /// </summary>
         public InputList<Inputs.ScheduledQueryRulesLogCriteriaDimensionGetArgs> Dimensions
         {

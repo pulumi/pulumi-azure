@@ -18,14 +18,14 @@ public final class ManagementPolicyRuleActionsArgs extends com.pulumi.resources.
     public static final ManagementPolicyRuleActionsArgs Empty = new ManagementPolicyRuleActionsArgs();
 
     /**
-     * A `base_blob` block as documented below.
+     * A `baseBlob` block as documented below.
      * 
      */
     @Import(name="baseBlob")
     private @Nullable Output<ManagementPolicyRuleActionsBaseBlobArgs> baseBlob;
 
     /**
-     * @return A `base_blob` block as documented below.
+     * @return A `baseBlob` block as documented below.
      * 
      */
     public Optional<Output<ManagementPolicyRuleActionsBaseBlobArgs>> baseBlob() {
@@ -89,7 +89,7 @@ public final class ManagementPolicyRuleActionsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param baseBlob A `base_blob` block as documented below.
+         * @param baseBlob A `baseBlob` block as documented below.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class ManagementPolicyRuleActionsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param baseBlob A `base_blob` block as documented below.
+         * @param baseBlob A `baseBlob` block as documented below.
          * 
          * @return builder
          * 

@@ -339,19 +339,19 @@ namespace Pulumi.Azure.MSSql
         public Output<string> PartnerManagedInstanceId { get; private set; } = null!;
 
         /// <summary>
-        /// A `partner_region` block as defined below.
+        /// A `PartnerRegion` block as defined below.
         /// </summary>
         [Output("partnerRegions")]
         public Output<ImmutableArray<Outputs.ManagedInstanceFailoverGroupPartnerRegion>> PartnerRegions { get; private set; } = null!;
 
         /// <summary>
-        /// A `read_write_endpoint_failover_policy` block as defined below.
+        /// A `ReadWriteEndpointFailoverPolicy` block as defined below.
         /// </summary>
         [Output("readWriteEndpointFailoverPolicy")]
         public Output<Outputs.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy> ReadWriteEndpointFailoverPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Failover policy for the read-only endpoint. Defaults to `true`.
+        /// Failover policy for the read-only endpoint. Defaults to `True`.
         /// </summary>
         [Output("readonlyEndpointFailoverPolicyEnabled")]
         public Output<bool?> ReadonlyEndpointFailoverPolicyEnabled { get; private set; } = null!;
@@ -443,13 +443,13 @@ namespace Pulumi.Azure.MSSql
         public Input<string> PartnerManagedInstanceId { get; set; } = null!;
 
         /// <summary>
-        /// A `read_write_endpoint_failover_policy` block as defined below.
+        /// A `ReadWriteEndpointFailoverPolicy` block as defined below.
         /// </summary>
         [Input("readWriteEndpointFailoverPolicy", required: true)]
         public Input<Inputs.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs> ReadWriteEndpointFailoverPolicy { get; set; } = null!;
 
         /// <summary>
-        /// Failover policy for the read-only endpoint. Defaults to `true`.
+        /// Failover policy for the read-only endpoint. Defaults to `True`.
         /// </summary>
         [Input("readonlyEndpointFailoverPolicyEnabled")]
         public Input<bool>? ReadonlyEndpointFailoverPolicyEnabled { get; set; }
@@ -496,7 +496,7 @@ namespace Pulumi.Azure.MSSql
         private InputList<Inputs.ManagedInstanceFailoverGroupPartnerRegionGetArgs>? _partnerRegions;
 
         /// <summary>
-        /// A `partner_region` block as defined below.
+        /// A `PartnerRegion` block as defined below.
         /// </summary>
         public InputList<Inputs.ManagedInstanceFailoverGroupPartnerRegionGetArgs> PartnerRegions
         {
@@ -505,13 +505,13 @@ namespace Pulumi.Azure.MSSql
         }
 
         /// <summary>
-        /// A `read_write_endpoint_failover_policy` block as defined below.
+        /// A `ReadWriteEndpointFailoverPolicy` block as defined below.
         /// </summary>
         [Input("readWriteEndpointFailoverPolicy")]
         public Input<Inputs.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyGetArgs>? ReadWriteEndpointFailoverPolicy { get; set; }
 
         /// <summary>
-        /// Failover policy for the read-only endpoint. Defaults to `true`.
+        /// Failover policy for the read-only endpoint. Defaults to `True`.
         /// </summary>
         [Input("readonlyEndpointFailoverPolicyEnabled")]
         public Input<bool>? ReadonlyEndpointFailoverPolicyEnabled { get; set; }

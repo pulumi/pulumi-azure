@@ -18,14 +18,14 @@ public final class ManagedDiskEncryptionSettingsArgs extends com.pulumi.resource
     public static final ManagedDiskEncryptionSettingsArgs Empty = new ManagedDiskEncryptionSettingsArgs();
 
     /**
-     * A `disk_encryption_key` block as defined above.
+     * A `diskEncryptionKey` block as defined above.
      * 
      */
     @Import(name="diskEncryptionKey", required=true)
     private Output<ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs> diskEncryptionKey;
 
     /**
-     * @return A `disk_encryption_key` block as defined above.
+     * @return A `diskEncryptionKey` block as defined above.
      * 
      */
     public Output<ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs> diskEncryptionKey() {
@@ -33,14 +33,14 @@ public final class ManagedDiskEncryptionSettingsArgs extends com.pulumi.resource
     }
 
     /**
-     * A `key_encryption_key` block as defined below.
+     * A `keyEncryptionKey` block as defined below.
      * 
      */
     @Import(name="keyEncryptionKey")
     private @Nullable Output<ManagedDiskEncryptionSettingsKeyEncryptionKeyArgs> keyEncryptionKey;
 
     /**
-     * @return A `key_encryption_key` block as defined below.
+     * @return A `keyEncryptionKey` block as defined below.
      * 
      */
     public Optional<Output<ManagedDiskEncryptionSettingsKeyEncryptionKeyArgs>> keyEncryptionKey() {
@@ -73,7 +73,7 @@ public final class ManagedDiskEncryptionSettingsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param diskEncryptionKey A `disk_encryption_key` block as defined above.
+         * @param diskEncryptionKey A `diskEncryptionKey` block as defined above.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class ManagedDiskEncryptionSettingsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param diskEncryptionKey A `disk_encryption_key` block as defined above.
+         * @param diskEncryptionKey A `diskEncryptionKey` block as defined above.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class ManagedDiskEncryptionSettingsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param keyEncryptionKey A `key_encryption_key` block as defined below.
+         * @param keyEncryptionKey A `keyEncryptionKey` block as defined below.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class ManagedDiskEncryptionSettingsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param keyEncryptionKey A `key_encryption_key` block as defined below.
+         * @param keyEncryptionKey A `keyEncryptionKey` block as defined below.
          * 
          * @return builder
          * 

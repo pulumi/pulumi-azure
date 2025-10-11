@@ -13,13 +13,13 @@ namespace Pulumi.Azure.ContainerService.Inputs
     public sealed class KubernetesClusterNetworkProfileAdvancedNetworkingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Is observability enabled? Defaults to `false`.
+        /// Is observability enabled? Defaults to `False`.
         /// </summary>
         [Input("observabilityEnabled")]
         public Input<bool>? ObservabilityEnabled { get; set; }
 
         /// <summary>
-        /// Is security enabled? Defaults to `false`.
+        /// Is security enabled? Defaults to `False`.
         /// </summary>
         [Input("securityEnabled")]
         public Input<bool>? SecurityEnabled { get; set; }

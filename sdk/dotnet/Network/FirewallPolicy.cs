@@ -75,13 +75,13 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableArray<string>> ChildPolicies { get; private set; } = null!;
 
         /// <summary>
-        /// A `dns` block as defined below.
+        /// A `Dns` block as defined below.
         /// </summary>
         [Output("dns")]
         public Output<Outputs.FirewallPolicyDns?> Dns { get; private set; } = null!;
 
         /// <summary>
-        /// A `explicit_proxy` block as defined below.
+        /// A `ExplicitProxy` block as defined below.
         /// </summary>
         [Output("explicitProxy")]
         public Output<Outputs.FirewallPolicyExplicitProxy?> ExplicitProxy { get; private set; } = null!;
@@ -93,19 +93,19 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableArray<string>> Firewalls { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.FirewallPolicyIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// An `insights` block as defined below.
+        /// An `Insights` block as defined below.
         /// </summary>
         [Output("insights")]
         public Output<Outputs.FirewallPolicyInsights?> Insights { get; private set; } = null!;
 
         /// <summary>
-        /// A `intrusion_detection` block as defined below.
+        /// A `IntrusionDetection` block as defined below.
         /// </summary>
         [Output("intrusionDetection")]
         public Output<Outputs.FirewallPolicyIntrusionDetection?> IntrusionDetection { get; private set; } = null!;
@@ -159,7 +159,7 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A `threat_intelligence_allowlist` block as defined below.
+        /// A `ThreatIntelligenceAllowlist` block as defined below.
         /// </summary>
         [Output("threatIntelligenceAllowlist")]
         public Output<Outputs.FirewallPolicyThreatIntelligenceAllowlist?> ThreatIntelligenceAllowlist { get; private set; } = null!;
@@ -171,7 +171,7 @@ namespace Pulumi.Azure.Network
         public Output<string?> ThreatIntelligenceMode { get; private set; } = null!;
 
         /// <summary>
-        /// A `tls_certificate` block as defined below.
+        /// A `TlsCertificate` block as defined below.
         /// </summary>
         [Output("tlsCertificate")]
         public Output<Outputs.FirewallPolicyTlsCertificate?> TlsCertificate { get; private set; } = null!;
@@ -235,31 +235,31 @@ namespace Pulumi.Azure.Network
         public Input<string>? BasePolicyId { get; set; }
 
         /// <summary>
-        /// A `dns` block as defined below.
+        /// A `Dns` block as defined below.
         /// </summary>
         [Input("dns")]
         public Input<Inputs.FirewallPolicyDnsArgs>? Dns { get; set; }
 
         /// <summary>
-        /// A `explicit_proxy` block as defined below.
+        /// A `ExplicitProxy` block as defined below.
         /// </summary>
         [Input("explicitProxy")]
         public Input<Inputs.FirewallPolicyExplicitProxyArgs>? ExplicitProxy { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.FirewallPolicyIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// An `insights` block as defined below.
+        /// An `Insights` block as defined below.
         /// </summary>
         [Input("insights")]
         public Input<Inputs.FirewallPolicyInsightsArgs>? Insights { get; set; }
 
         /// <summary>
-        /// A `intrusion_detection` block as defined below.
+        /// A `IntrusionDetection` block as defined below.
         /// </summary>
         [Input("intrusionDetection")]
         public Input<Inputs.FirewallPolicyIntrusionDetectionArgs>? IntrusionDetection { get; set; }
@@ -319,7 +319,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// A `threat_intelligence_allowlist` block as defined below.
+        /// A `ThreatIntelligenceAllowlist` block as defined below.
         /// </summary>
         [Input("threatIntelligenceAllowlist")]
         public Input<Inputs.FirewallPolicyThreatIntelligenceAllowlistArgs>? ThreatIntelligenceAllowlist { get; set; }
@@ -331,7 +331,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? ThreatIntelligenceMode { get; set; }
 
         /// <summary>
-        /// A `tls_certificate` block as defined below.
+        /// A `TlsCertificate` block as defined below.
         /// </summary>
         [Input("tlsCertificate")]
         public Input<Inputs.FirewallPolicyTlsCertificateArgs>? TlsCertificate { get; set; }
@@ -369,13 +369,13 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// A `dns` block as defined below.
+        /// A `Dns` block as defined below.
         /// </summary>
         [Input("dns")]
         public Input<Inputs.FirewallPolicyDnsGetArgs>? Dns { get; set; }
 
         /// <summary>
-        /// A `explicit_proxy` block as defined below.
+        /// A `ExplicitProxy` block as defined below.
         /// </summary>
         [Input("explicitProxy")]
         public Input<Inputs.FirewallPolicyExplicitProxyGetArgs>? ExplicitProxy { get; set; }
@@ -393,19 +393,19 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.FirewallPolicyIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// An `insights` block as defined below.
+        /// An `Insights` block as defined below.
         /// </summary>
         [Input("insights")]
         public Input<Inputs.FirewallPolicyInsightsGetArgs>? Insights { get; set; }
 
         /// <summary>
-        /// A `intrusion_detection` block as defined below.
+        /// A `IntrusionDetection` block as defined below.
         /// </summary>
         [Input("intrusionDetection")]
         public Input<Inputs.FirewallPolicyIntrusionDetectionGetArgs>? IntrusionDetection { get; set; }
@@ -477,7 +477,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// A `threat_intelligence_allowlist` block as defined below.
+        /// A `ThreatIntelligenceAllowlist` block as defined below.
         /// </summary>
         [Input("threatIntelligenceAllowlist")]
         public Input<Inputs.FirewallPolicyThreatIntelligenceAllowlistGetArgs>? ThreatIntelligenceAllowlist { get; set; }
@@ -489,7 +489,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? ThreatIntelligenceMode { get; set; }
 
         /// <summary>
-        /// A `tls_certificate` block as defined below.
+        /// A `TlsCertificate` block as defined below.
         /// </summary>
         [Input("tlsCertificate")]
         public Input<Inputs.FirewallPolicyTlsCertificateGetArgs>? TlsCertificate { get; set; }

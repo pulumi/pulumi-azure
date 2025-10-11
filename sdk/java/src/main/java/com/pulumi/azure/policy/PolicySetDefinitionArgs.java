@@ -51,19 +51,19 @@ public final class PolicySetDefinitionArgs extends com.pulumi.resources.Resource
 
     /**
      * @deprecated
-     * `management_group_id` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.
+     * `managementGroupId` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `management_group_id` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider. */
+    @Deprecated /* `managementGroupId` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider. */
     @Import(name="managementGroupId")
     private @Nullable Output<String> managementGroupId;
 
     /**
      * @deprecated
-     * `management_group_id` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.
+     * `managementGroupId` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `management_group_id` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider. */
+    @Deprecated /* `managementGroupId` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider. */
     public Optional<Output<String>> managementGroupId() {
         return Optional.ofNullable(this.managementGroupId);
     }
@@ -114,14 +114,14 @@ public final class PolicySetDefinitionArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * One or more `policy_definition_group` blocks as defined below.
+     * One or more `policyDefinitionGroup` blocks as defined below.
      * 
      */
     @Import(name="policyDefinitionGroups")
     private @Nullable Output<List<PolicySetDefinitionPolicyDefinitionGroupArgs>> policyDefinitionGroups;
 
     /**
-     * @return One or more `policy_definition_group` blocks as defined below.
+     * @return One or more `policyDefinitionGroup` blocks as defined below.
      * 
      */
     public Optional<Output<List<PolicySetDefinitionPolicyDefinitionGroupArgs>>> policyDefinitionGroups() {
@@ -129,14 +129,14 @@ public final class PolicySetDefinitionArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * One or more `policy_definition_reference` blocks as defined below.
+     * One or more `policyDefinitionReference` blocks as defined below.
      * 
      */
     @Import(name="policyDefinitionReferences", required=true)
     private Output<List<PolicySetDefinitionPolicyDefinitionReferenceArgs>> policyDefinitionReferences;
 
     /**
-     * @return One or more `policy_definition_reference` blocks as defined below.
+     * @return One or more `policyDefinitionReference` blocks as defined below.
      * 
      */
     public Output<List<PolicySetDefinitionPolicyDefinitionReferenceArgs>> policyDefinitionReferences() {
@@ -236,10 +236,10 @@ public final class PolicySetDefinitionArgs extends com.pulumi.resources.Resource
          * @return builder
          * 
          * @deprecated
-         * `management_group_id` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.
+         * `managementGroupId` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.
          * 
          */
-        @Deprecated /* `management_group_id` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider. */
+        @Deprecated /* `managementGroupId` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider. */
         public Builder managementGroupId(@Nullable Output<String> managementGroupId) {
             $.managementGroupId = managementGroupId;
             return this;
@@ -249,10 +249,10 @@ public final class PolicySetDefinitionArgs extends com.pulumi.resources.Resource
          * @return builder
          * 
          * @deprecated
-         * `management_group_id` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.
+         * `managementGroupId` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.
          * 
          */
-        @Deprecated /* `management_group_id` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider. */
+        @Deprecated /* `managementGroupId` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider. */
         public Builder managementGroupId(String managementGroupId) {
             return managementGroupId(Output.of(managementGroupId));
         }
@@ -321,7 +321,7 @@ public final class PolicySetDefinitionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param policyDefinitionGroups One or more `policy_definition_group` blocks as defined below.
+         * @param policyDefinitionGroups One or more `policyDefinitionGroup` blocks as defined below.
          * 
          * @return builder
          * 
@@ -332,7 +332,7 @@ public final class PolicySetDefinitionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param policyDefinitionGroups One or more `policy_definition_group` blocks as defined below.
+         * @param policyDefinitionGroups One or more `policyDefinitionGroup` blocks as defined below.
          * 
          * @return builder
          * 
@@ -342,7 +342,7 @@ public final class PolicySetDefinitionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param policyDefinitionGroups One or more `policy_definition_group` blocks as defined below.
+         * @param policyDefinitionGroups One or more `policyDefinitionGroup` blocks as defined below.
          * 
          * @return builder
          * 
@@ -352,7 +352,7 @@ public final class PolicySetDefinitionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param policyDefinitionReferences One or more `policy_definition_reference` blocks as defined below.
+         * @param policyDefinitionReferences One or more `policyDefinitionReference` blocks as defined below.
          * 
          * @return builder
          * 
@@ -363,7 +363,7 @@ public final class PolicySetDefinitionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param policyDefinitionReferences One or more `policy_definition_reference` blocks as defined below.
+         * @param policyDefinitionReferences One or more `policyDefinitionReference` blocks as defined below.
          * 
          * @return builder
          * 
@@ -373,7 +373,7 @@ public final class PolicySetDefinitionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param policyDefinitionReferences One or more `policy_definition_reference` blocks as defined below.
+         * @param policyDefinitionReferences One or more `policyDefinitionReference` blocks as defined below.
          * 
          * @return builder
          * 

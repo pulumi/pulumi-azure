@@ -29,7 +29,7 @@ public final class AlertPrometheusRuleGroupRule {
      */
     private @Nullable String alert;
     /**
-     * @return An `alert_resolution` block as defined below.
+     * @return An `alertResolution` block as defined below.
      * 
      */
     private @Nullable AlertPrometheusRuleGroupRuleAlertResolution alertResolution;
@@ -85,7 +85,7 @@ public final class AlertPrometheusRuleGroupRule {
         return Optional.ofNullable(this.alert);
     }
     /**
-     * @return An `alert_resolution` block as defined below.
+     * @return An `alertResolution` block as defined below.
      * 
      */
     public Optional<AlertPrometheusRuleGroupRuleAlertResolution> alertResolution() {

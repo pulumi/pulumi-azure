@@ -48,14 +48,14 @@ public final class LocalRulestackCertificateArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The `versionles_id` of the Key Vault Certificate to use. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
+     * The `versionlesId` of the Key Vault Certificate to use. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
      * 
      */
     @Import(name="keyVaultCertificateId")
     private @Nullable Output<String> keyVaultCertificateId;
 
     /**
-     * @return The `versionles_id` of the Key Vault Certificate to use. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
+     * @return The `versionlesId` of the Key Vault Certificate to use. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
      * 
      */
     public Optional<Output<String>> keyVaultCertificateId() {
@@ -95,7 +95,7 @@ public final class LocalRulestackCertificateArgs extends com.pulumi.resources.Re
     /**
      * Should a Self Signed Certificate be used. Defaults to `false`. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
      * 
-     * &gt; **Note:** One and only one of `self_signed` or `key_vault_certificate_id` must be specified.
+     * &gt; **Note:** One and only one of `selfSigned` or `keyVaultCertificateId` must be specified.
      * 
      */
     @Import(name="selfSigned")
@@ -104,7 +104,7 @@ public final class LocalRulestackCertificateArgs extends com.pulumi.resources.Re
     /**
      * @return Should a Self Signed Certificate be used. Defaults to `false`. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
      * 
-     * &gt; **Note:** One and only one of `self_signed` or `key_vault_certificate_id` must be specified.
+     * &gt; **Note:** One and only one of `selfSigned` or `keyVaultCertificateId` must be specified.
      * 
      */
     public Optional<Output<Boolean>> selfSigned() {
@@ -183,7 +183,7 @@ public final class LocalRulestackCertificateArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param keyVaultCertificateId The `versionles_id` of the Key Vault Certificate to use. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
+         * @param keyVaultCertificateId The `versionlesId` of the Key Vault Certificate to use. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class LocalRulestackCertificateArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param keyVaultCertificateId The `versionles_id` of the Key Vault Certificate to use. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
+         * @param keyVaultCertificateId The `versionlesId` of the Key Vault Certificate to use. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class LocalRulestackCertificateArgs extends com.pulumi.resources.Re
         /**
          * @param selfSigned Should a Self Signed Certificate be used. Defaults to `false`. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
          * 
-         * &gt; **Note:** One and only one of `self_signed` or `key_vault_certificate_id` must be specified.
+         * &gt; **Note:** One and only one of `selfSigned` or `keyVaultCertificateId` must be specified.
          * 
          * @return builder
          * 
@@ -261,7 +261,7 @@ public final class LocalRulestackCertificateArgs extends com.pulumi.resources.Re
         /**
          * @param selfSigned Should a Self Signed Certificate be used. Defaults to `false`. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
          * 
-         * &gt; **Note:** One and only one of `self_signed` or `key_vault_certificate_id` must be specified.
+         * &gt; **Note:** One and only one of `selfSigned` or `keyVaultCertificateId` must be specified.
          * 
          * @return builder
          * 

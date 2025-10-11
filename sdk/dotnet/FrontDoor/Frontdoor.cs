@@ -113,7 +113,7 @@ namespace Pulumi.Azure.FrontDoor
     public partial class Frontdoor : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A `backend_pool_health_probe` block as defined below.
+        /// A `BackendPoolHealthProbe` block as defined below.
         /// </summary>
         [Output("backendPoolHealthProbes")]
         public Output<ImmutableArray<Outputs.FrontdoorBackendPoolHealthProbe>> BackendPoolHealthProbes { get; private set; } = null!;
@@ -131,19 +131,19 @@ namespace Pulumi.Azure.FrontDoor
         public Output<ImmutableDictionary<string, string>> BackendPoolLoadBalancingSettingsMap { get; private set; } = null!;
 
         /// <summary>
-        /// A `backend_pool_load_balancing` block as defined below.
+        /// A `BackendPoolLoadBalancing` block as defined below.
         /// </summary>
         [Output("backendPoolLoadBalancings")]
         public Output<ImmutableArray<Outputs.FrontdoorBackendPoolLoadBalancing>> BackendPoolLoadBalancings { get; private set; } = null!;
 
         /// <summary>
-        /// A `backend_pool_settings` block as defined below.
+        /// A `BackendPoolSettings` block as defined below.
         /// </summary>
         [Output("backendPoolSettings")]
         public Output<ImmutableArray<Outputs.FrontdoorBackendPoolSetting>> BackendPoolSettings { get; private set; } = null!;
 
         /// <summary>
-        /// A `backend_pool` block as defined below.
+        /// A `BackendPool` block as defined below.
         /// 
         /// &gt; Azure by default allows specifying up to 50 Backend Pools - but this quota can be increased via Microsoft Support.
         /// </summary>
@@ -172,7 +172,7 @@ namespace Pulumi.Azure.FrontDoor
         public Output<string?> FriendlyName { get; private set; } = null!;
 
         /// <summary>
-        /// A `frontend_endpoint` block as defined below.
+        /// A `FrontendEndpoint` block as defined below.
         /// </summary>
         [Output("frontendEndpoints")]
         public Output<ImmutableArray<Outputs.FrontdoorFrontendEndpoint>> FrontendEndpoints { get; private set; } = null!;
@@ -190,7 +190,7 @@ namespace Pulumi.Azure.FrontDoor
         public Output<string> HeaderFrontdoorId { get; private set; } = null!;
 
         /// <summary>
-        /// Should the Front Door Load Balancer be Enabled? Defaults to `true`.
+        /// Should the Front Door Load Balancer be Enabled? Defaults to `True`.
         /// </summary>
         [Output("loadBalancerEnabled")]
         public Output<bool?> LoadBalancerEnabled { get; private set; } = null!;
@@ -208,7 +208,7 @@ namespace Pulumi.Azure.FrontDoor
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `routing_rule` block as defined below.
+        /// A `RoutingRule` block as defined below.
         /// </summary>
         [Output("routingRules")]
         public Output<ImmutableArray<Outputs.FrontdoorRoutingRule>> RoutingRules { get; private set; } = null!;
@@ -275,7 +275,7 @@ namespace Pulumi.Azure.FrontDoor
         private InputList<Inputs.FrontdoorBackendPoolHealthProbeArgs>? _backendPoolHealthProbes;
 
         /// <summary>
-        /// A `backend_pool_health_probe` block as defined below.
+        /// A `BackendPoolHealthProbe` block as defined below.
         /// </summary>
         public InputList<Inputs.FrontdoorBackendPoolHealthProbeArgs> BackendPoolHealthProbes
         {
@@ -287,7 +287,7 @@ namespace Pulumi.Azure.FrontDoor
         private InputList<Inputs.FrontdoorBackendPoolLoadBalancingArgs>? _backendPoolLoadBalancings;
 
         /// <summary>
-        /// A `backend_pool_load_balancing` block as defined below.
+        /// A `BackendPoolLoadBalancing` block as defined below.
         /// </summary>
         public InputList<Inputs.FrontdoorBackendPoolLoadBalancingArgs> BackendPoolLoadBalancings
         {
@@ -299,7 +299,7 @@ namespace Pulumi.Azure.FrontDoor
         private InputList<Inputs.FrontdoorBackendPoolSettingArgs>? _backendPoolSettings;
 
         /// <summary>
-        /// A `backend_pool_settings` block as defined below.
+        /// A `BackendPoolSettings` block as defined below.
         /// </summary>
         public InputList<Inputs.FrontdoorBackendPoolSettingArgs> BackendPoolSettings
         {
@@ -311,7 +311,7 @@ namespace Pulumi.Azure.FrontDoor
         private InputList<Inputs.FrontdoorBackendPoolArgs>? _backendPools;
 
         /// <summary>
-        /// A `backend_pool` block as defined below.
+        /// A `BackendPool` block as defined below.
         /// 
         /// &gt; Azure by default allows specifying up to 50 Backend Pools - but this quota can be increased via Microsoft Support.
         /// </summary>
@@ -331,7 +331,7 @@ namespace Pulumi.Azure.FrontDoor
         private InputList<Inputs.FrontdoorFrontendEndpointArgs>? _frontendEndpoints;
 
         /// <summary>
-        /// A `frontend_endpoint` block as defined below.
+        /// A `FrontendEndpoint` block as defined below.
         /// </summary>
         public InputList<Inputs.FrontdoorFrontendEndpointArgs> FrontendEndpoints
         {
@@ -340,7 +340,7 @@ namespace Pulumi.Azure.FrontDoor
         }
 
         /// <summary>
-        /// Should the Front Door Load Balancer be Enabled? Defaults to `true`.
+        /// Should the Front Door Load Balancer be Enabled? Defaults to `True`.
         /// </summary>
         [Input("loadBalancerEnabled")]
         public Input<bool>? LoadBalancerEnabled { get; set; }
@@ -361,7 +361,7 @@ namespace Pulumi.Azure.FrontDoor
         private InputList<Inputs.FrontdoorRoutingRuleArgs>? _routingRules;
 
         /// <summary>
-        /// A `routing_rule` block as defined below.
+        /// A `RoutingRule` block as defined below.
         /// </summary>
         public InputList<Inputs.FrontdoorRoutingRuleArgs> RoutingRules
         {
@@ -393,7 +393,7 @@ namespace Pulumi.Azure.FrontDoor
         private InputList<Inputs.FrontdoorBackendPoolHealthProbeGetArgs>? _backendPoolHealthProbes;
 
         /// <summary>
-        /// A `backend_pool_health_probe` block as defined below.
+        /// A `BackendPoolHealthProbe` block as defined below.
         /// </summary>
         public InputList<Inputs.FrontdoorBackendPoolHealthProbeGetArgs> BackendPoolHealthProbes
         {
@@ -429,7 +429,7 @@ namespace Pulumi.Azure.FrontDoor
         private InputList<Inputs.FrontdoorBackendPoolLoadBalancingGetArgs>? _backendPoolLoadBalancings;
 
         /// <summary>
-        /// A `backend_pool_load_balancing` block as defined below.
+        /// A `BackendPoolLoadBalancing` block as defined below.
         /// </summary>
         public InputList<Inputs.FrontdoorBackendPoolLoadBalancingGetArgs> BackendPoolLoadBalancings
         {
@@ -441,7 +441,7 @@ namespace Pulumi.Azure.FrontDoor
         private InputList<Inputs.FrontdoorBackendPoolSettingGetArgs>? _backendPoolSettings;
 
         /// <summary>
-        /// A `backend_pool_settings` block as defined below.
+        /// A `BackendPoolSettings` block as defined below.
         /// </summary>
         public InputList<Inputs.FrontdoorBackendPoolSettingGetArgs> BackendPoolSettings
         {
@@ -453,7 +453,7 @@ namespace Pulumi.Azure.FrontDoor
         private InputList<Inputs.FrontdoorBackendPoolGetArgs>? _backendPools;
 
         /// <summary>
-        /// A `backend_pool` block as defined below.
+        /// A `BackendPool` block as defined below.
         /// 
         /// &gt; Azure by default allows specifying up to 50 Backend Pools - but this quota can be increased via Microsoft Support.
         /// </summary>
@@ -499,7 +499,7 @@ namespace Pulumi.Azure.FrontDoor
         private InputList<Inputs.FrontdoorFrontendEndpointGetArgs>? _frontendEndpoints;
 
         /// <summary>
-        /// A `frontend_endpoint` block as defined below.
+        /// A `FrontendEndpoint` block as defined below.
         /// </summary>
         public InputList<Inputs.FrontdoorFrontendEndpointGetArgs> FrontendEndpoints
         {
@@ -526,7 +526,7 @@ namespace Pulumi.Azure.FrontDoor
         public Input<string>? HeaderFrontdoorId { get; set; }
 
         /// <summary>
-        /// Should the Front Door Load Balancer be Enabled? Defaults to `true`.
+        /// Should the Front Door Load Balancer be Enabled? Defaults to `True`.
         /// </summary>
         [Input("loadBalancerEnabled")]
         public Input<bool>? LoadBalancerEnabled { get; set; }
@@ -547,7 +547,7 @@ namespace Pulumi.Azure.FrontDoor
         private InputList<Inputs.FrontdoorRoutingRuleGetArgs>? _routingRules;
 
         /// <summary>
-        /// A `routing_rule` block as defined below.
+        /// A `RoutingRule` block as defined below.
         /// </summary>
         public InputList<Inputs.FrontdoorRoutingRuleGetArgs> RoutingRules
         {

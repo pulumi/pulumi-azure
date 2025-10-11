@@ -111,7 +111,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// An `integration_runtime` block as defined below.
+        /// An `IntegrationRuntime` block as defined below.
         /// </summary>
         [Output("integrationRuntime")]
         public Output<Outputs.LinkedCustomServiceIntegrationRuntime?> IntegrationRuntime { get; private set; } = null!;
@@ -223,7 +223,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// An `integration_runtime` block as defined below.
+        /// An `IntegrationRuntime` block as defined below.
         /// </summary>
         [Input("integrationRuntime")]
         public Input<Inputs.LinkedCustomServiceIntegrationRuntimeArgs>? IntegrationRuntime { get; set; }
@@ -303,7 +303,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// An `integration_runtime` block as defined below.
+        /// An `IntegrationRuntime` block as defined below.
         /// </summary>
         [Input("integrationRuntime")]
         public Input<Inputs.LinkedCustomServiceIntegrationRuntimeGetArgs>? IntegrationRuntime { get; set; }

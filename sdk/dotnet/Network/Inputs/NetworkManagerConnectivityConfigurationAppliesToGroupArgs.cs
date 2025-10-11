@@ -13,9 +13,9 @@ namespace Pulumi.Azure.Network.Inputs
     public sealed class NetworkManagerConnectivityConfigurationAppliesToGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether to global mesh is supported for this group. Possible values are `true` and `false`.
+        /// Indicates whether to global mesh is supported for this group. Possible values are `True` and `False`.
         /// 
-        /// &gt; **Note:** A group can be global only if the `group_connectivity` is `DirectlyConnected`.
+        /// &gt; **Note:** A group can be global only if the `GroupConnectivity` is `DirectlyConnected`.
         /// </summary>
         [Input("globalMeshEnabled")]
         public Input<bool>? GlobalMeshEnabled { get; set; }
@@ -33,7 +33,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string> NetworkGroupId { get; set; } = null!;
 
         /// <summary>
-        /// Indicates whether the hub gateway is used. Possible values are `true` and `false`.
+        /// Indicates whether the hub gateway is used. Possible values are `True` and `False`.
         /// </summary>
         [Input("useHubGateway")]
         public Input<bool>? UseHubGateway { get; set; }

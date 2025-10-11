@@ -39,14 +39,14 @@ public final class PolicyVMState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the instant restore resource group name as documented in the `instant_restore_resource_group` block below.
+     * Specifies the instant restore resource group name as documented in the `instantRestoreResourceGroup` block below.
      * 
      */
     @Import(name="instantRestoreResourceGroup")
     private @Nullable Output<PolicyVMInstantRestoreResourceGroupArgs> instantRestoreResourceGroup;
 
     /**
-     * @return Specifies the instant restore resource group name as documented in the `instant_restore_resource_group` block below.
+     * @return Specifies the instant restore resource group name as documented in the `instantRestoreResourceGroup` block below.
      * 
      */
     public Optional<Output<PolicyVMInstantRestoreResourceGroupArgs>> instantRestoreResourceGroup() {
@@ -54,18 +54,18 @@ public final class PolicyVMState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policy_type` is `V1`, and `1` to `30` when `policy_type` is `V2`.
+     * Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policyType` is `V1`, and `1` to `30` when `policyType` is `V2`.
      * 
-     * &gt; **Note:** `instant_restore_retention_days` **must** be set to `5` if the backup frequency is set to `Weekly`.
+     * &gt; **Note:** `instantRestoreRetentionDays` **must** be set to `5` if the backup frequency is set to `Weekly`.
      * 
      */
     @Import(name="instantRestoreRetentionDays")
     private @Nullable Output<Integer> instantRestoreRetentionDays;
 
     /**
-     * @return Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policy_type` is `V1`, and `1` to `30` when `policy_type` is `V2`.
+     * @return Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policyType` is `V1`, and `1` to `30` when `policyType` is `V2`.
      * 
-     * &gt; **Note:** `instant_restore_retention_days` **must** be set to `5` if the backup frequency is set to `Weekly`.
+     * &gt; **Note:** `instantRestoreRetentionDays` **must** be set to `5` if the backup frequency is set to `Weekly`.
      * 
      */
     public Optional<Output<Integer>> instantRestoreRetentionDays() {
@@ -133,14 +133,14 @@ public final class PolicyVMState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configures the policy daily retention as documented in the `retention_daily` block below. Required when backup frequency is `Daily`.
+     * Configures the policy daily retention as documented in the `retentionDaily` block below. Required when backup frequency is `Daily`.
      * 
      */
     @Import(name="retentionDaily")
     private @Nullable Output<PolicyVMRetentionDailyArgs> retentionDaily;
 
     /**
-     * @return Configures the policy daily retention as documented in the `retention_daily` block below. Required when backup frequency is `Daily`.
+     * @return Configures the policy daily retention as documented in the `retentionDaily` block below. Required when backup frequency is `Daily`.
      * 
      */
     public Optional<Output<PolicyVMRetentionDailyArgs>> retentionDaily() {
@@ -148,14 +148,14 @@ public final class PolicyVMState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configures the policy monthly retention as documented in the `retention_monthly` block below.
+     * Configures the policy monthly retention as documented in the `retentionMonthly` block below.
      * 
      */
     @Import(name="retentionMonthly")
     private @Nullable Output<PolicyVMRetentionMonthlyArgs> retentionMonthly;
 
     /**
-     * @return Configures the policy monthly retention as documented in the `retention_monthly` block below.
+     * @return Configures the policy monthly retention as documented in the `retentionMonthly` block below.
      * 
      */
     public Optional<Output<PolicyVMRetentionMonthlyArgs>> retentionMonthly() {
@@ -163,14 +163,14 @@ public final class PolicyVMState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configures the policy weekly retention as documented in the `retention_weekly` block below. Required when backup frequency is `Weekly`.
+     * Configures the policy weekly retention as documented in the `retentionWeekly` block below. Required when backup frequency is `Weekly`.
      * 
      */
     @Import(name="retentionWeekly")
     private @Nullable Output<PolicyVMRetentionWeeklyArgs> retentionWeekly;
 
     /**
-     * @return Configures the policy weekly retention as documented in the `retention_weekly` block below. Required when backup frequency is `Weekly`.
+     * @return Configures the policy weekly retention as documented in the `retentionWeekly` block below. Required when backup frequency is `Weekly`.
      * 
      */
     public Optional<Output<PolicyVMRetentionWeeklyArgs>> retentionWeekly() {
@@ -178,14 +178,14 @@ public final class PolicyVMState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configures the policy yearly retention as documented in the `retention_yearly` block below.
+     * Configures the policy yearly retention as documented in the `retentionYearly` block below.
      * 
      */
     @Import(name="retentionYearly")
     private @Nullable Output<PolicyVMRetentionYearlyArgs> retentionYearly;
 
     /**
-     * @return Configures the policy yearly retention as documented in the `retention_yearly` block below.
+     * @return Configures the policy yearly retention as documented in the `retentionYearly` block below.
      * 
      */
     public Optional<Output<PolicyVMRetentionYearlyArgs>> retentionYearly() {
@@ -193,14 +193,14 @@ public final class PolicyVMState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `tiering_policy` block as defined below.
+     * A `tieringPolicy` block as defined below.
      * 
      */
     @Import(name="tieringPolicy")
     private @Nullable Output<PolicyVMTieringPolicyArgs> tieringPolicy;
 
     /**
-     * @return A `tiering_policy` block as defined below.
+     * @return A `tieringPolicy` block as defined below.
      * 
      */
     public Optional<Output<PolicyVMTieringPolicyArgs>> tieringPolicy() {
@@ -280,7 +280,7 @@ public final class PolicyVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instantRestoreResourceGroup Specifies the instant restore resource group name as documented in the `instant_restore_resource_group` block below.
+         * @param instantRestoreResourceGroup Specifies the instant restore resource group name as documented in the `instantRestoreResourceGroup` block below.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class PolicyVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instantRestoreResourceGroup Specifies the instant restore resource group name as documented in the `instant_restore_resource_group` block below.
+         * @param instantRestoreResourceGroup Specifies the instant restore resource group name as documented in the `instantRestoreResourceGroup` block below.
          * 
          * @return builder
          * 
@@ -301,9 +301,9 @@ public final class PolicyVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instantRestoreRetentionDays Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policy_type` is `V1`, and `1` to `30` when `policy_type` is `V2`.
+         * @param instantRestoreRetentionDays Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policyType` is `V1`, and `1` to `30` when `policyType` is `V2`.
          * 
-         * &gt; **Note:** `instant_restore_retention_days` **must** be set to `5` if the backup frequency is set to `Weekly`.
+         * &gt; **Note:** `instantRestoreRetentionDays` **must** be set to `5` if the backup frequency is set to `Weekly`.
          * 
          * @return builder
          * 
@@ -314,9 +314,9 @@ public final class PolicyVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instantRestoreRetentionDays Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policy_type` is `V1`, and `1` to `30` when `policy_type` is `V2`.
+         * @param instantRestoreRetentionDays Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policyType` is `V1`, and `1` to `30` when `policyType` is `V2`.
          * 
-         * &gt; **Note:** `instant_restore_retention_days` **must** be set to `5` if the backup frequency is set to `Weekly`.
+         * &gt; **Note:** `instantRestoreRetentionDays` **must** be set to `5` if the backup frequency is set to `Weekly`.
          * 
          * @return builder
          * 
@@ -410,7 +410,7 @@ public final class PolicyVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retentionDaily Configures the policy daily retention as documented in the `retention_daily` block below. Required when backup frequency is `Daily`.
+         * @param retentionDaily Configures the policy daily retention as documented in the `retentionDaily` block below. Required when backup frequency is `Daily`.
          * 
          * @return builder
          * 
@@ -421,7 +421,7 @@ public final class PolicyVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retentionDaily Configures the policy daily retention as documented in the `retention_daily` block below. Required when backup frequency is `Daily`.
+         * @param retentionDaily Configures the policy daily retention as documented in the `retentionDaily` block below. Required when backup frequency is `Daily`.
          * 
          * @return builder
          * 
@@ -431,7 +431,7 @@ public final class PolicyVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retentionMonthly Configures the policy monthly retention as documented in the `retention_monthly` block below.
+         * @param retentionMonthly Configures the policy monthly retention as documented in the `retentionMonthly` block below.
          * 
          * @return builder
          * 
@@ -442,7 +442,7 @@ public final class PolicyVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retentionMonthly Configures the policy monthly retention as documented in the `retention_monthly` block below.
+         * @param retentionMonthly Configures the policy monthly retention as documented in the `retentionMonthly` block below.
          * 
          * @return builder
          * 
@@ -452,7 +452,7 @@ public final class PolicyVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retentionWeekly Configures the policy weekly retention as documented in the `retention_weekly` block below. Required when backup frequency is `Weekly`.
+         * @param retentionWeekly Configures the policy weekly retention as documented in the `retentionWeekly` block below. Required when backup frequency is `Weekly`.
          * 
          * @return builder
          * 
@@ -463,7 +463,7 @@ public final class PolicyVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retentionWeekly Configures the policy weekly retention as documented in the `retention_weekly` block below. Required when backup frequency is `Weekly`.
+         * @param retentionWeekly Configures the policy weekly retention as documented in the `retentionWeekly` block below. Required when backup frequency is `Weekly`.
          * 
          * @return builder
          * 
@@ -473,7 +473,7 @@ public final class PolicyVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retentionYearly Configures the policy yearly retention as documented in the `retention_yearly` block below.
+         * @param retentionYearly Configures the policy yearly retention as documented in the `retentionYearly` block below.
          * 
          * @return builder
          * 
@@ -484,7 +484,7 @@ public final class PolicyVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retentionYearly Configures the policy yearly retention as documented in the `retention_yearly` block below.
+         * @param retentionYearly Configures the policy yearly retention as documented in the `retentionYearly` block below.
          * 
          * @return builder
          * 
@@ -494,7 +494,7 @@ public final class PolicyVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tieringPolicy A `tiering_policy` block as defined below.
+         * @param tieringPolicy A `tieringPolicy` block as defined below.
          * 
          * @return builder
          * 
@@ -505,7 +505,7 @@ public final class PolicyVMState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tieringPolicy A `tiering_policy` block as defined below.
+         * @param tieringPolicy A `tieringPolicy` block as defined below.
          * 
          * @return builder
          * 

@@ -13,25 +13,25 @@ namespace Pulumi.Azure.Hpc.Inputs
     public sealed class CacheAccessPolicyAccessRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The access level for this rule. Possible values are: `rw`, `ro`, `no`.
+        /// The access level for this rule. Possible values are: `Rw`, `Ro`, `No`.
         /// </summary>
         [Input("access", required: true)]
         public Input<string> Access { get; set; } = null!;
 
         /// <summary>
-        /// The anonymous GID used when `root_squash_enabled` is `true`.
+        /// The anonymous GID used when `RootSquashEnabled` is `True`.
         /// </summary>
         [Input("anonymousGid")]
         public Input<int>? AnonymousGid { get; set; }
 
         /// <summary>
-        /// The anonymous UID used when `root_squash_enabled` is `true`.
+        /// The anonymous UID used when `RootSquashEnabled` is `True`.
         /// </summary>
         [Input("anonymousUid")]
         public Input<int>? AnonymousUid { get; set; }
 
         /// <summary>
-        /// The filter applied to the `scope` for this rule. The filter's format depends on its scope: `default` scope matches all clients and has no filter value; `network` scope takes a CIDR format; `host` takes an IP address or fully qualified domain name. If a client does not match any filter rule and there is no default rule, access is denied.
+        /// The filter applied to the `Scope` for this rule. The filter's format depends on its scope: `Default` scope matches all clients and has no filter value; `Network` scope takes a CIDR format; `Host` takes an IP address or fully qualified domain name. If a client does not match any filter rule and there is no default rule, access is denied.
         /// </summary>
         [Input("filter")]
         public Input<string>? Filter { get; set; }
@@ -43,9 +43,9 @@ namespace Pulumi.Azure.Hpc.Inputs
         public Input<bool>? RootSquashEnabled { get; set; }
 
         /// <summary>
-        /// The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
+        /// The scope of this rule. The `Scope` and (potentially) the `Filter` determine which clients match the rule. Possible values are: `Default`, `Network`, `Host`.
         /// 
-        /// &gt; **Note:** Each `access_rule` should set a unique `scope`.
+        /// &gt; **Note:** Each `AccessRule` should set a unique `Scope`.
         /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;

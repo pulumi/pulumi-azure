@@ -17,7 +17,7 @@ public final class HadoopClusterGatewayArgs extends com.pulumi.resources.Resourc
     /**
      * The password used for the Ambari Portal.
      * 
-     * &gt; **Note:** This password must be different from the one used for the `head_node`, `worker_node` and `zookeeper_node` roles.
+     * &gt; **Note:** This password must be different from the one used for the `headNode`, `workerNode` and `zookeeperNode` roles.
      * 
      */
     @Import(name="password", required=true)
@@ -26,7 +26,7 @@ public final class HadoopClusterGatewayArgs extends com.pulumi.resources.Resourc
     /**
      * @return The password used for the Ambari Portal.
      * 
-     * &gt; **Note:** This password must be different from the one used for the `head_node`, `worker_node` and `zookeeper_node` roles.
+     * &gt; **Note:** This password must be different from the one used for the `headNode`, `workerNode` and `zookeeperNode` roles.
      * 
      */
     public Output<String> password() {
@@ -76,7 +76,7 @@ public final class HadoopClusterGatewayArgs extends com.pulumi.resources.Resourc
         /**
          * @param password The password used for the Ambari Portal.
          * 
-         * &gt; **Note:** This password must be different from the one used for the `head_node`, `worker_node` and `zookeeper_node` roles.
+         * &gt; **Note:** This password must be different from the one used for the `headNode`, `workerNode` and `zookeeperNode` roles.
          * 
          * @return builder
          * 
@@ -89,7 +89,7 @@ public final class HadoopClusterGatewayArgs extends com.pulumi.resources.Resourc
         /**
          * @param password The password used for the Ambari Portal.
          * 
-         * &gt; **Note:** This password must be different from the one used for the `head_node`, `worker_node` and `zookeeper_node` roles.
+         * &gt; **Note:** This password must be different from the one used for the `headNode`, `workerNode` and `zookeeperNode` roles.
          * 
          * @return builder
          * 

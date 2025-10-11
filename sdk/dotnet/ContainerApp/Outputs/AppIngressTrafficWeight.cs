@@ -18,19 +18,19 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly string? Label;
         /// <summary>
-        /// This traffic Weight applies to the latest stable Container Revision. At most only one `traffic_weight` block can have the `latest_revision` set to `true`.
+        /// This traffic Weight applies to the latest stable Container Revision. At most only one `TrafficWeight` block can have the `LatestRevision` set to `True`.
         /// </summary>
         public readonly bool? LatestRevision;
         /// <summary>
         /// The percentage of traffic which should be sent this revision.
         /// 
-        /// &gt; **Note:** The cumulative values for `weight` must equal 100 exactly and explicitly, no default weights are assumed.
+        /// &gt; **Note:** The cumulative values for `Weight` must equal 100 exactly and explicitly, no default weights are assumed.
         /// </summary>
         public readonly int Percentage;
         /// <summary>
-        /// The suffix string to which this `traffic_weight` applies.
+        /// The suffix string to which this `TrafficWeight` applies.
         /// 
-        /// &gt; **Note:** If `latest_revision` is `false`, the `revision_suffix` shall be specified.
+        /// &gt; **Note:** If `LatestRevision` is `False`, the `RevisionSuffix` shall be specified.
         /// </summary>
         public readonly string? RevisionSuffix;
 

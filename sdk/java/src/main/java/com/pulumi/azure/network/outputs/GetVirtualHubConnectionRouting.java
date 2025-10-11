@@ -30,7 +30,7 @@ public final class GetVirtualHubConnectionRouting {
      */
     private String outboundRouteMapId;
     /**
-     * @return A `propagated_route_table` block as defined below.
+     * @return A `propagatedRouteTable` block as defined below.
      * 
      */
     private List<GetVirtualHubConnectionRoutingPropagatedRouteTable> propagatedRouteTables;
@@ -45,7 +45,7 @@ public final class GetVirtualHubConnectionRouting {
      */
     private Boolean staticVnetPropagateStaticRoutesEnabled;
     /**
-     * @return A `static_vnet_route` block as defined below.
+     * @return A `staticVnetRoute` block as defined below.
      * 
      */
     private List<GetVirtualHubConnectionRoutingStaticVnetRoute> staticVnetRoutes;
@@ -73,7 +73,7 @@ public final class GetVirtualHubConnectionRouting {
         return this.outboundRouteMapId;
     }
     /**
-     * @return A `propagated_route_table` block as defined below.
+     * @return A `propagatedRouteTable` block as defined below.
      * 
      */
     public List<GetVirtualHubConnectionRoutingPropagatedRouteTable> propagatedRouteTables() {
@@ -94,7 +94,7 @@ public final class GetVirtualHubConnectionRouting {
         return this.staticVnetPropagateStaticRoutesEnabled;
     }
     /**
-     * @return A `static_vnet_route` block as defined below.
+     * @return A `staticVnetRoute` block as defined below.
      * 
      */
     public List<GetVirtualHubConnectionRoutingStaticVnetRoute> staticVnetRoutes() {

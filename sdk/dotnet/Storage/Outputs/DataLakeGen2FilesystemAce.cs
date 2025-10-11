@@ -14,21 +14,21 @@ namespace Pulumi.Azure.Storage.Outputs
     public sealed class DataLakeGen2FilesystemAce
     {
         /// <summary>
-        /// Specifies the Object ID of the Azure Active Directory User or Group that the entry relates to. Only valid for `user` or `group` entries.
+        /// Specifies the Object ID of the Azure Active Directory User or Group that the entry relates to. Only valid for `User` or `Group` entries.
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.
+        /// Specifies the permissions for the entry in `Rwx` form. For example, `Rwx` gives full permissions but `r--` only gives read permissions.
         /// 
         /// More details on ACLs can be found here: &lt;https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control#access-control-lists-on-files-and-directories&gt;
         /// </summary>
         public readonly string Permissions;
         /// <summary>
-        /// Specifies whether the ACE represents an `access` entry or a `default` entry. Default value is `access`.
+        /// Specifies whether the ACE represents an `Access` entry or a `Default` entry. Default value is `Access`.
         /// </summary>
         public readonly string? Scope;
         /// <summary>
-        /// Specifies the type of entry. Can be `user`, `group`, `mask` or `other`.
+        /// Specifies the type of entry. Can be `User`, `Group`, `Mask` or `Other`.
         /// </summary>
         public readonly string Type;
 

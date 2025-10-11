@@ -173,11 +173,11 @@ namespace Pulumi.Azure.Cdn
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         public readonly Outputs.GetFrontdoorProfileIdentityResult Identity;
         /// <summary>
-        /// One or more `log_scrubbing_rule` blocks as defined below.
+        /// One or more `LogScrubbingRule` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFrontdoorProfileLogScrubbingRuleResult> LogScrubbingRules;
         public readonly string Name;

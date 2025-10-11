@@ -12,26 +12,26 @@ import java.util.Objects;
 @CustomType
 public final class AutoscaleSettingProfileRule {
     /**
-     * @return A `metric_trigger` block as defined below.
+     * @return A `metricTrigger` block as defined below.
      * 
      */
     private AutoscaleSettingProfileRuleMetricTrigger metricTrigger;
     /**
-     * @return A `scale_action` block as defined below.
+     * @return A `scaleAction` block as defined below.
      * 
      */
     private AutoscaleSettingProfileRuleScaleAction scaleAction;
 
     private AutoscaleSettingProfileRule() {}
     /**
-     * @return A `metric_trigger` block as defined below.
+     * @return A `metricTrigger` block as defined below.
      * 
      */
     public AutoscaleSettingProfileRuleMetricTrigger metricTrigger() {
         return this.metricTrigger;
     }
     /**
-     * @return A `scale_action` block as defined below.
+     * @return A `scaleAction` block as defined below.
      * 
      */
     public AutoscaleSettingProfileRuleScaleAction scaleAction() {

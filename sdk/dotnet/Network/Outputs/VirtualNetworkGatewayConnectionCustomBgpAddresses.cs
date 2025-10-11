@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class VirtualNetworkGatewayConnectionCustomBgpAddresses
     {
         /// <summary>
-        /// single IP address that is part of the `azure.network.VirtualNetworkGateway` ip_configuration (first one)
+        /// single IP address that is part of the `azure.network.VirtualNetworkGateway` IpConfiguration (first one)
         /// </summary>
         public readonly string Primary;
         /// <summary>
-        /// single IP address that is part of the `azure.network.VirtualNetworkGateway` ip_configuration (second one)
+        /// single IP address that is part of the `azure.network.VirtualNetworkGateway` IpConfiguration (second one)
         /// </summary>
         public readonly string? Secondary;
 

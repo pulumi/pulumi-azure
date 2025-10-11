@@ -22,14 +22,14 @@ public final class CertificateCertificatePolicyArgs extends com.pulumi.resources
     public static final CertificateCertificatePolicyArgs Empty = new CertificateCertificatePolicyArgs();
 
     /**
-     * A `issuer_parameters` block as defined below.
+     * A `issuerParameters` block as defined below.
      * 
      */
     @Import(name="issuerParameters", required=true)
     private Output<CertificateCertificatePolicyIssuerParametersArgs> issuerParameters;
 
     /**
-     * @return A `issuer_parameters` block as defined below.
+     * @return A `issuerParameters` block as defined below.
      * 
      */
     public Output<CertificateCertificatePolicyIssuerParametersArgs> issuerParameters() {
@@ -37,14 +37,14 @@ public final class CertificateCertificatePolicyArgs extends com.pulumi.resources
     }
 
     /**
-     * A `key_properties` block as defined below.
+     * A `keyProperties` block as defined below.
      * 
      */
     @Import(name="keyProperties", required=true)
     private Output<CertificateCertificatePolicyKeyPropertiesArgs> keyProperties;
 
     /**
-     * @return A `key_properties` block as defined below.
+     * @return A `keyProperties` block as defined below.
      * 
      */
     public Output<CertificateCertificatePolicyKeyPropertiesArgs> keyProperties() {
@@ -52,14 +52,14 @@ public final class CertificateCertificatePolicyArgs extends com.pulumi.resources
     }
 
     /**
-     * A `lifetime_action` block as defined below.
+     * A `lifetimeAction` block as defined below.
      * 
      */
     @Import(name="lifetimeActions")
     private @Nullable Output<List<CertificateCertificatePolicyLifetimeActionArgs>> lifetimeActions;
 
     /**
-     * @return A `lifetime_action` block as defined below.
+     * @return A `lifetimeAction` block as defined below.
      * 
      */
     public Optional<Output<List<CertificateCertificatePolicyLifetimeActionArgs>>> lifetimeActions() {
@@ -67,14 +67,14 @@ public final class CertificateCertificatePolicyArgs extends com.pulumi.resources
     }
 
     /**
-     * A `secret_properties` block as defined below.
+     * A `secretProperties` block as defined below.
      * 
      */
     @Import(name="secretProperties", required=true)
     private Output<CertificateCertificatePolicySecretPropertiesArgs> secretProperties;
 
     /**
-     * @return A `secret_properties` block as defined below.
+     * @return A `secretProperties` block as defined below.
      * 
      */
     public Output<CertificateCertificatePolicySecretPropertiesArgs> secretProperties() {
@@ -82,14 +82,14 @@ public final class CertificateCertificatePolicyArgs extends com.pulumi.resources
     }
 
     /**
-     * A `x509_certificate_properties` block as defined below. Required when `certificate` block is not specified.
+     * A `x509CertificateProperties` block as defined below. Required when `certificate` block is not specified.
      * 
      */
     @Import(name="x509CertificateProperties")
     private @Nullable Output<CertificateCertificatePolicyX509CertificatePropertiesArgs> x509CertificateProperties;
 
     /**
-     * @return A `x509_certificate_properties` block as defined below. Required when `certificate` block is not specified.
+     * @return A `x509CertificateProperties` block as defined below. Required when `certificate` block is not specified.
      * 
      */
     public Optional<Output<CertificateCertificatePolicyX509CertificatePropertiesArgs>> x509CertificateProperties() {
@@ -125,7 +125,7 @@ public final class CertificateCertificatePolicyArgs extends com.pulumi.resources
         }
 
         /**
-         * @param issuerParameters A `issuer_parameters` block as defined below.
+         * @param issuerParameters A `issuerParameters` block as defined below.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class CertificateCertificatePolicyArgs extends com.pulumi.resources
         }
 
         /**
-         * @param issuerParameters A `issuer_parameters` block as defined below.
+         * @param issuerParameters A `issuerParameters` block as defined below.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class CertificateCertificatePolicyArgs extends com.pulumi.resources
         }
 
         /**
-         * @param keyProperties A `key_properties` block as defined below.
+         * @param keyProperties A `keyProperties` block as defined below.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class CertificateCertificatePolicyArgs extends com.pulumi.resources
         }
 
         /**
-         * @param keyProperties A `key_properties` block as defined below.
+         * @param keyProperties A `keyProperties` block as defined below.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class CertificateCertificatePolicyArgs extends com.pulumi.resources
         }
 
         /**
-         * @param lifetimeActions A `lifetime_action` block as defined below.
+         * @param lifetimeActions A `lifetimeAction` block as defined below.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class CertificateCertificatePolicyArgs extends com.pulumi.resources
         }
 
         /**
-         * @param lifetimeActions A `lifetime_action` block as defined below.
+         * @param lifetimeActions A `lifetimeAction` block as defined below.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class CertificateCertificatePolicyArgs extends com.pulumi.resources
         }
 
         /**
-         * @param lifetimeActions A `lifetime_action` block as defined below.
+         * @param lifetimeActions A `lifetimeAction` block as defined below.
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class CertificateCertificatePolicyArgs extends com.pulumi.resources
         }
 
         /**
-         * @param secretProperties A `secret_properties` block as defined below.
+         * @param secretProperties A `secretProperties` block as defined below.
          * 
          * @return builder
          * 
@@ -209,7 +209,7 @@ public final class CertificateCertificatePolicyArgs extends com.pulumi.resources
         }
 
         /**
-         * @param secretProperties A `secret_properties` block as defined below.
+         * @param secretProperties A `secretProperties` block as defined below.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class CertificateCertificatePolicyArgs extends com.pulumi.resources
         }
 
         /**
-         * @param x509CertificateProperties A `x509_certificate_properties` block as defined below. Required when `certificate` block is not specified.
+         * @param x509CertificateProperties A `x509CertificateProperties` block as defined below. Required when `certificate` block is not specified.
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class CertificateCertificatePolicyArgs extends com.pulumi.resources
         }
 
         /**
-         * @param x509CertificateProperties A `x509_certificate_properties` block as defined below. Required when `certificate` block is not specified.
+         * @param x509CertificateProperties A `x509CertificateProperties` block as defined below. Required when `certificate` block is not specified.
          * 
          * @return builder
          * 

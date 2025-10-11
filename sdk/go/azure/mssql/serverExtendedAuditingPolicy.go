@@ -74,6 +74,8 @@ import (
 //
 // ```
 //
+// ### With Storage Account Behind VNet And Firewall
+//
 // ## Import
 //
 // MS SQL Server Extended Auditing Policies can be imported using the `resource id`, e.g.

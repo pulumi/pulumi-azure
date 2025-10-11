@@ -38,14 +38,14 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `delivery_rule` blocks as defined below.
+     * Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `deliveryRule` blocks as defined below.
      * 
      */
     @Import(name="deliveryRules")
     private @Nullable Output<List<EndpointDeliveryRuleArgs>> deliveryRules;
 
     /**
-     * @return Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `delivery_rule` blocks as defined below.
+     * @return Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `deliveryRule` blocks as defined below.
      * 
      */
     public Optional<Output<List<EndpointDeliveryRuleArgs>>> deliveryRules() {
@@ -68,14 +68,14 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
+     * A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
      * 
      */
     @Import(name="geoFilters")
     private @Nullable Output<List<EndpointGeoFilterArgs>> geoFilters;
 
     /**
-     * @return A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
+     * @return A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
      * 
      */
     public Optional<Output<List<EndpointGeoFilterArgs>>> geoFilters() {
@@ -83,14 +83,14 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Actions that are valid for all resources regardless of any conditions. A `global_delivery_rule` block as defined below.
+     * Actions that are valid for all resources regardless of any conditions. A `globalDeliveryRule` block as defined below.
      * 
      */
     @Import(name="globalDeliveryRule")
     private @Nullable Output<EndpointGlobalDeliveryRuleArgs> globalDeliveryRule;
 
     /**
-     * @return Actions that are valid for all resources regardless of any conditions. A `global_delivery_rule` block as defined below.
+     * @return Actions that are valid for all resources regardless of any conditions. A `globalDeliveryRule` block as defined below.
      * 
      */
     public Optional<Output<EndpointGlobalDeliveryRuleArgs>> globalDeliveryRule() {
@@ -233,18 +233,18 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
+     * the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `originPath`.
      * 
-     * &gt; **Note:** `global_delivery_rule` and `delivery_rule` are currently only available for `Microsoft_Standard` CDN profiles.
+     * &gt; **Note:** `globalDeliveryRule` and `deliveryRule` are currently only available for `Microsoft_Standard` CDN profiles.
      * 
      */
     @Import(name="probePath")
     private @Nullable Output<String> probePath;
 
     /**
-     * @return the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
+     * @return the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `originPath`.
      * 
-     * &gt; **Note:** `global_delivery_rule` and `delivery_rule` are currently only available for `Microsoft_Standard` CDN profiles.
+     * &gt; **Note:** `globalDeliveryRule` and `deliveryRule` are currently only available for `Microsoft_Standard` CDN profiles.
      * 
      */
     public Optional<Output<String>> probePath() {
@@ -385,7 +385,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deliveryRules Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `delivery_rule` blocks as defined below.
+         * @param deliveryRules Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `deliveryRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -396,7 +396,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deliveryRules Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `delivery_rule` blocks as defined below.
+         * @param deliveryRules Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `deliveryRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -406,7 +406,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deliveryRules Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `delivery_rule` blocks as defined below.
+         * @param deliveryRules Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `deliveryRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -437,7 +437,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param geoFilters A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
+         * @param geoFilters A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
          * 
          * @return builder
          * 
@@ -448,7 +448,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param geoFilters A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
+         * @param geoFilters A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
          * 
          * @return builder
          * 
@@ -458,7 +458,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param geoFilters A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
+         * @param geoFilters A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
          * 
          * @return builder
          * 
@@ -468,7 +468,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param globalDeliveryRule Actions that are valid for all resources regardless of any conditions. A `global_delivery_rule` block as defined below.
+         * @param globalDeliveryRule Actions that are valid for all resources regardless of any conditions. A `globalDeliveryRule` block as defined below.
          * 
          * @return builder
          * 
@@ -479,7 +479,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param globalDeliveryRule Actions that are valid for all resources regardless of any conditions. A `global_delivery_rule` block as defined below.
+         * @param globalDeliveryRule Actions that are valid for all resources regardless of any conditions. A `globalDeliveryRule` block as defined below.
          * 
          * @return builder
          * 
@@ -688,9 +688,9 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param probePath the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
+         * @param probePath the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `originPath`.
          * 
-         * &gt; **Note:** `global_delivery_rule` and `delivery_rule` are currently only available for `Microsoft_Standard` CDN profiles.
+         * &gt; **Note:** `globalDeliveryRule` and `deliveryRule` are currently only available for `Microsoft_Standard` CDN profiles.
          * 
          * @return builder
          * 
@@ -701,9 +701,9 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param probePath the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
+         * @param probePath the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `originPath`.
          * 
-         * &gt; **Note:** `global_delivery_rule` and `delivery_rule` are currently only available for `Microsoft_Standard` CDN profiles.
+         * &gt; **Note:** `globalDeliveryRule` and `deliveryRule` are currently only available for `Microsoft_Standard` CDN profiles.
          * 
          * @return builder
          * 

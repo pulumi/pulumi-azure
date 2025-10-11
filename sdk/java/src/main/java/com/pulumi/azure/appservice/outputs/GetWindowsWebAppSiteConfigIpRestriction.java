@@ -35,7 +35,7 @@ public final class GetWindowsWebAppSiteConfigIpRestriction {
      */
     private String name;
     /**
-     * @return The priority value of this `ip_restriction`.
+     * @return The priority value of this `ipRestriction`.
      * 
      */
     private Integer priority;
@@ -83,7 +83,7 @@ public final class GetWindowsWebAppSiteConfigIpRestriction {
         return this.name;
     }
     /**
-     * @return The priority value of this `ip_restriction`.
+     * @return The priority value of this `ipRestriction`.
      * 
      */
     public Integer priority() {

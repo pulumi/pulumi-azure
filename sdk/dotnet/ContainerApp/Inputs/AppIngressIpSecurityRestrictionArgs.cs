@@ -15,7 +15,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         /// <summary>
         /// The IP-filter action. `Allow` or `Deny`.
         /// 
-        /// &gt; **Note:** The `action` types in an all `ip_security_restriction` blocks must be the same for the `ingress`, mixing `Allow` and `Deny` rules is not currently supported by the service.
+        /// &gt; **Note:** The `Action` types in an all `IpSecurityRestriction` blocks must be the same for the `Ingress`, mixing `Allow` and `Deny` rules is not currently supported by the service.
         /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;

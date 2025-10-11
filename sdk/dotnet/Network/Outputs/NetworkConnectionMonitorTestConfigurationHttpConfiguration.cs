@@ -26,11 +26,11 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly int? Port;
         /// <summary>
-        /// Should HTTPS be preferred over HTTP in cases where the choice is not explicit? Defaults to `false`.
+        /// Should HTTPS be preferred over HTTP in cases where the choice is not explicit? Defaults to `False`.
         /// </summary>
         public readonly bool? PreferHttps;
         /// <summary>
-        /// A `request_header` block as defined below.
+        /// A `RequestHeader` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeader> RequestHeaders;
         /// <summary>

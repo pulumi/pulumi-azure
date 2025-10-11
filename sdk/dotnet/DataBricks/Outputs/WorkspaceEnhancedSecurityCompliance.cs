@@ -14,27 +14,27 @@ namespace Pulumi.Azure.DataBricks.Outputs
     public sealed class WorkspaceEnhancedSecurityCompliance
     {
         /// <summary>
-        /// Enables automatic cluster updates for this workspace. Defaults to `false`.
+        /// Enables automatic cluster updates for this workspace. Defaults to `False`.
         /// </summary>
         public readonly bool? AutomaticClusterUpdateEnabled;
         /// <summary>
-        /// Enables compliance security profile for this workspace. Defaults to `false`.
+        /// Enables compliance security profile for this workspace. Defaults to `False`.
         /// 
-        /// &gt; **Note:** Changing the value of `compliance_security_profile_enabled` from `true` to `false` forces a replacement of the Databricks workspace.
+        /// &gt; **Note:** Changing the value of `ComplianceSecurityProfileEnabled` from `True` to `False` forces a replacement of the Databricks workspace.
         /// 
-        /// &gt; **Note:** The attributes `automatic_cluster_update_enabled` and `enhanced_security_monitoring_enabled` must be set to `true` in order to set `compliance_security_profile_enabled` to `true`.
+        /// &gt; **Note:** The attributes `AutomaticClusterUpdateEnabled` and `EnhancedSecurityMonitoringEnabled` must be set to `True` in order to set `ComplianceSecurityProfileEnabled` to `True`.
         /// </summary>
         public readonly bool? ComplianceSecurityProfileEnabled;
         /// <summary>
         /// A list of standards to enforce on this workspace. Possible values include `HIPAA` and `PCI_DSS`.
         /// 
-        /// &gt; **Note:** `compliance_security_profile_enabled` must be set to `true` in order to use `compliance_security_profile_standards`.
+        /// &gt; **Note:** `ComplianceSecurityProfileEnabled` must be set to `True` in order to use `ComplianceSecurityProfileStandards`.
         /// 
-        /// &gt; **Note:** Removing a standard from the `compliance_security_profile_standards` list forces a replacement of the Databricks workspace.
+        /// &gt; **Note:** Removing a standard from the `ComplianceSecurityProfileStandards` list forces a replacement of the Databricks workspace.
         /// </summary>
         public readonly ImmutableArray<string> ComplianceSecurityProfileStandards;
         /// <summary>
-        /// Enables enhanced security monitoring for this workspace. Defaults to `false`.
+        /// Enables enhanced security monitoring for this workspace. Defaults to `False`.
         /// </summary>
         public readonly bool? EnhancedSecurityMonitoringEnabled;
 

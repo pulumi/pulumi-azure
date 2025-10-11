@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Core.Outputs
     public sealed class ResourcePolicyAssignmentOverride
     {
         /// <summary>
-        /// One or more `override_selector` block as defined below.
+        /// One or more `OverrideSelector` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.ResourcePolicyAssignmentOverrideSelector> Selectors;
         /// <summary>

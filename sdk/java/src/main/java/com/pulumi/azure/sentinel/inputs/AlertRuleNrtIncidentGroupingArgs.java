@@ -18,14 +18,14 @@ public final class AlertRuleNrtIncidentGroupingArgs extends com.pulumi.resources
     public static final AlertRuleNrtIncidentGroupingArgs Empty = new AlertRuleNrtIncidentGroupingArgs();
 
     /**
-     * A list of alert details to group by, only when the `entity_matching_method` is `Selected`. Possible values are `DisplayName` and `Severity`.
+     * A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `DisplayName` and `Severity`.
      * 
      */
     @Import(name="byAlertDetails")
     private @Nullable Output<List<String>> byAlertDetails;
 
     /**
-     * @return A list of alert details to group by, only when the `entity_matching_method` is `Selected`. Possible values are `DisplayName` and `Severity`.
+     * @return A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `DisplayName` and `Severity`.
      * 
      */
     public Optional<Output<List<String>>> byAlertDetails() {
@@ -33,14 +33,14 @@ public final class AlertRuleNrtIncidentGroupingArgs extends com.pulumi.resources
     }
 
     /**
-     * A list of custom details keys to group by, only when the `entity_matching_method` is `Selected`. Only keys defined in the `custom_details` may be used.
+     * A list of custom details keys to group by, only when the `entityMatchingMethod` is `Selected`. Only keys defined in the `customDetails` may be used.
      * 
      */
     @Import(name="byCustomDetails")
     private @Nullable Output<List<String>> byCustomDetails;
 
     /**
-     * @return A list of custom details keys to group by, only when the `entity_matching_method` is `Selected`. Only keys defined in the `custom_details` may be used.
+     * @return A list of custom details keys to group by, only when the `entityMatchingMethod` is `Selected`. Only keys defined in the `customDetails` may be used.
      * 
      */
     public Optional<Output<List<String>>> byCustomDetails() {
@@ -48,14 +48,14 @@ public final class AlertRuleNrtIncidentGroupingArgs extends com.pulumi.resources
     }
 
     /**
-     * A list of entity types to group by, only when the `entity_matching_method` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+     * A list of entity types to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
      * 
      */
     @Import(name="byEntities")
     private @Nullable Output<List<String>> byEntities;
 
     /**
-     * @return A list of entity types to group by, only when the `entity_matching_method` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+     * @return A list of entity types to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
      * 
      */
     public Optional<Output<List<String>>> byEntities() {
@@ -153,7 +153,7 @@ public final class AlertRuleNrtIncidentGroupingArgs extends com.pulumi.resources
         }
 
         /**
-         * @param byAlertDetails A list of alert details to group by, only when the `entity_matching_method` is `Selected`. Possible values are `DisplayName` and `Severity`.
+         * @param byAlertDetails A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `DisplayName` and `Severity`.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class AlertRuleNrtIncidentGroupingArgs extends com.pulumi.resources
         }
 
         /**
-         * @param byAlertDetails A list of alert details to group by, only when the `entity_matching_method` is `Selected`. Possible values are `DisplayName` and `Severity`.
+         * @param byAlertDetails A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `DisplayName` and `Severity`.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class AlertRuleNrtIncidentGroupingArgs extends com.pulumi.resources
         }
 
         /**
-         * @param byAlertDetails A list of alert details to group by, only when the `entity_matching_method` is `Selected`. Possible values are `DisplayName` and `Severity`.
+         * @param byAlertDetails A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `DisplayName` and `Severity`.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class AlertRuleNrtIncidentGroupingArgs extends com.pulumi.resources
         }
 
         /**
-         * @param byCustomDetails A list of custom details keys to group by, only when the `entity_matching_method` is `Selected`. Only keys defined in the `custom_details` may be used.
+         * @param byCustomDetails A list of custom details keys to group by, only when the `entityMatchingMethod` is `Selected`. Only keys defined in the `customDetails` may be used.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class AlertRuleNrtIncidentGroupingArgs extends com.pulumi.resources
         }
 
         /**
-         * @param byCustomDetails A list of custom details keys to group by, only when the `entity_matching_method` is `Selected`. Only keys defined in the `custom_details` may be used.
+         * @param byCustomDetails A list of custom details keys to group by, only when the `entityMatchingMethod` is `Selected`. Only keys defined in the `customDetails` may be used.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class AlertRuleNrtIncidentGroupingArgs extends com.pulumi.resources
         }
 
         /**
-         * @param byCustomDetails A list of custom details keys to group by, only when the `entity_matching_method` is `Selected`. Only keys defined in the `custom_details` may be used.
+         * @param byCustomDetails A list of custom details keys to group by, only when the `entityMatchingMethod` is `Selected`. Only keys defined in the `customDetails` may be used.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class AlertRuleNrtIncidentGroupingArgs extends com.pulumi.resources
         }
 
         /**
-         * @param byEntities A list of entity types to group by, only when the `entity_matching_method` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+         * @param byEntities A list of entity types to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class AlertRuleNrtIncidentGroupingArgs extends com.pulumi.resources
         }
 
         /**
-         * @param byEntities A list of entity types to group by, only when the `entity_matching_method` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+         * @param byEntities A list of entity types to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class AlertRuleNrtIncidentGroupingArgs extends com.pulumi.resources
         }
 
         /**
-         * @param byEntities A list of entity types to group by, only when the `entity_matching_method` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+         * @param byEntities A list of entity types to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
          * 
          * @return builder
          * 

@@ -42,7 +42,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// <summary>
         /// The App Setting name that contains the client secret of the Client.
         /// 
-        /// !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
+        /// !&gt; **Note:** A setting with this name must exist in `AppSettings` to function correctly.
         /// </summary>
         public readonly string? ClientSecretSettingName;
         /// <summary>
@@ -64,7 +64,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string TenantAuthEndpoint;
         /// <summary>
-        /// Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
+        /// Should the www-authenticate provider should be omitted from the request? Defaults to `False`.
         /// </summary>
         public readonly bool? WwwAuthenticationDisabled;
 

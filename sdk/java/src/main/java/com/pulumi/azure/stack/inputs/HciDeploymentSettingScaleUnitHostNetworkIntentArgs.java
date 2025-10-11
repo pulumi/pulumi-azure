@@ -22,14 +22,14 @@ public final class HciDeploymentSettingScaleUnitHostNetworkIntentArgs extends co
     public static final HciDeploymentSettingScaleUnitHostNetworkIntentArgs Empty = new HciDeploymentSettingScaleUnitHostNetworkIntentArgs();
 
     /**
-     * A `adapter_property_override` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+     * A `adapterPropertyOverride` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
      * 
      */
     @Import(name="adapterPropertyOverride")
     private @Nullable Output<HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideArgs> adapterPropertyOverride;
 
     /**
-     * @return A `adapter_property_override` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+     * @return A `adapterPropertyOverride` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
      * 
      */
     public Optional<Output<HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideArgs>> adapterPropertyOverride() {
@@ -82,14 +82,14 @@ public final class HciDeploymentSettingScaleUnitHostNetworkIntentArgs extends co
     }
 
     /**
-     * A `qos_policy_override` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+     * A `qosPolicyOverride` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
      * 
      */
     @Import(name="qosPolicyOverride")
     private @Nullable Output<HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideArgs> qosPolicyOverride;
 
     /**
-     * @return A `qos_policy_override` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+     * @return A `qosPolicyOverride` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
      * 
      */
     public Optional<Output<HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideArgs>> qosPolicyOverride() {
@@ -127,14 +127,14 @@ public final class HciDeploymentSettingScaleUnitHostNetworkIntentArgs extends co
     }
 
     /**
-     * A `virtual_switch_configuration_override` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+     * A `virtualSwitchConfigurationOverride` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
      * 
      */
     @Import(name="virtualSwitchConfigurationOverride")
     private @Nullable Output<HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideArgs> virtualSwitchConfigurationOverride;
 
     /**
-     * @return A `virtual_switch_configuration_override` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+     * @return A `virtualSwitchConfigurationOverride` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
      * 
      */
     public Optional<Output<HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideArgs>> virtualSwitchConfigurationOverride() {
@@ -189,7 +189,7 @@ public final class HciDeploymentSettingScaleUnitHostNetworkIntentArgs extends co
         }
 
         /**
-         * @param adapterPropertyOverride A `adapter_property_override` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+         * @param adapterPropertyOverride A `adapterPropertyOverride` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class HciDeploymentSettingScaleUnitHostNetworkIntentArgs extends co
         }
 
         /**
-         * @param adapterPropertyOverride A `adapter_property_override` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+         * @param adapterPropertyOverride A `adapterPropertyOverride` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
          * 
          * @return builder
          * 
@@ -283,7 +283,7 @@ public final class HciDeploymentSettingScaleUnitHostNetworkIntentArgs extends co
         }
 
         /**
-         * @param qosPolicyOverride A `qos_policy_override` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+         * @param qosPolicyOverride A `qosPolicyOverride` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
          * 
          * @return builder
          * 
@@ -294,7 +294,7 @@ public final class HciDeploymentSettingScaleUnitHostNetworkIntentArgs extends co
         }
 
         /**
-         * @param qosPolicyOverride A `qos_policy_override` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+         * @param qosPolicyOverride A `qosPolicyOverride` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
          * 
          * @return builder
          * 
@@ -356,7 +356,7 @@ public final class HciDeploymentSettingScaleUnitHostNetworkIntentArgs extends co
         }
 
         /**
-         * @param virtualSwitchConfigurationOverride A `virtual_switch_configuration_override` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+         * @param virtualSwitchConfigurationOverride A `virtualSwitchConfigurationOverride` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
          * 
          * @return builder
          * 
@@ -367,7 +367,7 @@ public final class HciDeploymentSettingScaleUnitHostNetworkIntentArgs extends co
         }
 
         /**
-         * @param virtualSwitchConfigurationOverride A `virtual_switch_configuration_override` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+         * @param virtualSwitchConfigurationOverride A `virtualSwitchConfigurationOverride` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
          * 
          * @return builder
          * 

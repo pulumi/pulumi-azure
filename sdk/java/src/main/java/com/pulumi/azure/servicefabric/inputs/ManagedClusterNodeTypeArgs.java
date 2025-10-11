@@ -82,14 +82,14 @@ public final class ManagedClusterNodeTypeArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Sets the port range available for the OS. Format is `&lt;from_port&gt;-&lt;to_port&gt;`, for example `10000-20000`. There has to be at least 255 ports available and cannot overlap with `application_port_range`..
+     * Sets the port range available for the OS. Format is `&lt;from_port&gt;-&lt;to_port&gt;`, for example `10000-20000`. There has to be at least 255 ports available and cannot overlap with `applicationPortRange`..
      * 
      */
     @Import(name="ephemeralPortRange", required=true)
     private Output<String> ephemeralPortRange;
 
     /**
-     * @return Sets the port range available for the OS. Format is `&lt;from_port&gt;-&lt;to_port&gt;`, for example `10000-20000`. There has to be at least 255 ports available and cannot overlap with `application_port_range`..
+     * @return Sets the port range available for the OS. Format is `&lt;from_port&gt;-&lt;to_port&gt;`, for example `10000-20000`. There has to be at least 255 ports available and cannot overlap with `applicationPortRange`..
      * 
      */
     public Output<String> ephemeralPortRange() {
@@ -262,14 +262,14 @@ public final class ManagedClusterNodeTypeArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * One or more `vm_secrets` blocks as defined below.
+     * One or more `vmSecrets` blocks as defined below.
      * 
      */
     @Import(name="vmSecrets")
     private @Nullable Output<List<ManagedClusterNodeTypeVmSecretArgs>> vmSecrets;
 
     /**
-     * @return One or more `vm_secrets` blocks as defined below.
+     * @return One or more `vmSecrets` blocks as defined below.
      * 
      */
     public Optional<Output<List<ManagedClusterNodeTypeVmSecretArgs>>> vmSecrets() {
@@ -417,7 +417,7 @@ public final class ManagedClusterNodeTypeArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param ephemeralPortRange Sets the port range available for the OS. Format is `&lt;from_port&gt;-&lt;to_port&gt;`, for example `10000-20000`. There has to be at least 255 ports available and cannot overlap with `application_port_range`..
+         * @param ephemeralPortRange Sets the port range available for the OS. Format is `&lt;from_port&gt;-&lt;to_port&gt;`, for example `10000-20000`. There has to be at least 255 ports available and cannot overlap with `applicationPortRange`..
          * 
          * @return builder
          * 
@@ -428,7 +428,7 @@ public final class ManagedClusterNodeTypeArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param ephemeralPortRange Sets the port range available for the OS. Format is `&lt;from_port&gt;-&lt;to_port&gt;`, for example `10000-20000`. There has to be at least 255 ports available and cannot overlap with `application_port_range`..
+         * @param ephemeralPortRange Sets the port range available for the OS. Format is `&lt;from_port&gt;-&lt;to_port&gt;`, for example `10000-20000`. There has to be at least 255 ports available and cannot overlap with `applicationPortRange`..
          * 
          * @return builder
          * 
@@ -669,7 +669,7 @@ public final class ManagedClusterNodeTypeArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param vmSecrets One or more `vm_secrets` blocks as defined below.
+         * @param vmSecrets One or more `vmSecrets` blocks as defined below.
          * 
          * @return builder
          * 
@@ -680,7 +680,7 @@ public final class ManagedClusterNodeTypeArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param vmSecrets One or more `vm_secrets` blocks as defined below.
+         * @param vmSecrets One or more `vmSecrets` blocks as defined below.
          * 
          * @return builder
          * 
@@ -690,7 +690,7 @@ public final class ManagedClusterNodeTypeArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param vmSecrets One or more `vm_secrets` blocks as defined below.
+         * @param vmSecrets One or more `vmSecrets` blocks as defined below.
          * 
          * @return builder
          * 

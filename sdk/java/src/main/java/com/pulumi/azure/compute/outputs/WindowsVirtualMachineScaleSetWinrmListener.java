@@ -15,7 +15,7 @@ public final class WindowsVirtualMachineScaleSetWinrmListener {
     /**
      * @return The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** This can be sourced from the `secret_id` field within the `azure.keyvault.Certificate` Resource.
+     * &gt; **Note:** This can be sourced from the `secretId` field within the `azure.keyvault.Certificate` Resource.
      * 
      */
     private @Nullable String certificateUrl;
@@ -29,7 +29,7 @@ public final class WindowsVirtualMachineScaleSetWinrmListener {
     /**
      * @return The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** This can be sourced from the `secret_id` field within the `azure.keyvault.Certificate` Resource.
+     * &gt; **Note:** This can be sourced from the `secretId` field within the `azure.keyvault.Certificate` Resource.
      * 
      */
     public Optional<String> certificateUrl() {

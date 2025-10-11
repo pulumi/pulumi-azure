@@ -230,7 +230,7 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A `identity` block as defined below.
+        /// A `Identity` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDatabaseIdentityResult> Identities;
         /// <summary>

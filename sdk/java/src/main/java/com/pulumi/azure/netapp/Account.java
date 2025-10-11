@@ -108,14 +108,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:netapp/account:Account")
 public class Account extends com.pulumi.resources.CustomResource {
     /**
-     * A `active_directory` block as defined below.
+     * A `activeDirectory` block as defined below.
      * 
      */
     @Export(name="activeDirectory", refs={AccountActiveDirectory.class}, tree="[0]")
     private Output</* @Nullable */ AccountActiveDirectory> activeDirectory;
 
     /**
-     * @return A `active_directory` block as defined below.
+     * @return A `activeDirectory` block as defined below.
      * 
      */
     public Output<Optional<AccountActiveDirectory>> activeDirectory() {

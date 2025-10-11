@@ -48,7 +48,7 @@ public final class WorkspaceFeatureStoreArgs extends com.pulumi.resources.Resour
     /**
      * The name of online store connection.
      * 
-     * &gt; **Note:** `feature_store` must be set when`kind` is `FeatureStore`
+     * &gt; **Note:** `featureStore` must be set when`kind` is `FeatureStore`
      * 
      */
     @Import(name="onlineConnectionName")
@@ -57,7 +57,7 @@ public final class WorkspaceFeatureStoreArgs extends com.pulumi.resources.Resour
     /**
      * @return The name of online store connection.
      * 
-     * &gt; **Note:** `feature_store` must be set when`kind` is `FeatureStore`
+     * &gt; **Note:** `featureStore` must be set when`kind` is `FeatureStore`
      * 
      */
     public Optional<Output<String>> onlineConnectionName() {
@@ -135,7 +135,7 @@ public final class WorkspaceFeatureStoreArgs extends com.pulumi.resources.Resour
         /**
          * @param onlineConnectionName The name of online store connection.
          * 
-         * &gt; **Note:** `feature_store` must be set when`kind` is `FeatureStore`
+         * &gt; **Note:** `featureStore` must be set when`kind` is `FeatureStore`
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class WorkspaceFeatureStoreArgs extends com.pulumi.resources.Resour
         /**
          * @param onlineConnectionName The name of online store connection.
          * 
-         * &gt; **Note:** `feature_store` must be set when`kind` is `FeatureStore`
+         * &gt; **Note:** `featureStore` must be set when`kind` is `FeatureStore`
          * 
          * @return builder
          * 

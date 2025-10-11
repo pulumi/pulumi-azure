@@ -22,7 +22,7 @@ namespace Pulumi.Azure.WorkloadsSAP.Inputs
         private InputList<Inputs.ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationDiskVolumeConfigurationGetArgs>? _diskVolumeConfigurations;
 
         /// <summary>
-        /// One or more `disk_volume_configuration` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `DiskVolumeConfiguration` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationDiskVolumeConfigurationGetArgs> DiskVolumeConfigurations
         {
@@ -43,7 +43,7 @@ namespace Pulumi.Azure.WorkloadsSAP.Inputs
         public Input<string> SubnetId { get; set; } = null!;
 
         /// <summary>
-        /// A `virtual_machine_configuration` block as defined below. Changing this forces a new resource to be created.
+        /// A `VirtualMachineConfiguration` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("virtualMachineConfiguration", required: true)]
         public Input<Inputs.ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationGetArgs> VirtualMachineConfiguration { get; set; } = null!;

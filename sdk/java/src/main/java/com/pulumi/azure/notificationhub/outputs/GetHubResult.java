@@ -15,12 +15,12 @@ import java.util.Objects;
 @CustomType
 public final class GetHubResult {
     /**
-     * @return A `apns_credential` block as defined below.
+     * @return A `apnsCredential` block as defined below.
      * 
      */
     private List<GetHubApnsCredential> apnsCredentials;
     /**
-     * @return A `gcm_credential` block as defined below.
+     * @return A `gcmCredential` block as defined below.
      * 
      */
     private List<GetHubGcmCredential> gcmCredentials;
@@ -45,14 +45,14 @@ public final class GetHubResult {
 
     private GetHubResult() {}
     /**
-     * @return A `apns_credential` block as defined below.
+     * @return A `apnsCredential` block as defined below.
      * 
      */
     public List<GetHubApnsCredential> apnsCredentials() {
         return this.apnsCredentials;
     }
     /**
-     * @return A `gcm_credential` block as defined below.
+     * @return A `gcmCredential` block as defined below.
      * 
      */
     public List<GetHubGcmCredential> gcmCredentials() {

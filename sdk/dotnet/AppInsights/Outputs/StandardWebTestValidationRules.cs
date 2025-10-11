@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppInsights.Outputs
     public sealed class StandardWebTestValidationRules
     {
         /// <summary>
-        /// A `content` block as defined above.
+        /// A `Content` block as defined above.
         /// </summary>
         public readonly Outputs.StandardWebTestValidationRulesContent? Content;
         /// <summary>

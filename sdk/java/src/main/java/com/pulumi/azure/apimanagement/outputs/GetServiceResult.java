@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetServiceResult {
     /**
-     * @return Zero or more `additional_location` blocks as defined below
+     * @return Zero or more `additionalLocation` blocks as defined below
      * 
      */
     private List<GetServiceAdditionalLocation> additionalLocations;
@@ -38,7 +38,7 @@ public final class GetServiceResult {
      */
     private String gatewayUrl;
     /**
-     * @return A `hostname_configuration` block as defined below.
+     * @return A `hostnameConfiguration` block as defined below.
      * 
      */
     private List<GetServiceHostnameConfiguration> hostnameConfigurations;
@@ -115,14 +115,14 @@ public final class GetServiceResult {
      */
     private @Nullable Map<String,String> tags;
     /**
-     * @return A `tenant_access` block as defined below.
+     * @return A `tenantAccess` block as defined below.
      * 
      */
     private List<GetServiceTenantAccess> tenantAccesses;
 
     private GetServiceResult() {}
     /**
-     * @return Zero or more `additional_location` blocks as defined below
+     * @return Zero or more `additionalLocation` blocks as defined below
      * 
      */
     public List<GetServiceAdditionalLocation> additionalLocations() {
@@ -150,7 +150,7 @@ public final class GetServiceResult {
         return this.gatewayUrl;
     }
     /**
-     * @return A `hostname_configuration` block as defined below.
+     * @return A `hostnameConfiguration` block as defined below.
      * 
      */
     public List<GetServiceHostnameConfiguration> hostnameConfigurations() {
@@ -261,7 +261,7 @@ public final class GetServiceResult {
         return this.tags == null ? Map.of() : this.tags;
     }
     /**
-     * @return A `tenant_access` block as defined below.
+     * @return A `tenantAccess` block as defined below.
      * 
      */
     public List<GetServiceTenantAccess> tenantAccesses() {

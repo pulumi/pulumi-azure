@@ -43,7 +43,7 @@ public final class GetFlexibleServerResult {
      */
     private Boolean geoRedundantBackupEnabled;
     /**
-     * @return A `high_availability` block for this MySQL Flexible Server as defined below.
+     * @return A `highAvailability` block for this MySQL Flexible Server as defined below.
      * 
      */
     private List<GetFlexibleServerHighAvailability> highAvailabilities;
@@ -58,7 +58,7 @@ public final class GetFlexibleServerResult {
      */
     private String location;
     /**
-     * @return A `maintenance_window` block for this MySQL Flexible Server as defined below.
+     * @return A `maintenanceWindow` block for this MySQL Flexible Server as defined below.
      * 
      */
     private List<GetFlexibleServerMaintenanceWindow> maintenanceWindows;
@@ -148,7 +148,7 @@ public final class GetFlexibleServerResult {
         return this.geoRedundantBackupEnabled;
     }
     /**
-     * @return A `high_availability` block for this MySQL Flexible Server as defined below.
+     * @return A `highAvailability` block for this MySQL Flexible Server as defined below.
      * 
      */
     public List<GetFlexibleServerHighAvailability> highAvailabilities() {
@@ -169,7 +169,7 @@ public final class GetFlexibleServerResult {
         return this.location;
     }
     /**
-     * @return A `maintenance_window` block for this MySQL Flexible Server as defined below.
+     * @return A `maintenanceWindow` block for this MySQL Flexible Server as defined below.
      * 
      */
     public List<GetFlexibleServerMaintenanceWindow> maintenanceWindows() {

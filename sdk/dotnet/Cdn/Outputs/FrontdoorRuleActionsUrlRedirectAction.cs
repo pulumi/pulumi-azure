@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Cdn.Outputs
         /// </summary>
         public readonly string? DestinationPath;
         /// <summary>
-        /// The query string used in the redirect URL. The value must be in the &amp;lt;key&gt;=&amp;lt;value&gt; or &amp;lt;key&gt;={`action_server_variable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to `""`.
+        /// The query string used in the redirect URL. The value must be in the &amp;lt;key&gt;=&amp;lt;value&gt; or &amp;lt;key&gt;={`ActionServerVariable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to `""`.
         /// </summary>
         public readonly string? QueryString;
         /// <summary>

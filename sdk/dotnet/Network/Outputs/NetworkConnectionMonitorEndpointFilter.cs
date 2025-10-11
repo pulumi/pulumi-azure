@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class NetworkConnectionMonitorEndpointFilter
     {
         /// <summary>
-        /// A `item` block as defined below.
+        /// A `Item` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.NetworkConnectionMonitorEndpointFilterItem> Items;
         /// <summary>

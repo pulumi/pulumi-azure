@@ -159,14 +159,14 @@ public class EnvironmentV3 extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.allowNewPrivateEndpointConnections);
     }
     /**
-     * Zero or more `cluster_setting` blocks as defined below.
+     * Zero or more `clusterSetting` blocks as defined below.
      * 
      */
     @Export(name="clusterSettings", refs={List.class,EnvironmentV3ClusterSetting.class}, tree="[0,1]")
     private Output<List<EnvironmentV3ClusterSetting>> clusterSettings;
 
     /**
-     * @return Zero or more `cluster_setting` blocks as defined below.
+     * @return Zero or more `clusterSetting` blocks as defined below.
      * 
      */
     public Output<List<EnvironmentV3ClusterSetting>> clusterSettings() {
@@ -215,14 +215,14 @@ public class EnvironmentV3 extends com.pulumi.resources.CustomResource {
         return this.externalInboundIpAddresses;
     }
     /**
-     * An `inbound_network_dependencies` block as defined below.
+     * An `inboundNetworkDependencies` block as defined below.
      * 
      */
     @Export(name="inboundNetworkDependencies", refs={List.class,EnvironmentV3InboundNetworkDependency.class}, tree="[0,1]")
     private Output<List<EnvironmentV3InboundNetworkDependency>> inboundNetworkDependencies;
 
     /**
-     * @return An `inbound_network_dependencies` block as defined below.
+     * @return An `inboundNetworkDependencies` block as defined below.
      * 
      */
     public Output<List<EnvironmentV3InboundNetworkDependency>> inboundNetworkDependencies() {
@@ -341,14 +341,14 @@ public class EnvironmentV3 extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.remoteDebuggingEnabled);
     }
     /**
-     * The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`). Changing this forces a new resource to be created.
+     * The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`). Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`). Changing this forces a new resource to be created.
+     * @return The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`). Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -397,7 +397,7 @@ public class EnvironmentV3 extends com.pulumi.resources.CustomResource {
         return this.windowsOutboundIpAddresses;
     }
     /**
-     * Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicated_host_count` or `zone_redundant` but not both. Changing this forces a new resource to be created.
+     * Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicatedHostCount` or `zoneRedundant` but not both. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** Setting this value will provision 2 Physical Hosts for your App Service Environment V3, this is done at additional cost, please be aware of the pricing commitment in the [General Availability Notes](https://techcommunity.microsoft.com/t5/apps-on-azure/announcing-app-service-environment-v3-ga/ba-p/2517990)
      * 
@@ -406,7 +406,7 @@ public class EnvironmentV3 extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ Boolean> zoneRedundant;
 
     /**
-     * @return Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicated_host_count` or `zone_redundant` but not both. Changing this forces a new resource to be created.
+     * @return Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicatedHostCount` or `zoneRedundant` but not both. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** Setting this value will provision 2 Physical Hosts for your App Service Environment V3, this is done at additional cost, please be aware of the pricing commitment in the [General Availability Notes](https://techcommunity.microsoft.com/t5/apps-on-azure/announcing-app-service-environment-v3-ga/ba-p/2517990)
      * 

@@ -13,7 +13,7 @@ namespace Pulumi.Azure.AppService.Inputs
     public sealed class WindowsFunctionAppSlotBackupScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
+        /// How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `FrequencyUnit` should be set to `Day`).
         /// 
         /// &gt; **Note:** Not all intervals are supported on all SKUs. Please refer to the official documentation for appropriate values.
         /// </summary>
@@ -27,7 +27,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string> FrequencyUnit { get; set; } = null!;
 
         /// <summary>
-        /// Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+        /// Should the service keep at least one backup, regardless of age of backup. Defaults to `False`.
         /// </summary>
         [Input("keepAtLeastOneBackup")]
         public Input<bool>? KeepAtLeastOneBackup { get; set; }

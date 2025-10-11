@@ -13,7 +13,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
     public sealed class FleetUpdateRunManagedClusterUpdateUpgradeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the Kubernetes version to upgrade the member clusters to. This is required if `type` is set to `Full`.
+        /// Specifies the Kubernetes version to upgrade the member clusters to. This is required if `Type` is set to `Full`.
         /// </summary>
         [Input("kubernetesVersion")]
         public Input<string>? KubernetesVersion { get; set; }

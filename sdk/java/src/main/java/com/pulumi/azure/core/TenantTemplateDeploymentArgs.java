@@ -92,14 +92,14 @@ public final class TenantTemplateDeploymentArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `template_spec_version_id`.
+     * The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `templateSpecVersionId`.
      * 
      */
     @Import(name="templateContent")
     private @Nullable Output<String> templateContent;
 
     /**
-     * @return The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `template_spec_version_id`.
+     * @return The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `templateSpecVersionId`.
      * 
      */
     public Optional<Output<String>> templateContent() {
@@ -107,14 +107,14 @@ public final class TenantTemplateDeploymentArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The ID of the Template Spec Version to deploy. Cannot be specified with `template_content`.
+     * The ID of the Template Spec Version to deploy. Cannot be specified with `templateContent`.
      * 
      */
     @Import(name="templateSpecVersionId")
     private @Nullable Output<String> templateSpecVersionId;
 
     /**
-     * @return The ID of the Template Spec Version to deploy. Cannot be specified with `template_content`.
+     * @return The ID of the Template Spec Version to deploy. Cannot be specified with `templateContent`.
      * 
      */
     public Optional<Output<String>> templateSpecVersionId() {
@@ -257,7 +257,7 @@ public final class TenantTemplateDeploymentArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param templateContent The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `template_spec_version_id`.
+         * @param templateContent The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `templateSpecVersionId`.
          * 
          * @return builder
          * 
@@ -268,7 +268,7 @@ public final class TenantTemplateDeploymentArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param templateContent The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `template_spec_version_id`.
+         * @param templateContent The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `templateSpecVersionId`.
          * 
          * @return builder
          * 
@@ -278,7 +278,7 @@ public final class TenantTemplateDeploymentArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param templateSpecVersionId The ID of the Template Spec Version to deploy. Cannot be specified with `template_content`.
+         * @param templateSpecVersionId The ID of the Template Spec Version to deploy. Cannot be specified with `templateContent`.
          * 
          * @return builder
          * 
@@ -289,7 +289,7 @@ public final class TenantTemplateDeploymentArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param templateSpecVersionId The ID of the Template Spec Version to deploy. Cannot be specified with `template_content`.
+         * @param templateSpecVersionId The ID of the Template Spec Version to deploy. Cannot be specified with `templateContent`.
          * 
          * @return builder
          * 

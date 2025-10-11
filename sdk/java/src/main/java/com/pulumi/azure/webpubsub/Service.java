@@ -171,14 +171,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.identity);
     }
     /**
-     * A `live_trace` block as defined below.
+     * A `liveTrace` block as defined below.
      * 
      */
     @Export(name="liveTrace", refs={ServiceLiveTrace.class}, tree="[0]")
     private Output</* @Nullable */ ServiceLiveTrace> liveTrace;
 
     /**
-     * @return A `live_trace` block as defined below.
+     * @return A `liveTrace` block as defined below.
      * 
      */
     public Output<Optional<ServiceLiveTrace>> liveTrace() {

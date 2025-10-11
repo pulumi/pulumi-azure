@@ -90,7 +90,7 @@ public final class AppTemplateContainerArgs extends com.pulumi.resources.Resourc
     /**
      * The amount of ephemeral storage available to the Container App.
      * 
-     * &gt; **Note:** `ephemeral_storage` is currently in preview and not configurable at this time.
+     * &gt; **Note:** `ephemeralStorage` is currently in preview and not configurable at this time.
      * 
      */
     @Import(name="ephemeralStorage")
@@ -99,7 +99,7 @@ public final class AppTemplateContainerArgs extends com.pulumi.resources.Resourc
     /**
      * @return The amount of ephemeral storage available to the Container App.
      * 
-     * &gt; **Note:** `ephemeral_storage` is currently in preview and not configurable at this time.
+     * &gt; **Note:** `ephemeralStorage` is currently in preview and not configurable at this time.
      * 
      */
     public Optional<Output<String>> ephemeralStorage() {
@@ -122,14 +122,14 @@ public final class AppTemplateContainerArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A `liveness_probe` block as detailed below.
+     * A `livenessProbe` block as detailed below.
      * 
      */
     @Import(name="livenessProbes")
     private @Nullable Output<List<AppTemplateContainerLivenessProbeArgs>> livenessProbes;
 
     /**
-     * @return A `liveness_probe` block as detailed below.
+     * @return A `livenessProbe` block as detailed below.
      * 
      */
     public Optional<Output<List<AppTemplateContainerLivenessProbeArgs>>> livenessProbes() {
@@ -171,14 +171,14 @@ public final class AppTemplateContainerArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A `readiness_probe` block as detailed below.
+     * A `readinessProbe` block as detailed below.
      * 
      */
     @Import(name="readinessProbes")
     private @Nullable Output<List<AppTemplateContainerReadinessProbeArgs>> readinessProbes;
 
     /**
-     * @return A `readiness_probe` block as detailed below.
+     * @return A `readinessProbe` block as detailed below.
      * 
      */
     public Optional<Output<List<AppTemplateContainerReadinessProbeArgs>>> readinessProbes() {
@@ -186,14 +186,14 @@ public final class AppTemplateContainerArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A `startup_probe` block as detailed below.
+     * A `startupProbe` block as detailed below.
      * 
      */
     @Import(name="startupProbes")
     private @Nullable Output<List<AppTemplateContainerStartupProbeArgs>> startupProbes;
 
     /**
-     * @return A `startup_probe` block as detailed below.
+     * @return A `startupProbe` block as detailed below.
      * 
      */
     public Optional<Output<List<AppTemplateContainerStartupProbeArgs>>> startupProbes() {
@@ -201,14 +201,14 @@ public final class AppTemplateContainerArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A `volume_mounts` block as detailed below.
+     * A `volumeMounts` block as detailed below.
      * 
      */
     @Import(name="volumeMounts")
     private @Nullable Output<List<AppTemplateContainerVolumeMountArgs>> volumeMounts;
 
     /**
-     * @return A `volume_mounts` block as detailed below.
+     * @return A `volumeMounts` block as detailed below.
      * 
      */
     public Optional<Output<List<AppTemplateContainerVolumeMountArgs>>> volumeMounts() {
@@ -371,7 +371,7 @@ public final class AppTemplateContainerArgs extends com.pulumi.resources.Resourc
         /**
          * @param ephemeralStorage The amount of ephemeral storage available to the Container App.
          * 
-         * &gt; **Note:** `ephemeral_storage` is currently in preview and not configurable at this time.
+         * &gt; **Note:** `ephemeralStorage` is currently in preview and not configurable at this time.
          * 
          * @return builder
          * 
@@ -384,7 +384,7 @@ public final class AppTemplateContainerArgs extends com.pulumi.resources.Resourc
         /**
          * @param ephemeralStorage The amount of ephemeral storage available to the Container App.
          * 
-         * &gt; **Note:** `ephemeral_storage` is currently in preview and not configurable at this time.
+         * &gt; **Note:** `ephemeralStorage` is currently in preview and not configurable at this time.
          * 
          * @return builder
          * 
@@ -415,7 +415,7 @@ public final class AppTemplateContainerArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param livenessProbes A `liveness_probe` block as detailed below.
+         * @param livenessProbes A `livenessProbe` block as detailed below.
          * 
          * @return builder
          * 
@@ -426,7 +426,7 @@ public final class AppTemplateContainerArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param livenessProbes A `liveness_probe` block as detailed below.
+         * @param livenessProbes A `livenessProbe` block as detailed below.
          * 
          * @return builder
          * 
@@ -436,7 +436,7 @@ public final class AppTemplateContainerArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param livenessProbes A `liveness_probe` block as detailed below.
+         * @param livenessProbes A `livenessProbe` block as detailed below.
          * 
          * @return builder
          * 
@@ -492,7 +492,7 @@ public final class AppTemplateContainerArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param readinessProbes A `readiness_probe` block as detailed below.
+         * @param readinessProbes A `readinessProbe` block as detailed below.
          * 
          * @return builder
          * 
@@ -503,7 +503,7 @@ public final class AppTemplateContainerArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param readinessProbes A `readiness_probe` block as detailed below.
+         * @param readinessProbes A `readinessProbe` block as detailed below.
          * 
          * @return builder
          * 
@@ -513,7 +513,7 @@ public final class AppTemplateContainerArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param readinessProbes A `readiness_probe` block as detailed below.
+         * @param readinessProbes A `readinessProbe` block as detailed below.
          * 
          * @return builder
          * 
@@ -523,7 +523,7 @@ public final class AppTemplateContainerArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param startupProbes A `startup_probe` block as detailed below.
+         * @param startupProbes A `startupProbe` block as detailed below.
          * 
          * @return builder
          * 
@@ -534,7 +534,7 @@ public final class AppTemplateContainerArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param startupProbes A `startup_probe` block as detailed below.
+         * @param startupProbes A `startupProbe` block as detailed below.
          * 
          * @return builder
          * 
@@ -544,7 +544,7 @@ public final class AppTemplateContainerArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param startupProbes A `startup_probe` block as detailed below.
+         * @param startupProbes A `startupProbe` block as detailed below.
          * 
          * @return builder
          * 
@@ -554,7 +554,7 @@ public final class AppTemplateContainerArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param volumeMounts A `volume_mounts` block as detailed below.
+         * @param volumeMounts A `volumeMounts` block as detailed below.
          * 
          * @return builder
          * 
@@ -565,7 +565,7 @@ public final class AppTemplateContainerArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param volumeMounts A `volume_mounts` block as detailed below.
+         * @param volumeMounts A `volumeMounts` block as detailed below.
          * 
          * @return builder
          * 
@@ -575,7 +575,7 @@ public final class AppTemplateContainerArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param volumeMounts A `volume_mounts` block as detailed below.
+         * @param volumeMounts A `volumeMounts` block as detailed below.
          * 
          * @return builder
          * 

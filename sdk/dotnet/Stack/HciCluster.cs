@@ -91,7 +91,7 @@ namespace Pulumi.Azure.Stack
         public Output<string> CloudId { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.HciClusterIdentity?> Identity { get; private set; } = null!;
@@ -199,7 +199,7 @@ namespace Pulumi.Azure.Stack
         public Input<string>? ClientId { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.HciClusterIdentityArgs>? Identity { get; set; }
@@ -269,7 +269,7 @@ namespace Pulumi.Azure.Stack
         public Input<string>? CloudId { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.HciClusterIdentityGetArgs>? Identity { get; set; }

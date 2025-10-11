@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VirtualNetworkGatewayConnectionCustomBgpAddresses {
     /**
-     * @return single IP address that is part of the `azure.network.VirtualNetworkGateway` ip_configuration (first one)
+     * @return single IP address that is part of the `azure.network.VirtualNetworkGateway` ipConfiguration (first one)
      * 
      */
     private String primary;
     /**
-     * @return single IP address that is part of the `azure.network.VirtualNetworkGateway` ip_configuration (second one)
+     * @return single IP address that is part of the `azure.network.VirtualNetworkGateway` ipConfiguration (second one)
      * 
      */
     private @Nullable String secondary;
 
     private VirtualNetworkGatewayConnectionCustomBgpAddresses() {}
     /**
-     * @return single IP address that is part of the `azure.network.VirtualNetworkGateway` ip_configuration (first one)
+     * @return single IP address that is part of the `azure.network.VirtualNetworkGateway` ipConfiguration (first one)
      * 
      */
     public String primary() {
         return this.primary;
     }
     /**
-     * @return single IP address that is part of the `azure.network.VirtualNetworkGateway` ip_configuration (second one)
+     * @return single IP address that is part of the `azure.network.VirtualNetworkGateway` ipConfiguration (second one)
      * 
      */
     public Optional<String> secondary() {

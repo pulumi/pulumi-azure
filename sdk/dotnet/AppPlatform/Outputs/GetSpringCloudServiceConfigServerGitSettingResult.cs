@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppPlatform.Outputs
     public sealed class GetSpringCloudServiceConfigServerGitSettingResult
     {
         /// <summary>
-        /// A `http_basic_auth` block as defined below.
+        /// A `HttpBasicAuth` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthResult> HttpBasicAuths;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.AppPlatform.Outputs
         /// </summary>
         public readonly string Label;
         /// <summary>
-        /// One or more `repository` blocks as defined below.
+        /// One or more `Repository` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetSpringCloudServiceConfigServerGitSettingRepositoryResult> Repositories;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Azure.AppPlatform.Outputs
         /// </summary>
         public readonly ImmutableArray<string> SearchPaths;
         /// <summary>
-        /// A `ssh_auth` block as defined below.
+        /// A `SshAuth` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetSpringCloudServiceConfigServerGitSettingSshAuthResult> SshAuths;
         /// <summary>

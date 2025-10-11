@@ -9,6 +9,15 @@ import * as utilities from "../utilities";
 /**
  * Manages Start Stop Schedules for an MS SQL Managed Instance.
  *
+ * ## Example Usage
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Sql` - 2023-08-01-preview
+ *
  * ## Import
  *
  * MS SQL Managed Instance Start Stop Schedule can be imported using the `resource id`, e.g.

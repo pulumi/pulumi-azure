@@ -83,7 +83,7 @@ namespace Pulumi.Azure.PrivateDns
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `record` blocks as defined below.
+        /// One or more `Record` blocks as defined below.
         /// </summary>
         [Output("records")]
         public Output<ImmutableArray<Outputs.TxtRecordRecord>> Records { get; private set; } = null!;
@@ -168,7 +168,7 @@ namespace Pulumi.Azure.PrivateDns
         private InputList<Inputs.TxtRecordRecordArgs>? _records;
 
         /// <summary>
-        /// One or more `record` blocks as defined below.
+        /// One or more `Record` blocks as defined below.
         /// </summary>
         public InputList<Inputs.TxtRecordRecordArgs> Records
         {
@@ -230,7 +230,7 @@ namespace Pulumi.Azure.PrivateDns
         private InputList<Inputs.TxtRecordRecordGetArgs>? _records;
 
         /// <summary>
-        /// One or more `record` blocks as defined below.
+        /// One or more `Record` blocks as defined below.
         /// </summary>
         public InputList<Inputs.TxtRecordRecordGetArgs> Records
         {

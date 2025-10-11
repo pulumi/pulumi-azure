@@ -17,62 +17,62 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FrontdoorRuleActions {
     /**
-     * @return A `request_header_action` block as defined below.
+     * @return A `requestHeaderAction` block as defined below.
      * 
      */
     private @Nullable List<FrontdoorRuleActionsRequestHeaderAction> requestHeaderActions;
     /**
-     * @return A `response_header_action` block as defined below.
+     * @return A `responseHeaderAction` block as defined below.
      * 
      */
     private @Nullable List<FrontdoorRuleActionsResponseHeaderAction> responseHeaderActions;
     /**
-     * @return A `route_configuration_override_action` block as defined below.
+     * @return A `routeConfigurationOverrideAction` block as defined below.
      * 
      */
     private @Nullable FrontdoorRuleActionsRouteConfigurationOverrideAction routeConfigurationOverrideAction;
     /**
-     * @return A `url_redirect_action` block as defined below. You may **not** have a `url_redirect_action` **and** a `url_rewrite_action` defined in the same `actions` block.
+     * @return A `urlRedirectAction` block as defined below. You may **not** have a `urlRedirectAction` **and** a `urlRewriteAction` defined in the same `actions` block.
      * 
      */
     private @Nullable FrontdoorRuleActionsUrlRedirectAction urlRedirectAction;
     /**
-     * @return A `url_rewrite_action` block as defined below. You may **not** have a `url_rewrite_action` **and** a `url_redirect_action` defined in the same `actions` block.
+     * @return A `urlRewriteAction` block as defined below. You may **not** have a `urlRewriteAction` **and** a `urlRedirectAction` defined in the same `actions` block.
      * 
      */
     private @Nullable FrontdoorRuleActionsUrlRewriteAction urlRewriteAction;
 
     private FrontdoorRuleActions() {}
     /**
-     * @return A `request_header_action` block as defined below.
+     * @return A `requestHeaderAction` block as defined below.
      * 
      */
     public List<FrontdoorRuleActionsRequestHeaderAction> requestHeaderActions() {
         return this.requestHeaderActions == null ? List.of() : this.requestHeaderActions;
     }
     /**
-     * @return A `response_header_action` block as defined below.
+     * @return A `responseHeaderAction` block as defined below.
      * 
      */
     public List<FrontdoorRuleActionsResponseHeaderAction> responseHeaderActions() {
         return this.responseHeaderActions == null ? List.of() : this.responseHeaderActions;
     }
     /**
-     * @return A `route_configuration_override_action` block as defined below.
+     * @return A `routeConfigurationOverrideAction` block as defined below.
      * 
      */
     public Optional<FrontdoorRuleActionsRouteConfigurationOverrideAction> routeConfigurationOverrideAction() {
         return Optional.ofNullable(this.routeConfigurationOverrideAction);
     }
     /**
-     * @return A `url_redirect_action` block as defined below. You may **not** have a `url_redirect_action` **and** a `url_rewrite_action` defined in the same `actions` block.
+     * @return A `urlRedirectAction` block as defined below. You may **not** have a `urlRedirectAction` **and** a `urlRewriteAction` defined in the same `actions` block.
      * 
      */
     public Optional<FrontdoorRuleActionsUrlRedirectAction> urlRedirectAction() {
         return Optional.ofNullable(this.urlRedirectAction);
     }
     /**
-     * @return A `url_rewrite_action` block as defined below. You may **not** have a `url_rewrite_action` **and** a `url_redirect_action` defined in the same `actions` block.
+     * @return A `urlRewriteAction` block as defined below. You may **not** have a `urlRewriteAction` **and** a `urlRedirectAction` defined in the same `actions` block.
      * 
      */
     public Optional<FrontdoorRuleActionsUrlRewriteAction> urlRewriteAction() {

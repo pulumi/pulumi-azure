@@ -50,18 +50,18 @@ public final class ApiOperationResponseRepresentationArgs extends com.pulumi.res
     }
 
     /**
-     * One or more `form_parameter` block as defined above.
+     * One or more `formParameter` block as defined above.
      * 
-     * &gt; **Note:** This is Required when `content_type` is set to `application/x-www-form-urlencoded` or `multipart/form-data`.
+     * &gt; **Note:** This is Required when `contentType` is set to `application/x-www-form-urlencoded` or `multipart/form-data`.
      * 
      */
     @Import(name="formParameters")
     private @Nullable Output<List<ApiOperationResponseRepresentationFormParameterArgs>> formParameters;
 
     /**
-     * @return One or more `form_parameter` block as defined above.
+     * @return One or more `formParameter` block as defined above.
      * 
-     * &gt; **Note:** This is Required when `content_type` is set to `application/x-www-form-urlencoded` or `multipart/form-data`.
+     * &gt; **Note:** This is Required when `contentType` is set to `application/x-www-form-urlencoded` or `multipart/form-data`.
      * 
      */
     public Optional<Output<List<ApiOperationResponseRepresentationFormParameterArgs>>> formParameters() {
@@ -71,7 +71,7 @@ public final class ApiOperationResponseRepresentationArgs extends com.pulumi.res
     /**
      * The ID of an API Management Schema which represents this Response.
      * 
-     * &gt; **Note:** This can only be specified when `content_type` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
+     * &gt; **Note:** This can only be specified when `contentType` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
      * 
      */
     @Import(name="schemaId")
@@ -80,7 +80,7 @@ public final class ApiOperationResponseRepresentationArgs extends com.pulumi.res
     /**
      * @return The ID of an API Management Schema which represents this Response.
      * 
-     * &gt; **Note:** This can only be specified when `content_type` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
+     * &gt; **Note:** This can only be specified when `contentType` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
      * 
      */
     public Optional<Output<String>> schemaId() {
@@ -90,7 +90,7 @@ public final class ApiOperationResponseRepresentationArgs extends com.pulumi.res
     /**
      * The Type Name defined by the Schema.
      * 
-     * &gt; **Note:** This can only be specified when `content_type` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
+     * &gt; **Note:** This can only be specified when `contentType` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
      * 
      */
     @Import(name="typeName")
@@ -99,7 +99,7 @@ public final class ApiOperationResponseRepresentationArgs extends com.pulumi.res
     /**
      * @return The Type Name defined by the Schema.
      * 
-     * &gt; **Note:** This can only be specified when `content_type` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
+     * &gt; **Note:** This can only be specified when `contentType` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
      * 
      */
     public Optional<Output<String>> typeName() {
@@ -187,9 +187,9 @@ public final class ApiOperationResponseRepresentationArgs extends com.pulumi.res
         }
 
         /**
-         * @param formParameters One or more `form_parameter` block as defined above.
+         * @param formParameters One or more `formParameter` block as defined above.
          * 
-         * &gt; **Note:** This is Required when `content_type` is set to `application/x-www-form-urlencoded` or `multipart/form-data`.
+         * &gt; **Note:** This is Required when `contentType` is set to `application/x-www-form-urlencoded` or `multipart/form-data`.
          * 
          * @return builder
          * 
@@ -200,9 +200,9 @@ public final class ApiOperationResponseRepresentationArgs extends com.pulumi.res
         }
 
         /**
-         * @param formParameters One or more `form_parameter` block as defined above.
+         * @param formParameters One or more `formParameter` block as defined above.
          * 
-         * &gt; **Note:** This is Required when `content_type` is set to `application/x-www-form-urlencoded` or `multipart/form-data`.
+         * &gt; **Note:** This is Required when `contentType` is set to `application/x-www-form-urlencoded` or `multipart/form-data`.
          * 
          * @return builder
          * 
@@ -212,9 +212,9 @@ public final class ApiOperationResponseRepresentationArgs extends com.pulumi.res
         }
 
         /**
-         * @param formParameters One or more `form_parameter` block as defined above.
+         * @param formParameters One or more `formParameter` block as defined above.
          * 
-         * &gt; **Note:** This is Required when `content_type` is set to `application/x-www-form-urlencoded` or `multipart/form-data`.
+         * &gt; **Note:** This is Required when `contentType` is set to `application/x-www-form-urlencoded` or `multipart/form-data`.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class ApiOperationResponseRepresentationArgs extends com.pulumi.res
         /**
          * @param schemaId The ID of an API Management Schema which represents this Response.
          * 
-         * &gt; **Note:** This can only be specified when `content_type` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
+         * &gt; **Note:** This can only be specified when `contentType` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
          * 
          * @return builder
          * 
@@ -239,7 +239,7 @@ public final class ApiOperationResponseRepresentationArgs extends com.pulumi.res
         /**
          * @param schemaId The ID of an API Management Schema which represents this Response.
          * 
-         * &gt; **Note:** This can only be specified when `content_type` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
+         * &gt; **Note:** This can only be specified when `contentType` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
          * 
          * @return builder
          * 
@@ -251,7 +251,7 @@ public final class ApiOperationResponseRepresentationArgs extends com.pulumi.res
         /**
          * @param typeName The Type Name defined by the Schema.
          * 
-         * &gt; **Note:** This can only be specified when `content_type` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
+         * &gt; **Note:** This can only be specified when `contentType` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class ApiOperationResponseRepresentationArgs extends com.pulumi.res
         /**
          * @param typeName The Type Name defined by the Schema.
          * 
-         * &gt; **Note:** This can only be specified when `content_type` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
+         * &gt; **Note:** This can only be specified when `contentType` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
          * 
          * @return builder
          * 

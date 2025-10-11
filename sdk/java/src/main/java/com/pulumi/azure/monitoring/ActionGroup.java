@@ -184,70 +184,70 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:monitoring/actionGroup:ActionGroup")
 public class ActionGroup extends com.pulumi.resources.CustomResource {
     /**
-     * One or more `arm_role_receiver` blocks as defined below.
+     * One or more `armRoleReceiver` blocks as defined below.
      * 
      */
     @Export(name="armRoleReceivers", refs={List.class,ActionGroupArmRoleReceiver.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ActionGroupArmRoleReceiver>> armRoleReceivers;
 
     /**
-     * @return One or more `arm_role_receiver` blocks as defined below.
+     * @return One or more `armRoleReceiver` blocks as defined below.
      * 
      */
     public Output<Optional<List<ActionGroupArmRoleReceiver>>> armRoleReceivers() {
         return Codegen.optional(this.armRoleReceivers);
     }
     /**
-     * One or more `automation_runbook_receiver` blocks as defined below.
+     * One or more `automationRunbookReceiver` blocks as defined below.
      * 
      */
     @Export(name="automationRunbookReceivers", refs={List.class,ActionGroupAutomationRunbookReceiver.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ActionGroupAutomationRunbookReceiver>> automationRunbookReceivers;
 
     /**
-     * @return One or more `automation_runbook_receiver` blocks as defined below.
+     * @return One or more `automationRunbookReceiver` blocks as defined below.
      * 
      */
     public Output<Optional<List<ActionGroupAutomationRunbookReceiver>>> automationRunbookReceivers() {
         return Codegen.optional(this.automationRunbookReceivers);
     }
     /**
-     * One or more `azure_app_push_receiver` blocks as defined below.
+     * One or more `azureAppPushReceiver` blocks as defined below.
      * 
      */
     @Export(name="azureAppPushReceivers", refs={List.class,ActionGroupAzureAppPushReceiver.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ActionGroupAzureAppPushReceiver>> azureAppPushReceivers;
 
     /**
-     * @return One or more `azure_app_push_receiver` blocks as defined below.
+     * @return One or more `azureAppPushReceiver` blocks as defined below.
      * 
      */
     public Output<Optional<List<ActionGroupAzureAppPushReceiver>>> azureAppPushReceivers() {
         return Codegen.optional(this.azureAppPushReceivers);
     }
     /**
-     * One or more `azure_function_receiver` blocks as defined below.
+     * One or more `azureFunctionReceiver` blocks as defined below.
      * 
      */
     @Export(name="azureFunctionReceivers", refs={List.class,ActionGroupAzureFunctionReceiver.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ActionGroupAzureFunctionReceiver>> azureFunctionReceivers;
 
     /**
-     * @return One or more `azure_function_receiver` blocks as defined below.
+     * @return One or more `azureFunctionReceiver` blocks as defined below.
      * 
      */
     public Output<Optional<List<ActionGroupAzureFunctionReceiver>>> azureFunctionReceivers() {
         return Codegen.optional(this.azureFunctionReceivers);
     }
     /**
-     * One or more `email_receiver` blocks as defined below.
+     * One or more `emailReceiver` blocks as defined below.
      * 
      */
     @Export(name="emailReceivers", refs={List.class,ActionGroupEmailReceiver.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ActionGroupEmailReceiver>> emailReceivers;
 
     /**
-     * @return One or more `email_receiver` blocks as defined below.
+     * @return One or more `emailReceiver` blocks as defined below.
      * 
      */
     public Output<Optional<List<ActionGroupEmailReceiver>>> emailReceivers() {
@@ -268,28 +268,28 @@ public class ActionGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enabled);
     }
     /**
-     * One or more `event_hub_receiver` blocks as defined below.
+     * One or more `eventHubReceiver` blocks as defined below.
      * 
      */
     @Export(name="eventHubReceivers", refs={List.class,ActionGroupEventHubReceiver.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ActionGroupEventHubReceiver>> eventHubReceivers;
 
     /**
-     * @return One or more `event_hub_receiver` blocks as defined below.
+     * @return One or more `eventHubReceiver` blocks as defined below.
      * 
      */
     public Output<Optional<List<ActionGroupEventHubReceiver>>> eventHubReceivers() {
         return Codegen.optional(this.eventHubReceivers);
     }
     /**
-     * One or more `itsm_receiver` blocks as defined below.
+     * One or more `itsmReceiver` blocks as defined below.
      * 
      */
     @Export(name="itsmReceivers", refs={List.class,ActionGroupItsmReceiver.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ActionGroupItsmReceiver>> itsmReceivers;
 
     /**
-     * @return One or more `itsm_receiver` blocks as defined below.
+     * @return One or more `itsmReceiver` blocks as defined below.
      * 
      */
     public Output<Optional<List<ActionGroupItsmReceiver>>> itsmReceivers() {
@@ -310,14 +310,14 @@ public class ActionGroup extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * One or more `logic_app_receiver` blocks as defined below.
+     * One or more `logicAppReceiver` blocks as defined below.
      * 
      */
     @Export(name="logicAppReceivers", refs={List.class,ActionGroupLogicAppReceiver.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ActionGroupLogicAppReceiver>> logicAppReceivers;
 
     /**
-     * @return One or more `logic_app_receiver` blocks as defined below.
+     * @return One or more `logicAppReceiver` blocks as defined below.
      * 
      */
     public Output<Optional<List<ActionGroupLogicAppReceiver>>> logicAppReceivers() {
@@ -366,14 +366,14 @@ public class ActionGroup extends com.pulumi.resources.CustomResource {
         return this.shortName;
     }
     /**
-     * One or more `sms_receiver` blocks as defined below.
+     * One or more `smsReceiver` blocks as defined below.
      * 
      */
     @Export(name="smsReceivers", refs={List.class,ActionGroupSmsReceiver.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ActionGroupSmsReceiver>> smsReceivers;
 
     /**
-     * @return One or more `sms_receiver` blocks as defined below.
+     * @return One or more `smsReceiver` blocks as defined below.
      * 
      */
     public Output<Optional<List<ActionGroupSmsReceiver>>> smsReceivers() {
@@ -394,28 +394,28 @@ public class ActionGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * One or more `voice_receiver` blocks as defined below.
+     * One or more `voiceReceiver` blocks as defined below.
      * 
      */
     @Export(name="voiceReceivers", refs={List.class,ActionGroupVoiceReceiver.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ActionGroupVoiceReceiver>> voiceReceivers;
 
     /**
-     * @return One or more `voice_receiver` blocks as defined below.
+     * @return One or more `voiceReceiver` blocks as defined below.
      * 
      */
     public Output<Optional<List<ActionGroupVoiceReceiver>>> voiceReceivers() {
         return Codegen.optional(this.voiceReceivers);
     }
     /**
-     * One or more `webhook_receiver` blocks as defined below.
+     * One or more `webhookReceiver` blocks as defined below.
      * 
      */
     @Export(name="webhookReceivers", refs={List.class,ActionGroupWebhookReceiver.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ActionGroupWebhookReceiver>> webhookReceivers;
 
     /**
-     * @return One or more `webhook_receiver` blocks as defined below.
+     * @return One or more `webhookReceiver` blocks as defined below.
      * 
      */
     public Output<Optional<List<ActionGroupWebhookReceiver>>> webhookReceivers() {

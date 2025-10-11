@@ -186,7 +186,7 @@ namespace Pulumi.Azure.Mobile
         public readonly string MobileNetworkDataNetworkName;
         public readonly string MobileNetworkPacketCoreDataPlaneId;
         /// <summary>
-        /// A `network_address_port_translation` block as defined below.
+        /// A `NetworkAddressPortTranslation` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworkAttachedDataNetworkNetworkAddressPortTranslationResult> NetworkAddressPortTranslations;
         /// <summary>

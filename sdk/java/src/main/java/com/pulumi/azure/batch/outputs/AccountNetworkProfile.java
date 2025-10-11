@@ -13,30 +13,30 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AccountNetworkProfile {
     /**
-     * @return An `account_access` block as defined below.
+     * @return An `accountAccess` block as defined below.
      * 
      */
     private @Nullable AccountNetworkProfileAccountAccess accountAccess;
     /**
-     * @return A `node_management_access` block as defined below.
+     * @return A `nodeManagementAccess` block as defined below.
      * 
-     * &gt; **NOTE:** At least one of `account_access` or `node_management_access` must be specified.
+     * &gt; **NOTE:** At least one of `accountAccess` or `nodeManagementAccess` must be specified.
      * 
      */
     private @Nullable AccountNetworkProfileNodeManagementAccess nodeManagementAccess;
 
     private AccountNetworkProfile() {}
     /**
-     * @return An `account_access` block as defined below.
+     * @return An `accountAccess` block as defined below.
      * 
      */
     public Optional<AccountNetworkProfileAccountAccess> accountAccess() {
         return Optional.ofNullable(this.accountAccess);
     }
     /**
-     * @return A `node_management_access` block as defined below.
+     * @return A `nodeManagementAccess` block as defined below.
      * 
-     * &gt; **NOTE:** At least one of `account_access` or `node_management_access` must be specified.
+     * &gt; **NOTE:** At least one of `accountAccess` or `nodeManagementAccess` must be specified.
      * 
      */
     public Optional<AccountNetworkProfileNodeManagementAccess> nodeManagementAccess() {

@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class GroupDiagnostics {
     /**
-     * @return A `log_analytics` block as defined below. Changing this forces a new resource to be created.
+     * @return A `logAnalytics` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     private GroupDiagnosticsLogAnalytics logAnalytics;
 
     private GroupDiagnostics() {}
     /**
-     * @return A `log_analytics` block as defined below. Changing this forces a new resource to be created.
+     * @return A `logAnalytics` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public GroupDiagnosticsLogAnalytics logAnalytics() {

@@ -16,7 +16,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         private InputList<Inputs.KubernetesClusterKeyVaultSecretsProviderSecretIdentityGetArgs>? _secretIdentities;
 
         /// <summary>
-        /// An `secret_identity` block is exported. The exported attributes are defined below.
+        /// An `SecretIdentity` block is exported. The exported attributes are defined below.
         /// </summary>
         public InputList<Inputs.KubernetesClusterKeyVaultSecretsProviderSecretIdentityGetArgs> SecretIdentities
         {
@@ -31,9 +31,9 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<bool>? SecretRotationEnabled { get; set; }
 
         /// <summary>
-        /// The interval to poll for secret rotation. This attribute is only set when `secret_rotation_enabled` is true. Defaults to `2m`.
+        /// The interval to poll for secret rotation. This attribute is only set when `SecretRotationEnabled` is true. Defaults to `2m`.
         /// 
-        /// &gt; **Note:** To enable`key_vault_secrets_provider` either `secret_rotation_enabled` or `secret_rotation_interval` must be specified.
+        /// &gt; **Note:** To enable`KeyVaultSecretsProvider` either `SecretRotationEnabled` or `SecretRotationInterval` must be specified.
         /// </summary>
         [Input("secretRotationInterval")]
         public Input<string>? SecretRotationInterval { get; set; }

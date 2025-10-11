@@ -19,7 +19,7 @@ public final class FirewallRuleArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The ending IP address to allow through the firewall for this rule.
      * 
-     * &gt; **Note:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0`.
+     * &gt; **Note:** The Azure feature `Allow access to Azure services` can be enabled by setting `startIpAddress` and `endIpAddress` to `0.0.0.0`.
      * 
      * &gt; **Note:** The Azure feature `Allow access to Azure services` requires the `name` to be `AllowAllWindowsAzureIps`.
      * 
@@ -30,7 +30,7 @@ public final class FirewallRuleArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The ending IP address to allow through the firewall for this rule.
      * 
-     * &gt; **Note:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0`.
+     * &gt; **Note:** The Azure feature `Allow access to Azure services` can be enabled by setting `startIpAddress` and `endIpAddress` to `0.0.0.0`.
      * 
      * &gt; **Note:** The Azure feature `Allow access to Azure services` requires the `name` to be `AllowAllWindowsAzureIps`.
      * 
@@ -114,7 +114,7 @@ public final class FirewallRuleArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param endIpAddress The ending IP address to allow through the firewall for this rule.
          * 
-         * &gt; **Note:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0`.
+         * &gt; **Note:** The Azure feature `Allow access to Azure services` can be enabled by setting `startIpAddress` and `endIpAddress` to `0.0.0.0`.
          * 
          * &gt; **Note:** The Azure feature `Allow access to Azure services` requires the `name` to be `AllowAllWindowsAzureIps`.
          * 
@@ -129,7 +129,7 @@ public final class FirewallRuleArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param endIpAddress The ending IP address to allow through the firewall for this rule.
          * 
-         * &gt; **Note:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0`.
+         * &gt; **Note:** The Azure feature `Allow access to Azure services` can be enabled by setting `startIpAddress` and `endIpAddress` to `0.0.0.0`.
          * 
          * &gt; **Note:** The Azure feature `Allow access to Azure services` requires the `name` to be `AllowAllWindowsAzureIps`.
          * 

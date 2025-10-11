@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<string> ExcludedIpAddresses;
         /// <summary>
-        /// A `filter` block as defined below.
+        /// A `Filter` block as defined below.
         /// </summary>
         public readonly Outputs.NetworkConnectionMonitorEndpointFilter? Filter;
         /// <summary>

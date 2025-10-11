@@ -101,14 +101,14 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `live_trace` block as defined below.
+     * A `liveTrace` block as defined below.
      * 
      */
     @Import(name="liveTrace")
     private @Nullable Output<ServiceLiveTraceArgs> liveTrace;
 
     /**
-     * @return A `live_trace` block as defined below.
+     * @return A `liveTrace` block as defined below.
      * 
      */
     public Optional<Output<ServiceLiveTraceArgs>> liveTrace() {
@@ -117,19 +117,19 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @deprecated
-     * `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.
+     * `liveTraceEnabled` has been deprecated in favor of `liveTrace` and will be removed in 4.0.
      * 
      */
-    @Deprecated /* `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0. */
+    @Deprecated /* `liveTraceEnabled` has been deprecated in favor of `liveTrace` and will be removed in 4.0. */
     @Import(name="liveTraceEnabled")
     private @Nullable Output<Boolean> liveTraceEnabled;
 
     /**
      * @deprecated
-     * `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.
+     * `liveTraceEnabled` has been deprecated in favor of `liveTrace` and will be removed in 4.0.
      * 
      */
-    @Deprecated /* `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0. */
+    @Deprecated /* `liveTraceEnabled` has been deprecated in favor of `liveTrace` and will be removed in 4.0. */
     public Optional<Output<Boolean>> liveTraceEnabled() {
         return Optional.ofNullable(this.liveTraceEnabled);
     }
@@ -197,7 +197,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Whether to enable public network access? Defaults to `true`.
      * 
-     * &gt; **Note:** `public_network_access_enabled` cannot be set to `false` in `Free` sku tier.
+     * &gt; **Note:** `publicNetworkAccessEnabled` cannot be set to `false` in `Free` sku tier.
      * 
      */
     @Import(name="publicNetworkAccessEnabled")
@@ -206,7 +206,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Whether to enable public network access? Defaults to `true`.
      * 
-     * &gt; **Note:** `public_network_access_enabled` cannot be set to `false` in `Free` sku tier.
+     * &gt; **Note:** `publicNetworkAccessEnabled` cannot be set to `false` in `Free` sku tier.
      * 
      */
     public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
@@ -291,7 +291,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Whether to request client certificate during TLS handshake? Defaults to `false`.
      * 
-     * &gt; **Note:** `tls_client_cert_enabled` cannot be set to `true` in `Free` sku tier.
+     * &gt; **Note:** `tlsClientCertEnabled` cannot be set to `true` in `Free` sku tier.
      * 
      */
     @Import(name="tlsClientCertEnabled")
@@ -300,7 +300,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Whether to request client certificate during TLS handshake? Defaults to `false`.
      * 
-     * &gt; **Note:** `tls_client_cert_enabled` cannot be set to `true` in `Free` sku tier.
+     * &gt; **Note:** `tlsClientCertEnabled` cannot be set to `true` in `Free` sku tier.
      * 
      */
     public Optional<Output<Boolean>> tlsClientCertEnabled() {
@@ -308,14 +308,14 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `upstream_endpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+     * An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
      * 
      */
     @Import(name="upstreamEndpoints")
     private @Nullable Output<List<ServiceUpstreamEndpointArgs>> upstreamEndpoints;
 
     /**
-     * @return An `upstream_endpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+     * @return An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
      * 
      */
     public Optional<Output<List<ServiceUpstreamEndpointArgs>>> upstreamEndpoints() {
@@ -480,7 +480,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param liveTrace A `live_trace` block as defined below.
+         * @param liveTrace A `liveTrace` block as defined below.
          * 
          * @return builder
          * 
@@ -491,7 +491,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param liveTrace A `live_trace` block as defined below.
+         * @param liveTrace A `liveTrace` block as defined below.
          * 
          * @return builder
          * 
@@ -504,10 +504,10 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.
+         * `liveTraceEnabled` has been deprecated in favor of `liveTrace` and will be removed in 4.0.
          * 
          */
-        @Deprecated /* `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0. */
+        @Deprecated /* `liveTraceEnabled` has been deprecated in favor of `liveTrace` and will be removed in 4.0. */
         public Builder liveTraceEnabled(@Nullable Output<Boolean> liveTraceEnabled) {
             $.liveTraceEnabled = liveTraceEnabled;
             return this;
@@ -517,10 +517,10 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.
+         * `liveTraceEnabled` has been deprecated in favor of `liveTrace` and will be removed in 4.0.
          * 
          */
-        @Deprecated /* `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0. */
+        @Deprecated /* `liveTraceEnabled` has been deprecated in favor of `liveTrace` and will be removed in 4.0. */
         public Builder liveTraceEnabled(Boolean liveTraceEnabled) {
             return liveTraceEnabled(Output.of(liveTraceEnabled));
         }
@@ -612,7 +612,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param publicNetworkAccessEnabled Whether to enable public network access? Defaults to `true`.
          * 
-         * &gt; **Note:** `public_network_access_enabled` cannot be set to `false` in `Free` sku tier.
+         * &gt; **Note:** `publicNetworkAccessEnabled` cannot be set to `false` in `Free` sku tier.
          * 
          * @return builder
          * 
@@ -625,7 +625,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param publicNetworkAccessEnabled Whether to enable public network access? Defaults to `true`.
          * 
-         * &gt; **Note:** `public_network_access_enabled` cannot be set to `false` in `Free` sku tier.
+         * &gt; **Note:** `publicNetworkAccessEnabled` cannot be set to `false` in `Free` sku tier.
          * 
          * @return builder
          * 
@@ -742,7 +742,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tlsClientCertEnabled Whether to request client certificate during TLS handshake? Defaults to `false`.
          * 
-         * &gt; **Note:** `tls_client_cert_enabled` cannot be set to `true` in `Free` sku tier.
+         * &gt; **Note:** `tlsClientCertEnabled` cannot be set to `true` in `Free` sku tier.
          * 
          * @return builder
          * 
@@ -755,7 +755,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tlsClientCertEnabled Whether to request client certificate during TLS handshake? Defaults to `false`.
          * 
-         * &gt; **Note:** `tls_client_cert_enabled` cannot be set to `true` in `Free` sku tier.
+         * &gt; **Note:** `tlsClientCertEnabled` cannot be set to `true` in `Free` sku tier.
          * 
          * @return builder
          * 
@@ -765,7 +765,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param upstreamEndpoints An `upstream_endpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+         * @param upstreamEndpoints An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
          * 
          * @return builder
          * 
@@ -776,7 +776,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param upstreamEndpoints An `upstream_endpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+         * @param upstreamEndpoints An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
          * 
          * @return builder
          * 
@@ -786,7 +786,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param upstreamEndpoints An `upstream_endpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+         * @param upstreamEndpoints An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
          * 
          * @return builder
          * 

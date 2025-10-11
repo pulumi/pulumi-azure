@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Hpc
     public partial class CacheBlobNfsTarget : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the access policy applied to this target. Defaults to `default`.
+        /// The name of the access policy applied to this target. Defaults to `Default`.
         /// </summary>
         [Output("accessPolicyName")]
         public Output<string?> AccessPolicyName { get; private set; } = null!;
@@ -62,7 +62,7 @@ namespace Pulumi.Azure.Hpc
         /// <summary>
         /// The Resource Manager ID of the Storage Container used as the HPC Cache Blob NFS Target. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `resource_manager_id`.
+        /// &gt; **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `ResourceManagerId`.
         /// </summary>
         [Output("storageContainerId")]
         public Output<string> StorageContainerId { get; private set; } = null!;
@@ -132,7 +132,7 @@ namespace Pulumi.Azure.Hpc
     public sealed class CacheBlobNfsTargetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the access policy applied to this target. Defaults to `default`.
+        /// The name of the access policy applied to this target. Defaults to `Default`.
         /// </summary>
         [Input("accessPolicyName")]
         public Input<string>? AccessPolicyName { get; set; }
@@ -164,7 +164,7 @@ namespace Pulumi.Azure.Hpc
         /// <summary>
         /// The Resource Manager ID of the Storage Container used as the HPC Cache Blob NFS Target. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `resource_manager_id`.
+        /// &gt; **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `ResourceManagerId`.
         /// </summary>
         [Input("storageContainerId", required: true)]
         public Input<string> StorageContainerId { get; set; } = null!;
@@ -196,7 +196,7 @@ namespace Pulumi.Azure.Hpc
     public sealed class CacheBlobNfsTargetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the access policy applied to this target. Defaults to `default`.
+        /// The name of the access policy applied to this target. Defaults to `Default`.
         /// </summary>
         [Input("accessPolicyName")]
         public Input<string>? AccessPolicyName { get; set; }
@@ -228,7 +228,7 @@ namespace Pulumi.Azure.Hpc
         /// <summary>
         /// The Resource Manager ID of the Storage Container used as the HPC Cache Blob NFS Target. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `resource_manager_id`.
+        /// &gt; **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `ResourceManagerId`.
         /// </summary>
         [Input("storageContainerId")]
         public Input<string>? StorageContainerId { get; set; }

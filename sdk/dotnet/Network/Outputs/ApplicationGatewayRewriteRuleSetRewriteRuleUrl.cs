@@ -14,9 +14,9 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class ApplicationGatewayRewriteRuleSetRewriteRuleUrl
     {
         /// <summary>
-        /// The components used to rewrite the URL. Possible values are `path_only` and `query_string_only` to limit the rewrite to the URL Path or URL Query String only.
+        /// The components used to rewrite the URL. Possible values are `PathOnly` and `QueryStringOnly` to limit the rewrite to the URL Path or URL Query String only.
         /// 
-        /// &gt; **Note:** One or both of `path` and `query_string` must be specified. If one of these is not specified, it means the value will be empty. If you only want to rewrite `path` or `query_string`, use `components`.
+        /// &gt; **Note:** One or both of `Path` and `QueryString` must be specified. If one of these is not specified, it means the value will be empty. If you only want to rewrite `Path` or `QueryString`, use `Components`.
         /// </summary>
         public readonly string? Components;
         /// <summary>

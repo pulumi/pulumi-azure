@@ -18,7 +18,7 @@ public final class GetKubernetesClusterLinuxProfile {
      */
     private String adminUsername;
     /**
-     * @return An `ssh_key` block as defined below.
+     * @return An `sshKey` block as defined below.
      * 
      */
     private List<GetKubernetesClusterLinuxProfileSshKey> sshKeys;
@@ -32,7 +32,7 @@ public final class GetKubernetesClusterLinuxProfile {
         return this.adminUsername;
     }
     /**
-     * @return An `ssh_key` block as defined below.
+     * @return An `sshKey` block as defined below.
      * 
      */
     public List<GetKubernetesClusterLinuxProfileSshKey> sshKeys() {

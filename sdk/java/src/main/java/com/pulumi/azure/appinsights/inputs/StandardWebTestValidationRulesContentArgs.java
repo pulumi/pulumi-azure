@@ -33,14 +33,14 @@ public final class StandardWebTestValidationRulesContentArgs extends com.pulumi.
     }
 
     /**
-     * Ignore the casing in the `content_match` value.
+     * Ignore the casing in the `contentMatch` value.
      * 
      */
     @Import(name="ignoreCase")
     private @Nullable Output<Boolean> ignoreCase;
 
     /**
-     * @return Ignore the casing in the `content_match` value.
+     * @return Ignore the casing in the `contentMatch` value.
      * 
      */
     public Optional<Output<Boolean>> ignoreCase() {
@@ -48,14 +48,14 @@ public final class StandardWebTestValidationRulesContentArgs extends com.pulumi.
     }
 
     /**
-     * If the content of `content_match` is found, pass the test. If set to `false`, the WebTest is failing if the content of `content_match` is found.
+     * If the content of `contentMatch` is found, pass the test. If set to `false`, the WebTest is failing if the content of `contentMatch` is found.
      * 
      */
     @Import(name="passIfTextFound")
     private @Nullable Output<Boolean> passIfTextFound;
 
     /**
-     * @return If the content of `content_match` is found, pass the test. If set to `false`, the WebTest is failing if the content of `content_match` is found.
+     * @return If the content of `contentMatch` is found, pass the test. If set to `false`, the WebTest is failing if the content of `contentMatch` is found.
      * 
      */
     public Optional<Output<Boolean>> passIfTextFound() {
@@ -110,7 +110,7 @@ public final class StandardWebTestValidationRulesContentArgs extends com.pulumi.
         }
 
         /**
-         * @param ignoreCase Ignore the casing in the `content_match` value.
+         * @param ignoreCase Ignore the casing in the `contentMatch` value.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class StandardWebTestValidationRulesContentArgs extends com.pulumi.
         }
 
         /**
-         * @param ignoreCase Ignore the casing in the `content_match` value.
+         * @param ignoreCase Ignore the casing in the `contentMatch` value.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class StandardWebTestValidationRulesContentArgs extends com.pulumi.
         }
 
         /**
-         * @param passIfTextFound If the content of `content_match` is found, pass the test. If set to `false`, the WebTest is failing if the content of `content_match` is found.
+         * @param passIfTextFound If the content of `contentMatch` is found, pass the test. If set to `false`, the WebTest is failing if the content of `contentMatch` is found.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class StandardWebTestValidationRulesContentArgs extends com.pulumi.
         }
 
         /**
-         * @param passIfTextFound If the content of `content_match` is found, pass the test. If set to `false`, the WebTest is failing if the content of `content_match` is found.
+         * @param passIfTextFound If the content of `contentMatch` is found, pass the test. If set to `false`, the WebTest is failing if the content of `contentMatch` is found.
          * 
          * @return builder
          * 

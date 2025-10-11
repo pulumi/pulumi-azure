@@ -19,14 +19,14 @@ public final class FirewallPolicyCustomRuleMatchConditionArgs extends com.pulumi
     public static final FirewallPolicyCustomRuleMatchConditionArgs Empty = new FirewallPolicyCustomRuleMatchConditionArgs();
 
     /**
-     * Up to `600` possible values to match. Limit is in total across all `match_condition` blocks and `match_values` arguments. String value itself can be up to `256` characters long.
+     * Up to `600` possible values to match. Limit is in total across all `matchCondition` blocks and `matchValues` arguments. String value itself can be up to `256` characters long.
      * 
      */
     @Import(name="matchValues", required=true)
     private Output<List<String>> matchValues;
 
     /**
-     * @return Up to `600` possible values to match. Limit is in total across all `match_condition` blocks and `match_values` arguments. String value itself can be up to `256` characters long.
+     * @return Up to `600` possible values to match. Limit is in total across all `matchCondition` blocks and `matchValues` arguments. String value itself can be up to `256` characters long.
      * 
      */
     public Output<List<String>> matchValues() {
@@ -79,14 +79,14 @@ public final class FirewallPolicyCustomRuleMatchConditionArgs extends com.pulumi
     }
 
     /**
-     * Match against a specific key if the `match_variable` is `QueryString`, `PostArgs`, `RequestHeader` or `Cookies`.
+     * Match against a specific key if the `matchVariable` is `QueryString`, `PostArgs`, `RequestHeader` or `Cookies`.
      * 
      */
     @Import(name="selector")
     private @Nullable Output<String> selector;
 
     /**
-     * @return Match against a specific key if the `match_variable` is `QueryString`, `PostArgs`, `RequestHeader` or `Cookies`.
+     * @return Match against a specific key if the `matchVariable` is `QueryString`, `PostArgs`, `RequestHeader` or `Cookies`.
      * 
      */
     public Optional<Output<String>> selector() {
@@ -138,7 +138,7 @@ public final class FirewallPolicyCustomRuleMatchConditionArgs extends com.pulumi
         }
 
         /**
-         * @param matchValues Up to `600` possible values to match. Limit is in total across all `match_condition` blocks and `match_values` arguments. String value itself can be up to `256` characters long.
+         * @param matchValues Up to `600` possible values to match. Limit is in total across all `matchCondition` blocks and `matchValues` arguments. String value itself can be up to `256` characters long.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class FirewallPolicyCustomRuleMatchConditionArgs extends com.pulumi
         }
 
         /**
-         * @param matchValues Up to `600` possible values to match. Limit is in total across all `match_condition` blocks and `match_values` arguments. String value itself can be up to `256` characters long.
+         * @param matchValues Up to `600` possible values to match. Limit is in total across all `matchCondition` blocks and `matchValues` arguments. String value itself can be up to `256` characters long.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class FirewallPolicyCustomRuleMatchConditionArgs extends com.pulumi
         }
 
         /**
-         * @param matchValues Up to `600` possible values to match. Limit is in total across all `match_condition` blocks and `match_values` arguments. String value itself can be up to `256` characters long.
+         * @param matchValues Up to `600` possible values to match. Limit is in total across all `matchCondition` blocks and `matchValues` arguments. String value itself can be up to `256` characters long.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class FirewallPolicyCustomRuleMatchConditionArgs extends com.pulumi
         }
 
         /**
-         * @param selector Match against a specific key if the `match_variable` is `QueryString`, `PostArgs`, `RequestHeader` or `Cookies`.
+         * @param selector Match against a specific key if the `matchVariable` is `QueryString`, `PostArgs`, `RequestHeader` or `Cookies`.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class FirewallPolicyCustomRuleMatchConditionArgs extends com.pulumi
         }
 
         /**
-         * @param selector Match against a specific key if the `match_variable` is `QueryString`, `PostArgs`, `RequestHeader` or `Cookies`.
+         * @param selector Match against a specific key if the `matchVariable` is `QueryString`, `PostArgs`, `RequestHeader` or `Cookies`.
          * 
          * @return builder
          * 

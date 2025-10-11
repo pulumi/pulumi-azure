@@ -28,7 +28,7 @@ public final class FrontdoorRuleActionsUrlRedirectAction {
      */
     private @Nullable String destinationPath;
     /**
-     * @return The query string used in the redirect URL. The value must be in the &amp;lt;key&gt;=&amp;lt;value&gt; or &amp;lt;key&gt;={`action_server_variable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to `&#34;&#34;`.
+     * @return The query string used in the redirect URL. The value must be in the &amp;lt;key&gt;=&amp;lt;value&gt; or &amp;lt;key&gt;={`actionServerVariable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to `&#34;&#34;`.
      * 
      */
     private @Nullable String queryString;
@@ -66,7 +66,7 @@ public final class FrontdoorRuleActionsUrlRedirectAction {
         return Optional.ofNullable(this.destinationPath);
     }
     /**
-     * @return The query string used in the redirect URL. The value must be in the &amp;lt;key&gt;=&amp;lt;value&gt; or &amp;lt;key&gt;={`action_server_variable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to `&#34;&#34;`.
+     * @return The query string used in the redirect URL. The value must be in the &amp;lt;key&gt;=&amp;lt;value&gt; or &amp;lt;key&gt;={`actionServerVariable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to `&#34;&#34;`.
      * 
      */
     public Optional<String> queryString() {

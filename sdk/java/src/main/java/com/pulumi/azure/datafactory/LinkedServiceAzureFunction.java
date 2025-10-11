@@ -164,28 +164,28 @@ public class LinkedServiceAzureFunction extends com.pulumi.resources.CustomResou
         return Codegen.optional(this.integrationRuntimeName);
     }
     /**
-     * The system key of the Azure Function. Exactly one of either `key` or `key_vault_key` is required
+     * The system key of the Azure Function. Exactly one of either `key` or `keyVaultKey` is required
      * 
      */
     @Export(name="key", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> key;
 
     /**
-     * @return The system key of the Azure Function. Exactly one of either `key` or `key_vault_key` is required
+     * @return The system key of the Azure Function. Exactly one of either `key` or `keyVaultKey` is required
      * 
      */
     public Output<Optional<String>> key() {
         return Codegen.optional(this.key);
     }
     /**
-     * A `key_vault_key` block as defined below. Use this Argument to store the system key of the Azure Function in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `key` or `key_vault_key` is required.
+     * A `keyVaultKey` block as defined below. Use this Argument to store the system key of the Azure Function in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `key` or `keyVaultKey` is required.
      * 
      */
     @Export(name="keyVaultKey", refs={LinkedServiceAzureFunctionKeyVaultKey.class}, tree="[0]")
     private Output</* @Nullable */ LinkedServiceAzureFunctionKeyVaultKey> keyVaultKey;
 
     /**
-     * @return A `key_vault_key` block as defined below. Use this Argument to store the system key of the Azure Function in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `key` or `key_vault_key` is required.
+     * @return A `keyVaultKey` block as defined below. Use this Argument to store the system key of the Azure Function in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `key` or `keyVaultKey` is required.
      * 
      */
     public Output<Optional<LinkedServiceAzureFunctionKeyVaultKey>> keyVaultKey() {

@@ -45,7 +45,7 @@ public final class GetNetworkSimResult {
      */
     private String simState;
     /**
-     * @return A `static_ip_configuration` block as defined below.
+     * @return A `staticIpConfiguration` block as defined below.
      * 
      */
     private List<GetNetworkSimStaticIpConfiguration> staticIpConfigurations;
@@ -110,7 +110,7 @@ public final class GetNetworkSimResult {
         return this.simState;
     }
     /**
-     * @return A `static_ip_configuration` block as defined below.
+     * @return A `staticIpConfiguration` block as defined below.
      * 
      */
     public List<GetNetworkSimStaticIpConfiguration> staticIpConfigurations() {

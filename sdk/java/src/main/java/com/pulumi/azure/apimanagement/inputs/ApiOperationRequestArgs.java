@@ -50,14 +50,14 @@ public final class ApiOperationRequestArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * One or more `query_parameter` blocks as defined above.
+     * One or more `queryParameter` blocks as defined above.
      * 
      */
     @Import(name="queryParameters")
     private @Nullable Output<List<ApiOperationRequestQueryParameterArgs>> queryParameters;
 
     /**
-     * @return One or more `query_parameter` blocks as defined above.
+     * @return One or more `queryParameter` blocks as defined above.
      * 
      */
     public Optional<Output<List<ApiOperationRequestQueryParameterArgs>>> queryParameters() {
@@ -159,7 +159,7 @@ public final class ApiOperationRequestArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param queryParameters One or more `query_parameter` blocks as defined above.
+         * @param queryParameters One or more `queryParameter` blocks as defined above.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class ApiOperationRequestArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param queryParameters One or more `query_parameter` blocks as defined above.
+         * @param queryParameters One or more `queryParameter` blocks as defined above.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class ApiOperationRequestArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param queryParameters One or more `query_parameter` blocks as defined above.
+         * @param queryParameters One or more `queryParameter` blocks as defined above.
          * 
          * @return builder
          * 

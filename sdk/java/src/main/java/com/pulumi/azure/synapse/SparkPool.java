@@ -140,28 +140,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:synapse/sparkPool:SparkPool")
 public class SparkPool extends com.pulumi.resources.CustomResource {
     /**
-     * An `auto_pause` block as defined below.
+     * An `autoPause` block as defined below.
      * 
      */
     @Export(name="autoPause", refs={SparkPoolAutoPause.class}, tree="[0]")
     private Output</* @Nullable */ SparkPoolAutoPause> autoPause;
 
     /**
-     * @return An `auto_pause` block as defined below.
+     * @return An `autoPause` block as defined below.
      * 
      */
     public Output<Optional<SparkPoolAutoPause>> autoPause() {
         return Codegen.optional(this.autoPause);
     }
     /**
-     * An `auto_scale` block as defined below. Exactly one of `node_count` or `auto_scale` must be specified.
+     * An `autoScale` block as defined below. Exactly one of `nodeCount` or `autoScale` must be specified.
      * 
      */
     @Export(name="autoScale", refs={SparkPoolAutoScale.class}, tree="[0]")
     private Output</* @Nullable */ SparkPoolAutoScale> autoScale;
 
     /**
-     * @return An `auto_scale` block as defined below. Exactly one of `node_count` or `auto_scale` must be specified.
+     * @return An `autoScale` block as defined below. Exactly one of `nodeCount` or `autoScale` must be specified.
      * 
      */
     public Output<Optional<SparkPoolAutoScale>> autoScale() {
@@ -234,14 +234,14 @@ public class SparkPool extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified.
+     * The number of nodes in the Spark Pool. Exactly one of `nodeCount` or `autoScale` must be specified.
      * 
      */
     @Export(name="nodeCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> nodeCount;
 
     /**
-     * @return The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified.
+     * @return The number of nodes in the Spark Pool. Exactly one of `nodeCount` or `autoScale` must be specified.
      * 
      */
     public Output<Integer> nodeCount() {

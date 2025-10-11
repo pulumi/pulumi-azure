@@ -18,7 +18,7 @@ namespace Pulumi.Azure.WorkloadsSAP.Outputs
         /// </summary>
         public readonly string? AvailabilitySetName;
         /// <summary>
-        /// One or more `virtual_machine` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `VirtualMachine` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableArray<Outputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachine> VirtualMachines;
 

@@ -51,14 +51,14 @@ public final class TagRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `log_tag_filter` block as defined below.
+     * A `logTagFilter` block as defined below.
      * 
      */
     @Import(name="logTagFilters")
     private @Nullable Output<List<TagRuleLogTagFilterArgs>> logTagFilters;
 
     /**
-     * @return A `log_tag_filter` block as defined below.
+     * @return A `logTagFilter` block as defined below.
      * 
      */
     public Optional<Output<List<TagRuleLogTagFilterArgs>>> logTagFilters() {
@@ -81,14 +81,14 @@ public final class TagRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `metric_tag_filter` block as defined below.
+     * A `metricTagFilter` block as defined below.
      * 
      */
     @Import(name="metricTagFilters")
     private @Nullable Output<List<TagRuleMetricTagFilterArgs>> metricTagFilters;
 
     /**
-     * @return A `metric_tag_filter` block as defined below.
+     * @return A `metricTagFilter` block as defined below.
      * 
      */
     public Optional<Output<List<TagRuleMetricTagFilterArgs>>> metricTagFilters() {
@@ -198,7 +198,7 @@ public final class TagRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logTagFilters A `log_tag_filter` block as defined below.
+         * @param logTagFilters A `logTagFilter` block as defined below.
          * 
          * @return builder
          * 
@@ -209,7 +209,7 @@ public final class TagRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logTagFilters A `log_tag_filter` block as defined below.
+         * @param logTagFilters A `logTagFilter` block as defined below.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class TagRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logTagFilters A `log_tag_filter` block as defined below.
+         * @param logTagFilters A `logTagFilter` block as defined below.
          * 
          * @return builder
          * 
@@ -250,7 +250,7 @@ public final class TagRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param metricTagFilters A `metric_tag_filter` block as defined below.
+         * @param metricTagFilters A `metricTagFilter` block as defined below.
          * 
          * @return builder
          * 
@@ -261,7 +261,7 @@ public final class TagRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param metricTagFilters A `metric_tag_filter` block as defined below.
+         * @param metricTagFilters A `metricTagFilter` block as defined below.
          * 
          * @return builder
          * 
@@ -271,7 +271,7 @@ public final class TagRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param metricTagFilters A `metric_tag_filter` block as defined below.
+         * @param metricTagFilters A `metricTagFilter` block as defined below.
          * 
          * @return builder
          * 

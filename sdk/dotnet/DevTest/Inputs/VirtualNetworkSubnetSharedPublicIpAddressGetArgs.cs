@@ -16,7 +16,7 @@ namespace Pulumi.Azure.DevTest.Inputs
         private InputList<Inputs.VirtualNetworkSubnetSharedPublicIpAddressAllowedPortGetArgs>? _allowedPorts;
 
         /// <summary>
-        /// A list of `allowed_ports` blocks as defined below.
+        /// A list of `AllowedPorts` blocks as defined below.
         /// </summary>
         public InputList<Inputs.VirtualNetworkSubnetSharedPublicIpAddressAllowedPortGetArgs> AllowedPorts
         {

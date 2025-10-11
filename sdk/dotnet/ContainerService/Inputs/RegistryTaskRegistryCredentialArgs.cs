@@ -16,7 +16,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         private InputList<Inputs.RegistryTaskRegistryCredentialCustomArgs>? _customs;
 
         /// <summary>
-        /// One or more `custom` blocks as defined above.
+        /// One or more `Custom` blocks as defined above.
         /// </summary>
         public InputList<Inputs.RegistryTaskRegistryCredentialCustomArgs> Customs
         {
@@ -29,7 +29,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         }
 
         /// <summary>
-        /// One `source` block as defined below.
+        /// One `Source` block as defined below.
         /// </summary>
         [Input("source")]
         public Input<Inputs.RegistryTaskRegistryCredentialSourceArgs>? Source { get; set; }

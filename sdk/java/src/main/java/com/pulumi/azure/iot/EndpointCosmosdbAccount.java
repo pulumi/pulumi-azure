@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** Endpoints can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azurerm_iothub_endpoint_*` resources - but the two ways of defining the endpoints cannot be used together. If both are used against the same IoTHub, spurious changes will occur. Also, defining a `azurerm_iothub_endpoint_*` resource and another endpoint of a different type directly on the `azure.iot.IoTHub` resource is not supported.
  * 
+ * ## Example Usage
+ * 
  * ## Import
  * 
  * IoTHub Cosmos DB Account Endpoint can be imported using the `resource id`, e.g.
@@ -90,7 +92,7 @@ public class EndpointCosmosdbAccount extends com.pulumi.resources.CustomResource
     /**
      * The ID of the User Managed Identity used to authenticate against the Cosmos DB Account endpoint.
      * 
-     * &gt; **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
+     * &gt; **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
      * 
      */
     @Export(name="identityId", refs={String.class}, tree="[0]")
@@ -99,7 +101,7 @@ public class EndpointCosmosdbAccount extends com.pulumi.resources.CustomResource
     /**
      * @return The ID of the User Managed Identity used to authenticate against the Cosmos DB Account endpoint.
      * 
-     * &gt; **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
+     * &gt; **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
      * 
      */
     public Output<Optional<String>> identityId() {
@@ -164,7 +166,7 @@ public class EndpointCosmosdbAccount extends com.pulumi.resources.CustomResource
     /**
      * The primary key of the Cosmos DB Account.
      * 
-     * &gt; **Note:** `primary_key` must and can only be specified when `authentication_type` is `keyBased`.
+     * &gt; **Note:** `primaryKey` must and can only be specified when `authenticationType` is `keyBased`.
      * 
      */
     @Export(name="primaryKey", refs={String.class}, tree="[0]")
@@ -173,7 +175,7 @@ public class EndpointCosmosdbAccount extends com.pulumi.resources.CustomResource
     /**
      * @return The primary key of the Cosmos DB Account.
      * 
-     * &gt; **Note:** `primary_key` must and can only be specified when `authentication_type` is `keyBased`.
+     * &gt; **Note:** `primaryKey` must and can only be specified when `authenticationType` is `keyBased`.
      * 
      */
     public Output<Optional<String>> primaryKey() {
@@ -196,7 +198,7 @@ public class EndpointCosmosdbAccount extends com.pulumi.resources.CustomResource
     /**
      * The secondary key of the Cosmos DB Account.
      * 
-     * &gt; **Note:** `secondary_key` must and can only be specified when `authentication_type` is `keyBased`.
+     * &gt; **Note:** `secondaryKey` must and can only be specified when `authenticationType` is `keyBased`.
      * 
      */
     @Export(name="secondaryKey", refs={String.class}, tree="[0]")
@@ -205,7 +207,7 @@ public class EndpointCosmosdbAccount extends com.pulumi.resources.CustomResource
     /**
      * @return The secondary key of the Cosmos DB Account.
      * 
-     * &gt; **Note:** `secondary_key` must and can only be specified when `authentication_type` is `keyBased`.
+     * &gt; **Note:** `secondaryKey` must and can only be specified when `authenticationType` is `keyBased`.
      * 
      */
     public Output<Optional<String>> secondaryKey() {
@@ -214,7 +216,7 @@ public class EndpointCosmosdbAccount extends com.pulumi.resources.CustomResource
     /**
      * The subscription ID for the endpoint.
      * 
-     * &gt; **Note:** When `subscription_id` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
+     * &gt; **Note:** When `subscriptionId` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
      * 
      */
     @Export(name="subscriptionId", refs={String.class}, tree="[0]")
@@ -223,7 +225,7 @@ public class EndpointCosmosdbAccount extends com.pulumi.resources.CustomResource
     /**
      * @return The subscription ID for the endpoint.
      * 
-     * &gt; **Note:** When `subscription_id` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
+     * &gt; **Note:** When `subscriptionId` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
      * 
      */
     public Output<String> subscriptionId() {

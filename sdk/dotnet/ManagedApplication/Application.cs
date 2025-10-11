@@ -158,7 +158,7 @@ namespace Pulumi.Azure.ManagedApplication
         public Output<string> ParameterValues { get; private set; } = null!;
 
         /// <summary>
-        /// One `plan` block as defined below. Changing this forces a new resource to be created.
+        /// One `Plan` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("plan")]
         public Output<Outputs.ApplicationPlan?> Plan { get; private set; } = null!;
@@ -258,7 +258,7 @@ namespace Pulumi.Azure.ManagedApplication
         public Input<string>? ParameterValues { get; set; }
 
         /// <summary>
-        /// One `plan` block as defined below. Changing this forces a new resource to be created.
+        /// One `Plan` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("plan")]
         public Input<Inputs.ApplicationPlanArgs>? Plan { get; set; }
@@ -338,7 +338,7 @@ namespace Pulumi.Azure.ManagedApplication
         public Input<string>? ParameterValues { get; set; }
 
         /// <summary>
-        /// One `plan` block as defined below. Changing this forces a new resource to be created.
+        /// One `Plan` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("plan")]
         public Input<Inputs.ApplicationPlanGetArgs>? Plan { get; set; }

@@ -63,14 +63,14 @@ public final class BackupPolicyDiskState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy Disk to be created.
+     * One or more `retentionRule` blocks as defined below. Changing this forces a new Backup Policy Disk to be created.
      * 
      */
     @Import(name="retentionRules")
     private @Nullable Output<List<BackupPolicyDiskRetentionRuleArgs>> retentionRules;
 
     /**
-     * @return One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy Disk to be created.
+     * @return One or more `retentionRule` blocks as defined below. Changing this forces a new Backup Policy Disk to be created.
      * 
      */
     public Optional<Output<List<BackupPolicyDiskRetentionRuleArgs>>> retentionRules() {
@@ -210,7 +210,7 @@ public final class BackupPolicyDiskState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param retentionRules One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy Disk to be created.
+         * @param retentionRules One or more `retentionRule` blocks as defined below. Changing this forces a new Backup Policy Disk to be created.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class BackupPolicyDiskState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param retentionRules One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy Disk to be created.
+         * @param retentionRules One or more `retentionRule` blocks as defined below. Changing this forces a new Backup Policy Disk to be created.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class BackupPolicyDiskState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param retentionRules One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy Disk to be created.
+         * @param retentionRules One or more `retentionRule` blocks as defined below. Changing this forces a new Backup Policy Disk to be created.
          * 
          * @return builder
          * 

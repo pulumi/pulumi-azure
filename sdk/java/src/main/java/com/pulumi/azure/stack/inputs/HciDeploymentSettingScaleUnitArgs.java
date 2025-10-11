@@ -175,14 +175,14 @@ public final class HciDeploymentSettingScaleUnitArgs extends com.pulumi.resource
     }
 
     /**
-     * A `host_network` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+     * A `hostNetwork` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
      * 
      */
     @Import(name="hostNetwork", required=true)
     private Output<HciDeploymentSettingScaleUnitHostNetworkArgs> hostNetwork;
 
     /**
-     * @return A `host_network` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+     * @return A `hostNetwork` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
      * 
      */
     public Output<HciDeploymentSettingScaleUnitHostNetworkArgs> hostNetwork() {
@@ -205,14 +205,14 @@ public final class HciDeploymentSettingScaleUnitArgs extends com.pulumi.resource
     }
 
     /**
-     * One or more `infrastructure_network` blocks as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+     * One or more `infrastructureNetwork` blocks as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
      * 
      */
     @Import(name="infrastructureNetworks", required=true)
     private Output<List<HciDeploymentSettingScaleUnitInfrastructureNetworkArgs>> infrastructureNetworks;
 
     /**
-     * @return One or more `infrastructure_network` blocks as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+     * @return One or more `infrastructureNetwork` blocks as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
      * 
      */
     public Output<List<HciDeploymentSettingScaleUnitInfrastructureNetworkArgs>> infrastructureNetworks() {
@@ -235,14 +235,14 @@ public final class HciDeploymentSettingScaleUnitArgs extends com.pulumi.resource
     }
 
     /**
-     * A `optional_service` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+     * A `optionalService` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
      * 
      */
     @Import(name="optionalService", required=true)
     private Output<HciDeploymentSettingScaleUnitOptionalServiceArgs> optionalService;
 
     /**
-     * @return A `optional_service` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+     * @return A `optionalService` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
      * 
      */
     public Output<HciDeploymentSettingScaleUnitOptionalServiceArgs> optionalService() {
@@ -250,14 +250,14 @@ public final class HciDeploymentSettingScaleUnitArgs extends com.pulumi.resource
     }
 
     /**
-     * One or more `physical_node` blocks as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+     * One or more `physicalNode` blocks as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
      * 
      */
     @Import(name="physicalNodes", required=true)
     private Output<List<HciDeploymentSettingScaleUnitPhysicalNodeArgs>> physicalNodes;
 
     /**
-     * @return One or more `physical_node` blocks as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+     * @return One or more `physicalNode` blocks as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
      * 
      */
     public Output<List<HciDeploymentSettingScaleUnitPhysicalNodeArgs>> physicalNodes() {
@@ -626,7 +626,7 @@ public final class HciDeploymentSettingScaleUnitArgs extends com.pulumi.resource
         }
 
         /**
-         * @param hostNetwork A `host_network` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+         * @param hostNetwork A `hostNetwork` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
          * 
          * @return builder
          * 
@@ -637,7 +637,7 @@ public final class HciDeploymentSettingScaleUnitArgs extends com.pulumi.resource
         }
 
         /**
-         * @param hostNetwork A `host_network` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+         * @param hostNetwork A `hostNetwork` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
          * 
          * @return builder
          * 
@@ -668,7 +668,7 @@ public final class HciDeploymentSettingScaleUnitArgs extends com.pulumi.resource
         }
 
         /**
-         * @param infrastructureNetworks One or more `infrastructure_network` blocks as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+         * @param infrastructureNetworks One or more `infrastructureNetwork` blocks as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
          * 
          * @return builder
          * 
@@ -679,7 +679,7 @@ public final class HciDeploymentSettingScaleUnitArgs extends com.pulumi.resource
         }
 
         /**
-         * @param infrastructureNetworks One or more `infrastructure_network` blocks as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+         * @param infrastructureNetworks One or more `infrastructureNetwork` blocks as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
          * 
          * @return builder
          * 
@@ -689,7 +689,7 @@ public final class HciDeploymentSettingScaleUnitArgs extends com.pulumi.resource
         }
 
         /**
-         * @param infrastructureNetworks One or more `infrastructure_network` blocks as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+         * @param infrastructureNetworks One or more `infrastructureNetwork` blocks as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
          * 
          * @return builder
          * 
@@ -720,7 +720,7 @@ public final class HciDeploymentSettingScaleUnitArgs extends com.pulumi.resource
         }
 
         /**
-         * @param optionalService A `optional_service` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+         * @param optionalService A `optionalService` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
          * 
          * @return builder
          * 
@@ -731,7 +731,7 @@ public final class HciDeploymentSettingScaleUnitArgs extends com.pulumi.resource
         }
 
         /**
-         * @param optionalService A `optional_service` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+         * @param optionalService A `optionalService` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
          * 
          * @return builder
          * 
@@ -741,7 +741,7 @@ public final class HciDeploymentSettingScaleUnitArgs extends com.pulumi.resource
         }
 
         /**
-         * @param physicalNodes One or more `physical_node` blocks as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+         * @param physicalNodes One or more `physicalNode` blocks as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
          * 
          * @return builder
          * 
@@ -752,7 +752,7 @@ public final class HciDeploymentSettingScaleUnitArgs extends com.pulumi.resource
         }
 
         /**
-         * @param physicalNodes One or more `physical_node` blocks as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+         * @param physicalNodes One or more `physicalNode` blocks as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
          * 
          * @return builder
          * 
@@ -762,7 +762,7 @@ public final class HciDeploymentSettingScaleUnitArgs extends com.pulumi.resource
         }
 
         /**
-         * @param physicalNodes One or more `physical_node` blocks as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+         * @param physicalNodes One or more `physicalNode` blocks as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
          * 
          * @return builder
          * 

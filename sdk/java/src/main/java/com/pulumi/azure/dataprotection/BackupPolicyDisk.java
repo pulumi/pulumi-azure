@@ -153,14 +153,14 @@ public class BackupPolicyDisk extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy Disk to be created.
+     * One or more `retentionRule` blocks as defined below. Changing this forces a new Backup Policy Disk to be created.
      * 
      */
     @Export(name="retentionRules", refs={List.class,BackupPolicyDiskRetentionRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<BackupPolicyDiskRetentionRule>> retentionRules;
 
     /**
-     * @return One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy Disk to be created.
+     * @return One or more `retentionRule` blocks as defined below. Changing this forces a new Backup Policy Disk to be created.
      * 
      */
     public Output<Optional<List<BackupPolicyDiskRetentionRule>>> retentionRules() {

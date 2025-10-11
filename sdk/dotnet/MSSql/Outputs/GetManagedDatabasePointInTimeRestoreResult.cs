@@ -14,7 +14,7 @@ namespace Pulumi.Azure.MSSql.Outputs
     public sealed class GetManagedDatabasePointInTimeRestoreResult
     {
         /// <summary>
-        /// The point in time for the restore from `source_database_id`.
+        /// The point in time for the restore from `SourceDatabaseId`.
         /// </summary>
         public readonly string RestorePointInTime;
         /// <summary>

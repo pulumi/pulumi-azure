@@ -51,14 +51,14 @@ public final class LocalUserArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `permission_scope` blocks as defined below.
+     * One or more `permissionScope` blocks as defined below.
      * 
      */
     @Import(name="permissionScopes")
     private @Nullable Output<List<LocalUserPermissionScopeArgs>> permissionScopes;
 
     /**
-     * @return One or more `permission_scope` blocks as defined below.
+     * @return One or more `permissionScope` blocks as defined below.
      * 
      */
     public Optional<Output<List<LocalUserPermissionScopeArgs>>> permissionScopes() {
@@ -66,14 +66,14 @@ public final class LocalUserArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `ssh_authorized_key` blocks as defined below.
+     * One or more `sshAuthorizedKey` blocks as defined below.
      * 
      */
     @Import(name="sshAuthorizedKeys")
     private @Nullable Output<List<LocalUserSshAuthorizedKeyArgs>> sshAuthorizedKeys;
 
     /**
-     * @return One or more `ssh_authorized_key` blocks as defined below.
+     * @return One or more `sshAuthorizedKey` blocks as defined below.
      * 
      */
     public Optional<Output<List<LocalUserSshAuthorizedKeyArgs>>> sshAuthorizedKeys() {
@@ -198,7 +198,7 @@ public final class LocalUserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissionScopes One or more `permission_scope` blocks as defined below.
+         * @param permissionScopes One or more `permissionScope` blocks as defined below.
          * 
          * @return builder
          * 
@@ -209,7 +209,7 @@ public final class LocalUserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissionScopes One or more `permission_scope` blocks as defined below.
+         * @param permissionScopes One or more `permissionScope` blocks as defined below.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class LocalUserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissionScopes One or more `permission_scope` blocks as defined below.
+         * @param permissionScopes One or more `permissionScope` blocks as defined below.
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class LocalUserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sshAuthorizedKeys One or more `ssh_authorized_key` blocks as defined below.
+         * @param sshAuthorizedKeys One or more `sshAuthorizedKey` blocks as defined below.
          * 
          * @return builder
          * 
@@ -240,7 +240,7 @@ public final class LocalUserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sshAuthorizedKeys One or more `ssh_authorized_key` blocks as defined below.
+         * @param sshAuthorizedKeys One or more `sshAuthorizedKey` blocks as defined below.
          * 
          * @return builder
          * 
@@ -250,7 +250,7 @@ public final class LocalUserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sshAuthorizedKeys One or more `ssh_authorized_key` blocks as defined below.
+         * @param sshAuthorizedKeys One or more `sshAuthorizedKey` blocks as defined below.
          * 
          * @return builder
          * 

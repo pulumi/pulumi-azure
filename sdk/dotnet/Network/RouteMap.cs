@@ -114,7 +114,7 @@ namespace Pulumi.Azure.Network
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `rule` block as defined below.
+        /// A `Rule` block as defined below.
         /// </summary>
         [Output("rules")]
         public Output<ImmutableArray<Outputs.RouteMapRule>> Rules { get; private set; } = null!;
@@ -181,7 +181,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.RouteMapRuleArgs>? _rules;
 
         /// <summary>
-        /// A `rule` block as defined below.
+        /// A `Rule` block as defined below.
         /// </summary>
         public InputList<Inputs.RouteMapRuleArgs> Rules
         {
@@ -213,7 +213,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.RouteMapRuleGetArgs>? _rules;
 
         /// <summary>
-        /// A `rule` block as defined below.
+        /// A `Rule` block as defined below.
         /// </summary>
         public InputList<Inputs.RouteMapRuleGetArgs> Rules
         {

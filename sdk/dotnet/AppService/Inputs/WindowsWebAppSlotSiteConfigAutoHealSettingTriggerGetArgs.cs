@@ -19,13 +19,13 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<int>? PrivateMemoryKb { get; set; }
 
         /// <summary>
-        /// A `requests` block as defined above.
+        /// A `Requests` block as defined above.
         /// </summary>
         [Input("requests")]
         public Input<Inputs.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequestsGetArgs>? Requests { get; set; }
 
         /// <summary>
-        /// A `slow_request` block as defined above.
+        /// A `SlowRequest` block as defined above.
         /// </summary>
         [Input("slowRequest")]
         public Input<Inputs.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestGetArgs>? SlowRequest { get; set; }
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.AppService.Inputs
         private InputList<Inputs.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPathGetArgs>? _slowRequestWithPaths;
 
         /// <summary>
-        /// One or more `slow_request_with_path` blocks as defined above.
+        /// One or more `SlowRequestWithPath` blocks as defined above.
         /// </summary>
         public InputList<Inputs.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPathGetArgs> SlowRequestWithPaths
         {
@@ -46,7 +46,7 @@ namespace Pulumi.Azure.AppService.Inputs
         private InputList<Inputs.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeGetArgs>? _statusCodes;
 
         /// <summary>
-        /// One or more `status_code` blocks as defined above.
+        /// One or more `StatusCode` blocks as defined above.
         /// </summary>
         public InputList<Inputs.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeGetArgs> StatusCodes
         {

@@ -13,13 +13,13 @@ namespace Pulumi.Azure.Iot.Inputs
     public sealed class IoTHubFallbackRouteArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: &lt;https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language&gt;.
+        /// The condition that is evaluated to apply the routing rule. Defaults to `True`. For grammar, see: &lt;https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language&gt;.
         /// </summary>
         [Input("condition")]
         public Input<string>? Condition { get; set; }
 
         /// <summary>
-        /// Used to specify whether the fallback route is enabled. Defaults to `true`.
+        /// Used to specify whether the fallback route is enabled. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

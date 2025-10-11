@@ -48,14 +48,14 @@ public final class VirtualNetworkGatewayBgpSettingsArgs extends com.pulumi.resou
     }
 
     /**
-     * A list of `peering_addresses` blocks as defined below. Only one `peering_addresses` block can be specified except when `active_active` of this Virtual Network Gateway is `true`.
+     * A list of `peeringAddresses` blocks as defined below. Only one `peeringAddresses` block can be specified except when `activeActive` of this Virtual Network Gateway is `true`.
      * 
      */
     @Import(name="peeringAddresses")
     private @Nullable Output<List<VirtualNetworkGatewayBgpSettingsPeeringAddressArgs>> peeringAddresses;
 
     /**
-     * @return A list of `peering_addresses` blocks as defined below. Only one `peering_addresses` block can be specified except when `active_active` of this Virtual Network Gateway is `true`.
+     * @return A list of `peeringAddresses` blocks as defined below. Only one `peeringAddresses` block can be specified except when `activeActive` of this Virtual Network Gateway is `true`.
      * 
      */
     public Optional<Output<List<VirtualNetworkGatewayBgpSettingsPeeringAddressArgs>>> peeringAddresses() {
@@ -131,7 +131,7 @@ public final class VirtualNetworkGatewayBgpSettingsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param peeringAddresses A list of `peering_addresses` blocks as defined below. Only one `peering_addresses` block can be specified except when `active_active` of this Virtual Network Gateway is `true`.
+         * @param peeringAddresses A list of `peeringAddresses` blocks as defined below. Only one `peeringAddresses` block can be specified except when `activeActive` of this Virtual Network Gateway is `true`.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class VirtualNetworkGatewayBgpSettingsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param peeringAddresses A list of `peering_addresses` blocks as defined below. Only one `peering_addresses` block can be specified except when `active_active` of this Virtual Network Gateway is `true`.
+         * @param peeringAddresses A list of `peeringAddresses` blocks as defined below. Only one `peeringAddresses` block can be specified except when `activeActive` of this Virtual Network Gateway is `true`.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class VirtualNetworkGatewayBgpSettingsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param peeringAddresses A list of `peering_addresses` blocks as defined below. Only one `peering_addresses` block can be specified except when `active_active` of this Virtual Network Gateway is `true`.
+         * @param peeringAddresses A list of `peeringAddresses` blocks as defined below. Only one `peeringAddresses` block can be specified except when `activeActive` of this Virtual Network Gateway is `true`.
          * 
          * @return builder
          * 

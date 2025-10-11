@@ -18,14 +18,14 @@ public final class NetworkManagerDeploymentState extends com.pulumi.resources.Re
     public static final NetworkManagerDeploymentState Empty = new NetworkManagerDeploymentState();
 
     /**
-     * A list of Network Manager Configuration IDs which should be aligned with `scope_access`.
+     * A list of Network Manager Configuration IDs which should be aligned with `scopeAccess`.
      * 
      */
     @Import(name="configurationIds")
     private @Nullable Output<List<String>> configurationIds;
 
     /**
-     * @return A list of Network Manager Configuration IDs which should be aligned with `scope_access`.
+     * @return A list of Network Manager Configuration IDs which should be aligned with `scopeAccess`.
      * 
      */
     public Optional<Output<List<String>>> configurationIds() {
@@ -121,7 +121,7 @@ public final class NetworkManagerDeploymentState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param configurationIds A list of Network Manager Configuration IDs which should be aligned with `scope_access`.
+         * @param configurationIds A list of Network Manager Configuration IDs which should be aligned with `scopeAccess`.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class NetworkManagerDeploymentState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param configurationIds A list of Network Manager Configuration IDs which should be aligned with `scope_access`.
+         * @param configurationIds A list of Network Manager Configuration IDs which should be aligned with `scopeAccess`.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class NetworkManagerDeploymentState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param configurationIds A list of Network Manager Configuration IDs which should be aligned with `scope_access`.
+         * @param configurationIds A list of Network Manager Configuration IDs which should be aligned with `scopeAccess`.
          * 
          * @return builder
          * 

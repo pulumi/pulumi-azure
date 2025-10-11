@@ -13,13 +13,13 @@ namespace Pulumi.Azure.AppService.Inputs
     public sealed class WindowsWebAppSlotSiteConfigAutoHealSettingGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `action` block as defined above.
+        /// A `Action` block as defined above.
         /// </summary>
         [Input("action", required: true)]
         public Input<Inputs.WindowsWebAppSlotSiteConfigAutoHealSettingActionGetArgs> Action { get; set; } = null!;
 
         /// <summary>
-        /// A `trigger` block as defined below.
+        /// A `Trigger` block as defined below.
         /// </summary>
         [Input("trigger", required: true)]
         public Input<Inputs.WindowsWebAppSlotSiteConfigAutoHealSettingTriggerGetArgs> Trigger { get; set; } = null!;

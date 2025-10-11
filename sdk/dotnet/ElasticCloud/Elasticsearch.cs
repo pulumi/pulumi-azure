@@ -107,13 +107,13 @@ namespace Pulumi.Azure.ElasticCloud
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// A `logs` block as defined below.
+        /// A `Logs` block as defined below.
         /// </summary>
         [Output("logs")]
         public Output<Outputs.ElasticsearchLogs?> Logs { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if the Elasticsearch should have monitoring configured? Defaults to `true`. Changing this forces a new Elasticsearch to be created.
+        /// Specifies if the Elasticsearch should have monitoring configured? Defaults to `True`. Changing this forces a new Elasticsearch to be created.
         /// </summary>
         [Output("monitoringEnabled")]
         public Output<bool?> MonitoringEnabled { get; private set; } = null!;
@@ -205,13 +205,13 @@ namespace Pulumi.Azure.ElasticCloud
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A `logs` block as defined below.
+        /// A `Logs` block as defined below.
         /// </summary>
         [Input("logs")]
         public Input<Inputs.ElasticsearchLogsArgs>? Logs { get; set; }
 
         /// <summary>
-        /// Specifies if the Elasticsearch should have monitoring configured? Defaults to `true`. Changing this forces a new Elasticsearch to be created.
+        /// Specifies if the Elasticsearch should have monitoring configured? Defaults to `True`. Changing this forces a new Elasticsearch to be created.
         /// </summary>
         [Input("monitoringEnabled")]
         public Input<bool>? MonitoringEnabled { get; set; }
@@ -307,13 +307,13 @@ namespace Pulumi.Azure.ElasticCloud
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A `logs` block as defined below.
+        /// A `Logs` block as defined below.
         /// </summary>
         [Input("logs")]
         public Input<Inputs.ElasticsearchLogsGetArgs>? Logs { get; set; }
 
         /// <summary>
-        /// Specifies if the Elasticsearch should have monitoring configured? Defaults to `true`. Changing this forces a new Elasticsearch to be created.
+        /// Specifies if the Elasticsearch should have monitoring configured? Defaults to `True`. Changing this forces a new Elasticsearch to be created.
         /// </summary>
         [Input("monitoringEnabled")]
         public Input<bool>? MonitoringEnabled { get; set; }

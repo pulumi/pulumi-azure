@@ -13,7 +13,7 @@ namespace Pulumi.Azure.StreamAnalytics.Inputs
     public sealed class FunctionJavaScriptUDFOutputGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Data Type output from this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
+        /// The Data Type output from this JavaScript Function. Possible values include `Array`, `Any`, `Bigint`, `Datetime`, `Float`, `nvarchar(max)` and `Record`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

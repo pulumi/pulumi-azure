@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Storage.Inputs
     public sealed class AccountAzureFilesAuthenticationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `active_directory` block as defined below. Required when `directory_type` is `AD`.
+        /// A `ActiveDirectory` block as defined below. Required when `DirectoryType` is `AD`.
         /// </summary>
         [Input("activeDirectory")]
         public Input<Inputs.AccountAzureFilesAuthenticationActiveDirectoryArgs>? ActiveDirectory { get; set; }

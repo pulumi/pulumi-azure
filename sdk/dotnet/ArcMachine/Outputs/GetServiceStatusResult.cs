@@ -14,11 +14,11 @@ namespace Pulumi.Azure.ArcMachine.Outputs
     public sealed class GetServiceStatusResult
     {
         /// <summary>
-        /// A `extension_service` block as defined above.
+        /// A `ExtensionService` block as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceStatusExtensionServiceResult> ExtensionServices;
         /// <summary>
-        /// A `guest_configuration_service` block as defined above.
+        /// A `GuestConfigurationService` block as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceStatusGuestConfigurationServiceResult> GuestConfigurationServices;
 

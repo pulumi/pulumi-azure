@@ -12,6 +12,15 @@ namespace Pulumi.Azure.WebPubSub
     /// <summary>
     /// Manages the Network ACL for a Web Pubsub.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.SignalRService` - 2024-03-01
+    /// 
     /// ## Import
     /// 
     /// Network ACLs for a Web Pubsub service can be imported using the `resource id`, e.g.
@@ -30,13 +39,13 @@ namespace Pulumi.Azure.WebPubSub
         public Output<string?> DefaultAction { get; private set; } = null!;
 
         /// <summary>
-        /// A `private_endpoint` block as defined below.
+        /// A `PrivateEndpoint` block as defined below.
         /// </summary>
         [Output("privateEndpoints")]
         public Output<ImmutableArray<Outputs.NetworkAclPrivateEndpoint>> PrivateEndpoints { get; private set; } = null!;
 
         /// <summary>
-        /// A `public_network` block as defined below.
+        /// A `PublicNetwork` block as defined below.
         /// </summary>
         [Output("publicNetwork")]
         public Output<Outputs.NetworkAclPublicNetwork> PublicNetwork { get; private set; } = null!;
@@ -103,7 +112,7 @@ namespace Pulumi.Azure.WebPubSub
         private InputList<Inputs.NetworkAclPrivateEndpointArgs>? _privateEndpoints;
 
         /// <summary>
-        /// A `private_endpoint` block as defined below.
+        /// A `PrivateEndpoint` block as defined below.
         /// </summary>
         public InputList<Inputs.NetworkAclPrivateEndpointArgs> PrivateEndpoints
         {
@@ -112,7 +121,7 @@ namespace Pulumi.Azure.WebPubSub
         }
 
         /// <summary>
-        /// A `public_network` block as defined below.
+        /// A `PublicNetwork` block as defined below.
         /// </summary>
         [Input("publicNetwork", required: true)]
         public Input<Inputs.NetworkAclPublicNetworkArgs> PublicNetwork { get; set; } = null!;
@@ -141,7 +150,7 @@ namespace Pulumi.Azure.WebPubSub
         private InputList<Inputs.NetworkAclPrivateEndpointGetArgs>? _privateEndpoints;
 
         /// <summary>
-        /// A `private_endpoint` block as defined below.
+        /// A `PrivateEndpoint` block as defined below.
         /// </summary>
         public InputList<Inputs.NetworkAclPrivateEndpointGetArgs> PrivateEndpoints
         {
@@ -150,7 +159,7 @@ namespace Pulumi.Azure.WebPubSub
         }
 
         /// <summary>
-        /// A `public_network` block as defined below.
+        /// A `PublicNetwork` block as defined below.
         /// </summary>
         [Input("publicNetwork")]
         public Input<Inputs.NetworkAclPublicNetworkGetArgs>? PublicNetwork { get; set; }

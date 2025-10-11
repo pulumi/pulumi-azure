@@ -49,14 +49,14 @@ public final class HciNetworkInterfaceState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * An `ip_configuration` block as defined below. Changing this forces a new resource to be created.
+     * An `ipConfiguration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="ipConfiguration")
     private @Nullable Output<HciNetworkInterfaceIpConfigurationArgs> ipConfiguration;
 
     /**
-     * @return An `ip_configuration` block as defined below. Changing this forces a new resource to be created.
+     * @return An `ipConfiguration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<HciNetworkInterfaceIpConfigurationArgs>> ipConfiguration() {
@@ -81,7 +81,7 @@ public final class HciNetworkInterfaceState extends com.pulumi.resources.Resourc
     /**
      * The MAC address of the Network Interface. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** If `mac_address` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignore_changes`.
+     * &gt; **Note:** If `macAddress` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignoreChanges`.
      * 
      */
     @Import(name="macAddress")
@@ -90,7 +90,7 @@ public final class HciNetworkInterfaceState extends com.pulumi.resources.Resourc
     /**
      * @return The MAC address of the Network Interface. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** If `mac_address` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignore_changes`.
+     * &gt; **Note:** If `macAddress` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignoreChanges`.
      * 
      */
     public Optional<Output<String>> macAddress() {
@@ -226,7 +226,7 @@ public final class HciNetworkInterfaceState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param ipConfiguration An `ip_configuration` block as defined below. Changing this forces a new resource to be created.
+         * @param ipConfiguration An `ipConfiguration` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -237,7 +237,7 @@ public final class HciNetworkInterfaceState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param ipConfiguration An `ip_configuration` block as defined below. Changing this forces a new resource to be created.
+         * @param ipConfiguration An `ipConfiguration` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class HciNetworkInterfaceState extends com.pulumi.resources.Resourc
         /**
          * @param macAddress The MAC address of the Network Interface. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** If `mac_address` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignore_changes`.
+         * &gt; **Note:** If `macAddress` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignoreChanges`.
          * 
          * @return builder
          * 
@@ -283,7 +283,7 @@ public final class HciNetworkInterfaceState extends com.pulumi.resources.Resourc
         /**
          * @param macAddress The MAC address of the Network Interface. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** If `mac_address` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignore_changes`.
+         * &gt; **Note:** If `macAddress` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignoreChanges`.
          * 
          * @return builder
          * 

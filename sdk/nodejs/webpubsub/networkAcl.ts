@@ -9,6 +9,15 @@ import * as utilities from "../utilities";
 /**
  * Manages the Network ACL for a Web Pubsub.
  *
+ * ## Example Usage
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.SignalRService` - 2024-03-01
+ *
  * ## Import
  *
  * Network ACLs for a Web Pubsub service can be imported using the `resource id`, e.g.

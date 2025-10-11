@@ -16,11 +16,11 @@ namespace Pulumi.Azure.HDInsight.Outputs
         /// <summary>
         /// The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** To enable the private link the `connection_direction` must be set to `Outbound`.
+        /// &gt; **Note:** To enable the private link the `ConnectionDirection` must be set to `Outbound`.
         /// </summary>
         public readonly string? ConnectionDirection;
         /// <summary>
-        /// Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly bool? PrivateLinkEnabled;
 

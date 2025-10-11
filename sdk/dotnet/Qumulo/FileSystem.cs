@@ -12,6 +12,15 @@ namespace Pulumi.Azure.Qumulo
     /// <summary>
     /// Manages an Azure Native Qumulo Scalable File System.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Qumulo.Storage` - 2024-06-19
+    /// 
     /// ## Import
     /// 
     /// An existing File System can be imported into Pulumi using the `resource id`, e.g.
@@ -60,7 +69,7 @@ namespace Pulumi.Azure.Qumulo
         public Output<string?> PlanId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the marketplace publisher ID. Defaults to `qumulo1584033880660`. Changing this forces a new resource to be created.
+        /// Specifies the marketplace publisher ID. Defaults to `Qumulo1584033880660`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("publisherId")]
         public Output<string?> PublisherId { get; private set; } = null!;
@@ -192,7 +201,7 @@ namespace Pulumi.Azure.Qumulo
         public Input<string>? PlanId { get; set; }
 
         /// <summary>
-        /// Specifies the marketplace publisher ID. Defaults to `qumulo1584033880660`. Changing this forces a new resource to be created.
+        /// Specifies the marketplace publisher ID. Defaults to `Qumulo1584033880660`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("publisherId")]
         public Input<string>? PublisherId { get; set; }
@@ -288,7 +297,7 @@ namespace Pulumi.Azure.Qumulo
         public Input<string>? PlanId { get; set; }
 
         /// <summary>
-        /// Specifies the marketplace publisher ID. Defaults to `qumulo1584033880660`. Changing this forces a new resource to be created.
+        /// Specifies the marketplace publisher ID. Defaults to `Qumulo1584033880660`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("publisherId")]
         public Input<string>? PublisherId { get; set; }

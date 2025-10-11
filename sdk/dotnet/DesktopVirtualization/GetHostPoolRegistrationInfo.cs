@@ -72,7 +72,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Output<string> ExpirationDate { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Virtual Desktop Host Pool to link the Registration Info to. Changing this forces a new Registration Info resource to be created. Only a single virtual_desktop_host_pool_registration_info resource should be associated with a given hostpool. Assigning multiple resources will produce inconsistent results.
+        /// The ID of the Virtual Desktop Host Pool to link the Registration Info to. Changing this forces a new Registration Info resource to be created. Only a single VirtualDesktopHostPoolRegistrationInfo resource should be associated with a given hostpool. Assigning multiple resources will produce inconsistent results.
         /// </summary>
         [Output("hostpoolId")]
         public Output<string> HostpoolId { get; private set; } = null!;
@@ -140,7 +140,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Input<string> ExpirationDate { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Virtual Desktop Host Pool to link the Registration Info to. Changing this forces a new Registration Info resource to be created. Only a single virtual_desktop_host_pool_registration_info resource should be associated with a given hostpool. Assigning multiple resources will produce inconsistent results.
+        /// The ID of the Virtual Desktop Host Pool to link the Registration Info to. Changing this forces a new Registration Info resource to be created. Only a single VirtualDesktopHostPoolRegistrationInfo resource should be associated with a given hostpool. Assigning multiple resources will produce inconsistent results.
         /// </summary>
         [Input("hostpoolId", required: true)]
         public Input<string> HostpoolId { get; set; } = null!;
@@ -160,7 +160,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Input<string>? ExpirationDate { get; set; }
 
         /// <summary>
-        /// The ID of the Virtual Desktop Host Pool to link the Registration Info to. Changing this forces a new Registration Info resource to be created. Only a single virtual_desktop_host_pool_registration_info resource should be associated with a given hostpool. Assigning multiple resources will produce inconsistent results.
+        /// The ID of the Virtual Desktop Host Pool to link the Registration Info to. Changing this forces a new Registration Info resource to be created. Only a single VirtualDesktopHostPoolRegistrationInfo resource should be associated with a given hostpool. Assigning multiple resources will produce inconsistent results.
         /// </summary>
         [Input("hostpoolId")]
         public Input<string>? HostpoolId { get; set; }

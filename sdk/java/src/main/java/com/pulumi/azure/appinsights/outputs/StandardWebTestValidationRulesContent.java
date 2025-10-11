@@ -19,12 +19,12 @@ public final class StandardWebTestValidationRulesContent {
      */
     private String contentMatch;
     /**
-     * @return Ignore the casing in the `content_match` value.
+     * @return Ignore the casing in the `contentMatch` value.
      * 
      */
     private @Nullable Boolean ignoreCase;
     /**
-     * @return If the content of `content_match` is found, pass the test. If set to `false`, the WebTest is failing if the content of `content_match` is found.
+     * @return If the content of `contentMatch` is found, pass the test. If set to `false`, the WebTest is failing if the content of `contentMatch` is found.
      * 
      */
     private @Nullable Boolean passIfTextFound;
@@ -38,14 +38,14 @@ public final class StandardWebTestValidationRulesContent {
         return this.contentMatch;
     }
     /**
-     * @return Ignore the casing in the `content_match` value.
+     * @return Ignore the casing in the `contentMatch` value.
      * 
      */
     public Optional<Boolean> ignoreCase() {
         return Optional.ofNullable(this.ignoreCase);
     }
     /**
-     * @return If the content of `content_match` is found, pass the test. If set to `false`, the WebTest is failing if the content of `content_match` is found.
+     * @return If the content of `contentMatch` is found, pass the test. If set to `false`, the WebTest is failing if the content of `contentMatch` is found.
      * 
      */
     public Optional<Boolean> passIfTextFound() {

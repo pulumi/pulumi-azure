@@ -17,7 +17,7 @@ public final class ServiceSignUp {
      */
     private Boolean enabled;
     /**
-     * @return A `terms_of_service` block as defined below.
+     * @return A `termsOfService` block as defined below.
      * 
      */
     private ServiceSignUpTermsOfService termsOfService;
@@ -31,7 +31,7 @@ public final class ServiceSignUp {
         return this.enabled;
     }
     /**
-     * @return A `terms_of_service` block as defined below.
+     * @return A `termsOfService` block as defined below.
      * 
      */
     public ServiceSignUpTermsOfService termsOfService() {

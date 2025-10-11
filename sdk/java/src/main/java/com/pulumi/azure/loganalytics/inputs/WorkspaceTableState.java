@@ -68,9 +68,9 @@ public final class WorkspaceTableState extends com.pulumi.resources.ResourceArgs
     /**
      * The table&#39;s total retention in days. Possible values range between `4` and `730`; or `1095`, `1460`, `1826`, `2191`, `2556`, `2922`, `3288`, `3653`, `4018`, or `4383`.
      * 
-     * &gt; **Note:** `retention_in_days` and `total_retention_in_days` will revert back to the value of azure.operationalinsights.AnalyticsWorkspace retention_in_days when a azure.loganalytics.WorkspaceTable is deleted.
+     * &gt; **Note:** `retentionInDays` and `totalRetentionInDays` will revert back to the value of azure.operationalinsights.AnalyticsWorkspace retention_in_days when a azure.loganalytics.WorkspaceTable is deleted.
      * 
-     * &gt; **Note:** The `retention_in_days` cannot be specified when `plan` is `Basic` because the retention is fixed at eight days.
+     * &gt; **Note:** The `retentionInDays` cannot be specified when `plan` is `Basic` because the retention is fixed at eight days.
      * 
      */
     @Import(name="totalRetentionInDays")
@@ -79,9 +79,9 @@ public final class WorkspaceTableState extends com.pulumi.resources.ResourceArgs
     /**
      * @return The table&#39;s total retention in days. Possible values range between `4` and `730`; or `1095`, `1460`, `1826`, `2191`, `2556`, `2922`, `3288`, `3653`, `4018`, or `4383`.
      * 
-     * &gt; **Note:** `retention_in_days` and `total_retention_in_days` will revert back to the value of azure.operationalinsights.AnalyticsWorkspace retention_in_days when a azure.loganalytics.WorkspaceTable is deleted.
+     * &gt; **Note:** `retentionInDays` and `totalRetentionInDays` will revert back to the value of azure.operationalinsights.AnalyticsWorkspace retention_in_days when a azure.loganalytics.WorkspaceTable is deleted.
      * 
-     * &gt; **Note:** The `retention_in_days` cannot be specified when `plan` is `Basic` because the retention is fixed at eight days.
+     * &gt; **Note:** The `retentionInDays` cannot be specified when `plan` is `Basic` because the retention is fixed at eight days.
      * 
      */
     public Optional<Output<Integer>> totalRetentionInDays() {
@@ -201,9 +201,9 @@ public final class WorkspaceTableState extends com.pulumi.resources.ResourceArgs
         /**
          * @param totalRetentionInDays The table&#39;s total retention in days. Possible values range between `4` and `730`; or `1095`, `1460`, `1826`, `2191`, `2556`, `2922`, `3288`, `3653`, `4018`, or `4383`.
          * 
-         * &gt; **Note:** `retention_in_days` and `total_retention_in_days` will revert back to the value of azure.operationalinsights.AnalyticsWorkspace retention_in_days when a azure.loganalytics.WorkspaceTable is deleted.
+         * &gt; **Note:** `retentionInDays` and `totalRetentionInDays` will revert back to the value of azure.operationalinsights.AnalyticsWorkspace retention_in_days when a azure.loganalytics.WorkspaceTable is deleted.
          * 
-         * &gt; **Note:** The `retention_in_days` cannot be specified when `plan` is `Basic` because the retention is fixed at eight days.
+         * &gt; **Note:** The `retentionInDays` cannot be specified when `plan` is `Basic` because the retention is fixed at eight days.
          * 
          * @return builder
          * 
@@ -216,9 +216,9 @@ public final class WorkspaceTableState extends com.pulumi.resources.ResourceArgs
         /**
          * @param totalRetentionInDays The table&#39;s total retention in days. Possible values range between `4` and `730`; or `1095`, `1460`, `1826`, `2191`, `2556`, `2922`, `3288`, `3653`, `4018`, or `4383`.
          * 
-         * &gt; **Note:** `retention_in_days` and `total_retention_in_days` will revert back to the value of azure.operationalinsights.AnalyticsWorkspace retention_in_days when a azure.loganalytics.WorkspaceTable is deleted.
+         * &gt; **Note:** `retentionInDays` and `totalRetentionInDays` will revert back to the value of azure.operationalinsights.AnalyticsWorkspace retention_in_days when a azure.loganalytics.WorkspaceTable is deleted.
          * 
-         * &gt; **Note:** The `retention_in_days` cannot be specified when `plan` is `Basic` because the retention is fixed at eight days.
+         * &gt; **Note:** The `retentionInDays` cannot be specified when `plan` is `Basic` because the retention is fixed at eight days.
          * 
          * @return builder
          * 

@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<string> DestinationEndpoints;
         /// <summary>
-        /// Should the test group be enabled? Defaults to `true`.
+        /// Should the test group be enabled? Defaults to `True`.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>

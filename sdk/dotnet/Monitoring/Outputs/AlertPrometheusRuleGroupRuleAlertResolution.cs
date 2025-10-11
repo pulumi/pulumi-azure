@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
     public sealed class AlertPrometheusRuleGroupRuleAlertResolution
     {
         /// <summary>
-        /// Is the alert auto-resolution? Possible values are `true` and `false`.
+        /// Is the alert auto-resolution? Possible values are `True` and `False`.
         /// </summary>
         public readonly bool? AutoResolved;
         /// <summary>

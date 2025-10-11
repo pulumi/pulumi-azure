@@ -15,7 +15,7 @@ public final class InteractiveQueryClusterNetwork {
     /**
      * @return The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** To enabled the private link the `connection_direction` must be set to `Outbound`.
+     * &gt; **Note:** To enabled the private link the `connectionDirection` must be set to `Outbound`.
      * 
      */
     private @Nullable String connectionDirection;
@@ -29,7 +29,7 @@ public final class InteractiveQueryClusterNetwork {
     /**
      * @return The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** To enabled the private link the `connection_direction` must be set to `Outbound`.
+     * &gt; **Note:** To enabled the private link the `connectionDirection` must be set to `Outbound`.
      * 
      */
     public Optional<String> connectionDirection() {

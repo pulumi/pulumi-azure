@@ -39,7 +39,7 @@ namespace Pulumi.Azure.PrivateDns.Inputs
         /// <summary>
         /// Specifies the ID of the Subnet which should be used for the Private Link Service.
         /// 
-        /// &gt; **Note:** Verify that the Subnet's `enforce_private_link_service_network_policies` attribute is set to `true`.
+        /// &gt; **Note:** Verify that the Subnet's `EnforcePrivateLinkServiceNetworkPolicies` attribute is set to `True`.
         /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;

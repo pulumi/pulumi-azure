@@ -14,15 +14,15 @@ namespace Pulumi.Azure.Storage.Outputs
     public sealed class AccountShareProperties
     {
         /// <summary>
-        /// A `cors_rule` block as defined below.
+        /// A `CorsRule` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AccountSharePropertiesCorsRule> CorsRules;
         /// <summary>
-        /// A `retention_policy` block as defined below.
+        /// A `RetentionPolicy` block as defined below.
         /// </summary>
         public readonly Outputs.AccountSharePropertiesRetentionPolicy? RetentionPolicy;
         /// <summary>
-        /// A `smb` block as defined below.
+        /// A `Smb` block as defined below.
         /// </summary>
         public readonly Outputs.AccountSharePropertiesSmb? Smb;
 

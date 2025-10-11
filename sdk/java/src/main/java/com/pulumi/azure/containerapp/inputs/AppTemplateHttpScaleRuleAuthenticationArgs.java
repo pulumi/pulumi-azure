@@ -32,14 +32,14 @@ public final class AppTemplateHttpScaleRuleAuthenticationArgs extends com.pulumi
     }
 
     /**
-     * The Trigger Parameter name to use the supply the value retrieved from the `secret_name`.
+     * The Trigger Parameter name to use the supply the value retrieved from the `secretName`.
      * 
      */
     @Import(name="triggerParameter")
     private @Nullable Output<String> triggerParameter;
 
     /**
-     * @return The Trigger Parameter name to use the supply the value retrieved from the `secret_name`.
+     * @return The Trigger Parameter name to use the supply the value retrieved from the `secretName`.
      * 
      */
     public Optional<Output<String>> triggerParameter() {
@@ -93,7 +93,7 @@ public final class AppTemplateHttpScaleRuleAuthenticationArgs extends com.pulumi
         }
 
         /**
-         * @param triggerParameter The Trigger Parameter name to use the supply the value retrieved from the `secret_name`.
+         * @param triggerParameter The Trigger Parameter name to use the supply the value retrieved from the `secretName`.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class AppTemplateHttpScaleRuleAuthenticationArgs extends com.pulumi
         }
 
         /**
-         * @param triggerParameter The Trigger Parameter name to use the supply the value retrieved from the `secret_name`.
+         * @param triggerParameter The Trigger Parameter name to use the supply the value retrieved from the `secretName`.
          * 
          * @return builder
          * 

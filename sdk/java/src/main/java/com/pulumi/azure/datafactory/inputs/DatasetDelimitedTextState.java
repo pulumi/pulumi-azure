@@ -57,14 +57,14 @@ public final class DatasetDelimitedTextState extends com.pulumi.resources.Resour
     }
 
     /**
-     * An `azure_blob_fs_location` block as defined below.
+     * An `azureBlobFsLocation` block as defined below.
      * 
      */
     @Import(name="azureBlobFsLocation")
     private @Nullable Output<DatasetDelimitedTextAzureBlobFsLocationArgs> azureBlobFsLocation;
 
     /**
-     * @return An `azure_blob_fs_location` block as defined below.
+     * @return An `azureBlobFsLocation` block as defined below.
      * 
      */
     public Optional<Output<DatasetDelimitedTextAzureBlobFsLocationArgs>> azureBlobFsLocation() {
@@ -72,14 +72,14 @@ public final class DatasetDelimitedTextState extends com.pulumi.resources.Resour
     }
 
     /**
-     * An `azure_blob_storage_location` block as defined below.
+     * An `azureBlobStorageLocation` block as defined below.
      * 
      */
     @Import(name="azureBlobStorageLocation")
     private @Nullable Output<DatasetDelimitedTextAzureBlobStorageLocationArgs> azureBlobStorageLocation;
 
     /**
-     * @return An `azure_blob_storage_location` block as defined below.
+     * @return An `azureBlobStorageLocation` block as defined below.
      * 
      */
     public Optional<Output<DatasetDelimitedTextAzureBlobStorageLocationArgs>> azureBlobStorageLocation() {
@@ -222,7 +222,7 @@ public final class DatasetDelimitedTextState extends com.pulumi.resources.Resour
     }
 
     /**
-     * A `http_server_location` block as defined below.
+     * A `httpServerLocation` block as defined below.
      * 
      * The following supported arguments are specific to Delimited Text Dataset:
      * 
@@ -231,7 +231,7 @@ public final class DatasetDelimitedTextState extends com.pulumi.resources.Resour
     private @Nullable Output<DatasetDelimitedTextHttpServerLocationArgs> httpServerLocation;
 
     /**
-     * @return A `http_server_location` block as defined below.
+     * @return A `httpServerLocation` block as defined below.
      * 
      * The following supported arguments are specific to Delimited Text Dataset:
      * 
@@ -331,14 +331,14 @@ public final class DatasetDelimitedTextState extends com.pulumi.resources.Resour
     }
 
     /**
-     * A `schema_column` block as defined below.
+     * A `schemaColumn` block as defined below.
      * 
      */
     @Import(name="schemaColumns")
     private @Nullable Output<List<DatasetDelimitedTextSchemaColumnArgs>> schemaColumns;
 
     /**
-     * @return A `schema_column` block as defined below.
+     * @return A `schemaColumn` block as defined below.
      * 
      */
     public Optional<Output<List<DatasetDelimitedTextSchemaColumnArgs>>> schemaColumns() {
@@ -446,7 +446,7 @@ public final class DatasetDelimitedTextState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param azureBlobFsLocation An `azure_blob_fs_location` block as defined below.
+         * @param azureBlobFsLocation An `azureBlobFsLocation` block as defined below.
          * 
          * @return builder
          * 
@@ -457,7 +457,7 @@ public final class DatasetDelimitedTextState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param azureBlobFsLocation An `azure_blob_fs_location` block as defined below.
+         * @param azureBlobFsLocation An `azureBlobFsLocation` block as defined below.
          * 
          * @return builder
          * 
@@ -467,7 +467,7 @@ public final class DatasetDelimitedTextState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param azureBlobStorageLocation An `azure_blob_storage_location` block as defined below.
+         * @param azureBlobStorageLocation An `azureBlobStorageLocation` block as defined below.
          * 
          * @return builder
          * 
@@ -478,7 +478,7 @@ public final class DatasetDelimitedTextState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param azureBlobStorageLocation An `azure_blob_storage_location` block as defined below.
+         * @param azureBlobStorageLocation An `azureBlobStorageLocation` block as defined below.
          * 
          * @return builder
          * 
@@ -677,7 +677,7 @@ public final class DatasetDelimitedTextState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param httpServerLocation A `http_server_location` block as defined below.
+         * @param httpServerLocation A `httpServerLocation` block as defined below.
          * 
          * The following supported arguments are specific to Delimited Text Dataset:
          * 
@@ -690,7 +690,7 @@ public final class DatasetDelimitedTextState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param httpServerLocation A `http_server_location` block as defined below.
+         * @param httpServerLocation A `httpServerLocation` block as defined below.
          * 
          * The following supported arguments are specific to Delimited Text Dataset:
          * 
@@ -828,7 +828,7 @@ public final class DatasetDelimitedTextState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param schemaColumns A `schema_column` block as defined below.
+         * @param schemaColumns A `schemaColumn` block as defined below.
          * 
          * @return builder
          * 
@@ -839,7 +839,7 @@ public final class DatasetDelimitedTextState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param schemaColumns A `schema_column` block as defined below.
+         * @param schemaColumns A `schemaColumn` block as defined below.
          * 
          * @return builder
          * 
@@ -849,7 +849,7 @@ public final class DatasetDelimitedTextState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param schemaColumns A `schema_column` block as defined below.
+         * @param schemaColumns A `schemaColumn` block as defined below.
          * 
          * @return builder
          * 

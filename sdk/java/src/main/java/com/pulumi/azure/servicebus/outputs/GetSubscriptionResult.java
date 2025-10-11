@@ -68,10 +68,10 @@ public final class GetSubscriptionResult {
     private String name;
     /**
      * @deprecated
-     * `namespace_name` will be removed in favour of the property `topic_id` in version 5.0 of the AzureRM Provider.
+     * `namespaceName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `namespace_name` will be removed in favour of the property `topic_id` in version 5.0 of the AzureRM Provider. */
+    @Deprecated /* `namespaceName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider. */
     private @Nullable String namespaceName;
     /**
      * @return Whether this ServiceBus Subscription supports session.
@@ -80,18 +80,18 @@ public final class GetSubscriptionResult {
     private Boolean requiresSession;
     /**
      * @deprecated
-     * `resource_group_name` will be removed in favour of the property `topic_id` in version 5.0 of the AzureRM Provider.
+     * `resourceGroupName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `resource_group_name` will be removed in favour of the property `topic_id` in version 5.0 of the AzureRM Provider. */
+    @Deprecated /* `resourceGroupName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider. */
     private @Nullable String resourceGroupName;
     private @Nullable String topicId;
     /**
      * @deprecated
-     * `topic_name` will be removed in favour of the property `topic_id` in version 5.0 of the AzureRM Provider.
+     * `topicName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `topic_name` will be removed in favour of the property `topic_id` in version 5.0 of the AzureRM Provider. */
+    @Deprecated /* `topicName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider. */
     private @Nullable String topicName;
 
     private GetSubscriptionResult() {}
@@ -173,10 +173,10 @@ public final class GetSubscriptionResult {
     }
     /**
      * @deprecated
-     * `namespace_name` will be removed in favour of the property `topic_id` in version 5.0 of the AzureRM Provider.
+     * `namespaceName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `namespace_name` will be removed in favour of the property `topic_id` in version 5.0 of the AzureRM Provider. */
+    @Deprecated /* `namespaceName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider. */
     public Optional<String> namespaceName() {
         return Optional.ofNullable(this.namespaceName);
     }
@@ -189,10 +189,10 @@ public final class GetSubscriptionResult {
     }
     /**
      * @deprecated
-     * `resource_group_name` will be removed in favour of the property `topic_id` in version 5.0 of the AzureRM Provider.
+     * `resourceGroupName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `resource_group_name` will be removed in favour of the property `topic_id` in version 5.0 of the AzureRM Provider. */
+    @Deprecated /* `resourceGroupName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider. */
     public Optional<String> resourceGroupName() {
         return Optional.ofNullable(this.resourceGroupName);
     }
@@ -201,10 +201,10 @@ public final class GetSubscriptionResult {
     }
     /**
      * @deprecated
-     * `topic_name` will be removed in favour of the property `topic_id` in version 5.0 of the AzureRM Provider.
+     * `topicName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `topic_name` will be removed in favour of the property `topic_id` in version 5.0 of the AzureRM Provider. */
+    @Deprecated /* `topicName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider. */
     public Optional<String> topicName() {
         return Optional.ofNullable(this.topicName);
     }

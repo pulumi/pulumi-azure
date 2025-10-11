@@ -79,7 +79,7 @@ public final class SharedPrivateLinkResourceArgs extends com.pulumi.resources.Re
     /**
      * The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** The `sub_resource_name` should match with the type of the `target_resource_id` that&#39;s being specified.
+     * &gt; **Note:** The `subResourceName` should match with the type of the `targetResourceId` that&#39;s being specified.
      * 
      */
     @Import(name="targetResourceId", required=true)
@@ -88,7 +88,7 @@ public final class SharedPrivateLinkResourceArgs extends com.pulumi.resources.Re
     /**
      * @return The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** The `sub_resource_name` should match with the type of the `target_resource_id` that&#39;s being specified.
+     * &gt; **Note:** The `subResourceName` should match with the type of the `targetResourceId` that&#39;s being specified.
      * 
      */
     public Output<String> targetResourceId() {
@@ -210,7 +210,7 @@ public final class SharedPrivateLinkResourceArgs extends com.pulumi.resources.Re
         /**
          * @param targetResourceId The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** The `sub_resource_name` should match with the type of the `target_resource_id` that&#39;s being specified.
+         * &gt; **Note:** The `subResourceName` should match with the type of the `targetResourceId` that&#39;s being specified.
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class SharedPrivateLinkResourceArgs extends com.pulumi.resources.Re
         /**
          * @param targetResourceId The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** The `sub_resource_name` should match with the type of the `target_resource_id` that&#39;s being specified.
+         * &gt; **Note:** The `subResourceName` should match with the type of the `targetResourceId` that&#39;s being specified.
          * 
          * @return builder
          * 

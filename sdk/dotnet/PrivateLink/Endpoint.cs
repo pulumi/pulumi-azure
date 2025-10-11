@@ -14,6 +14,161 @@ namespace Pulumi.Azure.PrivateLink
     /// 
     /// Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. Private Endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. The service could be an Azure service such as Azure Storage, SQL, etc. or your own Private Link Service.
     /// 
+    /// ## Example Usage
+    /// 
+    /// Using a Private Link Service Alias with existing resources:
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = Azure.Core.GetResourceGroup.Invoke(new()
+    ///     {
+    ///         Name = "example-resources",
+    ///     });
+    /// 
+    ///     var vnet = Azure.Network.GetVirtualNetwork.Invoke(new()
+    ///     {
+    ///         Name = "example-network",
+    ///         ResourceGroupName = example.Apply(getResourceGroupResult =&gt; getResourceGroupResult.Name),
+    ///     });
+    /// 
+    ///     var subnet = Azure.Network.GetSubnet.Invoke(new()
+    ///     {
+    ///         Name = "default",
+    ///         VirtualNetworkName = vnet.Apply(getVirtualNetworkResult =&gt; getVirtualNetworkResult.Name),
+    ///         ResourceGroupName = example.Apply(getResourceGroupResult =&gt; getResourceGroupResult.Name),
+    ///     });
+    /// 
+    ///     var exampleEndpoint = new Azure.PrivateLink.Endpoint("example", new()
+    ///     {
+    ///         Name = "example-endpoint",
+    ///         Location = example.Apply(getResourceGroupResult =&gt; getResourceGroupResult.Location),
+    ///         ResourceGroupName = example.Apply(getResourceGroupResult =&gt; getResourceGroupResult.Name),
+    ///         SubnetId = subnet.Apply(getSubnetResult =&gt; getSubnetResult.Id),
+    ///         PrivateServiceConnection = new Azure.PrivateLink.Inputs.EndpointPrivateServiceConnectionArgs
+    ///         {
+    ///             Name = "example-privateserviceconnection",
+    ///             PrivateConnectionResourceAlias = "example-privatelinkservice.d20286c8-4ea5-11eb-9584-8f53157226c6.centralus.azure.privatelinkservice",
+    ///             IsManualConnection = true,
+    ///             RequestMessage = "PL",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// Using a Private Endpoint pointing to an *owned* Azure service, with proper DNS configuration:
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-rg",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     {
+    ///         Name = "exampleaccount",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     {
+    ///         Name = "virtnetname",
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     {
+    ///         Name = "subnetname",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleZone = new Azure.PrivateDns.Zone("example", new()
+    ///     {
+    ///         Name = "privatelink.blob.core.windows.net",
+    ///         ResourceGroupName = example.Name,
+    ///     });
+    /// 
+    ///     var exampleEndpoint = new Azure.PrivateLink.Endpoint("example", new()
+    ///     {
+    ///         Name = "example-endpoint",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         SubnetId = exampleSubnet.Id,
+    ///         PrivateServiceConnection = new Azure.PrivateLink.Inputs.EndpointPrivateServiceConnectionArgs
+    ///         {
+    ///             Name = "example-privateserviceconnection",
+    ///             PrivateConnectionResourceId = exampleAccount.Id,
+    ///             SubresourceNames = new[]
+    ///             {
+    ///                 "blob",
+    ///             },
+    ///             IsManualConnection = false,
+    ///         },
+    ///         PrivateDnsZoneGroup = new Azure.PrivateLink.Inputs.EndpointPrivateDnsZoneGroupArgs
+    ///         {
+    ///             Name = "example-dns-zone-group",
+    ///             PrivateDnsZoneIds = new[]
+    ///             {
+    ///                 exampleZone.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleZoneVirtualNetworkLink = new Azure.PrivateDns.ZoneVirtualNetworkLink("example", new()
+    ///     {
+    ///         Name = "example-link",
+    ///         ResourceGroupName = example.Name,
+    ///         PrivateDnsZoneName = exampleZone.Name,
+    ///         VirtualNetworkId = exampleVirtualNetwork.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Example HCL Configurations
+    /// 
+    /// * How to conneca `Private Endpoint` to a Application Gateway
+    /// * How to connect a `Private Endpoint` to a Cosmos MongoDB
+    /// * How to connect a `Private Endpoint` to a Cosmos PostgreSQL
+    /// * How to connect a `Private Endpoint` to a PostgreSQL Server
+    /// * How to connect a `Private Endpoint` to a Private Link Service
+    /// * How to connect a `Private Endpoint` to a Private DNS Group
+    /// * How to connect a `Private Endpoint` to a Databricks Workspace
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Network` - 2024-05-01
+    /// 
     /// ## Import
     /// 
     /// Private Endpoints can be imported using the `resource id`, e.g.
@@ -26,7 +181,7 @@ namespace Pulumi.Azure.PrivateLink
     public partial class Endpoint : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A `custom_dns_configs` block as defined below.
+        /// A `CustomDnsConfigs` block as defined below.
         /// </summary>
         [Output("customDnsConfigs")]
         public Output<ImmutableArray<Outputs.EndpointCustomDnsConfig>> CustomDnsConfigs { get; private set; } = null!;
@@ -38,7 +193,7 @@ namespace Pulumi.Azure.PrivateLink
         public Output<string?> CustomNetworkInterfaceName { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
+        /// One or more `IpConfiguration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
         /// </summary>
         [Output("ipConfigurations")]
         public Output<ImmutableArray<Outputs.EndpointIpConfiguration>> IpConfigurations { get; private set; } = null!;
@@ -56,25 +211,25 @@ namespace Pulumi.Azure.PrivateLink
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `network_interface` block as defined below.
+        /// A `NetworkInterface` block as defined below.
         /// </summary>
         [Output("networkInterfaces")]
         public Output<ImmutableArray<Outputs.EndpointNetworkInterface>> NetworkInterfaces { get; private set; } = null!;
 
         /// <summary>
-        /// A `private_dns_zone_configs` block as defined below.
+        /// A `PrivateDnsZoneConfigs` block as defined below.
         /// </summary>
         [Output("privateDnsZoneConfigs")]
         public Output<ImmutableArray<Outputs.EndpointPrivateDnsZoneConfig>> PrivateDnsZoneConfigs { get; private set; } = null!;
 
         /// <summary>
-        /// A `private_dns_zone_group` block as defined below.
+        /// A `PrivateDnsZoneGroup` block as defined below.
         /// </summary>
         [Output("privateDnsZoneGroup")]
         public Output<Outputs.EndpointPrivateDnsZoneGroup?> PrivateDnsZoneGroup { get; private set; } = null!;
 
         /// <summary>
-        /// A `private_service_connection` block as defined below.
+        /// A `PrivateServiceConnection` block as defined below.
         /// </summary>
         [Output("privateServiceConnection")]
         public Output<Outputs.EndpointPrivateServiceConnection> PrivateServiceConnection { get; private set; } = null!;
@@ -153,7 +308,7 @@ namespace Pulumi.Azure.PrivateLink
         private InputList<Inputs.EndpointIpConfigurationArgs>? _ipConfigurations;
 
         /// <summary>
-        /// One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
+        /// One or more `IpConfiguration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
         /// </summary>
         public InputList<Inputs.EndpointIpConfigurationArgs> IpConfigurations
         {
@@ -174,13 +329,13 @@ namespace Pulumi.Azure.PrivateLink
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `private_dns_zone_group` block as defined below.
+        /// A `PrivateDnsZoneGroup` block as defined below.
         /// </summary>
         [Input("privateDnsZoneGroup")]
         public Input<Inputs.EndpointPrivateDnsZoneGroupArgs>? PrivateDnsZoneGroup { get; set; }
 
         /// <summary>
-        /// A `private_service_connection` block as defined below.
+        /// A `PrivateServiceConnection` block as defined below.
         /// </summary>
         [Input("privateServiceConnection", required: true)]
         public Input<Inputs.EndpointPrivateServiceConnectionArgs> PrivateServiceConnection { get; set; } = null!;
@@ -221,7 +376,7 @@ namespace Pulumi.Azure.PrivateLink
         private InputList<Inputs.EndpointCustomDnsConfigGetArgs>? _customDnsConfigs;
 
         /// <summary>
-        /// A `custom_dns_configs` block as defined below.
+        /// A `CustomDnsConfigs` block as defined below.
         /// </summary>
         public InputList<Inputs.EndpointCustomDnsConfigGetArgs> CustomDnsConfigs
         {
@@ -239,7 +394,7 @@ namespace Pulumi.Azure.PrivateLink
         private InputList<Inputs.EndpointIpConfigurationGetArgs>? _ipConfigurations;
 
         /// <summary>
-        /// One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
+        /// One or more `IpConfiguration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
         /// </summary>
         public InputList<Inputs.EndpointIpConfigurationGetArgs> IpConfigurations
         {
@@ -263,7 +418,7 @@ namespace Pulumi.Azure.PrivateLink
         private InputList<Inputs.EndpointNetworkInterfaceGetArgs>? _networkInterfaces;
 
         /// <summary>
-        /// A `network_interface` block as defined below.
+        /// A `NetworkInterface` block as defined below.
         /// </summary>
         public InputList<Inputs.EndpointNetworkInterfaceGetArgs> NetworkInterfaces
         {
@@ -275,7 +430,7 @@ namespace Pulumi.Azure.PrivateLink
         private InputList<Inputs.EndpointPrivateDnsZoneConfigGetArgs>? _privateDnsZoneConfigs;
 
         /// <summary>
-        /// A `private_dns_zone_configs` block as defined below.
+        /// A `PrivateDnsZoneConfigs` block as defined below.
         /// </summary>
         public InputList<Inputs.EndpointPrivateDnsZoneConfigGetArgs> PrivateDnsZoneConfigs
         {
@@ -284,13 +439,13 @@ namespace Pulumi.Azure.PrivateLink
         }
 
         /// <summary>
-        /// A `private_dns_zone_group` block as defined below.
+        /// A `PrivateDnsZoneGroup` block as defined below.
         /// </summary>
         [Input("privateDnsZoneGroup")]
         public Input<Inputs.EndpointPrivateDnsZoneGroupGetArgs>? PrivateDnsZoneGroup { get; set; }
 
         /// <summary>
-        /// A `private_service_connection` block as defined below.
+        /// A `PrivateServiceConnection` block as defined below.
         /// </summary>
         [Input("privateServiceConnection")]
         public Input<Inputs.EndpointPrivateServiceConnectionGetArgs>? PrivateServiceConnection { get; set; }

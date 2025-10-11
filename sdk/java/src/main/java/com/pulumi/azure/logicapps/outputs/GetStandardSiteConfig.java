@@ -64,7 +64,7 @@ public final class GetStandardSiteConfig {
      */
     private Boolean http2Enabled;
     /**
-     * @return A list of `ip_restriction` objects representing IP restrictions as defined below.
+     * @return A list of `ipRestriction` objects representing IP restrictions as defined below.
      * 
      */
     private List<GetStandardSiteConfigIpRestriction> ipRestrictions;
@@ -85,10 +85,10 @@ public final class GetStandardSiteConfig {
     private Integer preWarmedInstanceCount;
     /**
      * @deprecated
-     * the `site_config.public_network_access_enabled` property has been superseded by the `public_network_access` property and will be removed in v5.0 of the AzureRM Provider.
+     * the `site_config.public_network_access_enabled` property has been superseded by the `publicNetworkAccess` property and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* the `site_config.public_network_access_enabled` property has been superseded by the `public_network_access` property and will be removed in v5.0 of the AzureRM Provider. */
+    @Deprecated /* the `site_config.public_network_access_enabled` property has been superseded by the `publicNetworkAccess` property and will be removed in v5.0 of the AzureRM Provider. */
     private Boolean publicNetworkAccessEnabled;
     /**
      * @return Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan.
@@ -96,7 +96,7 @@ public final class GetStandardSiteConfig {
      */
     private @Nullable Boolean runtimeScaleMonitoringEnabled;
     /**
-     * @return A list of `scm_ip_restriction` objects representing SCM IP restrictions as defined below.
+     * @return A list of `scmIpRestriction` objects representing SCM IP restrictions as defined below.
      * 
      */
     private List<GetStandardSiteConfigScmIpRestriction> scmIpRestrictions;
@@ -111,7 +111,7 @@ public final class GetStandardSiteConfig {
      */
     private String scmType;
     /**
-     * @return Should the Logic App `ip_restriction` configuration be used for the SCM too.
+     * @return Should the Logic App `ipRestriction` configuration be used for the SCM too.
      * 
      */
     private @Nullable Boolean scmUseMainIpRestriction;
@@ -196,7 +196,7 @@ public final class GetStandardSiteConfig {
         return this.http2Enabled;
     }
     /**
-     * @return A list of `ip_restriction` objects representing IP restrictions as defined below.
+     * @return A list of `ipRestriction` objects representing IP restrictions as defined below.
      * 
      */
     public List<GetStandardSiteConfigIpRestriction> ipRestrictions() {
@@ -225,10 +225,10 @@ public final class GetStandardSiteConfig {
     }
     /**
      * @deprecated
-     * the `site_config.public_network_access_enabled` property has been superseded by the `public_network_access` property and will be removed in v5.0 of the AzureRM Provider.
+     * the `site_config.public_network_access_enabled` property has been superseded by the `publicNetworkAccess` property and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* the `site_config.public_network_access_enabled` property has been superseded by the `public_network_access` property and will be removed in v5.0 of the AzureRM Provider. */
+    @Deprecated /* the `site_config.public_network_access_enabled` property has been superseded by the `publicNetworkAccess` property and will be removed in v5.0 of the AzureRM Provider. */
     public Boolean publicNetworkAccessEnabled() {
         return this.publicNetworkAccessEnabled;
     }
@@ -240,7 +240,7 @@ public final class GetStandardSiteConfig {
         return Optional.ofNullable(this.runtimeScaleMonitoringEnabled);
     }
     /**
-     * @return A list of `scm_ip_restriction` objects representing SCM IP restrictions as defined below.
+     * @return A list of `scmIpRestriction` objects representing SCM IP restrictions as defined below.
      * 
      */
     public List<GetStandardSiteConfigScmIpRestriction> scmIpRestrictions() {
@@ -261,7 +261,7 @@ public final class GetStandardSiteConfig {
         return this.scmType;
     }
     /**
-     * @return Should the Logic App `ip_restriction` configuration be used for the SCM too.
+     * @return Should the Logic App `ipRestriction` configuration be used for the SCM too.
      * 
      */
     public Optional<Boolean> scmUseMainIpRestriction() {

@@ -18,15 +18,15 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly int? SwapFileSizeMb;
         /// <summary>
-        /// A `sysctl_config` block as defined below.
+        /// A `SysctlConfig` block as defined below.
         /// </summary>
         public readonly Outputs.KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig? SysctlConfig;
         /// <summary>
-        /// Specifies the Transparent Huge Page configuration. Possible values are `always`, `madvise` and `never`.
+        /// Specifies the Transparent Huge Page configuration. Possible values are `Always`, `Madvise` and `Never`.
         /// </summary>
         public readonly string? TransparentHugePage;
         /// <summary>
-        /// specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`.
+        /// specifies the defrag configuration for Transparent Huge Page. Possible values are `Always`, `Defer`, `defer+madvise`, `Madvise` and `Never`.
         /// </summary>
         public readonly string? TransparentHugePageDefrag;
         public readonly string? TransparentHugePageEnabled;

@@ -127,14 +127,14 @@ public class PolicyVMWorkload extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * One or more `protection_policy` blocks as defined below.
+     * One or more `protectionPolicy` blocks as defined below.
      * 
      */
     @Export(name="protectionPolicies", refs={List.class,PolicyVMWorkloadProtectionPolicy.class}, tree="[0,1]")
     private Output<List<PolicyVMWorkloadProtectionPolicy>> protectionPolicies;
 
     /**
-     * @return One or more `protection_policy` blocks as defined below.
+     * @return One or more `protectionPolicy` blocks as defined below.
      * 
      */
     public Output<List<PolicyVMWorkloadProtectionPolicy>> protectionPolicies() {

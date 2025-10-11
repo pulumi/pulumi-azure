@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Management.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// One or more `resource_selector` block as defined below.
+        /// One or more `ResourceSelector` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GroupPolicyAssignmentResourceSelectorSelector> Selectors;
 

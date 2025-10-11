@@ -13,7 +13,7 @@ namespace Pulumi.Azure.WebPubSub.Inputs
     public sealed class HubEventHandlerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `auth` block as defined below.
+        /// An `Auth` block as defined below.
         /// </summary>
         [Input("auth")]
         public Input<Inputs.HubEventHandlerAuthArgs>? Auth { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.WebPubSub.Inputs
         private InputList<string>? _systemEvents;
 
         /// <summary>
-        /// Specifies the list of system events. Supported values are `connect`, `connected` and `disconnected`.
+        /// Specifies the list of system events. Supported values are `Connect`, `Connected` and `Disconnected`.
         /// </summary>
         public InputList<string> SystemEvents
         {
@@ -37,7 +37,7 @@ namespace Pulumi.Azure.WebPubSub.Inputs
         public Input<string> UrlTemplate { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the matching event names. There are 3 kind of patterns supported: * `*` matches any event name * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2` * The single event name, for example `event1`, it matches `event1`.
+        /// Specifies the matching event names. There are 3 kind of patterns supported: * `*` matches any event name * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `Event1` and `Event2` * The single event name, for example `Event1`, it matches `Event1`.
         /// </summary>
         [Input("userEventPattern")]
         public Input<string>? UserEventPattern { get; set; }

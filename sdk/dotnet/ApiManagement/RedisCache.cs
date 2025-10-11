@@ -12,6 +12,15 @@ namespace Pulumi.Azure.ApiManagement
     /// <summary>
     /// Manages a API Management Redis Cache.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.ApiManagement` - 2022-08-01
+    /// 
     /// ## Import
     /// 
     /// API Management Redis Caches can be imported using the `resource id`, e.g.
@@ -30,7 +39,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> ApiManagementId { get; private set; } = null!;
 
         /// <summary>
-        /// The location where to use cache from. Possible values are `default` and valid Azure regions. Defaults to `default`.
+        /// The location where to use cache from. Possible values are `Default` and valid Azure regions. Defaults to `Default`.
         /// </summary>
         [Output("cacheLocation")]
         public Output<string?> CacheLocation { get; private set; } = null!;
@@ -116,7 +125,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string> ApiManagementId { get; set; } = null!;
 
         /// <summary>
-        /// The location where to use cache from. Possible values are `default` and valid Azure regions. Defaults to `default`.
+        /// The location where to use cache from. Possible values are `Default` and valid Azure regions. Defaults to `Default`.
         /// </summary>
         [Input("cacheLocation")]
         public Input<string>? CacheLocation { get; set; }
@@ -170,7 +179,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? ApiManagementId { get; set; }
 
         /// <summary>
-        /// The location where to use cache from. Possible values are `default` and valid Azure regions. Defaults to `default`.
+        /// The location where to use cache from. Possible values are `Default` and valid Azure regions. Defaults to `Default`.
         /// </summary>
         [Input("cacheLocation")]
         public Input<string>? CacheLocation { get; set; }

@@ -32,14 +32,14 @@ public final class DataCollectionRuleStreamDeclarationArgs extends com.pulumi.re
     }
 
     /**
-     * The name of the custom stream. This name should be unique across all `stream_declaration` blocks and must begin with a prefix of `Custom-`.
+     * The name of the custom stream. This name should be unique across all `streamDeclaration` blocks and must begin with a prefix of `Custom-`.
      * 
      */
     @Import(name="streamName", required=true)
     private Output<String> streamName;
 
     /**
-     * @return The name of the custom stream. This name should be unique across all `stream_declaration` blocks and must begin with a prefix of `Custom-`.
+     * @return The name of the custom stream. This name should be unique across all `streamDeclaration` blocks and must begin with a prefix of `Custom-`.
      * 
      */
     public Output<String> streamName() {
@@ -103,7 +103,7 @@ public final class DataCollectionRuleStreamDeclarationArgs extends com.pulumi.re
         }
 
         /**
-         * @param streamName The name of the custom stream. This name should be unique across all `stream_declaration` blocks and must begin with a prefix of `Custom-`.
+         * @param streamName The name of the custom stream. This name should be unique across all `streamDeclaration` blocks and must begin with a prefix of `Custom-`.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class DataCollectionRuleStreamDeclarationArgs extends com.pulumi.re
         }
 
         /**
-         * @param streamName The name of the custom stream. This name should be unique across all `stream_declaration` blocks and must begin with a prefix of `Custom-`.
+         * @param streamName The name of the custom stream. This name should be unique across all `streamDeclaration` blocks and must begin with a prefix of `Custom-`.
          * 
          * @return builder
          * 

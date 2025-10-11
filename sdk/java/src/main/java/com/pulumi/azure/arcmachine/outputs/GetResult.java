@@ -40,12 +40,12 @@ public final class GetResult {
      */
     private String clientPublicKey;
     /**
-     * @return A `cloud_metadata` block as defined below.
+     * @return A `cloudMetadata` block as defined below.
      * 
      */
     private List<GetCloudMetadata> cloudMetadatas;
     /**
-     * @return A `detected_properties` block as defined below.
+     * @return A `detectedProperties` block as defined below.
      * 
      */
     private Map<String,String> detectedProperties;
@@ -85,7 +85,7 @@ public final class GetResult {
      */
     private String location;
     /**
-     * @return A `location_data` block as defined below.
+     * @return A `locationData` block as defined below.
      * 
      */
     private List<GetLocationData> locationDatas;
@@ -110,7 +110,7 @@ public final class GetResult {
      */
     private String osName;
     /**
-     * @return A `os_profile` block as defined below.
+     * @return A `osProfile` block as defined below.
      * 
      */
     private List<GetOsProfile> osProfiles;
@@ -141,7 +141,7 @@ public final class GetResult {
     private String privateLinkScopeResourceId;
     private String resourceGroupName;
     /**
-     * @return A `service_status` block as defined below.
+     * @return A `serviceStatus` block as defined below.
      * 
      */
     private List<GetServiceStatus> serviceStatuses;
@@ -196,14 +196,14 @@ public final class GetResult {
         return this.clientPublicKey;
     }
     /**
-     * @return A `cloud_metadata` block as defined below.
+     * @return A `cloudMetadata` block as defined below.
      * 
      */
     public List<GetCloudMetadata> cloudMetadatas() {
         return this.cloudMetadatas;
     }
     /**
-     * @return A `detected_properties` block as defined below.
+     * @return A `detectedProperties` block as defined below.
      * 
      */
     public Map<String,String> detectedProperties() {
@@ -259,7 +259,7 @@ public final class GetResult {
         return this.location;
     }
     /**
-     * @return A `location_data` block as defined below.
+     * @return A `locationData` block as defined below.
      * 
      */
     public List<GetLocationData> locationDatas() {
@@ -294,7 +294,7 @@ public final class GetResult {
         return this.osName;
     }
     /**
-     * @return A `os_profile` block as defined below.
+     * @return A `osProfile` block as defined below.
      * 
      */
     public List<GetOsProfile> osProfiles() {
@@ -339,7 +339,7 @@ public final class GetResult {
         return this.resourceGroupName;
     }
     /**
-     * @return A `service_status` block as defined below.
+     * @return A `serviceStatus` block as defined below.
      * 
      */
     public List<GetServiceStatus> serviceStatuses() {

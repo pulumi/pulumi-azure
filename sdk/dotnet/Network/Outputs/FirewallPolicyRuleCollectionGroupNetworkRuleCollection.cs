@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly int Priority;
         /// <summary>
-        /// One or more `network_rule` blocks as defined below.
+        /// One or more `NetworkRule` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule> Rules;
 

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.DataFactory.Outputs
     public sealed class FlowletDataFlowTransformation
     {
         /// <summary>
-        /// A `dataset` block as defined below.
+        /// A `Dataset` block as defined below.
         /// </summary>
         public readonly Outputs.FlowletDataFlowTransformationDataset? Dataset;
         /// <summary>
@@ -22,11 +22,11 @@ namespace Pulumi.Azure.DataFactory.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// A `flowlet` block as defined below.
+        /// A `Flowlet` block as defined below.
         /// </summary>
         public readonly Outputs.FlowletDataFlowTransformationFlowlet? Flowlet;
         /// <summary>
-        /// A `linked_service` block as defined below.
+        /// A `LinkedService` block as defined below.
         /// </summary>
         public readonly Outputs.FlowletDataFlowTransformationLinkedService? LinkedService;
         /// <summary>

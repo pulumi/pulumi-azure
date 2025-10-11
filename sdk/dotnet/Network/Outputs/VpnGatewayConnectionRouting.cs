@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? OutboundRouteMapId;
         /// <summary>
-        /// A `propagated_route_table` block as defined below.
+        /// A `PropagatedRouteTable` block as defined below.
         /// </summary>
         public readonly Outputs.VpnGatewayConnectionRoutingPropagatedRouteTable? PropagatedRouteTable;
 

@@ -14,13 +14,13 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class ConnectedRegistryNotification
     {
         /// <summary>
-        /// The action of the artifact that wants to be subscribed for the Connected Registry. Possible values are `push`, `delete` and `*` (i.e. any).
+        /// The action of the artifact that wants to be subscribed for the Connected Registry. Possible values are `Push`, `Delete` and `*` (i.e. any).
         /// </summary>
         public readonly string Action;
         /// <summary>
         /// The digest of the artifact that wants to be subscribed for the Connected Registry.
         /// 
-        /// &gt; **Note:** One of either `tag` or `digest` can be specified.
+        /// &gt; **Note:** One of either `Tag` or `Digest` can be specified.
         /// </summary>
         public readonly string? Digest;
         /// <summary>

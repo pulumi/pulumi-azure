@@ -124,19 +124,19 @@ namespace Pulumi.Azure.Marketplace
         public Output<string> PrincipalId { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the `principal_id`, e.g. User, Group, Service Principal, Application, etc.
+        /// The type of the `PrincipalId`, e.g. User, Group, Service Principal, Application, etc.
         /// </summary>
         [Output("principalType")]
         public Output<string> PrincipalType { get; private set; } = null!;
 
         /// <summary>
-        /// The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
+        /// The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `RoleDefinitionName`.
         /// </summary>
         [Output("roleDefinitionId")]
         public Output<string?> RoleDefinitionId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
+        /// The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `RoleDefinitionId`.
         /// 
         /// &gt; **Note:** To assign `Marketplace Admin` role, the calling Principal must first be assigned Privileged Role Administrator (like `Owner` role) or Global Administrator. See [documentation](https://learn.microsoft.com/en-us/marketplace/create-manage-private-azure-marketplace-new#prerequisites) for more information.
         /// </summary>
@@ -144,9 +144,9 @@ namespace Pulumi.Azure.Marketplace
         public Output<string?> RoleDefinitionName { get; private set; } = null!;
 
         /// <summary>
-        /// If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. Defaults to `false`. Changing this forces a new resource to be created.
+        /// If the `PrincipalId` is a newly provisioned `Service Principal` set this value to `True` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `PrincipalId` is a `Service Principal` identity. Defaults to `False`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** This field takes effect only when `principal_id` is a `Service Principal` identity.
+        /// &gt; **Note:** This field takes effect only when `PrincipalId` is a `Service Principal` identity.
         /// </summary>
         [Output("skipServicePrincipalAadCheck")]
         public Output<bool?> SkipServicePrincipalAadCheck { get; private set; } = null!;
@@ -238,13 +238,13 @@ namespace Pulumi.Azure.Marketplace
         public Input<string> PrincipalId { get; set; } = null!;
 
         /// <summary>
-        /// The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
+        /// The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `RoleDefinitionName`.
         /// </summary>
         [Input("roleDefinitionId")]
         public Input<string>? RoleDefinitionId { get; set; }
 
         /// <summary>
-        /// The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
+        /// The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `RoleDefinitionId`.
         /// 
         /// &gt; **Note:** To assign `Marketplace Admin` role, the calling Principal must first be assigned Privileged Role Administrator (like `Owner` role) or Global Administrator. See [documentation](https://learn.microsoft.com/en-us/marketplace/create-manage-private-azure-marketplace-new#prerequisites) for more information.
         /// </summary>
@@ -252,9 +252,9 @@ namespace Pulumi.Azure.Marketplace
         public Input<string>? RoleDefinitionName { get; set; }
 
         /// <summary>
-        /// If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. Defaults to `false`. Changing this forces a new resource to be created.
+        /// If the `PrincipalId` is a newly provisioned `Service Principal` set this value to `True` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `PrincipalId` is a `Service Principal` identity. Defaults to `False`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** This field takes effect only when `principal_id` is a `Service Principal` identity.
+        /// &gt; **Note:** This field takes effect only when `PrincipalId` is a `Service Principal` identity.
         /// </summary>
         [Input("skipServicePrincipalAadCheck")]
         public Input<bool>? SkipServicePrincipalAadCheck { get; set; }
@@ -308,19 +308,19 @@ namespace Pulumi.Azure.Marketplace
         public Input<string>? PrincipalId { get; set; }
 
         /// <summary>
-        /// The type of the `principal_id`, e.g. User, Group, Service Principal, Application, etc.
+        /// The type of the `PrincipalId`, e.g. User, Group, Service Principal, Application, etc.
         /// </summary>
         [Input("principalType")]
         public Input<string>? PrincipalType { get; set; }
 
         /// <summary>
-        /// The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
+        /// The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `RoleDefinitionName`.
         /// </summary>
         [Input("roleDefinitionId")]
         public Input<string>? RoleDefinitionId { get; set; }
 
         /// <summary>
-        /// The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
+        /// The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `RoleDefinitionId`.
         /// 
         /// &gt; **Note:** To assign `Marketplace Admin` role, the calling Principal must first be assigned Privileged Role Administrator (like `Owner` role) or Global Administrator. See [documentation](https://learn.microsoft.com/en-us/marketplace/create-manage-private-azure-marketplace-new#prerequisites) for more information.
         /// </summary>
@@ -328,9 +328,9 @@ namespace Pulumi.Azure.Marketplace
         public Input<string>? RoleDefinitionName { get; set; }
 
         /// <summary>
-        /// If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. Defaults to `false`. Changing this forces a new resource to be created.
+        /// If the `PrincipalId` is a newly provisioned `Service Principal` set this value to `True` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `PrincipalId` is a `Service Principal` identity. Defaults to `False`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** This field takes effect only when `principal_id` is a `Service Principal` identity.
+        /// &gt; **Note:** This field takes effect only when `PrincipalId` is a `Service Principal` identity.
         /// </summary>
         [Input("skipServicePrincipalAadCheck")]
         public Input<bool>? SkipServicePrincipalAadCheck { get; set; }

@@ -52,7 +52,7 @@ public final class GetAlertRuleAnomalyResult {
     private String logAnalyticsWorkspaceId;
     private String mode;
     /**
-     * @return A list of `multi_select_observation` blocks as defined below.
+     * @return A list of `multiSelectObservation` blocks as defined below.
      * 
      */
     private List<GetAlertRuleAnomalyMultiSelectObservation> multiSelectObservations;
@@ -62,12 +62,12 @@ public final class GetAlertRuleAnomalyResult {
      */
     private String name;
     /**
-     * @return A list of `prioritized_exclude_observation` blocks as defined below.
+     * @return A list of `prioritizedExcludeObservation` blocks as defined below.
      * 
      */
     private List<GetAlertRuleAnomalyPrioritizedExcludeObservation> prioritizedExcludeObservations;
     /**
-     * @return A `required_data_connector` block as defined below.
+     * @return A `requiredDataConnector` block as defined below.
      * 
      */
     private List<GetAlertRuleAnomalyRequiredDataConnector> requiredDataConnectors;
@@ -77,7 +77,7 @@ public final class GetAlertRuleAnomalyResult {
      */
     private String settingsDefinitionId;
     /**
-     * @return A list of `single_select_observation` blocks as defined below.
+     * @return A list of `singleSelectObservation` blocks as defined below.
      * 
      */
     private List<GetAlertRuleAnomalySingleSelectObservation> singleSelectObservations;
@@ -92,7 +92,7 @@ public final class GetAlertRuleAnomalyResult {
      */
     private List<String> techniques;
     /**
-     * @return A list of `threshold_observation` blocks as defined below.
+     * @return A list of `thresholdObservation` blocks as defined below.
      * 
      */
     private List<GetAlertRuleAnomalyThresholdObservation> thresholdObservations;
@@ -150,7 +150,7 @@ public final class GetAlertRuleAnomalyResult {
         return this.mode;
     }
     /**
-     * @return A list of `multi_select_observation` blocks as defined below.
+     * @return A list of `multiSelectObservation` blocks as defined below.
      * 
      */
     public List<GetAlertRuleAnomalyMultiSelectObservation> multiSelectObservations() {
@@ -164,14 +164,14 @@ public final class GetAlertRuleAnomalyResult {
         return this.name;
     }
     /**
-     * @return A list of `prioritized_exclude_observation` blocks as defined below.
+     * @return A list of `prioritizedExcludeObservation` blocks as defined below.
      * 
      */
     public List<GetAlertRuleAnomalyPrioritizedExcludeObservation> prioritizedExcludeObservations() {
         return this.prioritizedExcludeObservations;
     }
     /**
-     * @return A `required_data_connector` block as defined below.
+     * @return A `requiredDataConnector` block as defined below.
      * 
      */
     public List<GetAlertRuleAnomalyRequiredDataConnector> requiredDataConnectors() {
@@ -185,7 +185,7 @@ public final class GetAlertRuleAnomalyResult {
         return this.settingsDefinitionId;
     }
     /**
-     * @return A list of `single_select_observation` blocks as defined below.
+     * @return A list of `singleSelectObservation` blocks as defined below.
      * 
      */
     public List<GetAlertRuleAnomalySingleSelectObservation> singleSelectObservations() {
@@ -206,7 +206,7 @@ public final class GetAlertRuleAnomalyResult {
         return this.techniques;
     }
     /**
-     * @return A list of `threshold_observation` blocks as defined below.
+     * @return A list of `thresholdObservation` blocks as defined below.
      * 
      */
     public List<GetAlertRuleAnomalyThresholdObservation> thresholdObservations() {

@@ -26,7 +26,7 @@ namespace Pulumi.Azure.CosmosDB.Outputs
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Should zone redundancy be enabled for this region? Defaults to `false`.
+        /// Should zone redundancy be enabled for this region? Defaults to `False`.
         /// </summary>
         public readonly bool? ZoneRedundant;
 

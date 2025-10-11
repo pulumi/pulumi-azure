@@ -143,11 +143,11 @@ namespace Pulumi.Azure.SiteRecovery
         /// 
         /// &gt; **Note:** Only standard types of storage accounts are allowed.
         /// 
-        /// &gt; **Note:** Only one of `default_log_storage_account_id` or `managed_disk` must be specified.
+        /// &gt; **Note:** Only one of `DefaultLogStorageAccountId` or `ManagedDisk` must be specified.
         /// 
-        /// &gt; **Note:** Changing `default_log_storage_account_id` forces a new resource to be created. But removing it does not.
+        /// &gt; **Note:** Changing `DefaultLogStorageAccountId` forces a new resource to be created. But removing it does not.
         /// 
-        /// &gt; **Note:** When `default_log_storage_account_id` co-exist with `managed_disk`, the value of `default_log_storage_account_id` must be as same as `log_storage_account_id` of every `managed_disk` or it forces a new resource to be created.
+        /// &gt; **Note:** When `DefaultLogStorageAccountId` co-exist with `ManagedDisk`, the value of `DefaultLogStorageAccountId` must be as same as `LogStorageAccountId` of every `ManagedDisk` or it forces a new resource to be created.
         /// </summary>
         [Output("defaultLogStorageAccountId")]
         public Output<string?> DefaultLogStorageAccountId { get; private set; } = null!;
@@ -155,11 +155,11 @@ namespace Pulumi.Azure.SiteRecovery
         /// <summary>
         /// The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
         /// 
-        /// &gt; **Note:** Only one of `default_recovery_disk_type` or `managed_disk` must be specified.
+        /// &gt; **Note:** Only one of `DefaultRecoveryDiskType` or `ManagedDisk` must be specified.
         /// 
-        /// &gt; **Note:** Changing `default_recovery_disk_type` forces a new resource to be created. But removing it does not.
+        /// &gt; **Note:** Changing `DefaultRecoveryDiskType` forces a new resource to be created. But removing it does not.
         /// 
-        /// &gt; **Note:** When `default_recovery_disk_type` co-exist with `managed_disk`, the value of `default_recovery_disk_type` must be as same as `target_disk_type` of every `managed_disk` or it forces a new resource to be created.
+        /// &gt; **Note:** When `DefaultRecoveryDiskType` co-exist with `ManagedDisk`, the value of `DefaultRecoveryDiskType` must be as same as `TargetDiskType` of every `ManagedDisk` or it forces a new resource to be created.
         /// </summary>
         [Output("defaultRecoveryDiskType")]
         public Output<string?> DefaultRecoveryDiskType { get; private set; } = null!;
@@ -167,9 +167,9 @@ namespace Pulumi.Azure.SiteRecovery
         /// <summary>
         /// The ID of the default Disk Encryption Set that should be used for the disks when a failover is done.
         /// 
-        /// &gt; **Note:** Changing `default_target_disk_encryption_set_id` forces a new resource to be created. But removing it does not.
+        /// &gt; **Note:** Changing `DefaultTargetDiskEncryptionSetId` forces a new resource to be created. But removing it does not.
         /// 
-        /// &gt; **Note:** When `default_target_disk_encryption_set_id` co-exist with `managed_disk`, the value of `default_target_disk_encryption_set_id` must be as same as `target_disk_encryption_set_id` of every `managed_disk` or it forces a new resource to be created.
+        /// &gt; **Note:** When `DefaultTargetDiskEncryptionSetId` co-exist with `ManagedDisk`, the value of `DefaultTargetDiskEncryptionSetId` must be as same as `TargetDiskEncryptionSetId` of every `ManagedDisk` or it forces a new resource to be created.
         /// </summary>
         [Output("defaultTargetDiskEncryptionSetId")]
         public Output<string?> DefaultTargetDiskEncryptionSetId { get; private set; } = null!;
@@ -181,9 +181,9 @@ namespace Pulumi.Azure.SiteRecovery
         public Output<string?> LicenseType { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `managed_disk` block as defined below. It's available only if mobility service is already installed on the source VM.
+        /// One or more `ManagedDisk` block as defined below. It's available only if mobility service is already installed on the source VM.
         /// 
-        /// &gt; **Note:** A replicated VM could be created without `managed_disk` block, once the block has been specified, changing it expect removing it forces a new resource to be created.
+        /// &gt; **Note:** A replicated VM could be created without `ManagedDisk` block, once the block has been specified, changing it expect removing it forces a new resource to be created.
         /// </summary>
         [Output("managedDisks")]
         public Output<ImmutableArray<Outputs.VmwareReplicatedVmManagedDisk>> ManagedDisks { get; private set; } = null!;
@@ -201,7 +201,7 @@ namespace Pulumi.Azure.SiteRecovery
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `network_interface` block as defined below.
+        /// One or more `NetworkInterface` block as defined below.
         /// </summary>
         [Output("networkInterfaces")]
         public Output<ImmutableArray<Outputs.VmwareReplicatedVmNetworkInterface>> NetworkInterfaces { get; private set; } = null!;
@@ -245,7 +245,7 @@ namespace Pulumi.Azure.SiteRecovery
         /// <summary>
         /// The ID of network to use when a failover is done.
         /// 
-        /// &gt; **Note:** `target_network_id` is required when `network_interface` is specified.
+        /// &gt; **Note:** `TargetNetworkId` is required when `NetworkInterface` is specified.
         /// </summary>
         [Output("targetNetworkId")]
         public Output<string?> TargetNetworkId { get; private set; } = null!;
@@ -253,7 +253,7 @@ namespace Pulumi.Azure.SiteRecovery
         /// <summary>
         /// The ID of Proximity Placement Group the new VM should belong to when a failover is done.
         /// 
-        /// &gt; **Note:** Only one of `target_availability_set_id` or `target_zone` can be specified.
+        /// &gt; **Note:** Only one of `TargetAvailabilitySetId` or `TargetZone` can be specified.
         /// </summary>
         [Output("targetProximityPlacementGroupId")]
         public Output<string?> TargetProximityPlacementGroupId { get; private set; } = null!;
@@ -345,11 +345,11 @@ namespace Pulumi.Azure.SiteRecovery
         /// 
         /// &gt; **Note:** Only standard types of storage accounts are allowed.
         /// 
-        /// &gt; **Note:** Only one of `default_log_storage_account_id` or `managed_disk` must be specified.
+        /// &gt; **Note:** Only one of `DefaultLogStorageAccountId` or `ManagedDisk` must be specified.
         /// 
-        /// &gt; **Note:** Changing `default_log_storage_account_id` forces a new resource to be created. But removing it does not.
+        /// &gt; **Note:** Changing `DefaultLogStorageAccountId` forces a new resource to be created. But removing it does not.
         /// 
-        /// &gt; **Note:** When `default_log_storage_account_id` co-exist with `managed_disk`, the value of `default_log_storage_account_id` must be as same as `log_storage_account_id` of every `managed_disk` or it forces a new resource to be created.
+        /// &gt; **Note:** When `DefaultLogStorageAccountId` co-exist with `ManagedDisk`, the value of `DefaultLogStorageAccountId` must be as same as `LogStorageAccountId` of every `ManagedDisk` or it forces a new resource to be created.
         /// </summary>
         [Input("defaultLogStorageAccountId")]
         public Input<string>? DefaultLogStorageAccountId { get; set; }
@@ -357,11 +357,11 @@ namespace Pulumi.Azure.SiteRecovery
         /// <summary>
         /// The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
         /// 
-        /// &gt; **Note:** Only one of `default_recovery_disk_type` or `managed_disk` must be specified.
+        /// &gt; **Note:** Only one of `DefaultRecoveryDiskType` or `ManagedDisk` must be specified.
         /// 
-        /// &gt; **Note:** Changing `default_recovery_disk_type` forces a new resource to be created. But removing it does not.
+        /// &gt; **Note:** Changing `DefaultRecoveryDiskType` forces a new resource to be created. But removing it does not.
         /// 
-        /// &gt; **Note:** When `default_recovery_disk_type` co-exist with `managed_disk`, the value of `default_recovery_disk_type` must be as same as `target_disk_type` of every `managed_disk` or it forces a new resource to be created.
+        /// &gt; **Note:** When `DefaultRecoveryDiskType` co-exist with `ManagedDisk`, the value of `DefaultRecoveryDiskType` must be as same as `TargetDiskType` of every `ManagedDisk` or it forces a new resource to be created.
         /// </summary>
         [Input("defaultRecoveryDiskType")]
         public Input<string>? DefaultRecoveryDiskType { get; set; }
@@ -369,9 +369,9 @@ namespace Pulumi.Azure.SiteRecovery
         /// <summary>
         /// The ID of the default Disk Encryption Set that should be used for the disks when a failover is done.
         /// 
-        /// &gt; **Note:** Changing `default_target_disk_encryption_set_id` forces a new resource to be created. But removing it does not.
+        /// &gt; **Note:** Changing `DefaultTargetDiskEncryptionSetId` forces a new resource to be created. But removing it does not.
         /// 
-        /// &gt; **Note:** When `default_target_disk_encryption_set_id` co-exist with `managed_disk`, the value of `default_target_disk_encryption_set_id` must be as same as `target_disk_encryption_set_id` of every `managed_disk` or it forces a new resource to be created.
+        /// &gt; **Note:** When `DefaultTargetDiskEncryptionSetId` co-exist with `ManagedDisk`, the value of `DefaultTargetDiskEncryptionSetId` must be as same as `TargetDiskEncryptionSetId` of every `ManagedDisk` or it forces a new resource to be created.
         /// </summary>
         [Input("defaultTargetDiskEncryptionSetId")]
         public Input<string>? DefaultTargetDiskEncryptionSetId { get; set; }
@@ -386,9 +386,9 @@ namespace Pulumi.Azure.SiteRecovery
         private InputList<Inputs.VmwareReplicatedVmManagedDiskArgs>? _managedDisks;
 
         /// <summary>
-        /// One or more `managed_disk` block as defined below. It's available only if mobility service is already installed on the source VM.
+        /// One or more `ManagedDisk` block as defined below. It's available only if mobility service is already installed on the source VM.
         /// 
-        /// &gt; **Note:** A replicated VM could be created without `managed_disk` block, once the block has been specified, changing it expect removing it forces a new resource to be created.
+        /// &gt; **Note:** A replicated VM could be created without `ManagedDisk` block, once the block has been specified, changing it expect removing it forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.VmwareReplicatedVmManagedDiskArgs> ManagedDisks
         {
@@ -412,7 +412,7 @@ namespace Pulumi.Azure.SiteRecovery
         private InputList<Inputs.VmwareReplicatedVmNetworkInterfaceArgs>? _networkInterfaces;
 
         /// <summary>
-        /// One or more `network_interface` block as defined below.
+        /// One or more `NetworkInterface` block as defined below.
         /// </summary>
         public InputList<Inputs.VmwareReplicatedVmNetworkInterfaceArgs> NetworkInterfaces
         {
@@ -459,7 +459,7 @@ namespace Pulumi.Azure.SiteRecovery
         /// <summary>
         /// The ID of network to use when a failover is done.
         /// 
-        /// &gt; **Note:** `target_network_id` is required when `network_interface` is specified.
+        /// &gt; **Note:** `TargetNetworkId` is required when `NetworkInterface` is specified.
         /// </summary>
         [Input("targetNetworkId")]
         public Input<string>? TargetNetworkId { get; set; }
@@ -467,7 +467,7 @@ namespace Pulumi.Azure.SiteRecovery
         /// <summary>
         /// The ID of Proximity Placement Group the new VM should belong to when a failover is done.
         /// 
-        /// &gt; **Note:** Only one of `target_availability_set_id` or `target_zone` can be specified.
+        /// &gt; **Note:** Only one of `TargetAvailabilitySetId` or `TargetZone` can be specified.
         /// </summary>
         [Input("targetProximityPlacementGroupId")]
         public Input<string>? TargetProximityPlacementGroupId { get; set; }
@@ -521,11 +521,11 @@ namespace Pulumi.Azure.SiteRecovery
         /// 
         /// &gt; **Note:** Only standard types of storage accounts are allowed.
         /// 
-        /// &gt; **Note:** Only one of `default_log_storage_account_id` or `managed_disk` must be specified.
+        /// &gt; **Note:** Only one of `DefaultLogStorageAccountId` or `ManagedDisk` must be specified.
         /// 
-        /// &gt; **Note:** Changing `default_log_storage_account_id` forces a new resource to be created. But removing it does not.
+        /// &gt; **Note:** Changing `DefaultLogStorageAccountId` forces a new resource to be created. But removing it does not.
         /// 
-        /// &gt; **Note:** When `default_log_storage_account_id` co-exist with `managed_disk`, the value of `default_log_storage_account_id` must be as same as `log_storage_account_id` of every `managed_disk` or it forces a new resource to be created.
+        /// &gt; **Note:** When `DefaultLogStorageAccountId` co-exist with `ManagedDisk`, the value of `DefaultLogStorageAccountId` must be as same as `LogStorageAccountId` of every `ManagedDisk` or it forces a new resource to be created.
         /// </summary>
         [Input("defaultLogStorageAccountId")]
         public Input<string>? DefaultLogStorageAccountId { get; set; }
@@ -533,11 +533,11 @@ namespace Pulumi.Azure.SiteRecovery
         /// <summary>
         /// The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
         /// 
-        /// &gt; **Note:** Only one of `default_recovery_disk_type` or `managed_disk` must be specified.
+        /// &gt; **Note:** Only one of `DefaultRecoveryDiskType` or `ManagedDisk` must be specified.
         /// 
-        /// &gt; **Note:** Changing `default_recovery_disk_type` forces a new resource to be created. But removing it does not.
+        /// &gt; **Note:** Changing `DefaultRecoveryDiskType` forces a new resource to be created. But removing it does not.
         /// 
-        /// &gt; **Note:** When `default_recovery_disk_type` co-exist with `managed_disk`, the value of `default_recovery_disk_type` must be as same as `target_disk_type` of every `managed_disk` or it forces a new resource to be created.
+        /// &gt; **Note:** When `DefaultRecoveryDiskType` co-exist with `ManagedDisk`, the value of `DefaultRecoveryDiskType` must be as same as `TargetDiskType` of every `ManagedDisk` or it forces a new resource to be created.
         /// </summary>
         [Input("defaultRecoveryDiskType")]
         public Input<string>? DefaultRecoveryDiskType { get; set; }
@@ -545,9 +545,9 @@ namespace Pulumi.Azure.SiteRecovery
         /// <summary>
         /// The ID of the default Disk Encryption Set that should be used for the disks when a failover is done.
         /// 
-        /// &gt; **Note:** Changing `default_target_disk_encryption_set_id` forces a new resource to be created. But removing it does not.
+        /// &gt; **Note:** Changing `DefaultTargetDiskEncryptionSetId` forces a new resource to be created. But removing it does not.
         /// 
-        /// &gt; **Note:** When `default_target_disk_encryption_set_id` co-exist with `managed_disk`, the value of `default_target_disk_encryption_set_id` must be as same as `target_disk_encryption_set_id` of every `managed_disk` or it forces a new resource to be created.
+        /// &gt; **Note:** When `DefaultTargetDiskEncryptionSetId` co-exist with `ManagedDisk`, the value of `DefaultTargetDiskEncryptionSetId` must be as same as `TargetDiskEncryptionSetId` of every `ManagedDisk` or it forces a new resource to be created.
         /// </summary>
         [Input("defaultTargetDiskEncryptionSetId")]
         public Input<string>? DefaultTargetDiskEncryptionSetId { get; set; }
@@ -562,9 +562,9 @@ namespace Pulumi.Azure.SiteRecovery
         private InputList<Inputs.VmwareReplicatedVmManagedDiskGetArgs>? _managedDisks;
 
         /// <summary>
-        /// One or more `managed_disk` block as defined below. It's available only if mobility service is already installed on the source VM.
+        /// One or more `ManagedDisk` block as defined below. It's available only if mobility service is already installed on the source VM.
         /// 
-        /// &gt; **Note:** A replicated VM could be created without `managed_disk` block, once the block has been specified, changing it expect removing it forces a new resource to be created.
+        /// &gt; **Note:** A replicated VM could be created without `ManagedDisk` block, once the block has been specified, changing it expect removing it forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.VmwareReplicatedVmManagedDiskGetArgs> ManagedDisks
         {
@@ -588,7 +588,7 @@ namespace Pulumi.Azure.SiteRecovery
         private InputList<Inputs.VmwareReplicatedVmNetworkInterfaceGetArgs>? _networkInterfaces;
 
         /// <summary>
-        /// One or more `network_interface` block as defined below.
+        /// One or more `NetworkInterface` block as defined below.
         /// </summary>
         public InputList<Inputs.VmwareReplicatedVmNetworkInterfaceGetArgs> NetworkInterfaces
         {
@@ -635,7 +635,7 @@ namespace Pulumi.Azure.SiteRecovery
         /// <summary>
         /// The ID of network to use when a failover is done.
         /// 
-        /// &gt; **Note:** `target_network_id` is required when `network_interface` is specified.
+        /// &gt; **Note:** `TargetNetworkId` is required when `NetworkInterface` is specified.
         /// </summary>
         [Input("targetNetworkId")]
         public Input<string>? TargetNetworkId { get; set; }
@@ -643,7 +643,7 @@ namespace Pulumi.Azure.SiteRecovery
         /// <summary>
         /// The ID of Proximity Placement Group the new VM should belong to when a failover is done.
         /// 
-        /// &gt; **Note:** Only one of `target_availability_set_id` or `target_zone` can be specified.
+        /// &gt; **Note:** Only one of `TargetAvailabilitySetId` or `TargetZone` can be specified.
         /// </summary>
         [Input("targetProximityPlacementGroupId")]
         public Input<string>? TargetProximityPlacementGroupId { get; set; }

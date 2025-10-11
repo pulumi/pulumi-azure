@@ -111,14 +111,14 @@ public class StaticWebApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.appSettings);
     }
     /**
-     * A `basic_auth` block as defined below.
+     * A `basicAuth` block as defined below.
      * 
      */
     @Export(name="basicAuth", refs={StaticWebAppBasicAuth.class}, tree="[0]")
     private Output</* @Nullable */ StaticWebAppBasicAuth> basicAuth;
 
     /**
-     * @return A `basic_auth` block as defined below.
+     * @return A `basicAuth` block as defined below.
      * 
      */
     public Output<Optional<StaticWebAppBasicAuth>> basicAuth() {
@@ -223,42 +223,42 @@ public class StaticWebApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.publicNetworkAccessEnabled);
     }
     /**
-     * Repository branch to use for the Static Web App. `repository_url` and `repository_token` must also be set.
+     * Repository branch to use for the Static Web App. `repositoryUrl` and `repositoryToken` must also be set.
      * 
      */
     @Export(name="repositoryBranch", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> repositoryBranch;
 
     /**
-     * @return Repository branch to use for the Static Web App. `repository_url` and `repository_token` must also be set.
+     * @return Repository branch to use for the Static Web App. `repositoryUrl` and `repositoryToken` must also be set.
      * 
      */
     public Output<Optional<String>> repositoryBranch() {
         return Codegen.optional(this.repositoryBranch);
     }
     /**
-     * Repository Token with `admin` privileges to use for the Static Web App. `repository_branch` and `repository_url` must also be set.
+     * Repository Token with `admin` privileges to use for the Static Web App. `repositoryBranch` and `repositoryUrl` must also be set.
      * 
      */
     @Export(name="repositoryToken", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> repositoryToken;
 
     /**
-     * @return Repository Token with `admin` privileges to use for the Static Web App. `repository_branch` and `repository_url` must also be set.
+     * @return Repository Token with `admin` privileges to use for the Static Web App. `repositoryBranch` and `repositoryUrl` must also be set.
      * 
      */
     public Output<Optional<String>> repositoryToken() {
         return Codegen.optional(this.repositoryToken);
     }
     /**
-     * Repository URL to use for the Static Web App. `repository_branch` and `repository_token` must also be set.
+     * Repository URL to use for the Static Web App. `repositoryBranch` and `repositoryToken` must also be set.
      * 
      */
     @Export(name="repositoryUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> repositoryUrl;
 
     /**
-     * @return Repository URL to use for the Static Web App. `repository_branch` and `repository_token` must also be set.
+     * @return Repository URL to use for the Static Web App. `repositoryBranch` and `repositoryToken` must also be set.
      * 
      */
     public Output<Optional<String>> repositoryUrl() {

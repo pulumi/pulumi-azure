@@ -19,14 +19,14 @@ public final class DataCollectionRuleDataSourcesPrometheusForwarderArgs extends 
     public static final DataCollectionRuleDataSourcesPrometheusForwarderArgs Empty = new DataCollectionRuleDataSourcesPrometheusForwarderArgs();
 
     /**
-     * One or more `label_include_filter` blocks as defined above.
+     * One or more `labelIncludeFilter` blocks as defined above.
      * 
      */
     @Import(name="labelIncludeFilters")
     private @Nullable Output<List<DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterArgs>> labelIncludeFilters;
 
     /**
-     * @return One or more `label_include_filter` blocks as defined above.
+     * @return One or more `labelIncludeFilter` blocks as defined above.
      * 
      */
     public Optional<Output<List<DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterArgs>>> labelIncludeFilters() {
@@ -90,7 +90,7 @@ public final class DataCollectionRuleDataSourcesPrometheusForwarderArgs extends 
         }
 
         /**
-         * @param labelIncludeFilters One or more `label_include_filter` blocks as defined above.
+         * @param labelIncludeFilters One or more `labelIncludeFilter` blocks as defined above.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class DataCollectionRuleDataSourcesPrometheusForwarderArgs extends 
         }
 
         /**
-         * @param labelIncludeFilters One or more `label_include_filter` blocks as defined above.
+         * @param labelIncludeFilters One or more `labelIncludeFilter` blocks as defined above.
          * 
          * @return builder
          * 
@@ -111,7 +111,7 @@ public final class DataCollectionRuleDataSourcesPrometheusForwarderArgs extends 
         }
 
         /**
-         * @param labelIncludeFilters One or more `label_include_filter` blocks as defined above.
+         * @param labelIncludeFilters One or more `labelIncludeFilter` blocks as defined above.
          * 
          * @return builder
          * 

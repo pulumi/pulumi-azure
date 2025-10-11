@@ -18,23 +18,23 @@ public final class GetKubernetesClusterIngressApplicationGateway {
      */
     private String effectiveGatewayId;
     /**
-     * @return The ID of the Application Gateway integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when gateway_id is specified when configuring the `ingress_application_gateway` addon.
+     * @return The ID of the Application Gateway integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when gatewayId is specified when configuring the `ingressApplicationGateway` addon.
      * 
      */
     private String gatewayId;
     private String gatewayName;
     /**
-     * @return An `ingress_application_gateway_identity` block as defined below.
+     * @return An `ingressApplicationGatewayIdentity` block as defined below.
      * 
      */
     private List<GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity> ingressApplicationGatewayIdentities;
     /**
-     * @return The subnet CIDR used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when `subnet_cidr` is specified when configuring the `ingress_application_gateway` addon.
+     * @return The subnet CIDR used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when `subnetCidr` is specified when configuring the `ingressApplicationGateway` addon.
      * 
      */
     private String subnetCidr;
     /**
-     * @return The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when `subnet_id` is specified when configuring the `ingress_application_gateway` addon.
+     * @return The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when `subnetId` is specified when configuring the `ingressApplicationGateway` addon.
      * 
      */
     private String subnetId;
@@ -48,7 +48,7 @@ public final class GetKubernetesClusterIngressApplicationGateway {
         return this.effectiveGatewayId;
     }
     /**
-     * @return The ID of the Application Gateway integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when gateway_id is specified when configuring the `ingress_application_gateway` addon.
+     * @return The ID of the Application Gateway integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when gatewayId is specified when configuring the `ingressApplicationGateway` addon.
      * 
      */
     public String gatewayId() {
@@ -58,21 +58,21 @@ public final class GetKubernetesClusterIngressApplicationGateway {
         return this.gatewayName;
     }
     /**
-     * @return An `ingress_application_gateway_identity` block as defined below.
+     * @return An `ingressApplicationGatewayIdentity` block as defined below.
      * 
      */
     public List<GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity> ingressApplicationGatewayIdentities() {
         return this.ingressApplicationGatewayIdentities;
     }
     /**
-     * @return The subnet CIDR used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when `subnet_cidr` is specified when configuring the `ingress_application_gateway` addon.
+     * @return The subnet CIDR used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when `subnetCidr` is specified when configuring the `ingressApplicationGateway` addon.
      * 
      */
     public String subnetCidr() {
         return this.subnetCidr;
     }
     /**
-     * @return The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when `subnet_id` is specified when configuring the `ingress_application_gateway` addon.
+     * @return The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when `subnetId` is specified when configuring the `ingressApplicationGateway` addon.
      * 
      */
     public String subnetId() {

@@ -164,7 +164,7 @@ public class LinkedService extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.
      * 
-     * &gt; **Note:** You must define at least one of the above access resource id attributes (e.g. `read_access_id` or `write_access_id`).
+     * &gt; **Note:** You must define at least one of the above access resource id attributes (e.g. `readAccessId` or `writeAccessId`).
      * 
      */
     @Export(name="writeAccessId", refs={String.class}, tree="[0]")
@@ -173,7 +173,7 @@ public class LinkedService extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.
      * 
-     * &gt; **Note:** You must define at least one of the above access resource id attributes (e.g. `read_access_id` or `write_access_id`).
+     * &gt; **Note:** You must define at least one of the above access resource id attributes (e.g. `readAccessId` or `writeAccessId`).
      * 
      */
     public Output<Optional<String>> writeAccessId() {

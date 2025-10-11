@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly int? Order;
         /// <summary>
-        /// Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
+        /// Specifies a passthrough value for more generic context. This field can be any valid `String` value. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? Tag;
         /// <summary>

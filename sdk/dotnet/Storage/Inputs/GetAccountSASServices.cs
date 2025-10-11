@@ -13,25 +13,25 @@ namespace Pulumi.Azure.Storage.Inputs
     public sealed class GetAccountSASServicesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Should permission be granted to `blob` services within this storage account?
+        /// Should permission be granted to `Blob` services within this storage account?
         /// </summary>
         [Input("blob", required: true)]
         public bool Blob { get; set; }
 
         /// <summary>
-        /// Should permission be granted to `file` services within this storage account?
+        /// Should permission be granted to `File` services within this storage account?
         /// </summary>
         [Input("file", required: true)]
         public bool File { get; set; }
 
         /// <summary>
-        /// Should permission be granted to `queue` services within this storage account?
+        /// Should permission be granted to `Queue` services within this storage account?
         /// </summary>
         [Input("queue", required: true)]
         public bool Queue { get; set; }
 
         /// <summary>
-        /// Should permission be granted to `table` services within this storage account?
+        /// Should permission be granted to `Table` services within this storage account?
         /// </summary>
         [Input("table", required: true)]
         public bool Table { get; set; }

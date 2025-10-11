@@ -178,7 +178,7 @@ public class Api extends com.pulumi.resources.CustomResource {
     /**
      * A `import` block as documented below.
      * 
-     * &gt; **Note:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
+     * &gt; **Note:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
      * 
      */
     @Export(name="import", refs={ApiImport.class}, tree="[0]")
@@ -187,7 +187,7 @@ public class Api extends com.pulumi.resources.CustomResource {
     /**
      * @return A `import` block as documented below.
      * 
-     * &gt; **Note:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
+     * &gt; **Note:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
      * 
      */
     public Output<Optional<ApiImport>> import_() {
@@ -250,28 +250,28 @@ public class Api extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * An `oauth2_authorization` block as documented below.
+     * An `oauth2Authorization` block as documented below.
      * 
      */
     @Export(name="oauth2Authorization", refs={ApiOauth2Authorization.class}, tree="[0]")
     private Output</* @Nullable */ ApiOauth2Authorization> oauth2Authorization;
 
     /**
-     * @return An `oauth2_authorization` block as documented below.
+     * @return An `oauth2Authorization` block as documented below.
      * 
      */
     public Output<Optional<ApiOauth2Authorization>> oauth2Authorization() {
         return Codegen.optional(this.oauth2Authorization);
     }
     /**
-     * An `openid_authentication` block as documented below.
+     * An `openidAuthentication` block as documented below.
      * 
      */
     @Export(name="openidAuthentication", refs={ApiOpenidAuthentication.class}, tree="[0]")
     private Output</* @Nullable */ ApiOpenidAuthentication> openidAuthentication;
 
     /**
-     * @return An `openid_authentication` block as documented below.
+     * @return An `openidAuthentication` block as documented below.
      * 
      */
     public Output<Optional<ApiOpenidAuthentication>> openidAuthentication() {
@@ -294,7 +294,7 @@ public class Api extends com.pulumi.resources.CustomResource {
     /**
      * A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
      * 
-     * &gt; **Note:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
+     * &gt; **Note:** `displayName`, `path` and `protocols` are required when `sourceApiId` is not set.
      * 
      */
     @Export(name="protocols", refs={List.class,String.class}, tree="[0,1]")
@@ -303,7 +303,7 @@ public class Api extends com.pulumi.resources.CustomResource {
     /**
      * @return A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
      * 
-     * &gt; **Note:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
+     * &gt; **Note:** `displayName`, `path` and `protocols` are required when `sourceApiId` is not set.
      * 
      */
     public Output<List<String>> protocols() {
@@ -354,7 +354,7 @@ public class Api extends com.pulumi.resources.CustomResource {
     /**
      * Absolute URL of the backend service implementing this API.
      * 
-     * &gt; **Note:** The `service_url` is required when `api_type` is specified as `websocket`.
+     * &gt; **Note:** The `serviceUrl` is required when `apiType` is specified as `websocket`.
      * 
      */
     @Export(name="serviceUrl", refs={String.class}, tree="[0]")
@@ -363,7 +363,7 @@ public class Api extends com.pulumi.resources.CustomResource {
     /**
      * @return Absolute URL of the backend service implementing this API.
      * 
-     * &gt; **Note:** The `service_url` is required when `api_type` is specified as `websocket`.
+     * &gt; **Note:** The `serviceUrl` is required when `apiType` is specified as `websocket`.
      * 
      */
     public Output<String> serviceUrl() {
@@ -384,14 +384,14 @@ public class Api extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.sourceApiId);
     }
     /**
-     * A `subscription_key_parameter_names` block as documented below.
+     * A `subscriptionKeyParameterNames` block as documented below.
      * 
      */
     @Export(name="subscriptionKeyParameterNames", refs={ApiSubscriptionKeyParameterNames.class}, tree="[0]")
     private Output<ApiSubscriptionKeyParameterNames> subscriptionKeyParameterNames;
 
     /**
-     * @return A `subscription_key_parameter_names` block as documented below.
+     * @return A `subscriptionKeyParameterNames` block as documented below.
      * 
      */
     public Output<ApiSubscriptionKeyParameterNames> subscriptionKeyParameterNames() {
@@ -456,7 +456,7 @@ public class Api extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the Version Set which this API is associated with.
      * 
-     * &gt; **Note:** When `version` is set, `version_set_id` must also be specified
+     * &gt; **Note:** When `version` is set, `versionSetId` must also be specified
      * 
      */
     @Export(name="versionSetId", refs={String.class}, tree="[0]")
@@ -465,7 +465,7 @@ public class Api extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID of the Version Set which this API is associated with.
      * 
-     * &gt; **Note:** When `version` is set, `version_set_id` must also be specified
+     * &gt; **Note:** When `version` is set, `versionSetId` must also be specified
      * 
      */
     public Output<String> versionSetId() {

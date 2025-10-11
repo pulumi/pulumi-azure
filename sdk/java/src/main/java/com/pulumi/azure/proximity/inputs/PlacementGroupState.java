@@ -20,7 +20,7 @@ public final class PlacementGroupState extends com.pulumi.resources.ResourceArgs
     /**
      * Specifies the supported sizes of Virtual Machines that can be created in the Proximity Placement Group.
      * 
-     * &gt; **Note:** Removing `allowed_vm_sizes` after it is set forces a new resource to be created.
+     * &gt; **Note:** Removing `allowedVmSizes` after it is set forces a new resource to be created.
      * 
      */
     @Import(name="allowedVmSizes")
@@ -29,7 +29,7 @@ public final class PlacementGroupState extends com.pulumi.resources.ResourceArgs
     /**
      * @return Specifies the supported sizes of Virtual Machines that can be created in the Proximity Placement Group.
      * 
-     * &gt; **Note:** Removing `allowed_vm_sizes` after it is set forces a new resource to be created.
+     * &gt; **Note:** Removing `allowedVmSizes` after it is set forces a new resource to be created.
      * 
      */
     public Optional<Output<List<String>>> allowedVmSizes() {
@@ -99,7 +99,7 @@ public final class PlacementGroupState extends com.pulumi.resources.ResourceArgs
     /**
      * Specifies the supported zone of the Proximity Placement Group. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** `allowed_vm_sizes` must be set when `zone` is specified.
+     * &gt; **Note:** `allowedVmSizes` must be set when `zone` is specified.
      * 
      */
     @Import(name="zone")
@@ -108,7 +108,7 @@ public final class PlacementGroupState extends com.pulumi.resources.ResourceArgs
     /**
      * @return Specifies the supported zone of the Proximity Placement Group. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** `allowed_vm_sizes` must be set when `zone` is specified.
+     * &gt; **Note:** `allowedVmSizes` must be set when `zone` is specified.
      * 
      */
     public Optional<Output<String>> zone() {
@@ -147,7 +147,7 @@ public final class PlacementGroupState extends com.pulumi.resources.ResourceArgs
         /**
          * @param allowedVmSizes Specifies the supported sizes of Virtual Machines that can be created in the Proximity Placement Group.
          * 
-         * &gt; **Note:** Removing `allowed_vm_sizes` after it is set forces a new resource to be created.
+         * &gt; **Note:** Removing `allowedVmSizes` after it is set forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class PlacementGroupState extends com.pulumi.resources.ResourceArgs
         /**
          * @param allowedVmSizes Specifies the supported sizes of Virtual Machines that can be created in the Proximity Placement Group.
          * 
-         * &gt; **Note:** Removing `allowed_vm_sizes` after it is set forces a new resource to be created.
+         * &gt; **Note:** Removing `allowedVmSizes` after it is set forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class PlacementGroupState extends com.pulumi.resources.ResourceArgs
         /**
          * @param allowedVmSizes Specifies the supported sizes of Virtual Machines that can be created in the Proximity Placement Group.
          * 
-         * &gt; **Note:** Removing `allowed_vm_sizes` after it is set forces a new resource to be created.
+         * &gt; **Note:** Removing `allowedVmSizes` after it is set forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -268,7 +268,7 @@ public final class PlacementGroupState extends com.pulumi.resources.ResourceArgs
         /**
          * @param zone Specifies the supported zone of the Proximity Placement Group. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** `allowed_vm_sizes` must be set when `zone` is specified.
+         * &gt; **Note:** `allowedVmSizes` must be set when `zone` is specified.
          * 
          * @return builder
          * 
@@ -281,7 +281,7 @@ public final class PlacementGroupState extends com.pulumi.resources.ResourceArgs
         /**
          * @param zone Specifies the supported zone of the Proximity Placement Group. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** `allowed_vm_sizes` must be set when `zone` is specified.
+         * &gt; **Note:** `allowedVmSizes` must be set when `zone` is specified.
          * 
          * @return builder
          * 

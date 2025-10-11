@@ -409,6 +409,8 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
             retention_in_days=6)
         ```
 
+        ### With Storage Account Behind VNet And Firewall
+
         ## Import
 
         MS SQL Server Extended Auditing Policies can be imported using the `resource id`, e.g.
@@ -470,6 +472,8 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
             storage_account_access_key_is_secondary=False,
             retention_in_days=6)
         ```
+
+        ### With Storage Account Behind VNet And Firewall
 
         ## Import
 

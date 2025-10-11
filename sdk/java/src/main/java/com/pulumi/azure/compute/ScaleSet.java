@@ -348,7 +348,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ## Example of storage_profile_image_reference with id
+ * ## Example of storageProfileImageReference with id
  * 
  * <pre>
  * {@code
@@ -410,28 +410,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:compute/scaleSet:ScaleSet")
 public class ScaleSet extends com.pulumi.resources.CustomResource {
     /**
-     * Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgrade_policy_mode` is set to `Rolling`. Defaults to `false`.
+     * Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgradePolicyMode` is set to `Rolling`. Defaults to `false`.
      * 
      */
     @Export(name="automaticOsUpgrade", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> automaticOsUpgrade;
 
     /**
-     * @return Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgrade_policy_mode` is set to `Rolling`. Defaults to `false`.
+     * @return Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgradePolicyMode` is set to `Rolling`. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> automaticOsUpgrade() {
         return Codegen.optional(this.automaticOsUpgrade);
     }
     /**
-     * A `boot_diagnostics` block as referenced below.
+     * A `bootDiagnostics` block as referenced below.
      * 
      */
     @Export(name="bootDiagnostics", refs={ScaleSetBootDiagnostics.class}, tree="[0]")
     private Output</* @Nullable */ ScaleSetBootDiagnostics> bootDiagnostics;
 
     /**
-     * @return A `boot_diagnostics` block as referenced below.
+     * @return A `bootDiagnostics` block as referenced below.
      * 
      */
     public Output<Optional<ScaleSetBootDiagnostics>> bootDiagnostics() {
@@ -440,7 +440,7 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `eviction_policy` can only be set when `priority` is set to `Low`.
+     * &gt; **NOTE:** `evictionPolicy` can only be set when `priority` is set to `Low`.
      * 
      */
     @Export(name="evictionPolicy", refs={String.class}, tree="[0]")
@@ -449,7 +449,7 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `eviction_policy` can only be set when `priority` is set to `Low`.
+     * &gt; **NOTE:** `evictionPolicy` can only be set when `priority` is set to `Low`.
      * 
      */
     public Output<Optional<String>> evictionPolicy() {
@@ -470,14 +470,14 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.extensions);
     }
     /**
-     * Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgrade_policy_mode`.
+     * Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgradePolicyMode`.
      * 
      */
     @Export(name="healthProbeId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> healthProbeId;
 
     /**
-     * @return Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgrade_policy_mode`.
+     * @return Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgradePolicyMode`.
      * 
      */
     public Output<Optional<String>> healthProbeId() {
@@ -540,70 +540,70 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A collection of `network_profile` blocks as documented below.
+     * A collection of `networkProfile` blocks as documented below.
      * 
      */
     @Export(name="networkProfiles", refs={List.class,ScaleSetNetworkProfile.class}, tree="[0,1]")
     private Output<List<ScaleSetNetworkProfile>> networkProfiles;
 
     /**
-     * @return A collection of `network_profile` blocks as documented below.
+     * @return A collection of `networkProfile` blocks as documented below.
      * 
      */
     public Output<List<ScaleSetNetworkProfile>> networkProfiles() {
         return this.networkProfiles;
     }
     /**
-     * A `os_profile` block as documented below.
+     * A `osProfile` block as documented below.
      * 
      */
     @Export(name="osProfile", refs={ScaleSetOsProfile.class}, tree="[0]")
     private Output<ScaleSetOsProfile> osProfile;
 
     /**
-     * @return A `os_profile` block as documented below.
+     * @return A `osProfile` block as documented below.
      * 
      */
     public Output<ScaleSetOsProfile> osProfile() {
         return this.osProfile;
     }
     /**
-     * A `os_profile_linux_config` block as documented below.
+     * A `osProfileLinuxConfig` block as documented below.
      * 
      */
     @Export(name="osProfileLinuxConfig", refs={ScaleSetOsProfileLinuxConfig.class}, tree="[0]")
     private Output<ScaleSetOsProfileLinuxConfig> osProfileLinuxConfig;
 
     /**
-     * @return A `os_profile_linux_config` block as documented below.
+     * @return A `osProfileLinuxConfig` block as documented below.
      * 
      */
     public Output<ScaleSetOsProfileLinuxConfig> osProfileLinuxConfig() {
         return this.osProfileLinuxConfig;
     }
     /**
-     * A collection of `os_profile_secrets` blocks as documented below.
+     * A collection of `osProfileSecrets` blocks as documented below.
      * 
      */
     @Export(name="osProfileSecrets", refs={List.class,ScaleSetOsProfileSecret.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ScaleSetOsProfileSecret>> osProfileSecrets;
 
     /**
-     * @return A collection of `os_profile_secrets` blocks as documented below.
+     * @return A collection of `osProfileSecrets` blocks as documented below.
      * 
      */
     public Output<Optional<List<ScaleSetOsProfileSecret>>> osProfileSecrets() {
         return Codegen.optional(this.osProfileSecrets);
     }
     /**
-     * A `os_profile_windows_config` block as documented below.
+     * A `osProfileWindowsConfig` block as documented below.
      * 
      */
     @Export(name="osProfileWindowsConfig", refs={ScaleSetOsProfileWindowsConfig.class}, tree="[0]")
     private Output</* @Nullable */ ScaleSetOsProfileWindowsConfig> osProfileWindowsConfig;
 
     /**
-     * @return A `os_profile_windows_config` block as documented below.
+     * @return A `osProfileWindowsConfig` block as documented below.
      * 
      */
     public Output<Optional<ScaleSetOsProfileWindowsConfig>> osProfileWindowsConfig() {
@@ -680,14 +680,14 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * A `rolling_upgrade_policy` block as defined below. This is only applicable when the `upgrade_policy_mode` is `Rolling`.
+     * A `rollingUpgradePolicy` block as defined below. This is only applicable when the `upgradePolicyMode` is `Rolling`.
      * 
      */
     @Export(name="rollingUpgradePolicy", refs={ScaleSetRollingUpgradePolicy.class}, tree="[0]")
     private Output</* @Nullable */ ScaleSetRollingUpgradePolicy> rollingUpgradePolicy;
 
     /**
-     * @return A `rolling_upgrade_policy` block as defined below. This is only applicable when the `upgrade_policy_mode` is `Rolling`.
+     * @return A `rollingUpgradePolicy` block as defined below. This is only applicable when the `upgradePolicyMode` is `Rolling`.
      * 
      */
     public Output<Optional<ScaleSetRollingUpgradePolicy>> rollingUpgradePolicy() {
@@ -722,42 +722,42 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
         return this.sku;
     }
     /**
-     * A `storage_profile_data_disk` block as documented below.
+     * A `storageProfileDataDisk` block as documented below.
      * 
      */
     @Export(name="storageProfileDataDisks", refs={List.class,ScaleSetStorageProfileDataDisk.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ScaleSetStorageProfileDataDisk>> storageProfileDataDisks;
 
     /**
-     * @return A `storage_profile_data_disk` block as documented below.
+     * @return A `storageProfileDataDisk` block as documented below.
      * 
      */
     public Output<Optional<List<ScaleSetStorageProfileDataDisk>>> storageProfileDataDisks() {
         return Codegen.optional(this.storageProfileDataDisks);
     }
     /**
-     * A `storage_profile_image_reference` block as documented below.
+     * A `storageProfileImageReference` block as documented below.
      * 
      */
     @Export(name="storageProfileImageReference", refs={ScaleSetStorageProfileImageReference.class}, tree="[0]")
     private Output<ScaleSetStorageProfileImageReference> storageProfileImageReference;
 
     /**
-     * @return A `storage_profile_image_reference` block as documented below.
+     * @return A `storageProfileImageReference` block as documented below.
      * 
      */
     public Output<ScaleSetStorageProfileImageReference> storageProfileImageReference() {
         return this.storageProfileImageReference;
     }
     /**
-     * A `storage_profile_os_disk` block as documented below.
+     * A `storageProfileOsDisk` block as documented below.
      * 
      */
     @Export(name="storageProfileOsDisk", refs={ScaleSetStorageProfileOsDisk.class}, tree="[0]")
     private Output<ScaleSetStorageProfileOsDisk> storageProfileOsDisk;
 
     /**
-     * @return A `storage_profile_os_disk` block as documented below.
+     * @return A `storageProfileOsDisk` block as documented below.
      * 
      */
     public Output<ScaleSetStorageProfileOsDisk> storageProfileOsDisk() {

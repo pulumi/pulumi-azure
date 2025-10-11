@@ -143,14 +143,14 @@ public final class LinkedServiceWebArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The password for Basic authentication. Required if `authentication_type` sets to `Basic`.
+     * The password for Basic authentication. Required if `authenticationType` sets to `Basic`.
      * 
      */
     @Import(name="password")
     private @Nullable Output<String> password;
 
     /**
-     * @return The password for Basic authentication. Required if `authentication_type` sets to `Basic`.
+     * @return The password for Basic authentication. Required if `authenticationType` sets to `Basic`.
      * 
      */
     public Optional<Output<String>> password() {
@@ -173,14 +173,14 @@ public final class LinkedServiceWebArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The username for Basic authentication. Required if `authentication_type` sets to `Basic`.
+     * The username for Basic authentication. Required if `authenticationType` sets to `Basic`.
      * 
      */
     @Import(name="username")
     private @Nullable Output<String> username;
 
     /**
-     * @return The username for Basic authentication. Required if `authentication_type` sets to `Basic`.
+     * @return The username for Basic authentication. Required if `authenticationType` sets to `Basic`.
      * 
      */
     public Optional<Output<String>> username() {
@@ -404,7 +404,7 @@ public final class LinkedServiceWebArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param password The password for Basic authentication. Required if `authentication_type` sets to `Basic`.
+         * @param password The password for Basic authentication. Required if `authenticationType` sets to `Basic`.
          * 
          * @return builder
          * 
@@ -415,7 +415,7 @@ public final class LinkedServiceWebArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param password The password for Basic authentication. Required if `authentication_type` sets to `Basic`.
+         * @param password The password for Basic authentication. Required if `authenticationType` sets to `Basic`.
          * 
          * @return builder
          * 
@@ -446,7 +446,7 @@ public final class LinkedServiceWebArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param username The username for Basic authentication. Required if `authentication_type` sets to `Basic`.
+         * @param username The username for Basic authentication. Required if `authenticationType` sets to `Basic`.
          * 
          * @return builder
          * 
@@ -457,7 +457,7 @@ public final class LinkedServiceWebArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param username The username for Basic authentication. Required if `authentication_type` sets to `Basic`.
+         * @param username The username for Basic authentication. Required if `authenticationType` sets to `Basic`.
          * 
          * @return builder
          * 

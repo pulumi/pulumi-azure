@@ -23,7 +23,7 @@ public final class GetPublicIPsResult {
     private String id;
     private @Nullable String namePrefix;
     /**
-     * @return A List of `public_ips` blocks as defined below filtered by the criteria above.
+     * @return A List of `publicIps` blocks as defined below filtered by the criteria above.
      * 
      */
     private List<GetPublicIPsPublicIp> publicIps;
@@ -47,7 +47,7 @@ public final class GetPublicIPsResult {
         return Optional.ofNullable(this.namePrefix);
     }
     /**
-     * @return A List of `public_ips` blocks as defined below filtered by the criteria above.
+     * @return A List of `publicIps` blocks as defined below filtered by the criteria above.
      * 
      */
     public List<GetPublicIPsPublicIp> publicIps() {

@@ -15,7 +15,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
     {
         public readonly bool? EnableHttp2;
         /// <summary>
-        /// Should HTTP/2 be supported by the API Management Service? Defaults to `false`.
+        /// Should HTTP/2 be supported by the API Management Service? Defaults to `False`.
         /// </summary>
         public readonly bool? Http2Enabled;
 

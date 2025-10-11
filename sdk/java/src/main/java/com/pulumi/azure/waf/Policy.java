@@ -165,14 +165,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:waf/policy:Policy")
 public class Policy extends com.pulumi.resources.CustomResource {
     /**
-     * One or more `custom_rules` blocks as defined below.
+     * One or more `customRules` blocks as defined below.
      * 
      */
     @Export(name="customRules", refs={List.class,PolicyCustomRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PolicyCustomRule>> customRules;
 
     /**
-     * @return One or more `custom_rules` blocks as defined below.
+     * @return One or more `customRules` blocks as defined below.
      * 
      */
     public Output<Optional<List<PolicyCustomRule>>> customRules() {
@@ -207,14 +207,14 @@ public class Policy extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * A `managed_rules` blocks as defined below.
+     * A `managedRules` blocks as defined below.
      * 
      */
     @Export(name="managedRules", refs={PolicyManagedRules.class}, tree="[0]")
     private Output<PolicyManagedRules> managedRules;
 
     /**
-     * @return A `managed_rules` blocks as defined below.
+     * @return A `managedRules` blocks as defined below.
      * 
      */
     public Output<PolicyManagedRules> managedRules() {
@@ -249,14 +249,14 @@ public class Policy extends com.pulumi.resources.CustomResource {
         return this.pathBasedRuleIds;
     }
     /**
-     * A `policy_settings` block as defined below.
+     * A `policySettings` block as defined below.
      * 
      */
     @Export(name="policySettings", refs={PolicyPolicySettings.class}, tree="[0]")
     private Output</* @Nullable */ PolicyPolicySettings> policySettings;
 
     /**
-     * @return A `policy_settings` block as defined below.
+     * @return A `policySettings` block as defined below.
      * 
      */
     public Output<Optional<PolicyPolicySettings>> policySettings() {

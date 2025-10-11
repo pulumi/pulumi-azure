@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Waf.Outputs
     public sealed class PolicyManagedRulesManagedRuleSet
     {
         /// <summary>
-        /// One or more `rule_group_override` block defined below.
+        /// One or more `RuleGroupOverride` block defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.PolicyManagedRulesManagedRuleSetRuleGroupOverride> RuleGroupOverrides;
         /// <summary>

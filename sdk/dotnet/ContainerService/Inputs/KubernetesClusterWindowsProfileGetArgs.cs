@@ -35,7 +35,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string> AdminUsername { get; set; } = null!;
 
         /// <summary>
-        /// A `gmsa` block as defined below.
+        /// A `Gmsa` block as defined below.
         /// </summary>
         [Input("gmsa")]
         public Input<Inputs.KubernetesClusterWindowsProfileGmsaGetArgs>? Gmsa { get; set; }

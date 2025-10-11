@@ -42,7 +42,7 @@ namespace Pulumi.Azure.NetApp.Outputs
         /// </summary>
         public readonly bool? Kerberos5pReadWriteEnabled;
         /// <summary>
-        /// A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only a single element is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
+        /// A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only a single element is supported at this time. This replaces the previous arguments: `CifsEnabled`, `Nfsv3Enabled` and `Nfsv4Enabled`.
         /// </summary>
         public readonly string? Protocol;
         public readonly string? ProtocolsEnabled;

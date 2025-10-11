@@ -20,7 +20,7 @@ public final class ApplicationGatewayPrivateLinkConfiguration {
      */
     private @Nullable String id;
     /**
-     * @return One or more `ip_configuration` blocks as defined below.
+     * @return One or more `ipConfiguration` blocks as defined below.
      * 
      * &gt; **Note:** The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
      * 
@@ -41,7 +41,7 @@ public final class ApplicationGatewayPrivateLinkConfiguration {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return One or more `ip_configuration` blocks as defined below.
+     * @return One or more `ipConfiguration` blocks as defined below.
      * 
      * &gt; **Note:** The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
      * 

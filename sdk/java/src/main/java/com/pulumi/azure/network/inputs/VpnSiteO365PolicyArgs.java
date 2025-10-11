@@ -16,14 +16,14 @@ public final class VpnSiteO365PolicyArgs extends com.pulumi.resources.ResourceAr
     public static final VpnSiteO365PolicyArgs Empty = new VpnSiteO365PolicyArgs();
 
     /**
-     * A `traffic_category` block as defined above.
+     * A `trafficCategory` block as defined above.
      * 
      */
     @Import(name="trafficCategory")
     private @Nullable Output<VpnSiteO365PolicyTrafficCategoryArgs> trafficCategory;
 
     /**
-     * @return A `traffic_category` block as defined above.
+     * @return A `trafficCategory` block as defined above.
      * 
      */
     public Optional<Output<VpnSiteO365PolicyTrafficCategoryArgs>> trafficCategory() {
@@ -55,7 +55,7 @@ public final class VpnSiteO365PolicyArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param trafficCategory A `traffic_category` block as defined above.
+         * @param trafficCategory A `trafficCategory` block as defined above.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class VpnSiteO365PolicyArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param trafficCategory A `traffic_category` block as defined above.
+         * @param trafficCategory A `trafficCategory` block as defined above.
          * 
          * @return builder
          * 

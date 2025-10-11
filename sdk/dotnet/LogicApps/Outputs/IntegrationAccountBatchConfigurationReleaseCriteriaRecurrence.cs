@@ -22,11 +22,11 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// </summary>
         public readonly string Frequency;
         /// <summary>
-        /// The number of `frequency`s between runs.
+        /// The number of `Frequency`s between runs.
         /// </summary>
         public readonly int Interval;
         /// <summary>
-        /// A `schedule` block as documented below.
+        /// A `Schedule` block as documented below.
         /// </summary>
         public readonly Outputs.IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule? Schedule;
         /// <summary>

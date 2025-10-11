@@ -219,7 +219,7 @@ namespace Pulumi.Azure.MSSql
         public readonly string ResourceGroupName;
         public readonly string ServerName;
         /// <summary>
-        /// A `sku` block as defined below.
+        /// A `Sku` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetElasticPoolSkusResult> Skus;
         /// <summary>

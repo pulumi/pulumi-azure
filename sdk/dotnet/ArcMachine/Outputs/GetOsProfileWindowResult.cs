@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ArcMachine.Outputs
     public sealed class GetOsProfileWindowResult
     {
         /// <summary>
-        /// A `patch` block as defined above.
+        /// A `Patch` block as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetOsProfileWindowPatchResult> Patches;
 

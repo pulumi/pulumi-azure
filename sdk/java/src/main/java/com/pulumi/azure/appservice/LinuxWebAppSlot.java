@@ -114,14 +114,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:appservice/linuxWebAppSlot:LinuxWebAppSlot")
 public class LinuxWebAppSlot extends com.pulumi.resources.CustomResource {
     /**
-     * A `app_metadata`.
+     * A `appMetadata`.
      * 
      */
     @Export(name="appMetadata", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> appMetadata;
 
     /**
-     * @return A `app_metadata`.
+     * @return A `appMetadata`.
      * 
      */
     public Output<Map<String,String>> appMetadata() {
@@ -156,28 +156,28 @@ public class LinuxWebAppSlot extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.appSettings);
     }
     /**
-     * An `auth_settings` block as defined below.
+     * An `authSettings` block as defined below.
      * 
      */
     @Export(name="authSettings", refs={LinuxWebAppSlotAuthSettings.class}, tree="[0]")
     private Output</* @Nullable */ LinuxWebAppSlotAuthSettings> authSettings;
 
     /**
-     * @return An `auth_settings` block as defined below.
+     * @return An `authSettings` block as defined below.
      * 
      */
     public Output<Optional<LinuxWebAppSlotAuthSettings>> authSettings() {
         return Codegen.optional(this.authSettings);
     }
     /**
-     * An `auth_settings_v2` block as defined below.
+     * An `authSettingsV2` block as defined below.
      * 
      */
     @Export(name="authSettingsV2", refs={LinuxWebAppSlotAuthSettingsV2.class}, tree="[0]")
     private Output</* @Nullable */ LinuxWebAppSlotAuthSettingsV2> authSettingsV2;
 
     /**
-     * @return An `auth_settings_v2` block as defined below.
+     * @return An `authSettingsV2` block as defined below.
      * 
      */
     public Output<Optional<LinuxWebAppSlotAuthSettingsV2>> authSettingsV2() {
@@ -240,28 +240,28 @@ public class LinuxWebAppSlot extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.clientCertificateExclusionPaths);
     }
     /**
-     * The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`. Defaults to `Required`.
+     * The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`. Defaults to `Required`.
      * 
      */
     @Export(name="clientCertificateMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientCertificateMode;
 
     /**
-     * @return The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`. Defaults to `Required`.
+     * @return The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`. Defaults to `Required`.
      * 
      */
     public Output<Optional<String>> clientCertificateMode() {
         return Codegen.optional(this.clientCertificateMode);
     }
     /**
-     * One or more `connection_string` blocks as defined below.
+     * One or more `connectionString` blocks as defined below.
      * 
      */
     @Export(name="connectionStrings", refs={List.class,LinuxWebAppSlotConnectionString.class}, tree="[0,1]")
     private Output</* @Nullable */ List<LinuxWebAppSlotConnectionString>> connectionStrings;
 
     /**
-     * @return One or more `connection_string` blocks as defined below.
+     * @return One or more `connectionString` blocks as defined below.
      * 
      */
     public Output<Optional<List<LinuxWebAppSlotConnectionString>>> connectionStrings() {
@@ -442,28 +442,28 @@ public class LinuxWebAppSlot extends com.pulumi.resources.CustomResource {
         return this.outboundIpAddresses;
     }
     /**
-     * A `possible_outbound_ip_address_list`.
+     * A `possibleOutboundIpAddressList`.
      * 
      */
     @Export(name="possibleOutboundIpAddressLists", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> possibleOutboundIpAddressLists;
 
     /**
-     * @return A `possible_outbound_ip_address_list`.
+     * @return A `possibleOutboundIpAddressList`.
      * 
      */
     public Output<List<String>> possibleOutboundIpAddressLists() {
         return this.possibleOutboundIpAddressLists;
     }
     /**
-     * A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+     * A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      * 
      */
     @Export(name="possibleOutboundIpAddresses", refs={String.class}, tree="[0]")
     private Output<String> possibleOutboundIpAddresses;
 
     /**
-     * @return A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+     * @return A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      * 
      */
     public Output<String> possibleOutboundIpAddresses() {
@@ -486,7 +486,7 @@ public class LinuxWebAppSlot extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
      * 
-     * &gt; **Note:** `service_plan_id` should only be specified if it differs from the Service Plan of the associated Linux Web App.
+     * &gt; **Note:** `servicePlanId` should only be specified if it differs from the Service Plan of the associated Linux Web App.
      * 
      */
     @Export(name="servicePlanId", refs={String.class}, tree="[0]")
@@ -495,49 +495,49 @@ public class LinuxWebAppSlot extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
      * 
-     * &gt; **Note:** `service_plan_id` should only be specified if it differs from the Service Plan of the associated Linux Web App.
+     * &gt; **Note:** `servicePlanId` should only be specified if it differs from the Service Plan of the associated Linux Web App.
      * 
      */
     public Output<Optional<String>> servicePlanId() {
         return Codegen.optional(this.servicePlanId);
     }
     /**
-     * A `site_config` block as defined below.
+     * A `siteConfig` block as defined below.
      * 
      */
     @Export(name="siteConfig", refs={LinuxWebAppSlotSiteConfig.class}, tree="[0]")
     private Output<LinuxWebAppSlotSiteConfig> siteConfig;
 
     /**
-     * @return A `site_config` block as defined below.
+     * @return A `siteConfig` block as defined below.
      * 
      */
     public Output<LinuxWebAppSlotSiteConfig> siteConfig() {
         return this.siteConfig;
     }
     /**
-     * A `site_credential` block as defined below.
+     * A `siteCredential` block as defined below.
      * 
      */
     @Export(name="siteCredentials", refs={List.class,LinuxWebAppSlotSiteCredential.class}, tree="[0,1]")
     private Output<List<LinuxWebAppSlotSiteCredential>> siteCredentials;
 
     /**
-     * @return A `site_credential` block as defined below.
+     * @return A `siteCredential` block as defined below.
      * 
      */
     public Output<List<LinuxWebAppSlotSiteCredential>> siteCredentials() {
         return this.siteCredentials;
     }
     /**
-     * One or more `storage_account` blocks as defined below.
+     * One or more `storageAccount` blocks as defined below.
      * 
      */
     @Export(name="storageAccounts", refs={List.class,LinuxWebAppSlotStorageAccount.class}, tree="[0,1]")
     private Output</* @Nullable */ List<LinuxWebAppSlotStorageAccount>> storageAccounts;
 
     /**
-     * @return One or more `storage_account` blocks as defined below.
+     * @return One or more `storageAccount` blocks as defined below.
      * 
      */
     public Output<Optional<List<LinuxWebAppSlotStorageAccount>>> storageAccounts() {
@@ -590,7 +590,7 @@ public class LinuxWebAppSlot extends com.pulumi.resources.CustomResource {
     /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      * 
-     * &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+     * &gt; **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
      * 
      */
     @Export(name="webdeployPublishBasicAuthenticationEnabled", refs={Boolean.class}, tree="[0]")
@@ -599,7 +599,7 @@ public class LinuxWebAppSlot extends com.pulumi.resources.CustomResource {
     /**
      * @return Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      * 
-     * &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+     * &gt; **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
      * 
      */
     public Output<Optional<Boolean>> webdeployPublishBasicAuthenticationEnabled() {
@@ -608,7 +608,7 @@ public class LinuxWebAppSlot extends com.pulumi.resources.CustomResource {
     /**
      * The local path and filename of the Zip packaged application to deploy to this Linux Web App.
      * 
-     * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
+     * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
      * 
      */
     @Export(name="zipDeployFile", refs={String.class}, tree="[0]")
@@ -617,7 +617,7 @@ public class LinuxWebAppSlot extends com.pulumi.resources.CustomResource {
     /**
      * @return The local path and filename of the Zip packaged application to deploy to this Linux Web App.
      * 
-     * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
+     * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
      * 
      */
     public Output<String> zipDeployFile() {

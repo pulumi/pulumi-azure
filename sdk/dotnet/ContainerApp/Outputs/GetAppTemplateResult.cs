@@ -15,13 +15,13 @@ namespace Pulumi.Azure.ContainerApp.Outputs
     {
         public readonly ImmutableArray<Outputs.GetAppTemplateAzureQueueScaleRuleResult> AzureQueueScaleRules;
         /// <summary>
-        /// One or more `container` blocks as detailed below.
+        /// One or more `Container` blocks as detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAppTemplateContainerResult> Containers;
         public readonly ImmutableArray<Outputs.GetAppTemplateCustomScaleRuleResult> CustomScaleRules;
         public readonly ImmutableArray<Outputs.GetAppTemplateHttpScaleRuleResult> HttpScaleRules;
         /// <summary>
-        /// One or more `init_container` blocks as detailed below.
+        /// One or more `InitContainer` blocks as detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAppTemplateInitContainerResult> InitContainers;
         /// <summary>
@@ -33,7 +33,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly int MinReplicas;
         /// <summary>
-        /// The suffix string to which this `traffic_weight` applies.
+        /// The suffix string to which this `TrafficWeight` applies.
         /// </summary>
         public readonly string RevisionSuffix;
         public readonly ImmutableArray<Outputs.GetAppTemplateTcpScaleRuleResult> TcpScaleRules;
@@ -42,7 +42,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly int TerminationGracePeriodSeconds;
         /// <summary>
-        /// A `volume` block as detailed below.
+        /// A `Volume` block as detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAppTemplateVolumeResult> Volumes;
 

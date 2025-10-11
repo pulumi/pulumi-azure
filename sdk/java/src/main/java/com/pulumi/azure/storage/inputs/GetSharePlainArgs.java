@@ -66,7 +66,7 @@ public final class GetSharePlainArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * The ID of the storage account in which the share exists.
      * 
-     * &gt; **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+     * &gt; **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
      * 
      */
     @Import(name="storageAccountId")
@@ -75,7 +75,7 @@ public final class GetSharePlainArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * @return The ID of the storage account in which the share exists.
      * 
-     * &gt; **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+     * &gt; **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
      * 
      */
     public Optional<String> storageAccountId() {
@@ -83,14 +83,14 @@ public final class GetSharePlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The name of the storage account in which the share exists. This property is deprecated in favour of `storage_account_id`.
+     * The name of the storage account in which the share exists. This property is deprecated in favour of `storageAccountId`.
      * 
      */
     @Import(name="storageAccountName")
     private @Nullable String storageAccountName;
 
     /**
-     * @return The name of the storage account in which the share exists. This property is deprecated in favour of `storage_account_id`.
+     * @return The name of the storage account in which the share exists. This property is deprecated in favour of `storageAccountId`.
      * 
      */
     public Optional<String> storageAccountName() {
@@ -171,7 +171,7 @@ public final class GetSharePlainArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param storageAccountId The ID of the storage account in which the share exists.
          * 
-         * &gt; **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+         * &gt; **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class GetSharePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param storageAccountName The name of the storage account in which the share exists. This property is deprecated in favour of `storage_account_id`.
+         * @param storageAccountName The name of the storage account in which the share exists. This property is deprecated in favour of `storageAccountId`.
          * 
          * @return builder
          * 

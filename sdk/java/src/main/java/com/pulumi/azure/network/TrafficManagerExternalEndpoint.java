@@ -122,14 +122,14 @@ public class TrafficManagerExternalEndpoint extends com.pulumi.resources.CustomR
         return Codegen.optional(this.alwaysServeEnabled);
     }
     /**
-     * One or more `custom_header` blocks as defined below.
+     * One or more `customHeader` blocks as defined below.
      * 
      */
     @Export(name="customHeaders", refs={List.class,TrafficManagerExternalEndpointCustomHeader.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TrafficManagerExternalEndpointCustomHeader>> customHeaders;
 
     /**
-     * @return One or more `custom_header` blocks as defined below.
+     * @return One or more `customHeader` blocks as defined below.
      * 
      */
     public Output<Optional<List<TrafficManagerExternalEndpointCustomHeader>>> customHeaders() {

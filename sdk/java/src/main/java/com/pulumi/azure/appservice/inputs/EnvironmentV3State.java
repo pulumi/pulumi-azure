@@ -37,14 +37,14 @@ public final class EnvironmentV3State extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Zero or more `cluster_setting` blocks as defined below.
+     * Zero or more `clusterSetting` blocks as defined below.
      * 
      */
     @Import(name="clusterSettings")
     private @Nullable Output<List<EnvironmentV3ClusterSettingArgs>> clusterSettings;
 
     /**
-     * @return Zero or more `cluster_setting` blocks as defined below.
+     * @return Zero or more `clusterSetting` blocks as defined below.
      * 
      */
     public Optional<Output<List<EnvironmentV3ClusterSettingArgs>>> clusterSettings() {
@@ -97,14 +97,14 @@ public final class EnvironmentV3State extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * An `inbound_network_dependencies` block as defined below.
+     * An `inboundNetworkDependencies` block as defined below.
      * 
      */
     @Import(name="inboundNetworkDependencies")
     private @Nullable Output<List<EnvironmentV3InboundNetworkDependencyArgs>> inboundNetworkDependencies;
 
     /**
-     * @return An `inbound_network_dependencies` block as defined below.
+     * @return An `inboundNetworkDependencies` block as defined below.
      * 
      */
     public Optional<Output<List<EnvironmentV3InboundNetworkDependencyArgs>>> inboundNetworkDependencies() {
@@ -232,14 +232,14 @@ public final class EnvironmentV3State extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`). Changing this forces a new resource to be created.
+     * The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`). Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName")
     private @Nullable Output<String> resourceGroupName;
 
     /**
-     * @return The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`). Changing this forces a new resource to be created.
+     * @return The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`). Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> resourceGroupName() {
@@ -292,7 +292,7 @@ public final class EnvironmentV3State extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicated_host_count` or `zone_redundant` but not both. Changing this forces a new resource to be created.
+     * Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicatedHostCount` or `zoneRedundant` but not both. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** Setting this value will provision 2 Physical Hosts for your App Service Environment V3, this is done at additional cost, please be aware of the pricing commitment in the [General Availability Notes](https://techcommunity.microsoft.com/t5/apps-on-azure/announcing-app-service-environment-v3-ga/ba-p/2517990)
      * 
@@ -301,7 +301,7 @@ public final class EnvironmentV3State extends com.pulumi.resources.ResourceArgs 
     private @Nullable Output<Boolean> zoneRedundant;
 
     /**
-     * @return Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicated_host_count` or `zone_redundant` but not both. Changing this forces a new resource to be created.
+     * @return Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicatedHostCount` or `zoneRedundant` but not both. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** Setting this value will provision 2 Physical Hosts for your App Service Environment V3, this is done at additional cost, please be aware of the pricing commitment in the [General Availability Notes](https://techcommunity.microsoft.com/t5/apps-on-azure/announcing-app-service-environment-v3-ga/ba-p/2517990)
      * 
@@ -374,7 +374,7 @@ public final class EnvironmentV3State extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param clusterSettings Zero or more `cluster_setting` blocks as defined below.
+         * @param clusterSettings Zero or more `clusterSetting` blocks as defined below.
          * 
          * @return builder
          * 
@@ -385,7 +385,7 @@ public final class EnvironmentV3State extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param clusterSettings Zero or more `cluster_setting` blocks as defined below.
+         * @param clusterSettings Zero or more `clusterSetting` blocks as defined below.
          * 
          * @return builder
          * 
@@ -395,7 +395,7 @@ public final class EnvironmentV3State extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param clusterSettings Zero or more `cluster_setting` blocks as defined below.
+         * @param clusterSettings Zero or more `clusterSetting` blocks as defined below.
          * 
          * @return builder
          * 
@@ -478,7 +478,7 @@ public final class EnvironmentV3State extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param inboundNetworkDependencies An `inbound_network_dependencies` block as defined below.
+         * @param inboundNetworkDependencies An `inboundNetworkDependencies` block as defined below.
          * 
          * @return builder
          * 
@@ -489,7 +489,7 @@ public final class EnvironmentV3State extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param inboundNetworkDependencies An `inbound_network_dependencies` block as defined below.
+         * @param inboundNetworkDependencies An `inboundNetworkDependencies` block as defined below.
          * 
          * @return builder
          * 
@@ -499,7 +499,7 @@ public final class EnvironmentV3State extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param inboundNetworkDependencies An `inbound_network_dependencies` block as defined below.
+         * @param inboundNetworkDependencies An `inboundNetworkDependencies` block as defined below.
          * 
          * @return builder
          * 
@@ -697,7 +697,7 @@ public final class EnvironmentV3State extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`). Changing this forces a new resource to be created.
+         * @param resourceGroupName The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`). Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -708,7 +708,7 @@ public final class EnvironmentV3State extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`). Changing this forces a new resource to be created.
+         * @param resourceGroupName The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`). Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -787,7 +787,7 @@ public final class EnvironmentV3State extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param zoneRedundant Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicated_host_count` or `zone_redundant` but not both. Changing this forces a new resource to be created.
+         * @param zoneRedundant Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicatedHostCount` or `zoneRedundant` but not both. Changing this forces a new resource to be created.
          * 
          * &gt; **Note:** Setting this value will provision 2 Physical Hosts for your App Service Environment V3, this is done at additional cost, please be aware of the pricing commitment in the [General Availability Notes](https://techcommunity.microsoft.com/t5/apps-on-azure/announcing-app-service-environment-v3-ga/ba-p/2517990)
          * 
@@ -800,7 +800,7 @@ public final class EnvironmentV3State extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param zoneRedundant Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicated_host_count` or `zone_redundant` but not both. Changing this forces a new resource to be created.
+         * @param zoneRedundant Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicatedHostCount` or `zoneRedundant` but not both. Changing this forces a new resource to be created.
          * 
          * &gt; **Note:** Setting this value will provision 2 Physical Hosts for your App Service Environment V3, this is done at additional cost, please be aware of the pricing commitment in the [General Availability Notes](https://techcommunity.microsoft.com/t5/apps-on-azure/announcing-app-service-environment-v3-ga/ba-p/2517990)
          * 

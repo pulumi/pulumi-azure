@@ -19,14 +19,14 @@ public final class VnpGatewayNatRuleState extends com.pulumi.resources.ResourceA
     public static final VnpGatewayNatRuleState Empty = new VnpGatewayNatRuleState();
 
     /**
-     * One of more `external_mapping` blocks as defined below.
+     * One of more `externalMapping` blocks as defined below.
      * 
      */
     @Import(name="externalMappings")
     private @Nullable Output<List<VnpGatewayNatRuleExternalMappingArgs>> externalMappings;
 
     /**
-     * @return One of more `external_mapping` blocks as defined below.
+     * @return One of more `externalMapping` blocks as defined below.
      * 
      */
     public Optional<Output<List<VnpGatewayNatRuleExternalMappingArgs>>> externalMappings() {
@@ -34,14 +34,14 @@ public final class VnpGatewayNatRuleState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * One of more `internal_mapping` blocks as defined below.
+     * One of more `internalMapping` blocks as defined below.
      * 
      */
     @Import(name="internalMappings")
     private @Nullable Output<List<VnpGatewayNatRuleInternalMappingArgs>> internalMappings;
 
     /**
-     * @return One of more `internal_mapping` blocks as defined below.
+     * @return One of more `internalMapping` blocks as defined below.
      * 
      */
     public Optional<Output<List<VnpGatewayNatRuleInternalMappingArgs>>> internalMappings() {
@@ -154,7 +154,7 @@ public final class VnpGatewayNatRuleState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param externalMappings One of more `external_mapping` blocks as defined below.
+         * @param externalMappings One of more `externalMapping` blocks as defined below.
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class VnpGatewayNatRuleState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param externalMappings One of more `external_mapping` blocks as defined below.
+         * @param externalMappings One of more `externalMapping` blocks as defined below.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class VnpGatewayNatRuleState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param externalMappings One of more `external_mapping` blocks as defined below.
+         * @param externalMappings One of more `externalMapping` blocks as defined below.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class VnpGatewayNatRuleState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param internalMappings One of more `internal_mapping` blocks as defined below.
+         * @param internalMappings One of more `internalMapping` blocks as defined below.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class VnpGatewayNatRuleState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param internalMappings One of more `internal_mapping` blocks as defined below.
+         * @param internalMappings One of more `internalMapping` blocks as defined below.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class VnpGatewayNatRuleState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param internalMappings One of more `internal_mapping` blocks as defined below.
+         * @param internalMappings One of more `internalMapping` blocks as defined below.
          * 
          * @return builder
          * 

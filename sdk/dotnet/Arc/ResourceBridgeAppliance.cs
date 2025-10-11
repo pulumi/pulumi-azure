@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Arc
         public Output<string> Distro { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new resource to be created.
+        /// An `Identity` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ResourceBridgeApplianceIdentity> Identity { get; private set; } = null!;
@@ -97,7 +97,7 @@ namespace Pulumi.Azure.Arc
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The `public_key_base64` is an RSA public key in PKCS1 format encoded in base64. Changing this forces a new resource to be created.
+        /// The `PublicKeyBase64` is an RSA public key in PKCS1 format encoded in base64. Changing this forces a new resource to be created.
         /// </summary>
         [Output("publicKeyBase64")]
         public Output<string?> PublicKeyBase64 { get; private set; } = null!;
@@ -167,7 +167,7 @@ namespace Pulumi.Azure.Arc
         public Input<string> Distro { get; set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new resource to be created.
+        /// An `Identity` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("identity", required: true)]
         public Input<Inputs.ResourceBridgeApplianceIdentityArgs> Identity { get; set; } = null!;
@@ -191,7 +191,7 @@ namespace Pulumi.Azure.Arc
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The `public_key_base64` is an RSA public key in PKCS1 format encoded in base64. Changing this forces a new resource to be created.
+        /// The `PublicKeyBase64` is an RSA public key in PKCS1 format encoded in base64. Changing this forces a new resource to be created.
         /// </summary>
         [Input("publicKeyBase64")]
         public Input<string>? PublicKeyBase64 { get; set; }
@@ -229,7 +229,7 @@ namespace Pulumi.Azure.Arc
         public Input<string>? Distro { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new resource to be created.
+        /// An `Identity` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ResourceBridgeApplianceIdentityGetArgs>? Identity { get; set; }
@@ -253,7 +253,7 @@ namespace Pulumi.Azure.Arc
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The `public_key_base64` is an RSA public key in PKCS1 format encoded in base64. Changing this forces a new resource to be created.
+        /// The `PublicKeyBase64` is an RSA public key in PKCS1 format encoded in base64. Changing this forces a new resource to be created.
         /// </summary>
         [Input("publicKeyBase64")]
         public Input<string>? PublicKeyBase64 { get; set; }

@@ -18,7 +18,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Arguments;
         /// <summary>
-        /// Should the image cache be enabled? Defaults to `true`.
+        /// Should the image cache be enabled? Defaults to `True`.
         /// </summary>
         public readonly bool? CacheEnabled;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly ImmutableArray<string> ImageNames;
         /// <summary>
-        /// Should the image built be pushed to the registry or not? Defaults to `true`.
+        /// Should the image built be pushed to the registry or not? Defaults to `True`.
         /// </summary>
         public readonly bool? PushEnabled;
         /// <summary>

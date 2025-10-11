@@ -62,25 +62,25 @@ namespace Pulumi.Azure.Maps
     public partial class Account : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A `cors` block as defined below
+        /// A `Cors` block as defined below
         /// </summary>
         [Output("cors")]
         public Output<Outputs.AccountCors?> Cors { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `data_store` blocks as defined below.
+        /// One or more `DataStore` blocks as defined below.
         /// </summary>
         [Output("dataStores")]
         public Output<ImmutableArray<Outputs.AccountDataStore>> DataStores { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.AccountIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
+        /// Is local authentication enabled for this Azure Maps Account? When `False`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `True`.
         /// </summary>
         [Output("localAuthenticationEnabled")]
         public Output<bool?> LocalAuthenticationEnabled { get; private set; } = null!;
@@ -187,7 +187,7 @@ namespace Pulumi.Azure.Maps
     public sealed class AccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `cors` block as defined below
+        /// A `Cors` block as defined below
         /// </summary>
         [Input("cors")]
         public Input<Inputs.AccountCorsArgs>? Cors { get; set; }
@@ -196,7 +196,7 @@ namespace Pulumi.Azure.Maps
         private InputList<Inputs.AccountDataStoreArgs>? _dataStores;
 
         /// <summary>
-        /// One or more `data_store` blocks as defined below.
+        /// One or more `DataStore` blocks as defined below.
         /// </summary>
         public InputList<Inputs.AccountDataStoreArgs> DataStores
         {
@@ -205,13 +205,13 @@ namespace Pulumi.Azure.Maps
         }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.AccountIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
+        /// Is local authentication enabled for this Azure Maps Account? When `False`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `True`.
         /// </summary>
         [Input("localAuthenticationEnabled")]
         public Input<bool>? LocalAuthenticationEnabled { get; set; }
@@ -263,7 +263,7 @@ namespace Pulumi.Azure.Maps
     public sealed class AccountState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `cors` block as defined below
+        /// A `Cors` block as defined below
         /// </summary>
         [Input("cors")]
         public Input<Inputs.AccountCorsGetArgs>? Cors { get; set; }
@@ -272,7 +272,7 @@ namespace Pulumi.Azure.Maps
         private InputList<Inputs.AccountDataStoreGetArgs>? _dataStores;
 
         /// <summary>
-        /// One or more `data_store` blocks as defined below.
+        /// One or more `DataStore` blocks as defined below.
         /// </summary>
         public InputList<Inputs.AccountDataStoreGetArgs> DataStores
         {
@@ -281,13 +281,13 @@ namespace Pulumi.Azure.Maps
         }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.AccountIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
+        /// Is local authentication enabled for this Azure Maps Account? When `False`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `True`.
         /// </summary>
         [Input("localAuthenticationEnabled")]
         public Input<bool>? LocalAuthenticationEnabled { get; set; }

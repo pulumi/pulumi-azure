@@ -39,7 +39,7 @@ public final class GetVirtualMachineScaleSetNetworkInterface {
      */
     private Boolean enableIpForwarding;
     /**
-     * @return An `ip_configuration` block as defined below.
+     * @return An `ipConfiguration` block as defined below.
      * 
      */
     private List<GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration> ipConfigurations;
@@ -54,7 +54,7 @@ public final class GetVirtualMachineScaleSetNetworkInterface {
      */
     private String networkSecurityGroupId;
     /**
-     * @return If this ip_configuration is the primary one.
+     * @return If this ipConfiguration is the primary one.
      * 
      */
     private Boolean primary;
@@ -96,7 +96,7 @@ public final class GetVirtualMachineScaleSetNetworkInterface {
         return this.enableIpForwarding;
     }
     /**
-     * @return An `ip_configuration` block as defined below.
+     * @return An `ipConfiguration` block as defined below.
      * 
      */
     public List<GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration> ipConfigurations() {
@@ -117,7 +117,7 @@ public final class GetVirtualMachineScaleSetNetworkInterface {
         return this.networkSecurityGroupId;
     }
     /**
-     * @return If this ip_configuration is the primary one.
+     * @return If this ipConfiguration is the primary one.
      * 
      */
     public Boolean primary() {

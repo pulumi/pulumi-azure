@@ -27,17 +27,17 @@ public final class WindowsWebAppSlotSiteConfigAutoHealSettingTrigger {
      */
     private @Nullable WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequests requests;
     /**
-     * @return A `slow_request` block as defined above.
+     * @return A `slowRequest` block as defined above.
      * 
      */
     private @Nullable WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest slowRequest;
     /**
-     * @return One or more `slow_request_with_path` blocks as defined above.
+     * @return One or more `slowRequestWithPath` blocks as defined above.
      * 
      */
     private @Nullable List<WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath> slowRequestWithPaths;
     /**
-     * @return One or more `status_code` blocks as defined above.
+     * @return One or more `statusCode` blocks as defined above.
      * 
      */
     private @Nullable List<WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode> statusCodes;
@@ -58,21 +58,21 @@ public final class WindowsWebAppSlotSiteConfigAutoHealSettingTrigger {
         return Optional.ofNullable(this.requests);
     }
     /**
-     * @return A `slow_request` block as defined above.
+     * @return A `slowRequest` block as defined above.
      * 
      */
     public Optional<WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest> slowRequest() {
         return Optional.ofNullable(this.slowRequest);
     }
     /**
-     * @return One or more `slow_request_with_path` blocks as defined above.
+     * @return One or more `slowRequestWithPath` blocks as defined above.
      * 
      */
     public List<WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath> slowRequestWithPaths() {
         return this.slowRequestWithPaths == null ? List.of() : this.slowRequestWithPaths;
     }
     /**
-     * @return One or more `status_code` blocks as defined above.
+     * @return One or more `statusCode` blocks as defined above.
      * 
      */
     public List<WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode> statusCodes() {

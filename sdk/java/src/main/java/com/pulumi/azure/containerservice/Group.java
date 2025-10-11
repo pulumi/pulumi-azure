@@ -139,14 +139,14 @@ public class Group extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.diagnostics);
     }
     /**
-     * A `dns_config` block as documented below. Changing this forces a new resource to be created.
+     * A `dnsConfig` block as documented below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="dnsConfig", refs={GroupDnsConfig.class}, tree="[0]")
     private Output</* @Nullable */ GroupDnsConfig> dnsConfig;
 
     /**
-     * @return A `dns_config` block as documented below. Changing this forces a new resource to be created.
+     * @return A `dnsConfig` block as documented below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<GroupDnsConfig>> dnsConfig() {
@@ -185,32 +185,32 @@ public class Group extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dnsNameLabelReusePolicy);
     }
     /**
-     * Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
+     * Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** The `exposed_port` can only contain ports that are also exposed on one or more containers in the group.
+     * &gt; **Note:** The `exposedPort` can only contain ports that are also exposed on one or more containers in the group.
      * 
      */
     @Export(name="exposedPorts", refs={List.class,GroupExposedPort.class}, tree="[0,1]")
     private Output<List<GroupExposedPort>> exposedPorts;
 
     /**
-     * @return Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
+     * @return Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** The `exposed_port` can only contain ports that are also exposed on one or more containers in the group.
+     * &gt; **Note:** The `exposedPort` can only contain ports that are also exposed on one or more containers in the group.
      * 
      */
     public Output<List<GroupExposedPort>> exposedPorts() {
         return this.exposedPorts;
     }
     /**
-     * The FQDN of the container group derived from `dns_name_label`.
+     * The FQDN of the container group derived from `dnsNameLabel`.
      * 
      */
     @Export(name="fqdn", refs={String.class}, tree="[0]")
     private Output<String> fqdn;
 
     /**
-     * @return The FQDN of the container group derived from `dns_name_label`.
+     * @return The FQDN of the container group derived from `dnsNameLabel`.
      * 
      */
     public Output<String> fqdn() {
@@ -231,28 +231,28 @@ public class Group extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.identity);
     }
     /**
-     * An `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
+     * An `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="imageRegistryCredentials", refs={List.class,GroupImageRegistryCredential.class}, tree="[0,1]")
     private Output</* @Nullable */ List<GroupImageRegistryCredential>> imageRegistryCredentials;
 
     /**
-     * @return An `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
+     * @return An `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<List<GroupImageRegistryCredential>>> imageRegistryCredentials() {
         return Codegen.optional(this.imageRegistryCredentials);
     }
     /**
-     * The definition of an init container that is part of the group as documented in the `init_container` block below. Changing this forces a new resource to be created.
+     * The definition of an init container that is part of the group as documented in the `initContainer` block below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="initContainers", refs={List.class,GroupInitContainer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<GroupInitContainer>> initContainers;
 
     /**
-     * @return The definition of an init container that is part of the group as documented in the `init_container` block below. Changing this forces a new resource to be created.
+     * @return The definition of an init container that is part of the group as documented in the `initContainer` block below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<List<GroupInitContainer>>> initContainers() {
@@ -273,18 +273,18 @@ public class Group extends com.pulumi.resources.CustomResource {
         return this.ipAddress;
     }
     /**
-     * Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set. Defaults to `Public`.
+     * Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnetIds` also needs to be set. Defaults to `Public`.
      * 
-     * &gt; **Note:** `dns_name_label` and `os_type` set to `windows` are not compatible with `Private` `ip_address_type`
+     * &gt; **Note:** `dnsNameLabel` and `osType` set to `windows` are not compatible with `Private` `ipAddressType`
      * 
      */
     @Export(name="ipAddressType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ipAddressType;
 
     /**
-     * @return Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set. Defaults to `Public`.
+     * @return Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnetIds` also needs to be set. Defaults to `Public`.
      * 
-     * &gt; **Note:** `dns_name_label` and `os_type` set to `windows` are not compatible with `Private` `ip_address_type`
+     * &gt; **Note:** `dnsNameLabel` and `osType` set to `windows` are not compatible with `Private` `ipAddressType`
      * 
      */
     public Output<Optional<String>> ipAddressType() {
@@ -305,14 +305,14 @@ public class Group extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.keyVaultKeyId);
     }
     /**
-     * The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named &#34;Azure Container Instance Service&#34; will be used instead. Make sure the identity has the proper `key_permissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`.
+     * The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named &#34;Azure Container Instance Service&#34; will be used instead. Make sure the identity has the proper `keyPermissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`.
      * 
      */
     @Export(name="keyVaultUserAssignedIdentityId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> keyVaultUserAssignedIdentityId;
 
     /**
-     * @return The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named &#34;Azure Container Instance Service&#34; will be used instead. Make sure the identity has the proper `key_permissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`.
+     * @return The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named &#34;Azure Container Instance Service&#34; will be used instead. Make sure the identity has the proper `keyPermissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`.
      * 
      */
     public Output<Optional<String>> keyVaultUserAssignedIdentityId() {
@@ -361,7 +361,7 @@ public class Group extends com.pulumi.resources.CustomResource {
     /**
      * The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** if `os_type` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
+     * &gt; **Note:** if `osType` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
      * 
      */
     @Export(name="osType", refs={String.class}, tree="[0]")
@@ -370,7 +370,7 @@ public class Group extends com.pulumi.resources.CustomResource {
     /**
      * @return The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** if `os_type` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
+     * &gt; **Note:** if `osType` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
      * 
      */
     public Output<String> osType() {
@@ -379,7 +379,7 @@ public class Group extends com.pulumi.resources.CustomResource {
     /**
      * The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
+     * &gt; **Note:** When `priority` is set to `Spot`, the `ipAddressType` has to be `None`.
      * 
      */
     @Export(name="priority", refs={String.class}, tree="[0]")
@@ -388,7 +388,7 @@ public class Group extends com.pulumi.resources.CustomResource {
     /**
      * @return The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
+     * &gt; **Note:** When `priority` is set to `Spot`, the `ipAddressType` has to be `None`.
      * 
      */
     public Output<Optional<String>> priority() {

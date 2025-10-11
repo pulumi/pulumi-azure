@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Cdn
     /// 
     /// !&gt; **Note:** Azure rolled out a breaking change on Friday 9th April 2021 which may cause issues with the CDN/FrontDoor resources. More information is available in this GitHub issue - unfortunately this may necessitate a breaking change to the CDN (classic) and FrontDoor (classic) resources, more information will be posted in the GitHub issue as the necessary changes are identified.
     /// 
-    /// !&gt; **Note:** Support for the CDN (classic) `sku` `Standard_Akamai` was deprecated from Azure on `October 31, 2023` and is no longer available.
+    /// !&gt; **Note:** Support for the CDN (classic) `Sku` `Standard_Akamai` was deprecated from Azure on `October 31, 2023` and is no longer available.
     /// 
-    /// !&gt; **Note:** Support for the CDN (classic) `sku` `Standard_Verizon` and `Premium_Verizon` was deprecated from Azure on `January 15, 2025` and is no longer available.
+    /// !&gt; **Note:** Support for the CDN (classic) `Sku` `Standard_Verizon` and `Premium_Verizon` was deprecated from Azure on `January 15, 2025` and is no longer available.
     /// 
-    /// !&gt; **Note:** Support for the CDN (classic) `sku` `Standard_Microsoft` and `Standard_ChinaCdn` will be deprecated from Azure on `October 1, 2025` and will no longer be available, however modifications to existing CDN (classic) resources will continue to be supported until the API reaches full retirement on `September 30, 2027`.
+    /// !&gt; **Note:** Support for the CDN (classic) `Sku` `Standard_Microsoft` and `Standard_ChinaCdn` will be deprecated from Azure on `October 1, 2025` and will no longer be available, however modifications to existing CDN (classic) resources will continue to be supported until the API reaches full retirement on `September 30, 2027`.
     /// 
     /// ## Example Usage
     /// 
@@ -81,7 +81,7 @@ namespace Pulumi.Azure.Cdn
         public Output<ImmutableArray<string>> ContentTypesToCompresses { get; private set; } = null!;
 
         /// <summary>
-        /// Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `delivery_rule` blocks as defined below.
+        /// Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `DeliveryRule` blocks as defined below.
         /// </summary>
         [Output("deliveryRules")]
         public Output<ImmutableArray<Outputs.EndpointDeliveryRule>> DeliveryRules { get; private set; } = null!;
@@ -93,13 +93,13 @@ namespace Pulumi.Azure.Cdn
         public Output<string> Fqdn { get; private set; } = null!;
 
         /// <summary>
-        /// A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
+        /// A set of Geo Filters for this CDN Endpoint. Each `GeoFilter` block supports fields documented below.
         /// </summary>
         [Output("geoFilters")]
         public Output<ImmutableArray<Outputs.EndpointGeoFilter>> GeoFilters { get; private set; } = null!;
 
         /// <summary>
-        /// Actions that are valid for all resources regardless of any conditions. A `global_delivery_rule` block as defined below.
+        /// Actions that are valid for all resources regardless of any conditions. A `GlobalDeliveryRule` block as defined below.
         /// </summary>
         [Output("globalDeliveryRule")]
         public Output<Outputs.EndpointGlobalDeliveryRule?> GlobalDeliveryRule { get; private set; } = null!;
@@ -111,13 +111,13 @@ namespace Pulumi.Azure.Cdn
         public Output<bool?> IsCompressionEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if http allowed. Defaults to `true`.
+        /// Specifies if http allowed. Defaults to `True`.
         /// </summary>
         [Output("isHttpAllowed")]
         public Output<bool?> IsHttpAllowed { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if https allowed. Defaults to `true`.
+        /// Specifies if https allowed. Defaults to `True`.
         /// </summary>
         [Output("isHttpsAllowed")]
         public Output<bool?> IsHttpsAllowed { get; private set; } = null!;
@@ -153,15 +153,15 @@ namespace Pulumi.Azure.Cdn
         public Output<string?> OriginPath { get; private set; } = null!;
 
         /// <summary>
-        /// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
+        /// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `Origin` block supports fields documented below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("origins")]
         public Output<ImmutableArray<Outputs.EndpointOrigin>> Origins { get; private set; } = null!;
 
         /// <summary>
-        /// the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
+        /// the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `OriginPath`.
         /// 
-        /// &gt; **Note:** `global_delivery_rule` and `delivery_rule` are currently only available for `Microsoft_Standard` CDN profiles.
+        /// &gt; **Note:** `GlobalDeliveryRule` and `DeliveryRule` are currently only available for `Microsoft_Standard` CDN profiles.
         /// </summary>
         [Output("probePath")]
         public Output<string?> ProbePath { get; private set; } = null!;
@@ -252,7 +252,7 @@ namespace Pulumi.Azure.Cdn
         private InputList<Inputs.EndpointDeliveryRuleArgs>? _deliveryRules;
 
         /// <summary>
-        /// Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `delivery_rule` blocks as defined below.
+        /// Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `DeliveryRule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.EndpointDeliveryRuleArgs> DeliveryRules
         {
@@ -264,7 +264,7 @@ namespace Pulumi.Azure.Cdn
         private InputList<Inputs.EndpointGeoFilterArgs>? _geoFilters;
 
         /// <summary>
-        /// A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
+        /// A set of Geo Filters for this CDN Endpoint. Each `GeoFilter` block supports fields documented below.
         /// </summary>
         public InputList<Inputs.EndpointGeoFilterArgs> GeoFilters
         {
@@ -273,7 +273,7 @@ namespace Pulumi.Azure.Cdn
         }
 
         /// <summary>
-        /// Actions that are valid for all resources regardless of any conditions. A `global_delivery_rule` block as defined below.
+        /// Actions that are valid for all resources regardless of any conditions. A `GlobalDeliveryRule` block as defined below.
         /// </summary>
         [Input("globalDeliveryRule")]
         public Input<Inputs.EndpointGlobalDeliveryRuleArgs>? GlobalDeliveryRule { get; set; }
@@ -285,13 +285,13 @@ namespace Pulumi.Azure.Cdn
         public Input<bool>? IsCompressionEnabled { get; set; }
 
         /// <summary>
-        /// Specifies if http allowed. Defaults to `true`.
+        /// Specifies if http allowed. Defaults to `True`.
         /// </summary>
         [Input("isHttpAllowed")]
         public Input<bool>? IsHttpAllowed { get; set; }
 
         /// <summary>
-        /// Specifies if https allowed. Defaults to `true`.
+        /// Specifies if https allowed. Defaults to `True`.
         /// </summary>
         [Input("isHttpsAllowed")]
         public Input<bool>? IsHttpsAllowed { get; set; }
@@ -330,7 +330,7 @@ namespace Pulumi.Azure.Cdn
         private InputList<Inputs.EndpointOriginArgs>? _origins;
 
         /// <summary>
-        /// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
+        /// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `Origin` block supports fields documented below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.EndpointOriginArgs> Origins
         {
@@ -339,9 +339,9 @@ namespace Pulumi.Azure.Cdn
         }
 
         /// <summary>
-        /// the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
+        /// the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `OriginPath`.
         /// 
-        /// &gt; **Note:** `global_delivery_rule` and `delivery_rule` are currently only available for `Microsoft_Standard` CDN profiles.
+        /// &gt; **Note:** `GlobalDeliveryRule` and `DeliveryRule` are currently only available for `Microsoft_Standard` CDN profiles.
         /// </summary>
         [Input("probePath")]
         public Input<string>? ProbePath { get; set; }
@@ -400,7 +400,7 @@ namespace Pulumi.Azure.Cdn
         private InputList<Inputs.EndpointDeliveryRuleGetArgs>? _deliveryRules;
 
         /// <summary>
-        /// Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `delivery_rule` blocks as defined below.
+        /// Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `DeliveryRule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.EndpointDeliveryRuleGetArgs> DeliveryRules
         {
@@ -418,7 +418,7 @@ namespace Pulumi.Azure.Cdn
         private InputList<Inputs.EndpointGeoFilterGetArgs>? _geoFilters;
 
         /// <summary>
-        /// A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
+        /// A set of Geo Filters for this CDN Endpoint. Each `GeoFilter` block supports fields documented below.
         /// </summary>
         public InputList<Inputs.EndpointGeoFilterGetArgs> GeoFilters
         {
@@ -427,7 +427,7 @@ namespace Pulumi.Azure.Cdn
         }
 
         /// <summary>
-        /// Actions that are valid for all resources regardless of any conditions. A `global_delivery_rule` block as defined below.
+        /// Actions that are valid for all resources regardless of any conditions. A `GlobalDeliveryRule` block as defined below.
         /// </summary>
         [Input("globalDeliveryRule")]
         public Input<Inputs.EndpointGlobalDeliveryRuleGetArgs>? GlobalDeliveryRule { get; set; }
@@ -439,13 +439,13 @@ namespace Pulumi.Azure.Cdn
         public Input<bool>? IsCompressionEnabled { get; set; }
 
         /// <summary>
-        /// Specifies if http allowed. Defaults to `true`.
+        /// Specifies if http allowed. Defaults to `True`.
         /// </summary>
         [Input("isHttpAllowed")]
         public Input<bool>? IsHttpAllowed { get; set; }
 
         /// <summary>
-        /// Specifies if https allowed. Defaults to `true`.
+        /// Specifies if https allowed. Defaults to `True`.
         /// </summary>
         [Input("isHttpsAllowed")]
         public Input<bool>? IsHttpsAllowed { get; set; }
@@ -484,7 +484,7 @@ namespace Pulumi.Azure.Cdn
         private InputList<Inputs.EndpointOriginGetArgs>? _origins;
 
         /// <summary>
-        /// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
+        /// The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `Origin` block supports fields documented below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.EndpointOriginGetArgs> Origins
         {
@@ -493,9 +493,9 @@ namespace Pulumi.Azure.Cdn
         }
 
         /// <summary>
-        /// the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
+        /// the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `OriginPath`.
         /// 
-        /// &gt; **Note:** `global_delivery_rule` and `delivery_rule` are currently only available for `Microsoft_Standard` CDN profiles.
+        /// &gt; **Note:** `GlobalDeliveryRule` and `DeliveryRule` are currently only available for `Microsoft_Standard` CDN profiles.
         /// </summary>
         [Input("probePath")]
         public Input<string>? ProbePath { get; set; }

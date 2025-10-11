@@ -14,23 +14,23 @@ namespace Pulumi.Azure.Storage.Outputs
     public sealed class AccountBlobProperties
     {
         /// <summary>
-        /// Is the blob service properties for change feed events enabled? Default to `false`.
+        /// Is the blob service properties for change feed events enabled? Default to `False`.
         /// 
-        /// &gt; **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
+        /// &gt; **Note:** This field cannot be configured when `Kind` is set to `Storage` (V1).
         /// </summary>
         public readonly bool? ChangeFeedEnabled;
         /// <summary>
         /// The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
         /// 
-        /// &gt; **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
+        /// &gt; **Note:** This field cannot be configured when `Kind` is set to `Storage` (V1).
         /// </summary>
         public readonly int? ChangeFeedRetentionInDays;
         /// <summary>
-        /// A `container_delete_retention_policy` block as defined below.
+        /// A `ContainerDeleteRetentionPolicy` block as defined below.
         /// </summary>
         public readonly Outputs.AccountBlobPropertiesContainerDeleteRetentionPolicy? ContainerDeleteRetentionPolicy;
         /// <summary>
-        /// A `cors_rule` block as defined below.
+        /// A `CorsRule` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AccountBlobPropertiesCorsRule> CorsRules;
         /// <summary>
@@ -38,27 +38,27 @@ namespace Pulumi.Azure.Storage.Outputs
         /// </summary>
         public readonly string? DefaultServiceVersion;
         /// <summary>
-        /// A `delete_retention_policy` block as defined below.
+        /// A `DeleteRetentionPolicy` block as defined below.
         /// </summary>
         public readonly Outputs.AccountBlobPropertiesDeleteRetentionPolicy? DeleteRetentionPolicy;
         /// <summary>
-        /// Is the last access time based tracking enabled? Default to `false`.
+        /// Is the last access time based tracking enabled? Default to `False`.
         /// 
-        /// &gt; **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
+        /// &gt; **Note:** This field cannot be configured when `Kind` is set to `Storage` (V1).
         /// </summary>
         public readonly bool? LastAccessTimeEnabled;
         /// <summary>
-        /// A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set, `versioning_enabled` and `change_feed_enabled` set to `true`.
+        /// A `RestorePolicy` block as defined below. This must be used together with `DeleteRetentionPolicy` set, `VersioningEnabled` and `ChangeFeedEnabled` set to `True`.
         /// 
-        /// &gt; **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
+        /// &gt; **Note:** This field cannot be configured when `Kind` is set to `Storage` (V1).
         /// 
-        /// &gt; **Note:** `restore_policy` can not be configured when `dns_endpoint_type` is `AzureDnsZone`.
+        /// &gt; **Note:** `RestorePolicy` can not be configured when `DnsEndpointType` is `AzureDnsZone`.
         /// </summary>
         public readonly Outputs.AccountBlobPropertiesRestorePolicy? RestorePolicy;
         /// <summary>
-        /// Is versioning enabled? Default to `false`.
+        /// Is versioning enabled? Default to `False`.
         /// 
-        /// &gt; **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
+        /// &gt; **Note:** This field cannot be configured when `Kind` is set to `Storage` (V1).
         /// </summary>
         public readonly bool? VersioningEnabled;
 

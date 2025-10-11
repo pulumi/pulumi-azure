@@ -51,14 +51,14 @@ public final class VirtualNetworkGatewayPolicyGroupArgs extends com.pulumi.resou
     }
 
     /**
-     * One or more `policy_member` blocks as defined below.
+     * One or more `policyMember` blocks as defined below.
      * 
      */
     @Import(name="policyMembers", required=true)
     private Output<List<VirtualNetworkGatewayPolicyGroupPolicyMemberArgs>> policyMembers;
 
     /**
-     * @return One or more `policy_member` blocks as defined below.
+     * @return One or more `policyMember` blocks as defined below.
      * 
      */
     public Output<List<VirtualNetworkGatewayPolicyGroupPolicyMemberArgs>> policyMembers() {
@@ -150,7 +150,7 @@ public final class VirtualNetworkGatewayPolicyGroupArgs extends com.pulumi.resou
         }
 
         /**
-         * @param policyMembers One or more `policy_member` blocks as defined below.
+         * @param policyMembers One or more `policyMember` blocks as defined below.
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class VirtualNetworkGatewayPolicyGroupArgs extends com.pulumi.resou
         }
 
         /**
-         * @param policyMembers One or more `policy_member` blocks as defined below.
+         * @param policyMembers One or more `policyMember` blocks as defined below.
          * 
          * @return builder
          * 
@@ -171,7 +171,7 @@ public final class VirtualNetworkGatewayPolicyGroupArgs extends com.pulumi.resou
         }
 
         /**
-         * @param policyMembers One or more `policy_member` blocks as defined below.
+         * @param policyMembers One or more `policyMember` blocks as defined below.
          * 
          * @return builder
          * 

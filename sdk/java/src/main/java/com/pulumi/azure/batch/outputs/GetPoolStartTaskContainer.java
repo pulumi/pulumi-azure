@@ -18,7 +18,7 @@ public final class GetPoolStartTaskContainer {
      */
     private String imageName;
     /**
-     * @return The same reference as `container_registries` block defined as follows.
+     * @return The same reference as `containerRegistries` block defined as follows.
      * 
      */
     private List<GetPoolStartTaskContainerRegistry> registries;
@@ -42,7 +42,7 @@ public final class GetPoolStartTaskContainer {
         return this.imageName;
     }
     /**
-     * @return The same reference as `container_registries` block defined as follows.
+     * @return The same reference as `containerRegistries` block defined as follows.
      * 
      */
     public List<GetPoolStartTaskContainerRegistry> registries() {

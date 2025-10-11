@@ -109,7 +109,7 @@ namespace Pulumi.Azure.Automation
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Whether auto publish the Source Control. Defaults to `true`.
+        /// Whether auto publish the Source Control. Defaults to `True`.
         /// </summary>
         [Output("publishRunbookEnabled")]
         public Output<bool?> PublishRunbookEnabled { get; private set; } = null!;
@@ -121,7 +121,7 @@ namespace Pulumi.Azure.Automation
         public Output<string> RepositoryUrl { get; private set; } = null!;
 
         /// <summary>
-        /// A `security` block as defined below.
+        /// A `Security` block as defined below.
         /// </summary>
         [Output("security")]
         public Output<Outputs.SourceControlSecurity> Security { get; private set; } = null!;
@@ -215,7 +215,7 @@ namespace Pulumi.Azure.Automation
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether auto publish the Source Control. Defaults to `true`.
+        /// Whether auto publish the Source Control. Defaults to `True`.
         /// </summary>
         [Input("publishRunbookEnabled")]
         public Input<bool>? PublishRunbookEnabled { get; set; }
@@ -227,7 +227,7 @@ namespace Pulumi.Azure.Automation
         public Input<string> RepositoryUrl { get; set; } = null!;
 
         /// <summary>
-        /// A `security` block as defined below.
+        /// A `Security` block as defined below.
         /// </summary>
         [Input("security", required: true)]
         public Input<Inputs.SourceControlSecurityArgs> Security { get; set; } = null!;
@@ -283,7 +283,7 @@ namespace Pulumi.Azure.Automation
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether auto publish the Source Control. Defaults to `true`.
+        /// Whether auto publish the Source Control. Defaults to `True`.
         /// </summary>
         [Input("publishRunbookEnabled")]
         public Input<bool>? PublishRunbookEnabled { get; set; }
@@ -295,7 +295,7 @@ namespace Pulumi.Azure.Automation
         public Input<string>? RepositoryUrl { get; set; }
 
         /// <summary>
-        /// A `security` block as defined below.
+        /// A `Security` block as defined below.
         /// </summary>
         [Input("security")]
         public Input<Inputs.SourceControlSecurityGetArgs>? Security { get; set; }

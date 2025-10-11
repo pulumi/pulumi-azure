@@ -37,7 +37,7 @@ public final class LinuxVirtualMachineScaleSetRollingUpgradePolicy {
     /**
      * @return Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` or `false`.
      * 
-     * &gt; **Note:** `overprovision` must be set to `false` when `maximum_surge_instances_enabled` is specified.
+     * &gt; **Note:** `overprovision` must be set to `false` when `maximumSurgeInstancesEnabled` is specified.
      * 
      */
     private @Nullable Boolean maximumSurgeInstancesEnabled;
@@ -84,7 +84,7 @@ public final class LinuxVirtualMachineScaleSetRollingUpgradePolicy {
     /**
      * @return Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` or `false`.
      * 
-     * &gt; **Note:** `overprovision` must be set to `false` when `maximum_surge_instances_enabled` is specified.
+     * &gt; **Note:** `overprovision` must be set to `false` when `maximumSurgeInstancesEnabled` is specified.
      * 
      */
     public Optional<Boolean> maximumSurgeInstancesEnabled() {

@@ -14,11 +14,11 @@ namespace Pulumi.Azure.ServiceFabric.Outputs
     public sealed class ManagedClusterAuthentication
     {
         /// <summary>
-        /// A `active_directory` block as defined above.
+        /// A `ActiveDirectory` block as defined above.
         /// </summary>
         public readonly Outputs.ManagedClusterAuthenticationActiveDirectory? ActiveDirectory;
         /// <summary>
-        /// One or more `certificate` blocks as defined below.
+        /// One or more `Certificate` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.ManagedClusterAuthenticationCertificate> Certificates;
 

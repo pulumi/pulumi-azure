@@ -78,14 +78,14 @@ public final class SqlPoolExtendedAuditingPolicyState extends com.pulumi.resourc
     }
 
     /**
-     * Is `storage_account_access_key` value the storage&#39;s secondary key?
+     * Is `storageAccountAccessKey` value the storage&#39;s secondary key?
      * 
      */
     @Import(name="storageAccountAccessKeyIsSecondary")
     private @Nullable Output<Boolean> storageAccountAccessKeyIsSecondary;
 
     /**
-     * @return Is `storage_account_access_key` value the storage&#39;s secondary key?
+     * @return Is `storageAccountAccessKey` value the storage&#39;s secondary key?
      * 
      */
     public Optional<Output<Boolean>> storageAccountAccessKeyIsSecondary() {
@@ -221,7 +221,7 @@ public final class SqlPoolExtendedAuditingPolicyState extends com.pulumi.resourc
         }
 
         /**
-         * @param storageAccountAccessKeyIsSecondary Is `storage_account_access_key` value the storage&#39;s secondary key?
+         * @param storageAccountAccessKeyIsSecondary Is `storageAccountAccessKey` value the storage&#39;s secondary key?
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class SqlPoolExtendedAuditingPolicyState extends com.pulumi.resourc
         }
 
         /**
-         * @param storageAccountAccessKeyIsSecondary Is `storage_account_access_key` value the storage&#39;s secondary key?
+         * @param storageAccountAccessKeyIsSecondary Is `storageAccountAccessKey` value the storage&#39;s secondary key?
          * 
          * @return builder
          * 

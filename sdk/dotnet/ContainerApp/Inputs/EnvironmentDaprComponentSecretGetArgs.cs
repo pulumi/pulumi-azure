@@ -19,7 +19,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         public Input<string>? Identity { get; set; }
 
         /// <summary>
-        /// The Key Vault Secret ID. Could be either one of `id` or `versionless_id`.
+        /// The Key Vault Secret ID. Could be either one of `Id` or `VersionlessId`.
         /// </summary>
         [Input("keyVaultSecretId")]
         public Input<string>? KeyVaultSecretId { get; set; }

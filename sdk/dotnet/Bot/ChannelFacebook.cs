@@ -97,7 +97,7 @@ namespace Pulumi.Azure.Bot
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `page` blocks as defined below.
+        /// One or more `Page` blocks as defined below.
         /// </summary>
         [Output("pages")]
         public Output<ImmutableArray<Outputs.ChannelFacebookPage>> Pages { get; private set; } = null!;
@@ -196,7 +196,7 @@ namespace Pulumi.Azure.Bot
         private InputList<Inputs.ChannelFacebookPageArgs>? _pages;
 
         /// <summary>
-        /// One or more `page` blocks as defined below.
+        /// One or more `Page` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ChannelFacebookPageArgs> Pages
         {
@@ -256,7 +256,7 @@ namespace Pulumi.Azure.Bot
         private InputList<Inputs.ChannelFacebookPageGetArgs>? _pages;
 
         /// <summary>
-        /// One or more `page` blocks as defined below.
+        /// One or more `Page` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ChannelFacebookPageGetArgs> Pages
         {

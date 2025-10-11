@@ -17,14 +17,14 @@ public final class PoolMountAzureBlobFileSystemArgs extends com.pulumi.resources
     public static final PoolMountAzureBlobFileSystemArgs Empty = new PoolMountAzureBlobFileSystemArgs();
 
     /**
-     * The Azure Storage Account key. This property is mutually exclusive with both `sas_key` and `identity_id`; exactly one must be specified.
+     * The Azure Storage Account key. This property is mutually exclusive with both `sasKey` and `identityId`; exactly one must be specified.
      * 
      */
     @Import(name="accountKey")
     private @Nullable Output<String> accountKey;
 
     /**
-     * @return The Azure Storage Account key. This property is mutually exclusive with both `sas_key` and `identity_id`; exactly one must be specified.
+     * @return The Azure Storage Account key. This property is mutually exclusive with both `sasKey` and `identityId`; exactly one must be specified.
      * 
      */
     public Optional<Output<String>> accountKey() {
@@ -77,14 +77,14 @@ public final class PoolMountAzureBlobFileSystemArgs extends com.pulumi.resources
     }
 
     /**
-     * The ARM resource id of the user assigned identity. This property is mutually exclusive with both `account_key` and `sas_key`; exactly one must be specified.
+     * The ARM resource id of the user assigned identity. This property is mutually exclusive with both `accountKey` and `sasKey`; exactly one must be specified.
      * 
      */
     @Import(name="identityId")
     private @Nullable Output<String> identityId;
 
     /**
-     * @return The ARM resource id of the user assigned identity. This property is mutually exclusive with both `account_key` and `sas_key`; exactly one must be specified.
+     * @return The ARM resource id of the user assigned identity. This property is mutually exclusive with both `accountKey` and `sasKey`; exactly one must be specified.
      * 
      */
     public Optional<Output<String>> identityId() {
@@ -107,14 +107,14 @@ public final class PoolMountAzureBlobFileSystemArgs extends com.pulumi.resources
     }
 
     /**
-     * The Azure Storage SAS token. This property is mutually exclusive with both `account_key` and `identity_id`; exactly one must be specified.
+     * The Azure Storage SAS token. This property is mutually exclusive with both `accountKey` and `identityId`; exactly one must be specified.
      * 
      */
     @Import(name="sasKey")
     private @Nullable Output<String> sasKey;
 
     /**
-     * @return The Azure Storage SAS token. This property is mutually exclusive with both `account_key` and `identity_id`; exactly one must be specified.
+     * @return The Azure Storage SAS token. This property is mutually exclusive with both `accountKey` and `identityId`; exactly one must be specified.
      * 
      */
     public Optional<Output<String>> sasKey() {
@@ -152,7 +152,7 @@ public final class PoolMountAzureBlobFileSystemArgs extends com.pulumi.resources
         }
 
         /**
-         * @param accountKey The Azure Storage Account key. This property is mutually exclusive with both `sas_key` and `identity_id`; exactly one must be specified.
+         * @param accountKey The Azure Storage Account key. This property is mutually exclusive with both `sasKey` and `identityId`; exactly one must be specified.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class PoolMountAzureBlobFileSystemArgs extends com.pulumi.resources
         }
 
         /**
-         * @param accountKey The Azure Storage Account key. This property is mutually exclusive with both `sas_key` and `identity_id`; exactly one must be specified.
+         * @param accountKey The Azure Storage Account key. This property is mutually exclusive with both `sasKey` and `identityId`; exactly one must be specified.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class PoolMountAzureBlobFileSystemArgs extends com.pulumi.resources
         }
 
         /**
-         * @param identityId The ARM resource id of the user assigned identity. This property is mutually exclusive with both `account_key` and `sas_key`; exactly one must be specified.
+         * @param identityId The ARM resource id of the user assigned identity. This property is mutually exclusive with both `accountKey` and `sasKey`; exactly one must be specified.
          * 
          * @return builder
          * 
@@ -247,7 +247,7 @@ public final class PoolMountAzureBlobFileSystemArgs extends com.pulumi.resources
         }
 
         /**
-         * @param identityId The ARM resource id of the user assigned identity. This property is mutually exclusive with both `account_key` and `sas_key`; exactly one must be specified.
+         * @param identityId The ARM resource id of the user assigned identity. This property is mutually exclusive with both `accountKey` and `sasKey`; exactly one must be specified.
          * 
          * @return builder
          * 
@@ -278,7 +278,7 @@ public final class PoolMountAzureBlobFileSystemArgs extends com.pulumi.resources
         }
 
         /**
-         * @param sasKey The Azure Storage SAS token. This property is mutually exclusive with both `account_key` and `identity_id`; exactly one must be specified.
+         * @param sasKey The Azure Storage SAS token. This property is mutually exclusive with both `accountKey` and `identityId`; exactly one must be specified.
          * 
          * @return builder
          * 
@@ -289,7 +289,7 @@ public final class PoolMountAzureBlobFileSystemArgs extends com.pulumi.resources
         }
 
         /**
-         * @param sasKey The Azure Storage SAS token. This property is mutually exclusive with both `account_key` and `identity_id`; exactly one must be specified.
+         * @param sasKey The Azure Storage SAS token. This property is mutually exclusive with both `accountKey` and `identityId`; exactly one must be specified.
          * 
          * @return builder
          * 

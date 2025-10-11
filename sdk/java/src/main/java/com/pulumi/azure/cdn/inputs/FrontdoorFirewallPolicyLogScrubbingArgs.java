@@ -34,7 +34,7 @@ public final class FrontdoorFirewallPolicyLogScrubbingArgs extends com.pulumi.re
     }
 
     /**
-     * One or more `scrubbing_rule` blocks as defined below.
+     * One or more `scrubbingRule` blocks as defined below.
      * 
      * &gt; **Note:** For more information on masking sensitive data in Azure Front Door please see the [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-sensitive-data-protection-configure-frontdoor).
      * 
@@ -43,7 +43,7 @@ public final class FrontdoorFirewallPolicyLogScrubbingArgs extends com.pulumi.re
     private Output<List<FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArgs>> scrubbingRules;
 
     /**
-     * @return One or more `scrubbing_rule` blocks as defined below.
+     * @return One or more `scrubbingRule` blocks as defined below.
      * 
      * &gt; **Note:** For more information on masking sensitive data in Azure Front Door please see the [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-sensitive-data-protection-configure-frontdoor).
      * 
@@ -99,7 +99,7 @@ public final class FrontdoorFirewallPolicyLogScrubbingArgs extends com.pulumi.re
         }
 
         /**
-         * @param scrubbingRules One or more `scrubbing_rule` blocks as defined below.
+         * @param scrubbingRules One or more `scrubbingRule` blocks as defined below.
          * 
          * &gt; **Note:** For more information on masking sensitive data in Azure Front Door please see the [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-sensitive-data-protection-configure-frontdoor).
          * 
@@ -112,7 +112,7 @@ public final class FrontdoorFirewallPolicyLogScrubbingArgs extends com.pulumi.re
         }
 
         /**
-         * @param scrubbingRules One or more `scrubbing_rule` blocks as defined below.
+         * @param scrubbingRules One or more `scrubbingRule` blocks as defined below.
          * 
          * &gt; **Note:** For more information on masking sensitive data in Azure Front Door please see the [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-sensitive-data-protection-configure-frontdoor).
          * 
@@ -124,7 +124,7 @@ public final class FrontdoorFirewallPolicyLogScrubbingArgs extends com.pulumi.re
         }
 
         /**
-         * @param scrubbingRules One or more `scrubbing_rule` blocks as defined below.
+         * @param scrubbingRules One or more `scrubbingRule` blocks as defined below.
          * 
          * &gt; **Note:** For more information on masking sensitive data in Azure Front Door please see the [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-sensitive-data-protection-configure-frontdoor).
          * 

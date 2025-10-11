@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? DefaultBackendAddressPoolId;
         /// <summary>
-        /// The Name of the Default Backend Address Pool which should be used for this URL Path Map. Cannot be set if `default_redirect_configuration_name` is set.
+        /// The Name of the Default Backend Address Pool which should be used for this URL Path Map. Cannot be set if `DefaultRedirectConfigurationName` is set.
         /// </summary>
         public readonly string? DefaultBackendAddressPoolName;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? DefaultBackendHttpSettingsId;
         /// <summary>
-        /// The Name of the Default Backend HTTP Settings Collection which should be used for this URL Path Map. Cannot be set if `default_redirect_configuration_name` is set.
+        /// The Name of the Default Backend HTTP Settings Collection which should be used for this URL Path Map. Cannot be set if `DefaultRedirectConfigurationName` is set.
         /// </summary>
         public readonly string? DefaultBackendHttpSettingsName;
         /// <summary>
@@ -34,9 +34,9 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? DefaultRedirectConfigurationId;
         /// <summary>
-        /// The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either `default_backend_address_pool_name` or `default_backend_http_settings_name` is set.
+        /// The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either `DefaultBackendAddressPoolName` or `DefaultBackendHttpSettingsName` is set.
         /// 
-        /// &gt; **Note:** Both `default_backend_address_pool_name` and `default_backend_http_settings_name` or `default_redirect_configuration_name` should be specified.
+        /// &gt; **Note:** Both `DefaultBackendAddressPoolName` and `DefaultBackendHttpSettingsName` or `DefaultRedirectConfigurationName` should be specified.
         /// </summary>
         public readonly string? DefaultRedirectConfigurationName;
         public readonly string? DefaultRewriteRuleSetId;
@@ -53,7 +53,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// One or more `path_rule` blocks as defined above.
+        /// One or more `PathRule` blocks as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationGatewayUrlPathMapPathRule> PathRules;
 

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Waf.Outputs
     public sealed class PolicyManagedRulesExclusionExcludedRuleSet
     {
         /// <summary>
-        /// One or more `rule_group` block defined below.
+        /// One or more `RuleGroup` block defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.PolicyManagedRulesExclusionExcludedRuleSetRuleGroup> RuleGroups;
         /// <summary>

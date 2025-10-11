@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class KubernetesClusterKeyVaultSecretsProvider {
     /**
-     * @return An `secret_identity` block is exported. The exported attributes are defined below.
+     * @return An `secretIdentity` block is exported. The exported attributes are defined below.
      * 
      */
     private @Nullable List<KubernetesClusterKeyVaultSecretsProviderSecretIdentity> secretIdentities;
@@ -25,16 +25,16 @@ public final class KubernetesClusterKeyVaultSecretsProvider {
      */
     private @Nullable Boolean secretRotationEnabled;
     /**
-     * @return The interval to poll for secret rotation. This attribute is only set when `secret_rotation_enabled` is true. Defaults to `2m`.
+     * @return The interval to poll for secret rotation. This attribute is only set when `secretRotationEnabled` is true. Defaults to `2m`.
      * 
-     * &gt; **Note:** To enable`key_vault_secrets_provider` either `secret_rotation_enabled` or `secret_rotation_interval` must be specified.
+     * &gt; **Note:** To enable`keyVaultSecretsProvider` either `secretRotationEnabled` or `secretRotationInterval` must be specified.
      * 
      */
     private @Nullable String secretRotationInterval;
 
     private KubernetesClusterKeyVaultSecretsProvider() {}
     /**
-     * @return An `secret_identity` block is exported. The exported attributes are defined below.
+     * @return An `secretIdentity` block is exported. The exported attributes are defined below.
      * 
      */
     public List<KubernetesClusterKeyVaultSecretsProviderSecretIdentity> secretIdentities() {
@@ -48,9 +48,9 @@ public final class KubernetesClusterKeyVaultSecretsProvider {
         return Optional.ofNullable(this.secretRotationEnabled);
     }
     /**
-     * @return The interval to poll for secret rotation. This attribute is only set when `secret_rotation_enabled` is true. Defaults to `2m`.
+     * @return The interval to poll for secret rotation. This attribute is only set when `secretRotationEnabled` is true. Defaults to `2m`.
      * 
-     * &gt; **Note:** To enable`key_vault_secrets_provider` either `secret_rotation_enabled` or `secret_rotation_interval` must be specified.
+     * &gt; **Note:** To enable`keyVaultSecretsProvider` either `secretRotationEnabled` or `secretRotationInterval` must be specified.
      * 
      */
     public Optional<String> secretRotationInterval() {

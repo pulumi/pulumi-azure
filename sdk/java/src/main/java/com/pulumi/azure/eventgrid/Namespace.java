@@ -113,14 +113,14 @@ public class Namespace extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.identity);
     }
     /**
-     * One or more `inbound_ip_rule` blocks as defined below.
+     * One or more `inboundIpRule` blocks as defined below.
      * 
      */
     @Export(name="inboundIpRules", refs={List.class,NamespaceInboundIpRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<NamespaceInboundIpRule>> inboundIpRules;
 
     /**
-     * @return One or more `inbound_ip_rule` blocks as defined below.
+     * @return One or more `inboundIpRule` blocks as defined below.
      * 
      */
     public Output<Optional<List<NamespaceInboundIpRule>>> inboundIpRules() {
@@ -211,14 +211,14 @@ public class Namespace extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A `topic_spaces_configuration` block as defined below.
+     * A `topicSpacesConfiguration` block as defined below.
      * 
      */
     @Export(name="topicSpacesConfigurations", refs={List.class,NamespaceTopicSpacesConfiguration.class}, tree="[0,1]")
     private Output</* @Nullable */ List<NamespaceTopicSpacesConfiguration>> topicSpacesConfigurations;
 
     /**
-     * @return A `topic_spaces_configuration` block as defined below.
+     * @return A `topicSpacesConfiguration` block as defined below.
      * 
      */
     public Output<Optional<List<NamespaceTopicSpacesConfiguration>>> topicSpacesConfigurations() {

@@ -109,6 +109,15 @@ def get_registry_cache_rule(container_registry_id: Optional[_builtins.str] = Non
     """
     Use this data source to access information about an existing Container Registry Cache Rule.
 
+    ## Example Usage
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ContainerRegistry` - 2023-07-01
+
 
     :param _builtins.str container_registry_id: The ID of the container registry where the cache rule should apply. Changing this forces a new resource to be created.
     :param _builtins.str name: Specifies the name of the Container Registry Cache Rule. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
@@ -131,6 +140,15 @@ def get_registry_cache_rule_output(container_registry_id: Optional[pulumi.Input[
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegistryCacheRuleResult]:
     """
     Use this data source to access information about an existing Container Registry Cache Rule.
+
+    ## Example Usage
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ContainerRegistry` - 2023-07-01
 
 
     :param _builtins.str container_registry_id: The ID of the container registry where the cache rule should apply. Changing this forces a new resource to be created.

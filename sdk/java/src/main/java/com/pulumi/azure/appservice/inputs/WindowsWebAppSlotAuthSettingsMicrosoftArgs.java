@@ -33,14 +33,14 @@ public final class WindowsWebAppSlotAuthSettingsMicrosoftArgs extends com.pulumi
     }
 
     /**
-     * The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret_setting_name`.
+     * The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `clientSecretSettingName`.
      * 
      */
     @Import(name="clientSecret")
     private @Nullable Output<String> clientSecret;
 
     /**
-     * @return The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret_setting_name`.
+     * @return The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `clientSecretSettingName`.
      * 
      */
     public Optional<Output<String>> clientSecret() {
@@ -48,14 +48,14 @@ public final class WindowsWebAppSlotAuthSettingsMicrosoftArgs extends com.pulumi
     }
 
     /**
-     * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret`.
+     * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `clientSecret`.
      * 
      */
     @Import(name="clientSecretSettingName")
     private @Nullable Output<String> clientSecretSettingName;
 
     /**
-     * @return The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret`.
+     * @return The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `clientSecret`.
      * 
      */
     public Optional<Output<String>> clientSecretSettingName() {
@@ -126,7 +126,7 @@ public final class WindowsWebAppSlotAuthSettingsMicrosoftArgs extends com.pulumi
         }
 
         /**
-         * @param clientSecret The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret_setting_name`.
+         * @param clientSecret The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `clientSecretSettingName`.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class WindowsWebAppSlotAuthSettingsMicrosoftArgs extends com.pulumi
         }
 
         /**
-         * @param clientSecret The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret_setting_name`.
+         * @param clientSecret The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `clientSecretSettingName`.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class WindowsWebAppSlotAuthSettingsMicrosoftArgs extends com.pulumi
         }
 
         /**
-         * @param clientSecretSettingName The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret`.
+         * @param clientSecretSettingName The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `clientSecret`.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class WindowsWebAppSlotAuthSettingsMicrosoftArgs extends com.pulumi
         }
 
         /**
-         * @param clientSecretSettingName The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret`.
+         * @param clientSecretSettingName The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `clientSecret`.
          * 
          * @return builder
          * 

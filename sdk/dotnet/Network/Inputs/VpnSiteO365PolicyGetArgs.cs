@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Network.Inputs
     public sealed class VpnSiteO365PolicyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `traffic_category` block as defined above.
+        /// A `TrafficCategory` block as defined above.
         /// </summary>
         [Input("trafficCategory")]
         public Input<Inputs.VpnSiteO365PolicyTrafficCategoryGetArgs>? TrafficCategory { get; set; }

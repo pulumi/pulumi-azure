@@ -97,7 +97,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> SchemaId { get; private set; } = null!;
 
         /// <summary>
-        /// The content type of the Schema. Possible values are `xml` and `json`.
+        /// The content type of the Schema. Possible values are `Xml` and `Json`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -179,7 +179,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string> SchemaId { get; set; } = null!;
 
         /// <summary>
-        /// The content type of the Schema. Possible values are `xml` and `json`.
+        /// The content type of the Schema. Possible values are `Xml` and `Json`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -223,7 +223,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? SchemaId { get; set; }
 
         /// <summary>
-        /// The content type of the Schema. Possible values are `xml` and `json`.
+        /// The content type of the Schema. Possible values are `Xml` and `Json`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

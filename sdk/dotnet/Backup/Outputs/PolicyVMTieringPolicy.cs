@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Backup.Outputs
     public sealed class PolicyVMTieringPolicy
     {
         /// <summary>
-        /// An `archived_restore_point` block as defined below.
+        /// An `ArchivedRestorePoint` block as defined below.
         /// </summary>
         public readonly Outputs.PolicyVMTieringPolicyArchivedRestorePoint ArchivedRestorePoint;
 

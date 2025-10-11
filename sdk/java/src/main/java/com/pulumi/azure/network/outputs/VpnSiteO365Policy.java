@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VpnSiteO365Policy {
     /**
-     * @return A `traffic_category` block as defined above.
+     * @return A `trafficCategory` block as defined above.
      * 
      */
     private @Nullable VpnSiteO365PolicyTrafficCategory trafficCategory;
 
     private VpnSiteO365Policy() {}
     /**
-     * @return A `traffic_category` block as defined above.
+     * @return A `trafficCategory` block as defined above.
      * 
      */
     public Optional<VpnSiteO365PolicyTrafficCategory> trafficCategory() {

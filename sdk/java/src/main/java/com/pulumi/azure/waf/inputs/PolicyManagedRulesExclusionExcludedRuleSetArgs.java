@@ -18,14 +18,14 @@ public final class PolicyManagedRulesExclusionExcludedRuleSetArgs extends com.pu
     public static final PolicyManagedRulesExclusionExcludedRuleSetArgs Empty = new PolicyManagedRulesExclusionExcludedRuleSetArgs();
 
     /**
-     * One or more `rule_group` block defined below.
+     * One or more `ruleGroup` block defined below.
      * 
      */
     @Import(name="ruleGroups")
     private @Nullable Output<List<PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArgs>> ruleGroups;
 
     /**
-     * @return One or more `rule_group` block defined below.
+     * @return One or more `ruleGroup` block defined below.
      * 
      */
     public Optional<Output<List<PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArgs>>> ruleGroups() {
@@ -89,7 +89,7 @@ public final class PolicyManagedRulesExclusionExcludedRuleSetArgs extends com.pu
         }
 
         /**
-         * @param ruleGroups One or more `rule_group` block defined below.
+         * @param ruleGroups One or more `ruleGroup` block defined below.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class PolicyManagedRulesExclusionExcludedRuleSetArgs extends com.pu
         }
 
         /**
-         * @param ruleGroups One or more `rule_group` block defined below.
+         * @param ruleGroups One or more `ruleGroup` block defined below.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class PolicyManagedRulesExclusionExcludedRuleSetArgs extends com.pu
         }
 
         /**
-         * @param ruleGroups One or more `rule_group` block defined below.
+         * @param ruleGroups One or more `ruleGroup` block defined below.
          * 
          * @return builder
          * 

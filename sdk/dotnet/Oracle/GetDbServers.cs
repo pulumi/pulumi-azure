@@ -167,7 +167,7 @@ namespace Pulumi.Azure.Oracle
     {
         public readonly string CloudExadataInfrastructureName;
         /// <summary>
-        /// A `db_servers` block as defined below.
+        /// A `DbServers` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDbServersDbServerResult> DbServers;
         /// <summary>

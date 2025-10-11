@@ -97,7 +97,7 @@ namespace Pulumi.Azure.KeyVault
     public partial class CertificateContacts : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// One or more `contact` blocks as defined below.
+        /// One or more `Contact` blocks as defined below.
         /// </summary>
         [Output("contacts")]
         public Output<ImmutableArray<Outputs.CertificateContactsContact>> Contacts { get; private set; } = null!;
@@ -158,7 +158,7 @@ namespace Pulumi.Azure.KeyVault
         private InputList<Inputs.CertificateContactsContactArgs>? _contacts;
 
         /// <summary>
-        /// One or more `contact` blocks as defined below.
+        /// One or more `Contact` blocks as defined below.
         /// </summary>
         public InputList<Inputs.CertificateContactsContactArgs> Contacts
         {
@@ -184,7 +184,7 @@ namespace Pulumi.Azure.KeyVault
         private InputList<Inputs.CertificateContactsContactGetArgs>? _contacts;
 
         /// <summary>
-        /// One or more `contact` blocks as defined below.
+        /// One or more `Contact` blocks as defined below.
         /// </summary>
         public InputList<Inputs.CertificateContactsContactGetArgs> Contacts
         {

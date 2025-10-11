@@ -177,7 +177,7 @@ namespace Pulumi.Azure.FrontDoor
     public partial class RulesEngine : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Whether this Rules engine configuration is enabled? Defaults to `true`.
+        /// Whether this Rules engine configuration is enabled? Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -204,7 +204,7 @@ namespace Pulumi.Azure.FrontDoor
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `rule` block as defined below.
+        /// A `Rule` block as defined below.
         /// </summary>
         [Output("rules")]
         public Output<ImmutableArray<Outputs.RulesEngineRule>> Rules { get; private set; } = null!;
@@ -256,7 +256,7 @@ namespace Pulumi.Azure.FrontDoor
     public sealed class RulesEngineArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether this Rules engine configuration is enabled? Defaults to `true`.
+        /// Whether this Rules engine configuration is enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -283,7 +283,7 @@ namespace Pulumi.Azure.FrontDoor
         private InputList<Inputs.RulesEngineRuleArgs>? _rules;
 
         /// <summary>
-        /// A `rule` block as defined below.
+        /// A `Rule` block as defined below.
         /// </summary>
         public InputList<Inputs.RulesEngineRuleArgs> Rules
         {
@@ -300,7 +300,7 @@ namespace Pulumi.Azure.FrontDoor
     public sealed class RulesEngineState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether this Rules engine configuration is enabled? Defaults to `true`.
+        /// Whether this Rules engine configuration is enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -330,7 +330,7 @@ namespace Pulumi.Azure.FrontDoor
         private InputList<Inputs.RulesEngineRuleGetArgs>? _rules;
 
         /// <summary>
-        /// A `rule` block as defined below.
+        /// A `Rule` block as defined below.
         /// </summary>
         public InputList<Inputs.RulesEngineRuleGetArgs> Rules
         {

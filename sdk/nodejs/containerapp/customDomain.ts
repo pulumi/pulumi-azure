@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Manages a Container App Custom Domain.
  *
+ * ## Example Usage
+ *
  * ### Managed Certificate
  *
  * ```typescript

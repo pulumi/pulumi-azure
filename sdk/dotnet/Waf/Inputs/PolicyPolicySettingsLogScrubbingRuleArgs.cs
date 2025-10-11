@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Waf.Inputs
     public sealed class PolicyPolicySettingsLogScrubbingRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Describes if the managed rule is in enabled state or disabled state. Defaults to `false`.
+        /// Describes if the managed rule is in enabled state or disabled state. Defaults to `False`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

@@ -20,6 +20,15 @@ import javax.annotation.Nullable;
 /**
  * Manages an Azure Stack HCI Network Interface.
  * 
+ * ## Example Usage
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.AzureStackHCI` - 2024-01-01
+ * 
  * ## Import
  * 
  * Azure Stack HCI Network Interfaces can be imported using the `resource id`, e.g.
@@ -60,14 +69,14 @@ public class HciNetworkInterface extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dnsServers);
     }
     /**
-     * An `ip_configuration` block as defined below. Changing this forces a new resource to be created.
+     * An `ipConfiguration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="ipConfiguration", refs={HciNetworkInterfaceIpConfiguration.class}, tree="[0]")
     private Output<HciNetworkInterfaceIpConfiguration> ipConfiguration;
 
     /**
-     * @return An `ip_configuration` block as defined below. Changing this forces a new resource to be created.
+     * @return An `ipConfiguration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<HciNetworkInterfaceIpConfiguration> ipConfiguration() {
@@ -90,7 +99,7 @@ public class HciNetworkInterface extends com.pulumi.resources.CustomResource {
     /**
      * The MAC address of the Network Interface. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** If `mac_address` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignore_changes`.
+     * &gt; **Note:** If `macAddress` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignoreChanges`.
      * 
      */
     @Export(name="macAddress", refs={String.class}, tree="[0]")
@@ -99,7 +108,7 @@ public class HciNetworkInterface extends com.pulumi.resources.CustomResource {
     /**
      * @return The MAC address of the Network Interface. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** If `mac_address` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignore_changes`.
+     * &gt; **Note:** If `macAddress` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignoreChanges`.
      * 
      */
     public Output<Optional<String>> macAddress() {

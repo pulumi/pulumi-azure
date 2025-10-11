@@ -14,6 +14,15 @@ namespace Pulumi.Azure.PrivateDns
     /// 
     /// &gt; **Note:** Private Link is now in [GA](https://docs.microsoft.com/en-gb/azure/private-link/).
     /// 
+    /// ## Example Usage
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Network` - 2024-05-01
+    /// 
     /// ## Import
     /// 
     /// Private Link Services can be imported using the `resource id`, e.g.
@@ -74,7 +83,7 @@ namespace Pulumi.Azure.PrivateDns
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// One or more (up to 8) `nat_ip_configuration` block as defined below.
+        /// One or more (up to 8) `NatIpConfiguration` block as defined below.
         /// </summary>
         [Output("natIpConfigurations")]
         public Output<ImmutableArray<Outputs.LinkServiceNatIpConfiguration>> NatIpConfigurations { get; private set; } = null!;
@@ -209,7 +218,7 @@ namespace Pulumi.Azure.PrivateDns
         private InputList<Inputs.LinkServiceNatIpConfigurationArgs>? _natIpConfigurations;
 
         /// <summary>
-        /// One or more (up to 8) `nat_ip_configuration` block as defined below.
+        /// One or more (up to 8) `NatIpConfiguration` block as defined below.
         /// </summary>
         public InputList<Inputs.LinkServiceNatIpConfigurationArgs> NatIpConfigurations
         {
@@ -327,7 +336,7 @@ namespace Pulumi.Azure.PrivateDns
         private InputList<Inputs.LinkServiceNatIpConfigurationGetArgs>? _natIpConfigurations;
 
         /// <summary>
-        /// One or more (up to 8) `nat_ip_configuration` block as defined below.
+        /// One or more (up to 8) `NatIpConfiguration` block as defined below.
         /// </summary>
         public InputList<Inputs.LinkServiceNatIpConfigurationGetArgs> NatIpConfigurations
         {

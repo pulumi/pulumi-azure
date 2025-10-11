@@ -9,6 +9,15 @@ import * as utilities from "../utilities";
 /**
  * Manages Dynatrace tag rules.
  *
+ * ## Example Usage
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Dynatrace.Observability` - 2023-04-27
+ *
  * ## Import
  *
  * Dynatrace tag rules can be imported using the `resource id`, e.g.

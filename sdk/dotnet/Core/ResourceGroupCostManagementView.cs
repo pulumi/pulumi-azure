@@ -103,7 +103,7 @@ namespace Pulumi.Azure.Core
         public Output<string> ChartType { get; private set; } = null!;
 
         /// <summary>
-        /// A `dataset` block as defined below.
+        /// A `Dataset` block as defined below.
         /// </summary>
         [Output("dataset")]
         public Output<Outputs.ResourceGroupCostManagementViewDataset> Dataset { get; private set; } = null!;
@@ -115,7 +115,7 @@ namespace Pulumi.Azure.Core
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `kpi` blocks as defined below, to show in Cost Analysis UI.
+        /// One or more `Kpi` blocks as defined below, to show in Cost Analysis UI.
         /// </summary>
         [Output("kpis")]
         public Output<ImmutableArray<Outputs.ResourceGroupCostManagementViewKpi>> Kpis { get; private set; } = null!;
@@ -127,7 +127,7 @@ namespace Pulumi.Azure.Core
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `pivot` blocks as defined below, containing the configuration of 3 sub-views in the Cost Analysis UI. Non table views should have three pivots.
+        /// One or more `Pivot` blocks as defined below, containing the configuration of 3 sub-views in the Cost Analysis UI. Non table views should have three pivots.
         /// </summary>
         [Output("pivots")]
         public Output<ImmutableArray<Outputs.ResourceGroupCostManagementViewPivot>> Pivots { get; private set; } = null!;
@@ -209,7 +209,7 @@ namespace Pulumi.Azure.Core
         public Input<string> ChartType { get; set; } = null!;
 
         /// <summary>
-        /// A `dataset` block as defined below.
+        /// A `Dataset` block as defined below.
         /// </summary>
         [Input("dataset", required: true)]
         public Input<Inputs.ResourceGroupCostManagementViewDatasetArgs> Dataset { get; set; } = null!;
@@ -224,7 +224,7 @@ namespace Pulumi.Azure.Core
         private InputList<Inputs.ResourceGroupCostManagementViewKpiArgs>? _kpis;
 
         /// <summary>
-        /// One or more `kpi` blocks as defined below, to show in Cost Analysis UI.
+        /// One or more `Kpi` blocks as defined below, to show in Cost Analysis UI.
         /// </summary>
         public InputList<Inputs.ResourceGroupCostManagementViewKpiArgs> Kpis
         {
@@ -242,7 +242,7 @@ namespace Pulumi.Azure.Core
         private InputList<Inputs.ResourceGroupCostManagementViewPivotArgs>? _pivots;
 
         /// <summary>
-        /// One or more `pivot` blocks as defined below, containing the configuration of 3 sub-views in the Cost Analysis UI. Non table views should have three pivots.
+        /// One or more `Pivot` blocks as defined below, containing the configuration of 3 sub-views in the Cost Analysis UI. Non table views should have three pivots.
         /// </summary>
         public InputList<Inputs.ResourceGroupCostManagementViewPivotArgs> Pivots
         {
@@ -289,7 +289,7 @@ namespace Pulumi.Azure.Core
         public Input<string>? ChartType { get; set; }
 
         /// <summary>
-        /// A `dataset` block as defined below.
+        /// A `Dataset` block as defined below.
         /// </summary>
         [Input("dataset")]
         public Input<Inputs.ResourceGroupCostManagementViewDatasetGetArgs>? Dataset { get; set; }
@@ -304,7 +304,7 @@ namespace Pulumi.Azure.Core
         private InputList<Inputs.ResourceGroupCostManagementViewKpiGetArgs>? _kpis;
 
         /// <summary>
-        /// One or more `kpi` blocks as defined below, to show in Cost Analysis UI.
+        /// One or more `Kpi` blocks as defined below, to show in Cost Analysis UI.
         /// </summary>
         public InputList<Inputs.ResourceGroupCostManagementViewKpiGetArgs> Kpis
         {
@@ -322,7 +322,7 @@ namespace Pulumi.Azure.Core
         private InputList<Inputs.ResourceGroupCostManagementViewPivotGetArgs>? _pivots;
 
         /// <summary>
-        /// One or more `pivot` blocks as defined below, containing the configuration of 3 sub-views in the Cost Analysis UI. Non table views should have three pivots.
+        /// One or more `Pivot` blocks as defined below, containing the configuration of 3 sub-views in the Cost Analysis UI. Non table views should have three pivots.
         /// </summary>
         public InputList<Inputs.ResourceGroupCostManagementViewPivotGetArgs> Pivots
         {

@@ -12,6 +12,15 @@ namespace Pulumi.Azure.ContainerService
     /// <summary>
     /// Manages a Container Registry Token Password associated with a scope map.  For more information on scope maps and their tokens see the [product documentation](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-repository-scoped-permissions).
     /// 
+    /// ## Example Usage
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.ContainerRegistry` - 2023-11-01-preview
+    /// 
     /// ## Import
     /// 
     /// Container Registry Token Passwords can be imported using the `resource id`, e.g.
@@ -30,13 +39,13 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> ContainerRegistryTokenId { get; private set; } = null!;
 
         /// <summary>
-        /// One `password` block as defined below.
+        /// One `Password` block as defined below.
         /// </summary>
         [Output("password1")]
         public Output<Outputs.TokenPasswordPassword1> Password1 { get; private set; } = null!;
 
         /// <summary>
-        /// One `password` block as defined below.
+        /// One `Password` block as defined below.
         /// </summary>
         [Output("password2")]
         public Output<Outputs.TokenPasswordPassword2?> Password2 { get; private set; } = null!;
@@ -94,13 +103,13 @@ namespace Pulumi.Azure.ContainerService
         public Input<string> ContainerRegistryTokenId { get; set; } = null!;
 
         /// <summary>
-        /// One `password` block as defined below.
+        /// One `Password` block as defined below.
         /// </summary>
         [Input("password1", required: true)]
         public Input<Inputs.TokenPasswordPassword1Args> Password1 { get; set; } = null!;
 
         /// <summary>
-        /// One `password` block as defined below.
+        /// One `Password` block as defined below.
         /// </summary>
         [Input("password2")]
         public Input<Inputs.TokenPasswordPassword2Args>? Password2 { get; set; }
@@ -120,13 +129,13 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? ContainerRegistryTokenId { get; set; }
 
         /// <summary>
-        /// One `password` block as defined below.
+        /// One `Password` block as defined below.
         /// </summary>
         [Input("password1")]
         public Input<Inputs.TokenPasswordPassword1GetArgs>? Password1 { get; set; }
 
         /// <summary>
-        /// One `password` block as defined below.
+        /// One `Password` block as defined below.
         /// </summary>
         [Input("password2")]
         public Input<Inputs.TokenPasswordPassword2GetArgs>? Password2 { get; set; }

@@ -93,17 +93,17 @@ namespace Pulumi.Azure.Monitoring
     public partial class DiagnosticSetting : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// One or more `enabled_log` blocks as defined below.
+        /// One or more `EnabledLog` blocks as defined below.
         /// 
-        /// &gt; **Note:** At least one `enabled_log` or `enabled_metric` block must be specified. At least one type of Log or Metric must be enabled.
+        /// &gt; **Note:** At least one `EnabledLog` or `EnabledMetric` block must be specified. At least one type of Log or Metric must be enabled.
         /// </summary>
         [Output("enabledLogs")]
         public Output<ImmutableArray<Outputs.DiagnosticSettingEnabledLog>> EnabledLogs { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `enabled_metric` blocks as defined below.
+        /// One or more `EnabledMetric` blocks as defined below.
         /// 
-        /// &gt; **Note:** At least one `enabled_log` or `enabled_metric` block must be specified.
+        /// &gt; **Note:** At least one `EnabledLog` or `EnabledMetric` block must be specified.
         /// </summary>
         [Output("enabledMetrics")]
         public Output<ImmutableArray<Outputs.DiagnosticSettingEnabledMetric>> EnabledMetrics { get; private set; } = null!;
@@ -113,7 +113,7 @@ namespace Pulumi.Azure.Monitoring
         /// 
         /// &gt; **NOTE:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
         /// 
-        /// &gt; **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+        /// &gt; **NOTE:** At least one of `EventhubAuthorizationRuleId`, `LogAnalyticsWorkspaceId`, `PartnerSolutionId` and `StorageAccountId` must be specified.
         /// </summary>
         [Output("eventhubAuthorizationRuleId")]
         public Output<string?> EventhubAuthorizationRuleId { get; private set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// Possible values are `AzureDiagnostics` and `Dedicated`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy `AzureDiagnostics` table.
         /// 
-        /// &gt; **NOTE:** This setting will only have an effect if a `log_analytics_workspace_id` is provided. For some target resource type (e.g., Key Vault), this field is unconfigurable. Please see [resource types](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azurediagnostics#resource-types) for services that use each method. Please [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#azure-diagnostics-vs-resource-specific) for details on the differences between destination types.
+        /// &gt; **NOTE:** This setting will only have an effect if a `LogAnalyticsWorkspaceId` is provided. For some target resource type (e.g., Key Vault), this field is unconfigurable. Please see [resource types](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azurediagnostics#resource-types) for services that use each method. Please [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#azure-diagnostics-vs-resource-specific) for details on the differences between destination types.
         /// </summary>
         [Output("logAnalyticsDestinationType")]
         public Output<string> LogAnalyticsDestinationType { get; private set; } = null!;
@@ -137,7 +137,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
         /// 
-        /// &gt; **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+        /// &gt; **NOTE:** At least one of `EventhubAuthorizationRuleId`, `LogAnalyticsWorkspaceId`, `PartnerSolutionId` and `StorageAccountId` must be specified.
         /// </summary>
         [Output("logAnalyticsWorkspaceId")]
         public Output<string?> LogAnalyticsWorkspaceId { get; private set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
         /// 
-        /// &gt; **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+        /// &gt; **NOTE:** At least one of `EventhubAuthorizationRuleId`, `LogAnalyticsWorkspaceId`, `PartnerSolutionId` and `StorageAccountId` must be specified.
         /// </summary>
         [Output("partnerSolutionId")]
         public Output<string?> PartnerSolutionId { get; private set; } = null!;
@@ -164,7 +164,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// The ID of the Storage Account where logs should be sent. 
         /// 
-        /// &gt; **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+        /// &gt; **NOTE:** At least one of `EventhubAuthorizationRuleId`, `LogAnalyticsWorkspaceId`, `PartnerSolutionId` and `StorageAccountId` must be specified.
         /// </summary>
         [Output("storageAccountId")]
         public Output<string?> StorageAccountId { get; private set; } = null!;
@@ -225,9 +225,9 @@ namespace Pulumi.Azure.Monitoring
         private InputList<Inputs.DiagnosticSettingEnabledLogArgs>? _enabledLogs;
 
         /// <summary>
-        /// One or more `enabled_log` blocks as defined below.
+        /// One or more `EnabledLog` blocks as defined below.
         /// 
-        /// &gt; **Note:** At least one `enabled_log` or `enabled_metric` block must be specified. At least one type of Log or Metric must be enabled.
+        /// &gt; **Note:** At least one `EnabledLog` or `EnabledMetric` block must be specified. At least one type of Log or Metric must be enabled.
         /// </summary>
         public InputList<Inputs.DiagnosticSettingEnabledLogArgs> EnabledLogs
         {
@@ -239,9 +239,9 @@ namespace Pulumi.Azure.Monitoring
         private InputList<Inputs.DiagnosticSettingEnabledMetricArgs>? _enabledMetrics;
 
         /// <summary>
-        /// One or more `enabled_metric` blocks as defined below.
+        /// One or more `EnabledMetric` blocks as defined below.
         /// 
-        /// &gt; **Note:** At least one `enabled_log` or `enabled_metric` block must be specified.
+        /// &gt; **Note:** At least one `EnabledLog` or `EnabledMetric` block must be specified.
         /// </summary>
         public InputList<Inputs.DiagnosticSettingEnabledMetricArgs> EnabledMetrics
         {
@@ -254,7 +254,7 @@ namespace Pulumi.Azure.Monitoring
         /// 
         /// &gt; **NOTE:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
         /// 
-        /// &gt; **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+        /// &gt; **NOTE:** At least one of `EventhubAuthorizationRuleId`, `LogAnalyticsWorkspaceId`, `PartnerSolutionId` and `StorageAccountId` must be specified.
         /// </summary>
         [Input("eventhubAuthorizationRuleId")]
         public Input<string>? EventhubAuthorizationRuleId { get; set; }
@@ -270,7 +270,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// Possible values are `AzureDiagnostics` and `Dedicated`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy `AzureDiagnostics` table.
         /// 
-        /// &gt; **NOTE:** This setting will only have an effect if a `log_analytics_workspace_id` is provided. For some target resource type (e.g., Key Vault), this field is unconfigurable. Please see [resource types](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azurediagnostics#resource-types) for services that use each method. Please [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#azure-diagnostics-vs-resource-specific) for details on the differences between destination types.
+        /// &gt; **NOTE:** This setting will only have an effect if a `LogAnalyticsWorkspaceId` is provided. For some target resource type (e.g., Key Vault), this field is unconfigurable. Please see [resource types](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azurediagnostics#resource-types) for services that use each method. Please [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#azure-diagnostics-vs-resource-specific) for details on the differences between destination types.
         /// </summary>
         [Input("logAnalyticsDestinationType")]
         public Input<string>? LogAnalyticsDestinationType { get; set; }
@@ -278,14 +278,14 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
         /// 
-        /// &gt; **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+        /// &gt; **NOTE:** At least one of `EventhubAuthorizationRuleId`, `LogAnalyticsWorkspaceId`, `PartnerSolutionId` and `StorageAccountId` must be specified.
         /// </summary>
         [Input("logAnalyticsWorkspaceId")]
         public Input<string>? LogAnalyticsWorkspaceId { get; set; }
 
         [Input("metrics")]
         private InputList<Inputs.DiagnosticSettingMetricArgs>? _metrics;
-        [Obsolete(@"`metric` has been deprecated in favor of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider")]
+        [Obsolete(@"`Metric` has been deprecated in favor of the `EnabledMetric` property and will be removed in v5.0 of the AzureRM provider")]
         public InputList<Inputs.DiagnosticSettingMetricArgs> Metrics
         {
             get => _metrics ?? (_metrics = new InputList<Inputs.DiagnosticSettingMetricArgs>());
@@ -303,7 +303,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
         /// 
-        /// &gt; **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+        /// &gt; **NOTE:** At least one of `EventhubAuthorizationRuleId`, `LogAnalyticsWorkspaceId`, `PartnerSolutionId` and `StorageAccountId` must be specified.
         /// </summary>
         [Input("partnerSolutionId")]
         public Input<string>? PartnerSolutionId { get; set; }
@@ -311,7 +311,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// The ID of the Storage Account where logs should be sent. 
         /// 
-        /// &gt; **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+        /// &gt; **NOTE:** At least one of `EventhubAuthorizationRuleId`, `LogAnalyticsWorkspaceId`, `PartnerSolutionId` and `StorageAccountId` must be specified.
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }
@@ -334,9 +334,9 @@ namespace Pulumi.Azure.Monitoring
         private InputList<Inputs.DiagnosticSettingEnabledLogGetArgs>? _enabledLogs;
 
         /// <summary>
-        /// One or more `enabled_log` blocks as defined below.
+        /// One or more `EnabledLog` blocks as defined below.
         /// 
-        /// &gt; **Note:** At least one `enabled_log` or `enabled_metric` block must be specified. At least one type of Log or Metric must be enabled.
+        /// &gt; **Note:** At least one `EnabledLog` or `EnabledMetric` block must be specified. At least one type of Log or Metric must be enabled.
         /// </summary>
         public InputList<Inputs.DiagnosticSettingEnabledLogGetArgs> EnabledLogs
         {
@@ -348,9 +348,9 @@ namespace Pulumi.Azure.Monitoring
         private InputList<Inputs.DiagnosticSettingEnabledMetricGetArgs>? _enabledMetrics;
 
         /// <summary>
-        /// One or more `enabled_metric` blocks as defined below.
+        /// One or more `EnabledMetric` blocks as defined below.
         /// 
-        /// &gt; **Note:** At least one `enabled_log` or `enabled_metric` block must be specified.
+        /// &gt; **Note:** At least one `EnabledLog` or `EnabledMetric` block must be specified.
         /// </summary>
         public InputList<Inputs.DiagnosticSettingEnabledMetricGetArgs> EnabledMetrics
         {
@@ -363,7 +363,7 @@ namespace Pulumi.Azure.Monitoring
         /// 
         /// &gt; **NOTE:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
         /// 
-        /// &gt; **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+        /// &gt; **NOTE:** At least one of `EventhubAuthorizationRuleId`, `LogAnalyticsWorkspaceId`, `PartnerSolutionId` and `StorageAccountId` must be specified.
         /// </summary>
         [Input("eventhubAuthorizationRuleId")]
         public Input<string>? EventhubAuthorizationRuleId { get; set; }
@@ -379,7 +379,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// Possible values are `AzureDiagnostics` and `Dedicated`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy `AzureDiagnostics` table.
         /// 
-        /// &gt; **NOTE:** This setting will only have an effect if a `log_analytics_workspace_id` is provided. For some target resource type (e.g., Key Vault), this field is unconfigurable. Please see [resource types](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azurediagnostics#resource-types) for services that use each method. Please [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#azure-diagnostics-vs-resource-specific) for details on the differences between destination types.
+        /// &gt; **NOTE:** This setting will only have an effect if a `LogAnalyticsWorkspaceId` is provided. For some target resource type (e.g., Key Vault), this field is unconfigurable. Please see [resource types](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azurediagnostics#resource-types) for services that use each method. Please [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#azure-diagnostics-vs-resource-specific) for details on the differences between destination types.
         /// </summary>
         [Input("logAnalyticsDestinationType")]
         public Input<string>? LogAnalyticsDestinationType { get; set; }
@@ -387,14 +387,14 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
         /// 
-        /// &gt; **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+        /// &gt; **NOTE:** At least one of `EventhubAuthorizationRuleId`, `LogAnalyticsWorkspaceId`, `PartnerSolutionId` and `StorageAccountId` must be specified.
         /// </summary>
         [Input("logAnalyticsWorkspaceId")]
         public Input<string>? LogAnalyticsWorkspaceId { get; set; }
 
         [Input("metrics")]
         private InputList<Inputs.DiagnosticSettingMetricGetArgs>? _metrics;
-        [Obsolete(@"`metric` has been deprecated in favor of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider")]
+        [Obsolete(@"`Metric` has been deprecated in favor of the `EnabledMetric` property and will be removed in v5.0 of the AzureRM provider")]
         public InputList<Inputs.DiagnosticSettingMetricGetArgs> Metrics
         {
             get => _metrics ?? (_metrics = new InputList<Inputs.DiagnosticSettingMetricGetArgs>());
@@ -412,7 +412,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
         /// 
-        /// &gt; **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+        /// &gt; **NOTE:** At least one of `EventhubAuthorizationRuleId`, `LogAnalyticsWorkspaceId`, `PartnerSolutionId` and `StorageAccountId` must be specified.
         /// </summary>
         [Input("partnerSolutionId")]
         public Input<string>? PartnerSolutionId { get; set; }
@@ -420,7 +420,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// The ID of the Storage Account where logs should be sent. 
         /// 
-        /// &gt; **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+        /// &gt; **NOTE:** At least one of `EventhubAuthorizationRuleId`, `LogAnalyticsWorkspaceId`, `PartnerSolutionId` and `StorageAccountId` must be specified.
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }

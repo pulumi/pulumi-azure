@@ -73,13 +73,13 @@ namespace Pulumi.Azure.Redis
     public partial class Cache : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Whether access key authentication is enabled? Defaults to `true`. `active_directory_authentication_enabled` must be set to `true` to disable access key authentication.
+        /// Whether access key authentication is enabled? Defaults to `True`. `ActiveDirectoryAuthenticationEnabled` must be set to `True` to disable access key authentication.
         /// </summary>
         [Output("accessKeysAuthenticationEnabled")]
         public Output<bool?> AccessKeysAuthenticationEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
+        /// The size of the Redis cache to deploy. Valid values for a SKU `Family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `Family` are `1, 2, 3, 4, 5`.
         /// </summary>
         [Output("capacity")]
         public Output<int> Capacity { get; private set; } = null!;
@@ -97,7 +97,7 @@ namespace Pulumi.Azure.Redis
         public Output<string> Hostname { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.CacheIdentity?> Identity { get; private set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.Azure.Redis
         public Output<bool?> NonSslPortEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A list of `patch_schedule` blocks as defined below.
+        /// A list of `PatchSchedule` blocks as defined below.
         /// </summary>
         [Output("patchSchedules")]
         public Output<ImmutableArray<Outputs.CachePatchSchedule>> PatchSchedules { get; private set; } = null!;
@@ -153,19 +153,19 @@ namespace Pulumi.Azure.Redis
         public Output<string> PrimaryConnectionString { get; private set; } = null!;
 
         /// <summary>
-        /// The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnet_id`. Changing this forces a new resource to be created.
+        /// The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `SubnetId`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("privateStaticIpAddress")]
         public Output<string> PrivateStaticIpAddress { get; private set; } = null!;
 
         /// <summary>
-        /// Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
+        /// Whether or not public network access is allowed for this Redis Cache. `True` means this resource could be accessed by both public and private endpoint. `False` means only private endpoint access is allowed. Defaults to `True`.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A `redis_configuration` block as defined below - with some limitations by SKU - defaults/details are shown below.
+        /// A `RedisConfiguration` block as defined below - with some limitations by SKU - defaults/details are shown below.
         /// </summary>
         [Output("redisConfiguration")]
         public Output<Outputs.CacheRedisConfiguration> RedisConfiguration { get; private set; } = null!;
@@ -185,7 +185,7 @@ namespace Pulumi.Azure.Redis
         public Output<int> ReplicasPerMaster { get; private set; } = null!;
 
         /// <summary>
-        /// Amount of replicas to create per primary for this Redis Cache. If both `replicas_per_primary` and `replicas_per_master` are set, they need to be equal.
+        /// Amount of replicas to create per primary for this Redis Cache. If both `ReplicasPerPrimary` and `ReplicasPerMaster` are set, they need to be equal.
         /// </summary>
         [Output("replicasPerPrimary")]
         public Output<int> ReplicasPerPrimary { get; private set; } = null!;
@@ -308,13 +308,13 @@ namespace Pulumi.Azure.Redis
     public sealed class CacheArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether access key authentication is enabled? Defaults to `true`. `active_directory_authentication_enabled` must be set to `true` to disable access key authentication.
+        /// Whether access key authentication is enabled? Defaults to `True`. `ActiveDirectoryAuthenticationEnabled` must be set to `True` to disable access key authentication.
         /// </summary>
         [Input("accessKeysAuthenticationEnabled")]
         public Input<bool>? AccessKeysAuthenticationEnabled { get; set; }
 
         /// <summary>
-        /// The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
+        /// The size of the Redis cache to deploy. Valid values for a SKU `Family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `Family` are `1, 2, 3, 4, 5`.
         /// </summary>
         [Input("capacity", required: true)]
         public Input<int> Capacity { get; set; } = null!;
@@ -326,7 +326,7 @@ namespace Pulumi.Azure.Redis
         public Input<string> Family { get; set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.CacheIdentityArgs>? Identity { get; set; }
@@ -361,7 +361,7 @@ namespace Pulumi.Azure.Redis
         private InputList<Inputs.CachePatchScheduleArgs>? _patchSchedules;
 
         /// <summary>
-        /// A list of `patch_schedule` blocks as defined below.
+        /// A list of `PatchSchedule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.CachePatchScheduleArgs> PatchSchedules
         {
@@ -370,19 +370,19 @@ namespace Pulumi.Azure.Redis
         }
 
         /// <summary>
-        /// The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnet_id`. Changing this forces a new resource to be created.
+        /// The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `SubnetId`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("privateStaticIpAddress")]
         public Input<string>? PrivateStaticIpAddress { get; set; }
 
         /// <summary>
-        /// Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
+        /// Whether or not public network access is allowed for this Redis Cache. `True` means this resource could be accessed by both public and private endpoint. `False` means only private endpoint access is allowed. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
-        /// A `redis_configuration` block as defined below - with some limitations by SKU - defaults/details are shown below.
+        /// A `RedisConfiguration` block as defined below - with some limitations by SKU - defaults/details are shown below.
         /// </summary>
         [Input("redisConfiguration")]
         public Input<Inputs.CacheRedisConfigurationArgs>? RedisConfiguration { get; set; }
@@ -402,7 +402,7 @@ namespace Pulumi.Azure.Redis
         public Input<int>? ReplicasPerMaster { get; set; }
 
         /// <summary>
-        /// Amount of replicas to create per primary for this Redis Cache. If both `replicas_per_primary` and `replicas_per_master` are set, they need to be equal.
+        /// Amount of replicas to create per primary for this Redis Cache. If both `ReplicasPerPrimary` and `ReplicasPerMaster` are set, they need to be equal.
         /// </summary>
         [Input("replicasPerPrimary")]
         public Input<int>? ReplicasPerPrimary { get; set; }
@@ -480,13 +480,13 @@ namespace Pulumi.Azure.Redis
     public sealed class CacheState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether access key authentication is enabled? Defaults to `true`. `active_directory_authentication_enabled` must be set to `true` to disable access key authentication.
+        /// Whether access key authentication is enabled? Defaults to `True`. `ActiveDirectoryAuthenticationEnabled` must be set to `True` to disable access key authentication.
         /// </summary>
         [Input("accessKeysAuthenticationEnabled")]
         public Input<bool>? AccessKeysAuthenticationEnabled { get; set; }
 
         /// <summary>
-        /// The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
+        /// The size of the Redis cache to deploy. Valid values for a SKU `Family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `Family` are `1, 2, 3, 4, 5`.
         /// </summary>
         [Input("capacity")]
         public Input<int>? Capacity { get; set; }
@@ -504,7 +504,7 @@ namespace Pulumi.Azure.Redis
         public Input<string>? Hostname { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.CacheIdentityGetArgs>? Identity { get; set; }
@@ -539,7 +539,7 @@ namespace Pulumi.Azure.Redis
         private InputList<Inputs.CachePatchScheduleGetArgs>? _patchSchedules;
 
         /// <summary>
-        /// A list of `patch_schedule` blocks as defined below.
+        /// A list of `PatchSchedule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.CachePatchScheduleGetArgs> PatchSchedules
         {
@@ -586,19 +586,19 @@ namespace Pulumi.Azure.Redis
         }
 
         /// <summary>
-        /// The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnet_id`. Changing this forces a new resource to be created.
+        /// The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `SubnetId`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("privateStaticIpAddress")]
         public Input<string>? PrivateStaticIpAddress { get; set; }
 
         /// <summary>
-        /// Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
+        /// Whether or not public network access is allowed for this Redis Cache. `True` means this resource could be accessed by both public and private endpoint. `False` means only private endpoint access is allowed. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
-        /// A `redis_configuration` block as defined below - with some limitations by SKU - defaults/details are shown below.
+        /// A `RedisConfiguration` block as defined below - with some limitations by SKU - defaults/details are shown below.
         /// </summary>
         [Input("redisConfiguration")]
         public Input<Inputs.CacheRedisConfigurationGetArgs>? RedisConfiguration { get; set; }
@@ -618,7 +618,7 @@ namespace Pulumi.Azure.Redis
         public Input<int>? ReplicasPerMaster { get; set; }
 
         /// <summary>
-        /// Amount of replicas to create per primary for this Redis Cache. If both `replicas_per_primary` and `replicas_per_master` are set, they need to be equal.
+        /// Amount of replicas to create per primary for this Redis Cache. If both `ReplicasPerPrimary` and `ReplicasPerMaster` are set, they need to be equal.
         /// </summary>
         [Input("replicasPerPrimary")]
         public Input<int>? ReplicasPerPrimary { get; set; }

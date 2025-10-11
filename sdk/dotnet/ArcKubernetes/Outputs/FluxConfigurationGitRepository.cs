@@ -30,7 +30,7 @@ namespace Pulumi.Azure.ArcKubernetes.Outputs
         /// </summary>
         public readonly string? LocalAuthReference;
         /// <summary>
-        /// Specifies the source reference type for the GitRepository object. Possible values are `branch`, `commit`, `semver` and `tag`.
+        /// Specifies the source reference type for the GitRepository object. Possible values are `Branch`, `Commit`, `Semver` and `Tag`.
         /// </summary>
         public readonly string ReferenceType;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Azure.ArcKubernetes.Outputs
         /// </summary>
         public readonly string ReferenceValue;
         /// <summary>
-        /// Specifies the Base64-encoded known_hosts value containing public SSH keys required to access private git repositories over SSH.
+        /// Specifies the Base64-encoded KnownHosts value containing public SSH keys required to access private git repositories over SSH.
         /// </summary>
         public readonly string? SshKnownHostsBase64;
         /// <summary>

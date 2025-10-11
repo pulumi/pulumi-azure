@@ -14,15 +14,15 @@ namespace Pulumi.Azure.Storage.Outputs
     public sealed class LocalUserPermissionScope
     {
         /// <summary>
-        /// A `permissions` block as defined below.
+        /// A `Permissions` block as defined below.
         /// </summary>
         public readonly Outputs.LocalUserPermissionScopePermissions Permissions;
         /// <summary>
-        /// The container name (when `service` is set to `blob`) or the file share name (when `service` is set to `file`), used by the Storage Account Local User.
+        /// The container name (when `Service` is set to `Blob`) or the file share name (when `Service` is set to `File`), used by the Storage Account Local User.
         /// </summary>
         public readonly string ResourceName;
         /// <summary>
-        /// The storage service used by this Storage Account Local User. Possible values are `blob` and `file`.
+        /// The storage service used by this Storage Account Local User. Possible values are `Blob` and `File`.
         /// </summary>
         public readonly string Service;
 

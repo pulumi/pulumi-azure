@@ -159,14 +159,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:compute/extension:Extension")
 public class Extension extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies if the platform deploys the latest minor version update to the `type_handler_version` specified.
+     * Specifies if the platform deploys the latest minor version update to the `typeHandlerVersion` specified.
      * 
      */
     @Export(name="autoUpgradeMinorVersion", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoUpgradeMinorVersion;
 
     /**
-     * @return Specifies if the platform deploys the latest minor version update to the `type_handler_version` specified.
+     * @return Specifies if the platform deploys the latest minor version update to the `typeHandlerVersion` specified.
      * 
      */
     public Output<Optional<Boolean>> autoUpgradeMinorVersion() {
@@ -189,7 +189,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
     /**
      * Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
      * 
-     * &gt; **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
+     * &gt; **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failureSuppressionEnabled` value.
      * 
      */
     @Export(name="failureSuppressionEnabled", refs={Boolean.class}, tree="[0]")
@@ -198,7 +198,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
     /**
      * @return Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
      * 
-     * &gt; **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
+     * &gt; **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failureSuppressionEnabled` value.
      * 
      */
     public Output<Optional<Boolean>> failureSuppressionEnabled() {
@@ -219,36 +219,36 @@ public class Extension extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
+     * The protectedSettings passed to the extension, like settings, these are specified as a JSON object in a string.
      * 
-     * &gt; **Note:** Certain VM Extensions require that the keys in the `protected_settings` block are case sensitive. If you&#39;re seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
+     * &gt; **Note:** Certain VM Extensions require that the keys in the `protectedSettings` block are case sensitive. If you&#39;re seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
      * 
      */
     @Export(name="protectedSettings", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> protectedSettings;
 
     /**
-     * @return The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
+     * @return The protectedSettings passed to the extension, like settings, these are specified as a JSON object in a string.
      * 
-     * &gt; **Note:** Certain VM Extensions require that the keys in the `protected_settings` block are case sensitive. If you&#39;re seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
+     * &gt; **Note:** Certain VM Extensions require that the keys in the `protectedSettings` block are case sensitive. If you&#39;re seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
      * 
      */
     public Output<Optional<String>> protectedSettings() {
         return Codegen.optional(this.protectedSettings);
     }
     /**
-     * A `protected_settings_from_key_vault` block as defined below.
+     * A `protectedSettingsFromKeyVault` block as defined below.
      * 
-     * &gt; **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
+     * &gt; **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`
      * 
      */
     @Export(name="protectedSettingsFromKeyVault", refs={ExtensionProtectedSettingsFromKeyVault.class}, tree="[0]")
     private Output</* @Nullable */ ExtensionProtectedSettingsFromKeyVault> protectedSettingsFromKeyVault;
 
     /**
-     * @return A `protected_settings_from_key_vault` block as defined below.
+     * @return A `protectedSettingsFromKeyVault` block as defined below.
      * 
-     * &gt; **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
+     * &gt; **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`
      * 
      */
     public Output<Optional<ExtensionProtectedSettingsFromKeyVault>> protectedSettingsFromKeyVault() {

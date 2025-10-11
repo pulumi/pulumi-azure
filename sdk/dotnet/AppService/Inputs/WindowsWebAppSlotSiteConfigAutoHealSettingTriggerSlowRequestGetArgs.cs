@@ -13,7 +13,7 @@ namespace Pulumi.Azure.AppService.Inputs
     public sealed class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The number of Slow Requests in the time `interval` to trigger this rule.
+        /// The number of Slow Requests in the time `Interval` to trigger this rule.
         /// </summary>
         [Input("count", required: true)]
         public Input<int> Count { get; set; } = null!;

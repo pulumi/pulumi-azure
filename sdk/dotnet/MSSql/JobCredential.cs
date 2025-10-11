@@ -101,7 +101,7 @@ namespace Pulumi.Azure.MSSql
         public Output<string?> Password { get; private set; } = null!;
 
         /// <summary>
-        /// An integer value used to trigger an update for `password_wo`. This property should be incremented when updating `password_wo`.
+        /// An integer value used to trigger an update for `PasswordWo`. This property should be incremented when updating `PasswordWo`.
         /// </summary>
         [Output("passwordWoVersion")]
         public Output<int?> PasswordWoVersion { get; private set; } = null!;
@@ -191,7 +191,7 @@ namespace Pulumi.Azure.MSSql
         }
 
         /// <summary>
-        /// An integer value used to trigger an update for `password_wo`. This property should be incremented when updating `password_wo`.
+        /// An integer value used to trigger an update for `PasswordWo`. This property should be incremented when updating `PasswordWo`.
         /// </summary>
         [Input("passwordWoVersion")]
         public Input<int>? PasswordWoVersion { get; set; }
@@ -239,7 +239,7 @@ namespace Pulumi.Azure.MSSql
         }
 
         /// <summary>
-        /// An integer value used to trigger an update for `password_wo`. This property should be incremented when updating `password_wo`.
+        /// An integer value used to trigger an update for `PasswordWo`. This property should be incremented when updating `PasswordWo`.
         /// </summary>
         [Input("passwordWoVersion")]
         public Input<int>? PasswordWoVersion { get; set; }

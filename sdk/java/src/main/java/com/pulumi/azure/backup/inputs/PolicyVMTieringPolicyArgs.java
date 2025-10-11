@@ -15,14 +15,14 @@ public final class PolicyVMTieringPolicyArgs extends com.pulumi.resources.Resour
     public static final PolicyVMTieringPolicyArgs Empty = new PolicyVMTieringPolicyArgs();
 
     /**
-     * An `archived_restore_point` block as defined below.
+     * An `archivedRestorePoint` block as defined below.
      * 
      */
     @Import(name="archivedRestorePoint", required=true)
     private Output<PolicyVMTieringPolicyArchivedRestorePointArgs> archivedRestorePoint;
 
     /**
-     * @return An `archived_restore_point` block as defined below.
+     * @return An `archivedRestorePoint` block as defined below.
      * 
      */
     public Output<PolicyVMTieringPolicyArchivedRestorePointArgs> archivedRestorePoint() {
@@ -54,7 +54,7 @@ public final class PolicyVMTieringPolicyArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param archivedRestorePoint An `archived_restore_point` block as defined below.
+         * @param archivedRestorePoint An `archivedRestorePoint` block as defined below.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class PolicyVMTieringPolicyArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param archivedRestorePoint An `archived_restore_point` block as defined below.
+         * @param archivedRestorePoint An `archivedRestorePoint` block as defined below.
          * 
          * @return builder
          * 

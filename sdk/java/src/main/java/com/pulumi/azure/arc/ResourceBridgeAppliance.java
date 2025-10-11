@@ -157,14 +157,14 @@ public class ResourceBridgeAppliance extends com.pulumi.resources.CustomResource
         return this.name;
     }
     /**
-     * The `public_key_base64` is an RSA public key in PKCS1 format encoded in base64. Changing this forces a new resource to be created.
+     * The `publicKeyBase64` is an RSA public key in PKCS1 format encoded in base64. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="publicKeyBase64", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> publicKeyBase64;
 
     /**
-     * @return The `public_key_base64` is an RSA public key in PKCS1 format encoded in base64. Changing this forces a new resource to be created.
+     * @return The `publicKeyBase64` is an RSA public key in PKCS1 format encoded in base64. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> publicKeyBase64() {

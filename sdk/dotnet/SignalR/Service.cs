@@ -96,19 +96,19 @@ namespace Pulumi.Azure.SignalR
     public partial class Service : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Whether to enable AAD auth? Defaults to `true`.
+        /// Whether to enable AAD auth? Defaults to `True`.
         /// </summary>
         [Output("aadAuthEnabled")]
         public Output<bool?> AadAuthEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
+        /// Specifies if Connectivity Logs are enabled or not. Defaults to `False`.
         /// </summary>
         [Output("connectivityLogsEnabled")]
         public Output<bool?> ConnectivityLogsEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A `cors` block as documented below.
+        /// A `Cors` block as documented below.
         /// </summary>
         [Output("cors")]
         public Output<ImmutableArray<Outputs.ServiceCor>> Cors { get; private set; } = null!;
@@ -120,13 +120,13 @@ namespace Pulumi.Azure.SignalR
         public Output<string> Hostname { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if Http Request Logs are enabled or not. Defaults to `false`.
+        /// Specifies if Http Request Logs are enabled or not. Defaults to `False`.
         /// </summary>
         [Output("httpRequestLogsEnabled")]
         public Output<bool?> HttpRequestLogsEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ServiceIdentity?> Identity { get; private set; } = null!;
@@ -138,7 +138,7 @@ namespace Pulumi.Azure.SignalR
         public Output<string> IpAddress { get; private set; } = null!;
 
         /// <summary>
-        /// A `live_trace` block as defined below.
+        /// A `LiveTrace` block as defined below.
         /// </summary>
         [Output("liveTrace")]
         public Output<Outputs.ServiceLiveTrace?> LiveTrace { get; private set; } = null!;
@@ -147,7 +147,7 @@ namespace Pulumi.Azure.SignalR
         public Output<bool?> LiveTraceEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to enable local auth? Defaults to `true`.
+        /// Whether to enable local auth? Defaults to `True`.
         /// </summary>
         [Output("localAuthEnabled")]
         public Output<bool?> LocalAuthEnabled { get; private set; } = null!;
@@ -159,7 +159,7 @@ namespace Pulumi.Azure.SignalR
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if Messaging Logs are enabled or not. Defaults to `false`.
+        /// Specifies if Messaging Logs are enabled or not. Defaults to `False`.
         /// </summary>
         [Output("messagingLogsEnabled")]
         public Output<bool?> MessagingLogsEnabled { get; private set; } = null!;
@@ -183,9 +183,9 @@ namespace Pulumi.Azure.SignalR
         public Output<string> PrimaryConnectionString { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to enable public network access? Defaults to `true`.
+        /// Whether to enable public network access? Defaults to `True`.
         /// 
-        /// &gt; **Note:** `public_network_access_enabled` cannot be set to `false` in `Free` sku tier.
+        /// &gt; **Note:** `PublicNetworkAccessEnabled` cannot be set to `False` in `Free` sku tier.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
@@ -233,7 +233,7 @@ namespace Pulumi.Azure.SignalR
         public Output<string?> ServiceMode { get; private set; } = null!;
 
         /// <summary>
-        /// A `sku` block as documented below.
+        /// A `Sku` block as documented below.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.ServiceSku> Sku { get; private set; } = null!;
@@ -245,15 +245,15 @@ namespace Pulumi.Azure.SignalR
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to request client certificate during TLS handshake? Defaults to `false`.
+        /// Whether to request client certificate during TLS handshake? Defaults to `False`.
         /// 
-        /// &gt; **Note:** `tls_client_cert_enabled` cannot be set to `true` in `Free` sku tier.
+        /// &gt; **Note:** `TlsClientCertEnabled` cannot be set to `True` in `Free` sku tier.
         /// </summary>
         [Output("tlsClientCertEnabled")]
         public Output<bool?> TlsClientCertEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// An `upstream_endpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+        /// An `UpstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
         /// </summary>
         [Output("upstreamEndpoints")]
         public Output<ImmutableArray<Outputs.ServiceUpstreamEndpoint>> UpstreamEndpoints { get; private set; } = null!;
@@ -312,13 +312,13 @@ namespace Pulumi.Azure.SignalR
     public sealed class ServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to enable AAD auth? Defaults to `true`.
+        /// Whether to enable AAD auth? Defaults to `True`.
         /// </summary>
         [Input("aadAuthEnabled")]
         public Input<bool>? AadAuthEnabled { get; set; }
 
         /// <summary>
-        /// Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
+        /// Specifies if Connectivity Logs are enabled or not. Defaults to `False`.
         /// </summary>
         [Input("connectivityLogsEnabled")]
         public Input<bool>? ConnectivityLogsEnabled { get; set; }
@@ -327,7 +327,7 @@ namespace Pulumi.Azure.SignalR
         private InputList<Inputs.ServiceCorArgs>? _cors;
 
         /// <summary>
-        /// A `cors` block as documented below.
+        /// A `Cors` block as documented below.
         /// </summary>
         public InputList<Inputs.ServiceCorArgs> Cors
         {
@@ -336,19 +336,19 @@ namespace Pulumi.Azure.SignalR
         }
 
         /// <summary>
-        /// Specifies if Http Request Logs are enabled or not. Defaults to `false`.
+        /// Specifies if Http Request Logs are enabled or not. Defaults to `False`.
         /// </summary>
         [Input("httpRequestLogsEnabled")]
         public Input<bool>? HttpRequestLogsEnabled { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// A `live_trace` block as defined below.
+        /// A `LiveTrace` block as defined below.
         /// </summary>
         [Input("liveTrace")]
         public Input<Inputs.ServiceLiveTraceArgs>? LiveTrace { get; set; }
@@ -357,7 +357,7 @@ namespace Pulumi.Azure.SignalR
         public Input<bool>? LiveTraceEnabled { get; set; }
 
         /// <summary>
-        /// Whether to enable local auth? Defaults to `true`.
+        /// Whether to enable local auth? Defaults to `True`.
         /// </summary>
         [Input("localAuthEnabled")]
         public Input<bool>? LocalAuthEnabled { get; set; }
@@ -369,7 +369,7 @@ namespace Pulumi.Azure.SignalR
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies if Messaging Logs are enabled or not. Defaults to `false`.
+        /// Specifies if Messaging Logs are enabled or not. Defaults to `False`.
         /// </summary>
         [Input("messagingLogsEnabled")]
         public Input<bool>? MessagingLogsEnabled { get; set; }
@@ -381,9 +381,9 @@ namespace Pulumi.Azure.SignalR
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether to enable public network access? Defaults to `true`.
+        /// Whether to enable public network access? Defaults to `True`.
         /// 
-        /// &gt; **Note:** `public_network_access_enabled` cannot be set to `false` in `Free` sku tier.
+        /// &gt; **Note:** `PublicNetworkAccessEnabled` cannot be set to `False` in `Free` sku tier.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -407,7 +407,7 @@ namespace Pulumi.Azure.SignalR
         public Input<string>? ServiceMode { get; set; }
 
         /// <summary>
-        /// A `sku` block as documented below.
+        /// A `Sku` block as documented below.
         /// </summary>
         [Input("sku", required: true)]
         public Input<Inputs.ServiceSkuArgs> Sku { get; set; } = null!;
@@ -425,9 +425,9 @@ namespace Pulumi.Azure.SignalR
         }
 
         /// <summary>
-        /// Whether to request client certificate during TLS handshake? Defaults to `false`.
+        /// Whether to request client certificate during TLS handshake? Defaults to `False`.
         /// 
-        /// &gt; **Note:** `tls_client_cert_enabled` cannot be set to `true` in `Free` sku tier.
+        /// &gt; **Note:** `TlsClientCertEnabled` cannot be set to `True` in `Free` sku tier.
         /// </summary>
         [Input("tlsClientCertEnabled")]
         public Input<bool>? TlsClientCertEnabled { get; set; }
@@ -436,7 +436,7 @@ namespace Pulumi.Azure.SignalR
         private InputList<Inputs.ServiceUpstreamEndpointArgs>? _upstreamEndpoints;
 
         /// <summary>
-        /// An `upstream_endpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+        /// An `UpstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
         /// </summary>
         public InputList<Inputs.ServiceUpstreamEndpointArgs> UpstreamEndpoints
         {
@@ -453,13 +453,13 @@ namespace Pulumi.Azure.SignalR
     public sealed class ServiceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to enable AAD auth? Defaults to `true`.
+        /// Whether to enable AAD auth? Defaults to `True`.
         /// </summary>
         [Input("aadAuthEnabled")]
         public Input<bool>? AadAuthEnabled { get; set; }
 
         /// <summary>
-        /// Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
+        /// Specifies if Connectivity Logs are enabled or not. Defaults to `False`.
         /// </summary>
         [Input("connectivityLogsEnabled")]
         public Input<bool>? ConnectivityLogsEnabled { get; set; }
@@ -468,7 +468,7 @@ namespace Pulumi.Azure.SignalR
         private InputList<Inputs.ServiceCorGetArgs>? _cors;
 
         /// <summary>
-        /// A `cors` block as documented below.
+        /// A `Cors` block as documented below.
         /// </summary>
         public InputList<Inputs.ServiceCorGetArgs> Cors
         {
@@ -483,13 +483,13 @@ namespace Pulumi.Azure.SignalR
         public Input<string>? Hostname { get; set; }
 
         /// <summary>
-        /// Specifies if Http Request Logs are enabled or not. Defaults to `false`.
+        /// Specifies if Http Request Logs are enabled or not. Defaults to `False`.
         /// </summary>
         [Input("httpRequestLogsEnabled")]
         public Input<bool>? HttpRequestLogsEnabled { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ServiceIdentityGetArgs>? Identity { get; set; }
@@ -501,7 +501,7 @@ namespace Pulumi.Azure.SignalR
         public Input<string>? IpAddress { get; set; }
 
         /// <summary>
-        /// A `live_trace` block as defined below.
+        /// A `LiveTrace` block as defined below.
         /// </summary>
         [Input("liveTrace")]
         public Input<Inputs.ServiceLiveTraceGetArgs>? LiveTrace { get; set; }
@@ -510,7 +510,7 @@ namespace Pulumi.Azure.SignalR
         public Input<bool>? LiveTraceEnabled { get; set; }
 
         /// <summary>
-        /// Whether to enable local auth? Defaults to `true`.
+        /// Whether to enable local auth? Defaults to `True`.
         /// </summary>
         [Input("localAuthEnabled")]
         public Input<bool>? LocalAuthEnabled { get; set; }
@@ -522,7 +522,7 @@ namespace Pulumi.Azure.SignalR
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies if Messaging Logs are enabled or not. Defaults to `false`.
+        /// Specifies if Messaging Logs are enabled or not. Defaults to `False`.
         /// </summary>
         [Input("messagingLogsEnabled")]
         public Input<bool>? MessagingLogsEnabled { get; set; }
@@ -566,9 +566,9 @@ namespace Pulumi.Azure.SignalR
         }
 
         /// <summary>
-        /// Whether to enable public network access? Defaults to `true`.
+        /// Whether to enable public network access? Defaults to `True`.
         /// 
-        /// &gt; **Note:** `public_network_access_enabled` cannot be set to `false` in `Free` sku tier.
+        /// &gt; **Note:** `PublicNetworkAccessEnabled` cannot be set to `False` in `Free` sku tier.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -636,7 +636,7 @@ namespace Pulumi.Azure.SignalR
         public Input<string>? ServiceMode { get; set; }
 
         /// <summary>
-        /// A `sku` block as documented below.
+        /// A `Sku` block as documented below.
         /// </summary>
         [Input("sku")]
         public Input<Inputs.ServiceSkuGetArgs>? Sku { get; set; }
@@ -654,9 +654,9 @@ namespace Pulumi.Azure.SignalR
         }
 
         /// <summary>
-        /// Whether to request client certificate during TLS handshake? Defaults to `false`.
+        /// Whether to request client certificate during TLS handshake? Defaults to `False`.
         /// 
-        /// &gt; **Note:** `tls_client_cert_enabled` cannot be set to `true` in `Free` sku tier.
+        /// &gt; **Note:** `TlsClientCertEnabled` cannot be set to `True` in `Free` sku tier.
         /// </summary>
         [Input("tlsClientCertEnabled")]
         public Input<bool>? TlsClientCertEnabled { get; set; }
@@ -665,7 +665,7 @@ namespace Pulumi.Azure.SignalR
         private InputList<Inputs.ServiceUpstreamEndpointGetArgs>? _upstreamEndpoints;
 
         /// <summary>
-        /// An `upstream_endpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+        /// An `UpstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
         /// </summary>
         public InputList<Inputs.ServiceUpstreamEndpointGetArgs> UpstreamEndpoints
         {

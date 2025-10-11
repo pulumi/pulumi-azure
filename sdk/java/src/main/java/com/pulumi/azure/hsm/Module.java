@@ -185,18 +185,18 @@ public class Module extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * A `management_network_profile` block as defined below.
+     * A `managementNetworkProfile` block as defined below.
      * 
-     * &gt; **Note:** The `management_network_profile` should not be specified when `sku_name` is `SafeNet Luna Network HSM A790`.
+     * &gt; **Note:** The `managementNetworkProfile` should not be specified when `skuName` is `SafeNet Luna Network HSM A790`.
      * 
      */
     @Export(name="managementNetworkProfile", refs={ModuleManagementNetworkProfile.class}, tree="[0]")
     private Output</* @Nullable */ ModuleManagementNetworkProfile> managementNetworkProfile;
 
     /**
-     * @return A `management_network_profile` block as defined below.
+     * @return A `managementNetworkProfile` block as defined below.
      * 
-     * &gt; **Note:** The `management_network_profile` should not be specified when `sku_name` is `SafeNet Luna Network HSM A790`.
+     * &gt; **Note:** The `managementNetworkProfile` should not be specified when `skuName` is `SafeNet Luna Network HSM A790`.
      * 
      */
     public Output<Optional<ModuleManagementNetworkProfile>> managementNetworkProfile() {
@@ -217,14 +217,14 @@ public class Module extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A `network_profile` block as defined below.
+     * A `networkProfile` block as defined below.
      * 
      */
     @Export(name="networkProfile", refs={ModuleNetworkProfile.class}, tree="[0]")
     private Output<ModuleNetworkProfile> networkProfile;
 
     /**
-     * @return A `network_profile` block as defined below.
+     * @return A `networkProfile` block as defined below.
      * 
      */
     public Output<ModuleNetworkProfile> networkProfile() {

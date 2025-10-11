@@ -32,14 +32,14 @@ public final class ReferenceInputMssqlArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The query used to retrieve incremental changes in the reference data from the MS SQL database. Cannot be set when `refresh_type` is `Static`.
+     * The query used to retrieve incremental changes in the reference data from the MS SQL database. Cannot be set when `refreshType` is `Static`.
      * 
      */
     @Import(name="deltaSnapshotQuery")
     private @Nullable Output<String> deltaSnapshotQuery;
 
     /**
-     * @return The query used to retrieve incremental changes in the reference data from the MS SQL database. Cannot be set when `refresh_type` is `Static`.
+     * @return The query used to retrieve incremental changes in the reference data from the MS SQL database. Cannot be set when `refreshType` is `Static`.
      * 
      */
     public Optional<Output<String>> deltaSnapshotQuery() {
@@ -92,14 +92,14 @@ public final class ReferenceInputMssqlArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The frequency in `hh:mm:ss` with which the reference data should be retrieved from the MS SQL database e.g. `00:20:00` for every 20 minutes. Must be set when `refresh_type` is `RefreshPeriodicallyWithFull` or `RefreshPeriodicallyWithDelta`.
+     * The frequency in `hh:mm:ss` with which the reference data should be retrieved from the MS SQL database e.g. `00:20:00` for every 20 minutes. Must be set when `refreshType` is `RefreshPeriodicallyWithFull` or `RefreshPeriodicallyWithDelta`.
      * 
      */
     @Import(name="refreshIntervalDuration")
     private @Nullable Output<String> refreshIntervalDuration;
 
     /**
-     * @return The frequency in `hh:mm:ss` with which the reference data should be retrieved from the MS SQL database e.g. `00:20:00` for every 20 minutes. Must be set when `refresh_type` is `RefreshPeriodicallyWithFull` or `RefreshPeriodicallyWithDelta`.
+     * @return The frequency in `hh:mm:ss` with which the reference data should be retrieved from the MS SQL database e.g. `00:20:00` for every 20 minutes. Must be set when `refreshType` is `RefreshPeriodicallyWithFull` or `RefreshPeriodicallyWithDelta`.
      * 
      */
     public Optional<Output<String>> refreshIntervalDuration() {
@@ -253,7 +253,7 @@ public final class ReferenceInputMssqlArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param deltaSnapshotQuery The query used to retrieve incremental changes in the reference data from the MS SQL database. Cannot be set when `refresh_type` is `Static`.
+         * @param deltaSnapshotQuery The query used to retrieve incremental changes in the reference data from the MS SQL database. Cannot be set when `refreshType` is `Static`.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class ReferenceInputMssqlArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param deltaSnapshotQuery The query used to retrieve incremental changes in the reference data from the MS SQL database. Cannot be set when `refresh_type` is `Static`.
+         * @param deltaSnapshotQuery The query used to retrieve incremental changes in the reference data from the MS SQL database. Cannot be set when `refreshType` is `Static`.
          * 
          * @return builder
          * 
@@ -337,7 +337,7 @@ public final class ReferenceInputMssqlArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param refreshIntervalDuration The frequency in `hh:mm:ss` with which the reference data should be retrieved from the MS SQL database e.g. `00:20:00` for every 20 minutes. Must be set when `refresh_type` is `RefreshPeriodicallyWithFull` or `RefreshPeriodicallyWithDelta`.
+         * @param refreshIntervalDuration The frequency in `hh:mm:ss` with which the reference data should be retrieved from the MS SQL database e.g. `00:20:00` for every 20 minutes. Must be set when `refreshType` is `RefreshPeriodicallyWithFull` or `RefreshPeriodicallyWithDelta`.
          * 
          * @return builder
          * 
@@ -348,7 +348,7 @@ public final class ReferenceInputMssqlArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param refreshIntervalDuration The frequency in `hh:mm:ss` with which the reference data should be retrieved from the MS SQL database e.g. `00:20:00` for every 20 minutes. Must be set when `refresh_type` is `RefreshPeriodicallyWithFull` or `RefreshPeriodicallyWithDelta`.
+         * @param refreshIntervalDuration The frequency in `hh:mm:ss` with which the reference data should be retrieved from the MS SQL database e.g. `00:20:00` for every 20 minutes. Must be set when `refreshType` is `RefreshPeriodicallyWithFull` or `RefreshPeriodicallyWithDelta`.
          * 
          * @return builder
          * 

@@ -21,14 +21,14 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackState exten
     public static final NextGenerationFirewallVirtualNetworkLocalRulestackState Empty = new NextGenerationFirewallVirtualNetworkLocalRulestackState();
 
     /**
-     * One or more `destination_nat` blocks as defined below.
+     * One or more `destinationNat` blocks as defined below.
      * 
      */
     @Import(name="destinationNats")
     private @Nullable Output<List<NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs>> destinationNats;
 
     /**
-     * @return One or more `destination_nat` blocks as defined below.
+     * @return One or more `destinationNat` blocks as defined below.
      * 
      */
     public Optional<Output<List<NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs>>> destinationNats() {
@@ -36,14 +36,14 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackState exten
     }
 
     /**
-     * A `dns_settings` block as defined below.
+     * A `dnsSettings` block as defined below.
      * 
      */
     @Import(name="dnsSettings")
     private @Nullable Output<NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs> dnsSettings;
 
     /**
-     * @return A `dns_settings` block as defined below.
+     * @return A `dnsSettings` block as defined below.
      * 
      */
     public Optional<Output<NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs>> dnsSettings() {
@@ -51,14 +51,14 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackState exten
     }
 
     /**
-     * The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
+     * The marketplace offer ID. Defaults to `panSwfwCloudNgfw`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="marketplaceOfferId")
     private @Nullable Output<String> marketplaceOfferId;
 
     /**
-     * @return The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
+     * @return The marketplace offer ID. Defaults to `panSwfwCloudNgfw`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> marketplaceOfferId() {
@@ -81,14 +81,14 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackState exten
     }
 
     /**
-     * A `network_profile` block as defined below.
+     * A `networkProfile` block as defined below.
      * 
      */
     @Import(name="networkProfile")
     private @Nullable Output<NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs> networkProfile;
 
     /**
-     * @return A `network_profile` block as defined below.
+     * @return A `networkProfile` block as defined below.
      * 
      */
     public Optional<Output<NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs>> networkProfile() {
@@ -98,7 +98,7 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackState exten
     /**
      * The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
      * 
-     * &gt; **Note:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
+     * &gt; **Note:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
      * 
      */
     @Import(name="planId")
@@ -107,7 +107,7 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackState exten
     /**
      * @return The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
      * 
-     * &gt; **Note:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
+     * &gt; **Note:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
      * 
      */
     public Optional<Output<String>> planId() {
@@ -192,7 +192,7 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackState exten
         }
 
         /**
-         * @param destinationNats One or more `destination_nat` blocks as defined below.
+         * @param destinationNats One or more `destinationNat` blocks as defined below.
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackState exten
         }
 
         /**
-         * @param destinationNats One or more `destination_nat` blocks as defined below.
+         * @param destinationNats One or more `destinationNat` blocks as defined below.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackState exten
         }
 
         /**
-         * @param destinationNats One or more `destination_nat` blocks as defined below.
+         * @param destinationNats One or more `destinationNat` blocks as defined below.
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackState exten
         }
 
         /**
-         * @param dnsSettings A `dns_settings` block as defined below.
+         * @param dnsSettings A `dnsSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackState exten
         }
 
         /**
-         * @param dnsSettings A `dns_settings` block as defined below.
+         * @param dnsSettings A `dnsSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackState exten
         }
 
         /**
-         * @param marketplaceOfferId The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
+         * @param marketplaceOfferId The marketplace offer ID. Defaults to `panSwfwCloudNgfw`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackState exten
         }
 
         /**
-         * @param marketplaceOfferId The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
+         * @param marketplaceOfferId The marketplace offer ID. Defaults to `panSwfwCloudNgfw`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -286,7 +286,7 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackState exten
         }
 
         /**
-         * @param networkProfile A `network_profile` block as defined below.
+         * @param networkProfile A `networkProfile` block as defined below.
          * 
          * @return builder
          * 
@@ -297,7 +297,7 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackState exten
         }
 
         /**
-         * @param networkProfile A `network_profile` block as defined below.
+         * @param networkProfile A `networkProfile` block as defined below.
          * 
          * @return builder
          * 
@@ -309,7 +309,7 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackState exten
         /**
          * @param planId The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
          * 
-         * &gt; **Note:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
+         * &gt; **Note:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
          * 
          * @return builder
          * 
@@ -322,7 +322,7 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackState exten
         /**
          * @param planId The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
          * 
-         * &gt; **Note:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
+         * &gt; **Note:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
          * 
          * @return builder
          * 

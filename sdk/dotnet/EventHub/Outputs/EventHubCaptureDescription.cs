@@ -14,7 +14,7 @@ namespace Pulumi.Azure.EventHub.Outputs
     public sealed class EventHubCaptureDescription
     {
         /// <summary>
-        /// A `destination` block as defined below.
+        /// A `Destination` block as defined below.
         /// </summary>
         public readonly Outputs.EventHubCaptureDescriptionDestination Destination;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.EventHub.Outputs
         /// </summary>
         public readonly int? SizeLimitInBytes;
         /// <summary>
-        /// Specifies if empty files should not be emitted if no events occur during the Capture time window. Defaults to `false`.
+        /// Specifies if empty files should not be emitted if no events occur during the Capture time window. Defaults to `False`.
         /// </summary>
         public readonly bool? SkipEmptyArchives;
 

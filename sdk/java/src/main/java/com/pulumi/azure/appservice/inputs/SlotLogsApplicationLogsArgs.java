@@ -17,14 +17,14 @@ public final class SlotLogsApplicationLogsArgs extends com.pulumi.resources.Reso
     public static final SlotLogsApplicationLogsArgs Empty = new SlotLogsApplicationLogsArgs();
 
     /**
-     * An `azure_blob_storage` block as defined below.
+     * An `azureBlobStorage` block as defined below.
      * 
      */
     @Import(name="azureBlobStorage")
     private @Nullable Output<SlotLogsApplicationLogsAzureBlobStorageArgs> azureBlobStorage;
 
     /**
-     * @return An `azure_blob_storage` block as defined below.
+     * @return An `azureBlobStorage` block as defined below.
      * 
      */
     public Optional<Output<SlotLogsApplicationLogsAzureBlobStorageArgs>> azureBlobStorage() {
@@ -72,7 +72,7 @@ public final class SlotLogsApplicationLogsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param azureBlobStorage An `azure_blob_storage` block as defined below.
+         * @param azureBlobStorage An `azureBlobStorage` block as defined below.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class SlotLogsApplicationLogsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param azureBlobStorage An `azure_blob_storage` block as defined below.
+         * @param azureBlobStorage An `azureBlobStorage` block as defined below.
          * 
          * @return builder
          * 

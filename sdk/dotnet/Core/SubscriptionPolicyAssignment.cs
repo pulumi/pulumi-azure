@@ -85,15 +85,15 @@ namespace Pulumi.Azure.Core
         public Output<string?> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if this Policy should be enforced or not? Defaults to `true`.
+        /// Specifies if this Policy should be enforced or not? Defaults to `True`.
         /// </summary>
         [Output("enforce")]
         public Output<bool?> Enforce { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// 
-        /// &gt; **Note:** The `location` field must also be specified when `identity` is specified.
+        /// &gt; **Note:** The `Location` field must also be specified when `Identity` is specified.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.SubscriptionPolicyAssignmentIdentity?> Identity { get; private set; } = null!;
@@ -117,7 +117,7 @@ namespace Pulumi.Azure.Core
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `non_compliance_message` blocks as defined below.
+        /// One or more `NonComplianceMessage` blocks as defined below.
         /// </summary>
         [Output("nonComplianceMessages")]
         public Output<ImmutableArray<Outputs.SubscriptionPolicyAssignmentNonComplianceMessage>> NonComplianceMessages { get; private set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.Azure.Core
         public Output<ImmutableArray<string>> NotScopes { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
+        /// One or more `Overrides` blocks as defined below. More detail about `Overrides` and `ResourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
         /// </summary>
         [Output("overrides")]
         public Output<ImmutableArray<Outputs.SubscriptionPolicyAssignmentOverride>> Overrides { get; private set; } = null!;
@@ -147,7 +147,7 @@ namespace Pulumi.Azure.Core
         public Output<string> PolicyDefinitionId { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
+        /// One or more `ResourceSelectors` blocks as defined below to filter polices by resource properties.
         /// </summary>
         [Output("resourceSelectors")]
         public Output<ImmutableArray<Outputs.SubscriptionPolicyAssignmentResourceSelector>> ResourceSelectors { get; private set; } = null!;
@@ -217,15 +217,15 @@ namespace Pulumi.Azure.Core
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// Specifies if this Policy should be enforced or not? Defaults to `true`.
+        /// Specifies if this Policy should be enforced or not? Defaults to `True`.
         /// </summary>
         [Input("enforce")]
         public Input<bool>? Enforce { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// 
-        /// &gt; **Note:** The `location` field must also be specified when `identity` is specified.
+        /// &gt; **Note:** The `Location` field must also be specified when `Identity` is specified.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.SubscriptionPolicyAssignmentIdentityArgs>? Identity { get; set; }
@@ -252,7 +252,7 @@ namespace Pulumi.Azure.Core
         private InputList<Inputs.SubscriptionPolicyAssignmentNonComplianceMessageArgs>? _nonComplianceMessages;
 
         /// <summary>
-        /// One or more `non_compliance_message` blocks as defined below.
+        /// One or more `NonComplianceMessage` blocks as defined below.
         /// </summary>
         public InputList<Inputs.SubscriptionPolicyAssignmentNonComplianceMessageArgs> NonComplianceMessages
         {
@@ -276,7 +276,7 @@ namespace Pulumi.Azure.Core
         private InputList<Inputs.SubscriptionPolicyAssignmentOverrideArgs>? _overrides;
 
         /// <summary>
-        /// One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
+        /// One or more `Overrides` blocks as defined below. More detail about `Overrides` and `ResourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
         /// </summary>
         public InputList<Inputs.SubscriptionPolicyAssignmentOverrideArgs> Overrides
         {
@@ -300,7 +300,7 @@ namespace Pulumi.Azure.Core
         private InputList<Inputs.SubscriptionPolicyAssignmentResourceSelectorArgs>? _resourceSelectors;
 
         /// <summary>
-        /// One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
+        /// One or more `ResourceSelectors` blocks as defined below to filter polices by resource properties.
         /// </summary>
         public InputList<Inputs.SubscriptionPolicyAssignmentResourceSelectorArgs> ResourceSelectors
         {
@@ -335,15 +335,15 @@ namespace Pulumi.Azure.Core
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// Specifies if this Policy should be enforced or not? Defaults to `true`.
+        /// Specifies if this Policy should be enforced or not? Defaults to `True`.
         /// </summary>
         [Input("enforce")]
         public Input<bool>? Enforce { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// 
-        /// &gt; **Note:** The `location` field must also be specified when `identity` is specified.
+        /// &gt; **Note:** The `Location` field must also be specified when `Identity` is specified.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.SubscriptionPolicyAssignmentIdentityGetArgs>? Identity { get; set; }
@@ -370,7 +370,7 @@ namespace Pulumi.Azure.Core
         private InputList<Inputs.SubscriptionPolicyAssignmentNonComplianceMessageGetArgs>? _nonComplianceMessages;
 
         /// <summary>
-        /// One or more `non_compliance_message` blocks as defined below.
+        /// One or more `NonComplianceMessage` blocks as defined below.
         /// </summary>
         public InputList<Inputs.SubscriptionPolicyAssignmentNonComplianceMessageGetArgs> NonComplianceMessages
         {
@@ -394,7 +394,7 @@ namespace Pulumi.Azure.Core
         private InputList<Inputs.SubscriptionPolicyAssignmentOverrideGetArgs>? _overrides;
 
         /// <summary>
-        /// One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
+        /// One or more `Overrides` blocks as defined below. More detail about `Overrides` and `ResourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
         /// </summary>
         public InputList<Inputs.SubscriptionPolicyAssignmentOverrideGetArgs> Overrides
         {
@@ -418,7 +418,7 @@ namespace Pulumi.Azure.Core
         private InputList<Inputs.SubscriptionPolicyAssignmentResourceSelectorGetArgs>? _resourceSelectors;
 
         /// <summary>
-        /// One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
+        /// One or more `ResourceSelectors` blocks as defined below to filter polices by resource properties.
         /// </summary>
         public InputList<Inputs.SubscriptionPolicyAssignmentResourceSelectorGetArgs> ResourceSelectors
         {

@@ -22,11 +22,11 @@ namespace Pulumi.Azure.Batch.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? CommonEnvironmentProperties;
         /// <summary>
-        /// A `container` block is the settings for the container under which the start task runs as defined below. When this is specified, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
+        /// A `Container` block is the settings for the container under which the start task runs as defined below. When this is specified, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
         /// </summary>
         public readonly ImmutableArray<Outputs.PoolStartTaskContainer> Containers;
         /// <summary>
-        /// One or more `resource_file` blocks that describe the files to be downloaded to a compute node as defined below.
+        /// One or more `ResourceFile` blocks that describe the files to be downloaded to a compute node as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.PoolStartTaskResourceFile> ResourceFiles;
         /// <summary>
@@ -34,11 +34,11 @@ namespace Pulumi.Azure.Batch.Outputs
         /// </summary>
         public readonly int? TaskRetryMaximum;
         /// <summary>
-        /// A `user_identity` block that describes the user identity under which the start task runs as defined below.
+        /// A `UserIdentity` block that describes the user identity under which the start task runs as defined below.
         /// </summary>
         public readonly Outputs.PoolStartTaskUserIdentity UserIdentity;
         /// <summary>
-        /// A flag that indicates if the Batch pool should wait for the start task to be completed. Default to `false`.
+        /// A flag that indicates if the Batch pool should wait for the start task to be completed. Default to `False`.
         /// </summary>
         public readonly bool? WaitForSuccess;
 

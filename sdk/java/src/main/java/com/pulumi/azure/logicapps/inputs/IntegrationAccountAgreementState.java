@@ -49,14 +49,14 @@ public final class IntegrationAccountAgreementState extends com.pulumi.resources
     }
 
     /**
-     * A `guest_identity` block as documented below.
+     * A `guestIdentity` block as documented below.
      * 
      */
     @Import(name="guestIdentity")
     private @Nullable Output<IntegrationAccountAgreementGuestIdentityArgs> guestIdentity;
 
     /**
-     * @return A `guest_identity` block as documented below.
+     * @return A `guestIdentity` block as documented below.
      * 
      */
     public Optional<Output<IntegrationAccountAgreementGuestIdentityArgs>> guestIdentity() {
@@ -79,14 +79,14 @@ public final class IntegrationAccountAgreementState extends com.pulumi.resources
     }
 
     /**
-     * A `host_identity` block as documented below.
+     * A `hostIdentity` block as documented below.
      * 
      */
     @Import(name="hostIdentity")
     private @Nullable Output<IntegrationAccountAgreementHostIdentityArgs> hostIdentity;
 
     /**
-     * @return A `host_identity` block as documented below.
+     * @return A `hostIdentity` block as documented below.
      * 
      */
     public Optional<Output<IntegrationAccountAgreementHostIdentityArgs>> hostIdentity() {
@@ -244,7 +244,7 @@ public final class IntegrationAccountAgreementState extends com.pulumi.resources
         }
 
         /**
-         * @param guestIdentity A `guest_identity` block as documented below.
+         * @param guestIdentity A `guestIdentity` block as documented below.
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class IntegrationAccountAgreementState extends com.pulumi.resources
         }
 
         /**
-         * @param guestIdentity A `guest_identity` block as documented below.
+         * @param guestIdentity A `guestIdentity` block as documented below.
          * 
          * @return builder
          * 
@@ -286,7 +286,7 @@ public final class IntegrationAccountAgreementState extends com.pulumi.resources
         }
 
         /**
-         * @param hostIdentity A `host_identity` block as documented below.
+         * @param hostIdentity A `hostIdentity` block as documented below.
          * 
          * @return builder
          * 
@@ -297,7 +297,7 @@ public final class IntegrationAccountAgreementState extends com.pulumi.resources
         }
 
         /**
-         * @param hostIdentity A `host_identity` block as documented below.
+         * @param hostIdentity A `hostIdentity` block as documented below.
          * 
          * @return builder
          * 

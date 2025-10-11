@@ -33,7 +33,7 @@ public final class SparkClusterStorageAccountGen2Args extends com.pulumi.resourc
     /**
      * Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
+     * &gt; **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
      * 
      */
     @Import(name="isDefault", required=true)
@@ -42,7 +42,7 @@ public final class SparkClusterStorageAccountGen2Args extends com.pulumi.resourc
     /**
      * @return Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
+     * &gt; **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
      * 
      */
     public Output<Boolean> isDefault() {
@@ -134,7 +134,7 @@ public final class SparkClusterStorageAccountGen2Args extends com.pulumi.resourc
         /**
          * @param isDefault Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
+         * &gt; **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class SparkClusterStorageAccountGen2Args extends com.pulumi.resourc
         /**
          * @param isDefault Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
+         * &gt; **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
          * 
          * @return builder
          * 

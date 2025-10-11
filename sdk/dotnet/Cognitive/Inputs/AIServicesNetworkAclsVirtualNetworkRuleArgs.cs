@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Cognitive.Inputs
     public sealed class AIServicesNetworkAclsVirtualNetworkRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to ignore a missing Virtual Network Service Endpoint or not. Default to `false`.
+        /// Whether to ignore a missing Virtual Network Service Endpoint or not. Default to `False`.
         /// </summary>
         [Input("ignoreMissingVnetServiceEndpoint")]
         public Input<bool>? IgnoreMissingVnetServiceEndpoint { get; set; }

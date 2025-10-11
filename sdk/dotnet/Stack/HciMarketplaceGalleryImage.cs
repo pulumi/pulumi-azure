@@ -100,7 +100,7 @@ namespace Pulumi.Azure.Stack
         public Output<string> HypervGeneration { get; private set; } = null!;
 
         /// <summary>
-        /// An `identifier` block as defined below. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
+        /// An `Identifier` block as defined below. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
         /// </summary>
         [Output("identifier")]
         public Output<Outputs.HciMarketplaceGalleryImageIdentifier> Identifier { get; private set; } = null!;
@@ -206,7 +206,7 @@ namespace Pulumi.Azure.Stack
         public Input<string> HypervGeneration { get; set; } = null!;
 
         /// <summary>
-        /// An `identifier` block as defined below. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
+        /// An `Identifier` block as defined below. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
         /// </summary>
         [Input("identifier", required: true)]
         public Input<Inputs.HciMarketplaceGalleryImageIdentifierArgs> Identifier { get; set; } = null!;
@@ -280,7 +280,7 @@ namespace Pulumi.Azure.Stack
         public Input<string>? HypervGeneration { get; set; }
 
         /// <summary>
-        /// An `identifier` block as defined below. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
+        /// An `Identifier` block as defined below. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
         /// </summary>
         [Input("identifier")]
         public Input<Inputs.HciMarketplaceGalleryImageIdentifierGetArgs>? Identifier { get; set; }

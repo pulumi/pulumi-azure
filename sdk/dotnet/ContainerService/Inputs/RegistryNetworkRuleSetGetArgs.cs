@@ -22,11 +22,11 @@ namespace Pulumi.Azure.ContainerService.Inputs
         private InputList<Inputs.RegistryNetworkRuleSetIpRuleGetArgs>? _ipRules;
 
         /// <summary>
-        /// One or more `ip_rule` blocks as defined below.
+        /// One or more `IpRule` blocks as defined below.
         /// 
-        /// &gt; **Note:** `network_rule_set` is only supported with the `Premium` SKU at this time.
+        /// &gt; **Note:** `NetworkRuleSet` is only supported with the `Premium` SKU at this time.
         /// 
-        /// &gt; **Note:** Azure automatically configures Network Rules - to remove these, you'll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
+        /// &gt; **Note:** Azure automatically configures Network Rules - to remove these, you'll need to specify an `NetworkRuleSet` block with `DefaultAction` set to `Deny`.
         /// </summary>
         public InputList<Inputs.RegistryNetworkRuleSetIpRuleGetArgs> IpRules
         {

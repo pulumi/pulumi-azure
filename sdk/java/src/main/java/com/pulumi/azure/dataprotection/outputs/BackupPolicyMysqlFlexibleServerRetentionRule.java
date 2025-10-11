@@ -20,7 +20,7 @@ public final class BackupPolicyMysqlFlexibleServerRetentionRule {
      */
     private BackupPolicyMysqlFlexibleServerRetentionRuleCriteria criteria;
     /**
-     * @return A `life_cycle` block as defined below. Changing this forces a new resource to be created.
+     * @return A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     private List<BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycle> lifeCycles;
@@ -44,7 +44,7 @@ public final class BackupPolicyMysqlFlexibleServerRetentionRule {
         return this.criteria;
     }
     /**
-     * @return A `life_cycle` block as defined below. Changing this forces a new resource to be created.
+     * @return A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public List<BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycle> lifeCycles() {

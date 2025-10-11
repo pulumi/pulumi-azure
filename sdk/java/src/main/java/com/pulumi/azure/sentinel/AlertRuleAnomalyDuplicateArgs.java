@@ -98,14 +98,14 @@ public final class AlertRuleAnomalyDuplicateArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * A list of `multi_select_observation` blocks as defined below.
+     * A list of `multiSelectObservation` blocks as defined below.
      * 
      */
     @Import(name="multiSelectObservations")
     private @Nullable Output<List<AlertRuleAnomalyDuplicateMultiSelectObservationArgs>> multiSelectObservations;
 
     /**
-     * @return A list of `multi_select_observation` blocks as defined below.
+     * @return A list of `multiSelectObservation` blocks as defined below.
      * 
      */
     public Optional<Output<List<AlertRuleAnomalyDuplicateMultiSelectObservationArgs>>> multiSelectObservations() {
@@ -113,14 +113,14 @@ public final class AlertRuleAnomalyDuplicateArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * A list of `prioritized_exclude_observation` blocks as defined below.
+     * A list of `prioritizedExcludeObservation` blocks as defined below.
      * 
      */
     @Import(name="prioritizedExcludeObservations")
     private @Nullable Output<List<AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgs>> prioritizedExcludeObservations;
 
     /**
-     * @return A list of `prioritized_exclude_observation` blocks as defined below.
+     * @return A list of `prioritizedExcludeObservation` blocks as defined below.
      * 
      */
     public Optional<Output<List<AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgs>>> prioritizedExcludeObservations() {
@@ -128,14 +128,14 @@ public final class AlertRuleAnomalyDuplicateArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * A list of `single_select_observation` blocks as defined below.
+     * A list of `singleSelectObservation` blocks as defined below.
      * 
      */
     @Import(name="singleSelectObservations")
     private @Nullable Output<List<AlertRuleAnomalyDuplicateSingleSelectObservationArgs>> singleSelectObservations;
 
     /**
-     * @return A list of `single_select_observation` blocks as defined below.
+     * @return A list of `singleSelectObservation` blocks as defined below.
      * 
      */
     public Optional<Output<List<AlertRuleAnomalyDuplicateSingleSelectObservationArgs>>> singleSelectObservations() {
@@ -143,18 +143,18 @@ public final class AlertRuleAnomalyDuplicateArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * A list of `threshold_observation` blocks as defined below.
+     * A list of `thresholdObservation` blocks as defined below.
      * 
-     * &gt; **Note:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
+     * &gt; **Note:** un-specified `multiSelectObservation`, `singleSelectObservation`, `prioritizedExcludeObservation` and `thresholdObservation` will be inherited from the built-in Anomaly Alert Rule.
      * 
      */
     @Import(name="thresholdObservations")
     private @Nullable Output<List<AlertRuleAnomalyDuplicateThresholdObservationArgs>> thresholdObservations;
 
     /**
-     * @return A list of `threshold_observation` blocks as defined below.
+     * @return A list of `thresholdObservation` blocks as defined below.
      * 
-     * &gt; **Note:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
+     * &gt; **Note:** un-specified `multiSelectObservation`, `singleSelectObservation`, `prioritizedExcludeObservation` and `thresholdObservation` will be inherited from the built-in Anomaly Alert Rule.
      * 
      */
     public Optional<Output<List<AlertRuleAnomalyDuplicateThresholdObservationArgs>>> thresholdObservations() {
@@ -299,7 +299,7 @@ public final class AlertRuleAnomalyDuplicateArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param multiSelectObservations A list of `multi_select_observation` blocks as defined below.
+         * @param multiSelectObservations A list of `multiSelectObservation` blocks as defined below.
          * 
          * @return builder
          * 
@@ -310,7 +310,7 @@ public final class AlertRuleAnomalyDuplicateArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param multiSelectObservations A list of `multi_select_observation` blocks as defined below.
+         * @param multiSelectObservations A list of `multiSelectObservation` blocks as defined below.
          * 
          * @return builder
          * 
@@ -320,7 +320,7 @@ public final class AlertRuleAnomalyDuplicateArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param multiSelectObservations A list of `multi_select_observation` blocks as defined below.
+         * @param multiSelectObservations A list of `multiSelectObservation` blocks as defined below.
          * 
          * @return builder
          * 
@@ -330,7 +330,7 @@ public final class AlertRuleAnomalyDuplicateArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param prioritizedExcludeObservations A list of `prioritized_exclude_observation` blocks as defined below.
+         * @param prioritizedExcludeObservations A list of `prioritizedExcludeObservation` blocks as defined below.
          * 
          * @return builder
          * 
@@ -341,7 +341,7 @@ public final class AlertRuleAnomalyDuplicateArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param prioritizedExcludeObservations A list of `prioritized_exclude_observation` blocks as defined below.
+         * @param prioritizedExcludeObservations A list of `prioritizedExcludeObservation` blocks as defined below.
          * 
          * @return builder
          * 
@@ -351,7 +351,7 @@ public final class AlertRuleAnomalyDuplicateArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param prioritizedExcludeObservations A list of `prioritized_exclude_observation` blocks as defined below.
+         * @param prioritizedExcludeObservations A list of `prioritizedExcludeObservation` blocks as defined below.
          * 
          * @return builder
          * 
@@ -361,7 +361,7 @@ public final class AlertRuleAnomalyDuplicateArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param singleSelectObservations A list of `single_select_observation` blocks as defined below.
+         * @param singleSelectObservations A list of `singleSelectObservation` blocks as defined below.
          * 
          * @return builder
          * 
@@ -372,7 +372,7 @@ public final class AlertRuleAnomalyDuplicateArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param singleSelectObservations A list of `single_select_observation` blocks as defined below.
+         * @param singleSelectObservations A list of `singleSelectObservation` blocks as defined below.
          * 
          * @return builder
          * 
@@ -382,7 +382,7 @@ public final class AlertRuleAnomalyDuplicateArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param singleSelectObservations A list of `single_select_observation` blocks as defined below.
+         * @param singleSelectObservations A list of `singleSelectObservation` blocks as defined below.
          * 
          * @return builder
          * 
@@ -392,9 +392,9 @@ public final class AlertRuleAnomalyDuplicateArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param thresholdObservations A list of `threshold_observation` blocks as defined below.
+         * @param thresholdObservations A list of `thresholdObservation` blocks as defined below.
          * 
-         * &gt; **Note:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
+         * &gt; **Note:** un-specified `multiSelectObservation`, `singleSelectObservation`, `prioritizedExcludeObservation` and `thresholdObservation` will be inherited from the built-in Anomaly Alert Rule.
          * 
          * @return builder
          * 
@@ -405,9 +405,9 @@ public final class AlertRuleAnomalyDuplicateArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param thresholdObservations A list of `threshold_observation` blocks as defined below.
+         * @param thresholdObservations A list of `thresholdObservation` blocks as defined below.
          * 
-         * &gt; **Note:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
+         * &gt; **Note:** un-specified `multiSelectObservation`, `singleSelectObservation`, `prioritizedExcludeObservation` and `thresholdObservation` will be inherited from the built-in Anomaly Alert Rule.
          * 
          * @return builder
          * 
@@ -417,9 +417,9 @@ public final class AlertRuleAnomalyDuplicateArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param thresholdObservations A list of `threshold_observation` blocks as defined below.
+         * @param thresholdObservations A list of `thresholdObservation` blocks as defined below.
          * 
-         * &gt; **Note:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
+         * &gt; **Note:** un-specified `multiSelectObservation`, `singleSelectObservation`, `prioritizedExcludeObservation` and `thresholdObservation` will be inherited from the built-in Anomaly Alert Rule.
          * 
          * @return builder
          * 

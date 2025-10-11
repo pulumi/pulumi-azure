@@ -39,7 +39,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         /// <summary>
         /// The amount of vCPU to allocate to the container.
         /// 
-        /// &gt; **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
+        /// &gt; **Note:** When using a Consumption plan, the `Cpu` and `Memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
         /// </summary>
         [Input("cpu")]
         public Input<double>? Cpu { get; set; }
@@ -48,7 +48,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         private InputList<Inputs.JobTemplateInitContainerEnvGetArgs>? _envs;
 
         /// <summary>
-        /// One or more `env` blocks as detailed below.
+        /// One or more `Env` blocks as detailed below.
         /// </summary>
         public InputList<Inputs.JobTemplateInitContainerEnvGetArgs> Envs
         {
@@ -59,7 +59,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         /// <summary>
         /// The amount of ephemeral storage available to the Container App.
         /// 
-        /// &gt; **Note:** `ephemeral_storage` is currently in preview and not configurable at this time.
+        /// &gt; **Note:** `EphemeralStorage` is currently in preview and not configurable at this time.
         /// </summary>
         [Input("ephemeralStorage")]
         public Input<string>? EphemeralStorage { get; set; }
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         /// <summary>
         /// The amount of memory to allocate to the container.
         /// 
-        /// &gt; **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
+        /// &gt; **Note:** When using a Consumption plan, the `Cpu` and `Memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
         /// </summary>
         [Input("memory")]
         public Input<string>? Memory { get; set; }
@@ -88,7 +88,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         private InputList<Inputs.JobTemplateInitContainerVolumeMountGetArgs>? _volumeMounts;
 
         /// <summary>
-        /// A `volume_mounts` block as detailed below.
+        /// A `VolumeMounts` block as detailed below.
         /// </summary>
         public InputList<Inputs.JobTemplateInitContainerVolumeMountGetArgs> VolumeMounts
         {

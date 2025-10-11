@@ -18,15 +18,15 @@ namespace Pulumi.Azure.FrontDoor.Outputs
         /// </summary>
         public readonly ImmutableArray<string> AcceptedProtocols;
         /// <summary>
-        /// `Enable` or `Disable` use of this Backend Routing Rule. Permitted values are `true` or `false`. Defaults to `true`.
+        /// `Enable` or `Disable` use of this Backend Routing Rule. Permitted values are `True` or `False`. Defaults to `True`.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// A `forwarding_configuration` block as defined below.
+        /// A `ForwardingConfiguration` block as defined below.
         /// </summary>
         public readonly Outputs.FrontdoorRoutingRuleForwardingConfiguration? ForwardingConfiguration;
         /// <summary>
-        /// The names of the `frontend_endpoint` blocks within this resource to associate with this `routing_rule`.
+        /// The names of the `FrontendEndpoint` blocks within this resource to associate with this `RoutingRule`.
         /// </summary>
         public readonly ImmutableArray<string> FrontendEndpoints;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.Azure.FrontDoor.Outputs
         /// </summary>
         public readonly ImmutableArray<string> PatternsToMatches;
         /// <summary>
-        /// A `redirect_configuration` block as defined below.
+        /// A `RedirectConfiguration` block as defined below.
         /// </summary>
         public readonly Outputs.FrontdoorRoutingRuleRedirectConfiguration? RedirectConfiguration;
 

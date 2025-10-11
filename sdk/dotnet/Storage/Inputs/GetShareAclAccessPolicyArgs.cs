@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Storage.Inputs
         public Input<string> Expiry { get; set; } = null!;
 
         /// <summary>
-        /// The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
+        /// The permissions which should be associated with this Shared Identifier. Possible value is combination of `R` (read), `W` (write), `D` (delete), and `L` (list).
         /// </summary>
         [Input("permissions", required: true)]
         public Input<string> Permissions { get; set; } = null!;

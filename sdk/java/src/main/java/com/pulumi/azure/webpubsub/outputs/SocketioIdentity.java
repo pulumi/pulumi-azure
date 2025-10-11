@@ -16,7 +16,7 @@ public final class SocketioIdentity {
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs for this Web PubSub Service.
      * 
-     * &gt; **Note:** `identity_ids` is required when `type` is `UserAssigned`.
+     * &gt; **Note:** `identityIds` is required when `type` is `UserAssigned`.
      * 
      */
     private @Nullable List<String> identityIds;
@@ -32,7 +32,7 @@ public final class SocketioIdentity {
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs for this Web PubSub Service.
      * 
-     * &gt; **Note:** `identity_ids` is required when `type` is `UserAssigned`.
+     * &gt; **Note:** `identityIds` is required when `type` is `UserAssigned`.
      * 
      */
     public List<String> identityIds() {

@@ -337,7 +337,7 @@ public class FrontdoorRoute extends com.pulumi.resources.CustomResource {
     /**
      * Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
      * 
-     * &gt; **Note:** The `https_redirect_enabled` rule is the first rule that will be executed.
+     * &gt; **Note:** The `httpsRedirectEnabled` rule is the first rule that will be executed.
      * 
      */
     @Export(name="httpsRedirectEnabled", refs={Boolean.class}, tree="[0]")
@@ -346,7 +346,7 @@ public class FrontdoorRoute extends com.pulumi.resources.CustomResource {
     /**
      * @return Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
      * 
-     * &gt; **Note:** The `https_redirect_enabled` rule is the first rule that will be executed.
+     * &gt; **Note:** The `httpsRedirectEnabled` rule is the first rule that will be executed.
      * 
      */
     public Output<Optional<Boolean>> httpsRedirectEnabled() {
@@ -397,7 +397,7 @@ public class FrontdoorRoute extends com.pulumi.resources.CustomResource {
     /**
      * One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
      * 
-     * &gt; **Note:** If `https_redirect_enabled` is set to `true` the `supported_protocols` field must contain both `Http` and `Https` values.
+     * &gt; **Note:** If `httpsRedirectEnabled` is set to `true` the `supportedProtocols` field must contain both `Http` and `Https` values.
      * 
      */
     @Export(name="supportedProtocols", refs={List.class,String.class}, tree="[0,1]")
@@ -406,7 +406,7 @@ public class FrontdoorRoute extends com.pulumi.resources.CustomResource {
     /**
      * @return One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
      * 
-     * &gt; **Note:** If `https_redirect_enabled` is set to `true` the `supported_protocols` field must contain both `Http` and `Https` values.
+     * &gt; **Note:** If `httpsRedirectEnabled` is set to `true` the `supportedProtocols` field must contain both `Http` and `Https` values.
      * 
      */
     public Output<List<String>> supportedProtocols() {

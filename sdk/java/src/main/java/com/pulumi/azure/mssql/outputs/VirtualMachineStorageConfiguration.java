@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VirtualMachineStorageConfiguration {
     /**
-     * @return A `storage_settings` block as defined below.
+     * @return A `storageSettings` block as defined below.
      * 
      */
     private @Nullable VirtualMachineStorageConfigurationDataSettings dataSettings;
@@ -27,7 +27,7 @@ public final class VirtualMachineStorageConfiguration {
      */
     private String diskType;
     /**
-     * @return A `storage_settings` block as defined below.
+     * @return A `storageSettings` block as defined below.
      * 
      */
     private @Nullable VirtualMachineStorageConfigurationLogSettings logSettings;
@@ -42,14 +42,14 @@ public final class VirtualMachineStorageConfiguration {
      */
     private @Nullable Boolean systemDbOnDataDiskEnabled;
     /**
-     * @return An `temp_db_settings` block as defined below.
+     * @return An `tempDbSettings` block as defined below.
      * 
      */
     private @Nullable VirtualMachineStorageConfigurationTempDbSettings tempDbSettings;
 
     private VirtualMachineStorageConfiguration() {}
     /**
-     * @return A `storage_settings` block as defined below.
+     * @return A `storageSettings` block as defined below.
      * 
      */
     public Optional<VirtualMachineStorageConfigurationDataSettings> dataSettings() {
@@ -63,7 +63,7 @@ public final class VirtualMachineStorageConfiguration {
         return this.diskType;
     }
     /**
-     * @return A `storage_settings` block as defined below.
+     * @return A `storageSettings` block as defined below.
      * 
      */
     public Optional<VirtualMachineStorageConfigurationLogSettings> logSettings() {
@@ -84,7 +84,7 @@ public final class VirtualMachineStorageConfiguration {
         return Optional.ofNullable(this.systemDbOnDataDiskEnabled);
     }
     /**
-     * @return An `temp_db_settings` block as defined below.
+     * @return An `tempDbSettings` block as defined below.
      * 
      */
     public Optional<VirtualMachineStorageConfigurationTempDbSettings> tempDbSettings() {

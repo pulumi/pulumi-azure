@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Lb.Outputs
     public sealed class GetBackendAddressPoolBackendAddressResult
     {
         /// <summary>
-        /// A list of `inbound_nat_rule_port_mapping` block as defined below.
+        /// A list of `InboundNatRulePortMapping` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBackendAddressPoolBackendAddressInboundNatRulePortMappingResult> InboundNatRulePortMappings;
         /// <summary>

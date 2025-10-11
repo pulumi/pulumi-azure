@@ -159,13 +159,13 @@ namespace Pulumi.Azure.Monitoring
     public partial class ScheduledQueryRulesAlertV2 : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An `action` block as defined below.
+        /// An `Action` block as defined below.
         /// </summary>
         [Output("action")]
         public Output<Outputs.ScheduledQueryRulesAlertV2Action?> Action { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the flag that indicates whether the alert should be automatically resolved or not. Value should be `true` or `false`. The default is `false`.
+        /// Specifies the flag that indicates whether the alert should be automatically resolved or not. Value should be `True` or `False`. The default is `False`.
         /// </summary>
         [Output("autoMitigationEnabled")]
         public Output<bool?> AutoMitigationEnabled { get; private set; } = null!;
@@ -177,7 +177,7 @@ namespace Pulumi.Azure.Monitoring
         public Output<string> CreatedWithApiVersion { get; private set; } = null!;
 
         /// <summary>
-        /// A `criteria` block as defined below.
+        /// A `Criteria` block as defined below.
         /// </summary>
         [Output("criterias")]
         public Output<ImmutableArray<Outputs.ScheduledQueryRulesAlertV2Criteria>> Criterias { get; private set; } = null!;
@@ -195,7 +195,7 @@ namespace Pulumi.Azure.Monitoring
         public Output<string?> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. Defaults to `true`.
+        /// Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `True` or `False`. Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -203,15 +203,15 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`.
         /// 
-        /// &gt; **Note:** `evaluation_frequency` cannot be greater than the query look back which is `window_duration`*`number_of_evaluation_periods`.
+        /// &gt; **Note:** `EvaluationFrequency` cannot be greater than the query look back which is `WindowDuration`*`NumberOfEvaluationPeriods`.
         /// 
-        /// &gt; **Note:** `evaluation_frequency` cannot be greater than the `mute_actions_after_alert_duration`.
+        /// &gt; **Note:** `EvaluationFrequency` cannot be greater than the `MuteActionsAfterAlertDuration`.
         /// </summary>
         [Output("evaluationFrequency")]
         public Output<string> EvaluationFrequency { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ScheduledQueryRulesAlertV2Identity?> Identity { get; private set; } = null!;
@@ -237,7 +237,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
         /// 
-        /// &gt; **Note:** `auto_mitigation_enabled` and `mute_actions_after_alert_duration` are mutually exclusive and cannot both be set.
+        /// &gt; **Note:** `AutoMitigationEnabled` and `MuteActionsAfterAlertDuration` are mutually exclusive and cannot both be set.
         /// </summary>
         [Output("muteActionsAfterAlertDuration")]
         public Output<string?> MuteActionsAfterAlertDuration { get; private set; } = null!;
@@ -249,9 +249,9 @@ namespace Pulumi.Azure.Monitoring
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Set this if the alert evaluation period is different from the query time range. If not specified, the value is `window_duration`*`number_of_evaluation_periods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT20M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
+        /// Set this if the alert evaluation period is different from the query time range. If not specified, the value is `WindowDuration`*`NumberOfEvaluationPeriods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT20M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
         /// 
-        /// &gt; **Note:** `query_time_range_override` cannot be less than the query look back which is `window_duration`*`number_of_evaluation_periods`.
+        /// &gt; **Note:** `QueryTimeRangeOverride` cannot be less than the query look back which is `WindowDuration`*`NumberOfEvaluationPeriods`.
         /// </summary>
         [Output("queryTimeRangeOverride")]
         public Output<string?> QueryTimeRangeOverride { get; private set; } = null!;
@@ -293,13 +293,13 @@ namespace Pulumi.Azure.Monitoring
         public Output<ImmutableArray<string>> TargetResourceTypes { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). If `evaluation_frequency` is `PT1M`, possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, and `PT6H`. Otherwise, possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`, and `P2D`.
+        /// Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). If `EvaluationFrequency` is `PT1M`, possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, and `PT6H`. Otherwise, possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`, and `P2D`.
         /// </summary>
         [Output("windowDuration")]
         public Output<string> WindowDuration { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the flag which indicates whether this scheduled query rule check if storage is configured. Value should be `true` or `false`. The default is `false`.
+        /// Specifies the flag which indicates whether this scheduled query rule check if storage is configured. Value should be `True` or `False`. The default is `False`.
         /// </summary>
         [Output("workspaceAlertsStorageEnabled")]
         public Output<bool?> WorkspaceAlertsStorageEnabled { get; private set; } = null!;
@@ -351,13 +351,13 @@ namespace Pulumi.Azure.Monitoring
     public sealed class ScheduledQueryRulesAlertV2Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `action` block as defined below.
+        /// An `Action` block as defined below.
         /// </summary>
         [Input("action")]
         public Input<Inputs.ScheduledQueryRulesAlertV2ActionArgs>? Action { get; set; }
 
         /// <summary>
-        /// Specifies the flag that indicates whether the alert should be automatically resolved or not. Value should be `true` or `false`. The default is `false`.
+        /// Specifies the flag that indicates whether the alert should be automatically resolved or not. Value should be `True` or `False`. The default is `False`.
         /// </summary>
         [Input("autoMitigationEnabled")]
         public Input<bool>? AutoMitigationEnabled { get; set; }
@@ -366,7 +366,7 @@ namespace Pulumi.Azure.Monitoring
         private InputList<Inputs.ScheduledQueryRulesAlertV2CriteriaArgs>? _criterias;
 
         /// <summary>
-        /// A `criteria` block as defined below.
+        /// A `Criteria` block as defined below.
         /// </summary>
         public InputList<Inputs.ScheduledQueryRulesAlertV2CriteriaArgs> Criterias
         {
@@ -387,7 +387,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. Defaults to `true`.
+        /// Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `True` or `False`. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -395,15 +395,15 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`.
         /// 
-        /// &gt; **Note:** `evaluation_frequency` cannot be greater than the query look back which is `window_duration`*`number_of_evaluation_periods`.
+        /// &gt; **Note:** `EvaluationFrequency` cannot be greater than the query look back which is `WindowDuration`*`NumberOfEvaluationPeriods`.
         /// 
-        /// &gt; **Note:** `evaluation_frequency` cannot be greater than the `mute_actions_after_alert_duration`.
+        /// &gt; **Note:** `EvaluationFrequency` cannot be greater than the `MuteActionsAfterAlertDuration`.
         /// </summary>
         [Input("evaluationFrequency", required: true)]
         public Input<string> EvaluationFrequency { get; set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ScheduledQueryRulesAlertV2IdentityArgs>? Identity { get; set; }
@@ -417,7 +417,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
         /// 
-        /// &gt; **Note:** `auto_mitigation_enabled` and `mute_actions_after_alert_duration` are mutually exclusive and cannot both be set.
+        /// &gt; **Note:** `AutoMitigationEnabled` and `MuteActionsAfterAlertDuration` are mutually exclusive and cannot both be set.
         /// </summary>
         [Input("muteActionsAfterAlertDuration")]
         public Input<string>? MuteActionsAfterAlertDuration { get; set; }
@@ -429,9 +429,9 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Set this if the alert evaluation period is different from the query time range. If not specified, the value is `window_duration`*`number_of_evaluation_periods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT20M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
+        /// Set this if the alert evaluation period is different from the query time range. If not specified, the value is `WindowDuration`*`NumberOfEvaluationPeriods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT20M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
         /// 
-        /// &gt; **Note:** `query_time_range_override` cannot be less than the query look back which is `window_duration`*`number_of_evaluation_periods`.
+        /// &gt; **Note:** `QueryTimeRangeOverride` cannot be less than the query look back which is `WindowDuration`*`NumberOfEvaluationPeriods`.
         /// </summary>
         [Input("queryTimeRangeOverride")]
         public Input<string>? QueryTimeRangeOverride { get; set; }
@@ -485,13 +485,13 @@ namespace Pulumi.Azure.Monitoring
         }
 
         /// <summary>
-        /// Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). If `evaluation_frequency` is `PT1M`, possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, and `PT6H`. Otherwise, possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`, and `P2D`.
+        /// Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). If `EvaluationFrequency` is `PT1M`, possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, and `PT6H`. Otherwise, possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`, and `P2D`.
         /// </summary>
         [Input("windowDuration", required: true)]
         public Input<string> WindowDuration { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the flag which indicates whether this scheduled query rule check if storage is configured. Value should be `true` or `false`. The default is `false`.
+        /// Specifies the flag which indicates whether this scheduled query rule check if storage is configured. Value should be `True` or `False`. The default is `False`.
         /// </summary>
         [Input("workspaceAlertsStorageEnabled")]
         public Input<bool>? WorkspaceAlertsStorageEnabled { get; set; }
@@ -505,13 +505,13 @@ namespace Pulumi.Azure.Monitoring
     public sealed class ScheduledQueryRulesAlertV2State : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `action` block as defined below.
+        /// An `Action` block as defined below.
         /// </summary>
         [Input("action")]
         public Input<Inputs.ScheduledQueryRulesAlertV2ActionGetArgs>? Action { get; set; }
 
         /// <summary>
-        /// Specifies the flag that indicates whether the alert should be automatically resolved or not. Value should be `true` or `false`. The default is `false`.
+        /// Specifies the flag that indicates whether the alert should be automatically resolved or not. Value should be `True` or `False`. The default is `False`.
         /// </summary>
         [Input("autoMitigationEnabled")]
         public Input<bool>? AutoMitigationEnabled { get; set; }
@@ -526,7 +526,7 @@ namespace Pulumi.Azure.Monitoring
         private InputList<Inputs.ScheduledQueryRulesAlertV2CriteriaGetArgs>? _criterias;
 
         /// <summary>
-        /// A `criteria` block as defined below.
+        /// A `Criteria` block as defined below.
         /// </summary>
         public InputList<Inputs.ScheduledQueryRulesAlertV2CriteriaGetArgs> Criterias
         {
@@ -547,7 +547,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. Defaults to `true`.
+        /// Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `True` or `False`. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -555,15 +555,15 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`.
         /// 
-        /// &gt; **Note:** `evaluation_frequency` cannot be greater than the query look back which is `window_duration`*`number_of_evaluation_periods`.
+        /// &gt; **Note:** `EvaluationFrequency` cannot be greater than the query look back which is `WindowDuration`*`NumberOfEvaluationPeriods`.
         /// 
-        /// &gt; **Note:** `evaluation_frequency` cannot be greater than the `mute_actions_after_alert_duration`.
+        /// &gt; **Note:** `EvaluationFrequency` cannot be greater than the `MuteActionsAfterAlertDuration`.
         /// </summary>
         [Input("evaluationFrequency")]
         public Input<string>? EvaluationFrequency { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ScheduledQueryRulesAlertV2IdentityGetArgs>? Identity { get; set; }
@@ -589,7 +589,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
         /// 
-        /// &gt; **Note:** `auto_mitigation_enabled` and `mute_actions_after_alert_duration` are mutually exclusive and cannot both be set.
+        /// &gt; **Note:** `AutoMitigationEnabled` and `MuteActionsAfterAlertDuration` are mutually exclusive and cannot both be set.
         /// </summary>
         [Input("muteActionsAfterAlertDuration")]
         public Input<string>? MuteActionsAfterAlertDuration { get; set; }
@@ -601,9 +601,9 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Set this if the alert evaluation period is different from the query time range. If not specified, the value is `window_duration`*`number_of_evaluation_periods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT20M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
+        /// Set this if the alert evaluation period is different from the query time range. If not specified, the value is `WindowDuration`*`NumberOfEvaluationPeriods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT20M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
         /// 
-        /// &gt; **Note:** `query_time_range_override` cannot be less than the query look back which is `window_duration`*`number_of_evaluation_periods`.
+        /// &gt; **Note:** `QueryTimeRangeOverride` cannot be less than the query look back which is `WindowDuration`*`NumberOfEvaluationPeriods`.
         /// </summary>
         [Input("queryTimeRangeOverride")]
         public Input<string>? QueryTimeRangeOverride { get; set; }
@@ -657,13 +657,13 @@ namespace Pulumi.Azure.Monitoring
         }
 
         /// <summary>
-        /// Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). If `evaluation_frequency` is `PT1M`, possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, and `PT6H`. Otherwise, possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`, and `P2D`.
+        /// Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). If `EvaluationFrequency` is `PT1M`, possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, and `PT6H`. Otherwise, possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`, and `P2D`.
         /// </summary>
         [Input("windowDuration")]
         public Input<string>? WindowDuration { get; set; }
 
         /// <summary>
-        /// Specifies the flag which indicates whether this scheduled query rule check if storage is configured. Value should be `true` or `false`. The default is `false`.
+        /// Specifies the flag which indicates whether this scheduled query rule check if storage is configured. Value should be `True` or `False`. The default is `False`.
         /// </summary>
         [Input("workspaceAlertsStorageEnabled")]
         public Input<bool>? WorkspaceAlertsStorageEnabled { get; set; }

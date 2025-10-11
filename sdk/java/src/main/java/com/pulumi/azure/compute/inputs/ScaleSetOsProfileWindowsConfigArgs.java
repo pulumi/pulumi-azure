@@ -19,14 +19,14 @@ public final class ScaleSetOsProfileWindowsConfigArgs extends com.pulumi.resourc
     public static final ScaleSetOsProfileWindowsConfigArgs Empty = new ScaleSetOsProfileWindowsConfigArgs();
 
     /**
-     * An `additional_unattend_config` block as documented below.
+     * An `additionalUnattendConfig` block as documented below.
      * 
      */
     @Import(name="additionalUnattendConfigs")
     private @Nullable Output<List<ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArgs>> additionalUnattendConfigs;
 
     /**
-     * @return An `additional_unattend_config` block as documented below.
+     * @return An `additionalUnattendConfig` block as documented below.
      * 
      */
     public Optional<Output<List<ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArgs>>> additionalUnattendConfigs() {
@@ -106,7 +106,7 @@ public final class ScaleSetOsProfileWindowsConfigArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param additionalUnattendConfigs An `additional_unattend_config` block as documented below.
+         * @param additionalUnattendConfigs An `additionalUnattendConfig` block as documented below.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class ScaleSetOsProfileWindowsConfigArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param additionalUnattendConfigs An `additional_unattend_config` block as documented below.
+         * @param additionalUnattendConfigs An `additionalUnattendConfig` block as documented below.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class ScaleSetOsProfileWindowsConfigArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param additionalUnattendConfigs An `additional_unattend_config` block as documented below.
+         * @param additionalUnattendConfigs An `additionalUnattendConfig` block as documented below.
          * 
          * @return builder
          * 

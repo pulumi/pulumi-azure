@@ -13,13 +13,13 @@ namespace Pulumi.Azure.ChaosStudio.Inputs
     public sealed class ExperimentStepBranchActionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The type of action that should be added to the experiment. Possible values are `continuous`, `delay` and `discrete`.
+        /// The type of action that should be added to the experiment. Possible values are `Continuous`, `Delay` and `Discrete`.
         /// </summary>
         [Input("actionType", required: true)]
         public Input<string> ActionType { get; set; } = null!;
 
         /// <summary>
-        /// An ISO8601 formatted string specifying the duration for a `delay` or `continuous` action.
+        /// An ISO8601 formatted string specifying the duration for a `Delay` or `Continuous` action.
         /// </summary>
         [Input("duration")]
         public Input<string>? Duration { get; set; }
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.ChaosStudio.Inputs
         private InputMap<string>? _parameters;
 
         /// <summary>
-        /// A key-value map of additional parameters to configure the action. The values that are accepted by this depend on the `urn` i.e. the capability/fault that is applied. Possible parameter values can be found in this [documentation](https://learn.microsoft.com/azure/chaos-studio/chaos-studio-fault-library)
+        /// A key-value map of additional parameters to configure the action. The values that are accepted by this depend on the `Urn` i.e. the capability/fault that is applied. Possible parameter values can be found in this [documentation](https://learn.microsoft.com/azure/chaos-studio/chaos-studio-fault-library)
         /// </summary>
         public InputMap<string> Parameters
         {
@@ -37,13 +37,13 @@ namespace Pulumi.Azure.ChaosStudio.Inputs
         }
 
         /// <summary>
-        /// The name of the Selector to which this action should apply to. This must be specified if the `action_type` is `continuous` or `discrete`.
+        /// The name of the Selector to which this action should apply to. This must be specified if the `ActionType` is `Continuous` or `Discrete`.
         /// </summary>
         [Input("selectorName")]
         public Input<string>? SelectorName { get; set; }
 
         /// <summary>
-        /// The Unique Resource Name of the action, this value is provided by the `azure.chaosstudio.Capability` resource e.g. `azurerm_chaos_studio_capability.example.urn`. This must be specified if the `action_type` is `continuous` or `discrete`.
+        /// The Unique Resource Name of the action, this value is provided by the `azure.chaosstudio.Capability` resource e.g. `azurerm_chaos_studio_capability.example.urn`. This must be specified if the `ActionType` is `Continuous` or `Discrete`.
         /// </summary>
         [Input("urn")]
         public Input<string>? Urn { get; set; }

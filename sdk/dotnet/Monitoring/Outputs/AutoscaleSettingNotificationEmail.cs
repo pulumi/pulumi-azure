@@ -18,11 +18,11 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly ImmutableArray<string> CustomEmails;
         /// <summary>
-        /// Should email notifications be sent to the subscription administrator? Defaults to `false`.
+        /// Should email notifications be sent to the subscription administrator? Defaults to `False`.
         /// </summary>
         public readonly bool? SendToSubscriptionAdministrator;
         /// <summary>
-        /// Should email notifications be sent to the subscription co-administrator? Defaults to `false`.
+        /// Should email notifications be sent to the subscription co-administrator? Defaults to `False`.
         /// </summary>
         public readonly bool? SendToSubscriptionCoAdministrator;
 

@@ -36,7 +36,7 @@ public final class MongoRoleDefinitionArgs extends com.pulumi.resources.Resource
     /**
      * A list of Mongo Roles which are inherited to the Mongo Role Definition.
      * 
-     * &gt; **Note:** The role that needs to be inherited should exist in the Mongo DB of `cosmos_mongo_database_id`.
+     * &gt; **Note:** The role that needs to be inherited should exist in the Mongo DB of `cosmosMongoDatabaseId`.
      * 
      */
     @Import(name="inheritedRoleNames")
@@ -45,7 +45,7 @@ public final class MongoRoleDefinitionArgs extends com.pulumi.resources.Resource
     /**
      * @return A list of Mongo Roles which are inherited to the Mongo Role Definition.
      * 
-     * &gt; **Note:** The role that needs to be inherited should exist in the Mongo DB of `cosmos_mongo_database_id`.
+     * &gt; **Note:** The role that needs to be inherited should exist in the Mongo DB of `cosmosMongoDatabaseId`.
      * 
      */
     public Optional<Output<List<String>>> inheritedRoleNames() {
@@ -133,7 +133,7 @@ public final class MongoRoleDefinitionArgs extends com.pulumi.resources.Resource
         /**
          * @param inheritedRoleNames A list of Mongo Roles which are inherited to the Mongo Role Definition.
          * 
-         * &gt; **Note:** The role that needs to be inherited should exist in the Mongo DB of `cosmos_mongo_database_id`.
+         * &gt; **Note:** The role that needs to be inherited should exist in the Mongo DB of `cosmosMongoDatabaseId`.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class MongoRoleDefinitionArgs extends com.pulumi.resources.Resource
         /**
          * @param inheritedRoleNames A list of Mongo Roles which are inherited to the Mongo Role Definition.
          * 
-         * &gt; **Note:** The role that needs to be inherited should exist in the Mongo DB of `cosmos_mongo_database_id`.
+         * &gt; **Note:** The role that needs to be inherited should exist in the Mongo DB of `cosmosMongoDatabaseId`.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class MongoRoleDefinitionArgs extends com.pulumi.resources.Resource
         /**
          * @param inheritedRoleNames A list of Mongo Roles which are inherited to the Mongo Role Definition.
          * 
-         * &gt; **Note:** The role that needs to be inherited should exist in the Mongo DB of `cosmos_mongo_database_id`.
+         * &gt; **Note:** The role that needs to be inherited should exist in the Mongo DB of `cosmosMongoDatabaseId`.
          * 
          * @return builder
          * 

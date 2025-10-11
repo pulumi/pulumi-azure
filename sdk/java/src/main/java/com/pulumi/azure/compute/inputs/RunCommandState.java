@@ -24,14 +24,14 @@ public final class RunCommandState extends com.pulumi.resources.ResourceArgs {
     public static final RunCommandState Empty = new RunCommandState();
 
     /**
-     * An `error_blob_managed_identity` block as defined below. User-assigned managed Identity that has access to errorBlobUri storage blob.
+     * An `errorBlobManagedIdentity` block as defined below. User-assigned managed Identity that has access to errorBlobUri storage blob.
      * 
      */
     @Import(name="errorBlobManagedIdentity")
     private @Nullable Output<RunCommandErrorBlobManagedIdentityArgs> errorBlobManagedIdentity;
 
     /**
-     * @return An `error_blob_managed_identity` block as defined below. User-assigned managed Identity that has access to errorBlobUri storage blob.
+     * @return An `errorBlobManagedIdentity` block as defined below. User-assigned managed Identity that has access to errorBlobUri storage blob.
      * 
      */
     public Optional<Output<RunCommandErrorBlobManagedIdentityArgs>> errorBlobManagedIdentity() {
@@ -91,14 +91,14 @@ public final class RunCommandState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `output_blob_managed_identity` block as defined below. User-assigned managed Identity that has access to outputBlobUri storage blob.
+     * An `outputBlobManagedIdentity` block as defined below. User-assigned managed Identity that has access to outputBlobUri storage blob.
      * 
      */
     @Import(name="outputBlobManagedIdentity")
     private @Nullable Output<RunCommandOutputBlobManagedIdentityArgs> outputBlobManagedIdentity;
 
     /**
-     * @return An `output_blob_managed_identity` block as defined below. User-assigned managed Identity that has access to outputBlobUri storage blob.
+     * @return An `outputBlobManagedIdentity` block as defined below. User-assigned managed Identity that has access to outputBlobUri storage blob.
      * 
      */
     public Optional<Output<RunCommandOutputBlobManagedIdentityArgs>> outputBlobManagedIdentity() {
@@ -136,14 +136,14 @@ public final class RunCommandState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of `protected_parameter` blocks as defined below. The protected parameters used by the script.
+     * A list of `protectedParameter` blocks as defined below. The protected parameters used by the script.
      * 
      */
     @Import(name="protectedParameters")
     private @Nullable Output<List<RunCommandProtectedParameterArgs>> protectedParameters;
 
     /**
-     * @return A list of `protected_parameter` blocks as defined below. The protected parameters used by the script.
+     * @return A list of `protectedParameter` blocks as defined below. The protected parameters used by the script.
      * 
      */
     public Optional<Output<List<RunCommandProtectedParameterArgs>>> protectedParameters() {
@@ -263,7 +263,7 @@ public final class RunCommandState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param errorBlobManagedIdentity An `error_blob_managed_identity` block as defined below. User-assigned managed Identity that has access to errorBlobUri storage blob.
+         * @param errorBlobManagedIdentity An `errorBlobManagedIdentity` block as defined below. User-assigned managed Identity that has access to errorBlobUri storage blob.
          * 
          * @return builder
          * 
@@ -274,7 +274,7 @@ public final class RunCommandState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param errorBlobManagedIdentity An `error_blob_managed_identity` block as defined below. User-assigned managed Identity that has access to errorBlobUri storage blob.
+         * @param errorBlobManagedIdentity An `errorBlobManagedIdentity` block as defined below. User-assigned managed Identity that has access to errorBlobUri storage blob.
          * 
          * @return builder
          * 
@@ -360,7 +360,7 @@ public final class RunCommandState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param outputBlobManagedIdentity An `output_blob_managed_identity` block as defined below. User-assigned managed Identity that has access to outputBlobUri storage blob.
+         * @param outputBlobManagedIdentity An `outputBlobManagedIdentity` block as defined below. User-assigned managed Identity that has access to outputBlobUri storage blob.
          * 
          * @return builder
          * 
@@ -371,7 +371,7 @@ public final class RunCommandState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param outputBlobManagedIdentity An `output_blob_managed_identity` block as defined below. User-assigned managed Identity that has access to outputBlobUri storage blob.
+         * @param outputBlobManagedIdentity An `outputBlobManagedIdentity` block as defined below. User-assigned managed Identity that has access to outputBlobUri storage blob.
          * 
          * @return builder
          * 
@@ -433,7 +433,7 @@ public final class RunCommandState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protectedParameters A list of `protected_parameter` blocks as defined below. The protected parameters used by the script.
+         * @param protectedParameters A list of `protectedParameter` blocks as defined below. The protected parameters used by the script.
          * 
          * @return builder
          * 
@@ -444,7 +444,7 @@ public final class RunCommandState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protectedParameters A list of `protected_parameter` blocks as defined below. The protected parameters used by the script.
+         * @param protectedParameters A list of `protectedParameter` blocks as defined below. The protected parameters used by the script.
          * 
          * @return builder
          * 
@@ -454,7 +454,7 @@ public final class RunCommandState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protectedParameters A list of `protected_parameter` blocks as defined below. The protected parameters used by the script.
+         * @param protectedParameters A list of `protectedParameter` blocks as defined below. The protected parameters used by the script.
          * 
          * @return builder
          * 

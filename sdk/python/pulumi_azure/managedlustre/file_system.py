@@ -491,6 +491,15 @@ class FileSystem(pulumi.CustomResource):
         """
         Manages an Azure Managed Lustre File System.
 
+        ## Example Usage
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.StorageCache` - 2024-07-01
+
         ## Import
 
         Azure Managed Lustre File Systems can be imported using the `resource id`, e.g.
@@ -525,6 +534,15 @@ class FileSystem(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Managed Lustre File System.
+
+        ## Example Usage
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.StorageCache` - 2024-07-01
 
         ## Import
 

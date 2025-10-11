@@ -138,14 +138,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:appplatform/springCloudGateway:SpringCloudGateway")
 public class SpringCloudGateway extends com.pulumi.resources.CustomResource {
     /**
-     * A `api_metadata` block as defined below.
+     * A `apiMetadata` block as defined below.
      * 
      */
     @Export(name="apiMetadata", refs={SpringCloudGatewayApiMetadata.class}, tree="[0]")
     private Output</* @Nullable */ SpringCloudGatewayApiMetadata> apiMetadata;
 
     /**
-     * @return A `api_metadata` block as defined below.
+     * @return A `apiMetadata` block as defined below.
      * 
      */
     public Output<Optional<SpringCloudGatewayApiMetadata>> apiMetadata() {
@@ -180,14 +180,14 @@ public class SpringCloudGateway extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.applicationPerformanceMonitoringTypes);
     }
     /**
-     * A `client_authorization` block as defined below.
+     * A `clientAuthorization` block as defined below.
      * 
      */
     @Export(name="clientAuthorization", refs={SpringCloudGatewayClientAuthorization.class}, tree="[0]")
     private Output</* @Nullable */ SpringCloudGatewayClientAuthorization> clientAuthorization;
 
     /**
-     * @return A `client_authorization` block as defined below.
+     * @return A `clientAuthorization` block as defined below.
      * 
      */
     public Output<Optional<SpringCloudGatewayClientAuthorization>> clientAuthorization() {
@@ -250,28 +250,28 @@ public class SpringCloudGateway extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.instanceCount);
     }
     /**
-     * A `local_response_cache_per_instance` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
+     * A `localResponseCachePerInstance` block as defined below. Only one of `localResponseCachePerInstance` or `localResponseCachePerRoute` can be specified.
      * 
      */
     @Export(name="localResponseCachePerInstance", refs={SpringCloudGatewayLocalResponseCachePerInstance.class}, tree="[0]")
     private Output</* @Nullable */ SpringCloudGatewayLocalResponseCachePerInstance> localResponseCachePerInstance;
 
     /**
-     * @return A `local_response_cache_per_instance` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
+     * @return A `localResponseCachePerInstance` block as defined below. Only one of `localResponseCachePerInstance` or `localResponseCachePerRoute` can be specified.
      * 
      */
     public Output<Optional<SpringCloudGatewayLocalResponseCachePerInstance>> localResponseCachePerInstance() {
         return Codegen.optional(this.localResponseCachePerInstance);
     }
     /**
-     * A `local_response_cache_per_route` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
+     * A `localResponseCachePerRoute` block as defined below. Only one of `localResponseCachePerInstance` or `localResponseCachePerRoute` can be specified.
      * 
      */
     @Export(name="localResponseCachePerRoute", refs={SpringCloudGatewayLocalResponseCachePerRoute.class}, tree="[0]")
     private Output</* @Nullable */ SpringCloudGatewayLocalResponseCachePerRoute> localResponseCachePerRoute;
 
     /**
-     * @return A `local_response_cache_per_route` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
+     * @return A `localResponseCachePerRoute` block as defined below. Only one of `localResponseCachePerInstance` or `localResponseCachePerRoute` can be specified.
      * 
      */
     public Output<Optional<SpringCloudGatewayLocalResponseCachePerRoute>> localResponseCachePerRoute() {

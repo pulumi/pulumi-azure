@@ -16,14 +16,14 @@ public final class ProjectEnvironmentTypeUserRoleAssignmentArgs extends com.pulu
     public static final ProjectEnvironmentTypeUserRoleAssignmentArgs Empty = new ProjectEnvironmentTypeUserRoleAssignmentArgs();
 
     /**
-     * A list of roles to assign to the `user_id`.
+     * A list of roles to assign to the `userId`.
      * 
      */
     @Import(name="roles", required=true)
     private Output<List<String>> roles;
 
     /**
-     * @return A list of roles to assign to the `user_id`.
+     * @return A list of roles to assign to the `userId`.
      * 
      */
     public Output<List<String>> roles() {
@@ -71,7 +71,7 @@ public final class ProjectEnvironmentTypeUserRoleAssignmentArgs extends com.pulu
         }
 
         /**
-         * @param roles A list of roles to assign to the `user_id`.
+         * @param roles A list of roles to assign to the `userId`.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ProjectEnvironmentTypeUserRoleAssignmentArgs extends com.pulu
         }
 
         /**
-         * @param roles A list of roles to assign to the `user_id`.
+         * @param roles A list of roles to assign to the `userId`.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class ProjectEnvironmentTypeUserRoleAssignmentArgs extends com.pulu
         }
 
         /**
-         * @param roles A list of roles to assign to the `user_id`.
+         * @param roles A list of roles to assign to the `userId`.
          * 
          * @return builder
          * 

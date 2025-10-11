@@ -17,10 +17,10 @@ import javax.annotation.Nullable;
 public final class VirtualMachineAutoBackup {
     /**
      * @deprecated
-     * `encryption_enabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryption_password` is set; otherwise disabled.
+     * `encryptionEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryptionPassword` is set; otherwise disabled.
      * 
      */
-    @Deprecated /* `encryption_enabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryption_password` is set; otherwise disabled. */
+    @Deprecated /* `encryptionEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryptionPassword` is set; otherwise disabled. */
     private @Nullable Boolean encryptionEnabled;
     /**
      * @return Encryption password to use. Setting a password will enable encryption.
@@ -28,7 +28,7 @@ public final class VirtualMachineAutoBackup {
      */
     private @Nullable String encryptionPassword;
     /**
-     * @return A `manual_schedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
+     * @return A `manualSchedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
      * 
      */
     private @Nullable VirtualMachineAutoBackupManualSchedule manualSchedule;
@@ -56,10 +56,10 @@ public final class VirtualMachineAutoBackup {
     private VirtualMachineAutoBackup() {}
     /**
      * @deprecated
-     * `encryption_enabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryption_password` is set; otherwise disabled.
+     * `encryptionEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryptionPassword` is set; otherwise disabled.
      * 
      */
-    @Deprecated /* `encryption_enabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryption_password` is set; otherwise disabled. */
+    @Deprecated /* `encryptionEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryptionPassword` is set; otherwise disabled. */
     public Optional<Boolean> encryptionEnabled() {
         return Optional.ofNullable(this.encryptionEnabled);
     }
@@ -71,7 +71,7 @@ public final class VirtualMachineAutoBackup {
         return Optional.ofNullable(this.encryptionPassword);
     }
     /**
-     * @return A `manual_schedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
+     * @return A `manualSchedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
      * 
      */
     public Optional<VirtualMachineAutoBackupManualSchedule> manualSchedule() {

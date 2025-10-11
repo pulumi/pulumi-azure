@@ -107,14 +107,14 @@ public final class SubscriptionTemplateDeploymentArgs extends com.pulumi.resourc
     }
 
     /**
-     * The ID of the Template Spec Version to deploy into the Subscription. Cannot be specified with `template_content`.
+     * The ID of the Template Spec Version to deploy into the Subscription. Cannot be specified with `templateContent`.
      * 
      */
     @Import(name="templateSpecVersionId")
     private @Nullable Output<String> templateSpecVersionId;
 
     /**
-     * @return The ID of the Template Spec Version to deploy into the Subscription. Cannot be specified with `template_content`.
+     * @return The ID of the Template Spec Version to deploy into the Subscription. Cannot be specified with `templateContent`.
      * 
      */
     public Optional<Output<String>> templateSpecVersionId() {
@@ -278,7 +278,7 @@ public final class SubscriptionTemplateDeploymentArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param templateSpecVersionId The ID of the Template Spec Version to deploy into the Subscription. Cannot be specified with `template_content`.
+         * @param templateSpecVersionId The ID of the Template Spec Version to deploy into the Subscription. Cannot be specified with `templateContent`.
          * 
          * @return builder
          * 
@@ -289,7 +289,7 @@ public final class SubscriptionTemplateDeploymentArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param templateSpecVersionId The ID of the Template Spec Version to deploy into the Subscription. Cannot be specified with `template_content`.
+         * @param templateSpecVersionId The ID of the Template Spec Version to deploy into the Subscription. Cannot be specified with `templateContent`.
          * 
          * @return builder
          * 

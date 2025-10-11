@@ -44,14 +44,14 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A `auth_settings` block as defined below.
+     * A `authSettings` block as defined below.
      * 
      */
     @Import(name="authSettings")
     private @Nullable Output<WindowsFunctionAppAuthSettingsArgs> authSettings;
 
     /**
-     * @return A `auth_settings` block as defined below.
+     * @return A `authSettings` block as defined below.
      * 
      */
     public Optional<Output<WindowsFunctionAppAuthSettingsArgs>> authSettings() {
@@ -59,14 +59,14 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A `auth_settings_v2` block as defined below.
+     * A `authSettingsV2` block as defined below.
      * 
      */
     @Import(name="authSettingsV2")
     private @Nullable Output<WindowsFunctionAppAuthSettingsV2Args> authSettingsV2;
 
     /**
-     * @return A `auth_settings_v2` block as defined below.
+     * @return A `authSettingsV2` block as defined below.
      * 
      */
     public Optional<Output<WindowsFunctionAppAuthSettingsV2Args>> authSettingsV2() {
@@ -149,14 +149,14 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * One or more `connection_string` blocks as defined below.
+     * One or more `connectionString` blocks as defined below.
      * 
      */
     @Import(name="connectionStrings")
     private @Nullable Output<List<WindowsFunctionAppConnectionStringArgs>> connectionStrings;
 
     /**
-     * @return One or more `connection_string` blocks as defined below.
+     * @return One or more `connectionString` blocks as defined below.
      * 
      */
     public Optional<Output<List<WindowsFunctionAppConnectionStringArgs>>> connectionStrings() {
@@ -359,14 +359,14 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A `site_config` block as defined below.
+     * A `siteConfig` block as defined below.
      * 
      */
     @Import(name="siteConfig", required=true)
     private Output<WindowsFunctionAppSiteConfigArgs> siteConfig;
 
     /**
-     * @return A `site_config` block as defined below.
+     * @return A `siteConfig` block as defined below.
      * 
      */
     public Output<WindowsFunctionAppSiteConfigArgs> siteConfig() {
@@ -374,14 +374,14 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A `sticky_settings` block as defined below.
+     * A `stickySettings` block as defined below.
      * 
      */
     @Import(name="stickySettings")
     private @Nullable Output<WindowsFunctionAppStickySettingsArgs> stickySettings;
 
     /**
-     * @return A `sticky_settings` block as defined below.
+     * @return A `stickySettings` block as defined below.
      * 
      */
     public Optional<Output<WindowsFunctionAppStickySettingsArgs>> stickySettings() {
@@ -389,14 +389,14 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The access key which will be used to access the backend storage account for the Function App. Conflicts with `storage_uses_managed_identity`.
+     * The access key which will be used to access the backend storage account for the Function App. Conflicts with `storageUsesManagedIdentity`.
      * 
      */
     @Import(name="storageAccountAccessKey")
     private @Nullable Output<String> storageAccountAccessKey;
 
     /**
-     * @return The access key which will be used to access the backend storage account for the Function App. Conflicts with `storage_uses_managed_identity`.
+     * @return The access key which will be used to access the backend storage account for the Function App. Conflicts with `storageUsesManagedIdentity`.
      * 
      */
     public Optional<Output<String>> storageAccountAccessKey() {
@@ -419,14 +419,14 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * One or more `storage_account` blocks as defined below.
+     * One or more `storageAccount` blocks as defined below.
      * 
      */
     @Import(name="storageAccounts")
     private @Nullable Output<List<WindowsFunctionAppStorageAccountArgs>> storageAccounts;
 
     /**
-     * @return One or more `storage_account` blocks as defined below.
+     * @return One or more `storageAccount` blocks as defined below.
      * 
      */
     public Optional<Output<List<WindowsFunctionAppStorageAccountArgs>>> storageAccounts() {
@@ -436,9 +436,9 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
     /**
      * The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
      * 
-     * &gt; **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+     * &gt; **Note:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
      * 
-     * &gt; **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+     * &gt; **Note:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
      * 
      */
     @Import(name="storageKeyVaultSecretId")
@@ -447,9 +447,9 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
     /**
      * @return The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
      * 
-     * &gt; **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+     * &gt; **Note:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
      * 
-     * &gt; **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+     * &gt; **Note:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
      * 
      */
     public Optional<Output<String>> storageKeyVaultSecretId() {
@@ -457,18 +457,18 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
+     * Should the Function App use Managed Identity to access the storage account. Conflicts with `storageAccountAccessKey`.
      * 
-     * &gt; **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+     * &gt; **Note:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
      * 
      */
     @Import(name="storageUsesManagedIdentity")
     private @Nullable Output<Boolean> storageUsesManagedIdentity;
 
     /**
-     * @return Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
+     * @return Should the Function App use Managed Identity to access the storage account. Conflicts with `storageAccountAccessKey`.
      * 
-     * &gt; **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+     * &gt; **Note:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
      * 
      */
     public Optional<Output<Boolean>> storageUsesManagedIdentity() {
@@ -534,7 +534,7 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
     /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      * 
-     * &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+     * &gt; **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
      * 
      */
     @Import(name="webdeployPublishBasicAuthenticationEnabled")
@@ -543,7 +543,7 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
     /**
      * @return Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      * 
-     * &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+     * &gt; **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
      * 
      */
     public Optional<Output<Boolean>> webdeployPublishBasicAuthenticationEnabled() {
@@ -553,7 +553,7 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
     /**
      * The local path and filename of the Zip packaged application to deploy to this Windows Function App.
      * 
-     * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
+     * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
      * 
      */
     @Import(name="zipDeployFile")
@@ -562,7 +562,7 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
     /**
      * @return The local path and filename of the Zip packaged application to deploy to this Windows Function App.
      * 
-     * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
+     * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
      * 
      */
     public Optional<Output<String>> zipDeployFile() {
@@ -649,7 +649,7 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param authSettings A `auth_settings` block as defined below.
+         * @param authSettings A `authSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -660,7 +660,7 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param authSettings A `auth_settings` block as defined below.
+         * @param authSettings A `authSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -670,7 +670,7 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param authSettingsV2 A `auth_settings_v2` block as defined below.
+         * @param authSettingsV2 A `authSettingsV2` block as defined below.
          * 
          * @return builder
          * 
@@ -681,7 +681,7 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param authSettingsV2 A `auth_settings_v2` block as defined below.
+         * @param authSettingsV2 A `authSettingsV2` block as defined below.
          * 
          * @return builder
          * 
@@ -796,7 +796,7 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param connectionStrings One or more `connection_string` blocks as defined below.
+         * @param connectionStrings One or more `connectionString` blocks as defined below.
          * 
          * @return builder
          * 
@@ -807,7 +807,7 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param connectionStrings One or more `connection_string` blocks as defined below.
+         * @param connectionStrings One or more `connectionString` blocks as defined below.
          * 
          * @return builder
          * 
@@ -817,7 +817,7 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param connectionStrings One or more `connection_string` blocks as defined below.
+         * @param connectionStrings One or more `connectionString` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1100,7 +1100,7 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param siteConfig A `site_config` block as defined below.
+         * @param siteConfig A `siteConfig` block as defined below.
          * 
          * @return builder
          * 
@@ -1111,7 +1111,7 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param siteConfig A `site_config` block as defined below.
+         * @param siteConfig A `siteConfig` block as defined below.
          * 
          * @return builder
          * 
@@ -1121,7 +1121,7 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param stickySettings A `sticky_settings` block as defined below.
+         * @param stickySettings A `stickySettings` block as defined below.
          * 
          * @return builder
          * 
@@ -1132,7 +1132,7 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param stickySettings A `sticky_settings` block as defined below.
+         * @param stickySettings A `stickySettings` block as defined below.
          * 
          * @return builder
          * 
@@ -1142,7 +1142,7 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param storageAccountAccessKey The access key which will be used to access the backend storage account for the Function App. Conflicts with `storage_uses_managed_identity`.
+         * @param storageAccountAccessKey The access key which will be used to access the backend storage account for the Function App. Conflicts with `storageUsesManagedIdentity`.
          * 
          * @return builder
          * 
@@ -1153,7 +1153,7 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param storageAccountAccessKey The access key which will be used to access the backend storage account for the Function App. Conflicts with `storage_uses_managed_identity`.
+         * @param storageAccountAccessKey The access key which will be used to access the backend storage account for the Function App. Conflicts with `storageUsesManagedIdentity`.
          * 
          * @return builder
          * 
@@ -1184,7 +1184,7 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param storageAccounts One or more `storage_account` blocks as defined below.
+         * @param storageAccounts One or more `storageAccount` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1195,7 +1195,7 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param storageAccounts One or more `storage_account` blocks as defined below.
+         * @param storageAccounts One or more `storageAccount` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1205,7 +1205,7 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param storageAccounts One or more `storage_account` blocks as defined below.
+         * @param storageAccounts One or more `storageAccount` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1217,9 +1217,9 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
         /**
          * @param storageKeyVaultSecretId The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
          * 
-         * &gt; **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+         * &gt; **Note:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
          * 
-         * &gt; **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+         * &gt; **Note:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
          * 
          * @return builder
          * 
@@ -1232,9 +1232,9 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
         /**
          * @param storageKeyVaultSecretId The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
          * 
-         * &gt; **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+         * &gt; **Note:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
          * 
-         * &gt; **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+         * &gt; **Note:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
          * 
          * @return builder
          * 
@@ -1244,9 +1244,9 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param storageUsesManagedIdentity Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
+         * @param storageUsesManagedIdentity Should the Function App use Managed Identity to access the storage account. Conflicts with `storageAccountAccessKey`.
          * 
-         * &gt; **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+         * &gt; **Note:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
          * 
          * @return builder
          * 
@@ -1257,9 +1257,9 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param storageUsesManagedIdentity Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
+         * @param storageUsesManagedIdentity Should the Function App use Managed Identity to access the storage account. Conflicts with `storageAccountAccessKey`.
          * 
-         * &gt; **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+         * &gt; **Note:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
          * 
          * @return builder
          * 
@@ -1347,7 +1347,7 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
         /**
          * @param webdeployPublishBasicAuthenticationEnabled Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
          * 
-         * &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+         * &gt; **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
          * 
          * @return builder
          * 
@@ -1360,7 +1360,7 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
         /**
          * @param webdeployPublishBasicAuthenticationEnabled Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
          * 
-         * &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+         * &gt; **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
          * 
          * @return builder
          * 
@@ -1372,7 +1372,7 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
         /**
          * @param zipDeployFile The local path and filename of the Zip packaged application to deploy to this Windows Function App.
          * 
-         * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
+         * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
          * 
          * @return builder
          * 
@@ -1385,7 +1385,7 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
         /**
          * @param zipDeployFile The local path and filename of the Zip packaged application to deploy to this Windows Function App.
          * 
-         * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
+         * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
          * 
          * @return builder
          * 

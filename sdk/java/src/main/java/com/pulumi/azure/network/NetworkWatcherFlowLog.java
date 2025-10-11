@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
 /**
  * Manages a Network Watcher Flow Log.
  * 
- * &gt; **Note:** The `azure.network.NetworkWatcherFlowLog` creates a new storage lifecyle management rule that overwrites existing rules. Please make sure to use a `storage_account` with no existing management rules, until the issue is fixed.
+ * &gt; **Note:** The `azure.network.NetworkWatcherFlowLog` creates a new storage lifecyle management rule that overwrites existing rules. Please make sure to use a `storageAccount` with no existing management rules, until the issue is fixed.
  * 
  * ## Example Usage
  * 
@@ -181,10 +181,10 @@ public class NetworkWatcherFlowLog extends com.pulumi.resources.CustomResource {
     }
     /**
      * @deprecated
-     * The property `network_security_group_id` has been superseded by `target_resource_id` and will be removed in version 5.0 of the AzureRM Provider.
+     * The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* The property `network_security_group_id` has been superseded by `target_resource_id` and will be removed in version 5.0 of the AzureRM Provider. */
+    @Deprecated /* The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider. */
     @Export(name="networkSecurityGroupId", refs={String.class}, tree="[0]")
     private Output<String> networkSecurityGroupId;
 
@@ -220,14 +220,14 @@ public class NetworkWatcherFlowLog extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * A `retention_policy` block as documented below.
+     * A `retentionPolicy` block as documented below.
      * 
      */
     @Export(name="retentionPolicy", refs={NetworkWatcherFlowLogRetentionPolicy.class}, tree="[0]")
     private Output<NetworkWatcherFlowLogRetentionPolicy> retentionPolicy;
 
     /**
-     * @return A `retention_policy` block as documented below.
+     * @return A `retentionPolicy` block as documented below.
      * 
      */
     public Output<NetworkWatcherFlowLogRetentionPolicy> retentionPolicy() {
@@ -276,14 +276,14 @@ public class NetworkWatcherFlowLog extends com.pulumi.resources.CustomResource {
         return this.targetResourceId;
     }
     /**
-     * A `traffic_analytics` block as documented below.
+     * A `trafficAnalytics` block as documented below.
      * 
      */
     @Export(name="trafficAnalytics", refs={NetworkWatcherFlowLogTrafficAnalytics.class}, tree="[0]")
     private Output</* @Nullable */ NetworkWatcherFlowLogTrafficAnalytics> trafficAnalytics;
 
     /**
-     * @return A `traffic_analytics` block as documented below.
+     * @return A `trafficAnalytics` block as documented below.
      * 
      */
     public Output<Optional<NetworkWatcherFlowLogTrafficAnalytics>> trafficAnalytics() {

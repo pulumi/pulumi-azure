@@ -48,7 +48,7 @@ public final class GetAppTemplateContainer {
      */
     private String image;
     /**
-     * @return A `liveness_probe` block as detailed below.
+     * @return A `livenessProbe` block as detailed below.
      * 
      */
     private List<GetAppTemplateContainerLivenessProbe> livenessProbes;
@@ -63,17 +63,17 @@ public final class GetAppTemplateContainer {
      */
     private String name;
     /**
-     * @return A `readiness_probe` block as detailed below.
+     * @return A `readinessProbe` block as detailed below.
      * 
      */
     private List<GetAppTemplateContainerReadinessProbe> readinessProbes;
     /**
-     * @return A `startup_probe` block as detailed below.
+     * @return A `startupProbe` block as detailed below.
      * 
      */
     private List<GetAppTemplateContainerStartupProbe> startupProbes;
     /**
-     * @return A `volume_mounts` block as detailed below.
+     * @return A `volumeMounts` block as detailed below.
      * 
      */
     private List<GetAppTemplateContainerVolumeMount> volumeMounts;
@@ -122,7 +122,7 @@ public final class GetAppTemplateContainer {
         return this.image;
     }
     /**
-     * @return A `liveness_probe` block as detailed below.
+     * @return A `livenessProbe` block as detailed below.
      * 
      */
     public List<GetAppTemplateContainerLivenessProbe> livenessProbes() {
@@ -143,21 +143,21 @@ public final class GetAppTemplateContainer {
         return this.name;
     }
     /**
-     * @return A `readiness_probe` block as detailed below.
+     * @return A `readinessProbe` block as detailed below.
      * 
      */
     public List<GetAppTemplateContainerReadinessProbe> readinessProbes() {
         return this.readinessProbes;
     }
     /**
-     * @return A `startup_probe` block as detailed below.
+     * @return A `startupProbe` block as detailed below.
      * 
      */
     public List<GetAppTemplateContainerStartupProbe> startupProbes() {
         return this.startupProbes;
     }
     /**
-     * @return A `volume_mounts` block as detailed below.
+     * @return A `volumeMounts` block as detailed below.
      * 
      */
     public List<GetAppTemplateContainerVolumeMount> volumeMounts() {

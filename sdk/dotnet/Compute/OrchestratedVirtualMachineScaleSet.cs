@@ -68,21 +68,21 @@ namespace Pulumi.Azure.Compute
     public partial class OrchestratedVirtualMachineScaleSet : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An `additional_capabilities` block as defined below.
+        /// An `AdditionalCapabilities` block as defined below.
         /// </summary>
         [Output("additionalCapabilities")]
         public Output<Outputs.OrchestratedVirtualMachineScaleSetAdditionalCapabilities?> AdditionalCapabilities { get; private set; } = null!;
 
         /// <summary>
-        /// An `automatic_instance_repair` block as defined below.
+        /// An `AutomaticInstanceRepair` block as defined below.
         /// 
-        /// &gt; **Note:** To enable the `automatic_instance_repair`, the Orchestrated Virtual Machine Scale Set must have a valid [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+        /// &gt; **Note:** To enable the `AutomaticInstanceRepair`, the Orchestrated Virtual Machine Scale Set must have a valid [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
         /// </summary>
         [Output("automaticInstanceRepair")]
         public Output<Outputs.OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair> AutomaticInstanceRepair { get; private set; } = null!;
 
         /// <summary>
-        /// A `boot_diagnostics` block as defined below.
+        /// A `BootDiagnostics` block as defined below.
         /// </summary>
         [Output("bootDiagnostics")]
         public Output<Outputs.OrchestratedVirtualMachineScaleSetBootDiagnostics?> BootDiagnostics { get; private set; } = null!;
@@ -90,15 +90,15 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** `capacity_reservation_group_id` cannot be specified with `proximity_placement_group_id`
+        /// &gt; **Note:** `CapacityReservationGroupId` cannot be specified with `ProximityPlacementGroupId`
         /// 
-        /// &gt; **Note:** If `capacity_reservation_group_id` is specified the `single_placement_group` must be set to `false`.
+        /// &gt; **Note:** If `CapacityReservationGroupId` is specified the `SinglePlacementGroup` must be set to `False`.
         /// </summary>
         [Output("capacityReservationGroupId")]
         public Output<string?> CapacityReservationGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `data_disk` blocks as defined below.
+        /// One or more `DataDisk` blocks as defined below.
         /// </summary>
         [Output("dataDisks")]
         public Output<ImmutableArray<Outputs.OrchestratedVirtualMachineScaleSetDataDisk>> DataDisks { get; private set; } = null!;
@@ -116,15 +116,15 @@ namespace Pulumi.Azure.Compute
         public Output<string?> EvictionPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Virtual Machine Scale Set to be created.
+        /// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `True` or `False`. Defaults to `True`. Changing this forces a new Virtual Machine Scale Set to be created.
         /// 
-        /// &gt; **Note:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
+        /// &gt; **Note:** `ExtensionOperationsEnabled` may only be set to `False` if there are no extensions defined in the `Extension` field.
         /// </summary>
         [Output("extensionOperationsEnabled")]
         public Output<bool?> ExtensionOperationsEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `extension` blocks as defined below
+        /// One or more `Extension` blocks as defined below
         /// </summary>
         [Output("extensions")]
         public Output<ImmutableArray<Outputs.OrchestratedVirtualMachineScaleSetExtension>> Extensions { get; private set; } = null!;
@@ -136,7 +136,7 @@ namespace Pulumi.Azure.Compute
         public Output<string?> ExtensionsTimeBudget { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.OrchestratedVirtualMachineScaleSetIdentity?> Identity { get; private set; } = null!;
@@ -178,25 +178,25 @@ namespace Pulumi.Azure.Compute
         public Output<string?> NetworkApiVersion { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `network_interface` blocks as defined below.
+        /// One or more `NetworkInterface` blocks as defined below.
         /// </summary>
         [Output("networkInterfaces")]
         public Output<ImmutableArray<Outputs.OrchestratedVirtualMachineScaleSetNetworkInterface>> NetworkInterfaces { get; private set; } = null!;
 
         /// <summary>
-        /// An `os_disk` block as defined below.
+        /// An `OsDisk` block as defined below.
         /// </summary>
         [Output("osDisk")]
         public Output<Outputs.OrchestratedVirtualMachineScaleSetOsDisk?> OsDisk { get; private set; } = null!;
 
         /// <summary>
-        /// An `os_profile` block as defined below.
+        /// An `OsProfile` block as defined below.
         /// </summary>
         [Output("osProfile")]
         public Output<Outputs.OrchestratedVirtualMachineScaleSetOsProfile?> OsProfile { get; private set; } = null!;
 
         /// <summary>
-        /// A `plan` block as documented below. Changing this forces a new resource to be created.
+        /// A `Plan` block as documented below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("plan")]
         public Output<Outputs.OrchestratedVirtualMachineScaleSetPlan?> Plan { get; private set; } = null!;
@@ -216,7 +216,7 @@ namespace Pulumi.Azure.Compute
         public Output<string?> Priority { get; private set; } = null!;
 
         /// <summary>
-        /// a `priority_mix` block as defined below
+        /// a `PriorityMix` block as defined below
         /// </summary>
         [Output("priorityMix")]
         public Output<Outputs.OrchestratedVirtualMachineScaleSetPriorityMix?> PriorityMix { get; private set; } = null!;
@@ -234,29 +234,29 @@ namespace Pulumi.Azure.Compute
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `rolling_upgrade_policy` block as defined below. This is Required when `upgrade_mode` is set to `Rolling` and cannot be specified when `upgrade_mode` is set to `Manual`. Changing this forces a new resource to be created.
+        /// A `RollingUpgradePolicy` block as defined below. This is Required when `UpgradeMode` is set to `Rolling` and cannot be specified when `UpgradeMode` is set to `Manual`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("rollingUpgradePolicy")]
         public Output<Outputs.OrchestratedVirtualMachineScaleSetRollingUpgradePolicy?> RollingUpgradePolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
+        /// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `True` or `False`.
         /// 
-        /// &gt; **Note:** `single_placement_group` behaves differently for Flexible orchestration Virtual Machine Scale Sets than it does for Uniform orchestration Virtual Machine Scale Sets. It is recommended that you do not define the `single_placement_group` field in your configuration file as the service will determine what this value should be based off of the value contained within the `sku_name` field of your configuration file. You may set the `single_placement_group` field to `true`, however once you set it to `false` you will not be able to revert it back to `true`.
+        /// &gt; **Note:** `SinglePlacementGroup` behaves differently for Flexible orchestration Virtual Machine Scale Sets than it does for Uniform orchestration Virtual Machine Scale Sets. It is recommended that you do not define the `SinglePlacementGroup` field in your configuration file as the service will determine what this value should be based off of the value contained within the `SkuName` field of your configuration file. You may set the `SinglePlacementGroup` field to `True`, however once you set it to `False` you will not be able to revert it back to `True`.
         /// </summary>
         [Output("singlePlacementGroup")]
         public Output<bool> SinglePlacementGroup { get; private set; } = null!;
 
         /// <summary>
-        /// The `name` of the SKU to be used by this Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
+        /// The `Name` of the SKU to be used by this Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
         /// </summary>
         [Output("skuName")]
         public Output<string?> SkuName { get; private set; } = null!;
 
         /// <summary>
-        /// An `sku_profile` block as defined below. Changing this forces a new resource to be created.
+        /// An `SkuProfile` block as defined below. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** If `sku_profile` is specified the `sku_name` must be set to `Mix`.
+        /// &gt; **Note:** If `SkuProfile` is specified the `SkuName` must be set to `Mix`.
         /// </summary>
         [Output("skuProfile")]
         public Output<Outputs.OrchestratedVirtualMachineScaleSetSkuProfile?> SkuProfile { get; private set; } = null!;
@@ -268,7 +268,7 @@ namespace Pulumi.Azure.Compute
         public Output<string?> SourceImageId { get; private set; } = null!;
 
         /// <summary>
-        /// A `source_image_reference` block as defined below.
+        /// A `SourceImageReference` block as defined below.
         /// </summary>
         [Output("sourceImageReference")]
         public Output<Outputs.OrchestratedVirtualMachineScaleSetSourceImageReference?> SourceImageReference { get; private set; } = null!;
@@ -280,7 +280,7 @@ namespace Pulumi.Azure.Compute
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A `termination_notification` block as defined below.
+        /// A `TerminationNotification` block as defined below.
         /// </summary>
         [Output("terminationNotification")]
         public Output<Outputs.OrchestratedVirtualMachineScaleSetTerminationNotification> TerminationNotification { get; private set; } = null!;
@@ -304,9 +304,9 @@ namespace Pulumi.Azure.Compute
         public Output<string?> UserDataBase64 { get; private set; } = null!;
 
         /// <summary>
-        /// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
+        /// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `False`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** This can only be set to `true` when one or more `zones` are configured.
+        /// &gt; **Note:** This can only be set to `True` when one or more `Zones` are configured.
         /// </summary>
         [Output("zoneBalance")]
         public Output<bool?> ZoneBalance { get; private set; } = null!;
@@ -314,7 +314,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies a list of Availability Zones across which the Virtual Machine Scale Set will create instances.
         /// 
-        /// &gt; **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
+        /// &gt; **Note:** Updating `Zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
         /// 
         /// &gt; **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         /// </summary>
@@ -372,21 +372,21 @@ namespace Pulumi.Azure.Compute
     public sealed class OrchestratedVirtualMachineScaleSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `additional_capabilities` block as defined below.
+        /// An `AdditionalCapabilities` block as defined below.
         /// </summary>
         [Input("additionalCapabilities")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs>? AdditionalCapabilities { get; set; }
 
         /// <summary>
-        /// An `automatic_instance_repair` block as defined below.
+        /// An `AutomaticInstanceRepair` block as defined below.
         /// 
-        /// &gt; **Note:** To enable the `automatic_instance_repair`, the Orchestrated Virtual Machine Scale Set must have a valid [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+        /// &gt; **Note:** To enable the `AutomaticInstanceRepair`, the Orchestrated Virtual Machine Scale Set must have a valid [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
         /// </summary>
         [Input("automaticInstanceRepair")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs>? AutomaticInstanceRepair { get; set; }
 
         /// <summary>
-        /// A `boot_diagnostics` block as defined below.
+        /// A `BootDiagnostics` block as defined below.
         /// </summary>
         [Input("bootDiagnostics")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs>? BootDiagnostics { get; set; }
@@ -394,9 +394,9 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** `capacity_reservation_group_id` cannot be specified with `proximity_placement_group_id`
+        /// &gt; **Note:** `CapacityReservationGroupId` cannot be specified with `ProximityPlacementGroupId`
         /// 
-        /// &gt; **Note:** If `capacity_reservation_group_id` is specified the `single_placement_group` must be set to `false`.
+        /// &gt; **Note:** If `CapacityReservationGroupId` is specified the `SinglePlacementGroup` must be set to `False`.
         /// </summary>
         [Input("capacityReservationGroupId")]
         public Input<string>? CapacityReservationGroupId { get; set; }
@@ -405,7 +405,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.OrchestratedVirtualMachineScaleSetDataDiskArgs>? _dataDisks;
 
         /// <summary>
-        /// One or more `data_disk` blocks as defined below.
+        /// One or more `DataDisk` blocks as defined below.
         /// </summary>
         public InputList<Inputs.OrchestratedVirtualMachineScaleSetDataDiskArgs> DataDisks
         {
@@ -426,9 +426,9 @@ namespace Pulumi.Azure.Compute
         public Input<string>? EvictionPolicy { get; set; }
 
         /// <summary>
-        /// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Virtual Machine Scale Set to be created.
+        /// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `True` or `False`. Defaults to `True`. Changing this forces a new Virtual Machine Scale Set to be created.
         /// 
-        /// &gt; **Note:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
+        /// &gt; **Note:** `ExtensionOperationsEnabled` may only be set to `False` if there are no extensions defined in the `Extension` field.
         /// </summary>
         [Input("extensionOperationsEnabled")]
         public Input<bool>? ExtensionOperationsEnabled { get; set; }
@@ -437,7 +437,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.OrchestratedVirtualMachineScaleSetExtensionArgs>? _extensions;
 
         /// <summary>
-        /// One or more `extension` blocks as defined below
+        /// One or more `Extension` blocks as defined below
         /// </summary>
         public InputList<Inputs.OrchestratedVirtualMachineScaleSetExtensionArgs> Extensions
         {
@@ -452,7 +452,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? ExtensionsTimeBudget { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetIdentityArgs>? Identity { get; set; }
@@ -497,7 +497,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs>? _networkInterfaces;
 
         /// <summary>
-        /// One or more `network_interface` blocks as defined below.
+        /// One or more `NetworkInterface` blocks as defined below.
         /// </summary>
         public InputList<Inputs.OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs> NetworkInterfaces
         {
@@ -506,19 +506,19 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// An `os_disk` block as defined below.
+        /// An `OsDisk` block as defined below.
         /// </summary>
         [Input("osDisk")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetOsDiskArgs>? OsDisk { get; set; }
 
         /// <summary>
-        /// An `os_profile` block as defined below.
+        /// An `OsProfile` block as defined below.
         /// </summary>
         [Input("osProfile")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetOsProfileArgs>? OsProfile { get; set; }
 
         /// <summary>
-        /// A `plan` block as documented below. Changing this forces a new resource to be created.
+        /// A `Plan` block as documented below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("plan")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetPlanArgs>? Plan { get; set; }
@@ -538,7 +538,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Priority { get; set; }
 
         /// <summary>
-        /// a `priority_mix` block as defined below
+        /// a `PriorityMix` block as defined below
         /// </summary>
         [Input("priorityMix")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetPriorityMixArgs>? PriorityMix { get; set; }
@@ -556,29 +556,29 @@ namespace Pulumi.Azure.Compute
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `rolling_upgrade_policy` block as defined below. This is Required when `upgrade_mode` is set to `Rolling` and cannot be specified when `upgrade_mode` is set to `Manual`. Changing this forces a new resource to be created.
+        /// A `RollingUpgradePolicy` block as defined below. This is Required when `UpgradeMode` is set to `Rolling` and cannot be specified when `UpgradeMode` is set to `Manual`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("rollingUpgradePolicy")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs>? RollingUpgradePolicy { get; set; }
 
         /// <summary>
-        /// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
+        /// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `True` or `False`.
         /// 
-        /// &gt; **Note:** `single_placement_group` behaves differently for Flexible orchestration Virtual Machine Scale Sets than it does for Uniform orchestration Virtual Machine Scale Sets. It is recommended that you do not define the `single_placement_group` field in your configuration file as the service will determine what this value should be based off of the value contained within the `sku_name` field of your configuration file. You may set the `single_placement_group` field to `true`, however once you set it to `false` you will not be able to revert it back to `true`.
+        /// &gt; **Note:** `SinglePlacementGroup` behaves differently for Flexible orchestration Virtual Machine Scale Sets than it does for Uniform orchestration Virtual Machine Scale Sets. It is recommended that you do not define the `SinglePlacementGroup` field in your configuration file as the service will determine what this value should be based off of the value contained within the `SkuName` field of your configuration file. You may set the `SinglePlacementGroup` field to `True`, however once you set it to `False` you will not be able to revert it back to `True`.
         /// </summary>
         [Input("singlePlacementGroup")]
         public Input<bool>? SinglePlacementGroup { get; set; }
 
         /// <summary>
-        /// The `name` of the SKU to be used by this Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
+        /// The `Name` of the SKU to be used by this Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
 
         /// <summary>
-        /// An `sku_profile` block as defined below. Changing this forces a new resource to be created.
+        /// An `SkuProfile` block as defined below. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** If `sku_profile` is specified the `sku_name` must be set to `Mix`.
+        /// &gt; **Note:** If `SkuProfile` is specified the `SkuName` must be set to `Mix`.
         /// </summary>
         [Input("skuProfile")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetSkuProfileArgs>? SkuProfile { get; set; }
@@ -590,7 +590,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? SourceImageId { get; set; }
 
         /// <summary>
-        /// A `source_image_reference` block as defined below.
+        /// A `SourceImageReference` block as defined below.
         /// </summary>
         [Input("sourceImageReference")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs>? SourceImageReference { get; set; }
@@ -608,7 +608,7 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// A `termination_notification` block as defined below.
+        /// A `TerminationNotification` block as defined below.
         /// </summary>
         [Input("terminationNotification")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetTerminationNotificationArgs>? TerminationNotification { get; set; }
@@ -636,9 +636,9 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
+        /// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `False`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** This can only be set to `true` when one or more `zones` are configured.
+        /// &gt; **Note:** This can only be set to `True` when one or more `Zones` are configured.
         /// </summary>
         [Input("zoneBalance")]
         public Input<bool>? ZoneBalance { get; set; }
@@ -649,7 +649,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies a list of Availability Zones across which the Virtual Machine Scale Set will create instances.
         /// 
-        /// &gt; **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
+        /// &gt; **Note:** Updating `Zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
         /// 
         /// &gt; **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         /// </summary>
@@ -668,21 +668,21 @@ namespace Pulumi.Azure.Compute
     public sealed class OrchestratedVirtualMachineScaleSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `additional_capabilities` block as defined below.
+        /// An `AdditionalCapabilities` block as defined below.
         /// </summary>
         [Input("additionalCapabilities")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesGetArgs>? AdditionalCapabilities { get; set; }
 
         /// <summary>
-        /// An `automatic_instance_repair` block as defined below.
+        /// An `AutomaticInstanceRepair` block as defined below.
         /// 
-        /// &gt; **Note:** To enable the `automatic_instance_repair`, the Orchestrated Virtual Machine Scale Set must have a valid [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+        /// &gt; **Note:** To enable the `AutomaticInstanceRepair`, the Orchestrated Virtual Machine Scale Set must have a valid [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
         /// </summary>
         [Input("automaticInstanceRepair")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairGetArgs>? AutomaticInstanceRepair { get; set; }
 
         /// <summary>
-        /// A `boot_diagnostics` block as defined below.
+        /// A `BootDiagnostics` block as defined below.
         /// </summary>
         [Input("bootDiagnostics")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetBootDiagnosticsGetArgs>? BootDiagnostics { get; set; }
@@ -690,9 +690,9 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** `capacity_reservation_group_id` cannot be specified with `proximity_placement_group_id`
+        /// &gt; **Note:** `CapacityReservationGroupId` cannot be specified with `ProximityPlacementGroupId`
         /// 
-        /// &gt; **Note:** If `capacity_reservation_group_id` is specified the `single_placement_group` must be set to `false`.
+        /// &gt; **Note:** If `CapacityReservationGroupId` is specified the `SinglePlacementGroup` must be set to `False`.
         /// </summary>
         [Input("capacityReservationGroupId")]
         public Input<string>? CapacityReservationGroupId { get; set; }
@@ -701,7 +701,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.OrchestratedVirtualMachineScaleSetDataDiskGetArgs>? _dataDisks;
 
         /// <summary>
-        /// One or more `data_disk` blocks as defined below.
+        /// One or more `DataDisk` blocks as defined below.
         /// </summary>
         public InputList<Inputs.OrchestratedVirtualMachineScaleSetDataDiskGetArgs> DataDisks
         {
@@ -722,9 +722,9 @@ namespace Pulumi.Azure.Compute
         public Input<string>? EvictionPolicy { get; set; }
 
         /// <summary>
-        /// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Virtual Machine Scale Set to be created.
+        /// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `True` or `False`. Defaults to `True`. Changing this forces a new Virtual Machine Scale Set to be created.
         /// 
-        /// &gt; **Note:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
+        /// &gt; **Note:** `ExtensionOperationsEnabled` may only be set to `False` if there are no extensions defined in the `Extension` field.
         /// </summary>
         [Input("extensionOperationsEnabled")]
         public Input<bool>? ExtensionOperationsEnabled { get; set; }
@@ -733,7 +733,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.OrchestratedVirtualMachineScaleSetExtensionGetArgs>? _extensions;
 
         /// <summary>
-        /// One or more `extension` blocks as defined below
+        /// One or more `Extension` blocks as defined below
         /// </summary>
         public InputList<Inputs.OrchestratedVirtualMachineScaleSetExtensionGetArgs> Extensions
         {
@@ -748,7 +748,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? ExtensionsTimeBudget { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetIdentityGetArgs>? Identity { get; set; }
@@ -793,7 +793,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.OrchestratedVirtualMachineScaleSetNetworkInterfaceGetArgs>? _networkInterfaces;
 
         /// <summary>
-        /// One or more `network_interface` blocks as defined below.
+        /// One or more `NetworkInterface` blocks as defined below.
         /// </summary>
         public InputList<Inputs.OrchestratedVirtualMachineScaleSetNetworkInterfaceGetArgs> NetworkInterfaces
         {
@@ -802,19 +802,19 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// An `os_disk` block as defined below.
+        /// An `OsDisk` block as defined below.
         /// </summary>
         [Input("osDisk")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetOsDiskGetArgs>? OsDisk { get; set; }
 
         /// <summary>
-        /// An `os_profile` block as defined below.
+        /// An `OsProfile` block as defined below.
         /// </summary>
         [Input("osProfile")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetOsProfileGetArgs>? OsProfile { get; set; }
 
         /// <summary>
-        /// A `plan` block as documented below. Changing this forces a new resource to be created.
+        /// A `Plan` block as documented below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("plan")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetPlanGetArgs>? Plan { get; set; }
@@ -834,7 +834,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Priority { get; set; }
 
         /// <summary>
-        /// a `priority_mix` block as defined below
+        /// a `PriorityMix` block as defined below
         /// </summary>
         [Input("priorityMix")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetPriorityMixGetArgs>? PriorityMix { get; set; }
@@ -852,29 +852,29 @@ namespace Pulumi.Azure.Compute
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// A `rolling_upgrade_policy` block as defined below. This is Required when `upgrade_mode` is set to `Rolling` and cannot be specified when `upgrade_mode` is set to `Manual`. Changing this forces a new resource to be created.
+        /// A `RollingUpgradePolicy` block as defined below. This is Required when `UpgradeMode` is set to `Rolling` and cannot be specified when `UpgradeMode` is set to `Manual`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("rollingUpgradePolicy")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetRollingUpgradePolicyGetArgs>? RollingUpgradePolicy { get; set; }
 
         /// <summary>
-        /// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
+        /// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `True` or `False`.
         /// 
-        /// &gt; **Note:** `single_placement_group` behaves differently for Flexible orchestration Virtual Machine Scale Sets than it does for Uniform orchestration Virtual Machine Scale Sets. It is recommended that you do not define the `single_placement_group` field in your configuration file as the service will determine what this value should be based off of the value contained within the `sku_name` field of your configuration file. You may set the `single_placement_group` field to `true`, however once you set it to `false` you will not be able to revert it back to `true`.
+        /// &gt; **Note:** `SinglePlacementGroup` behaves differently for Flexible orchestration Virtual Machine Scale Sets than it does for Uniform orchestration Virtual Machine Scale Sets. It is recommended that you do not define the `SinglePlacementGroup` field in your configuration file as the service will determine what this value should be based off of the value contained within the `SkuName` field of your configuration file. You may set the `SinglePlacementGroup` field to `True`, however once you set it to `False` you will not be able to revert it back to `True`.
         /// </summary>
         [Input("singlePlacementGroup")]
         public Input<bool>? SinglePlacementGroup { get; set; }
 
         /// <summary>
-        /// The `name` of the SKU to be used by this Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
+        /// The `Name` of the SKU to be used by this Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
 
         /// <summary>
-        /// An `sku_profile` block as defined below. Changing this forces a new resource to be created.
+        /// An `SkuProfile` block as defined below. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** If `sku_profile` is specified the `sku_name` must be set to `Mix`.
+        /// &gt; **Note:** If `SkuProfile` is specified the `SkuName` must be set to `Mix`.
         /// </summary>
         [Input("skuProfile")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetSkuProfileGetArgs>? SkuProfile { get; set; }
@@ -886,7 +886,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? SourceImageId { get; set; }
 
         /// <summary>
-        /// A `source_image_reference` block as defined below.
+        /// A `SourceImageReference` block as defined below.
         /// </summary>
         [Input("sourceImageReference")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetSourceImageReferenceGetArgs>? SourceImageReference { get; set; }
@@ -904,7 +904,7 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// A `termination_notification` block as defined below.
+        /// A `TerminationNotification` block as defined below.
         /// </summary>
         [Input("terminationNotification")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetTerminationNotificationGetArgs>? TerminationNotification { get; set; }
@@ -938,9 +938,9 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
+        /// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `False`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** This can only be set to `true` when one or more `zones` are configured.
+        /// &gt; **Note:** This can only be set to `True` when one or more `Zones` are configured.
         /// </summary>
         [Input("zoneBalance")]
         public Input<bool>? ZoneBalance { get; set; }
@@ -951,7 +951,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies a list of Availability Zones across which the Virtual Machine Scale Set will create instances.
         /// 
-        /// &gt; **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
+        /// &gt; **Note:** Updating `Zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
         /// 
         /// &gt; **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         /// </summary>

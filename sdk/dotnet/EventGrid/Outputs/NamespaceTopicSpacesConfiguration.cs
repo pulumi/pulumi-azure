@@ -18,7 +18,7 @@ namespace Pulumi.Azure.EventGrid.Outputs
         /// </summary>
         public readonly ImmutableArray<string> AlternativeAuthenticationNameSources;
         /// <summary>
-        /// One or more `dynamic_routing_enrichment` blocks as defined below.
+        /// One or more `DynamicRoutingEnrichment` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.NamespaceTopicSpacesConfigurationDynamicRoutingEnrichment> DynamicRoutingEnrichments;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.EventGrid.Outputs
         /// </summary>
         public readonly string? RouteTopicId;
         /// <summary>
-        /// One or more `static_routing_enrichment` blocks as defined below.
+        /// One or more `StaticRoutingEnrichment` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.NamespaceTopicSpacesConfigurationStaticRoutingEnrichment> StaticRoutingEnrichments;
 

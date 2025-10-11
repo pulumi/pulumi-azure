@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 /**
  * Manages a Table in a Log Analytics (formally Operational Insights) Workspace.
  * 
- * &gt; **Note:** This resource does not create or destroy tables. This resource is used to update attributes (currently only retention_in_days) of the tables created when a Log Analytics Workspace is created. Deleting an azure.loganalytics.WorkspaceTable resource will not delete the table. Instead, the table&#39;s retention_in_days field will be set to the value of azure.operationalinsights.AnalyticsWorkspace retention_in_days
+ * &gt; **Note:** This resource does not create or destroy tables. This resource is used to update attributes (currently only retention_in_days) of the tables created when a Log Analytics Workspace is created. Deleting an azure.loganalytics.WorkspaceTable resource will not delete the table. Instead, the table&#39;s retentionInDays field will be set to the value of azure.operationalinsights.AnalyticsWorkspace retention_in_days
  * 
  * ## Example Usage
  * 
@@ -132,9 +132,9 @@ public class WorkspaceTable extends com.pulumi.resources.CustomResource {
     /**
      * The table&#39;s total retention in days. Possible values range between `4` and `730`; or `1095`, `1460`, `1826`, `2191`, `2556`, `2922`, `3288`, `3653`, `4018`, or `4383`.
      * 
-     * &gt; **Note:** `retention_in_days` and `total_retention_in_days` will revert back to the value of azure.operationalinsights.AnalyticsWorkspace retention_in_days when a azure.loganalytics.WorkspaceTable is deleted.
+     * &gt; **Note:** `retentionInDays` and `totalRetentionInDays` will revert back to the value of azure.operationalinsights.AnalyticsWorkspace retention_in_days when a azure.loganalytics.WorkspaceTable is deleted.
      * 
-     * &gt; **Note:** The `retention_in_days` cannot be specified when `plan` is `Basic` because the retention is fixed at eight days.
+     * &gt; **Note:** The `retentionInDays` cannot be specified when `plan` is `Basic` because the retention is fixed at eight days.
      * 
      */
     @Export(name="totalRetentionInDays", refs={Integer.class}, tree="[0]")
@@ -143,9 +143,9 @@ public class WorkspaceTable extends com.pulumi.resources.CustomResource {
     /**
      * @return The table&#39;s total retention in days. Possible values range between `4` and `730`; or `1095`, `1460`, `1826`, `2191`, `2556`, `2922`, `3288`, `3653`, `4018`, or `4383`.
      * 
-     * &gt; **Note:** `retention_in_days` and `total_retention_in_days` will revert back to the value of azure.operationalinsights.AnalyticsWorkspace retention_in_days when a azure.loganalytics.WorkspaceTable is deleted.
+     * &gt; **Note:** `retentionInDays` and `totalRetentionInDays` will revert back to the value of azure.operationalinsights.AnalyticsWorkspace retention_in_days when a azure.loganalytics.WorkspaceTable is deleted.
      * 
-     * &gt; **Note:** The `retention_in_days` cannot be specified when `plan` is `Basic` because the retention is fixed at eight days.
+     * &gt; **Note:** The `retentionInDays` cannot be specified when `plan` is `Basic` because the retention is fixed at eight days.
      * 
      */
     public Output<Optional<Integer>> totalRetentionInDays() {

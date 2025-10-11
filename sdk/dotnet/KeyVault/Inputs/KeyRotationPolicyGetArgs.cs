@@ -13,7 +13,7 @@ namespace Pulumi.Azure.KeyVault.Inputs
     public sealed class KeyRotationPolicyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `automatic` block as defined below.
+        /// An `Automatic` block as defined below.
         /// </summary>
         [Input("automatic")]
         public Input<Inputs.KeyRotationPolicyAutomaticGetArgs>? Automatic { get; set; }

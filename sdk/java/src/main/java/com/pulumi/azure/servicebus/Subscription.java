@@ -129,14 +129,14 @@ public class Subscription extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.batchedOperationsEnabled);
     }
     /**
-     * A `client_scoped_subscription` block as defined below.
+     * A `clientScopedSubscription` block as defined below.
      * 
      */
     @Export(name="clientScopedSubscription", refs={SubscriptionClientScopedSubscription.class}, tree="[0]")
     private Output</* @Nullable */ SubscriptionClientScopedSubscription> clientScopedSubscription;
 
     /**
-     * @return A `client_scoped_subscription` block as defined below.
+     * @return A `clientScopedSubscription` block as defined below.
      * 
      */
     public Output<Optional<SubscriptionClientScopedSubscription>> clientScopedSubscription() {

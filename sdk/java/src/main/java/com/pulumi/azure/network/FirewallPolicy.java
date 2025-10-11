@@ -144,14 +144,14 @@ public class FirewallPolicy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dns);
     }
     /**
-     * A `explicit_proxy` block as defined below.
+     * A `explicitProxy` block as defined below.
      * 
      */
     @Export(name="explicitProxy", refs={FirewallPolicyExplicitProxy.class}, tree="[0]")
     private Output</* @Nullable */ FirewallPolicyExplicitProxy> explicitProxy;
 
     /**
-     * @return A `explicit_proxy` block as defined below.
+     * @return A `explicitProxy` block as defined below.
      * 
      */
     public Output<Optional<FirewallPolicyExplicitProxy>> explicitProxy() {
@@ -200,14 +200,14 @@ public class FirewallPolicy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.insights);
     }
     /**
-     * A `intrusion_detection` block as defined below.
+     * A `intrusionDetection` block as defined below.
      * 
      */
     @Export(name="intrusionDetection", refs={FirewallPolicyIntrusionDetection.class}, tree="[0]")
     private Output</* @Nullable */ FirewallPolicyIntrusionDetection> intrusionDetection;
 
     /**
-     * @return A `intrusion_detection` block as defined below.
+     * @return A `intrusionDetection` block as defined below.
      * 
      */
     public Output<Optional<FirewallPolicyIntrusionDetection>> intrusionDetection() {
@@ -326,14 +326,14 @@ public class FirewallPolicy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A `threat_intelligence_allowlist` block as defined below.
+     * A `threatIntelligenceAllowlist` block as defined below.
      * 
      */
     @Export(name="threatIntelligenceAllowlist", refs={FirewallPolicyThreatIntelligenceAllowlist.class}, tree="[0]")
     private Output</* @Nullable */ FirewallPolicyThreatIntelligenceAllowlist> threatIntelligenceAllowlist;
 
     /**
-     * @return A `threat_intelligence_allowlist` block as defined below.
+     * @return A `threatIntelligenceAllowlist` block as defined below.
      * 
      */
     public Output<Optional<FirewallPolicyThreatIntelligenceAllowlist>> threatIntelligenceAllowlist() {
@@ -354,14 +354,14 @@ public class FirewallPolicy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.threatIntelligenceMode);
     }
     /**
-     * A `tls_certificate` block as defined below.
+     * A `tlsCertificate` block as defined below.
      * 
      */
     @Export(name="tlsCertificate", refs={FirewallPolicyTlsCertificate.class}, tree="[0]")
     private Output</* @Nullable */ FirewallPolicyTlsCertificate> tlsCertificate;
 
     /**
-     * @return A `tls_certificate` block as defined below.
+     * @return A `tlsCertificate` block as defined below.
      * 
      */
     public Output<Optional<FirewallPolicyTlsCertificate>> tlsCertificate() {

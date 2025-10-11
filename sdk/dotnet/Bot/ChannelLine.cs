@@ -77,7 +77,7 @@ namespace Pulumi.Azure.Bot
         public Output<string> BotName { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `line_channel` blocks as defined below.
+        /// One or more `LineChannel` blocks as defined below.
         /// </summary>
         [Output("lineChannels")]
         public Output<ImmutableArray<Outputs.ChannelLineLineChannel>> LineChannels { get; private set; } = null!;
@@ -150,7 +150,7 @@ namespace Pulumi.Azure.Bot
         private InputList<Inputs.ChannelLineLineChannelArgs>? _lineChannels;
 
         /// <summary>
-        /// One or more `line_channel` blocks as defined below.
+        /// One or more `LineChannel` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ChannelLineLineChannelArgs> LineChannels
         {
@@ -188,7 +188,7 @@ namespace Pulumi.Azure.Bot
         private InputList<Inputs.ChannelLineLineChannelGetArgs>? _lineChannels;
 
         /// <summary>
-        /// One or more `line_channel` blocks as defined below.
+        /// One or more `LineChannel` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ChannelLineLineChannelGetArgs> LineChannels
         {

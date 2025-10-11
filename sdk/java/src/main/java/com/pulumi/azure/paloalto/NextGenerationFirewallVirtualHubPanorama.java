@@ -127,28 +127,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:paloalto/nextGenerationFirewallVirtualHubPanorama:NextGenerationFirewallVirtualHubPanorama")
 public class NextGenerationFirewallVirtualHubPanorama extends com.pulumi.resources.CustomResource {
     /**
-     * One or more `destination_nat` blocks as defined below.
+     * One or more `destinationNat` blocks as defined below.
      * 
      */
     @Export(name="destinationNats", refs={List.class,NextGenerationFirewallVirtualHubPanoramaDestinationNat.class}, tree="[0,1]")
     private Output</* @Nullable */ List<NextGenerationFirewallVirtualHubPanoramaDestinationNat>> destinationNats;
 
     /**
-     * @return One or more `destination_nat` blocks as defined below.
+     * @return One or more `destinationNat` blocks as defined below.
      * 
      */
     public Output<Optional<List<NextGenerationFirewallVirtualHubPanoramaDestinationNat>>> destinationNats() {
         return Codegen.optional(this.destinationNats);
     }
     /**
-     * A `dns_settings` block as defined below.
+     * A `dnsSettings` block as defined below.
      * 
      */
     @Export(name="dnsSettings", refs={NextGenerationFirewallVirtualHubPanoramaDnsSettings.class}, tree="[0]")
     private Output</* @Nullable */ NextGenerationFirewallVirtualHubPanoramaDnsSettings> dnsSettings;
 
     /**
-     * @return A `dns_settings` block as defined below.
+     * @return A `dnsSettings` block as defined below.
      * 
      */
     public Output<Optional<NextGenerationFirewallVirtualHubPanoramaDnsSettings>> dnsSettings() {
@@ -169,14 +169,14 @@ public class NextGenerationFirewallVirtualHubPanorama extends com.pulumi.resourc
         return this.location;
     }
     /**
-     * The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
+     * The marketplace offer ID. Defaults to `panSwfwCloudNgfw`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="marketplaceOfferId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> marketplaceOfferId;
 
     /**
-     * @return The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
+     * @return The marketplace offer ID. Defaults to `panSwfwCloudNgfw`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> marketplaceOfferId() {
@@ -197,14 +197,14 @@ public class NextGenerationFirewallVirtualHubPanorama extends com.pulumi.resourc
         return this.name;
     }
     /**
-     * A `network_profile` block as defined below.
+     * A `networkProfile` block as defined below.
      * 
      */
     @Export(name="networkProfile", refs={NextGenerationFirewallVirtualHubPanoramaNetworkProfile.class}, tree="[0]")
     private Output<NextGenerationFirewallVirtualHubPanoramaNetworkProfile> networkProfile;
 
     /**
-     * @return A `network_profile` block as defined below.
+     * @return A `networkProfile` block as defined below.
      * 
      */
     public Output<NextGenerationFirewallVirtualHubPanoramaNetworkProfile> networkProfile() {
@@ -233,7 +233,7 @@ public class NextGenerationFirewallVirtualHubPanorama extends com.pulumi.resourc
     /**
      * The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
      * 
-     * &gt; **Note:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
+     * &gt; **Note:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
      * 
      */
     @Export(name="planId", refs={String.class}, tree="[0]")
@@ -242,7 +242,7 @@ public class NextGenerationFirewallVirtualHubPanorama extends com.pulumi.resourc
     /**
      * @return The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
      * 
-     * &gt; **Note:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
+     * &gt; **Note:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
      * 
      */
     public Output<Optional<String>> planId() {

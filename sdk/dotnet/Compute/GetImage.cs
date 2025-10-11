@@ -190,7 +190,7 @@ namespace Pulumi.Azure.Compute
     public sealed class GetImageResult
     {
         /// <summary>
-        /// a collection of `data_disk` blocks as defined below.
+        /// a collection of `DataDisk` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetImageDataDiskResult> DataDisks;
         /// <summary>
@@ -207,7 +207,7 @@ namespace Pulumi.Azure.Compute
         public readonly string? Name;
         public readonly string? NameRegex;
         /// <summary>
-        /// a `os_disk` block as defined below.
+        /// a `OsDisk` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetImageOsDiskResult> OsDisks;
         public readonly string ResourceGroupName;

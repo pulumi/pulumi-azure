@@ -17,14 +17,14 @@ public final class VirtualNetworkSubnetSharedPublicIpAddressArgs extends com.pul
     public static final VirtualNetworkSubnetSharedPublicIpAddressArgs Empty = new VirtualNetworkSubnetSharedPublicIpAddressArgs();
 
     /**
-     * A list of `allowed_ports` blocks as defined below.
+     * A list of `allowedPorts` blocks as defined below.
      * 
      */
     @Import(name="allowedPorts")
     private @Nullable Output<List<VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArgs>> allowedPorts;
 
     /**
-     * @return A list of `allowed_ports` blocks as defined below.
+     * @return A list of `allowedPorts` blocks as defined below.
      * 
      */
     public Optional<Output<List<VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArgs>>> allowedPorts() {
@@ -56,7 +56,7 @@ public final class VirtualNetworkSubnetSharedPublicIpAddressArgs extends com.pul
         }
 
         /**
-         * @param allowedPorts A list of `allowed_ports` blocks as defined below.
+         * @param allowedPorts A list of `allowedPorts` blocks as defined below.
          * 
          * @return builder
          * 
@@ -67,7 +67,7 @@ public final class VirtualNetworkSubnetSharedPublicIpAddressArgs extends com.pul
         }
 
         /**
-         * @param allowedPorts A list of `allowed_ports` blocks as defined below.
+         * @param allowedPorts A list of `allowedPorts` blocks as defined below.
          * 
          * @return builder
          * 
@@ -77,7 +77,7 @@ public final class VirtualNetworkSubnetSharedPublicIpAddressArgs extends com.pul
         }
 
         /**
-         * @param allowedPorts A list of `allowed_ports` blocks as defined below.
+         * @param allowedPorts A list of `allowedPorts` blocks as defined below.
          * 
          * @return builder
          * 

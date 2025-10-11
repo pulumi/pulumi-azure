@@ -142,7 +142,7 @@ namespace Pulumi.Azure.Compute
     public partial class VirtualMachine : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An `additional_capabilities` block as defined below.
+        /// An `AdditionalCapabilities` block as defined below.
         /// </summary>
         [Output("additionalCapabilities")]
         public Output<Outputs.VirtualMachineAdditionalCapabilities?> AdditionalCapabilities { get; private set; } = null!;
@@ -154,13 +154,13 @@ namespace Pulumi.Azure.Compute
         public Output<string> AvailabilitySetId { get; private set; } = null!;
 
         /// <summary>
-        /// A `boot_diagnostics` block as defined below.
+        /// A `BootDiagnostics` block as defined below.
         /// </summary>
         [Output("bootDiagnostics")]
         public Output<Outputs.VirtualMachineBootDiagnostics?> BootDiagnostics { get; private set; } = null!;
 
         /// <summary>
-        /// Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
+        /// Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `False`.
         /// 
         /// &gt; **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
         /// </summary>
@@ -168,7 +168,7 @@ namespace Pulumi.Azure.Compute
         public Output<bool?> DeleteDataDisksOnTermination { get; private set; } = null!;
 
         /// <summary>
-        /// Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
+        /// Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `False`.
         /// 
         /// &gt; **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
         /// </summary>
@@ -176,7 +176,7 @@ namespace Pulumi.Azure.Compute
         public Output<bool?> DeleteOsDiskOnTermination { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.VirtualMachineIdentity?> Identity { get; private set; } = null!;
@@ -206,31 +206,31 @@ namespace Pulumi.Azure.Compute
         public Output<ImmutableArray<string>> NetworkInterfaceIds { get; private set; } = null!;
 
         /// <summary>
-        /// An `os_profile` block as defined below. Required when `create_option` in the `storage_os_disk` block is set to `FromImage`.
+        /// An `OsProfile` block as defined below. Required when `CreateOption` in the `StorageOsDisk` block is set to `FromImage`.
         /// </summary>
         [Output("osProfile")]
         public Output<Outputs.VirtualMachineOsProfile?> OsProfile { get; private set; } = null!;
 
         /// <summary>
-        /// (Required, when a Linux machine) An `os_profile_linux_config` block as defined below.
+        /// (Required, when a Linux machine) An `OsProfileLinuxConfig` block as defined below.
         /// </summary>
         [Output("osProfileLinuxConfig")]
         public Output<Outputs.VirtualMachineOsProfileLinuxConfig?> OsProfileLinuxConfig { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `os_profile_secrets` blocks as defined below.
+        /// One or more `OsProfileSecrets` blocks as defined below.
         /// </summary>
         [Output("osProfileSecrets")]
         public Output<ImmutableArray<Outputs.VirtualMachineOsProfileSecret>> OsProfileSecrets { get; private set; } = null!;
 
         /// <summary>
-        /// (Required, when a Windows machine) An `os_profile_windows_config` block as defined below.
+        /// (Required, when a Windows machine) An `OsProfileWindowsConfig` block as defined below.
         /// </summary>
         [Output("osProfileWindowsConfig")]
         public Output<Outputs.VirtualMachineOsProfileWindowsConfig?> OsProfileWindowsConfig { get; private set; } = null!;
 
         /// <summary>
-        /// A `plan` block as defined below.
+        /// A `Plan` block as defined below.
         /// </summary>
         [Output("plan")]
         public Output<Outputs.VirtualMachinePlan?> Plan { get; private set; } = null!;
@@ -254,7 +254,7 @@ namespace Pulumi.Azure.Compute
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `storage_data_disk` blocks as defined below.
+        /// One or more `StorageDataDisk` blocks as defined below.
         /// 
         /// &gt; **Please Note:** Data Disks can also be attached either using this block or the `azure.compute.DataDiskAttachment` resource - but not both.
         /// </summary>
@@ -262,13 +262,13 @@ namespace Pulumi.Azure.Compute
         public Output<ImmutableArray<Outputs.VirtualMachineStorageDataDisk>> StorageDataDisks { get; private set; } = null!;
 
         /// <summary>
-        /// A `storage_image_reference` block as defined below. Changing this forces a new resource to be created.
+        /// A `StorageImageReference` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("storageImageReference")]
         public Output<Outputs.VirtualMachineStorageImageReference> StorageImageReference { get; private set; } = null!;
 
         /// <summary>
-        /// A `storage_os_disk` block as defined below.
+        /// A `StorageOsDisk` block as defined below.
         /// </summary>
         [Output("storageOsDisk")]
         public Output<Outputs.VirtualMachineStorageOsDisk> StorageOsDisk { get; private set; } = null!;
@@ -342,7 +342,7 @@ namespace Pulumi.Azure.Compute
     public sealed class VirtualMachineArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `additional_capabilities` block as defined below.
+        /// An `AdditionalCapabilities` block as defined below.
         /// </summary>
         [Input("additionalCapabilities")]
         public Input<Inputs.VirtualMachineAdditionalCapabilitiesArgs>? AdditionalCapabilities { get; set; }
@@ -354,13 +354,13 @@ namespace Pulumi.Azure.Compute
         public Input<string>? AvailabilitySetId { get; set; }
 
         /// <summary>
-        /// A `boot_diagnostics` block as defined below.
+        /// A `BootDiagnostics` block as defined below.
         /// </summary>
         [Input("bootDiagnostics")]
         public Input<Inputs.VirtualMachineBootDiagnosticsArgs>? BootDiagnostics { get; set; }
 
         /// <summary>
-        /// Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
+        /// Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `False`.
         /// 
         /// &gt; **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
         /// </summary>
@@ -368,7 +368,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? DeleteDataDisksOnTermination { get; set; }
 
         /// <summary>
-        /// Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
+        /// Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `False`.
         /// 
         /// &gt; **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
         /// </summary>
@@ -376,7 +376,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? DeleteOsDiskOnTermination { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.VirtualMachineIdentityArgs>? Identity { get; set; }
@@ -412,13 +412,13 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// An `os_profile` block as defined below. Required when `create_option` in the `storage_os_disk` block is set to `FromImage`.
+        /// An `OsProfile` block as defined below. Required when `CreateOption` in the `StorageOsDisk` block is set to `FromImage`.
         /// </summary>
         [Input("osProfile")]
         public Input<Inputs.VirtualMachineOsProfileArgs>? OsProfile { get; set; }
 
         /// <summary>
-        /// (Required, when a Linux machine) An `os_profile_linux_config` block as defined below.
+        /// (Required, when a Linux machine) An `OsProfileLinuxConfig` block as defined below.
         /// </summary>
         [Input("osProfileLinuxConfig")]
         public Input<Inputs.VirtualMachineOsProfileLinuxConfigArgs>? OsProfileLinuxConfig { get; set; }
@@ -427,7 +427,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.VirtualMachineOsProfileSecretArgs>? _osProfileSecrets;
 
         /// <summary>
-        /// One or more `os_profile_secrets` blocks as defined below.
+        /// One or more `OsProfileSecrets` blocks as defined below.
         /// </summary>
         public InputList<Inputs.VirtualMachineOsProfileSecretArgs> OsProfileSecrets
         {
@@ -436,13 +436,13 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// (Required, when a Windows machine) An `os_profile_windows_config` block as defined below.
+        /// (Required, when a Windows machine) An `OsProfileWindowsConfig` block as defined below.
         /// </summary>
         [Input("osProfileWindowsConfig")]
         public Input<Inputs.VirtualMachineOsProfileWindowsConfigArgs>? OsProfileWindowsConfig { get; set; }
 
         /// <summary>
-        /// A `plan` block as defined below.
+        /// A `Plan` block as defined below.
         /// </summary>
         [Input("plan")]
         public Input<Inputs.VirtualMachinePlanArgs>? Plan { get; set; }
@@ -469,7 +469,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.VirtualMachineStorageDataDiskArgs>? _storageDataDisks;
 
         /// <summary>
-        /// One or more `storage_data_disk` blocks as defined below.
+        /// One or more `StorageDataDisk` blocks as defined below.
         /// 
         /// &gt; **Please Note:** Data Disks can also be attached either using this block or the `azure.compute.DataDiskAttachment` resource - but not both.
         /// </summary>
@@ -480,13 +480,13 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// A `storage_image_reference` block as defined below. Changing this forces a new resource to be created.
+        /// A `StorageImageReference` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageImageReference")]
         public Input<Inputs.VirtualMachineStorageImageReferenceArgs>? StorageImageReference { get; set; }
 
         /// <summary>
-        /// A `storage_os_disk` block as defined below.
+        /// A `StorageOsDisk` block as defined below.
         /// </summary>
         [Input("storageOsDisk", required: true)]
         public Input<Inputs.VirtualMachineStorageOsDiskArgs> StorageOsDisk { get; set; } = null!;
@@ -528,7 +528,7 @@ namespace Pulumi.Azure.Compute
     public sealed class VirtualMachineState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `additional_capabilities` block as defined below.
+        /// An `AdditionalCapabilities` block as defined below.
         /// </summary>
         [Input("additionalCapabilities")]
         public Input<Inputs.VirtualMachineAdditionalCapabilitiesGetArgs>? AdditionalCapabilities { get; set; }
@@ -540,13 +540,13 @@ namespace Pulumi.Azure.Compute
         public Input<string>? AvailabilitySetId { get; set; }
 
         /// <summary>
-        /// A `boot_diagnostics` block as defined below.
+        /// A `BootDiagnostics` block as defined below.
         /// </summary>
         [Input("bootDiagnostics")]
         public Input<Inputs.VirtualMachineBootDiagnosticsGetArgs>? BootDiagnostics { get; set; }
 
         /// <summary>
-        /// Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
+        /// Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `False`.
         /// 
         /// &gt; **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
         /// </summary>
@@ -554,7 +554,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? DeleteDataDisksOnTermination { get; set; }
 
         /// <summary>
-        /// Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
+        /// Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `False`.
         /// 
         /// &gt; **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
         /// </summary>
@@ -562,7 +562,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? DeleteOsDiskOnTermination { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.VirtualMachineIdentityGetArgs>? Identity { get; set; }
@@ -598,13 +598,13 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// An `os_profile` block as defined below. Required when `create_option` in the `storage_os_disk` block is set to `FromImage`.
+        /// An `OsProfile` block as defined below. Required when `CreateOption` in the `StorageOsDisk` block is set to `FromImage`.
         /// </summary>
         [Input("osProfile")]
         public Input<Inputs.VirtualMachineOsProfileGetArgs>? OsProfile { get; set; }
 
         /// <summary>
-        /// (Required, when a Linux machine) An `os_profile_linux_config` block as defined below.
+        /// (Required, when a Linux machine) An `OsProfileLinuxConfig` block as defined below.
         /// </summary>
         [Input("osProfileLinuxConfig")]
         public Input<Inputs.VirtualMachineOsProfileLinuxConfigGetArgs>? OsProfileLinuxConfig { get; set; }
@@ -613,7 +613,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.VirtualMachineOsProfileSecretGetArgs>? _osProfileSecrets;
 
         /// <summary>
-        /// One or more `os_profile_secrets` blocks as defined below.
+        /// One or more `OsProfileSecrets` blocks as defined below.
         /// </summary>
         public InputList<Inputs.VirtualMachineOsProfileSecretGetArgs> OsProfileSecrets
         {
@@ -622,13 +622,13 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// (Required, when a Windows machine) An `os_profile_windows_config` block as defined below.
+        /// (Required, when a Windows machine) An `OsProfileWindowsConfig` block as defined below.
         /// </summary>
         [Input("osProfileWindowsConfig")]
         public Input<Inputs.VirtualMachineOsProfileWindowsConfigGetArgs>? OsProfileWindowsConfig { get; set; }
 
         /// <summary>
-        /// A `plan` block as defined below.
+        /// A `Plan` block as defined below.
         /// </summary>
         [Input("plan")]
         public Input<Inputs.VirtualMachinePlanGetArgs>? Plan { get; set; }
@@ -655,7 +655,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.VirtualMachineStorageDataDiskGetArgs>? _storageDataDisks;
 
         /// <summary>
-        /// One or more `storage_data_disk` blocks as defined below.
+        /// One or more `StorageDataDisk` blocks as defined below.
         /// 
         /// &gt; **Please Note:** Data Disks can also be attached either using this block or the `azure.compute.DataDiskAttachment` resource - but not both.
         /// </summary>
@@ -666,13 +666,13 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// A `storage_image_reference` block as defined below. Changing this forces a new resource to be created.
+        /// A `StorageImageReference` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageImageReference")]
         public Input<Inputs.VirtualMachineStorageImageReferenceGetArgs>? StorageImageReference { get; set; }
 
         /// <summary>
-        /// A `storage_os_disk` block as defined below.
+        /// A `StorageOsDisk` block as defined below.
         /// </summary>
         [Input("storageOsDisk")]
         public Input<Inputs.VirtualMachineStorageOsDiskGetArgs>? StorageOsDisk { get; set; }

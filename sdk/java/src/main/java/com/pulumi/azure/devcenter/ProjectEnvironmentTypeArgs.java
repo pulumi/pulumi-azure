@@ -126,14 +126,14 @@ public final class ProjectEnvironmentTypeArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * A `user_role_assignment` block as defined below.
+     * A `userRoleAssignment` block as defined below.
      * 
      */
     @Import(name="userRoleAssignments")
     private @Nullable Output<List<ProjectEnvironmentTypeUserRoleAssignmentArgs>> userRoleAssignments;
 
     /**
-     * @return A `user_role_assignment` block as defined below.
+     * @return A `userRoleAssignment` block as defined below.
      * 
      */
     public Optional<Output<List<ProjectEnvironmentTypeUserRoleAssignmentArgs>>> userRoleAssignments() {
@@ -329,7 +329,7 @@ public final class ProjectEnvironmentTypeArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param userRoleAssignments A `user_role_assignment` block as defined below.
+         * @param userRoleAssignments A `userRoleAssignment` block as defined below.
          * 
          * @return builder
          * 
@@ -340,7 +340,7 @@ public final class ProjectEnvironmentTypeArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param userRoleAssignments A `user_role_assignment` block as defined below.
+         * @param userRoleAssignments A `userRoleAssignment` block as defined below.
          * 
          * @return builder
          * 
@@ -350,7 +350,7 @@ public final class ProjectEnvironmentTypeArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param userRoleAssignments A `user_role_assignment` block as defined below.
+         * @param userRoleAssignments A `userRoleAssignment` block as defined below.
          * 
          * @return builder
          * 

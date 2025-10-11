@@ -32,7 +32,7 @@ public final class GetNetworkServiceResult {
      */
     private String name;
     /**
-     * @return A `pcc_rule` block as defined below. The set of PCC Rules that make up this service.
+     * @return A `pccRule` block as defined below. The set of PCC Rules that make up this service.
      * 
      */
     private List<GetNetworkServicePccRule> pccRules;
@@ -42,7 +42,7 @@ public final class GetNetworkServiceResult {
      */
     private Integer servicePrecedence;
     /**
-     * @return A `service_qos_policy` block as defined below. The QoS policy to use for packets matching this service.
+     * @return A `serviceQosPolicy` block as defined below. The QoS policy to use for packets matching this service.
      * 
      */
     private List<GetNetworkServiceServiceQosPolicy> serviceQosPolicies;
@@ -78,7 +78,7 @@ public final class GetNetworkServiceResult {
         return this.name;
     }
     /**
-     * @return A `pcc_rule` block as defined below. The set of PCC Rules that make up this service.
+     * @return A `pccRule` block as defined below. The set of PCC Rules that make up this service.
      * 
      */
     public List<GetNetworkServicePccRule> pccRules() {
@@ -92,7 +92,7 @@ public final class GetNetworkServiceResult {
         return this.servicePrecedence;
     }
     /**
-     * @return A `service_qos_policy` block as defined below. The QoS policy to use for packets matching this service.
+     * @return A `serviceQosPolicy` block as defined below. The QoS policy to use for packets matching this service.
      * 
      */
     public List<GetNetworkServiceServiceQosPolicy> serviceQosPolicies() {

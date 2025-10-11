@@ -106,19 +106,19 @@ namespace Pulumi.Azure.Datadog
         public Output<string> DatadogMonitorId { get; private set; } = null!;
 
         /// <summary>
-        /// A `log` block as defined below.
+        /// A `Log` block as defined below.
         /// </summary>
         [Output("logs")]
         public Output<ImmutableArray<Outputs.MonitorTagRuleLog>> Logs { get; private set; } = null!;
 
         /// <summary>
-        /// A `metric` block as defined below.
+        /// A `Metric` block as defined below.
         /// </summary>
         [Output("metrics")]
         public Output<ImmutableArray<Outputs.MonitorTagRuleMetric>> Metrics { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Tag Rules configuration. The allowed value is `default`. Defaults to `default`.
+        /// The name of the Tag Rules configuration. The allowed value is `Default`. Defaults to `Default`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -179,7 +179,7 @@ namespace Pulumi.Azure.Datadog
         private InputList<Inputs.MonitorTagRuleLogArgs>? _logs;
 
         /// <summary>
-        /// A `log` block as defined below.
+        /// A `Log` block as defined below.
         /// </summary>
         public InputList<Inputs.MonitorTagRuleLogArgs> Logs
         {
@@ -191,7 +191,7 @@ namespace Pulumi.Azure.Datadog
         private InputList<Inputs.MonitorTagRuleMetricArgs>? _metrics;
 
         /// <summary>
-        /// A `metric` block as defined below.
+        /// A `Metric` block as defined below.
         /// </summary>
         public InputList<Inputs.MonitorTagRuleMetricArgs> Metrics
         {
@@ -200,7 +200,7 @@ namespace Pulumi.Azure.Datadog
         }
 
         /// <summary>
-        /// The name of the Tag Rules configuration. The allowed value is `default`. Defaults to `default`.
+        /// The name of the Tag Rules configuration. The allowed value is `Default`. Defaults to `Default`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -223,7 +223,7 @@ namespace Pulumi.Azure.Datadog
         private InputList<Inputs.MonitorTagRuleLogGetArgs>? _logs;
 
         /// <summary>
-        /// A `log` block as defined below.
+        /// A `Log` block as defined below.
         /// </summary>
         public InputList<Inputs.MonitorTagRuleLogGetArgs> Logs
         {
@@ -235,7 +235,7 @@ namespace Pulumi.Azure.Datadog
         private InputList<Inputs.MonitorTagRuleMetricGetArgs>? _metrics;
 
         /// <summary>
-        /// A `metric` block as defined below.
+        /// A `Metric` block as defined below.
         /// </summary>
         public InputList<Inputs.MonitorTagRuleMetricGetArgs> Metrics
         {
@@ -244,7 +244,7 @@ namespace Pulumi.Azure.Datadog
         }
 
         /// <summary>
-        /// The name of the Tag Rules configuration. The allowed value is `default`. Defaults to `default`.
+        /// The name of the Tag Rules configuration. The allowed value is `Default`. Defaults to `Default`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

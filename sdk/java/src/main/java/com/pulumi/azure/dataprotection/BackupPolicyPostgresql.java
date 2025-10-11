@@ -181,14 +181,14 @@ public class BackupPolicyPostgresql extends com.pulumi.resources.CustomResource 
         return this.resourceGroupName;
     }
     /**
-     * One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
+     * One or more `retentionRule` blocks as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
      * 
      */
     @Export(name="retentionRules", refs={List.class,BackupPolicyPostgresqlRetentionRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<BackupPolicyPostgresqlRetentionRule>> retentionRules;
 
     /**
-     * @return One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
+     * @return One or more `retentionRule` blocks as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
      * 
      */
     public Output<Optional<List<BackupPolicyPostgresqlRetentionRule>>> retentionRules() {

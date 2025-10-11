@@ -108,14 +108,14 @@ public final class FluxConfigurationGitRepositoryArgs extends com.pulumi.resourc
     }
 
     /**
-     * Specifies the Base64-encoded known_hosts value containing public SSH keys required to access private git repositories over SSH.
+     * Specifies the Base64-encoded knownHosts value containing public SSH keys required to access private git repositories over SSH.
      * 
      */
     @Import(name="sshKnownHostsBase64")
     private @Nullable Output<String> sshKnownHostsBase64;
 
     /**
-     * @return Specifies the Base64-encoded known_hosts value containing public SSH keys required to access private git repositories over SSH.
+     * @return Specifies the Base64-encoded knownHosts value containing public SSH keys required to access private git repositories over SSH.
      * 
      */
     public Optional<Output<String>> sshKnownHostsBase64() {
@@ -343,7 +343,7 @@ public final class FluxConfigurationGitRepositoryArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param sshKnownHostsBase64 Specifies the Base64-encoded known_hosts value containing public SSH keys required to access private git repositories over SSH.
+         * @param sshKnownHostsBase64 Specifies the Base64-encoded knownHosts value containing public SSH keys required to access private git repositories over SSH.
          * 
          * @return builder
          * 
@@ -354,7 +354,7 @@ public final class FluxConfigurationGitRepositoryArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param sshKnownHostsBase64 Specifies the Base64-encoded known_hosts value containing public SSH keys required to access private git repositories over SSH.
+         * @param sshKnownHostsBase64 Specifies the Base64-encoded knownHosts value containing public SSH keys required to access private git repositories over SSH.
          * 
          * @return builder
          * 

@@ -116,7 +116,7 @@ public final class WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2Args extends 
     /**
      * The App Setting name that contains the client secret of the Client.
      * 
-     * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
+     * !&gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
      * 
      */
     @Import(name="clientSecretSettingName")
@@ -125,7 +125,7 @@ public final class WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2Args extends 
     /**
      * @return The App Setting name that contains the client secret of the Client.
      * 
-     * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
+     * !&gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
      * 
      */
     public Optional<Output<String>> clientSecretSettingName() {
@@ -421,7 +421,7 @@ public final class WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2Args extends 
         /**
          * @param clientSecretSettingName The App Setting name that contains the client secret of the Client.
          * 
-         * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
+         * !&gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
          * 
          * @return builder
          * 
@@ -434,7 +434,7 @@ public final class WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2Args extends 
         /**
          * @param clientSecretSettingName The App Setting name that contains the client secret of the Client.
          * 
-         * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
+         * !&gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
          * 
          * @return builder
          * 

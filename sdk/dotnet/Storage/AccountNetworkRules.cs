@@ -115,7 +115,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. Defaults to `["AzureServices"]`.
         /// 
-        /// &gt; **Note:** User has to explicitly set `bypass` to empty slice (`[]`) to remove it.
+        /// &gt; **Note:** User has to explicitly set `Bypass` to empty slice (`[]`) to remove it.
         /// </summary>
         [Output("bypasses")]
         public Output<ImmutableArray<string>> Bypasses { get; private set; } = null!;
@@ -133,13 +133,13 @@ namespace Pulumi.Azure.Storage
         /// 
         /// &gt; **Note:** IP network rules have no effect on requests originating from the same Azure region as the storage account. Use Virtual network rules to allow same-region requests. Services deployed in the same region as the storage account use private Azure IP addresses for communication. Thus, you cannot restrict access to specific Azure services based on their public outbound IP address range.
         /// 
-        /// &gt; **Note:** User has to explicitly set `ip_rules` to empty slice (`[]`) to remove it.
+        /// &gt; **Note:** User has to explicitly set `IpRules` to empty slice (`[]`) to remove it.
         /// </summary>
         [Output("ipRules")]
         public Output<ImmutableArray<string>> IpRules { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `private_link_access` block as defined below.
+        /// One or more `PrivateLinkAccess` block as defined below.
         /// </summary>
         [Output("privateLinkAccessRules")]
         public Output<ImmutableArray<Outputs.AccountNetworkRulesPrivateLinkAccessRule>> PrivateLinkAccessRules { get; private set; } = null!;
@@ -153,7 +153,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// A list of virtual network subnet ids to secure the storage account.
         /// 
-        /// &gt; **Note:** User has to explicitly set `virtual_network_subnet_ids` to empty slice (`[]`) to remove it.
+        /// &gt; **Note:** User has to explicitly set `VirtualNetworkSubnetIds` to empty slice (`[]`) to remove it.
         /// </summary>
         [Output("virtualNetworkSubnetIds")]
         public Output<ImmutableArray<string>> VirtualNetworkSubnetIds { get; private set; } = null!;
@@ -210,7 +210,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. Defaults to `["AzureServices"]`.
         /// 
-        /// &gt; **Note:** User has to explicitly set `bypass` to empty slice (`[]`) to remove it.
+        /// &gt; **Note:** User has to explicitly set `Bypass` to empty slice (`[]`) to remove it.
         /// </summary>
         public InputList<string> Bypasses
         {
@@ -234,7 +234,7 @@ namespace Pulumi.Azure.Storage
         /// 
         /// &gt; **Note:** IP network rules have no effect on requests originating from the same Azure region as the storage account. Use Virtual network rules to allow same-region requests. Services deployed in the same region as the storage account use private Azure IP addresses for communication. Thus, you cannot restrict access to specific Azure services based on their public outbound IP address range.
         /// 
-        /// &gt; **Note:** User has to explicitly set `ip_rules` to empty slice (`[]`) to remove it.
+        /// &gt; **Note:** User has to explicitly set `IpRules` to empty slice (`[]`) to remove it.
         /// </summary>
         public InputList<string> IpRules
         {
@@ -246,7 +246,7 @@ namespace Pulumi.Azure.Storage
         private InputList<Inputs.AccountNetworkRulesPrivateLinkAccessRuleArgs>? _privateLinkAccessRules;
 
         /// <summary>
-        /// One or more `private_link_access` block as defined below.
+        /// One or more `PrivateLinkAccess` block as defined below.
         /// </summary>
         public InputList<Inputs.AccountNetworkRulesPrivateLinkAccessRuleArgs> PrivateLinkAccessRules
         {
@@ -266,7 +266,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// A list of virtual network subnet ids to secure the storage account.
         /// 
-        /// &gt; **Note:** User has to explicitly set `virtual_network_subnet_ids` to empty slice (`[]`) to remove it.
+        /// &gt; **Note:** User has to explicitly set `VirtualNetworkSubnetIds` to empty slice (`[]`) to remove it.
         /// </summary>
         public InputList<string> VirtualNetworkSubnetIds
         {
@@ -288,7 +288,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. Defaults to `["AzureServices"]`.
         /// 
-        /// &gt; **Note:** User has to explicitly set `bypass` to empty slice (`[]`) to remove it.
+        /// &gt; **Note:** User has to explicitly set `Bypass` to empty slice (`[]`) to remove it.
         /// </summary>
         public InputList<string> Bypasses
         {
@@ -312,7 +312,7 @@ namespace Pulumi.Azure.Storage
         /// 
         /// &gt; **Note:** IP network rules have no effect on requests originating from the same Azure region as the storage account. Use Virtual network rules to allow same-region requests. Services deployed in the same region as the storage account use private Azure IP addresses for communication. Thus, you cannot restrict access to specific Azure services based on their public outbound IP address range.
         /// 
-        /// &gt; **Note:** User has to explicitly set `ip_rules` to empty slice (`[]`) to remove it.
+        /// &gt; **Note:** User has to explicitly set `IpRules` to empty slice (`[]`) to remove it.
         /// </summary>
         public InputList<string> IpRules
         {
@@ -324,7 +324,7 @@ namespace Pulumi.Azure.Storage
         private InputList<Inputs.AccountNetworkRulesPrivateLinkAccessRuleGetArgs>? _privateLinkAccessRules;
 
         /// <summary>
-        /// One or more `private_link_access` block as defined below.
+        /// One or more `PrivateLinkAccess` block as defined below.
         /// </summary>
         public InputList<Inputs.AccountNetworkRulesPrivateLinkAccessRuleGetArgs> PrivateLinkAccessRules
         {
@@ -344,7 +344,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// A list of virtual network subnet ids to secure the storage account.
         /// 
-        /// &gt; **Note:** User has to explicitly set `virtual_network_subnet_ids` to empty slice (`[]`) to remove it.
+        /// &gt; **Note:** User has to explicitly set `VirtualNetworkSubnetIds` to empty slice (`[]`) to remove it.
         /// </summary>
         public InputList<string> VirtualNetworkSubnetIds
         {

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.StreamAnalytics.Outputs
     public sealed class FunctionJavaScriptUDFOutput
     {
         /// <summary>
-        /// The Data Type output from this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
+        /// The Data Type output from this JavaScript Function. Possible values include `Array`, `Any`, `Bigint`, `Datetime`, `Float`, `nvarchar(max)` and `Record`.
         /// </summary>
         public readonly string Type;
 

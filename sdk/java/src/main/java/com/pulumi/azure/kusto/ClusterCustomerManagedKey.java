@@ -214,7 +214,7 @@ public class ClusterCustomerManagedKey extends com.pulumi.resources.CustomResour
     /**
      * The Managed HSM Key ID for CMK encryption.
      * 
-     * &gt; **Note:** Exactly one of `managed_hsm_key_id` or `key_vault_id` must be specified.
+     * &gt; **Note:** Exactly one of `managedHsmKeyId` or `keyVaultId` must be specified.
      * 
      */
     @Export(name="managedHsmKeyId", refs={String.class}, tree="[0]")
@@ -223,7 +223,7 @@ public class ClusterCustomerManagedKey extends com.pulumi.resources.CustomResour
     /**
      * @return The Managed HSM Key ID for CMK encryption.
      * 
-     * &gt; **Note:** Exactly one of `managed_hsm_key_id` or `key_vault_id` must be specified.
+     * &gt; **Note:** Exactly one of `managedHsmKeyId` or `keyVaultId` must be specified.
      * 
      */
     public Output<Optional<String>> managedHsmKeyId() {

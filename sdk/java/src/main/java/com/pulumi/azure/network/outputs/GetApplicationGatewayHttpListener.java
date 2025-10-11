@@ -14,7 +14,7 @@ import java.util.Objects;
 @CustomType
 public final class GetApplicationGatewayHttpListener {
     /**
-     * @return One or more `custom_error_configuration` blocks as defined below.
+     * @return One or more `customErrorConfiguration` blocks as defined below.
      * 
      */
     private List<GetApplicationGatewayHttpListenerCustomErrorConfiguration> customErrorConfigurations;
@@ -96,7 +96,7 @@ public final class GetApplicationGatewayHttpListener {
 
     private GetApplicationGatewayHttpListener() {}
     /**
-     * @return One or more `custom_error_configuration` blocks as defined below.
+     * @return One or more `customErrorConfiguration` blocks as defined below.
      * 
      */
     public List<GetApplicationGatewayHttpListenerCustomErrorConfiguration> customErrorConfigurations() {

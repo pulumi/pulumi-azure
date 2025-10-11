@@ -54,7 +54,7 @@ public final class FrontdoorRouteCacheArgs extends com.pulumi.resources.Resource
     /**
      * Defines how the Front Door Route will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults to `IgnoreQueryString`.
      * 
-     * &gt; **Note:** The value of the `query_string_caching_behavior` determines if the `query_strings` field will be used as an include list or an ignore list.
+     * &gt; **Note:** The value of the `queryStringCachingBehavior` determines if the `queryStrings` field will be used as an include list or an ignore list.
      * 
      */
     @Import(name="queryStringCachingBehavior")
@@ -63,7 +63,7 @@ public final class FrontdoorRouteCacheArgs extends com.pulumi.resources.Resource
     /**
      * @return Defines how the Front Door Route will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults to `IgnoreQueryString`.
      * 
-     * &gt; **Note:** The value of the `query_string_caching_behavior` determines if the `query_strings` field will be used as an include list or an ignore list.
+     * &gt; **Note:** The value of the `queryStringCachingBehavior` determines if the `queryStrings` field will be used as an include list or an ignore list.
      * 
      */
     public Optional<Output<String>> queryStringCachingBehavior() {
@@ -171,7 +171,7 @@ public final class FrontdoorRouteCacheArgs extends com.pulumi.resources.Resource
         /**
          * @param queryStringCachingBehavior Defines how the Front Door Route will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults to `IgnoreQueryString`.
          * 
-         * &gt; **Note:** The value of the `query_string_caching_behavior` determines if the `query_strings` field will be used as an include list or an ignore list.
+         * &gt; **Note:** The value of the `queryStringCachingBehavior` determines if the `queryStrings` field will be used as an include list or an ignore list.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class FrontdoorRouteCacheArgs extends com.pulumi.resources.Resource
         /**
          * @param queryStringCachingBehavior Defines how the Front Door Route will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults to `IgnoreQueryString`.
          * 
-         * &gt; **Note:** The value of the `query_string_caching_behavior` determines if the `query_strings` field will be used as an include list or an ignore list.
+         * &gt; **Note:** The value of the `queryStringCachingBehavior` determines if the `queryStrings` field will be used as an include list or an ignore list.
          * 
          * @return builder
          * 

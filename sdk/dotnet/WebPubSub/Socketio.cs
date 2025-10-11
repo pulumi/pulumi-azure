@@ -24,7 +24,7 @@ namespace Pulumi.Azure.WebPubSub
     public partial class Socketio : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Whether Azure Active Directory authentication is enabled. Defaults to `true`.
+        /// Whether Azure Active Directory authentication is enabled. Defaults to `True`.
         /// </summary>
         [Output("aadAuthEnabled")]
         public Output<bool?> AadAuthEnabled { get; private set; } = null!;
@@ -42,37 +42,37 @@ namespace Pulumi.Azure.WebPubSub
         public Output<string> Hostname { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.SocketioIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the connectivity log category for live trace is enabled. Defaults to `true`.
+        /// Whether the connectivity log category for live trace is enabled. Defaults to `True`.
         /// </summary>
         [Output("liveTraceConnectivityLogsEnabled")]
         public Output<bool?> LiveTraceConnectivityLogsEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the live trace tool is enabled. Defaults to `true`.
+        /// Whether the live trace tool is enabled. Defaults to `True`.
         /// </summary>
         [Output("liveTraceEnabled")]
         public Output<bool?> LiveTraceEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the HTTP request log category for live trace is enabled. Defaults to `true`.
+        /// Whether the HTTP request log category for live trace is enabled. Defaults to `True`.
         /// </summary>
         [Output("liveTraceHttpRequestLogsEnabled")]
         public Output<bool?> LiveTraceHttpRequestLogsEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the messaging log category for live trace is enabled. Defaults to `true`.
+        /// Whether the messaging log category for live trace is enabled. Defaults to `True`.
         /// </summary>
         [Output("liveTraceMessagingLogsEnabled")]
         public Output<bool?> LiveTraceMessagingLogsEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Whether local authentication using an access key is enabled. Defaults to `true`.
+        /// Whether local authentication using an access key is enabled. Defaults to `True`.
         /// </summary>
         [Output("localAuthEnabled")]
         public Output<bool?> LocalAuthEnabled { get; private set; } = null!;
@@ -104,7 +104,7 @@ namespace Pulumi.Azure.WebPubSub
         /// <summary>
         /// Whether public network access is enabled. Defaults to `Enabled`. Possible values are `Enabled` and `Disabled`.
         /// 
-        /// &gt; **Note:** `public_network_access` cannot be set to `Disabled` when `sku` is `Free_F1`.
+        /// &gt; **Note:** `PublicNetworkAccess` cannot be set to `Disabled` when `Sku` is `Free_F1`.
         /// </summary>
         [Output("publicNetworkAccess")]
         public Output<string?> PublicNetworkAccess { get; private set; } = null!;
@@ -158,9 +158,9 @@ namespace Pulumi.Azure.WebPubSub
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the service should request a client certificate during a TLS handshake. Defaults to `false`.
+        /// Whether the service should request a client certificate during a TLS handshake. Defaults to `False`.
         /// 
-        /// &gt; **Note:** `tls_client_cert_enabled` cannot be set to `true` when `sku` is `Free_F1`.
+        /// &gt; **Note:** `TlsClientCertEnabled` cannot be set to `True` when `Sku` is `Free_F1`.
         /// </summary>
         [Output("tlsClientCertEnabled")]
         public Output<bool?> TlsClientCertEnabled { get; private set; } = null!;
@@ -219,43 +219,43 @@ namespace Pulumi.Azure.WebPubSub
     public sealed class SocketioArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether Azure Active Directory authentication is enabled. Defaults to `true`.
+        /// Whether Azure Active Directory authentication is enabled. Defaults to `True`.
         /// </summary>
         [Input("aadAuthEnabled")]
         public Input<bool>? AadAuthEnabled { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.SocketioIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Whether the connectivity log category for live trace is enabled. Defaults to `true`.
+        /// Whether the connectivity log category for live trace is enabled. Defaults to `True`.
         /// </summary>
         [Input("liveTraceConnectivityLogsEnabled")]
         public Input<bool>? LiveTraceConnectivityLogsEnabled { get; set; }
 
         /// <summary>
-        /// Whether the live trace tool is enabled. Defaults to `true`.
+        /// Whether the live trace tool is enabled. Defaults to `True`.
         /// </summary>
         [Input("liveTraceEnabled")]
         public Input<bool>? LiveTraceEnabled { get; set; }
 
         /// <summary>
-        /// Whether the HTTP request log category for live trace is enabled. Defaults to `true`.
+        /// Whether the HTTP request log category for live trace is enabled. Defaults to `True`.
         /// </summary>
         [Input("liveTraceHttpRequestLogsEnabled")]
         public Input<bool>? LiveTraceHttpRequestLogsEnabled { get; set; }
 
         /// <summary>
-        /// Whether the messaging log category for live trace is enabled. Defaults to `true`.
+        /// Whether the messaging log category for live trace is enabled. Defaults to `True`.
         /// </summary>
         [Input("liveTraceMessagingLogsEnabled")]
         public Input<bool>? LiveTraceMessagingLogsEnabled { get; set; }
 
         /// <summary>
-        /// Whether local authentication using an access key is enabled. Defaults to `true`.
+        /// Whether local authentication using an access key is enabled. Defaults to `True`.
         /// </summary>
         [Input("localAuthEnabled")]
         public Input<bool>? LocalAuthEnabled { get; set; }
@@ -275,7 +275,7 @@ namespace Pulumi.Azure.WebPubSub
         /// <summary>
         /// Whether public network access is enabled. Defaults to `Enabled`. Possible values are `Enabled` and `Disabled`.
         /// 
-        /// &gt; **Note:** `public_network_access` cannot be set to `Disabled` when `sku` is `Free_F1`.
+        /// &gt; **Note:** `PublicNetworkAccess` cannot be set to `Disabled` when `Sku` is `Free_F1`.
         /// </summary>
         [Input("publicNetworkAccess")]
         public Input<string>? PublicNetworkAccess { get; set; }
@@ -311,9 +311,9 @@ namespace Pulumi.Azure.WebPubSub
         }
 
         /// <summary>
-        /// Whether the service should request a client certificate during a TLS handshake. Defaults to `false`.
+        /// Whether the service should request a client certificate during a TLS handshake. Defaults to `False`.
         /// 
-        /// &gt; **Note:** `tls_client_cert_enabled` cannot be set to `true` when `sku` is `Free_F1`.
+        /// &gt; **Note:** `TlsClientCertEnabled` cannot be set to `True` when `Sku` is `Free_F1`.
         /// </summary>
         [Input("tlsClientCertEnabled")]
         public Input<bool>? TlsClientCertEnabled { get; set; }
@@ -327,7 +327,7 @@ namespace Pulumi.Azure.WebPubSub
     public sealed class SocketioState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether Azure Active Directory authentication is enabled. Defaults to `true`.
+        /// Whether Azure Active Directory authentication is enabled. Defaults to `True`.
         /// </summary>
         [Input("aadAuthEnabled")]
         public Input<bool>? AadAuthEnabled { get; set; }
@@ -345,37 +345,37 @@ namespace Pulumi.Azure.WebPubSub
         public Input<string>? Hostname { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.SocketioIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Whether the connectivity log category for live trace is enabled. Defaults to `true`.
+        /// Whether the connectivity log category for live trace is enabled. Defaults to `True`.
         /// </summary>
         [Input("liveTraceConnectivityLogsEnabled")]
         public Input<bool>? LiveTraceConnectivityLogsEnabled { get; set; }
 
         /// <summary>
-        /// Whether the live trace tool is enabled. Defaults to `true`.
+        /// Whether the live trace tool is enabled. Defaults to `True`.
         /// </summary>
         [Input("liveTraceEnabled")]
         public Input<bool>? LiveTraceEnabled { get; set; }
 
         /// <summary>
-        /// Whether the HTTP request log category for live trace is enabled. Defaults to `true`.
+        /// Whether the HTTP request log category for live trace is enabled. Defaults to `True`.
         /// </summary>
         [Input("liveTraceHttpRequestLogsEnabled")]
         public Input<bool>? LiveTraceHttpRequestLogsEnabled { get; set; }
 
         /// <summary>
-        /// Whether the messaging log category for live trace is enabled. Defaults to `true`.
+        /// Whether the messaging log category for live trace is enabled. Defaults to `True`.
         /// </summary>
         [Input("liveTraceMessagingLogsEnabled")]
         public Input<bool>? LiveTraceMessagingLogsEnabled { get; set; }
 
         /// <summary>
-        /// Whether local authentication using an access key is enabled. Defaults to `true`.
+        /// Whether local authentication using an access key is enabled. Defaults to `True`.
         /// </summary>
         [Input("localAuthEnabled")]
         public Input<bool>? LocalAuthEnabled { get; set; }
@@ -427,7 +427,7 @@ namespace Pulumi.Azure.WebPubSub
         /// <summary>
         /// Whether public network access is enabled. Defaults to `Enabled`. Possible values are `Enabled` and `Disabled`.
         /// 
-        /// &gt; **Note:** `public_network_access` cannot be set to `Disabled` when `sku` is `Free_F1`.
+        /// &gt; **Note:** `PublicNetworkAccess` cannot be set to `Disabled` when `Sku` is `Free_F1`.
         /// </summary>
         [Input("publicNetworkAccess")]
         public Input<string>? PublicNetworkAccess { get; set; }
@@ -507,9 +507,9 @@ namespace Pulumi.Azure.WebPubSub
         }
 
         /// <summary>
-        /// Whether the service should request a client certificate during a TLS handshake. Defaults to `false`.
+        /// Whether the service should request a client certificate during a TLS handshake. Defaults to `False`.
         /// 
-        /// &gt; **Note:** `tls_client_cert_enabled` cannot be set to `true` when `sku` is `Free_F1`.
+        /// &gt; **Note:** `TlsClientCertEnabled` cannot be set to `True` when `Sku` is `Free_F1`.
         /// </summary>
         [Input("tlsClientCertEnabled")]
         public Input<bool>? TlsClientCertEnabled { get; set; }

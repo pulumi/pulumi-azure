@@ -123,28 +123,28 @@ public class Blob extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.cacheControl);
     }
     /**
-     * The MD5 sum of the blob contents. Cannot be defined if `source_uri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
+     * The MD5 sum of the blob contents. Cannot be defined if `sourceUri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="contentMd5", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> contentMd5;
 
     /**
-     * @return The MD5 sum of the blob contents. Cannot be defined if `source_uri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
+     * @return The MD5 sum of the blob contents. Cannot be defined if `sourceUri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> contentMd5() {
         return Codegen.optional(this.contentMd5);
     }
     /**
-     * The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
+     * The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
      * 
      */
     @Export(name="contentType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> contentType;
 
     /**
-     * @return The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
+     * @return The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
      * 
      */
     public Output<Optional<String>> contentType() {
@@ -213,7 +213,7 @@ public class Blob extends com.pulumi.resources.CustomResource {
     /**
      * Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to `0`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** `size` is required if `source_uri` is not set.
+     * &gt; **Note:** `size` is required if `sourceUri` is not set.
      * 
      */
     @Export(name="size", refs={Integer.class}, tree="[0]")
@@ -222,49 +222,49 @@ public class Blob extends com.pulumi.resources.CustomResource {
     /**
      * @return Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to `0`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** `size` is required if `source_uri` is not set.
+     * &gt; **Note:** `size` is required if `sourceUri` is not set.
      * 
      */
     public Output<Optional<Integer>> size() {
         return Codegen.optional(this.size);
     }
     /**
-     * An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified. Changing this forces a new resource to be created.
+     * An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="source", refs={AssetOrArchive.class}, tree="[0]")
     private Output</* @Nullable */ AssetOrArchive> source;
 
     /**
-     * @return An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified. Changing this forces a new resource to be created.
+     * @return An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<AssetOrArchive>> source() {
         return Codegen.optional(this.source);
     }
     /**
-     * The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified. Changing this forces a new resource to be created.
+     * The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="sourceContent", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sourceContent;
 
     /**
-     * @return The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified. Changing this forces a new resource to be created.
+     * @return The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> sourceContent() {
         return Codegen.optional(this.sourceContent);
     }
     /**
-     * The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `source_content` is specified.
+     * The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `sourceContent` is specified.
      * 
      */
     @Export(name="sourceUri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sourceUri;
 
     /**
-     * @return The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `source_content` is specified.
+     * @return The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `sourceContent` is specified.
      * 
      */
     public Output<Optional<String>> sourceUri() {

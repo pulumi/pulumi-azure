@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Management.Inputs
     public sealed class GroupPolicyAssignmentNonComplianceMessageGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The non-compliance message text. When assigning policy sets (initiatives), unless `policy_definition_reference_id` is specified then this message will be the default for all policies.
+        /// The non-compliance message text. When assigning policy sets (initiatives), unless `PolicyDefinitionReferenceId` is specified then this message will be the default for all policies.
         /// </summary>
         [Input("content", required: true)]
         public Input<string> Content { get; set; } = null!;

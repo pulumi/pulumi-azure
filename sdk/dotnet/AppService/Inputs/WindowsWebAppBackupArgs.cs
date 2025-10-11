@@ -13,7 +13,7 @@ namespace Pulumi.Azure.AppService.Inputs
     public sealed class WindowsWebAppBackupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should this backup job be enabled? Defaults to `true`.
+        /// Should this backup job be enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// A `schedule` block as defined below.
+        /// A `Schedule` block as defined below.
         /// </summary>
         [Input("schedule", required: true)]
         public Input<Inputs.WindowsWebAppBackupScheduleArgs> Schedule { get; set; } = null!;

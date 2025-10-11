@@ -27,12 +27,12 @@ public final class AppRegistry {
     /**
      * @return The hostname for the Container Registry.
      * 
-     * The authentication details must also be supplied, `identity` and `username`/`password_secret_name` are mutually exclusive.
+     * The authentication details must also be supplied, `identity` and `username`/`passwordSecretName` are mutually exclusive.
      * 
      */
     private String server;
     /**
-     * @return The username to use for this Container Registry, `password_secret_name` must also be supplied..
+     * @return The username to use for this Container Registry, `passwordSecretName` must also be supplied..
      * 
      */
     private @Nullable String username;
@@ -57,14 +57,14 @@ public final class AppRegistry {
     /**
      * @return The hostname for the Container Registry.
      * 
-     * The authentication details must also be supplied, `identity` and `username`/`password_secret_name` are mutually exclusive.
+     * The authentication details must also be supplied, `identity` and `username`/`passwordSecretName` are mutually exclusive.
      * 
      */
     public String server() {
         return this.server;
     }
     /**
-     * @return The username to use for this Container Registry, `password_secret_name` must also be supplied..
+     * @return The username to use for this Container Registry, `passwordSecretName` must also be supplied..
      * 
      */
     public Optional<String> username() {

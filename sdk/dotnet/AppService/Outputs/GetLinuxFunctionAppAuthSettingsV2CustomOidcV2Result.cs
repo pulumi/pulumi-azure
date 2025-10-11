@@ -14,11 +14,11 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class GetLinuxFunctionAppAuthSettingsV2CustomOidcV2Result
     {
         /// <summary>
-        /// The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
+        /// The endpoint to make the Authorisation Request as supplied by `OpenidConfigurationEndpoint` response.
         /// </summary>
         public readonly string AuthorisationEndpoint;
         /// <summary>
-        /// The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
+        /// The endpoint that provides the keys necessary to validate the token as supplied by `OpenidConfigurationEndpoint` response.
         /// </summary>
         public readonly string CertificationUri;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string ClientSecretSettingName;
         /// <summary>
-        /// The endpoint that issued the Token as supplied by `openid_configuration_endpoint` response.
+        /// The endpoint that issued the Token as supplied by `OpenidConfigurationEndpoint` response.
         /// </summary>
         public readonly string IssuerEndpoint;
         /// <summary>
@@ -54,7 +54,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Scopes;
         /// <summary>
-        /// The endpoint used to request a Token as supplied by `openid_configuration_endpoint` response.
+        /// The endpoint used to request a Token as supplied by `OpenidConfigurationEndpoint` response.
         /// </summary>
         public readonly string TokenEndpoint;
 

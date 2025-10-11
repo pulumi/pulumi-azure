@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         private InputList<Inputs.AutoscaleSettingProfileRuleMetricTriggerDimensionArgs>? _dimensions;
 
         /// <summary>
-        /// One or more `dimensions` block as defined below.
+        /// One or more `Dimensions` block as defined below.
         /// </summary>
         public InputList<Inputs.AutoscaleSettingProfileRuleMetricTriggerDimensionArgs> Dimensions
         {
@@ -33,7 +33,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         /// <summary>
         /// The name of the metric that defines what the rule monitors, such as `Percentage CPU` for `Virtual Machine Scale Sets` and `CpuPercentage` for `App Service Plan`.
         /// 
-        /// &gt; **Note:** The allowed value of `metric_name` highly depends on the targeting resource type, please visit [Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) for more details.
+        /// &gt; **Note:** The allowed value of `MetricName` highly depends on the targeting resource type, please visit [Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) for more details.
         /// </summary>
         [Input("metricName", required: true)]
         public Input<string> MetricName { get; set; } = null!;

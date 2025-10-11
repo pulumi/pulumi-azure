@@ -19,14 +19,14 @@ public final class CollectorPolicyState extends com.pulumi.resources.ResourceArg
     public static final CollectorPolicyState Empty = new CollectorPolicyState();
 
     /**
-     * An `ipfx_emission` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
+     * An `ipfxEmission` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
      * 
      */
     @Import(name="ipfxEmission")
     private @Nullable Output<CollectorPolicyIpfxEmissionArgs> ipfxEmission;
 
     /**
-     * @return An `ipfx_emission` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
+     * @return An `ipfxEmission` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
      * 
      */
     public Optional<Output<CollectorPolicyIpfxEmissionArgs>> ipfxEmission() {
@@ -34,14 +34,14 @@ public final class CollectorPolicyState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * An `ipfx_ingestion` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
+     * An `ipfxIngestion` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
      * 
      */
     @Import(name="ipfxIngestion")
     private @Nullable Output<CollectorPolicyIpfxIngestionArgs> ipfxIngestion;
 
     /**
-     * @return An `ipfx_ingestion` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
+     * @return An `ipfxIngestion` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
      * 
      */
     public Optional<Output<CollectorPolicyIpfxIngestionArgs>> ipfxIngestion() {
@@ -138,7 +138,7 @@ public final class CollectorPolicyState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param ipfxEmission An `ipfx_emission` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
+         * @param ipfxEmission An `ipfxEmission` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class CollectorPolicyState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param ipfxEmission An `ipfx_emission` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
+         * @param ipfxEmission An `ipfxEmission` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class CollectorPolicyState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param ipfxIngestion An `ipfx_ingestion` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
+         * @param ipfxIngestion An `ipfxIngestion` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class CollectorPolicyState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param ipfxIngestion An `ipfx_ingestion` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
+         * @param ipfxIngestion An `ipfxIngestion` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
          * 
          * @return builder
          * 

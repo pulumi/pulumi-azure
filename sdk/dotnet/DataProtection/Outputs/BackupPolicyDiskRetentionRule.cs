@@ -14,7 +14,7 @@ namespace Pulumi.Azure.DataProtection.Outputs
     public sealed class BackupPolicyDiskRetentionRule
     {
         /// <summary>
-        /// A `criteria` block as defined below. Changing this forces a new Backup Policy Disk to be created.
+        /// A `Criteria` block as defined below. Changing this forces a new Backup Policy Disk to be created.
         /// </summary>
         public readonly Outputs.BackupPolicyDiskRetentionRuleCriteria Criteria;
         /// <summary>

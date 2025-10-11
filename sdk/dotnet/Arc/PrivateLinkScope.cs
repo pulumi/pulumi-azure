@@ -69,7 +69,7 @@ namespace Pulumi.Azure.Arc
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints. Defaults to `false`. Possible values are `true` and `false`.
+        /// Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints. Defaults to `False`. Possible values are `True` and `False`.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
@@ -145,7 +145,7 @@ namespace Pulumi.Azure.Arc
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints. Defaults to `false`. Possible values are `true` and `false`.
+        /// Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints. Defaults to `False`. Possible values are `True` and `False`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -189,7 +189,7 @@ namespace Pulumi.Azure.Arc
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints. Defaults to `false`. Possible values are `true` and `false`.
+        /// Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints. Defaults to `False`. Possible values are `True` and `False`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }

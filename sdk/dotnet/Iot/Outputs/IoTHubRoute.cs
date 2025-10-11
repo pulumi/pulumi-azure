@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Iot.Outputs
     public sealed class IoTHubRoute
     {
         /// <summary>
-        /// The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: &lt;https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language&gt;.
+        /// The condition that is evaluated to apply the routing rule. Defaults to `True`. For grammar, see: &lt;https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language&gt;.
         /// </summary>
         public readonly string? Condition;
         /// <summary>

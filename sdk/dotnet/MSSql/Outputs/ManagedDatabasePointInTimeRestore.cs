@@ -14,7 +14,7 @@ namespace Pulumi.Azure.MSSql.Outputs
     public sealed class ManagedDatabasePointInTimeRestore
     {
         /// <summary>
-        /// The point in time for the restore from `source_database_id`. Changing this forces a new resource to be created.
+        /// The point in time for the restore from `SourceDatabaseId`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string RestorePointInTime;
         /// <summary>

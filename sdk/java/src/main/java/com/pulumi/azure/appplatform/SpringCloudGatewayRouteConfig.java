@@ -148,14 +148,14 @@ public class SpringCloudGatewayRouteConfig extends com.pulumi.resources.CustomRe
         return this.name;
     }
     /**
-     * One or more `open_api` blocks as defined below.
+     * One or more `openApi` blocks as defined below.
      * 
      */
     @Export(name="openApi", refs={SpringCloudGatewayRouteConfigOpenApi.class}, tree="[0]")
     private Output</* @Nullable */ SpringCloudGatewayRouteConfigOpenApi> openApi;
 
     /**
-     * @return One or more `open_api` blocks as defined below.
+     * @return One or more `openApi` blocks as defined below.
      * 
      */
     public Output<Optional<SpringCloudGatewayRouteConfigOpenApi>> openApi() {

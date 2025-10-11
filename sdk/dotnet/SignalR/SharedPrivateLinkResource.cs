@@ -126,7 +126,7 @@ namespace Pulumi.Azure.SignalR
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// The sub resource name which the Signalr Private Endpoint can connect to. Possible values are `sites`, `vault`. Changing this forces a new resource to be created.
+        /// The sub resource name which the Signalr Private Endpoint can connect to. Possible values are `Sites`, `Vault`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("subResourceName")]
         public Output<string> SubResourceName { get; private set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.Azure.SignalR
         /// <summary>
         /// The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** The `sub_resource_name` should match with the type of the `target_resource_id` that's being specified.
+        /// &gt; **Note:** The `SubResourceName` should match with the type of the `TargetResourceId` that's being specified.
         /// </summary>
         [Output("targetResourceId")]
         public Output<string> TargetResourceId { get; private set; } = null!;
@@ -204,7 +204,7 @@ namespace Pulumi.Azure.SignalR
         public Input<string> SignalrServiceId { get; set; } = null!;
 
         /// <summary>
-        /// The sub resource name which the Signalr Private Endpoint can connect to. Possible values are `sites`, `vault`. Changing this forces a new resource to be created.
+        /// The sub resource name which the Signalr Private Endpoint can connect to. Possible values are `Sites`, `Vault`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("subResourceName", required: true)]
         public Input<string> SubResourceName { get; set; } = null!;
@@ -212,7 +212,7 @@ namespace Pulumi.Azure.SignalR
         /// <summary>
         /// The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** The `sub_resource_name` should match with the type of the `target_resource_id` that's being specified.
+        /// &gt; **Note:** The `SubResourceName` should match with the type of the `TargetResourceId` that's being specified.
         /// </summary>
         [Input("targetResourceId", required: true)]
         public Input<string> TargetResourceId { get; set; } = null!;
@@ -250,7 +250,7 @@ namespace Pulumi.Azure.SignalR
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// The sub resource name which the Signalr Private Endpoint can connect to. Possible values are `sites`, `vault`. Changing this forces a new resource to be created.
+        /// The sub resource name which the Signalr Private Endpoint can connect to. Possible values are `Sites`, `Vault`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("subResourceName")]
         public Input<string>? SubResourceName { get; set; }
@@ -258,7 +258,7 @@ namespace Pulumi.Azure.SignalR
         /// <summary>
         /// The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** The `sub_resource_name` should match with the type of the `target_resource_id` that's being specified.
+        /// &gt; **Note:** The `SubResourceName` should match with the type of the `TargetResourceId` that's being specified.
         /// </summary>
         [Input("targetResourceId")]
         public Input<string>? TargetResourceId { get; set; }

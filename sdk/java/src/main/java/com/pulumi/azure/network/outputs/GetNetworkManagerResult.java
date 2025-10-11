@@ -15,7 +15,7 @@ import java.util.Objects;
 @CustomType
 public final class GetNetworkManagerResult {
     /**
-     * @return One or more `cross_tenant_scopes` blocks as defined below.
+     * @return One or more `crossTenantScopes` blocks as defined below.
      * 
      */
     private List<GetNetworkManagerCrossTenantScope> crossTenantScopes;
@@ -54,7 +54,7 @@ public final class GetNetworkManagerResult {
 
     private GetNetworkManagerResult() {}
     /**
-     * @return One or more `cross_tenant_scopes` blocks as defined below.
+     * @return One or more `crossTenantScopes` blocks as defined below.
      * 
      */
     public List<GetNetworkManagerCrossTenantScope> crossTenantScopes() {

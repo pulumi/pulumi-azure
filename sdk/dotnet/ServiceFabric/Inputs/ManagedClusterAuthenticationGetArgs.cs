@@ -13,7 +13,7 @@ namespace Pulumi.Azure.ServiceFabric.Inputs
     public sealed class ManagedClusterAuthenticationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `active_directory` block as defined above.
+        /// A `ActiveDirectory` block as defined above.
         /// </summary>
         [Input("activeDirectory")]
         public Input<Inputs.ManagedClusterAuthenticationActiveDirectoryGetArgs>? ActiveDirectory { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.ServiceFabric.Inputs
         private InputList<Inputs.ManagedClusterAuthenticationCertificateGetArgs>? _certificates;
 
         /// <summary>
-        /// One or more `certificate` blocks as defined below.
+        /// One or more `Certificate` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ManagedClusterAuthenticationCertificateGetArgs> Certificates
         {

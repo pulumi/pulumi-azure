@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         private InputList<Inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainGetArgs>? _domains;
 
         /// <summary>
-        /// One or more `domain` blocks as defined below.
+        /// One or more `Domain` blocks as defined below.
         /// </summary>
         public InputList<Inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainGetArgs> Domains
         {

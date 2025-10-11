@@ -26,7 +26,7 @@ namespace Pulumi.Azure.DomainServices.Outputs
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
-        /// Whether to enable external access to LDAPS over the Internet. Defaults to `false`.
+        /// Whether to enable external access to LDAPS over the Internet. Defaults to `False`.
         /// </summary>
         public readonly bool? ExternalAccessEnabled;
         /// <summary>

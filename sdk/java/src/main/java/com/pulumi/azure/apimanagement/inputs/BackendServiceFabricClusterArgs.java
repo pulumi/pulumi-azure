@@ -22,7 +22,7 @@ public final class BackendServiceFabricClusterArgs extends com.pulumi.resources.
     /**
      * The client certificate resource id for the management endpoint.
      * 
-     * &gt; **Note:** At least one of `client_certificate_thumbprint`, and `client_certificate_id` must be set.
+     * &gt; **Note:** At least one of `clientCertificateThumbprint`, and `clientCertificateId` must be set.
      * 
      */
     @Import(name="clientCertificateId")
@@ -31,7 +31,7 @@ public final class BackendServiceFabricClusterArgs extends com.pulumi.resources.
     /**
      * @return The client certificate resource id for the management endpoint.
      * 
-     * &gt; **Note:** At least one of `client_certificate_thumbprint`, and `client_certificate_id` must be set.
+     * &gt; **Note:** At least one of `clientCertificateThumbprint`, and `clientCertificateId` must be set.
      * 
      */
     public Optional<Output<String>> clientCertificateId() {
@@ -99,14 +99,14 @@ public final class BackendServiceFabricClusterArgs extends com.pulumi.resources.
     }
 
     /**
-     * One or more `server_x509_name` blocks as documented below.
+     * One or more `serverX509Name` blocks as documented below.
      * 
      */
     @Import(name="serverX509Names")
     private @Nullable Output<List<BackendServiceFabricClusterServerX509NameArgs>> serverX509Names;
 
     /**
-     * @return One or more `server_x509_name` blocks as documented below.
+     * @return One or more `serverX509Name` blocks as documented below.
      * 
      */
     public Optional<Output<List<BackendServiceFabricClusterServerX509NameArgs>>> serverX509Names() {
@@ -145,7 +145,7 @@ public final class BackendServiceFabricClusterArgs extends com.pulumi.resources.
         /**
          * @param clientCertificateId The client certificate resource id for the management endpoint.
          * 
-         * &gt; **Note:** At least one of `client_certificate_thumbprint`, and `client_certificate_id` must be set.
+         * &gt; **Note:** At least one of `clientCertificateThumbprint`, and `clientCertificateId` must be set.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class BackendServiceFabricClusterArgs extends com.pulumi.resources.
         /**
          * @param clientCertificateId The client certificate resource id for the management endpoint.
          * 
-         * &gt; **Note:** At least one of `client_certificate_thumbprint`, and `client_certificate_id` must be set.
+         * &gt; **Note:** At least one of `clientCertificateThumbprint`, and `clientCertificateId` must be set.
          * 
          * @return builder
          * 
@@ -272,7 +272,7 @@ public final class BackendServiceFabricClusterArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param serverX509Names One or more `server_x509_name` blocks as documented below.
+         * @param serverX509Names One or more `serverX509Name` blocks as documented below.
          * 
          * @return builder
          * 
@@ -283,7 +283,7 @@ public final class BackendServiceFabricClusterArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param serverX509Names One or more `server_x509_name` blocks as documented below.
+         * @param serverX509Names One or more `serverX509Name` blocks as documented below.
          * 
          * @return builder
          * 
@@ -293,7 +293,7 @@ public final class BackendServiceFabricClusterArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param serverX509Names One or more `server_x509_name` blocks as documented below.
+         * @param serverX509Names One or more `serverX509Name` blocks as documented below.
          * 
          * @return builder
          * 

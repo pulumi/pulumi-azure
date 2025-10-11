@@ -219,14 +219,14 @@ public class ProjectEnvironmentType extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.tags);
     }
     /**
-     * A `user_role_assignment` block as defined below.
+     * A `userRoleAssignment` block as defined below.
      * 
      */
     @Export(name="userRoleAssignments", refs={List.class,ProjectEnvironmentTypeUserRoleAssignment.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ProjectEnvironmentTypeUserRoleAssignment>> userRoleAssignments;
 
     /**
-     * @return A `user_role_assignment` block as defined below.
+     * @return A `userRoleAssignment` block as defined below.
      * 
      */
     public Output<Optional<List<ProjectEnvironmentTypeUserRoleAssignment>>> userRoleAssignments() {

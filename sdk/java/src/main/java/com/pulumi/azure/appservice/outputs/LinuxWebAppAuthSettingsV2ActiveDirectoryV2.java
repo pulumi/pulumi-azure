@@ -50,7 +50,7 @@ public final class LinuxWebAppAuthSettingsV2ActiveDirectoryV2 {
     /**
      * @return The App Setting name that contains the client secret of the Client.
      * 
-     * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
+     * !&gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
      * 
      */
     private @Nullable String clientSecretSettingName;
@@ -130,7 +130,7 @@ public final class LinuxWebAppAuthSettingsV2ActiveDirectoryV2 {
     /**
      * @return The App Setting name that contains the client secret of the Client.
      * 
-     * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
+     * !&gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
      * 
      */
     public Optional<String> clientSecretSettingName() {

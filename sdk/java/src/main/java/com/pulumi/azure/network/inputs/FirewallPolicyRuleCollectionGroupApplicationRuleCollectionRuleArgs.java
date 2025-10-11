@@ -57,14 +57,14 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
     }
 
     /**
-     * Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destination_fqdns`.
+     * Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destinationFqdns`.
      * 
      */
     @Import(name="destinationUrls")
     private @Nullable Output<List<String>> destinationUrls;
 
     /**
-     * @return Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destination_fqdns`.
+     * @return Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destinationFqdns`.
      * 
      */
     public Optional<Output<List<String>>> destinationUrls() {
@@ -72,14 +72,14 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
     }
 
     /**
-     * Specifies a list of HTTP/HTTPS headers to insert. One or more `http_headers` blocks as defined below.
+     * Specifies a list of HTTP/HTTPS headers to insert. One or more `httpHeaders` blocks as defined below.
      * 
      */
     @Import(name="httpHeaders")
     private @Nullable Output<List<FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArgs>> httpHeaders;
 
     /**
-     * @return Specifies a list of HTTP/HTTPS headers to insert. One or more `http_headers` blocks as defined below.
+     * @return Specifies a list of HTTP/HTTPS headers to insert. One or more `httpHeaders` blocks as defined below.
      * 
      */
     public Optional<Output<List<FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArgs>>> httpHeaders() {
@@ -123,14 +123,14 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
     }
 
     /**
-     * Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
+     * Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destinationUrls`. Needs Premium SKU for Firewall Policy.
      * 
      */
     @Import(name="terminateTls")
     private @Nullable Output<Boolean> terminateTls;
 
     /**
-     * @return Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
+     * @return Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destinationUrls`. Needs Premium SKU for Firewall Policy.
      * 
      */
     public Optional<Output<Boolean>> terminateTls() {
@@ -254,7 +254,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         }
 
         /**
-         * @param destinationUrls Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destination_fqdns`.
+         * @param destinationUrls Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destinationFqdns`.
          * 
          * @return builder
          * 
@@ -265,7 +265,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         }
 
         /**
-         * @param destinationUrls Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destination_fqdns`.
+         * @param destinationUrls Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destinationFqdns`.
          * 
          * @return builder
          * 
@@ -275,7 +275,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         }
 
         /**
-         * @param destinationUrls Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destination_fqdns`.
+         * @param destinationUrls Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destinationFqdns`.
          * 
          * @return builder
          * 
@@ -285,7 +285,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         }
 
         /**
-         * @param httpHeaders Specifies a list of HTTP/HTTPS headers to insert. One or more `http_headers` blocks as defined below.
+         * @param httpHeaders Specifies a list of HTTP/HTTPS headers to insert. One or more `httpHeaders` blocks as defined below.
          * 
          * @return builder
          * 
@@ -296,7 +296,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         }
 
         /**
-         * @param httpHeaders Specifies a list of HTTP/HTTPS headers to insert. One or more `http_headers` blocks as defined below.
+         * @param httpHeaders Specifies a list of HTTP/HTTPS headers to insert. One or more `httpHeaders` blocks as defined below.
          * 
          * @return builder
          * 
@@ -306,7 +306,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         }
 
         /**
-         * @param httpHeaders Specifies a list of HTTP/HTTPS headers to insert. One or more `http_headers` blocks as defined below.
+         * @param httpHeaders Specifies a list of HTTP/HTTPS headers to insert. One or more `httpHeaders` blocks as defined below.
          * 
          * @return builder
          * 
@@ -376,7 +376,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         }
 
         /**
-         * @param terminateTls Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
+         * @param terminateTls Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destinationUrls`. Needs Premium SKU for Firewall Policy.
          * 
          * @return builder
          * 
@@ -387,7 +387,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         }
 
         /**
-         * @param terminateTls Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
+         * @param terminateTls Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destinationUrls`. Needs Premium SKU for Firewall Policy.
          * 
          * @return builder
          * 

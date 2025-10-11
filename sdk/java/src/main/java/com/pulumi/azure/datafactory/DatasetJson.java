@@ -132,7 +132,7 @@ public class DatasetJson extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.annotations);
     }
     /**
-     * A `azure_blob_storage_location` block as defined below.
+     * A `azureBlobStorageLocation` block as defined below.
      * 
      * The following supported arguments are specific to Delimited Text Dataset:
      * 
@@ -141,7 +141,7 @@ public class DatasetJson extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ DatasetJsonAzureBlobStorageLocation> azureBlobStorageLocation;
 
     /**
-     * @return A `azure_blob_storage_location` block as defined below.
+     * @return A `azureBlobStorageLocation` block as defined below.
      * 
      * The following supported arguments are specific to Delimited Text Dataset:
      * 
@@ -206,14 +206,14 @@ public class DatasetJson extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.folder);
     }
     /**
-     * A `http_server_location` block as defined below.
+     * A `httpServerLocation` block as defined below.
      * 
      */
     @Export(name="httpServerLocation", refs={DatasetJsonHttpServerLocation.class}, tree="[0]")
     private Output</* @Nullable */ DatasetJsonHttpServerLocation> httpServerLocation;
 
     /**
-     * @return A `http_server_location` block as defined below.
+     * @return A `httpServerLocation` block as defined below.
      * 
      */
     public Output<Optional<DatasetJsonHttpServerLocation>> httpServerLocation() {
@@ -262,14 +262,14 @@ public class DatasetJson extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.parameters);
     }
     /**
-     * A `schema_column` block as defined below.
+     * A `schemaColumn` block as defined below.
      * 
      */
     @Export(name="schemaColumns", refs={List.class,DatasetJsonSchemaColumn.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DatasetJsonSchemaColumn>> schemaColumns;
 
     /**
-     * @return A `schema_column` block as defined below.
+     * @return A `schemaColumn` block as defined below.
      * 
      */
     public Output<Optional<List<DatasetJsonSchemaColumn>>> schemaColumns() {

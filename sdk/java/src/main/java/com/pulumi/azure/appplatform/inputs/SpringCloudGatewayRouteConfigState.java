@@ -50,14 +50,14 @@ public final class SpringCloudGatewayRouteConfigState extends com.pulumi.resourc
     }
 
     /**
-     * One or more `open_api` blocks as defined below.
+     * One or more `openApi` blocks as defined below.
      * 
      */
     @Import(name="openApi")
     private @Nullable Output<SpringCloudGatewayRouteConfigOpenApiArgs> openApi;
 
     /**
-     * @return One or more `open_api` blocks as defined below.
+     * @return One or more `openApi` blocks as defined below.
      * 
      */
     public Optional<Output<SpringCloudGatewayRouteConfigOpenApiArgs>> openApi() {
@@ -243,7 +243,7 @@ public final class SpringCloudGatewayRouteConfigState extends com.pulumi.resourc
         }
 
         /**
-         * @param openApi One or more `open_api` blocks as defined below.
+         * @param openApi One or more `openApi` blocks as defined below.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class SpringCloudGatewayRouteConfigState extends com.pulumi.resourc
         }
 
         /**
-         * @param openApi One or more `open_api` blocks as defined below.
+         * @param openApi One or more `openApi` blocks as defined below.
          * 
          * @return builder
          * 

@@ -40,7 +40,7 @@ public final class GetVirtualMachineScaleSetResult {
      */
     private String name;
     /**
-     * @return A list of `network_interface` blocks as defined below.
+     * @return A list of `networkInterface` blocks as defined below.
      * 
      */
     private List<GetVirtualMachineScaleSetNetworkInterface> networkInterfaces;
@@ -83,7 +83,7 @@ public final class GetVirtualMachineScaleSetResult {
         return this.name;
     }
     /**
-     * @return A list of `network_interface` blocks as defined below.
+     * @return A list of `networkInterface` blocks as defined below.
      * 
      */
     public List<GetVirtualMachineScaleSetNetworkInterface> networkInterfaces() {

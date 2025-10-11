@@ -21,14 +21,14 @@ public final class GetAccountSASArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetAccountSASArgs Empty = new GetAccountSASArgs();
 
     /**
-     * The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of a `azure.storage.Account` resource.
+     * The connection string for the storage account to which this SAS applies. Typically directly from the `primaryConnectionString` attribute of a `azure.storage.Account` resource.
      * 
      */
     @Import(name="connectionString", required=true)
     private Output<String> connectionString;
 
     /**
-     * @return The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of a `azure.storage.Account` resource.
+     * @return The connection string for the storage account to which this SAS applies. Typically directly from the `primaryConnectionString` attribute of a `azure.storage.Account` resource.
      * 
      */
     public Output<String> connectionString() {
@@ -100,14 +100,14 @@ public final class GetAccountSASArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * A `resource_types` block as defined below.
+     * A `resourceTypes` block as defined below.
      * 
      */
     @Import(name="resourceTypes", required=true)
     private Output<GetAccountSASResourceTypesArgs> resourceTypes;
 
     /**
-     * @return A `resource_types` block as defined below.
+     * @return A `resourceTypes` block as defined below.
      * 
      */
     public Output<GetAccountSASResourceTypesArgs> resourceTypes() {
@@ -192,7 +192,7 @@ public final class GetAccountSASArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param connectionString The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of a `azure.storage.Account` resource.
+         * @param connectionString The connection string for the storage account to which this SAS applies. Typically directly from the `primaryConnectionString` attribute of a `azure.storage.Account` resource.
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class GetAccountSASArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param connectionString The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of a `azure.storage.Account` resource.
+         * @param connectionString The connection string for the storage account to which this SAS applies. Typically directly from the `primaryConnectionString` attribute of a `azure.storage.Account` resource.
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class GetAccountSASArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param resourceTypes A `resource_types` block as defined below.
+         * @param resourceTypes A `resourceTypes` block as defined below.
          * 
          * @return builder
          * 
@@ -312,7 +312,7 @@ public final class GetAccountSASArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param resourceTypes A `resource_types` block as defined below.
+         * @param resourceTypes A `resourceTypes` block as defined below.
          * 
          * @return builder
          * 

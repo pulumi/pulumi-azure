@@ -21,12 +21,12 @@ public final class GetApplicationGatewayBackendHttpSetting {
      */
     private String affinityCookieName;
     /**
-     * @return One or more `authentication_certificate` blocks as defined below.
+     * @return One or more `authenticationCertificate` blocks as defined below.
      * 
      */
     private List<GetApplicationGatewayBackendHttpSettingAuthenticationCertificate> authenticationCertificates;
     /**
-     * @return A `connection_draining` block as defined below.
+     * @return A `connectionDraining` block as defined below.
      * 
      */
     private List<GetApplicationGatewayBackendHttpSettingConnectionDraining> connectionDrainings;
@@ -86,7 +86,7 @@ public final class GetApplicationGatewayBackendHttpSetting {
      */
     private Integer requestTimeout;
     /**
-     * @return A list of `trusted_root_certificate` names.
+     * @return A list of `trustedRootCertificate` names.
      * 
      */
     private List<String> trustedRootCertificateNames;
@@ -100,14 +100,14 @@ public final class GetApplicationGatewayBackendHttpSetting {
         return this.affinityCookieName;
     }
     /**
-     * @return One or more `authentication_certificate` blocks as defined below.
+     * @return One or more `authenticationCertificate` blocks as defined below.
      * 
      */
     public List<GetApplicationGatewayBackendHttpSettingAuthenticationCertificate> authenticationCertificates() {
         return this.authenticationCertificates;
     }
     /**
-     * @return A `connection_draining` block as defined below.
+     * @return A `connectionDraining` block as defined below.
      * 
      */
     public List<GetApplicationGatewayBackendHttpSettingConnectionDraining> connectionDrainings() {
@@ -191,7 +191,7 @@ public final class GetApplicationGatewayBackendHttpSetting {
         return this.requestTimeout;
     }
     /**
-     * @return A list of `trusted_root_certificate` names.
+     * @return A list of `trustedRootCertificate` names.
      * 
      */
     public List<String> trustedRootCertificateNames() {

@@ -12,14 +12,14 @@ import java.util.Objects;
 @CustomType
 public final class MonitorEnvironmentProperty {
     /**
-     * @return Information about the Dynatrace environment. An `environment_info` block as defined below.
+     * @return Information about the Dynatrace environment. An `environmentInfo` block as defined below.
      * 
      */
     private List<MonitorEnvironmentPropertyEnvironmentInfo> environmentInfos;
 
     private MonitorEnvironmentProperty() {}
     /**
-     * @return Information about the Dynatrace environment. An `environment_info` block as defined below.
+     * @return Information about the Dynatrace environment. An `environmentInfo` block as defined below.
      * 
      */
     public List<MonitorEnvironmentPropertyEnvironmentInfo> environmentInfos() {

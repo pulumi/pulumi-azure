@@ -159,7 +159,7 @@ namespace Pulumi.Azure.ContainerApp
         public readonly string ContainerAppEnvironmentId;
         public readonly string CustomDomainVerificationId;
         /// <summary>
-        /// A `dapr` block as detailed below.
+        /// A `Dapr` block as detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAppDaprResult> Daprs;
         /// <summary>
@@ -171,7 +171,7 @@ namespace Pulumi.Azure.ContainerApp
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAppIdentityResult> Identities;
         /// <summary>
-        /// An `ingress` block as detailed below.
+        /// An `Ingress` block as detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAppIngressResult> Ingresses;
         public readonly string LatestRevisionFqdn;
@@ -187,7 +187,7 @@ namespace Pulumi.Azure.ContainerApp
         public readonly string Name;
         public readonly ImmutableArray<string> OutboundIpAddresses;
         /// <summary>
-        /// A `registry` block as detailed below.
+        /// A `Registry` block as detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAppRegistryResult> Registries;
         public readonly string ResourceGroupName;
@@ -196,7 +196,7 @@ namespace Pulumi.Azure.ContainerApp
         /// </summary>
         public readonly string RevisionMode;
         /// <summary>
-        /// One or more `secret` block as detailed below.
+        /// One or more `Secret` block as detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAppSecretResult> Secrets;
         /// <summary>
@@ -204,7 +204,7 @@ namespace Pulumi.Azure.ContainerApp
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// A `template` block as detailed below.
+        /// A `Template` block as detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAppTemplateResult> Templates;
         /// <summary>

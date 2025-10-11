@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public Input<string> Start { get; set; } = null!;
 
         /// <summary>
-        /// The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://learn.microsoft.com/en-us/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&amp;tabs=HTTP#recurrentschedule). Defaults to `UTC`.
+        /// The Time Zone of the `Start` and `End` times. A list of [possible values can be found here](https://learn.microsoft.com/en-us/rest/api/monitor/autoscale-settings/create-or-update?view=rest-monitor-2022-10-01&amp;tabs=HTTP#recurrentschedule). Defaults to `UTC`.
         /// </summary>
         [Input("timezone")]
         public Input<string>? Timezone { get; set; }

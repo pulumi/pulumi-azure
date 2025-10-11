@@ -63,7 +63,7 @@ public final class GetApiResult {
      */
     private Boolean soapPassThrough;
     /**
-     * @return A `subscription_key_parameter_names` block as documented below.
+     * @return A `subscriptionKeyParameterNames` block as documented below.
      * 
      */
     private List<GetApiSubscriptionKeyParameterName> subscriptionKeyParameterNames;
@@ -160,7 +160,7 @@ public final class GetApiResult {
         return this.soapPassThrough;
     }
     /**
-     * @return A `subscription_key_parameter_names` block as documented below.
+     * @return A `subscriptionKeyParameterNames` block as documented below.
      * 
      */
     public List<GetApiSubscriptionKeyParameterName> subscriptionKeyParameterNames() {

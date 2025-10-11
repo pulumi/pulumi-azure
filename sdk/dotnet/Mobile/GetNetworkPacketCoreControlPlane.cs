@@ -166,7 +166,7 @@ namespace Pulumi.Azure.Mobile
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworkPacketCoreControlPlaneIdentityResult> Identities;
         /// <summary>
@@ -174,7 +174,7 @@ namespace Pulumi.Azure.Mobile
         /// </summary>
         public readonly string InteroperabilitySettingsJson;
         /// <summary>
-        /// One or more `local_diagnostics_access` blocks as defined below. The Kubernetes ingress configuration that controls access to the packet core diagnostics through local APIs.
+        /// One or more `LocalDiagnosticsAccess` blocks as defined below. The Kubernetes ingress configuration that controls access to the packet core diagnostics through local APIs.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessResult> LocalDiagnosticsAccesses;
         /// <summary>
@@ -186,7 +186,7 @@ namespace Pulumi.Azure.Mobile
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// A `platform` block as defined below.
+        /// A `Platform` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworkPacketCoreControlPlanePlatformResult> Platforms;
         public readonly string ResourceGroupName;

@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 public final class GetEncryptedValueResult {
     private String algorithm;
     /**
-     * @return The Base64URL decoded string of `plain_text_value`. Because the API would remove padding characters of `plain_text_value` when encrypting, this attribute is useful to get the original value.
+     * @return The Base64URL decoded string of `plainTextValue`. Because the API would remove padding characters of `plainTextValue` when encrypting, this attribute is useful to get the original value.
      * 
      */
     private String decodedPlainTextValue;
@@ -32,7 +32,7 @@ public final class GetEncryptedValueResult {
         return this.algorithm;
     }
     /**
-     * @return The Base64URL decoded string of `plain_text_value`. Because the API would remove padding characters of `plain_text_value` when encrypting, this attribute is useful to get the original value.
+     * @return The Base64URL decoded string of `plainTextValue`. Because the API would remove padding characters of `plainTextValue` when encrypting, this attribute is useful to get the original value.
      * 
      */
     public String decodedPlainTextValue() {

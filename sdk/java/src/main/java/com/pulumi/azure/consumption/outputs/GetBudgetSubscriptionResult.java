@@ -47,7 +47,7 @@ public final class GetBudgetSubscriptionResult {
      */
     private String timeGrain;
     /**
-     * @return A `time_period` block as defined below.
+     * @return A `timePeriod` block as defined below.
      * 
      */
     private List<GetBudgetSubscriptionTimePeriod> timePeriods;
@@ -99,7 +99,7 @@ public final class GetBudgetSubscriptionResult {
         return this.timeGrain;
     }
     /**
-     * @return A `time_period` block as defined below.
+     * @return A `timePeriod` block as defined below.
      * 
      */
     public List<GetBudgetSubscriptionTimePeriod> timePeriods() {

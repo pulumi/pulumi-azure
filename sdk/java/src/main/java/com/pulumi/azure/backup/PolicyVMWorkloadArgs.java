@@ -35,14 +35,14 @@ public final class PolicyVMWorkloadArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * One or more `protection_policy` blocks as defined below.
+     * One or more `protectionPolicy` blocks as defined below.
      * 
      */
     @Import(name="protectionPolicies", required=true)
     private Output<List<PolicyVMWorkloadProtectionPolicyArgs>> protectionPolicies;
 
     /**
-     * @return One or more `protection_policy` blocks as defined below.
+     * @return One or more `protectionPolicy` blocks as defined below.
      * 
      */
     public Output<List<PolicyVMWorkloadProtectionPolicyArgs>> protectionPolicies() {
@@ -160,7 +160,7 @@ public final class PolicyVMWorkloadArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param protectionPolicies One or more `protection_policy` blocks as defined below.
+         * @param protectionPolicies One or more `protectionPolicy` blocks as defined below.
          * 
          * @return builder
          * 
@@ -171,7 +171,7 @@ public final class PolicyVMWorkloadArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param protectionPolicies One or more `protection_policy` blocks as defined below.
+         * @param protectionPolicies One or more `protectionPolicy` blocks as defined below.
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class PolicyVMWorkloadArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param protectionPolicies One or more `protection_policy` blocks as defined below.
+         * @param protectionPolicies One or more `protectionPolicy` blocks as defined below.
          * 
          * @return builder
          * 

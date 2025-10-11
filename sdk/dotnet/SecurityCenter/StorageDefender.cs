@@ -70,25 +70,25 @@ namespace Pulumi.Azure.SecurityCenter
         public Output<int?> MalwareScanningOnUploadCapGbPerMonth { get; private set; } = null!;
 
         /// <summary>
-        /// Whether On Upload malware scanning should be enabled. Defaults to `false`.
+        /// Whether On Upload malware scanning should be enabled. Defaults to `False`.
         /// </summary>
         [Output("malwareScanningOnUploadEnabled")]
         public Output<bool?> MalwareScanningOnUploadEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the settings defined for this storage account should override the settings defined for the subscription. Defaults to `false`.
+        /// Whether the settings defined for this storage account should override the settings defined for the subscription. Defaults to `False`.
         /// </summary>
         [Output("overrideSubscriptionSettingsEnabled")]
         public Output<bool?> OverrideSubscriptionSettingsEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The Event Grid Topic where every scan result will be sent to. When you set an Event Grid custom topic, you must set `override_subscription_settings_enabled` to `true` to override the subscription-level settings.
+        /// The Event Grid Topic where every scan result will be sent to. When you set an Event Grid custom topic, you must set `OverrideSubscriptionSettingsEnabled` to `True` to override the subscription-level settings.
         /// </summary>
         [Output("scanResultsEventGridTopicId")]
         public Output<string?> ScanResultsEventGridTopicId { get; private set; } = null!;
 
         /// <summary>
-        /// Whether Sensitive Data Discovery should be enabled. Defaults to `false`.
+        /// Whether Sensitive Data Discovery should be enabled. Defaults to `False`.
         /// </summary>
         [Output("sensitiveDataDiscoveryEnabled")]
         public Output<bool?> SensitiveDataDiscoveryEnabled { get; private set; } = null!;
@@ -152,25 +152,25 @@ namespace Pulumi.Azure.SecurityCenter
         public Input<int>? MalwareScanningOnUploadCapGbPerMonth { get; set; }
 
         /// <summary>
-        /// Whether On Upload malware scanning should be enabled. Defaults to `false`.
+        /// Whether On Upload malware scanning should be enabled. Defaults to `False`.
         /// </summary>
         [Input("malwareScanningOnUploadEnabled")]
         public Input<bool>? MalwareScanningOnUploadEnabled { get; set; }
 
         /// <summary>
-        /// Whether the settings defined for this storage account should override the settings defined for the subscription. Defaults to `false`.
+        /// Whether the settings defined for this storage account should override the settings defined for the subscription. Defaults to `False`.
         /// </summary>
         [Input("overrideSubscriptionSettingsEnabled")]
         public Input<bool>? OverrideSubscriptionSettingsEnabled { get; set; }
 
         /// <summary>
-        /// The Event Grid Topic where every scan result will be sent to. When you set an Event Grid custom topic, you must set `override_subscription_settings_enabled` to `true` to override the subscription-level settings.
+        /// The Event Grid Topic where every scan result will be sent to. When you set an Event Grid custom topic, you must set `OverrideSubscriptionSettingsEnabled` to `True` to override the subscription-level settings.
         /// </summary>
         [Input("scanResultsEventGridTopicId")]
         public Input<string>? ScanResultsEventGridTopicId { get; set; }
 
         /// <summary>
-        /// Whether Sensitive Data Discovery should be enabled. Defaults to `false`.
+        /// Whether Sensitive Data Discovery should be enabled. Defaults to `False`.
         /// </summary>
         [Input("sensitiveDataDiscoveryEnabled")]
         public Input<bool>? SensitiveDataDiscoveryEnabled { get; set; }
@@ -196,25 +196,25 @@ namespace Pulumi.Azure.SecurityCenter
         public Input<int>? MalwareScanningOnUploadCapGbPerMonth { get; set; }
 
         /// <summary>
-        /// Whether On Upload malware scanning should be enabled. Defaults to `false`.
+        /// Whether On Upload malware scanning should be enabled. Defaults to `False`.
         /// </summary>
         [Input("malwareScanningOnUploadEnabled")]
         public Input<bool>? MalwareScanningOnUploadEnabled { get; set; }
 
         /// <summary>
-        /// Whether the settings defined for this storage account should override the settings defined for the subscription. Defaults to `false`.
+        /// Whether the settings defined for this storage account should override the settings defined for the subscription. Defaults to `False`.
         /// </summary>
         [Input("overrideSubscriptionSettingsEnabled")]
         public Input<bool>? OverrideSubscriptionSettingsEnabled { get; set; }
 
         /// <summary>
-        /// The Event Grid Topic where every scan result will be sent to. When you set an Event Grid custom topic, you must set `override_subscription_settings_enabled` to `true` to override the subscription-level settings.
+        /// The Event Grid Topic where every scan result will be sent to. When you set an Event Grid custom topic, you must set `OverrideSubscriptionSettingsEnabled` to `True` to override the subscription-level settings.
         /// </summary>
         [Input("scanResultsEventGridTopicId")]
         public Input<string>? ScanResultsEventGridTopicId { get; set; }
 
         /// <summary>
-        /// Whether Sensitive Data Discovery should be enabled. Defaults to `false`.
+        /// Whether Sensitive Data Discovery should be enabled. Defaults to `False`.
         /// </summary>
         [Input("sensitiveDataDiscoveryEnabled")]
         public Input<bool>? SensitiveDataDiscoveryEnabled { get; set; }

@@ -22,9 +22,9 @@ namespace Pulumi.Azure.RedHatOpenShift.Outputs
         /// </summary>
         public readonly int DiskSizeGb;
         /// <summary>
-        /// Whether worker virtual machines are encrypted at host. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Whether worker virtual machines are encrypted at host. Defaults to `False`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** `encryption_at_host_enabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
+        /// &gt; **Note:** `EncryptionAtHostEnabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
         /// </summary>
         public readonly bool? EncryptionAtHostEnabled;
         /// <summary>

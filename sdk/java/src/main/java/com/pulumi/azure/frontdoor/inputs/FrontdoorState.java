@@ -26,14 +26,14 @@ public final class FrontdoorState extends com.pulumi.resources.ResourceArgs {
     public static final FrontdoorState Empty = new FrontdoorState();
 
     /**
-     * A `backend_pool_health_probe` block as defined below.
+     * A `backendPoolHealthProbe` block as defined below.
      * 
      */
     @Import(name="backendPoolHealthProbes")
     private @Nullable Output<List<FrontdoorBackendPoolHealthProbeArgs>> backendPoolHealthProbes;
 
     /**
-     * @return A `backend_pool_health_probe` block as defined below.
+     * @return A `backendPoolHealthProbe` block as defined below.
      * 
      */
     public Optional<Output<List<FrontdoorBackendPoolHealthProbeArgs>>> backendPoolHealthProbes() {
@@ -71,14 +71,14 @@ public final class FrontdoorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `backend_pool_load_balancing` block as defined below.
+     * A `backendPoolLoadBalancing` block as defined below.
      * 
      */
     @Import(name="backendPoolLoadBalancings")
     private @Nullable Output<List<FrontdoorBackendPoolLoadBalancingArgs>> backendPoolLoadBalancings;
 
     /**
-     * @return A `backend_pool_load_balancing` block as defined below.
+     * @return A `backendPoolLoadBalancing` block as defined below.
      * 
      */
     public Optional<Output<List<FrontdoorBackendPoolLoadBalancingArgs>>> backendPoolLoadBalancings() {
@@ -86,14 +86,14 @@ public final class FrontdoorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `backend_pool_settings` block as defined below.
+     * A `backendPoolSettings` block as defined below.
      * 
      */
     @Import(name="backendPoolSettings")
     private @Nullable Output<List<FrontdoorBackendPoolSettingArgs>> backendPoolSettings;
 
     /**
-     * @return A `backend_pool_settings` block as defined below.
+     * @return A `backendPoolSettings` block as defined below.
      * 
      */
     public Optional<Output<List<FrontdoorBackendPoolSettingArgs>>> backendPoolSettings() {
@@ -101,7 +101,7 @@ public final class FrontdoorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `backend_pool` block as defined below.
+     * A `backendPool` block as defined below.
      * 
      * &gt; Azure by default allows specifying up to 50 Backend Pools - but this quota can be increased via Microsoft Support.
      * 
@@ -110,7 +110,7 @@ public final class FrontdoorState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<List<FrontdoorBackendPoolArgs>> backendPools;
 
     /**
-     * @return A `backend_pool` block as defined below.
+     * @return A `backendPool` block as defined below.
      * 
      * &gt; Azure by default allows specifying up to 50 Backend Pools - but this quota can be increased via Microsoft Support.
      * 
@@ -172,14 +172,14 @@ public final class FrontdoorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `frontend_endpoint` block as defined below.
+     * A `frontendEndpoint` block as defined below.
      * 
      */
     @Import(name="frontendEndpoints")
     private @Nullable Output<List<FrontdoorFrontendEndpointArgs>> frontendEndpoints;
 
     /**
-     * @return A `frontend_endpoint` block as defined below.
+     * @return A `frontendEndpoint` block as defined below.
      * 
      */
     public Optional<Output<List<FrontdoorFrontendEndpointArgs>>> frontendEndpoints() {
@@ -262,14 +262,14 @@ public final class FrontdoorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `routing_rule` block as defined below.
+     * A `routingRule` block as defined below.
      * 
      */
     @Import(name="routingRules")
     private @Nullable Output<List<FrontdoorRoutingRuleArgs>> routingRules;
 
     /**
-     * @return A `routing_rule` block as defined below.
+     * @return A `routingRule` block as defined below.
      * 
      */
     public Optional<Output<List<FrontdoorRoutingRuleArgs>>> routingRules() {
@@ -349,7 +349,7 @@ public final class FrontdoorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param backendPoolHealthProbes A `backend_pool_health_probe` block as defined below.
+         * @param backendPoolHealthProbes A `backendPoolHealthProbe` block as defined below.
          * 
          * @return builder
          * 
@@ -360,7 +360,7 @@ public final class FrontdoorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param backendPoolHealthProbes A `backend_pool_health_probe` block as defined below.
+         * @param backendPoolHealthProbes A `backendPoolHealthProbe` block as defined below.
          * 
          * @return builder
          * 
@@ -370,7 +370,7 @@ public final class FrontdoorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param backendPoolHealthProbes A `backend_pool_health_probe` block as defined below.
+         * @param backendPoolHealthProbes A `backendPoolHealthProbe` block as defined below.
          * 
          * @return builder
          * 
@@ -422,7 +422,7 @@ public final class FrontdoorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param backendPoolLoadBalancings A `backend_pool_load_balancing` block as defined below.
+         * @param backendPoolLoadBalancings A `backendPoolLoadBalancing` block as defined below.
          * 
          * @return builder
          * 
@@ -433,7 +433,7 @@ public final class FrontdoorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param backendPoolLoadBalancings A `backend_pool_load_balancing` block as defined below.
+         * @param backendPoolLoadBalancings A `backendPoolLoadBalancing` block as defined below.
          * 
          * @return builder
          * 
@@ -443,7 +443,7 @@ public final class FrontdoorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param backendPoolLoadBalancings A `backend_pool_load_balancing` block as defined below.
+         * @param backendPoolLoadBalancings A `backendPoolLoadBalancing` block as defined below.
          * 
          * @return builder
          * 
@@ -453,7 +453,7 @@ public final class FrontdoorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param backendPoolSettings A `backend_pool_settings` block as defined below.
+         * @param backendPoolSettings A `backendPoolSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -464,7 +464,7 @@ public final class FrontdoorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param backendPoolSettings A `backend_pool_settings` block as defined below.
+         * @param backendPoolSettings A `backendPoolSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -474,7 +474,7 @@ public final class FrontdoorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param backendPoolSettings A `backend_pool_settings` block as defined below.
+         * @param backendPoolSettings A `backendPoolSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -484,7 +484,7 @@ public final class FrontdoorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param backendPools A `backend_pool` block as defined below.
+         * @param backendPools A `backendPool` block as defined below.
          * 
          * &gt; Azure by default allows specifying up to 50 Backend Pools - but this quota can be increased via Microsoft Support.
          * 
@@ -497,7 +497,7 @@ public final class FrontdoorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param backendPools A `backend_pool` block as defined below.
+         * @param backendPools A `backendPool` block as defined below.
          * 
          * &gt; Azure by default allows specifying up to 50 Backend Pools - but this quota can be increased via Microsoft Support.
          * 
@@ -509,7 +509,7 @@ public final class FrontdoorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param backendPools A `backend_pool` block as defined below.
+         * @param backendPools A `backendPool` block as defined below.
          * 
          * &gt; Azure by default allows specifying up to 50 Backend Pools - but this quota can be increased via Microsoft Support.
          * 
@@ -597,7 +597,7 @@ public final class FrontdoorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param frontendEndpoints A `frontend_endpoint` block as defined below.
+         * @param frontendEndpoints A `frontendEndpoint` block as defined below.
          * 
          * @return builder
          * 
@@ -608,7 +608,7 @@ public final class FrontdoorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param frontendEndpoints A `frontend_endpoint` block as defined below.
+         * @param frontendEndpoints A `frontendEndpoint` block as defined below.
          * 
          * @return builder
          * 
@@ -618,7 +618,7 @@ public final class FrontdoorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param frontendEndpoints A `frontend_endpoint` block as defined below.
+         * @param frontendEndpoints A `frontendEndpoint` block as defined below.
          * 
          * @return builder
          * 
@@ -733,7 +733,7 @@ public final class FrontdoorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param routingRules A `routing_rule` block as defined below.
+         * @param routingRules A `routingRule` block as defined below.
          * 
          * @return builder
          * 
@@ -744,7 +744,7 @@ public final class FrontdoorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param routingRules A `routing_rule` block as defined below.
+         * @param routingRules A `routingRule` block as defined below.
          * 
          * @return builder
          * 
@@ -754,7 +754,7 @@ public final class FrontdoorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param routingRules A `routing_rule` block as defined below.
+         * @param routingRules A `routingRule` block as defined below.
          * 
          * @return builder
          * 

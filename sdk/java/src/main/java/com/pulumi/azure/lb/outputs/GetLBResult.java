@@ -14,7 +14,7 @@ import java.util.Objects;
 @CustomType
 public final class GetLBResult {
     /**
-     * @return A `frontend_ip_configuration` block as documented below.
+     * @return A `frontendIpConfiguration` block as documented below.
      * 
      */
     private List<GetLBFrontendIpConfiguration> frontendIpConfigurations;
@@ -39,7 +39,7 @@ public final class GetLBResult {
      */
     private String privateIpAddress;
     /**
-     * @return The list of private IP address assigned to the load balancer in `frontend_ip_configuration` blocks, if any.
+     * @return The list of private IP address assigned to the load balancer in `frontendIpConfiguration` blocks, if any.
      * 
      */
     private List<String> privateIpAddresses;
@@ -57,7 +57,7 @@ public final class GetLBResult {
 
     private GetLBResult() {}
     /**
-     * @return A `frontend_ip_configuration` block as documented below.
+     * @return A `frontendIpConfiguration` block as documented below.
      * 
      */
     public List<GetLBFrontendIpConfiguration> frontendIpConfigurations() {
@@ -92,7 +92,7 @@ public final class GetLBResult {
         return this.privateIpAddress;
     }
     /**
-     * @return The list of private IP address assigned to the load balancer in `frontend_ip_configuration` blocks, if any.
+     * @return The list of private IP address assigned to the load balancer in `frontendIpConfiguration` blocks, if any.
      * 
      */
     public List<String> privateIpAddresses() {

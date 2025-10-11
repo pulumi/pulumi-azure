@@ -18,7 +18,7 @@ public final class ApiDiagnosticBackendResponseDataMasking {
      */
     private @Nullable List<ApiDiagnosticBackendResponseDataMaskingHeader> headers;
     /**
-     * @return A `query_params` block as defined below.
+     * @return A `queryParams` block as defined below.
      * 
      */
     private @Nullable List<ApiDiagnosticBackendResponseDataMaskingQueryParam> queryParams;
@@ -32,7 +32,7 @@ public final class ApiDiagnosticBackendResponseDataMasking {
         return this.headers == null ? List.of() : this.headers;
     }
     /**
-     * @return A `query_params` block as defined below.
+     * @return A `queryParams` block as defined below.
      * 
      */
     public List<ApiDiagnosticBackendResponseDataMaskingQueryParam> queryParams() {

@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string? CertificateStore;
         /// <summary>
-        /// It is the Base64 encoding of a JSON Object that which is encoded in UTF-8 of which the contents need to be `data`, `dataType` and `password`.
+        /// It is the Base64 encoding of a JSON Object that which is encoded in UTF-8 of which the contents need to be `Data`, `dataType` and `Password`.
         /// </summary>
         public readonly string CertificateUrl;
 

@@ -44,14 +44,14 @@ public final class SingleNodeVirtualInstanceSingleServerConfigurationArgs extend
     }
 
     /**
-     * One or more `disk_volume_configuration` blocks as defined below. Changing this forces a new resource to be created.
+     * One or more `diskVolumeConfiguration` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="diskVolumeConfigurations")
     private @Nullable Output<List<SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfigurationArgs>> diskVolumeConfigurations;
 
     /**
-     * @return One or more `disk_volume_configuration` blocks as defined below. Changing this forces a new resource to be created.
+     * @return One or more `diskVolumeConfiguration` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfigurationArgs>>> diskVolumeConfigurations() {
@@ -89,14 +89,14 @@ public final class SingleNodeVirtualInstanceSingleServerConfigurationArgs extend
     }
 
     /**
-     * A `virtual_machine_configuration` block as defined below. Changing this forces a new resource to be created.
+     * A `virtualMachineConfiguration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="virtualMachineConfiguration", required=true)
     private Output<SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationArgs> virtualMachineConfiguration;
 
     /**
-     * @return A `virtual_machine_configuration` block as defined below. Changing this forces a new resource to be created.
+     * @return A `virtualMachineConfiguration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationArgs> virtualMachineConfiguration() {
@@ -104,14 +104,14 @@ public final class SingleNodeVirtualInstanceSingleServerConfigurationArgs extend
     }
 
     /**
-     * A `virtual_machine_resource_names` block as defined below. Changing this forces a new resource to be created.
+     * A `virtualMachineResourceNames` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="virtualMachineResourceNames")
     private @Nullable Output<SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesArgs> virtualMachineResourceNames;
 
     /**
-     * @return A `virtual_machine_resource_names` block as defined below. Changing this forces a new resource to be created.
+     * @return A `virtualMachineResourceNames` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesArgs>> virtualMachineResourceNames() {
@@ -179,7 +179,7 @@ public final class SingleNodeVirtualInstanceSingleServerConfigurationArgs extend
         }
 
         /**
-         * @param diskVolumeConfigurations One or more `disk_volume_configuration` blocks as defined below. Changing this forces a new resource to be created.
+         * @param diskVolumeConfigurations One or more `diskVolumeConfiguration` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class SingleNodeVirtualInstanceSingleServerConfigurationArgs extend
         }
 
         /**
-         * @param diskVolumeConfigurations One or more `disk_volume_configuration` blocks as defined below. Changing this forces a new resource to be created.
+         * @param diskVolumeConfigurations One or more `diskVolumeConfiguration` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class SingleNodeVirtualInstanceSingleServerConfigurationArgs extend
         }
 
         /**
-         * @param diskVolumeConfigurations One or more `disk_volume_configuration` blocks as defined below. Changing this forces a new resource to be created.
+         * @param diskVolumeConfigurations One or more `diskVolumeConfiguration` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class SingleNodeVirtualInstanceSingleServerConfigurationArgs extend
         }
 
         /**
-         * @param virtualMachineConfiguration A `virtual_machine_configuration` block as defined below. Changing this forces a new resource to be created.
+         * @param virtualMachineConfiguration A `virtualMachineConfiguration` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class SingleNodeVirtualInstanceSingleServerConfigurationArgs extend
         }
 
         /**
-         * @param virtualMachineConfiguration A `virtual_machine_configuration` block as defined below. Changing this forces a new resource to be created.
+         * @param virtualMachineConfiguration A `virtualMachineConfiguration` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -273,7 +273,7 @@ public final class SingleNodeVirtualInstanceSingleServerConfigurationArgs extend
         }
 
         /**
-         * @param virtualMachineResourceNames A `virtual_machine_resource_names` block as defined below. Changing this forces a new resource to be created.
+         * @param virtualMachineResourceNames A `virtualMachineResourceNames` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -284,7 +284,7 @@ public final class SingleNodeVirtualInstanceSingleServerConfigurationArgs extend
         }
 
         /**
-         * @param virtualMachineResourceNames A `virtual_machine_resource_names` block as defined below. Changing this forces a new resource to be created.
+         * @param virtualMachineResourceNames A `virtualMachineResourceNames` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

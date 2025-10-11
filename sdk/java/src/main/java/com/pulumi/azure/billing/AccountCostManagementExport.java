@@ -113,7 +113,7 @@ public class AccountCostManagementExport extends com.pulumi.resources.CustomReso
     /**
      * Is the cost management export active? Default is `true`.
      * 
-     * * * `file_format` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
+     * * * `fileFormat` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
      * 
      */
     @Export(name="active", refs={Boolean.class}, tree="[0]")
@@ -122,7 +122,7 @@ public class AccountCostManagementExport extends com.pulumi.resources.CustomReso
     /**
      * @return Is the cost management export active? Default is `true`.
      * 
-     * * * `file_format` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
+     * * * `fileFormat` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
      * 
      */
     public Output<Optional<Boolean>> active() {
@@ -143,28 +143,28 @@ public class AccountCostManagementExport extends com.pulumi.resources.CustomReso
         return this.billingAccountId;
     }
     /**
-     * A `export_data_options` block as defined below.
+     * A `exportDataOptions` block as defined below.
      * 
      */
     @Export(name="exportDataOptions", refs={AccountCostManagementExportExportDataOptions.class}, tree="[0]")
     private Output<AccountCostManagementExportExportDataOptions> exportDataOptions;
 
     /**
-     * @return A `export_data_options` block as defined below.
+     * @return A `exportDataOptions` block as defined below.
      * 
      */
     public Output<AccountCostManagementExportExportDataOptions> exportDataOptions() {
         return this.exportDataOptions;
     }
     /**
-     * A `export_data_storage_location` block as defined below.
+     * A `exportDataStorageLocation` block as defined below.
      * 
      */
     @Export(name="exportDataStorageLocation", refs={AccountCostManagementExportExportDataStorageLocation.class}, tree="[0]")
     private Output<AccountCostManagementExportExportDataStorageLocation> exportDataStorageLocation;
 
     /**
-     * @return A `export_data_storage_location` block as defined below.
+     * @return A `exportDataStorageLocation` block as defined below.
      * 
      */
     public Output<AccountCostManagementExportExportDataStorageLocation> exportDataStorageLocation() {

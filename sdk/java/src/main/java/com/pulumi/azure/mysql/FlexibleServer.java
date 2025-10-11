@@ -140,46 +140,46 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:mysql/flexibleServer:FlexibleServer")
 public class FlexibleServer extends com.pulumi.resources.CustomResource {
     /**
-     * The Administrator login for the MySQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
+     * The Administrator login for the MySQL Flexible Server. Required when `createMode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
      * 
      */
     @Export(name="administratorLogin", refs={String.class}, tree="[0]")
     private Output<String> administratorLogin;
 
     /**
-     * @return The Administrator login for the MySQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
+     * @return The Administrator login for the MySQL Flexible Server. Required when `createMode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
      * 
      */
     public Output<String> administratorLogin() {
         return this.administratorLogin;
     }
     /**
-     * The Password associated with the `administrator_login` for the MySQL Flexible Server.
+     * The Password associated with the `administratorLogin` for the MySQL Flexible Server.
      * 
      */
     @Export(name="administratorPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> administratorPassword;
 
     /**
-     * @return The Password associated with the `administrator_login` for the MySQL Flexible Server.
+     * @return The Password associated with the `administratorLogin` for the MySQL Flexible Server.
      * 
      */
     public Output<Optional<String>> administratorPassword() {
         return Codegen.optional(this.administratorPassword);
     }
     /**
-     * An integer value used to trigger an update for `administrator_password_wo`. This property should be incremented when updating `administrator_password_wo`.
+     * An integer value used to trigger an update for `administratorPasswordWo`. This property should be incremented when updating `administratorPasswordWo`.
      * 
-     * &gt; **Note:** Either `administrator_password` or `administrator_password_wo` is required when `create_mode` is `Default`.
+     * &gt; **Note:** Either `administratorPassword` or `administratorPasswordWo` is required when `createMode` is `Default`.
      * 
      */
     @Export(name="administratorPasswordWoVersion", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> administratorPasswordWoVersion;
 
     /**
-     * @return An integer value used to trigger an update for `administrator_password_wo`. This property should be incremented when updating `administrator_password_wo`.
+     * @return An integer value used to trigger an update for `administratorPasswordWo`. This property should be incremented when updating `administratorPasswordWo`.
      * 
-     * &gt; **Note:** Either `administrator_password` or `administrator_password_wo` is required when `create_mode` is `Default`.
+     * &gt; **Note:** Either `administratorPassword` or `administratorPasswordWo` is required when `createMode` is `Default`.
      * 
      */
     public Output<Optional<Integer>> administratorPasswordWoVersion() {
@@ -202,11 +202,11 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
     /**
      * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
      * 
-     * &gt; **Note:** Creating a `GeoRestore` server requires the source server with `geo_redundant_backup_enabled` enabled.
+     * &gt; **Note:** Creating a `GeoRestore` server requires the source server with `geoRedundantBackupEnabled` enabled.
      * 
      * &gt; **Note:** When a server is first created it may not be immediately available for `geo restore` or `replica`. It may take a few minutes to several hours for the necessary metadata to be populated. Please see the [Geo Restore](https://learn.microsoft.com/azure/mysql/single-server/how-to-restore-server-portal#geo-restore) and the [Replica](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-read-replicas#create-a-replica) for more information.
      * 
-     * &gt; **Note:** When importing a MySQL Flexible Server, `create_mode` is not returned by the api so you will see a diff if `create_mode` is specified in your config. To prevent recreation, use the `ignore_changes` lifecycle meta-argument.
+     * &gt; **Note:** When importing a MySQL Flexible Server, `createMode` is not returned by the api so you will see a diff if `createMode` is specified in your config. To prevent recreation, use the `ignoreChanges` lifecycle meta-argument.
      * 
      */
     @Export(name="createMode", refs={String.class}, tree="[0]")
@@ -215,29 +215,29 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
     /**
      * @return The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
      * 
-     * &gt; **Note:** Creating a `GeoRestore` server requires the source server with `geo_redundant_backup_enabled` enabled.
+     * &gt; **Note:** Creating a `GeoRestore` server requires the source server with `geoRedundantBackupEnabled` enabled.
      * 
      * &gt; **Note:** When a server is first created it may not be immediately available for `geo restore` or `replica`. It may take a few minutes to several hours for the necessary metadata to be populated. Please see the [Geo Restore](https://learn.microsoft.com/azure/mysql/single-server/how-to-restore-server-portal#geo-restore) and the [Replica](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-read-replicas#create-a-replica) for more information.
      * 
-     * &gt; **Note:** When importing a MySQL Flexible Server, `create_mode` is not returned by the api so you will see a diff if `create_mode` is specified in your config. To prevent recreation, use the `ignore_changes` lifecycle meta-argument.
+     * &gt; **Note:** When importing a MySQL Flexible Server, `createMode` is not returned by the api so you will see a diff if `createMode` is specified in your config. To prevent recreation, use the `ignoreChanges` lifecycle meta-argument.
      * 
      */
     public Output<Optional<String>> createMode() {
         return Codegen.optional(this.createMode);
     }
     /**
-     * A `customer_managed_key` block as defined below.
+     * A `customerManagedKey` block as defined below.
      * 
-     * &gt; **Note:** `identity` is required when `customer_managed_key` is specified.
+     * &gt; **Note:** `identity` is required when `customerManagedKey` is specified.
      * 
      */
     @Export(name="customerManagedKey", refs={FlexibleServerCustomerManagedKey.class}, tree="[0]")
     private Output</* @Nullable */ FlexibleServerCustomerManagedKey> customerManagedKey;
 
     /**
-     * @return A `customer_managed_key` block as defined below.
+     * @return A `customerManagedKey` block as defined below.
      * 
-     * &gt; **Note:** `identity` is required when `customer_managed_key` is specified.
+     * &gt; **Note:** `identity` is required when `customerManagedKey` is specified.
      * 
      */
     public Output<Optional<FlexibleServerCustomerManagedKey>> customerManagedKey() {
@@ -286,14 +286,14 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.geoRedundantBackupEnabled);
     }
     /**
-     * A `high_availability` block as defined below.
+     * A `highAvailability` block as defined below.
      * 
      */
     @Export(name="highAvailability", refs={FlexibleServerHighAvailability.class}, tree="[0]")
     private Output</* @Nullable */ FlexibleServerHighAvailability> highAvailability;
 
     /**
-     * @return A `high_availability` block as defined below.
+     * @return A `highAvailability` block as defined below.
      * 
      */
     public Output<Optional<FlexibleServerHighAvailability>> highAvailability() {
@@ -328,14 +328,14 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * A `maintenance_window` block as defined below.
+     * A `maintenanceWindow` block as defined below.
      * 
      */
     @Export(name="maintenanceWindow", refs={FlexibleServerMaintenanceWindow.class}, tree="[0]")
     private Output</* @Nullable */ FlexibleServerMaintenanceWindow> maintenanceWindow;
 
     /**
-     * @return A `maintenance_window` block as defined below.
+     * @return A `maintenanceWindow` block as defined below.
      * 
      */
     public Output<Optional<FlexibleServerMaintenanceWindow>> maintenanceWindow() {
@@ -356,14 +356,14 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The point in time to restore from `creation_source_server_id` when `create_mode` is `PointInTimeRestore`. Changing this forces a new MySQL Flexible Server to be created.
+     * The point in time to restore from `creationSourceServerId` when `createMode` is `PointInTimeRestore`. Changing this forces a new MySQL Flexible Server to be created.
      * 
      */
     @Export(name="pointInTimeRestoreTimeInUtc", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> pointInTimeRestoreTimeInUtc;
 
     /**
-     * @return The point in time to restore from `creation_source_server_id` when `create_mode` is `PointInTimeRestore`. Changing this forces a new MySQL Flexible Server to be created.
+     * @return The point in time to restore from `creationSourceServerId` when `createMode` is `PointInTimeRestore`. Changing this forces a new MySQL Flexible Server to be created.
      * 
      */
     public Output<Optional<String>> pointInTimeRestoreTimeInUtc() {
@@ -372,7 +372,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the private DNS zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
      * 
-     * &gt; **Note:** The `private_dns_zone_id` is required when setting a `delegated_subnet_id`. The `azure.privatedns.Zone` should end with suffix `.mysql.database.azure.com`.
+     * &gt; **Note:** The `privateDnsZoneId` is required when setting a `delegatedSubnetId`. The `azure.privatedns.Zone` should end with suffix `.mysql.database.azure.com`.
      * 
      */
     @Export(name="privateDnsZoneId", refs={String.class}, tree="[0]")
@@ -381,7 +381,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID of the private DNS zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
      * 
-     * &gt; **Note:** The `private_dns_zone_id` is required when setting a `delegated_subnet_id`. The `azure.privatedns.Zone` should end with suffix `.mysql.database.azure.com`.
+     * &gt; **Note:** The `privateDnsZoneId` is required when setting a `delegatedSubnetId`. The `azure.privatedns.Zone` should end with suffix `.mysql.database.azure.com`.
      * 
      */
     public Output<Optional<String>> privateDnsZoneId() {
@@ -390,7 +390,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
     /**
      * Whether approved public traffic is allowed through the firewall to this server. Possible values are `Enabled` and `Disabled`.
      * 
-     * &gt; **Note:** `public_network_access` is automatically set to `Disabled` if the server is created with VNet Integration (i.e. values are provided for `delegated_subnet_id` and `private_dns_zone_id`&#34;).
+     * &gt; **Note:** `publicNetworkAccess` is automatically set to `Disabled` if the server is created with VNet Integration (i.e. values are provided for `delegatedSubnetId` and `privateDnsZoneId`&#34;).
      * 
      */
     @Export(name="publicNetworkAccess", refs={String.class}, tree="[0]")
@@ -399,7 +399,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
     /**
      * @return Whether approved public traffic is allowed through the firewall to this server. Possible values are `Enabled` and `Disabled`.
      * 
-     * &gt; **Note:** `public_network_access` is automatically set to `Disabled` if the server is created with VNet Integration (i.e. values are provided for `delegated_subnet_id` and `private_dns_zone_id`&#34;).
+     * &gt; **Note:** `publicNetworkAccess` is automatically set to `Disabled` if the server is created with VNet Integration (i.e. values are provided for `delegatedSubnetId` and `privateDnsZoneId`&#34;).
      * 
      */
     public Output<String> publicNetworkAccess() {
@@ -428,7 +428,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
     /**
      * The replication role. Possible value is `None`.
      * 
-     * &gt; **Note:** The `replication_role` cannot be set while creating and only can be updated from `Replica` to `None`.
+     * &gt; **Note:** The `replicationRole` cannot be set while creating and only can be updated from `Replica` to `None`.
      * 
      */
     @Export(name="replicationRole", refs={String.class}, tree="[0]")
@@ -437,7 +437,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
     /**
      * @return The replication role. Possible value is `None`.
      * 
-     * &gt; **Note:** The `replication_role` cannot be set while creating and only can be updated from `Replica` to `None`.
+     * &gt; **Note:** The `replicationRole` cannot be set while creating and only can be updated from `Replica` to `None`.
      * 
      */
     public Output<String> replicationRole() {
@@ -460,7 +460,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
     /**
      * The SKU Name for the MySQL Flexible Server.
      * 
-     * &gt; **Note:** `sku_name` should start with SKU tier `B (Burstable)`, `GP (General Purpose)`, `MO (Memory Optimized)` like `B_Standard_B1ms`.
+     * &gt; **Note:** `skuName` should start with SKU tier `B (Burstable)`, `GP (General Purpose)`, `MO (Memory Optimized)` like `B_Standard_B1ms`.
      * 
      */
     @Export(name="skuName", refs={String.class}, tree="[0]")
@@ -469,14 +469,14 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
     /**
      * @return The SKU Name for the MySQL Flexible Server.
      * 
-     * &gt; **Note:** `sku_name` should start with SKU tier `B (Burstable)`, `GP (General Purpose)`, `MO (Memory Optimized)` like `B_Standard_B1ms`.
+     * &gt; **Note:** `skuName` should start with SKU tier `B (Burstable)`, `GP (General Purpose)`, `MO (Memory Optimized)` like `B_Standard_B1ms`.
      * 
      */
     public Output<String> skuName() {
         return this.skuName;
     }
     /**
-     * The resource ID of the source MySQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
+     * The resource ID of the source MySQL Flexible Server to be restored. Required when `createMode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
      * 
      * &gt; **Note:** The replica server is always created in the same resource group and subscription as the source server.
      * 
@@ -485,7 +485,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> sourceServerId;
 
     /**
-     * @return The resource ID of the source MySQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
+     * @return The resource ID of the source MySQL Flexible Server to be restored. Required when `createMode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
      * 
      * &gt; **Note:** The replica server is always created in the same resource group and subscription as the source server.
      * 

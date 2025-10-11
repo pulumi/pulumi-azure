@@ -133,43 +133,43 @@ namespace Pulumi.Azure.Automanage
     public partial class Configuration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A `antimalware` block as defined below.
+        /// A `Antimalware` block as defined below.
         /// </summary>
         [Output("antimalware")]
         public Output<Outputs.ConfigurationAntimalware?> Antimalware { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the automation account is enabled. Defaults to `false`.
+        /// Whether the automation account is enabled. Defaults to `False`.
         /// </summary>
         [Output("automationAccountEnabled")]
         public Output<bool?> AutomationAccountEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A `azure_security_baseline` block as defined below.
+        /// A `AzureSecurityBaseline` block as defined below.
         /// </summary>
         [Output("azureSecurityBaseline")]
         public Output<Outputs.ConfigurationAzureSecurityBaseline?> AzureSecurityBaseline { get; private set; } = null!;
 
         /// <summary>
-        /// A `backup` block as defined below.
+        /// A `Backup` block as defined below.
         /// </summary>
         [Output("backup")]
         public Output<Outputs.ConfigurationBackup?> Backup { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the boot diagnostics are enabled. Defaults to `false`.
+        /// Whether the boot diagnostics are enabled. Defaults to `False`.
         /// </summary>
         [Output("bootDiagnosticsEnabled")]
         public Output<bool?> BootDiagnosticsEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the defender for cloud is enabled. Defaults to `false`.
+        /// Whether the defender for cloud is enabled. Defaults to `False`.
         /// </summary>
         [Output("defenderForCloudEnabled")]
         public Output<bool?> DefenderForCloudEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the guest configuration is enabled. Defaults to `false`.
+        /// Whether the guest configuration is enabled. Defaults to `False`.
         /// </summary>
         [Output("guestConfigurationEnabled")]
         public Output<bool?> GuestConfigurationEnabled { get; private set; } = null!;
@@ -181,7 +181,7 @@ namespace Pulumi.Azure.Automanage
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Whether log analytics are enabled. Defaults to `false`.
+        /// Whether log analytics are enabled. Defaults to `False`.
         /// </summary>
         [Output("logAnalyticsEnabled")]
         public Output<bool?> LogAnalyticsEnabled { get; private set; } = null!;
@@ -199,7 +199,7 @@ namespace Pulumi.Azure.Automanage
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the status change alert is enabled. Defaults to `false`.
+        /// Whether the status change alert is enabled. Defaults to `False`.
         /// </summary>
         [Output("statusChangeAlertEnabled")]
         public Output<bool?> StatusChangeAlertEnabled { get; private set; } = null!;
@@ -254,43 +254,43 @@ namespace Pulumi.Azure.Automanage
     public sealed class ConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `antimalware` block as defined below.
+        /// A `Antimalware` block as defined below.
         /// </summary>
         [Input("antimalware")]
         public Input<Inputs.ConfigurationAntimalwareArgs>? Antimalware { get; set; }
 
         /// <summary>
-        /// Whether the automation account is enabled. Defaults to `false`.
+        /// Whether the automation account is enabled. Defaults to `False`.
         /// </summary>
         [Input("automationAccountEnabled")]
         public Input<bool>? AutomationAccountEnabled { get; set; }
 
         /// <summary>
-        /// A `azure_security_baseline` block as defined below.
+        /// A `AzureSecurityBaseline` block as defined below.
         /// </summary>
         [Input("azureSecurityBaseline")]
         public Input<Inputs.ConfigurationAzureSecurityBaselineArgs>? AzureSecurityBaseline { get; set; }
 
         /// <summary>
-        /// A `backup` block as defined below.
+        /// A `Backup` block as defined below.
         /// </summary>
         [Input("backup")]
         public Input<Inputs.ConfigurationBackupArgs>? Backup { get; set; }
 
         /// <summary>
-        /// Whether the boot diagnostics are enabled. Defaults to `false`.
+        /// Whether the boot diagnostics are enabled. Defaults to `False`.
         /// </summary>
         [Input("bootDiagnosticsEnabled")]
         public Input<bool>? BootDiagnosticsEnabled { get; set; }
 
         /// <summary>
-        /// Whether the defender for cloud is enabled. Defaults to `false`.
+        /// Whether the defender for cloud is enabled. Defaults to `False`.
         /// </summary>
         [Input("defenderForCloudEnabled")]
         public Input<bool>? DefenderForCloudEnabled { get; set; }
 
         /// <summary>
-        /// Whether the guest configuration is enabled. Defaults to `false`.
+        /// Whether the guest configuration is enabled. Defaults to `False`.
         /// </summary>
         [Input("guestConfigurationEnabled")]
         public Input<bool>? GuestConfigurationEnabled { get; set; }
@@ -302,7 +302,7 @@ namespace Pulumi.Azure.Automanage
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Whether log analytics are enabled. Defaults to `false`.
+        /// Whether log analytics are enabled. Defaults to `False`.
         /// </summary>
         [Input("logAnalyticsEnabled")]
         public Input<bool>? LogAnalyticsEnabled { get; set; }
@@ -320,7 +320,7 @@ namespace Pulumi.Azure.Automanage
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Whether the status change alert is enabled. Defaults to `false`.
+        /// Whether the status change alert is enabled. Defaults to `False`.
         /// </summary>
         [Input("statusChangeAlertEnabled")]
         public Input<bool>? StatusChangeAlertEnabled { get; set; }
@@ -342,43 +342,43 @@ namespace Pulumi.Azure.Automanage
     public sealed class ConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `antimalware` block as defined below.
+        /// A `Antimalware` block as defined below.
         /// </summary>
         [Input("antimalware")]
         public Input<Inputs.ConfigurationAntimalwareGetArgs>? Antimalware { get; set; }
 
         /// <summary>
-        /// Whether the automation account is enabled. Defaults to `false`.
+        /// Whether the automation account is enabled. Defaults to `False`.
         /// </summary>
         [Input("automationAccountEnabled")]
         public Input<bool>? AutomationAccountEnabled { get; set; }
 
         /// <summary>
-        /// A `azure_security_baseline` block as defined below.
+        /// A `AzureSecurityBaseline` block as defined below.
         /// </summary>
         [Input("azureSecurityBaseline")]
         public Input<Inputs.ConfigurationAzureSecurityBaselineGetArgs>? AzureSecurityBaseline { get; set; }
 
         /// <summary>
-        /// A `backup` block as defined below.
+        /// A `Backup` block as defined below.
         /// </summary>
         [Input("backup")]
         public Input<Inputs.ConfigurationBackupGetArgs>? Backup { get; set; }
 
         /// <summary>
-        /// Whether the boot diagnostics are enabled. Defaults to `false`.
+        /// Whether the boot diagnostics are enabled. Defaults to `False`.
         /// </summary>
         [Input("bootDiagnosticsEnabled")]
         public Input<bool>? BootDiagnosticsEnabled { get; set; }
 
         /// <summary>
-        /// Whether the defender for cloud is enabled. Defaults to `false`.
+        /// Whether the defender for cloud is enabled. Defaults to `False`.
         /// </summary>
         [Input("defenderForCloudEnabled")]
         public Input<bool>? DefenderForCloudEnabled { get; set; }
 
         /// <summary>
-        /// Whether the guest configuration is enabled. Defaults to `false`.
+        /// Whether the guest configuration is enabled. Defaults to `False`.
         /// </summary>
         [Input("guestConfigurationEnabled")]
         public Input<bool>? GuestConfigurationEnabled { get; set; }
@@ -390,7 +390,7 @@ namespace Pulumi.Azure.Automanage
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Whether log analytics are enabled. Defaults to `false`.
+        /// Whether log analytics are enabled. Defaults to `False`.
         /// </summary>
         [Input("logAnalyticsEnabled")]
         public Input<bool>? LogAnalyticsEnabled { get; set; }
@@ -408,7 +408,7 @@ namespace Pulumi.Azure.Automanage
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// Whether the status change alert is enabled. Defaults to `false`.
+        /// Whether the status change alert is enabled. Defaults to `False`.
         /// </summary>
         [Input("statusChangeAlertEnabled")]
         public Input<bool>? StatusChangeAlertEnabled { get; set; }

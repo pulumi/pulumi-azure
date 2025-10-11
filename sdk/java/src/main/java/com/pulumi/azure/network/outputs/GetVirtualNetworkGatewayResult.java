@@ -49,7 +49,7 @@ public final class GetVirtualNetworkGatewayResult {
      */
     private String id;
     /**
-     * @return One or two `ip_configuration` blocks documented below.
+     * @return One or two `ipConfiguration` blocks documented below.
      * 
      */
     private List<GetVirtualNetworkGatewayIpConfiguration> ipConfigurations;
@@ -85,7 +85,7 @@ public final class GetVirtualNetworkGatewayResult {
      */
     private String type;
     /**
-     * @return A `vpn_client_configuration` block which is documented below.
+     * @return A `vpnClientConfiguration` block which is documented below.
      * 
      */
     private List<GetVirtualNetworkGatewayVpnClientConfiguration> vpnClientConfigurations;
@@ -142,7 +142,7 @@ public final class GetVirtualNetworkGatewayResult {
         return this.id;
     }
     /**
-     * @return One or two `ip_configuration` blocks documented below.
+     * @return One or two `ipConfiguration` blocks documented below.
      * 
      */
     public List<GetVirtualNetworkGatewayIpConfiguration> ipConfigurations() {
@@ -194,7 +194,7 @@ public final class GetVirtualNetworkGatewayResult {
         return this.type;
     }
     /**
-     * @return A `vpn_client_configuration` block which is documented below.
+     * @return A `vpnClientConfiguration` block which is documented below.
      * 
      */
     public List<GetVirtualNetworkGatewayVpnClientConfiguration> vpnClientConfigurations() {

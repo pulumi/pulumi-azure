@@ -33,14 +33,14 @@ public final class AccountNetworkProfileAccountAccessArgs extends com.pulumi.res
     }
 
     /**
-     * One or more `ip_rule` blocks as defined below.
+     * One or more `ipRule` blocks as defined below.
      * 
      */
     @Import(name="ipRules")
     private @Nullable Output<List<AccountNetworkProfileAccountAccessIpRuleArgs>> ipRules;
 
     /**
-     * @return One or more `ip_rule` blocks as defined below.
+     * @return One or more `ipRule` blocks as defined below.
      * 
      */
     public Optional<Output<List<AccountNetworkProfileAccountAccessIpRuleArgs>>> ipRules() {
@@ -94,7 +94,7 @@ public final class AccountNetworkProfileAccountAccessArgs extends com.pulumi.res
         }
 
         /**
-         * @param ipRules One or more `ip_rule` blocks as defined below.
+         * @param ipRules One or more `ipRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class AccountNetworkProfileAccountAccessArgs extends com.pulumi.res
         }
 
         /**
-         * @param ipRules One or more `ip_rule` blocks as defined below.
+         * @param ipRules One or more `ipRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class AccountNetworkProfileAccountAccessArgs extends com.pulumi.res
         }
 
         /**
-         * @param ipRules One or more `ip_rule` blocks as defined below.
+         * @param ipRules One or more `ipRule` blocks as defined below.
          * 
          * @return builder
          * 

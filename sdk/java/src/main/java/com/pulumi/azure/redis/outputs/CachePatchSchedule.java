@@ -26,7 +26,7 @@ public final class CachePatchSchedule {
     /**
      * @return the Start Hour for maintenance in UTC - possible values range from `0 - 23`.
      * 
-     * &gt; **Note:** The Patch Window lasts for `5` hours from the `start_hour_utc`.
+     * &gt; **Note:** The Patch Window lasts for `5` hours from the `startHourUtc`.
      * 
      */
     private @Nullable Integer startHourUtc;
@@ -49,7 +49,7 @@ public final class CachePatchSchedule {
     /**
      * @return the Start Hour for maintenance in UTC - possible values range from `0 - 23`.
      * 
-     * &gt; **Note:** The Patch Window lasts for `5` hours from the `start_hour_utc`.
+     * &gt; **Note:** The Patch Window lasts for `5` hours from the `startHourUtc`.
      * 
      */
     public Optional<Integer> startHourUtc() {

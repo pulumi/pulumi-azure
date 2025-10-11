@@ -22,7 +22,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// a `headers` block as detailed below.
+        /// a `Headers` block as detailed below.
         /// </summary>
         public readonly Outputs.WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeaders? Headers;
         /// <summary>
@@ -30,11 +30,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? IpAddress;
         /// <summary>
-        /// The name which should be used for this `ip_restriction`.
+        /// The name which should be used for this `IpRestriction`.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The priority value of this `ip_restriction`. Defaults to `65000`.
+        /// The priority value of this `IpRestriction`. Defaults to `65000`.
         /// </summary>
         public readonly int? Priority;
         /// <summary>
@@ -44,7 +44,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// <summary>
         /// The Virtual Network Subnet ID used for this IP Restriction.
         /// 
-        /// &gt; **Note:** Exactly one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+        /// &gt; **Note:** Exactly one of `IpAddress`, `ServiceTag` or `VirtualNetworkSubnetId` must be specified.
         /// </summary>
         public readonly string? VirtualNetworkSubnetId;
 

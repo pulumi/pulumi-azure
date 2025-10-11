@@ -100,14 +100,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:containerservice/registryWebook:RegistryWebook")
 public class RegistryWebook extends com.pulumi.resources.CustomResource {
     /**
-     * A list of actions that trigger the Webhook to post notifications. At least one action needs to be specified. Valid values are: `push`, `delete`, `quarantine`, `chart_push`, `chart_delete`
+     * A list of actions that trigger the Webhook to post notifications. At least one action needs to be specified. Valid values are: `push`, `delete`, `quarantine`, `chartPush`, `chartDelete`
      * 
      */
     @Export(name="actions", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> actions;
 
     /**
-     * @return A list of actions that trigger the Webhook to post notifications. At least one action needs to be specified. Valid values are: `push`, `delete`, `quarantine`, `chart_push`, `chart_delete`
+     * @return A list of actions that trigger the Webhook to post notifications. At least one action needs to be specified. Valid values are: `push`, `delete`, `quarantine`, `chartPush`, `chartDelete`
      * 
      */
     public Output<List<String>> actions() {

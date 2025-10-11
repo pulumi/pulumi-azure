@@ -14,39 +14,39 @@ namespace Pulumi.Azure.Monitoring.Outputs
     public sealed class DataCollectionRuleDestinations
     {
         /// <summary>
-        /// A `azure_monitor_metrics` block as defined above.
+        /// A `AzureMonitorMetrics` block as defined above.
         /// </summary>
         public readonly Outputs.DataCollectionRuleDestinationsAzureMonitorMetrics? AzureMonitorMetrics;
         /// <summary>
-        /// One or more `event_hub` blocks as defined below.
+        /// One or more `EventHub` blocks as defined below.
         /// </summary>
         public readonly Outputs.DataCollectionRuleDestinationsEventHub? EventHub;
         /// <summary>
-        /// One or more `event_hub` blocks as defined below.
+        /// One or more `EventHub` blocks as defined below.
         /// </summary>
         public readonly Outputs.DataCollectionRuleDestinationsEventHubDirect? EventHubDirect;
         /// <summary>
-        /// One or more `log_analytics` blocks as defined below.
+        /// One or more `LogAnalytics` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DataCollectionRuleDestinationsLogAnalytic> LogAnalytics;
         /// <summary>
-        /// One or more `monitor_account` blocks as defined below.
+        /// One or more `MonitorAccount` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DataCollectionRuleDestinationsMonitorAccount> MonitorAccounts;
         /// <summary>
-        /// One or more `storage_blob_direct` blocks as defined below.
+        /// One or more `StorageBlobDirect` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DataCollectionRuleDestinationsStorageBlobDirect> StorageBlobDirects;
         /// <summary>
-        /// One or more `storage_blob` blocks as defined below.
+        /// One or more `StorageBlob` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DataCollectionRuleDestinationsStorageBlob> StorageBlobs;
         /// <summary>
-        /// One or more `storage_table_direct` blocks as defined below.
+        /// One or more `StorageTableDirect` blocks as defined below.
         /// 
-        /// &gt; **Note:** `event_hub_direct`, `storage_blob_direct`, and `storage_table_direct` are only available for rules of kind `AgentDirectToStore`.
+        /// &gt; **Note:** `EventHubDirect`, `StorageBlobDirect`, and `StorageTableDirect` are only available for rules of kind `AgentDirectToStore`.
         /// 
-        /// &gt; **Note:** At least one of `azure_monitor_metrics`, `event_hub`, `event_hub_direct`, `log_analytics`, `monitor_account`, `storage_blob`, `storage_blob_direct`,and `storage_table_direct` blocks must be specified.
+        /// &gt; **Note:** At least one of `AzureMonitorMetrics`, `EventHub`, `EventHubDirect`, `LogAnalytics`, `MonitorAccount`, `StorageBlob`, `StorageBlobDirect`,and `StorageTableDirect` blocks must be specified.
         /// </summary>
         public readonly ImmutableArray<Outputs.DataCollectionRuleDestinationsStorageTableDirect> StorageTableDirects;
 

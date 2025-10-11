@@ -143,7 +143,7 @@ namespace Pulumi.Azure.Core
         /// 
         /// &gt; **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
         /// 
-        /// &gt; **NOTE:** Either `billing_scope_id` or `subscription_id` has to be specified.
+        /// &gt; **NOTE:** Either `BillingScopeId` or `SubscriptionId` has to be specified.
         /// </summary>
         [Output("subscriptionId")]
         public Output<string> SubscriptionId { get; private set; } = null!;
@@ -235,7 +235,7 @@ namespace Pulumi.Azure.Core
         /// 
         /// &gt; **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
         /// 
-        /// &gt; **NOTE:** Either `billing_scope_id` or `subscription_id` has to be specified.
+        /// &gt; **NOTE:** Either `BillingScopeId` or `SubscriptionId` has to be specified.
         /// </summary>
         [Input("subscriptionId")]
         public Input<string>? SubscriptionId { get; set; }
@@ -289,7 +289,7 @@ namespace Pulumi.Azure.Core
         /// 
         /// &gt; **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
         /// 
-        /// &gt; **NOTE:** Either `billing_scope_id` or `subscription_id` has to be specified.
+        /// &gt; **NOTE:** Either `BillingScopeId` or `SubscriptionId` has to be specified.
         /// </summary>
         [Input("subscriptionId")]
         public Input<string>? SubscriptionId { get; set; }

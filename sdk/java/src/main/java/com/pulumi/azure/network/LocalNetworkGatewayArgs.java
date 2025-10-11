@@ -35,14 +35,14 @@ public final class LocalNetworkGatewayArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * A `bgp_settings` block as defined below containing the Local Network Gateway&#39;s BGP speaker settings.
+     * A `bgpSettings` block as defined below containing the Local Network Gateway&#39;s BGP speaker settings.
      * 
      */
     @Import(name="bgpSettings")
     private @Nullable Output<LocalNetworkGatewayBgpSettingsArgs> bgpSettings;
 
     /**
-     * @return A `bgp_settings` block as defined below containing the Local Network Gateway&#39;s BGP speaker settings.
+     * @return A `bgpSettings` block as defined below containing the Local Network Gateway&#39;s BGP speaker settings.
      * 
      */
     public Optional<Output<LocalNetworkGatewayBgpSettingsArgs>> bgpSettings() {
@@ -67,7 +67,7 @@ public final class LocalNetworkGatewayArgs extends com.pulumi.resources.Resource
     /**
      * The gateway FQDN to connect with.
      * 
-     * &gt; **Note:** Either `gateway_address` or `gateway_fqdn` should be specified.
+     * &gt; **Note:** Either `gatewayAddress` or `gatewayFqdn` should be specified.
      * 
      */
     @Import(name="gatewayFqdn")
@@ -76,7 +76,7 @@ public final class LocalNetworkGatewayArgs extends com.pulumi.resources.Resource
     /**
      * @return The gateway FQDN to connect with.
      * 
-     * &gt; **Note:** Either `gateway_address` or `gateway_fqdn` should be specified.
+     * &gt; **Note:** Either `gatewayAddress` or `gatewayFqdn` should be specified.
      * 
      */
     public Optional<Output<String>> gatewayFqdn() {
@@ -206,7 +206,7 @@ public final class LocalNetworkGatewayArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param bgpSettings A `bgp_settings` block as defined below containing the Local Network Gateway&#39;s BGP speaker settings.
+         * @param bgpSettings A `bgpSettings` block as defined below containing the Local Network Gateway&#39;s BGP speaker settings.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class LocalNetworkGatewayArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param bgpSettings A `bgp_settings` block as defined below containing the Local Network Gateway&#39;s BGP speaker settings.
+         * @param bgpSettings A `bgpSettings` block as defined below containing the Local Network Gateway&#39;s BGP speaker settings.
          * 
          * @return builder
          * 
@@ -250,7 +250,7 @@ public final class LocalNetworkGatewayArgs extends com.pulumi.resources.Resource
         /**
          * @param gatewayFqdn The gateway FQDN to connect with.
          * 
-         * &gt; **Note:** Either `gateway_address` or `gateway_fqdn` should be specified.
+         * &gt; **Note:** Either `gatewayAddress` or `gatewayFqdn` should be specified.
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class LocalNetworkGatewayArgs extends com.pulumi.resources.Resource
         /**
          * @param gatewayFqdn The gateway FQDN to connect with.
          * 
-         * &gt; **Note:** Either `gateway_address` or `gateway_fqdn` should be specified.
+         * &gt; **Note:** Either `gatewayAddress` or `gatewayFqdn` should be specified.
          * 
          * @return builder
          * 

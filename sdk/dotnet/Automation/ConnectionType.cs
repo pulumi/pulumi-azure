@@ -81,7 +81,7 @@ namespace Pulumi.Azure.Automation
         public Output<string> AutomationAccountName { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `field` blocks as defined below. Changing this forces a new Automation to be created.
+        /// One or more `Field` blocks as defined below. Changing this forces a new Automation to be created.
         /// </summary>
         [Output("fields")]
         public Output<ImmutableArray<Outputs.ConnectionTypeField>> Fields { get; private set; } = null!;
@@ -160,7 +160,7 @@ namespace Pulumi.Azure.Automation
         private InputList<Inputs.ConnectionTypeFieldArgs>? _fields;
 
         /// <summary>
-        /// One or more `field` blocks as defined below. Changing this forces a new Automation to be created.
+        /// One or more `Field` blocks as defined below. Changing this forces a new Automation to be created.
         /// </summary>
         public InputList<Inputs.ConnectionTypeFieldArgs> Fields
         {
@@ -204,7 +204,7 @@ namespace Pulumi.Azure.Automation
         private InputList<Inputs.ConnectionTypeFieldGetArgs>? _fields;
 
         /// <summary>
-        /// One or more `field` blocks as defined below. Changing this forces a new Automation to be created.
+        /// One or more `Field` blocks as defined below. Changing this forces a new Automation to be created.
         /// </summary>
         public InputList<Inputs.ConnectionTypeFieldGetArgs> Fields
         {

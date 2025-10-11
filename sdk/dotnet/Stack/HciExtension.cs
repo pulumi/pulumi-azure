@@ -67,13 +67,13 @@ namespace Pulumi.Azure.Stack
         public Output<string> ArcSettingId { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true. Changing this forces a new resource to be created. Possible values are `true` and `false`. Defaults to `true`.
+        /// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true. Changing this forces a new resource to be created. Possible values are `True` and `False`. Defaults to `True`.
         /// </summary>
         [Output("autoUpgradeMinorVersionEnabled")]
         public Output<bool?> AutoUpgradeMinorVersionEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Possible values are `true` and `false`. Defaults to `true`.
+        /// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Possible values are `True` and `False`. Defaults to `True`.
         /// </summary>
         [Output("automaticUpgradeEnabled")]
         public Output<bool?> AutomaticUpgradeEnabled { get; private set; } = null!;
@@ -111,7 +111,7 @@ namespace Pulumi.Azure.Stack
         /// <summary>
         /// Specifies the version of the script handler.
         /// 
-        /// &gt; **Note:** `type_handler_version` cannot be set when `automatic_upgrade_enabled` is set to `true`.
+        /// &gt; **Note:** `TypeHandlerVersion` cannot be set when `AutomaticUpgradeEnabled` is set to `True`.
         /// </summary>
         [Output("typeHandlerVersion")]
         public Output<string?> TypeHandlerVersion { get; private set; } = null!;
@@ -173,13 +173,13 @@ namespace Pulumi.Azure.Stack
         public Input<string> ArcSettingId { get; set; } = null!;
 
         /// <summary>
-        /// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true. Changing this forces a new resource to be created. Possible values are `true` and `false`. Defaults to `true`.
+        /// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true. Changing this forces a new resource to be created. Possible values are `True` and `False`. Defaults to `True`.
         /// </summary>
         [Input("autoUpgradeMinorVersionEnabled")]
         public Input<bool>? AutoUpgradeMinorVersionEnabled { get; set; }
 
         /// <summary>
-        /// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Possible values are `true` and `false`. Defaults to `true`.
+        /// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Possible values are `True` and `False`. Defaults to `True`.
         /// </summary>
         [Input("automaticUpgradeEnabled")]
         public Input<bool>? AutomaticUpgradeEnabled { get; set; }
@@ -227,7 +227,7 @@ namespace Pulumi.Azure.Stack
         /// <summary>
         /// Specifies the version of the script handler.
         /// 
-        /// &gt; **Note:** `type_handler_version` cannot be set when `automatic_upgrade_enabled` is set to `true`.
+        /// &gt; **Note:** `TypeHandlerVersion` cannot be set when `AutomaticUpgradeEnabled` is set to `True`.
         /// </summary>
         [Input("typeHandlerVersion")]
         public Input<string>? TypeHandlerVersion { get; set; }
@@ -247,13 +247,13 @@ namespace Pulumi.Azure.Stack
         public Input<string>? ArcSettingId { get; set; }
 
         /// <summary>
-        /// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true. Changing this forces a new resource to be created. Possible values are `true` and `false`. Defaults to `true`.
+        /// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true. Changing this forces a new resource to be created. Possible values are `True` and `False`. Defaults to `True`.
         /// </summary>
         [Input("autoUpgradeMinorVersionEnabled")]
         public Input<bool>? AutoUpgradeMinorVersionEnabled { get; set; }
 
         /// <summary>
-        /// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Possible values are `true` and `false`. Defaults to `true`.
+        /// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Possible values are `True` and `False`. Defaults to `True`.
         /// </summary>
         [Input("automaticUpgradeEnabled")]
         public Input<bool>? AutomaticUpgradeEnabled { get; set; }
@@ -301,7 +301,7 @@ namespace Pulumi.Azure.Stack
         /// <summary>
         /// Specifies the version of the script handler.
         /// 
-        /// &gt; **Note:** `type_handler_version` cannot be set when `automatic_upgrade_enabled` is set to `true`.
+        /// &gt; **Note:** `TypeHandlerVersion` cannot be set when `AutomaticUpgradeEnabled` is set to `True`.
         /// </summary>
         [Input("typeHandlerVersion")]
         public Input<string>? TypeHandlerVersion { get; set; }

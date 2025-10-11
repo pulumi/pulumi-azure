@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Manages a Security Alert Policy for a Synapse SQL Pool.
  *
+ * ## Example Usage
+ *
  * ## Import
  *
  * Synapse SQL Pool Security Alert Policies can be imported using the `resource id`, e.g.

@@ -181,13 +181,13 @@ namespace Pulumi.Azure.Monitoring
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Is this Alert Management Prometheus Rule Group enabled? Possible values are `true` and `false`.
+        /// Is this Alert Management Prometheus Rule Group enabled? Possible values are `True` and `False`.
         /// </summary>
         [Output("ruleGroupEnabled")]
         public Output<bool?> RuleGroupEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `rule` blocks as defined below.
+        /// One or more `Rule` blocks as defined below.
         /// </summary>
         [Output("rules")]
         public Output<ImmutableArray<Outputs.AlertPrometheusRuleGroupRule>> Rules { get; private set; } = null!;
@@ -287,7 +287,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Is this Alert Management Prometheus Rule Group enabled? Possible values are `true` and `false`.
+        /// Is this Alert Management Prometheus Rule Group enabled? Possible values are `True` and `False`.
         /// </summary>
         [Input("ruleGroupEnabled")]
         public Input<bool>? RuleGroupEnabled { get; set; }
@@ -296,7 +296,7 @@ namespace Pulumi.Azure.Monitoring
         private InputList<Inputs.AlertPrometheusRuleGroupRuleArgs>? _rules;
 
         /// <summary>
-        /// One or more `rule` blocks as defined below.
+        /// One or more `Rule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.AlertPrometheusRuleGroupRuleArgs> Rules
         {
@@ -373,7 +373,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// Is this Alert Management Prometheus Rule Group enabled? Possible values are `true` and `false`.
+        /// Is this Alert Management Prometheus Rule Group enabled? Possible values are `True` and `False`.
         /// </summary>
         [Input("ruleGroupEnabled")]
         public Input<bool>? RuleGroupEnabled { get; set; }
@@ -382,7 +382,7 @@ namespace Pulumi.Azure.Monitoring
         private InputList<Inputs.AlertPrometheusRuleGroupRuleGetArgs>? _rules;
 
         /// <summary>
-        /// One or more `rule` blocks as defined below.
+        /// One or more `Rule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.AlertPrometheusRuleGroupRuleGetArgs> Rules
         {

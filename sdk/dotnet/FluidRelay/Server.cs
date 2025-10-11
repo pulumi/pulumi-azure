@@ -57,7 +57,7 @@ namespace Pulumi.Azure.FluidRelay
     public partial class Server : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
+        /// A `CustomerManagedKey` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("customerManagedKey")]
         public Output<Outputs.ServerCustomerManagedKey?> CustomerManagedKey { get; private set; } = null!;
@@ -69,7 +69,7 @@ namespace Pulumi.Azure.FluidRelay
         public Output<string> FrsTenantId { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ServerIdentity?> Identity { get; private set; } = null!;
@@ -123,7 +123,7 @@ namespace Pulumi.Azure.FluidRelay
         public Output<ImmutableArray<string>> StorageEndpoints { get; private set; } = null!;
 
         /// <summary>
-        /// Sku of the storage associated with the resource, Possible values are `standard` and `basic`. Changing this forces a new Fluid Relay Server to be created.
+        /// Sku of the storage associated with the resource, Possible values are `Standard` and `Basic`. Changing this forces a new Fluid Relay Server to be created.
         /// </summary>
         [Output("storageSku")]
         public Output<string> StorageSku { get; private set; } = null!;
@@ -186,13 +186,13 @@ namespace Pulumi.Azure.FluidRelay
     public sealed class ServerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
+        /// A `CustomerManagedKey` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("customerManagedKey")]
         public Input<Inputs.ServerCustomerManagedKeyArgs>? CustomerManagedKey { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ServerIdentityArgs>? Identity { get; set; }
@@ -216,7 +216,7 @@ namespace Pulumi.Azure.FluidRelay
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Sku of the storage associated with the resource, Possible values are `standard` and `basic`. Changing this forces a new Fluid Relay Server to be created.
+        /// Sku of the storage associated with the resource, Possible values are `Standard` and `Basic`. Changing this forces a new Fluid Relay Server to be created.
         /// </summary>
         [Input("storageSku")]
         public Input<string>? StorageSku { get; set; }
@@ -242,7 +242,7 @@ namespace Pulumi.Azure.FluidRelay
     public sealed class ServerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
+        /// A `CustomerManagedKey` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("customerManagedKey")]
         public Input<Inputs.ServerCustomerManagedKeyGetArgs>? CustomerManagedKey { get; set; }
@@ -254,7 +254,7 @@ namespace Pulumi.Azure.FluidRelay
         public Input<string>? FrsTenantId { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ServerIdentityGetArgs>? Identity { get; set; }
@@ -346,7 +346,7 @@ namespace Pulumi.Azure.FluidRelay
         }
 
         /// <summary>
-        /// Sku of the storage associated with the resource, Possible values are `standard` and `basic`. Changing this forces a new Fluid Relay Server to be created.
+        /// Sku of the storage associated with the resource, Possible values are `Standard` and `Basic`. Changing this forces a new Fluid Relay Server to be created.
         /// </summary>
         [Input("storageSku")]
         public Input<string>? StorageSku { get; set; }

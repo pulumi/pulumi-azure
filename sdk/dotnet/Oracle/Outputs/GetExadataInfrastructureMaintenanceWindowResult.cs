@@ -35,7 +35,7 @@ namespace Pulumi.Azure.Oracle.Outputs
         /// </summary>
         public readonly bool MonthlyPatchingEnabled;
         /// <summary>
-        /// A `months` block as defined below.
+        /// A `Months` block as defined below.
         /// </summary>
         public readonly ImmutableArray<string> Months;
         /// <summary>

@@ -16,50 +16,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class HadoopClusterRoles {
     /**
-     * @return A `edge_node` block as defined below.
+     * @return A `edgeNode` block as defined below.
      * 
      */
     private @Nullable HadoopClusterRolesEdgeNode edgeNode;
     /**
-     * @return A `head_node` block as defined above.
+     * @return A `headNode` block as defined above.
      * 
      */
     private HadoopClusterRolesHeadNode headNode;
     /**
-     * @return A `worker_node` block as defined below.
+     * @return A `workerNode` block as defined below.
      * 
      */
     private HadoopClusterRolesWorkerNode workerNode;
     /**
-     * @return A `zookeeper_node` block as defined below.
+     * @return A `zookeeperNode` block as defined below.
      * 
      */
     private HadoopClusterRolesZookeeperNode zookeeperNode;
 
     private HadoopClusterRoles() {}
     /**
-     * @return A `edge_node` block as defined below.
+     * @return A `edgeNode` block as defined below.
      * 
      */
     public Optional<HadoopClusterRolesEdgeNode> edgeNode() {
         return Optional.ofNullable(this.edgeNode);
     }
     /**
-     * @return A `head_node` block as defined above.
+     * @return A `headNode` block as defined above.
      * 
      */
     public HadoopClusterRolesHeadNode headNode() {
         return this.headNode;
     }
     /**
-     * @return A `worker_node` block as defined below.
+     * @return A `workerNode` block as defined below.
      * 
      */
     public HadoopClusterRolesWorkerNode workerNode() {
         return this.workerNode;
     }
     /**
-     * @return A `zookeeper_node` block as defined below.
+     * @return A `zookeeperNode` block as defined below.
      * 
      */
     public HadoopClusterRolesZookeeperNode zookeeperNode() {

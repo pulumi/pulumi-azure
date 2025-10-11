@@ -79,7 +79,7 @@ namespace Pulumi.Azure.Lb
         public Output<string?> EdgeZone { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `frontend_ip_configuration` blocks as documented below.
+        /// One or more `FrontendIpConfiguration` blocks as documented below.
         /// </summary>
         [Output("frontendIpConfigurations")]
         public Output<ImmutableArray<Outputs.LoadBalancerFrontendIpConfiguration>> FrontendIpConfigurations { get; private set; } = null!;
@@ -103,7 +103,7 @@ namespace Pulumi.Azure.Lb
         public Output<string> PrivateIpAddress { get; private set; } = null!;
 
         /// <summary>
-        /// The list of private IP address assigned to the load balancer in `frontend_ip_configuration` blocks, if any.
+        /// The list of private IP address assigned to the load balancer in `FrontendIpConfiguration` blocks, if any.
         /// </summary>
         [Output("privateIpAddresses")]
         public Output<ImmutableArray<string>> PrivateIpAddresses { get; private set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.Azure.Lb
         public Output<string?> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// `sku_tier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
+        /// `SkuTier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("skuTier")]
         public Output<string?> SkuTier { get; private set; } = null!;
@@ -202,7 +202,7 @@ namespace Pulumi.Azure.Lb
         private InputList<Inputs.LoadBalancerFrontendIpConfigurationArgs>? _frontendIpConfigurations;
 
         /// <summary>
-        /// One or more `frontend_ip_configuration` blocks as documented below.
+        /// One or more `FrontendIpConfiguration` blocks as documented below.
         /// </summary>
         public InputList<Inputs.LoadBalancerFrontendIpConfigurationArgs> FrontendIpConfigurations
         {
@@ -243,7 +243,7 @@ namespace Pulumi.Azure.Lb
         public Input<string>? Sku { get; set; }
 
         /// <summary>
-        /// `sku_tier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
+        /// `SkuTier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("skuTier")]
         public Input<string>? SkuTier { get; set; }
@@ -284,7 +284,7 @@ namespace Pulumi.Azure.Lb
         private InputList<Inputs.LoadBalancerFrontendIpConfigurationGetArgs>? _frontendIpConfigurations;
 
         /// <summary>
-        /// One or more `frontend_ip_configuration` blocks as documented below.
+        /// One or more `FrontendIpConfiguration` blocks as documented below.
         /// </summary>
         public InputList<Inputs.LoadBalancerFrontendIpConfigurationGetArgs> FrontendIpConfigurations
         {
@@ -314,7 +314,7 @@ namespace Pulumi.Azure.Lb
         private InputList<string>? _privateIpAddresses;
 
         /// <summary>
-        /// The list of private IP address assigned to the load balancer in `frontend_ip_configuration` blocks, if any.
+        /// The list of private IP address assigned to the load balancer in `FrontendIpConfiguration` blocks, if any.
         /// </summary>
         public InputList<string> PrivateIpAddresses
         {
@@ -343,7 +343,7 @@ namespace Pulumi.Azure.Lb
         public Input<string>? Sku { get; set; }
 
         /// <summary>
-        /// `sku_tier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
+        /// `SkuTier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("skuTier")]
         public Input<string>? SkuTier { get; set; }

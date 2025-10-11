@@ -83,27 +83,27 @@ namespace Pulumi.Azure.AppService
         public Output<ImmutableDictionary<string, string>?> AppSettings { get; private set; } = null!;
 
         /// <summary>
-        /// A `auth_settings` block as defined below.
+        /// A `AuthSettings` block as defined below.
         /// </summary>
         [Output("authSettings")]
         public Output<Outputs.LinuxFunctionAppAuthSettings?> AuthSettings { get; private set; } = null!;
 
         /// <summary>
-        /// An `auth_settings_v2` block as defined below.
+        /// An `AuthSettingsV2` block as defined below.
         /// </summary>
         [Output("authSettingsV2")]
         public Output<Outputs.LinuxFunctionAppAuthSettingsV2?> AuthSettingsV2 { get; private set; } = null!;
 
         /// <summary>
-        /// A `backup` block as defined below.
+        /// A `Backup` block as defined below.
         /// </summary>
         [Output("backup")]
         public Output<Outputs.LinuxFunctionAppBackup?> Backup { get; private set; } = null!;
 
         /// <summary>
-        /// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
+        /// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `True`.
         /// 
-        /// &gt; **Note:** `builtin_logging_enabled` is only supported for function app whose function runtime is running on version 1.x.
+        /// &gt; **Note:** `BuiltinLoggingEnabled` is only supported for function app whose function runtime is running on version 1.x.
         /// </summary>
         [Output("builtinLoggingEnabled")]
         public Output<bool?> BuiltinLoggingEnabled { get; private set; } = null!;
@@ -127,7 +127,7 @@ namespace Pulumi.Azure.AppService
         public Output<string?> ClientCertificateMode { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `connection_string` blocks as defined below.
+        /// One or more `ConnectionString` blocks as defined below.
         /// </summary>
         [Output("connectionStrings")]
         public Output<ImmutableArray<Outputs.LinuxFunctionAppConnectionString>> ConnectionStrings { get; private set; } = null!;
@@ -157,13 +157,13 @@ namespace Pulumi.Azure.AppService
         public Output<string> DefaultHostname { get; private set; } = null!;
 
         /// <summary>
-        /// Is the Function App enabled? Defaults to `true`.
+        /// Is the Function App enabled? Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
+        /// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `True`.
         /// </summary>
         [Output("ftpPublishBasicAuthenticationEnabled")]
         public Output<bool?> FtpPublishBasicAuthenticationEnabled { get; private set; } = null!;
@@ -181,19 +181,19 @@ namespace Pulumi.Azure.AppService
         public Output<string> HostingEnvironmentId { get; private set; } = null!;
 
         /// <summary>
-        /// Can the Function App only be accessed via HTTPS? Defaults to `false`.
+        /// Can the Function App only be accessed via HTTPS? Defaults to `False`.
         /// </summary>
         [Output("httpsOnly")]
         public Output<bool?> HttpsOnly { get; private set; } = null!;
 
         /// <summary>
-        /// A `identity` block as defined below.
+        /// A `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.LinuxFunctionAppIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        /// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `Identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         /// </summary>
         [Output("keyVaultReferenceIdentityId")]
         public Output<string> KeyVaultReferenceIdentityId { get; private set; } = null!;
@@ -229,19 +229,19 @@ namespace Pulumi.Azure.AppService
         public Output<string> OutboundIpAddresses { get; private set; } = null!;
 
         /// <summary>
-        /// A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `["52.23.25.3", "52.143.43.12"]`.
+        /// A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `OutboundIpAddressList`. For example `["52.23.25.3", "52.143.43.12"]`.
         /// </summary>
         [Output("possibleOutboundIpAddressLists")]
         public Output<ImmutableArray<string>> PossibleOutboundIpAddressLists { get; private set; } = null!;
 
         /// <summary>
-        /// A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`.
+        /// A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `OutboundIpAddresses`.
         /// </summary>
         [Output("possibleOutboundIpAddresses")]
         public Output<string> PossibleOutboundIpAddresses { get; private set; } = null!;
 
         /// <summary>
-        /// Should public network access be enabled for the Function App. Defaults to `true`.
+        /// Should public network access be enabled for the Function App. Defaults to `True`.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
@@ -259,25 +259,25 @@ namespace Pulumi.Azure.AppService
         public Output<string> ServicePlanId { get; private set; } = null!;
 
         /// <summary>
-        /// A `site_config` block as defined below.
+        /// A `SiteConfig` block as defined below.
         /// </summary>
         [Output("siteConfig")]
         public Output<Outputs.LinuxFunctionAppSiteConfig> SiteConfig { get; private set; } = null!;
 
         /// <summary>
-        /// A `site_credential` block as defined below.
+        /// A `SiteCredential` block as defined below.
         /// </summary>
         [Output("siteCredentials")]
         public Output<ImmutableArray<Outputs.LinuxFunctionAppSiteCredential>> SiteCredentials { get; private set; } = null!;
 
         /// <summary>
-        /// A `sticky_settings` block as defined below.
+        /// A `StickySettings` block as defined below.
         /// </summary>
         [Output("stickySettings")]
         public Output<Outputs.LinuxFunctionAppStickySettings?> StickySettings { get; private set; } = null!;
 
         /// <summary>
-        /// The access key which will be used to access the backend storage account for the Function App. Conflicts with `storage_uses_managed_identity`.
+        /// The access key which will be used to access the backend storage account for the Function App. Conflicts with `StorageUsesManagedIdentity`.
         /// </summary>
         [Output("storageAccountAccessKey")]
         public Output<string?> StorageAccountAccessKey { get; private set; } = null!;
@@ -289,7 +289,7 @@ namespace Pulumi.Azure.AppService
         public Output<string?> StorageAccountName { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `storage_account` blocks as defined below.
+        /// One or more `StorageAccount` blocks as defined below.
         /// </summary>
         [Output("storageAccounts")]
         public Output<ImmutableArray<Outputs.LinuxFunctionAppStorageAccount>> StorageAccounts { get; private set; } = null!;
@@ -297,17 +297,17 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
         /// 
-        /// &gt; **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+        /// &gt; **Note:** `StorageKeyVaultSecretId` cannot be used with `StorageAccountName`.
         /// 
-        /// &gt; **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+        /// &gt; **Note:** `StorageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
         /// </summary>
         [Output("storageKeyVaultSecretId")]
         public Output<string?> StorageKeyVaultSecretId { get; private set; } = null!;
 
         /// <summary>
-        /// Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
+        /// Should the Function App use Managed Identity to access the storage account. Conflicts with `StorageAccountAccessKey`.
         /// 
-        /// &gt; **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+        /// &gt; **Note:** One of `StorageAccountAccessKey` or `StorageUsesManagedIdentity` must be specified when using `StorageAccountName`.
         /// </summary>
         [Output("storageUsesManagedIdentity")]
         public Output<bool?> StorageUsesManagedIdentity { get; private set; } = null!;
@@ -319,7 +319,7 @@ namespace Pulumi.Azure.AppService
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+        /// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `False`.
         /// </summary>
         [Output("virtualNetworkBackupRestoreEnabled")]
         public Output<bool?> VirtualNetworkBackupRestoreEnabled { get; private set; } = null!;
@@ -328,17 +328,17 @@ namespace Pulumi.Azure.AppService
         public Output<string?> VirtualNetworkSubnetId { get; private set; } = null!;
 
         /// <summary>
-        /// Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+        /// Should the traffic for the image pull be routed over virtual network enabled. Defaults to `False`.
         /// 
-        /// &gt; **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
+        /// &gt; **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `True` when running in an App Service Environment.
         /// </summary>
         [Output("vnetImagePullEnabled")]
         public Output<bool?> VnetImagePullEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
+        /// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `True`.
         /// 
-        /// &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+        /// &gt; **Note:** Setting this value to true will disable the ability to use `ZipDeployFile` which currently relies on the default publishing profile.
         /// </summary>
         [Output("webdeployPublishBasicAuthenticationEnabled")]
         public Output<bool?> WebdeployPublishBasicAuthenticationEnabled { get; private set; } = null!;
@@ -346,7 +346,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The local path and filename of the Zip packaged application to deploy to this Linux Function App.
         /// 
-        /// &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
+        /// &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `AppSettings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
         /// </summary>
         [Output("zipDeployFile")]
         public Output<string> ZipDeployFile { get; private set; } = null!;
@@ -416,27 +416,27 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// A `auth_settings` block as defined below.
+        /// A `AuthSettings` block as defined below.
         /// </summary>
         [Input("authSettings")]
         public Input<Inputs.LinuxFunctionAppAuthSettingsArgs>? AuthSettings { get; set; }
 
         /// <summary>
-        /// An `auth_settings_v2` block as defined below.
+        /// An `AuthSettingsV2` block as defined below.
         /// </summary>
         [Input("authSettingsV2")]
         public Input<Inputs.LinuxFunctionAppAuthSettingsV2Args>? AuthSettingsV2 { get; set; }
 
         /// <summary>
-        /// A `backup` block as defined below.
+        /// A `Backup` block as defined below.
         /// </summary>
         [Input("backup")]
         public Input<Inputs.LinuxFunctionAppBackupArgs>? Backup { get; set; }
 
         /// <summary>
-        /// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
+        /// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `True`.
         /// 
-        /// &gt; **Note:** `builtin_logging_enabled` is only supported for function app whose function runtime is running on version 1.x.
+        /// &gt; **Note:** `BuiltinLoggingEnabled` is only supported for function app whose function runtime is running on version 1.x.
         /// </summary>
         [Input("builtinLoggingEnabled")]
         public Input<bool>? BuiltinLoggingEnabled { get; set; }
@@ -463,7 +463,7 @@ namespace Pulumi.Azure.AppService
         private InputList<Inputs.LinuxFunctionAppConnectionStringArgs>? _connectionStrings;
 
         /// <summary>
-        /// One or more `connection_string` blocks as defined below.
+        /// One or more `ConnectionString` blocks as defined below.
         /// </summary>
         public InputList<Inputs.LinuxFunctionAppConnectionStringArgs> ConnectionStrings
         {
@@ -484,13 +484,13 @@ namespace Pulumi.Azure.AppService
         public Input<int>? DailyMemoryTimeQuota { get; set; }
 
         /// <summary>
-        /// Is the Function App enabled? Defaults to `true`.
+        /// Is the Function App enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
+        /// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `True`.
         /// </summary>
         [Input("ftpPublishBasicAuthenticationEnabled")]
         public Input<bool>? FtpPublishBasicAuthenticationEnabled { get; set; }
@@ -502,19 +502,19 @@ namespace Pulumi.Azure.AppService
         public Input<string>? FunctionsExtensionVersion { get; set; }
 
         /// <summary>
-        /// Can the Function App only be accessed via HTTPS? Defaults to `false`.
+        /// Can the Function App only be accessed via HTTPS? Defaults to `False`.
         /// </summary>
         [Input("httpsOnly")]
         public Input<bool>? HttpsOnly { get; set; }
 
         /// <summary>
-        /// A `identity` block as defined below.
+        /// A `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.LinuxFunctionAppIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        /// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `Identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         /// </summary>
         [Input("keyVaultReferenceIdentityId")]
         public Input<string>? KeyVaultReferenceIdentityId { get; set; }
@@ -532,7 +532,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Should public network access be enabled for the Function App. Defaults to `true`.
+        /// Should public network access be enabled for the Function App. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -550,13 +550,13 @@ namespace Pulumi.Azure.AppService
         public Input<string> ServicePlanId { get; set; } = null!;
 
         /// <summary>
-        /// A `site_config` block as defined below.
+        /// A `SiteConfig` block as defined below.
         /// </summary>
         [Input("siteConfig", required: true)]
         public Input<Inputs.LinuxFunctionAppSiteConfigArgs> SiteConfig { get; set; } = null!;
 
         /// <summary>
-        /// A `sticky_settings` block as defined below.
+        /// A `StickySettings` block as defined below.
         /// </summary>
         [Input("stickySettings")]
         public Input<Inputs.LinuxFunctionAppStickySettingsArgs>? StickySettings { get; set; }
@@ -565,7 +565,7 @@ namespace Pulumi.Azure.AppService
         private Input<string>? _storageAccountAccessKey;
 
         /// <summary>
-        /// The access key which will be used to access the backend storage account for the Function App. Conflicts with `storage_uses_managed_identity`.
+        /// The access key which will be used to access the backend storage account for the Function App. Conflicts with `StorageUsesManagedIdentity`.
         /// </summary>
         public Input<string>? StorageAccountAccessKey
         {
@@ -587,7 +587,7 @@ namespace Pulumi.Azure.AppService
         private InputList<Inputs.LinuxFunctionAppStorageAccountArgs>? _storageAccounts;
 
         /// <summary>
-        /// One or more `storage_account` blocks as defined below.
+        /// One or more `StorageAccount` blocks as defined below.
         /// </summary>
         public InputList<Inputs.LinuxFunctionAppStorageAccountArgs> StorageAccounts
         {
@@ -598,17 +598,17 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
         /// 
-        /// &gt; **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+        /// &gt; **Note:** `StorageKeyVaultSecretId` cannot be used with `StorageAccountName`.
         /// 
-        /// &gt; **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+        /// &gt; **Note:** `StorageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
         /// </summary>
         [Input("storageKeyVaultSecretId")]
         public Input<string>? StorageKeyVaultSecretId { get; set; }
 
         /// <summary>
-        /// Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
+        /// Should the Function App use Managed Identity to access the storage account. Conflicts with `StorageAccountAccessKey`.
         /// 
-        /// &gt; **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+        /// &gt; **Note:** One of `StorageAccountAccessKey` or `StorageUsesManagedIdentity` must be specified when using `StorageAccountName`.
         /// </summary>
         [Input("storageUsesManagedIdentity")]
         public Input<bool>? StorageUsesManagedIdentity { get; set; }
@@ -626,7 +626,7 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+        /// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `False`.
         /// </summary>
         [Input("virtualNetworkBackupRestoreEnabled")]
         public Input<bool>? VirtualNetworkBackupRestoreEnabled { get; set; }
@@ -635,17 +635,17 @@ namespace Pulumi.Azure.AppService
         public Input<string>? VirtualNetworkSubnetId { get; set; }
 
         /// <summary>
-        /// Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+        /// Should the traffic for the image pull be routed over virtual network enabled. Defaults to `False`.
         /// 
-        /// &gt; **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
+        /// &gt; **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `True` when running in an App Service Environment.
         /// </summary>
         [Input("vnetImagePullEnabled")]
         public Input<bool>? VnetImagePullEnabled { get; set; }
 
         /// <summary>
-        /// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
+        /// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `True`.
         /// 
-        /// &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+        /// &gt; **Note:** Setting this value to true will disable the ability to use `ZipDeployFile` which currently relies on the default publishing profile.
         /// </summary>
         [Input("webdeployPublishBasicAuthenticationEnabled")]
         public Input<bool>? WebdeployPublishBasicAuthenticationEnabled { get; set; }
@@ -653,7 +653,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The local path and filename of the Zip packaged application to deploy to this Linux Function App.
         /// 
-        /// &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
+        /// &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `AppSettings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
         /// </summary>
         [Input("zipDeployFile")]
         public Input<string>? ZipDeployFile { get; set; }
@@ -679,27 +679,27 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// A `auth_settings` block as defined below.
+        /// A `AuthSettings` block as defined below.
         /// </summary>
         [Input("authSettings")]
         public Input<Inputs.LinuxFunctionAppAuthSettingsGetArgs>? AuthSettings { get; set; }
 
         /// <summary>
-        /// An `auth_settings_v2` block as defined below.
+        /// An `AuthSettingsV2` block as defined below.
         /// </summary>
         [Input("authSettingsV2")]
         public Input<Inputs.LinuxFunctionAppAuthSettingsV2GetArgs>? AuthSettingsV2 { get; set; }
 
         /// <summary>
-        /// A `backup` block as defined below.
+        /// A `Backup` block as defined below.
         /// </summary>
         [Input("backup")]
         public Input<Inputs.LinuxFunctionAppBackupGetArgs>? Backup { get; set; }
 
         /// <summary>
-        /// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
+        /// Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `True`.
         /// 
-        /// &gt; **Note:** `builtin_logging_enabled` is only supported for function app whose function runtime is running on version 1.x.
+        /// &gt; **Note:** `BuiltinLoggingEnabled` is only supported for function app whose function runtime is running on version 1.x.
         /// </summary>
         [Input("builtinLoggingEnabled")]
         public Input<bool>? BuiltinLoggingEnabled { get; set; }
@@ -726,7 +726,7 @@ namespace Pulumi.Azure.AppService
         private InputList<Inputs.LinuxFunctionAppConnectionStringGetArgs>? _connectionStrings;
 
         /// <summary>
-        /// One or more `connection_string` blocks as defined below.
+        /// One or more `ConnectionString` blocks as defined below.
         /// </summary>
         public InputList<Inputs.LinuxFunctionAppConnectionStringGetArgs> ConnectionStrings
         {
@@ -769,13 +769,13 @@ namespace Pulumi.Azure.AppService
         public Input<string>? DefaultHostname { get; set; }
 
         /// <summary>
-        /// Is the Function App enabled? Defaults to `true`.
+        /// Is the Function App enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
+        /// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `True`.
         /// </summary>
         [Input("ftpPublishBasicAuthenticationEnabled")]
         public Input<bool>? FtpPublishBasicAuthenticationEnabled { get; set; }
@@ -793,19 +793,19 @@ namespace Pulumi.Azure.AppService
         public Input<string>? HostingEnvironmentId { get; set; }
 
         /// <summary>
-        /// Can the Function App only be accessed via HTTPS? Defaults to `false`.
+        /// Can the Function App only be accessed via HTTPS? Defaults to `False`.
         /// </summary>
         [Input("httpsOnly")]
         public Input<bool>? HttpsOnly { get; set; }
 
         /// <summary>
-        /// A `identity` block as defined below.
+        /// A `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.LinuxFunctionAppIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        /// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `Identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         /// </summary>
         [Input("keyVaultReferenceIdentityId")]
         public Input<string>? KeyVaultReferenceIdentityId { get; set; }
@@ -850,7 +850,7 @@ namespace Pulumi.Azure.AppService
         private InputList<string>? _possibleOutboundIpAddressLists;
 
         /// <summary>
-        /// A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `["52.23.25.3", "52.143.43.12"]`.
+        /// A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `OutboundIpAddressList`. For example `["52.23.25.3", "52.143.43.12"]`.
         /// </summary>
         public InputList<string> PossibleOutboundIpAddressLists
         {
@@ -859,13 +859,13 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`.
+        /// A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `OutboundIpAddresses`.
         /// </summary>
         [Input("possibleOutboundIpAddresses")]
         public Input<string>? PossibleOutboundIpAddresses { get; set; }
 
         /// <summary>
-        /// Should public network access be enabled for the Function App. Defaults to `true`.
+        /// Should public network access be enabled for the Function App. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -883,7 +883,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? ServicePlanId { get; set; }
 
         /// <summary>
-        /// A `site_config` block as defined below.
+        /// A `SiteConfig` block as defined below.
         /// </summary>
         [Input("siteConfig")]
         public Input<Inputs.LinuxFunctionAppSiteConfigGetArgs>? SiteConfig { get; set; }
@@ -892,7 +892,7 @@ namespace Pulumi.Azure.AppService
         private InputList<Inputs.LinuxFunctionAppSiteCredentialGetArgs>? _siteCredentials;
 
         /// <summary>
-        /// A `site_credential` block as defined below.
+        /// A `SiteCredential` block as defined below.
         /// </summary>
         public InputList<Inputs.LinuxFunctionAppSiteCredentialGetArgs> SiteCredentials
         {
@@ -905,7 +905,7 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// A `sticky_settings` block as defined below.
+        /// A `StickySettings` block as defined below.
         /// </summary>
         [Input("stickySettings")]
         public Input<Inputs.LinuxFunctionAppStickySettingsGetArgs>? StickySettings { get; set; }
@@ -914,7 +914,7 @@ namespace Pulumi.Azure.AppService
         private Input<string>? _storageAccountAccessKey;
 
         /// <summary>
-        /// The access key which will be used to access the backend storage account for the Function App. Conflicts with `storage_uses_managed_identity`.
+        /// The access key which will be used to access the backend storage account for the Function App. Conflicts with `StorageUsesManagedIdentity`.
         /// </summary>
         public Input<string>? StorageAccountAccessKey
         {
@@ -936,7 +936,7 @@ namespace Pulumi.Azure.AppService
         private InputList<Inputs.LinuxFunctionAppStorageAccountGetArgs>? _storageAccounts;
 
         /// <summary>
-        /// One or more `storage_account` blocks as defined below.
+        /// One or more `StorageAccount` blocks as defined below.
         /// </summary>
         public InputList<Inputs.LinuxFunctionAppStorageAccountGetArgs> StorageAccounts
         {
@@ -947,17 +947,17 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
         /// 
-        /// &gt; **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+        /// &gt; **Note:** `StorageKeyVaultSecretId` cannot be used with `StorageAccountName`.
         /// 
-        /// &gt; **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+        /// &gt; **Note:** `StorageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
         /// </summary>
         [Input("storageKeyVaultSecretId")]
         public Input<string>? StorageKeyVaultSecretId { get; set; }
 
         /// <summary>
-        /// Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
+        /// Should the Function App use Managed Identity to access the storage account. Conflicts with `StorageAccountAccessKey`.
         /// 
-        /// &gt; **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+        /// &gt; **Note:** One of `StorageAccountAccessKey` or `StorageUsesManagedIdentity` must be specified when using `StorageAccountName`.
         /// </summary>
         [Input("storageUsesManagedIdentity")]
         public Input<bool>? StorageUsesManagedIdentity { get; set; }
@@ -975,7 +975,7 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+        /// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `False`.
         /// </summary>
         [Input("virtualNetworkBackupRestoreEnabled")]
         public Input<bool>? VirtualNetworkBackupRestoreEnabled { get; set; }
@@ -984,17 +984,17 @@ namespace Pulumi.Azure.AppService
         public Input<string>? VirtualNetworkSubnetId { get; set; }
 
         /// <summary>
-        /// Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+        /// Should the traffic for the image pull be routed over virtual network enabled. Defaults to `False`.
         /// 
-        /// &gt; **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
+        /// &gt; **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `True` when running in an App Service Environment.
         /// </summary>
         [Input("vnetImagePullEnabled")]
         public Input<bool>? VnetImagePullEnabled { get; set; }
 
         /// <summary>
-        /// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
+        /// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `True`.
         /// 
-        /// &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+        /// &gt; **Note:** Setting this value to true will disable the ability to use `ZipDeployFile` which currently relies on the default publishing profile.
         /// </summary>
         [Input("webdeployPublishBasicAuthenticationEnabled")]
         public Input<bool>? WebdeployPublishBasicAuthenticationEnabled { get; set; }
@@ -1002,7 +1002,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The local path and filename of the Zip packaged application to deploy to this Linux Function App.
         /// 
-        /// &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
+        /// &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `AppSettings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
         /// </summary>
         [Input("zipDeployFile")]
         public Input<string>? ZipDeployFile { get; set; }

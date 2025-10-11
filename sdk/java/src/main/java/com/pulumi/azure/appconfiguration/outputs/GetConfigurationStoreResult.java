@@ -67,12 +67,12 @@ public final class GetConfigurationStoreResult {
      */
     private String name;
     /**
-     * @return A `primary_read_key` block as defined below containing the primary read access key.
+     * @return A `primaryReadKey` block as defined below containing the primary read access key.
      * 
      */
     private List<GetConfigurationStorePrimaryReadKey> primaryReadKeys;
     /**
-     * @return A `primary_write_key` block as defined below containing the primary write access key.
+     * @return A `primaryWriteKey` block as defined below containing the primary write access key.
      * 
      */
     private List<GetConfigurationStorePrimaryWriteKey> primaryWriteKeys;
@@ -94,12 +94,12 @@ public final class GetConfigurationStoreResult {
     private List<GetConfigurationStoreReplica> replicas;
     private String resourceGroupName;
     /**
-     * @return A `secondary_read_key` block as defined below containing the secondary read access key.
+     * @return A `secondaryReadKey` block as defined below containing the secondary read access key.
      * 
      */
     private List<GetConfigurationStoreSecondaryReadKey> secondaryReadKeys;
     /**
-     * @return A `secondary_write_key` block as defined below containing the secondary write access key.
+     * @return A `secondaryWriteKey` block as defined below containing the secondary write access key.
      * 
      */
     private List<GetConfigurationStoreSecondaryWriteKey> secondaryWriteKeys;
@@ -184,14 +184,14 @@ public final class GetConfigurationStoreResult {
         return this.name;
     }
     /**
-     * @return A `primary_read_key` block as defined below containing the primary read access key.
+     * @return A `primaryReadKey` block as defined below containing the primary read access key.
      * 
      */
     public List<GetConfigurationStorePrimaryReadKey> primaryReadKeys() {
         return this.primaryReadKeys;
     }
     /**
-     * @return A `primary_write_key` block as defined below containing the primary write access key.
+     * @return A `primaryWriteKey` block as defined below containing the primary write access key.
      * 
      */
     public List<GetConfigurationStorePrimaryWriteKey> primaryWriteKeys() {
@@ -225,14 +225,14 @@ public final class GetConfigurationStoreResult {
         return this.resourceGroupName;
     }
     /**
-     * @return A `secondary_read_key` block as defined below containing the secondary read access key.
+     * @return A `secondaryReadKey` block as defined below containing the secondary read access key.
      * 
      */
     public List<GetConfigurationStoreSecondaryReadKey> secondaryReadKeys() {
         return this.secondaryReadKeys;
     }
     /**
-     * @return A `secondary_write_key` block as defined below containing the secondary write access key.
+     * @return A `secondaryWriteKey` block as defined below containing the secondary write access key.
      * 
      */
     public List<GetConfigurationStoreSecondaryWriteKey> secondaryWriteKeys() {

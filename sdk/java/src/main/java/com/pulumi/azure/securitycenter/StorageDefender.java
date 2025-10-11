@@ -130,14 +130,14 @@ public class StorageDefender extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.overrideSubscriptionSettingsEnabled);
     }
     /**
-     * The Event Grid Topic where every scan result will be sent to. When you set an Event Grid custom topic, you must set `override_subscription_settings_enabled` to `true` to override the subscription-level settings.
+     * The Event Grid Topic where every scan result will be sent to. When you set an Event Grid custom topic, you must set `overrideSubscriptionSettingsEnabled` to `true` to override the subscription-level settings.
      * 
      */
     @Export(name="scanResultsEventGridTopicId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> scanResultsEventGridTopicId;
 
     /**
-     * @return The Event Grid Topic where every scan result will be sent to. When you set an Event Grid custom topic, you must set `override_subscription_settings_enabled` to `true` to override the subscription-level settings.
+     * @return The Event Grid Topic where every scan result will be sent to. When you set an Event Grid custom topic, you must set `overrideSubscriptionSettingsEnabled` to `true` to override the subscription-level settings.
      * 
      */
     public Output<Optional<String>> scanResultsEventGridTopicId() {

@@ -35,14 +35,14 @@ public final class AccountRestoreArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * One or more `gremlin_database` blocks as defined below. Changing this forces a new resource to be created.
+     * One or more `gremlinDatabase` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="gremlinDatabases")
     private @Nullable Output<List<AccountRestoreGremlinDatabaseArgs>> gremlinDatabases;
 
     /**
-     * @return One or more `gremlin_database` blocks as defined below. Changing this forces a new resource to be created.
+     * @return One or more `gremlinDatabase` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<AccountRestoreGremlinDatabaseArgs>>> gremlinDatabases() {
@@ -158,7 +158,7 @@ public final class AccountRestoreArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param gremlinDatabases One or more `gremlin_database` blocks as defined below. Changing this forces a new resource to be created.
+         * @param gremlinDatabases One or more `gremlinDatabase` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class AccountRestoreArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param gremlinDatabases One or more `gremlin_database` blocks as defined below. Changing this forces a new resource to be created.
+         * @param gremlinDatabases One or more `gremlinDatabase` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class AccountRestoreArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param gremlinDatabases One or more `gremlin_database` blocks as defined below. Changing this forces a new resource to be created.
+         * @param gremlinDatabases One or more `gremlinDatabase` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

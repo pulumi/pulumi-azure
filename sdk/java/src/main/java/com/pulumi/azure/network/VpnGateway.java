@@ -126,28 +126,28 @@ public class VpnGateway extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.bgpRouteTranslationForNatEnabled);
     }
     /**
-     * A `bgp_settings` block as defined below.
+     * A `bgpSettings` block as defined below.
      * 
      */
     @Export(name="bgpSettings", refs={VpnGatewayBgpSettings.class}, tree="[0]")
     private Output<VpnGatewayBgpSettings> bgpSettings;
 
     /**
-     * @return A `bgp_settings` block as defined below.
+     * @return A `bgpSettings` block as defined below.
      * 
      */
     public Output<VpnGatewayBgpSettings> bgpSettings() {
         return this.bgpSettings;
     }
     /**
-     * An `ip_configuration` block as defined below.
+     * An `ipConfiguration` block as defined below.
      * 
      */
     @Export(name="ipConfigurations", refs={List.class,VpnGatewayIpConfiguration.class}, tree="[0,1]")
     private Output<List<VpnGatewayIpConfiguration>> ipConfigurations;
 
     /**
-     * @return An `ip_configuration` block as defined below.
+     * @return An `ipConfiguration` block as defined below.
      * 
      */
     public Output<List<VpnGatewayIpConfiguration>> ipConfigurations() {

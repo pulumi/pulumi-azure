@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Hpc.Outputs
         /// </summary>
         public readonly string BaseDn;
         /// <summary>
-        /// A `bind` block as defined above.
+        /// A `Bind` block as defined above.
         /// </summary>
         public readonly Outputs.CacheDirectoryLdapBind? Bind;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Hpc.Outputs
         /// </summary>
         public readonly string? CertificateValidationUri;
         /// <summary>
-        /// Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificate_validation_uri` is provided.
+        /// Whether the certificate should be automatically downloaded. This can be set to `True` only when `CertificateValidationUri` is provided.
         /// </summary>
         public readonly bool? DownloadCertificateAutomatically;
         /// <summary>

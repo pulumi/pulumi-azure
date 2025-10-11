@@ -49,9 +49,9 @@ public final class WorkspaceCustomParametersArgs extends com.pulumi.resources.Re
     /**
      * Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `true`.
      * 
-     * &gt; **Note:** Updating `no_public_ip` parameter is only allowed if the value is changing from `false` to `true` and only for VNet-injected workspaces.
+     * &gt; **Note:** Updating `noPublicIp` parameter is only allowed if the value is changing from `false` to `true` and only for VNet-injected workspaces.
      * 
-     * &gt; **Note:** In `v3.104.0` and higher of the provider the `no_public_ip` parameter will now default to `true` instead of `false`.
+     * &gt; **Note:** In `v3.104.0` and higher of the provider the `noPublicIp` parameter will now default to `true` instead of `false`.
      * 
      */
     @Import(name="noPublicIp")
@@ -60,9 +60,9 @@ public final class WorkspaceCustomParametersArgs extends com.pulumi.resources.Re
     /**
      * @return Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `true`.
      * 
-     * &gt; **Note:** Updating `no_public_ip` parameter is only allowed if the value is changing from `false` to `true` and only for VNet-injected workspaces.
+     * &gt; **Note:** Updating `noPublicIp` parameter is only allowed if the value is changing from `false` to `true` and only for VNet-injected workspaces.
      * 
-     * &gt; **Note:** In `v3.104.0` and higher of the provider the `no_public_ip` parameter will now default to `true` instead of `false`.
+     * &gt; **Note:** In `v3.104.0` and higher of the provider the `noPublicIp` parameter will now default to `true` instead of `false`.
      * 
      */
     public Optional<Output<Boolean>> noPublicIp() {
@@ -70,14 +70,14 @@ public final class WorkspaceCustomParametersArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The name of the Private Subnet within the Virtual Network. Required if `virtual_network_id` is set. Changing this forces a new resource to be created.
+     * The name of the Private Subnet within the Virtual Network. Required if `virtualNetworkId` is set. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="privateSubnetName")
     private @Nullable Output<String> privateSubnetName;
 
     /**
-     * @return The name of the Private Subnet within the Virtual Network. Required if `virtual_network_id` is set. Changing this forces a new resource to be created.
+     * @return The name of the Private Subnet within the Virtual Network. Required if `virtualNetworkId` is set. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> privateSubnetName() {
@@ -85,14 +85,14 @@ public final class WorkspaceCustomParametersArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The resource ID of the `azure.network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `private_subnet_name` field. This is the same as the ID of the subnet referred to by the `private_subnet_name` field. Required if `virtual_network_id` is set.
+     * The resource ID of the `azure.network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `privateSubnetName` field. This is the same as the ID of the subnet referred to by the `privateSubnetName` field. Required if `virtualNetworkId` is set.
      * 
      */
     @Import(name="privateSubnetNetworkSecurityGroupAssociationId")
     private @Nullable Output<String> privateSubnetNetworkSecurityGroupAssociationId;
 
     /**
-     * @return The resource ID of the `azure.network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `private_subnet_name` field. This is the same as the ID of the subnet referred to by the `private_subnet_name` field. Required if `virtual_network_id` is set.
+     * @return The resource ID of the `azure.network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `privateSubnetName` field. This is the same as the ID of the subnet referred to by the `privateSubnetName` field. Required if `virtualNetworkId` is set.
      * 
      */
     public Optional<Output<String>> privateSubnetNetworkSecurityGroupAssociationId() {
@@ -115,14 +115,14 @@ public final class WorkspaceCustomParametersArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The name of the Public Subnet within the Virtual Network. Required if `virtual_network_id` is set. Changing this forces a new resource to be created.
+     * The name of the Public Subnet within the Virtual Network. Required if `virtualNetworkId` is set. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="publicSubnetName")
     private @Nullable Output<String> publicSubnetName;
 
     /**
-     * @return The name of the Public Subnet within the Virtual Network. Required if `virtual_network_id` is set. Changing this forces a new resource to be created.
+     * @return The name of the Public Subnet within the Virtual Network. Required if `virtualNetworkId` is set. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> publicSubnetName() {
@@ -130,14 +130,14 @@ public final class WorkspaceCustomParametersArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The resource ID of the `azure.network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `public_subnet_name` field. This is the same as the ID of the subnet referred to by the `public_subnet_name` field. Required if `virtual_network_id` is set.
+     * The resource ID of the `azure.network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `publicSubnetName` field. This is the same as the ID of the subnet referred to by the `publicSubnetName` field. Required if `virtualNetworkId` is set.
      * 
      */
     @Import(name="publicSubnetNetworkSecurityGroupAssociationId")
     private @Nullable Output<String> publicSubnetNetworkSecurityGroupAssociationId;
 
     /**
-     * @return The resource ID of the `azure.network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `public_subnet_name` field. This is the same as the ID of the subnet referred to by the `public_subnet_name` field. Required if `virtual_network_id` is set.
+     * @return The resource ID of the `azure.network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `publicSubnetName` field. This is the same as the ID of the subnet referred to by the `publicSubnetName` field. Required if `virtualNetworkId` is set.
      * 
      */
     public Optional<Output<String>> publicSubnetNetworkSecurityGroupAssociationId() {
@@ -192,7 +192,7 @@ public final class WorkspaceCustomParametersArgs extends com.pulumi.resources.Re
     /**
      * Address prefix for Managed virtual network. Defaults to `10.139`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Databricks requires that a network security group is associated with the `public` and `private` subnets when a `virtual_network_id` has been defined. Both `public` and `private` subnets must be delegated to `Microsoft.Databricks/workspaces`. For more information about subnet delegation see the [product documentation](https://docs.microsoft.com/azure/virtual-network/subnet-delegation-overview).
+     * &gt; **Note:** Databricks requires that a network security group is associated with the `public` and `private` subnets when a `virtualNetworkId` has been defined. Both `public` and `private` subnets must be delegated to `Microsoft.Databricks/workspaces`. For more information about subnet delegation see the [product documentation](https://docs.microsoft.com/azure/virtual-network/subnet-delegation-overview).
      * 
      */
     @Import(name="vnetAddressPrefix")
@@ -201,7 +201,7 @@ public final class WorkspaceCustomParametersArgs extends com.pulumi.resources.Re
     /**
      * @return Address prefix for Managed virtual network. Defaults to `10.139`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Databricks requires that a network security group is associated with the `public` and `private` subnets when a `virtual_network_id` has been defined. Both `public` and `private` subnets must be delegated to `Microsoft.Databricks/workspaces`. For more information about subnet delegation see the [product documentation](https://docs.microsoft.com/azure/virtual-network/subnet-delegation-overview).
+     * &gt; **Note:** Databricks requires that a network security group is associated with the `public` and `private` subnets when a `virtualNetworkId` has been defined. Both `public` and `private` subnets must be delegated to `Microsoft.Databricks/workspaces`. For more information about subnet delegation see the [product documentation](https://docs.microsoft.com/azure/virtual-network/subnet-delegation-overview).
      * 
      */
     public Optional<Output<String>> vnetAddressPrefix() {
@@ -288,9 +288,9 @@ public final class WorkspaceCustomParametersArgs extends com.pulumi.resources.Re
         /**
          * @param noPublicIp Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `true`.
          * 
-         * &gt; **Note:** Updating `no_public_ip` parameter is only allowed if the value is changing from `false` to `true` and only for VNet-injected workspaces.
+         * &gt; **Note:** Updating `noPublicIp` parameter is only allowed if the value is changing from `false` to `true` and only for VNet-injected workspaces.
          * 
-         * &gt; **Note:** In `v3.104.0` and higher of the provider the `no_public_ip` parameter will now default to `true` instead of `false`.
+         * &gt; **Note:** In `v3.104.0` and higher of the provider the `noPublicIp` parameter will now default to `true` instead of `false`.
          * 
          * @return builder
          * 
@@ -303,9 +303,9 @@ public final class WorkspaceCustomParametersArgs extends com.pulumi.resources.Re
         /**
          * @param noPublicIp Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `true`.
          * 
-         * &gt; **Note:** Updating `no_public_ip` parameter is only allowed if the value is changing from `false` to `true` and only for VNet-injected workspaces.
+         * &gt; **Note:** Updating `noPublicIp` parameter is only allowed if the value is changing from `false` to `true` and only for VNet-injected workspaces.
          * 
-         * &gt; **Note:** In `v3.104.0` and higher of the provider the `no_public_ip` parameter will now default to `true` instead of `false`.
+         * &gt; **Note:** In `v3.104.0` and higher of the provider the `noPublicIp` parameter will now default to `true` instead of `false`.
          * 
          * @return builder
          * 
@@ -315,7 +315,7 @@ public final class WorkspaceCustomParametersArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param privateSubnetName The name of the Private Subnet within the Virtual Network. Required if `virtual_network_id` is set. Changing this forces a new resource to be created.
+         * @param privateSubnetName The name of the Private Subnet within the Virtual Network. Required if `virtualNetworkId` is set. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -326,7 +326,7 @@ public final class WorkspaceCustomParametersArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param privateSubnetName The name of the Private Subnet within the Virtual Network. Required if `virtual_network_id` is set. Changing this forces a new resource to be created.
+         * @param privateSubnetName The name of the Private Subnet within the Virtual Network. Required if `virtualNetworkId` is set. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -336,7 +336,7 @@ public final class WorkspaceCustomParametersArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param privateSubnetNetworkSecurityGroupAssociationId The resource ID of the `azure.network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `private_subnet_name` field. This is the same as the ID of the subnet referred to by the `private_subnet_name` field. Required if `virtual_network_id` is set.
+         * @param privateSubnetNetworkSecurityGroupAssociationId The resource ID of the `azure.network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `privateSubnetName` field. This is the same as the ID of the subnet referred to by the `privateSubnetName` field. Required if `virtualNetworkId` is set.
          * 
          * @return builder
          * 
@@ -347,7 +347,7 @@ public final class WorkspaceCustomParametersArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param privateSubnetNetworkSecurityGroupAssociationId The resource ID of the `azure.network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `private_subnet_name` field. This is the same as the ID of the subnet referred to by the `private_subnet_name` field. Required if `virtual_network_id` is set.
+         * @param privateSubnetNetworkSecurityGroupAssociationId The resource ID of the `azure.network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `privateSubnetName` field. This is the same as the ID of the subnet referred to by the `privateSubnetName` field. Required if `virtualNetworkId` is set.
          * 
          * @return builder
          * 
@@ -378,7 +378,7 @@ public final class WorkspaceCustomParametersArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param publicSubnetName The name of the Public Subnet within the Virtual Network. Required if `virtual_network_id` is set. Changing this forces a new resource to be created.
+         * @param publicSubnetName The name of the Public Subnet within the Virtual Network. Required if `virtualNetworkId` is set. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -389,7 +389,7 @@ public final class WorkspaceCustomParametersArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param publicSubnetName The name of the Public Subnet within the Virtual Network. Required if `virtual_network_id` is set. Changing this forces a new resource to be created.
+         * @param publicSubnetName The name of the Public Subnet within the Virtual Network. Required if `virtualNetworkId` is set. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -399,7 +399,7 @@ public final class WorkspaceCustomParametersArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param publicSubnetNetworkSecurityGroupAssociationId The resource ID of the `azure.network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `public_subnet_name` field. This is the same as the ID of the subnet referred to by the `public_subnet_name` field. Required if `virtual_network_id` is set.
+         * @param publicSubnetNetworkSecurityGroupAssociationId The resource ID of the `azure.network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `publicSubnetName` field. This is the same as the ID of the subnet referred to by the `publicSubnetName` field. Required if `virtualNetworkId` is set.
          * 
          * @return builder
          * 
@@ -410,7 +410,7 @@ public final class WorkspaceCustomParametersArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param publicSubnetNetworkSecurityGroupAssociationId The resource ID of the `azure.network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `public_subnet_name` field. This is the same as the ID of the subnet referred to by the `public_subnet_name` field. Required if `virtual_network_id` is set.
+         * @param publicSubnetNetworkSecurityGroupAssociationId The resource ID of the `azure.network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `publicSubnetName` field. This is the same as the ID of the subnet referred to by the `publicSubnetName` field. Required if `virtualNetworkId` is set.
          * 
          * @return builder
          * 
@@ -485,7 +485,7 @@ public final class WorkspaceCustomParametersArgs extends com.pulumi.resources.Re
         /**
          * @param vnetAddressPrefix Address prefix for Managed virtual network. Defaults to `10.139`. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** Databricks requires that a network security group is associated with the `public` and `private` subnets when a `virtual_network_id` has been defined. Both `public` and `private` subnets must be delegated to `Microsoft.Databricks/workspaces`. For more information about subnet delegation see the [product documentation](https://docs.microsoft.com/azure/virtual-network/subnet-delegation-overview).
+         * &gt; **Note:** Databricks requires that a network security group is associated with the `public` and `private` subnets when a `virtualNetworkId` has been defined. Both `public` and `private` subnets must be delegated to `Microsoft.Databricks/workspaces`. For more information about subnet delegation see the [product documentation](https://docs.microsoft.com/azure/virtual-network/subnet-delegation-overview).
          * 
          * @return builder
          * 
@@ -498,7 +498,7 @@ public final class WorkspaceCustomParametersArgs extends com.pulumi.resources.Re
         /**
          * @param vnetAddressPrefix Address prefix for Managed virtual network. Defaults to `10.139`. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** Databricks requires that a network security group is associated with the `public` and `private` subnets when a `virtual_network_id` has been defined. Both `public` and `private` subnets must be delegated to `Microsoft.Databricks/workspaces`. For more information about subnet delegation see the [product documentation](https://docs.microsoft.com/azure/virtual-network/subnet-delegation-overview).
+         * &gt; **Note:** Databricks requires that a network security group is associated with the `public` and `private` subnets when a `virtualNetworkId` has been defined. Both `public` and `private` subnets must be delegated to `Microsoft.Databricks/workspaces`. For more information about subnet delegation see the [product documentation](https://docs.microsoft.com/azure/virtual-network/subnet-delegation-overview).
          * 
          * @return builder
          * 

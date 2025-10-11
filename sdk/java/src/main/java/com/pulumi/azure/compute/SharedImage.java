@@ -135,7 +135,7 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
     /**
      * Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
+     * &gt; **Note:** Only one of `trustedLaunchSupported`, `trustedLaunchEnabled`, `confidentialVmSupported` and `confidentialVmEnabled` can be specified.
      * 
      */
     @Export(name="confidentialVmEnabled", refs={Boolean.class}, tree="[0]")
@@ -144,7 +144,7 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
+     * &gt; **Note:** Only one of `trustedLaunchSupported`, `trustedLaunchEnabled`, `confidentialVmSupported` and `confidentialVmEnabled` can be specified.
      * 
      */
     public Output<Optional<Boolean>> confidentialVmEnabled() {
@@ -403,14 +403,14 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.privacyStatementUri);
     }
     /**
-     * A `purchase_plan` block as defined below.
+     * A `purchasePlan` block as defined below.
      * 
      */
     @Export(name="purchasePlan", refs={SharedImagePurchasePlan.class}, tree="[0]")
     private Output</* @Nullable */ SharedImagePurchasePlan> purchasePlan;
 
     /**
-     * @return A `purchase_plan` block as defined below.
+     * @return A `purchasePlan` block as defined below.
      * 
      */
     public Output<Optional<SharedImagePurchasePlan>> purchasePlan() {

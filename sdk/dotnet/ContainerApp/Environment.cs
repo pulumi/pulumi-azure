@@ -94,7 +94,7 @@ namespace Pulumi.Azure.ContainerApp
         public Output<string> DockerBridgeCidr { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.EnvironmentIdentity?> Identity { get; private set; } = null!;
@@ -102,7 +102,7 @@ namespace Pulumi.Azure.ContainerApp
         /// <summary>
         /// Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** Only valid if a `workload_profile` is specified. If `infrastructure_subnet_id` is specified, this resource group will be created in the same subscription as `infrastructure_subnet_id`.
+        /// &gt; **Note:** Only valid if a `WorkloadProfile` is specified. If `InfrastructureSubnetId` is specified, this resource group will be created in the same subscription as `InfrastructureSubnetId`.
         /// </summary>
         [Output("infrastructureResourceGroupName")]
         public Output<string?> InfrastructureResourceGroupName { get; private set; } = null!;
@@ -116,9 +116,9 @@ namespace Pulumi.Azure.ContainerApp
         public Output<string?> InfrastructureSubnetId { get; private set; } = null!;
 
         /// <summary>
-        /// Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
+        /// Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `False`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
+        /// &gt; **Note:** can only be set to `True` if `InfrastructureSubnetId` is specified.
         /// </summary>
         [Output("internalLoadBalancerEnabled")]
         public Output<bool?> InternalLoadBalancerEnabled { get; private set; } = null!;
@@ -132,7 +132,7 @@ namespace Pulumi.Azure.ContainerApp
         /// <summary>
         /// The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. 
         /// 
-        /// &gt; **Note:** required if `logs_destination` is set to `log-analytics`. Cannot be set if `logs_destination` is set to `azure-monitor`.
+        /// &gt; **Note:** required if `LogsDestination` is set to `log-analytics`. Cannot be set if `LogsDestination` is set to `azure-monitor`.
         /// </summary>
         [Output("logAnalyticsWorkspaceId")]
         public Output<string?> LogAnalyticsWorkspaceId { get; private set; } = null!;
@@ -144,7 +144,7 @@ namespace Pulumi.Azure.ContainerApp
         public Output<string> LogsDestination { get; private set; } = null!;
 
         /// <summary>
-        /// Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
+        /// Should mutual transport layer security (mTLS) be enabled? Defaults to `False`.
         /// 
         /// &gt; **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
         /// </summary>
@@ -164,7 +164,7 @@ namespace Pulumi.Azure.ContainerApp
         public Output<string> PlatformReservedCidr { get; private set; } = null!;
 
         /// <summary>
-        /// The IP address from the IP range defined by `platform_reserved_cidr` that is reserved for the internal DNS server.
+        /// The IP address from the IP range defined by `PlatformReservedCidr` that is reserved for the internal DNS server.
         /// </summary>
         [Output("platformReservedDnsIpAddress")]
         public Output<string> PlatformReservedDnsIpAddress { get; private set; } = null!;
@@ -188,15 +188,15 @@ namespace Pulumi.Azure.ContainerApp
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `workload_profile` blocks as defined below.
+        /// One or more `WorkloadProfile` blocks as defined below.
         /// </summary>
         [Output("workloadProfiles")]
         public Output<ImmutableArray<Outputs.EnvironmentWorkloadProfile>> WorkloadProfiles { get; private set; } = null!;
 
         /// <summary>
-        /// Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
+        /// Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `False`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
+        /// &gt; **Note:** can only be set to `True` if `InfrastructureSubnetId` is specified.
         /// </summary>
         [Output("zoneRedundancyEnabled")]
         public Output<bool?> ZoneRedundancyEnabled { get; private set; } = null!;
@@ -268,7 +268,7 @@ namespace Pulumi.Azure.ContainerApp
         }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.EnvironmentIdentityArgs>? Identity { get; set; }
@@ -276,7 +276,7 @@ namespace Pulumi.Azure.ContainerApp
         /// <summary>
         /// Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** Only valid if a `workload_profile` is specified. If `infrastructure_subnet_id` is specified, this resource group will be created in the same subscription as `infrastructure_subnet_id`.
+        /// &gt; **Note:** Only valid if a `WorkloadProfile` is specified. If `InfrastructureSubnetId` is specified, this resource group will be created in the same subscription as `InfrastructureSubnetId`.
         /// </summary>
         [Input("infrastructureResourceGroupName")]
         public Input<string>? InfrastructureResourceGroupName { get; set; }
@@ -290,9 +290,9 @@ namespace Pulumi.Azure.ContainerApp
         public Input<string>? InfrastructureSubnetId { get; set; }
 
         /// <summary>
-        /// Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
+        /// Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `False`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
+        /// &gt; **Note:** can only be set to `True` if `InfrastructureSubnetId` is specified.
         /// </summary>
         [Input("internalLoadBalancerEnabled")]
         public Input<bool>? InternalLoadBalancerEnabled { get; set; }
@@ -306,7 +306,7 @@ namespace Pulumi.Azure.ContainerApp
         /// <summary>
         /// The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. 
         /// 
-        /// &gt; **Note:** required if `logs_destination` is set to `log-analytics`. Cannot be set if `logs_destination` is set to `azure-monitor`.
+        /// &gt; **Note:** required if `LogsDestination` is set to `log-analytics`. Cannot be set if `LogsDestination` is set to `azure-monitor`.
         /// </summary>
         [Input("logAnalyticsWorkspaceId")]
         public Input<string>? LogAnalyticsWorkspaceId { get; set; }
@@ -318,7 +318,7 @@ namespace Pulumi.Azure.ContainerApp
         public Input<string>? LogsDestination { get; set; }
 
         /// <summary>
-        /// Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
+        /// Should mutual transport layer security (mTLS) be enabled? Defaults to `False`.
         /// 
         /// &gt; **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
         /// </summary>
@@ -353,7 +353,7 @@ namespace Pulumi.Azure.ContainerApp
         private InputList<Inputs.EnvironmentWorkloadProfileArgs>? _workloadProfiles;
 
         /// <summary>
-        /// One or more `workload_profile` blocks as defined below.
+        /// One or more `WorkloadProfile` blocks as defined below.
         /// </summary>
         public InputList<Inputs.EnvironmentWorkloadProfileArgs> WorkloadProfiles
         {
@@ -362,9 +362,9 @@ namespace Pulumi.Azure.ContainerApp
         }
 
         /// <summary>
-        /// Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
+        /// Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `False`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
+        /// &gt; **Note:** can only be set to `True` if `InfrastructureSubnetId` is specified.
         /// </summary>
         [Input("zoneRedundancyEnabled")]
         public Input<bool>? ZoneRedundancyEnabled { get; set; }
@@ -412,7 +412,7 @@ namespace Pulumi.Azure.ContainerApp
         public Input<string>? DockerBridgeCidr { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.EnvironmentIdentityGetArgs>? Identity { get; set; }
@@ -420,7 +420,7 @@ namespace Pulumi.Azure.ContainerApp
         /// <summary>
         /// Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** Only valid if a `workload_profile` is specified. If `infrastructure_subnet_id` is specified, this resource group will be created in the same subscription as `infrastructure_subnet_id`.
+        /// &gt; **Note:** Only valid if a `WorkloadProfile` is specified. If `InfrastructureSubnetId` is specified, this resource group will be created in the same subscription as `InfrastructureSubnetId`.
         /// </summary>
         [Input("infrastructureResourceGroupName")]
         public Input<string>? InfrastructureResourceGroupName { get; set; }
@@ -434,9 +434,9 @@ namespace Pulumi.Azure.ContainerApp
         public Input<string>? InfrastructureSubnetId { get; set; }
 
         /// <summary>
-        /// Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
+        /// Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `False`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
+        /// &gt; **Note:** can only be set to `True` if `InfrastructureSubnetId` is specified.
         /// </summary>
         [Input("internalLoadBalancerEnabled")]
         public Input<bool>? InternalLoadBalancerEnabled { get; set; }
@@ -450,7 +450,7 @@ namespace Pulumi.Azure.ContainerApp
         /// <summary>
         /// The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. 
         /// 
-        /// &gt; **Note:** required if `logs_destination` is set to `log-analytics`. Cannot be set if `logs_destination` is set to `azure-monitor`.
+        /// &gt; **Note:** required if `LogsDestination` is set to `log-analytics`. Cannot be set if `LogsDestination` is set to `azure-monitor`.
         /// </summary>
         [Input("logAnalyticsWorkspaceId")]
         public Input<string>? LogAnalyticsWorkspaceId { get; set; }
@@ -462,7 +462,7 @@ namespace Pulumi.Azure.ContainerApp
         public Input<string>? LogsDestination { get; set; }
 
         /// <summary>
-        /// Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
+        /// Should mutual transport layer security (mTLS) be enabled? Defaults to `False`.
         /// 
         /// &gt; **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
         /// </summary>
@@ -482,7 +482,7 @@ namespace Pulumi.Azure.ContainerApp
         public Input<string>? PlatformReservedCidr { get; set; }
 
         /// <summary>
-        /// The IP address from the IP range defined by `platform_reserved_cidr` that is reserved for the internal DNS server.
+        /// The IP address from the IP range defined by `PlatformReservedCidr` that is reserved for the internal DNS server.
         /// </summary>
         [Input("platformReservedDnsIpAddress")]
         public Input<string>? PlatformReservedDnsIpAddress { get; set; }
@@ -515,7 +515,7 @@ namespace Pulumi.Azure.ContainerApp
         private InputList<Inputs.EnvironmentWorkloadProfileGetArgs>? _workloadProfiles;
 
         /// <summary>
-        /// One or more `workload_profile` blocks as defined below.
+        /// One or more `WorkloadProfile` blocks as defined below.
         /// </summary>
         public InputList<Inputs.EnvironmentWorkloadProfileGetArgs> WorkloadProfiles
         {
@@ -524,9 +524,9 @@ namespace Pulumi.Azure.ContainerApp
         }
 
         /// <summary>
-        /// Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
+        /// Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `False`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
+        /// &gt; **Note:** can only be set to `True` if `InfrastructureSubnetId` is specified.
         /// </summary>
         [Input("zoneRedundancyEnabled")]
         public Input<bool>? ZoneRedundancyEnabled { get; set; }

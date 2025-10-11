@@ -26,12 +26,12 @@ public final class GetNetworkServicePccRule {
      */
     private Integer precedence;
     /**
-     * @return A `rule_qos_policy` block as defined below. The QoS policy to use for packets matching this rule.
+     * @return A `ruleQosPolicy` block as defined below. The QoS policy to use for packets matching this rule.
      * 
      */
     private List<GetNetworkServicePccRuleQosPolicy> qosPolicies;
     /**
-     * @return A `service_data_flow_template` block as defined below. The set of service data flow templates to use for this PCC rule.
+     * @return A `serviceDataFlowTemplate` block as defined below. The set of service data flow templates to use for this PCC rule.
      * 
      */
     private List<GetNetworkServicePccRuleServiceDataFlowTemplate> serviceDataFlowTemplates;
@@ -57,14 +57,14 @@ public final class GetNetworkServicePccRule {
         return this.precedence;
     }
     /**
-     * @return A `rule_qos_policy` block as defined below. The QoS policy to use for packets matching this rule.
+     * @return A `ruleQosPolicy` block as defined below. The QoS policy to use for packets matching this rule.
      * 
      */
     public List<GetNetworkServicePccRuleQosPolicy> qosPolicies() {
         return this.qosPolicies;
     }
     /**
-     * @return A `service_data_flow_template` block as defined below. The set of service data flow templates to use for this PCC rule.
+     * @return A `serviceDataFlowTemplate` block as defined below. The set of service data flow templates to use for this PCC rule.
      * 
      */
     public List<GetNetworkServicePccRuleServiceDataFlowTemplate> serviceDataFlowTemplates() {

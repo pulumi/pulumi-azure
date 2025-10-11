@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class LinuxVirtualMachineScaleSetSecret
     {
         /// <summary>
-        /// One or more `certificate` blocks as defined above.
+        /// One or more `Certificate` blocks as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.LinuxVirtualMachineScaleSetSecretCertificate> Certificates;
         /// <summary>

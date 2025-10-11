@@ -138,14 +138,14 @@ public final class OutputEventHubState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The shared access policy key for the specified shared access policy. Required when `authentication_mode` is set to `ConnectionString`.
+     * The shared access policy key for the specified shared access policy. Required when `authenticationMode` is set to `ConnectionString`.
      * 
      */
     @Import(name="sharedAccessPolicyKey")
     private @Nullable Output<String> sharedAccessPolicyKey;
 
     /**
-     * @return The shared access policy key for the specified shared access policy. Required when `authentication_mode` is set to `ConnectionString`.
+     * @return The shared access policy key for the specified shared access policy. Required when `authenticationMode` is set to `ConnectionString`.
      * 
      */
     public Optional<Output<String>> sharedAccessPolicyKey() {
@@ -153,14 +153,14 @@ public final class OutputEventHubState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required when `authentication_mode` is set to `ConnectionString`.
+     * The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required when `authenticationMode` is set to `ConnectionString`.
      * 
      */
     @Import(name="sharedAccessPolicyName")
     private @Nullable Output<String> sharedAccessPolicyName;
 
     /**
-     * @return The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required when `authentication_mode` is set to `ConnectionString`.
+     * @return The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required when `authenticationMode` is set to `ConnectionString`.
      * 
      */
     public Optional<Output<String>> sharedAccessPolicyName() {
@@ -395,7 +395,7 @@ public final class OutputEventHubState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param sharedAccessPolicyKey The shared access policy key for the specified shared access policy. Required when `authentication_mode` is set to `ConnectionString`.
+         * @param sharedAccessPolicyKey The shared access policy key for the specified shared access policy. Required when `authenticationMode` is set to `ConnectionString`.
          * 
          * @return builder
          * 
@@ -406,7 +406,7 @@ public final class OutputEventHubState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param sharedAccessPolicyKey The shared access policy key for the specified shared access policy. Required when `authentication_mode` is set to `ConnectionString`.
+         * @param sharedAccessPolicyKey The shared access policy key for the specified shared access policy. Required when `authenticationMode` is set to `ConnectionString`.
          * 
          * @return builder
          * 
@@ -416,7 +416,7 @@ public final class OutputEventHubState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param sharedAccessPolicyName The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required when `authentication_mode` is set to `ConnectionString`.
+         * @param sharedAccessPolicyName The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required when `authenticationMode` is set to `ConnectionString`.
          * 
          * @return builder
          * 
@@ -427,7 +427,7 @@ public final class OutputEventHubState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param sharedAccessPolicyName The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required when `authentication_mode` is set to `ConnectionString`.
+         * @param sharedAccessPolicyName The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required when `authenticationMode` is set to `ConnectionString`.
          * 
          * @return builder
          * 

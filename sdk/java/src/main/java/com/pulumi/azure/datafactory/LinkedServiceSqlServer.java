@@ -187,14 +187,14 @@ public class LinkedServiceSqlServer extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.annotations);
     }
     /**
-     * The connection string in which to authenticate with the SQL Server. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
+     * The connection string in which to authenticate with the SQL Server. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
      * 
      */
     @Export(name="connectionString", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> connectionString;
 
     /**
-     * @return The connection string in which to authenticate with the SQL Server. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
+     * @return The connection string in which to authenticate with the SQL Server. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
      * 
      */
     public Output<Optional<String>> connectionString() {
@@ -243,28 +243,28 @@ public class LinkedServiceSqlServer extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.integrationRuntimeName);
     }
     /**
-     * A `key_vault_connection_string` block as defined below. Use this argument to store SQL Server connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
+     * A `keyVaultConnectionString` block as defined below. Use this argument to store SQL Server connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
      * 
      */
     @Export(name="keyVaultConnectionString", refs={LinkedServiceSqlServerKeyVaultConnectionString.class}, tree="[0]")
     private Output</* @Nullable */ LinkedServiceSqlServerKeyVaultConnectionString> keyVaultConnectionString;
 
     /**
-     * @return A `key_vault_connection_string` block as defined below. Use this argument to store SQL Server connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
+     * @return A `keyVaultConnectionString` block as defined below. Use this argument to store SQL Server connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
      * 
      */
     public Output<Optional<LinkedServiceSqlServerKeyVaultConnectionString>> keyVaultConnectionString() {
         return Codegen.optional(this.keyVaultConnectionString);
     }
     /**
-     * A `key_vault_password` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+     * A `keyVaultPassword` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
      * 
      */
     @Export(name="keyVaultPassword", refs={LinkedServiceSqlServerKeyVaultPassword.class}, tree="[0]")
     private Output</* @Nullable */ LinkedServiceSqlServerKeyVaultPassword> keyVaultPassword;
 
     /**
-     * @return A `key_vault_password` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+     * @return A `keyVaultPassword` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
      * 
      */
     public Output<Optional<LinkedServiceSqlServerKeyVaultPassword>> keyVaultPassword() {

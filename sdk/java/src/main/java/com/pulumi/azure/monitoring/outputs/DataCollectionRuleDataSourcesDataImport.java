@@ -12,14 +12,14 @@ import java.util.Objects;
 @CustomType
 public final class DataCollectionRuleDataSourcesDataImport {
     /**
-     * @return An `event_hub_data_source` block as defined below.
+     * @return An `eventHubDataSource` block as defined below.
      * 
      */
     private List<DataCollectionRuleDataSourcesDataImportEventHubDataSource> eventHubDataSources;
 
     private DataCollectionRuleDataSourcesDataImport() {}
     /**
-     * @return An `event_hub_data_source` block as defined below.
+     * @return An `eventHubDataSource` block as defined below.
      * 
      */
     public List<DataCollectionRuleDataSourcesDataImportEventHubDataSource> eventHubDataSources() {

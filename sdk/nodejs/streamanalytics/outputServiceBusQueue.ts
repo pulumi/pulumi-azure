@@ -9,6 +9,15 @@ import * as utilities from "../utilities";
 /**
  * Manages a Stream Analytics Output to a ServiceBus Queue.
  *
+ * ## Example Usage
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.StreamAnalytics` - 2021-10-01-preview
+ *
  * ## Import
  *
  * Stream Analytics Output ServiceBus Queue's can be imported using the `resource id`, e.g.

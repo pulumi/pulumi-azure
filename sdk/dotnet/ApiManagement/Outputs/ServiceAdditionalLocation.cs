@@ -44,7 +44,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// </summary>
         public readonly ImmutableArray<string> PublicIpAddresses;
         /// <summary>
-        /// A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
+        /// A `VirtualNetworkConfiguration` block as defined below. Required when `VirtualNetworkType` is `External` or `Internal`.
         /// </summary>
         public readonly Outputs.ServiceAdditionalLocationVirtualNetworkConfiguration? VirtualNetworkConfiguration;
         /// <summary>

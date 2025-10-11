@@ -64,14 +64,14 @@ public final class LinkedServiceState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A `integration_runtime` block as defined below.
+     * A `integrationRuntime` block as defined below.
      * 
      */
     @Import(name="integrationRuntime")
     private @Nullable Output<LinkedServiceIntegrationRuntimeArgs> integrationRuntime;
 
     /**
-     * @return A `integration_runtime` block as defined below.
+     * @return A `integrationRuntime` block as defined below.
      * 
      */
     public Optional<Output<LinkedServiceIntegrationRuntimeArgs>> integrationRuntime() {
@@ -275,7 +275,7 @@ public final class LinkedServiceState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param integrationRuntime A `integration_runtime` block as defined below.
+         * @param integrationRuntime A `integrationRuntime` block as defined below.
          * 
          * @return builder
          * 
@@ -286,7 +286,7 @@ public final class LinkedServiceState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param integrationRuntime A `integration_runtime` block as defined below.
+         * @param integrationRuntime A `integrationRuntime` block as defined below.
          * 
          * @return builder
          * 

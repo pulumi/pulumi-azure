@@ -18,14 +18,14 @@ public final class SingleNodeVirtualInstanceSingleServerConfigurationVirtualMach
     public static final SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesArgs Empty = new SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesArgs();
 
     /**
-     * (Optional) One or more `data_disk` blocks as defined below. Changing this forces a new resource to be created.
+     * (Optional) One or more `dataDisk` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="dataDisks")
     private @Nullable Output<List<SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesDataDiskArgs>> dataDisks;
 
     /**
-     * @return (Optional) One or more `data_disk` blocks as defined below. Changing this forces a new resource to be created.
+     * @return (Optional) One or more `dataDisk` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesDataDiskArgs>>> dataDisks() {
@@ -121,7 +121,7 @@ public final class SingleNodeVirtualInstanceSingleServerConfigurationVirtualMach
         }
 
         /**
-         * @param dataDisks (Optional) One or more `data_disk` blocks as defined below. Changing this forces a new resource to be created.
+         * @param dataDisks (Optional) One or more `dataDisk` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class SingleNodeVirtualInstanceSingleServerConfigurationVirtualMach
         }
 
         /**
-         * @param dataDisks (Optional) One or more `data_disk` blocks as defined below. Changing this forces a new resource to be created.
+         * @param dataDisks (Optional) One or more `dataDisk` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class SingleNodeVirtualInstanceSingleServerConfigurationVirtualMach
         }
 
         /**
-         * @param dataDisks (Optional) One or more `data_disk` blocks as defined below. Changing this forces a new resource to be created.
+         * @param dataDisks (Optional) One or more `dataDisk` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

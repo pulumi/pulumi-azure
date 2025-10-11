@@ -174,7 +174,7 @@ namespace Pulumi.Azure.Maintenance
         /// </summary>
         public readonly string InGuestUserPatchMode;
         /// <summary>
-        /// An `install_patches` block as defined below.
+        /// An `InstallPatches` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetConfigurationInstallPatchResult> InstallPatches;
         /// <summary>
@@ -200,7 +200,7 @@ namespace Pulumi.Azure.Maintenance
         /// </summary>
         public readonly string Visibility;
         /// <summary>
-        /// A `window` block as defined below.
+        /// A `Window` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetConfigurationWindowResult> Windows;
 

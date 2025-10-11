@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
     public sealed class BackendCredentials
     {
         /// <summary>
-        /// An `authorization` block as defined below.
+        /// An `Authorization` block as defined below.
         /// </summary>
         public readonly Outputs.BackendCredentialsAuthorization? Authorization;
         /// <summary>

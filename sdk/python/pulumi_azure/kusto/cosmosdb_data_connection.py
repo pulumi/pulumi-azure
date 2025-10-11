@@ -302,6 +302,15 @@ class CosmosdbDataConnection(pulumi.CustomResource):
         """
         Manages a Kusto / Cosmos Database Data Connection.
 
+        ## Example Usage
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Kusto` - 2024-04-13
+
         ## Import
 
         Kusto / Cosmos Database Data Connection can be imported using the `resource id`, e.g.
@@ -329,6 +338,15 @@ class CosmosdbDataConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Kusto / Cosmos Database Data Connection.
+
+        ## Example Usage
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Kusto` - 2024-04-13
 
         ## Import
 

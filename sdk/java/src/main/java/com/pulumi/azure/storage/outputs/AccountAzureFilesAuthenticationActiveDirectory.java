@@ -23,22 +23,22 @@ public final class AccountAzureFilesAuthenticationActiveDirectory {
      */
     private String domainName;
     /**
-     * @return Specifies the security identifier (SID). This is required when `directory_type` is set to `AD`.
+     * @return Specifies the security identifier (SID). This is required when `directoryType` is set to `AD`.
      * 
      */
     private @Nullable String domainSid;
     /**
-     * @return Specifies the Active Directory forest. This is required when `directory_type` is set to `AD`.
+     * @return Specifies the Active Directory forest. This is required when `directoryType` is set to `AD`.
      * 
      */
     private @Nullable String forestName;
     /**
-     * @return Specifies the NetBIOS domain name. This is required when `directory_type` is set to `AD`.
+     * @return Specifies the NetBIOS domain name. This is required when `directoryType` is set to `AD`.
      * 
      */
     private @Nullable String netbiosDomainName;
     /**
-     * @return Specifies the security identifier (SID) for Azure Storage. This is required when `directory_type` is set to `AD`.
+     * @return Specifies the security identifier (SID) for Azure Storage. This is required when `directoryType` is set to `AD`.
      * 
      */
     private @Nullable String storageSid;
@@ -59,28 +59,28 @@ public final class AccountAzureFilesAuthenticationActiveDirectory {
         return this.domainName;
     }
     /**
-     * @return Specifies the security identifier (SID). This is required when `directory_type` is set to `AD`.
+     * @return Specifies the security identifier (SID). This is required when `directoryType` is set to `AD`.
      * 
      */
     public Optional<String> domainSid() {
         return Optional.ofNullable(this.domainSid);
     }
     /**
-     * @return Specifies the Active Directory forest. This is required when `directory_type` is set to `AD`.
+     * @return Specifies the Active Directory forest. This is required when `directoryType` is set to `AD`.
      * 
      */
     public Optional<String> forestName() {
         return Optional.ofNullable(this.forestName);
     }
     /**
-     * @return Specifies the NetBIOS domain name. This is required when `directory_type` is set to `AD`.
+     * @return Specifies the NetBIOS domain name. This is required when `directoryType` is set to `AD`.
      * 
      */
     public Optional<String> netbiosDomainName() {
         return Optional.ofNullable(this.netbiosDomainName);
     }
     /**
-     * @return Specifies the security identifier (SID) for Azure Storage. This is required when `directory_type` is set to `AD`.
+     * @return Specifies the security identifier (SID) for Azure Storage. This is required when `directoryType` is set to `AD`.
      * 
      */
     public Optional<String> storageSid() {

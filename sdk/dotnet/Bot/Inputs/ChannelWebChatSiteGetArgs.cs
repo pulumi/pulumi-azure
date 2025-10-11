@@ -25,13 +25,13 @@ namespace Pulumi.Azure.Bot.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Is the storage site enabled for detailed logging? Defaults to `true`.
+        /// Is the storage site enabled for detailed logging? Defaults to `True`.
         /// </summary>
         [Input("storageEnabled")]
         public Input<bool>? StorageEnabled { get; set; }
 
         /// <summary>
-        /// Is the user upload enabled for this site? Defaults to `true`.
+        /// Is the user upload enabled for this site? Defaults to `True`.
         /// </summary>
         [Input("userUploadEnabled")]
         public Input<bool>? UserUploadEnabled { get; set; }

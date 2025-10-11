@@ -238,7 +238,7 @@ namespace Pulumi.Azure.Storage
         private string? _connectionString;
 
         /// <summary>
-        /// The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of an `azure.storage.Account` resource.
+        /// The connection string for the storage account to which this SAS applies. Typically directly from the `PrimaryConnectionString` attribute of an `azure.storage.Account` resource.
         /// </summary>
         public string? ConnectionString
         {
@@ -285,7 +285,7 @@ namespace Pulumi.Azure.Storage
         public string Expiry { get; set; } = null!;
 
         /// <summary>
-        /// Only permit `https` access. If `false`, both `http` and `https` are permitted. Defaults to `true`.
+        /// Only permit `Https` access. If `False`, both `Http` and `Https` are permitted. Defaults to `True`.
         /// </summary>
         [Input("httpsOnly")]
         public bool? HttpsOnly { get; set; }
@@ -297,7 +297,7 @@ namespace Pulumi.Azure.Storage
         public string? IpAddress { get; set; }
 
         /// <summary>
-        /// A `permissions` block as defined below.
+        /// A `Permissions` block as defined below.
         /// </summary>
         [Input("permissions", required: true)]
         public Inputs.GetAccountBlobContainerSASPermissionsArgs Permissions { get; set; } = null!;
@@ -326,7 +326,7 @@ namespace Pulumi.Azure.Storage
         private Input<string>? _connectionString;
 
         /// <summary>
-        /// The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of an `azure.storage.Account` resource.
+        /// The connection string for the storage account to which this SAS applies. Typically directly from the `PrimaryConnectionString` attribute of an `azure.storage.Account` resource.
         /// </summary>
         public Input<string>? ConnectionString
         {
@@ -377,7 +377,7 @@ namespace Pulumi.Azure.Storage
         public Input<string> Expiry { get; set; } = null!;
 
         /// <summary>
-        /// Only permit `https` access. If `false`, both `http` and `https` are permitted. Defaults to `true`.
+        /// Only permit `Https` access. If `False`, both `Http` and `Https` are permitted. Defaults to `True`.
         /// </summary>
         [Input("httpsOnly")]
         public Input<bool>? HttpsOnly { get; set; }
@@ -389,7 +389,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? IpAddress { get; set; }
 
         /// <summary>
-        /// A `permissions` block as defined below.
+        /// A `Permissions` block as defined below.
         /// </summary>
         [Input("permissions", required: true)]
         public Input<Inputs.GetAccountBlobContainerSASPermissionsInputArgs> Permissions { get; set; } = null!;
@@ -426,7 +426,7 @@ namespace Pulumi.Azure.Storage
         public readonly string? IpAddress;
         public readonly Outputs.GetAccountBlobContainerSASPermissionsResult Permissions;
         /// <summary>
-        /// The computed Blob Container Shared Access Signature (SAS). The delimiter character ('?') for the query string is the prefix of `sas`.
+        /// The computed Blob Container Shared Access Signature (SAS). The delimiter character ('?') for the query string is the prefix of `Sas`.
         /// </summary>
         public readonly string Sas;
         public readonly string Start;

@@ -98,7 +98,7 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableArray<Outputs.VpnServerConfigurationClientRootCertificate>> ClientRootCertificates { get; private set; } = null!;
 
         /// <summary>
-        /// A `ipsec_policy` block as defined below.
+        /// A `IpsecPolicy` block as defined below.
         /// </summary>
         [Output("ipsecPolicy")]
         public Output<Outputs.VpnServerConfigurationIpsecPolicy?> IpsecPolicy { get; private set; } = null!;
@@ -213,7 +213,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// A `ipsec_policy` block as defined below.
+        /// A `IpsecPolicy` block as defined below.
         /// </summary>
         [Input("ipsecPolicy")]
         public Input<Inputs.VpnServerConfigurationIpsecPolicyArgs>? IpsecPolicy { get; set; }
@@ -308,7 +308,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// A `ipsec_policy` block as defined below.
+        /// A `IpsecPolicy` block as defined below.
         /// </summary>
         [Input("ipsecPolicy")]
         public Input<Inputs.VpnServerConfigurationIpsecPolicyGetArgs>? IpsecPolicy { get; set; }

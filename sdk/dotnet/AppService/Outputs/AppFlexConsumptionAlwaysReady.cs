@@ -14,11 +14,11 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class AppFlexConsumptionAlwaysReady
     {
         /// <summary>
-        /// The instance count of the `always_ready` of the  Function App. The minimum number is `0`. The total number of `instance_count` should not exceed the `maximum_instance_count`.
+        /// The instance count of the `AlwaysReady` of the  Function App. The minimum number is `0`. The total number of `InstanceCount` should not exceed the `MaximumInstanceCount`.
         /// </summary>
         public readonly int? InstanceCount;
         /// <summary>
-        /// The name of the `always_ready` of the Function App.
+        /// The name of the `AlwaysReady` of the Function App.
         /// </summary>
         public readonly string Name;
 

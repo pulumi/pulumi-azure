@@ -49,7 +49,7 @@ public final class HubEncryptionArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The user assigned identity ID that has access to the encryption key.
      * 
-     * &gt; **Note:** `user_assigned_identity_id` must be set when`identity.type` is `UserAssigned` in order for the service to find the assigned permissions.
+     * &gt; **Note:** `userAssignedIdentityId` must be set when`identity.type` is `UserAssigned` in order for the service to find the assigned permissions.
      * 
      */
     @Import(name="userAssignedIdentityId")
@@ -58,7 +58,7 @@ public final class HubEncryptionArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The user assigned identity ID that has access to the encryption key.
      * 
-     * &gt; **Note:** `user_assigned_identity_id` must be set when`identity.type` is `UserAssigned` in order for the service to find the assigned permissions.
+     * &gt; **Note:** `userAssignedIdentityId` must be set when`identity.type` is `UserAssigned` in order for the service to find the assigned permissions.
      * 
      */
     public Optional<Output<String>> userAssignedIdentityId() {
@@ -136,7 +136,7 @@ public final class HubEncryptionArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param userAssignedIdentityId The user assigned identity ID that has access to the encryption key.
          * 
-         * &gt; **Note:** `user_assigned_identity_id` must be set when`identity.type` is `UserAssigned` in order for the service to find the assigned permissions.
+         * &gt; **Note:** `userAssignedIdentityId` must be set when`identity.type` is `UserAssigned` in order for the service to find the assigned permissions.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class HubEncryptionArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param userAssignedIdentityId The user assigned identity ID that has access to the encryption key.
          * 
-         * &gt; **Note:** `user_assigned_identity_id` must be set when`identity.type` is `UserAssigned` in order for the service to find the assigned permissions.
+         * &gt; **Note:** `userAssignedIdentityId` must be set when`identity.type` is `UserAssigned` in order for the service to find the assigned permissions.
          * 
          * @return builder
          * 

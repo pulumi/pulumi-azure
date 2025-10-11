@@ -26,13 +26,13 @@ namespace Pulumi.Azure.Policy.Outputs
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// Specifies the display name of the Policy Set Definition. Conflicts with `name`.
+        /// Specifies the display name of the Policy Set Definition. Conflicts with `Name`.
         /// 
-        /// **NOTE** As `display_name` is not unique errors may occur when there are multiple policy set definitions with same display name.
+        /// **NOTE** As `DisplayName` is not unique errors may occur when there are multiple policy set definitions with same display name.
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
-        /// Specifies the name of the Policy Set Definition. Conflicts with `display_name`.
+        /// Specifies the name of the Policy Set Definition. Conflicts with `DisplayName`.
         /// </summary>
         public readonly string Name;
 

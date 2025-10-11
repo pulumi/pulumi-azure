@@ -83,7 +83,7 @@ public final class GetSharedImageResult {
      */
     private String privacyStatementUri;
     /**
-     * @return (Optional) A `purchase_plan` block as defined below.
+     * @return (Optional) A `purchasePlan` block as defined below.
      * 
      */
     private List<GetSharedImagePurchasePlan> purchasePlans;
@@ -213,7 +213,7 @@ public final class GetSharedImageResult {
         return this.privacyStatementUri;
     }
     /**
-     * @return (Optional) A `purchase_plan` block as defined below.
+     * @return (Optional) A `purchasePlan` block as defined below.
      * 
      */
     public List<GetSharedImagePurchasePlan> purchasePlans() {

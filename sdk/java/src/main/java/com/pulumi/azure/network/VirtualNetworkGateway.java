@@ -188,28 +188,28 @@ public class VirtualNetworkGateway extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.bgpRouteTranslationForNatEnabled);
     }
     /**
-     * A `bgp_settings` block which is documented below. In this block the BGP specific settings can be defined.
+     * A `bgpSettings` block which is documented below. In this block the BGP specific settings can be defined.
      * 
      */
     @Export(name="bgpSettings", refs={VirtualNetworkGatewayBgpSettings.class}, tree="[0]")
     private Output<VirtualNetworkGatewayBgpSettings> bgpSettings;
 
     /**
-     * @return A `bgp_settings` block which is documented below. In this block the BGP specific settings can be defined.
+     * @return A `bgpSettings` block which is documented below. In this block the BGP specific settings can be defined.
      * 
      */
     public Output<VirtualNetworkGatewayBgpSettings> bgpSettings() {
         return this.bgpSettings;
     }
     /**
-     * A `custom_route` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
+     * A `customRoute` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
      * 
      */
     @Export(name="customRoute", refs={VirtualNetworkGatewayCustomRoute.class}, tree="[0]")
     private Output</* @Nullable */ VirtualNetworkGatewayCustomRoute> customRoute;
 
     /**
-     * @return A `custom_route` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
+     * @return A `customRoute` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
      * 
      */
     public Output<Optional<VirtualNetworkGatewayCustomRoute>> customRoute() {
@@ -290,20 +290,20 @@ public class VirtualNetworkGateway extends com.pulumi.resources.CustomResource {
         return this.generation;
     }
     /**
-     * One or more (up to 3) `ip_configuration` blocks documented below. Changing this forces a new resource to be created.
-     * An active-standby gateway requires exactly one `ip_configuration` block,
-     * an active-active gateway requires exactly two `ip_configuration` blocks whereas
-     * an active-active zone redundant gateway with P2S configuration requires exactly three `ip_configuration` blocks.
+     * One or more (up to 3) `ipConfiguration` blocks documented below. Changing this forces a new resource to be created.
+     * An active-standby gateway requires exactly one `ipConfiguration` block,
+     * an active-active gateway requires exactly two `ipConfiguration` blocks whereas
+     * an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
      * 
      */
     @Export(name="ipConfigurations", refs={List.class,VirtualNetworkGatewayIpConfiguration.class}, tree="[0,1]")
     private Output<List<VirtualNetworkGatewayIpConfiguration>> ipConfigurations;
 
     /**
-     * @return One or more (up to 3) `ip_configuration` blocks documented below. Changing this forces a new resource to be created.
-     * An active-standby gateway requires exactly one `ip_configuration` block,
-     * an active-active gateway requires exactly two `ip_configuration` blocks whereas
-     * an active-active zone redundant gateway with P2S configuration requires exactly three `ip_configuration` blocks.
+     * @return One or more (up to 3) `ipConfiguration` blocks documented below. Changing this forces a new resource to be created.
+     * An active-standby gateway requires exactly one `ipConfiguration` block,
+     * an active-active gateway requires exactly two `ipConfiguration` blocks whereas
+     * an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
      * 
      */
     public Output<List<VirtualNetworkGatewayIpConfiguration>> ipConfigurations() {
@@ -352,14 +352,14 @@ public class VirtualNetworkGateway extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * One or more `policy_group` blocks as defined below.
+     * One or more `policyGroup` blocks as defined below.
      * 
      */
     @Export(name="policyGroups", refs={List.class,VirtualNetworkGatewayPolicyGroup.class}, tree="[0,1]")
     private Output</* @Nullable */ List<VirtualNetworkGatewayPolicyGroup>> policyGroups;
 
     /**
-     * @return One or more `policy_group` blocks as defined below.
+     * @return One or more `policyGroup` blocks as defined below.
      * 
      */
     public Output<Optional<List<VirtualNetworkGatewayPolicyGroup>>> policyGroups() {
@@ -408,7 +408,7 @@ public class VirtualNetworkGateway extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` SKU is only supported by an `ExpressRoute` gateway.
+     * Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpnType` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` SKU is only supported by an `ExpressRoute` gateway.
      * 
      * &gt; **Note:** To build a UltraPerformance ExpressRoute Virtual Network gateway, the associated Public IP needs to be SKU &#34;Basic&#34; not &#34;Standard&#34;
      * 
@@ -419,7 +419,7 @@ public class VirtualNetworkGateway extends com.pulumi.resources.CustomResource {
     private Output<String> sku;
 
     /**
-     * @return Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` SKU is only supported by an `ExpressRoute` gateway.
+     * @return Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpnType` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` SKU is only supported by an `ExpressRoute` gateway.
      * 
      * &gt; **Note:** To build a UltraPerformance ExpressRoute Virtual Network gateway, the associated Public IP needs to be SKU &#34;Basic&#34; not &#34;Standard&#34;
      * 
@@ -472,14 +472,14 @@ public class VirtualNetworkGateway extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.virtualWanTrafficEnabled);
     }
     /**
-     * A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
+     * A `vpnClientConfiguration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
      * 
      */
     @Export(name="vpnClientConfiguration", refs={VirtualNetworkGatewayVpnClientConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ VirtualNetworkGatewayVpnClientConfiguration> vpnClientConfiguration;
 
     /**
-     * @return A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
+     * @return A `vpnClientConfiguration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
      * 
      */
     public Output<Optional<VirtualNetworkGatewayVpnClientConfiguration>> vpnClientConfiguration() {

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Policy.Outputs
     public sealed class GetPolicyAssignmentIdentityResult
     {
         /// <summary>
-        /// A `identity_ids` block as defined below.
+        /// A `IdentityIds` block as defined below.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>

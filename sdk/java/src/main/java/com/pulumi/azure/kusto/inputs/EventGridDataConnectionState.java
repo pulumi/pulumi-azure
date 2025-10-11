@@ -108,19 +108,19 @@ public final class EventGridDataConnectionState extends com.pulumi.resources.Res
 
     /**
      * @deprecated
-     * `eventgrid_resource_id` has been deprecated in favour of the `eventgrid_event_subscription_id` property and will be removed in v5.0 of the AzureRM Provider.
+     * `eventgridResourceId` has been deprecated in favour of the `eventgridEventSubscriptionId` property and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `eventgrid_resource_id` has been deprecated in favour of the `eventgrid_event_subscription_id` property and will be removed in v5.0 of the AzureRM Provider. */
+    @Deprecated /* `eventgridResourceId` has been deprecated in favour of the `eventgridEventSubscriptionId` property and will be removed in v5.0 of the AzureRM Provider. */
     @Import(name="eventgridResourceId")
     private @Nullable Output<String> eventgridResourceId;
 
     /**
      * @deprecated
-     * `eventgrid_resource_id` has been deprecated in favour of the `eventgrid_event_subscription_id` property and will be removed in v5.0 of the AzureRM Provider.
+     * `eventgridResourceId` has been deprecated in favour of the `eventgridEventSubscriptionId` property and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `eventgrid_resource_id` has been deprecated in favour of the `eventgrid_event_subscription_id` property and will be removed in v5.0 of the AzureRM Provider. */
+    @Deprecated /* `eventgridResourceId` has been deprecated in favour of the `eventgridEventSubscriptionId` property and will be removed in v5.0 of the AzureRM Provider. */
     public Optional<Output<String>> eventgridResourceId() {
         return Optional.ofNullable(this.eventgridResourceId);
     }
@@ -187,19 +187,19 @@ public final class EventGridDataConnectionState extends com.pulumi.resources.Res
 
     /**
      * @deprecated
-     * `managed_identity_resource_id` has been deprecated in favour of the `managed_identity_id` property and will be removed in v5.0 of the AzureRM Provider.
+     * `managedIdentityResourceId` has been deprecated in favour of the `managedIdentityId` property and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `managed_identity_resource_id` has been deprecated in favour of the `managed_identity_id` property and will be removed in v5.0 of the AzureRM Provider. */
+    @Deprecated /* `managedIdentityResourceId` has been deprecated in favour of the `managedIdentityId` property and will be removed in v5.0 of the AzureRM Provider. */
     @Import(name="managedIdentityResourceId")
     private @Nullable Output<String> managedIdentityResourceId;
 
     /**
      * @deprecated
-     * `managed_identity_resource_id` has been deprecated in favour of the `managed_identity_id` property and will be removed in v5.0 of the AzureRM Provider.
+     * `managedIdentityResourceId` has been deprecated in favour of the `managedIdentityId` property and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `managed_identity_resource_id` has been deprecated in favour of the `managed_identity_id` property and will be removed in v5.0 of the AzureRM Provider. */
+    @Deprecated /* `managedIdentityResourceId` has been deprecated in favour of the `managedIdentityId` property and will be removed in v5.0 of the AzureRM Provider. */
     public Optional<Output<String>> managedIdentityResourceId() {
         return Optional.ofNullable(this.managedIdentityResourceId);
     }
@@ -465,10 +465,10 @@ public final class EventGridDataConnectionState extends com.pulumi.resources.Res
          * @return builder
          * 
          * @deprecated
-         * `eventgrid_resource_id` has been deprecated in favour of the `eventgrid_event_subscription_id` property and will be removed in v5.0 of the AzureRM Provider.
+         * `eventgridResourceId` has been deprecated in favour of the `eventgridEventSubscriptionId` property and will be removed in v5.0 of the AzureRM Provider.
          * 
          */
-        @Deprecated /* `eventgrid_resource_id` has been deprecated in favour of the `eventgrid_event_subscription_id` property and will be removed in v5.0 of the AzureRM Provider. */
+        @Deprecated /* `eventgridResourceId` has been deprecated in favour of the `eventgridEventSubscriptionId` property and will be removed in v5.0 of the AzureRM Provider. */
         public Builder eventgridResourceId(@Nullable Output<String> eventgridResourceId) {
             $.eventgridResourceId = eventgridResourceId;
             return this;
@@ -478,10 +478,10 @@ public final class EventGridDataConnectionState extends com.pulumi.resources.Res
          * @return builder
          * 
          * @deprecated
-         * `eventgrid_resource_id` has been deprecated in favour of the `eventgrid_event_subscription_id` property and will be removed in v5.0 of the AzureRM Provider.
+         * `eventgridResourceId` has been deprecated in favour of the `eventgridEventSubscriptionId` property and will be removed in v5.0 of the AzureRM Provider.
          * 
          */
-        @Deprecated /* `eventgrid_resource_id` has been deprecated in favour of the `eventgrid_event_subscription_id` property and will be removed in v5.0 of the AzureRM Provider. */
+        @Deprecated /* `eventgridResourceId` has been deprecated in favour of the `eventgridEventSubscriptionId` property and will be removed in v5.0 of the AzureRM Provider. */
         public Builder eventgridResourceId(String eventgridResourceId) {
             return eventgridResourceId(Output.of(eventgridResourceId));
         }
@@ -574,10 +574,10 @@ public final class EventGridDataConnectionState extends com.pulumi.resources.Res
          * @return builder
          * 
          * @deprecated
-         * `managed_identity_resource_id` has been deprecated in favour of the `managed_identity_id` property and will be removed in v5.0 of the AzureRM Provider.
+         * `managedIdentityResourceId` has been deprecated in favour of the `managedIdentityId` property and will be removed in v5.0 of the AzureRM Provider.
          * 
          */
-        @Deprecated /* `managed_identity_resource_id` has been deprecated in favour of the `managed_identity_id` property and will be removed in v5.0 of the AzureRM Provider. */
+        @Deprecated /* `managedIdentityResourceId` has been deprecated in favour of the `managedIdentityId` property and will be removed in v5.0 of the AzureRM Provider. */
         public Builder managedIdentityResourceId(@Nullable Output<String> managedIdentityResourceId) {
             $.managedIdentityResourceId = managedIdentityResourceId;
             return this;
@@ -587,10 +587,10 @@ public final class EventGridDataConnectionState extends com.pulumi.resources.Res
          * @return builder
          * 
          * @deprecated
-         * `managed_identity_resource_id` has been deprecated in favour of the `managed_identity_id` property and will be removed in v5.0 of the AzureRM Provider.
+         * `managedIdentityResourceId` has been deprecated in favour of the `managedIdentityId` property and will be removed in v5.0 of the AzureRM Provider.
          * 
          */
-        @Deprecated /* `managed_identity_resource_id` has been deprecated in favour of the `managed_identity_id` property and will be removed in v5.0 of the AzureRM Provider. */
+        @Deprecated /* `managedIdentityResourceId` has been deprecated in favour of the `managedIdentityId` property and will be removed in v5.0 of the AzureRM Provider. */
         public Builder managedIdentityResourceId(String managedIdentityResourceId) {
             return managedIdentityResourceId(Output.of(managedIdentityResourceId));
         }

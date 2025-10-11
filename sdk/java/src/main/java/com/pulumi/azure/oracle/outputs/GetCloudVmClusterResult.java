@@ -44,7 +44,7 @@ public final class GetCloudVmClusterResult {
      */
     private String computeModel;
     /**
-     * @return A `compute_nodes` block as defined below.
+     * @return A `computeNodes` block as defined below.
      * 
      */
     private List<String> computeNodes;
@@ -54,7 +54,7 @@ public final class GetCloudVmClusterResult {
      */
     private Integer cpuCoreCount;
     /**
-     * @return A `data_collection_options` block as defined below.
+     * @return A `dataCollectionOptions` block as defined below.
      * 
      */
     private List<GetCloudVmClusterDataCollectionOption> dataCollectionOptions;
@@ -74,7 +74,7 @@ public final class GetCloudVmClusterResult {
      */
     private Integer dbNodeStorageSizeInGbs;
     /**
-     * @return A `db_servers` block as defined below.
+     * @return A `dbServers` block as defined below.
      * 
      */
     private List<String> dbServers;
@@ -94,7 +94,7 @@ public final class GetCloudVmClusterResult {
      */
     private String domain;
     /**
-     * @return A `file_system_configuration` block as defined below.
+     * @return A `fileSystemConfiguration` block as defined below.
      * 
      */
     private List<GetCloudVmClusterFileSystemConfiguration> fileSystemConfigurations;
@@ -119,7 +119,7 @@ public final class GetCloudVmClusterResult {
      */
     private String id;
     /**
-     * @return A `iorm_config_cache` block as defined below.
+     * @return A `iormConfigCache` block as defined below.
      * 
      */
     private List<GetCloudVmClusterIormConfigCach> iormConfigCaches;
@@ -202,7 +202,7 @@ public final class GetCloudVmClusterResult {
      */
     private String scanDnsRecordId;
     /**
-     * @return A `scan_ip_ids` block as defined below.
+     * @return A `scanIpIds` block as defined below.
      * 
      */
     private List<String> scanIpIds;
@@ -319,7 +319,7 @@ public final class GetCloudVmClusterResult {
         return this.computeModel;
     }
     /**
-     * @return A `compute_nodes` block as defined below.
+     * @return A `computeNodes` block as defined below.
      * 
      */
     public List<String> computeNodes() {
@@ -333,7 +333,7 @@ public final class GetCloudVmClusterResult {
         return this.cpuCoreCount;
     }
     /**
-     * @return A `data_collection_options` block as defined below.
+     * @return A `dataCollectionOptions` block as defined below.
      * 
      */
     public List<GetCloudVmClusterDataCollectionOption> dataCollectionOptions() {
@@ -361,7 +361,7 @@ public final class GetCloudVmClusterResult {
         return this.dbNodeStorageSizeInGbs;
     }
     /**
-     * @return A `db_servers` block as defined below.
+     * @return A `dbServers` block as defined below.
      * 
      */
     public List<String> dbServers() {
@@ -389,7 +389,7 @@ public final class GetCloudVmClusterResult {
         return this.domain;
     }
     /**
-     * @return A `file_system_configuration` block as defined below.
+     * @return A `fileSystemConfiguration` block as defined below.
      * 
      */
     public List<GetCloudVmClusterFileSystemConfiguration> fileSystemConfigurations() {
@@ -424,7 +424,7 @@ public final class GetCloudVmClusterResult {
         return this.id;
     }
     /**
-     * @return A `iorm_config_cache` block as defined below.
+     * @return A `iormConfigCache` block as defined below.
      * 
      */
     public List<GetCloudVmClusterIormConfigCach> iormConfigCaches() {
@@ -543,7 +543,7 @@ public final class GetCloudVmClusterResult {
         return this.scanDnsRecordId;
     }
     /**
-     * @return A `scan_ip_ids` block as defined below.
+     * @return A `scanIpIds` block as defined below.
      * 
      */
     public List<String> scanIpIds() {

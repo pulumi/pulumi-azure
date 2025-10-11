@@ -47,14 +47,14 @@ public final class HBaseClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `component_version` block as defined below.
+     * A `componentVersion` block as defined below.
      * 
      */
     @Import(name="componentVersion", required=true)
     private Output<HBaseClusterComponentVersionArgs> componentVersion;
 
     /**
-     * @return A `component_version` block as defined below.
+     * @return A `componentVersion` block as defined below.
      * 
      */
     public Output<HBaseClusterComponentVersionArgs> componentVersion() {
@@ -62,14 +62,14 @@ public final class HBaseClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `compute_isolation` block as defined below.
+     * A `computeIsolation` block as defined below.
      * 
      */
     @Import(name="computeIsolation")
     private @Nullable Output<HBaseClusterComputeIsolationArgs> computeIsolation;
 
     /**
-     * @return A `compute_isolation` block as defined below.
+     * @return A `computeIsolation` block as defined below.
      * 
      */
     public Optional<Output<HBaseClusterComputeIsolationArgs>> computeIsolation() {
@@ -77,14 +77,14 @@ public final class HBaseClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `disk_encryption` block as defined below.
+     * One or more `diskEncryption` block as defined below.
      * 
      */
     @Import(name="diskEncryptions")
     private @Nullable Output<List<HBaseClusterDiskEncryptionArgs>> diskEncryptions;
 
     /**
-     * @return One or more `disk_encryption` block as defined below.
+     * @return One or more `diskEncryption` block as defined below.
      * 
      */
     public Optional<Output<List<HBaseClusterDiskEncryptionArgs>>> diskEncryptions() {
@@ -197,14 +197,14 @@ public final class HBaseClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `private_link_configuration` block as defined below.
+     * A `privateLinkConfiguration` block as defined below.
      * 
      */
     @Import(name="privateLinkConfiguration")
     private @Nullable Output<HBaseClusterPrivateLinkConfigurationArgs> privateLinkConfiguration;
 
     /**
-     * @return A `private_link_configuration` block as defined below.
+     * @return A `privateLinkConfiguration` block as defined below.
      * 
      */
     public Optional<Output<HBaseClusterPrivateLinkConfigurationArgs>> privateLinkConfiguration() {
@@ -242,14 +242,14 @@ public final class HBaseClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `security_profile` block as defined below. Changing this forces a new resource to be created.
+     * A `securityProfile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="securityProfile")
     private @Nullable Output<HBaseClusterSecurityProfileArgs> securityProfile;
 
     /**
-     * @return A `security_profile` block as defined below. Changing this forces a new resource to be created.
+     * @return A `securityProfile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<HBaseClusterSecurityProfileArgs>> securityProfile() {
@@ -257,14 +257,14 @@ public final class HBaseClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `storage_account_gen2` block as defined below.
+     * A `storageAccountGen2` block as defined below.
      * 
      */
     @Import(name="storageAccountGen2")
     private @Nullable Output<HBaseClusterStorageAccountGen2Args> storageAccountGen2;
 
     /**
-     * @return A `storage_account_gen2` block as defined below.
+     * @return A `storageAccountGen2` block as defined below.
      * 
      */
     public Optional<Output<HBaseClusterStorageAccountGen2Args>> storageAccountGen2() {
@@ -272,14 +272,14 @@ public final class HBaseClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `storage_account` block as defined below.
+     * One or more `storageAccount` block as defined below.
      * 
      */
     @Import(name="storageAccounts")
     private @Nullable Output<List<HBaseClusterStorageAccountArgs>> storageAccounts;
 
     /**
-     * @return One or more `storage_account` block as defined below.
+     * @return One or more `storageAccount` block as defined below.
      * 
      */
     public Optional<Output<List<HBaseClusterStorageAccountArgs>>> storageAccounts() {
@@ -400,7 +400,7 @@ public final class HBaseClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param componentVersion A `component_version` block as defined below.
+         * @param componentVersion A `componentVersion` block as defined below.
          * 
          * @return builder
          * 
@@ -411,7 +411,7 @@ public final class HBaseClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param componentVersion A `component_version` block as defined below.
+         * @param componentVersion A `componentVersion` block as defined below.
          * 
          * @return builder
          * 
@@ -421,7 +421,7 @@ public final class HBaseClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param computeIsolation A `compute_isolation` block as defined below.
+         * @param computeIsolation A `computeIsolation` block as defined below.
          * 
          * @return builder
          * 
@@ -432,7 +432,7 @@ public final class HBaseClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param computeIsolation A `compute_isolation` block as defined below.
+         * @param computeIsolation A `computeIsolation` block as defined below.
          * 
          * @return builder
          * 
@@ -442,7 +442,7 @@ public final class HBaseClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param diskEncryptions One or more `disk_encryption` block as defined below.
+         * @param diskEncryptions One or more `diskEncryption` block as defined below.
          * 
          * @return builder
          * 
@@ -453,7 +453,7 @@ public final class HBaseClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param diskEncryptions One or more `disk_encryption` block as defined below.
+         * @param diskEncryptions One or more `diskEncryption` block as defined below.
          * 
          * @return builder
          * 
@@ -463,7 +463,7 @@ public final class HBaseClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param diskEncryptions One or more `disk_encryption` block as defined below.
+         * @param diskEncryptions One or more `diskEncryption` block as defined below.
          * 
          * @return builder
          * 
@@ -620,7 +620,7 @@ public final class HBaseClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateLinkConfiguration A `private_link_configuration` block as defined below.
+         * @param privateLinkConfiguration A `privateLinkConfiguration` block as defined below.
          * 
          * @return builder
          * 
@@ -631,7 +631,7 @@ public final class HBaseClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateLinkConfiguration A `private_link_configuration` block as defined below.
+         * @param privateLinkConfiguration A `privateLinkConfiguration` block as defined below.
          * 
          * @return builder
          * 
@@ -683,7 +683,7 @@ public final class HBaseClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityProfile A `security_profile` block as defined below. Changing this forces a new resource to be created.
+         * @param securityProfile A `securityProfile` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -694,7 +694,7 @@ public final class HBaseClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityProfile A `security_profile` block as defined below. Changing this forces a new resource to be created.
+         * @param securityProfile A `securityProfile` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -704,7 +704,7 @@ public final class HBaseClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccountGen2 A `storage_account_gen2` block as defined below.
+         * @param storageAccountGen2 A `storageAccountGen2` block as defined below.
          * 
          * @return builder
          * 
@@ -715,7 +715,7 @@ public final class HBaseClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccountGen2 A `storage_account_gen2` block as defined below.
+         * @param storageAccountGen2 A `storageAccountGen2` block as defined below.
          * 
          * @return builder
          * 
@@ -725,7 +725,7 @@ public final class HBaseClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccounts One or more `storage_account` block as defined below.
+         * @param storageAccounts One or more `storageAccount` block as defined below.
          * 
          * @return builder
          * 
@@ -736,7 +736,7 @@ public final class HBaseClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccounts One or more `storage_account` block as defined below.
+         * @param storageAccounts One or more `storageAccount` block as defined below.
          * 
          * @return builder
          * 
@@ -746,7 +746,7 @@ public final class HBaseClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccounts One or more `storage_account` block as defined below.
+         * @param storageAccounts One or more `storageAccount` block as defined below.
          * 
          * @return builder
          * 

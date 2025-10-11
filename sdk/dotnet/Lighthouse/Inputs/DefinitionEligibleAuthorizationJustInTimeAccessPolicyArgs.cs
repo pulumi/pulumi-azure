@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Lighthouse.Inputs
         private InputList<Inputs.DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArgs>? _approvers;
 
         /// <summary>
-        /// An `approver` block as defined below.
+        /// An `Approver` block as defined below.
         /// </summary>
         public InputList<Inputs.DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArgs> Approvers
         {

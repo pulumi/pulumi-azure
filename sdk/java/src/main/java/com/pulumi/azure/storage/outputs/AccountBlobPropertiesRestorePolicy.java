@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class AccountBlobPropertiesRestorePolicy {
     /**
-     * @return Specifies the number of days that the blob can be restored, between `1` and `365` days. This must be less than the `days` specified for `delete_retention_policy`.
+     * @return Specifies the number of days that the blob can be restored, between `1` and `365` days. This must be less than the `days` specified for `deleteRetentionPolicy`.
      * 
      */
     private Integer days;
 
     private AccountBlobPropertiesRestorePolicy() {}
     /**
-     * @return Specifies the number of days that the blob can be restored, between `1` and `365` days. This must be less than the `days` specified for `delete_retention_policy`.
+     * @return Specifies the number of days that the blob can be restored, between `1` and `365` days. This must be less than the `days` specified for `deleteRetentionPolicy`.
      * 
      */
     public Integer days() {

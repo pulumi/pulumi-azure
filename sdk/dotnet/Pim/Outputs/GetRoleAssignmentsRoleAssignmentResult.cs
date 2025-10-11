@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Pim.Outputs
         /// </summary>
         public readonly string PrincipalId;
         /// <summary>
-        /// The type of the `principal_id`.
+        /// The type of the `PrincipalId`.
         /// </summary>
         public readonly string PrincipalType;
         /// <summary>

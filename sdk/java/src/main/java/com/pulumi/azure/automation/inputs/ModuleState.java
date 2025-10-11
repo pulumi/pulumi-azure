@@ -32,14 +32,14 @@ public final class ModuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `module_link` block as defined below.
+     * A `moduleLink` block as defined below.
      * 
      */
     @Import(name="moduleLink")
     private @Nullable Output<ModuleModuleLinkArgs> moduleLink;
 
     /**
-     * @return A `module_link` block as defined below.
+     * @return A `moduleLink` block as defined below.
      * 
      */
     public Optional<Output<ModuleModuleLinkArgs>> moduleLink() {
@@ -125,7 +125,7 @@ public final class ModuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param moduleLink A `module_link` block as defined below.
+         * @param moduleLink A `moduleLink` block as defined below.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class ModuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param moduleLink A `module_link` block as defined below.
+         * @param moduleLink A `moduleLink` block as defined below.
          * 
          * @return builder
          * 

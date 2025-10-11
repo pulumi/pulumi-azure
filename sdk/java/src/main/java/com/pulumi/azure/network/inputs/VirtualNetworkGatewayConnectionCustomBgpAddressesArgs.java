@@ -17,14 +17,14 @@ public final class VirtualNetworkGatewayConnectionCustomBgpAddressesArgs extends
     public static final VirtualNetworkGatewayConnectionCustomBgpAddressesArgs Empty = new VirtualNetworkGatewayConnectionCustomBgpAddressesArgs();
 
     /**
-     * single IP address that is part of the `azure.network.VirtualNetworkGateway` ip_configuration (first one)
+     * single IP address that is part of the `azure.network.VirtualNetworkGateway` ipConfiguration (first one)
      * 
      */
     @Import(name="primary", required=true)
     private Output<String> primary;
 
     /**
-     * @return single IP address that is part of the `azure.network.VirtualNetworkGateway` ip_configuration (first one)
+     * @return single IP address that is part of the `azure.network.VirtualNetworkGateway` ipConfiguration (first one)
      * 
      */
     public Output<String> primary() {
@@ -32,14 +32,14 @@ public final class VirtualNetworkGatewayConnectionCustomBgpAddressesArgs extends
     }
 
     /**
-     * single IP address that is part of the `azure.network.VirtualNetworkGateway` ip_configuration (second one)
+     * single IP address that is part of the `azure.network.VirtualNetworkGateway` ipConfiguration (second one)
      * 
      */
     @Import(name="secondary")
     private @Nullable Output<String> secondary;
 
     /**
-     * @return single IP address that is part of the `azure.network.VirtualNetworkGateway` ip_configuration (second one)
+     * @return single IP address that is part of the `azure.network.VirtualNetworkGateway` ipConfiguration (second one)
      * 
      */
     public Optional<Output<String>> secondary() {
@@ -72,7 +72,7 @@ public final class VirtualNetworkGatewayConnectionCustomBgpAddressesArgs extends
         }
 
         /**
-         * @param primary single IP address that is part of the `azure.network.VirtualNetworkGateway` ip_configuration (first one)
+         * @param primary single IP address that is part of the `azure.network.VirtualNetworkGateway` ipConfiguration (first one)
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class VirtualNetworkGatewayConnectionCustomBgpAddressesArgs extends
         }
 
         /**
-         * @param primary single IP address that is part of the `azure.network.VirtualNetworkGateway` ip_configuration (first one)
+         * @param primary single IP address that is part of the `azure.network.VirtualNetworkGateway` ipConfiguration (first one)
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class VirtualNetworkGatewayConnectionCustomBgpAddressesArgs extends
         }
 
         /**
-         * @param secondary single IP address that is part of the `azure.network.VirtualNetworkGateway` ip_configuration (second one)
+         * @param secondary single IP address that is part of the `azure.network.VirtualNetworkGateway` ipConfiguration (second one)
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class VirtualNetworkGatewayConnectionCustomBgpAddressesArgs extends
         }
 
         /**
-         * @param secondary single IP address that is part of the `azure.network.VirtualNetworkGateway` ip_configuration (second one)
+         * @param secondary single IP address that is part of the `azure.network.VirtualNetworkGateway` ipConfiguration (second one)
          * 
          * @return builder
          * 

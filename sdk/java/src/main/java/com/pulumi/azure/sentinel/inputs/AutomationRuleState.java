@@ -22,14 +22,14 @@ public final class AutomationRuleState extends com.pulumi.resources.ResourceArgs
     public static final AutomationRuleState Empty = new AutomationRuleState();
 
     /**
-     * One or more `action_incident_task` blocks as defined below.
+     * One or more `actionIncidentTask` blocks as defined below.
      * 
      */
     @Import(name="actionIncidentTasks")
     private @Nullable Output<List<AutomationRuleActionIncidentTaskArgs>> actionIncidentTasks;
 
     /**
-     * @return One or more `action_incident_task` blocks as defined below.
+     * @return One or more `actionIncidentTask` blocks as defined below.
      * 
      */
     public Optional<Output<List<AutomationRuleActionIncidentTaskArgs>>> actionIncidentTasks() {
@@ -37,14 +37,14 @@ public final class AutomationRuleState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * One or more `action_incident` blocks as defined below.
+     * One or more `actionIncident` blocks as defined below.
      * 
      */
     @Import(name="actionIncidents")
     private @Nullable Output<List<AutomationRuleActionIncidentArgs>> actionIncidents;
 
     /**
-     * @return One or more `action_incident` blocks as defined below.
+     * @return One or more `actionIncident` blocks as defined below.
      * 
      */
     public Optional<Output<List<AutomationRuleActionIncidentArgs>>> actionIncidents() {
@@ -52,18 +52,18 @@ public final class AutomationRuleState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * One or more `action_playbook` blocks as defined below.
+     * One or more `actionPlaybook` blocks as defined below.
      * 
-     * &gt; **Note:** Either one `action_incident` block or `action_playbook` block has to be specified.
+     * &gt; **Note:** Either one `actionIncident` block or `actionPlaybook` block has to be specified.
      * 
      */
     @Import(name="actionPlaybooks")
     private @Nullable Output<List<AutomationRuleActionPlaybookArgs>> actionPlaybooks;
 
     /**
-     * @return One or more `action_playbook` blocks as defined below.
+     * @return One or more `actionPlaybook` blocks as defined below.
      * 
-     * &gt; **Note:** Either one `action_incident` block or `action_playbook` block has to be specified.
+     * &gt; **Note:** Either one `actionIncident` block or `actionPlaybook` block has to be specified.
      * 
      */
     public Optional<Output<List<AutomationRuleActionPlaybookArgs>>> actionPlaybooks() {
@@ -241,7 +241,7 @@ public final class AutomationRuleState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param actionIncidentTasks One or more `action_incident_task` blocks as defined below.
+         * @param actionIncidentTasks One or more `actionIncidentTask` blocks as defined below.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class AutomationRuleState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param actionIncidentTasks One or more `action_incident_task` blocks as defined below.
+         * @param actionIncidentTasks One or more `actionIncidentTask` blocks as defined below.
          * 
          * @return builder
          * 
@@ -262,7 +262,7 @@ public final class AutomationRuleState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param actionIncidentTasks One or more `action_incident_task` blocks as defined below.
+         * @param actionIncidentTasks One or more `actionIncidentTask` blocks as defined below.
          * 
          * @return builder
          * 
@@ -272,7 +272,7 @@ public final class AutomationRuleState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param actionIncidents One or more `action_incident` blocks as defined below.
+         * @param actionIncidents One or more `actionIncident` blocks as defined below.
          * 
          * @return builder
          * 
@@ -283,7 +283,7 @@ public final class AutomationRuleState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param actionIncidents One or more `action_incident` blocks as defined below.
+         * @param actionIncidents One or more `actionIncident` blocks as defined below.
          * 
          * @return builder
          * 
@@ -293,7 +293,7 @@ public final class AutomationRuleState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param actionIncidents One or more `action_incident` blocks as defined below.
+         * @param actionIncidents One or more `actionIncident` blocks as defined below.
          * 
          * @return builder
          * 
@@ -303,9 +303,9 @@ public final class AutomationRuleState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param actionPlaybooks One or more `action_playbook` blocks as defined below.
+         * @param actionPlaybooks One or more `actionPlaybook` blocks as defined below.
          * 
-         * &gt; **Note:** Either one `action_incident` block or `action_playbook` block has to be specified.
+         * &gt; **Note:** Either one `actionIncident` block or `actionPlaybook` block has to be specified.
          * 
          * @return builder
          * 
@@ -316,9 +316,9 @@ public final class AutomationRuleState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param actionPlaybooks One or more `action_playbook` blocks as defined below.
+         * @param actionPlaybooks One or more `actionPlaybook` blocks as defined below.
          * 
-         * &gt; **Note:** Either one `action_incident` block or `action_playbook` block has to be specified.
+         * &gt; **Note:** Either one `actionIncident` block or `actionPlaybook` block has to be specified.
          * 
          * @return builder
          * 
@@ -328,9 +328,9 @@ public final class AutomationRuleState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param actionPlaybooks One or more `action_playbook` blocks as defined below.
+         * @param actionPlaybooks One or more `actionPlaybook` blocks as defined below.
          * 
-         * &gt; **Note:** Either one `action_incident` block or `action_playbook` block has to be specified.
+         * &gt; **Note:** Either one `actionIncident` block or `actionPlaybook` block has to be specified.
          * 
          * @return builder
          * 

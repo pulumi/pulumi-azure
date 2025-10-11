@@ -222,7 +222,7 @@ public class CacheBlobTarget extends com.pulumi.resources.CustomResource {
     /**
      * The Resource Manager ID of the Storage Container used as the HPC Cache Blob Target. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `resource_manager_id`.
+     * &gt; **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `resourceManagerId`.
      * 
      */
     @Export(name="storageContainerId", refs={String.class}, tree="[0]")
@@ -231,7 +231,7 @@ public class CacheBlobTarget extends com.pulumi.resources.CustomResource {
     /**
      * @return The Resource Manager ID of the Storage Container used as the HPC Cache Blob Target. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `resource_manager_id`.
+     * &gt; **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `resourceManagerId`.
      * 
      */
     public Output<String> storageContainerId() {

@@ -14,15 +14,15 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class SourceControlGithubActionConfiguration
     {
         /// <summary>
-        /// A `code_configuration` block as defined above. Changing this forces a new resource to be created.
+        /// A `CodeConfiguration` block as defined above. Changing this forces a new resource to be created.
         /// </summary>
         public readonly Outputs.SourceControlGithubActionConfigurationCodeConfiguration? CodeConfiguration;
         /// <summary>
-        /// A `container_configuration` block as defined above.
+        /// A `ContainerConfiguration` block as defined above.
         /// </summary>
         public readonly Outputs.SourceControlGithubActionConfigurationContainerConfiguration? ContainerConfiguration;
         /// <summary>
-        /// Whether to generate the GitHub work flow file. Defaults to `true`. Changing this forces a new resource to be created.
+        /// Whether to generate the GitHub work flow file. Defaults to `True`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly bool? GenerateWorkflowFile;
         /// <summary>

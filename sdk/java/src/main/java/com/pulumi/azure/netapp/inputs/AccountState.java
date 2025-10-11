@@ -19,14 +19,14 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     public static final AccountState Empty = new AccountState();
 
     /**
-     * A `active_directory` block as defined below.
+     * A `activeDirectory` block as defined below.
      * 
      */
     @Import(name="activeDirectory")
     private @Nullable Output<AccountActiveDirectoryArgs> activeDirectory;
 
     /**
-     * @return A `active_directory` block as defined below.
+     * @return A `activeDirectory` block as defined below.
      * 
      */
     public Optional<Output<AccountActiveDirectoryArgs>> activeDirectory() {
@@ -138,7 +138,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param activeDirectory A `active_directory` block as defined below.
+         * @param activeDirectory A `activeDirectory` block as defined below.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param activeDirectory A `active_directory` block as defined below.
+         * @param activeDirectory A `activeDirectory` block as defined below.
          * 
          * @return builder
          * 

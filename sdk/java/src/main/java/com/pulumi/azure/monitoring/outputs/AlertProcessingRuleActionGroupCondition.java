@@ -22,17 +22,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AlertProcessingRuleActionGroupCondition {
     /**
-     * @return A `alert_context` block as defined above.
+     * @return A `alertContext` block as defined above.
      * 
      */
     private @Nullable AlertProcessingRuleActionGroupConditionAlertContext alertContext;
     /**
-     * @return A `alert_rule_id` block as defined above.
+     * @return A `alertRuleId` block as defined above.
      * 
      */
     private @Nullable AlertProcessingRuleActionGroupConditionAlertRuleId alertRuleId;
     /**
-     * @return A `alert_rule_name` block as defined above.
+     * @return A `alertRuleName` block as defined above.
      * 
      */
     private @Nullable AlertProcessingRuleActionGroupConditionAlertRuleName alertRuleName;
@@ -42,12 +42,12 @@ public final class AlertProcessingRuleActionGroupCondition {
      */
     private @Nullable AlertProcessingRuleActionGroupConditionDescription description;
     /**
-     * @return A `monitor_condition` block as defined below.
+     * @return A `monitorCondition` block as defined below.
      * 
      */
     private @Nullable AlertProcessingRuleActionGroupConditionMonitorCondition monitorCondition;
     /**
-     * @return A `monitor_service` block as defined below.
+     * @return A `monitorService` block as defined below.
      * 
      */
     private @Nullable AlertProcessingRuleActionGroupConditionMonitorService monitorService;
@@ -57,45 +57,45 @@ public final class AlertProcessingRuleActionGroupCondition {
      */
     private @Nullable AlertProcessingRuleActionGroupConditionSeverity severity;
     /**
-     * @return A `signal_type` block as defined below.
+     * @return A `signalType` block as defined below.
      * 
      */
     private @Nullable AlertProcessingRuleActionGroupConditionSignalType signalType;
     /**
-     * @return A `target_resource` block as defined below.
+     * @return A `targetResource` block as defined below.
      * 
      */
     private @Nullable AlertProcessingRuleActionGroupConditionTargetResource targetResource;
     /**
-     * @return A `target_resource_group` block as defined below.
+     * @return A `targetResourceGroup` block as defined below.
      * 
      */
     private @Nullable AlertProcessingRuleActionGroupConditionTargetResourceGroup targetResourceGroup;
     /**
-     * @return A `target_resource_type` block as defined below.
+     * @return A `targetResourceType` block as defined below.
      * 
-     * &gt; **Note:** At least one of the `alert_context`, `alert_rule_id`, `alert_rule_name`, `description`, `monitor_condition`, `monitor_service`, `severity`, `signal_type`, `target_resource`, `target_resource_group`, `target_resource_type` must be specified.
+     * &gt; **Note:** At least one of the `alertContext`, `alertRuleId`, `alertRuleName`, `description`, `monitorCondition`, `monitorService`, `severity`, `signalType`, `targetResource`, `targetResourceGroup`, `targetResourceType` must be specified.
      * 
      */
     private @Nullable AlertProcessingRuleActionGroupConditionTargetResourceType targetResourceType;
 
     private AlertProcessingRuleActionGroupCondition() {}
     /**
-     * @return A `alert_context` block as defined above.
+     * @return A `alertContext` block as defined above.
      * 
      */
     public Optional<AlertProcessingRuleActionGroupConditionAlertContext> alertContext() {
         return Optional.ofNullable(this.alertContext);
     }
     /**
-     * @return A `alert_rule_id` block as defined above.
+     * @return A `alertRuleId` block as defined above.
      * 
      */
     public Optional<AlertProcessingRuleActionGroupConditionAlertRuleId> alertRuleId() {
         return Optional.ofNullable(this.alertRuleId);
     }
     /**
-     * @return A `alert_rule_name` block as defined above.
+     * @return A `alertRuleName` block as defined above.
      * 
      */
     public Optional<AlertProcessingRuleActionGroupConditionAlertRuleName> alertRuleName() {
@@ -109,14 +109,14 @@ public final class AlertProcessingRuleActionGroupCondition {
         return Optional.ofNullable(this.description);
     }
     /**
-     * @return A `monitor_condition` block as defined below.
+     * @return A `monitorCondition` block as defined below.
      * 
      */
     public Optional<AlertProcessingRuleActionGroupConditionMonitorCondition> monitorCondition() {
         return Optional.ofNullable(this.monitorCondition);
     }
     /**
-     * @return A `monitor_service` block as defined below.
+     * @return A `monitorService` block as defined below.
      * 
      */
     public Optional<AlertProcessingRuleActionGroupConditionMonitorService> monitorService() {
@@ -130,30 +130,30 @@ public final class AlertProcessingRuleActionGroupCondition {
         return Optional.ofNullable(this.severity);
     }
     /**
-     * @return A `signal_type` block as defined below.
+     * @return A `signalType` block as defined below.
      * 
      */
     public Optional<AlertProcessingRuleActionGroupConditionSignalType> signalType() {
         return Optional.ofNullable(this.signalType);
     }
     /**
-     * @return A `target_resource` block as defined below.
+     * @return A `targetResource` block as defined below.
      * 
      */
     public Optional<AlertProcessingRuleActionGroupConditionTargetResource> targetResource() {
         return Optional.ofNullable(this.targetResource);
     }
     /**
-     * @return A `target_resource_group` block as defined below.
+     * @return A `targetResourceGroup` block as defined below.
      * 
      */
     public Optional<AlertProcessingRuleActionGroupConditionTargetResourceGroup> targetResourceGroup() {
         return Optional.ofNullable(this.targetResourceGroup);
     }
     /**
-     * @return A `target_resource_type` block as defined below.
+     * @return A `targetResourceType` block as defined below.
      * 
-     * &gt; **Note:** At least one of the `alert_context`, `alert_rule_id`, `alert_rule_name`, `description`, `monitor_condition`, `monitor_service`, `severity`, `signal_type`, `target_resource`, `target_resource_group`, `target_resource_type` must be specified.
+     * &gt; **Note:** At least one of the `alertContext`, `alertRuleId`, `alertRuleName`, `description`, `monitorCondition`, `monitorService`, `severity`, `signalType`, `targetResource`, `targetResourceGroup`, `targetResourceType` must be specified.
      * 
      */
     public Optional<AlertProcessingRuleActionGroupConditionTargetResourceType> targetResourceType() {

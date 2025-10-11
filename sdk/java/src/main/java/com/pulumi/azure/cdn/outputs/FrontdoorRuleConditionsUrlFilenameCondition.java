@@ -17,7 +17,7 @@ public final class FrontdoorRuleConditionsUrlFilenameCondition {
     /**
      * @return A list of one or more string or integer values(e.g. &#34;1&#34;) representing the value of the request file name to match. If multiple values are specified, they&#39;re evaluated using `OR` logic.
      * 
-     * &gt; **Note:** The `match_values` field is only optional if the `operator` is set to `Any`.
+     * &gt; **Note:** The `matchValues` field is only optional if the `operator` is set to `Any`.
      * 
      */
     private @Nullable List<String> matchValues;
@@ -41,7 +41,7 @@ public final class FrontdoorRuleConditionsUrlFilenameCondition {
     /**
      * @return A list of one or more string or integer values(e.g. &#34;1&#34;) representing the value of the request file name to match. If multiple values are specified, they&#39;re evaluated using `OR` logic.
      * 
-     * &gt; **Note:** The `match_values` field is only optional if the `operator` is set to `Any`.
+     * &gt; **Note:** The `matchValues` field is only optional if the `operator` is set to `Any`.
      * 
      */
     public List<String> matchValues() {

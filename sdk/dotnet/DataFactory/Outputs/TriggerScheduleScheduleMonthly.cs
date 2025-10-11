@@ -14,11 +14,11 @@ namespace Pulumi.Azure.DataFactory.Outputs
     public sealed class TriggerScheduleScheduleMonthly
     {
         /// <summary>
-        /// The occurrence of the specified day during the month. For example, a `monthly` property with `weekday` and `week` values of `Sunday, -1` means the last Sunday of the month.
+        /// The occurrence of the specified day during the month. For example, a `Monthly` property with `Weekday` and `Week` values of `Sunday, -1` means the last Sunday of the month.
         /// </summary>
         public readonly int? Week;
         /// <summary>
-        /// The day of the week on which the trigger runs. For example, a `monthly` property with a `weekday` value of `Sunday` means every Sunday of the month.
+        /// The day of the week on which the trigger runs. For example, a `Monthly` property with a `Weekday` value of `Sunday` means every Sunday of the month.
         /// </summary>
         public readonly string Weekday;
 

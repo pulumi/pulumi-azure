@@ -32,7 +32,7 @@ namespace Pulumi.Azure.Redis.Outputs
         /// </summary>
         public readonly int MaxmemoryDelta;
         /// <summary>
-        /// How Redis will select what to remove when `maxmemory` is reached.
+        /// How Redis will select what to remove when `Maxmemory` is reached.
         /// </summary>
         public readonly string MaxmemoryPolicy;
         /// <summary>

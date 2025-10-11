@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Dynatrace.Outputs
     public sealed class MonitorEnvironmentProperty
     {
         /// <summary>
-        /// Information about the Dynatrace environment. An `environment_info` block as defined below.
+        /// Information about the Dynatrace environment. An `EnvironmentInfo` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.MonitorEnvironmentPropertyEnvironmentInfo> EnvironmentInfos;
 

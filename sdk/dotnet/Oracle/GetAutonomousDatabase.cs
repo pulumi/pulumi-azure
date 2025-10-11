@@ -174,7 +174,7 @@ namespace Pulumi.Azure.Oracle
         /// </summary>
         public readonly double AllocatedStorageSizeInTbs;
         /// <summary>
-        /// The client IP access control list (ACL). This feature is available for [Autonomous Database Serverless] (https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html) and on Exadata Cloud@Customer. Only clients connecting from an IP address included in the ACL may access the Autonomous Database instance. If `arePrimaryWhitelistedIpsUsed` is 'TRUE' then Autonomous Database uses this primary's IP access control list (ACL) for the disaster recovery peer called `standbywhitelistedips`.
+        /// The client IP access control list (ACL). This feature is available for [Autonomous Database Serverless] (https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html) and on Exadata Cloud@Customer. Only clients connecting from an IP address included in the ACL may access the Autonomous Database instance. If `arePrimaryWhitelistedIpsUsed` is 'TRUE' then Autonomous Database uses this primary's IP access control list (ACL) for the disaster recovery peer called `Standbywhitelistedips`.
         /// </summary>
         public readonly ImmutableArray<int> AllowedIps;
         /// <summary>
@@ -258,7 +258,7 @@ namespace Pulumi.Azure.Oracle
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// A `long_term_backup_schedule` block as defined below
+        /// A `LongTermBackupSchedule` block as defined below
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAutonomousDatabaseLongTermBackupScheduleResult> LongTermBackupSchedules;
         /// <summary>

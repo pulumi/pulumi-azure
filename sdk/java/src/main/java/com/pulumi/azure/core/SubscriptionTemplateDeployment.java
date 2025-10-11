@@ -179,14 +179,14 @@ public class SubscriptionTemplateDeployment extends com.pulumi.resources.CustomR
         return this.templateContent;
     }
     /**
-     * The ID of the Template Spec Version to deploy into the Subscription. Cannot be specified with `template_content`.
+     * The ID of the Template Spec Version to deploy into the Subscription. Cannot be specified with `templateContent`.
      * 
      */
     @Export(name="templateSpecVersionId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> templateSpecVersionId;
 
     /**
-     * @return The ID of the Template Spec Version to deploy into the Subscription. Cannot be specified with `template_content`.
+     * @return The ID of the Template Spec Version to deploy into the Subscription. Cannot be specified with `templateContent`.
      * 
      */
     public Output<Optional<String>> templateSpecVersionId() {

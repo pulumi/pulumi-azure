@@ -44,14 +44,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `azure_active_directory` block as defined below.
+     * An `azureActiveDirectory` block as defined below.
      * 
      */
     @Import(name="azureActiveDirectory")
     private @Nullable Output<ClusterAzureActiveDirectoryArgs> azureActiveDirectory;
 
     /**
-     * @return An `azure_active_directory` block as defined below.
+     * @return An `azureActiveDirectory` block as defined below.
      * 
      */
     public Optional<Output<ClusterAzureActiveDirectoryArgs>> azureActiveDirectory() {
@@ -59,14 +59,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `certificate` block as defined below. Conflicts with `certificate_common_names`.
+     * A `certificate` block as defined below. Conflicts with `certificateCommonNames`.
      * 
      */
     @Import(name="certificate")
     private @Nullable Output<ClusterCertificateArgs> certificate;
 
     /**
-     * @return A `certificate` block as defined below. Conflicts with `certificate_common_names`.
+     * @return A `certificate` block as defined below. Conflicts with `certificateCommonNames`.
      * 
      */
     public Optional<Output<ClusterCertificateArgs>> certificate() {
@@ -74,14 +74,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `certificate_common_names` block as defined below. Conflicts with `certificate`.
+     * A `certificateCommonNames` block as defined below. Conflicts with `certificate`.
      * 
      */
     @Import(name="certificateCommonNames")
     private @Nullable Output<ClusterCertificateCommonNamesArgs> certificateCommonNames;
 
     /**
-     * @return A `certificate_common_names` block as defined below. Conflicts with `certificate`.
+     * @return A `certificateCommonNames` block as defined below. Conflicts with `certificate`.
      * 
      */
     public Optional<Output<ClusterCertificateCommonNamesArgs>> certificateCommonNames() {
@@ -89,7 +89,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `client_certificate_common_name` block as defined below.
+     * A `clientCertificateCommonName` block as defined below.
      * 
      * &gt; **Note:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
      * 
@@ -98,7 +98,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<List<ClusterClientCertificateCommonNameArgs>> clientCertificateCommonNames;
 
     /**
-     * @return A `client_certificate_common_name` block as defined below.
+     * @return A `clientCertificateCommonName` block as defined below.
      * 
      * &gt; **Note:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
      * 
@@ -108,14 +108,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `client_certificate_thumbprint` blocks as defined below.
+     * One or more `clientCertificateThumbprint` blocks as defined below.
      * 
      */
     @Import(name="clientCertificateThumbprints")
     private @Nullable Output<List<ClusterClientCertificateThumbprintArgs>> clientCertificateThumbprints;
 
     /**
-     * @return One or more `client_certificate_thumbprint` blocks as defined below.
+     * @return One or more `clientCertificateThumbprint` blocks as defined below.
      * 
      */
     public Optional<Output<List<ClusterClientCertificateThumbprintArgs>>> clientCertificateThumbprints() {
@@ -153,14 +153,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `diagnostics_config` block as defined below.
+     * A `diagnosticsConfig` block as defined below.
      * 
      */
     @Import(name="diagnosticsConfig")
     private @Nullable Output<ClusterDiagnosticsConfigArgs> diagnosticsConfig;
 
     /**
-     * @return A `diagnostics_config` block as defined below.
+     * @return A `diagnosticsConfig` block as defined below.
      * 
      */
     public Optional<Output<ClusterDiagnosticsConfigArgs>> diagnosticsConfig() {
@@ -168,14 +168,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `fabric_settings` blocks as defined below.
+     * One or more `fabricSettings` blocks as defined below.
      * 
      */
     @Import(name="fabricSettings")
     private @Nullable Output<List<ClusterFabricSettingArgs>> fabricSettings;
 
     /**
-     * @return One or more `fabric_settings` blocks as defined below.
+     * @return One or more `fabricSettings` blocks as defined below.
      * 
      */
     public Optional<Output<List<ClusterFabricSettingArgs>>> fabricSettings() {
@@ -228,14 +228,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `node_type` blocks as defined below.
+     * One or more `nodeType` blocks as defined below.
      * 
      */
     @Import(name="nodeTypes")
     private @Nullable Output<List<ClusterNodeTypeArgs>> nodeTypes;
 
     /**
-     * @return One or more `node_type` blocks as defined below.
+     * @return One or more `nodeType` blocks as defined below.
      * 
      */
     public Optional<Output<List<ClusterNodeTypeArgs>>> nodeTypes() {
@@ -277,14 +277,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `reverse_proxy_certificate` block as defined below. Conflicts with `reverse_proxy_certificate_common_names`.
+     * A `reverseProxyCertificate` block as defined below. Conflicts with `reverseProxyCertificateCommonNames`.
      * 
      */
     @Import(name="reverseProxyCertificate")
     private @Nullable Output<ClusterReverseProxyCertificateArgs> reverseProxyCertificate;
 
     /**
-     * @return A `reverse_proxy_certificate` block as defined below. Conflicts with `reverse_proxy_certificate_common_names`.
+     * @return A `reverseProxyCertificate` block as defined below. Conflicts with `reverseProxyCertificateCommonNames`.
      * 
      */
     public Optional<Output<ClusterReverseProxyCertificateArgs>> reverseProxyCertificate() {
@@ -292,14 +292,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `reverse_proxy_certificate_common_names` block as defined below. Conflicts with `reverse_proxy_certificate`.
+     * A `reverseProxyCertificateCommonNames` block as defined below. Conflicts with `reverseProxyCertificate`.
      * 
      */
     @Import(name="reverseProxyCertificateCommonNames")
     private @Nullable Output<ClusterReverseProxyCertificateCommonNamesArgs> reverseProxyCertificateCommonNames;
 
     /**
-     * @return A `reverse_proxy_certificate_common_names` block as defined below. Conflicts with `reverse_proxy_certificate`.
+     * @return A `reverseProxyCertificateCommonNames` block as defined below. Conflicts with `reverseProxyCertificate`.
      * 
      */
     public Optional<Output<ClusterReverseProxyCertificateCommonNamesArgs>> reverseProxyCertificateCommonNames() {
@@ -352,14 +352,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `upgrade_policy` block as defined below.
+     * A `upgradePolicy` block as defined below.
      * 
      */
     @Import(name="upgradePolicy")
     private @Nullable Output<ClusterUpgradePolicyArgs> upgradePolicy;
 
     /**
-     * @return A `upgrade_policy` block as defined below.
+     * @return A `upgradePolicy` block as defined below.
      * 
      */
     public Optional<Output<ClusterUpgradePolicyArgs>> upgradePolicy() {
@@ -475,7 +475,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param azureActiveDirectory An `azure_active_directory` block as defined below.
+         * @param azureActiveDirectory An `azureActiveDirectory` block as defined below.
          * 
          * @return builder
          * 
@@ -486,7 +486,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param azureActiveDirectory An `azure_active_directory` block as defined below.
+         * @param azureActiveDirectory An `azureActiveDirectory` block as defined below.
          * 
          * @return builder
          * 
@@ -496,7 +496,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificate A `certificate` block as defined below. Conflicts with `certificate_common_names`.
+         * @param certificate A `certificate` block as defined below. Conflicts with `certificateCommonNames`.
          * 
          * @return builder
          * 
@@ -507,7 +507,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificate A `certificate` block as defined below. Conflicts with `certificate_common_names`.
+         * @param certificate A `certificate` block as defined below. Conflicts with `certificateCommonNames`.
          * 
          * @return builder
          * 
@@ -517,7 +517,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateCommonNames A `certificate_common_names` block as defined below. Conflicts with `certificate`.
+         * @param certificateCommonNames A `certificateCommonNames` block as defined below. Conflicts with `certificate`.
          * 
          * @return builder
          * 
@@ -528,7 +528,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateCommonNames A `certificate_common_names` block as defined below. Conflicts with `certificate`.
+         * @param certificateCommonNames A `certificateCommonNames` block as defined below. Conflicts with `certificate`.
          * 
          * @return builder
          * 
@@ -538,7 +538,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientCertificateCommonNames A `client_certificate_common_name` block as defined below.
+         * @param clientCertificateCommonNames A `clientCertificateCommonName` block as defined below.
          * 
          * &gt; **Note:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
          * 
@@ -551,7 +551,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientCertificateCommonNames A `client_certificate_common_name` block as defined below.
+         * @param clientCertificateCommonNames A `clientCertificateCommonName` block as defined below.
          * 
          * &gt; **Note:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
          * 
@@ -563,7 +563,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientCertificateCommonNames A `client_certificate_common_name` block as defined below.
+         * @param clientCertificateCommonNames A `clientCertificateCommonName` block as defined below.
          * 
          * &gt; **Note:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
          * 
@@ -575,7 +575,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientCertificateThumbprints One or more `client_certificate_thumbprint` blocks as defined below.
+         * @param clientCertificateThumbprints One or more `clientCertificateThumbprint` blocks as defined below.
          * 
          * @return builder
          * 
@@ -586,7 +586,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientCertificateThumbprints One or more `client_certificate_thumbprint` blocks as defined below.
+         * @param clientCertificateThumbprints One or more `clientCertificateThumbprint` blocks as defined below.
          * 
          * @return builder
          * 
@@ -596,7 +596,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientCertificateThumbprints One or more `client_certificate_thumbprint` blocks as defined below.
+         * @param clientCertificateThumbprints One or more `clientCertificateThumbprint` blocks as defined below.
          * 
          * @return builder
          * 
@@ -648,7 +648,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param diagnosticsConfig A `diagnostics_config` block as defined below.
+         * @param diagnosticsConfig A `diagnosticsConfig` block as defined below.
          * 
          * @return builder
          * 
@@ -659,7 +659,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param diagnosticsConfig A `diagnostics_config` block as defined below.
+         * @param diagnosticsConfig A `diagnosticsConfig` block as defined below.
          * 
          * @return builder
          * 
@@ -669,7 +669,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fabricSettings One or more `fabric_settings` blocks as defined below.
+         * @param fabricSettings One or more `fabricSettings` blocks as defined below.
          * 
          * @return builder
          * 
@@ -680,7 +680,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fabricSettings One or more `fabric_settings` blocks as defined below.
+         * @param fabricSettings One or more `fabricSettings` blocks as defined below.
          * 
          * @return builder
          * 
@@ -690,7 +690,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fabricSettings One or more `fabric_settings` blocks as defined below.
+         * @param fabricSettings One or more `fabricSettings` blocks as defined below.
          * 
          * @return builder
          * 
@@ -763,7 +763,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nodeTypes One or more `node_type` blocks as defined below.
+         * @param nodeTypes One or more `nodeType` blocks as defined below.
          * 
          * @return builder
          * 
@@ -774,7 +774,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nodeTypes One or more `node_type` blocks as defined below.
+         * @param nodeTypes One or more `nodeType` blocks as defined below.
          * 
          * @return builder
          * 
@@ -784,7 +784,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nodeTypes One or more `node_type` blocks as defined below.
+         * @param nodeTypes One or more `nodeType` blocks as defined below.
          * 
          * @return builder
          * 
@@ -840,7 +840,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param reverseProxyCertificate A `reverse_proxy_certificate` block as defined below. Conflicts with `reverse_proxy_certificate_common_names`.
+         * @param reverseProxyCertificate A `reverseProxyCertificate` block as defined below. Conflicts with `reverseProxyCertificateCommonNames`.
          * 
          * @return builder
          * 
@@ -851,7 +851,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param reverseProxyCertificate A `reverse_proxy_certificate` block as defined below. Conflicts with `reverse_proxy_certificate_common_names`.
+         * @param reverseProxyCertificate A `reverseProxyCertificate` block as defined below. Conflicts with `reverseProxyCertificateCommonNames`.
          * 
          * @return builder
          * 
@@ -861,7 +861,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param reverseProxyCertificateCommonNames A `reverse_proxy_certificate_common_names` block as defined below. Conflicts with `reverse_proxy_certificate`.
+         * @param reverseProxyCertificateCommonNames A `reverseProxyCertificateCommonNames` block as defined below. Conflicts with `reverseProxyCertificate`.
          * 
          * @return builder
          * 
@@ -872,7 +872,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param reverseProxyCertificateCommonNames A `reverse_proxy_certificate_common_names` block as defined below. Conflicts with `reverse_proxy_certificate`.
+         * @param reverseProxyCertificateCommonNames A `reverseProxyCertificateCommonNames` block as defined below. Conflicts with `reverseProxyCertificate`.
          * 
          * @return builder
          * 
@@ -945,7 +945,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param upgradePolicy A `upgrade_policy` block as defined below.
+         * @param upgradePolicy A `upgradePolicy` block as defined below.
          * 
          * @return builder
          * 
@@ -956,7 +956,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param upgradePolicy A `upgrade_policy` block as defined below.
+         * @param upgradePolicy A `upgradePolicy` block as defined below.
          * 
          * @return builder
          * 

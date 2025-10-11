@@ -60,7 +60,7 @@ namespace Pulumi.Azure.Storage
     public partial class Table : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// One or more `acl` blocks as defined below.
+        /// One or more `Acl` blocks as defined below.
         /// </summary>
         [Output("acls")]
         public Output<ImmutableArray<Outputs.TableAcl>> Acls { get; private set; } = null!;
@@ -133,7 +133,7 @@ namespace Pulumi.Azure.Storage
         private InputList<Inputs.TableAclArgs>? _acls;
 
         /// <summary>
-        /// One or more `acl` blocks as defined below.
+        /// One or more `Acl` blocks as defined below.
         /// </summary>
         public InputList<Inputs.TableAclArgs> Acls
         {
@@ -165,7 +165,7 @@ namespace Pulumi.Azure.Storage
         private InputList<Inputs.TableAclGetArgs>? _acls;
 
         /// <summary>
-        /// One or more `acl` blocks as defined below.
+        /// One or more `Acl` blocks as defined below.
         /// </summary>
         public InputList<Inputs.TableAclGetArgs> Acls
         {

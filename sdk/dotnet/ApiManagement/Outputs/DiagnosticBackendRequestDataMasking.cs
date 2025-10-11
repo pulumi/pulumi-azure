@@ -14,11 +14,11 @@ namespace Pulumi.Azure.ApiManagement.Outputs
     public sealed class DiagnosticBackendRequestDataMasking
     {
         /// <summary>
-        /// A `headers` block as defined below.
+        /// A `Headers` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DiagnosticBackendRequestDataMaskingHeader> Headers;
         /// <summary>
-        /// A `query_params` block as defined below.
+        /// A `QueryParams` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DiagnosticBackendRequestDataMaskingQueryParam> QueryParams;
 

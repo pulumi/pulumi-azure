@@ -19,7 +19,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         public Input<string> SecretName { get; set; } = null!;
 
         /// <summary>
-        /// The Trigger Parameter name to use the supply the value retrieved from the `secret_name`.
+        /// The Trigger Parameter name to use the supply the value retrieved from the `SecretName`.
         /// </summary>
         [Input("triggerParameter", required: true)]
         public Input<string> TriggerParameter { get; set; } = null!;

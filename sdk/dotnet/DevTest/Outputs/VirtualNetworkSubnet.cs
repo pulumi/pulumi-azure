@@ -18,7 +18,7 @@ namespace Pulumi.Azure.DevTest.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// A `shared_public_ip_address` block as defined below.
+        /// A `SharedPublicIpAddress` block as defined below.
         /// </summary>
         public readonly Outputs.VirtualNetworkSubnetSharedPublicIpAddress? SharedPublicIpAddress;
         /// <summary>

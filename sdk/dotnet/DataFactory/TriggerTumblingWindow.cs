@@ -100,7 +100,7 @@ namespace Pulumi.Azure.DataFactory
     public partial class TriggerTumblingWindow : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies if the Data Factory Tumbling Window Trigger is activated. Defaults to `true`.
+        /// Specifies if the Data Factory Tumbling Window Trigger is activated. Defaults to `True`.
         /// </summary>
         [Output("activated")]
         public Output<bool?> Activated { get; private set; } = null!;
@@ -166,13 +166,13 @@ namespace Pulumi.Azure.DataFactory
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `pipeline` block as defined below.
+        /// A `Pipeline` block as defined below.
         /// </summary>
         [Output("pipeline")]
         public Output<Outputs.TriggerTumblingWindowPipeline> Pipeline { get; private set; } = null!;
 
         /// <summary>
-        /// A `retry` block as defined below.
+        /// A `Retry` block as defined below.
         /// </summary>
         [Output("retry")]
         public Output<Outputs.TriggerTumblingWindowRetry?> Retry { get; private set; } = null!;
@@ -184,7 +184,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string> StartTime { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `trigger_dependency` block as defined below.
+        /// One or more `TriggerDependency` block as defined below.
         /// </summary>
         [Output("triggerDependencies")]
         public Output<ImmutableArray<Outputs.TriggerTumblingWindowTriggerDependency>> TriggerDependencies { get; private set; } = null!;
@@ -236,7 +236,7 @@ namespace Pulumi.Azure.DataFactory
     public sealed class TriggerTumblingWindowArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies if the Data Factory Tumbling Window Trigger is activated. Defaults to `true`.
+        /// Specifies if the Data Factory Tumbling Window Trigger is activated. Defaults to `True`.
         /// </summary>
         [Input("activated")]
         public Input<bool>? Activated { get; set; }
@@ -314,13 +314,13 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `pipeline` block as defined below.
+        /// A `Pipeline` block as defined below.
         /// </summary>
         [Input("pipeline", required: true)]
         public Input<Inputs.TriggerTumblingWindowPipelineArgs> Pipeline { get; set; } = null!;
 
         /// <summary>
-        /// A `retry` block as defined below.
+        /// A `Retry` block as defined below.
         /// </summary>
         [Input("retry")]
         public Input<Inputs.TriggerTumblingWindowRetryArgs>? Retry { get; set; }
@@ -335,7 +335,7 @@ namespace Pulumi.Azure.DataFactory
         private InputList<Inputs.TriggerTumblingWindowTriggerDependencyArgs>? _triggerDependencies;
 
         /// <summary>
-        /// One or more `trigger_dependency` block as defined below.
+        /// One or more `TriggerDependency` block as defined below.
         /// </summary>
         public InputList<Inputs.TriggerTumblingWindowTriggerDependencyArgs> TriggerDependencies
         {
@@ -352,7 +352,7 @@ namespace Pulumi.Azure.DataFactory
     public sealed class TriggerTumblingWindowState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies if the Data Factory Tumbling Window Trigger is activated. Defaults to `true`.
+        /// Specifies if the Data Factory Tumbling Window Trigger is activated. Defaults to `True`.
         /// </summary>
         [Input("activated")]
         public Input<bool>? Activated { get; set; }
@@ -430,13 +430,13 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `pipeline` block as defined below.
+        /// A `Pipeline` block as defined below.
         /// </summary>
         [Input("pipeline")]
         public Input<Inputs.TriggerTumblingWindowPipelineGetArgs>? Pipeline { get; set; }
 
         /// <summary>
-        /// A `retry` block as defined below.
+        /// A `Retry` block as defined below.
         /// </summary>
         [Input("retry")]
         public Input<Inputs.TriggerTumblingWindowRetryGetArgs>? Retry { get; set; }
@@ -451,7 +451,7 @@ namespace Pulumi.Azure.DataFactory
         private InputList<Inputs.TriggerTumblingWindowTriggerDependencyGetArgs>? _triggerDependencies;
 
         /// <summary>
-        /// One or more `trigger_dependency` block as defined below.
+        /// One or more `TriggerDependency` block as defined below.
         /// </summary>
         public InputList<Inputs.TriggerTumblingWindowTriggerDependencyGetArgs> TriggerDependencies
         {

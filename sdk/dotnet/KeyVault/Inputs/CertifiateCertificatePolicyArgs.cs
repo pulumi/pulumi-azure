@@ -13,13 +13,13 @@ namespace Pulumi.Azure.KeyVault.Inputs
     public sealed class CertifiateCertificatePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `issuer_parameters` block as defined below.
+        /// A `IssuerParameters` block as defined below.
         /// </summary>
         [Input("issuerParameters", required: true)]
         public Input<Inputs.CertifiateCertificatePolicyIssuerParametersArgs> IssuerParameters { get; set; } = null!;
 
         /// <summary>
-        /// A `key_properties` block as defined below.
+        /// A `KeyProperties` block as defined below.
         /// </summary>
         [Input("keyProperties", required: true)]
         public Input<Inputs.CertifiateCertificatePolicyKeyPropertiesArgs> KeyProperties { get; set; } = null!;
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.KeyVault.Inputs
         private InputList<Inputs.CertifiateCertificatePolicyLifetimeActionArgs>? _lifetimeActions;
 
         /// <summary>
-        /// A `lifetime_action` block as defined below.
+        /// A `LifetimeAction` block as defined below.
         /// </summary>
         public InputList<Inputs.CertifiateCertificatePolicyLifetimeActionArgs> LifetimeActions
         {
@@ -37,13 +37,13 @@ namespace Pulumi.Azure.KeyVault.Inputs
         }
 
         /// <summary>
-        /// A `secret_properties` block as defined below.
+        /// A `SecretProperties` block as defined below.
         /// </summary>
         [Input("secretProperties", required: true)]
         public Input<Inputs.CertifiateCertificatePolicySecretPropertiesArgs> SecretProperties { get; set; } = null!;
 
         /// <summary>
-        /// A `x509_certificate_properties` block as defined below. Required when `certificate` block is not specified.
+        /// A `X509CertificateProperties` block as defined below. Required when `Certificate` block is not specified.
         /// </summary>
         [Input("x509CertificateProperties")]
         public Input<Inputs.CertifiateCertificatePolicyX509CertificatePropertiesArgs>? X509CertificateProperties { get; set; }

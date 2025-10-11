@@ -36,7 +36,7 @@ public final class DatabaseExtendedAuditingPolicyArgs extends com.pulumi.resourc
     /**
      * Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
      * 
-     * &gt; **Note:** If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
+     * &gt; **Note:** If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
      * 
      */
     @Import(name="enabled")
@@ -45,7 +45,7 @@ public final class DatabaseExtendedAuditingPolicyArgs extends com.pulumi.resourc
     /**
      * @return Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
      * 
-     * &gt; **Note:** If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
+     * &gt; **Note:** If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -104,14 +104,14 @@ public final class DatabaseExtendedAuditingPolicyArgs extends com.pulumi.resourc
     }
 
     /**
-     * Is `storage_account_access_key` value the storage&#39;s secondary key?
+     * Is `storageAccountAccessKey` value the storage&#39;s secondary key?
      * 
      */
     @Import(name="storageAccountAccessKeyIsSecondary")
     private @Nullable Output<Boolean> storageAccountAccessKeyIsSecondary;
 
     /**
-     * @return Is `storage_account_access_key` value the storage&#39;s secondary key?
+     * @return Is `storageAccountAccessKey` value the storage&#39;s secondary key?
      * 
      */
     public Optional<Output<Boolean>> storageAccountAccessKeyIsSecondary() {
@@ -187,7 +187,7 @@ public final class DatabaseExtendedAuditingPolicyArgs extends com.pulumi.resourc
         /**
          * @param enabled Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
          * 
-         * &gt; **Note:** If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
+         * &gt; **Note:** If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class DatabaseExtendedAuditingPolicyArgs extends com.pulumi.resourc
         /**
          * @param enabled Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
          * 
-         * &gt; **Note:** If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
+         * &gt; **Note:** If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
          * 
          * @return builder
          * 
@@ -279,7 +279,7 @@ public final class DatabaseExtendedAuditingPolicyArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param storageAccountAccessKeyIsSecondary Is `storage_account_access_key` value the storage&#39;s secondary key?
+         * @param storageAccountAccessKeyIsSecondary Is `storageAccountAccessKey` value the storage&#39;s secondary key?
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class DatabaseExtendedAuditingPolicyArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param storageAccountAccessKeyIsSecondary Is `storage_account_access_key` value the storage&#39;s secondary key?
+         * @param storageAccountAccessKeyIsSecondary Is `storageAccountAccessKey` value the storage&#39;s secondary key?
          * 
          * @return builder
          * 

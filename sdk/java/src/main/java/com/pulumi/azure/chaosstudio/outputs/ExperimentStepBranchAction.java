@@ -29,12 +29,12 @@ public final class ExperimentStepBranchAction {
      */
     private @Nullable Map<String,String> parameters;
     /**
-     * @return The name of the Selector to which this action should apply to. This must be specified if the `action_type` is `continuous` or `discrete`.
+     * @return The name of the Selector to which this action should apply to. This must be specified if the `actionType` is `continuous` or `discrete`.
      * 
      */
     private @Nullable String selectorName;
     /**
-     * @return The Unique Resource Name of the action, this value is provided by the `azure.chaosstudio.Capability` resource e.g. `azurerm_chaos_studio_capability.example.urn`. This must be specified if the `action_type` is `continuous` or `discrete`.
+     * @return The Unique Resource Name of the action, this value is provided by the `azure.chaosstudio.Capability` resource e.g. `azurerm_chaos_studio_capability.example.urn`. This must be specified if the `actionType` is `continuous` or `discrete`.
      * 
      */
     private @Nullable String urn;
@@ -62,14 +62,14 @@ public final class ExperimentStepBranchAction {
         return this.parameters == null ? Map.of() : this.parameters;
     }
     /**
-     * @return The name of the Selector to which this action should apply to. This must be specified if the `action_type` is `continuous` or `discrete`.
+     * @return The name of the Selector to which this action should apply to. This must be specified if the `actionType` is `continuous` or `discrete`.
      * 
      */
     public Optional<String> selectorName() {
         return Optional.ofNullable(this.selectorName);
     }
     /**
-     * @return The Unique Resource Name of the action, this value is provided by the `azure.chaosstudio.Capability` resource e.g. `azurerm_chaos_studio_capability.example.urn`. This must be specified if the `action_type` is `continuous` or `discrete`.
+     * @return The Unique Resource Name of the action, this value is provided by the `azure.chaosstudio.Capability` resource e.g. `azurerm_chaos_studio_capability.example.urn`. This must be specified if the `actionType` is `continuous` or `discrete`.
      * 
      */
     public Optional<String> urn() {

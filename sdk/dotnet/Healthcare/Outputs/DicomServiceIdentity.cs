@@ -20,7 +20,7 @@ namespace Pulumi.Azure.Healthcare.Outputs
         public readonly string? PrincipalId;
         public readonly string? TenantId;
         /// <summary>
-        /// The type of identity used for the Healthcare DICOM service. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`. If `UserAssigned` is set, an `identity_ids` must be set as well.
+        /// The type of identity used for the Healthcare DICOM service. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`. If `UserAssigned` is set, an `IdentityIds` must be set as well.
         /// </summary>
         public readonly string Type;
 

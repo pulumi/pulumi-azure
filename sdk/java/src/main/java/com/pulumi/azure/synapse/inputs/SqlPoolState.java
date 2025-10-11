@@ -19,14 +19,14 @@ public final class SqlPoolState extends com.pulumi.resources.ResourceArgs {
     public static final SqlPoolState Empty = new SqlPoolState();
 
     /**
-     * The name of the collation to use with this pool, only applicable when `create_mode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new Synapse SQL Pool to be created.
+     * The name of the collation to use with this pool, only applicable when `createMode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new Synapse SQL Pool to be created.
      * 
      */
     @Import(name="collation")
     private @Nullable Output<String> collation;
 
     /**
-     * @return The name of the collation to use with this pool, only applicable when `create_mode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new Synapse SQL Pool to be created.
+     * @return The name of the collation to use with this pool, only applicable when `createMode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new Synapse SQL Pool to be created.
      * 
      */
     public Optional<Output<String>> collation() {
@@ -94,14 +94,14 @@ public final class SqlPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `create_mode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created.
+     * The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `createMode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created.
      * 
      */
     @Import(name="recoveryDatabaseId")
     private @Nullable Output<String> recoveryDatabaseId;
 
     /**
-     * @return The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `create_mode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created.
+     * @return The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `createMode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created.
      * 
      */
     public Optional<Output<String>> recoveryDatabaseId() {
@@ -109,14 +109,14 @@ public final class SqlPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `restore` block as defined below. Only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new Synapse SQL Pool to be created.
+     * A `restore` block as defined below. Only applicable when `createMode` is set to `PointInTimeRestore`. Changing this forces a new Synapse SQL Pool to be created.
      * 
      */
     @Import(name="restore")
     private @Nullable Output<SqlPoolRestoreArgs> restore;
 
     /**
-     * @return A `restore` block as defined below. Only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new Synapse SQL Pool to be created.
+     * @return A `restore` block as defined below. Only applicable when `createMode` is set to `PointInTimeRestore`. Changing this forces a new Synapse SQL Pool to be created.
      * 
      */
     public Optional<Output<SqlPoolRestoreArgs>> restore() {
@@ -218,7 +218,7 @@ public final class SqlPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param collation The name of the collation to use with this pool, only applicable when `create_mode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new Synapse SQL Pool to be created.
+         * @param collation The name of the collation to use with this pool, only applicable when `createMode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new Synapse SQL Pool to be created.
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class SqlPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param collation The name of the collation to use with this pool, only applicable when `create_mode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new Synapse SQL Pool to be created.
+         * @param collation The name of the collation to use with this pool, only applicable when `createMode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new Synapse SQL Pool to be created.
          * 
          * @return builder
          * 
@@ -323,7 +323,7 @@ public final class SqlPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param recoveryDatabaseId The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `create_mode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created.
+         * @param recoveryDatabaseId The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `createMode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created.
          * 
          * @return builder
          * 
@@ -334,7 +334,7 @@ public final class SqlPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param recoveryDatabaseId The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `create_mode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created.
+         * @param recoveryDatabaseId The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `createMode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created.
          * 
          * @return builder
          * 
@@ -344,7 +344,7 @@ public final class SqlPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param restore A `restore` block as defined below. Only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new Synapse SQL Pool to be created.
+         * @param restore A `restore` block as defined below. Only applicable when `createMode` is set to `PointInTimeRestore`. Changing this forces a new Synapse SQL Pool to be created.
          * 
          * @return builder
          * 
@@ -355,7 +355,7 @@ public final class SqlPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param restore A `restore` block as defined below. Only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new Synapse SQL Pool to be created.
+         * @param restore A `restore` block as defined below. Only applicable when `createMode` is set to `PointInTimeRestore`. Changing this forces a new Synapse SQL Pool to be created.
          * 
          * @return builder
          * 

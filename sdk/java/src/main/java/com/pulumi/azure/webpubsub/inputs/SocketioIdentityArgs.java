@@ -20,7 +20,7 @@ public final class SocketioIdentityArgs extends com.pulumi.resources.ResourceArg
     /**
      * Specifies a list of User Assigned Managed Identity IDs for this Web PubSub Service.
      * 
-     * &gt; **Note:** `identity_ids` is required when `type` is `UserAssigned`.
+     * &gt; **Note:** `identityIds` is required when `type` is `UserAssigned`.
      * 
      */
     @Import(name="identityIds")
@@ -29,7 +29,7 @@ public final class SocketioIdentityArgs extends com.pulumi.resources.ResourceArg
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs for this Web PubSub Service.
      * 
-     * &gt; **Note:** `identity_ids` is required when `type` is `UserAssigned`.
+     * &gt; **Note:** `identityIds` is required when `type` is `UserAssigned`.
      * 
      */
     public Optional<Output<List<String>>> identityIds() {
@@ -95,7 +95,7 @@ public final class SocketioIdentityArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param identityIds Specifies a list of User Assigned Managed Identity IDs for this Web PubSub Service.
          * 
-         * &gt; **Note:** `identity_ids` is required when `type` is `UserAssigned`.
+         * &gt; **Note:** `identityIds` is required when `type` is `UserAssigned`.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class SocketioIdentityArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param identityIds Specifies a list of User Assigned Managed Identity IDs for this Web PubSub Service.
          * 
-         * &gt; **Note:** `identity_ids` is required when `type` is `UserAssigned`.
+         * &gt; **Note:** `identityIds` is required when `type` is `UserAssigned`.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class SocketioIdentityArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param identityIds Specifies a list of User Assigned Managed Identity IDs for this Web PubSub Service.
          * 
-         * &gt; **Note:** `identity_ids` is required when `type` is `UserAssigned`.
+         * &gt; **Note:** `identityIds` is required when `type` is `UserAssigned`.
          * 
          * @return builder
          * 

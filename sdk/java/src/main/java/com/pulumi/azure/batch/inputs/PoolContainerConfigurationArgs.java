@@ -33,14 +33,14 @@ public final class PoolContainerConfigurationArgs extends com.pulumi.resources.R
     }
 
     /**
-     * One or more `container_registries` blocks as defined below. Additional container registries from which container images can be pulled by the pool&#39;s VMs. Changing this forces a new resource to be created.
+     * One or more `containerRegistries` blocks as defined below. Additional container registries from which container images can be pulled by the pool&#39;s VMs. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="containerRegistries")
     private @Nullable Output<List<PoolContainerConfigurationContainerRegistryArgs>> containerRegistries;
 
     /**
-     * @return One or more `container_registries` blocks as defined below. Additional container registries from which container images can be pulled by the pool&#39;s VMs. Changing this forces a new resource to be created.
+     * @return One or more `containerRegistries` blocks as defined below. Additional container registries from which container images can be pulled by the pool&#39;s VMs. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<PoolContainerConfigurationContainerRegistryArgs>>> containerRegistries() {
@@ -120,7 +120,7 @@ public final class PoolContainerConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param containerRegistries One or more `container_registries` blocks as defined below. Additional container registries from which container images can be pulled by the pool&#39;s VMs. Changing this forces a new resource to be created.
+         * @param containerRegistries One or more `containerRegistries` blocks as defined below. Additional container registries from which container images can be pulled by the pool&#39;s VMs. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class PoolContainerConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param containerRegistries One or more `container_registries` blocks as defined below. Additional container registries from which container images can be pulled by the pool&#39;s VMs. Changing this forces a new resource to be created.
+         * @param containerRegistries One or more `containerRegistries` blocks as defined below. Additional container registries from which container images can be pulled by the pool&#39;s VMs. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class PoolContainerConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param containerRegistries One or more `container_registries` blocks as defined below. Additional container registries from which container images can be pulled by the pool&#39;s VMs. Changing this forces a new resource to be created.
+         * @param containerRegistries One or more `containerRegistries` blocks as defined below. Additional container registries from which container images can be pulled by the pool&#39;s VMs. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

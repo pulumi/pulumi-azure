@@ -24,7 +24,7 @@ public final class LinkedServiceAzureDatabricksInstancePool {
      */
     private String instancePoolId;
     /**
-     * @return The max number of worker nodes. Set this value if you want to enable autoscaling between the `min_number_of_workers` and this value. Omit this value to use a fixed number of workers defined in the `min_number_of_workers` property.
+     * @return The max number of worker nodes. Set this value if you want to enable autoscaling between the `minNumberOfWorkers` and this value. Omit this value to use a fixed number of workers defined in the `minNumberOfWorkers` property.
      * 
      */
     private @Nullable Integer maxNumberOfWorkers;
@@ -50,7 +50,7 @@ public final class LinkedServiceAzureDatabricksInstancePool {
         return this.instancePoolId;
     }
     /**
-     * @return The max number of worker nodes. Set this value if you want to enable autoscaling between the `min_number_of_workers` and this value. Omit this value to use a fixed number of workers defined in the `min_number_of_workers` property.
+     * @return The max number of worker nodes. Set this value if you want to enable autoscaling between the `minNumberOfWorkers` and this value. Omit this value to use a fixed number of workers defined in the `minNumberOfWorkers` property.
      * 
      */
     public Optional<Integer> maxNumberOfWorkers() {

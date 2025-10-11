@@ -59,7 +59,7 @@ namespace Pulumi.Azure.OperationalInsights
     public partial class AnalyticsWorkspace : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies if the log Analytics Workspace allows users accessing to data associated with the resources they have permission to view, without permission to workspace. Defaults to `true`.
+        /// Specifies if the log Analytics Workspace allows users accessing to data associated with the resources they have permission to view, without permission to workspace. Defaults to `True`.
         /// </summary>
         [Output("allowResourceOnlyPermissions")]
         public Output<bool?> AllowResourceOnlyPermissions { get; private set; } = null!;
@@ -83,7 +83,7 @@ namespace Pulumi.Azure.OperationalInsights
         public Output<string?> DataCollectionRuleId { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.AnalyticsWorkspaceIdentity?> Identity { get; private set; } = null!;
@@ -95,13 +95,13 @@ namespace Pulumi.Azure.OperationalInsights
         public Output<bool?> ImmediateDataPurgeOn30DaysEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
+        /// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `True`.
         /// </summary>
         [Output("internetIngestionEnabled")]
         public Output<bool?> InternetIngestionEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
+        /// Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `True`.
         /// </summary>
         [Output("internetQueryEnabled")]
         public Output<bool?> InternetQueryEnabled { get; private set; } = null!;
@@ -110,7 +110,7 @@ namespace Pulumi.Azure.OperationalInsights
         public Output<bool> LocalAuthenticationDisabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if the log Analytics workspace should allow local authentication methods in addition to Microsoft Entra (Azure AD). Defaults to `true`.
+        /// Specifies if the log Analytics workspace should allow local authentication methods in addition to Microsoft Entra (Azure AD). Defaults to `True`.
         /// </summary>
         [Output("localAuthenticationEnabled")]
         public Output<bool> LocalAuthenticationEnabled { get; private set; } = null!;
@@ -136,7 +136,7 @@ namespace Pulumi.Azure.OperationalInsights
         /// <summary>
         /// The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
         /// 
-        /// &gt; **Note:** `reservation_capacity_in_gb_per_day` can only be used when the `sku` is set to `CapacityReservation`.
+        /// &gt; **Note:** `ReservationCapacityInGbPerDay` can only be used when the `Sku` is set to `CapacityReservation`.
         /// </summary>
         [Output("reservationCapacityInGbPerDay")]
         public Output<int?> ReservationCapacityInGbPerDay { get; private set; } = null!;
@@ -162,9 +162,9 @@ namespace Pulumi.Azure.OperationalInsights
         /// <summary>
         /// Specifies the SKU of the Log Analytics Workspace. Possible values are `PerNode`, `Standalone`, `Unlimited`, `CapacityReservation`, `PerGB2018`, and `LACluster`. Defaults to `PerGB2018`.
         /// 
-        /// &gt; **Note:** `sku` should only be set to `LACluster` when the Log Analytics Workspace is linked to a Log Analytics Cluster. Additionally, `sku` cannot be modified while linked.
+        /// &gt; **Note:** `Sku` should only be set to `LACluster` when the Log Analytics Workspace is linked to a Log Analytics Cluster. Additionally, `Sku` cannot be modified while linked.
         /// 
-        /// &gt; **Note:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. Changing `sku` to `CapacityReservation` or changing `reservation_capacity_in_gb_per_day` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
+        /// &gt; **Note:** Changing `Sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. Changing `Sku` to `CapacityReservation` or changing `ReservationCapacityInGbPerDay` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
         /// 
         /// &gt; **Note:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you've provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
         /// </summary>
@@ -235,7 +235,7 @@ namespace Pulumi.Azure.OperationalInsights
     public sealed class AnalyticsWorkspaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies if the log Analytics Workspace allows users accessing to data associated with the resources they have permission to view, without permission to workspace. Defaults to `true`.
+        /// Specifies if the log Analytics Workspace allows users accessing to data associated with the resources they have permission to view, without permission to workspace. Defaults to `True`.
         /// </summary>
         [Input("allowResourceOnlyPermissions")]
         public Input<bool>? AllowResourceOnlyPermissions { get; set; }
@@ -259,7 +259,7 @@ namespace Pulumi.Azure.OperationalInsights
         public Input<string>? DataCollectionRuleId { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.AnalyticsWorkspaceIdentityArgs>? Identity { get; set; }
@@ -271,13 +271,13 @@ namespace Pulumi.Azure.OperationalInsights
         public Input<bool>? ImmediateDataPurgeOn30DaysEnabled { get; set; }
 
         /// <summary>
-        /// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
+        /// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `True`.
         /// </summary>
         [Input("internetIngestionEnabled")]
         public Input<bool>? InternetIngestionEnabled { get; set; }
 
         /// <summary>
-        /// Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
+        /// Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `True`.
         /// </summary>
         [Input("internetQueryEnabled")]
         public Input<bool>? InternetQueryEnabled { get; set; }
@@ -286,7 +286,7 @@ namespace Pulumi.Azure.OperationalInsights
         public Input<bool>? LocalAuthenticationDisabled { get; set; }
 
         /// <summary>
-        /// Specifies if the log Analytics workspace should allow local authentication methods in addition to Microsoft Entra (Azure AD). Defaults to `true`.
+        /// Specifies if the log Analytics workspace should allow local authentication methods in addition to Microsoft Entra (Azure AD). Defaults to `True`.
         /// </summary>
         [Input("localAuthenticationEnabled")]
         public Input<bool>? LocalAuthenticationEnabled { get; set; }
@@ -306,7 +306,7 @@ namespace Pulumi.Azure.OperationalInsights
         /// <summary>
         /// The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
         /// 
-        /// &gt; **Note:** `reservation_capacity_in_gb_per_day` can only be used when the `sku` is set to `CapacityReservation`.
+        /// &gt; **Note:** `ReservationCapacityInGbPerDay` can only be used when the `Sku` is set to `CapacityReservation`.
         /// </summary>
         [Input("reservationCapacityInGbPerDay")]
         public Input<int>? ReservationCapacityInGbPerDay { get; set; }
@@ -326,9 +326,9 @@ namespace Pulumi.Azure.OperationalInsights
         /// <summary>
         /// Specifies the SKU of the Log Analytics Workspace. Possible values are `PerNode`, `Standalone`, `Unlimited`, `CapacityReservation`, `PerGB2018`, and `LACluster`. Defaults to `PerGB2018`.
         /// 
-        /// &gt; **Note:** `sku` should only be set to `LACluster` when the Log Analytics Workspace is linked to a Log Analytics Cluster. Additionally, `sku` cannot be modified while linked.
+        /// &gt; **Note:** `Sku` should only be set to `LACluster` when the Log Analytics Workspace is linked to a Log Analytics Cluster. Additionally, `Sku` cannot be modified while linked.
         /// 
-        /// &gt; **Note:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. Changing `sku` to `CapacityReservation` or changing `reservation_capacity_in_gb_per_day` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
+        /// &gt; **Note:** Changing `Sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. Changing `Sku` to `CapacityReservation` or changing `ReservationCapacityInGbPerDay` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
         /// 
         /// &gt; **Note:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you've provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
         /// </summary>
@@ -356,7 +356,7 @@ namespace Pulumi.Azure.OperationalInsights
     public sealed class AnalyticsWorkspaceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies if the log Analytics Workspace allows users accessing to data associated with the resources they have permission to view, without permission to workspace. Defaults to `true`.
+        /// Specifies if the log Analytics Workspace allows users accessing to data associated with the resources they have permission to view, without permission to workspace. Defaults to `True`.
         /// </summary>
         [Input("allowResourceOnlyPermissions")]
         public Input<bool>? AllowResourceOnlyPermissions { get; set; }
@@ -380,7 +380,7 @@ namespace Pulumi.Azure.OperationalInsights
         public Input<string>? DataCollectionRuleId { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.AnalyticsWorkspaceIdentityGetArgs>? Identity { get; set; }
@@ -392,13 +392,13 @@ namespace Pulumi.Azure.OperationalInsights
         public Input<bool>? ImmediateDataPurgeOn30DaysEnabled { get; set; }
 
         /// <summary>
-        /// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
+        /// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `True`.
         /// </summary>
         [Input("internetIngestionEnabled")]
         public Input<bool>? InternetIngestionEnabled { get; set; }
 
         /// <summary>
-        /// Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
+        /// Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `True`.
         /// </summary>
         [Input("internetQueryEnabled")]
         public Input<bool>? InternetQueryEnabled { get; set; }
@@ -407,7 +407,7 @@ namespace Pulumi.Azure.OperationalInsights
         public Input<bool>? LocalAuthenticationDisabled { get; set; }
 
         /// <summary>
-        /// Specifies if the log Analytics workspace should allow local authentication methods in addition to Microsoft Entra (Azure AD). Defaults to `true`.
+        /// Specifies if the log Analytics workspace should allow local authentication methods in addition to Microsoft Entra (Azure AD). Defaults to `True`.
         /// </summary>
         [Input("localAuthenticationEnabled")]
         public Input<bool>? LocalAuthenticationEnabled { get; set; }
@@ -443,7 +443,7 @@ namespace Pulumi.Azure.OperationalInsights
         /// <summary>
         /// The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
         /// 
-        /// &gt; **Note:** `reservation_capacity_in_gb_per_day` can only be used when the `sku` is set to `CapacityReservation`.
+        /// &gt; **Note:** `ReservationCapacityInGbPerDay` can only be used when the `Sku` is set to `CapacityReservation`.
         /// </summary>
         [Input("reservationCapacityInGbPerDay")]
         public Input<int>? ReservationCapacityInGbPerDay { get; set; }
@@ -479,9 +479,9 @@ namespace Pulumi.Azure.OperationalInsights
         /// <summary>
         /// Specifies the SKU of the Log Analytics Workspace. Possible values are `PerNode`, `Standalone`, `Unlimited`, `CapacityReservation`, `PerGB2018`, and `LACluster`. Defaults to `PerGB2018`.
         /// 
-        /// &gt; **Note:** `sku` should only be set to `LACluster` when the Log Analytics Workspace is linked to a Log Analytics Cluster. Additionally, `sku` cannot be modified while linked.
+        /// &gt; **Note:** `Sku` should only be set to `LACluster` when the Log Analytics Workspace is linked to a Log Analytics Cluster. Additionally, `Sku` cannot be modified while linked.
         /// 
-        /// &gt; **Note:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. Changing `sku` to `CapacityReservation` or changing `reservation_capacity_in_gb_per_day` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
+        /// &gt; **Note:** Changing `Sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. Changing `Sku` to `CapacityReservation` or changing `ReservationCapacityInGbPerDay` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
         /// 
         /// &gt; **Note:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you've provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
         /// </summary>

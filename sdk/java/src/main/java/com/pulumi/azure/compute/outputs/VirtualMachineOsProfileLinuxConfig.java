@@ -14,26 +14,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VirtualMachineOsProfileLinuxConfig {
     /**
-     * @return Specifies whether password authentication should be disabled. If set to `false`, an `admin_password` must be specified.
+     * @return Specifies whether password authentication should be disabled. If set to `false`, an `adminPassword` must be specified.
      * 
      */
     private Boolean disablePasswordAuthentication;
     /**
-     * @return One or more `ssh_keys` blocks as defined below. This field is required if `disable_password_authentication` is set to `true`.
+     * @return One or more `sshKeys` blocks as defined below. This field is required if `disablePasswordAuthentication` is set to `true`.
      * 
      */
     private @Nullable List<VirtualMachineOsProfileLinuxConfigSshKey> sshKeys;
 
     private VirtualMachineOsProfileLinuxConfig() {}
     /**
-     * @return Specifies whether password authentication should be disabled. If set to `false`, an `admin_password` must be specified.
+     * @return Specifies whether password authentication should be disabled. If set to `false`, an `adminPassword` must be specified.
      * 
      */
     public Boolean disablePasswordAuthentication() {
         return this.disablePasswordAuthentication;
     }
     /**
-     * @return One or more `ssh_keys` blocks as defined below. This field is required if `disable_password_authentication` is set to `true`.
+     * @return One or more `sshKeys` blocks as defined below. This field is required if `disablePasswordAuthentication` is set to `true`.
      * 
      */
     public List<VirtualMachineOsProfileLinuxConfigSshKey> sshKeys() {

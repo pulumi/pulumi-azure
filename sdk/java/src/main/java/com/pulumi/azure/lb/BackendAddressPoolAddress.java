@@ -145,14 +145,14 @@ public class BackendAddressPoolAddress extends com.pulumi.resources.CustomResour
         return this.backendAddressPoolId;
     }
     /**
-     * A list of `inbound_nat_rule_port_mapping` block as defined below.
+     * A list of `inboundNatRulePortMapping` block as defined below.
      * 
      */
     @Export(name="inboundNatRulePortMappings", refs={List.class,BackendAddressPoolAddressInboundNatRulePortMapping.class}, tree="[0,1]")
     private Output<List<BackendAddressPoolAddressInboundNatRulePortMapping>> inboundNatRulePortMappings;
 
     /**
-     * @return A list of `inbound_nat_rule_port_mapping` block as defined below.
+     * @return A list of `inboundNatRulePortMapping` block as defined below.
      * 
      */
     public Output<List<BackendAddressPoolAddressInboundNatRulePortMapping>> inboundNatRulePortMappings() {

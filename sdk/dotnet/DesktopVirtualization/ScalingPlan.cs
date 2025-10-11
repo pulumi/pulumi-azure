@@ -186,7 +186,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Output<string?> FriendlyName { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `host_pool` blocks as defined below.
+        /// One or more `HostPool` blocks as defined below.
         /// </summary>
         [Output("hostPools")]
         public Output<ImmutableArray<Outputs.ScalingPlanHostPool>> HostPools { get; private set; } = null!;
@@ -210,7 +210,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `schedule` blocks as defined below.
+        /// One or more `Schedule` blocks as defined below.
         /// </summary>
         [Output("schedules")]
         public Output<ImmutableArray<Outputs.ScalingPlanSchedule>> Schedules { get; private set; } = null!;
@@ -295,7 +295,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         private InputList<Inputs.ScalingPlanHostPoolArgs>? _hostPools;
 
         /// <summary>
-        /// One or more `host_pool` blocks as defined below.
+        /// One or more `HostPool` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ScalingPlanHostPoolArgs> HostPools
         {
@@ -325,7 +325,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         private InputList<Inputs.ScalingPlanScheduleArgs>? _schedules;
 
         /// <summary>
-        /// One or more `schedule` blocks as defined below.
+        /// One or more `Schedule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ScalingPlanScheduleArgs> Schedules
         {
@@ -381,7 +381,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         private InputList<Inputs.ScalingPlanHostPoolGetArgs>? _hostPools;
 
         /// <summary>
-        /// One or more `host_pool` blocks as defined below.
+        /// One or more `HostPool` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ScalingPlanHostPoolGetArgs> HostPools
         {
@@ -411,7 +411,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         private InputList<Inputs.ScalingPlanScheduleGetArgs>? _schedules;
 
         /// <summary>
-        /// One or more `schedule` blocks as defined below.
+        /// One or more `Schedule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ScalingPlanScheduleGetArgs> Schedules
         {

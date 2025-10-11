@@ -54,7 +54,7 @@ public final class GetFunctionAppSiteConfig {
      */
     private Boolean http2Enabled;
     /**
-     * @return One or more `ip_restriction` blocks as defined above.
+     * @return One or more `ipRestriction` blocks as defined above.
      * 
      */
     private List<GetFunctionAppSiteConfigIpRestriction> ipRestrictions;
@@ -84,7 +84,7 @@ public final class GetFunctionAppSiteConfig {
      */
     private Boolean runtimeScaleMonitoringEnabled;
     /**
-     * @return One or more `scm_ip_restriction` blocks as defined above.
+     * @return One or more `scmIpRestriction` blocks as defined above.
      * 
      */
     private List<GetFunctionAppSiteConfigScmIpRestriction> scmIpRestrictions;
@@ -171,7 +171,7 @@ public final class GetFunctionAppSiteConfig {
         return this.http2Enabled;
     }
     /**
-     * @return One or more `ip_restriction` blocks as defined above.
+     * @return One or more `ipRestriction` blocks as defined above.
      * 
      */
     public List<GetFunctionAppSiteConfigIpRestriction> ipRestrictions() {
@@ -213,7 +213,7 @@ public final class GetFunctionAppSiteConfig {
         return this.runtimeScaleMonitoringEnabled;
     }
     /**
-     * @return One or more `scm_ip_restriction` blocks as defined above.
+     * @return One or more `scmIpRestriction` blocks as defined above.
      * 
      */
     public List<GetFunctionAppSiteConfigScmIpRestriction> scmIpRestrictions() {

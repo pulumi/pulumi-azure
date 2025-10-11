@@ -16,7 +16,7 @@ namespace Pulumi.Azure.ServiceFabric.Inputs
         private InputList<Inputs.ManagedClusterNodeTypeVmSecretCertificateArgs>? _certificates;
 
         /// <summary>
-        /// One or more `certificates` blocks as defined above.
+        /// One or more `Certificates` blocks as defined above.
         /// </summary>
         public InputList<Inputs.ManagedClusterNodeTypeVmSecretCertificateArgs> Certificates
         {

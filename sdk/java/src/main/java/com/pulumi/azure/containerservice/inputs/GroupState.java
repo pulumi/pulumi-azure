@@ -55,14 +55,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `dns_config` block as documented below. Changing this forces a new resource to be created.
+     * A `dnsConfig` block as documented below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="dnsConfig")
     private @Nullable Output<GroupDnsConfigArgs> dnsConfig;
 
     /**
-     * @return A `dns_config` block as documented below. Changing this forces a new resource to be created.
+     * @return A `dnsConfig` block as documented below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<GroupDnsConfigArgs>> dnsConfig() {
@@ -104,18 +104,18 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
+     * Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** The `exposed_port` can only contain ports that are also exposed on one or more containers in the group.
+     * &gt; **Note:** The `exposedPort` can only contain ports that are also exposed on one or more containers in the group.
      * 
      */
     @Import(name="exposedPorts")
     private @Nullable Output<List<GroupExposedPortArgs>> exposedPorts;
 
     /**
-     * @return Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
+     * @return Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** The `exposed_port` can only contain ports that are also exposed on one or more containers in the group.
+     * &gt; **Note:** The `exposedPort` can only contain ports that are also exposed on one or more containers in the group.
      * 
      */
     public Optional<Output<List<GroupExposedPortArgs>>> exposedPorts() {
@@ -123,14 +123,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The FQDN of the container group derived from `dns_name_label`.
+     * The FQDN of the container group derived from `dnsNameLabel`.
      * 
      */
     @Import(name="fqdn")
     private @Nullable Output<String> fqdn;
 
     /**
-     * @return The FQDN of the container group derived from `dns_name_label`.
+     * @return The FQDN of the container group derived from `dnsNameLabel`.
      * 
      */
     public Optional<Output<String>> fqdn() {
@@ -153,14 +153,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
+     * An `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="imageRegistryCredentials")
     private @Nullable Output<List<GroupImageRegistryCredentialArgs>> imageRegistryCredentials;
 
     /**
-     * @return An `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
+     * @return An `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<GroupImageRegistryCredentialArgs>>> imageRegistryCredentials() {
@@ -168,14 +168,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The definition of an init container that is part of the group as documented in the `init_container` block below. Changing this forces a new resource to be created.
+     * The definition of an init container that is part of the group as documented in the `initContainer` block below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="initContainers")
     private @Nullable Output<List<GroupInitContainerArgs>> initContainers;
 
     /**
-     * @return The definition of an init container that is part of the group as documented in the `init_container` block below. Changing this forces a new resource to be created.
+     * @return The definition of an init container that is part of the group as documented in the `initContainer` block below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<GroupInitContainerArgs>>> initContainers() {
@@ -198,18 +198,18 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set. Defaults to `Public`.
+     * Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnetIds` also needs to be set. Defaults to `Public`.
      * 
-     * &gt; **Note:** `dns_name_label` and `os_type` set to `windows` are not compatible with `Private` `ip_address_type`
+     * &gt; **Note:** `dnsNameLabel` and `osType` set to `windows` are not compatible with `Private` `ipAddressType`
      * 
      */
     @Import(name="ipAddressType")
     private @Nullable Output<String> ipAddressType;
 
     /**
-     * @return Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set. Defaults to `Public`.
+     * @return Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnetIds` also needs to be set. Defaults to `Public`.
      * 
-     * &gt; **Note:** `dns_name_label` and `os_type` set to `windows` are not compatible with `Private` `ip_address_type`
+     * &gt; **Note:** `dnsNameLabel` and `osType` set to `windows` are not compatible with `Private` `ipAddressType`
      * 
      */
     public Optional<Output<String>> ipAddressType() {
@@ -232,14 +232,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named &#34;Azure Container Instance Service&#34; will be used instead. Make sure the identity has the proper `key_permissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`.
+     * The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named &#34;Azure Container Instance Service&#34; will be used instead. Make sure the identity has the proper `keyPermissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`.
      * 
      */
     @Import(name="keyVaultUserAssignedIdentityId")
     private @Nullable Output<String> keyVaultUserAssignedIdentityId;
 
     /**
-     * @return The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named &#34;Azure Container Instance Service&#34; will be used instead. Make sure the identity has the proper `key_permissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`.
+     * @return The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named &#34;Azure Container Instance Service&#34; will be used instead. Make sure the identity has the proper `keyPermissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`.
      * 
      */
     public Optional<Output<String>> keyVaultUserAssignedIdentityId() {
@@ -298,7 +298,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     /**
      * The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** if `os_type` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
+     * &gt; **Note:** if `osType` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
      * 
      */
     @Import(name="osType")
@@ -307,7 +307,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** if `os_type` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
+     * &gt; **Note:** if `osType` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
      * 
      */
     public Optional<Output<String>> osType() {
@@ -317,7 +317,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     /**
      * The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
+     * &gt; **Note:** When `priority` is set to `Spot`, the `ipAddressType` has to be `None`.
      * 
      */
     @Import(name="priority")
@@ -326,7 +326,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
+     * &gt; **Note:** When `priority` is set to `Spot`, the `ipAddressType` has to be `None`.
      * 
      */
     public Optional<Output<String>> priority() {
@@ -524,7 +524,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsConfig A `dns_config` block as documented below. Changing this forces a new resource to be created.
+         * @param dnsConfig A `dnsConfig` block as documented below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -535,7 +535,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsConfig A `dns_config` block as documented below. Changing this forces a new resource to be created.
+         * @param dnsConfig A `dnsConfig` block as documented below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -591,9 +591,9 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param exposedPorts Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
+         * @param exposedPorts Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** The `exposed_port` can only contain ports that are also exposed on one or more containers in the group.
+         * &gt; **Note:** The `exposedPort` can only contain ports that are also exposed on one or more containers in the group.
          * 
          * @return builder
          * 
@@ -604,9 +604,9 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param exposedPorts Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
+         * @param exposedPorts Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** The `exposed_port` can only contain ports that are also exposed on one or more containers in the group.
+         * &gt; **Note:** The `exposedPort` can only contain ports that are also exposed on one or more containers in the group.
          * 
          * @return builder
          * 
@@ -616,9 +616,9 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param exposedPorts Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
+         * @param exposedPorts Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** The `exposed_port` can only contain ports that are also exposed on one or more containers in the group.
+         * &gt; **Note:** The `exposedPort` can only contain ports that are also exposed on one or more containers in the group.
          * 
          * @return builder
          * 
@@ -628,7 +628,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fqdn The FQDN of the container group derived from `dns_name_label`.
+         * @param fqdn The FQDN of the container group derived from `dnsNameLabel`.
          * 
          * @return builder
          * 
@@ -639,7 +639,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fqdn The FQDN of the container group derived from `dns_name_label`.
+         * @param fqdn The FQDN of the container group derived from `dnsNameLabel`.
          * 
          * @return builder
          * 
@@ -670,7 +670,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param imageRegistryCredentials An `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
+         * @param imageRegistryCredentials An `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -681,7 +681,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param imageRegistryCredentials An `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
+         * @param imageRegistryCredentials An `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -691,7 +691,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param imageRegistryCredentials An `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
+         * @param imageRegistryCredentials An `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -701,7 +701,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param initContainers The definition of an init container that is part of the group as documented in the `init_container` block below. Changing this forces a new resource to be created.
+         * @param initContainers The definition of an init container that is part of the group as documented in the `initContainer` block below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -712,7 +712,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param initContainers The definition of an init container that is part of the group as documented in the `init_container` block below. Changing this forces a new resource to be created.
+         * @param initContainers The definition of an init container that is part of the group as documented in the `initContainer` block below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -722,7 +722,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param initContainers The definition of an init container that is part of the group as documented in the `init_container` block below. Changing this forces a new resource to be created.
+         * @param initContainers The definition of an init container that is part of the group as documented in the `initContainer` block below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -753,9 +753,9 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipAddressType Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set. Defaults to `Public`.
+         * @param ipAddressType Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnetIds` also needs to be set. Defaults to `Public`.
          * 
-         * &gt; **Note:** `dns_name_label` and `os_type` set to `windows` are not compatible with `Private` `ip_address_type`
+         * &gt; **Note:** `dnsNameLabel` and `osType` set to `windows` are not compatible with `Private` `ipAddressType`
          * 
          * @return builder
          * 
@@ -766,9 +766,9 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipAddressType Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set. Defaults to `Public`.
+         * @param ipAddressType Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnetIds` also needs to be set. Defaults to `Public`.
          * 
-         * &gt; **Note:** `dns_name_label` and `os_type` set to `windows` are not compatible with `Private` `ip_address_type`
+         * &gt; **Note:** `dnsNameLabel` and `osType` set to `windows` are not compatible with `Private` `ipAddressType`
          * 
          * @return builder
          * 
@@ -799,7 +799,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyVaultUserAssignedIdentityId The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named &#34;Azure Container Instance Service&#34; will be used instead. Make sure the identity has the proper `key_permissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`.
+         * @param keyVaultUserAssignedIdentityId The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named &#34;Azure Container Instance Service&#34; will be used instead. Make sure the identity has the proper `keyPermissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`.
          * 
          * @return builder
          * 
@@ -810,7 +810,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyVaultUserAssignedIdentityId The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named &#34;Azure Container Instance Service&#34; will be used instead. Make sure the identity has the proper `key_permissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`.
+         * @param keyVaultUserAssignedIdentityId The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named &#34;Azure Container Instance Service&#34; will be used instead. Make sure the identity has the proper `keyPermissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`.
          * 
          * @return builder
          * 
@@ -889,7 +889,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param osType The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** if `os_type` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
+         * &gt; **Note:** if `osType` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
          * 
          * @return builder
          * 
@@ -902,7 +902,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param osType The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** if `os_type` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
+         * &gt; **Note:** if `osType` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
          * 
          * @return builder
          * 
@@ -914,7 +914,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param priority The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
+         * &gt; **Note:** When `priority` is set to `Spot`, the `ipAddressType` has to be `None`.
          * 
          * @return builder
          * 
@@ -927,7 +927,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param priority The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
+         * &gt; **Note:** When `priority` is set to `Spot`, the `ipAddressType` has to be `None`.
          * 
          * @return builder
          * 

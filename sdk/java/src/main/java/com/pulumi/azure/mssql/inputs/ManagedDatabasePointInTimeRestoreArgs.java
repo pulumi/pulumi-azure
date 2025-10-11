@@ -15,14 +15,14 @@ public final class ManagedDatabasePointInTimeRestoreArgs extends com.pulumi.reso
     public static final ManagedDatabasePointInTimeRestoreArgs Empty = new ManagedDatabasePointInTimeRestoreArgs();
 
     /**
-     * The point in time for the restore from `source_database_id`. Changing this forces a new resource to be created.
+     * The point in time for the restore from `sourceDatabaseId`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="restorePointInTime", required=true)
     private Output<String> restorePointInTime;
 
     /**
-     * @return The point in time for the restore from `source_database_id`. Changing this forces a new resource to be created.
+     * @return The point in time for the restore from `sourceDatabaseId`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> restorePointInTime() {
@@ -70,7 +70,7 @@ public final class ManagedDatabasePointInTimeRestoreArgs extends com.pulumi.reso
         }
 
         /**
-         * @param restorePointInTime The point in time for the restore from `source_database_id`. Changing this forces a new resource to be created.
+         * @param restorePointInTime The point in time for the restore from `sourceDatabaseId`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class ManagedDatabasePointInTimeRestoreArgs extends com.pulumi.reso
         }
 
         /**
-         * @param restorePointInTime The point in time for the restore from `source_database_id`. Changing this forces a new resource to be created.
+         * @param restorePointInTime The point in time for the restore from `sourceDatabaseId`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

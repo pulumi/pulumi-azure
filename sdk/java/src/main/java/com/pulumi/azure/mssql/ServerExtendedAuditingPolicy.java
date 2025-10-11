@@ -85,6 +85,8 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### With Storage Account Behind VNet And Firewall
+ * 
  * ## Import
  * 
  * MS SQL Server Extended Auditing Policies can be imported using the `resource id`, e.g.
@@ -113,7 +115,7 @@ public class ServerExtendedAuditingPolicy extends com.pulumi.resources.CustomRes
     /**
      * Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
      * 
-     * &gt; **Note:** If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
+     * &gt; **Note:** If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
@@ -122,7 +124,7 @@ public class ServerExtendedAuditingPolicy extends com.pulumi.resources.CustomRes
     /**
      * @return Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
      * 
-     * &gt; **Note:** If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
+     * &gt; **Note:** If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
      * 
      */
     public Output<Optional<Boolean>> enabled() {
@@ -199,14 +201,14 @@ public class ServerExtendedAuditingPolicy extends com.pulumi.resources.CustomRes
         return Codegen.optional(this.storageAccountAccessKey);
     }
     /**
-     * Is `storage_account_access_key` value the storage&#39;s secondary key?
+     * Is `storageAccountAccessKey` value the storage&#39;s secondary key?
      * 
      */
     @Export(name="storageAccountAccessKeyIsSecondary", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> storageAccountAccessKeyIsSecondary;
 
     /**
-     * @return Is `storage_account_access_key` value the storage&#39;s secondary key?
+     * @return Is `storageAccountAccessKey` value the storage&#39;s secondary key?
      * 
      */
     public Output<Optional<Boolean>> storageAccountAccessKeyIsSecondary() {

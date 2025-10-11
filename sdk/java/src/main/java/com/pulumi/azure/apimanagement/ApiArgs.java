@@ -102,7 +102,7 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A `import` block as documented below.
      * 
-     * &gt; **Note:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
+     * &gt; **Note:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
      * 
      */
     @Import(name="import")
@@ -111,7 +111,7 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return A `import` block as documented below.
      * 
-     * &gt; **Note:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
+     * &gt; **Note:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
      * 
      */
     public Optional<Output<ApiImportArgs>> import_() {
@@ -149,14 +149,14 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `oauth2_authorization` block as documented below.
+     * An `oauth2Authorization` block as documented below.
      * 
      */
     @Import(name="oauth2Authorization")
     private @Nullable Output<ApiOauth2AuthorizationArgs> oauth2Authorization;
 
     /**
-     * @return An `oauth2_authorization` block as documented below.
+     * @return An `oauth2Authorization` block as documented below.
      * 
      */
     public Optional<Output<ApiOauth2AuthorizationArgs>> oauth2Authorization() {
@@ -164,14 +164,14 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `openid_authentication` block as documented below.
+     * An `openidAuthentication` block as documented below.
      * 
      */
     @Import(name="openidAuthentication")
     private @Nullable Output<ApiOpenidAuthenticationArgs> openidAuthentication;
 
     /**
-     * @return An `openid_authentication` block as documented below.
+     * @return An `openidAuthentication` block as documented below.
      * 
      */
     public Optional<Output<ApiOpenidAuthenticationArgs>> openidAuthentication() {
@@ -196,7 +196,7 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
      * 
-     * &gt; **Note:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
+     * &gt; **Note:** `displayName`, `path` and `protocols` are required when `sourceApiId` is not set.
      * 
      */
     @Import(name="protocols")
@@ -205,7 +205,7 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
      * 
-     * &gt; **Note:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
+     * &gt; **Note:** `displayName`, `path` and `protocols` are required when `sourceApiId` is not set.
      * 
      */
     public Optional<Output<List<String>>> protocols() {
@@ -260,7 +260,7 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Absolute URL of the backend service implementing this API.
      * 
-     * &gt; **Note:** The `service_url` is required when `api_type` is specified as `websocket`.
+     * &gt; **Note:** The `serviceUrl` is required when `apiType` is specified as `websocket`.
      * 
      */
     @Import(name="serviceUrl")
@@ -269,7 +269,7 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Absolute URL of the backend service implementing this API.
      * 
-     * &gt; **Note:** The `service_url` is required when `api_type` is specified as `websocket`.
+     * &gt; **Note:** The `serviceUrl` is required when `apiType` is specified as `websocket`.
      * 
      */
     public Optional<Output<String>> serviceUrl() {
@@ -292,14 +292,14 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `subscription_key_parameter_names` block as documented below.
+     * A `subscriptionKeyParameterNames` block as documented below.
      * 
      */
     @Import(name="subscriptionKeyParameterNames")
     private @Nullable Output<ApiSubscriptionKeyParameterNamesArgs> subscriptionKeyParameterNames;
 
     /**
-     * @return A `subscription_key_parameter_names` block as documented below.
+     * @return A `subscriptionKeyParameterNames` block as documented below.
      * 
      */
     public Optional<Output<ApiSubscriptionKeyParameterNamesArgs>> subscriptionKeyParameterNames() {
@@ -369,7 +369,7 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The ID of the Version Set which this API is associated with.
      * 
-     * &gt; **Note:** When `version` is set, `version_set_id` must also be specified
+     * &gt; **Note:** When `version` is set, `versionSetId` must also be specified
      * 
      */
     @Import(name="versionSetId")
@@ -378,7 +378,7 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The ID of the Version Set which this API is associated with.
      * 
-     * &gt; **Note:** When `version` is set, `version_set_id` must also be specified
+     * &gt; **Note:** When `version` is set, `versionSetId` must also be specified
      * 
      */
     public Optional<Output<String>> versionSetId() {
@@ -539,7 +539,7 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param import_ A `import` block as documented below.
          * 
-         * &gt; **Note:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
+         * &gt; **Note:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
          * 
          * @return builder
          * 
@@ -552,7 +552,7 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param import_ A `import` block as documented below.
          * 
-         * &gt; **Note:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
+         * &gt; **Note:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
          * 
          * @return builder
          * 
@@ -604,7 +604,7 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param oauth2Authorization An `oauth2_authorization` block as documented below.
+         * @param oauth2Authorization An `oauth2Authorization` block as documented below.
          * 
          * @return builder
          * 
@@ -615,7 +615,7 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param oauth2Authorization An `oauth2_authorization` block as documented below.
+         * @param oauth2Authorization An `oauth2Authorization` block as documented below.
          * 
          * @return builder
          * 
@@ -625,7 +625,7 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param openidAuthentication An `openid_authentication` block as documented below.
+         * @param openidAuthentication An `openidAuthentication` block as documented below.
          * 
          * @return builder
          * 
@@ -636,7 +636,7 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param openidAuthentication An `openid_authentication` block as documented below.
+         * @param openidAuthentication An `openidAuthentication` block as documented below.
          * 
          * @return builder
          * 
@@ -669,7 +669,7 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param protocols A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
          * 
-         * &gt; **Note:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
+         * &gt; **Note:** `displayName`, `path` and `protocols` are required when `sourceApiId` is not set.
          * 
          * @return builder
          * 
@@ -682,7 +682,7 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param protocols A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
          * 
-         * &gt; **Note:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
+         * &gt; **Note:** `displayName`, `path` and `protocols` are required when `sourceApiId` is not set.
          * 
          * @return builder
          * 
@@ -694,7 +694,7 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param protocols A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
          * 
-         * &gt; **Note:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
+         * &gt; **Note:** `displayName`, `path` and `protocols` are required when `sourceApiId` is not set.
          * 
          * @return builder
          * 
@@ -769,7 +769,7 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param serviceUrl Absolute URL of the backend service implementing this API.
          * 
-         * &gt; **Note:** The `service_url` is required when `api_type` is specified as `websocket`.
+         * &gt; **Note:** The `serviceUrl` is required when `apiType` is specified as `websocket`.
          * 
          * @return builder
          * 
@@ -782,7 +782,7 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param serviceUrl Absolute URL of the backend service implementing this API.
          * 
-         * &gt; **Note:** The `service_url` is required when `api_type` is specified as `websocket`.
+         * &gt; **Note:** The `serviceUrl` is required when `apiType` is specified as `websocket`.
          * 
          * @return builder
          * 
@@ -813,7 +813,7 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subscriptionKeyParameterNames A `subscription_key_parameter_names` block as documented below.
+         * @param subscriptionKeyParameterNames A `subscriptionKeyParameterNames` block as documented below.
          * 
          * @return builder
          * 
@@ -824,7 +824,7 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subscriptionKeyParameterNames A `subscription_key_parameter_names` block as documented below.
+         * @param subscriptionKeyParameterNames A `subscriptionKeyParameterNames` block as documented below.
          * 
          * @return builder
          * 
@@ -920,7 +920,7 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param versionSetId The ID of the Version Set which this API is associated with.
          * 
-         * &gt; **Note:** When `version` is set, `version_set_id` must also be specified
+         * &gt; **Note:** When `version` is set, `versionSetId` must also be specified
          * 
          * @return builder
          * 
@@ -933,7 +933,7 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param versionSetId The ID of the Version Set which this API is associated with.
          * 
-         * &gt; **Note:** When `version` is set, `version_set_id` must also be specified
+         * &gt; **Note:** When `version` is set, `versionSetId` must also be specified
          * 
          * @return builder
          * 

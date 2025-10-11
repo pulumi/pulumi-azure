@@ -33,7 +33,7 @@ public final class KubernetesClusterMonitorMetricsArgs extends com.pulumi.resour
     /**
      * Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource&#39;s labels metric.
      * 
-     * &gt; **Note:** Both properties `annotations_allowed` and `labels_allowed` are required if you are enabling Managed Prometheus with an existing Azure Monitor Workspace.
+     * &gt; **Note:** Both properties `annotationsAllowed` and `labelsAllowed` are required if you are enabling Managed Prometheus with an existing Azure Monitor Workspace.
      * 
      */
     @Import(name="labelsAllowed")
@@ -42,7 +42,7 @@ public final class KubernetesClusterMonitorMetricsArgs extends com.pulumi.resour
     /**
      * @return Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource&#39;s labels metric.
      * 
-     * &gt; **Note:** Both properties `annotations_allowed` and `labels_allowed` are required if you are enabling Managed Prometheus with an existing Azure Monitor Workspace.
+     * &gt; **Note:** Both properties `annotationsAllowed` and `labelsAllowed` are required if you are enabling Managed Prometheus with an existing Azure Monitor Workspace.
      * 
      */
     public Optional<Output<String>> labelsAllowed() {
@@ -98,7 +98,7 @@ public final class KubernetesClusterMonitorMetricsArgs extends com.pulumi.resour
         /**
          * @param labelsAllowed Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource&#39;s labels metric.
          * 
-         * &gt; **Note:** Both properties `annotations_allowed` and `labels_allowed` are required if you are enabling Managed Prometheus with an existing Azure Monitor Workspace.
+         * &gt; **Note:** Both properties `annotationsAllowed` and `labelsAllowed` are required if you are enabling Managed Prometheus with an existing Azure Monitor Workspace.
          * 
          * @return builder
          * 
@@ -111,7 +111,7 @@ public final class KubernetesClusterMonitorMetricsArgs extends com.pulumi.resour
         /**
          * @param labelsAllowed Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource&#39;s labels metric.
          * 
-         * &gt; **Note:** Both properties `annotations_allowed` and `labels_allowed` are required if you are enabling Managed Prometheus with an existing Azure Monitor Workspace.
+         * &gt; **Note:** Both properties `annotationsAllowed` and `labelsAllowed` are required if you are enabling Managed Prometheus with an existing Azure Monitor Workspace.
          * 
          * @return builder
          * 

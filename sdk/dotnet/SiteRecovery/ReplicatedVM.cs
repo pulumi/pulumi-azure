@@ -293,7 +293,7 @@ namespace Pulumi.Azure.SiteRecovery
     public partial class ReplicatedVM : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// One or more `managed_disk` block as defined below. Changing this forces a new resource to be created.
+        /// One or more `ManagedDisk` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("managedDisks")]
         public Output<ImmutableArray<Outputs.ReplicatedVMManagedDisk>> ManagedDisks { get; private set; } = null!;
@@ -311,7 +311,7 @@ namespace Pulumi.Azure.SiteRecovery
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `network_interface` block as defined below.
+        /// One or more `NetworkInterface` block as defined below.
         /// </summary>
         [Output("networkInterfaces")]
         public Output<ImmutableArray<Outputs.ReplicatedVMNetworkInterface>> NetworkInterfaces { get; private set; } = null!;
@@ -377,7 +377,7 @@ namespace Pulumi.Azure.SiteRecovery
         public Output<string?> TargetEdgeZone { get; private set; } = null!;
 
         /// <summary>
-        /// Network to use when a failover is done (recommended to set if any network_interface is configured for failover).
+        /// Network to use when a failover is done (recommended to set if any NetworkInterface is configured for failover).
         /// </summary>
         [Output("targetNetworkId")]
         public Output<string> TargetNetworkId { get; private set; } = null!;
@@ -431,7 +431,7 @@ namespace Pulumi.Azure.SiteRecovery
         public Output<string> TestNetworkId { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `unmanaged_disk` block as defined below. Changing this forces a new resource to be created.
+        /// One or more `UnmanagedDisk` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("unmanagedDisks")]
         public Output<ImmutableArray<Outputs.ReplicatedVMUnmanagedDisk>> UnmanagedDisks { get; private set; } = null!;
@@ -486,7 +486,7 @@ namespace Pulumi.Azure.SiteRecovery
         private InputList<Inputs.ReplicatedVMManagedDiskArgs>? _managedDisks;
 
         /// <summary>
-        /// One or more `managed_disk` block as defined below. Changing this forces a new resource to be created.
+        /// One or more `ManagedDisk` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.ReplicatedVMManagedDiskArgs> ManagedDisks
         {
@@ -510,7 +510,7 @@ namespace Pulumi.Azure.SiteRecovery
         private InputList<Inputs.ReplicatedVMNetworkInterfaceArgs>? _networkInterfaces;
 
         /// <summary>
-        /// One or more `network_interface` block as defined below.
+        /// One or more `NetworkInterface` block as defined below.
         /// </summary>
         public InputList<Inputs.ReplicatedVMNetworkInterfaceArgs> NetworkInterfaces
         {
@@ -579,7 +579,7 @@ namespace Pulumi.Azure.SiteRecovery
         public Input<string>? TargetEdgeZone { get; set; }
 
         /// <summary>
-        /// Network to use when a failover is done (recommended to set if any network_interface is configured for failover).
+        /// Network to use when a failover is done (recommended to set if any NetworkInterface is configured for failover).
         /// </summary>
         [Input("targetNetworkId")]
         public Input<string>? TargetNetworkId { get; set; }
@@ -636,7 +636,7 @@ namespace Pulumi.Azure.SiteRecovery
         private InputList<Inputs.ReplicatedVMUnmanagedDiskArgs>? _unmanagedDisks;
 
         /// <summary>
-        /// One or more `unmanaged_disk` block as defined below. Changing this forces a new resource to be created.
+        /// One or more `UnmanagedDisk` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.ReplicatedVMUnmanagedDiskArgs> UnmanagedDisks
         {
@@ -656,7 +656,7 @@ namespace Pulumi.Azure.SiteRecovery
         private InputList<Inputs.ReplicatedVMManagedDiskGetArgs>? _managedDisks;
 
         /// <summary>
-        /// One or more `managed_disk` block as defined below. Changing this forces a new resource to be created.
+        /// One or more `ManagedDisk` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.ReplicatedVMManagedDiskGetArgs> ManagedDisks
         {
@@ -680,7 +680,7 @@ namespace Pulumi.Azure.SiteRecovery
         private InputList<Inputs.ReplicatedVMNetworkInterfaceGetArgs>? _networkInterfaces;
 
         /// <summary>
-        /// One or more `network_interface` block as defined below.
+        /// One or more `NetworkInterface` block as defined below.
         /// </summary>
         public InputList<Inputs.ReplicatedVMNetworkInterfaceGetArgs> NetworkInterfaces
         {
@@ -749,7 +749,7 @@ namespace Pulumi.Azure.SiteRecovery
         public Input<string>? TargetEdgeZone { get; set; }
 
         /// <summary>
-        /// Network to use when a failover is done (recommended to set if any network_interface is configured for failover).
+        /// Network to use when a failover is done (recommended to set if any NetworkInterface is configured for failover).
         /// </summary>
         [Input("targetNetworkId")]
         public Input<string>? TargetNetworkId { get; set; }
@@ -806,7 +806,7 @@ namespace Pulumi.Azure.SiteRecovery
         private InputList<Inputs.ReplicatedVMUnmanagedDiskGetArgs>? _unmanagedDisks;
 
         /// <summary>
-        /// One or more `unmanaged_disk` block as defined below. Changing this forces a new resource to be created.
+        /// One or more `UnmanagedDisk` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.ReplicatedVMUnmanagedDiskGetArgs> UnmanagedDisks
         {

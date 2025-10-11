@@ -34,7 +34,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly int Interval;
         /// <summary>
-        /// One or more `not_allowed` block as defined below.
+        /// One or more `NotAllowed` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.KubernetesClusterMaintenanceWindowNodeOsNotAllowed> NotAlloweds;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? StartDate;
         /// <summary>
-        /// The time for maintenance to begin, based on the timezone determined by `utc_offset`. Format is `HH:mm`.
+        /// The time for maintenance to begin, based on the timezone determined by `UtcOffset`. Format is `HH:mm`.
         /// </summary>
         public readonly string? StartTime;
         /// <summary>

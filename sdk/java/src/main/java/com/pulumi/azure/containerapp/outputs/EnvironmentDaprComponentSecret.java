@@ -18,7 +18,7 @@ public final class EnvironmentDaprComponentSecret {
      */
     private @Nullable String identity;
     /**
-     * @return The Key Vault Secret ID. Could be either one of `id` or `versionless_id`.
+     * @return The Key Vault Secret ID. Could be either one of `id` or `versionlessId`.
      * 
      */
     private @Nullable String keyVaultSecretId;
@@ -42,7 +42,7 @@ public final class EnvironmentDaprComponentSecret {
         return Optional.ofNullable(this.identity);
     }
     /**
-     * @return The Key Vault Secret ID. Could be either one of `id` or `versionless_id`.
+     * @return The Key Vault Secret ID. Could be either one of `id` or `versionlessId`.
      * 
      */
     public Optional<String> keyVaultSecretId() {

@@ -20,7 +20,7 @@ public final class VaultIdentityArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
      * 
-     * &gt; **Note:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * &gt; **Note:** `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
      * 
      */
     @Import(name="identityIds")
@@ -29,7 +29,7 @@ public final class VaultIdentityArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
      * 
-     * &gt; **Note:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * &gt; **Note:** `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
      * 
      */
     public Optional<Output<List<String>>> identityIds() {
@@ -111,7 +111,7 @@ public final class VaultIdentityArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
          * 
-         * &gt; **Note:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * &gt; **Note:** `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class VaultIdentityArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
          * 
-         * &gt; **Note:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * &gt; **Note:** `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class VaultIdentityArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
          * 
-         * &gt; **Note:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * &gt; **Note:** `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          * 
          * @return builder
          * 

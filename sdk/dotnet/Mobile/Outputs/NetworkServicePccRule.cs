@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Mobile.Outputs
     public sealed class NetworkServicePccRule
     {
         /// <summary>
-        /// Specifies the name of the rule. This must be unique within the parent service. You must not use any of the following reserved strings - `default`, `requested` or `service`.
+        /// Specifies the name of the rule. This must be unique within the parent service. You must not use any of the following reserved strings - `Default`, `Requested` or `Service`.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -22,15 +22,15 @@ namespace Pulumi.Azure.Mobile.Outputs
         /// </summary>
         public readonly int Precedence;
         /// <summary>
-        /// A `qos_policy` block as defined below. The QoS policy to use for packets matching this rule. If this field is not specified then the Service will define the QoS settings.
+        /// A `QosPolicy` block as defined below. The QoS policy to use for packets matching this rule. If this field is not specified then the Service will define the QoS settings.
         /// </summary>
         public readonly Outputs.NetworkServicePccRuleQosPolicy? QosPolicy;
         /// <summary>
-        /// A `service_data_flow_template` block as defined below. The set of service data flow templates to use for this PCC rule.
+        /// A `ServiceDataFlowTemplate` block as defined below. The set of service data flow templates to use for this PCC rule.
         /// </summary>
         public readonly ImmutableArray<Outputs.NetworkServicePccRuleServiceDataFlowTemplate> ServiceDataFlowTemplates;
         /// <summary>
-        /// Determines whether flows that match this data flow policy rule are permitted. Defaults to `true`.
+        /// Determines whether flows that match this data flow policy rule are permitted. Defaults to `True`.
         /// </summary>
         public readonly bool? TrafficControlEnabled;
 

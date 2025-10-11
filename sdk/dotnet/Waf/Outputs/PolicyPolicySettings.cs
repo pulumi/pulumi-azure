@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Waf.Outputs
     public sealed class PolicyPolicySettings
     {
         /// <summary>
-        /// Describes if the policy is in enabled state or disabled state. Defaults to `true`.
+        /// Describes if the policy is in enabled state or disabled state. Defaults to `True`.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// Whether the firewall should block a request with upload size greater then `file_upload_limit_in_mb`.
+        /// Whether the firewall should block a request with upload size greater then `FileUploadLimitInMb`.
         /// </summary>
         public readonly bool? FileUploadEnforcement;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Waf.Outputs
         /// </summary>
         public readonly int? JsChallengeCookieExpirationInMinutes;
         /// <summary>
-        /// One `log_scrubbing` block as defined below.
+        /// One `LogScrubbing` block as defined below.
         /// </summary>
         public readonly Outputs.PolicyPolicySettingsLogScrubbing? LogScrubbing;
         /// <summary>
@@ -42,11 +42,11 @@ namespace Pulumi.Azure.Waf.Outputs
         /// </summary>
         public readonly string? Mode;
         /// <summary>
-        /// Is Request Body Inspection enabled? Defaults to `true`.
+        /// Is Request Body Inspection enabled? Defaults to `True`.
         /// </summary>
         public readonly bool? RequestBodyCheck;
         /// <summary>
-        /// Whether the firewall should block a request with body size greater then `max_request_body_size_in_kb`. Defaults to `true`.
+        /// Whether the firewall should block a request with body size greater then `MaxRequestBodySizeInKb`. Defaults to `True`.
         /// </summary>
         public readonly bool? RequestBodyEnforcement;
         /// <summary>

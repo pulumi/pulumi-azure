@@ -96,7 +96,7 @@ public final class ProjectPoolState extends com.pulumi.resources.ResourceArgs {
     /**
      * A list of the regions of the managed Virtual Network. When specified, the Dev Center Project Pool will use a Microsoft managed network.
      * 
-     * &gt; **Note:** Currently only one region can be specified for `managed_virtual_network_regions`.
+     * &gt; **Note:** Currently only one region can be specified for `managedVirtualNetworkRegions`.
      * 
      */
     @Import(name="managedVirtualNetworkRegions")
@@ -105,7 +105,7 @@ public final class ProjectPoolState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return A list of the regions of the managed Virtual Network. When specified, the Dev Center Project Pool will use a Microsoft managed network.
      * 
-     * &gt; **Note:** Currently only one region can be specified for `managed_virtual_network_regions`.
+     * &gt; **Note:** Currently only one region can be specified for `managedVirtualNetworkRegions`.
      * 
      */
     public Optional<Output<String>> managedVirtualNetworkRegions() {
@@ -313,7 +313,7 @@ public final class ProjectPoolState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param managedVirtualNetworkRegions A list of the regions of the managed Virtual Network. When specified, the Dev Center Project Pool will use a Microsoft managed network.
          * 
-         * &gt; **Note:** Currently only one region can be specified for `managed_virtual_network_regions`.
+         * &gt; **Note:** Currently only one region can be specified for `managedVirtualNetworkRegions`.
          * 
          * @return builder
          * 
@@ -326,7 +326,7 @@ public final class ProjectPoolState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param managedVirtualNetworkRegions A list of the regions of the managed Virtual Network. When specified, the Dev Center Project Pool will use a Microsoft managed network.
          * 
-         * &gt; **Note:** Currently only one region can be specified for `managed_virtual_network_regions`.
+         * &gt; **Note:** Currently only one region can be specified for `managedVirtualNetworkRegions`.
          * 
          * @return builder
          * 

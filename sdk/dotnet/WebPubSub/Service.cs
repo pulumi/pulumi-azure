@@ -70,7 +70,7 @@ namespace Pulumi.Azure.WebPubSub
     public partial class Service : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Whether to enable AAD auth? Defaults to `true`.
+        /// Whether to enable AAD auth? Defaults to `True`.
         /// </summary>
         [Output("aadAuthEnabled")]
         public Output<bool?> AadAuthEnabled { get; private set; } = null!;
@@ -96,19 +96,19 @@ namespace Pulumi.Azure.WebPubSub
         public Output<string> Hostname { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ServiceIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// A `live_trace` block as defined below.
+        /// A `LiveTrace` block as defined below.
         /// </summary>
         [Output("liveTrace")]
         public Output<Outputs.ServiceLiveTrace?> LiveTrace { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to enable local auth? Defaults to `true`.
+        /// Whether to enable local auth? Defaults to `True`.
         /// </summary>
         [Output("localAuthEnabled")]
         public Output<bool?> LocalAuthEnabled { get; private set; } = null!;
@@ -138,7 +138,7 @@ namespace Pulumi.Azure.WebPubSub
         public Output<string> PrimaryConnectionString { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to enable public network access? Defaults to `true`.
+        /// Whether to enable public network access? Defaults to `True`.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
@@ -186,7 +186,7 @@ namespace Pulumi.Azure.WebPubSub
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to request client certificate during TLS handshake? Defaults to `false`.
+        /// Whether to request client certificate during TLS handshake? Defaults to `False`.
         /// </summary>
         [Output("tlsClientCertEnabled")]
         public Output<bool?> TlsClientCertEnabled { get; private set; } = null!;
@@ -248,7 +248,7 @@ namespace Pulumi.Azure.WebPubSub
     public sealed class ServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to enable AAD auth? Defaults to `true`.
+        /// Whether to enable AAD auth? Defaults to `True`.
         /// </summary>
         [Input("aadAuthEnabled")]
         public Input<bool>? AadAuthEnabled { get; set; }
@@ -262,19 +262,19 @@ namespace Pulumi.Azure.WebPubSub
         public Input<int>? Capacity { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// A `live_trace` block as defined below.
+        /// A `LiveTrace` block as defined below.
         /// </summary>
         [Input("liveTrace")]
         public Input<Inputs.ServiceLiveTraceArgs>? LiveTrace { get; set; }
 
         /// <summary>
-        /// Whether to enable local auth? Defaults to `true`.
+        /// Whether to enable local auth? Defaults to `True`.
         /// </summary>
         [Input("localAuthEnabled")]
         public Input<bool>? LocalAuthEnabled { get; set; }
@@ -292,7 +292,7 @@ namespace Pulumi.Azure.WebPubSub
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether to enable public network access? Defaults to `true`.
+        /// Whether to enable public network access? Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -322,7 +322,7 @@ namespace Pulumi.Azure.WebPubSub
         }
 
         /// <summary>
-        /// Whether to request client certificate during TLS handshake? Defaults to `false`.
+        /// Whether to request client certificate during TLS handshake? Defaults to `False`.
         /// </summary>
         [Input("tlsClientCertEnabled")]
         public Input<bool>? TlsClientCertEnabled { get; set; }
@@ -336,7 +336,7 @@ namespace Pulumi.Azure.WebPubSub
     public sealed class ServiceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to enable AAD auth? Defaults to `true`.
+        /// Whether to enable AAD auth? Defaults to `True`.
         /// </summary>
         [Input("aadAuthEnabled")]
         public Input<bool>? AadAuthEnabled { get; set; }
@@ -362,19 +362,19 @@ namespace Pulumi.Azure.WebPubSub
         public Input<string>? Hostname { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ServiceIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// A `live_trace` block as defined below.
+        /// A `LiveTrace` block as defined below.
         /// </summary>
         [Input("liveTrace")]
         public Input<Inputs.ServiceLiveTraceGetArgs>? LiveTrace { get; set; }
 
         /// <summary>
-        /// Whether to enable local auth? Defaults to `true`.
+        /// Whether to enable local auth? Defaults to `True`.
         /// </summary>
         [Input("localAuthEnabled")]
         public Input<bool>? LocalAuthEnabled { get; set; }
@@ -424,7 +424,7 @@ namespace Pulumi.Azure.WebPubSub
         }
 
         /// <summary>
-        /// Whether to enable public network access? Defaults to `true`.
+        /// Whether to enable public network access? Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -498,7 +498,7 @@ namespace Pulumi.Azure.WebPubSub
         }
 
         /// <summary>
-        /// Whether to request client certificate during TLS handshake? Defaults to `false`.
+        /// Whether to request client certificate during TLS handshake? Defaults to `False`.
         /// </summary>
         [Input("tlsClientCertEnabled")]
         public Input<bool>? TlsClientCertEnabled { get; set; }

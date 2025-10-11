@@ -77,12 +77,12 @@ import javax.annotation.Nullable;
  * The `identity` block supports the following arguments:
  * 
  * * `type` - (Required) Specifies the type of Managed Identity that should be assigned to this Dev Center. Possible values are `SystemAssigned`, `SystemAssigned, UserAssigned` and `UserAssigned`.
- * * `identity_ids` - (Optional) A list of the User Assigned Identity IDs that should be assigned to this Dev Center.
+ * * `identityIds` - (Optional) A list of the User Assigned Identity IDs that should be assigned to this Dev Center.
  * 
  * In addition to the arguments defined above, the `identity` block exports the following attributes:
  * 
- * * `principal_id` - The Principal ID for the System-Assigned Managed Identity assigned to this Dev Center.
- * * `tenant_id` - The Tenant ID for the System-Assigned Managed Identity assigned to this Dev Center.
+ * * `principalId` - The Principal ID for the System-Assigned Managed Identity assigned to this Dev Center.
+ * * `tenantId` - The Tenant ID for the System-Assigned Managed Identity assigned to this Dev Center.
  * 
  * ## API Providers
  * 

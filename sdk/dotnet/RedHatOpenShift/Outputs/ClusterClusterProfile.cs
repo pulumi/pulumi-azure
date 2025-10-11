@@ -18,7 +18,7 @@ namespace Pulumi.Azure.RedHatOpenShift.Outputs
         /// </summary>
         public readonly string Domain;
         /// <summary>
-        /// Whether Federal Information Processing Standard (FIPS) validated cryptographic modules are used. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Whether Federal Information Processing Standard (FIPS) validated cryptographic modules are used. Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly bool? FipsEnabled;
         /// <summary>

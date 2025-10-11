@@ -26,14 +26,14 @@ public final class DataCollectionRuleDataSourcesArgs extends com.pulumi.resource
     public static final DataCollectionRuleDataSourcesArgs Empty = new DataCollectionRuleDataSourcesArgs();
 
     /**
-     * A `data_import` block as defined above.
+     * A `dataImport` block as defined above.
      * 
      */
     @Import(name="dataImport")
     private @Nullable Output<DataCollectionRuleDataSourcesDataImportArgs> dataImport;
 
     /**
-     * @return A `data_import` block as defined above.
+     * @return A `dataImport` block as defined above.
      * 
      */
     public Optional<Output<DataCollectionRuleDataSourcesDataImportArgs>> dataImport() {
@@ -56,14 +56,14 @@ public final class DataCollectionRuleDataSourcesArgs extends com.pulumi.resource
     }
 
     /**
-     * One or more `iis_log` blocks as defined below.
+     * One or more `iisLog` blocks as defined below.
      * 
      */
     @Import(name="iisLogs")
     private @Nullable Output<List<DataCollectionRuleDataSourcesIisLogArgs>> iisLogs;
 
     /**
-     * @return One or more `iis_log` blocks as defined below.
+     * @return One or more `iisLog` blocks as defined below.
      * 
      */
     public Optional<Output<List<DataCollectionRuleDataSourcesIisLogArgs>>> iisLogs() {
@@ -71,14 +71,14 @@ public final class DataCollectionRuleDataSourcesArgs extends com.pulumi.resource
     }
 
     /**
-     * One or more `log_file` blocks as defined below.
+     * One or more `logFile` blocks as defined below.
      * 
      */
     @Import(name="logFiles")
     private @Nullable Output<List<DataCollectionRuleDataSourcesLogFileArgs>> logFiles;
 
     /**
-     * @return One or more `log_file` blocks as defined below.
+     * @return One or more `logFile` blocks as defined below.
      * 
      */
     public Optional<Output<List<DataCollectionRuleDataSourcesLogFileArgs>>> logFiles() {
@@ -86,14 +86,14 @@ public final class DataCollectionRuleDataSourcesArgs extends com.pulumi.resource
     }
 
     /**
-     * One or more `performance_counter` blocks as defined below.
+     * One or more `performanceCounter` blocks as defined below.
      * 
      */
     @Import(name="performanceCounters")
     private @Nullable Output<List<DataCollectionRuleDataSourcesPerformanceCounterArgs>> performanceCounters;
 
     /**
-     * @return One or more `performance_counter` blocks as defined below.
+     * @return One or more `performanceCounter` blocks as defined below.
      * 
      */
     public Optional<Output<List<DataCollectionRuleDataSourcesPerformanceCounterArgs>>> performanceCounters() {
@@ -101,14 +101,14 @@ public final class DataCollectionRuleDataSourcesArgs extends com.pulumi.resource
     }
 
     /**
-     * One or more `platform_telemetry` blocks as defined below.
+     * One or more `platformTelemetry` blocks as defined below.
      * 
      */
     @Import(name="platformTelemetries")
     private @Nullable Output<List<DataCollectionRuleDataSourcesPlatformTelemetryArgs>> platformTelemetries;
 
     /**
-     * @return One or more `platform_telemetry` blocks as defined below.
+     * @return One or more `platformTelemetry` blocks as defined below.
      * 
      */
     public Optional<Output<List<DataCollectionRuleDataSourcesPlatformTelemetryArgs>>> platformTelemetries() {
@@ -116,14 +116,14 @@ public final class DataCollectionRuleDataSourcesArgs extends com.pulumi.resource
     }
 
     /**
-     * One or more `prometheus_forwarder` blocks as defined below.
+     * One or more `prometheusForwarder` blocks as defined below.
      * 
      */
     @Import(name="prometheusForwarders")
     private @Nullable Output<List<DataCollectionRuleDataSourcesPrometheusForwarderArgs>> prometheusForwarders;
 
     /**
-     * @return One or more `prometheus_forwarder` blocks as defined below.
+     * @return One or more `prometheusForwarder` blocks as defined below.
      * 
      */
     public Optional<Output<List<DataCollectionRuleDataSourcesPrometheusForwarderArgs>>> prometheusForwarders() {
@@ -146,14 +146,14 @@ public final class DataCollectionRuleDataSourcesArgs extends com.pulumi.resource
     }
 
     /**
-     * One or more `windows_event_log` blocks as defined below.
+     * One or more `windowsEventLog` blocks as defined below.
      * 
      */
     @Import(name="windowsEventLogs")
     private @Nullable Output<List<DataCollectionRuleDataSourcesWindowsEventLogArgs>> windowsEventLogs;
 
     /**
-     * @return One or more `windows_event_log` blocks as defined below.
+     * @return One or more `windowsEventLog` blocks as defined below.
      * 
      */
     public Optional<Output<List<DataCollectionRuleDataSourcesWindowsEventLogArgs>>> windowsEventLogs() {
@@ -161,14 +161,14 @@ public final class DataCollectionRuleDataSourcesArgs extends com.pulumi.resource
     }
 
     /**
-     * One or more `windows_firewall_log` blocks as defined below.
+     * One or more `windowsFirewallLog` blocks as defined below.
      * 
      */
     @Import(name="windowsFirewallLogs")
     private @Nullable Output<List<DataCollectionRuleDataSourcesWindowsFirewallLogArgs>> windowsFirewallLogs;
 
     /**
-     * @return One or more `windows_firewall_log` blocks as defined below.
+     * @return One or more `windowsFirewallLog` blocks as defined below.
      * 
      */
     public Optional<Output<List<DataCollectionRuleDataSourcesWindowsFirewallLogArgs>>> windowsFirewallLogs() {
@@ -209,7 +209,7 @@ public final class DataCollectionRuleDataSourcesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param dataImport A `data_import` block as defined above.
+         * @param dataImport A `dataImport` block as defined above.
          * 
          * @return builder
          * 
@@ -220,7 +220,7 @@ public final class DataCollectionRuleDataSourcesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param dataImport A `data_import` block as defined above.
+         * @param dataImport A `dataImport` block as defined above.
          * 
          * @return builder
          * 
@@ -261,7 +261,7 @@ public final class DataCollectionRuleDataSourcesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param iisLogs One or more `iis_log` blocks as defined below.
+         * @param iisLogs One or more `iisLog` blocks as defined below.
          * 
          * @return builder
          * 
@@ -272,7 +272,7 @@ public final class DataCollectionRuleDataSourcesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param iisLogs One or more `iis_log` blocks as defined below.
+         * @param iisLogs One or more `iisLog` blocks as defined below.
          * 
          * @return builder
          * 
@@ -282,7 +282,7 @@ public final class DataCollectionRuleDataSourcesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param iisLogs One or more `iis_log` blocks as defined below.
+         * @param iisLogs One or more `iisLog` blocks as defined below.
          * 
          * @return builder
          * 
@@ -292,7 +292,7 @@ public final class DataCollectionRuleDataSourcesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param logFiles One or more `log_file` blocks as defined below.
+         * @param logFiles One or more `logFile` blocks as defined below.
          * 
          * @return builder
          * 
@@ -303,7 +303,7 @@ public final class DataCollectionRuleDataSourcesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param logFiles One or more `log_file` blocks as defined below.
+         * @param logFiles One or more `logFile` blocks as defined below.
          * 
          * @return builder
          * 
@@ -313,7 +313,7 @@ public final class DataCollectionRuleDataSourcesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param logFiles One or more `log_file` blocks as defined below.
+         * @param logFiles One or more `logFile` blocks as defined below.
          * 
          * @return builder
          * 
@@ -323,7 +323,7 @@ public final class DataCollectionRuleDataSourcesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param performanceCounters One or more `performance_counter` blocks as defined below.
+         * @param performanceCounters One or more `performanceCounter` blocks as defined below.
          * 
          * @return builder
          * 
@@ -334,7 +334,7 @@ public final class DataCollectionRuleDataSourcesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param performanceCounters One or more `performance_counter` blocks as defined below.
+         * @param performanceCounters One or more `performanceCounter` blocks as defined below.
          * 
          * @return builder
          * 
@@ -344,7 +344,7 @@ public final class DataCollectionRuleDataSourcesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param performanceCounters One or more `performance_counter` blocks as defined below.
+         * @param performanceCounters One or more `performanceCounter` blocks as defined below.
          * 
          * @return builder
          * 
@@ -354,7 +354,7 @@ public final class DataCollectionRuleDataSourcesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param platformTelemetries One or more `platform_telemetry` blocks as defined below.
+         * @param platformTelemetries One or more `platformTelemetry` blocks as defined below.
          * 
          * @return builder
          * 
@@ -365,7 +365,7 @@ public final class DataCollectionRuleDataSourcesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param platformTelemetries One or more `platform_telemetry` blocks as defined below.
+         * @param platformTelemetries One or more `platformTelemetry` blocks as defined below.
          * 
          * @return builder
          * 
@@ -375,7 +375,7 @@ public final class DataCollectionRuleDataSourcesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param platformTelemetries One or more `platform_telemetry` blocks as defined below.
+         * @param platformTelemetries One or more `platformTelemetry` blocks as defined below.
          * 
          * @return builder
          * 
@@ -385,7 +385,7 @@ public final class DataCollectionRuleDataSourcesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param prometheusForwarders One or more `prometheus_forwarder` blocks as defined below.
+         * @param prometheusForwarders One or more `prometheusForwarder` blocks as defined below.
          * 
          * @return builder
          * 
@@ -396,7 +396,7 @@ public final class DataCollectionRuleDataSourcesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param prometheusForwarders One or more `prometheus_forwarder` blocks as defined below.
+         * @param prometheusForwarders One or more `prometheusForwarder` blocks as defined below.
          * 
          * @return builder
          * 
@@ -406,7 +406,7 @@ public final class DataCollectionRuleDataSourcesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param prometheusForwarders One or more `prometheus_forwarder` blocks as defined below.
+         * @param prometheusForwarders One or more `prometheusForwarder` blocks as defined below.
          * 
          * @return builder
          * 
@@ -447,7 +447,7 @@ public final class DataCollectionRuleDataSourcesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param windowsEventLogs One or more `windows_event_log` blocks as defined below.
+         * @param windowsEventLogs One or more `windowsEventLog` blocks as defined below.
          * 
          * @return builder
          * 
@@ -458,7 +458,7 @@ public final class DataCollectionRuleDataSourcesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param windowsEventLogs One or more `windows_event_log` blocks as defined below.
+         * @param windowsEventLogs One or more `windowsEventLog` blocks as defined below.
          * 
          * @return builder
          * 
@@ -468,7 +468,7 @@ public final class DataCollectionRuleDataSourcesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param windowsEventLogs One or more `windows_event_log` blocks as defined below.
+         * @param windowsEventLogs One or more `windowsEventLog` blocks as defined below.
          * 
          * @return builder
          * 
@@ -478,7 +478,7 @@ public final class DataCollectionRuleDataSourcesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param windowsFirewallLogs One or more `windows_firewall_log` blocks as defined below.
+         * @param windowsFirewallLogs One or more `windowsFirewallLog` blocks as defined below.
          * 
          * @return builder
          * 
@@ -489,7 +489,7 @@ public final class DataCollectionRuleDataSourcesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param windowsFirewallLogs One or more `windows_firewall_log` blocks as defined below.
+         * @param windowsFirewallLogs One or more `windowsFirewallLog` blocks as defined below.
          * 
          * @return builder
          * 
@@ -499,7 +499,7 @@ public final class DataCollectionRuleDataSourcesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param windowsFirewallLogs One or more `windows_firewall_log` blocks as defined below.
+         * @param windowsFirewallLogs One or more `windowsFirewallLog` blocks as defined below.
          * 
          * @return builder
          * 

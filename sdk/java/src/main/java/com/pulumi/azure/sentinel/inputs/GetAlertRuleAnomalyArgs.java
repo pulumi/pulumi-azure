@@ -17,18 +17,18 @@ public final class GetAlertRuleAnomalyArgs extends com.pulumi.resources.InvokeAr
     public static final GetAlertRuleAnomalyArgs Empty = new GetAlertRuleAnomalyArgs();
 
     /**
-     * The display name of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
+     * The display name of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
      * 
-     * &gt; **Note:** One of `name` or `display_name` must be specified.
+     * &gt; **Note:** One of `name` or `displayName` must be specified.
      * 
      */
     @Import(name="displayName")
     private @Nullable Output<String> displayName;
 
     /**
-     * @return The display name of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
+     * @return The display name of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
      * 
-     * &gt; **Note:** One of `name` or `display_name` must be specified.
+     * &gt; **Note:** One of `name` or `displayName` must be specified.
      * 
      */
     public Optional<Output<String>> displayName() {
@@ -51,14 +51,14 @@ public final class GetAlertRuleAnomalyArgs extends com.pulumi.resources.InvokeAr
     }
 
     /**
-     * The guid of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
+     * The guid of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The guid of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
+     * @return The guid of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
      * 
      */
     public Optional<Output<String>> name() {
@@ -92,9 +92,9 @@ public final class GetAlertRuleAnomalyArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param displayName The display name of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
+         * @param displayName The display name of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
          * 
-         * &gt; **Note:** One of `name` or `display_name` must be specified.
+         * &gt; **Note:** One of `name` or `displayName` must be specified.
          * 
          * @return builder
          * 
@@ -105,9 +105,9 @@ public final class GetAlertRuleAnomalyArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param displayName The display name of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
+         * @param displayName The display name of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
          * 
-         * &gt; **Note:** One of `name` or `display_name` must be specified.
+         * &gt; **Note:** One of `name` or `displayName` must be specified.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class GetAlertRuleAnomalyArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param name The guid of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
+         * @param name The guid of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class GetAlertRuleAnomalyArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param name The guid of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
+         * @param name The guid of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
          * 
          * @return builder
          * 

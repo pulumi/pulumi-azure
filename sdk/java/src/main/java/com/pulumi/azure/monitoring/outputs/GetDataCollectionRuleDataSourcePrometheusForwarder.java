@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetDataCollectionRuleDataSourcePrometheusForwarder {
     /**
-     * @return One or more `label_include_filter` blocks as defined above.
+     * @return One or more `labelIncludeFilter` blocks as defined above.
      * 
      */
     private List<GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilter> labelIncludeFilters;
@@ -30,7 +30,7 @@ public final class GetDataCollectionRuleDataSourcePrometheusForwarder {
 
     private GetDataCollectionRuleDataSourcePrometheusForwarder() {}
     /**
-     * @return One or more `label_include_filter` blocks as defined above.
+     * @return One or more `labelIncludeFilter` blocks as defined above.
      * 
      */
     public List<GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilter> labelIncludeFilters() {

@@ -24,17 +24,17 @@ public final class GetVolumeGroupSapHanaVolume {
      */
     private String capacityPoolId;
     /**
-     * @return A `data_protection_replication` block as defined below.
+     * @return A `dataProtectionReplication` block as defined below.
      * 
      */
     private List<GetVolumeGroupSapHanaVolumeDataProtectionReplication> dataProtectionReplications;
     /**
-     * @return A `data_protection_snapshot_policy` block as defined below.
+     * @return A `dataProtectionSnapshotPolicy` block as defined below.
      * 
      */
     private List<GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy> dataProtectionSnapshotPolicies;
     /**
-     * @return A `export_policy_rule` block as defined below.
+     * @return A `exportPolicyRule` block as defined below.
      * 
      */
     private List<GetVolumeGroupSapHanaVolumeExportPolicyRule> exportPolicyRules;
@@ -44,7 +44,7 @@ public final class GetVolumeGroupSapHanaVolume {
      */
     private String id;
     /**
-     * @return A `mount_ip_addresses` block as defined below.
+     * @return A `mountIpAddresses` block as defined below.
      * 
      */
     private List<String> mountIpAddresses;
@@ -118,21 +118,21 @@ public final class GetVolumeGroupSapHanaVolume {
         return this.capacityPoolId;
     }
     /**
-     * @return A `data_protection_replication` block as defined below.
+     * @return A `dataProtectionReplication` block as defined below.
      * 
      */
     public List<GetVolumeGroupSapHanaVolumeDataProtectionReplication> dataProtectionReplications() {
         return this.dataProtectionReplications;
     }
     /**
-     * @return A `data_protection_snapshot_policy` block as defined below.
+     * @return A `dataProtectionSnapshotPolicy` block as defined below.
      * 
      */
     public List<GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy> dataProtectionSnapshotPolicies() {
         return this.dataProtectionSnapshotPolicies;
     }
     /**
-     * @return A `export_policy_rule` block as defined below.
+     * @return A `exportPolicyRule` block as defined below.
      * 
      */
     public List<GetVolumeGroupSapHanaVolumeExportPolicyRule> exportPolicyRules() {
@@ -146,7 +146,7 @@ public final class GetVolumeGroupSapHanaVolume {
         return this.id;
     }
     /**
-     * @return A `mount_ip_addresses` block as defined below.
+     * @return A `mountIpAddresses` block as defined below.
      * 
      */
     public List<String> mountIpAddresses() {

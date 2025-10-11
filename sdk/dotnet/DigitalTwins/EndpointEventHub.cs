@@ -105,13 +105,13 @@ namespace Pulumi.Azure.DigitalTwins
         public Output<string> DigitalTwinsId { get; private set; } = null!;
 
         /// <summary>
-        /// The primary connection string of the Event Hub Authorization Rule with a minimum of `send` permission.
+        /// The primary connection string of the Event Hub Authorization Rule with a minimum of `Send` permission.
         /// </summary>
         [Output("eventhubPrimaryConnectionString")]
         public Output<string> EventhubPrimaryConnectionString { get; private set; } = null!;
 
         /// <summary>
-        /// The secondary connection string of the Event Hub Authorization Rule with a minimum of `send` permission.
+        /// The secondary connection string of the Event Hub Authorization Rule with a minimum of `Send` permission.
         /// </summary>
         [Output("eventhubSecondaryConnectionString")]
         public Output<string> EventhubSecondaryConnectionString { get; private set; } = null!;
@@ -200,7 +200,7 @@ namespace Pulumi.Azure.DigitalTwins
         private Input<string>? _eventhubPrimaryConnectionString;
 
         /// <summary>
-        /// The primary connection string of the Event Hub Authorization Rule with a minimum of `send` permission.
+        /// The primary connection string of the Event Hub Authorization Rule with a minimum of `Send` permission.
         /// </summary>
         public Input<string>? EventhubPrimaryConnectionString
         {
@@ -216,7 +216,7 @@ namespace Pulumi.Azure.DigitalTwins
         private Input<string>? _eventhubSecondaryConnectionString;
 
         /// <summary>
-        /// The secondary connection string of the Event Hub Authorization Rule with a minimum of `send` permission.
+        /// The secondary connection string of the Event Hub Authorization Rule with a minimum of `Send` permission.
         /// </summary>
         public Input<string>? EventhubSecondaryConnectionString
         {
@@ -268,7 +268,7 @@ namespace Pulumi.Azure.DigitalTwins
         private Input<string>? _eventhubPrimaryConnectionString;
 
         /// <summary>
-        /// The primary connection string of the Event Hub Authorization Rule with a minimum of `send` permission.
+        /// The primary connection string of the Event Hub Authorization Rule with a minimum of `Send` permission.
         /// </summary>
         public Input<string>? EventhubPrimaryConnectionString
         {
@@ -284,7 +284,7 @@ namespace Pulumi.Azure.DigitalTwins
         private Input<string>? _eventhubSecondaryConnectionString;
 
         /// <summary>
-        /// The secondary connection string of the Event Hub Authorization Rule with a minimum of `send` permission.
+        /// The secondary connection string of the Event Hub Authorization Rule with a minimum of `Send` permission.
         /// </summary>
         public Input<string>? EventhubSecondaryConnectionString
         {

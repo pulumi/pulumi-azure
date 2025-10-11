@@ -14,23 +14,23 @@ namespace Pulumi.Azure.Storage.Outputs
     public sealed class LocalUserPermissionScopePermissions
     {
         /// <summary>
-        /// Specifies if the Local User has the create permission for this scope. Defaults to `false`.
+        /// Specifies if the Local User has the create permission for this scope. Defaults to `False`.
         /// </summary>
         public readonly bool? Create;
         /// <summary>
-        /// Specifies if the Local User has the delete permission for this scope. Defaults to `false`.
+        /// Specifies if the Local User has the delete permission for this scope. Defaults to `False`.
         /// </summary>
         public readonly bool? Delete;
         /// <summary>
-        /// Specifies if the Local User has the list permission for this scope. Defaults to `false`.
+        /// Specifies if the Local User has the list permission for this scope. Defaults to `False`.
         /// </summary>
         public readonly bool? List;
         /// <summary>
-        /// Specifies if the Local User has the read permission for this scope. Defaults to `false`.
+        /// Specifies if the Local User has the read permission for this scope. Defaults to `False`.
         /// </summary>
         public readonly bool? Read;
         /// <summary>
-        /// Specifies if the Local User has the write permission for this scope. Defaults to `false`.
+        /// Specifies if the Local User has the write permission for this scope. Defaults to `False`.
         /// </summary>
         public readonly bool? Write;
 

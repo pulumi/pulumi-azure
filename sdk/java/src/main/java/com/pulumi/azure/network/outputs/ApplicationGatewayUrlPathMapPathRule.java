@@ -19,7 +19,7 @@ public final class ApplicationGatewayUrlPathMapPathRule {
      */
     private @Nullable String backendAddressPoolId;
     /**
-     * @return The Name of the Backend Address Pool to use for this Path Rule. Cannot be set if `redirect_configuration_name` is set.
+     * @return The Name of the Backend Address Pool to use for this Path Rule. Cannot be set if `redirectConfigurationName` is set.
      * 
      */
     private @Nullable String backendAddressPoolName;
@@ -29,7 +29,7 @@ public final class ApplicationGatewayUrlPathMapPathRule {
      */
     private @Nullable String backendHttpSettingsId;
     /**
-     * @return The Name of the Backend HTTP Settings Collection to use for this Path Rule. Cannot be set if `redirect_configuration_name` is set.
+     * @return The Name of the Backend HTTP Settings Collection to use for this Path Rule. Cannot be set if `redirectConfigurationName` is set.
      * 
      */
     private @Nullable String backendHttpSettingsName;
@@ -59,7 +59,7 @@ public final class ApplicationGatewayUrlPathMapPathRule {
      */
     private @Nullable String redirectConfigurationId;
     /**
-     * @return The Name of a Redirect Configuration to use for this Path Rule. Cannot be set if `backend_address_pool_name` or `backend_http_settings_name` is set.
+     * @return The Name of a Redirect Configuration to use for this Path Rule. Cannot be set if `backendAddressPoolName` or `backendHttpSettingsName` is set.
      * 
      */
     private @Nullable String redirectConfigurationName;
@@ -83,7 +83,7 @@ public final class ApplicationGatewayUrlPathMapPathRule {
         return Optional.ofNullable(this.backendAddressPoolId);
     }
     /**
-     * @return The Name of the Backend Address Pool to use for this Path Rule. Cannot be set if `redirect_configuration_name` is set.
+     * @return The Name of the Backend Address Pool to use for this Path Rule. Cannot be set if `redirectConfigurationName` is set.
      * 
      */
     public Optional<String> backendAddressPoolName() {
@@ -97,7 +97,7 @@ public final class ApplicationGatewayUrlPathMapPathRule {
         return Optional.ofNullable(this.backendHttpSettingsId);
     }
     /**
-     * @return The Name of the Backend HTTP Settings Collection to use for this Path Rule. Cannot be set if `redirect_configuration_name` is set.
+     * @return The Name of the Backend HTTP Settings Collection to use for this Path Rule. Cannot be set if `redirectConfigurationName` is set.
      * 
      */
     public Optional<String> backendHttpSettingsName() {
@@ -139,7 +139,7 @@ public final class ApplicationGatewayUrlPathMapPathRule {
         return Optional.ofNullable(this.redirectConfigurationId);
     }
     /**
-     * @return The Name of a Redirect Configuration to use for this Path Rule. Cannot be set if `backend_address_pool_name` or `backend_http_settings_name` is set.
+     * @return The Name of a Redirect Configuration to use for this Path Rule. Cannot be set if `backendAddressPoolName` or `backendHttpSettingsName` is set.
      * 
      */
     public Optional<String> redirectConfigurationName() {

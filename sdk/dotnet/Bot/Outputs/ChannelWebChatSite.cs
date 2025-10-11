@@ -22,11 +22,11 @@ namespace Pulumi.Azure.Bot.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Is the storage site enabled for detailed logging? Defaults to `true`.
+        /// Is the storage site enabled for detailed logging? Defaults to `True`.
         /// </summary>
         public readonly bool? StorageEnabled;
         /// <summary>
-        /// Is the user upload enabled for this site? Defaults to `true`.
+        /// Is the user upload enabled for this site? Defaults to `True`.
         /// </summary>
         public readonly bool? UserUploadEnabled;
 

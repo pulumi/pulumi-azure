@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService
     /// 
     /// !&gt; **NOTE:** This resource has been deprecated in version 5.0 of the provider and will be removed in version 6.0. Please use `azure.appservice.LinuxWebApp` and `azure.appservice.WindowsWebApp` resources instead.
     /// 
-    /// &gt; **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `azure.appservice.AppService` resource will be overwritten when promoting a Slot using the `azure.appservice.ActiveSlot` resource.
+    /// &gt; **Note:** When using Slots - the `AppSettings`, `ConnectionString` and `SiteConfig` blocks on the `azure.appservice.AppService` resource will be overwritten when promoting a Slot using the `azure.appservice.ActiveSlot` resource.
     /// 
     /// ## Example Usage
     /// 
@@ -99,13 +99,13 @@ namespace Pulumi.Azure.AppService
         public Output<ImmutableDictionary<string, string>> AppSettings { get; private set; } = null!;
 
         /// <summary>
-        /// A `auth_settings` block as defined below.
+        /// A `AuthSettings` block as defined below.
         /// </summary>
         [Output("authSettings")]
         public Output<Outputs.AppServiceAuthSettings> AuthSettings { get; private set; } = null!;
 
         /// <summary>
-        /// A `backup` block as defined below.
+        /// A `Backup` block as defined below.
         /// </summary>
         [Output("backup")]
         public Output<Outputs.AppServiceBackup?> Backup { get; private set; } = null!;
@@ -117,19 +117,19 @@ namespace Pulumi.Azure.AppService
         public Output<bool?> ClientAffinityEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Does the App Service require client certificates for incoming requests? Defaults to `false`.
+        /// Does the App Service require client certificates for incoming requests? Defaults to `False`.
         /// </summary>
         [Output("clientCertEnabled")]
         public Output<bool?> ClientCertEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `client_cert_enabled` must be set to `true`, otherwise this parameter is ignored.
+        /// Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `ClientCertEnabled` must be set to `True`, otherwise this parameter is ignored.
         /// </summary>
         [Output("clientCertMode")]
         public Output<string> ClientCertMode { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `connection_string` blocks as defined below.
+        /// One or more `ConnectionString` blocks as defined below.
         /// </summary>
         [Output("connectionStrings")]
         public Output<ImmutableArray<Outputs.AppServiceConnectionString>> ConnectionStrings { get; private set; } = null!;
@@ -147,19 +147,19 @@ namespace Pulumi.Azure.AppService
         public Output<string> DefaultSiteHostname { get; private set; } = null!;
 
         /// <summary>
-        /// Is the App Service Enabled? Defaults to `true`.
+        /// Is the App Service Enabled? Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// Can the App Service only be accessed via HTTPS? Defaults to `false`.
+        /// Can the App Service only be accessed via HTTPS? Defaults to `False`.
         /// </summary>
         [Output("httpsOnly")]
         public Output<bool?> HttpsOnly { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.AppServiceIdentity?> Identity { get; private set; } = null!;
@@ -177,7 +177,7 @@ namespace Pulumi.Azure.AppService
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// A `logs` block as defined below.
+        /// A `Logs` block as defined below.
         /// </summary>
         [Output("logs")]
         public Output<Outputs.AppServiceLogs> Logs { get; private set; } = null!;
@@ -201,13 +201,13 @@ namespace Pulumi.Azure.AppService
         public Output<string> OutboundIpAddresses { get; private set; } = null!;
 
         /// <summary>
-        /// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12", "52.143.43.17"]` - not all of which are necessarily in use. Superset of `outbound_ip_address_list`.
+        /// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12", "52.143.43.17"]` - not all of which are necessarily in use. Superset of `OutboundIpAddressList`.
         /// </summary>
         [Output("possibleOutboundIpAddressLists")]
         public Output<ImmutableArray<string>> PossibleOutboundIpAddressLists { get; private set; } = null!;
 
         /// <summary>
-        /// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+        /// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `OutboundIpAddresses`.
         /// </summary>
         [Output("possibleOutboundIpAddresses")]
         public Output<string> PossibleOutboundIpAddresses { get; private set; } = null!;
@@ -219,25 +219,25 @@ namespace Pulumi.Azure.AppService
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `site_config` block as defined below.
+        /// A `SiteConfig` block as defined below.
         /// </summary>
         [Output("siteConfig")]
         public Output<Outputs.AppServiceSiteConfig> SiteConfig { get; private set; } = null!;
 
         /// <summary>
-        /// A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+        /// A `SiteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
         /// </summary>
         [Output("siteCredentials")]
         public Output<ImmutableArray<Outputs.AppServiceSiteCredential>> SiteCredentials { get; private set; } = null!;
 
         /// <summary>
-        /// A `source_control` block as defined below.
+        /// A `SourceControl` block as defined below.
         /// </summary>
         [Output("sourceControl")]
         public Output<Outputs.AppServiceSourceControl> SourceControl { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `storage_account` blocks as defined below.
+        /// One or more `StorageAccount` blocks as defined below.
         /// </summary>
         [Output("storageAccounts")]
         public Output<ImmutableArray<Outputs.AppServiceStorageAccount>> StorageAccounts { get; private set; } = null!;
@@ -313,13 +313,13 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// A `auth_settings` block as defined below.
+        /// A `AuthSettings` block as defined below.
         /// </summary>
         [Input("authSettings")]
         public Input<Inputs.AppServiceAuthSettingsArgs>? AuthSettings { get; set; }
 
         /// <summary>
-        /// A `backup` block as defined below.
+        /// A `Backup` block as defined below.
         /// </summary>
         [Input("backup")]
         public Input<Inputs.AppServiceBackupArgs>? Backup { get; set; }
@@ -331,13 +331,13 @@ namespace Pulumi.Azure.AppService
         public Input<bool>? ClientAffinityEnabled { get; set; }
 
         /// <summary>
-        /// Does the App Service require client certificates for incoming requests? Defaults to `false`.
+        /// Does the App Service require client certificates for incoming requests? Defaults to `False`.
         /// </summary>
         [Input("clientCertEnabled")]
         public Input<bool>? ClientCertEnabled { get; set; }
 
         /// <summary>
-        /// Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `client_cert_enabled` must be set to `true`, otherwise this parameter is ignored.
+        /// Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `ClientCertEnabled` must be set to `True`, otherwise this parameter is ignored.
         /// </summary>
         [Input("clientCertMode")]
         public Input<string>? ClientCertMode { get; set; }
@@ -346,7 +346,7 @@ namespace Pulumi.Azure.AppService
         private InputList<Inputs.AppServiceConnectionStringArgs>? _connectionStrings;
 
         /// <summary>
-        /// One or more `connection_string` blocks as defined below.
+        /// One or more `ConnectionString` blocks as defined below.
         /// </summary>
         public InputList<Inputs.AppServiceConnectionStringArgs> ConnectionStrings
         {
@@ -355,19 +355,19 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// Is the App Service Enabled? Defaults to `true`.
+        /// Is the App Service Enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Can the App Service only be accessed via HTTPS? Defaults to `false`.
+        /// Can the App Service only be accessed via HTTPS? Defaults to `False`.
         /// </summary>
         [Input("httpsOnly")]
         public Input<bool>? HttpsOnly { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.AppServiceIdentityArgs>? Identity { get; set; }
@@ -385,7 +385,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A `logs` block as defined below.
+        /// A `Logs` block as defined below.
         /// </summary>
         [Input("logs")]
         public Input<Inputs.AppServiceLogsArgs>? Logs { get; set; }
@@ -403,13 +403,13 @@ namespace Pulumi.Azure.AppService
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `site_config` block as defined below.
+        /// A `SiteConfig` block as defined below.
         /// </summary>
         [Input("siteConfig")]
         public Input<Inputs.AppServiceSiteConfigArgs>? SiteConfig { get; set; }
 
         /// <summary>
-        /// A `source_control` block as defined below.
+        /// A `SourceControl` block as defined below.
         /// </summary>
         [Input("sourceControl")]
         public Input<Inputs.AppServiceSourceControlArgs>? SourceControl { get; set; }
@@ -418,7 +418,7 @@ namespace Pulumi.Azure.AppService
         private InputList<Inputs.AppServiceStorageAccountArgs>? _storageAccounts;
 
         /// <summary>
-        /// One or more `storage_account` blocks as defined below.
+        /// One or more `StorageAccount` blocks as defined below.
         /// </summary>
         public InputList<Inputs.AppServiceStorageAccountArgs> StorageAccounts
         {
@@ -465,13 +465,13 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// A `auth_settings` block as defined below.
+        /// A `AuthSettings` block as defined below.
         /// </summary>
         [Input("authSettings")]
         public Input<Inputs.AppServiceAuthSettingsGetArgs>? AuthSettings { get; set; }
 
         /// <summary>
-        /// A `backup` block as defined below.
+        /// A `Backup` block as defined below.
         /// </summary>
         [Input("backup")]
         public Input<Inputs.AppServiceBackupGetArgs>? Backup { get; set; }
@@ -483,13 +483,13 @@ namespace Pulumi.Azure.AppService
         public Input<bool>? ClientAffinityEnabled { get; set; }
 
         /// <summary>
-        /// Does the App Service require client certificates for incoming requests? Defaults to `false`.
+        /// Does the App Service require client certificates for incoming requests? Defaults to `False`.
         /// </summary>
         [Input("clientCertEnabled")]
         public Input<bool>? ClientCertEnabled { get; set; }
 
         /// <summary>
-        /// Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `client_cert_enabled` must be set to `true`, otherwise this parameter is ignored.
+        /// Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `ClientCertEnabled` must be set to `True`, otherwise this parameter is ignored.
         /// </summary>
         [Input("clientCertMode")]
         public Input<string>? ClientCertMode { get; set; }
@@ -498,7 +498,7 @@ namespace Pulumi.Azure.AppService
         private InputList<Inputs.AppServiceConnectionStringGetArgs>? _connectionStrings;
 
         /// <summary>
-        /// One or more `connection_string` blocks as defined below.
+        /// One or more `ConnectionString` blocks as defined below.
         /// </summary>
         public InputList<Inputs.AppServiceConnectionStringGetArgs> ConnectionStrings
         {
@@ -519,19 +519,19 @@ namespace Pulumi.Azure.AppService
         public Input<string>? DefaultSiteHostname { get; set; }
 
         /// <summary>
-        /// Is the App Service Enabled? Defaults to `true`.
+        /// Is the App Service Enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Can the App Service only be accessed via HTTPS? Defaults to `false`.
+        /// Can the App Service only be accessed via HTTPS? Defaults to `False`.
         /// </summary>
         [Input("httpsOnly")]
         public Input<bool>? HttpsOnly { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.AppServiceIdentityGetArgs>? Identity { get; set; }
@@ -549,7 +549,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A `logs` block as defined below.
+        /// A `Logs` block as defined below.
         /// </summary>
         [Input("logs")]
         public Input<Inputs.AppServiceLogsGetArgs>? Logs { get; set; }
@@ -582,7 +582,7 @@ namespace Pulumi.Azure.AppService
         private InputList<string>? _possibleOutboundIpAddressLists;
 
         /// <summary>
-        /// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12", "52.143.43.17"]` - not all of which are necessarily in use. Superset of `outbound_ip_address_list`.
+        /// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12", "52.143.43.17"]` - not all of which are necessarily in use. Superset of `OutboundIpAddressList`.
         /// </summary>
         public InputList<string> PossibleOutboundIpAddressLists
         {
@@ -591,7 +591,7 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+        /// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `OutboundIpAddresses`.
         /// </summary>
         [Input("possibleOutboundIpAddresses")]
         public Input<string>? PossibleOutboundIpAddresses { get; set; }
@@ -603,7 +603,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// A `site_config` block as defined below.
+        /// A `SiteConfig` block as defined below.
         /// </summary>
         [Input("siteConfig")]
         public Input<Inputs.AppServiceSiteConfigGetArgs>? SiteConfig { get; set; }
@@ -612,7 +612,7 @@ namespace Pulumi.Azure.AppService
         private InputList<Inputs.AppServiceSiteCredentialGetArgs>? _siteCredentials;
 
         /// <summary>
-        /// A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+        /// A `SiteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
         /// </summary>
         public InputList<Inputs.AppServiceSiteCredentialGetArgs> SiteCredentials
         {
@@ -621,7 +621,7 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// A `source_control` block as defined below.
+        /// A `SourceControl` block as defined below.
         /// </summary>
         [Input("sourceControl")]
         public Input<Inputs.AppServiceSourceControlGetArgs>? SourceControl { get; set; }
@@ -630,7 +630,7 @@ namespace Pulumi.Azure.AppService
         private InputList<Inputs.AppServiceStorageAccountGetArgs>? _storageAccounts;
 
         /// <summary>
-        /// One or more `storage_account` blocks as defined below.
+        /// One or more `StorageAccount` blocks as defined below.
         /// </summary>
         public InputList<Inputs.AppServiceStorageAccountGetArgs> StorageAccounts
         {

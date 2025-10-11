@@ -16,62 +16,62 @@ import java.util.Objects;
 @CustomType
 public final class GetCertificateCertificatePolicy {
     /**
-     * @return A `issuer_parameters` block as defined below.
+     * @return A `issuerParameters` block as defined below.
      * 
      */
     private List<GetCertificateCertificatePolicyIssuerParameter> issuerParameters;
     /**
-     * @return A `key_properties` block as defined below.
+     * @return A `keyProperties` block as defined below.
      * 
      */
     private List<GetCertificateCertificatePolicyKeyProperty> keyProperties;
     /**
-     * @return A `lifetime_action` block as defined below.
+     * @return A `lifetimeAction` block as defined below.
      * 
      */
     private List<GetCertificateCertificatePolicyLifetimeAction> lifetimeActions;
     /**
-     * @return A `secret_properties` block as defined below.
+     * @return A `secretProperties` block as defined below.
      * 
      */
     private List<GetCertificateCertificatePolicySecretProperty> secretProperties;
     /**
-     * @return An `x509_certificate_properties` block as defined below.
+     * @return An `x509CertificateProperties` block as defined below.
      * 
      */
     private List<GetCertificateCertificatePolicyX509CertificateProperty> x509CertificateProperties;
 
     private GetCertificateCertificatePolicy() {}
     /**
-     * @return A `issuer_parameters` block as defined below.
+     * @return A `issuerParameters` block as defined below.
      * 
      */
     public List<GetCertificateCertificatePolicyIssuerParameter> issuerParameters() {
         return this.issuerParameters;
     }
     /**
-     * @return A `key_properties` block as defined below.
+     * @return A `keyProperties` block as defined below.
      * 
      */
     public List<GetCertificateCertificatePolicyKeyProperty> keyProperties() {
         return this.keyProperties;
     }
     /**
-     * @return A `lifetime_action` block as defined below.
+     * @return A `lifetimeAction` block as defined below.
      * 
      */
     public List<GetCertificateCertificatePolicyLifetimeAction> lifetimeActions() {
         return this.lifetimeActions;
     }
     /**
-     * @return A `secret_properties` block as defined below.
+     * @return A `secretProperties` block as defined below.
      * 
      */
     public List<GetCertificateCertificatePolicySecretProperty> secretProperties() {
         return this.secretProperties;
     }
     /**
-     * @return An `x509_certificate_properties` block as defined below.
+     * @return An `x509CertificateProperties` block as defined below.
      * 
      */
     public List<GetCertificateCertificatePolicyX509CertificateProperty> x509CertificateProperties() {

@@ -34,14 +34,14 @@ public final class ResourceGroupCostManagementExportState extends com.pulumi.res
     }
 
     /**
-     * A `export_data_options` block as defined below.
+     * A `exportDataOptions` block as defined below.
      * 
      */
     @Import(name="exportDataOptions")
     private @Nullable Output<ResourceGroupCostManagementExportExportDataOptionsArgs> exportDataOptions;
 
     /**
-     * @return A `export_data_options` block as defined below.
+     * @return A `exportDataOptions` block as defined below.
      * 
      */
     public Optional<Output<ResourceGroupCostManagementExportExportDataOptionsArgs>> exportDataOptions() {
@@ -49,14 +49,14 @@ public final class ResourceGroupCostManagementExportState extends com.pulumi.res
     }
 
     /**
-     * A `export_data_storage_location` block as defined below.
+     * A `exportDataStorageLocation` block as defined below.
      * 
      */
     @Import(name="exportDataStorageLocation")
     private @Nullable Output<ResourceGroupCostManagementExportExportDataStorageLocationArgs> exportDataStorageLocation;
 
     /**
-     * @return A `export_data_storage_location` block as defined below.
+     * @return A `exportDataStorageLocation` block as defined below.
      * 
      */
     public Optional<Output<ResourceGroupCostManagementExportExportDataStorageLocationArgs>> exportDataStorageLocation() {
@@ -207,7 +207,7 @@ public final class ResourceGroupCostManagementExportState extends com.pulumi.res
         }
 
         /**
-         * @param exportDataOptions A `export_data_options` block as defined below.
+         * @param exportDataOptions A `exportDataOptions` block as defined below.
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class ResourceGroupCostManagementExportState extends com.pulumi.res
         }
 
         /**
-         * @param exportDataOptions A `export_data_options` block as defined below.
+         * @param exportDataOptions A `exportDataOptions` block as defined below.
          * 
          * @return builder
          * 
@@ -228,7 +228,7 @@ public final class ResourceGroupCostManagementExportState extends com.pulumi.res
         }
 
         /**
-         * @param exportDataStorageLocation A `export_data_storage_location` block as defined below.
+         * @param exportDataStorageLocation A `exportDataStorageLocation` block as defined below.
          * 
          * @return builder
          * 
@@ -239,7 +239,7 @@ public final class ResourceGroupCostManagementExportState extends com.pulumi.res
         }
 
         /**
-         * @param exportDataStorageLocation A `export_data_storage_location` block as defined below.
+         * @param exportDataStorageLocation A `exportDataStorageLocation` block as defined below.
          * 
          * @return builder
          * 

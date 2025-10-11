@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Maintenance.Outputs
     public sealed class GetConfigurationInstallPatchResult
     {
         /// <summary>
-        /// A `linux` block as defined below.
+        /// A `Linux` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetConfigurationInstallPatchLinuxResult> Linuxes;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Maintenance.Outputs
         /// </summary>
         public readonly string Reboot;
         /// <summary>
-        /// A `windows` block as defined below.
+        /// A `Windows` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetConfigurationInstallPatchWindowResult> Windows;
 

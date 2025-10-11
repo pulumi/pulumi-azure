@@ -159,14 +159,14 @@ public final class DatasetCosmosDBApiArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A `schema_column` block as defined below.
+     * A `schemaColumn` block as defined below.
      * 
      */
     @Import(name="schemaColumns")
     private @Nullable Output<List<DatasetCosmosDBApiSchemaColumnArgs>> schemaColumns;
 
     /**
-     * @return A `schema_column` block as defined below.
+     * @return A `schemaColumn` block as defined below.
      * 
      */
     public Optional<Output<List<DatasetCosmosDBApiSchemaColumnArgs>>> schemaColumns() {
@@ -410,7 +410,7 @@ public final class DatasetCosmosDBApiArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param schemaColumns A `schema_column` block as defined below.
+         * @param schemaColumns A `schemaColumn` block as defined below.
          * 
          * @return builder
          * 
@@ -421,7 +421,7 @@ public final class DatasetCosmosDBApiArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param schemaColumns A `schema_column` block as defined below.
+         * @param schemaColumns A `schemaColumn` block as defined below.
          * 
          * @return builder
          * 
@@ -431,7 +431,7 @@ public final class DatasetCosmosDBApiArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param schemaColumns A `schema_column` block as defined below.
+         * @param schemaColumns A `schemaColumn` block as defined below.
          * 
          * @return builder
          * 

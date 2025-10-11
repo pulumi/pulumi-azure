@@ -252,7 +252,7 @@ public class HciVirtualHardDisk extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the Azure Stack HCI Storage Path used for this Virtual Hard Disk. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
      * 
-     * &gt; **Note:** If `storage_path_id` is not specified, the Virtual Hard Disk will be placed in a high availability Storage Path. If you experience a diff you may need to add this to `ignore_changes`.
+     * &gt; **Note:** If `storagePathId` is not specified, the Virtual Hard Disk will be placed in a high availability Storage Path. If you experience a diff you may need to add this to `ignoreChanges`.
      * 
      */
     @Export(name="storagePathId", refs={String.class}, tree="[0]")
@@ -261,7 +261,7 @@ public class HciVirtualHardDisk extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID of the Azure Stack HCI Storage Path used for this Virtual Hard Disk. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
      * 
-     * &gt; **Note:** If `storage_path_id` is not specified, the Virtual Hard Disk will be placed in a high availability Storage Path. If you experience a diff you may need to add this to `ignore_changes`.
+     * &gt; **Note:** If `storagePathId` is not specified, the Virtual Hard Disk will be placed in a high availability Storage Path. If you experience a diff you may need to add this to `ignoreChanges`.
      * 
      */
     public Output<Optional<String>> storagePathId() {

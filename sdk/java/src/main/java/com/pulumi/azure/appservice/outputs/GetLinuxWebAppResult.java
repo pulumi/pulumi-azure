@@ -24,22 +24,22 @@ import java.util.Objects;
 @CustomType
 public final class GetLinuxWebAppResult {
     /**
-     * @return An `app_metadata` block as defined below.
+     * @return An `appMetadata` block as defined below.
      * 
      */
     private Map<String,String> appMetadata;
     /**
-     * @return An `app_settings` block as defined below.
+     * @return An `appSettings` block as defined below.
      * 
      */
     private Map<String,String> appSettings;
     /**
-     * @return An `auth_settings` block as defined below.
+     * @return An `authSettings` block as defined below.
      * 
      */
     private List<GetLinuxWebAppAuthSetting> authSettings;
     /**
-     * @return An `auth_settings_v2` block as defined below.
+     * @return An `authSettingsV2` block as defined below.
      * 
      */
     private List<GetLinuxWebAppAuthSettingsV2> authSettingsV2s;
@@ -74,7 +74,7 @@ public final class GetLinuxWebAppResult {
      */
     private String clientCertificateMode;
     /**
-     * @return A `connection_string` block as defined below.
+     * @return A `connectionString` block as defined below.
      * 
      */
     private List<GetLinuxWebAppConnectionString> connectionStrings;
@@ -140,7 +140,7 @@ public final class GetLinuxWebAppResult {
      */
     private String name;
     /**
-     * @return A `outbound_ip_address_list` block as defined below.
+     * @return A `outboundIpAddressList` block as defined below.
      * 
      */
     private List<String> outboundIpAddressLists;
@@ -150,12 +150,12 @@ public final class GetLinuxWebAppResult {
      */
     private String outboundIpAddresses;
     /**
-     * @return A `possible_outbound_ip_address_list` block as defined below.
+     * @return A `possibleOutboundIpAddressList` block as defined below.
      * 
      */
     private List<String> possibleOutboundIpAddressLists;
     /**
-     * @return A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+     * @return A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      * 
      */
     private String possibleOutboundIpAddresses;
@@ -171,22 +171,22 @@ public final class GetLinuxWebAppResult {
      */
     private String servicePlanId;
     /**
-     * @return A `site_config` block as defined below.
+     * @return A `siteConfig` block as defined below.
      * 
      */
     private List<GetLinuxWebAppSiteConfig> siteConfigs;
     /**
-     * @return A `site_credential` block as defined below.
+     * @return A `siteCredential` block as defined below.
      * 
      */
     private List<GetLinuxWebAppSiteCredential> siteCredentials;
     /**
-     * @return A `sticky_settings` block as defined below.
+     * @return A `stickySettings` block as defined below.
      * 
      */
     private List<GetLinuxWebAppStickySetting> stickySettings;
     /**
-     * @return A `storage_account` block as defined below.
+     * @return A `storageAccount` block as defined below.
      * 
      */
     private List<GetLinuxWebAppStorageAccount> storageAccounts;
@@ -218,28 +218,28 @@ public final class GetLinuxWebAppResult {
 
     private GetLinuxWebAppResult() {}
     /**
-     * @return An `app_metadata` block as defined below.
+     * @return An `appMetadata` block as defined below.
      * 
      */
     public Map<String,String> appMetadata() {
         return this.appMetadata;
     }
     /**
-     * @return An `app_settings` block as defined below.
+     * @return An `appSettings` block as defined below.
      * 
      */
     public Map<String,String> appSettings() {
         return this.appSettings;
     }
     /**
-     * @return An `auth_settings` block as defined below.
+     * @return An `authSettings` block as defined below.
      * 
      */
     public List<GetLinuxWebAppAuthSetting> authSettings() {
         return this.authSettings;
     }
     /**
-     * @return An `auth_settings_v2` block as defined below.
+     * @return An `authSettingsV2` block as defined below.
      * 
      */
     public List<GetLinuxWebAppAuthSettingsV2> authSettingsV2s() {
@@ -288,7 +288,7 @@ public final class GetLinuxWebAppResult {
         return this.clientCertificateMode;
     }
     /**
-     * @return A `connection_string` block as defined below.
+     * @return A `connectionString` block as defined below.
      * 
      */
     public List<GetLinuxWebAppConnectionString> connectionStrings() {
@@ -382,7 +382,7 @@ public final class GetLinuxWebAppResult {
         return this.name;
     }
     /**
-     * @return A `outbound_ip_address_list` block as defined below.
+     * @return A `outboundIpAddressList` block as defined below.
      * 
      */
     public List<String> outboundIpAddressLists() {
@@ -396,14 +396,14 @@ public final class GetLinuxWebAppResult {
         return this.outboundIpAddresses;
     }
     /**
-     * @return A `possible_outbound_ip_address_list` block as defined below.
+     * @return A `possibleOutboundIpAddressList` block as defined below.
      * 
      */
     public List<String> possibleOutboundIpAddressLists() {
         return this.possibleOutboundIpAddressLists;
     }
     /**
-     * @return A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+     * @return A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      * 
      */
     public String possibleOutboundIpAddresses() {
@@ -427,28 +427,28 @@ public final class GetLinuxWebAppResult {
         return this.servicePlanId;
     }
     /**
-     * @return A `site_config` block as defined below.
+     * @return A `siteConfig` block as defined below.
      * 
      */
     public List<GetLinuxWebAppSiteConfig> siteConfigs() {
         return this.siteConfigs;
     }
     /**
-     * @return A `site_credential` block as defined below.
+     * @return A `siteCredential` block as defined below.
      * 
      */
     public List<GetLinuxWebAppSiteCredential> siteCredentials() {
         return this.siteCredentials;
     }
     /**
-     * @return A `sticky_settings` block as defined below.
+     * @return A `stickySettings` block as defined below.
      * 
      */
     public List<GetLinuxWebAppStickySetting> stickySettings() {
         return this.stickySettings;
     }
     /**
-     * @return A `storage_account` block as defined below.
+     * @return A `storageAccount` block as defined below.
      * 
      */
     public List<GetLinuxWebAppStorageAccount> storageAccounts() {

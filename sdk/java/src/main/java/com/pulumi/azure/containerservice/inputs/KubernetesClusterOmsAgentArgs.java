@@ -50,14 +50,14 @@ public final class KubernetesClusterOmsAgentArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * An `oms_agent_identity` block is exported. The exported attributes are defined below.
+     * An `omsAgentIdentity` block is exported. The exported attributes are defined below.
      * 
      */
     @Import(name="omsAgentIdentities")
     private @Nullable Output<List<KubernetesClusterOmsAgentOmsAgentIdentityArgs>> omsAgentIdentities;
 
     /**
-     * @return An `oms_agent_identity` block is exported. The exported attributes are defined below.
+     * @return An `omsAgentIdentity` block is exported. The exported attributes are defined below.
      * 
      */
     public Optional<Output<List<KubernetesClusterOmsAgentOmsAgentIdentityArgs>>> omsAgentIdentities() {
@@ -133,7 +133,7 @@ public final class KubernetesClusterOmsAgentArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param omsAgentIdentities An `oms_agent_identity` block is exported. The exported attributes are defined below.
+         * @param omsAgentIdentities An `omsAgentIdentity` block is exported. The exported attributes are defined below.
          * 
          * @return builder
          * 
@@ -144,7 +144,7 @@ public final class KubernetesClusterOmsAgentArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param omsAgentIdentities An `oms_agent_identity` block is exported. The exported attributes are defined below.
+         * @param omsAgentIdentities An `omsAgentIdentity` block is exported. The exported attributes are defined below.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class KubernetesClusterOmsAgentArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param omsAgentIdentities An `oms_agent_identity` block is exported. The exported attributes are defined below.
+         * @param omsAgentIdentities An `omsAgentIdentity` block is exported. The exported attributes are defined below.
          * 
          * @return builder
          * 

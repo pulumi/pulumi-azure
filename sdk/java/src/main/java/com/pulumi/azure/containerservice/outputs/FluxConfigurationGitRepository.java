@@ -49,7 +49,7 @@ public final class FluxConfigurationGitRepository {
      */
     private String referenceValue;
     /**
-     * @return Specifies the Base64-encoded known_hosts value containing public SSH keys required to access private git repositories over SSH.
+     * @return Specifies the Base64-encoded knownHosts value containing public SSH keys required to access private git repositories over SSH.
      * 
      */
     private @Nullable String sshKnownHostsBase64;
@@ -125,7 +125,7 @@ public final class FluxConfigurationGitRepository {
         return this.referenceValue;
     }
     /**
-     * @return Specifies the Base64-encoded known_hosts value containing public SSH keys required to access private git repositories over SSH.
+     * @return Specifies the Base64-encoded knownHosts value containing public SSH keys required to access private git repositories over SSH.
      * 
      */
     public Optional<String> sshKnownHostsBase64() {

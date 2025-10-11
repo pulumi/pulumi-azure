@@ -109,7 +109,7 @@ namespace Pulumi.Azure.CosmosDB
     public partial class MongoCluster : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Password associated with the `administrator_username` for the MongoDB Cluster.
+        /// The Password associated with the `AdministratorUsername` for the MongoDB Cluster.
         /// </summary>
         [Output("administratorPassword")]
         public Output<string?> AdministratorPassword { get; private set; } = null!;
@@ -127,7 +127,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string?> ComputeTier { get; private set; } = null!;
 
         /// <summary>
-        /// The list of `connection_strings` blocks as defined below.
+        /// The list of `ConnectionStrings` blocks as defined below.
         /// </summary>
         [Output("connectionStrings")]
         public Output<ImmutableArray<Outputs.MongoClusterConnectionString>> ConnectionStrings { get; private set; } = null!;
@@ -265,7 +265,7 @@ namespace Pulumi.Azure.CosmosDB
         private Input<string>? _administratorPassword;
 
         /// <summary>
-        /// The Password associated with the `administrator_username` for the MongoDB Cluster.
+        /// The Password associated with the `AdministratorUsername` for the MongoDB Cluster.
         /// </summary>
         public Input<string>? AdministratorPassword
         {
@@ -391,7 +391,7 @@ namespace Pulumi.Azure.CosmosDB
         private Input<string>? _administratorPassword;
 
         /// <summary>
-        /// The Password associated with the `administrator_username` for the MongoDB Cluster.
+        /// The Password associated with the `AdministratorUsername` for the MongoDB Cluster.
         /// </summary>
         public Input<string>? AdministratorPassword
         {
@@ -419,7 +419,7 @@ namespace Pulumi.Azure.CosmosDB
         private InputList<Inputs.MongoClusterConnectionStringGetArgs>? _connectionStrings;
 
         /// <summary>
-        /// The list of `connection_strings` blocks as defined below.
+        /// The list of `ConnectionStrings` blocks as defined below.
         /// </summary>
         public InputList<Inputs.MongoClusterConnectionStringGetArgs> ConnectionStrings
         {

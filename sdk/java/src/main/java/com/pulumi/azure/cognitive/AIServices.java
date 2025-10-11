@@ -87,32 +87,32 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:cognitive/aIServices:AIServices")
 public class AIServices extends com.pulumi.resources.CustomResource {
     /**
-     * The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
+     * The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** If you do not specify a `custom_subdomain_name` then you will not be able to attach a Private Endpoint to the resource.
+     * &gt; **Note:** If you do not specify a `customSubdomainName` then you will not be able to attach a Private Endpoint to the resource.
      * 
      */
     @Export(name="customSubdomainName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customSubdomainName;
 
     /**
-     * @return The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
+     * @return The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** If you do not specify a `custom_subdomain_name` then you will not be able to attach a Private Endpoint to the resource.
+     * &gt; **Note:** If you do not specify a `customSubdomainName` then you will not be able to attach a Private Endpoint to the resource.
      * 
      */
     public Output<Optional<String>> customSubdomainName() {
         return Codegen.optional(this.customSubdomainName);
     }
     /**
-     * A `customer_managed_key` block as documented below.
+     * A `customerManagedKey` block as documented below.
      * 
      */
     @Export(name="customerManagedKey", refs={AIServicesCustomerManagedKey.class}, tree="[0]")
     private Output</* @Nullable */ AIServicesCustomerManagedKey> customerManagedKey;
 
     /**
-     * @return A `customer_managed_key` block as documented below.
+     * @return A `customerManagedKey` block as documented below.
      * 
      */
     public Output<Optional<AIServicesCustomerManagedKey>> customerManagedKey() {
@@ -203,14 +203,14 @@ public class AIServices extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A `network_acls` block as defined below. When this property is specified, `custom_subdomain_name` is also required to be set.
+     * A `networkAcls` block as defined below. When this property is specified, `customSubdomainName` is also required to be set.
      * 
      */
     @Export(name="networkAcls", refs={AIServicesNetworkAcls.class}, tree="[0]")
     private Output</* @Nullable */ AIServicesNetworkAcls> networkAcls;
 
     /**
-     * @return A `network_acls` block as defined below. When this property is specified, `custom_subdomain_name` is also required to be set.
+     * @return A `networkAcls` block as defined below. When this property is specified, `customSubdomainName` is also required to be set.
      * 
      */
     public Output<Optional<AIServicesNetworkAcls>> networkAcls() {

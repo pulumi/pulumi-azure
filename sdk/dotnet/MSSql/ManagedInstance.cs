@@ -285,15 +285,15 @@ namespace Pulumi.Azure.MSSql
         public Output<string> AdministratorLogin { get; private set; } = null!;
 
         /// <summary>
-        /// The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
+        /// The password associated with the `AdministratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
         /// 
-        /// &gt; **Note:** Unless `azure_active_directory_administrator.azuread_authentication_only_enabled` is set to `true`, `administrator_login` and `administrator_login_password` are required.
+        /// &gt; **Note:** Unless `azure_active_directory_administrator.azuread_authentication_only_enabled` is set to `True`, `AdministratorLogin` and `AdministratorLoginPassword` are required.
         /// </summary>
         [Output("administratorLoginPassword")]
         public Output<string?> AdministratorLoginPassword { get; private set; } = null!;
 
         /// <summary>
-        /// An `azure_active_directory_administrator` block as defined below.
+        /// An `AzureActiveDirectoryAdministrator` block as defined below.
         /// </summary>
         [Output("azureActiveDirectoryAdministrator")]
         public Output<Outputs.ManagedInstanceAzureActiveDirectoryAdministrator?> AzureActiveDirectoryAdministrator { get; private set; } = null!;
@@ -307,7 +307,7 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// Specifies the internal format of the SQL Managed Instance databases specific to the SQL engine version. Possible values are `AlwaysUpToDate` and `SQLServer2022`. Defaults to `SQLServer2022`.
         /// 
-        /// &gt; **Note:** Changing `database_format` from `AlwaysUpToDate` to `SQLServer2022` forces a new SQL Managed Instance to be created.
+        /// &gt; **Note:** Changing `DatabaseFormat` from `AlwaysUpToDate` to `SQLServer2022` forces a new SQL Managed Instance to be created.
         /// </summary>
         [Output("databaseFormat")]
         public Output<string?> DatabaseFormat { get; private set; } = null!;
@@ -319,7 +319,7 @@ namespace Pulumi.Azure.MSSql
         public Output<string> DnsZone { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azurerm_sql_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
+        /// The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `AzurermSqlManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
         /// </summary>
         [Output("dnsZonePartnerId")]
         public Output<string?> DnsZonePartnerId { get; private set; } = null!;
@@ -337,7 +337,7 @@ namespace Pulumi.Azure.MSSql
         public Output<string?> HybridSecondaryUsage { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ManagedInstanceIdentity?> Identity { get; private set; } = null!;
@@ -357,7 +357,7 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Possible values are `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
         /// 
-        /// `minimum_tls_version` - (Optional) The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+        /// `MinimumTlsVersion` - (Optional) The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
         /// 
         /// &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         /// </summary>
@@ -380,7 +380,7 @@ namespace Pulumi.Azure.MSSql
         public Output<string?> ProxyOverride { get; private set; } = null!;
 
         /// <summary>
-        /// Is the public data endpoint enabled? Defaults to `false`.
+        /// Is the public data endpoint enabled? Defaults to `False`.
         /// </summary>
         [Output("publicDataEndpointEnabled")]
         public Output<bool?> PublicDataEndpointEnabled { get; private set; } = null!;
@@ -440,7 +440,7 @@ namespace Pulumi.Azure.MSSql
         public Output<int> Vcores { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the SQL Managed Instance is zone redundant. Defaults to `false`.
+        /// Specifies whether the SQL Managed Instance is zone redundant. Defaults to `False`.
         /// </summary>
         [Output("zoneRedundantEnabled")]
         public Output<bool?> ZoneRedundantEnabled { get; private set; } = null!;
@@ -509,9 +509,9 @@ namespace Pulumi.Azure.MSSql
         private Input<string>? _administratorLoginPassword;
 
         /// <summary>
-        /// The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
+        /// The password associated with the `AdministratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
         /// 
-        /// &gt; **Note:** Unless `azure_active_directory_administrator.azuread_authentication_only_enabled` is set to `true`, `administrator_login` and `administrator_login_password` are required.
+        /// &gt; **Note:** Unless `azure_active_directory_administrator.azuread_authentication_only_enabled` is set to `True`, `AdministratorLogin` and `AdministratorLoginPassword` are required.
         /// </summary>
         public Input<string>? AdministratorLoginPassword
         {
@@ -524,7 +524,7 @@ namespace Pulumi.Azure.MSSql
         }
 
         /// <summary>
-        /// An `azure_active_directory_administrator` block as defined below.
+        /// An `AzureActiveDirectoryAdministrator` block as defined below.
         /// </summary>
         [Input("azureActiveDirectoryAdministrator")]
         public Input<Inputs.ManagedInstanceAzureActiveDirectoryAdministratorArgs>? AzureActiveDirectoryAdministrator { get; set; }
@@ -538,13 +538,13 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// Specifies the internal format of the SQL Managed Instance databases specific to the SQL engine version. Possible values are `AlwaysUpToDate` and `SQLServer2022`. Defaults to `SQLServer2022`.
         /// 
-        /// &gt; **Note:** Changing `database_format` from `AlwaysUpToDate` to `SQLServer2022` forces a new SQL Managed Instance to be created.
+        /// &gt; **Note:** Changing `DatabaseFormat` from `AlwaysUpToDate` to `SQLServer2022` forces a new SQL Managed Instance to be created.
         /// </summary>
         [Input("databaseFormat")]
         public Input<string>? DatabaseFormat { get; set; }
 
         /// <summary>
-        /// The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azurerm_sql_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
+        /// The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `AzurermSqlManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
         /// </summary>
         [Input("dnsZonePartnerId")]
         public Input<string>? DnsZonePartnerId { get; set; }
@@ -556,7 +556,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? HybridSecondaryUsage { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ManagedInstanceIdentityArgs>? Identity { get; set; }
@@ -576,7 +576,7 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Possible values are `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
         /// 
-        /// `minimum_tls_version` - (Optional) The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+        /// `MinimumTlsVersion` - (Optional) The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
         /// 
         /// &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         /// </summary>
@@ -599,7 +599,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? ProxyOverride { get; set; }
 
         /// <summary>
-        /// Is the public data endpoint enabled? Defaults to `false`.
+        /// Is the public data endpoint enabled? Defaults to `False`.
         /// </summary>
         [Input("publicDataEndpointEnabled")]
         public Input<bool>? PublicDataEndpointEnabled { get; set; }
@@ -665,7 +665,7 @@ namespace Pulumi.Azure.MSSql
         public Input<int> Vcores { get; set; } = null!;
 
         /// <summary>
-        /// Specifies whether the SQL Managed Instance is zone redundant. Defaults to `false`.
+        /// Specifies whether the SQL Managed Instance is zone redundant. Defaults to `False`.
         /// </summary>
         [Input("zoneRedundantEnabled")]
         public Input<bool>? ZoneRedundantEnabled { get; set; }
@@ -688,9 +688,9 @@ namespace Pulumi.Azure.MSSql
         private Input<string>? _administratorLoginPassword;
 
         /// <summary>
-        /// The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
+        /// The password associated with the `AdministratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
         /// 
-        /// &gt; **Note:** Unless `azure_active_directory_administrator.azuread_authentication_only_enabled` is set to `true`, `administrator_login` and `administrator_login_password` are required.
+        /// &gt; **Note:** Unless `azure_active_directory_administrator.azuread_authentication_only_enabled` is set to `True`, `AdministratorLogin` and `AdministratorLoginPassword` are required.
         /// </summary>
         public Input<string>? AdministratorLoginPassword
         {
@@ -703,7 +703,7 @@ namespace Pulumi.Azure.MSSql
         }
 
         /// <summary>
-        /// An `azure_active_directory_administrator` block as defined below.
+        /// An `AzureActiveDirectoryAdministrator` block as defined below.
         /// </summary>
         [Input("azureActiveDirectoryAdministrator")]
         public Input<Inputs.ManagedInstanceAzureActiveDirectoryAdministratorGetArgs>? AzureActiveDirectoryAdministrator { get; set; }
@@ -717,7 +717,7 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// Specifies the internal format of the SQL Managed Instance databases specific to the SQL engine version. Possible values are `AlwaysUpToDate` and `SQLServer2022`. Defaults to `SQLServer2022`.
         /// 
-        /// &gt; **Note:** Changing `database_format` from `AlwaysUpToDate` to `SQLServer2022` forces a new SQL Managed Instance to be created.
+        /// &gt; **Note:** Changing `DatabaseFormat` from `AlwaysUpToDate` to `SQLServer2022` forces a new SQL Managed Instance to be created.
         /// </summary>
         [Input("databaseFormat")]
         public Input<string>? DatabaseFormat { get; set; }
@@ -729,7 +729,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? DnsZone { get; set; }
 
         /// <summary>
-        /// The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azurerm_sql_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
+        /// The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `AzurermSqlManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
         /// </summary>
         [Input("dnsZonePartnerId")]
         public Input<string>? DnsZonePartnerId { get; set; }
@@ -747,7 +747,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? HybridSecondaryUsage { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ManagedInstanceIdentityGetArgs>? Identity { get; set; }
@@ -767,7 +767,7 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Possible values are `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
         /// 
-        /// `minimum_tls_version` - (Optional) The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+        /// `MinimumTlsVersion` - (Optional) The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
         /// 
         /// &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         /// </summary>
@@ -790,7 +790,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? ProxyOverride { get; set; }
 
         /// <summary>
-        /// Is the public data endpoint enabled? Defaults to `false`.
+        /// Is the public data endpoint enabled? Defaults to `False`.
         /// </summary>
         [Input("publicDataEndpointEnabled")]
         public Input<bool>? PublicDataEndpointEnabled { get; set; }
@@ -856,7 +856,7 @@ namespace Pulumi.Azure.MSSql
         public Input<int>? Vcores { get; set; }
 
         /// <summary>
-        /// Specifies whether the SQL Managed Instance is zone redundant. Defaults to `false`.
+        /// Specifies whether the SQL Managed Instance is zone redundant. Defaults to `False`.
         /// </summary>
         [Input("zoneRedundantEnabled")]
         public Input<bool>? ZoneRedundantEnabled { get; set; }

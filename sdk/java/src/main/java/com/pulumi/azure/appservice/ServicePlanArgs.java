@@ -54,14 +54,14 @@ public final class ServicePlanArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The maximum number of workers to use in an Elastic SKU Plan or Premium Plan that have `premium_plan_auto_scale_enabled` set to `true`. Cannot be set unless using an Elastic or Premium SKU.
+     * The maximum number of workers to use in an Elastic SKU Plan or Premium Plan that have `premiumPlanAutoScaleEnabled` set to `true`. Cannot be set unless using an Elastic or Premium SKU.
      * 
      */
     @Import(name="maximumElasticWorkerCount")
     private @Nullable Output<Integer> maximumElasticWorkerCount;
 
     /**
-     * @return The maximum number of workers to use in an Elastic SKU Plan or Premium Plan that have `premium_plan_auto_scale_enabled` set to `true`. Cannot be set unless using an Elastic or Premium SKU.
+     * @return The maximum number of workers to use in an Elastic SKU Plan or Premium Plan that have `premiumPlanAutoScaleEnabled` set to `true`. Cannot be set unless using an Elastic or Premium SKU.
      * 
      */
     public Optional<Output<Integer>> maximumElasticWorkerCount() {
@@ -199,9 +199,9 @@ public final class ServicePlanArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Should the Service Plan balance across Availability Zones in the region.
      * 
-     * &gt; **Note:** If this setting is set to `true` and the `worker_count` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
+     * &gt; **Note:** If this setting is set to `true` and the `workerCount` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
      * 
-     * &gt; **Note:** `zone_balancing_enabled` can only be set to `true` on Consumption, Premium, Isolated, or Workflow SKUs. It can be disabled. To enable it, the `worker_count` must be greater than `1`, and the Service Plan must support more than one availability zone. In all other cases, changing this forces a new resource to be created. For more information, please see the [Availability Zone Support](https://learn.microsoft.com/en-us/azure/reliability/reliability-app-service?tabs=azurecli&amp;pivots=free-shared-basic#availability-zone-support).
+     * &gt; **Note:** `zoneBalancingEnabled` can only be set to `true` on Consumption, Premium, Isolated, or Workflow SKUs. It can be disabled. To enable it, the `workerCount` must be greater than `1`, and the Service Plan must support more than one availability zone. In all other cases, changing this forces a new resource to be created. For more information, please see the [Availability Zone Support](https://learn.microsoft.com/en-us/azure/reliability/reliability-app-service?tabs=azurecli&amp;pivots=free-shared-basic#availability-zone-support).
      * 
      */
     @Import(name="zoneBalancingEnabled")
@@ -210,9 +210,9 @@ public final class ServicePlanArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Should the Service Plan balance across Availability Zones in the region.
      * 
-     * &gt; **Note:** If this setting is set to `true` and the `worker_count` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
+     * &gt; **Note:** If this setting is set to `true` and the `workerCount` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
      * 
-     * &gt; **Note:** `zone_balancing_enabled` can only be set to `true` on Consumption, Premium, Isolated, or Workflow SKUs. It can be disabled. To enable it, the `worker_count` must be greater than `1`, and the Service Plan must support more than one availability zone. In all other cases, changing this forces a new resource to be created. For more information, please see the [Availability Zone Support](https://learn.microsoft.com/en-us/azure/reliability/reliability-app-service?tabs=azurecli&amp;pivots=free-shared-basic#availability-zone-support).
+     * &gt; **Note:** `zoneBalancingEnabled` can only be set to `true` on Consumption, Premium, Isolated, or Workflow SKUs. It can be disabled. To enable it, the `workerCount` must be greater than `1`, and the Service Plan must support more than one availability zone. In all other cases, changing this forces a new resource to be created. For more information, please see the [Availability Zone Support](https://learn.microsoft.com/en-us/azure/reliability/reliability-app-service?tabs=azurecli&amp;pivots=free-shared-basic#availability-zone-support).
      * 
      */
     public Optional<Output<Boolean>> zoneBalancingEnabled() {
@@ -301,7 +301,7 @@ public final class ServicePlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maximumElasticWorkerCount The maximum number of workers to use in an Elastic SKU Plan or Premium Plan that have `premium_plan_auto_scale_enabled` set to `true`. Cannot be set unless using an Elastic or Premium SKU.
+         * @param maximumElasticWorkerCount The maximum number of workers to use in an Elastic SKU Plan or Premium Plan that have `premiumPlanAutoScaleEnabled` set to `true`. Cannot be set unless using an Elastic or Premium SKU.
          * 
          * @return builder
          * 
@@ -312,7 +312,7 @@ public final class ServicePlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maximumElasticWorkerCount The maximum number of workers to use in an Elastic SKU Plan or Premium Plan that have `premium_plan_auto_scale_enabled` set to `true`. Cannot be set unless using an Elastic or Premium SKU.
+         * @param maximumElasticWorkerCount The maximum number of workers to use in an Elastic SKU Plan or Premium Plan that have `premiumPlanAutoScaleEnabled` set to `true`. Cannot be set unless using an Elastic or Premium SKU.
          * 
          * @return builder
          * 
@@ -500,9 +500,9 @@ public final class ServicePlanArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param zoneBalancingEnabled Should the Service Plan balance across Availability Zones in the region.
          * 
-         * &gt; **Note:** If this setting is set to `true` and the `worker_count` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
+         * &gt; **Note:** If this setting is set to `true` and the `workerCount` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
          * 
-         * &gt; **Note:** `zone_balancing_enabled` can only be set to `true` on Consumption, Premium, Isolated, or Workflow SKUs. It can be disabled. To enable it, the `worker_count` must be greater than `1`, and the Service Plan must support more than one availability zone. In all other cases, changing this forces a new resource to be created. For more information, please see the [Availability Zone Support](https://learn.microsoft.com/en-us/azure/reliability/reliability-app-service?tabs=azurecli&amp;pivots=free-shared-basic#availability-zone-support).
+         * &gt; **Note:** `zoneBalancingEnabled` can only be set to `true` on Consumption, Premium, Isolated, or Workflow SKUs. It can be disabled. To enable it, the `workerCount` must be greater than `1`, and the Service Plan must support more than one availability zone. In all other cases, changing this forces a new resource to be created. For more information, please see the [Availability Zone Support](https://learn.microsoft.com/en-us/azure/reliability/reliability-app-service?tabs=azurecli&amp;pivots=free-shared-basic#availability-zone-support).
          * 
          * @return builder
          * 
@@ -515,9 +515,9 @@ public final class ServicePlanArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param zoneBalancingEnabled Should the Service Plan balance across Availability Zones in the region.
          * 
-         * &gt; **Note:** If this setting is set to `true` and the `worker_count` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
+         * &gt; **Note:** If this setting is set to `true` and the `workerCount` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
          * 
-         * &gt; **Note:** `zone_balancing_enabled` can only be set to `true` on Consumption, Premium, Isolated, or Workflow SKUs. It can be disabled. To enable it, the `worker_count` must be greater than `1`, and the Service Plan must support more than one availability zone. In all other cases, changing this forces a new resource to be created. For more information, please see the [Availability Zone Support](https://learn.microsoft.com/en-us/azure/reliability/reliability-app-service?tabs=azurecli&amp;pivots=free-shared-basic#availability-zone-support).
+         * &gt; **Note:** `zoneBalancingEnabled` can only be set to `true` on Consumption, Premium, Isolated, or Workflow SKUs. It can be disabled. To enable it, the `workerCount` must be greater than `1`, and the Service Plan must support more than one availability zone. In all other cases, changing this forces a new resource to be created. For more information, please see the [Availability Zone Support](https://learn.microsoft.com/en-us/azure/reliability/reliability-app-service?tabs=azurecli&amp;pivots=free-shared-basic#availability-zone-support).
          * 
          * @return builder
          * 

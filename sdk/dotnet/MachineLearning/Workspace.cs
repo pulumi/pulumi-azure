@@ -418,7 +418,7 @@ namespace Pulumi.Azure.MachineLearning
         /// <summary>
         /// The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** The `admin_enabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
+        /// &gt; **Note:** The `AdminEnabled` should be `True` in order to associate the Container Registry to this Machine Learning Workspace.
         /// </summary>
         [Output("containerRegistryId")]
         public Output<string?> ContainerRegistryId { get; private set; } = null!;
@@ -436,13 +436,13 @@ namespace Pulumi.Azure.MachineLearning
         public Output<string> DiscoveryUrl { get; private set; } = null!;
 
         /// <summary>
-        /// An `encryption` block as defined below. Changing this forces a new resource to be created.
+        /// An `Encryption` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("encryption")]
         public Output<Outputs.WorkspaceEncryption?> Encryption { get; private set; } = null!;
 
         /// <summary>
-        /// A `feature_store` block as defined below.
+        /// A `FeatureStore` block as defined below.
         /// </summary>
         [Output("featureStore")]
         public Output<Outputs.WorkspaceFeatureStore?> FeatureStore { get; private set; } = null!;
@@ -460,7 +460,7 @@ namespace Pulumi.Azure.MachineLearning
         public Output<bool?> HighBusinessImpact { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.WorkspaceIdentity> Identity { get; private set; } = null!;
@@ -490,7 +490,7 @@ namespace Pulumi.Azure.MachineLearning
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// A `managed_network` block as defined below.
+        /// A `ManagedNetwork` block as defined below.
         /// </summary>
         [Output("managedNetwork")]
         public Output<Outputs.WorkspaceManagedNetwork> ManagedNetwork { get; private set; } = null!;
@@ -508,9 +508,9 @@ namespace Pulumi.Azure.MachineLearning
         public Output<string?> PrimaryUserAssignedIdentity { get; private set; } = null!;
 
         /// <summary>
-        /// Enable public access when this Machine Learning Workspace is behind VNet. Defaults to `true`.
+        /// Enable public access when this Machine Learning Workspace is behind VNet. Defaults to `True`.
         /// 
-        /// &gt; **Note:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
+        /// &gt; **Note:** `PublicAccessBehindVirtualNetworkEnabled` is deprecated and will be removed in favour of the property `PublicNetworkAccessEnabled`.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
@@ -522,15 +522,15 @@ namespace Pulumi.Azure.MachineLearning
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `serverless_compute` block as defined below.
+        /// A `ServerlessCompute` block as defined below.
         /// </summary>
         [Output("serverlessCompute")]
         public Output<Outputs.WorkspaceServerlessCompute?> ServerlessCompute { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to enable service-side encryption with customer-managed keys (CMK). Default to `false`. Changing this forces a new resource to be created.
+        /// Whether to enable service-side encryption with customer-managed keys (CMK). Default to `False`. Changing this forces a new resource to be created.
         /// 
-        /// !&gt; **Note:** Setting `service_side_encryption_enabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
+        /// !&gt; **Note:** Setting `ServiceSideEncryptionEnabled` requires the `Encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
         /// </summary>
         [Output("serviceSideEncryptionEnabled")]
         public Output<bool?> ServiceSideEncryptionEnabled { get; private set; } = null!;
@@ -544,7 +544,7 @@ namespace Pulumi.Azure.MachineLearning
         /// <summary>
         /// The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** The `account_tier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
+        /// &gt; **Note:** The `AccountTier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
         /// </summary>
         [Output("storageAccountId")]
         public Output<string> StorageAccountId { get; private set; } = null!;
@@ -556,7 +556,7 @@ namespace Pulumi.Azure.MachineLearning
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Enable V1 API features, enabling `v1_legacy_mode` may prevent you from using features provided by the v2 API. Defaults to `false`.
+        /// Enable V1 API features, enabling `V1LegacyMode` may prevent you from using features provided by the v2 API. Defaults to `False`.
         /// </summary>
         [Output("v1LegacyModeEnabled")]
         public Output<bool?> V1LegacyModeEnabled { get; private set; } = null!;
@@ -622,7 +622,7 @@ namespace Pulumi.Azure.MachineLearning
         /// <summary>
         /// The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** The `admin_enabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
+        /// &gt; **Note:** The `AdminEnabled` should be `True` in order to associate the Container Registry to this Machine Learning Workspace.
         /// </summary>
         [Input("containerRegistryId")]
         public Input<string>? ContainerRegistryId { get; set; }
@@ -634,13 +634,13 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// An `encryption` block as defined below. Changing this forces a new resource to be created.
+        /// An `Encryption` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("encryption")]
         public Input<Inputs.WorkspaceEncryptionArgs>? Encryption { get; set; }
 
         /// <summary>
-        /// A `feature_store` block as defined below.
+        /// A `FeatureStore` block as defined below.
         /// </summary>
         [Input("featureStore")]
         public Input<Inputs.WorkspaceFeatureStoreArgs>? FeatureStore { get; set; }
@@ -658,7 +658,7 @@ namespace Pulumi.Azure.MachineLearning
         public Input<bool>? HighBusinessImpact { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity", required: true)]
         public Input<Inputs.WorkspaceIdentityArgs> Identity { get; set; } = null!;
@@ -688,7 +688,7 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A `managed_network` block as defined below.
+        /// A `ManagedNetwork` block as defined below.
         /// </summary>
         [Input("managedNetwork")]
         public Input<Inputs.WorkspaceManagedNetworkArgs>? ManagedNetwork { get; set; }
@@ -706,9 +706,9 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? PrimaryUserAssignedIdentity { get; set; }
 
         /// <summary>
-        /// Enable public access when this Machine Learning Workspace is behind VNet. Defaults to `true`.
+        /// Enable public access when this Machine Learning Workspace is behind VNet. Defaults to `True`.
         /// 
-        /// &gt; **Note:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
+        /// &gt; **Note:** `PublicAccessBehindVirtualNetworkEnabled` is deprecated and will be removed in favour of the property `PublicNetworkAccessEnabled`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -720,15 +720,15 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `serverless_compute` block as defined below.
+        /// A `ServerlessCompute` block as defined below.
         /// </summary>
         [Input("serverlessCompute")]
         public Input<Inputs.WorkspaceServerlessComputeArgs>? ServerlessCompute { get; set; }
 
         /// <summary>
-        /// Whether to enable service-side encryption with customer-managed keys (CMK). Default to `false`. Changing this forces a new resource to be created.
+        /// Whether to enable service-side encryption with customer-managed keys (CMK). Default to `False`. Changing this forces a new resource to be created.
         /// 
-        /// !&gt; **Note:** Setting `service_side_encryption_enabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
+        /// !&gt; **Note:** Setting `ServiceSideEncryptionEnabled` requires the `Encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
         /// </summary>
         [Input("serviceSideEncryptionEnabled")]
         public Input<bool>? ServiceSideEncryptionEnabled { get; set; }
@@ -742,7 +742,7 @@ namespace Pulumi.Azure.MachineLearning
         /// <summary>
         /// The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** The `account_tier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
+        /// &gt; **Note:** The `AccountTier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
         /// </summary>
         [Input("storageAccountId", required: true)]
         public Input<string> StorageAccountId { get; set; } = null!;
@@ -760,7 +760,7 @@ namespace Pulumi.Azure.MachineLearning
         }
 
         /// <summary>
-        /// Enable V1 API features, enabling `v1_legacy_mode` may prevent you from using features provided by the v2 API. Defaults to `false`.
+        /// Enable V1 API features, enabling `V1LegacyMode` may prevent you from using features provided by the v2 API. Defaults to `False`.
         /// </summary>
         [Input("v1LegacyModeEnabled")]
         public Input<bool>? V1LegacyModeEnabled { get; set; }
@@ -782,7 +782,7 @@ namespace Pulumi.Azure.MachineLearning
         /// <summary>
         /// The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** The `admin_enabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
+        /// &gt; **Note:** The `AdminEnabled` should be `True` in order to associate the Container Registry to this Machine Learning Workspace.
         /// </summary>
         [Input("containerRegistryId")]
         public Input<string>? ContainerRegistryId { get; set; }
@@ -800,13 +800,13 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? DiscoveryUrl { get; set; }
 
         /// <summary>
-        /// An `encryption` block as defined below. Changing this forces a new resource to be created.
+        /// An `Encryption` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("encryption")]
         public Input<Inputs.WorkspaceEncryptionGetArgs>? Encryption { get; set; }
 
         /// <summary>
-        /// A `feature_store` block as defined below.
+        /// A `FeatureStore` block as defined below.
         /// </summary>
         [Input("featureStore")]
         public Input<Inputs.WorkspaceFeatureStoreGetArgs>? FeatureStore { get; set; }
@@ -824,7 +824,7 @@ namespace Pulumi.Azure.MachineLearning
         public Input<bool>? HighBusinessImpact { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.WorkspaceIdentityGetArgs>? Identity { get; set; }
@@ -854,7 +854,7 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A `managed_network` block as defined below.
+        /// A `ManagedNetwork` block as defined below.
         /// </summary>
         [Input("managedNetwork")]
         public Input<Inputs.WorkspaceManagedNetworkGetArgs>? ManagedNetwork { get; set; }
@@ -872,9 +872,9 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? PrimaryUserAssignedIdentity { get; set; }
 
         /// <summary>
-        /// Enable public access when this Machine Learning Workspace is behind VNet. Defaults to `true`.
+        /// Enable public access when this Machine Learning Workspace is behind VNet. Defaults to `True`.
         /// 
-        /// &gt; **Note:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
+        /// &gt; **Note:** `PublicAccessBehindVirtualNetworkEnabled` is deprecated and will be removed in favour of the property `PublicNetworkAccessEnabled`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -886,15 +886,15 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// A `serverless_compute` block as defined below.
+        /// A `ServerlessCompute` block as defined below.
         /// </summary>
         [Input("serverlessCompute")]
         public Input<Inputs.WorkspaceServerlessComputeGetArgs>? ServerlessCompute { get; set; }
 
         /// <summary>
-        /// Whether to enable service-side encryption with customer-managed keys (CMK). Default to `false`. Changing this forces a new resource to be created.
+        /// Whether to enable service-side encryption with customer-managed keys (CMK). Default to `False`. Changing this forces a new resource to be created.
         /// 
-        /// !&gt; **Note:** Setting `service_side_encryption_enabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
+        /// !&gt; **Note:** Setting `ServiceSideEncryptionEnabled` requires the `Encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
         /// </summary>
         [Input("serviceSideEncryptionEnabled")]
         public Input<bool>? ServiceSideEncryptionEnabled { get; set; }
@@ -908,7 +908,7 @@ namespace Pulumi.Azure.MachineLearning
         /// <summary>
         /// The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** The `account_tier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
+        /// &gt; **Note:** The `AccountTier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }
@@ -926,7 +926,7 @@ namespace Pulumi.Azure.MachineLearning
         }
 
         /// <summary>
-        /// Enable V1 API features, enabling `v1_legacy_mode` may prevent you from using features provided by the v2 API. Defaults to `false`.
+        /// Enable V1 API features, enabling `V1LegacyMode` may prevent you from using features provided by the v2 API. Defaults to `False`.
         /// </summary>
         [Input("v1LegacyModeEnabled")]
         public Input<bool>? V1LegacyModeEnabled { get; set; }

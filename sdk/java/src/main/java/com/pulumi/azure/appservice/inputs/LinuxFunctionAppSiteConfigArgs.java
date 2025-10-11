@@ -26,7 +26,7 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
     /**
      * If this Linux Web App is Always On enabled. Defaults to `false`.
      * 
-     * &gt; **Note:** when running in a Consumption or Premium Plan, `always_on` feature should be turned off. Please turn it off before upgrading the service plan from standard to premium.
+     * &gt; **Note:** when running in a Consumption or Premium Plan, `alwaysOn` feature should be turned off. Please turn it off before upgrading the service plan from standard to premium.
      * 
      */
     @Import(name="alwaysOn")
@@ -35,7 +35,7 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
     /**
      * @return If this Linux Web App is Always On enabled. Defaults to `false`.
      * 
-     * &gt; **Note:** when running in a Consumption or Premium Plan, `always_on` feature should be turned off. Please turn it off before upgrading the service plan from standard to premium.
+     * &gt; **Note:** when running in a Consumption or Premium Plan, `alwaysOn` feature should be turned off. Please turn it off before upgrading the service plan from standard to premium.
      * 
      */
     public Optional<Output<Boolean>> alwaysOn() {
@@ -103,14 +103,14 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
     }
 
     /**
-     * An `app_service_logs` block as defined above.
+     * An `appServiceLogs` block as defined above.
      * 
      */
     @Import(name="appServiceLogs")
     private @Nullable Output<LinuxFunctionAppSiteConfigAppServiceLogsArgs> appServiceLogs;
 
     /**
-     * @return An `app_service_logs` block as defined above.
+     * @return An `appServiceLogs` block as defined above.
      * 
      */
     public Optional<Output<LinuxFunctionAppSiteConfigAppServiceLogsArgs>> appServiceLogs() {
@@ -148,7 +148,7 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
     }
 
     /**
-     * An `application_stack` block as defined above.
+     * An `applicationStack` block as defined above.
      * 
      * &gt; **Note:** If this is set, there must not be an application setting `FUNCTIONS_WORKER_RUNTIME`.
      * 
@@ -157,7 +157,7 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
     private @Nullable Output<LinuxFunctionAppSiteConfigApplicationStackArgs> applicationStack;
 
     /**
-     * @return An `application_stack` block as defined above.
+     * @return An `applicationStack` block as defined above.
      * 
      * &gt; **Note:** If this is set, there must not be an application setting `FUNCTIONS_WORKER_RUNTIME`.
      * 
@@ -272,14 +272,14 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+     * The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
      * 
      */
     @Import(name="healthCheckEvictionTimeInMin")
     private @Nullable Output<Integer> healthCheckEvictionTimeInMin;
 
     /**
-     * @return The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+     * @return The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
      * 
      */
     public Optional<Output<Integer>> healthCheckEvictionTimeInMin() {
@@ -317,14 +317,14 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+     * The Default action for traffic that does not match any `ipRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
      * 
      */
     @Import(name="ipRestrictionDefaultAction")
     private @Nullable Output<String> ipRestrictionDefaultAction;
 
     /**
-     * @return The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+     * @return The Default action for traffic that does not match any `ipRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
      * 
      */
     public Optional<Output<String>> ipRestrictionDefaultAction() {
@@ -332,14 +332,14 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
     }
 
     /**
-     * One or more `ip_restriction` blocks as defined above.
+     * One or more `ipRestriction` blocks as defined above.
      * 
      */
     @Import(name="ipRestrictions")
     private @Nullable Output<List<LinuxFunctionAppSiteConfigIpRestrictionArgs>> ipRestrictions;
 
     /**
-     * @return One or more `ip_restriction` blocks as defined above.
+     * @return One or more `ipRestriction` blocks as defined above.
      * 
      */
     public Optional<Output<List<LinuxFunctionAppSiteConfigIpRestrictionArgs>>> ipRestrictions() {
@@ -471,14 +471,14 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+     * The Default action for traffic that does not match any `scmIpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
      * 
      */
     @Import(name="scmIpRestrictionDefaultAction")
     private @Nullable Output<String> scmIpRestrictionDefaultAction;
 
     /**
-     * @return The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+     * @return The Default action for traffic that does not match any `scmIpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
      * 
      */
     public Optional<Output<String>> scmIpRestrictionDefaultAction() {
@@ -486,14 +486,14 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
     }
 
     /**
-     * One or more `scm_ip_restriction` blocks as defined above.
+     * One or more `scmIpRestriction` blocks as defined above.
      * 
      */
     @Import(name="scmIpRestrictions")
     private @Nullable Output<List<LinuxFunctionAppSiteConfigScmIpRestrictionArgs>> scmIpRestrictions;
 
     /**
-     * @return One or more `scm_ip_restriction` blocks as defined above.
+     * @return One or more `scmIpRestriction` blocks as defined above.
      * 
      */
     public Optional<Output<List<LinuxFunctionAppSiteConfigScmIpRestrictionArgs>>> scmIpRestrictions() {
@@ -531,14 +531,14 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Should the Linux Function App `ip_restriction` configuration be used for the SCM also.
+     * Should the Linux Function App `ipRestriction` configuration be used for the SCM also.
      * 
      */
     @Import(name="scmUseMainIpRestriction")
     private @Nullable Output<Boolean> scmUseMainIpRestriction;
 
     /**
-     * @return Should the Linux Function App `ip_restriction` configuration be used for the SCM also.
+     * @return Should the Linux Function App `ipRestriction` configuration be used for the SCM also.
      * 
      */
     public Optional<Output<Boolean>> scmUseMainIpRestriction() {
@@ -669,7 +669,7 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
         /**
          * @param alwaysOn If this Linux Web App is Always On enabled. Defaults to `false`.
          * 
-         * &gt; **Note:** when running in a Consumption or Premium Plan, `always_on` feature should be turned off. Please turn it off before upgrading the service plan from standard to premium.
+         * &gt; **Note:** when running in a Consumption or Premium Plan, `alwaysOn` feature should be turned off. Please turn it off before upgrading the service plan from standard to premium.
          * 
          * @return builder
          * 
@@ -682,7 +682,7 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
         /**
          * @param alwaysOn If this Linux Web App is Always On enabled. Defaults to `false`.
          * 
-         * &gt; **Note:** when running in a Consumption or Premium Plan, `always_on` feature should be turned off. Please turn it off before upgrading the service plan from standard to premium.
+         * &gt; **Note:** when running in a Consumption or Premium Plan, `alwaysOn` feature should be turned off. Please turn it off before upgrading the service plan from standard to premium.
          * 
          * @return builder
          * 
@@ -776,7 +776,7 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param appServiceLogs An `app_service_logs` block as defined above.
+         * @param appServiceLogs An `appServiceLogs` block as defined above.
          * 
          * @return builder
          * 
@@ -787,7 +787,7 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param appServiceLogs An `app_service_logs` block as defined above.
+         * @param appServiceLogs An `appServiceLogs` block as defined above.
          * 
          * @return builder
          * 
@@ -839,7 +839,7 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param applicationStack An `application_stack` block as defined above.
+         * @param applicationStack An `applicationStack` block as defined above.
          * 
          * &gt; **Note:** If this is set, there must not be an application setting `FUNCTIONS_WORKER_RUNTIME`.
          * 
@@ -852,7 +852,7 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param applicationStack An `application_stack` block as defined above.
+         * @param applicationStack An `applicationStack` block as defined above.
          * 
          * &gt; **Note:** If this is set, there must not be an application setting `FUNCTIONS_WORKER_RUNTIME`.
          * 
@@ -1021,7 +1021,7 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param healthCheckEvictionTimeInMin The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+         * @param healthCheckEvictionTimeInMin The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
          * 
          * @return builder
          * 
@@ -1032,7 +1032,7 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param healthCheckEvictionTimeInMin The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+         * @param healthCheckEvictionTimeInMin The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
          * 
          * @return builder
          * 
@@ -1084,7 +1084,7 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param ipRestrictionDefaultAction The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         * @param ipRestrictionDefaultAction The Default action for traffic that does not match any `ipRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
          * 
          * @return builder
          * 
@@ -1095,7 +1095,7 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param ipRestrictionDefaultAction The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         * @param ipRestrictionDefaultAction The Default action for traffic that does not match any `ipRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
          * 
          * @return builder
          * 
@@ -1105,7 +1105,7 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param ipRestrictions One or more `ip_restriction` blocks as defined above.
+         * @param ipRestrictions One or more `ipRestriction` blocks as defined above.
          * 
          * @return builder
          * 
@@ -1116,7 +1116,7 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param ipRestrictions One or more `ip_restriction` blocks as defined above.
+         * @param ipRestrictions One or more `ipRestriction` blocks as defined above.
          * 
          * @return builder
          * 
@@ -1126,7 +1126,7 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param ipRestrictions One or more `ip_restriction` blocks as defined above.
+         * @param ipRestrictions One or more `ipRestriction` blocks as defined above.
          * 
          * @return builder
          * 
@@ -1308,7 +1308,7 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param scmIpRestrictionDefaultAction The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         * @param scmIpRestrictionDefaultAction The Default action for traffic that does not match any `scmIpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
          * 
          * @return builder
          * 
@@ -1319,7 +1319,7 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param scmIpRestrictionDefaultAction The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         * @param scmIpRestrictionDefaultAction The Default action for traffic that does not match any `scmIpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
          * 
          * @return builder
          * 
@@ -1329,7 +1329,7 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param scmIpRestrictions One or more `scm_ip_restriction` blocks as defined above.
+         * @param scmIpRestrictions One or more `scmIpRestriction` blocks as defined above.
          * 
          * @return builder
          * 
@@ -1340,7 +1340,7 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param scmIpRestrictions One or more `scm_ip_restriction` blocks as defined above.
+         * @param scmIpRestrictions One or more `scmIpRestriction` blocks as defined above.
          * 
          * @return builder
          * 
@@ -1350,7 +1350,7 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param scmIpRestrictions One or more `scm_ip_restriction` blocks as defined above.
+         * @param scmIpRestrictions One or more `scmIpRestriction` blocks as defined above.
          * 
          * @return builder
          * 
@@ -1402,7 +1402,7 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param scmUseMainIpRestriction Should the Linux Function App `ip_restriction` configuration be used for the SCM also.
+         * @param scmUseMainIpRestriction Should the Linux Function App `ipRestriction` configuration be used for the SCM also.
          * 
          * @return builder
          * 
@@ -1413,7 +1413,7 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param scmUseMainIpRestriction Should the Linux Function App `ip_restriction` configuration be used for the SCM also.
+         * @param scmUseMainIpRestriction Should the Linux Function App `ipRestriction` configuration be used for the SCM also.
          * 
          * @return builder
          * 

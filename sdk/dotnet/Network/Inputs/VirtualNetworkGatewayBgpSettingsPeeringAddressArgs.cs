@@ -39,7 +39,7 @@ namespace Pulumi.Azure.Network.Inputs
         }
 
         /// <summary>
-        /// The name of the IP configuration of this Virtual Network Gateway. In case there are multiple `ip_configuration` blocks defined, this property is **required** to specify.
+        /// The name of the IP configuration of this Virtual Network Gateway. In case there are multiple `IpConfiguration` blocks defined, this property is **required** to specify.
         /// </summary>
         [Input("ipConfigurationName")]
         public Input<string>? IpConfigurationName { get; set; }

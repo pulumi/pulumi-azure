@@ -14,27 +14,27 @@ namespace Pulumi.Azure.Cdn.Outputs
     public sealed class EndpointGlobalDeliveryRule
     {
         /// <summary>
-        /// A `cache_expiration_action` block as defined above.
+        /// A `CacheExpirationAction` block as defined above.
         /// </summary>
         public readonly Outputs.EndpointGlobalDeliveryRuleCacheExpirationAction? CacheExpirationAction;
         /// <summary>
-        /// A `cache_key_query_string_action` block as defined above.
+        /// A `CacheKeyQueryStringAction` block as defined above.
         /// </summary>
         public readonly Outputs.EndpointGlobalDeliveryRuleCacheKeyQueryStringAction? CacheKeyQueryStringAction;
         /// <summary>
-        /// A `modify_request_header_action` block as defined below.
+        /// A `ModifyRequestHeaderAction` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.EndpointGlobalDeliveryRuleModifyRequestHeaderAction> ModifyRequestHeaderActions;
         /// <summary>
-        /// A `modify_response_header_action` block as defined below.
+        /// A `ModifyResponseHeaderAction` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.EndpointGlobalDeliveryRuleModifyResponseHeaderAction> ModifyResponseHeaderActions;
         /// <summary>
-        /// A `url_redirect_action` block as defined below.
+        /// A `UrlRedirectAction` block as defined below.
         /// </summary>
         public readonly Outputs.EndpointGlobalDeliveryRuleUrlRedirectAction? UrlRedirectAction;
         /// <summary>
-        /// A `url_rewrite_action` block as defined below.
+        /// A `UrlRewriteAction` block as defined below.
         /// </summary>
         public readonly Outputs.EndpointGlobalDeliveryRuleUrlRewriteAction? UrlRewriteAction;
 

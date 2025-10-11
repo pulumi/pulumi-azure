@@ -222,14 +222,14 @@ public class Script extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.sasToken);
     }
     /**
-     * The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties. Changing this forces a new resource to be created.
+     * The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sasToken` properties. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="scriptContent", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> scriptContent;
 
     /**
-     * @return The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties. Changing this forces a new resource to be created.
+     * @return The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sasToken` properties. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> scriptContent() {

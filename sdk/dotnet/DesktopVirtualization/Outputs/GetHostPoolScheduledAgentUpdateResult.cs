@@ -18,7 +18,7 @@ namespace Pulumi.Azure.DesktopVirtualization.Outputs
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
-        /// A `schedule` block as defined below.
+        /// A `Schedule` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetHostPoolScheduledAgentUpdateScheduleResult> Schedules;
         /// <summary>

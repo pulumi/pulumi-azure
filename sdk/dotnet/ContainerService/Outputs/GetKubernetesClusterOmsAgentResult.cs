@@ -22,7 +22,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly bool MsiAuthForMonitoringEnabled;
         /// <summary>
-        /// An `oms_agent_identity` block as defined below.
+        /// An `OmsAgentIdentity` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterOmsAgentOmsAgentIdentityResult> OmsAgentIdentities;
 

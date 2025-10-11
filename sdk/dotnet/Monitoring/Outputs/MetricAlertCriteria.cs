@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly string Aggregation;
         /// <summary>
-        /// One or more `dimension` blocks as defined below.
+        /// One or more `Dimension` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.MetricAlertCriteriaDimension> Dimensions;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly string Operator;
         /// <summary>
-        /// Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to `false`.
+        /// Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to `False`.
         /// </summary>
         public readonly bool? SkipMetricValidation;
         /// <summary>

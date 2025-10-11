@@ -67,7 +67,7 @@ namespace Pulumi.Azure.Compute
     public partial class DedicatedHost : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Should the Dedicated Host automatically be replaced in case of a Hardware Failure? Defaults to `true`.
+        /// Should the Dedicated Host automatically be replaced in case of a Hardware Failure? Defaults to `True`.
         /// </summary>
         [Output("autoReplaceOnFailure")]
         public Output<bool?> AutoReplaceOnFailure { get; private set; } = null!;
@@ -161,7 +161,7 @@ namespace Pulumi.Azure.Compute
     public sealed class DedicatedHostArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should the Dedicated Host automatically be replaced in case of a Hardware Failure? Defaults to `true`.
+        /// Should the Dedicated Host automatically be replaced in case of a Hardware Failure? Defaults to `True`.
         /// </summary>
         [Input("autoReplaceOnFailure")]
         public Input<bool>? AutoReplaceOnFailure { get; set; }
@@ -223,7 +223,7 @@ namespace Pulumi.Azure.Compute
     public sealed class DedicatedHostState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should the Dedicated Host automatically be replaced in case of a Hardware Failure? Defaults to `true`.
+        /// Should the Dedicated Host automatically be replaced in case of a Hardware Failure? Defaults to `True`.
         /// </summary>
         [Input("autoReplaceOnFailure")]
         public Input<bool>? AutoReplaceOnFailure { get; set; }

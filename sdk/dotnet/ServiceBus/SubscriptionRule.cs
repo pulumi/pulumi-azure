@@ -14,6 +14,17 @@ namespace Pulumi.Azure.ServiceBus
     /// 
     /// ## Example Usage
     /// 
+    /// ### SQL Filter)
+    /// 
+    /// ### Correlation Filter)
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.ServiceBus` - 2024-01-01
+    /// 
     /// ## Import
     /// 
     /// Service Bus Subscription Rule can be imported using the `resource id`, e.g.
@@ -32,7 +43,7 @@ namespace Pulumi.Azure.ServiceBus
         public Output<string?> Action { get; private set; } = null!;
 
         /// <summary>
-        /// A `correlation_filter` block as documented below to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `CorrelationFilter`.
+        /// A `CorrelationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `FilterType` is set to `CorrelationFilter`.
         /// </summary>
         [Output("correlationFilter")]
         public Output<Outputs.SubscriptionRuleCorrelationFilter?> CorrelationFilter { get; private set; } = null!;
@@ -50,7 +61,7 @@ namespace Pulumi.Azure.ServiceBus
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `SqlFilter`.
+        /// Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `FilterType` is set to `SqlFilter`.
         /// </summary>
         [Output("sqlFilter")]
         public Output<string?> SqlFilter { get; private set; } = null!;
@@ -121,7 +132,7 @@ namespace Pulumi.Azure.ServiceBus
         public Input<string>? Action { get; set; }
 
         /// <summary>
-        /// A `correlation_filter` block as documented below to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `CorrelationFilter`.
+        /// A `CorrelationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `FilterType` is set to `CorrelationFilter`.
         /// </summary>
         [Input("correlationFilter")]
         public Input<Inputs.SubscriptionRuleCorrelationFilterArgs>? CorrelationFilter { get; set; }
@@ -139,7 +150,7 @@ namespace Pulumi.Azure.ServiceBus
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `SqlFilter`.
+        /// Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `FilterType` is set to `SqlFilter`.
         /// </summary>
         [Input("sqlFilter")]
         public Input<string>? SqlFilter { get; set; }
@@ -165,7 +176,7 @@ namespace Pulumi.Azure.ServiceBus
         public Input<string>? Action { get; set; }
 
         /// <summary>
-        /// A `correlation_filter` block as documented below to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `CorrelationFilter`.
+        /// A `CorrelationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `FilterType` is set to `CorrelationFilter`.
         /// </summary>
         [Input("correlationFilter")]
         public Input<Inputs.SubscriptionRuleCorrelationFilterGetArgs>? CorrelationFilter { get; set; }
@@ -183,7 +194,7 @@ namespace Pulumi.Azure.ServiceBus
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `SqlFilter`.
+        /// Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `FilterType` is set to `SqlFilter`.
         /// </summary>
         [Input("sqlFilter")]
         public Input<string>? SqlFilter { get; set; }

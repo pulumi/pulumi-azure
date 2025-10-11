@@ -32,7 +32,7 @@ namespace Pulumi.Azure.MSSql.Outputs
         /// <summary>
         /// The ID of the Subnet to create the listener. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** `sql_virtual_machine_ids` should match with the SQL Virtual Machines specified in `replica`.
+        /// &gt; **Note:** `SqlVirtualMachineIds` should match with the SQL Virtual Machines specified in `Replica`.
         /// </summary>
         public readonly string SubnetId;
 

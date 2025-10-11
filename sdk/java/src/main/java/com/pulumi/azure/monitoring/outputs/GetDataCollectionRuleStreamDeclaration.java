@@ -18,7 +18,7 @@ public final class GetDataCollectionRuleStreamDeclaration {
      */
     private List<GetDataCollectionRuleStreamDeclarationColumn> columns;
     /**
-     * @return The name of the custom stream. This name should be unique across all `stream_declaration` blocks.
+     * @return The name of the custom stream. This name should be unique across all `streamDeclaration` blocks.
      * 
      */
     private String streamName;
@@ -32,7 +32,7 @@ public final class GetDataCollectionRuleStreamDeclaration {
         return this.columns;
     }
     /**
-     * @return The name of the custom stream. This name should be unique across all `stream_declaration` blocks.
+     * @return The name of the custom stream. This name should be unique across all `streamDeclaration` blocks.
      * 
      */
     public String streamName() {

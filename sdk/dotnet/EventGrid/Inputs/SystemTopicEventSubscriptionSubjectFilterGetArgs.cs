@@ -13,7 +13,7 @@ namespace Pulumi.Azure.EventGrid.Inputs
     public sealed class SystemTopicEventSubscriptionSubjectFilterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies if `subject_begins_with` and `subject_ends_with` case sensitive. This value
+        /// Specifies if `SubjectBeginsWith` and `SubjectEndsWith` case sensitive. This value
         /// </summary>
         [Input("caseSensitive")]
         public Input<bool>? CaseSensitive { get; set; }

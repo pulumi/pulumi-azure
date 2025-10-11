@@ -225,7 +225,7 @@ public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
     /**
      * Can remote gateways be used on the Databricks virtual network? Defaults to `false`.
      * 
-     * &gt; **Note:** If the `use_remote_gateways` is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, the virtual network will use the gateways of the remote virtual network for transit. Only one peering can have this flag set to `true`. `use_remote_gateways` cannot be set if the virtual network already has a gateway.
+     * &gt; **Note:** If the `useRemoteGateways` is set to `true`, and `allowGatewayTransit` on the remote peering is also `true`, the virtual network will use the gateways of the remote virtual network for transit. Only one peering can have this flag set to `true`. `useRemoteGateways` cannot be set if the virtual network already has a gateway.
      * 
      */
     @Export(name="useRemoteGateways", refs={Boolean.class}, tree="[0]")
@@ -234,7 +234,7 @@ public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
     /**
      * @return Can remote gateways be used on the Databricks virtual network? Defaults to `false`.
      * 
-     * &gt; **Note:** If the `use_remote_gateways` is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, the virtual network will use the gateways of the remote virtual network for transit. Only one peering can have this flag set to `true`. `use_remote_gateways` cannot be set if the virtual network already has a gateway.
+     * &gt; **Note:** If the `useRemoteGateways` is set to `true`, and `allowGatewayTransit` on the remote peering is also `true`, the virtual network will use the gateways of the remote virtual network for transit. Only one peering can have this flag set to `true`. `useRemoteGateways` cannot be set if the virtual network already has a gateway.
      * 
      */
     public Output<Optional<Boolean>> useRemoteGateways() {
@@ -243,7 +243,7 @@ public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the internal Virtual Network used by the DataBricks Workspace.
      * 
-     * &gt; **Note:** The `virtual_network_id` field is the value you must supply to the `azure.network.VirtualNetworkPeering` resources `remote_virtual_network_id` field to successfully peer the Databricks Virtual Network with the remote virtual network.
+     * &gt; **Note:** The `virtualNetworkId` field is the value you must supply to the `azure.network.VirtualNetworkPeering` resources `remoteVirtualNetworkId` field to successfully peer the Databricks Virtual Network with the remote virtual network.
      * 
      */
     @Export(name="virtualNetworkId", refs={String.class}, tree="[0]")
@@ -252,7 +252,7 @@ public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID of the internal Virtual Network used by the DataBricks Workspace.
      * 
-     * &gt; **Note:** The `virtual_network_id` field is the value you must supply to the `azure.network.VirtualNetworkPeering` resources `remote_virtual_network_id` field to successfully peer the Databricks Virtual Network with the remote virtual network.
+     * &gt; **Note:** The `virtualNetworkId` field is the value you must supply to the `azure.network.VirtualNetworkPeering` resources `remoteVirtualNetworkId` field to successfully peer the Databricks Virtual Network with the remote virtual network.
      * 
      */
     public Output<String> virtualNetworkId() {

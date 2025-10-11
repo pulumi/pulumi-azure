@@ -20,14 +20,14 @@ public final class NetworkManagerState extends com.pulumi.resources.ResourceArgs
     public static final NetworkManagerState Empty = new NetworkManagerState();
 
     /**
-     * One or more `cross_tenant_scopes` blocks as defined below.
+     * One or more `crossTenantScopes` blocks as defined below.
      * 
      */
     @Import(name="crossTenantScopes")
     private @Nullable Output<List<NetworkManagerCrossTenantScopeArgs>> crossTenantScopes;
 
     /**
-     * @return One or more `cross_tenant_scopes` blocks as defined below.
+     * @return One or more `crossTenantScopes` blocks as defined below.
      * 
      */
     public Optional<Output<List<NetworkManagerCrossTenantScopeArgs>>> crossTenantScopes() {
@@ -171,7 +171,7 @@ public final class NetworkManagerState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param crossTenantScopes One or more `cross_tenant_scopes` blocks as defined below.
+         * @param crossTenantScopes One or more `crossTenantScopes` blocks as defined below.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class NetworkManagerState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param crossTenantScopes One or more `cross_tenant_scopes` blocks as defined below.
+         * @param crossTenantScopes One or more `crossTenantScopes` blocks as defined below.
          * 
          * @return builder
          * 
@@ -192,7 +192,7 @@ public final class NetworkManagerState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param crossTenantScopes One or more `cross_tenant_scopes` blocks as defined below.
+         * @param crossTenantScopes One or more `crossTenantScopes` blocks as defined below.
          * 
          * @return builder
          * 

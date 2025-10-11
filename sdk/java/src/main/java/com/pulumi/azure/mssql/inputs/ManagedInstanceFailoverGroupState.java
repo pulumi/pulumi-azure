@@ -80,14 +80,14 @@ public final class ManagedInstanceFailoverGroupState extends com.pulumi.resource
     }
 
     /**
-     * A `partner_region` block as defined below.
+     * A `partnerRegion` block as defined below.
      * 
      */
     @Import(name="partnerRegions")
     private @Nullable Output<List<ManagedInstanceFailoverGroupPartnerRegionArgs>> partnerRegions;
 
     /**
-     * @return A `partner_region` block as defined below.
+     * @return A `partnerRegion` block as defined below.
      * 
      */
     public Optional<Output<List<ManagedInstanceFailoverGroupPartnerRegionArgs>>> partnerRegions() {
@@ -95,14 +95,14 @@ public final class ManagedInstanceFailoverGroupState extends com.pulumi.resource
     }
 
     /**
-     * A `read_write_endpoint_failover_policy` block as defined below.
+     * A `readWriteEndpointFailoverPolicy` block as defined below.
      * 
      */
     @Import(name="readWriteEndpointFailoverPolicy")
     private @Nullable Output<ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs> readWriteEndpointFailoverPolicy;
 
     /**
-     * @return A `read_write_endpoint_failover_policy` block as defined below.
+     * @return A `readWriteEndpointFailoverPolicy` block as defined below.
      * 
      */
     public Optional<Output<ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs>> readWriteEndpointFailoverPolicy() {
@@ -271,7 +271,7 @@ public final class ManagedInstanceFailoverGroupState extends com.pulumi.resource
         }
 
         /**
-         * @param partnerRegions A `partner_region` block as defined below.
+         * @param partnerRegions A `partnerRegion` block as defined below.
          * 
          * @return builder
          * 
@@ -282,7 +282,7 @@ public final class ManagedInstanceFailoverGroupState extends com.pulumi.resource
         }
 
         /**
-         * @param partnerRegions A `partner_region` block as defined below.
+         * @param partnerRegions A `partnerRegion` block as defined below.
          * 
          * @return builder
          * 
@@ -292,7 +292,7 @@ public final class ManagedInstanceFailoverGroupState extends com.pulumi.resource
         }
 
         /**
-         * @param partnerRegions A `partner_region` block as defined below.
+         * @param partnerRegions A `partnerRegion` block as defined below.
          * 
          * @return builder
          * 
@@ -302,7 +302,7 @@ public final class ManagedInstanceFailoverGroupState extends com.pulumi.resource
         }
 
         /**
-         * @param readWriteEndpointFailoverPolicy A `read_write_endpoint_failover_policy` block as defined below.
+         * @param readWriteEndpointFailoverPolicy A `readWriteEndpointFailoverPolicy` block as defined below.
          * 
          * @return builder
          * 
@@ -313,7 +313,7 @@ public final class ManagedInstanceFailoverGroupState extends com.pulumi.resource
         }
 
         /**
-         * @param readWriteEndpointFailoverPolicy A `read_write_endpoint_failover_policy` block as defined below.
+         * @param readWriteEndpointFailoverPolicy A `readWriteEndpointFailoverPolicy` block as defined below.
          * 
          * @return builder
          * 

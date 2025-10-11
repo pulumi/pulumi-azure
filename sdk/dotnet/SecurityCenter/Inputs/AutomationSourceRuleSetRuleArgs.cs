@@ -13,7 +13,7 @@ namespace Pulumi.Azure.SecurityCenter.Inputs
     public sealed class AutomationSourceRuleSetRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A value that will be compared with the value in `property_path`.
+        /// A value that will be compared with the value in `PropertyPath`.
         /// </summary>
         [Input("expectedValue", required: true)]
         public Input<string> ExpectedValue { get; set; } = null!;
@@ -33,7 +33,7 @@ namespace Pulumi.Azure.SecurityCenter.Inputs
         /// <summary>
         /// The data type of the compared operands, must be one of: `Integer`, `String`, `Boolean` or `Number`.
         /// 
-        /// &gt; **Note:** The schema for Security Center alerts (when `event_source` is "Alerts") [can be found here](https://docs.microsoft.com/azure/security-center/alerts-schemas?tabs=schema-continuousexport)
+        /// &gt; **Note:** The schema for Security Center alerts (when `EventSource` is "Alerts") [can be found here](https://docs.microsoft.com/azure/security-center/alerts-schemas?tabs=schema-continuousexport)
         /// </summary>
         [Input("propertyType", required: true)]
         public Input<string> PropertyType { get; set; } = null!;

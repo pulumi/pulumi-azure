@@ -125,14 +125,14 @@ public final class OutputServiceBusQueueArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The shared access policy key for the specified shared access policy. Required if `authentication_mode` is `ConnectionString`.
+     * The shared access policy key for the specified shared access policy. Required if `authenticationMode` is `ConnectionString`.
      * 
      */
     @Import(name="sharedAccessPolicyKey")
     private @Nullable Output<String> sharedAccessPolicyKey;
 
     /**
-     * @return The shared access policy key for the specified shared access policy. Required if `authentication_mode` is `ConnectionString`.
+     * @return The shared access policy key for the specified shared access policy. Required if `authenticationMode` is `ConnectionString`.
      * 
      */
     public Optional<Output<String>> sharedAccessPolicyKey() {
@@ -140,14 +140,14 @@ public final class OutputServiceBusQueueArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required if `authentication_mode` is `ConnectionString`.
+     * The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required if `authenticationMode` is `ConnectionString`.
      * 
      */
     @Import(name="sharedAccessPolicyName")
     private @Nullable Output<String> sharedAccessPolicyName;
 
     /**
-     * @return The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required if `authentication_mode` is `ConnectionString`.
+     * @return The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required if `authenticationMode` is `ConnectionString`.
      * 
      */
     public Optional<Output<String>> sharedAccessPolicyName() {
@@ -380,7 +380,7 @@ public final class OutputServiceBusQueueArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param sharedAccessPolicyKey The shared access policy key for the specified shared access policy. Required if `authentication_mode` is `ConnectionString`.
+         * @param sharedAccessPolicyKey The shared access policy key for the specified shared access policy. Required if `authenticationMode` is `ConnectionString`.
          * 
          * @return builder
          * 
@@ -391,7 +391,7 @@ public final class OutputServiceBusQueueArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param sharedAccessPolicyKey The shared access policy key for the specified shared access policy. Required if `authentication_mode` is `ConnectionString`.
+         * @param sharedAccessPolicyKey The shared access policy key for the specified shared access policy. Required if `authenticationMode` is `ConnectionString`.
          * 
          * @return builder
          * 
@@ -401,7 +401,7 @@ public final class OutputServiceBusQueueArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param sharedAccessPolicyName The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required if `authentication_mode` is `ConnectionString`.
+         * @param sharedAccessPolicyName The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required if `authenticationMode` is `ConnectionString`.
          * 
          * @return builder
          * 
@@ -412,7 +412,7 @@ public final class OutputServiceBusQueueArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param sharedAccessPolicyName The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required if `authentication_mode` is `ConnectionString`.
+         * @param sharedAccessPolicyName The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required if `authenticationMode` is `ConnectionString`.
          * 
          * @return builder
          * 

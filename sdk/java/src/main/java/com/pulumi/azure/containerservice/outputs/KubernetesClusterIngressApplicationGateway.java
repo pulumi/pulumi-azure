@@ -29,7 +29,7 @@ public final class KubernetesClusterIngressApplicationGateway {
      */
     private @Nullable String gatewayName;
     /**
-     * @return An `ingress_application_gateway_identity` block is exported. The exported attributes are defined below.
+     * @return An `ingressApplicationGatewayIdentity` block is exported. The exported attributes are defined below.
      * 
      */
     private @Nullable List<KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity> ingressApplicationGatewayIdentities;
@@ -41,9 +41,9 @@ public final class KubernetesClusterIngressApplicationGateway {
     /**
      * @return The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
      * 
-     * &gt; **Note:** Exactly one of `gateway_id`, `subnet_id` or `subnet_cidr` must be specified.
+     * &gt; **Note:** Exactly one of `gatewayId`, `subnetId` or `subnetCidr` must be specified.
      * 
-     * &gt; **Note:** If specifying `ingress_application_gateway` in conjunction with `only_critical_addons_enabled`, the AGIC pod will fail to start. A separate `azure.containerservice.KubernetesClusterNodePool` is required to run the AGIC pod successfully. This is because AGIC is classed as a &#34;non-critical addon&#34;.
+     * &gt; **Note:** If specifying `ingressApplicationGateway` in conjunction with `onlyCriticalAddonsEnabled`, the AGIC pod will fail to start. A separate `azure.containerservice.KubernetesClusterNodePool` is required to run the AGIC pod successfully. This is because AGIC is classed as a &#34;non-critical addon&#34;.
      * 
      */
     private @Nullable String subnetId;
@@ -71,7 +71,7 @@ public final class KubernetesClusterIngressApplicationGateway {
         return Optional.ofNullable(this.gatewayName);
     }
     /**
-     * @return An `ingress_application_gateway_identity` block is exported. The exported attributes are defined below.
+     * @return An `ingressApplicationGatewayIdentity` block is exported. The exported attributes are defined below.
      * 
      */
     public List<KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity> ingressApplicationGatewayIdentities() {
@@ -87,9 +87,9 @@ public final class KubernetesClusterIngressApplicationGateway {
     /**
      * @return The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
      * 
-     * &gt; **Note:** Exactly one of `gateway_id`, `subnet_id` or `subnet_cidr` must be specified.
+     * &gt; **Note:** Exactly one of `gatewayId`, `subnetId` or `subnetCidr` must be specified.
      * 
-     * &gt; **Note:** If specifying `ingress_application_gateway` in conjunction with `only_critical_addons_enabled`, the AGIC pod will fail to start. A separate `azure.containerservice.KubernetesClusterNodePool` is required to run the AGIC pod successfully. This is because AGIC is classed as a &#34;non-critical addon&#34;.
+     * &gt; **Note:** If specifying `ingressApplicationGateway` in conjunction with `onlyCriticalAddonsEnabled`, the AGIC pod will fail to start. A separate `azure.containerservice.KubernetesClusterNodePool` is required to run the AGIC pod successfully. This is because AGIC is classed as a &#34;non-critical addon&#34;.
      * 
      */
     public Optional<String> subnetId() {

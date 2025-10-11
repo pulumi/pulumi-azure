@@ -112,14 +112,14 @@ public class LinkedServiceAzureSqlDatabase extends com.pulumi.resources.CustomRe
         return Codegen.optional(this.annotations);
     }
     /**
-     * The connection string in which to authenticate with Azure SQL Database. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
+     * The connection string in which to authenticate with Azure SQL Database. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
      * 
      */
     @Export(name="connectionString", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> connectionString;
 
     /**
-     * @return The connection string in which to authenticate with Azure SQL Database. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
+     * @return The connection string in which to authenticate with Azure SQL Database. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
      * 
      */
     public Output<Optional<String>> connectionString() {
@@ -182,28 +182,28 @@ public class LinkedServiceAzureSqlDatabase extends com.pulumi.resources.CustomRe
         return Codegen.optional(this.integrationRuntimeName);
     }
     /**
-     * A `key_vault_connection_string` block as defined below. Use this argument to store Azure SQL Database connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
+     * A `keyVaultConnectionString` block as defined below. Use this argument to store Azure SQL Database connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
      * 
      */
     @Export(name="keyVaultConnectionString", refs={LinkedServiceAzureSqlDatabaseKeyVaultConnectionString.class}, tree="[0]")
     private Output</* @Nullable */ LinkedServiceAzureSqlDatabaseKeyVaultConnectionString> keyVaultConnectionString;
 
     /**
-     * @return A `key_vault_connection_string` block as defined below. Use this argument to store Azure SQL Database connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
+     * @return A `keyVaultConnectionString` block as defined below. Use this argument to store Azure SQL Database connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
      * 
      */
     public Output<Optional<LinkedServiceAzureSqlDatabaseKeyVaultConnectionString>> keyVaultConnectionString() {
         return Codegen.optional(this.keyVaultConnectionString);
     }
     /**
-     * A `key_vault_password` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+     * A `keyVaultPassword` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
      * 
      */
     @Export(name="keyVaultPassword", refs={LinkedServiceAzureSqlDatabaseKeyVaultPassword.class}, tree="[0]")
     private Output</* @Nullable */ LinkedServiceAzureSqlDatabaseKeyVaultPassword> keyVaultPassword;
 
     /**
-     * @return A `key_vault_password` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+     * @return A `keyVaultPassword` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
      * 
      */
     public Output<Optional<LinkedServiceAzureSqlDatabaseKeyVaultPassword>> keyVaultPassword() {
@@ -238,28 +238,28 @@ public class LinkedServiceAzureSqlDatabase extends com.pulumi.resources.CustomRe
         return Codegen.optional(this.parameters);
     }
     /**
-     * The service principal id in which to authenticate against the Azure SQL Database. Required if `service_principal_key` is set.
+     * The service principal id in which to authenticate against the Azure SQL Database. Required if `servicePrincipalKey` is set.
      * 
      */
     @Export(name="servicePrincipalId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> servicePrincipalId;
 
     /**
-     * @return The service principal id in which to authenticate against the Azure SQL Database. Required if `service_principal_key` is set.
+     * @return The service principal id in which to authenticate against the Azure SQL Database. Required if `servicePrincipalKey` is set.
      * 
      */
     public Output<Optional<String>> servicePrincipalId() {
         return Codegen.optional(this.servicePrincipalId);
     }
     /**
-     * The service principal key in which to authenticate against the Azure SQL Database. Required if `service_principal_id` is set.
+     * The service principal key in which to authenticate against the Azure SQL Database. Required if `servicePrincipalId` is set.
      * 
      */
     @Export(name="servicePrincipalKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> servicePrincipalKey;
 
     /**
-     * @return The service principal key in which to authenticate against the Azure SQL Database. Required if `service_principal_id` is set.
+     * @return The service principal key in which to authenticate against the Azure SQL Database. Required if `servicePrincipalId` is set.
      * 
      */
     public Output<Optional<String>> servicePrincipalKey() {
@@ -280,14 +280,14 @@ public class LinkedServiceAzureSqlDatabase extends com.pulumi.resources.CustomRe
         return Codegen.optional(this.tenantId);
     }
     /**
-     * Whether to use the Data Factory&#39;s managed identity to authenticate against the Azure SQL Database. Incompatible with `service_principal_id` and `service_principal_key`
+     * Whether to use the Data Factory&#39;s managed identity to authenticate against the Azure SQL Database. Incompatible with `servicePrincipalId` and `servicePrincipalKey`
      * 
      */
     @Export(name="useManagedIdentity", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> useManagedIdentity;
 
     /**
-     * @return Whether to use the Data Factory&#39;s managed identity to authenticate against the Azure SQL Database. Incompatible with `service_principal_id` and `service_principal_key`
+     * @return Whether to use the Data Factory&#39;s managed identity to authenticate against the Azure SQL Database. Incompatible with `servicePrincipalId` and `servicePrincipalKey`
      * 
      */
     public Output<Optional<Boolean>> useManagedIdentity() {

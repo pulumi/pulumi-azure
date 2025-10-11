@@ -156,13 +156,13 @@ namespace Pulumi.Azure.StreamAnalytics
         /// <summary>
         /// The starting mode of the Stream Analytics Job. Possible values are `JobStartTime`, `CustomTime` and `LastOutputEventTime`.
         /// 
-        /// &gt; **Note:** Setting `start_mode` to `LastOutputEventTime` is only possible if the job had been previously started and produced output.
+        /// &gt; **Note:** Setting `StartMode` to `LastOutputEventTime` is only possible if the job had been previously started and produced output.
         /// </summary>
         [Output("startMode")]
         public Output<string> StartMode { get; private set; } = null!;
 
         /// <summary>
-        /// The time in ISO8601 format at which the Stream Analytics Job should be started e.g. `2022-04-01T00:00:00Z`. This property can only be specified if `start_mode` is set to `CustomTime`
+        /// The time in ISO8601 format at which the Stream Analytics Job should be started e.g. `2022-04-01T00:00:00Z`. This property can only be specified if `StartMode` is set to `CustomTime`
         /// </summary>
         [Output("startTime")]
         public Output<string> StartTime { get; private set; } = null!;
@@ -222,13 +222,13 @@ namespace Pulumi.Azure.StreamAnalytics
         /// <summary>
         /// The starting mode of the Stream Analytics Job. Possible values are `JobStartTime`, `CustomTime` and `LastOutputEventTime`.
         /// 
-        /// &gt; **Note:** Setting `start_mode` to `LastOutputEventTime` is only possible if the job had been previously started and produced output.
+        /// &gt; **Note:** Setting `StartMode` to `LastOutputEventTime` is only possible if the job had been previously started and produced output.
         /// </summary>
         [Input("startMode", required: true)]
         public Input<string> StartMode { get; set; } = null!;
 
         /// <summary>
-        /// The time in ISO8601 format at which the Stream Analytics Job should be started e.g. `2022-04-01T00:00:00Z`. This property can only be specified if `start_mode` is set to `CustomTime`
+        /// The time in ISO8601 format at which the Stream Analytics Job should be started e.g. `2022-04-01T00:00:00Z`. This property can only be specified if `StartMode` is set to `CustomTime`
         /// </summary>
         [Input("startTime")]
         public Input<string>? StartTime { get; set; }
@@ -256,13 +256,13 @@ namespace Pulumi.Azure.StreamAnalytics
         /// <summary>
         /// The starting mode of the Stream Analytics Job. Possible values are `JobStartTime`, `CustomTime` and `LastOutputEventTime`.
         /// 
-        /// &gt; **Note:** Setting `start_mode` to `LastOutputEventTime` is only possible if the job had been previously started and produced output.
+        /// &gt; **Note:** Setting `StartMode` to `LastOutputEventTime` is only possible if the job had been previously started and produced output.
         /// </summary>
         [Input("startMode")]
         public Input<string>? StartMode { get; set; }
 
         /// <summary>
-        /// The time in ISO8601 format at which the Stream Analytics Job should be started e.g. `2022-04-01T00:00:00Z`. This property can only be specified if `start_mode` is set to `CustomTime`
+        /// The time in ISO8601 format at which the Stream Analytics Job should be started e.g. `2022-04-01T00:00:00Z`. This property can only be specified if `StartMode` is set to `CustomTime`
         /// </summary>
         [Input("startTime")]
         public Input<string>? StartTime { get; set; }

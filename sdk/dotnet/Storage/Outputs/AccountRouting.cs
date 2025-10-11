@@ -18,11 +18,11 @@ namespace Pulumi.Azure.Storage.Outputs
         /// </summary>
         public readonly string? Choice;
         /// <summary>
-        /// Should internet routing storage endpoints be published? Defaults to `false`.
+        /// Should internet routing storage endpoints be published? Defaults to `False`.
         /// </summary>
         public readonly bool? PublishInternetEndpoints;
         /// <summary>
-        /// Should Microsoft routing storage endpoints be published? Defaults to `false`.
+        /// Should Microsoft routing storage endpoints be published? Defaults to `False`.
         /// </summary>
         public readonly bool? PublishMicrosoftEndpoints;
 

@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Cognitive
     /// <summary>
     /// Manages a Customer Managed Key for a Cognitive Services Account.
     /// 
-    /// &gt; **Note:** It's possible to define a Customer Managed Key both within the `azure.cognitive.Account` resource via the `customer_managed_key` block and by using the `azure.cognitive.AccountCustomerManagedKey` resource. However it's not possible to use both methods to manage a Customer Managed Key for a Cognitive Account, since there'll be conflicts.
+    /// &gt; **Note:** It's possible to define a Customer Managed Key both within the `azure.cognitive.Account` resource via the `CustomerManagedKey` block and by using the `azure.cognitive.AccountCustomerManagedKey` resource. However it's not possible to use both methods to manage a Customer Managed Key for a Cognitive Account, since there'll be conflicts.
     /// 
     /// ## Example Usage
     /// 

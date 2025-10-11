@@ -19,14 +19,14 @@ public final class SpringCloudBuilderState extends com.pulumi.resources.Resource
     public static final SpringCloudBuilderState Empty = new SpringCloudBuilderState();
 
     /**
-     * One or more `build_pack_group` blocks as defined below.
+     * One or more `buildPackGroup` blocks as defined below.
      * 
      */
     @Import(name="buildPackGroups")
     private @Nullable Output<List<SpringCloudBuilderBuildPackGroupArgs>> buildPackGroups;
 
     /**
-     * @return One or more `build_pack_group` blocks as defined below.
+     * @return One or more `buildPackGroup` blocks as defined below.
      * 
      */
     public Optional<Output<List<SpringCloudBuilderBuildPackGroupArgs>>> buildPackGroups() {
@@ -106,7 +106,7 @@ public final class SpringCloudBuilderState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param buildPackGroups One or more `build_pack_group` blocks as defined below.
+         * @param buildPackGroups One or more `buildPackGroup` blocks as defined below.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class SpringCloudBuilderState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param buildPackGroups One or more `build_pack_group` blocks as defined below.
+         * @param buildPackGroups One or more `buildPackGroup` blocks as defined below.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class SpringCloudBuilderState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param buildPackGroups One or more `build_pack_group` blocks as defined below.
+         * @param buildPackGroups One or more `buildPackGroup` blocks as defined below.
          * 
          * @return builder
          * 

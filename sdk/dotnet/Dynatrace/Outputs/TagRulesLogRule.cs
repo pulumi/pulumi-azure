@@ -14,19 +14,19 @@ namespace Pulumi.Azure.Dynatrace.Outputs
     public sealed class TagRulesLogRule
     {
         /// <summary>
-        /// Filtering tag for the log rule. A `filtering_tag` block as defined below.
+        /// Filtering tag for the log rule. A `FilteringTag` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.TagRulesLogRuleFilteringTag> FilteringTags;
         /// <summary>
-        /// Send Activity logs. The default value is `false`.
+        /// Send Activity logs. The default value is `False`.
         /// </summary>
         public readonly bool? SendActivityLogsEnabled;
         /// <summary>
-        /// Send Azure Active Directory logs. The default value is `false`.
+        /// Send Azure Active Directory logs. The default value is `False`.
         /// </summary>
         public readonly bool? SendAzureActiveDirectoryLogsEnabled;
         /// <summary>
-        /// Send Subscription logs. The default value is `false`.
+        /// Send Subscription logs. The default value is `False`.
         /// </summary>
         public readonly bool? SendSubscriptionLogsEnabled;
 

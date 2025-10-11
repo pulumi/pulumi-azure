@@ -15,7 +15,7 @@ namespace Pulumi.Azure.Cognitive.Inputs
         /// <summary>
         /// The client ID of the managed identity associated with the storage resource.
         /// 
-        /// &gt; **Note:** Not all `kind` support a `storage` block. For example the `kind` `OpenAI` does not support it.
+        /// &gt; **Note:** Not all `Kind` support a `Storage` block. For example the `Kind` `OpenAI` does not support it.
         /// </summary>
         [Input("identityClientId")]
         public Input<string>? IdentityClientId { get; set; }

@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<Inputs.ProfileContainerNetworkInterfaceIpConfigurationGetArgs>? _ipConfigurations;
 
         /// <summary>
-        /// One or more `ip_configuration` blocks as documented below.
+        /// One or more `IpConfiguration` blocks as documented below.
         /// </summary>
         public InputList<Inputs.ProfileContainerNetworkInterfaceIpConfigurationGetArgs> IpConfigurations
         {

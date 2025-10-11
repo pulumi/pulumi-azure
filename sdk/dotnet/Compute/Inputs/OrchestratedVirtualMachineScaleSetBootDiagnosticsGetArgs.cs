@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Compute.Inputs
     public sealed class OrchestratedVirtualMachineScaleSetBootDiagnosticsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. By including a `boot_diagnostics` block without passing the `storage_account_uri` field will cause the API to utilize a Managed Storage Account to store the Boot Diagnostics output.
+        /// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. By including a `BootDiagnostics` block without passing the `StorageAccountUri` field will cause the API to utilize a Managed Storage Account to store the Boot Diagnostics output.
         /// </summary>
         [Input("storageAccountUri")]
         public Input<string>? StorageAccountUri { get; set; }

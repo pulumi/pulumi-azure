@@ -33,14 +33,14 @@ public final class DataCollectionRuleDataFlowArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Specifies a list of destination names. A `azure_monitor_metrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
+     * Specifies a list of destination names. A `azureMonitorMetrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
      * 
      */
     @Import(name="destinations", required=true)
     private Output<List<String>> destinations;
 
     /**
-     * @return Specifies a list of destination names. A `azure_monitor_metrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
+     * @return Specifies a list of destination names. A `azureMonitorMetrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
      * 
      */
     public Output<List<String>> destinations() {
@@ -142,7 +142,7 @@ public final class DataCollectionRuleDataFlowArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param destinations Specifies a list of destination names. A `azure_monitor_metrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
+         * @param destinations Specifies a list of destination names. A `azureMonitorMetrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class DataCollectionRuleDataFlowArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param destinations Specifies a list of destination names. A `azure_monitor_metrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
+         * @param destinations Specifies a list of destination names. A `azureMonitorMetrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class DataCollectionRuleDataFlowArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param destinations Specifies a list of destination names. A `azure_monitor_metrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
+         * @param destinations Specifies a list of destination names. A `azureMonitorMetrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
          * 
          * @return builder
          * 

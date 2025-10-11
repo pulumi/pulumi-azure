@@ -20,7 +20,7 @@ public final class BackupPolicyPostgresqlFlexibleServerRetentionRule {
      */
     private BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteria criteria;
     /**
-     * @return A `life_cycle` block as defined below. Changing this forces a new resource to be created.
+     * @return A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     private List<BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycle> lifeCycles;
@@ -44,7 +44,7 @@ public final class BackupPolicyPostgresqlFlexibleServerRetentionRule {
         return this.criteria;
     }
     /**
-     * @return A `life_cycle` block as defined below. Changing this forces a new resource to be created.
+     * @return A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public List<BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycle> lifeCycles() {

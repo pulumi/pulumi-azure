@@ -15,7 +15,7 @@ namespace Pulumi.Azure.Cognitive.Inputs
         /// <summary>
         /// The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account.
         /// 
-        /// &gt; **Note:** When `project_management_enabled` is set to `true`, removing this block forces a new resource to be created.
+        /// &gt; **Note:** When `ProjectManagementEnabled` is set to `True`, removing this block forces a new resource to be created.
         /// </summary>
         [Input("identityClientId")]
         public Input<string>? IdentityClientId { get; set; }

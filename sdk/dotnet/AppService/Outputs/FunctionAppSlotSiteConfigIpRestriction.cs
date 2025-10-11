@@ -18,7 +18,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? Action;
         /// <summary>
-        /// The `headers` block for this specific `ip_restriction` as defined below.
+        /// The `Headers` block for this specific `IpRestriction` as defined below.
         /// </summary>
         public readonly Outputs.FunctionAppSlotSiteConfigIpRestrictionHeaders? Headers;
         /// <summary>
@@ -40,7 +40,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// <summary>
         /// The Virtual Network Subnet ID used for this IP Restriction.
         /// 
-        /// &gt; **NOTE:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
+        /// &gt; **NOTE:** One of either `IpAddress`, `ServiceTag` or `VirtualNetworkSubnetId` must be specified
         /// </summary>
         public readonly string? VirtualNetworkSubnetId;
 

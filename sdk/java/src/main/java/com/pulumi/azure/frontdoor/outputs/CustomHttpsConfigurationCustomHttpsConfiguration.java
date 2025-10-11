@@ -31,7 +31,7 @@ public final class CustomHttpsConfigurationCustomHttpsConfiguration {
     /**
      * @return Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
      * 
-     * The following attributes are only valid if `certificate_source` is set to `AzureKeyVault`:
+     * The following attributes are only valid if `certificateSource` is set to `AzureKeyVault`:
      * 
      */
     private @Nullable String certificateSource;
@@ -70,7 +70,7 @@ public final class CustomHttpsConfigurationCustomHttpsConfiguration {
     /**
      * @return Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
      * 
-     * The following attributes are only valid if `certificate_source` is set to `AzureKeyVault`:
+     * The following attributes are only valid if `certificateSource` is set to `AzureKeyVault`:
      * 
      */
     public Optional<String> certificateSource() {

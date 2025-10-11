@@ -134,14 +134,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:appservice/appFlexConsumption:AppFlexConsumption")
 public class AppFlexConsumption extends com.pulumi.resources.CustomResource {
     /**
-     * One or more `always_ready` blocks as defined below.
+     * One or more `alwaysReady` blocks as defined below.
      * 
      */
     @Export(name="alwaysReadies", refs={List.class,AppFlexConsumptionAlwaysReady.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AppFlexConsumptionAlwaysReady>> alwaysReadies;
 
     /**
-     * @return One or more `always_ready` blocks as defined below.
+     * @return One or more `alwaysReady` blocks as defined below.
      * 
      */
     public Output<Optional<List<AppFlexConsumptionAlwaysReady>>> alwaysReadies() {
@@ -162,28 +162,28 @@ public class AppFlexConsumption extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.appSettings);
     }
     /**
-     * A `auth_settings` block as defined below.
+     * A `authSettings` block as defined below.
      * 
      */
     @Export(name="authSettings", refs={AppFlexConsumptionAuthSettings.class}, tree="[0]")
     private Output</* @Nullable */ AppFlexConsumptionAuthSettings> authSettings;
 
     /**
-     * @return A `auth_settings` block as defined below.
+     * @return A `authSettings` block as defined below.
      * 
      */
     public Output<Optional<AppFlexConsumptionAuthSettings>> authSettings() {
         return Codegen.optional(this.authSettings);
     }
     /**
-     * An `auth_settings_v2` block as defined below.
+     * An `authSettingsV2` block as defined below.
      * 
      */
     @Export(name="authSettingsV2", refs={AppFlexConsumptionAuthSettingsV2.class}, tree="[0]")
     private Output</* @Nullable */ AppFlexConsumptionAuthSettingsV2> authSettingsV2;
 
     /**
-     * @return An `auth_settings_v2` block as defined below.
+     * @return An `authSettingsV2` block as defined below.
      * 
      */
     public Output<Optional<AppFlexConsumptionAuthSettingsV2>> authSettingsV2() {
@@ -232,14 +232,14 @@ public class AppFlexConsumption extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.clientCertificateMode);
     }
     /**
-     * One or more `connection_string` blocks as defined below.
+     * One or more `connectionString` blocks as defined below.
      * 
      */
     @Export(name="connectionStrings", refs={List.class,AppFlexConsumptionConnectionString.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AppFlexConsumptionConnectionString>> connectionStrings;
 
     /**
-     * @return One or more `connection_string` blocks as defined below.
+     * @return One or more `connectionString` blocks as defined below.
      * 
      */
     public Output<Optional<List<AppFlexConsumptionConnectionString>>> connectionStrings() {
@@ -304,7 +304,7 @@ public class AppFlexConsumption extends com.pulumi.resources.CustomResource {
     /**
      * The Http concurrency of the instances on which your app runs. The supported value are from `1` to `1000`.
      * 
-     * &gt; **Note:** A value will be assigned by the system if `http_concurrency` is not specified.
+     * &gt; **Note:** A value will be assigned by the system if `httpConcurrency` is not specified.
      * 
      */
     @Export(name="httpConcurrency", refs={Integer.class}, tree="[0]")
@@ -313,7 +313,7 @@ public class AppFlexConsumption extends com.pulumi.resources.CustomResource {
     /**
      * @return The Http concurrency of the instances on which your app runs. The supported value are from `1` to `1000`.
      * 
-     * &gt; **Note:** A value will be assigned by the system if `http_concurrency` is not specified.
+     * &gt; **Note:** A value will be assigned by the system if `httpConcurrency` is not specified.
      * 
      */
     public Output<Optional<Integer>> httpConcurrency() {
@@ -446,28 +446,28 @@ public class AppFlexConsumption extends com.pulumi.resources.CustomResource {
         return this.outboundIpAddresses;
     }
     /**
-     * A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
+     * A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outboundIpAddressList`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
      * 
      */
     @Export(name="possibleOutboundIpAddressLists", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> possibleOutboundIpAddressLists;
 
     /**
-     * @return A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
+     * @return A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outboundIpAddressList`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
      * 
      */
     public Output<List<String>> possibleOutboundIpAddressLists() {
         return this.possibleOutboundIpAddressLists;
     }
     /**
-     * A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`.
+     * A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`.
      * 
      */
     @Export(name="possibleOutboundIpAddresses", refs={String.class}, tree="[0]")
     private Output<String> possibleOutboundIpAddresses;
 
     /**
-     * @return A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`.
+     * @return A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`.
      * 
      */
     public Output<String> possibleOutboundIpAddresses() {
@@ -544,42 +544,42 @@ public class AppFlexConsumption extends com.pulumi.resources.CustomResource {
         return this.servicePlanId;
     }
     /**
-     * A `site_config` block as defined below.
+     * A `siteConfig` block as defined below.
      * 
      */
     @Export(name="siteConfig", refs={AppFlexConsumptionSiteConfig.class}, tree="[0]")
     private Output<AppFlexConsumptionSiteConfig> siteConfig;
 
     /**
-     * @return A `site_config` block as defined below.
+     * @return A `siteConfig` block as defined below.
      * 
      */
     public Output<AppFlexConsumptionSiteConfig> siteConfig() {
         return this.siteConfig;
     }
     /**
-     * A `site_credential` block as defined below.
+     * A `siteCredential` block as defined below.
      * 
      */
     @Export(name="siteCredentials", refs={List.class,AppFlexConsumptionSiteCredential.class}, tree="[0,1]")
     private Output<List<AppFlexConsumptionSiteCredential>> siteCredentials;
 
     /**
-     * @return A `site_credential` block as defined below.
+     * @return A `siteCredential` block as defined below.
      * 
      */
     public Output<List<AppFlexConsumptionSiteCredential>> siteCredentials() {
         return this.siteCredentials;
     }
     /**
-     * A `sticky_settings` block as defined below.
+     * A `stickySettings` block as defined below.
      * 
      */
     @Export(name="stickySettings", refs={AppFlexConsumptionStickySettings.class}, tree="[0]")
     private Output</* @Nullable */ AppFlexConsumptionStickySettings> stickySettings;
 
     /**
-     * @return A `sticky_settings` block as defined below.
+     * @return A `stickySettings` block as defined below.
      * 
      */
     public Output<Optional<AppFlexConsumptionStickySettings>> stickySettings() {
@@ -588,7 +588,7 @@ public class AppFlexConsumption extends com.pulumi.resources.CustomResource {
     /**
      * The access key which will be used to access the backend storage account for the Function App.
      * 
-     * &gt; **Note:** The `storage_access_key` must be specified when `storage_authentication_type` is set to `StorageAccountConnectionString`.
+     * &gt; **Note:** The `storageAccessKey` must be specified when `storageAuthenticationType` is set to `StorageAccountConnectionString`.
      * 
      */
     @Export(name="storageAccessKey", refs={String.class}, tree="[0]")
@@ -597,7 +597,7 @@ public class AppFlexConsumption extends com.pulumi.resources.CustomResource {
     /**
      * @return The access key which will be used to access the backend storage account for the Function App.
      * 
-     * &gt; **Note:** The `storage_access_key` must be specified when `storage_authentication_type` is set to `StorageAccountConnectionString`.
+     * &gt; **Note:** The `storageAccessKey` must be specified when `storageAuthenticationType` is set to `StorageAccountConnectionString`.
      * 
      */
     public Output<Optional<String>> storageAccessKey() {
@@ -646,18 +646,18 @@ public class AppFlexConsumption extends com.pulumi.resources.CustomResource {
         return this.storageContainerType;
     }
     /**
-     * The user assigned Managed Identity to access the storage account. Conflicts with `storage_access_key`.
+     * The user assigned Managed Identity to access the storage account. Conflicts with `storageAccessKey`.
      * 
-     * &gt; **Note:** The `storage_user_assigned_identity_id` must be specified when `storage_authentication_type` is set to `UserAssignedIdentity`.
+     * &gt; **Note:** The `storageUserAssignedIdentityId` must be specified when `storageAuthenticationType` is set to `UserAssignedIdentity`.
      * 
      */
     @Export(name="storageUserAssignedIdentityId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageUserAssignedIdentityId;
 
     /**
-     * @return The user assigned Managed Identity to access the storage account. Conflicts with `storage_access_key`.
+     * @return The user assigned Managed Identity to access the storage account. Conflicts with `storageAccessKey`.
      * 
-     * &gt; **Note:** The `storage_user_assigned_identity_id` must be specified when `storage_authentication_type` is set to `UserAssignedIdentity`.
+     * &gt; **Note:** The `storageUserAssignedIdentityId` must be specified when `storageAuthenticationType` is set to `UserAssignedIdentity`.
      * 
      */
     public Output<Optional<String>> storageUserAssignedIdentityId() {
@@ -686,7 +686,7 @@ public class AppFlexConsumption extends com.pulumi.resources.CustomResource {
     /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      * 
-     * &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+     * &gt; **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
      * 
      */
     @Export(name="webdeployPublishBasicAuthenticationEnabled", refs={Boolean.class}, tree="[0]")
@@ -695,7 +695,7 @@ public class AppFlexConsumption extends com.pulumi.resources.CustomResource {
     /**
      * @return Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      * 
-     * &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+     * &gt; **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
      * 
      */
     public Output<Optional<Boolean>> webdeployPublishBasicAuthenticationEnabled() {
@@ -704,7 +704,7 @@ public class AppFlexConsumption extends com.pulumi.resources.CustomResource {
     /**
      * The local path and filename of the Zip packaged application to deploy to this Linux Function App.
      * 
-     * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
+     * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
      * 
      */
     @Export(name="zipDeployFile", refs={String.class}, tree="[0]")
@@ -713,7 +713,7 @@ public class AppFlexConsumption extends com.pulumi.resources.CustomResource {
     /**
      * @return The local path and filename of the Zip packaged application to deploy to this Linux Function App.
      * 
-     * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
+     * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
      * 
      */
     public Output<String> zipDeployFile() {

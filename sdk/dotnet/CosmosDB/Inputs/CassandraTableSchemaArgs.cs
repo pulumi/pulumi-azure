@@ -16,7 +16,7 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         private InputList<Inputs.CassandraTableSchemaClusterKeyArgs>? _clusterKeys;
 
         /// <summary>
-        /// One or more `cluster_key` blocks as defined below.
+        /// One or more `ClusterKey` blocks as defined below.
         /// </summary>
         public InputList<Inputs.CassandraTableSchemaClusterKeyArgs> ClusterKeys
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         private InputList<Inputs.CassandraTableSchemaColumnArgs>? _columns;
 
         /// <summary>
-        /// One or more `column` blocks as defined below.
+        /// One or more `Column` blocks as defined below.
         /// </summary>
         public InputList<Inputs.CassandraTableSchemaColumnArgs> Columns
         {
@@ -40,7 +40,7 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         private InputList<Inputs.CassandraTableSchemaPartitionKeyArgs>? _partitionKeys;
 
         /// <summary>
-        /// One or more `partition_key` blocks as defined below.
+        /// One or more `PartitionKey` blocks as defined below.
         /// </summary>
         public InputList<Inputs.CassandraTableSchemaPartitionKeyArgs> PartitionKeys
         {

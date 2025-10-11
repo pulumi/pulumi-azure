@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DataCollectionRuleDataSourcesPrometheusForwarder {
     /**
-     * @return One or more `label_include_filter` blocks as defined above.
+     * @return One or more `labelIncludeFilter` blocks as defined above.
      * 
      */
     private @Nullable List<DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilter> labelIncludeFilters;
@@ -31,7 +31,7 @@ public final class DataCollectionRuleDataSourcesPrometheusForwarder {
 
     private DataCollectionRuleDataSourcesPrometheusForwarder() {}
     /**
-     * @return One or more `label_include_filter` blocks as defined above.
+     * @return One or more `labelIncludeFilter` blocks as defined above.
      * 
      */
     public List<DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilter> labelIncludeFilters() {

@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 /**
  * Sets a PostgreSQL Configuration value on a Azure PostgreSQL Flexible Server.
  * 
- * &gt; **Note:** Changes to static server parameters will automatically trigger Azure Flex Server restart. This behavior can be disabled in the provider `features` block by setting the `restart_server_on_configuration_value_change` field to `false` within the `postgresql_flexible_server` block.
+ * &gt; **Note:** Changes to static server parameters will automatically trigger Azure Flex Server restart. This behavior can be disabled in the provider `features` block by setting the `restartServerOnConfigurationValueChange` field to `false` within the `postgresqlFlexibleServer` block.
  * 
  * ## Example Usage
  * 

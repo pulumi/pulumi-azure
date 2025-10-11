@@ -110,13 +110,13 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> AccountName { get; private set; } = null!;
 
         /// <summary>
-        /// The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
+        /// The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `N` – items will expire `N` seconds after their last modified time.
         /// </summary>
         [Output("analyticalStorageTtl")]
         public Output<int?> AnalyticalStorageTtl { get; private set; } = null!;
 
         /// <summary>
-        /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+        /// An `AutoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
         /// 
         /// &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         /// </summary>
@@ -124,7 +124,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<Outputs.SqlContainerAutoscaleSettings?> AutoscaleSettings { get; private set; } = null!;
 
         /// <summary>
-        /// A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
+        /// A `ConflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("conflictResolutionPolicy")]
         public Output<Outputs.SqlContainerConflictResolutionPolicy> ConflictResolutionPolicy { get; private set; } = null!;
@@ -136,13 +136,13 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> DatabaseName { get; private set; } = null!;
 
         /// <summary>
-        /// The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
+        /// The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `N` – items will expire `N` seconds after their last modified time.
         /// </summary>
         [Output("defaultTtl")]
         public Output<int?> DefaultTtl { get; private set; } = null!;
 
         /// <summary>
-        /// An `indexing_policy` block as defined below.
+        /// An `IndexingPolicy` block as defined below.
         /// </summary>
         [Output("indexingPolicy")]
         public Output<Outputs.SqlContainerIndexingPolicy> IndexingPolicy { get; private set; } = null!;
@@ -168,7 +168,7 @@ namespace Pulumi.Azure.CosmosDB
         /// <summary>
         /// Define a partition key version. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
         /// 
-        /// &gt; **Note:** If `partition_key_version` is not specified when creating a new resource, you can update `partition_key_version` to `1`, updating to `2` forces a new resource to be created.
+        /// &gt; **Note:** If `PartitionKeyVersion` is not specified when creating a new resource, you can update `PartitionKeyVersion` to `1`, updating to `2` forces a new resource to be created.
         /// </summary>
         [Output("partitionKeyVersion")]
         public Output<int?> PartitionKeyVersion { get; private set; } = null!;
@@ -186,7 +186,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<int> Throughput { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `UniqueKey` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("uniqueKeys")]
         public Output<ImmutableArray<Outputs.SqlContainerUniqueKey>> UniqueKeys { get; private set; } = null!;
@@ -244,13 +244,13 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
+        /// The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `N` – items will expire `N` seconds after their last modified time.
         /// </summary>
         [Input("analyticalStorageTtl")]
         public Input<int>? AnalyticalStorageTtl { get; set; }
 
         /// <summary>
-        /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+        /// An `AutoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
         /// 
         /// &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         /// </summary>
@@ -258,7 +258,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<Inputs.SqlContainerAutoscaleSettingsArgs>? AutoscaleSettings { get; set; }
 
         /// <summary>
-        /// A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
+        /// A `ConflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("conflictResolutionPolicy")]
         public Input<Inputs.SqlContainerConflictResolutionPolicyArgs>? ConflictResolutionPolicy { get; set; }
@@ -270,13 +270,13 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string> DatabaseName { get; set; } = null!;
 
         /// <summary>
-        /// The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
+        /// The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `N` – items will expire `N` seconds after their last modified time.
         /// </summary>
         [Input("defaultTtl")]
         public Input<int>? DefaultTtl { get; set; }
 
         /// <summary>
-        /// An `indexing_policy` block as defined below.
+        /// An `IndexingPolicy` block as defined below.
         /// </summary>
         [Input("indexingPolicy")]
         public Input<Inputs.SqlContainerIndexingPolicyArgs>? IndexingPolicy { get; set; }
@@ -308,7 +308,7 @@ namespace Pulumi.Azure.CosmosDB
         /// <summary>
         /// Define a partition key version. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
         /// 
-        /// &gt; **Note:** If `partition_key_version` is not specified when creating a new resource, you can update `partition_key_version` to `1`, updating to `2` forces a new resource to be created.
+        /// &gt; **Note:** If `PartitionKeyVersion` is not specified when creating a new resource, you can update `PartitionKeyVersion` to `1`, updating to `2` forces a new resource to be created.
         /// </summary>
         [Input("partitionKeyVersion")]
         public Input<int>? PartitionKeyVersion { get; set; }
@@ -329,7 +329,7 @@ namespace Pulumi.Azure.CosmosDB
         private InputList<Inputs.SqlContainerUniqueKeyArgs>? _uniqueKeys;
 
         /// <summary>
-        /// One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `UniqueKey` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.SqlContainerUniqueKeyArgs> UniqueKeys
         {
@@ -352,13 +352,13 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? AccountName { get; set; }
 
         /// <summary>
-        /// The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
+        /// The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `N` – items will expire `N` seconds after their last modified time.
         /// </summary>
         [Input("analyticalStorageTtl")]
         public Input<int>? AnalyticalStorageTtl { get; set; }
 
         /// <summary>
-        /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+        /// An `AutoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
         /// 
         /// &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         /// </summary>
@@ -366,7 +366,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<Inputs.SqlContainerAutoscaleSettingsGetArgs>? AutoscaleSettings { get; set; }
 
         /// <summary>
-        /// A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
+        /// A `ConflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("conflictResolutionPolicy")]
         public Input<Inputs.SqlContainerConflictResolutionPolicyGetArgs>? ConflictResolutionPolicy { get; set; }
@@ -378,13 +378,13 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
-        /// The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
+        /// The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `N` – items will expire `N` seconds after their last modified time.
         /// </summary>
         [Input("defaultTtl")]
         public Input<int>? DefaultTtl { get; set; }
 
         /// <summary>
-        /// An `indexing_policy` block as defined below.
+        /// An `IndexingPolicy` block as defined below.
         /// </summary>
         [Input("indexingPolicy")]
         public Input<Inputs.SqlContainerIndexingPolicyGetArgs>? IndexingPolicy { get; set; }
@@ -416,7 +416,7 @@ namespace Pulumi.Azure.CosmosDB
         /// <summary>
         /// Define a partition key version. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
         /// 
-        /// &gt; **Note:** If `partition_key_version` is not specified when creating a new resource, you can update `partition_key_version` to `1`, updating to `2` forces a new resource to be created.
+        /// &gt; **Note:** If `PartitionKeyVersion` is not specified when creating a new resource, you can update `PartitionKeyVersion` to `1`, updating to `2` forces a new resource to be created.
         /// </summary>
         [Input("partitionKeyVersion")]
         public Input<int>? PartitionKeyVersion { get; set; }
@@ -437,7 +437,7 @@ namespace Pulumi.Azure.CosmosDB
         private InputList<Inputs.SqlContainerUniqueKeyGetArgs>? _uniqueKeys;
 
         /// <summary>
-        /// One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `UniqueKey` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.SqlContainerUniqueKeyGetArgs> UniqueKeys
         {

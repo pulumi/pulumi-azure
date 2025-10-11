@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the tier of virtual machines in a scale set. Possible values, `standard` or `basic`.
+        /// Specifies the tier of virtual machines in a scale set. Possible values, `Standard` or `Basic`.
         /// </summary>
         [Input("tier")]
         public Input<string>? Tier { get; set; }

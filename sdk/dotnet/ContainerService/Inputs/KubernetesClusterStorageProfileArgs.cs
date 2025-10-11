@@ -13,25 +13,25 @@ namespace Pulumi.Azure.ContainerService.Inputs
     public sealed class KubernetesClusterStorageProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Is the Blob CSI driver enabled? Defaults to `false`.
+        /// Is the Blob CSI driver enabled? Defaults to `False`.
         /// </summary>
         [Input("blobDriverEnabled")]
         public Input<bool>? BlobDriverEnabled { get; set; }
 
         /// <summary>
-        /// Is the Disk CSI driver enabled? Defaults to `true`.
+        /// Is the Disk CSI driver enabled? Defaults to `True`.
         /// </summary>
         [Input("diskDriverEnabled")]
         public Input<bool>? DiskDriverEnabled { get; set; }
 
         /// <summary>
-        /// Is the File CSI driver enabled? Defaults to `true`.
+        /// Is the File CSI driver enabled? Defaults to `True`.
         /// </summary>
         [Input("fileDriverEnabled")]
         public Input<bool>? FileDriverEnabled { get; set; }
 
         /// <summary>
-        /// Is the Snapshot Controller enabled? Defaults to `true`.
+        /// Is the Snapshot Controller enabled? Defaults to `True`.
         /// </summary>
         [Input("snapshotControllerEnabled")]
         public Input<bool>? SnapshotControllerEnabled { get; set; }

@@ -151,7 +151,7 @@ namespace Pulumi.Azure.Compute
     public sealed class GetManagedDisksResult
     {
         /// <summary>
-        /// a `disk` block as detailed below.
+        /// a `Disk` block as detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetManagedDisksDiskResult> Disks;
         /// <summary>

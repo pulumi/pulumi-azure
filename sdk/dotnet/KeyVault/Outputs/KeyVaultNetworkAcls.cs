@@ -18,7 +18,7 @@ namespace Pulumi.Azure.KeyVault.Outputs
         /// </summary>
         public readonly string Bypass;
         /// <summary>
-        /// The Default Action to use when no rules match from `ip_rules` / `virtual_network_subnet_ids`. Possible values are `Allow` and `Deny`.
+        /// The Default Action to use when no rules match from `IpRules` / `VirtualNetworkSubnetIds`. Possible values are `Allow` and `Deny`.
         /// </summary>
         public readonly string DefaultAction;
         /// <summary>

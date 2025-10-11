@@ -163,9 +163,9 @@ namespace Pulumi.Azure.Sentinel
     public sealed class GetAlertRuleAnomalyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The display name of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
+        /// The display name of this Sentinel Alert Rule Template. Either `DisplayName` or `Name` have to be specified.
         /// 
-        /// &gt; **Note:** One of `name` or `display_name` must be specified.
+        /// &gt; **Note:** One of `Name` or `DisplayName` must be specified.
         /// </summary>
         [Input("displayName")]
         public string? DisplayName { get; set; }
@@ -177,7 +177,7 @@ namespace Pulumi.Azure.Sentinel
         public string LogAnalyticsWorkspaceId { get; set; } = null!;
 
         /// <summary>
-        /// The guid of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
+        /// The guid of this Sentinel Alert Rule Template. Either `DisplayName` or `Name` have to be specified.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -191,9 +191,9 @@ namespace Pulumi.Azure.Sentinel
     public sealed class GetAlertRuleAnomalyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The display name of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
+        /// The display name of this Sentinel Alert Rule Template. Either `DisplayName` or `Name` have to be specified.
         /// 
-        /// &gt; **Note:** One of `name` or `display_name` must be specified.
+        /// &gt; **Note:** One of `Name` or `DisplayName` must be specified.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
@@ -205,7 +205,7 @@ namespace Pulumi.Azure.Sentinel
         public Input<string> LogAnalyticsWorkspaceId { get; set; } = null!;
 
         /// <summary>
-        /// The guid of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
+        /// The guid of this Sentinel Alert Rule Template. Either `DisplayName` or `Name` have to be specified.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -248,7 +248,7 @@ namespace Pulumi.Azure.Sentinel
         public readonly string LogAnalyticsWorkspaceId;
         public readonly string Mode;
         /// <summary>
-        /// A list of `multi_select_observation` blocks as defined below.
+        /// A list of `MultiSelectObservation` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAlertRuleAnomalyMultiSelectObservationResult> MultiSelectObservations;
         /// <summary>
@@ -256,11 +256,11 @@ namespace Pulumi.Azure.Sentinel
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// A list of `prioritized_exclude_observation` blocks as defined below.
+        /// A list of `PrioritizedExcludeObservation` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAlertRuleAnomalyPrioritizedExcludeObservationResult> PrioritizedExcludeObservations;
         /// <summary>
-        /// A `required_data_connector` block as defined below.
+        /// A `RequiredDataConnector` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAlertRuleAnomalyRequiredDataConnectorResult> RequiredDataConnectors;
         /// <summary>
@@ -268,7 +268,7 @@ namespace Pulumi.Azure.Sentinel
         /// </summary>
         public readonly string SettingsDefinitionId;
         /// <summary>
-        /// A list of `single_select_observation` blocks as defined below.
+        /// A list of `SingleSelectObservation` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAlertRuleAnomalySingleSelectObservationResult> SingleSelectObservations;
         /// <summary>
@@ -280,7 +280,7 @@ namespace Pulumi.Azure.Sentinel
         /// </summary>
         public readonly ImmutableArray<string> Techniques;
         /// <summary>
-        /// A list of `threshold_observation` blocks as defined below.
+        /// A list of `ThresholdObservation` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAlertRuleAnomalyThresholdObservationResult> ThresholdObservations;
 

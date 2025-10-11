@@ -13,7 +13,7 @@ namespace Pulumi.Azure.PrivateLink.Inputs
     public sealed class EndpointCustomDnsConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The fully qualified domain name to the `private_dns_zone`.
+        /// The fully qualified domain name to the `PrivateDnsZone`.
         /// </summary>
         [Input("fqdn")]
         public Input<string>? Fqdn { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.PrivateLink.Inputs
         private InputList<string>? _ipAddresses;
 
         /// <summary>
-        /// A list of all IP Addresses that map to the `private_dns_zone` fqdn.
+        /// A list of all IP Addresses that map to the `PrivateDnsZone` fqdn.
         /// </summary>
         public InputList<string> IpAddresses
         {

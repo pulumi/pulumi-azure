@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Compute.Inputs
     public sealed class OrchestratedVirtualMachineScaleSetExtensionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
+        /// Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `True`.
         /// </summary>
         [Input("autoUpgradeMinorVersionEnabled")]
         public Input<bool>? AutoUpgradeMinorVersionEnabled { get; set; }
@@ -31,9 +31,9 @@ namespace Pulumi.Azure.Compute.Inputs
         }
 
         /// <summary>
-        /// Should failures from the extension be suppressed? Possible values are `true` or `false`.
+        /// Should failures from the extension be suppressed? Possible values are `True` or `False`.
         /// 
-        /// &gt; **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
+        /// &gt; **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `FailureSuppressionEnabled` value.
         /// </summary>
         [Input("failureSuppressionEnabled")]
         public Input<bool>? FailureSuppressionEnabled { get; set; }
@@ -56,7 +56,7 @@ namespace Pulumi.Azure.Compute.Inputs
         /// <summary>
         /// A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
         /// 
-        /// &gt; **Note:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. `TitleCase` vs `snakeCase`) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
+        /// &gt; **Note:** Keys within the `ProtectedSettings` block are notoriously case-sensitive, where the casing required (e.g. `TitleCase` vs `snakeCase`) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
         /// </summary>
         public Input<string>? ProtectedSettings
         {
@@ -69,9 +69,9 @@ namespace Pulumi.Azure.Compute.Inputs
         }
 
         /// <summary>
-        /// A `protected_settings_from_key_vault` block as defined below.
+        /// A `ProtectedSettingsFromKeyVault` block as defined below.
         /// 
-        /// &gt; **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
+        /// &gt; **Note:** `ProtectedSettingsFromKeyVault` cannot be used with `ProtectedSettings`
         /// </summary>
         [Input("protectedSettingsFromKeyVault")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultGetArgs>? ProtectedSettingsFromKeyVault { get; set; }

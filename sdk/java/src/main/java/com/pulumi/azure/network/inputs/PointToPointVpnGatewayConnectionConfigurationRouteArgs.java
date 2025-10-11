@@ -63,14 +63,14 @@ public final class PointToPointVpnGatewayConnectionConfigurationRouteArgs extend
     }
 
     /**
-     * A `propagated_route_table` block as defined below.
+     * A `propagatedRouteTable` block as defined below.
      * 
      */
     @Import(name="propagatedRouteTable")
     private @Nullable Output<PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgs> propagatedRouteTable;
 
     /**
-     * @return A `propagated_route_table` block as defined below.
+     * @return A `propagatedRouteTable` block as defined below.
      * 
      */
     public Optional<Output<PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgs>> propagatedRouteTable() {
@@ -168,7 +168,7 @@ public final class PointToPointVpnGatewayConnectionConfigurationRouteArgs extend
         }
 
         /**
-         * @param propagatedRouteTable A `propagated_route_table` block as defined below.
+         * @param propagatedRouteTable A `propagatedRouteTable` block as defined below.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class PointToPointVpnGatewayConnectionConfigurationRouteArgs extend
         }
 
         /**
-         * @param propagatedRouteTable A `propagated_route_table` block as defined below.
+         * @param propagatedRouteTable A `propagatedRouteTable` block as defined below.
          * 
          * @return builder
          * 

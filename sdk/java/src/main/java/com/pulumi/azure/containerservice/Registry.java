@@ -340,18 +340,18 @@ public class Registry extends com.pulumi.resources.CustomResource {
         return this.encryption;
     }
     /**
-     * Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
+     * Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `publicNetworkAccessEnabled` is also set to `false`.
      * 
-     * &gt; **Note:** `quarantine_policy_enabled`, `retention_policy_in_days`, `trust_policy_enabled`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
+     * &gt; **Note:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `trustPolicyEnabled`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
      * 
      */
     @Export(name="exportPolicyEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> exportPolicyEnabled;
 
     /**
-     * @return Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
+     * @return Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `publicNetworkAccessEnabled` is also set to `false`.
      * 
-     * &gt; **Note:** `quarantine_policy_enabled`, `retention_policy_in_days`, `trust_policy_enabled`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
+     * &gt; **Note:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `trustPolicyEnabled`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
      * 
      */
     public Output<Optional<Boolean>> exportPolicyEnabled() {
@@ -454,14 +454,14 @@ public class Registry extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.networkRuleBypassOption);
     }
     /**
-     * A `network_rule_set` block as documented below.
+     * A `networkRuleSet` block as documented below.
      * 
      */
     @Export(name="networkRuleSet", refs={RegistryNetworkRuleSet.class}, tree="[0]")
     private Output<RegistryNetworkRuleSet> networkRuleSet;
 
     /**
-     * @return A `network_rule_set` block as documented below.
+     * @return A `networkRuleSet` block as documented below.
      * 
      */
     public Output<RegistryNetworkRuleSet> networkRuleSet() {

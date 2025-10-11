@@ -16,7 +16,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         private InputList<string>? _bearerTokenSendingMethods;
 
         /// <summary>
-        /// How to send token to the server. A list of zero or more methods. Valid values are `authorizationHeader` and `query`.
+        /// How to send token to the server. A list of zero or more methods. Valid values are `authorizationHeader` and `Query`.
         /// </summary>
         public InputList<string> BearerTokenSendingMethods
         {

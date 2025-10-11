@@ -84,7 +84,7 @@ namespace Pulumi.Azure.Network
     public partial class VirtualHubConnection : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
+        /// Should Internet Security be enabled to secure internet traffic? Defaults to `False`.
         /// </summary>
         [Output("internetSecurityEnabled")]
         public Output<bool?> InternetSecurityEnabled { get; private set; } = null!;
@@ -102,7 +102,7 @@ namespace Pulumi.Azure.Network
         public Output<string> RemoteVirtualNetworkId { get; private set; } = null!;
 
         /// <summary>
-        /// A `routing` block as defined below.
+        /// A `Routing` block as defined below.
         /// </summary>
         [Output("routing")]
         public Output<Outputs.VirtualHubConnectionRouting> Routing { get; private set; } = null!;
@@ -160,7 +160,7 @@ namespace Pulumi.Azure.Network
     public sealed class VirtualHubConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
+        /// Should Internet Security be enabled to secure internet traffic? Defaults to `False`.
         /// </summary>
         [Input("internetSecurityEnabled")]
         public Input<bool>? InternetSecurityEnabled { get; set; }
@@ -178,7 +178,7 @@ namespace Pulumi.Azure.Network
         public Input<string> RemoteVirtualNetworkId { get; set; } = null!;
 
         /// <summary>
-        /// A `routing` block as defined below.
+        /// A `Routing` block as defined below.
         /// </summary>
         [Input("routing")]
         public Input<Inputs.VirtualHubConnectionRoutingArgs>? Routing { get; set; }
@@ -198,7 +198,7 @@ namespace Pulumi.Azure.Network
     public sealed class VirtualHubConnectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
+        /// Should Internet Security be enabled to secure internet traffic? Defaults to `False`.
         /// </summary>
         [Input("internetSecurityEnabled")]
         public Input<bool>? InternetSecurityEnabled { get; set; }
@@ -216,7 +216,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? RemoteVirtualNetworkId { get; set; }
 
         /// <summary>
-        /// A `routing` block as defined below.
+        /// A `Routing` block as defined below.
         /// </summary>
         [Input("routing")]
         public Input<Inputs.VirtualHubConnectionRoutingGetArgs>? Routing { get; set; }

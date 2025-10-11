@@ -131,14 +131,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:kusto/attachedDatabaseConfiguration:AttachedDatabaseConfiguration")
 public class AttachedDatabaseConfiguration extends com.pulumi.resources.CustomResource {
     /**
-     * The list of databases from the `cluster_resource_id` which are currently attached to the cluster.
+     * The list of databases from the `clusterResourceId` which are currently attached to the cluster.
      * 
      */
     @Export(name="attachedDatabaseNames", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> attachedDatabaseNames;
 
     /**
-     * @return The list of databases from the `cluster_resource_id` which are currently attached to the cluster.
+     * @return The list of databases from the `clusterResourceId` which are currently attached to the cluster.
      * 
      */
     public Output<List<String>> attachedDatabaseNames() {
@@ -174,10 +174,10 @@ public class AttachedDatabaseConfiguration extends com.pulumi.resources.CustomRe
     }
     /**
      * @deprecated
-     * `cluster_resource_id` has been deprecated in favour of the `cluster_id` property and will be removed in v5.0 of the AzureRM Provider.
+     * `clusterResourceId` has been deprecated in favour of the `clusterId` property and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `cluster_resource_id` has been deprecated in favour of the `cluster_id` property and will be removed in v5.0 of the AzureRM Provider. */
+    @Deprecated /* `clusterResourceId` has been deprecated in favour of the `clusterId` property and will be removed in v5.0 of the AzureRM Provider. */
     @Export(name="clusterResourceId", refs={String.class}, tree="[0]")
     private Output<String> clusterResourceId;
 

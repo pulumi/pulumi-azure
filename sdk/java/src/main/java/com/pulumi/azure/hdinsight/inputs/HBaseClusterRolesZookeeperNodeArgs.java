@@ -38,14 +38,14 @@ public final class HBaseClusterRolesZookeeperNodeArgs extends com.pulumi.resourc
     }
 
     /**
-     * The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
+     * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="scriptActions")
     private @Nullable Output<List<HBaseClusterRolesZookeeperNodeScriptActionArgs>> scriptActions;
 
     /**
-     * @return The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
+     * @return The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<HBaseClusterRolesZookeeperNodeScriptActionArgs>>> scriptActions() {
@@ -55,7 +55,7 @@ public final class HBaseClusterRolesZookeeperNodeArgs extends com.pulumi.resourc
     /**
      * A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
+     * &gt; **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
      * 
      */
     @Import(name="sshKeys")
@@ -64,7 +64,7 @@ public final class HBaseClusterRolesZookeeperNodeArgs extends com.pulumi.resourc
     /**
      * @return A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
+     * &gt; **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
      * 
      */
     public Optional<Output<List<String>>> sshKeys() {
@@ -187,7 +187,7 @@ public final class HBaseClusterRolesZookeeperNodeArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param scriptActions The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
+         * @param scriptActions The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class HBaseClusterRolesZookeeperNodeArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param scriptActions The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
+         * @param scriptActions The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class HBaseClusterRolesZookeeperNodeArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param scriptActions The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
+         * @param scriptActions The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -220,7 +220,7 @@ public final class HBaseClusterRolesZookeeperNodeArgs extends com.pulumi.resourc
         /**
          * @param sshKeys A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
+         * &gt; **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class HBaseClusterRolesZookeeperNodeArgs extends com.pulumi.resourc
         /**
          * @param sshKeys A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
+         * &gt; **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class HBaseClusterRolesZookeeperNodeArgs extends com.pulumi.resourc
         /**
          * @param sshKeys A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
+         * &gt; **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
          * 
          * @return builder
          * 

@@ -65,14 +65,14 @@ public final class FlowletDataFlowTransformationArgs extends com.pulumi.resource
     }
 
     /**
-     * A `linked_service` block as defined below.
+     * A `linkedService` block as defined below.
      * 
      */
     @Import(name="linkedService")
     private @Nullable Output<FlowletDataFlowTransformationLinkedServiceArgs> linkedService;
 
     /**
-     * @return A `linked_service` block as defined below.
+     * @return A `linkedService` block as defined below.
      * 
      */
     public Optional<Output<FlowletDataFlowTransformationLinkedServiceArgs>> linkedService() {
@@ -186,7 +186,7 @@ public final class FlowletDataFlowTransformationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param linkedService A `linked_service` block as defined below.
+         * @param linkedService A `linkedService` block as defined below.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class FlowletDataFlowTransformationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param linkedService A `linked_service` block as defined below.
+         * @param linkedService A `linkedService` block as defined below.
          * 
          * @return builder
          * 

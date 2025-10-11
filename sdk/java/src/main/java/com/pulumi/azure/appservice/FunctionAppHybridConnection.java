@@ -244,14 +244,14 @@ public class FunctionAppHybridConnection extends com.pulumi.resources.CustomReso
         return Codegen.optional(this.sendKeyName);
     }
     /**
-     * The Primary Access Key for the `send_key_name`
+     * The Primary Access Key for the `sendKeyName`
      * 
      */
     @Export(name="sendKeyValue", refs={String.class}, tree="[0]")
     private Output<String> sendKeyValue;
 
     /**
-     * @return The Primary Access Key for the `send_key_name`
+     * @return The Primary Access Key for the `sendKeyName`
      * 
      */
     public Output<String> sendKeyValue() {

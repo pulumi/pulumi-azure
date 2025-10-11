@@ -57,7 +57,7 @@ namespace Pulumi.Azure.LogicApps
     public partial class Workflow : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A `access_control` block as defined below.
+        /// A `AccessControl` block as defined below.
         /// </summary>
         [Output("accessControl")]
         public Output<Outputs.WorkflowAccessControl?> AccessControl { get; private set; } = null!;
@@ -81,13 +81,13 @@ namespace Pulumi.Azure.LogicApps
         public Output<ImmutableArray<string>> ConnectorOutboundIpAddresses { get; private set; } = null!;
 
         /// <summary>
-        /// Is the Logic App Workflow enabled? Defaults to `true`.
+        /// Is the Logic App Workflow enabled? Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.WorkflowIdentity?> Identity { get; private set; } = null!;
@@ -119,7 +119,7 @@ namespace Pulumi.Azure.LogicApps
         /// <summary>
         /// A map of Key-Value pairs.
         /// 
-        /// &gt; **Note:** Any parameters specified must exist in the Schema defined in `workflow_parameters`.
+        /// &gt; **Note:** Any parameters specified must exist in the Schema defined in `WorkflowParameters`.
         /// </summary>
         [Output("parameters")]
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
@@ -213,19 +213,19 @@ namespace Pulumi.Azure.LogicApps
     public sealed class WorkflowArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `access_control` block as defined below.
+        /// A `AccessControl` block as defined below.
         /// </summary>
         [Input("accessControl")]
         public Input<Inputs.WorkflowAccessControlArgs>? AccessControl { get; set; }
 
         /// <summary>
-        /// Is the Logic App Workflow enabled? Defaults to `true`.
+        /// Is the Logic App Workflow enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.WorkflowIdentityArgs>? Identity { get; set; }
@@ -260,7 +260,7 @@ namespace Pulumi.Azure.LogicApps
         /// <summary>
         /// A map of Key-Value pairs.
         /// 
-        /// &gt; **Note:** Any parameters specified must exist in the Schema defined in `workflow_parameters`.
+        /// &gt; **Note:** Any parameters specified must exist in the Schema defined in `WorkflowParameters`.
         /// </summary>
         public InputMap<string> Parameters
         {
@@ -319,7 +319,7 @@ namespace Pulumi.Azure.LogicApps
     public sealed class WorkflowState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `access_control` block as defined below.
+        /// A `AccessControl` block as defined below.
         /// </summary>
         [Input("accessControl")]
         public Input<Inputs.WorkflowAccessControlGetArgs>? AccessControl { get; set; }
@@ -355,13 +355,13 @@ namespace Pulumi.Azure.LogicApps
         }
 
         /// <summary>
-        /// Is the Logic App Workflow enabled? Defaults to `true`.
+        /// Is the Logic App Workflow enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.WorkflowIdentityGetArgs>? Identity { get; set; }
@@ -396,7 +396,7 @@ namespace Pulumi.Azure.LogicApps
         /// <summary>
         /// A map of Key-Value pairs.
         /// 
-        /// &gt; **Note:** Any parameters specified must exist in the Schema defined in `workflow_parameters`.
+        /// &gt; **Note:** Any parameters specified must exist in the Schema defined in `WorkflowParameters`.
         /// </summary>
         public InputMap<string> Parameters
         {

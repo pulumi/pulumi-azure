@@ -61,7 +61,7 @@ namespace Pulumi.Azure.DataProtection
         /// <summary>
         /// Whether to enable cross-region restore for the Backup Vault.
         /// 
-        /// &gt; **Note:** The `cross_region_restore_enabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `cross_region_restore_enabled` is enabled, it cannot be disabled.
+        /// &gt; **Note:** The `CrossRegionRestoreEnabled` can only be specified when `Redundancy` is specified for `GeoRedundant`. Once `CrossRegionRestoreEnabled` is enabled, it cannot be disabled.
         /// </summary>
         [Output("crossRegionRestoreEnabled")]
         public Output<bool?> CrossRegionRestoreEnabled { get; private set; } = null!;
@@ -75,7 +75,7 @@ namespace Pulumi.Azure.DataProtection
         public Output<string> DatastoreType { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.BackupVaultIdentity?> Identity { get; private set; } = null!;
@@ -113,7 +113,7 @@ namespace Pulumi.Azure.DataProtection
         /// <summary>
         /// The soft delete retention duration for this Backup Vault. Possible values are between `14` and `180`. Defaults to `14`.
         /// 
-        /// &gt; **Note:** The `retention_duration_in_days` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retention_duration_in_days` is required when the `soft_delete` is set to `On`.
+        /// &gt; **Note:** The `RetentionDurationInDays` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `RetentionDurationInDays` is required when the `SoftDelete` is set to `On`.
         /// </summary>
         [Output("retentionDurationInDays")]
         public Output<double?> RetentionDurationInDays { get; private set; } = null!;
@@ -121,7 +121,7 @@ namespace Pulumi.Azure.DataProtection
         /// <summary>
         /// The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off`, and `On`. Defaults to `On`.
         /// 
-        /// &gt; **Note:** Once the `soft_delete` is set to `AlwaysOn`, the setting cannot be changed.
+        /// &gt; **Note:** Once the `SoftDelete` is set to `AlwaysOn`, the setting cannot be changed.
         /// </summary>
         [Output("softDelete")]
         public Output<string?> SoftDelete { get; private set; } = null!;
@@ -181,7 +181,7 @@ namespace Pulumi.Azure.DataProtection
         /// <summary>
         /// Whether to enable cross-region restore for the Backup Vault.
         /// 
-        /// &gt; **Note:** The `cross_region_restore_enabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `cross_region_restore_enabled` is enabled, it cannot be disabled.
+        /// &gt; **Note:** The `CrossRegionRestoreEnabled` can only be specified when `Redundancy` is specified for `GeoRedundant`. Once `CrossRegionRestoreEnabled` is enabled, it cannot be disabled.
         /// </summary>
         [Input("crossRegionRestoreEnabled")]
         public Input<bool>? CrossRegionRestoreEnabled { get; set; }
@@ -195,7 +195,7 @@ namespace Pulumi.Azure.DataProtection
         public Input<string> DatastoreType { get; set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.BackupVaultIdentityArgs>? Identity { get; set; }
@@ -233,7 +233,7 @@ namespace Pulumi.Azure.DataProtection
         /// <summary>
         /// The soft delete retention duration for this Backup Vault. Possible values are between `14` and `180`. Defaults to `14`.
         /// 
-        /// &gt; **Note:** The `retention_duration_in_days` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retention_duration_in_days` is required when the `soft_delete` is set to `On`.
+        /// &gt; **Note:** The `RetentionDurationInDays` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `RetentionDurationInDays` is required when the `SoftDelete` is set to `On`.
         /// </summary>
         [Input("retentionDurationInDays")]
         public Input<double>? RetentionDurationInDays { get; set; }
@@ -241,7 +241,7 @@ namespace Pulumi.Azure.DataProtection
         /// <summary>
         /// The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off`, and `On`. Defaults to `On`.
         /// 
-        /// &gt; **Note:** Once the `soft_delete` is set to `AlwaysOn`, the setting cannot be changed.
+        /// &gt; **Note:** Once the `SoftDelete` is set to `AlwaysOn`, the setting cannot be changed.
         /// </summary>
         [Input("softDelete")]
         public Input<string>? SoftDelete { get; set; }
@@ -269,7 +269,7 @@ namespace Pulumi.Azure.DataProtection
         /// <summary>
         /// Whether to enable cross-region restore for the Backup Vault.
         /// 
-        /// &gt; **Note:** The `cross_region_restore_enabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `cross_region_restore_enabled` is enabled, it cannot be disabled.
+        /// &gt; **Note:** The `CrossRegionRestoreEnabled` can only be specified when `Redundancy` is specified for `GeoRedundant`. Once `CrossRegionRestoreEnabled` is enabled, it cannot be disabled.
         /// </summary>
         [Input("crossRegionRestoreEnabled")]
         public Input<bool>? CrossRegionRestoreEnabled { get; set; }
@@ -283,7 +283,7 @@ namespace Pulumi.Azure.DataProtection
         public Input<string>? DatastoreType { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.BackupVaultIdentityGetArgs>? Identity { get; set; }
@@ -321,7 +321,7 @@ namespace Pulumi.Azure.DataProtection
         /// <summary>
         /// The soft delete retention duration for this Backup Vault. Possible values are between `14` and `180`. Defaults to `14`.
         /// 
-        /// &gt; **Note:** The `retention_duration_in_days` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retention_duration_in_days` is required when the `soft_delete` is set to `On`.
+        /// &gt; **Note:** The `RetentionDurationInDays` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `RetentionDurationInDays` is required when the `SoftDelete` is set to `On`.
         /// </summary>
         [Input("retentionDurationInDays")]
         public Input<double>? RetentionDurationInDays { get; set; }
@@ -329,7 +329,7 @@ namespace Pulumi.Azure.DataProtection
         /// <summary>
         /// The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off`, and `On`. Defaults to `On`.
         /// 
-        /// &gt; **Note:** Once the `soft_delete` is set to `AlwaysOn`, the setting cannot be changed.
+        /// &gt; **Note:** Once the `SoftDelete` is set to `AlwaysOn`, the setting cannot be changed.
         /// </summary>
         [Input("softDelete")]
         public Input<string>? SoftDelete { get; set; }

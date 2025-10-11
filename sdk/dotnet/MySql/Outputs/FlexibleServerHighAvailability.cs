@@ -16,7 +16,7 @@ namespace Pulumi.Azure.MySql.Outputs
         /// <summary>
         /// The high availability mode for the MySQL Flexible Server. Possibles values are `SameZone` and `ZoneRedundant`.
         /// 
-        /// &gt; **Note:** `storage[0].auto_grow_enabled` must be enabled when `high_availability` is enabled. To change the `high_availability` for a MySQL Flexible Server created with `high_availability` disabled during creation, the resource has to be recreated.
+        /// &gt; **Note:** `storage[0].auto_grow_enabled` must be enabled when `HighAvailability` is enabled. To change the `HighAvailability` for a MySQL Flexible Server created with `HighAvailability` disabled during creation, the resource has to be recreated.
         /// </summary>
         public readonly string Mode;
         public readonly string? StandbyAvailabilityZone;

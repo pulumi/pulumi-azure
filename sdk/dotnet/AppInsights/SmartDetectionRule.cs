@@ -79,7 +79,7 @@ namespace Pulumi.Azure.AppInsights
         public Output<string> ApplicationInsightsId { get; private set; } = null!;
 
         /// <summary>
-        /// Is the Application Insights Smart Detection Rule enabled? Defaults to `true`.
+        /// Is the Application Insights Smart Detection Rule enabled? Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -91,7 +91,7 @@ namespace Pulumi.Azure.AppInsights
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Do emails get sent to subscription owners? Defaults to `true`.
+        /// Do emails get sent to subscription owners? Defaults to `True`.
         /// </summary>
         [Output("sendEmailsToSubscriptionOwners")]
         public Output<bool?> SendEmailsToSubscriptionOwners { get; private set; } = null!;
@@ -163,7 +163,7 @@ namespace Pulumi.Azure.AppInsights
         public Input<string> ApplicationInsightsId { get; set; } = null!;
 
         /// <summary>
-        /// Is the Application Insights Smart Detection Rule enabled? Defaults to `true`.
+        /// Is the Application Insights Smart Detection Rule enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -175,7 +175,7 @@ namespace Pulumi.Azure.AppInsights
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Do emails get sent to subscription owners? Defaults to `true`.
+        /// Do emails get sent to subscription owners? Defaults to `True`.
         /// </summary>
         [Input("sendEmailsToSubscriptionOwners")]
         public Input<bool>? SendEmailsToSubscriptionOwners { get; set; }
@@ -209,7 +209,7 @@ namespace Pulumi.Azure.AppInsights
         public Input<string>? ApplicationInsightsId { get; set; }
 
         /// <summary>
-        /// Is the Application Insights Smart Detection Rule enabled? Defaults to `true`.
+        /// Is the Application Insights Smart Detection Rule enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -221,7 +221,7 @@ namespace Pulumi.Azure.AppInsights
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Do emails get sent to subscription owners? Defaults to `true`.
+        /// Do emails get sent to subscription owners? Defaults to `True`.
         /// </summary>
         [Input("sendEmailsToSubscriptionOwners")]
         public Input<bool>? SendEmailsToSubscriptionOwners { get; set; }

@@ -16,7 +16,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         private InputList<Inputs.KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortGetArgs>? _allowedHostPorts;
 
         /// <summary>
-        /// One or more `allowed_host_ports` blocks as defined below.
+        /// One or more `AllowedHostPorts` blocks as defined below.
         /// </summary>
         public InputList<Inputs.KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortGetArgs> AllowedHostPorts
         {

@@ -148,22 +148,22 @@ namespace Pulumi.Azure.WebPubSub
     public partial class Hub : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Is anonymous connections are allowed for this hub? Defaults to `false`.
-        /// Possible values are `true`, `false`.
+        /// Is anonymous connections are allowed for this hub? Defaults to `False`.
+        /// Possible values are `True`, `False`.
         /// </summary>
         [Output("anonymousConnectionsEnabled")]
         public Output<bool?> AnonymousConnectionsEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// An `event_handler` block as defined below.
+        /// An `EventHandler` block as defined below.
         /// 
-        /// &gt; **Note:** User can change the order of `event_handler` to change the priority accordingly.
+        /// &gt; **Note:** User can change the order of `EventHandler` to change the priority accordingly.
         /// </summary>
         [Output("eventHandlers")]
         public Output<ImmutableArray<Outputs.HubEventHandler>> EventHandlers { get; private set; } = null!;
 
         /// <summary>
-        /// An `event_listener` block as defined below.
+        /// An `EventListener` block as defined below.
         /// 
         /// &gt; **Note:** The managed identity of Web PubSub service must be enabled and the identity must have the "Azure Event Hubs Data sender" role to access the Event Hub.
         /// </summary>
@@ -229,8 +229,8 @@ namespace Pulumi.Azure.WebPubSub
     public sealed class HubArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Is anonymous connections are allowed for this hub? Defaults to `false`.
-        /// Possible values are `true`, `false`.
+        /// Is anonymous connections are allowed for this hub? Defaults to `False`.
+        /// Possible values are `True`, `False`.
         /// </summary>
         [Input("anonymousConnectionsEnabled")]
         public Input<bool>? AnonymousConnectionsEnabled { get; set; }
@@ -239,9 +239,9 @@ namespace Pulumi.Azure.WebPubSub
         private InputList<Inputs.HubEventHandlerArgs>? _eventHandlers;
 
         /// <summary>
-        /// An `event_handler` block as defined below.
+        /// An `EventHandler` block as defined below.
         /// 
-        /// &gt; **Note:** User can change the order of `event_handler` to change the priority accordingly.
+        /// &gt; **Note:** User can change the order of `EventHandler` to change the priority accordingly.
         /// </summary>
         public InputList<Inputs.HubEventHandlerArgs> EventHandlers
         {
@@ -253,7 +253,7 @@ namespace Pulumi.Azure.WebPubSub
         private InputList<Inputs.HubEventListenerArgs>? _eventListeners;
 
         /// <summary>
-        /// An `event_listener` block as defined below.
+        /// An `EventListener` block as defined below.
         /// 
         /// &gt; **Note:** The managed identity of Web PubSub service must be enabled and the identity must have the "Azure Event Hubs Data sender" role to access the Event Hub.
         /// </summary>
@@ -284,8 +284,8 @@ namespace Pulumi.Azure.WebPubSub
     public sealed class HubState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Is anonymous connections are allowed for this hub? Defaults to `false`.
-        /// Possible values are `true`, `false`.
+        /// Is anonymous connections are allowed for this hub? Defaults to `False`.
+        /// Possible values are `True`, `False`.
         /// </summary>
         [Input("anonymousConnectionsEnabled")]
         public Input<bool>? AnonymousConnectionsEnabled { get; set; }
@@ -294,9 +294,9 @@ namespace Pulumi.Azure.WebPubSub
         private InputList<Inputs.HubEventHandlerGetArgs>? _eventHandlers;
 
         /// <summary>
-        /// An `event_handler` block as defined below.
+        /// An `EventHandler` block as defined below.
         /// 
-        /// &gt; **Note:** User can change the order of `event_handler` to change the priority accordingly.
+        /// &gt; **Note:** User can change the order of `EventHandler` to change the priority accordingly.
         /// </summary>
         public InputList<Inputs.HubEventHandlerGetArgs> EventHandlers
         {
@@ -308,7 +308,7 @@ namespace Pulumi.Azure.WebPubSub
         private InputList<Inputs.HubEventListenerGetArgs>? _eventListeners;
 
         /// <summary>
-        /// An `event_listener` block as defined below.
+        /// An `EventListener` block as defined below.
         /// 
         /// &gt; **Note:** The managed identity of Web PubSub service must be enabled and the identity must have the "Azure Event Hubs Data sender" role to access the Event Hub.
         /// </summary>

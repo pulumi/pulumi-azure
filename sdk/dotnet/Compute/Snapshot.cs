@@ -71,13 +71,13 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. 
         /// 
-        /// &gt; **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
+        /// &gt; **Note:** One of `SourceUri`, `SourceResourceId` or `StorageAccountId` must be specified.
         /// </summary>
         [Output("createOption")]
         public Output<string> CreateOption { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `network_access_policy` to `AllowPrivate`.
+        /// Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `NetworkAccessPolicy` to `AllowPrivate`.
         /// </summary>
         [Output("diskAccessId")]
         public Output<string?> DiskAccessId { get; private set; } = null!;
@@ -89,9 +89,9 @@ namespace Pulumi.Azure.Compute
         public Output<int> DiskSizeGb { get; private set; } = null!;
 
         /// <summary>
-        /// A `encryption_settings` block as defined below.
+        /// A `EncryptionSettings` block as defined below.
         /// 
-        /// &gt; **Note:** Removing `encryption_settings` forces a new resource to be created.
+        /// &gt; **Note:** Removing `EncryptionSettings` forces a new resource to be created.
         /// </summary>
         [Output("encryptionSettings")]
         public Output<Outputs.SnapshotEncryptionSettings?> EncryptionSettings { get; private set; } = null!;
@@ -121,7 +121,7 @@ namespace Pulumi.Azure.Compute
         public Output<string?> NetworkAccessPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Policy for controlling export on the disk. Possible values are `true` or `false`. Defaults to `true`.
+        /// Policy for controlling export on the disk. Possible values are `True` or `False`. Defaults to `True`.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
@@ -133,7 +133,7 @@ namespace Pulumi.Azure.Compute
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a reference to an existing snapshot, when `create_option` is `Copy`. Changing this forces a new resource to be created.
+        /// Specifies a reference to an existing snapshot, when `CreateOption` is `Copy`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("sourceResourceId")]
         public Output<string?> SourceResourceId { get; private set; } = null!;
@@ -145,7 +145,7 @@ namespace Pulumi.Azure.Compute
         public Output<string?> SourceUri { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the ID of an storage account. Used with `source_uri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
+        /// Specifies the ID of an storage account. Used with `SourceUri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
         /// </summary>
         [Output("storageAccountId")]
         public Output<string?> StorageAccountId { get; private set; } = null!;
@@ -211,13 +211,13 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. 
         /// 
-        /// &gt; **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
+        /// &gt; **Note:** One of `SourceUri`, `SourceResourceId` or `StorageAccountId` must be specified.
         /// </summary>
         [Input("createOption", required: true)]
         public Input<string> CreateOption { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `network_access_policy` to `AllowPrivate`.
+        /// Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `NetworkAccessPolicy` to `AllowPrivate`.
         /// </summary>
         [Input("diskAccessId")]
         public Input<string>? DiskAccessId { get; set; }
@@ -229,9 +229,9 @@ namespace Pulumi.Azure.Compute
         public Input<int>? DiskSizeGb { get; set; }
 
         /// <summary>
-        /// A `encryption_settings` block as defined below.
+        /// A `EncryptionSettings` block as defined below.
         /// 
-        /// &gt; **Note:** Removing `encryption_settings` forces a new resource to be created.
+        /// &gt; **Note:** Removing `EncryptionSettings` forces a new resource to be created.
         /// </summary>
         [Input("encryptionSettings")]
         public Input<Inputs.SnapshotEncryptionSettingsArgs>? EncryptionSettings { get; set; }
@@ -261,7 +261,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? NetworkAccessPolicy { get; set; }
 
         /// <summary>
-        /// Policy for controlling export on the disk. Possible values are `true` or `false`. Defaults to `true`.
+        /// Policy for controlling export on the disk. Possible values are `True` or `False`. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -273,7 +273,7 @@ namespace Pulumi.Azure.Compute
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies a reference to an existing snapshot, when `create_option` is `Copy`. Changing this forces a new resource to be created.
+        /// Specifies a reference to an existing snapshot, when `CreateOption` is `Copy`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sourceResourceId")]
         public Input<string>? SourceResourceId { get; set; }
@@ -285,7 +285,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? SourceUri { get; set; }
 
         /// <summary>
-        /// Specifies the ID of an storage account. Used with `source_uri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
+        /// Specifies the ID of an storage account. Used with `SourceUri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }
@@ -313,13 +313,13 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. 
         /// 
-        /// &gt; **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
+        /// &gt; **Note:** One of `SourceUri`, `SourceResourceId` or `StorageAccountId` must be specified.
         /// </summary>
         [Input("createOption")]
         public Input<string>? CreateOption { get; set; }
 
         /// <summary>
-        /// Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `network_access_policy` to `AllowPrivate`.
+        /// Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `NetworkAccessPolicy` to `AllowPrivate`.
         /// </summary>
         [Input("diskAccessId")]
         public Input<string>? DiskAccessId { get; set; }
@@ -331,9 +331,9 @@ namespace Pulumi.Azure.Compute
         public Input<int>? DiskSizeGb { get; set; }
 
         /// <summary>
-        /// A `encryption_settings` block as defined below.
+        /// A `EncryptionSettings` block as defined below.
         /// 
-        /// &gt; **Note:** Removing `encryption_settings` forces a new resource to be created.
+        /// &gt; **Note:** Removing `EncryptionSettings` forces a new resource to be created.
         /// </summary>
         [Input("encryptionSettings")]
         public Input<Inputs.SnapshotEncryptionSettingsGetArgs>? EncryptionSettings { get; set; }
@@ -363,7 +363,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? NetworkAccessPolicy { get; set; }
 
         /// <summary>
-        /// Policy for controlling export on the disk. Possible values are `true` or `false`. Defaults to `true`.
+        /// Policy for controlling export on the disk. Possible values are `True` or `False`. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -375,7 +375,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// Specifies a reference to an existing snapshot, when `create_option` is `Copy`. Changing this forces a new resource to be created.
+        /// Specifies a reference to an existing snapshot, when `CreateOption` is `Copy`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sourceResourceId")]
         public Input<string>? SourceResourceId { get; set; }
@@ -387,7 +387,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? SourceUri { get; set; }
 
         /// <summary>
-        /// Specifies the ID of an storage account. Used with `source_uri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
+        /// Specifies the ID of an storage account. Used with `SourceUri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }

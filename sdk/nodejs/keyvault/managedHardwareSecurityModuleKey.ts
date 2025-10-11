@@ -9,6 +9,15 @@ import * as utilities from "../utilities";
  *
  * > **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Managed Hardware Security Module Key resource on destroy, rather than the default soft-delete. See `purgeSoftDeletedHardwareSecurityModulesOnDestroy` for more information.
  *
+ * ## Example Usage
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.KeyVault` - 2023-07-01
+ *
  * ## Import
  *
  * Key Vault Managed Hardware Security Module Key can be imported using the `resource id`, e.g.

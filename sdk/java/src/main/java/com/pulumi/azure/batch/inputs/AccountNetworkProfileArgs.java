@@ -17,14 +17,14 @@ public final class AccountNetworkProfileArgs extends com.pulumi.resources.Resour
     public static final AccountNetworkProfileArgs Empty = new AccountNetworkProfileArgs();
 
     /**
-     * An `account_access` block as defined below.
+     * An `accountAccess` block as defined below.
      * 
      */
     @Import(name="accountAccess")
     private @Nullable Output<AccountNetworkProfileAccountAccessArgs> accountAccess;
 
     /**
-     * @return An `account_access` block as defined below.
+     * @return An `accountAccess` block as defined below.
      * 
      */
     public Optional<Output<AccountNetworkProfileAccountAccessArgs>> accountAccess() {
@@ -32,18 +32,18 @@ public final class AccountNetworkProfileArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * A `node_management_access` block as defined below.
+     * A `nodeManagementAccess` block as defined below.
      * 
-     * &gt; **NOTE:** At least one of `account_access` or `node_management_access` must be specified.
+     * &gt; **NOTE:** At least one of `accountAccess` or `nodeManagementAccess` must be specified.
      * 
      */
     @Import(name="nodeManagementAccess")
     private @Nullable Output<AccountNetworkProfileNodeManagementAccessArgs> nodeManagementAccess;
 
     /**
-     * @return A `node_management_access` block as defined below.
+     * @return A `nodeManagementAccess` block as defined below.
      * 
-     * &gt; **NOTE:** At least one of `account_access` or `node_management_access` must be specified.
+     * &gt; **NOTE:** At least one of `accountAccess` or `nodeManagementAccess` must be specified.
      * 
      */
     public Optional<Output<AccountNetworkProfileNodeManagementAccessArgs>> nodeManagementAccess() {
@@ -76,7 +76,7 @@ public final class AccountNetworkProfileArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param accountAccess An `account_access` block as defined below.
+         * @param accountAccess An `accountAccess` block as defined below.
          * 
          * @return builder
          * 
@@ -87,7 +87,7 @@ public final class AccountNetworkProfileArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param accountAccess An `account_access` block as defined below.
+         * @param accountAccess An `accountAccess` block as defined below.
          * 
          * @return builder
          * 
@@ -97,9 +97,9 @@ public final class AccountNetworkProfileArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param nodeManagementAccess A `node_management_access` block as defined below.
+         * @param nodeManagementAccess A `nodeManagementAccess` block as defined below.
          * 
-         * &gt; **NOTE:** At least one of `account_access` or `node_management_access` must be specified.
+         * &gt; **NOTE:** At least one of `accountAccess` or `nodeManagementAccess` must be specified.
          * 
          * @return builder
          * 
@@ -110,9 +110,9 @@ public final class AccountNetworkProfileArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param nodeManagementAccess A `node_management_access` block as defined below.
+         * @param nodeManagementAccess A `nodeManagementAccess` block as defined below.
          * 
-         * &gt; **NOTE:** At least one of `account_access` or `node_management_access` must be specified.
+         * &gt; **NOTE:** At least one of `accountAccess` or `nodeManagementAccess` must be specified.
          * 
          * @return builder
          * 

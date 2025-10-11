@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class WindowsWebAppBackup
     {
         /// <summary>
-        /// Should this backup job be enabled? Defaults to `true`.
+        /// Should this backup job be enabled? Defaults to `True`.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// A `schedule` block as defined below.
+        /// A `Schedule` block as defined below.
         /// </summary>
         public readonly Outputs.WindowsWebAppBackupSchedule Schedule;
         /// <summary>

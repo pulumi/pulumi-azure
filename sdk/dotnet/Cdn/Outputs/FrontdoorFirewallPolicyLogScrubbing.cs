@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Cdn.Outputs
     public sealed class FrontdoorFirewallPolicyLogScrubbing
     {
         /// <summary>
-        /// Is log scrubbing enabled? Possible values are `true` or `false`. Defaults to `true`.
+        /// Is log scrubbing enabled? Possible values are `True` or `False`. Defaults to `True`.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// One or more `scrubbing_rule` blocks as defined below.
+        /// One or more `ScrubbingRule` blocks as defined below.
         /// 
         /// &gt; **Note:** For more information on masking sensitive data in Azure Front Door please see the [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-sensitive-data-protection-configure-frontdoor).
         /// </summary>

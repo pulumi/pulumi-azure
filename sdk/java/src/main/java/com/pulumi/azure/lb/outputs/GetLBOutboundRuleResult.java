@@ -26,7 +26,7 @@ public final class GetLBOutboundRuleResult {
     private String backendAddressPoolId;
     private Boolean enableTcpReset;
     /**
-     * @return A `frontend_ip_configuration` block as defined below.
+     * @return A `frontendIpConfiguration` block as defined below.
      * 
      */
     private List<GetLBOutboundRuleFrontendIpConfiguration> frontendIpConfigurations;
@@ -76,7 +76,7 @@ public final class GetLBOutboundRuleResult {
         return this.enableTcpReset;
     }
     /**
-     * @return A `frontend_ip_configuration` block as defined below.
+     * @return A `frontendIpConfiguration` block as defined below.
      * 
      */
     public List<GetLBOutboundRuleFrontendIpConfiguration> frontendIpConfigurations() {

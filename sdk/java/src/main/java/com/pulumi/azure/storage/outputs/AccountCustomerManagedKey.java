@@ -13,33 +13,33 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AccountCustomerManagedKey {
     /**
-     * @return The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. Exactly one of `key_vault_key_id` and `managed_hsm_key_id` may be specified.
+     * @return The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. Exactly one of `keyVaultKeyId` and `managedHsmKeyId` may be specified.
      * 
      */
     private @Nullable String keyVaultKeyId;
     /**
-     * @return The ID of the managed HSM Key. Exactly one of `key_vault_key_id` and `managed_hsm_key_id` may be specified.
+     * @return The ID of the managed HSM Key. Exactly one of `keyVaultKeyId` and `managedHsmKeyId` may be specified.
      * 
      */
     private @Nullable String managedHsmKeyId;
     /**
      * @return The ID of a user assigned identity.
      * 
-     * &gt; **Note:** `customer_managed_key` can only be set when the `account_kind` is set to `StorageV2` or `account_tier` set to `Premium`, and the identity type is `UserAssigned`.
+     * &gt; **Note:** `customerManagedKey` can only be set when the `accountKind` is set to `StorageV2` or `accountTier` set to `Premium`, and the identity type is `UserAssigned`.
      * 
      */
     private String userAssignedIdentityId;
 
     private AccountCustomerManagedKey() {}
     /**
-     * @return The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. Exactly one of `key_vault_key_id` and `managed_hsm_key_id` may be specified.
+     * @return The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. Exactly one of `keyVaultKeyId` and `managedHsmKeyId` may be specified.
      * 
      */
     public Optional<String> keyVaultKeyId() {
         return Optional.ofNullable(this.keyVaultKeyId);
     }
     /**
-     * @return The ID of the managed HSM Key. Exactly one of `key_vault_key_id` and `managed_hsm_key_id` may be specified.
+     * @return The ID of the managed HSM Key. Exactly one of `keyVaultKeyId` and `managedHsmKeyId` may be specified.
      * 
      */
     public Optional<String> managedHsmKeyId() {
@@ -48,7 +48,7 @@ public final class AccountCustomerManagedKey {
     /**
      * @return The ID of a user assigned identity.
      * 
-     * &gt; **Note:** `customer_managed_key` can only be set when the `account_kind` is set to `StorageV2` or `account_tier` set to `Premium`, and the identity type is `UserAssigned`.
+     * &gt; **Note:** `customerManagedKey` can only be set when the `accountKind` is set to `StorageV2` or `accountTier` set to `Premium`, and the identity type is `UserAssigned`.
      * 
      */
     public String userAssignedIdentityId() {

@@ -87,7 +87,7 @@ namespace Pulumi.Azure.ContainerApp
         public Output<string> ContainerAppEnvironmentId { get; private set; } = null!;
 
         /// <summary>
-        /// Should the Dapr sidecar to continue initialisation if the component fails to load. Defaults to `false`
+        /// Should the Dapr sidecar to continue initialisation if the component fails to load. Defaults to `False`
         /// </summary>
         [Output("ignoreErrors")]
         public Output<bool?> IgnoreErrors { get; private set; } = null!;
@@ -99,7 +99,7 @@ namespace Pulumi.Azure.ContainerApp
         public Output<string?> InitTimeout { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `metadata` blocks as detailed below.
+        /// One or more `Metadata` blocks as detailed below.
         /// </summary>
         [Output("metadatas")]
         public Output<ImmutableArray<Outputs.EnvironmentDaprComponentMetadata>> Metadatas { get; private set; } = null!;
@@ -119,7 +119,7 @@ namespace Pulumi.Azure.ContainerApp
         public Output<ImmutableArray<string>> Scopes { get; private set; } = null!;
 
         /// <summary>
-        /// A `secret` block as detailed below.
+        /// A `Secret` block as detailed below.
         /// </summary>
         [Output("secrets")]
         public Output<ImmutableArray<Outputs.EnvironmentDaprComponentSecret>> Secrets { get; private set; } = null!;
@@ -193,7 +193,7 @@ namespace Pulumi.Azure.ContainerApp
         public Input<string> ContainerAppEnvironmentId { get; set; } = null!;
 
         /// <summary>
-        /// Should the Dapr sidecar to continue initialisation if the component fails to load. Defaults to `false`
+        /// Should the Dapr sidecar to continue initialisation if the component fails to load. Defaults to `False`
         /// </summary>
         [Input("ignoreErrors")]
         public Input<bool>? IgnoreErrors { get; set; }
@@ -208,7 +208,7 @@ namespace Pulumi.Azure.ContainerApp
         private InputList<Inputs.EnvironmentDaprComponentMetadataArgs>? _metadatas;
 
         /// <summary>
-        /// One or more `metadata` blocks as detailed below.
+        /// One or more `Metadata` blocks as detailed below.
         /// </summary>
         public InputList<Inputs.EnvironmentDaprComponentMetadataArgs> Metadatas
         {
@@ -240,7 +240,7 @@ namespace Pulumi.Azure.ContainerApp
         private InputList<Inputs.EnvironmentDaprComponentSecretArgs>? _secrets;
 
         /// <summary>
-        /// A `secret` block as detailed below.
+        /// A `Secret` block as detailed below.
         /// </summary>
         public InputList<Inputs.EnvironmentDaprComponentSecretArgs> Secrets
         {
@@ -279,7 +279,7 @@ namespace Pulumi.Azure.ContainerApp
         public Input<string>? ContainerAppEnvironmentId { get; set; }
 
         /// <summary>
-        /// Should the Dapr sidecar to continue initialisation if the component fails to load. Defaults to `false`
+        /// Should the Dapr sidecar to continue initialisation if the component fails to load. Defaults to `False`
         /// </summary>
         [Input("ignoreErrors")]
         public Input<bool>? IgnoreErrors { get; set; }
@@ -294,7 +294,7 @@ namespace Pulumi.Azure.ContainerApp
         private InputList<Inputs.EnvironmentDaprComponentMetadataGetArgs>? _metadatas;
 
         /// <summary>
-        /// One or more `metadata` blocks as detailed below.
+        /// One or more `Metadata` blocks as detailed below.
         /// </summary>
         public InputList<Inputs.EnvironmentDaprComponentMetadataGetArgs> Metadatas
         {
@@ -326,7 +326,7 @@ namespace Pulumi.Azure.ContainerApp
         private InputList<Inputs.EnvironmentDaprComponentSecretGetArgs>? _secrets;
 
         /// <summary>
-        /// A `secret` block as detailed below.
+        /// A `Secret` block as detailed below.
         /// </summary>
         public InputList<Inputs.EnvironmentDaprComponentSecretGetArgs> Secrets
         {

@@ -118,7 +118,7 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
     /**
      * The address space that is used the virtual network. You can supply more than one address space.
      * 
-     * &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
+     * &gt; **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
      * 
      */
     @Export(name="addressSpaces", refs={List.class,String.class}, tree="[0,1]")
@@ -127,7 +127,7 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
     /**
      * @return The address space that is used the virtual network. You can supply more than one address space.
      * 
-     * &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
+     * &gt; **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
      * 
      */
     public Output<Optional<List<String>>> addressSpaces() {
@@ -152,14 +152,14 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.bgpCommunity);
     }
     /**
-     * A `ddos_protection_plan` block as documented below.
+     * A `ddosProtectionPlan` block as documented below.
      * 
      */
     @Export(name="ddosProtectionPlan", refs={VirtualNetworkDdosProtectionPlan.class}, tree="[0]")
     private Output</* @Nullable */ VirtualNetworkDdosProtectionPlan> ddosProtectionPlan;
 
     /**
-     * @return A `ddos_protection_plan` block as documented below.
+     * @return A `ddosProtectionPlan` block as documented below.
      * 
      */
     public Output<Optional<VirtualNetworkDdosProtectionPlan>> ddosProtectionPlan() {
@@ -168,7 +168,7 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
     /**
      * List of IP addresses of DNS servers
      * 
-     * &gt; **NOTE** Since `dns_servers` can be configured both inline and via the separate `azure.network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+     * &gt; **NOTE** Since `dnsServers` can be configured both inline and via the separate `azure.network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      * 
      */
     @Export(name="dnsServers", refs={List.class,String.class}, tree="[0,1]")
@@ -177,7 +177,7 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
     /**
      * @return List of IP addresses of DNS servers
      * 
-     * &gt; **NOTE** Since `dns_servers` can be configured both inline and via the separate `azure.network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+     * &gt; **NOTE** Since `dnsServers` can be configured both inline and via the separate `azure.network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      * 
      */
     public Output<List<String>> dnsServers() {
@@ -240,18 +240,18 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
         return this.guid;
     }
     /**
-     * One or two `ip_address_pool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+     * One or two `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
      * 
-     * &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
+     * &gt; **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
      * 
      */
     @Export(name="ipAddressPools", refs={List.class,VirtualNetworkIpAddressPool.class}, tree="[0,1]")
     private Output</* @Nullable */ List<VirtualNetworkIpAddressPool>> ipAddressPools;
 
     /**
-     * @return One or two `ip_address_pool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+     * @return One or two `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
      * 
-     * &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
+     * &gt; **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
      * 
      */
     public Output<Optional<List<VirtualNetworkIpAddressPool>>> ipAddressPools() {

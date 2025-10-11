@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly int Port;
         /// <summary>
-        /// Should path evaluation with trace route be enabled? Defaults to `true`.
+        /// Should path evaluation with trace route be enabled? Defaults to `True`.
         /// </summary>
         public readonly bool? TraceRouteEnabled;
 

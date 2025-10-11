@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ApplicationGatewayHttpListener {
     /**
-     * @return One or more `custom_error_configuration` blocks as defined below.
+     * @return One or more `customErrorConfiguration` blocks as defined below.
      * 
      */
     private @Nullable List<ApplicationGatewayHttpListenerCustomErrorConfiguration> customErrorConfigurations;
@@ -53,7 +53,7 @@ public final class ApplicationGatewayHttpListener {
     /**
      * @return A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
      * 
-     * &gt; **Note:** The `host_names` and `host_name` are mutually exclusive and cannot both be set.
+     * &gt; **Note:** The `hostNames` and `hostName` are mutually exclusive and cannot both be set.
      * 
      */
     private @Nullable List<String> hostNames;
@@ -100,7 +100,7 @@ public final class ApplicationGatewayHttpListener {
 
     private ApplicationGatewayHttpListener() {}
     /**
-     * @return One or more `custom_error_configuration` blocks as defined below.
+     * @return One or more `customErrorConfiguration` blocks as defined below.
      * 
      */
     public List<ApplicationGatewayHttpListenerCustomErrorConfiguration> customErrorConfigurations() {
@@ -151,7 +151,7 @@ public final class ApplicationGatewayHttpListener {
     /**
      * @return A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
      * 
-     * &gt; **Note:** The `host_names` and `host_name` are mutually exclusive and cannot both be set.
+     * &gt; **Note:** The `hostNames` and `hostName` are mutually exclusive and cannot both be set.
      * 
      */
     public List<String> hostNames() {

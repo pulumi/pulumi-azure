@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class LinuxVirtualMachineScaleSetScaleIn
     {
         /// <summary>
-        /// Should the virtual machines chosen for removal be force deleted when the virtual machine scale set is being scaled-in? Possible values are `true` or `false`. Defaults to `false`.
+        /// Should the virtual machines chosen for removal be force deleted when the virtual machine scale set is being scaled-in? Possible values are `True` or `False`. Defaults to `False`.
         /// </summary>
         public readonly bool? ForceDeletionEnabled;
         /// <summary>

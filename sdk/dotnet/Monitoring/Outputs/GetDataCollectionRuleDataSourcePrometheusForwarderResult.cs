@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
     public sealed class GetDataCollectionRuleDataSourcePrometheusForwarderResult
     {
         /// <summary>
-        /// One or more `label_include_filter` blocks as defined above.
+        /// One or more `LabelIncludeFilter` blocks as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterResult> LabelIncludeFilters;
         /// <summary>

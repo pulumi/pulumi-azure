@@ -14,35 +14,35 @@ namespace Pulumi.Azure.Monitoring.Outputs
     public sealed class GetDataCollectionRuleDestinationResult
     {
         /// <summary>
-        /// A `azure_monitor_metrics` block as defined above.
+        /// A `AzureMonitorMetrics` block as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDataCollectionRuleDestinationAzureMonitorMetricResult> AzureMonitorMetrics;
         /// <summary>
-        /// One or more `event_hub` blocks as defined below.
+        /// One or more `EventHub` blocks as defined below.
         /// </summary>
         public readonly Outputs.GetDataCollectionRuleDestinationEventHubResult? EventHub;
         /// <summary>
-        /// One or more `event_hub_direct` blocks as defined below.
+        /// One or more `EventHubDirect` blocks as defined below.
         /// </summary>
         public readonly Outputs.GetDataCollectionRuleDestinationEventHubDirectResult? EventHubDirect;
         /// <summary>
-        /// One or more `log_analytics` blocks as defined below.
+        /// One or more `LogAnalytics` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDataCollectionRuleDestinationLogAnalyticResult> LogAnalytics;
         /// <summary>
-        /// One or more `monitor_account` blocks as defined below.
+        /// One or more `MonitorAccount` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDataCollectionRuleDestinationMonitorAccountResult> MonitorAccounts;
         /// <summary>
-        /// One or more `storage_blob_direct` blocks as defined below.
+        /// One or more `StorageBlobDirect` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDataCollectionRuleDestinationStorageBlobDirectResult> StorageBlobDirects;
         /// <summary>
-        /// One or more `storage_blob` blocks as defined below.
+        /// One or more `StorageBlob` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDataCollectionRuleDestinationStorageBlobResult> StorageBlobs;
         /// <summary>
-        /// One or more `storage_table_direct` blocks as defined below.
+        /// One or more `StorageTableDirect` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDataCollectionRuleDestinationStorageTableDirectResult> StorageTableDirects;
 

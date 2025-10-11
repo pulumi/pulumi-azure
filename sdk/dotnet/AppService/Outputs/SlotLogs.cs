@@ -14,19 +14,19 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class SlotLogs
     {
         /// <summary>
-        /// An `application_logs` block as defined below.
+        /// An `ApplicationLogs` block as defined below.
         /// </summary>
         public readonly Outputs.SlotLogsApplicationLogs? ApplicationLogs;
         /// <summary>
-        /// Should `Detailed error messages` be enabled on this App Service slot? Defaults to `false`.
+        /// Should `Detailed error messages` be enabled on this App Service slot? Defaults to `False`.
         /// </summary>
         public readonly bool? DetailedErrorMessagesEnabled;
         /// <summary>
-        /// Should `Failed request tracing` be enabled on this App Service slot? Defaults to `false`.
+        /// Should `Failed request tracing` be enabled on this App Service slot? Defaults to `False`.
         /// </summary>
         public readonly bool? FailedRequestTracingEnabled;
         /// <summary>
-        /// An `http_logs` block as defined below.
+        /// An `HttpLogs` block as defined below.
         /// </summary>
         public readonly Outputs.SlotLogsHttpLogs? HttpLogs;
 

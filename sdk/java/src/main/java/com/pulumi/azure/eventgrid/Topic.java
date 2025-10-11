@@ -117,42 +117,42 @@ public class Topic extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.identity);
     }
     /**
-     * One or more `inbound_ip_rule` blocks as defined below.
+     * One or more `inboundIpRule` blocks as defined below.
      * 
      */
     @Export(name="inboundIpRules", refs={List.class,TopicInboundIpRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TopicInboundIpRule>> inboundIpRules;
 
     /**
-     * @return One or more `inbound_ip_rule` blocks as defined below.
+     * @return One or more `inboundIpRule` blocks as defined below.
      * 
      */
     public Output<Optional<List<TopicInboundIpRule>>> inboundIpRules() {
         return Codegen.optional(this.inboundIpRules);
     }
     /**
-     * A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
+     * A `inputMappingDefaultValues` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="inputMappingDefaultValues", refs={TopicInputMappingDefaultValues.class}, tree="[0]")
     private Output</* @Nullable */ TopicInputMappingDefaultValues> inputMappingDefaultValues;
 
     /**
-     * @return A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
+     * @return A `inputMappingDefaultValues` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<TopicInputMappingDefaultValues>> inputMappingDefaultValues() {
         return Codegen.optional(this.inputMappingDefaultValues);
     }
     /**
-     * A `input_mapping_fields` block as defined below. Changing this forces a new resource to be created.
+     * A `inputMappingFields` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="inputMappingFields", refs={TopicInputMappingFields.class}, tree="[0]")
     private Output</* @Nullable */ TopicInputMappingFields> inputMappingFields;
 
     /**
-     * @return A `input_mapping_fields` block as defined below. Changing this forces a new resource to be created.
+     * @return A `inputMappingFields` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<TopicInputMappingFields>> inputMappingFields() {

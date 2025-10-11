@@ -53,14 +53,14 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
     }
 
     /**
-     * The Service Alias of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `private_connection_resource_id` or `private_connection_resource_alias` must be specified. Changing this forces a new resource to be created.
+     * The Service Alias of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `privateConnectionResourceId` or `privateConnectionResourceAlias` must be specified. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="privateConnectionResourceAlias")
     private @Nullable Output<String> privateConnectionResourceAlias;
 
     /**
-     * @return The Service Alias of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `private_connection_resource_id` or `private_connection_resource_alias` must be specified. Changing this forces a new resource to be created.
+     * @return The Service Alias of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `privateConnectionResourceId` or `privateConnectionResourceAlias` must be specified. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> privateConnectionResourceAlias() {
@@ -68,14 +68,14 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
     }
 
     /**
-     * The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `private_connection_resource_id` or `private_connection_resource_alias` must be specified. Changing this forces a new resource to be created. For a web app or function app slot, the parent web app should be used in this field instead of a reference to the slot itself.
+     * The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `privateConnectionResourceId` or `privateConnectionResourceAlias` must be specified. Changing this forces a new resource to be created. For a web app or function app slot, the parent web app should be used in this field instead of a reference to the slot itself.
      * 
      */
     @Import(name="privateConnectionResourceId")
     private @Nullable Output<String> privateConnectionResourceId;
 
     /**
-     * @return The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `private_connection_resource_id` or `private_connection_resource_alias` must be specified. Changing this forces a new resource to be created. For a web app or function app slot, the parent web app should be used in this field instead of a reference to the slot itself.
+     * @return The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `privateConnectionResourceId` or `privateConnectionResourceAlias` must be specified. Changing this forces a new resource to be created. For a web app or function app slot, the parent web app should be used in this field instead of a reference to the slot itself.
      * 
      */
     public Optional<Output<String>> privateConnectionResourceId() {
@@ -83,14 +83,14 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
     }
 
     /**
-     * (Required) The static IP address set by this configuration. It is recommended to use the private IP address exported in the `private_service_connection` block to obtain the address associated with the private endpoint.
+     * (Required) The static IP address set by this configuration. It is recommended to use the private IP address exported in the `privateServiceConnection` block to obtain the address associated with the private endpoint.
      * 
      */
     @Import(name="privateIpAddress")
     private @Nullable Output<String> privateIpAddress;
 
     /**
-     * @return (Required) The static IP address set by this configuration. It is recommended to use the private IP address exported in the `private_service_connection` block to obtain the address associated with the private endpoint.
+     * @return (Required) The static IP address set by this configuration. It is recommended to use the private IP address exported in the `privateServiceConnection` block to obtain the address associated with the private endpoint.
      * 
      */
     public Optional<Output<String>> privateIpAddress() {
@@ -98,18 +98,18 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
     }
 
     /**
-     * A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The provider allows a maximum request message length of `140` characters, however the request message maximum length is dependent on the service the private endpoint is connected to. Only valid if `is_manual_connection` is set to `true`.
+     * A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The provider allows a maximum request message length of `140` characters, however the request message maximum length is dependent on the service the private endpoint is connected to. Only valid if `isManualConnection` is set to `true`.
      * 
-     * &gt; **Note:** When connected to an SQL resource the `request_message` maximum length is `128`.
+     * &gt; **Note:** When connected to an SQL resource the `requestMessage` maximum length is `128`.
      * 
      */
     @Import(name="requestMessage")
     private @Nullable Output<String> requestMessage;
 
     /**
-     * @return A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The provider allows a maximum request message length of `140` characters, however the request message maximum length is dependent on the service the private endpoint is connected to. Only valid if `is_manual_connection` is set to `true`.
+     * @return A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The provider allows a maximum request message length of `140` characters, however the request message maximum length is dependent on the service the private endpoint is connected to. Only valid if `isManualConnection` is set to `true`.
      * 
-     * &gt; **Note:** When connected to an SQL resource the `request_message` maximum length is `128`.
+     * &gt; **Note:** When connected to an SQL resource the `requestMessage` maximum length is `128`.
      * 
      */
     public Optional<Output<String>> requestMessage() {
@@ -117,22 +117,22 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
     }
 
     /**
-     * A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created.
+     * A list of subresource names which the Private Endpoint is able to connect to. `subresourceNames` corresponds to `groupId`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
      * 
-     * &gt; **Note:** For most Private Links one or more `subresource_names` will need to be specified, please see the linked documentation for details.
+     * &gt; **Note:** For most Private Links one or more `subresourceNames` will need to be specified, please see the linked documentation for details.
      * 
      */
     @Import(name="subresourceNames")
     private @Nullable Output<List<String>> subresourceNames;
 
     /**
-     * @return A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created.
+     * @return A list of subresource names which the Private Endpoint is able to connect to. `subresourceNames` corresponds to `groupId`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
      * 
-     * &gt; **Note:** For most Private Links one or more `subresource_names` will need to be specified, please see the linked documentation for details.
+     * &gt; **Note:** For most Private Links one or more `subresourceNames` will need to be specified, please see the linked documentation for details.
      * 
      */
     public Optional<Output<List<String>>> subresourceNames() {
@@ -216,7 +216,7 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param privateConnectionResourceAlias The Service Alias of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `private_connection_resource_id` or `private_connection_resource_alias` must be specified. Changing this forces a new resource to be created.
+         * @param privateConnectionResourceAlias The Service Alias of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `privateConnectionResourceId` or `privateConnectionResourceAlias` must be specified. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param privateConnectionResourceAlias The Service Alias of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `private_connection_resource_id` or `private_connection_resource_alias` must be specified. Changing this forces a new resource to be created.
+         * @param privateConnectionResourceAlias The Service Alias of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `privateConnectionResourceId` or `privateConnectionResourceAlias` must be specified. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -237,7 +237,7 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param privateConnectionResourceId The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `private_connection_resource_id` or `private_connection_resource_alias` must be specified. Changing this forces a new resource to be created. For a web app or function app slot, the parent web app should be used in this field instead of a reference to the slot itself.
+         * @param privateConnectionResourceId The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `privateConnectionResourceId` or `privateConnectionResourceAlias` must be specified. Changing this forces a new resource to be created. For a web app or function app slot, the parent web app should be used in this field instead of a reference to the slot itself.
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param privateConnectionResourceId The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `private_connection_resource_id` or `private_connection_resource_alias` must be specified. Changing this forces a new resource to be created. For a web app or function app slot, the parent web app should be used in this field instead of a reference to the slot itself.
+         * @param privateConnectionResourceId The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `privateConnectionResourceId` or `privateConnectionResourceAlias` must be specified. Changing this forces a new resource to be created. For a web app or function app slot, the parent web app should be used in this field instead of a reference to the slot itself.
          * 
          * @return builder
          * 
@@ -258,7 +258,7 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param privateIpAddress (Required) The static IP address set by this configuration. It is recommended to use the private IP address exported in the `private_service_connection` block to obtain the address associated with the private endpoint.
+         * @param privateIpAddress (Required) The static IP address set by this configuration. It is recommended to use the private IP address exported in the `privateServiceConnection` block to obtain the address associated with the private endpoint.
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param privateIpAddress (Required) The static IP address set by this configuration. It is recommended to use the private IP address exported in the `private_service_connection` block to obtain the address associated with the private endpoint.
+         * @param privateIpAddress (Required) The static IP address set by this configuration. It is recommended to use the private IP address exported in the `privateServiceConnection` block to obtain the address associated with the private endpoint.
          * 
          * @return builder
          * 
@@ -279,9 +279,9 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param requestMessage A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The provider allows a maximum request message length of `140` characters, however the request message maximum length is dependent on the service the private endpoint is connected to. Only valid if `is_manual_connection` is set to `true`.
+         * @param requestMessage A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The provider allows a maximum request message length of `140` characters, however the request message maximum length is dependent on the service the private endpoint is connected to. Only valid if `isManualConnection` is set to `true`.
          * 
-         * &gt; **Note:** When connected to an SQL resource the `request_message` maximum length is `128`.
+         * &gt; **Note:** When connected to an SQL resource the `requestMessage` maximum length is `128`.
          * 
          * @return builder
          * 
@@ -292,9 +292,9 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param requestMessage A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The provider allows a maximum request message length of `140` characters, however the request message maximum length is dependent on the service the private endpoint is connected to. Only valid if `is_manual_connection` is set to `true`.
+         * @param requestMessage A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The provider allows a maximum request message length of `140` characters, however the request message maximum length is dependent on the service the private endpoint is connected to. Only valid if `isManualConnection` is set to `true`.
          * 
-         * &gt; **Note:** When connected to an SQL resource the `request_message` maximum length is `128`.
+         * &gt; **Note:** When connected to an SQL resource the `requestMessage` maximum length is `128`.
          * 
          * @return builder
          * 
@@ -304,11 +304,11 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param subresourceNames A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created.
+         * @param subresourceNames A list of subresource names which the Private Endpoint is able to connect to. `subresourceNames` corresponds to `groupId`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created.
          * 
          * &gt; **Note:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
          * 
-         * &gt; **Note:** For most Private Links one or more `subresource_names` will need to be specified, please see the linked documentation for details.
+         * &gt; **Note:** For most Private Links one or more `subresourceNames` will need to be specified, please see the linked documentation for details.
          * 
          * @return builder
          * 
@@ -319,11 +319,11 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param subresourceNames A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created.
+         * @param subresourceNames A list of subresource names which the Private Endpoint is able to connect to. `subresourceNames` corresponds to `groupId`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created.
          * 
          * &gt; **Note:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
          * 
-         * &gt; **Note:** For most Private Links one or more `subresource_names` will need to be specified, please see the linked documentation for details.
+         * &gt; **Note:** For most Private Links one or more `subresourceNames` will need to be specified, please see the linked documentation for details.
          * 
          * @return builder
          * 
@@ -333,11 +333,11 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param subresourceNames A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created.
+         * @param subresourceNames A list of subresource names which the Private Endpoint is able to connect to. `subresourceNames` corresponds to `groupId`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created.
          * 
          * &gt; **Note:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
          * 
-         * &gt; **Note:** For most Private Links one or more `subresource_names` will need to be specified, please see the linked documentation for details.
+         * &gt; **Note:** For most Private Links one or more `subresourceNames` will need to be specified, please see the linked documentation for details.
          * 
          * @return builder
          * 

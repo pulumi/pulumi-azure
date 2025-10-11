@@ -80,7 +80,7 @@ namespace Pulumi.Azure.KeyVault
     public sealed class GetCertificatesResult
     {
         /// <summary>
-        /// One or more `certificates` blocks as defined below.
+        /// One or more `Certificates` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCertificatesCertificateResult> Certificates;
         /// <summary>

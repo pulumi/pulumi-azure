@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Cdn.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The value of the header. Only needed when `action` is set to `Append` or `overwrite`.
+        /// The value of the header. Only needed when `Action` is set to `Append` or `Overwrite`.
         /// </summary>
         public readonly string? Value;
 

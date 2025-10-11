@@ -28,14 +28,14 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
     public static final LinuxWebAppSlotState Empty = new LinuxWebAppSlotState();
 
     /**
-     * A `app_metadata`.
+     * A `appMetadata`.
      * 
      */
     @Import(name="appMetadata")
     private @Nullable Output<Map<String,String>> appMetadata;
 
     /**
-     * @return A `app_metadata`.
+     * @return A `appMetadata`.
      * 
      */
     public Optional<Output<Map<String,String>>> appMetadata() {
@@ -73,14 +73,14 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * An `auth_settings` block as defined below.
+     * An `authSettings` block as defined below.
      * 
      */
     @Import(name="authSettings")
     private @Nullable Output<LinuxWebAppSlotAuthSettingsArgs> authSettings;
 
     /**
-     * @return An `auth_settings` block as defined below.
+     * @return An `authSettings` block as defined below.
      * 
      */
     public Optional<Output<LinuxWebAppSlotAuthSettingsArgs>> authSettings() {
@@ -88,14 +88,14 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * An `auth_settings_v2` block as defined below.
+     * An `authSettingsV2` block as defined below.
      * 
      */
     @Import(name="authSettingsV2")
     private @Nullable Output<LinuxWebAppSlotAuthSettingsV2Args> authSettingsV2;
 
     /**
-     * @return An `auth_settings_v2` block as defined below.
+     * @return An `authSettingsV2` block as defined below.
      * 
      */
     public Optional<Output<LinuxWebAppSlotAuthSettingsV2Args>> authSettingsV2() {
@@ -163,14 +163,14 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`. Defaults to `Required`.
+     * The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`. Defaults to `Required`.
      * 
      */
     @Import(name="clientCertificateMode")
     private @Nullable Output<String> clientCertificateMode;
 
     /**
-     * @return The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`. Defaults to `Required`.
+     * @return The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`. Defaults to `Required`.
      * 
      */
     public Optional<Output<String>> clientCertificateMode() {
@@ -178,14 +178,14 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * One or more `connection_string` blocks as defined below.
+     * One or more `connectionString` blocks as defined below.
      * 
      */
     @Import(name="connectionStrings")
     private @Nullable Output<List<LinuxWebAppSlotConnectionStringArgs>> connectionStrings;
 
     /**
-     * @return One or more `connection_string` blocks as defined below.
+     * @return One or more `connectionString` blocks as defined below.
      * 
      */
     public Optional<Output<List<LinuxWebAppSlotConnectionStringArgs>>> connectionStrings() {
@@ -380,14 +380,14 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A `possible_outbound_ip_address_list`.
+     * A `possibleOutboundIpAddressList`.
      * 
      */
     @Import(name="possibleOutboundIpAddressLists")
     private @Nullable Output<List<String>> possibleOutboundIpAddressLists;
 
     /**
-     * @return A `possible_outbound_ip_address_list`.
+     * @return A `possibleOutboundIpAddressList`.
      * 
      */
     public Optional<Output<List<String>>> possibleOutboundIpAddressLists() {
@@ -395,14 +395,14 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+     * A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      * 
      */
     @Import(name="possibleOutboundIpAddresses")
     private @Nullable Output<String> possibleOutboundIpAddresses;
 
     /**
-     * @return A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+     * @return A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      * 
      */
     public Optional<Output<String>> possibleOutboundIpAddresses() {
@@ -427,7 +427,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
     /**
      * The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
      * 
-     * &gt; **Note:** `service_plan_id` should only be specified if it differs from the Service Plan of the associated Linux Web App.
+     * &gt; **Note:** `servicePlanId` should only be specified if it differs from the Service Plan of the associated Linux Web App.
      * 
      */
     @Import(name="servicePlanId")
@@ -436,7 +436,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
     /**
      * @return The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
      * 
-     * &gt; **Note:** `service_plan_id` should only be specified if it differs from the Service Plan of the associated Linux Web App.
+     * &gt; **Note:** `servicePlanId` should only be specified if it differs from the Service Plan of the associated Linux Web App.
      * 
      */
     public Optional<Output<String>> servicePlanId() {
@@ -444,14 +444,14 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A `site_config` block as defined below.
+     * A `siteConfig` block as defined below.
      * 
      */
     @Import(name="siteConfig")
     private @Nullable Output<LinuxWebAppSlotSiteConfigArgs> siteConfig;
 
     /**
-     * @return A `site_config` block as defined below.
+     * @return A `siteConfig` block as defined below.
      * 
      */
     public Optional<Output<LinuxWebAppSlotSiteConfigArgs>> siteConfig() {
@@ -459,14 +459,14 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A `site_credential` block as defined below.
+     * A `siteCredential` block as defined below.
      * 
      */
     @Import(name="siteCredentials")
     private @Nullable Output<List<LinuxWebAppSlotSiteCredentialArgs>> siteCredentials;
 
     /**
-     * @return A `site_credential` block as defined below.
+     * @return A `siteCredential` block as defined below.
      * 
      */
     public Optional<Output<List<LinuxWebAppSlotSiteCredentialArgs>>> siteCredentials() {
@@ -474,14 +474,14 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * One or more `storage_account` blocks as defined below.
+     * One or more `storageAccount` blocks as defined below.
      * 
      */
     @Import(name="storageAccounts")
     private @Nullable Output<List<LinuxWebAppSlotStorageAccountArgs>> storageAccounts;
 
     /**
-     * @return One or more `storage_account` blocks as defined below.
+     * @return One or more `storageAccount` blocks as defined below.
      * 
      */
     public Optional<Output<List<LinuxWebAppSlotStorageAccountArgs>>> storageAccounts() {
@@ -539,7 +539,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
     /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      * 
-     * &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+     * &gt; **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
      * 
      */
     @Import(name="webdeployPublishBasicAuthenticationEnabled")
@@ -548,7 +548,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
     /**
      * @return Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      * 
-     * &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+     * &gt; **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
      * 
      */
     public Optional<Output<Boolean>> webdeployPublishBasicAuthenticationEnabled() {
@@ -558,7 +558,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
     /**
      * The local path and filename of the Zip packaged application to deploy to this Linux Web App.
      * 
-     * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
+     * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
      * 
      */
     @Import(name="zipDeployFile")
@@ -567,7 +567,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
     /**
      * @return The local path and filename of the Zip packaged application to deploy to this Linux Web App.
      * 
-     * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
+     * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
      * 
      */
     public Optional<Output<String>> zipDeployFile() {
@@ -635,7 +635,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param appMetadata A `app_metadata`.
+         * @param appMetadata A `appMetadata`.
          * 
          * @return builder
          * 
@@ -646,7 +646,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param appMetadata A `app_metadata`.
+         * @param appMetadata A `appMetadata`.
          * 
          * @return builder
          * 
@@ -698,7 +698,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param authSettings An `auth_settings` block as defined below.
+         * @param authSettings An `authSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -709,7 +709,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param authSettings An `auth_settings` block as defined below.
+         * @param authSettings An `authSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -719,7 +719,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param authSettingsV2 An `auth_settings_v2` block as defined below.
+         * @param authSettingsV2 An `authSettingsV2` block as defined below.
          * 
          * @return builder
          * 
@@ -730,7 +730,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param authSettingsV2 An `auth_settings_v2` block as defined below.
+         * @param authSettingsV2 An `authSettingsV2` block as defined below.
          * 
          * @return builder
          * 
@@ -824,7 +824,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param clientCertificateMode The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`. Defaults to `Required`.
+         * @param clientCertificateMode The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`. Defaults to `Required`.
          * 
          * @return builder
          * 
@@ -835,7 +835,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param clientCertificateMode The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`. Defaults to `Required`.
+         * @param clientCertificateMode The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`. Defaults to `Required`.
          * 
          * @return builder
          * 
@@ -845,7 +845,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param connectionStrings One or more `connection_string` blocks as defined below.
+         * @param connectionStrings One or more `connectionString` blocks as defined below.
          * 
          * @return builder
          * 
@@ -856,7 +856,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param connectionStrings One or more `connection_string` blocks as defined below.
+         * @param connectionStrings One or more `connectionString` blocks as defined below.
          * 
          * @return builder
          * 
@@ -866,7 +866,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param connectionStrings One or more `connection_string` blocks as defined below.
+         * @param connectionStrings One or more `connectionString` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1147,7 +1147,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param possibleOutboundIpAddressLists A `possible_outbound_ip_address_list`.
+         * @param possibleOutboundIpAddressLists A `possibleOutboundIpAddressList`.
          * 
          * @return builder
          * 
@@ -1158,7 +1158,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param possibleOutboundIpAddressLists A `possible_outbound_ip_address_list`.
+         * @param possibleOutboundIpAddressLists A `possibleOutboundIpAddressList`.
          * 
          * @return builder
          * 
@@ -1168,7 +1168,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param possibleOutboundIpAddressLists A `possible_outbound_ip_address_list`.
+         * @param possibleOutboundIpAddressLists A `possibleOutboundIpAddressList`.
          * 
          * @return builder
          * 
@@ -1178,7 +1178,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param possibleOutboundIpAddresses A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+         * @param possibleOutboundIpAddresses A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
          * 
          * @return builder
          * 
@@ -1189,7 +1189,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param possibleOutboundIpAddresses A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+         * @param possibleOutboundIpAddresses A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
          * 
          * @return builder
          * 
@@ -1222,7 +1222,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
         /**
          * @param servicePlanId The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
          * 
-         * &gt; **Note:** `service_plan_id` should only be specified if it differs from the Service Plan of the associated Linux Web App.
+         * &gt; **Note:** `servicePlanId` should only be specified if it differs from the Service Plan of the associated Linux Web App.
          * 
          * @return builder
          * 
@@ -1235,7 +1235,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
         /**
          * @param servicePlanId The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
          * 
-         * &gt; **Note:** `service_plan_id` should only be specified if it differs from the Service Plan of the associated Linux Web App.
+         * &gt; **Note:** `servicePlanId` should only be specified if it differs from the Service Plan of the associated Linux Web App.
          * 
          * @return builder
          * 
@@ -1245,7 +1245,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param siteConfig A `site_config` block as defined below.
+         * @param siteConfig A `siteConfig` block as defined below.
          * 
          * @return builder
          * 
@@ -1256,7 +1256,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param siteConfig A `site_config` block as defined below.
+         * @param siteConfig A `siteConfig` block as defined below.
          * 
          * @return builder
          * 
@@ -1266,7 +1266,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param siteCredentials A `site_credential` block as defined below.
+         * @param siteCredentials A `siteCredential` block as defined below.
          * 
          * @return builder
          * 
@@ -1277,7 +1277,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param siteCredentials A `site_credential` block as defined below.
+         * @param siteCredentials A `siteCredential` block as defined below.
          * 
          * @return builder
          * 
@@ -1287,7 +1287,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param siteCredentials A `site_credential` block as defined below.
+         * @param siteCredentials A `siteCredential` block as defined below.
          * 
          * @return builder
          * 
@@ -1297,7 +1297,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param storageAccounts One or more `storage_account` blocks as defined below.
+         * @param storageAccounts One or more `storageAccount` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1308,7 +1308,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param storageAccounts One or more `storage_account` blocks as defined below.
+         * @param storageAccounts One or more `storageAccount` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1318,7 +1318,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param storageAccounts One or more `storage_account` blocks as defined below.
+         * @param storageAccounts One or more `storageAccount` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1394,7 +1394,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
         /**
          * @param webdeployPublishBasicAuthenticationEnabled Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
          * 
-         * &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+         * &gt; **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
          * 
          * @return builder
          * 
@@ -1407,7 +1407,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
         /**
          * @param webdeployPublishBasicAuthenticationEnabled Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
          * 
-         * &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+         * &gt; **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
          * 
          * @return builder
          * 
@@ -1419,7 +1419,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
         /**
          * @param zipDeployFile The local path and filename of the Zip packaged application to deploy to this Linux Web App.
          * 
-         * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
+         * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
          * 
          * @return builder
          * 
@@ -1432,7 +1432,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
         /**
          * @param zipDeployFile The local path and filename of the Zip packaged application to deploy to this Linux Web App.
          * 
-         * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
+         * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
          * 
          * @return builder
          * 

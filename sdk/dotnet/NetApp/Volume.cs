@@ -12,7 +12,7 @@ namespace Pulumi.Azure.NetApp
     /// <summary>
     /// Manages a NetApp Volume.
     /// 
-    /// !&gt; **Note:** This resource uses a feature to prevent deletion called `prevent_volume_destruction`, defaulting to `true`. It is intentionally set to `true` to prevent the possibility of accidental data loss. The example in this page shows all possible protection options you can apply, it is using same values as the defaults.
+    /// !&gt; **Note:** This resource uses a feature to prevent deletion called `PreventVolumeDestruction`, defaulting to `True`. It is intentionally set to `True` to prevent the possibility of accidental data loss. The example in this page shows all possible protection options you can apply, it is using same values as the defaults.
     /// 
     /// ## Import
     /// 
@@ -26,7 +26,7 @@ namespace Pulumi.Azure.NetApp
     public partial class Volume : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// While auto splitting the short term clone volume, if the parent pool does not have enough space to accommodate the volume after split, it will be automatically resized, which will lead to increased billing. To accept capacity pool size auto grow and create a short term clone volume, set the property as `Accepted`. If `Declined`, the short term clone volume creation operation will fail. This property can only be used in conjunction with `create_from_snapshot_resource_id`. Changing this forces a new resource to be created.
+        /// While auto splitting the short term clone volume, if the parent pool does not have enough space to accommodate the volume after split, it will be automatically resized, which will lead to increased billing. To accept capacity pool size auto grow and create a short term clone volume, set the property as `Accepted`. If `Declined`, the short term clone volume creation operation will fail. This property can only be used in conjunction with `CreateFromSnapshotResourceId`. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** Short-term clones are not supported on large volumes or volumes enabled for cool access. Short-term clones automatically convert to regular volumes after 32 days. For more information, please refer to [Create a short-term clone volume in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/create-short-term-clone)
         /// </summary>
@@ -40,49 +40,49 @@ namespace Pulumi.Azure.NetApp
         public Output<string> AccountName { get; private set; } = null!;
 
         /// <summary>
-        /// Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("azureVmwareDataStoreEnabled")]
         public Output<bool?> AzureVmwareDataStoreEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A `cool_access` block as defined below.
+        /// A `CoolAccess` block as defined below.
         /// </summary>
         [Output("coolAccess")]
         public Output<Outputs.VolumeCoolAccess?> CoolAccess { get; private set; } = null!;
 
         /// <summary>
-        /// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name` and `account_name`. Changing this forces a new resource to be created.
+        /// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `Protocols`, `SubnetId`, `Location`, `ServiceLevel`, `ResourceGroupName` and `AccountName`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("createFromSnapshotResourceId")]
         public Output<string?> CreateFromSnapshotResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// A `data_protection_backup_policy` block as defined below.
+        /// A `DataProtectionBackupPolicy` block as defined below.
         /// </summary>
         [Output("dataProtectionBackupPolicy")]
         public Output<Outputs.VolumeDataProtectionBackupPolicy?> DataProtectionBackupPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// A `data_protection_replication` block as defined below. Changing this forces a new resource to be created.
+        /// A `DataProtectionReplication` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("dataProtectionReplication")]
         public Output<Outputs.VolumeDataProtectionReplication?> DataProtectionReplication { get; private set; } = null!;
 
         /// <summary>
-        /// A `data_protection_snapshot_policy` block as defined below.
+        /// A `DataProtectionSnapshotPolicy` block as defined below.
         /// </summary>
         [Output("dataProtectionSnapshotPolicy")]
         public Output<Outputs.VolumeDataProtectionSnapshotPolicy?> DataProtectionSnapshotPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`. Changing this forces a new resource to be created.
+        /// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `KeyVaultPrivateEndpointId`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("encryptionKeySource")]
         public Output<string> EncryptionKeySource { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `export_policy_rule` block defined below.
+        /// One or more `ExportPolicyRule` block defined below.
         /// </summary>
         [Output("exportPolicyRules")]
         public Output<ImmutableArray<Outputs.VolumeExportPolicyRule>> ExportPolicyRules { get; private set; } = null!;
@@ -94,13 +94,13 @@ namespace Pulumi.Azure.NetApp
         public Output<bool?> KerberosEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
+        /// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `EncryptionKeySource`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("keyVaultPrivateEndpointId")]
         public Output<string> KeyVaultPrivateEndpointId { get; private set; } = null!;
 
         /// <summary>
-        /// A boolean specifying if the volume is a large volume. Defaults to `false`.
+        /// A boolean specifying if the volume is a large volume. Defaults to `False`.
         /// 
         /// &gt; **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/en-us/azure/azure-netapp-files/large-volumes-requirements-considerations)
         /// </summary>
@@ -138,9 +138,9 @@ namespace Pulumi.Azure.NetApp
         public Output<string> PoolName { get; private set; } = null!;
 
         /// <summary>
-        /// The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3_enabled = false` and `nfsv41_enabled = true` in export policy rules). Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) document.
+        /// The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `Nfsv3Enabled = false` and `Nfsv41Enabled = true` in export policy rules). Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) document.
         /// 
-        /// &gt; **Note:** When converting protocols, ensure that export policy rules are updated to match the new protocol to avoid configuration drift. For example, when changing from NFSv3 to NFSv4.1, update the `protocol` field in export policy rules accordingly.
+        /// &gt; **Note:** When converting protocols, ensure that export policy rules are updated to match the new protocol to avoid configuration drift. For example, when changing from NFSv3 to NFSv4.1, update the `Protocol` field in export policy rules accordingly.
         /// </summary>
         [Output("protocols")]
         public Output<ImmutableArray<string>> Protocols { get; private set; } = null!;
@@ -152,7 +152,7 @@ namespace Pulumi.Azure.NetApp
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Volume security style, accepted values are `unix` or `ntfs`. If not provided, single-protocol volume is created defaulting to `unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `ntfs`. In a dual-protocol volume, if not provided, its value will be `ntfs`. Changing this forces a new resource to be created.
+        /// Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("securityStyle")]
         public Output<string> SecurityStyle { get; private set; } = null!;
@@ -167,7 +167,7 @@ namespace Pulumi.Azure.NetApp
         public Output<bool?> Smb3ProtocolEncryptionEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
+        /// Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `False`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
         /// </summary>
         [Output("smbAccessBasedEnumerationEnabled")]
         public Output<bool?> SmbAccessBasedEnumerationEnabled { get; private set; } = null!;
@@ -179,13 +179,13 @@ namespace Pulumi.Azure.NetApp
         public Output<bool?> SmbContinuousAvailabilityEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
+        /// Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `False`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
         /// </summary>
         [Output("smbNonBrowsableEnabled")]
         public Output<bool?> SmbNonBrowsableEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible. Defaults to `true`.
+        /// Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible. Defaults to `True`.
         /// </summary>
         [Output("snapshotDirectoryVisible")]
         public Output<bool?> SnapshotDirectoryVisible { get; private set; } = null!;
@@ -205,7 +205,7 @@ namespace Pulumi.Azure.NetApp
         /// <summary>
         /// A mapping of tags to assign to the resource.
         /// 
-        /// &gt; **Note:** It is highly recommended to use the **lifecycle** property as noted in the example since it will prevent an accidental deletion of the volume if the `protocols` argument changes to a different protocol type.
+        /// &gt; **Note:** It is highly recommended to use the **lifecycle** property as noted in the example since it will prevent an accidental deletion of the volume if the `Protocols` argument changes to a different protocol type.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -275,7 +275,7 @@ namespace Pulumi.Azure.NetApp
     public sealed class VolumeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// While auto splitting the short term clone volume, if the parent pool does not have enough space to accommodate the volume after split, it will be automatically resized, which will lead to increased billing. To accept capacity pool size auto grow and create a short term clone volume, set the property as `Accepted`. If `Declined`, the short term clone volume creation operation will fail. This property can only be used in conjunction with `create_from_snapshot_resource_id`. Changing this forces a new resource to be created.
+        /// While auto splitting the short term clone volume, if the parent pool does not have enough space to accommodate the volume after split, it will be automatically resized, which will lead to increased billing. To accept capacity pool size auto grow and create a short term clone volume, set the property as `Accepted`. If `Declined`, the short term clone volume creation operation will fail. This property can only be used in conjunction with `CreateFromSnapshotResourceId`. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** Short-term clones are not supported on large volumes or volumes enabled for cool access. Short-term clones automatically convert to regular volumes after 32 days. For more information, please refer to [Create a short-term clone volume in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/create-short-term-clone)
         /// </summary>
@@ -289,43 +289,43 @@ namespace Pulumi.Azure.NetApp
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("azureVmwareDataStoreEnabled")]
         public Input<bool>? AzureVmwareDataStoreEnabled { get; set; }
 
         /// <summary>
-        /// A `cool_access` block as defined below.
+        /// A `CoolAccess` block as defined below.
         /// </summary>
         [Input("coolAccess")]
         public Input<Inputs.VolumeCoolAccessArgs>? CoolAccess { get; set; }
 
         /// <summary>
-        /// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name` and `account_name`. Changing this forces a new resource to be created.
+        /// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `Protocols`, `SubnetId`, `Location`, `ServiceLevel`, `ResourceGroupName` and `AccountName`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("createFromSnapshotResourceId")]
         public Input<string>? CreateFromSnapshotResourceId { get; set; }
 
         /// <summary>
-        /// A `data_protection_backup_policy` block as defined below.
+        /// A `DataProtectionBackupPolicy` block as defined below.
         /// </summary>
         [Input("dataProtectionBackupPolicy")]
         public Input<Inputs.VolumeDataProtectionBackupPolicyArgs>? DataProtectionBackupPolicy { get; set; }
 
         /// <summary>
-        /// A `data_protection_replication` block as defined below. Changing this forces a new resource to be created.
+        /// A `DataProtectionReplication` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("dataProtectionReplication")]
         public Input<Inputs.VolumeDataProtectionReplicationArgs>? DataProtectionReplication { get; set; }
 
         /// <summary>
-        /// A `data_protection_snapshot_policy` block as defined below.
+        /// A `DataProtectionSnapshotPolicy` block as defined below.
         /// </summary>
         [Input("dataProtectionSnapshotPolicy")]
         public Input<Inputs.VolumeDataProtectionSnapshotPolicyArgs>? DataProtectionSnapshotPolicy { get; set; }
 
         /// <summary>
-        /// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`. Changing this forces a new resource to be created.
+        /// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `KeyVaultPrivateEndpointId`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("encryptionKeySource")]
         public Input<string>? EncryptionKeySource { get; set; }
@@ -334,7 +334,7 @@ namespace Pulumi.Azure.NetApp
         private InputList<Inputs.VolumeExportPolicyRuleArgs>? _exportPolicyRules;
 
         /// <summary>
-        /// One or more `export_policy_rule` block defined below.
+        /// One or more `ExportPolicyRule` block defined below.
         /// </summary>
         public InputList<Inputs.VolumeExportPolicyRuleArgs> ExportPolicyRules
         {
@@ -349,13 +349,13 @@ namespace Pulumi.Azure.NetApp
         public Input<bool>? KerberosEnabled { get; set; }
 
         /// <summary>
-        /// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
+        /// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `EncryptionKeySource`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("keyVaultPrivateEndpointId")]
         public Input<string>? KeyVaultPrivateEndpointId { get; set; }
 
         /// <summary>
-        /// A boolean specifying if the volume is a large volume. Defaults to `false`.
+        /// A boolean specifying if the volume is a large volume. Defaults to `False`.
         /// 
         /// &gt; **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/en-us/azure/azure-netapp-files/large-volumes-requirements-considerations)
         /// </summary>
@@ -390,9 +390,9 @@ namespace Pulumi.Azure.NetApp
         private InputList<string>? _protocols;
 
         /// <summary>
-        /// The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3_enabled = false` and `nfsv41_enabled = true` in export policy rules). Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) document.
+        /// The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `Nfsv3Enabled = false` and `Nfsv41Enabled = true` in export policy rules). Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) document.
         /// 
-        /// &gt; **Note:** When converting protocols, ensure that export policy rules are updated to match the new protocol to avoid configuration drift. For example, when changing from NFSv3 to NFSv4.1, update the `protocol` field in export policy rules accordingly.
+        /// &gt; **Note:** When converting protocols, ensure that export policy rules are updated to match the new protocol to avoid configuration drift. For example, when changing from NFSv3 to NFSv4.1, update the `Protocol` field in export policy rules accordingly.
         /// </summary>
         public InputList<string> Protocols
         {
@@ -407,7 +407,7 @@ namespace Pulumi.Azure.NetApp
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Volume security style, accepted values are `unix` or `ntfs`. If not provided, single-protocol volume is created defaulting to `unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `ntfs`. In a dual-protocol volume, if not provided, its value will be `ntfs`. Changing this forces a new resource to be created.
+        /// Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("securityStyle")]
         public Input<string>? SecurityStyle { get; set; }
@@ -422,7 +422,7 @@ namespace Pulumi.Azure.NetApp
         public Input<bool>? Smb3ProtocolEncryptionEnabled { get; set; }
 
         /// <summary>
-        /// Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
+        /// Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `False`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
         /// </summary>
         [Input("smbAccessBasedEnumerationEnabled")]
         public Input<bool>? SmbAccessBasedEnumerationEnabled { get; set; }
@@ -434,13 +434,13 @@ namespace Pulumi.Azure.NetApp
         public Input<bool>? SmbContinuousAvailabilityEnabled { get; set; }
 
         /// <summary>
-        /// Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
+        /// Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `False`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
         /// </summary>
         [Input("smbNonBrowsableEnabled")]
         public Input<bool>? SmbNonBrowsableEnabled { get; set; }
 
         /// <summary>
-        /// Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible. Defaults to `true`.
+        /// Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible. Defaults to `True`.
         /// </summary>
         [Input("snapshotDirectoryVisible")]
         public Input<bool>? SnapshotDirectoryVisible { get; set; }
@@ -463,7 +463,7 @@ namespace Pulumi.Azure.NetApp
         /// <summary>
         /// A mapping of tags to assign to the resource.
         /// 
-        /// &gt; **Note:** It is highly recommended to use the **lifecycle** property as noted in the example since it will prevent an accidental deletion of the volume if the `protocols` argument changes to a different protocol type.
+        /// &gt; **Note:** It is highly recommended to use the **lifecycle** property as noted in the example since it will prevent an accidental deletion of the volume if the `Protocols` argument changes to a different protocol type.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -498,7 +498,7 @@ namespace Pulumi.Azure.NetApp
     public sealed class VolumeState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// While auto splitting the short term clone volume, if the parent pool does not have enough space to accommodate the volume after split, it will be automatically resized, which will lead to increased billing. To accept capacity pool size auto grow and create a short term clone volume, set the property as `Accepted`. If `Declined`, the short term clone volume creation operation will fail. This property can only be used in conjunction with `create_from_snapshot_resource_id`. Changing this forces a new resource to be created.
+        /// While auto splitting the short term clone volume, if the parent pool does not have enough space to accommodate the volume after split, it will be automatically resized, which will lead to increased billing. To accept capacity pool size auto grow and create a short term clone volume, set the property as `Accepted`. If `Declined`, the short term clone volume creation operation will fail. This property can only be used in conjunction with `CreateFromSnapshotResourceId`. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** Short-term clones are not supported on large volumes or volumes enabled for cool access. Short-term clones automatically convert to regular volumes after 32 days. For more information, please refer to [Create a short-term clone volume in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/create-short-term-clone)
         /// </summary>
@@ -512,43 +512,43 @@ namespace Pulumi.Azure.NetApp
         public Input<string>? AccountName { get; set; }
 
         /// <summary>
-        /// Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("azureVmwareDataStoreEnabled")]
         public Input<bool>? AzureVmwareDataStoreEnabled { get; set; }
 
         /// <summary>
-        /// A `cool_access` block as defined below.
+        /// A `CoolAccess` block as defined below.
         /// </summary>
         [Input("coolAccess")]
         public Input<Inputs.VolumeCoolAccessGetArgs>? CoolAccess { get; set; }
 
         /// <summary>
-        /// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name` and `account_name`. Changing this forces a new resource to be created.
+        /// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `Protocols`, `SubnetId`, `Location`, `ServiceLevel`, `ResourceGroupName` and `AccountName`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("createFromSnapshotResourceId")]
         public Input<string>? CreateFromSnapshotResourceId { get; set; }
 
         /// <summary>
-        /// A `data_protection_backup_policy` block as defined below.
+        /// A `DataProtectionBackupPolicy` block as defined below.
         /// </summary>
         [Input("dataProtectionBackupPolicy")]
         public Input<Inputs.VolumeDataProtectionBackupPolicyGetArgs>? DataProtectionBackupPolicy { get; set; }
 
         /// <summary>
-        /// A `data_protection_replication` block as defined below. Changing this forces a new resource to be created.
+        /// A `DataProtectionReplication` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("dataProtectionReplication")]
         public Input<Inputs.VolumeDataProtectionReplicationGetArgs>? DataProtectionReplication { get; set; }
 
         /// <summary>
-        /// A `data_protection_snapshot_policy` block as defined below.
+        /// A `DataProtectionSnapshotPolicy` block as defined below.
         /// </summary>
         [Input("dataProtectionSnapshotPolicy")]
         public Input<Inputs.VolumeDataProtectionSnapshotPolicyGetArgs>? DataProtectionSnapshotPolicy { get; set; }
 
         /// <summary>
-        /// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`. Changing this forces a new resource to be created.
+        /// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `KeyVaultPrivateEndpointId`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("encryptionKeySource")]
         public Input<string>? EncryptionKeySource { get; set; }
@@ -557,7 +557,7 @@ namespace Pulumi.Azure.NetApp
         private InputList<Inputs.VolumeExportPolicyRuleGetArgs>? _exportPolicyRules;
 
         /// <summary>
-        /// One or more `export_policy_rule` block defined below.
+        /// One or more `ExportPolicyRule` block defined below.
         /// </summary>
         public InputList<Inputs.VolumeExportPolicyRuleGetArgs> ExportPolicyRules
         {
@@ -572,13 +572,13 @@ namespace Pulumi.Azure.NetApp
         public Input<bool>? KerberosEnabled { get; set; }
 
         /// <summary>
-        /// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
+        /// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `EncryptionKeySource`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("keyVaultPrivateEndpointId")]
         public Input<string>? KeyVaultPrivateEndpointId { get; set; }
 
         /// <summary>
-        /// A boolean specifying if the volume is a large volume. Defaults to `false`.
+        /// A boolean specifying if the volume is a large volume. Defaults to `False`.
         /// 
         /// &gt; **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/en-us/azure/azure-netapp-files/large-volumes-requirements-considerations)
         /// </summary>
@@ -625,9 +625,9 @@ namespace Pulumi.Azure.NetApp
         private InputList<string>? _protocols;
 
         /// <summary>
-        /// The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3_enabled = false` and `nfsv41_enabled = true` in export policy rules). Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) document.
+        /// The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `Nfsv3Enabled = false` and `Nfsv41Enabled = true` in export policy rules). Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) document.
         /// 
-        /// &gt; **Note:** When converting protocols, ensure that export policy rules are updated to match the new protocol to avoid configuration drift. For example, when changing from NFSv3 to NFSv4.1, update the `protocol` field in export policy rules accordingly.
+        /// &gt; **Note:** When converting protocols, ensure that export policy rules are updated to match the new protocol to avoid configuration drift. For example, when changing from NFSv3 to NFSv4.1, update the `Protocol` field in export policy rules accordingly.
         /// </summary>
         public InputList<string> Protocols
         {
@@ -642,7 +642,7 @@ namespace Pulumi.Azure.NetApp
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// Volume security style, accepted values are `unix` or `ntfs`. If not provided, single-protocol volume is created defaulting to `unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `ntfs`. In a dual-protocol volume, if not provided, its value will be `ntfs`. Changing this forces a new resource to be created.
+        /// Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("securityStyle")]
         public Input<string>? SecurityStyle { get; set; }
@@ -657,7 +657,7 @@ namespace Pulumi.Azure.NetApp
         public Input<bool>? Smb3ProtocolEncryptionEnabled { get; set; }
 
         /// <summary>
-        /// Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
+        /// Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `False`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
         /// </summary>
         [Input("smbAccessBasedEnumerationEnabled")]
         public Input<bool>? SmbAccessBasedEnumerationEnabled { get; set; }
@@ -669,13 +669,13 @@ namespace Pulumi.Azure.NetApp
         public Input<bool>? SmbContinuousAvailabilityEnabled { get; set; }
 
         /// <summary>
-        /// Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
+        /// Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `False`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
         /// </summary>
         [Input("smbNonBrowsableEnabled")]
         public Input<bool>? SmbNonBrowsableEnabled { get; set; }
 
         /// <summary>
-        /// Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible. Defaults to `true`.
+        /// Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible. Defaults to `True`.
         /// </summary>
         [Input("snapshotDirectoryVisible")]
         public Input<bool>? SnapshotDirectoryVisible { get; set; }
@@ -698,7 +698,7 @@ namespace Pulumi.Azure.NetApp
         /// <summary>
         /// A mapping of tags to assign to the resource.
         /// 
-        /// &gt; **Note:** It is highly recommended to use the **lifecycle** property as noted in the example since it will prevent an accidental deletion of the volume if the `protocols` argument changes to a different protocol type.
+        /// &gt; **Note:** It is highly recommended to use the **lifecycle** property as noted in the example since it will prevent an accidental deletion of the volume if the `Protocols` argument changes to a different protocol type.
         /// </summary>
         public InputMap<string> Tags
         {

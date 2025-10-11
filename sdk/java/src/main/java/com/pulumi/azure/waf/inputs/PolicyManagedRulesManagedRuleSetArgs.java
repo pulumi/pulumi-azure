@@ -19,14 +19,14 @@ public final class PolicyManagedRulesManagedRuleSetArgs extends com.pulumi.resou
     public static final PolicyManagedRulesManagedRuleSetArgs Empty = new PolicyManagedRulesManagedRuleSetArgs();
 
     /**
-     * One or more `rule_group_override` block defined below.
+     * One or more `ruleGroupOverride` block defined below.
      * 
      */
     @Import(name="ruleGroupOverrides")
     private @Nullable Output<List<PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs>> ruleGroupOverrides;
 
     /**
-     * @return One or more `rule_group_override` block defined below.
+     * @return One or more `ruleGroupOverride` block defined below.
      * 
      */
     public Optional<Output<List<PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs>>> ruleGroupOverrides() {
@@ -90,7 +90,7 @@ public final class PolicyManagedRulesManagedRuleSetArgs extends com.pulumi.resou
         }
 
         /**
-         * @param ruleGroupOverrides One or more `rule_group_override` block defined below.
+         * @param ruleGroupOverrides One or more `ruleGroupOverride` block defined below.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class PolicyManagedRulesManagedRuleSetArgs extends com.pulumi.resou
         }
 
         /**
-         * @param ruleGroupOverrides One or more `rule_group_override` block defined below.
+         * @param ruleGroupOverrides One or more `ruleGroupOverride` block defined below.
          * 
          * @return builder
          * 
@@ -111,7 +111,7 @@ public final class PolicyManagedRulesManagedRuleSetArgs extends com.pulumi.resou
         }
 
         /**
-         * @param ruleGroupOverrides One or more `rule_group_override` block defined below.
+         * @param ruleGroupOverrides One or more `ruleGroupOverride` block defined below.
          * 
          * @return builder
          * 

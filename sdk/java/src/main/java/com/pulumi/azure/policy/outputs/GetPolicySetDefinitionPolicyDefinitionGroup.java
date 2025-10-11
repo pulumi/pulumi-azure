@@ -28,12 +28,12 @@ public final class GetPolicySetDefinitionPolicyDefinitionGroup {
     /**
      * @return Specifies the display name of the Policy Set Definition. Conflicts with `name`.
      * 
-     * **NOTE** As `display_name` is not unique errors may occur when there are multiple policy set definitions with same display name.
+     * **NOTE** As `displayName` is not unique errors may occur when there are multiple policy set definitions with same display name.
      * 
      */
     private String displayName;
     /**
-     * @return Specifies the name of the Policy Set Definition. Conflicts with `display_name`.
+     * @return Specifies the name of the Policy Set Definition. Conflicts with `displayName`.
      * 
      */
     private String name;
@@ -63,14 +63,14 @@ public final class GetPolicySetDefinitionPolicyDefinitionGroup {
     /**
      * @return Specifies the display name of the Policy Set Definition. Conflicts with `name`.
      * 
-     * **NOTE** As `display_name` is not unique errors may occur when there are multiple policy set definitions with same display name.
+     * **NOTE** As `displayName` is not unique errors may occur when there are multiple policy set definitions with same display name.
      * 
      */
     public String displayName() {
         return this.displayName;
     }
     /**
-     * @return Specifies the name of the Policy Set Definition. Conflicts with `display_name`.
+     * @return Specifies the name of the Policy Set Definition. Conflicts with `displayName`.
      * 
      */
     public String name() {

@@ -14,7 +14,7 @@ import java.util.Objects;
 @CustomType
 public final class GetConfigurationResult {
     /**
-     * @return A `config_file` block as defined below.
+     * @return A `configFile` block as defined below.
      * 
      */
     private List<GetConfigurationConfigFile> configFiles;
@@ -30,7 +30,7 @@ public final class GetConfigurationResult {
      */
     private String packageData;
     /**
-     * @return A `protected_file` block as defined below.
+     * @return A `protectedFile` block as defined below.
      * 
      */
     private List<GetConfigurationProtectedFile> protectedFiles;
@@ -42,7 +42,7 @@ public final class GetConfigurationResult {
 
     private GetConfigurationResult() {}
     /**
-     * @return A `config_file` block as defined below.
+     * @return A `configFile` block as defined below.
      * 
      */
     public List<GetConfigurationConfigFile> configFiles() {
@@ -66,7 +66,7 @@ public final class GetConfigurationResult {
         return this.packageData;
     }
     /**
-     * @return A `protected_file` block as defined below.
+     * @return A `protectedFile` block as defined below.
      * 
      */
     public List<GetConfigurationProtectedFile> protectedFiles() {

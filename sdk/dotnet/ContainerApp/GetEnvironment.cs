@@ -200,7 +200,7 @@ namespace Pulumi.Azure.ContainerApp
         /// </summary>
         public readonly string PlatformReservedCidr;
         /// <summary>
-        /// The IP address from the IP range defined by `platform_reserved_cidr` that is reserved for the internal DNS server.
+        /// The IP address from the IP range defined by `PlatformReservedCidr` that is reserved for the internal DNS server.
         /// </summary>
         public readonly string PlatformReservedDnsIpAddress;
         public readonly string ResourceGroupName;

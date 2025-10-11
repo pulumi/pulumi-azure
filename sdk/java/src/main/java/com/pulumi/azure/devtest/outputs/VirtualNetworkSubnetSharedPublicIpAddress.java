@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VirtualNetworkSubnetSharedPublicIpAddress {
     /**
-     * @return A list of `allowed_ports` blocks as defined below.
+     * @return A list of `allowedPorts` blocks as defined below.
      * 
      */
     private @Nullable List<VirtualNetworkSubnetSharedPublicIpAddressAllowedPort> allowedPorts;
 
     private VirtualNetworkSubnetSharedPublicIpAddress() {}
     /**
-     * @return A list of `allowed_ports` blocks as defined below.
+     * @return A list of `allowedPorts` blocks as defined below.
      * 
      */
     public List<VirtualNetworkSubnetSharedPublicIpAddressAllowedPort> allowedPorts() {

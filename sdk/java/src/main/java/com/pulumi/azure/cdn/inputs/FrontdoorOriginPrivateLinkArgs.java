@@ -34,7 +34,7 @@ public final class FrontdoorOriginPrivateLinkArgs extends com.pulumi.resources.R
     /**
      * The ID of the Azure Resource to connect to via the Private Link.
      * 
-     * &gt; **Note:** the `private_link_target_id` property must specify the Resource ID of the Private Link Service when using Load Balancer as an Origin.
+     * &gt; **Note:** the `privateLinkTargetId` property must specify the Resource ID of the Private Link Service when using Load Balancer as an Origin.
      * 
      */
     @Import(name="privateLinkTargetId", required=true)
@@ -43,7 +43,7 @@ public final class FrontdoorOriginPrivateLinkArgs extends com.pulumi.resources.R
     /**
      * @return The ID of the Azure Resource to connect to via the Private Link.
      * 
-     * &gt; **Note:** the `private_link_target_id` property must specify the Resource ID of the Private Link Service when using Load Balancer as an Origin.
+     * &gt; **Note:** the `privateLinkTargetId` property must specify the Resource ID of the Private Link Service when using Load Balancer as an Origin.
      * 
      */
     public Output<String> privateLinkTargetId() {
@@ -51,14 +51,14 @@ public final class FrontdoorOriginPrivateLinkArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Specifies the request message that will be submitted to the `private_link_target_id` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for CDN FrontDoor Private Link Origin`.
+     * Specifies the request message that will be submitted to the `privateLinkTargetId` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for CDN FrontDoor Private Link Origin`.
      * 
      */
     @Import(name="requestMessage")
     private @Nullable Output<String> requestMessage;
 
     /**
-     * @return Specifies the request message that will be submitted to the `private_link_target_id` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for CDN FrontDoor Private Link Origin`.
+     * @return Specifies the request message that will be submitted to the `privateLinkTargetId` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for CDN FrontDoor Private Link Origin`.
      * 
      */
     public Optional<Output<String>> requestMessage() {
@@ -66,18 +66,18 @@ public final class FrontdoorOriginPrivateLinkArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blob_secondary`, `Gateway`, `managedEnvironments`, `sites`, `web` and `web_secondary`.
+     * Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blobSecondary`, `Gateway`, `managedEnvironments`, `sites`, `web` and `webSecondary`.
      * 
-     * &gt; **Note:** `target_type` cannot be specified when using a Load Balancer as an Origin.
+     * &gt; **Note:** `targetType` cannot be specified when using a Load Balancer as an Origin.
      * 
      */
     @Import(name="targetType")
     private @Nullable Output<String> targetType;
 
     /**
-     * @return Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blob_secondary`, `Gateway`, `managedEnvironments`, `sites`, `web` and `web_secondary`.
+     * @return Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blobSecondary`, `Gateway`, `managedEnvironments`, `sites`, `web` and `webSecondary`.
      * 
-     * &gt; **Note:** `target_type` cannot be specified when using a Load Balancer as an Origin.
+     * &gt; **Note:** `targetType` cannot be specified when using a Load Balancer as an Origin.
      * 
      */
     public Optional<Output<String>> targetType() {
@@ -135,7 +135,7 @@ public final class FrontdoorOriginPrivateLinkArgs extends com.pulumi.resources.R
         /**
          * @param privateLinkTargetId The ID of the Azure Resource to connect to via the Private Link.
          * 
-         * &gt; **Note:** the `private_link_target_id` property must specify the Resource ID of the Private Link Service when using Load Balancer as an Origin.
+         * &gt; **Note:** the `privateLinkTargetId` property must specify the Resource ID of the Private Link Service when using Load Balancer as an Origin.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class FrontdoorOriginPrivateLinkArgs extends com.pulumi.resources.R
         /**
          * @param privateLinkTargetId The ID of the Azure Resource to connect to via the Private Link.
          * 
-         * &gt; **Note:** the `private_link_target_id` property must specify the Resource ID of the Private Link Service when using Load Balancer as an Origin.
+         * &gt; **Note:** the `privateLinkTargetId` property must specify the Resource ID of the Private Link Service when using Load Balancer as an Origin.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class FrontdoorOriginPrivateLinkArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param requestMessage Specifies the request message that will be submitted to the `private_link_target_id` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for CDN FrontDoor Private Link Origin`.
+         * @param requestMessage Specifies the request message that will be submitted to the `privateLinkTargetId` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for CDN FrontDoor Private Link Origin`.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class FrontdoorOriginPrivateLinkArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param requestMessage Specifies the request message that will be submitted to the `private_link_target_id` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for CDN FrontDoor Private Link Origin`.
+         * @param requestMessage Specifies the request message that will be submitted to the `privateLinkTargetId` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for CDN FrontDoor Private Link Origin`.
          * 
          * @return builder
          * 
@@ -179,9 +179,9 @@ public final class FrontdoorOriginPrivateLinkArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param targetType Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blob_secondary`, `Gateway`, `managedEnvironments`, `sites`, `web` and `web_secondary`.
+         * @param targetType Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blobSecondary`, `Gateway`, `managedEnvironments`, `sites`, `web` and `webSecondary`.
          * 
-         * &gt; **Note:** `target_type` cannot be specified when using a Load Balancer as an Origin.
+         * &gt; **Note:** `targetType` cannot be specified when using a Load Balancer as an Origin.
          * 
          * @return builder
          * 
@@ -192,9 +192,9 @@ public final class FrontdoorOriginPrivateLinkArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param targetType Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blob_secondary`, `Gateway`, `managedEnvironments`, `sites`, `web` and `web_secondary`.
+         * @param targetType Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blobSecondary`, `Gateway`, `managedEnvironments`, `sites`, `web` and `webSecondary`.
          * 
-         * &gt; **Note:** `target_type` cannot be specified when using a Load Balancer as an Origin.
+         * &gt; **Note:** `targetType` cannot be specified when using a Load Balancer as an Origin.
          * 
          * @return builder
          * 

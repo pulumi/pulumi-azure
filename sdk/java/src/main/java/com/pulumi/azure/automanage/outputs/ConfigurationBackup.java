@@ -25,12 +25,12 @@ public final class ConfigurationBackup {
      */
     private @Nullable String policyName;
     /**
-     * @return A `retention_policy` block as defined below.
+     * @return A `retentionPolicy` block as defined below.
      * 
      */
     private @Nullable ConfigurationBackupRetentionPolicy retentionPolicy;
     /**
-     * @return A `schedule_policy` block as defined below.
+     * @return A `schedulePolicy` block as defined below.
      * 
      */
     private @Nullable ConfigurationBackupSchedulePolicy schedulePolicy;
@@ -56,14 +56,14 @@ public final class ConfigurationBackup {
         return Optional.ofNullable(this.policyName);
     }
     /**
-     * @return A `retention_policy` block as defined below.
+     * @return A `retentionPolicy` block as defined below.
      * 
      */
     public Optional<ConfigurationBackupRetentionPolicy> retentionPolicy() {
         return Optional.ofNullable(this.retentionPolicy);
     }
     /**
-     * @return A `schedule_policy` block as defined below.
+     * @return A `schedulePolicy` block as defined below.
      * 
      */
     public Optional<ConfigurationBackupSchedulePolicy> schedulePolicy() {

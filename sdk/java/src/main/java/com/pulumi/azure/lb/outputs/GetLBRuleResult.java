@@ -31,19 +31,19 @@ public final class GetLBRuleResult {
      * @return If Floating IPs are enabled for this Load Balancer Rule
      * 
      * @deprecated
-     * The property `enable_floating_ip` has been deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider
+     * The property `enableFloatingIp` has been deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider
      * 
      */
-    @Deprecated /* The property `enable_floating_ip` has been deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider */
+    @Deprecated /* The property `enableFloatingIp` has been deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider */
     private Boolean enableFloatingIp;
     /**
      * @return If TCP Reset is enabled for this Load Balancer Rule.
      * 
      * @deprecated
-     * The property `enable_tcp_reset` has been deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider
+     * The property `enableTcpReset` has been deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider
      * 
      */
-    @Deprecated /* The property `enable_tcp_reset` has been deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider */
+    @Deprecated /* The property `enableTcpReset` has been deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider */
     private Boolean enableTcpReset;
     private Boolean floatingIpEnabled;
     /**
@@ -111,10 +111,10 @@ public final class GetLBRuleResult {
      * @return If Floating IPs are enabled for this Load Balancer Rule
      * 
      * @deprecated
-     * The property `enable_floating_ip` has been deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider
+     * The property `enableFloatingIp` has been deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider
      * 
      */
-    @Deprecated /* The property `enable_floating_ip` has been deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider */
+    @Deprecated /* The property `enableFloatingIp` has been deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider */
     public Boolean enableFloatingIp() {
         return this.enableFloatingIp;
     }
@@ -122,10 +122,10 @@ public final class GetLBRuleResult {
      * @return If TCP Reset is enabled for this Load Balancer Rule.
      * 
      * @deprecated
-     * The property `enable_tcp_reset` has been deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider
+     * The property `enableTcpReset` has been deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider
      * 
      */
-    @Deprecated /* The property `enable_tcp_reset` has been deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider */
+    @Deprecated /* The property `enableTcpReset` has been deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider */
     public Boolean enableTcpReset() {
         return this.enableTcpReset;
     }

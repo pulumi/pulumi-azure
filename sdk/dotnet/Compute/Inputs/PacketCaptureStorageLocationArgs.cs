@@ -21,7 +21,7 @@ namespace Pulumi.Azure.Compute.Inputs
         /// <summary>
         /// The ID of the storage account where the packet capture sessions should be saved to.
         /// 
-        /// &gt; **Note:** At least one of `file_path` or `storage_account_id` must be specified.
+        /// &gt; **Note:** At least one of `FilePath` or `StorageAccountId` must be specified.
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }

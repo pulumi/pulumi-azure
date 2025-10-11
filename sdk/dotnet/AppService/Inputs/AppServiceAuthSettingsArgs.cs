@@ -13,7 +13,7 @@ namespace Pulumi.Azure.AppService.Inputs
     public sealed class AppServiceAuthSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `active_directory` block as defined below.
+        /// A `ActiveDirectory` block as defined below.
         /// </summary>
         [Input("activeDirectory")]
         public Input<Inputs.AppServiceAuthSettingsActiveDirectoryArgs>? ActiveDirectory { get; set; }
@@ -45,7 +45,7 @@ namespace Pulumi.Azure.AppService.Inputs
         /// <summary>
         /// The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
         /// 
-        /// &gt; **NOTE:** When using multiple providers, the default provider must be set for settings like `unauthenticated_client_action` to work.
+        /// &gt; **NOTE:** When using multiple providers, the default provider must be set for settings like `UnauthenticatedClientAction` to work.
         /// </summary>
         [Input("defaultProvider")]
         public Input<string>? DefaultProvider { get; set; }
@@ -57,13 +57,13 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<bool> Enabled { get; set; } = null!;
 
         /// <summary>
-        /// A `facebook` block as defined below.
+        /// A `Facebook` block as defined below.
         /// </summary>
         [Input("facebook")]
         public Input<Inputs.AppServiceAuthSettingsFacebookArgs>? Facebook { get; set; }
 
         /// <summary>
-        /// A `google` block as defined below.
+        /// A `Google` block as defined below.
         /// </summary>
         [Input("google")]
         public Input<Inputs.AppServiceAuthSettingsGoogleArgs>? Google { get; set; }
@@ -75,7 +75,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? Issuer { get; set; }
 
         /// <summary>
-        /// A `microsoft` block as defined below.
+        /// A `Microsoft` block as defined below.
         /// </summary>
         [Input("microsoft")]
         public Input<Inputs.AppServiceAuthSettingsMicrosoftArgs>? Microsoft { get; set; }
@@ -93,13 +93,13 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<double>? TokenRefreshExtensionHours { get; set; }
 
         /// <summary>
-        /// If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to `false`.
+        /// If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to `False`.
         /// </summary>
         [Input("tokenStoreEnabled")]
         public Input<bool>? TokenStoreEnabled { get; set; }
 
         /// <summary>
-        /// A `twitter` block as defined below.
+        /// A `Twitter` block as defined below.
         /// </summary>
         [Input("twitter")]
         public Input<Inputs.AppServiceAuthSettingsTwitterArgs>? Twitter { get; set; }

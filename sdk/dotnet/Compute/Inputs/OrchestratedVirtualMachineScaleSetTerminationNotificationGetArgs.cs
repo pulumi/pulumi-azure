@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Compute.Inputs
     public sealed class OrchestratedVirtualMachineScaleSetTerminationNotificationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false`.
+        /// Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `True` or `False`.
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;

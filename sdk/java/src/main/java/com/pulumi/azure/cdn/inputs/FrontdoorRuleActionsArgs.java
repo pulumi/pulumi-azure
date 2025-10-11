@@ -21,14 +21,14 @@ public final class FrontdoorRuleActionsArgs extends com.pulumi.resources.Resourc
     public static final FrontdoorRuleActionsArgs Empty = new FrontdoorRuleActionsArgs();
 
     /**
-     * A `request_header_action` block as defined below.
+     * A `requestHeaderAction` block as defined below.
      * 
      */
     @Import(name="requestHeaderActions")
     private @Nullable Output<List<FrontdoorRuleActionsRequestHeaderActionArgs>> requestHeaderActions;
 
     /**
-     * @return A `request_header_action` block as defined below.
+     * @return A `requestHeaderAction` block as defined below.
      * 
      */
     public Optional<Output<List<FrontdoorRuleActionsRequestHeaderActionArgs>>> requestHeaderActions() {
@@ -36,14 +36,14 @@ public final class FrontdoorRuleActionsArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A `response_header_action` block as defined below.
+     * A `responseHeaderAction` block as defined below.
      * 
      */
     @Import(name="responseHeaderActions")
     private @Nullable Output<List<FrontdoorRuleActionsResponseHeaderActionArgs>> responseHeaderActions;
 
     /**
-     * @return A `response_header_action` block as defined below.
+     * @return A `responseHeaderAction` block as defined below.
      * 
      */
     public Optional<Output<List<FrontdoorRuleActionsResponseHeaderActionArgs>>> responseHeaderActions() {
@@ -51,14 +51,14 @@ public final class FrontdoorRuleActionsArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A `route_configuration_override_action` block as defined below.
+     * A `routeConfigurationOverrideAction` block as defined below.
      * 
      */
     @Import(name="routeConfigurationOverrideAction")
     private @Nullable Output<FrontdoorRuleActionsRouteConfigurationOverrideActionArgs> routeConfigurationOverrideAction;
 
     /**
-     * @return A `route_configuration_override_action` block as defined below.
+     * @return A `routeConfigurationOverrideAction` block as defined below.
      * 
      */
     public Optional<Output<FrontdoorRuleActionsRouteConfigurationOverrideActionArgs>> routeConfigurationOverrideAction() {
@@ -66,14 +66,14 @@ public final class FrontdoorRuleActionsArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A `url_redirect_action` block as defined below. You may **not** have a `url_redirect_action` **and** a `url_rewrite_action` defined in the same `actions` block.
+     * A `urlRedirectAction` block as defined below. You may **not** have a `urlRedirectAction` **and** a `urlRewriteAction` defined in the same `actions` block.
      * 
      */
     @Import(name="urlRedirectAction")
     private @Nullable Output<FrontdoorRuleActionsUrlRedirectActionArgs> urlRedirectAction;
 
     /**
-     * @return A `url_redirect_action` block as defined below. You may **not** have a `url_redirect_action` **and** a `url_rewrite_action` defined in the same `actions` block.
+     * @return A `urlRedirectAction` block as defined below. You may **not** have a `urlRedirectAction` **and** a `urlRewriteAction` defined in the same `actions` block.
      * 
      */
     public Optional<Output<FrontdoorRuleActionsUrlRedirectActionArgs>> urlRedirectAction() {
@@ -81,14 +81,14 @@ public final class FrontdoorRuleActionsArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A `url_rewrite_action` block as defined below. You may **not** have a `url_rewrite_action` **and** a `url_redirect_action` defined in the same `actions` block.
+     * A `urlRewriteAction` block as defined below. You may **not** have a `urlRewriteAction` **and** a `urlRedirectAction` defined in the same `actions` block.
      * 
      */
     @Import(name="urlRewriteAction")
     private @Nullable Output<FrontdoorRuleActionsUrlRewriteActionArgs> urlRewriteAction;
 
     /**
-     * @return A `url_rewrite_action` block as defined below. You may **not** have a `url_rewrite_action` **and** a `url_redirect_action` defined in the same `actions` block.
+     * @return A `urlRewriteAction` block as defined below. You may **not** have a `urlRewriteAction` **and** a `urlRedirectAction` defined in the same `actions` block.
      * 
      */
     public Optional<Output<FrontdoorRuleActionsUrlRewriteActionArgs>> urlRewriteAction() {
@@ -124,7 +124,7 @@ public final class FrontdoorRuleActionsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param requestHeaderActions A `request_header_action` block as defined below.
+         * @param requestHeaderActions A `requestHeaderAction` block as defined below.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class FrontdoorRuleActionsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param requestHeaderActions A `request_header_action` block as defined below.
+         * @param requestHeaderActions A `requestHeaderAction` block as defined below.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class FrontdoorRuleActionsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param requestHeaderActions A `request_header_action` block as defined below.
+         * @param requestHeaderActions A `requestHeaderAction` block as defined below.
          * 
          * @return builder
          * 
@@ -155,7 +155,7 @@ public final class FrontdoorRuleActionsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param responseHeaderActions A `response_header_action` block as defined below.
+         * @param responseHeaderActions A `responseHeaderAction` block as defined below.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class FrontdoorRuleActionsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param responseHeaderActions A `response_header_action` block as defined below.
+         * @param responseHeaderActions A `responseHeaderAction` block as defined below.
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class FrontdoorRuleActionsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param responseHeaderActions A `response_header_action` block as defined below.
+         * @param responseHeaderActions A `responseHeaderAction` block as defined below.
          * 
          * @return builder
          * 
@@ -186,7 +186,7 @@ public final class FrontdoorRuleActionsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param routeConfigurationOverrideAction A `route_configuration_override_action` block as defined below.
+         * @param routeConfigurationOverrideAction A `routeConfigurationOverrideAction` block as defined below.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class FrontdoorRuleActionsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param routeConfigurationOverrideAction A `route_configuration_override_action` block as defined below.
+         * @param routeConfigurationOverrideAction A `routeConfigurationOverrideAction` block as defined below.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class FrontdoorRuleActionsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param urlRedirectAction A `url_redirect_action` block as defined below. You may **not** have a `url_redirect_action` **and** a `url_rewrite_action` defined in the same `actions` block.
+         * @param urlRedirectAction A `urlRedirectAction` block as defined below. You may **not** have a `urlRedirectAction` **and** a `urlRewriteAction` defined in the same `actions` block.
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class FrontdoorRuleActionsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param urlRedirectAction A `url_redirect_action` block as defined below. You may **not** have a `url_redirect_action` **and** a `url_rewrite_action` defined in the same `actions` block.
+         * @param urlRedirectAction A `urlRedirectAction` block as defined below. You may **not** have a `urlRedirectAction` **and** a `urlRewriteAction` defined in the same `actions` block.
          * 
          * @return builder
          * 
@@ -228,7 +228,7 @@ public final class FrontdoorRuleActionsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param urlRewriteAction A `url_rewrite_action` block as defined below. You may **not** have a `url_rewrite_action` **and** a `url_redirect_action` defined in the same `actions` block.
+         * @param urlRewriteAction A `urlRewriteAction` block as defined below. You may **not** have a `urlRewriteAction` **and** a `urlRedirectAction` defined in the same `actions` block.
          * 
          * @return builder
          * 
@@ -239,7 +239,7 @@ public final class FrontdoorRuleActionsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param urlRewriteAction A `url_rewrite_action` block as defined below. You may **not** have a `url_rewrite_action` **and** a `url_redirect_action` defined in the same `actions` block.
+         * @param urlRewriteAction A `urlRewriteAction` block as defined below. You may **not** have a `urlRewriteAction` **and** a `urlRedirectAction` defined in the same `actions` block.
          * 
          * @return builder
          * 

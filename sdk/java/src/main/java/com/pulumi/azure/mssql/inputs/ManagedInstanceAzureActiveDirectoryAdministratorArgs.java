@@ -18,14 +18,14 @@ public final class ManagedInstanceAzureActiveDirectoryAdministratorArgs extends 
     public static final ManagedInstanceAzureActiveDirectoryAdministratorArgs Empty = new ManagedInstanceAzureActiveDirectoryAdministratorArgs();
 
     /**
-     * Specifies whether only Azure AD authentication can be used to log in to this SQL Managed Instance. When `true`, the `administrator_login` and `administrator_login_password` properties can be omitted. Defaults to `false`.
+     * Specifies whether only Azure AD authentication can be used to log in to this SQL Managed Instance. When `true`, the `administratorLogin` and `administratorLoginPassword` properties can be omitted. Defaults to `false`.
      * 
      */
     @Import(name="azureadAuthenticationOnlyEnabled")
     private @Nullable Output<Boolean> azureadAuthenticationOnlyEnabled;
 
     /**
-     * @return Specifies whether only Azure AD authentication can be used to log in to this SQL Managed Instance. When `true`, the `administrator_login` and `administrator_login_password` properties can be omitted. Defaults to `false`.
+     * @return Specifies whether only Azure AD authentication can be used to log in to this SQL Managed Instance. When `true`, the `administratorLogin` and `administratorLoginPassword` properties can be omitted. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> azureadAuthenticationOnlyEnabled() {
@@ -121,7 +121,7 @@ public final class ManagedInstanceAzureActiveDirectoryAdministratorArgs extends 
         }
 
         /**
-         * @param azureadAuthenticationOnlyEnabled Specifies whether only Azure AD authentication can be used to log in to this SQL Managed Instance. When `true`, the `administrator_login` and `administrator_login_password` properties can be omitted. Defaults to `false`.
+         * @param azureadAuthenticationOnlyEnabled Specifies whether only Azure AD authentication can be used to log in to this SQL Managed Instance. When `true`, the `administratorLogin` and `administratorLoginPassword` properties can be omitted. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class ManagedInstanceAzureActiveDirectoryAdministratorArgs extends 
         }
 
         /**
-         * @param azureadAuthenticationOnlyEnabled Specifies whether only Azure AD authentication can be used to log in to this SQL Managed Instance. When `true`, the `administrator_login` and `administrator_login_password` properties can be omitted. Defaults to `false`.
+         * @param azureadAuthenticationOnlyEnabled Specifies whether only Azure AD authentication can be used to log in to this SQL Managed Instance. When `true`, the `administratorLogin` and `administratorLoginPassword` properties can be omitted. Defaults to `false`.
          * 
          * @return builder
          * 

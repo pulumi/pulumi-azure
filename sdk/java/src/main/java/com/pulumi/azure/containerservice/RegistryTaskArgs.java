@@ -46,18 +46,18 @@ public final class RegistryTaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `agent_setting` block as defined below.
+     * A `agentSetting` block as defined below.
      * 
-     * &gt; **Note:** Only one of `agent_pool_name` and `agent_setting` can be specified.
+     * &gt; **Note:** Only one of `agentPoolName` and `agentSetting` can be specified.
      * 
      */
     @Import(name="agentSetting")
     private @Nullable Output<RegistryTaskAgentSettingArgs> agentSetting;
 
     /**
-     * @return A `agent_setting` block as defined below.
+     * @return A `agentSetting` block as defined below.
      * 
-     * &gt; **Note:** Only one of `agent_pool_name` and `agent_setting` can be specified.
+     * &gt; **Note:** Only one of `agentPoolName` and `agentSetting` can be specified.
      * 
      */
     public Optional<Output<RegistryTaskAgentSettingArgs>> agentSetting() {
@@ -65,14 +65,14 @@ public final class RegistryTaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `base_image_trigger` block as defined below.
+     * A `baseImageTrigger` block as defined below.
      * 
      */
     @Import(name="baseImageTrigger")
     private @Nullable Output<RegistryTaskBaseImageTriggerArgs> baseImageTrigger;
 
     /**
-     * @return A `base_image_trigger` block as defined below.
+     * @return A `baseImageTrigger` block as defined below.
      * 
      */
     public Optional<Output<RegistryTaskBaseImageTriggerArgs>> baseImageTrigger() {
@@ -95,14 +95,14 @@ public final class RegistryTaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `docker_step` block as defined below.
+     * A `dockerStep` block as defined below.
      * 
      */
     @Import(name="dockerStep")
     private @Nullable Output<RegistryTaskDockerStepArgs> dockerStep;
 
     /**
-     * @return A `docker_step` block as defined below.
+     * @return A `dockerStep` block as defined below.
      * 
      */
     public Optional<Output<RegistryTaskDockerStepArgs>> dockerStep() {
@@ -125,14 +125,14 @@ public final class RegistryTaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `encoded_step` block as defined below.
+     * A `encodedStep` block as defined below.
      * 
      */
     @Import(name="encodedStep")
     private @Nullable Output<RegistryTaskEncodedStepArgs> encodedStep;
 
     /**
-     * @return A `encoded_step` block as defined below.
+     * @return A `encodedStep` block as defined below.
      * 
      */
     public Optional<Output<RegistryTaskEncodedStepArgs>> encodedStep() {
@@ -140,18 +140,18 @@ public final class RegistryTaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `file_step` block as defined below.
+     * A `fileStep` block as defined below.
      * 
-     * &gt; **Note:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
+     * &gt; **Note:** For non-system task (when `isSystemTask` is set to `false`), one and only one of the `dockerStep`, `encodedStep` and `fileStep` should be specified.
      * 
      */
     @Import(name="fileStep")
     private @Nullable Output<RegistryTaskFileStepArgs> fileStep;
 
     /**
-     * @return A `file_step` block as defined below.
+     * @return A `fileStep` block as defined below.
      * 
-     * &gt; **Note:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
+     * &gt; **Note:** For non-system task (when `isSystemTask` is set to `false`), one and only one of the `dockerStep`, `encodedStep` and `fileStep` should be specified.
      * 
      */
     public Optional<Output<RegistryTaskFileStepArgs>> fileStep() {
@@ -213,7 +213,7 @@ public final class RegistryTaskArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A `platform` block as defined below.
      * 
-     * &gt; **Note:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
+     * &gt; **Note:** The `platform` is required for non-system task (when `isSystemTask` is set to `false`).
      * 
      */
     @Import(name="platform")
@@ -222,7 +222,7 @@ public final class RegistryTaskArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return A `platform` block as defined below.
      * 
-     * &gt; **Note:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
+     * &gt; **Note:** The `platform` is required for non-system task (when `isSystemTask` is set to `false`).
      * 
      */
     public Optional<Output<RegistryTaskPlatformArgs>> platform() {
@@ -237,14 +237,14 @@ public final class RegistryTaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `source_trigger` blocks as defined below.
+     * One or more `sourceTrigger` blocks as defined below.
      * 
      */
     @Import(name="sourceTriggers")
     private @Nullable Output<List<RegistryTaskSourceTriggerArgs>> sourceTriggers;
 
     /**
-     * @return One or more `source_trigger` blocks as defined below.
+     * @return One or more `sourceTrigger` blocks as defined below.
      * 
      */
     public Optional<Output<List<RegistryTaskSourceTriggerArgs>>> sourceTriggers() {
@@ -266,14 +266,14 @@ public final class RegistryTaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `timer_trigger` blocks as defined below.
+     * One or more `timerTrigger` blocks as defined below.
      * 
      */
     @Import(name="timerTriggers")
     private @Nullable Output<List<RegistryTaskTimerTriggerArgs>> timerTriggers;
 
     /**
-     * @return One or more `timer_trigger` blocks as defined below.
+     * @return One or more `timerTrigger` blocks as defined below.
      * 
      */
     public Optional<Output<List<RegistryTaskTimerTriggerArgs>>> timerTriggers() {
@@ -343,9 +343,9 @@ public final class RegistryTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param agentSetting A `agent_setting` block as defined below.
+         * @param agentSetting A `agentSetting` block as defined below.
          * 
-         * &gt; **Note:** Only one of `agent_pool_name` and `agent_setting` can be specified.
+         * &gt; **Note:** Only one of `agentPoolName` and `agentSetting` can be specified.
          * 
          * @return builder
          * 
@@ -356,9 +356,9 @@ public final class RegistryTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param agentSetting A `agent_setting` block as defined below.
+         * @param agentSetting A `agentSetting` block as defined below.
          * 
-         * &gt; **Note:** Only one of `agent_pool_name` and `agent_setting` can be specified.
+         * &gt; **Note:** Only one of `agentPoolName` and `agentSetting` can be specified.
          * 
          * @return builder
          * 
@@ -368,7 +368,7 @@ public final class RegistryTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param baseImageTrigger A `base_image_trigger` block as defined below.
+         * @param baseImageTrigger A `baseImageTrigger` block as defined below.
          * 
          * @return builder
          * 
@@ -379,7 +379,7 @@ public final class RegistryTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param baseImageTrigger A `base_image_trigger` block as defined below.
+         * @param baseImageTrigger A `baseImageTrigger` block as defined below.
          * 
          * @return builder
          * 
@@ -410,7 +410,7 @@ public final class RegistryTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dockerStep A `docker_step` block as defined below.
+         * @param dockerStep A `dockerStep` block as defined below.
          * 
          * @return builder
          * 
@@ -421,7 +421,7 @@ public final class RegistryTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dockerStep A `docker_step` block as defined below.
+         * @param dockerStep A `dockerStep` block as defined below.
          * 
          * @return builder
          * 
@@ -452,7 +452,7 @@ public final class RegistryTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encodedStep A `encoded_step` block as defined below.
+         * @param encodedStep A `encodedStep` block as defined below.
          * 
          * @return builder
          * 
@@ -463,7 +463,7 @@ public final class RegistryTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encodedStep A `encoded_step` block as defined below.
+         * @param encodedStep A `encodedStep` block as defined below.
          * 
          * @return builder
          * 
@@ -473,9 +473,9 @@ public final class RegistryTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fileStep A `file_step` block as defined below.
+         * @param fileStep A `fileStep` block as defined below.
          * 
-         * &gt; **Note:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
+         * &gt; **Note:** For non-system task (when `isSystemTask` is set to `false`), one and only one of the `dockerStep`, `encodedStep` and `fileStep` should be specified.
          * 
          * @return builder
          * 
@@ -486,9 +486,9 @@ public final class RegistryTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fileStep A `file_step` block as defined below.
+         * @param fileStep A `fileStep` block as defined below.
          * 
-         * &gt; **Note:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
+         * &gt; **Note:** For non-system task (when `isSystemTask` is set to `false`), one and only one of the `dockerStep`, `encodedStep` and `fileStep` should be specified.
          * 
          * @return builder
          * 
@@ -572,7 +572,7 @@ public final class RegistryTaskArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param platform A `platform` block as defined below.
          * 
-         * &gt; **Note:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
+         * &gt; **Note:** The `platform` is required for non-system task (when `isSystemTask` is set to `false`).
          * 
          * @return builder
          * 
@@ -585,7 +585,7 @@ public final class RegistryTaskArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param platform A `platform` block as defined below.
          * 
-         * &gt; **Note:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
+         * &gt; **Note:** The `platform` is required for non-system task (when `isSystemTask` is set to `false`).
          * 
          * @return builder
          * 
@@ -604,7 +604,7 @@ public final class RegistryTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceTriggers One or more `source_trigger` blocks as defined below.
+         * @param sourceTriggers One or more `sourceTrigger` blocks as defined below.
          * 
          * @return builder
          * 
@@ -615,7 +615,7 @@ public final class RegistryTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceTriggers One or more `source_trigger` blocks as defined below.
+         * @param sourceTriggers One or more `sourceTrigger` blocks as defined below.
          * 
          * @return builder
          * 
@@ -625,7 +625,7 @@ public final class RegistryTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceTriggers One or more `source_trigger` blocks as defined below.
+         * @param sourceTriggers One or more `sourceTrigger` blocks as defined below.
          * 
          * @return builder
          * 
@@ -653,7 +653,7 @@ public final class RegistryTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timerTriggers One or more `timer_trigger` blocks as defined below.
+         * @param timerTriggers One or more `timerTrigger` blocks as defined below.
          * 
          * @return builder
          * 
@@ -664,7 +664,7 @@ public final class RegistryTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timerTriggers One or more `timer_trigger` blocks as defined below.
+         * @param timerTriggers One or more `timerTrigger` blocks as defined below.
          * 
          * @return builder
          * 
@@ -674,7 +674,7 @@ public final class RegistryTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timerTriggers One or more `timer_trigger` blocks as defined below.
+         * @param timerTriggers One or more `timerTrigger` blocks as defined below.
          * 
          * @return builder
          * 

@@ -27,7 +27,7 @@ public final class VirtualNetworkGatewayPolicyGroup {
      */
     private String name;
     /**
-     * @return One or more `policy_member` blocks as defined below.
+     * @return One or more `policyMember` blocks as defined below.
      * 
      */
     private List<VirtualNetworkGatewayPolicyGroupPolicyMember> policyMembers;
@@ -53,7 +53,7 @@ public final class VirtualNetworkGatewayPolicyGroup {
         return this.name;
     }
     /**
-     * @return One or more `policy_member` blocks as defined below.
+     * @return One or more `policyMember` blocks as defined below.
      * 
      */
     public List<VirtualNetworkGatewayPolicyGroupPolicyMember> policyMembers() {

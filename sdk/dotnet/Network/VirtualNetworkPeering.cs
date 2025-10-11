@@ -167,19 +167,19 @@ namespace Pulumi.Azure.Network
     public partial class VirtualNetworkPeering : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `false`.
+        /// Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `False`.
         /// </summary>
         [Output("allowForwardedTraffic")]
         public Output<bool?> AllowForwardedTraffic { get; private set; } = null!;
 
         /// <summary>
-        /// Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
+        /// Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `False`.
         /// </summary>
         [Output("allowGatewayTransit")]
         public Output<bool?> AllowGatewayTransit { get; private set; } = null!;
 
         /// <summary>
-        /// Controls if the traffic from the local virtual network can reach the remote virtual network. Defaults to `true`.
+        /// Controls if the traffic from the local virtual network can reach the remote virtual network. Defaults to `True`.
         /// </summary>
         [Output("allowVirtualNetworkAccess")]
         public Output<bool?> AllowVirtualNetworkAccess { get; private set; } = null!;
@@ -203,7 +203,7 @@ namespace Pulumi.Azure.Network
         public Output<bool?> OnlyIpv6PeeringEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether complete Virtual Network address space is peered. Defaults to `true`. Changing this forces a new resource to be created.
+        /// Specifies whether complete Virtual Network address space is peered. Defaults to `True`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("peerCompleteVirtualNetworksEnabled")]
         public Output<bool?> PeerCompleteVirtualNetworksEnabled { get; private set; } = null!;
@@ -233,9 +233,9 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableDictionary<string, string>?> Triggers { get; private set; } = null!;
 
         /// <summary>
-        /// Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
+        /// Controls if remote gateways can be used on the local virtual network. If the flag is set to `True`, and `AllowGatewayTransit` on the remote peering is also `True`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `True`. This flag cannot be set if virtual network already has a gateway. Defaults to `False`.
         /// 
-        /// &gt; **Note:** `use_remote_gateways` must be set to `false` if using Global Virtual Network Peerings.
+        /// &gt; **Note:** `UseRemoteGateways` must be set to `False` if using Global Virtual Network Peerings.
         /// </summary>
         [Output("useRemoteGateways")]
         public Output<bool?> UseRemoteGateways { get; private set; } = null!;
@@ -293,19 +293,19 @@ namespace Pulumi.Azure.Network
     public sealed class VirtualNetworkPeeringArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `false`.
+        /// Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `False`.
         /// </summary>
         [Input("allowForwardedTraffic")]
         public Input<bool>? AllowForwardedTraffic { get; set; }
 
         /// <summary>
-        /// Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
+        /// Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `False`.
         /// </summary>
         [Input("allowGatewayTransit")]
         public Input<bool>? AllowGatewayTransit { get; set; }
 
         /// <summary>
-        /// Controls if the traffic from the local virtual network can reach the remote virtual network. Defaults to `true`.
+        /// Controls if the traffic from the local virtual network can reach the remote virtual network. Defaults to `True`.
         /// </summary>
         [Input("allowVirtualNetworkAccess")]
         public Input<bool>? AllowVirtualNetworkAccess { get; set; }
@@ -335,7 +335,7 @@ namespace Pulumi.Azure.Network
         public Input<bool>? OnlyIpv6PeeringEnabled { get; set; }
 
         /// <summary>
-        /// Specifies whether complete Virtual Network address space is peered. Defaults to `true`. Changing this forces a new resource to be created.
+        /// Specifies whether complete Virtual Network address space is peered. Defaults to `True`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("peerCompleteVirtualNetworksEnabled")]
         public Input<bool>? PeerCompleteVirtualNetworksEnabled { get; set; }
@@ -377,9 +377,9 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
+        /// Controls if remote gateways can be used on the local virtual network. If the flag is set to `True`, and `AllowGatewayTransit` on the remote peering is also `True`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `True`. This flag cannot be set if virtual network already has a gateway. Defaults to `False`.
         /// 
-        /// &gt; **Note:** `use_remote_gateways` must be set to `false` if using Global Virtual Network Peerings.
+        /// &gt; **Note:** `UseRemoteGateways` must be set to `False` if using Global Virtual Network Peerings.
         /// </summary>
         [Input("useRemoteGateways")]
         public Input<bool>? UseRemoteGateways { get; set; }
@@ -399,19 +399,19 @@ namespace Pulumi.Azure.Network
     public sealed class VirtualNetworkPeeringState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `false`.
+        /// Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `False`.
         /// </summary>
         [Input("allowForwardedTraffic")]
         public Input<bool>? AllowForwardedTraffic { get; set; }
 
         /// <summary>
-        /// Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
+        /// Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `False`.
         /// </summary>
         [Input("allowGatewayTransit")]
         public Input<bool>? AllowGatewayTransit { get; set; }
 
         /// <summary>
-        /// Controls if the traffic from the local virtual network can reach the remote virtual network. Defaults to `true`.
+        /// Controls if the traffic from the local virtual network can reach the remote virtual network. Defaults to `True`.
         /// </summary>
         [Input("allowVirtualNetworkAccess")]
         public Input<bool>? AllowVirtualNetworkAccess { get; set; }
@@ -441,7 +441,7 @@ namespace Pulumi.Azure.Network
         public Input<bool>? OnlyIpv6PeeringEnabled { get; set; }
 
         /// <summary>
-        /// Specifies whether complete Virtual Network address space is peered. Defaults to `true`. Changing this forces a new resource to be created.
+        /// Specifies whether complete Virtual Network address space is peered. Defaults to `True`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("peerCompleteVirtualNetworksEnabled")]
         public Input<bool>? PeerCompleteVirtualNetworksEnabled { get; set; }
@@ -483,9 +483,9 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
+        /// Controls if remote gateways can be used on the local virtual network. If the flag is set to `True`, and `AllowGatewayTransit` on the remote peering is also `True`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `True`. This flag cannot be set if virtual network already has a gateway. Defaults to `False`.
         /// 
-        /// &gt; **Note:** `use_remote_gateways` must be set to `false` if using Global Virtual Network Peerings.
+        /// &gt; **Note:** `UseRemoteGateways` must be set to `False` if using Global Virtual Network Peerings.
         /// </summary>
         [Input("useRemoteGateways")]
         public Input<bool>? UseRemoteGateways { get; set; }

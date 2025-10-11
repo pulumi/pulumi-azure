@@ -80,14 +80,14 @@ public final class NetworkAttachedDataNetworkArgs extends com.pulumi.resources.R
     }
 
     /**
-     * A `network_address_port_translation` block as defined below.
+     * A `networkAddressPortTranslation` block as defined below.
      * 
      */
     @Import(name="networkAddressPortTranslation")
     private @Nullable Output<NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs> networkAddressPortTranslation;
 
     /**
-     * @return A `network_address_port_translation` block as defined below.
+     * @return A `networkAddressPortTranslation` block as defined below.
      * 
      */
     public Optional<Output<NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs>> networkAddressPortTranslation() {
@@ -110,14 +110,14 @@ public final class NetworkAttachedDataNetworkArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will dynamically assign IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. At least one of `user_equipment_address_pool_prefixes` and `user_equipment_static_address_pool_prefix`. If you define both, they must be of the same size.
+     * Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will dynamically assign IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. At least one of `userEquipmentAddressPoolPrefixes` and `userEquipmentStaticAddressPoolPrefix`. If you define both, they must be of the same size.
      * 
      */
     @Import(name="userEquipmentAddressPoolPrefixes")
     private @Nullable Output<List<String>> userEquipmentAddressPoolPrefixes;
 
     /**
-     * @return Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will dynamically assign IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. At least one of `user_equipment_address_pool_prefixes` and `user_equipment_static_address_pool_prefix`. If you define both, they must be of the same size.
+     * @return Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will dynamically assign IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. At least one of `userEquipmentAddressPoolPrefixes` and `userEquipmentStaticAddressPoolPrefix`. If you define both, they must be of the same size.
      * 
      */
     public Optional<Output<List<String>>> userEquipmentAddressPoolPrefixes() {
@@ -125,18 +125,18 @@ public final class NetworkAttachedDataNetworkArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will assign static IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. The static IP address for a specific UE is set in StaticIPConfiguration on the corresponding SIM resource. At least one of `user_equipment_address_pool_prefix` and `user_equipment_static_address_pool_prefixes`. If you define both, they must be of the same size.
+     * Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will assign static IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. The static IP address for a specific UE is set in StaticIPConfiguration on the corresponding SIM resource. At least one of `userEquipmentAddressPoolPrefix` and `userEquipmentStaticAddressPoolPrefixes`. If you define both, they must be of the same size.
      * 
-     * &gt; **Note:** At least one of `user_equipment_address_pool_prefixes` and `user_equipment_static_address_pool_prefixes` must be specified.
+     * &gt; **Note:** At least one of `userEquipmentAddressPoolPrefixes` and `userEquipmentStaticAddressPoolPrefixes` must be specified.
      * 
      */
     @Import(name="userEquipmentStaticAddressPoolPrefixes")
     private @Nullable Output<List<String>> userEquipmentStaticAddressPoolPrefixes;
 
     /**
-     * @return Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will assign static IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. The static IP address for a specific UE is set in StaticIPConfiguration on the corresponding SIM resource. At least one of `user_equipment_address_pool_prefix` and `user_equipment_static_address_pool_prefixes`. If you define both, they must be of the same size.
+     * @return Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will assign static IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. The static IP address for a specific UE is set in StaticIPConfiguration on the corresponding SIM resource. At least one of `userEquipmentAddressPoolPrefix` and `userEquipmentStaticAddressPoolPrefixes`. If you define both, they must be of the same size.
      * 
-     * &gt; **Note:** At least one of `user_equipment_address_pool_prefixes` and `user_equipment_static_address_pool_prefixes` must be specified.
+     * &gt; **Note:** At least one of `userEquipmentAddressPoolPrefixes` and `userEquipmentStaticAddressPoolPrefixes` must be specified.
      * 
      */
     public Optional<Output<List<String>>> userEquipmentStaticAddressPoolPrefixes() {
@@ -333,7 +333,7 @@ public final class NetworkAttachedDataNetworkArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param networkAddressPortTranslation A `network_address_port_translation` block as defined below.
+         * @param networkAddressPortTranslation A `networkAddressPortTranslation` block as defined below.
          * 
          * @return builder
          * 
@@ -344,7 +344,7 @@ public final class NetworkAttachedDataNetworkArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param networkAddressPortTranslation A `network_address_port_translation` block as defined below.
+         * @param networkAddressPortTranslation A `networkAddressPortTranslation` block as defined below.
          * 
          * @return builder
          * 
@@ -375,7 +375,7 @@ public final class NetworkAttachedDataNetworkArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param userEquipmentAddressPoolPrefixes Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will dynamically assign IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. At least one of `user_equipment_address_pool_prefixes` and `user_equipment_static_address_pool_prefix`. If you define both, they must be of the same size.
+         * @param userEquipmentAddressPoolPrefixes Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will dynamically assign IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. At least one of `userEquipmentAddressPoolPrefixes` and `userEquipmentStaticAddressPoolPrefix`. If you define both, they must be of the same size.
          * 
          * @return builder
          * 
@@ -386,7 +386,7 @@ public final class NetworkAttachedDataNetworkArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param userEquipmentAddressPoolPrefixes Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will dynamically assign IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. At least one of `user_equipment_address_pool_prefixes` and `user_equipment_static_address_pool_prefix`. If you define both, they must be of the same size.
+         * @param userEquipmentAddressPoolPrefixes Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will dynamically assign IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. At least one of `userEquipmentAddressPoolPrefixes` and `userEquipmentStaticAddressPoolPrefix`. If you define both, they must be of the same size.
          * 
          * @return builder
          * 
@@ -396,7 +396,7 @@ public final class NetworkAttachedDataNetworkArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param userEquipmentAddressPoolPrefixes Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will dynamically assign IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. At least one of `user_equipment_address_pool_prefixes` and `user_equipment_static_address_pool_prefix`. If you define both, they must be of the same size.
+         * @param userEquipmentAddressPoolPrefixes Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will dynamically assign IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. At least one of `userEquipmentAddressPoolPrefixes` and `userEquipmentStaticAddressPoolPrefix`. If you define both, they must be of the same size.
          * 
          * @return builder
          * 
@@ -406,9 +406,9 @@ public final class NetworkAttachedDataNetworkArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param userEquipmentStaticAddressPoolPrefixes Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will assign static IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. The static IP address for a specific UE is set in StaticIPConfiguration on the corresponding SIM resource. At least one of `user_equipment_address_pool_prefix` and `user_equipment_static_address_pool_prefixes`. If you define both, they must be of the same size.
+         * @param userEquipmentStaticAddressPoolPrefixes Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will assign static IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. The static IP address for a specific UE is set in StaticIPConfiguration on the corresponding SIM resource. At least one of `userEquipmentAddressPoolPrefix` and `userEquipmentStaticAddressPoolPrefixes`. If you define both, they must be of the same size.
          * 
-         * &gt; **Note:** At least one of `user_equipment_address_pool_prefixes` and `user_equipment_static_address_pool_prefixes` must be specified.
+         * &gt; **Note:** At least one of `userEquipmentAddressPoolPrefixes` and `userEquipmentStaticAddressPoolPrefixes` must be specified.
          * 
          * @return builder
          * 
@@ -419,9 +419,9 @@ public final class NetworkAttachedDataNetworkArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param userEquipmentStaticAddressPoolPrefixes Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will assign static IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. The static IP address for a specific UE is set in StaticIPConfiguration on the corresponding SIM resource. At least one of `user_equipment_address_pool_prefix` and `user_equipment_static_address_pool_prefixes`. If you define both, they must be of the same size.
+         * @param userEquipmentStaticAddressPoolPrefixes Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will assign static IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. The static IP address for a specific UE is set in StaticIPConfiguration on the corresponding SIM resource. At least one of `userEquipmentAddressPoolPrefix` and `userEquipmentStaticAddressPoolPrefixes`. If you define both, they must be of the same size.
          * 
-         * &gt; **Note:** At least one of `user_equipment_address_pool_prefixes` and `user_equipment_static_address_pool_prefixes` must be specified.
+         * &gt; **Note:** At least one of `userEquipmentAddressPoolPrefixes` and `userEquipmentStaticAddressPoolPrefixes` must be specified.
          * 
          * @return builder
          * 
@@ -431,9 +431,9 @@ public final class NetworkAttachedDataNetworkArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param userEquipmentStaticAddressPoolPrefixes Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will assign static IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. The static IP address for a specific UE is set in StaticIPConfiguration on the corresponding SIM resource. At least one of `user_equipment_address_pool_prefix` and `user_equipment_static_address_pool_prefixes`. If you define both, they must be of the same size.
+         * @param userEquipmentStaticAddressPoolPrefixes Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will assign static IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. The static IP address for a specific UE is set in StaticIPConfiguration on the corresponding SIM resource. At least one of `userEquipmentAddressPoolPrefix` and `userEquipmentStaticAddressPoolPrefixes`. If you define both, they must be of the same size.
          * 
-         * &gt; **Note:** At least one of `user_equipment_address_pool_prefixes` and `user_equipment_static_address_pool_prefixes` must be specified.
+         * &gt; **Note:** At least one of `userEquipmentAddressPoolPrefixes` and `userEquipmentStaticAddressPoolPrefixes` must be specified.
          * 
          * @return builder
          * 

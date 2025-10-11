@@ -34,7 +34,7 @@ public final class GroupExposedPortArgs extends com.pulumi.resources.ResourceArg
     /**
      * The network protocol associated with port. Possible values are `TCP` &amp; `UDP`. Changing this forces a new resource to be created. Defaults to `TCP`.
      * 
-     * &gt; **Note:** Removing all `exposed_port` blocks requires setting `exposed_port = []`.
+     * &gt; **Note:** Removing all `exposedPort` blocks requires setting `exposedPort = []`.
      * 
      */
     @Import(name="protocol")
@@ -43,7 +43,7 @@ public final class GroupExposedPortArgs extends com.pulumi.resources.ResourceArg
     /**
      * @return The network protocol associated with port. Possible values are `TCP` &amp; `UDP`. Changing this forces a new resource to be created. Defaults to `TCP`.
      * 
-     * &gt; **Note:** Removing all `exposed_port` blocks requires setting `exposed_port = []`.
+     * &gt; **Note:** Removing all `exposedPort` blocks requires setting `exposedPort = []`.
      * 
      */
     public Optional<Output<String>> protocol() {
@@ -99,7 +99,7 @@ public final class GroupExposedPortArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param protocol The network protocol associated with port. Possible values are `TCP` &amp; `UDP`. Changing this forces a new resource to be created. Defaults to `TCP`.
          * 
-         * &gt; **Note:** Removing all `exposed_port` blocks requires setting `exposed_port = []`.
+         * &gt; **Note:** Removing all `exposedPort` blocks requires setting `exposedPort = []`.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class GroupExposedPortArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param protocol The network protocol associated with port. Possible values are `TCP` &amp; `UDP`. Changing this forces a new resource to be created. Defaults to `TCP`.
          * 
-         * &gt; **Note:** Removing all `exposed_port` blocks requires setting `exposed_port = []`.
+         * &gt; **Note:** Removing all `exposedPort` blocks requires setting `exposedPort = []`.
          * 
          * @return builder
          * 

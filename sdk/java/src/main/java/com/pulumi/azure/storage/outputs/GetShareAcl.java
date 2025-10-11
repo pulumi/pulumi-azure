@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetShareAcl {
     /**
-     * @return An `access_policy` block as defined below.
+     * @return An `accessPolicy` block as defined below.
      * 
      */
     private List<GetShareAclAccessPolicy> accessPolicies;
@@ -25,7 +25,7 @@ public final class GetShareAcl {
 
     private GetShareAcl() {}
     /**
-     * @return An `access_policy` block as defined below.
+     * @return An `accessPolicy` block as defined below.
      * 
      */
     public List<GetShareAclAccessPolicy> accessPolicies() {

@@ -19,13 +19,13 @@ namespace Pulumi.Azure.AppInsights.Inputs
         public Input<string> ContentMatch { get; set; } = null!;
 
         /// <summary>
-        /// Ignore the casing in the `content_match` value.
+        /// Ignore the casing in the `ContentMatch` value.
         /// </summary>
         [Input("ignoreCase")]
         public Input<bool>? IgnoreCase { get; set; }
 
         /// <summary>
-        /// If the content of `content_match` is found, pass the test. If set to `false`, the WebTest is failing if the content of `content_match` is found.
+        /// If the content of `ContentMatch` is found, pass the test. If set to `False`, the WebTest is failing if the content of `ContentMatch` is found.
         /// </summary>
         [Input("passIfTextFound")]
         public Input<bool>? PassIfTextFound { get; set; }

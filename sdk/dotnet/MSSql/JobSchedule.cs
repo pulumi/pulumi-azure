@@ -99,9 +99,9 @@ namespace Pulumi.Azure.MSSql
     public partial class JobSchedule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Should the Elastic Job Schedule be enabled? Defaults to `false`.
+        /// Should the Elastic Job Schedule be enabled? Defaults to `False`.
         /// 
-        /// &gt; **Note:** When `type` is set to `Once` and `enabled` is set to `true`, it's recommended to add `enabled` to `ignore_changes`. This is because Azure will set `enabled` to `false` once the job has executed.
+        /// &gt; **Note:** When `Type` is set to `Once` and `Enabled` is set to `True`, it's recommended to add `Enabled` to `IgnoreChanges`. This is because Azure will set `Enabled` to `False` once the job has executed.
         /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
@@ -183,9 +183,9 @@ namespace Pulumi.Azure.MSSql
     public sealed class JobScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should the Elastic Job Schedule be enabled? Defaults to `false`.
+        /// Should the Elastic Job Schedule be enabled? Defaults to `False`.
         /// 
-        /// &gt; **Note:** When `type` is set to `Once` and `enabled` is set to `true`, it's recommended to add `enabled` to `ignore_changes`. This is because Azure will set `enabled` to `false` once the job has executed.
+        /// &gt; **Note:** When `Type` is set to `Once` and `Enabled` is set to `True`, it's recommended to add `Enabled` to `IgnoreChanges`. This is because Azure will set `Enabled` to `False` once the job has executed.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -229,9 +229,9 @@ namespace Pulumi.Azure.MSSql
     public sealed class JobScheduleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should the Elastic Job Schedule be enabled? Defaults to `false`.
+        /// Should the Elastic Job Schedule be enabled? Defaults to `False`.
         /// 
-        /// &gt; **Note:** When `type` is set to `Once` and `enabled` is set to `true`, it's recommended to add `enabled` to `ignore_changes`. This is because Azure will set `enabled` to `false` once the job has executed.
+        /// &gt; **Note:** When `Type` is set to `Once` and `Enabled` is set to `True`, it's recommended to add `Enabled` to `IgnoreChanges`. This is because Azure will set `Enabled` to `False` once the job has executed.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

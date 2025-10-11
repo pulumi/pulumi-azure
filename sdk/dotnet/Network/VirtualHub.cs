@@ -72,7 +72,7 @@ namespace Pulumi.Azure.Network
         public Output<string?> AddressPrefix { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `false`.
+        /// Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `False`.
         /// </summary>
         [Output("branchToBranchTrafficEnabled")]
         public Output<bool?> BranchToBranchTrafficEnabled { get; private set; } = null!;
@@ -108,7 +108,7 @@ namespace Pulumi.Azure.Network
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `route` blocks as defined below.
+        /// One or more `Route` blocks as defined below.
         /// </summary>
         [Output("routes")]
         public Output<ImmutableArray<Outputs.VirtualHubRoute>> Routes { get; private set; } = null!;
@@ -202,7 +202,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? AddressPrefix { get; set; }
 
         /// <summary>
-        /// Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `false`.
+        /// Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `False`.
         /// </summary>
         [Input("branchToBranchTrafficEnabled")]
         public Input<bool>? BranchToBranchTrafficEnabled { get; set; }
@@ -235,7 +235,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.VirtualHubRouteArgs>? _routes;
 
         /// <summary>
-        /// One or more `route` blocks as defined below.
+        /// One or more `Route` blocks as defined below.
         /// </summary>
         public InputList<Inputs.VirtualHubRouteArgs> Routes
         {
@@ -288,7 +288,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? AddressPrefix { get; set; }
 
         /// <summary>
-        /// Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `false`.
+        /// Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `False`.
         /// </summary>
         [Input("branchToBranchTrafficEnabled")]
         public Input<bool>? BranchToBranchTrafficEnabled { get; set; }
@@ -327,7 +327,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.VirtualHubRouteGetArgs>? _routes;
 
         /// <summary>
-        /// One or more `route` blocks as defined below.
+        /// One or more `Route` blocks as defined below.
         /// </summary>
         public InputList<Inputs.VirtualHubRouteGetArgs> Routes
         {

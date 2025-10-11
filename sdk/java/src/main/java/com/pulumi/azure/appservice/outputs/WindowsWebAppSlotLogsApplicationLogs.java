@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WindowsWebAppSlotLogsApplicationLogs {
     /**
-     * @return An `azure_blob_storage` block as defined below.
+     * @return An `azureBlobStorage` block as defined below.
      * 
      */
     private @Nullable WindowsWebAppSlotLogsApplicationLogsAzureBlobStorage azureBlobStorage;
@@ -26,7 +26,7 @@ public final class WindowsWebAppSlotLogsApplicationLogs {
 
     private WindowsWebAppSlotLogsApplicationLogs() {}
     /**
-     * @return An `azure_blob_storage` block as defined below.
+     * @return An `azureBlobStorage` block as defined below.
      * 
      */
     public Optional<WindowsWebAppSlotLogsApplicationLogsAzureBlobStorage> azureBlobStorage() {

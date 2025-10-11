@@ -116,7 +116,7 @@ public class ContainerImmutabilityPolicy extends com.pulumi.resources.CustomReso
     /**
      * Whether to lock this immutability policy. Cannot be set to `false` once the policy has been locked.
      * 
-     * !&gt; **Note:** Once an Immutability Policy has been locked, it cannot be unlocked. After locking, it will only be possible to increase the value for `retention_period_in_days` up to 5 times for the lifetime of the policy. No other properties will be updateable. Furthermore, the Storage Container and the Storage Account in which it resides will become protected by the policy. It will no longer be possible to delete the Storage Container or the Storage Account. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/storage/blobs/immutable-policy-configure-container-scope?tabs=azure-portal#lock-a-time-based-retention-policy) for more information.
+     * !&gt; **Note:** Once an Immutability Policy has been locked, it cannot be unlocked. After locking, it will only be possible to increase the value for `retentionPeriodInDays` up to 5 times for the lifetime of the policy. No other properties will be updateable. Furthermore, the Storage Container and the Storage Account in which it resides will become protected by the policy. It will no longer be possible to delete the Storage Container or the Storage Account. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/storage/blobs/immutable-policy-configure-container-scope?tabs=azure-portal#lock-a-time-based-retention-policy) for more information.
      * 
      */
     @Export(name="locked", refs={Boolean.class}, tree="[0]")
@@ -125,35 +125,35 @@ public class ContainerImmutabilityPolicy extends com.pulumi.resources.CustomReso
     /**
      * @return Whether to lock this immutability policy. Cannot be set to `false` once the policy has been locked.
      * 
-     * !&gt; **Note:** Once an Immutability Policy has been locked, it cannot be unlocked. After locking, it will only be possible to increase the value for `retention_period_in_days` up to 5 times for the lifetime of the policy. No other properties will be updateable. Furthermore, the Storage Container and the Storage Account in which it resides will become protected by the policy. It will no longer be possible to delete the Storage Container or the Storage Account. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/storage/blobs/immutable-policy-configure-container-scope?tabs=azure-portal#lock-a-time-based-retention-policy) for more information.
+     * !&gt; **Note:** Once an Immutability Policy has been locked, it cannot be unlocked. After locking, it will only be possible to increase the value for `retentionPeriodInDays` up to 5 times for the lifetime of the policy. No other properties will be updateable. Furthermore, the Storage Container and the Storage Account in which it resides will become protected by the policy. It will no longer be possible to delete the Storage Container or the Storage Account. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/storage/blobs/immutable-policy-configure-container-scope?tabs=azure-portal#lock-a-time-based-retention-policy) for more information.
      * 
      */
     public Output<Optional<Boolean>> locked() {
         return Codegen.optional(this.locked);
     }
     /**
-     * Whether to allow protected append writes to block and append blobs to the container. Defaults to `false`. Cannot be set with `protected_append_writes_enabled`.
+     * Whether to allow protected append writes to block and append blobs to the container. Defaults to `false`. Cannot be set with `protectedAppendWritesEnabled`.
      * 
      */
     @Export(name="protectedAppendWritesAllEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> protectedAppendWritesAllEnabled;
 
     /**
-     * @return Whether to allow protected append writes to block and append blobs to the container. Defaults to `false`. Cannot be set with `protected_append_writes_enabled`.
+     * @return Whether to allow protected append writes to block and append blobs to the container. Defaults to `false`. Cannot be set with `protectedAppendWritesEnabled`.
      * 
      */
     public Output<Optional<Boolean>> protectedAppendWritesAllEnabled() {
         return Codegen.optional(this.protectedAppendWritesAllEnabled);
     }
     /**
-     * Whether to allow protected append writes to append blobs to the container. Defaults to `false`. Cannot be set with `protected_append_writes_all_enabled`.
+     * Whether to allow protected append writes to append blobs to the container. Defaults to `false`. Cannot be set with `protectedAppendWritesAllEnabled`.
      * 
      */
     @Export(name="protectedAppendWritesEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> protectedAppendWritesEnabled;
 
     /**
-     * @return Whether to allow protected append writes to append blobs to the container. Defaults to `false`. Cannot be set with `protected_append_writes_all_enabled`.
+     * @return Whether to allow protected append writes to append blobs to the container. Defaults to `false`. Cannot be set with `protectedAppendWritesAllEnabled`.
      * 
      */
     public Output<Optional<Boolean>> protectedAppendWritesEnabled() {

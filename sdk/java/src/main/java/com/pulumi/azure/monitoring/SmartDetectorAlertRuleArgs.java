@@ -21,14 +21,14 @@ public final class SmartDetectorAlertRuleArgs extends com.pulumi.resources.Resou
     public static final SmartDetectorAlertRuleArgs Empty = new SmartDetectorAlertRuleArgs();
 
     /**
-     * An `action_group` block as defined below.
+     * An `actionGroup` block as defined below.
      * 
      */
     @Import(name="actionGroup", required=true)
     private Output<SmartDetectorAlertRuleActionGroupArgs> actionGroup;
 
     /**
-     * @return An `action_group` block as defined below.
+     * @return An `actionGroup` block as defined below.
      * 
      */
     public Output<SmartDetectorAlertRuleActionGroupArgs> actionGroup() {
@@ -220,7 +220,7 @@ public final class SmartDetectorAlertRuleArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param actionGroup An `action_group` block as defined below.
+         * @param actionGroup An `actionGroup` block as defined below.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class SmartDetectorAlertRuleArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param actionGroup An `action_group` block as defined below.
+         * @param actionGroup An `actionGroup` block as defined below.
          * 
          * @return builder
          * 

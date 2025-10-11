@@ -167,7 +167,7 @@ namespace Pulumi.Azure.NetApp
     public partial class AccountEncryption : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The full resource ID of the cross-tenant key vault. This is recommended when using `federated_client_id` for cross-tenant scenarios to ensure proper validation by Azure APIs.
+        /// The full resource ID of the cross-tenant key vault. This is recommended when using `FederatedClientId` for cross-tenant scenarios to ensure proper validation by Azure APIs.
         /// </summary>
         [Output("crossTenantKeyVaultResourceId")]
         public Output<string?> CrossTenantKeyVaultResourceId { get; private set; } = null!;
@@ -191,13 +191,13 @@ namespace Pulumi.Azure.NetApp
         public Output<string> NetappAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the System Assigned Manged Identity. Conflicts with `user_assigned_identity_id`.
+        /// The ID of the System Assigned Manged Identity. Conflicts with `UserAssignedIdentityId`.
         /// </summary>
         [Output("systemAssignedIdentityPrincipalId")]
         public Output<string?> SystemAssignedIdentityPrincipalId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the User Assigned Managed Identity. Conflicts with `system_assigned_identity_principal_id`.
+        /// The ID of the User Assigned Managed Identity. Conflicts with `SystemAssignedIdentityPrincipalId`.
         /// </summary>
         [Output("userAssignedIdentityId")]
         public Output<string?> UserAssignedIdentityId { get; private set; } = null!;
@@ -249,7 +249,7 @@ namespace Pulumi.Azure.NetApp
     public sealed class AccountEncryptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The full resource ID of the cross-tenant key vault. This is recommended when using `federated_client_id` for cross-tenant scenarios to ensure proper validation by Azure APIs.
+        /// The full resource ID of the cross-tenant key vault. This is recommended when using `FederatedClientId` for cross-tenant scenarios to ensure proper validation by Azure APIs.
         /// </summary>
         [Input("crossTenantKeyVaultResourceId")]
         public Input<string>? CrossTenantKeyVaultResourceId { get; set; }
@@ -273,13 +273,13 @@ namespace Pulumi.Azure.NetApp
         public Input<string> NetappAccountId { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the System Assigned Manged Identity. Conflicts with `user_assigned_identity_id`.
+        /// The ID of the System Assigned Manged Identity. Conflicts with `UserAssignedIdentityId`.
         /// </summary>
         [Input("systemAssignedIdentityPrincipalId")]
         public Input<string>? SystemAssignedIdentityPrincipalId { get; set; }
 
         /// <summary>
-        /// The ID of the User Assigned Managed Identity. Conflicts with `system_assigned_identity_principal_id`.
+        /// The ID of the User Assigned Managed Identity. Conflicts with `SystemAssignedIdentityPrincipalId`.
         /// </summary>
         [Input("userAssignedIdentityId")]
         public Input<string>? UserAssignedIdentityId { get; set; }
@@ -293,7 +293,7 @@ namespace Pulumi.Azure.NetApp
     public sealed class AccountEncryptionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The full resource ID of the cross-tenant key vault. This is recommended when using `federated_client_id` for cross-tenant scenarios to ensure proper validation by Azure APIs.
+        /// The full resource ID of the cross-tenant key vault. This is recommended when using `FederatedClientId` for cross-tenant scenarios to ensure proper validation by Azure APIs.
         /// </summary>
         [Input("crossTenantKeyVaultResourceId")]
         public Input<string>? CrossTenantKeyVaultResourceId { get; set; }
@@ -317,13 +317,13 @@ namespace Pulumi.Azure.NetApp
         public Input<string>? NetappAccountId { get; set; }
 
         /// <summary>
-        /// The ID of the System Assigned Manged Identity. Conflicts with `user_assigned_identity_id`.
+        /// The ID of the System Assigned Manged Identity. Conflicts with `UserAssignedIdentityId`.
         /// </summary>
         [Input("systemAssignedIdentityPrincipalId")]
         public Input<string>? SystemAssignedIdentityPrincipalId { get; set; }
 
         /// <summary>
-        /// The ID of the User Assigned Managed Identity. Conflicts with `system_assigned_identity_principal_id`.
+        /// The ID of the User Assigned Managed Identity. Conflicts with `SystemAssignedIdentityPrincipalId`.
         /// </summary>
         [Input("userAssignedIdentityId")]
         public Input<string>? UserAssignedIdentityId { get; set; }

@@ -13,7 +13,7 @@ namespace Pulumi.Azure.AppInsights.Inputs
     public sealed class StandardWebTestValidationRulesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `content` block as defined above.
+        /// A `Content` block as defined above.
         /// </summary>
         [Input("content")]
         public Input<Inputs.StandardWebTestValidationRulesContentArgs>? Content { get; set; }

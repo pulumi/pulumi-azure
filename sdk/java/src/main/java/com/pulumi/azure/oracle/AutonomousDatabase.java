@@ -23,6 +23,40 @@ import javax.annotation.Nullable;
 /**
  * Manages an Autonomous Database.
  * 
+ * ## Example Usage
+ * 
+ * ## &gt; **Note:** `allowedIps`  cannot be updated after provisioning the resource with an empty list (i.e., a publicly accessible Autonomous Database)
+ * 
+ *               size: the maximum number of Ips provided shouldn&#39;t exceed 1024. At this time we only support IpV4.
+ * ***
+ * 
+ * * `customerContacts` - (Optional) Specifies a list of customer contacts as email addresses. Changing this forces a new Autonomous Database to be created.
+ * 
+ * * `tags` - (Optional) A mapping of tags which should be assigned to the Autonomous Database.
+ * 
+ * * `longTermBackupSchedule` - (Optional) A `longTermBackupSchedule` block as defined below.
+ * 
+ * &gt; **Note:** for more information see [Create Long-Term Backups on Autonomous Database](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adbsb/backup-long-term.html#GUID-BD76E02E-AEB0-4450-A6AB-5C9EB1F4EAD0)
+ * 
+ * ***
+ * 
+ * A `longTermBackupSchedule` blocks supports the following:
+ * 
+ * * `repeatCadence` - (Required)  Specifies the schedule for automated long-term backups. Possible values are `Weekly`, `Monthly`, `Yearly`, or `OneTime` (does not repeat) . For example, if the Backup date and Time is `Jan 24, 2025 00:09:00 UTC` and this is a Tuesday, and Weekly is selected, the long-term backup will happen every Tuesday.
+ * 
+ * * `timeOfBackup` - (Required) The date and time in which the backup should be taken in ISO8601 Date Time format.
+ * 
+ * * `retentionPeriodInDays` - (Required) The retention period in days for the Autonomous Database Backup. Possible values range from `90` to `2558` days (7 years).
+ * 
+ * * `enabled` - (Required) A boolean value that indicates whether the long term backup schedule is enabled.
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Oracle.Database` - 2025-03-01
+ * 
  * ## Import
  * 
  * Autonomous Databases can be imported using the `resource id`, e.g.
@@ -253,7 +287,7 @@ public class AutonomousDatabase extends com.pulumi.resources.CustomResource {
     /**
      * Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `false`.
      * 
-     * &gt; **Note:** `mtls_connection_required`  must be set to `true` for all workload types except &#39;APEX&#39; when creating a database with public access.
+     * &gt; **Note:** `mtlsConnectionRequired`  must be set to `true` for all workload types except &#39;APEX&#39; when creating a database with public access.
      * 
      */
     @Export(name="mtlsConnectionRequired", refs={Boolean.class}, tree="[0]")
@@ -262,7 +296,7 @@ public class AutonomousDatabase extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `false`.
      * 
-     * &gt; **Note:** `mtls_connection_required`  must be set to `true` for all workload types except &#39;APEX&#39; when creating a database with public access.
+     * &gt; **Note:** `mtlsConnectionRequired`  must be set to `true` for all workload types except &#39;APEX&#39; when creating a database with public access.
      * 
      */
     public Output<Boolean> mtlsConnectionRequired() {

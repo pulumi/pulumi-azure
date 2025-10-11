@@ -37,7 +37,7 @@ public final class FluxConfigurationKustomization {
      */
     private @Nullable String path;
     /**
-     * @return A `post_build` block as defined below.
+     * @return A `postBuild` block as defined below.
      * 
      */
     private @Nullable FluxConfigurationKustomizationPostBuild postBuild;
@@ -97,7 +97,7 @@ public final class FluxConfigurationKustomization {
         return Optional.ofNullable(this.path);
     }
     /**
-     * @return A `post_build` block as defined below.
+     * @return A `postBuild` block as defined below.
      * 
      */
     public Optional<FluxConfigurationKustomizationPostBuild> postBuild() {

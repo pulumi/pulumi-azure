@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class AutomationSourceRuleSetRule {
     /**
-     * @return A value that will be compared with the value in `property_path`.
+     * @return A value that will be compared with the value in `propertyPath`.
      * 
      */
     private String expectedValue;
@@ -28,14 +28,14 @@ public final class AutomationSourceRuleSetRule {
     /**
      * @return The data type of the compared operands, must be one of: `Integer`, `String`, `Boolean` or `Number`.
      * 
-     * &gt; **Note:** The schema for Security Center alerts (when `event_source` is &#34;Alerts&#34;) [can be found here](https://docs.microsoft.com/azure/security-center/alerts-schemas?tabs=schema-continuousexport)
+     * &gt; **Note:** The schema for Security Center alerts (when `eventSource` is &#34;Alerts&#34;) [can be found here](https://docs.microsoft.com/azure/security-center/alerts-schemas?tabs=schema-continuousexport)
      * 
      */
     private String propertyType;
 
     private AutomationSourceRuleSetRule() {}
     /**
-     * @return A value that will be compared with the value in `property_path`.
+     * @return A value that will be compared with the value in `propertyPath`.
      * 
      */
     public String expectedValue() {
@@ -58,7 +58,7 @@ public final class AutomationSourceRuleSetRule {
     /**
      * @return The data type of the compared operands, must be one of: `Integer`, `String`, `Boolean` or `Number`.
      * 
-     * &gt; **Note:** The schema for Security Center alerts (when `event_source` is &#34;Alerts&#34;) [can be found here](https://docs.microsoft.com/azure/security-center/alerts-schemas?tabs=schema-continuousexport)
+     * &gt; **Note:** The schema for Security Center alerts (when `eventSource` is &#34;Alerts&#34;) [can be found here](https://docs.microsoft.com/azure/security-center/alerts-schemas?tabs=schema-continuousexport)
      * 
      */
     public String propertyType() {

@@ -22,7 +22,7 @@ public final class GetEnvironmentV3Result {
      */
     private Boolean allowNewPrivateEndpointConnections;
     /**
-     * @return A `cluster_setting` block as defined below.
+     * @return A `clusterSetting` block as defined below.
      * 
      */
     private List<GetEnvironmentV3ClusterSetting> clusterSettings;
@@ -114,7 +114,7 @@ public final class GetEnvironmentV3Result {
         return this.allowNewPrivateEndpointConnections;
     }
     /**
-     * @return A `cluster_setting` block as defined below.
+     * @return A `clusterSetting` block as defined below.
      * 
      */
     public List<GetEnvironmentV3ClusterSetting> clusterSettings() {

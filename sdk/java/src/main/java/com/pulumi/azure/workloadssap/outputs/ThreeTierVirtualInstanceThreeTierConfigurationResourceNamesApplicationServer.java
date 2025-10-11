@@ -19,7 +19,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesAp
      */
     private @Nullable String availabilitySetName;
     /**
-     * @return One or more `virtual_machine` blocks as defined below. Changing this forces a new resource to be created.
+     * @return One or more `virtualMachine` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable List<ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachine> virtualMachines;
@@ -33,7 +33,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesAp
         return Optional.ofNullable(this.availabilitySetName);
     }
     /**
-     * @return One or more `virtual_machine` blocks as defined below. Changing this forces a new resource to be created.
+     * @return One or more `virtualMachine` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public List<ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachine> virtualMachines() {

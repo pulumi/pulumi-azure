@@ -170,14 +170,14 @@ public final class SingleNodeVirtualInstanceArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * A `single_server_configuration` block as defined below. Changing this forces a new resource to be created.
+     * A `singleServerConfiguration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="singleServerConfiguration", required=true)
     private Output<SingleNodeVirtualInstanceSingleServerConfigurationArgs> singleServerConfiguration;
 
     /**
-     * @return A `single_server_configuration` block as defined below. Changing this forces a new resource to be created.
+     * @return A `singleServerConfiguration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<SingleNodeVirtualInstanceSingleServerConfigurationArgs> singleServerConfiguration() {
@@ -445,7 +445,7 @@ public final class SingleNodeVirtualInstanceArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param singleServerConfiguration A `single_server_configuration` block as defined below. Changing this forces a new resource to be created.
+         * @param singleServerConfiguration A `singleServerConfiguration` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -456,7 +456,7 @@ public final class SingleNodeVirtualInstanceArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param singleServerConfiguration A `single_server_configuration` block as defined below. Changing this forces a new resource to be created.
+         * @param singleServerConfiguration A `singleServerConfiguration` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

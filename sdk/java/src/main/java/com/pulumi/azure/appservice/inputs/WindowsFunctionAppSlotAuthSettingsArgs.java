@@ -27,14 +27,14 @@ public final class WindowsFunctionAppSlotAuthSettingsArgs extends com.pulumi.res
     public static final WindowsFunctionAppSlotAuthSettingsArgs Empty = new WindowsFunctionAppSlotAuthSettingsArgs();
 
     /**
-     * an `active_directory` block as detailed below.
+     * an `activeDirectory` block as detailed below.
      * 
      */
     @Import(name="activeDirectory")
     private @Nullable Output<WindowsFunctionAppSlotAuthSettingsActiveDirectoryArgs> activeDirectory;
 
     /**
-     * @return an `active_directory` block as detailed below.
+     * @return an `activeDirectory` block as detailed below.
      * 
      */
     public Optional<Output<WindowsFunctionAppSlotAuthSettingsActiveDirectoryArgs>> activeDirectory() {
@@ -74,7 +74,7 @@ public final class WindowsFunctionAppSlotAuthSettingsArgs extends com.pulumi.res
     /**
      * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
      * 
-     * &gt; **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to &#34;RedirectToLoginPage&#34;.
+     * &gt; **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to &#34;RedirectToLoginPage&#34;.
      * 
      */
     @Import(name="defaultProvider")
@@ -83,7 +83,7 @@ public final class WindowsFunctionAppSlotAuthSettingsArgs extends com.pulumi.res
     /**
      * @return The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
      * 
-     * &gt; **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to &#34;RedirectToLoginPage&#34;.
+     * &gt; **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to &#34;RedirectToLoginPage&#34;.
      * 
      */
     public Optional<Output<String>> defaultProvider() {
@@ -298,7 +298,7 @@ public final class WindowsFunctionAppSlotAuthSettingsArgs extends com.pulumi.res
         }
 
         /**
-         * @param activeDirectory an `active_directory` block as detailed below.
+         * @param activeDirectory an `activeDirectory` block as detailed below.
          * 
          * @return builder
          * 
@@ -309,7 +309,7 @@ public final class WindowsFunctionAppSlotAuthSettingsArgs extends com.pulumi.res
         }
 
         /**
-         * @param activeDirectory an `active_directory` block as detailed below.
+         * @param activeDirectory an `activeDirectory` block as detailed below.
          * 
          * @return builder
          * 
@@ -373,7 +373,7 @@ public final class WindowsFunctionAppSlotAuthSettingsArgs extends com.pulumi.res
         /**
          * @param defaultProvider The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
          * 
-         * &gt; **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to &#34;RedirectToLoginPage&#34;.
+         * &gt; **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to &#34;RedirectToLoginPage&#34;.
          * 
          * @return builder
          * 
@@ -386,7 +386,7 @@ public final class WindowsFunctionAppSlotAuthSettingsArgs extends com.pulumi.res
         /**
          * @param defaultProvider The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
          * 
-         * &gt; **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to &#34;RedirectToLoginPage&#34;.
+         * &gt; **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to &#34;RedirectToLoginPage&#34;.
          * 
          * @return builder
          * 

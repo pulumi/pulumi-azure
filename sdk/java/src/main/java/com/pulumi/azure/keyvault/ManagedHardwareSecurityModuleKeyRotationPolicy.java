@@ -102,28 +102,28 @@ public class ManagedHardwareSecurityModuleKeyRotationPolicy extends com.pulumi.r
         return this.managedHsmKeyId;
     }
     /**
-     * Rotate automatically at a duration after key creation as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `time_after_creation` or `time_before_expiry` should be specified.
+     * Rotate automatically at a duration after key creation as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `timeAfterCreation` or `timeBeforeExpiry` should be specified.
      * 
      */
     @Export(name="timeAfterCreation", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> timeAfterCreation;
 
     /**
-     * @return Rotate automatically at a duration after key creation as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `time_after_creation` or `time_before_expiry` should be specified.
+     * @return Rotate automatically at a duration after key creation as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `timeAfterCreation` or `timeBeforeExpiry` should be specified.
      * 
      */
     public Output<Optional<String>> timeAfterCreation() {
         return Codegen.optional(this.timeAfterCreation);
     }
     /**
-     * Rotate automatically at a duration before key expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `time_after_creation` or `time_before_expiry` should be specified.
+     * Rotate automatically at a duration before key expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `timeAfterCreation` or `timeBeforeExpiry` should be specified.
      * 
      */
     @Export(name="timeBeforeExpiry", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> timeBeforeExpiry;
 
     /**
-     * @return Rotate automatically at a duration before key expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `time_after_creation` or `time_before_expiry` should be specified.
+     * @return Rotate automatically at a duration before key expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `timeAfterCreation` or `timeBeforeExpiry` should be specified.
      * 
      */
     public Output<Optional<String>> timeBeforeExpiry() {

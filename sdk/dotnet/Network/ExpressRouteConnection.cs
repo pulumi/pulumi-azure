@@ -138,7 +138,7 @@ namespace Pulumi.Azure.Network
         public Output<string> ExpressRouteCircuitPeeringId { get; private set; } = null!;
 
         /// <summary>
-        /// Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `false`.
+        /// Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `False`.
         /// </summary>
         [Output("expressRouteGatewayBypassEnabled")]
         public Output<bool?> ExpressRouteGatewayBypassEnabled { get; private set; } = null!;
@@ -159,7 +159,7 @@ namespace Pulumi.Azure.Network
         public Output<bool?> PrivateLinkFastPathEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A `routing` block as defined below.
+        /// A `Routing` block as defined below.
         /// </summary>
         [Output("routing")]
         public Output<Outputs.ExpressRouteConnectionRouting> Routing { get; private set; } = null!;
@@ -235,7 +235,7 @@ namespace Pulumi.Azure.Network
         public Input<string> ExpressRouteCircuitPeeringId { get; set; } = null!;
 
         /// <summary>
-        /// Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `false`.
+        /// Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `False`.
         /// </summary>
         [Input("expressRouteGatewayBypassEnabled")]
         public Input<bool>? ExpressRouteGatewayBypassEnabled { get; set; }
@@ -256,7 +256,7 @@ namespace Pulumi.Azure.Network
         public Input<bool>? PrivateLinkFastPathEnabled { get; set; }
 
         /// <summary>
-        /// A `routing` block as defined below.
+        /// A `Routing` block as defined below.
         /// </summary>
         [Input("routing")]
         public Input<Inputs.ExpressRouteConnectionRoutingArgs>? Routing { get; set; }
@@ -294,7 +294,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? ExpressRouteCircuitPeeringId { get; set; }
 
         /// <summary>
-        /// Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `false`.
+        /// Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `False`.
         /// </summary>
         [Input("expressRouteGatewayBypassEnabled")]
         public Input<bool>? ExpressRouteGatewayBypassEnabled { get; set; }
@@ -315,7 +315,7 @@ namespace Pulumi.Azure.Network
         public Input<bool>? PrivateLinkFastPathEnabled { get; set; }
 
         /// <summary>
-        /// A `routing` block as defined below.
+        /// A `Routing` block as defined below.
         /// </summary>
         [Input("routing")]
         public Input<Inputs.ExpressRouteConnectionRoutingGetArgs>? Routing { get; set; }

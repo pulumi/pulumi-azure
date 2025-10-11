@@ -13,97 +13,97 @@ namespace Pulumi.Azure.Iot.Inputs
     public sealed class SecuritySolutionRecommendationsEnabledGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Is Principal Authentication enabled for the ACR repository? Defaults to `true`.
+        /// Is Principal Authentication enabled for the ACR repository? Defaults to `True`.
         /// </summary>
         [Input("acrAuthentication")]
         public Input<bool>? AcrAuthentication { get; set; }
 
         /// <summary>
-        /// Is Agent send underutilized messages enabled? Defaults to `true`.
+        /// Is Agent send underutilized messages enabled? Defaults to `True`.
         /// </summary>
         [Input("agentSendUnutilizedMsg")]
         public Input<bool>? AgentSendUnutilizedMsg { get; set; }
 
         /// <summary>
-        /// Is Security related system configuration issues identified? Defaults to `true`.
+        /// Is Security related system configuration issues identified? Defaults to `True`.
         /// </summary>
         [Input("baseline")]
         public Input<bool>? Baseline { get; set; }
 
         /// <summary>
-        /// Is IoT Edge Hub memory optimized? Defaults to `true`.
+        /// Is IoT Edge Hub memory optimized? Defaults to `True`.
         /// </summary>
         [Input("edgeHubMemOptimize")]
         public Input<bool>? EdgeHubMemOptimize { get; set; }
 
         /// <summary>
-        /// Is logging configured for IoT Edge module? Defaults to `true`.
+        /// Is logging configured for IoT Edge module? Defaults to `True`.
         /// </summary>
         [Input("edgeLoggingOption")]
         public Input<bool>? EdgeLoggingOption { get; set; }
 
         /// <summary>
-        /// Is inconsistent module settings enabled for SecurityGroup? Defaults to `true`.
+        /// Is inconsistent module settings enabled for SecurityGroup? Defaults to `True`.
         /// </summary>
         [Input("inconsistentModuleSettings")]
         public Input<bool>? InconsistentModuleSettings { get; set; }
 
         /// <summary>
-        /// is Azure IoT Security agent installed? Defaults to `true`.
+        /// is Azure IoT Security agent installed? Defaults to `True`.
         /// </summary>
         [Input("installAgent")]
         public Input<bool>? InstallAgent { get; set; }
 
         /// <summary>
-        /// Is Default IP filter policy denied? Defaults to `true`.
+        /// Is Default IP filter policy denied? Defaults to `True`.
         /// </summary>
         [Input("ipFilterDenyAll")]
         public Input<bool>? IpFilterDenyAll { get; set; }
 
         /// <summary>
-        /// Is IP filter rule source allowable IP range too large? Defaults to `true`.
+        /// Is IP filter rule source allowable IP range too large? Defaults to `True`.
         /// </summary>
         [Input("ipFilterPermissiveRule")]
         public Input<bool>? IpFilterPermissiveRule { get; set; }
 
         /// <summary>
-        /// Is any ports open on the device? Defaults to `true`.
+        /// Is any ports open on the device? Defaults to `True`.
         /// </summary>
         [Input("openPorts")]
         public Input<bool>? OpenPorts { get; set; }
 
         /// <summary>
-        /// Does firewall policy exist which allow necessary communication to/from the device? Defaults to `true`.
+        /// Does firewall policy exist which allow necessary communication to/from the device? Defaults to `True`.
         /// </summary>
         [Input("permissiveFirewallPolicy")]
         public Input<bool>? PermissiveFirewallPolicy { get; set; }
 
         /// <summary>
-        /// Is only necessary addresses or ports are permitted in? Defaults to `true`.
+        /// Is only necessary addresses or ports are permitted in? Defaults to `True`.
         /// </summary>
         [Input("permissiveInputFirewallRules")]
         public Input<bool>? PermissiveInputFirewallRules { get; set; }
 
         /// <summary>
-        /// Is only necessary addresses or ports are permitted out? Defaults to `true`.
+        /// Is only necessary addresses or ports are permitted out? Defaults to `True`.
         /// </summary>
         [Input("permissiveOutputFirewallRules")]
         public Input<bool>? PermissiveOutputFirewallRules { get; set; }
 
         /// <summary>
-        /// Is high level permissions are needed for the module? Defaults to `true`.
+        /// Is high level permissions are needed for the module? Defaults to `True`.
         /// </summary>
         [Input("privilegedDockerOptions")]
         public Input<bool>? PrivilegedDockerOptions { get; set; }
 
         /// <summary>
-        /// Is any credentials shared among devices? Defaults to `true`.
+        /// Is any credentials shared among devices? Defaults to `True`.
         /// </summary>
         [Input("sharedCredentials")]
         public Input<bool>? SharedCredentials { get; set; }
 
         /// <summary>
-        /// Does TLS cipher suite need to be updated? Defaults to `true`.
+        /// Does TLS cipher suite need to be updated? Defaults to `True`.
         /// </summary>
         [Input("vulnerableTlsCipherSuite")]
         public Input<bool>? VulnerableTlsCipherSuite { get; set; }

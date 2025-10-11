@@ -116,7 +116,7 @@ namespace Pulumi.Azure.ContainerService
     public partial class FleetUpdateRun : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ID of the Fleet Update Strategy. Only one of `fleet_update_strategy_id` or `stage` can be specified.
+        /// The ID of the Fleet Update Strategy. Only one of `FleetUpdateStrategyId` or `Stage` can be specified.
         /// </summary>
         [Output("fleetUpdateStrategyId")]
         public Output<string?> FleetUpdateStrategyId { get; private set; } = null!;
@@ -128,7 +128,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> KubernetesFleetManagerId { get; private set; } = null!;
 
         /// <summary>
-        /// A `managed_cluster_update` block as defined below.
+        /// A `ManagedClusterUpdate` block as defined below.
         /// </summary>
         [Output("managedClusterUpdate")]
         public Output<Outputs.FleetUpdateRunManagedClusterUpdate> ManagedClusterUpdate { get; private set; } = null!;
@@ -140,7 +140,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `stage` blocks as defined below. Only one of `stage` or `fleet_update_strategy_id` can be specified.
+        /// One or more `Stage` blocks as defined below. Only one of `Stage` or `FleetUpdateStrategyId` can be specified.
         /// </summary>
         [Output("stages")]
         public Output<ImmutableArray<Outputs.FleetUpdateRunStage>> Stages { get; private set; } = null!;
@@ -192,7 +192,7 @@ namespace Pulumi.Azure.ContainerService
     public sealed class FleetUpdateRunArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the Fleet Update Strategy. Only one of `fleet_update_strategy_id` or `stage` can be specified.
+        /// The ID of the Fleet Update Strategy. Only one of `FleetUpdateStrategyId` or `Stage` can be specified.
         /// </summary>
         [Input("fleetUpdateStrategyId")]
         public Input<string>? FleetUpdateStrategyId { get; set; }
@@ -204,7 +204,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string> KubernetesFleetManagerId { get; set; } = null!;
 
         /// <summary>
-        /// A `managed_cluster_update` block as defined below.
+        /// A `ManagedClusterUpdate` block as defined below.
         /// </summary>
         [Input("managedClusterUpdate", required: true)]
         public Input<Inputs.FleetUpdateRunManagedClusterUpdateArgs> ManagedClusterUpdate { get; set; } = null!;
@@ -219,7 +219,7 @@ namespace Pulumi.Azure.ContainerService
         private InputList<Inputs.FleetUpdateRunStageArgs>? _stages;
 
         /// <summary>
-        /// One or more `stage` blocks as defined below. Only one of `stage` or `fleet_update_strategy_id` can be specified.
+        /// One or more `Stage` blocks as defined below. Only one of `Stage` or `FleetUpdateStrategyId` can be specified.
         /// </summary>
         public InputList<Inputs.FleetUpdateRunStageArgs> Stages
         {
@@ -236,7 +236,7 @@ namespace Pulumi.Azure.ContainerService
     public sealed class FleetUpdateRunState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the Fleet Update Strategy. Only one of `fleet_update_strategy_id` or `stage` can be specified.
+        /// The ID of the Fleet Update Strategy. Only one of `FleetUpdateStrategyId` or `Stage` can be specified.
         /// </summary>
         [Input("fleetUpdateStrategyId")]
         public Input<string>? FleetUpdateStrategyId { get; set; }
@@ -248,7 +248,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? KubernetesFleetManagerId { get; set; }
 
         /// <summary>
-        /// A `managed_cluster_update` block as defined below.
+        /// A `ManagedClusterUpdate` block as defined below.
         /// </summary>
         [Input("managedClusterUpdate")]
         public Input<Inputs.FleetUpdateRunManagedClusterUpdateGetArgs>? ManagedClusterUpdate { get; set; }
@@ -263,7 +263,7 @@ namespace Pulumi.Azure.ContainerService
         private InputList<Inputs.FleetUpdateRunStageGetArgs>? _stages;
 
         /// <summary>
-        /// One or more `stage` blocks as defined below. Only one of `stage` or `fleet_update_strategy_id` can be specified.
+        /// One or more `Stage` blocks as defined below. Only one of `Stage` or `FleetUpdateStrategyId` can be specified.
         /// </summary>
         public InputList<Inputs.FleetUpdateRunStageGetArgs> Stages
         {

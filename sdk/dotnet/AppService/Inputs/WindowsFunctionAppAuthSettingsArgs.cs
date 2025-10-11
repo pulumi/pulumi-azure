@@ -13,7 +13,7 @@ namespace Pulumi.Azure.AppService.Inputs
     public sealed class WindowsFunctionAppAuthSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `active_directory` block as defined above.
+        /// An `ActiveDirectory` block as defined above.
         /// </summary>
         [Input("activeDirectory")]
         public Input<Inputs.WindowsFunctionAppAuthSettingsActiveDirectoryArgs>? ActiveDirectory { get; set; }
@@ -45,7 +45,7 @@ namespace Pulumi.Azure.AppService.Inputs
         /// <summary>
         /// The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
         /// 
-        /// &gt; **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+        /// &gt; **Note:** This setting is only needed if multiple providers are configured, and the `UnauthenticatedClientAction` is set to "RedirectToLoginPage".
         /// </summary>
         [Input("defaultProvider")]
         public Input<string>? DefaultProvider { get; set; }
@@ -57,19 +57,19 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<bool> Enabled { get; set; } = null!;
 
         /// <summary>
-        /// A `facebook` block as defined below.
+        /// A `Facebook` block as defined below.
         /// </summary>
         [Input("facebook")]
         public Input<Inputs.WindowsFunctionAppAuthSettingsFacebookArgs>? Facebook { get; set; }
 
         /// <summary>
-        /// A `github` block as defined below.
+        /// A `Github` block as defined below.
         /// </summary>
         [Input("github")]
         public Input<Inputs.WindowsFunctionAppAuthSettingsGithubArgs>? Github { get; set; }
 
         /// <summary>
-        /// A `google` block as defined below.
+        /// A `Google` block as defined below.
         /// </summary>
         [Input("google")]
         public Input<Inputs.WindowsFunctionAppAuthSettingsGoogleArgs>? Google { get; set; }
@@ -83,7 +83,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? Issuer { get; set; }
 
         /// <summary>
-        /// A `microsoft` block as defined below.
+        /// A `Microsoft` block as defined below.
         /// </summary>
         [Input("microsoft")]
         public Input<Inputs.WindowsFunctionAppAuthSettingsMicrosoftArgs>? Microsoft { get; set; }
@@ -101,13 +101,13 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<double>? TokenRefreshExtensionHours { get; set; }
 
         /// <summary>
-        /// Should the Windows Function App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
+        /// Should the Windows Function App durably store platform-specific security tokens that are obtained during login flows? Defaults to `False`.
         /// </summary>
         [Input("tokenStoreEnabled")]
         public Input<bool>? TokenStoreEnabled { get; set; }
 
         /// <summary>
-        /// A `twitter` block as defined below.
+        /// A `Twitter` block as defined below.
         /// </summary>
         [Input("twitter")]
         public Input<Inputs.WindowsFunctionAppAuthSettingsTwitterArgs>? Twitter { get; set; }

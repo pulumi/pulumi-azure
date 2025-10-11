@@ -47,7 +47,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<string>? _destinationUrls;
 
         /// <summary>
-        /// Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destination_fqdns`.
+        /// Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `DestinationFqdns`.
         /// </summary>
         public InputList<string> DestinationUrls
         {
@@ -59,7 +59,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<Inputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderGetArgs>? _httpHeaders;
 
         /// <summary>
-        /// Specifies a list of HTTP/HTTPS headers to insert. One or more `http_headers` blocks as defined below.
+        /// Specifies a list of HTTP/HTTPS headers to insert. One or more `HttpHeaders` blocks as defined below.
         /// </summary>
         public InputList<Inputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderGetArgs> HttpHeaders
         {
@@ -98,7 +98,7 @@ namespace Pulumi.Azure.Network.Inputs
         }
 
         /// <summary>
-        /// Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
+        /// Boolean specifying if TLS shall be terminated (true) or not (false). Must be `True` when using `DestinationUrls`. Needs Premium SKU for Firewall Policy.
         /// </summary>
         [Input("terminateTls")]
         public Input<bool>? TerminateTls { get; set; }
@@ -107,7 +107,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<string>? _webCategories;
 
         /// <summary>
-        /// Specifies a list of web categories to which access is denied or allowed depending on the value of `action` above. Needs Premium SKU for Firewall Policy.
+        /// Specifies a list of web categories to which access is denied or allowed depending on the value of `Action` above. Needs Premium SKU for Firewall Policy.
         /// </summary>
         public InputList<string> WebCategories
         {

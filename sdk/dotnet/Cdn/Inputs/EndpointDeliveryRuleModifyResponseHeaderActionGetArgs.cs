@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The value of the header. Only needed when `action` is set to `Append` or `overwrite`.
+        /// The value of the header. Only needed when `Action` is set to `Append` or `Overwrite`.
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }

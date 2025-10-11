@@ -16,7 +16,7 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         private InputList<Inputs.SqlContainerIndexingPolicyCompositeIndexIndexArgs>? _indices;
 
         /// <summary>
-        /// One or more `index` blocks as defined below.
+        /// One or more `Index` blocks as defined below.
         /// </summary>
         public InputList<Inputs.SqlContainerIndexingPolicyCompositeIndexIndexArgs> Indices
         {

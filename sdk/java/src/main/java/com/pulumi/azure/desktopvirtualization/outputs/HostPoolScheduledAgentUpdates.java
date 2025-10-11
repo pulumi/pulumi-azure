@@ -27,7 +27,7 @@ public final class HostPoolScheduledAgentUpdates {
      */
     private @Nullable List<HostPoolScheduledAgentUpdatesSchedule> schedules;
     /**
-     * @return Specifies the time zone in which the agent update schedule will apply, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). If `use_session_host_timezone` is enabled then it will override this setting. Default is `UTC`
+     * @return Specifies the time zone in which the agent update schedule will apply, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). If `useSessionHostTimezone` is enabled then it will override this setting. Default is `UTC`
      * 
      */
     private @Nullable String timezone;
@@ -55,7 +55,7 @@ public final class HostPoolScheduledAgentUpdates {
         return this.schedules == null ? List.of() : this.schedules;
     }
     /**
-     * @return Specifies the time zone in which the agent update schedule will apply, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). If `use_session_host_timezone` is enabled then it will override this setting. Default is `UTC`
+     * @return Specifies the time zone in which the agent update schedule will apply, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). If `useSessionHostTimezone` is enabled then it will override this setting. Default is `UTC`
      * 
      */
     public Optional<String> timezone() {

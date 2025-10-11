@@ -189,14 +189,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:elasticsan/volume:Volume")
 public class Volume extends com.pulumi.resources.CustomResource {
     /**
-     * A `create_source` block as defined below.
+     * A `createSource` block as defined below.
      * 
      */
     @Export(name="createSource", refs={VolumeCreateSource.class}, tree="[0]")
     private Output</* @Nullable */ VolumeCreateSource> createSource;
 
     /**
-     * @return A `create_source` block as defined below.
+     * @return A `createSource` block as defined below.
      * 
      */
     public Output<Optional<VolumeCreateSource>> createSource() {
@@ -219,7 +219,7 @@ public class Volume extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
      * 
-     * &gt; **Note:** The size can only be increased. If `create_source` is specified, then the size must be equal to or greater than the source&#39;s size.
+     * &gt; **Note:** The size can only be increased. If `createSource` is specified, then the size must be equal to or greater than the source&#39;s size.
      * 
      */
     @Export(name="sizeInGib", refs={Integer.class}, tree="[0]")
@@ -228,7 +228,7 @@ public class Volume extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
      * 
-     * &gt; **Note:** The size can only be increased. If `create_source` is specified, then the size must be equal to or greater than the source&#39;s size.
+     * &gt; **Note:** The size can only be increased. If `createSource` is specified, then the size must be equal to or greater than the source&#39;s size.
      * 
      */
     public Output<Integer> sizeInGib() {

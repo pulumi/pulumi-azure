@@ -173,14 +173,14 @@ public class Configuration extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.automationAccountEnabled);
     }
     /**
-     * A `azure_security_baseline` block as defined below.
+     * A `azureSecurityBaseline` block as defined below.
      * 
      */
     @Export(name="azureSecurityBaseline", refs={ConfigurationAzureSecurityBaseline.class}, tree="[0]")
     private Output</* @Nullable */ ConfigurationAzureSecurityBaseline> azureSecurityBaseline;
 
     /**
-     * @return A `azure_security_baseline` block as defined below.
+     * @return A `azureSecurityBaseline` block as defined below.
      * 
      */
     public Output<Optional<ConfigurationAzureSecurityBaseline>> azureSecurityBaseline() {

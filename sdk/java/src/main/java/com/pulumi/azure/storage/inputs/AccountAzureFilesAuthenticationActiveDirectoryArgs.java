@@ -47,14 +47,14 @@ public final class AccountAzureFilesAuthenticationActiveDirectoryArgs extends co
     }
 
     /**
-     * Specifies the security identifier (SID). This is required when `directory_type` is set to `AD`.
+     * Specifies the security identifier (SID). This is required when `directoryType` is set to `AD`.
      * 
      */
     @Import(name="domainSid")
     private @Nullable Output<String> domainSid;
 
     /**
-     * @return Specifies the security identifier (SID). This is required when `directory_type` is set to `AD`.
+     * @return Specifies the security identifier (SID). This is required when `directoryType` is set to `AD`.
      * 
      */
     public Optional<Output<String>> domainSid() {
@@ -62,14 +62,14 @@ public final class AccountAzureFilesAuthenticationActiveDirectoryArgs extends co
     }
 
     /**
-     * Specifies the Active Directory forest. This is required when `directory_type` is set to `AD`.
+     * Specifies the Active Directory forest. This is required when `directoryType` is set to `AD`.
      * 
      */
     @Import(name="forestName")
     private @Nullable Output<String> forestName;
 
     /**
-     * @return Specifies the Active Directory forest. This is required when `directory_type` is set to `AD`.
+     * @return Specifies the Active Directory forest. This is required when `directoryType` is set to `AD`.
      * 
      */
     public Optional<Output<String>> forestName() {
@@ -77,14 +77,14 @@ public final class AccountAzureFilesAuthenticationActiveDirectoryArgs extends co
     }
 
     /**
-     * Specifies the NetBIOS domain name. This is required when `directory_type` is set to `AD`.
+     * Specifies the NetBIOS domain name. This is required when `directoryType` is set to `AD`.
      * 
      */
     @Import(name="netbiosDomainName")
     private @Nullable Output<String> netbiosDomainName;
 
     /**
-     * @return Specifies the NetBIOS domain name. This is required when `directory_type` is set to `AD`.
+     * @return Specifies the NetBIOS domain name. This is required when `directoryType` is set to `AD`.
      * 
      */
     public Optional<Output<String>> netbiosDomainName() {
@@ -92,14 +92,14 @@ public final class AccountAzureFilesAuthenticationActiveDirectoryArgs extends co
     }
 
     /**
-     * Specifies the security identifier (SID) for Azure Storage. This is required when `directory_type` is set to `AD`.
+     * Specifies the security identifier (SID) for Azure Storage. This is required when `directoryType` is set to `AD`.
      * 
      */
     @Import(name="storageSid")
     private @Nullable Output<String> storageSid;
 
     /**
-     * @return Specifies the security identifier (SID) for Azure Storage. This is required when `directory_type` is set to `AD`.
+     * @return Specifies the security identifier (SID) for Azure Storage. This is required when `directoryType` is set to `AD`.
      * 
      */
     public Optional<Output<String>> storageSid() {
@@ -178,7 +178,7 @@ public final class AccountAzureFilesAuthenticationActiveDirectoryArgs extends co
         }
 
         /**
-         * @param domainSid Specifies the security identifier (SID). This is required when `directory_type` is set to `AD`.
+         * @param domainSid Specifies the security identifier (SID). This is required when `directoryType` is set to `AD`.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class AccountAzureFilesAuthenticationActiveDirectoryArgs extends co
         }
 
         /**
-         * @param domainSid Specifies the security identifier (SID). This is required when `directory_type` is set to `AD`.
+         * @param domainSid Specifies the security identifier (SID). This is required when `directoryType` is set to `AD`.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class AccountAzureFilesAuthenticationActiveDirectoryArgs extends co
         }
 
         /**
-         * @param forestName Specifies the Active Directory forest. This is required when `directory_type` is set to `AD`.
+         * @param forestName Specifies the Active Directory forest. This is required when `directoryType` is set to `AD`.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class AccountAzureFilesAuthenticationActiveDirectoryArgs extends co
         }
 
         /**
-         * @param forestName Specifies the Active Directory forest. This is required when `directory_type` is set to `AD`.
+         * @param forestName Specifies the Active Directory forest. This is required when `directoryType` is set to `AD`.
          * 
          * @return builder
          * 
@@ -220,7 +220,7 @@ public final class AccountAzureFilesAuthenticationActiveDirectoryArgs extends co
         }
 
         /**
-         * @param netbiosDomainName Specifies the NetBIOS domain name. This is required when `directory_type` is set to `AD`.
+         * @param netbiosDomainName Specifies the NetBIOS domain name. This is required when `directoryType` is set to `AD`.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class AccountAzureFilesAuthenticationActiveDirectoryArgs extends co
         }
 
         /**
-         * @param netbiosDomainName Specifies the NetBIOS domain name. This is required when `directory_type` is set to `AD`.
+         * @param netbiosDomainName Specifies the NetBIOS domain name. This is required when `directoryType` is set to `AD`.
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class AccountAzureFilesAuthenticationActiveDirectoryArgs extends co
         }
 
         /**
-         * @param storageSid Specifies the security identifier (SID) for Azure Storage. This is required when `directory_type` is set to `AD`.
+         * @param storageSid Specifies the security identifier (SID) for Azure Storage. This is required when `directoryType` is set to `AD`.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class AccountAzureFilesAuthenticationActiveDirectoryArgs extends co
         }
 
         /**
-         * @param storageSid Specifies the security identifier (SID) for Azure Storage. This is required when `directory_type` is set to `AD`.
+         * @param storageSid Specifies the security identifier (SID) for Azure Storage. This is required when `directoryType` is set to `AD`.
          * 
          * @return builder
          * 

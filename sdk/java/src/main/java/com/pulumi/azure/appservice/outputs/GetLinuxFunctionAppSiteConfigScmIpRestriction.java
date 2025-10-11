@@ -39,7 +39,7 @@ public final class GetLinuxFunctionAppSiteConfigScmIpRestriction {
      */
     private String name;
     /**
-     * @return The priority value of this `ip_restriction`.
+     * @return The priority value of this `ipRestriction`.
      * 
      */
     private Integer priority;
@@ -91,7 +91,7 @@ public final class GetLinuxFunctionAppSiteConfigScmIpRestriction {
         return this.name;
     }
     /**
-     * @return The priority value of this `ip_restriction`.
+     * @return The priority value of this `ipRestriction`.
      * 
      */
     public Integer priority() {

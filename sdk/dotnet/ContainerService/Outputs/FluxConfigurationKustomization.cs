@@ -18,7 +18,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly ImmutableArray<string> DependsOns;
         /// <summary>
-        /// Whether garbage collections of Kubernetes objects created by this kustomization is enabled. Defaults to `false`.
+        /// Whether garbage collections of Kubernetes objects created by this kustomization is enabled. Defaults to `False`.
         /// </summary>
         public readonly bool? GarbageCollectionEnabled;
         /// <summary>
@@ -30,11 +30,11 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? Path;
         /// <summary>
-        /// A `post_build` block as defined below.
+        /// A `PostBuild` block as defined below.
         /// </summary>
         public readonly Outputs.FluxConfigurationKustomizationPostBuild? PostBuild;
         /// <summary>
-        /// Whether re-creating Kubernetes resources on the cluster is enabled when patching fails due to an immutable field change. Defaults to `false`.
+        /// Whether re-creating Kubernetes resources on the cluster is enabled when patching fails due to an immutable field change. Defaults to `False`.
         /// </summary>
         public readonly bool? RecreatingEnabled;
         /// <summary>
@@ -50,7 +50,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly int? TimeoutInSeconds;
         /// <summary>
-        /// Whether to enable health check for all Kubernetes objects created by this Kustomization. Defaults to `true`.
+        /// Whether to enable health check for all Kubernetes objects created by this Kustomization. Defaults to `True`.
         /// </summary>
         public readonly bool? Wait;
 

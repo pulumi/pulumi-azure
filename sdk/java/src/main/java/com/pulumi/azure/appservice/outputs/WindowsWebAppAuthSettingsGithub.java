@@ -19,12 +19,12 @@ public final class WindowsWebAppAuthSettingsGithub {
      */
     private String clientId;
     /**
-     * @return The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `client_secret_setting_name`.
+     * @return The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `clientSecretSettingName`.
      * 
      */
     private @Nullable String clientSecret;
     /**
-     * @return The app setting name that contains the `client_secret` value used for GitHub login. Cannot be specified with `client_secret`.
+     * @return The app setting name that contains the `clientSecret` value used for GitHub login. Cannot be specified with `clientSecret`.
      * 
      */
     private @Nullable String clientSecretSettingName;
@@ -43,14 +43,14 @@ public final class WindowsWebAppAuthSettingsGithub {
         return this.clientId;
     }
     /**
-     * @return The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `client_secret_setting_name`.
+     * @return The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `clientSecretSettingName`.
      * 
      */
     public Optional<String> clientSecret() {
         return Optional.ofNullable(this.clientSecret);
     }
     /**
-     * @return The app setting name that contains the `client_secret` value used for GitHub login. Cannot be specified with `client_secret`.
+     * @return The app setting name that contains the `clientSecret` value used for GitHub login. Cannot be specified with `clientSecret`.
      * 
      */
     public Optional<String> clientSecretSettingName() {

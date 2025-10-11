@@ -13,13 +13,13 @@ namespace Pulumi.Azure.Monitoring.Inputs
     public sealed class AutoscaleSettingProfileGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `capacity` block as defined below.
+        /// A `Capacity` block as defined below.
         /// </summary>
         [Input("capacity", required: true)]
         public Input<Inputs.AutoscaleSettingProfileCapacityGetArgs> Capacity { get; set; } = null!;
 
         /// <summary>
-        /// A `fixed_date` block as defined below. This cannot be specified if a `recurrence` block is specified.
+        /// A `FixedDate` block as defined below. This cannot be specified if a `Recurrence` block is specified.
         /// </summary>
         [Input("fixedDate")]
         public Input<Inputs.AutoscaleSettingProfileFixedDateGetArgs>? FixedDate { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// A `recurrence` block as defined below. This cannot be specified if a `fixed_date` block is specified.
+        /// A `Recurrence` block as defined below. This cannot be specified if a `FixedDate` block is specified.
         /// </summary>
         [Input("recurrence")]
         public Input<Inputs.AutoscaleSettingProfileRecurrenceGetArgs>? Recurrence { get; set; }
@@ -40,7 +40,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         private InputList<Inputs.AutoscaleSettingProfileRuleGetArgs>? _rules;
 
         /// <summary>
-        /// One or more (up to 10) `rule` blocks as defined below.
+        /// One or more (up to 10) `Rule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.AutoscaleSettingProfileRuleGetArgs> Rules
         {

@@ -57,7 +57,7 @@ namespace Pulumi.Azure.ArcKubernetes.Inputs
         }
 
         /// <summary>
-        /// A `service_principal` block as defined below.
+        /// A `ServicePrincipal` block as defined below.
         /// </summary>
         [Input("servicePrincipal")]
         public Input<Inputs.FluxConfigurationBlobStorageServicePrincipalArgs>? ServicePrincipal { get; set; }

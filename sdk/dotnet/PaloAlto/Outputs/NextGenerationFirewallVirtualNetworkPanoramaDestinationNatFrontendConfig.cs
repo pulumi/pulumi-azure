@@ -20,7 +20,7 @@ namespace Pulumi.Azure.PaloAlto.Outputs
         /// <summary>
         /// The ID of the Public IP Address on which to receive traffic.
         /// 
-        /// &gt; **Note:** This must be an Azure Public IP address ID also specified in the `public_ip_address_ids` list.
+        /// &gt; **Note:** This must be an Azure Public IP address ID also specified in the `PublicIpAddressIds` list.
         /// </summary>
         public readonly string PublicIpAddressId;
 

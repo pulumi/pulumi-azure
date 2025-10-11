@@ -52,9 +52,9 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArg
     /**
      * A list of Backend Address Pools ID&#39;s from a Load Balancer which this Virtual Machine Scale Set should be connected to.
      * 
-     * &gt; **Note:** When the Virtual Machine Scale Set is configured to have public IPs per instance are created with a load balancer, the SKU of the Virtual Machine instance IPs is determined by the SKU of the Virtual Machine Scale Sets Load Balancer (e.g. `Basic` or `Standard`). Alternatively, you may use the `public_ip_prefix_id` field to generate instance-level IPs in a virtual machine scale set as well. The zonal properties of the prefix will be passed to the Virtual Machine instance IPs, though they will not be shown in the output. To view the public IP addresses assigned to the Virtual Machine Scale Sets Virtual Machine instances use the **az vmss list-instance-public-ips --resource-group `ResourceGroupName` --name `VirtualMachineScaleSetName`** CLI command.
+     * &gt; **Note:** When the Virtual Machine Scale Set is configured to have public IPs per instance are created with a load balancer, the SKU of the Virtual Machine instance IPs is determined by the SKU of the Virtual Machine Scale Sets Load Balancer (e.g. `Basic` or `Standard`). Alternatively, you may use the `publicIpPrefixId` field to generate instance-level IPs in a virtual machine scale set as well. The zonal properties of the prefix will be passed to the Virtual Machine instance IPs, though they will not be shown in the output. To view the public IP addresses assigned to the Virtual Machine Scale Sets Virtual Machine instances use the **az vmss list-instance-public-ips --resource-group `ResourceGroupName` --name `VirtualMachineScaleSetName`** CLI command.
      * 
-     * &gt; **Note:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
+     * &gt; **Note:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a `dependsOn` between this resource and the Load Balancer Rule.
      * 
      */
     @Import(name="loadBalancerBackendAddressPoolIds")
@@ -63,9 +63,9 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArg
     /**
      * @return A list of Backend Address Pools ID&#39;s from a Load Balancer which this Virtual Machine Scale Set should be connected to.
      * 
-     * &gt; **Note:** When the Virtual Machine Scale Set is configured to have public IPs per instance are created with a load balancer, the SKU of the Virtual Machine instance IPs is determined by the SKU of the Virtual Machine Scale Sets Load Balancer (e.g. `Basic` or `Standard`). Alternatively, you may use the `public_ip_prefix_id` field to generate instance-level IPs in a virtual machine scale set as well. The zonal properties of the prefix will be passed to the Virtual Machine instance IPs, though they will not be shown in the output. To view the public IP addresses assigned to the Virtual Machine Scale Sets Virtual Machine instances use the **az vmss list-instance-public-ips --resource-group `ResourceGroupName` --name `VirtualMachineScaleSetName`** CLI command.
+     * &gt; **Note:** When the Virtual Machine Scale Set is configured to have public IPs per instance are created with a load balancer, the SKU of the Virtual Machine instance IPs is determined by the SKU of the Virtual Machine Scale Sets Load Balancer (e.g. `Basic` or `Standard`). Alternatively, you may use the `publicIpPrefixId` field to generate instance-level IPs in a virtual machine scale set as well. The zonal properties of the prefix will be passed to the Virtual Machine instance IPs, though they will not be shown in the output. To view the public IP addresses assigned to the Virtual Machine Scale Sets Virtual Machine instances use the **az vmss list-instance-public-ips --resource-group `ResourceGroupName` --name `VirtualMachineScaleSetName`** CLI command.
      * 
-     * &gt; **Note:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
+     * &gt; **Note:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a `dependsOn` between this resource and the Load Balancer Rule.
      * 
      */
     public Optional<Output<List<String>>> loadBalancerBackendAddressPoolIds() {
@@ -75,7 +75,7 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArg
     /**
      * A list of NAT Rule ID&#39;s from a Load Balancer which this Virtual Machine Scale Set should be connected to.
      * 
-     * &gt; **Note:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
+     * &gt; **Note:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a `dependsOn` between this resource and the Load Balancer Rule.
      * 
      */
     @Import(name="loadBalancerInboundNatRulesIds")
@@ -84,7 +84,7 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArg
     /**
      * @return A list of NAT Rule ID&#39;s from a Load Balancer which this Virtual Machine Scale Set should be connected to.
      * 
-     * &gt; **Note:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
+     * &gt; **Note:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a `dependsOn` between this resource and the Load Balancer Rule.
      * 
      */
     public Optional<Output<List<String>>> loadBalancerInboundNatRulesIds() {
@@ -109,7 +109,7 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArg
     /**
      * Is this the Primary IP Configuration for this Network Interface? Defaults to `false`.
      * 
-     * &gt; **Note:** One `ip_configuration` block must be marked as Primary for each Network Interface.
+     * &gt; **Note:** One `ipConfiguration` block must be marked as Primary for each Network Interface.
      * 
      */
     @Import(name="primary")
@@ -118,7 +118,7 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArg
     /**
      * @return Is this the Primary IP Configuration for this Network Interface? Defaults to `false`.
      * 
-     * &gt; **Note:** One `ip_configuration` block must be marked as Primary for each Network Interface.
+     * &gt; **Note:** One `ipConfiguration` block must be marked as Primary for each Network Interface.
      * 
      */
     public Optional<Output<Boolean>> primary() {
@@ -126,14 +126,14 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArg
     }
 
     /**
-     * A `public_ip_address` block as defined below.
+     * A `publicIpAddress` block as defined below.
      * 
      */
     @Import(name="publicIpAddresses")
     private @Nullable Output<List<LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs>> publicIpAddresses;
 
     /**
-     * @return A `public_ip_address` block as defined below.
+     * @return A `publicIpAddress` block as defined below.
      * 
      */
     public Optional<Output<List<LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs>>> publicIpAddresses() {
@@ -143,7 +143,7 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArg
     /**
      * The ID of the Subnet which this IP Configuration should be connected to.
      * 
-     * &gt; **Note:** `subnet_id` is required if `version` is set to `IPv4`.
+     * &gt; **Note:** `subnetId` is required if `version` is set to `IPv4`.
      * 
      */
     @Import(name="subnetId")
@@ -152,7 +152,7 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArg
     /**
      * @return The ID of the Subnet which this IP Configuration should be connected to.
      * 
-     * &gt; **Note:** `subnet_id` is required if `version` is set to `IPv4`.
+     * &gt; **Note:** `subnetId` is required if `version` is set to `IPv4`.
      * 
      */
     public Optional<Output<String>> subnetId() {
@@ -271,9 +271,9 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArg
         /**
          * @param loadBalancerBackendAddressPoolIds A list of Backend Address Pools ID&#39;s from a Load Balancer which this Virtual Machine Scale Set should be connected to.
          * 
-         * &gt; **Note:** When the Virtual Machine Scale Set is configured to have public IPs per instance are created with a load balancer, the SKU of the Virtual Machine instance IPs is determined by the SKU of the Virtual Machine Scale Sets Load Balancer (e.g. `Basic` or `Standard`). Alternatively, you may use the `public_ip_prefix_id` field to generate instance-level IPs in a virtual machine scale set as well. The zonal properties of the prefix will be passed to the Virtual Machine instance IPs, though they will not be shown in the output. To view the public IP addresses assigned to the Virtual Machine Scale Sets Virtual Machine instances use the **az vmss list-instance-public-ips --resource-group `ResourceGroupName` --name `VirtualMachineScaleSetName`** CLI command.
+         * &gt; **Note:** When the Virtual Machine Scale Set is configured to have public IPs per instance are created with a load balancer, the SKU of the Virtual Machine instance IPs is determined by the SKU of the Virtual Machine Scale Sets Load Balancer (e.g. `Basic` or `Standard`). Alternatively, you may use the `publicIpPrefixId` field to generate instance-level IPs in a virtual machine scale set as well. The zonal properties of the prefix will be passed to the Virtual Machine instance IPs, though they will not be shown in the output. To view the public IP addresses assigned to the Virtual Machine Scale Sets Virtual Machine instances use the **az vmss list-instance-public-ips --resource-group `ResourceGroupName` --name `VirtualMachineScaleSetName`** CLI command.
          * 
-         * &gt; **Note:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
+         * &gt; **Note:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a `dependsOn` between this resource and the Load Balancer Rule.
          * 
          * @return builder
          * 
@@ -286,9 +286,9 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArg
         /**
          * @param loadBalancerBackendAddressPoolIds A list of Backend Address Pools ID&#39;s from a Load Balancer which this Virtual Machine Scale Set should be connected to.
          * 
-         * &gt; **Note:** When the Virtual Machine Scale Set is configured to have public IPs per instance are created with a load balancer, the SKU of the Virtual Machine instance IPs is determined by the SKU of the Virtual Machine Scale Sets Load Balancer (e.g. `Basic` or `Standard`). Alternatively, you may use the `public_ip_prefix_id` field to generate instance-level IPs in a virtual machine scale set as well. The zonal properties of the prefix will be passed to the Virtual Machine instance IPs, though they will not be shown in the output. To view the public IP addresses assigned to the Virtual Machine Scale Sets Virtual Machine instances use the **az vmss list-instance-public-ips --resource-group `ResourceGroupName` --name `VirtualMachineScaleSetName`** CLI command.
+         * &gt; **Note:** When the Virtual Machine Scale Set is configured to have public IPs per instance are created with a load balancer, the SKU of the Virtual Machine instance IPs is determined by the SKU of the Virtual Machine Scale Sets Load Balancer (e.g. `Basic` or `Standard`). Alternatively, you may use the `publicIpPrefixId` field to generate instance-level IPs in a virtual machine scale set as well. The zonal properties of the prefix will be passed to the Virtual Machine instance IPs, though they will not be shown in the output. To view the public IP addresses assigned to the Virtual Machine Scale Sets Virtual Machine instances use the **az vmss list-instance-public-ips --resource-group `ResourceGroupName` --name `VirtualMachineScaleSetName`** CLI command.
          * 
-         * &gt; **Note:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
+         * &gt; **Note:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a `dependsOn` between this resource and the Load Balancer Rule.
          * 
          * @return builder
          * 
@@ -300,9 +300,9 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArg
         /**
          * @param loadBalancerBackendAddressPoolIds A list of Backend Address Pools ID&#39;s from a Load Balancer which this Virtual Machine Scale Set should be connected to.
          * 
-         * &gt; **Note:** When the Virtual Machine Scale Set is configured to have public IPs per instance are created with a load balancer, the SKU of the Virtual Machine instance IPs is determined by the SKU of the Virtual Machine Scale Sets Load Balancer (e.g. `Basic` or `Standard`). Alternatively, you may use the `public_ip_prefix_id` field to generate instance-level IPs in a virtual machine scale set as well. The zonal properties of the prefix will be passed to the Virtual Machine instance IPs, though they will not be shown in the output. To view the public IP addresses assigned to the Virtual Machine Scale Sets Virtual Machine instances use the **az vmss list-instance-public-ips --resource-group `ResourceGroupName` --name `VirtualMachineScaleSetName`** CLI command.
+         * &gt; **Note:** When the Virtual Machine Scale Set is configured to have public IPs per instance are created with a load balancer, the SKU of the Virtual Machine instance IPs is determined by the SKU of the Virtual Machine Scale Sets Load Balancer (e.g. `Basic` or `Standard`). Alternatively, you may use the `publicIpPrefixId` field to generate instance-level IPs in a virtual machine scale set as well. The zonal properties of the prefix will be passed to the Virtual Machine instance IPs, though they will not be shown in the output. To view the public IP addresses assigned to the Virtual Machine Scale Sets Virtual Machine instances use the **az vmss list-instance-public-ips --resource-group `ResourceGroupName` --name `VirtualMachineScaleSetName`** CLI command.
          * 
-         * &gt; **Note:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
+         * &gt; **Note:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a `dependsOn` between this resource and the Load Balancer Rule.
          * 
          * @return builder
          * 
@@ -314,7 +314,7 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArg
         /**
          * @param loadBalancerInboundNatRulesIds A list of NAT Rule ID&#39;s from a Load Balancer which this Virtual Machine Scale Set should be connected to.
          * 
-         * &gt; **Note:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
+         * &gt; **Note:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a `dependsOn` between this resource and the Load Balancer Rule.
          * 
          * @return builder
          * 
@@ -327,7 +327,7 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArg
         /**
          * @param loadBalancerInboundNatRulesIds A list of NAT Rule ID&#39;s from a Load Balancer which this Virtual Machine Scale Set should be connected to.
          * 
-         * &gt; **Note:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
+         * &gt; **Note:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a `dependsOn` between this resource and the Load Balancer Rule.
          * 
          * @return builder
          * 
@@ -339,7 +339,7 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArg
         /**
          * @param loadBalancerInboundNatRulesIds A list of NAT Rule ID&#39;s from a Load Balancer which this Virtual Machine Scale Set should be connected to.
          * 
-         * &gt; **Note:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
+         * &gt; **Note:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a `dependsOn` between this resource and the Load Balancer Rule.
          * 
          * @return builder
          * 
@@ -372,7 +372,7 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArg
         /**
          * @param primary Is this the Primary IP Configuration for this Network Interface? Defaults to `false`.
          * 
-         * &gt; **Note:** One `ip_configuration` block must be marked as Primary for each Network Interface.
+         * &gt; **Note:** One `ipConfiguration` block must be marked as Primary for each Network Interface.
          * 
          * @return builder
          * 
@@ -385,7 +385,7 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArg
         /**
          * @param primary Is this the Primary IP Configuration for this Network Interface? Defaults to `false`.
          * 
-         * &gt; **Note:** One `ip_configuration` block must be marked as Primary for each Network Interface.
+         * &gt; **Note:** One `ipConfiguration` block must be marked as Primary for each Network Interface.
          * 
          * @return builder
          * 
@@ -395,7 +395,7 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArg
         }
 
         /**
-         * @param publicIpAddresses A `public_ip_address` block as defined below.
+         * @param publicIpAddresses A `publicIpAddress` block as defined below.
          * 
          * @return builder
          * 
@@ -406,7 +406,7 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArg
         }
 
         /**
-         * @param publicIpAddresses A `public_ip_address` block as defined below.
+         * @param publicIpAddresses A `publicIpAddress` block as defined below.
          * 
          * @return builder
          * 
@@ -416,7 +416,7 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArg
         }
 
         /**
-         * @param publicIpAddresses A `public_ip_address` block as defined below.
+         * @param publicIpAddresses A `publicIpAddress` block as defined below.
          * 
          * @return builder
          * 
@@ -428,7 +428,7 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArg
         /**
          * @param subnetId The ID of the Subnet which this IP Configuration should be connected to.
          * 
-         * &gt; **Note:** `subnet_id` is required if `version` is set to `IPv4`.
+         * &gt; **Note:** `subnetId` is required if `version` is set to `IPv4`.
          * 
          * @return builder
          * 
@@ -441,7 +441,7 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArg
         /**
          * @param subnetId The ID of the Subnet which this IP Configuration should be connected to.
          * 
-         * &gt; **Note:** `subnet_id` is required if `version` is set to `IPv4`.
+         * &gt; **Note:** `subnetId` is required if `version` is set to `IPv4`.
          * 
          * @return builder
          * 

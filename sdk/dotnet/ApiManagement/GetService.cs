@@ -190,7 +190,7 @@ namespace Pulumi.Azure.ApiManagement
     public sealed class GetServiceResult
     {
         /// <summary>
-        /// Zero or more `additional_location` blocks as defined below
+        /// Zero or more `AdditionalLocation` blocks as defined below
         /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceAdditionalLocationResult> AdditionalLocations;
         /// <summary>
@@ -206,7 +206,7 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         public readonly string GatewayUrl;
         /// <summary>
-        /// A `hostname_configuration` block as defined below.
+        /// A `HostnameConfiguration` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceHostnameConfigurationResult> HostnameConfigurations;
         /// <summary>
@@ -214,7 +214,7 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceIdentityResult> Identities;
         /// <summary>
@@ -268,7 +268,7 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// A `tenant_access` block as defined below.
+        /// A `TenantAccess` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceTenantAccessResult> TenantAccesses;
 

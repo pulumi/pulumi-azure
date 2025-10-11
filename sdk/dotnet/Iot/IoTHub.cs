@@ -187,7 +187,7 @@ namespace Pulumi.Azure.Iot
         public Output<Outputs.IoTHubCloudToDevice> CloudToDevice { get; private set; } = null!;
 
         /// <summary>
-        /// An `endpoint` block as defined below.
+        /// An `Endpoint` block as defined below.
         /// </summary>
         [Output("endpoints")]
         public Output<ImmutableArray<Outputs.IoTHubEndpoint>> Endpoints { get; private set; } = null!;
@@ -238,15 +238,15 @@ namespace Pulumi.Azure.Iot
         public Output<int?> EventHubRetentionInDays { get; private set; } = null!;
 
         /// <summary>
-        /// A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+        /// A `FallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
         /// 
-        /// &gt; **Note:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
+        /// &gt; **Note:** If `FallbackRoute` isn't explicitly specified, the fallback route wouldn't be enabled by default.
         /// </summary>
         [Output("fallbackRoute")]
         public Output<Outputs.IoTHubFallbackRoute> FallbackRoute { get; private set; } = null!;
 
         /// <summary>
-        /// A `file_upload` block as defined below.
+        /// A `FileUpload` block as defined below.
         /// </summary>
         [Output("fileUpload")]
         public Output<Outputs.IoTHubFileUpload?> FileUpload { get; private set; } = null!;
@@ -258,13 +258,13 @@ namespace Pulumi.Azure.Iot
         public Output<string> Hostname { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.IoTHubIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
+        /// If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `True`.
         /// </summary>
         [Output("localAuthenticationEnabled")]
         public Output<bool?> LocalAuthenticationEnabled { get; private set; } = null!;
@@ -285,7 +285,7 @@ namespace Pulumi.Azure.Iot
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `network_rule_set` block as defined below.
+        /// A `NetworkRuleSet` block as defined below.
         /// </summary>
         [Output("networkRuleSets")]
         public Output<ImmutableArray<Outputs.IoTHubNetworkRuleSet>> NetworkRuleSets { get; private set; } = null!;
@@ -303,13 +303,13 @@ namespace Pulumi.Azure.Iot
         public Output<ImmutableArray<Outputs.IoTHubRoute>> Routes { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `shared_access_policy` blocks as defined below.
+        /// One or more `SharedAccessPolicy` blocks as defined below.
         /// </summary>
         [Output("sharedAccessPolicies")]
         public Output<ImmutableArray<Outputs.IoTHubSharedAccessPolicy>> SharedAccessPolicies { get; private set; } = null!;
 
         /// <summary>
-        /// A `sku` block as defined below.
+        /// A `Sku` block as defined below.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.IoTHubSku> Sku { get; private set; } = null!;
@@ -373,7 +373,7 @@ namespace Pulumi.Azure.Iot
         private InputList<Inputs.IoTHubEndpointArgs>? _endpoints;
 
         /// <summary>
-        /// An `endpoint` block as defined below.
+        /// An `Endpoint` block as defined below.
         /// </summary>
         public InputList<Inputs.IoTHubEndpointArgs> Endpoints
         {
@@ -402,27 +402,27 @@ namespace Pulumi.Azure.Iot
         public Input<int>? EventHubRetentionInDays { get; set; }
 
         /// <summary>
-        /// A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+        /// A `FallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
         /// 
-        /// &gt; **Note:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
+        /// &gt; **Note:** If `FallbackRoute` isn't explicitly specified, the fallback route wouldn't be enabled by default.
         /// </summary>
         [Input("fallbackRoute")]
         public Input<Inputs.IoTHubFallbackRouteArgs>? FallbackRoute { get; set; }
 
         /// <summary>
-        /// A `file_upload` block as defined below.
+        /// A `FileUpload` block as defined below.
         /// </summary>
         [Input("fileUpload")]
         public Input<Inputs.IoTHubFileUploadArgs>? FileUpload { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.IoTHubIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
+        /// If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `True`.
         /// </summary>
         [Input("localAuthenticationEnabled")]
         public Input<bool>? LocalAuthenticationEnabled { get; set; }
@@ -446,7 +446,7 @@ namespace Pulumi.Azure.Iot
         private InputList<Inputs.IoTHubNetworkRuleSetArgs>? _networkRuleSets;
 
         /// <summary>
-        /// A `network_rule_set` block as defined below.
+        /// A `NetworkRuleSet` block as defined below.
         /// </summary>
         public InputList<Inputs.IoTHubNetworkRuleSetArgs> NetworkRuleSets
         {
@@ -472,7 +472,7 @@ namespace Pulumi.Azure.Iot
         }
 
         /// <summary>
-        /// A `sku` block as defined below.
+        /// A `Sku` block as defined below.
         /// </summary>
         [Input("sku", required: true)]
         public Input<Inputs.IoTHubSkuArgs> Sku { get; set; } = null!;
@@ -500,7 +500,7 @@ namespace Pulumi.Azure.Iot
         private InputList<Inputs.IoTHubEndpointGetArgs>? _endpoints;
 
         /// <summary>
-        /// An `endpoint` block as defined below.
+        /// An `Endpoint` block as defined below.
         /// </summary>
         public InputList<Inputs.IoTHubEndpointGetArgs> Endpoints
         {
@@ -559,15 +559,15 @@ namespace Pulumi.Azure.Iot
         public Input<int>? EventHubRetentionInDays { get; set; }
 
         /// <summary>
-        /// A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+        /// A `FallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
         /// 
-        /// &gt; **Note:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
+        /// &gt; **Note:** If `FallbackRoute` isn't explicitly specified, the fallback route wouldn't be enabled by default.
         /// </summary>
         [Input("fallbackRoute")]
         public Input<Inputs.IoTHubFallbackRouteGetArgs>? FallbackRoute { get; set; }
 
         /// <summary>
-        /// A `file_upload` block as defined below.
+        /// A `FileUpload` block as defined below.
         /// </summary>
         [Input("fileUpload")]
         public Input<Inputs.IoTHubFileUploadGetArgs>? FileUpload { get; set; }
@@ -579,13 +579,13 @@ namespace Pulumi.Azure.Iot
         public Input<string>? Hostname { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.IoTHubIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
+        /// If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `True`.
         /// </summary>
         [Input("localAuthenticationEnabled")]
         public Input<bool>? LocalAuthenticationEnabled { get; set; }
@@ -609,7 +609,7 @@ namespace Pulumi.Azure.Iot
         private InputList<Inputs.IoTHubNetworkRuleSetGetArgs>? _networkRuleSets;
 
         /// <summary>
-        /// A `network_rule_set` block as defined below.
+        /// A `NetworkRuleSet` block as defined below.
         /// </summary>
         public InputList<Inputs.IoTHubNetworkRuleSetGetArgs> NetworkRuleSets
         {
@@ -638,7 +638,7 @@ namespace Pulumi.Azure.Iot
         private InputList<Inputs.IoTHubSharedAccessPolicyGetArgs>? _sharedAccessPolicies;
 
         /// <summary>
-        /// One or more `shared_access_policy` blocks as defined below.
+        /// One or more `SharedAccessPolicy` blocks as defined below.
         /// </summary>
         public InputList<Inputs.IoTHubSharedAccessPolicyGetArgs> SharedAccessPolicies
         {
@@ -647,7 +647,7 @@ namespace Pulumi.Azure.Iot
         }
 
         /// <summary>
-        /// A `sku` block as defined below.
+        /// A `Sku` block as defined below.
         /// </summary>
         [Input("sku")]
         public Input<Inputs.IoTHubSkuGetArgs>? Sku { get; set; }

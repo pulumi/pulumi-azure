@@ -44,7 +44,7 @@ public final class GetDatasetBlobStorageResult {
      */
     private String name;
     /**
-     * @return A `storage_account` block as defined below.
+     * @return A `storageAccount` block as defined below.
      * 
      */
     private List<GetDatasetBlobStorageStorageAccount> storageAccounts;
@@ -96,7 +96,7 @@ public final class GetDatasetBlobStorageResult {
         return this.name;
     }
     /**
-     * @return A `storage_account` block as defined below.
+     * @return A `storageAccount` block as defined below.
      * 
      */
     public List<GetDatasetBlobStorageStorageAccount> storageAccounts() {

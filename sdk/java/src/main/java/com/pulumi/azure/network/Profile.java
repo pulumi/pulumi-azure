@@ -116,14 +116,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:network/profile:Profile")
 public class Profile extends com.pulumi.resources.CustomResource {
     /**
-     * A `container_network_interface` block as documented below.
+     * A `containerNetworkInterface` block as documented below.
      * 
      */
     @Export(name="containerNetworkInterface", refs={ProfileContainerNetworkInterface.class}, tree="[0]")
     private Output<ProfileContainerNetworkInterface> containerNetworkInterface;
 
     /**
-     * @return A `container_network_interface` block as documented below.
+     * @return A `containerNetworkInterface` block as documented below.
      * 
      */
     public Output<ProfileContainerNetworkInterface> containerNetworkInterface() {

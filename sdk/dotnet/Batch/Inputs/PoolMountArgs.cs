@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Batch.Inputs
     public sealed class PoolMountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `azure_blob_file_system` block defined as below.
+        /// A `AzureBlobFileSystem` block defined as below.
         /// </summary>
         [Input("azureBlobFileSystem")]
         public Input<Inputs.PoolMountAzureBlobFileSystemArgs>? AzureBlobFileSystem { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Batch.Inputs
         private InputList<Inputs.PoolMountAzureFileShareArgs>? _azureFileShares;
 
         /// <summary>
-        /// A `azure_file_share` block defined as below.
+        /// A `AzureFileShare` block defined as below.
         /// </summary>
         public InputList<Inputs.PoolMountAzureFileShareArgs> AzureFileShares
         {
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Batch.Inputs
         private InputList<Inputs.PoolMountCifsMountArgs>? _cifsMounts;
 
         /// <summary>
-        /// A `cifs_mount` block defined as below.
+        /// A `CifsMount` block defined as below.
         /// </summary>
         public InputList<Inputs.PoolMountCifsMountArgs> CifsMounts
         {
@@ -46,7 +46,7 @@ namespace Pulumi.Azure.Batch.Inputs
         private InputList<Inputs.PoolMountNfsMountArgs>? _nfsMounts;
 
         /// <summary>
-        /// A `nfs_mount` block defined as below.
+        /// A `NfsMount` block defined as below.
         /// </summary>
         public InputList<Inputs.PoolMountNfsMountArgs> NfsMounts
         {

@@ -13,9 +13,9 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EndpointIpConfiguration {
     /**
-     * @return Specifies the member name this IP address applies to. If it is not specified, it will use the value of `subresource_name`. Changing this forces a new resource to be created.
+     * @return Specifies the member name this IP address applies to. If it is not specified, it will use the value of `subresourceName`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** `member_name` will be required and will not take the value of `subresource_name` in the next major version.
+     * &gt; **Note:** `memberName` will be required and will not take the value of `subresourceName` in the next major version.
      * 
      */
     private @Nullable String memberName;
@@ -30,16 +30,16 @@ public final class EndpointIpConfiguration {
      */
     private String privateIpAddress;
     /**
-     * @return Specifies the subresource this IP address applies to. `subresource_names` corresponds to `group_id`. Changing this forces a new resource to be created.
+     * @return Specifies the subresource this IP address applies to. `subresourceNames` corresponds to `groupId`. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String subresourceName;
 
     private EndpointIpConfiguration() {}
     /**
-     * @return Specifies the member name this IP address applies to. If it is not specified, it will use the value of `subresource_name`. Changing this forces a new resource to be created.
+     * @return Specifies the member name this IP address applies to. If it is not specified, it will use the value of `subresourceName`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** `member_name` will be required and will not take the value of `subresource_name` in the next major version.
+     * &gt; **Note:** `memberName` will be required and will not take the value of `subresourceName` in the next major version.
      * 
      */
     public Optional<String> memberName() {
@@ -60,7 +60,7 @@ public final class EndpointIpConfiguration {
         return this.privateIpAddress;
     }
     /**
-     * @return Specifies the subresource this IP address applies to. `subresource_names` corresponds to `group_id`. Changing this forces a new resource to be created.
+     * @return Specifies the subresource this IP address applies to. `subresourceNames` corresponds to `groupId`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> subresourceName() {

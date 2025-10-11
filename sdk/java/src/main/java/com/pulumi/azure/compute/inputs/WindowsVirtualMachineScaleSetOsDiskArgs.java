@@ -35,14 +35,14 @@ public final class WindowsVirtualMachineScaleSetOsDiskArgs extends com.pulumi.re
     }
 
     /**
-     * A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
+     * A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="diffDiskSettings")
     private @Nullable Output<WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs> diffDiskSettings;
 
     /**
-     * @return A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
+     * @return A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs>> diffDiskSettings() {
@@ -50,7 +50,7 @@ public final class WindowsVirtualMachineScaleSetOsDiskArgs extends com.pulumi.re
     }
 
     /**
-     * The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`. Changing this forces a new resource to be created.
+     * The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
      * 
@@ -61,7 +61,7 @@ public final class WindowsVirtualMachineScaleSetOsDiskArgs extends com.pulumi.re
     private @Nullable Output<String> diskEncryptionSetId;
 
     /**
-     * @return The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`. Changing this forces a new resource to be created.
+     * @return The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
      * 
@@ -92,18 +92,18 @@ public final class WindowsVirtualMachineScaleSetOsDiskArgs extends com.pulumi.re
     }
 
     /**
-     * The ID of the Disk Encryption Set which should be used to Encrypt the OS Disk when the Virtual Machine Scale Set is Confidential VMSS. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
+     * The ID of the Disk Encryption Set which should be used to Encrypt the OS Disk when the Virtual Machine Scale Set is Confidential VMSS. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** `secure_vm_disk_encryption_set_id` can only be specified when `security_encryption_type` is set to `DiskWithVMGuestState`.
+     * &gt; **Note:** `secureVmDiskEncryptionSetId` can only be specified when `securityEncryptionType` is set to `DiskWithVMGuestState`.
      * 
      */
     @Import(name="secureVmDiskEncryptionSetId")
     private @Nullable Output<String> secureVmDiskEncryptionSetId;
 
     /**
-     * @return The ID of the Disk Encryption Set which should be used to Encrypt the OS Disk when the Virtual Machine Scale Set is Confidential VMSS. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
+     * @return The ID of the Disk Encryption Set which should be used to Encrypt the OS Disk when the Virtual Machine Scale Set is Confidential VMSS. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** `secure_vm_disk_encryption_set_id` can only be specified when `security_encryption_type` is set to `DiskWithVMGuestState`.
+     * &gt; **Note:** `secureVmDiskEncryptionSetId` can only be specified when `securityEncryptionType` is set to `DiskWithVMGuestState`.
      * 
      */
     public Optional<Output<String>> secureVmDiskEncryptionSetId() {
@@ -113,9 +113,9 @@ public final class WindowsVirtualMachineScaleSetOsDiskArgs extends com.pulumi.re
     /**
      * Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** `vtpm_enabled` must be set to `true` when `security_encryption_type` is specified.
+     * &gt; **Note:** `vtpmEnabled` must be set to `true` when `securityEncryptionType` is specified.
      * 
-     * &gt; **Note:** `encryption_at_host_enabled` cannot be set to `true` when `security_encryption_type` is set to `DiskWithVMGuestState`.
+     * &gt; **Note:** `encryptionAtHostEnabled` cannot be set to `true` when `securityEncryptionType` is set to `DiskWithVMGuestState`.
      * 
      */
     @Import(name="securityEncryptionType")
@@ -124,9 +124,9 @@ public final class WindowsVirtualMachineScaleSetOsDiskArgs extends com.pulumi.re
     /**
      * @return Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** `vtpm_enabled` must be set to `true` when `security_encryption_type` is specified.
+     * &gt; **Note:** `vtpmEnabled` must be set to `true` when `securityEncryptionType` is specified.
      * 
-     * &gt; **Note:** `encryption_at_host_enabled` cannot be set to `true` when `security_encryption_type` is set to `DiskWithVMGuestState`.
+     * &gt; **Note:** `encryptionAtHostEnabled` cannot be set to `true` when `securityEncryptionType` is set to `DiskWithVMGuestState`.
      * 
      */
     public Optional<Output<String>> securityEncryptionType() {
@@ -151,7 +151,7 @@ public final class WindowsVirtualMachineScaleSetOsDiskArgs extends com.pulumi.re
     /**
      * Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
      * 
-     * &gt; **Note:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
+     * &gt; **Note:** This requires that the `storageAccountType` is set to `Premium_LRS` and that `caching` is set to `None`.
      * 
      */
     @Import(name="writeAcceleratorEnabled")
@@ -160,7 +160,7 @@ public final class WindowsVirtualMachineScaleSetOsDiskArgs extends com.pulumi.re
     /**
      * @return Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
      * 
-     * &gt; **Note:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
+     * &gt; **Note:** This requires that the `storageAccountType` is set to `Premium_LRS` and that `caching` is set to `None`.
      * 
      */
     public Optional<Output<Boolean>> writeAcceleratorEnabled() {
@@ -220,7 +220,7 @@ public final class WindowsVirtualMachineScaleSetOsDiskArgs extends com.pulumi.re
         }
 
         /**
-         * @param diffDiskSettings A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
+         * @param diffDiskSettings A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class WindowsVirtualMachineScaleSetOsDiskArgs extends com.pulumi.re
         }
 
         /**
-         * @param diffDiskSettings A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
+         * @param diffDiskSettings A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class WindowsVirtualMachineScaleSetOsDiskArgs extends com.pulumi.re
         }
 
         /**
-         * @param diskEncryptionSetId The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`. Changing this forces a new resource to be created.
+         * @param diskEncryptionSetId The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`. Changing this forces a new resource to be created.
          * 
          * &gt; **Note:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
          * 
@@ -256,7 +256,7 @@ public final class WindowsVirtualMachineScaleSetOsDiskArgs extends com.pulumi.re
         }
 
         /**
-         * @param diskEncryptionSetId The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`. Changing this forces a new resource to be created.
+         * @param diskEncryptionSetId The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`. Changing this forces a new resource to be created.
          * 
          * &gt; **Note:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
          * 
@@ -295,9 +295,9 @@ public final class WindowsVirtualMachineScaleSetOsDiskArgs extends com.pulumi.re
         }
 
         /**
-         * @param secureVmDiskEncryptionSetId The ID of the Disk Encryption Set which should be used to Encrypt the OS Disk when the Virtual Machine Scale Set is Confidential VMSS. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
+         * @param secureVmDiskEncryptionSetId The ID of the Disk Encryption Set which should be used to Encrypt the OS Disk when the Virtual Machine Scale Set is Confidential VMSS. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** `secure_vm_disk_encryption_set_id` can only be specified when `security_encryption_type` is set to `DiskWithVMGuestState`.
+         * &gt; **Note:** `secureVmDiskEncryptionSetId` can only be specified when `securityEncryptionType` is set to `DiskWithVMGuestState`.
          * 
          * @return builder
          * 
@@ -308,9 +308,9 @@ public final class WindowsVirtualMachineScaleSetOsDiskArgs extends com.pulumi.re
         }
 
         /**
-         * @param secureVmDiskEncryptionSetId The ID of the Disk Encryption Set which should be used to Encrypt the OS Disk when the Virtual Machine Scale Set is Confidential VMSS. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
+         * @param secureVmDiskEncryptionSetId The ID of the Disk Encryption Set which should be used to Encrypt the OS Disk when the Virtual Machine Scale Set is Confidential VMSS. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** `secure_vm_disk_encryption_set_id` can only be specified when `security_encryption_type` is set to `DiskWithVMGuestState`.
+         * &gt; **Note:** `secureVmDiskEncryptionSetId` can only be specified when `securityEncryptionType` is set to `DiskWithVMGuestState`.
          * 
          * @return builder
          * 
@@ -322,9 +322,9 @@ public final class WindowsVirtualMachineScaleSetOsDiskArgs extends com.pulumi.re
         /**
          * @param securityEncryptionType Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** `vtpm_enabled` must be set to `true` when `security_encryption_type` is specified.
+         * &gt; **Note:** `vtpmEnabled` must be set to `true` when `securityEncryptionType` is specified.
          * 
-         * &gt; **Note:** `encryption_at_host_enabled` cannot be set to `true` when `security_encryption_type` is set to `DiskWithVMGuestState`.
+         * &gt; **Note:** `encryptionAtHostEnabled` cannot be set to `true` when `securityEncryptionType` is set to `DiskWithVMGuestState`.
          * 
          * @return builder
          * 
@@ -337,9 +337,9 @@ public final class WindowsVirtualMachineScaleSetOsDiskArgs extends com.pulumi.re
         /**
          * @param securityEncryptionType Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** `vtpm_enabled` must be set to `true` when `security_encryption_type` is specified.
+         * &gt; **Note:** `vtpmEnabled` must be set to `true` when `securityEncryptionType` is specified.
          * 
-         * &gt; **Note:** `encryption_at_host_enabled` cannot be set to `true` when `security_encryption_type` is set to `DiskWithVMGuestState`.
+         * &gt; **Note:** `encryptionAtHostEnabled` cannot be set to `true` when `securityEncryptionType` is set to `DiskWithVMGuestState`.
          * 
          * @return builder
          * 
@@ -372,7 +372,7 @@ public final class WindowsVirtualMachineScaleSetOsDiskArgs extends com.pulumi.re
         /**
          * @param writeAcceleratorEnabled Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
          * 
-         * &gt; **Note:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
+         * &gt; **Note:** This requires that the `storageAccountType` is set to `Premium_LRS` and that `caching` is set to `None`.
          * 
          * @return builder
          * 
@@ -385,7 +385,7 @@ public final class WindowsVirtualMachineScaleSetOsDiskArgs extends com.pulumi.re
         /**
          * @param writeAcceleratorEnabled Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
          * 
-         * &gt; **Note:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
+         * &gt; **Note:** This requires that the `storageAccountType` is set to `Premium_LRS` and that `caching` is set to `None`.
          * 
          * @return builder
          * 

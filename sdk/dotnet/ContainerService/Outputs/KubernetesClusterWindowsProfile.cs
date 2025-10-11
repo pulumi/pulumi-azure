@@ -22,7 +22,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string AdminUsername;
         /// <summary>
-        /// A `gmsa` block as defined below.
+        /// A `Gmsa` block as defined below.
         /// </summary>
         public readonly Outputs.KubernetesClusterWindowsProfileGmsa? Gmsa;
         /// <summary>

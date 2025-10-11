@@ -14,7 +14,7 @@ namespace Pulumi.Azure.MSSql.Outputs
     public sealed class ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy
     {
         /// <summary>
-        /// Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted.
+        /// Applies only if `Mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted.
         /// </summary>
         public readonly int? GraceMinutes;
         /// <summary>

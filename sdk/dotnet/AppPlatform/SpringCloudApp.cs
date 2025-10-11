@@ -69,7 +69,7 @@ namespace Pulumi.Azure.AppPlatform
         public Output<string> AddonJson { get; private set; } = null!;
 
         /// <summary>
-        /// A `custom_persistent_disk` block as defined below.
+        /// A `CustomPersistentDisk` block as defined below.
         /// </summary>
         [Output("customPersistentDisks")]
         public Output<ImmutableArray<Outputs.SpringCloudAppCustomPersistentDisk>> CustomPersistentDisks { get; private set; } = null!;
@@ -81,25 +81,25 @@ namespace Pulumi.Azure.AppPlatform
         public Output<string> Fqdn { get; private set; } = null!;
 
         /// <summary>
-        /// Is only HTTPS allowed? Defaults to `false`.
+        /// Is only HTTPS allowed? Defaults to `False`.
         /// </summary>
         [Output("httpsOnly")]
         public Output<bool?> HttpsOnly { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.SpringCloudAppIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// An `ingress_settings` block as defined below.
+        /// An `IngressSettings` block as defined below.
         /// </summary>
         [Output("ingressSettings")]
         public Output<Outputs.SpringCloudAppIngressSettings> IngressSettings { get; private set; } = null!;
 
         /// <summary>
-        /// Does the Spring Cloud Application have public endpoint? Defaults to `false`.
+        /// Does the Spring Cloud Application have public endpoint? Defaults to `False`.
         /// </summary>
         [Output("isPublic")]
         public Output<bool?> IsPublic { get; private set; } = null!;
@@ -111,7 +111,7 @@ namespace Pulumi.Azure.AppPlatform
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// An `persistent_disk` block as defined below.
+        /// An `PersistentDisk` block as defined below.
         /// </summary>
         [Output("persistentDisk")]
         public Output<Outputs.SpringCloudAppPersistentDisk> PersistentDisk { get; private set; } = null!;
@@ -135,7 +135,7 @@ namespace Pulumi.Azure.AppPlatform
         public Output<string> ServiceName { get; private set; } = null!;
 
         /// <summary>
-        /// Is End to End TLS Enabled? Defaults to `false`.
+        /// Is End to End TLS Enabled? Defaults to `False`.
         /// </summary>
         [Output("tlsEnabled")]
         public Output<bool?> TlsEnabled { get; private set; } = null!;
@@ -202,7 +202,7 @@ namespace Pulumi.Azure.AppPlatform
         private InputList<Inputs.SpringCloudAppCustomPersistentDiskArgs>? _customPersistentDisks;
 
         /// <summary>
-        /// A `custom_persistent_disk` block as defined below.
+        /// A `CustomPersistentDisk` block as defined below.
         /// </summary>
         public InputList<Inputs.SpringCloudAppCustomPersistentDiskArgs> CustomPersistentDisks
         {
@@ -211,25 +211,25 @@ namespace Pulumi.Azure.AppPlatform
         }
 
         /// <summary>
-        /// Is only HTTPS allowed? Defaults to `false`.
+        /// Is only HTTPS allowed? Defaults to `False`.
         /// </summary>
         [Input("httpsOnly")]
         public Input<bool>? HttpsOnly { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.SpringCloudAppIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// An `ingress_settings` block as defined below.
+        /// An `IngressSettings` block as defined below.
         /// </summary>
         [Input("ingressSettings")]
         public Input<Inputs.SpringCloudAppIngressSettingsArgs>? IngressSettings { get; set; }
 
         /// <summary>
-        /// Does the Spring Cloud Application have public endpoint? Defaults to `false`.
+        /// Does the Spring Cloud Application have public endpoint? Defaults to `False`.
         /// </summary>
         [Input("isPublic")]
         public Input<bool>? IsPublic { get; set; }
@@ -241,7 +241,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// An `persistent_disk` block as defined below.
+        /// An `PersistentDisk` block as defined below.
         /// </summary>
         [Input("persistentDisk")]
         public Input<Inputs.SpringCloudAppPersistentDiskArgs>? PersistentDisk { get; set; }
@@ -265,7 +265,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string> ServiceName { get; set; } = null!;
 
         /// <summary>
-        /// Is End to End TLS Enabled? Defaults to `false`.
+        /// Is End to End TLS Enabled? Defaults to `False`.
         /// </summary>
         [Input("tlsEnabled")]
         public Input<bool>? TlsEnabled { get; set; }
@@ -288,7 +288,7 @@ namespace Pulumi.Azure.AppPlatform
         private InputList<Inputs.SpringCloudAppCustomPersistentDiskGetArgs>? _customPersistentDisks;
 
         /// <summary>
-        /// A `custom_persistent_disk` block as defined below.
+        /// A `CustomPersistentDisk` block as defined below.
         /// </summary>
         public InputList<Inputs.SpringCloudAppCustomPersistentDiskGetArgs> CustomPersistentDisks
         {
@@ -303,25 +303,25 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string>? Fqdn { get; set; }
 
         /// <summary>
-        /// Is only HTTPS allowed? Defaults to `false`.
+        /// Is only HTTPS allowed? Defaults to `False`.
         /// </summary>
         [Input("httpsOnly")]
         public Input<bool>? HttpsOnly { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.SpringCloudAppIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// An `ingress_settings` block as defined below.
+        /// An `IngressSettings` block as defined below.
         /// </summary>
         [Input("ingressSettings")]
         public Input<Inputs.SpringCloudAppIngressSettingsGetArgs>? IngressSettings { get; set; }
 
         /// <summary>
-        /// Does the Spring Cloud Application have public endpoint? Defaults to `false`.
+        /// Does the Spring Cloud Application have public endpoint? Defaults to `False`.
         /// </summary>
         [Input("isPublic")]
         public Input<bool>? IsPublic { get; set; }
@@ -333,7 +333,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// An `persistent_disk` block as defined below.
+        /// An `PersistentDisk` block as defined below.
         /// </summary>
         [Input("persistentDisk")]
         public Input<Inputs.SpringCloudAppPersistentDiskGetArgs>? PersistentDisk { get; set; }
@@ -357,7 +357,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string>? ServiceName { get; set; }
 
         /// <summary>
-        /// Is End to End TLS Enabled? Defaults to `false`.
+        /// Is End to End TLS Enabled? Defaults to `False`.
         /// </summary>
         [Input("tlsEnabled")]
         public Input<bool>? TlsEnabled { get; set; }

@@ -22,11 +22,11 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `destination_address_prefixes` is not specified.
+        /// CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `DestinationAddressPrefixes` is not specified.
         /// </summary>
         public readonly string? DestinationAddressPrefix;
         /// <summary>
-        /// List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
+        /// List of destination address prefixes. Tags may not be used. This is required if `DestinationAddressPrefix` is not specified.
         /// </summary>
         public readonly ImmutableArray<string> DestinationAddressPrefixes;
         /// <summary>
@@ -34,11 +34,11 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<string> DestinationApplicationSecurityGroupIds;
         /// <summary>
-        /// Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
+        /// Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `DestinationPortRanges` is not specified.
         /// </summary>
         public readonly string? DestinationPortRange;
         /// <summary>
-        /// List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
+        /// List of destination ports or port ranges. This is required if `DestinationPortRange` is not specified.
         /// </summary>
         public readonly ImmutableArray<string> DestinationPortRanges;
         /// <summary>
@@ -58,11 +58,11 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string Protocol;
         /// <summary>
-        /// CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `source_address_prefixes` is not specified.
+        /// CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `SourceAddressPrefixes` is not specified.
         /// </summary>
         public readonly string? SourceAddressPrefix;
         /// <summary>
-        /// List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
+        /// List of source address prefixes. Tags may not be used. This is required if `SourceAddressPrefix` is not specified.
         /// </summary>
         public readonly ImmutableArray<string> SourceAddressPrefixes;
         /// <summary>
@@ -70,11 +70,11 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<string> SourceApplicationSecurityGroupIds;
         /// <summary>
-        /// Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
+        /// Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `SourcePortRanges` is not specified.
         /// </summary>
         public readonly string? SourcePortRange;
         /// <summary>
-        /// List of source ports or port ranges. This is required if `source_port_range` is not specified.
+        /// List of source ports or port ranges. This is required if `SourcePortRange` is not specified.
         /// </summary>
         public readonly ImmutableArray<string> SourcePortRanges;
 

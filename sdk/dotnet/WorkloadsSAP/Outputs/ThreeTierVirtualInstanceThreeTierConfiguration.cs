@@ -15,15 +15,15 @@ namespace Pulumi.Azure.WorkloadsSAP.Outputs
     {
         public readonly string AppResourceGroupName;
         /// <summary>
-        /// An `application_server_configuration` block as defined below. Changing this forces a new resource to be created.
+        /// An `ApplicationServerConfiguration` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public readonly Outputs.ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfiguration ApplicationServerConfiguration;
         /// <summary>
-        /// A `central_server_configuration` block as defined below. Changing this forces a new resource to be created.
+        /// A `CentralServerConfiguration` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public readonly Outputs.ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfiguration CentralServerConfiguration;
         /// <summary>
-        /// A `database_server_configuration` block as defined below. Changing this forces a new resource to be created.
+        /// A `DatabaseServerConfiguration` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public readonly Outputs.ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfiguration DatabaseServerConfiguration;
         /// <summary>
@@ -31,17 +31,17 @@ namespace Pulumi.Azure.WorkloadsSAP.Outputs
         /// </summary>
         public readonly string? HighAvailabilityType;
         /// <summary>
-        /// A `resource_names` block as defined below. Changing this forces a new resource to be created.
+        /// A `ResourceNames` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public readonly Outputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNames? ResourceNames;
         /// <summary>
-        /// Specifies whether a secondary IP address should be added to the network interface on all VMs of the SAP system being deployed. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Specifies whether a secondary IP address should be added to the network interface on all VMs of the SAP system being deployed. Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly bool? SecondaryIpEnabled;
         /// <summary>
-        /// A `transport_create_and_mount` block as defined below. Changing this forces a new resource to be created.
+        /// A `TransportCreateAndMount` block as defined below. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** The file share configuration uses `skip` by default when `transport_create_and_mount` isn't set.
+        /// &gt; **Note:** The file share configuration uses `Skip` by default when `TransportCreateAndMount` isn't set.
         /// 
         /// &gt; **Note:** Due to [a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/25209) where the Storage File Share Id is not defined correctly, it is not currently possible to support using Transport Mount.
         /// </summary>

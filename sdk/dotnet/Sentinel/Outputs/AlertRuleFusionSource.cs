@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Sentinel.Outputs
     public sealed class AlertRuleFusionSource
     {
         /// <summary>
-        /// Whether this source signal is enabled or disabled in Fusion detection? Defaults to `true`.
+        /// Whether this source signal is enabled or disabled in Fusion detection? Defaults to `True`.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Sentinel.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// One or more `sub_type` blocks as defined below.
+        /// One or more `SubType` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AlertRuleFusionSourceSubType> SubTypes;
 

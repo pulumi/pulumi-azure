@@ -19,7 +19,7 @@ public final class GetNetworkServiceServiceQosPolicy {
      */
     private Integer allocationAndRetentionPriorityLevel;
     /**
-     * @return A `maximum_bit_rate` block as defined below. The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
+     * @return A `maximumBitRate` block as defined below. The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
      * 
      */
     private List<GetNetworkServiceServiceQosPolicyMaximumBitRate> maximumBitRates;
@@ -48,7 +48,7 @@ public final class GetNetworkServiceServiceQosPolicy {
         return this.allocationAndRetentionPriorityLevel;
     }
     /**
-     * @return A `maximum_bit_rate` block as defined below. The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
+     * @return A `maximumBitRate` block as defined below. The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
      * 
      */
     public List<GetNetworkServiceServiceQosPolicyMaximumBitRate> maximumBitRates() {

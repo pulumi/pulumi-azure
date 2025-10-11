@@ -44,14 +44,14 @@ public final class LinuxWebAppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `auth_settings` block as defined below.
+     * A `authSettings` block as defined below.
      * 
      */
     @Import(name="authSettings")
     private @Nullable Output<LinuxWebAppAuthSettingsArgs> authSettings;
 
     /**
-     * @return A `auth_settings` block as defined below.
+     * @return A `authSettings` block as defined below.
      * 
      */
     public Optional<Output<LinuxWebAppAuthSettingsArgs>> authSettings() {
@@ -59,14 +59,14 @@ public final class LinuxWebAppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `auth_settings_v2` block as defined below.
+     * An `authSettingsV2` block as defined below.
      * 
      */
     @Import(name="authSettingsV2")
     private @Nullable Output<LinuxWebAppAuthSettingsV2Args> authSettingsV2;
 
     /**
-     * @return An `auth_settings_v2` block as defined below.
+     * @return An `authSettingsV2` block as defined below.
      * 
      */
     public Optional<Output<LinuxWebAppAuthSettingsV2Args>> authSettingsV2() {
@@ -134,14 +134,14 @@ public final class LinuxWebAppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`. Defaults to `Required`.
+     * The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertificateEnabled` is `false`. Defaults to `Required`.
      * 
      */
     @Import(name="clientCertificateMode")
     private @Nullable Output<String> clientCertificateMode;
 
     /**
-     * @return The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`. Defaults to `Required`.
+     * @return The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertificateEnabled` is `false`. Defaults to `Required`.
      * 
      */
     public Optional<Output<String>> clientCertificateMode() {
@@ -149,14 +149,14 @@ public final class LinuxWebAppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `connection_string` blocks as defined below.
+     * One or more `connectionString` blocks as defined below.
      * 
      */
     @Import(name="connectionStrings")
     private @Nullable Output<List<LinuxWebAppConnectionStringArgs>> connectionStrings;
 
     /**
-     * @return One or more `connection_string` blocks as defined below.
+     * @return One or more `connectionString` blocks as defined below.
      * 
      */
     public Optional<Output<List<LinuxWebAppConnectionStringArgs>>> connectionStrings() {
@@ -381,14 +381,14 @@ public final class LinuxWebAppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+     * A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      * 
      */
     @Import(name="possibleOutboundIpAddresses")
     private @Nullable Output<String> possibleOutboundIpAddresses;
 
     /**
-     * @return A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+     * @return A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      * 
      */
     public Optional<Output<String>> possibleOutboundIpAddresses() {
@@ -441,14 +441,14 @@ public final class LinuxWebAppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `site_config` block as defined below.
+     * A `siteConfig` block as defined below.
      * 
      */
     @Import(name="siteConfig")
     private @Nullable Output<LinuxWebAppSiteConfigArgs> siteConfig;
 
     /**
-     * @return A `site_config` block as defined below.
+     * @return A `siteConfig` block as defined below.
      * 
      */
     public Optional<Output<LinuxWebAppSiteConfigArgs>> siteConfig() {
@@ -456,14 +456,14 @@ public final class LinuxWebAppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `site_credential` block as defined below.
+     * A `siteCredential` block as defined below.
      * 
      */
     @Import(name="siteCredentials")
     private @Nullable Output<List<LinuxWebAppSiteCredentialArgs>> siteCredentials;
 
     /**
-     * @return A `site_credential` block as defined below.
+     * @return A `siteCredential` block as defined below.
      * 
      */
     public Optional<Output<List<LinuxWebAppSiteCredentialArgs>>> siteCredentials() {
@@ -471,14 +471,14 @@ public final class LinuxWebAppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `sticky_settings` block as defined below.
+     * A `stickySettings` block as defined below.
      * 
      */
     @Import(name="stickySettings")
     private @Nullable Output<LinuxWebAppStickySettingsArgs> stickySettings;
 
     /**
-     * @return A `sticky_settings` block as defined below.
+     * @return A `stickySettings` block as defined below.
      * 
      */
     public Optional<Output<LinuxWebAppStickySettingsArgs>> stickySettings() {
@@ -486,14 +486,14 @@ public final class LinuxWebAppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `storage_account` blocks as defined below.
+     * One or more `storageAccount` blocks as defined below.
      * 
      */
     @Import(name="storageAccounts")
     private @Nullable Output<List<LinuxWebAppStorageAccountArgs>> storageAccounts;
 
     /**
-     * @return One or more `storage_account` blocks as defined below.
+     * @return One or more `storageAccount` blocks as defined below.
      * 
      */
     public Optional<Output<List<LinuxWebAppStorageAccountArgs>>> storageAccounts() {
@@ -559,7 +559,7 @@ public final class LinuxWebAppState extends com.pulumi.resources.ResourceArgs {
     /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      * 
-     * &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+     * &gt; **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
      * 
      */
     @Import(name="webdeployPublishBasicAuthenticationEnabled")
@@ -568,7 +568,7 @@ public final class LinuxWebAppState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      * 
-     * &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+     * &gt; **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
      * 
      */
     public Optional<Output<Boolean>> webdeployPublishBasicAuthenticationEnabled() {
@@ -578,7 +578,7 @@ public final class LinuxWebAppState extends com.pulumi.resources.ResourceArgs {
     /**
      * The local path and filename of the Zip packaged application to deploy to this Linux Web App.
      * 
-     * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
+     * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
      * 
      */
     @Import(name="zipDeployFile")
@@ -587,7 +587,7 @@ public final class LinuxWebAppState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The local path and filename of the Zip packaged application to deploy to this Linux Web App.
      * 
-     * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
+     * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
      * 
      */
     public Optional<Output<String>> zipDeployFile() {
@@ -677,7 +677,7 @@ public final class LinuxWebAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authSettings A `auth_settings` block as defined below.
+         * @param authSettings A `authSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -688,7 +688,7 @@ public final class LinuxWebAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authSettings A `auth_settings` block as defined below.
+         * @param authSettings A `authSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -698,7 +698,7 @@ public final class LinuxWebAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authSettingsV2 An `auth_settings_v2` block as defined below.
+         * @param authSettingsV2 An `authSettingsV2` block as defined below.
          * 
          * @return builder
          * 
@@ -709,7 +709,7 @@ public final class LinuxWebAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authSettingsV2 An `auth_settings_v2` block as defined below.
+         * @param authSettingsV2 An `authSettingsV2` block as defined below.
          * 
          * @return builder
          * 
@@ -803,7 +803,7 @@ public final class LinuxWebAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientCertificateMode The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`. Defaults to `Required`.
+         * @param clientCertificateMode The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertificateEnabled` is `false`. Defaults to `Required`.
          * 
          * @return builder
          * 
@@ -814,7 +814,7 @@ public final class LinuxWebAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientCertificateMode The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`. Defaults to `Required`.
+         * @param clientCertificateMode The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertificateEnabled` is `false`. Defaults to `Required`.
          * 
          * @return builder
          * 
@@ -824,7 +824,7 @@ public final class LinuxWebAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectionStrings One or more `connection_string` blocks as defined below.
+         * @param connectionStrings One or more `connectionString` blocks as defined below.
          * 
          * @return builder
          * 
@@ -835,7 +835,7 @@ public final class LinuxWebAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectionStrings One or more `connection_string` blocks as defined below.
+         * @param connectionStrings One or more `connectionString` blocks as defined below.
          * 
          * @return builder
          * 
@@ -845,7 +845,7 @@ public final class LinuxWebAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectionStrings One or more `connection_string` blocks as defined below.
+         * @param connectionStrings One or more `connectionString` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1178,7 +1178,7 @@ public final class LinuxWebAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param possibleOutboundIpAddresses A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+         * @param possibleOutboundIpAddresses A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
          * 
          * @return builder
          * 
@@ -1189,7 +1189,7 @@ public final class LinuxWebAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param possibleOutboundIpAddresses A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+         * @param possibleOutboundIpAddresses A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
          * 
          * @return builder
          * 
@@ -1262,7 +1262,7 @@ public final class LinuxWebAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param siteConfig A `site_config` block as defined below.
+         * @param siteConfig A `siteConfig` block as defined below.
          * 
          * @return builder
          * 
@@ -1273,7 +1273,7 @@ public final class LinuxWebAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param siteConfig A `site_config` block as defined below.
+         * @param siteConfig A `siteConfig` block as defined below.
          * 
          * @return builder
          * 
@@ -1283,7 +1283,7 @@ public final class LinuxWebAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param siteCredentials A `site_credential` block as defined below.
+         * @param siteCredentials A `siteCredential` block as defined below.
          * 
          * @return builder
          * 
@@ -1294,7 +1294,7 @@ public final class LinuxWebAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param siteCredentials A `site_credential` block as defined below.
+         * @param siteCredentials A `siteCredential` block as defined below.
          * 
          * @return builder
          * 
@@ -1304,7 +1304,7 @@ public final class LinuxWebAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param siteCredentials A `site_credential` block as defined below.
+         * @param siteCredentials A `siteCredential` block as defined below.
          * 
          * @return builder
          * 
@@ -1314,7 +1314,7 @@ public final class LinuxWebAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param stickySettings A `sticky_settings` block as defined below.
+         * @param stickySettings A `stickySettings` block as defined below.
          * 
          * @return builder
          * 
@@ -1325,7 +1325,7 @@ public final class LinuxWebAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param stickySettings A `sticky_settings` block as defined below.
+         * @param stickySettings A `stickySettings` block as defined below.
          * 
          * @return builder
          * 
@@ -1335,7 +1335,7 @@ public final class LinuxWebAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccounts One or more `storage_account` blocks as defined below.
+         * @param storageAccounts One or more `storageAccount` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1346,7 +1346,7 @@ public final class LinuxWebAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccounts One or more `storage_account` blocks as defined below.
+         * @param storageAccounts One or more `storageAccount` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1356,7 +1356,7 @@ public final class LinuxWebAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccounts One or more `storage_account` blocks as defined below.
+         * @param storageAccounts One or more `storageAccount` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1444,7 +1444,7 @@ public final class LinuxWebAppState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param webdeployPublishBasicAuthenticationEnabled Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
          * 
-         * &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+         * &gt; **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
          * 
          * @return builder
          * 
@@ -1457,7 +1457,7 @@ public final class LinuxWebAppState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param webdeployPublishBasicAuthenticationEnabled Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
          * 
-         * &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+         * &gt; **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
          * 
          * @return builder
          * 
@@ -1469,7 +1469,7 @@ public final class LinuxWebAppState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param zipDeployFile The local path and filename of the Zip packaged application to deploy to this Linux Web App.
          * 
-         * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
+         * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
          * 
          * @return builder
          * 
@@ -1482,7 +1482,7 @@ public final class LinuxWebAppState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param zipDeployFile The local path and filename of the Zip packaged application to deploy to this Linux Web App.
          * 
-         * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
+         * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
          * 
          * @return builder
          * 

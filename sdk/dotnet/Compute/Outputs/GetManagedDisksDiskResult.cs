@@ -35,7 +35,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly int DiskSizeInGb;
         /// <summary>
-        /// An `encryption_settings` block as defined below.
+        /// An `EncryptionSettings` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetManagedDisksDiskEncryptionSettingResult> EncryptionSettings;
         public readonly string Id;
@@ -68,7 +68,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string SourceUri;
         /// <summary>
-        /// The ID of the Storage Account where the `source_uri` is located.
+        /// The ID of the Storage Account where the `SourceUri` is located.
         /// </summary>
         public readonly string StorageAccountId;
         /// <summary>

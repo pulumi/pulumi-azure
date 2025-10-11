@@ -75,7 +75,7 @@ namespace Pulumi.Azure.EventGrid
         public Output<int?> DefaultMaximumExpirationTimeInDays { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `partner_authorization` blocks as defined below.
+        /// One or more `PartnerAuthorization` blocks as defined below.
         /// </summary>
         [Output("partnerAuthorizations")]
         public Output<ImmutableArray<Outputs.PartnerConfigurationPartnerAuthorization>> PartnerAuthorizations { get; private set; } = null!;
@@ -148,7 +148,7 @@ namespace Pulumi.Azure.EventGrid
         private InputList<Inputs.PartnerConfigurationPartnerAuthorizationArgs>? _partnerAuthorizations;
 
         /// <summary>
-        /// One or more `partner_authorization` blocks as defined below.
+        /// One or more `PartnerAuthorization` blocks as defined below.
         /// </summary>
         public InputList<Inputs.PartnerConfigurationPartnerAuthorizationArgs> PartnerAuthorizations
         {
@@ -192,7 +192,7 @@ namespace Pulumi.Azure.EventGrid
         private InputList<Inputs.PartnerConfigurationPartnerAuthorizationGetArgs>? _partnerAuthorizations;
 
         /// <summary>
-        /// One or more `partner_authorization` blocks as defined below.
+        /// One or more `PartnerAuthorization` blocks as defined below.
         /// </summary>
         public InputList<Inputs.PartnerConfigurationPartnerAuthorizationGetArgs> PartnerAuthorizations
         {

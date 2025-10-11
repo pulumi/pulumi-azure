@@ -186,7 +186,7 @@ namespace Pulumi.Azure.Network
         public Output<string> DestinationResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// An `ip_traffic` block as defined below. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+        /// An `IpTraffic` block as defined below. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
         /// </summary>
         [Output("ipTraffic")]
         public Output<Outputs.NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTraffic> IpTraffic { get; private set; } = null!;
@@ -268,7 +268,7 @@ namespace Pulumi.Azure.Network
         public Input<string> DestinationResourceId { get; set; } = null!;
 
         /// <summary>
-        /// An `ip_traffic` block as defined below. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+        /// An `IpTraffic` block as defined below. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
         /// </summary>
         [Input("ipTraffic", required: true)]
         public Input<Inputs.NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgs> IpTraffic { get; set; } = null!;
@@ -312,7 +312,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? DestinationResourceId { get; set; }
 
         /// <summary>
-        /// An `ip_traffic` block as defined below. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+        /// An `IpTraffic` block as defined below. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
         /// </summary>
         [Input("ipTraffic")]
         public Input<Inputs.NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficGetArgs>? IpTraffic { get; set; }

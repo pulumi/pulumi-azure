@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DataCollectionRuleDataSources {
     /**
-     * @return A `data_import` block as defined above.
+     * @return A `dataImport` block as defined above.
      * 
      */
     private @Nullable DataCollectionRuleDataSourcesDataImport dataImport;
@@ -32,27 +32,27 @@ public final class DataCollectionRuleDataSources {
      */
     private @Nullable List<DataCollectionRuleDataSourcesExtension> extensions;
     /**
-     * @return One or more `iis_log` blocks as defined below.
+     * @return One or more `iisLog` blocks as defined below.
      * 
      */
     private @Nullable List<DataCollectionRuleDataSourcesIisLog> iisLogs;
     /**
-     * @return One or more `log_file` blocks as defined below.
+     * @return One or more `logFile` blocks as defined below.
      * 
      */
     private @Nullable List<DataCollectionRuleDataSourcesLogFile> logFiles;
     /**
-     * @return One or more `performance_counter` blocks as defined below.
+     * @return One or more `performanceCounter` blocks as defined below.
      * 
      */
     private @Nullable List<DataCollectionRuleDataSourcesPerformanceCounter> performanceCounters;
     /**
-     * @return One or more `platform_telemetry` blocks as defined below.
+     * @return One or more `platformTelemetry` blocks as defined below.
      * 
      */
     private @Nullable List<DataCollectionRuleDataSourcesPlatformTelemetry> platformTelemetries;
     /**
-     * @return One or more `prometheus_forwarder` blocks as defined below.
+     * @return One or more `prometheusForwarder` blocks as defined below.
      * 
      */
     private @Nullable List<DataCollectionRuleDataSourcesPrometheusForwarder> prometheusForwarders;
@@ -62,19 +62,19 @@ public final class DataCollectionRuleDataSources {
      */
     private @Nullable List<DataCollectionRuleDataSourcesSyslog> syslogs;
     /**
-     * @return One or more `windows_event_log` blocks as defined below.
+     * @return One or more `windowsEventLog` blocks as defined below.
      * 
      */
     private @Nullable List<DataCollectionRuleDataSourcesWindowsEventLog> windowsEventLogs;
     /**
-     * @return One or more `windows_firewall_log` blocks as defined below.
+     * @return One or more `windowsFirewallLog` blocks as defined below.
      * 
      */
     private @Nullable List<DataCollectionRuleDataSourcesWindowsFirewallLog> windowsFirewallLogs;
 
     private DataCollectionRuleDataSources() {}
     /**
-     * @return A `data_import` block as defined above.
+     * @return A `dataImport` block as defined above.
      * 
      */
     public Optional<DataCollectionRuleDataSourcesDataImport> dataImport() {
@@ -88,35 +88,35 @@ public final class DataCollectionRuleDataSources {
         return this.extensions == null ? List.of() : this.extensions;
     }
     /**
-     * @return One or more `iis_log` blocks as defined below.
+     * @return One or more `iisLog` blocks as defined below.
      * 
      */
     public List<DataCollectionRuleDataSourcesIisLog> iisLogs() {
         return this.iisLogs == null ? List.of() : this.iisLogs;
     }
     /**
-     * @return One or more `log_file` blocks as defined below.
+     * @return One or more `logFile` blocks as defined below.
      * 
      */
     public List<DataCollectionRuleDataSourcesLogFile> logFiles() {
         return this.logFiles == null ? List.of() : this.logFiles;
     }
     /**
-     * @return One or more `performance_counter` blocks as defined below.
+     * @return One or more `performanceCounter` blocks as defined below.
      * 
      */
     public List<DataCollectionRuleDataSourcesPerformanceCounter> performanceCounters() {
         return this.performanceCounters == null ? List.of() : this.performanceCounters;
     }
     /**
-     * @return One or more `platform_telemetry` blocks as defined below.
+     * @return One or more `platformTelemetry` blocks as defined below.
      * 
      */
     public List<DataCollectionRuleDataSourcesPlatformTelemetry> platformTelemetries() {
         return this.platformTelemetries == null ? List.of() : this.platformTelemetries;
     }
     /**
-     * @return One or more `prometheus_forwarder` blocks as defined below.
+     * @return One or more `prometheusForwarder` blocks as defined below.
      * 
      */
     public List<DataCollectionRuleDataSourcesPrometheusForwarder> prometheusForwarders() {
@@ -130,14 +130,14 @@ public final class DataCollectionRuleDataSources {
         return this.syslogs == null ? List.of() : this.syslogs;
     }
     /**
-     * @return One or more `windows_event_log` blocks as defined below.
+     * @return One or more `windowsEventLog` blocks as defined below.
      * 
      */
     public List<DataCollectionRuleDataSourcesWindowsEventLog> windowsEventLogs() {
         return this.windowsEventLogs == null ? List.of() : this.windowsEventLogs;
     }
     /**
-     * @return One or more `windows_firewall_log` blocks as defined below.
+     * @return One or more `windowsFirewallLog` blocks as defined below.
      * 
      */
     public List<DataCollectionRuleDataSourcesWindowsFirewallLog> windowsFirewallLogs() {

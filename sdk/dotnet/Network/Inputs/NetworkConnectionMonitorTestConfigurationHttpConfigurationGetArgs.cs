@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// Should HTTPS be preferred over HTTP in cases where the choice is not explicit? Defaults to `false`.
+        /// Should HTTPS be preferred over HTTP in cases where the choice is not explicit? Defaults to `False`.
         /// </summary>
         [Input("preferHttps")]
         public Input<bool>? PreferHttps { get; set; }
@@ -40,7 +40,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<Inputs.NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderGetArgs>? _requestHeaders;
 
         /// <summary>
-        /// A `request_header` block as defined below.
+        /// A `RequestHeader` block as defined below.
         /// </summary>
         public InputList<Inputs.NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderGetArgs> RequestHeaders
         {

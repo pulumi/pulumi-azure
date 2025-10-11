@@ -38,7 +38,7 @@ namespace Pulumi.Azure.WorkloadsSAP
         public Output<string> Environment { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ThreeTierVirtualInstanceIdentity?> Identity { get; private set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.Azure.WorkloadsSAP
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A `three_tier_configuration` block as defined below. Changing this forces a new resource to be created.
+        /// A `ThreeTierConfiguration` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("threeTierConfiguration")]
         public Output<Outputs.ThreeTierVirtualInstanceThreeTierConfiguration> ThreeTierConfiguration { get; private set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.Azure.WorkloadsSAP
         public Input<string> Environment { get; set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ThreeTierVirtualInstanceIdentityArgs>? Identity { get; set; }
@@ -216,7 +216,7 @@ namespace Pulumi.Azure.WorkloadsSAP
         }
 
         /// <summary>
-        /// A `three_tier_configuration` block as defined below. Changing this forces a new resource to be created.
+        /// A `ThreeTierConfiguration` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("threeTierConfiguration", required: true)]
         public Input<Inputs.ThreeTierVirtualInstanceThreeTierConfigurationArgs> ThreeTierConfiguration { get; set; } = null!;
@@ -242,7 +242,7 @@ namespace Pulumi.Azure.WorkloadsSAP
         public Input<string>? Environment { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ThreeTierVirtualInstanceIdentityGetArgs>? Identity { get; set; }
@@ -302,7 +302,7 @@ namespace Pulumi.Azure.WorkloadsSAP
         }
 
         /// <summary>
-        /// A `three_tier_configuration` block as defined below. Changing this forces a new resource to be created.
+        /// A `ThreeTierConfiguration` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("threeTierConfiguration")]
         public Input<Inputs.ThreeTierVirtualInstanceThreeTierConfigurationGetArgs>? ThreeTierConfiguration { get; set; }

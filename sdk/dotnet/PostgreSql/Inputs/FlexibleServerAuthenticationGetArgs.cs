@@ -13,23 +13,23 @@ namespace Pulumi.Azure.PostgreSql.Inputs
     public sealed class FlexibleServerAuthenticationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether Active Directory authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `false`.
+        /// Whether Active Directory authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `False`.
         /// </summary>
         [Input("activeDirectoryAuthEnabled")]
         public Input<bool>? ActiveDirectoryAuthEnabled { get; set; }
 
         /// <summary>
-        /// Whether password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `true`.
+        /// Whether password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `True`.
         /// </summary>
         [Input("passwordAuthEnabled")]
         public Input<bool>? PasswordAuthEnabled { get; set; }
 
         /// <summary>
-        /// The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `active_directory_auth_enabled` must be set to `true`.
+        /// The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `ActiveDirectoryAuthEnabled` must be set to `True`.
         /// 
-        /// &gt; **Note:** Setting `active_directory_auth_enabled` to `true` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
+        /// &gt; **Note:** Setting `ActiveDirectoryAuthEnabled` to `True` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
         /// 
-        /// &gt; **Note:** `tenant_id` is required when `active_directory_auth_enabled` is set to `true`. And it should not be specified when `active_directory_auth_enabled` is set to `false`
+        /// &gt; **Note:** `TenantId` is required when `ActiveDirectoryAuthEnabled` is set to `True`. And it should not be specified when `ActiveDirectoryAuthEnabled` is set to `False`
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }

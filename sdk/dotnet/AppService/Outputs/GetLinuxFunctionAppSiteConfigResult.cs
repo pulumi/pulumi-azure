@@ -34,7 +34,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly int AppScaleLimit;
         /// <summary>
-        /// An `app_service_logs` block as defined above.
+        /// An `AppServiceLogs` block as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxFunctionAppSiteConfigAppServiceLogResult> AppServiceLogs;
         /// <summary>
@@ -46,7 +46,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string ApplicationInsightsKey;
         /// <summary>
-        /// An `application_stack` block as defined above.
+        /// An `ApplicationStack` block as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxFunctionAppSiteConfigApplicationStackResult> ApplicationStacks;
         /// <summary>
@@ -58,7 +58,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool ContainerRegistryUseManagedIdentity;
         /// <summary>
-        /// A `cors` block as defined above.
+        /// A `Cors` block as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxFunctionAppSiteConfigCorResult> Cors;
         /// <summary>
@@ -87,11 +87,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool Http2Enabled;
         /// <summary>
-        /// The Default action for traffic that does not match any `ip_restriction` rule.
+        /// The Default action for traffic that does not match any `IpRestriction` rule.
         /// </summary>
         public readonly string IpRestrictionDefaultAction;
         /// <summary>
-        /// One or more `ip_restriction` blocks as defined above.
+        /// One or more `IpRestriction` blocks as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxFunctionAppSiteConfigIpRestrictionResult> IpRestrictions;
         public readonly string LinuxFxVersion;
@@ -124,11 +124,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool RuntimeScaleMonitoringEnabled;
         /// <summary>
-        /// The Default action for traffic that does not match any `scm_ip_restriction` rule.
+        /// The Default action for traffic that does not match any `ScmIpRestriction` rule.
         /// </summary>
         public readonly string? ScmIpRestrictionDefaultAction;
         /// <summary>
-        /// One or more `scm_ip_restriction` blocks as defined above.
+        /// One or more `ScmIpRestriction` blocks as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxFunctionAppSiteConfigScmIpRestrictionResult> ScmIpRestrictions;
         /// <summary>
@@ -137,7 +137,7 @@ namespace Pulumi.Azure.AppService.Outputs
         public readonly string ScmMinimumTlsVersion;
         public readonly string ScmType;
         /// <summary>
-        /// Is the Linux Function App `ip_restriction` configuration used for the SCM also?
+        /// Is the Linux Function App `IpRestriction` configuration used for the SCM also?
         /// </summary>
         public readonly bool ScmUseMainIpRestriction;
         /// <summary>

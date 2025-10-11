@@ -71,7 +71,7 @@ namespace Pulumi.Azure.Automation
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if the Automation Variable is encrypted. Defaults to `false`.
+        /// Specifies if the Automation Variable is encrypted. Defaults to `False`.
         /// </summary>
         [Output("encrypted")]
         public Output<bool?> Encrypted { get; private set; } = null!;
@@ -89,7 +89,7 @@ namespace Pulumi.Azure.Automation
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The value of the Automation Variable as a `integer`.
+        /// The value of the Automation Variable as a `Integer`.
         /// </summary>
         [Output("value")]
         public Output<int?> Value { get; private set; } = null!;
@@ -153,7 +153,7 @@ namespace Pulumi.Azure.Automation
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies if the Automation Variable is encrypted. Defaults to `false`.
+        /// Specifies if the Automation Variable is encrypted. Defaults to `False`.
         /// </summary>
         [Input("encrypted")]
         public Input<bool>? Encrypted { get; set; }
@@ -171,7 +171,7 @@ namespace Pulumi.Azure.Automation
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The value of the Automation Variable as a `integer`.
+        /// The value of the Automation Variable as a `Integer`.
         /// </summary>
         [Input("value")]
         public Input<int>? Value { get; set; }
@@ -197,7 +197,7 @@ namespace Pulumi.Azure.Automation
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies if the Automation Variable is encrypted. Defaults to `false`.
+        /// Specifies if the Automation Variable is encrypted. Defaults to `False`.
         /// </summary>
         [Input("encrypted")]
         public Input<bool>? Encrypted { get; set; }
@@ -215,7 +215,7 @@ namespace Pulumi.Azure.Automation
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The value of the Automation Variable as a `integer`.
+        /// The value of the Automation Variable as a `Integer`.
         /// </summary>
         [Input("value")]
         public Input<int>? Value { get; set; }

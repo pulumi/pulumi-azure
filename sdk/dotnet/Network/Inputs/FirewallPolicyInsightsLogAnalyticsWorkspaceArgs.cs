@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string> FirewallLocation { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to when their locations match the `firewall_location`.
+        /// The ID of the Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to when their locations match the `FirewallLocation`.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;

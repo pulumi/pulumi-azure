@@ -14,23 +14,23 @@ namespace Pulumi.Azure.Communication.Outputs
     public sealed class EmailServiceDomainVerificationRecord
     {
         /// <summary>
-        /// (Optional) An `dkim2` block as defined below.
+        /// (Optional) An `Dkim2` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.EmailServiceDomainVerificationRecordDkim2> Dkim2s;
         /// <summary>
-        /// (Optional) An `dkim` block as defined below.
+        /// (Optional) An `Dkim` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.EmailServiceDomainVerificationRecordDkim> Dkims;
         /// <summary>
-        /// (Optional) An `dmarc` block as defined below.
+        /// (Optional) An `Dmarc` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.EmailServiceDomainVerificationRecordDmarc> Dmarcs;
         /// <summary>
-        /// (Optional) An `domain` block as defined below.
+        /// (Optional) An `Domain` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.EmailServiceDomainVerificationRecordDomain> Domains;
         /// <summary>
-        /// (Optional) An `spf` block as defined below.
+        /// (Optional) An `Spf` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.EmailServiceDomainVerificationRecordSpf> Spfs;
 

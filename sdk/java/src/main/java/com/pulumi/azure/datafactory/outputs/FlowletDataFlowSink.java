@@ -33,7 +33,7 @@ public final class FlowletDataFlowSink {
      */
     private @Nullable FlowletDataFlowSinkFlowlet flowlet;
     /**
-     * @return A `linked_service` block as defined below.
+     * @return A `linkedService` block as defined below.
      * 
      */
     private @Nullable FlowletDataFlowSinkLinkedService linkedService;
@@ -43,12 +43,12 @@ public final class FlowletDataFlowSink {
      */
     private String name;
     /**
-     * @return A `rejected_linked_service` block as defined below.
+     * @return A `rejectedLinkedService` block as defined below.
      * 
      */
     private @Nullable FlowletDataFlowSinkRejectedLinkedService rejectedLinkedService;
     /**
-     * @return A `schema_linked_service` block as defined below.
+     * @return A `schemaLinkedService` block as defined below.
      * 
      */
     private @Nullable FlowletDataFlowSinkSchemaLinkedService schemaLinkedService;
@@ -76,7 +76,7 @@ public final class FlowletDataFlowSink {
         return Optional.ofNullable(this.flowlet);
     }
     /**
-     * @return A `linked_service` block as defined below.
+     * @return A `linkedService` block as defined below.
      * 
      */
     public Optional<FlowletDataFlowSinkLinkedService> linkedService() {
@@ -90,14 +90,14 @@ public final class FlowletDataFlowSink {
         return this.name;
     }
     /**
-     * @return A `rejected_linked_service` block as defined below.
+     * @return A `rejectedLinkedService` block as defined below.
      * 
      */
     public Optional<FlowletDataFlowSinkRejectedLinkedService> rejectedLinkedService() {
         return Optional.ofNullable(this.rejectedLinkedService);
     }
     /**
-     * @return A `schema_linked_service` block as defined below.
+     * @return A `schemaLinkedService` block as defined below.
      * 
      */
     public Optional<FlowletDataFlowSinkSchemaLinkedService> schemaLinkedService() {

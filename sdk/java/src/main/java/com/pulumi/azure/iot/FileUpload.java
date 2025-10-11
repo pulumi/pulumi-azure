@@ -135,14 +135,14 @@ public class FileUpload extends com.pulumi.resources.CustomResource {
         return this.connectionString;
     }
     /**
-     * The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the `connection_string` specified.
+     * The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the `connectionString` specified.
      * 
      */
     @Export(name="containerName", refs={String.class}, tree="[0]")
     private Output<String> containerName;
 
     /**
-     * @return The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the `connection_string` specified.
+     * @return The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the `connectionString` specified.
      * 
      */
     public Output<String> containerName() {
@@ -165,7 +165,7 @@ public class FileUpload extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the User Managed Identity used to authenticate against the storage account.
      * 
-     * &gt; **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the IoT Hub. If `identity_id` is omitted when `authentication_type` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
+     * &gt; **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the IoT Hub. If `identityId` is omitted when `authenticationType` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
      * 
      */
     @Export(name="identityId", refs={String.class}, tree="[0]")
@@ -174,7 +174,7 @@ public class FileUpload extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID of the User Managed Identity used to authenticate against the storage account.
      * 
-     * &gt; **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the IoT Hub. If `identity_id` is omitted when `authentication_type` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
+     * &gt; **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the IoT Hub. If `identityId` is omitted when `authenticationType` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
      * 
      */
     public Output<Optional<String>> identityId() {

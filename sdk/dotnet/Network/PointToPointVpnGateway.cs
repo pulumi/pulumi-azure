@@ -129,7 +129,7 @@ namespace Pulumi.Azure.Network
     public partial class PointToPointVpnGateway : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A `connection_configuration` block as defined below.
+        /// A `ConnectionConfiguration` block as defined below.
         /// </summary>
         [Output("connectionConfigurations")]
         public Output<ImmutableArray<Outputs.PointToPointVpnGatewayConnectionConfiguration>> ConnectionConfigurations { get; private set; } = null!;
@@ -159,7 +159,7 @@ namespace Pulumi.Azure.Network
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Is the Routing Preference for the Public IP Interface of the VPN Gateway enabled? Defaults to `false`. Changing this forces a new resource to be created.
+        /// Is the Routing Preference for the Public IP Interface of the VPN Gateway enabled? Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("routingPreferenceInternetEnabled")]
         public Output<bool?> RoutingPreferenceInternetEnabled { get; private set; } = null!;
@@ -238,7 +238,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.PointToPointVpnGatewayConnectionConfigurationArgs>? _connectionConfigurations;
 
         /// <summary>
-        /// A `connection_configuration` block as defined below.
+        /// A `ConnectionConfiguration` block as defined below.
         /// </summary>
         public InputList<Inputs.PointToPointVpnGatewayConnectionConfigurationArgs> ConnectionConfigurations
         {
@@ -277,7 +277,7 @@ namespace Pulumi.Azure.Network
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Is the Routing Preference for the Public IP Interface of the VPN Gateway enabled? Defaults to `false`. Changing this forces a new resource to be created.
+        /// Is the Routing Preference for the Public IP Interface of the VPN Gateway enabled? Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("routingPreferenceInternetEnabled")]
         public Input<bool>? RoutingPreferenceInternetEnabled { get; set; }
@@ -324,7 +324,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.PointToPointVpnGatewayConnectionConfigurationGetArgs>? _connectionConfigurations;
 
         /// <summary>
-        /// A `connection_configuration` block as defined below.
+        /// A `ConnectionConfiguration` block as defined below.
         /// </summary>
         public InputList<Inputs.PointToPointVpnGatewayConnectionConfigurationGetArgs> ConnectionConfigurations
         {
@@ -363,7 +363,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// Is the Routing Preference for the Public IP Interface of the VPN Gateway enabled? Defaults to `false`. Changing this forces a new resource to be created.
+        /// Is the Routing Preference for the Public IP Interface of the VPN Gateway enabled? Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("routingPreferenceInternetEnabled")]
         public Input<bool>? RoutingPreferenceInternetEnabled { get; set; }

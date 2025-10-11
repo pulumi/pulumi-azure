@@ -19,13 +19,13 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string> MatchVariable { get; set; } = null!;
 
         /// <summary>
-        /// String value which will be used for the filter operation. If empty will exclude all traffic on this `match_variable`
+        /// String value which will be used for the filter operation. If empty will exclude all traffic on this `MatchVariable`
         /// </summary>
         [Input("selector")]
         public Input<string>? Selector { get; set; }
 
         /// <summary>
-        /// Operator which will be used to search in the variable content. Possible values are `Contains`, `EndsWith`, `Equals`, `EqualsAny` and `StartsWith`. If empty will exclude all traffic on this `match_variable`
+        /// Operator which will be used to search in the variable content. Possible values are `Contains`, `EndsWith`, `Equals`, `EqualsAny` and `StartsWith`. If empty will exclude all traffic on this `MatchVariable`
         /// </summary>
         [Input("selectorMatchOperator")]
         public Input<string>? SelectorMatchOperator { get; set; }

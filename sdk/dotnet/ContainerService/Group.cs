@@ -91,19 +91,19 @@ namespace Pulumi.Azure.ContainerService
     public partial class Group : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
+        /// The definition of a container that is part of the group as documented in the `Container` block below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("containers")]
         public Output<ImmutableArray<Outputs.GroupContainer>> Containers { get; private set; } = null!;
 
         /// <summary>
-        /// A `diagnostics` block as documented below. Changing this forces a new resource to be created.
+        /// A `Diagnostics` block as documented below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("diagnostics")]
         public Output<Outputs.GroupDiagnostics?> Diagnostics { get; private set; } = null!;
 
         /// <summary>
-        /// A `dns_config` block as documented below. Changing this forces a new resource to be created.
+        /// A `DnsConfig` block as documented below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("dnsConfig")]
         public Output<Outputs.GroupDnsConfig?> DnsConfig { get; private set; } = null!;
@@ -123,33 +123,33 @@ namespace Pulumi.Azure.ContainerService
         public Output<string?> DnsNameLabelReusePolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
+        /// Zero or more `ExposedPort` blocks as defined below. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** The `exposed_port` can only contain ports that are also exposed on one or more containers in the group.
+        /// &gt; **Note:** The `ExposedPort` can only contain ports that are also exposed on one or more containers in the group.
         /// </summary>
         [Output("exposedPorts")]
         public Output<ImmutableArray<Outputs.GroupExposedPort>> ExposedPorts { get; private set; } = null!;
 
         /// <summary>
-        /// The FQDN of the container group derived from `dns_name_label`.
+        /// The FQDN of the container group derived from `DnsNameLabel`.
         /// </summary>
         [Output("fqdn")]
         public Output<string> Fqdn { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.GroupIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// An `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
+        /// An `ImageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("imageRegistryCredentials")]
         public Output<ImmutableArray<Outputs.GroupImageRegistryCredential>> ImageRegistryCredentials { get; private set; } = null!;
 
         /// <summary>
-        /// The definition of an init container that is part of the group as documented in the `init_container` block below. Changing this forces a new resource to be created.
+        /// The definition of an init container that is part of the group as documented in the `InitContainer` block below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("initContainers")]
         public Output<ImmutableArray<Outputs.GroupInitContainer>> InitContainers { get; private set; } = null!;
@@ -161,9 +161,9 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> IpAddress { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set. Defaults to `Public`.
+        /// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `SubnetIds` also needs to be set. Defaults to `Public`.
         /// 
-        /// &gt; **Note:** `dns_name_label` and `os_type` set to `windows` are not compatible with `Private` `ip_address_type`
+        /// &gt; **Note:** `DnsNameLabel` and `OsType` set to `Windows` are not compatible with `Private` `IpAddressType`
         /// </summary>
         [Output("ipAddressType")]
         public Output<string?> IpAddressType { get; private set; } = null!;
@@ -175,7 +175,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string?> KeyVaultKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named "Azure Container Instance Service" will be used instead. Make sure the identity has the proper `key_permissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`.
+        /// The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named "Azure Container Instance Service" will be used instead. Make sure the identity has the proper `KeyPermissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`.
         /// </summary>
         [Output("keyVaultUserAssignedIdentityId")]
         public Output<string?> KeyVaultUserAssignedIdentityId { get; private set; } = null!;
@@ -198,7 +198,7 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** if `os_type` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
+        /// &gt; **Note:** if `OsType` is set to `Windows` currently only a single `Container` block is supported. Windows containers are not supported in virtual networks.
         /// </summary>
         [Output("osType")]
         public Output<string> OsType { get; private set; } = null!;
@@ -206,7 +206,7 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
+        /// &gt; **Note:** When `Priority` is set to `Spot`, the `IpAddressType` has to be `None`.
         /// </summary>
         [Output("priority")]
         public Output<string?> Priority { get; private set; } = null!;
@@ -297,7 +297,7 @@ namespace Pulumi.Azure.ContainerService
         private InputList<Inputs.GroupContainerArgs>? _containers;
 
         /// <summary>
-        /// The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
+        /// The definition of a container that is part of the group as documented in the `Container` block below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.GroupContainerArgs> Containers
         {
@@ -306,13 +306,13 @@ namespace Pulumi.Azure.ContainerService
         }
 
         /// <summary>
-        /// A `diagnostics` block as documented below. Changing this forces a new resource to be created.
+        /// A `Diagnostics` block as documented below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("diagnostics")]
         public Input<Inputs.GroupDiagnosticsArgs>? Diagnostics { get; set; }
 
         /// <summary>
-        /// A `dns_config` block as documented below. Changing this forces a new resource to be created.
+        /// A `DnsConfig` block as documented below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("dnsConfig")]
         public Input<Inputs.GroupDnsConfigArgs>? DnsConfig { get; set; }
@@ -335,9 +335,9 @@ namespace Pulumi.Azure.ContainerService
         private InputList<Inputs.GroupExposedPortArgs>? _exposedPorts;
 
         /// <summary>
-        /// Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
+        /// Zero or more `ExposedPort` blocks as defined below. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** The `exposed_port` can only contain ports that are also exposed on one or more containers in the group.
+        /// &gt; **Note:** The `ExposedPort` can only contain ports that are also exposed on one or more containers in the group.
         /// </summary>
         public InputList<Inputs.GroupExposedPortArgs> ExposedPorts
         {
@@ -346,7 +346,7 @@ namespace Pulumi.Azure.ContainerService
         }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.GroupIdentityArgs>? Identity { get; set; }
@@ -355,7 +355,7 @@ namespace Pulumi.Azure.ContainerService
         private InputList<Inputs.GroupImageRegistryCredentialArgs>? _imageRegistryCredentials;
 
         /// <summary>
-        /// An `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
+        /// An `ImageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.GroupImageRegistryCredentialArgs> ImageRegistryCredentials
         {
@@ -367,7 +367,7 @@ namespace Pulumi.Azure.ContainerService
         private InputList<Inputs.GroupInitContainerArgs>? _initContainers;
 
         /// <summary>
-        /// The definition of an init container that is part of the group as documented in the `init_container` block below. Changing this forces a new resource to be created.
+        /// The definition of an init container that is part of the group as documented in the `InitContainer` block below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.GroupInitContainerArgs> InitContainers
         {
@@ -376,9 +376,9 @@ namespace Pulumi.Azure.ContainerService
         }
 
         /// <summary>
-        /// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set. Defaults to `Public`.
+        /// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `SubnetIds` also needs to be set. Defaults to `Public`.
         /// 
-        /// &gt; **Note:** `dns_name_label` and `os_type` set to `windows` are not compatible with `Private` `ip_address_type`
+        /// &gt; **Note:** `DnsNameLabel` and `OsType` set to `Windows` are not compatible with `Private` `IpAddressType`
         /// </summary>
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }
@@ -390,7 +390,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? KeyVaultKeyId { get; set; }
 
         /// <summary>
-        /// The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named "Azure Container Instance Service" will be used instead. Make sure the identity has the proper `key_permissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`.
+        /// The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named "Azure Container Instance Service" will be used instead. Make sure the identity has the proper `KeyPermissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`.
         /// </summary>
         [Input("keyVaultUserAssignedIdentityId")]
         public Input<string>? KeyVaultUserAssignedIdentityId { get; set; }
@@ -413,7 +413,7 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** if `os_type` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
+        /// &gt; **Note:** if `OsType` is set to `Windows` currently only a single `Container` block is supported. Windows containers are not supported in virtual networks.
         /// </summary>
         [Input("osType", required: true)]
         public Input<string> OsType { get; set; } = null!;
@@ -421,7 +421,7 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
+        /// &gt; **Note:** When `Priority` is set to `Spot`, the `IpAddressType` has to be `None`.
         /// </summary>
         [Input("priority")]
         public Input<string>? Priority { get; set; }
@@ -486,7 +486,7 @@ namespace Pulumi.Azure.ContainerService
         private InputList<Inputs.GroupContainerGetArgs>? _containers;
 
         /// <summary>
-        /// The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
+        /// The definition of a container that is part of the group as documented in the `Container` block below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.GroupContainerGetArgs> Containers
         {
@@ -495,13 +495,13 @@ namespace Pulumi.Azure.ContainerService
         }
 
         /// <summary>
-        /// A `diagnostics` block as documented below. Changing this forces a new resource to be created.
+        /// A `Diagnostics` block as documented below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("diagnostics")]
         public Input<Inputs.GroupDiagnosticsGetArgs>? Diagnostics { get; set; }
 
         /// <summary>
-        /// A `dns_config` block as documented below. Changing this forces a new resource to be created.
+        /// A `DnsConfig` block as documented below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("dnsConfig")]
         public Input<Inputs.GroupDnsConfigGetArgs>? DnsConfig { get; set; }
@@ -524,9 +524,9 @@ namespace Pulumi.Azure.ContainerService
         private InputList<Inputs.GroupExposedPortGetArgs>? _exposedPorts;
 
         /// <summary>
-        /// Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
+        /// Zero or more `ExposedPort` blocks as defined below. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** The `exposed_port` can only contain ports that are also exposed on one or more containers in the group.
+        /// &gt; **Note:** The `ExposedPort` can only contain ports that are also exposed on one or more containers in the group.
         /// </summary>
         public InputList<Inputs.GroupExposedPortGetArgs> ExposedPorts
         {
@@ -535,13 +535,13 @@ namespace Pulumi.Azure.ContainerService
         }
 
         /// <summary>
-        /// The FQDN of the container group derived from `dns_name_label`.
+        /// The FQDN of the container group derived from `DnsNameLabel`.
         /// </summary>
         [Input("fqdn")]
         public Input<string>? Fqdn { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.GroupIdentityGetArgs>? Identity { get; set; }
@@ -550,7 +550,7 @@ namespace Pulumi.Azure.ContainerService
         private InputList<Inputs.GroupImageRegistryCredentialGetArgs>? _imageRegistryCredentials;
 
         /// <summary>
-        /// An `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
+        /// An `ImageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.GroupImageRegistryCredentialGetArgs> ImageRegistryCredentials
         {
@@ -562,7 +562,7 @@ namespace Pulumi.Azure.ContainerService
         private InputList<Inputs.GroupInitContainerGetArgs>? _initContainers;
 
         /// <summary>
-        /// The definition of an init container that is part of the group as documented in the `init_container` block below. Changing this forces a new resource to be created.
+        /// The definition of an init container that is part of the group as documented in the `InitContainer` block below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.GroupInitContainerGetArgs> InitContainers
         {
@@ -577,9 +577,9 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? IpAddress { get; set; }
 
         /// <summary>
-        /// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set. Defaults to `Public`.
+        /// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `SubnetIds` also needs to be set. Defaults to `Public`.
         /// 
-        /// &gt; **Note:** `dns_name_label` and `os_type` set to `windows` are not compatible with `Private` `ip_address_type`
+        /// &gt; **Note:** `DnsNameLabel` and `OsType` set to `Windows` are not compatible with `Private` `IpAddressType`
         /// </summary>
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }
@@ -591,7 +591,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? KeyVaultKeyId { get; set; }
 
         /// <summary>
-        /// The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named "Azure Container Instance Service" will be used instead. Make sure the identity has the proper `key_permissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`.
+        /// The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named "Azure Container Instance Service" will be used instead. Make sure the identity has the proper `KeyPermissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`.
         /// </summary>
         [Input("keyVaultUserAssignedIdentityId")]
         public Input<string>? KeyVaultUserAssignedIdentityId { get; set; }
@@ -614,7 +614,7 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** if `os_type` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
+        /// &gt; **Note:** if `OsType` is set to `Windows` currently only a single `Container` block is supported. Windows containers are not supported in virtual networks.
         /// </summary>
         [Input("osType")]
         public Input<string>? OsType { get; set; }
@@ -622,7 +622,7 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
+        /// &gt; **Note:** When `Priority` is set to `Spot`, the `IpAddressType` has to be `None`.
         /// </summary>
         [Input("priority")]
         public Input<string>? Priority { get; set; }

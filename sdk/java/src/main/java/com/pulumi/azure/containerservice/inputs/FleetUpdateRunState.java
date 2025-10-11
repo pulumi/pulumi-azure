@@ -19,14 +19,14 @@ public final class FleetUpdateRunState extends com.pulumi.resources.ResourceArgs
     public static final FleetUpdateRunState Empty = new FleetUpdateRunState();
 
     /**
-     * The ID of the Fleet Update Strategy. Only one of `fleet_update_strategy_id` or `stage` can be specified.
+     * The ID of the Fleet Update Strategy. Only one of `fleetUpdateStrategyId` or `stage` can be specified.
      * 
      */
     @Import(name="fleetUpdateStrategyId")
     private @Nullable Output<String> fleetUpdateStrategyId;
 
     /**
-     * @return The ID of the Fleet Update Strategy. Only one of `fleet_update_strategy_id` or `stage` can be specified.
+     * @return The ID of the Fleet Update Strategy. Only one of `fleetUpdateStrategyId` or `stage` can be specified.
      * 
      */
     public Optional<Output<String>> fleetUpdateStrategyId() {
@@ -49,14 +49,14 @@ public final class FleetUpdateRunState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A `managed_cluster_update` block as defined below.
+     * A `managedClusterUpdate` block as defined below.
      * 
      */
     @Import(name="managedClusterUpdate")
     private @Nullable Output<FleetUpdateRunManagedClusterUpdateArgs> managedClusterUpdate;
 
     /**
-     * @return A `managed_cluster_update` block as defined below.
+     * @return A `managedClusterUpdate` block as defined below.
      * 
      */
     public Optional<Output<FleetUpdateRunManagedClusterUpdateArgs>> managedClusterUpdate() {
@@ -79,14 +79,14 @@ public final class FleetUpdateRunState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * One or more `stage` blocks as defined below. Only one of `stage` or `fleet_update_strategy_id` can be specified.
+     * One or more `stage` blocks as defined below. Only one of `stage` or `fleetUpdateStrategyId` can be specified.
      * 
      */
     @Import(name="stages")
     private @Nullable Output<List<FleetUpdateRunStageArgs>> stages;
 
     /**
-     * @return One or more `stage` blocks as defined below. Only one of `stage` or `fleet_update_strategy_id` can be specified.
+     * @return One or more `stage` blocks as defined below. Only one of `stage` or `fleetUpdateStrategyId` can be specified.
      * 
      */
     public Optional<Output<List<FleetUpdateRunStageArgs>>> stages() {
@@ -122,7 +122,7 @@ public final class FleetUpdateRunState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param fleetUpdateStrategyId The ID of the Fleet Update Strategy. Only one of `fleet_update_strategy_id` or `stage` can be specified.
+         * @param fleetUpdateStrategyId The ID of the Fleet Update Strategy. Only one of `fleetUpdateStrategyId` or `stage` can be specified.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class FleetUpdateRunState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param fleetUpdateStrategyId The ID of the Fleet Update Strategy. Only one of `fleet_update_strategy_id` or `stage` can be specified.
+         * @param fleetUpdateStrategyId The ID of the Fleet Update Strategy. Only one of `fleetUpdateStrategyId` or `stage` can be specified.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class FleetUpdateRunState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param managedClusterUpdate A `managed_cluster_update` block as defined below.
+         * @param managedClusterUpdate A `managedClusterUpdate` block as defined below.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class FleetUpdateRunState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param managedClusterUpdate A `managed_cluster_update` block as defined below.
+         * @param managedClusterUpdate A `managedClusterUpdate` block as defined below.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class FleetUpdateRunState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param stages One or more `stage` blocks as defined below. Only one of `stage` or `fleet_update_strategy_id` can be specified.
+         * @param stages One or more `stage` blocks as defined below. Only one of `stage` or `fleetUpdateStrategyId` can be specified.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class FleetUpdateRunState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param stages One or more `stage` blocks as defined below. Only one of `stage` or `fleet_update_strategy_id` can be specified.
+         * @param stages One or more `stage` blocks as defined below. Only one of `stage` or `fleetUpdateStrategyId` can be specified.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class FleetUpdateRunState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param stages One or more `stage` blocks as defined below. Only one of `stage` or `fleet_update_strategy_id` can be specified.
+         * @param stages One or more `stage` blocks as defined below. Only one of `stage` or `fleetUpdateStrategyId` can be specified.
          * 
          * @return builder
          * 

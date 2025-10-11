@@ -13,7 +13,7 @@ namespace Pulumi.Azure.FrontDoor.Inputs
     public sealed class FrontdoorFrontendEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the host name of the `frontend_endpoint`. Must be a domain name. In order to use a name.azurefd.net domain, the name value must match the Front Door name.
+        /// Specifies the host name of the `FrontendEndpoint`. Must be a domain name. In order to use a name.azurefd.net domain, the name value must match the Front Door name.
         /// </summary>
         [Input("hostName", required: true)]
         public Input<string> HostName { get; set; } = null!;
@@ -25,13 +25,13 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Specifies the name of the `frontend_endpoint`.
+        /// Specifies the name of the `FrontendEndpoint`.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Whether to allow session affinity on this host. Valid options are `true` or `false` Defaults to `false`.
+        /// Whether to allow session affinity on this host. Valid options are `True` or `False` Defaults to `False`.
         /// </summary>
         [Input("sessionAffinityEnabled")]
         public Input<bool>? SessionAffinityEnabled { get; set; }

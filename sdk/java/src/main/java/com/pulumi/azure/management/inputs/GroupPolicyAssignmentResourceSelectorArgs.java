@@ -34,14 +34,14 @@ public final class GroupPolicyAssignmentResourceSelectorArgs extends com.pulumi.
     }
 
     /**
-     * One or more `resource_selector` block as defined below.
+     * One or more `resourceSelector` block as defined below.
      * 
      */
     @Import(name="selectors", required=true)
     private Output<List<GroupPolicyAssignmentResourceSelectorSelectorArgs>> selectors;
 
     /**
-     * @return One or more `resource_selector` block as defined below.
+     * @return One or more `resourceSelector` block as defined below.
      * 
      */
     public Output<List<GroupPolicyAssignmentResourceSelectorSelectorArgs>> selectors() {
@@ -95,7 +95,7 @@ public final class GroupPolicyAssignmentResourceSelectorArgs extends com.pulumi.
         }
 
         /**
-         * @param selectors One or more `resource_selector` block as defined below.
+         * @param selectors One or more `resourceSelector` block as defined below.
          * 
          * @return builder
          * 
@@ -106,7 +106,7 @@ public final class GroupPolicyAssignmentResourceSelectorArgs extends com.pulumi.
         }
 
         /**
-         * @param selectors One or more `resource_selector` block as defined below.
+         * @param selectors One or more `resourceSelector` block as defined below.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class GroupPolicyAssignmentResourceSelectorArgs extends com.pulumi.
         }
 
         /**
-         * @param selectors One or more `resource_selector` block as defined below.
+         * @param selectors One or more `resourceSelector` block as defined below.
          * 
          * @return builder
          * 

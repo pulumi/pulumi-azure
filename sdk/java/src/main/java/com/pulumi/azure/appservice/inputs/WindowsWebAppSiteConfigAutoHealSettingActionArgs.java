@@ -33,14 +33,14 @@ public final class WindowsWebAppSiteConfigAutoHealSettingActionArgs extends com.
     }
 
     /**
-     * A `custom_action` block as defined below.
+     * A `customAction` block as defined below.
      * 
      */
     @Import(name="customAction")
     private @Nullable Output<WindowsWebAppSiteConfigAutoHealSettingActionCustomActionArgs> customAction;
 
     /**
-     * @return A `custom_action` block as defined below.
+     * @return A `customAction` block as defined below.
      * 
      */
     public Optional<Output<WindowsWebAppSiteConfigAutoHealSettingActionCustomActionArgs>> customAction() {
@@ -110,7 +110,7 @@ public final class WindowsWebAppSiteConfigAutoHealSettingActionArgs extends com.
         }
 
         /**
-         * @param customAction A `custom_action` block as defined below.
+         * @param customAction A `customAction` block as defined below.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class WindowsWebAppSiteConfigAutoHealSettingActionArgs extends com.
         }
 
         /**
-         * @param customAction A `custom_action` block as defined below.
+         * @param customAction A `customAction` block as defined below.
          * 
          * @return builder
          * 

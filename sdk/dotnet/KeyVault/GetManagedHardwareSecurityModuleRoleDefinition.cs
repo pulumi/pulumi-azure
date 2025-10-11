@@ -159,7 +159,7 @@ namespace Pulumi.Azure.KeyVault
         public readonly string ManagedHsmId;
         public readonly string Name;
         /// <summary>
-        /// A `permission` block as defined below.
+        /// A `Permission` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetManagedHardwareSecurityModuleRoleDefinitionPermissionResult> Permissions;
         /// <summary>

@@ -13,7 +13,7 @@ namespace Pulumi.Azure.MSSql.Inputs
     public sealed class FailoverGroupReadWriteEndpointFailoverPolicyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The grace period in minutes, before failover with data loss is attempted for the read-write endpoint. Required when `mode` is `Automatic`.
+        /// The grace period in minutes, before failover with data loss is attempted for the read-write endpoint. Required when `Mode` is `Automatic`.
         /// </summary>
         [Input("graceMinutes")]
         public Input<int>? GraceMinutes { get; set; }

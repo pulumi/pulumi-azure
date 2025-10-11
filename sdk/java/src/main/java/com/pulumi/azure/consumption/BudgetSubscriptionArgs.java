@@ -99,7 +99,7 @@ public final class BudgetSubscriptionArgs extends com.pulumi.resources.ResourceA
     /**
      * The ID of the Subscription for which to create a Consumption Budget. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** The `subscription_id` property can accept a subscription ID e.g. `00000000-0000-0000-0000-000000000000` or the subscription resource ID e.g. `/subscriptions/00000000-0000-0000-0000-000000000000`. In version 3.0 this property will only accept the subscription resource ID.
+     * &gt; **Note:** The `subscriptionId` property can accept a subscription ID e.g. `00000000-0000-0000-0000-000000000000` or the subscription resource ID e.g. `/subscriptions/00000000-0000-0000-0000-000000000000`. In version 3.0 this property will only accept the subscription resource ID.
      * 
      */
     @Import(name="subscriptionId", required=true)
@@ -108,7 +108,7 @@ public final class BudgetSubscriptionArgs extends com.pulumi.resources.ResourceA
     /**
      * @return The ID of the Subscription for which to create a Consumption Budget. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** The `subscription_id` property can accept a subscription ID e.g. `00000000-0000-0000-0000-000000000000` or the subscription resource ID e.g. `/subscriptions/00000000-0000-0000-0000-000000000000`. In version 3.0 this property will only accept the subscription resource ID.
+     * &gt; **Note:** The `subscriptionId` property can accept a subscription ID e.g. `00000000-0000-0000-0000-000000000000` or the subscription resource ID e.g. `/subscriptions/00000000-0000-0000-0000-000000000000`. In version 3.0 this property will only accept the subscription resource ID.
      * 
      */
     public Output<String> subscriptionId() {
@@ -131,14 +131,14 @@ public final class BudgetSubscriptionArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A `time_period` block as defined below.
+     * A `timePeriod` block as defined below.
      * 
      */
     @Import(name="timePeriod", required=true)
     private Output<BudgetSubscriptionTimePeriodArgs> timePeriod;
 
     /**
-     * @return A `time_period` block as defined below.
+     * @return A `timePeriod` block as defined below.
      * 
      */
     public Output<BudgetSubscriptionTimePeriodArgs> timePeriod() {
@@ -294,7 +294,7 @@ public final class BudgetSubscriptionArgs extends com.pulumi.resources.ResourceA
         /**
          * @param subscriptionId The ID of the Subscription for which to create a Consumption Budget. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** The `subscription_id` property can accept a subscription ID e.g. `00000000-0000-0000-0000-000000000000` or the subscription resource ID e.g. `/subscriptions/00000000-0000-0000-0000-000000000000`. In version 3.0 this property will only accept the subscription resource ID.
+         * &gt; **Note:** The `subscriptionId` property can accept a subscription ID e.g. `00000000-0000-0000-0000-000000000000` or the subscription resource ID e.g. `/subscriptions/00000000-0000-0000-0000-000000000000`. In version 3.0 this property will only accept the subscription resource ID.
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class BudgetSubscriptionArgs extends com.pulumi.resources.ResourceA
         /**
          * @param subscriptionId The ID of the Subscription for which to create a Consumption Budget. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** The `subscription_id` property can accept a subscription ID e.g. `00000000-0000-0000-0000-000000000000` or the subscription resource ID e.g. `/subscriptions/00000000-0000-0000-0000-000000000000`. In version 3.0 this property will only accept the subscription resource ID.
+         * &gt; **Note:** The `subscriptionId` property can accept a subscription ID e.g. `00000000-0000-0000-0000-000000000000` or the subscription resource ID e.g. `/subscriptions/00000000-0000-0000-0000-000000000000`. In version 3.0 this property will only accept the subscription resource ID.
          * 
          * @return builder
          * 
@@ -338,7 +338,7 @@ public final class BudgetSubscriptionArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param timePeriod A `time_period` block as defined below.
+         * @param timePeriod A `timePeriod` block as defined below.
          * 
          * @return builder
          * 
@@ -349,7 +349,7 @@ public final class BudgetSubscriptionArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param timePeriod A `time_period` block as defined below.
+         * @param timePeriod A `timePeriod` block as defined below.
          * 
          * @return builder
          * 

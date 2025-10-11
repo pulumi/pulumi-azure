@@ -74,7 +74,7 @@ namespace Pulumi.Azure.VideoIndexer
     public partial class Account : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.AccountIdentity> Identity { get; private set; } = null!;
@@ -104,7 +104,7 @@ namespace Pulumi.Azure.VideoIndexer
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `storage` block as defined below.
+        /// A `Storage` block as defined below.
         /// </summary>
         [Output("storage")]
         public Output<Outputs.AccountStorage> Storage { get; private set; } = null!;
@@ -162,7 +162,7 @@ namespace Pulumi.Azure.VideoIndexer
     public sealed class AccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity", required: true)]
         public Input<Inputs.AccountIdentityArgs> Identity { get; set; } = null!;
@@ -192,7 +192,7 @@ namespace Pulumi.Azure.VideoIndexer
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `storage` block as defined below.
+        /// A `Storage` block as defined below.
         /// </summary>
         [Input("storage", required: true)]
         public Input<Inputs.AccountStorageArgs> Storage { get; set; } = null!;
@@ -218,7 +218,7 @@ namespace Pulumi.Azure.VideoIndexer
     public sealed class AccountState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.AccountIdentityGetArgs>? Identity { get; set; }
@@ -248,7 +248,7 @@ namespace Pulumi.Azure.VideoIndexer
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// A `storage` block as defined below.
+        /// A `Storage` block as defined below.
         /// </summary>
         [Input("storage")]
         public Input<Inputs.AccountStorageGetArgs>? Storage { get; set; }

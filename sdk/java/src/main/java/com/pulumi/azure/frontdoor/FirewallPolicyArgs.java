@@ -23,14 +23,14 @@ public final class FirewallPolicyArgs extends com.pulumi.resources.ResourceArgs 
     public static final FirewallPolicyArgs Empty = new FirewallPolicyArgs();
 
     /**
-     * If a `custom_rule` block&#39;s action type is `block`, this is the response body. The body must be specified in base64 encoding.
+     * If a `customRule` block&#39;s action type is `block`, this is the response body. The body must be specified in base64 encoding.
      * 
      */
     @Import(name="customBlockResponseBody")
     private @Nullable Output<String> customBlockResponseBody;
 
     /**
-     * @return If a `custom_rule` block&#39;s action type is `block`, this is the response body. The body must be specified in base64 encoding.
+     * @return If a `customRule` block&#39;s action type is `block`, this is the response body. The body must be specified in base64 encoding.
      * 
      */
     public Optional<Output<String>> customBlockResponseBody() {
@@ -38,14 +38,14 @@ public final class FirewallPolicyArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * If a `custom_rule` block&#39;s action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
+     * If a `customRule` block&#39;s action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
      * 
      */
     @Import(name="customBlockResponseStatusCode")
     private @Nullable Output<Integer> customBlockResponseStatusCode;
 
     /**
-     * @return If a `custom_rule` block&#39;s action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
+     * @return If a `customRule` block&#39;s action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
      * 
      */
     public Optional<Output<Integer>> customBlockResponseStatusCode() {
@@ -53,14 +53,14 @@ public final class FirewallPolicyArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * One or more `custom_rule` blocks as defined below.
+     * One or more `customRule` blocks as defined below.
      * 
      */
     @Import(name="customRules")
     private @Nullable Output<List<FirewallPolicyCustomRuleArgs>> customRules;
 
     /**
-     * @return One or more `custom_rule` blocks as defined below.
+     * @return One or more `customRule` blocks as defined below.
      * 
      */
     public Optional<Output<List<FirewallPolicyCustomRuleArgs>>> customRules() {
@@ -83,14 +83,14 @@ public final class FirewallPolicyArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * One or more `managed_rule` blocks as defined below.
+     * One or more `managedRule` blocks as defined below.
      * 
      */
     @Import(name="managedRules")
     private @Nullable Output<List<FirewallPolicyManagedRuleArgs>> managedRules;
 
     /**
-     * @return One or more `managed_rule` blocks as defined below.
+     * @return One or more `managedRule` blocks as defined below.
      * 
      */
     public Optional<Output<List<FirewallPolicyManagedRuleArgs>>> managedRules() {
@@ -206,7 +206,7 @@ public final class FirewallPolicyArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param customBlockResponseBody If a `custom_rule` block&#39;s action type is `block`, this is the response body. The body must be specified in base64 encoding.
+         * @param customBlockResponseBody If a `customRule` block&#39;s action type is `block`, this is the response body. The body must be specified in base64 encoding.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class FirewallPolicyArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param customBlockResponseBody If a `custom_rule` block&#39;s action type is `block`, this is the response body. The body must be specified in base64 encoding.
+         * @param customBlockResponseBody If a `customRule` block&#39;s action type is `block`, this is the response body. The body must be specified in base64 encoding.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class FirewallPolicyArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param customBlockResponseStatusCode If a `custom_rule` block&#39;s action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
+         * @param customBlockResponseStatusCode If a `customRule` block&#39;s action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class FirewallPolicyArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param customBlockResponseStatusCode If a `custom_rule` block&#39;s action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
+         * @param customBlockResponseStatusCode If a `customRule` block&#39;s action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class FirewallPolicyArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param customRules One or more `custom_rule` blocks as defined below.
+         * @param customRules One or more `customRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class FirewallPolicyArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param customRules One or more `custom_rule` blocks as defined below.
+         * @param customRules One or more `customRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class FirewallPolicyArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param customRules One or more `custom_rule` blocks as defined below.
+         * @param customRules One or more `customRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -300,7 +300,7 @@ public final class FirewallPolicyArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param managedRules One or more `managed_rule` blocks as defined below.
+         * @param managedRules One or more `managedRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -311,7 +311,7 @@ public final class FirewallPolicyArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param managedRules One or more `managed_rule` blocks as defined below.
+         * @param managedRules One or more `managedRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -321,7 +321,7 @@ public final class FirewallPolicyArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param managedRules One or more `managed_rule` blocks as defined below.
+         * @param managedRules One or more `managedRule` blocks as defined below.
          * 
          * @return builder
          * 

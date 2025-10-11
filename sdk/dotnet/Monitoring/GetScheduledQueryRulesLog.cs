@@ -170,7 +170,7 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         public readonly ImmutableArray<string> AuthorizedResourceIds;
         /// <summary>
-        /// A `criteria` block as defined below.
+        /// A `Criteria` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetScheduledQueryRulesLogCriteriaResult> Criterias;
         /// <summary>

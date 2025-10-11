@@ -54,14 +54,14 @@ public final class KafkaClusterRolesWorkerNodeArgs extends com.pulumi.resources.
     }
 
     /**
-     * The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
+     * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="scriptActions")
     private @Nullable Output<List<KafkaClusterRolesWorkerNodeScriptActionArgs>> scriptActions;
 
     /**
-     * @return The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
+     * @return The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<KafkaClusterRolesWorkerNodeScriptActionArgs>>> scriptActions() {
@@ -71,7 +71,7 @@ public final class KafkaClusterRolesWorkerNodeArgs extends com.pulumi.resources.
     /**
      * A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
+     * &gt; **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
      * 
      */
     @Import(name="sshKeys")
@@ -80,7 +80,7 @@ public final class KafkaClusterRolesWorkerNodeArgs extends com.pulumi.resources.
     /**
      * @return A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
+     * &gt; **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
      * 
      */
     public Optional<Output<List<String>>> sshKeys() {
@@ -241,7 +241,7 @@ public final class KafkaClusterRolesWorkerNodeArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param scriptActions The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
+         * @param scriptActions The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class KafkaClusterRolesWorkerNodeArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param scriptActions The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
+         * @param scriptActions The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -262,7 +262,7 @@ public final class KafkaClusterRolesWorkerNodeArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param scriptActions The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
+         * @param scriptActions The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -274,7 +274,7 @@ public final class KafkaClusterRolesWorkerNodeArgs extends com.pulumi.resources.
         /**
          * @param sshKeys A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
+         * &gt; **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
          * 
          * @return builder
          * 
@@ -287,7 +287,7 @@ public final class KafkaClusterRolesWorkerNodeArgs extends com.pulumi.resources.
         /**
          * @param sshKeys A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
+         * &gt; **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
          * 
          * @return builder
          * 
@@ -299,7 +299,7 @@ public final class KafkaClusterRolesWorkerNodeArgs extends com.pulumi.resources.
         /**
          * @param sshKeys A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
+         * &gt; **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
          * 
          * @return builder
          * 

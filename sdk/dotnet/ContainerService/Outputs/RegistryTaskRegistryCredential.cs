@@ -14,11 +14,11 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class RegistryTaskRegistryCredential
     {
         /// <summary>
-        /// One or more `custom` blocks as defined above.
+        /// One or more `Custom` blocks as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.RegistryTaskRegistryCredentialCustom> Customs;
         /// <summary>
-        /// One `source` block as defined below.
+        /// One `Source` block as defined below.
         /// </summary>
         public readonly Outputs.RegistryTaskRegistryCredentialSource? Source;
 

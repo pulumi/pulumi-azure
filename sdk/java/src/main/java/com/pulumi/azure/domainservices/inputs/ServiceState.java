@@ -83,14 +83,14 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `initial_replica_set` block as defined below. The initial replica set inherits the same location as the Domain Service resource.
+     * An `initialReplicaSet` block as defined below. The initial replica set inherits the same location as the Domain Service resource.
      * 
      */
     @Import(name="initialReplicaSet")
     private @Nullable Output<ServiceInitialReplicaSetArgs> initialReplicaSet;
 
     /**
-     * @return An `initial_replica_set` block as defined below. The initial replica set inherits the same location as the Domain Service resource.
+     * @return An `initialReplicaSet` block as defined below. The initial replica set inherits the same location as the Domain Service resource.
      * 
      */
     public Optional<Output<ServiceInitialReplicaSetArgs>> initialReplicaSet() {
@@ -173,14 +173,14 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `secure_ldap` block as defined below.
+     * A `secureLdap` block as defined below.
      * 
      */
     @Import(name="secureLdap")
     private @Nullable Output<ServiceSecureLdapArgs> secureLdap;
 
     /**
-     * @return A `secure_ldap` block as defined below.
+     * @return A `secureLdap` block as defined below.
      * 
      */
     public Optional<Output<ServiceSecureLdapArgs>> secureLdap() {
@@ -378,7 +378,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param initialReplicaSet An `initial_replica_set` block as defined below. The initial replica set inherits the same location as the Domain Service resource.
+         * @param initialReplicaSet An `initialReplicaSet` block as defined below. The initial replica set inherits the same location as the Domain Service resource.
          * 
          * @return builder
          * 
@@ -389,7 +389,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param initialReplicaSet An `initial_replica_set` block as defined below. The initial replica set inherits the same location as the Domain Service resource.
+         * @param initialReplicaSet An `initialReplicaSet` block as defined below. The initial replica set inherits the same location as the Domain Service resource.
          * 
          * @return builder
          * 
@@ -504,7 +504,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param secureLdap A `secure_ldap` block as defined below.
+         * @param secureLdap A `secureLdap` block as defined below.
          * 
          * @return builder
          * 
@@ -515,7 +515,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param secureLdap A `secure_ldap` block as defined below.
+         * @param secureLdap A `secureLdap` block as defined below.
          * 
          * @return builder
          * 

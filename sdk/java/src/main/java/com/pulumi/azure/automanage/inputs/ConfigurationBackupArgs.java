@@ -49,14 +49,14 @@ public final class ConfigurationBackupArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * A `retention_policy` block as defined below.
+     * A `retentionPolicy` block as defined below.
      * 
      */
     @Import(name="retentionPolicy")
     private @Nullable Output<ConfigurationBackupRetentionPolicyArgs> retentionPolicy;
 
     /**
-     * @return A `retention_policy` block as defined below.
+     * @return A `retentionPolicy` block as defined below.
      * 
      */
     public Optional<Output<ConfigurationBackupRetentionPolicyArgs>> retentionPolicy() {
@@ -64,14 +64,14 @@ public final class ConfigurationBackupArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * A `schedule_policy` block as defined below.
+     * A `schedulePolicy` block as defined below.
      * 
      */
     @Import(name="schedulePolicy")
     private @Nullable Output<ConfigurationBackupSchedulePolicyArgs> schedulePolicy;
 
     /**
-     * @return A `schedule_policy` block as defined below.
+     * @return A `schedulePolicy` block as defined below.
      * 
      */
     public Optional<Output<ConfigurationBackupSchedulePolicyArgs>> schedulePolicy() {
@@ -164,7 +164,7 @@ public final class ConfigurationBackupArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param retentionPolicy A `retention_policy` block as defined below.
+         * @param retentionPolicy A `retentionPolicy` block as defined below.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class ConfigurationBackupArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param retentionPolicy A `retention_policy` block as defined below.
+         * @param retentionPolicy A `retentionPolicy` block as defined below.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class ConfigurationBackupArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param schedulePolicy A `schedule_policy` block as defined below.
+         * @param schedulePolicy A `schedulePolicy` block as defined below.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class ConfigurationBackupArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param schedulePolicy A `schedule_policy` block as defined below.
+         * @param schedulePolicy A `schedulePolicy` block as defined below.
          * 
          * @return builder
          * 

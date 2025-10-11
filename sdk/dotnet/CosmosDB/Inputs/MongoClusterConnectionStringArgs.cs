@@ -25,7 +25,7 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The value of the Mongo Cluster connection string. The `&lt;user&gt;:&lt;password&gt;` placeholder returned from API will be replaced by the real `administrator_username` and `administrator_password` if available in the state.
+        /// The value of the Mongo Cluster connection string. The `&lt;user&gt;:&lt;password&gt;` placeholder returned from API will be replaced by the real `AdministratorUsername` and `AdministratorPassword` if available in the state.
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }

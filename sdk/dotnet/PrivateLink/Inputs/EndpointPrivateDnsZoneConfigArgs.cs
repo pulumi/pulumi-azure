@@ -34,7 +34,7 @@ namespace Pulumi.Azure.PrivateLink.Inputs
         private InputList<Inputs.EndpointPrivateDnsZoneConfigRecordSetArgs>? _recordSets;
 
         /// <summary>
-        /// A `record_sets` block as defined below.
+        /// A `RecordSets` block as defined below.
         /// </summary>
         public InputList<Inputs.EndpointPrivateDnsZoneConfigRecordSetArgs> RecordSets
         {

@@ -22,7 +22,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerC
      */
     private @Nullable String databaseType;
     /**
-     * @return One or more `disk_volume_configuration` blocks as defined below. Changing this forces a new resource to be created.
+     * @return One or more `diskVolumeConfiguration` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable List<ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationDiskVolumeConfiguration> diskVolumeConfigurations;
@@ -37,7 +37,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerC
      */
     private String subnetId;
     /**
-     * @return A `virtual_machine_configuration` block as defined below. Changing this forces a new resource to be created.
+     * @return A `virtualMachineConfiguration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     private ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfiguration virtualMachineConfiguration;
@@ -51,7 +51,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerC
         return Optional.ofNullable(this.databaseType);
     }
     /**
-     * @return One or more `disk_volume_configuration` blocks as defined below. Changing this forces a new resource to be created.
+     * @return One or more `diskVolumeConfiguration` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public List<ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationDiskVolumeConfiguration> diskVolumeConfigurations() {
@@ -72,7 +72,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerC
         return this.subnetId;
     }
     /**
-     * @return A `virtual_machine_configuration` block as defined below. Changing this forces a new resource to be created.
+     * @return A `virtualMachineConfiguration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfiguration virtualMachineConfiguration() {

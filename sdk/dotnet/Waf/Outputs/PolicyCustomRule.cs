@@ -16,11 +16,11 @@ namespace Pulumi.Azure.Waf.Outputs
         /// <summary>
         /// Type of action. Possible values are `Allow`, `Block`, `JSChallenge` and `Log`.
         /// 
-        /// &gt; **Note:** If the `rule_type` is specified as `RateLimitRule`, the `Allow` is not supported.
+        /// &gt; **Note:** If the `RuleType` is specified as `RateLimitRule`, the `Allow` is not supported.
         /// </summary>
         public readonly string Action;
         /// <summary>
-        /// Describes if the policy is in enabled state or disabled state. Defaults to `true`.
+        /// Describes if the policy is in enabled state or disabled state. Defaults to `True`.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Waf.Outputs
         /// </summary>
         public readonly string? GroupRateLimitBy;
         /// <summary>
-        /// One or more `match_conditions` blocks as defined below.
+        /// One or more `MatchConditions` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.PolicyCustomRuleMatchCondition> MatchConditions;
         /// <summary>

@@ -237,13 +237,13 @@ namespace Pulumi.Azure.AppService
         public Output<string> ConfigUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Should this function be enabled. Defaults to `true`.
+        /// Should this function be enabled. Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// A `file` block as detailed below. Changing this forces a new resource to be created.
+        /// A `File` block as detailed below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("files")]
         public Output<ImmutableArray<Outputs.FunctionAppFunctionFile>> Files { get; private set; } = null!;
@@ -363,7 +363,7 @@ namespace Pulumi.Azure.AppService
         public Input<string> ConfigJson { get; set; } = null!;
 
         /// <summary>
-        /// Should this function be enabled. Defaults to `true`.
+        /// Should this function be enabled. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -372,7 +372,7 @@ namespace Pulumi.Azure.AppService
         private InputList<Inputs.FunctionAppFunctionFileArgs>? _files;
 
         /// <summary>
-        /// A `file` block as detailed below. Changing this forces a new resource to be created.
+        /// A `File` block as detailed below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.FunctionAppFunctionFileArgs> Files
         {
@@ -427,7 +427,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? ConfigUrl { get; set; }
 
         /// <summary>
-        /// Should this function be enabled. Defaults to `true`.
+        /// Should this function be enabled. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -436,7 +436,7 @@ namespace Pulumi.Azure.AppService
         private InputList<Inputs.FunctionAppFunctionFileGetArgs>? _files;
 
         /// <summary>
-        /// A `file` block as detailed below. Changing this forces a new resource to be created.
+        /// A `File` block as detailed below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.FunctionAppFunctionFileGetArgs> Files
         {

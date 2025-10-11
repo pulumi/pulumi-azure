@@ -43,7 +43,7 @@ namespace Pulumi.Azure.ServiceFabric.Inputs
         public Input<string>? DataDiskType { get; set; }
 
         /// <summary>
-        /// Sets the port range available for the OS. Format is `&lt;from_port&gt;-&lt;to_port&gt;`, for example `10000-20000`. There has to be at least 255 ports available and cannot overlap with `application_port_range`..
+        /// Sets the port range available for the OS. Format is `&lt;from_port&gt;-&lt;to_port&gt;`, for example `10000-20000`. There has to be at least 255 ports available and cannot overlap with `ApplicationPortRange`..
         /// </summary>
         [Input("ephemeralPortRange", required: true)]
         public Input<string> EphemeralPortRange { get; set; } = null!;
@@ -124,7 +124,7 @@ namespace Pulumi.Azure.ServiceFabric.Inputs
         private InputList<Inputs.ManagedClusterNodeTypeVmSecretArgs>? _vmSecrets;
 
         /// <summary>
-        /// One or more `vm_secrets` blocks as defined below.
+        /// One or more `VmSecrets` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ManagedClusterNodeTypeVmSecretArgs> VmSecrets
         {

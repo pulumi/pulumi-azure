@@ -228,7 +228,7 @@ namespace Pulumi.Azure.AppService
         public Output<string> AppServiceId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the subnet the app service will be associated to (the subnet must have a `service_delegation` configured for `Microsoft.Web/serverFarms`).
+        /// The ID of the subnet the app service will be associated to (the subnet must have a `ServiceDelegation` configured for `Microsoft.Web/serverFarms`).
         /// </summary>
         [Output("subnetId")]
         public Output<string> SubnetId { get; private set; } = null!;
@@ -286,7 +286,7 @@ namespace Pulumi.Azure.AppService
         public Input<string> AppServiceId { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the subnet the app service will be associated to (the subnet must have a `service_delegation` configured for `Microsoft.Web/serverFarms`).
+        /// The ID of the subnet the app service will be associated to (the subnet must have a `ServiceDelegation` configured for `Microsoft.Web/serverFarms`).
         /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
@@ -306,7 +306,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? AppServiceId { get; set; }
 
         /// <summary>
-        /// The ID of the subnet the app service will be associated to (the subnet must have a `service_delegation` configured for `Microsoft.Web/serverFarms`).
+        /// The ID of the subnet the app service will be associated to (the subnet must have a `ServiceDelegation` configured for `Microsoft.Web/serverFarms`).
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }

@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class WindowsWebAppLogsApplicationLogsAzureBlobStorage {
     /**
-     * @return The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
+     * @return The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `httpLogs`
      * 
      */
     private String level;
@@ -24,14 +24,14 @@ public final class WindowsWebAppLogsApplicationLogsAzureBlobStorage {
     /**
      * @return SAS url to an Azure blob container with read/write/list/delete permissions.
      * 
-     * &gt; **Note:** There isn&#39;t enough information to for the provider to generate the `sas_url` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&amp;sr=b`).
+     * &gt; **Note:** There isn&#39;t enough information to for the provider to generate the `sasUrl` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&amp;sr=b`).
      * 
      */
     private String sasUrl;
 
     private WindowsWebAppLogsApplicationLogsAzureBlobStorage() {}
     /**
-     * @return The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
+     * @return The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `httpLogs`
      * 
      */
     public String level() {
@@ -47,7 +47,7 @@ public final class WindowsWebAppLogsApplicationLogsAzureBlobStorage {
     /**
      * @return SAS url to an Azure blob container with read/write/list/delete permissions.
      * 
-     * &gt; **Note:** There isn&#39;t enough information to for the provider to generate the `sas_url` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&amp;sr=b`).
+     * &gt; **Note:** There isn&#39;t enough information to for the provider to generate the `sasUrl` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&amp;sr=b`).
      * 
      */
     public String sasUrl() {

@@ -116,13 +116,13 @@ namespace Pulumi.Azure.ContainerService
     public partial class FluxConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An `blob_storage` block as defined below.
+        /// An `BlobStorage` block as defined below.
         /// </summary>
         [Output("blobStorage")]
         public Output<Outputs.FluxConfigurationBlobStorage?> BlobStorage { get; private set; } = null!;
 
         /// <summary>
-        /// A `bucket` block as defined below.
+        /// A `Bucket` block as defined below.
         /// </summary>
         [Output("bucket")]
         public Output<Outputs.FluxConfigurationBucket?> Bucket { get; private set; } = null!;
@@ -134,19 +134,19 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> ClusterId { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the configuration will keep its reconciliation of its kustomizations and sources with the repository. Defaults to `true`.
+        /// Whether the configuration will keep its reconciliation of its kustomizations and sources with the repository. Defaults to `True`.
         /// </summary>
         [Output("continuousReconciliationEnabled")]
         public Output<bool?> ContinuousReconciliationEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A `git_repository` block as defined below.
+        /// A `GitRepository` block as defined below.
         /// </summary>
         [Output("gitRepository")]
         public Output<Outputs.FluxConfigurationGitRepository?> GitRepository { get; private set; } = null!;
 
         /// <summary>
-        /// A `kustomizations` block as defined below.
+        /// A `Kustomizations` block as defined below.
         /// </summary>
         [Output("kustomizations")]
         public Output<ImmutableArray<Outputs.FluxConfigurationKustomization>> Kustomizations { get; private set; } = null!;
@@ -164,7 +164,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> Namespace { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the scope at which the operator will be installed. Possible values are `cluster` and `namespace`. Defaults to `namespace`. Changing this forces a new Kubernetes Flux Configuration to be created.
+        /// Specifies the scope at which the operator will be installed. Possible values are `Cluster` and `Namespace`. Defaults to `Namespace`. Changing this forces a new Kubernetes Flux Configuration to be created.
         /// </summary>
         [Output("scope")]
         public Output<string?> Scope { get; private set; } = null!;
@@ -216,13 +216,13 @@ namespace Pulumi.Azure.ContainerService
     public sealed class FluxConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `blob_storage` block as defined below.
+        /// An `BlobStorage` block as defined below.
         /// </summary>
         [Input("blobStorage")]
         public Input<Inputs.FluxConfigurationBlobStorageArgs>? BlobStorage { get; set; }
 
         /// <summary>
-        /// A `bucket` block as defined below.
+        /// A `Bucket` block as defined below.
         /// </summary>
         [Input("bucket")]
         public Input<Inputs.FluxConfigurationBucketArgs>? Bucket { get; set; }
@@ -234,13 +234,13 @@ namespace Pulumi.Azure.ContainerService
         public Input<string> ClusterId { get; set; } = null!;
 
         /// <summary>
-        /// Whether the configuration will keep its reconciliation of its kustomizations and sources with the repository. Defaults to `true`.
+        /// Whether the configuration will keep its reconciliation of its kustomizations and sources with the repository. Defaults to `True`.
         /// </summary>
         [Input("continuousReconciliationEnabled")]
         public Input<bool>? ContinuousReconciliationEnabled { get; set; }
 
         /// <summary>
-        /// A `git_repository` block as defined below.
+        /// A `GitRepository` block as defined below.
         /// </summary>
         [Input("gitRepository")]
         public Input<Inputs.FluxConfigurationGitRepositoryArgs>? GitRepository { get; set; }
@@ -249,7 +249,7 @@ namespace Pulumi.Azure.ContainerService
         private InputList<Inputs.FluxConfigurationKustomizationArgs>? _kustomizations;
 
         /// <summary>
-        /// A `kustomizations` block as defined below.
+        /// A `Kustomizations` block as defined below.
         /// </summary>
         public InputList<Inputs.FluxConfigurationKustomizationArgs> Kustomizations
         {
@@ -270,7 +270,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string> Namespace { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the scope at which the operator will be installed. Possible values are `cluster` and `namespace`. Defaults to `namespace`. Changing this forces a new Kubernetes Flux Configuration to be created.
+        /// Specifies the scope at which the operator will be installed. Possible values are `Cluster` and `Namespace`. Defaults to `Namespace`. Changing this forces a new Kubernetes Flux Configuration to be created.
         /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }
@@ -284,13 +284,13 @@ namespace Pulumi.Azure.ContainerService
     public sealed class FluxConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `blob_storage` block as defined below.
+        /// An `BlobStorage` block as defined below.
         /// </summary>
         [Input("blobStorage")]
         public Input<Inputs.FluxConfigurationBlobStorageGetArgs>? BlobStorage { get; set; }
 
         /// <summary>
-        /// A `bucket` block as defined below.
+        /// A `Bucket` block as defined below.
         /// </summary>
         [Input("bucket")]
         public Input<Inputs.FluxConfigurationBucketGetArgs>? Bucket { get; set; }
@@ -302,13 +302,13 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? ClusterId { get; set; }
 
         /// <summary>
-        /// Whether the configuration will keep its reconciliation of its kustomizations and sources with the repository. Defaults to `true`.
+        /// Whether the configuration will keep its reconciliation of its kustomizations and sources with the repository. Defaults to `True`.
         /// </summary>
         [Input("continuousReconciliationEnabled")]
         public Input<bool>? ContinuousReconciliationEnabled { get; set; }
 
         /// <summary>
-        /// A `git_repository` block as defined below.
+        /// A `GitRepository` block as defined below.
         /// </summary>
         [Input("gitRepository")]
         public Input<Inputs.FluxConfigurationGitRepositoryGetArgs>? GitRepository { get; set; }
@@ -317,7 +317,7 @@ namespace Pulumi.Azure.ContainerService
         private InputList<Inputs.FluxConfigurationKustomizationGetArgs>? _kustomizations;
 
         /// <summary>
-        /// A `kustomizations` block as defined below.
+        /// A `Kustomizations` block as defined below.
         /// </summary>
         public InputList<Inputs.FluxConfigurationKustomizationGetArgs> Kustomizations
         {
@@ -338,7 +338,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? Namespace { get; set; }
 
         /// <summary>
-        /// Specifies the scope at which the operator will be installed. Possible values are `cluster` and `namespace`. Defaults to `namespace`. Changing this forces a new Kubernetes Flux Configuration to be created.
+        /// Specifies the scope at which the operator will be installed. Possible values are `Cluster` and `Namespace`. Defaults to `Namespace`. Changing this forces a new Kubernetes Flux Configuration to be created.
         /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }

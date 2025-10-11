@@ -80,7 +80,7 @@ namespace Pulumi.Azure.Automation
         public Output<string> DscServerEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// An `encryption` block as defined below.
+        /// An `Encryption` block as defined below.
         /// </summary>
         [Output("encryptions")]
         public Output<ImmutableArray<Outputs.AccountEncryption>> Encryptions { get; private set; } = null!;
@@ -92,13 +92,13 @@ namespace Pulumi.Azure.Automation
         public Output<string> HybridServiceUrl { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.AccountIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// Whether requests using non-AAD authentication are blocked. Defaults to `true`.
+        /// Whether requests using non-AAD authentication are blocked. Defaults to `True`.
         /// </summary>
         [Output("localAuthenticationEnabled")]
         public Output<bool?> LocalAuthenticationEnabled { get; private set; } = null!;
@@ -119,7 +119,7 @@ namespace Pulumi.Azure.Automation
         public Output<ImmutableArray<Outputs.AccountPrivateEndpointConnection>> PrivateEndpointConnections { get; private set; } = null!;
 
         /// <summary>
-        /// Whether public network access is allowed for the automation account. Defaults to `true`.
+        /// Whether public network access is allowed for the automation account. Defaults to `True`.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
@@ -197,7 +197,7 @@ namespace Pulumi.Azure.Automation
         private InputList<Inputs.AccountEncryptionArgs>? _encryptions;
 
         /// <summary>
-        /// An `encryption` block as defined below.
+        /// An `Encryption` block as defined below.
         /// </summary>
         public InputList<Inputs.AccountEncryptionArgs> Encryptions
         {
@@ -206,13 +206,13 @@ namespace Pulumi.Azure.Automation
         }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.AccountIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Whether requests using non-AAD authentication are blocked. Defaults to `true`.
+        /// Whether requests using non-AAD authentication are blocked. Defaults to `True`.
         /// </summary>
         [Input("localAuthenticationEnabled")]
         public Input<bool>? LocalAuthenticationEnabled { get; set; }
@@ -230,7 +230,7 @@ namespace Pulumi.Azure.Automation
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether public network access is allowed for the automation account. Defaults to `true`.
+        /// Whether public network access is allowed for the automation account. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -309,7 +309,7 @@ namespace Pulumi.Azure.Automation
         private InputList<Inputs.AccountEncryptionGetArgs>? _encryptions;
 
         /// <summary>
-        /// An `encryption` block as defined below.
+        /// An `Encryption` block as defined below.
         /// </summary>
         public InputList<Inputs.AccountEncryptionGetArgs> Encryptions
         {
@@ -324,13 +324,13 @@ namespace Pulumi.Azure.Automation
         public Input<string>? HybridServiceUrl { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.AccountIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Whether requests using non-AAD authentication are blocked. Defaults to `true`.
+        /// Whether requests using non-AAD authentication are blocked. Defaults to `True`.
         /// </summary>
         [Input("localAuthenticationEnabled")]
         public Input<bool>? LocalAuthenticationEnabled { get; set; }
@@ -356,7 +356,7 @@ namespace Pulumi.Azure.Automation
         }
 
         /// <summary>
-        /// Whether public network access is allowed for the automation account. Defaults to `true`.
+        /// Whether public network access is allowed for the automation account. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }

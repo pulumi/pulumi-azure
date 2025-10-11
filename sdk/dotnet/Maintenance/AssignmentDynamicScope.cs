@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Maintenance
     public partial class AssignmentDynamicScope : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A `filter` block as defined below.
+        /// A `Filter` block as defined below.
         /// </summary>
         [Output("filter")]
         public Output<Outputs.AssignmentDynamicScopeFilter> Filter { get; private set; } = null!;
@@ -40,7 +40,7 @@ namespace Pulumi.Azure.Maintenance
         /// <summary>
         /// The name which should be used for this Dynamic Maintenance Assignment. Changing this forces a new Dynamic Maintenance Assignment to be created.
         /// 
-        /// &gt; **Note:** The `name` must be unique per subscription.
+        /// &gt; **Note:** The `Name` must be unique per subscription.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.Azure.Maintenance
     public sealed class AssignmentDynamicScopeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `filter` block as defined below.
+        /// A `Filter` block as defined below.
         /// </summary>
         [Input("filter", required: true)]
         public Input<Inputs.AssignmentDynamicScopeFilterArgs> Filter { get; set; } = null!;
@@ -106,7 +106,7 @@ namespace Pulumi.Azure.Maintenance
         /// <summary>
         /// The name which should be used for this Dynamic Maintenance Assignment. Changing this forces a new Dynamic Maintenance Assignment to be created.
         /// 
-        /// &gt; **Note:** The `name` must be unique per subscription.
+        /// &gt; **Note:** The `Name` must be unique per subscription.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -120,7 +120,7 @@ namespace Pulumi.Azure.Maintenance
     public sealed class AssignmentDynamicScopeState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `filter` block as defined below.
+        /// A `Filter` block as defined below.
         /// </summary>
         [Input("filter")]
         public Input<Inputs.AssignmentDynamicScopeFilterGetArgs>? Filter { get; set; }
@@ -134,7 +134,7 @@ namespace Pulumi.Azure.Maintenance
         /// <summary>
         /// The name which should be used for this Dynamic Maintenance Assignment. Changing this forces a new Dynamic Maintenance Assignment to be created.
         /// 
-        /// &gt; **Note:** The `name` must be unique per subscription.
+        /// &gt; **Note:** The `Name` must be unique per subscription.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

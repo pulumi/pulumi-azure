@@ -19,7 +19,7 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         public Input<string> Address { get; set; } = null!;
 
         /// <summary>
-        /// Specifies if the backend is enabled or not. Valid options are `true` or `false`. Defaults to `true`.
+        /// Specifies if the backend is enabled or not. Valid options are `True` or `False`. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

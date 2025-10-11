@@ -16,15 +16,15 @@ namespace Pulumi.Azure.Cdn.Outputs
         /// <summary>
         /// The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, `Redirect`, `JSChallenge`, or `CAPTCHA`.
         /// 
-        /// !&gt; **Note:** Setting the `action` field to `JSChallenge` or `CAPTCHA` is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+        /// !&gt; **Note:** Setting the `Action` field to `JSChallenge` or `CAPTCHA` is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
         /// </summary>
         public readonly string Action;
         /// <summary>
-        /// Is the rule is enabled or disabled? Defaults to `true`.
+        /// Is the rule is enabled or disabled? Defaults to `True`.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// One or more `match_condition` block defined below. Can support up to `10` `match_condition` blocks.
+        /// One or more `MatchCondition` block defined below. Can support up to `10` `MatchCondition` blocks.
         /// </summary>
         public readonly ImmutableArray<Outputs.FrontdoorFirewallPolicyCustomRuleMatchCondition> MatchConditions;
         /// <summary>

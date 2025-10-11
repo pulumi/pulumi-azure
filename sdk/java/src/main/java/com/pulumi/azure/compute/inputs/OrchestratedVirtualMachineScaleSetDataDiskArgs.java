@@ -64,14 +64,14 @@ public final class OrchestratedVirtualMachineScaleSetDataDiskArgs extends com.pu
     }
 
     /**
-     * The size of the Data Disk which should be created. Required if `create_option` is specified as `Empty`.
+     * The size of the Data Disk which should be created. Required if `createOption` is specified as `Empty`.
      * 
      */
     @Import(name="diskSizeGb")
     private @Nullable Output<Integer> diskSizeGb;
 
     /**
-     * @return The size of the Data Disk which should be created. Required if `create_option` is specified as `Empty`.
+     * @return The size of the Data Disk which should be created. Required if `createOption` is specified as `Empty`.
      * 
      */
     public Optional<Output<Integer>> diskSizeGb() {
@@ -79,14 +79,14 @@ public final class OrchestratedVirtualMachineScaleSetDataDiskArgs extends com.pu
     }
 
     /**
-     * The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine. Required if `create_option` is specified as `Empty`.
+     * The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine. Required if `createOption` is specified as `Empty`.
      * 
      */
     @Import(name="lun")
     private @Nullable Output<Integer> lun;
 
     /**
-     * @return The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine. Required if `create_option` is specified as `Empty`.
+     * @return The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine. Required if `createOption` is specified as `Empty`.
      * 
      */
     public Optional<Output<Integer>> lun() {
@@ -109,14 +109,14 @@ public final class OrchestratedVirtualMachineScaleSetDataDiskArgs extends com.pu
     }
 
     /**
-     * Specifies the Read-Write IOPS for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+     * Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
      * 
      */
     @Import(name="ultraSsdDiskIopsReadWrite")
     private @Nullable Output<Integer> ultraSsdDiskIopsReadWrite;
 
     /**
-     * @return Specifies the Read-Write IOPS for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+     * @return Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
      * 
      */
     public Optional<Output<Integer>> ultraSsdDiskIopsReadWrite() {
@@ -124,14 +124,14 @@ public final class OrchestratedVirtualMachineScaleSetDataDiskArgs extends com.pu
     }
 
     /**
-     * Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+     * Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
      * 
      */
     @Import(name="ultraSsdDiskMbpsReadWrite")
     private @Nullable Output<Integer> ultraSsdDiskMbpsReadWrite;
 
     /**
-     * @return Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+     * @return Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
      * 
      */
     public Optional<Output<Integer>> ultraSsdDiskMbpsReadWrite() {
@@ -249,7 +249,7 @@ public final class OrchestratedVirtualMachineScaleSetDataDiskArgs extends com.pu
         }
 
         /**
-         * @param diskSizeGb The size of the Data Disk which should be created. Required if `create_option` is specified as `Empty`.
+         * @param diskSizeGb The size of the Data Disk which should be created. Required if `createOption` is specified as `Empty`.
          * 
          * @return builder
          * 
@@ -260,7 +260,7 @@ public final class OrchestratedVirtualMachineScaleSetDataDiskArgs extends com.pu
         }
 
         /**
-         * @param diskSizeGb The size of the Data Disk which should be created. Required if `create_option` is specified as `Empty`.
+         * @param diskSizeGb The size of the Data Disk which should be created. Required if `createOption` is specified as `Empty`.
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class OrchestratedVirtualMachineScaleSetDataDiskArgs extends com.pu
         }
 
         /**
-         * @param lun The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine. Required if `create_option` is specified as `Empty`.
+         * @param lun The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine. Required if `createOption` is specified as `Empty`.
          * 
          * @return builder
          * 
@@ -281,7 +281,7 @@ public final class OrchestratedVirtualMachineScaleSetDataDiskArgs extends com.pu
         }
 
         /**
-         * @param lun The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine. Required if `create_option` is specified as `Empty`.
+         * @param lun The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine. Required if `createOption` is specified as `Empty`.
          * 
          * @return builder
          * 
@@ -312,7 +312,7 @@ public final class OrchestratedVirtualMachineScaleSetDataDiskArgs extends com.pu
         }
 
         /**
-         * @param ultraSsdDiskIopsReadWrite Specifies the Read-Write IOPS for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+         * @param ultraSsdDiskIopsReadWrite Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
          * 
          * @return builder
          * 
@@ -323,7 +323,7 @@ public final class OrchestratedVirtualMachineScaleSetDataDiskArgs extends com.pu
         }
 
         /**
-         * @param ultraSsdDiskIopsReadWrite Specifies the Read-Write IOPS for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+         * @param ultraSsdDiskIopsReadWrite Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
          * 
          * @return builder
          * 
@@ -333,7 +333,7 @@ public final class OrchestratedVirtualMachineScaleSetDataDiskArgs extends com.pu
         }
 
         /**
-         * @param ultraSsdDiskMbpsReadWrite Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+         * @param ultraSsdDiskMbpsReadWrite Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
          * 
          * @return builder
          * 
@@ -344,7 +344,7 @@ public final class OrchestratedVirtualMachineScaleSetDataDiskArgs extends com.pu
         }
 
         /**
-         * @param ultraSsdDiskMbpsReadWrite Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+         * @param ultraSsdDiskMbpsReadWrite Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
          * 
          * @return builder
          * 

@@ -13,25 +13,25 @@ namespace Pulumi.Azure.HDInsight.Inputs
     public sealed class HadoopClusterRolesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `edge_node` block as defined below.
+        /// A `EdgeNode` block as defined below.
         /// </summary>
         [Input("edgeNode")]
         public Input<Inputs.HadoopClusterRolesEdgeNodeArgs>? EdgeNode { get; set; }
 
         /// <summary>
-        /// A `head_node` block as defined above.
+        /// A `HeadNode` block as defined above.
         /// </summary>
         [Input("headNode", required: true)]
         public Input<Inputs.HadoopClusterRolesHeadNodeArgs> HeadNode { get; set; } = null!;
 
         /// <summary>
-        /// A `worker_node` block as defined below.
+        /// A `WorkerNode` block as defined below.
         /// </summary>
         [Input("workerNode", required: true)]
         public Input<Inputs.HadoopClusterRolesWorkerNodeArgs> WorkerNode { get; set; } = null!;
 
         /// <summary>
-        /// A `zookeeper_node` block as defined below.
+        /// A `ZookeeperNode` block as defined below.
         /// </summary>
         [Input("zookeeperNode", required: true)]
         public Input<Inputs.HadoopClusterRolesZookeeperNodeArgs> ZookeeperNode { get; set; } = null!;

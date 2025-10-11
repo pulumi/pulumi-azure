@@ -19,7 +19,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? Branch { get; set; }
 
         /// <summary>
-        /// Limits to manual integration. Defaults to `false` if not specified.
+        /// Limits to manual integration. Defaults to `False` if not specified.
         /// </summary>
         [Input("manualIntegration")]
         public Input<bool>? ManualIntegration { get; set; }
@@ -31,13 +31,13 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? RepoUrl { get; set; }
 
         /// <summary>
-        /// Enable roll-back for the repository. Defaults to `false` if not specified.
+        /// Enable roll-back for the repository. Defaults to `False` if not specified.
         /// </summary>
         [Input("rollbackEnabled")]
         public Input<bool>? RollbackEnabled { get; set; }
 
         /// <summary>
-        /// Use Mercurial if `true`, otherwise uses Git.
+        /// Use Mercurial if `True`, otherwise uses Git.
         /// </summary>
         [Input("useMercurial")]
         public Input<bool>? UseMercurial { get; set; }

@@ -20,14 +20,14 @@ public final class KubernetesClusterServiceMeshProfileArgs extends com.pulumi.re
     public static final KubernetesClusterServiceMeshProfileArgs Empty = new KubernetesClusterServiceMeshProfileArgs();
 
     /**
-     * A `certificate_authority` block as defined below. When this property is specified, `key_vault_secrets_provider` is also required to be set. This configuration allows you to bring your own root certificate and keys for Istio CA in the Istio-based service mesh add-on for Azure Kubernetes Service.
+     * A `certificateAuthority` block as defined below. When this property is specified, `keyVaultSecretsProvider` is also required to be set. This configuration allows you to bring your own root certificate and keys for Istio CA in the Istio-based service mesh add-on for Azure Kubernetes Service.
      * 
      */
     @Import(name="certificateAuthority")
     private @Nullable Output<KubernetesClusterServiceMeshProfileCertificateAuthorityArgs> certificateAuthority;
 
     /**
-     * @return A `certificate_authority` block as defined below. When this property is specified, `key_vault_secrets_provider` is also required to be set. This configuration allows you to bring your own root certificate and keys for Istio CA in the Istio-based service mesh add-on for Azure Kubernetes Service.
+     * @return A `certificateAuthority` block as defined below. When this property is specified, `keyVaultSecretsProvider` is also required to be set. This configuration allows you to bring your own root certificate and keys for Istio CA in the Istio-based service mesh add-on for Azure Kubernetes Service.
      * 
      */
     public Optional<Output<KubernetesClusterServiceMeshProfileCertificateAuthorityArgs>> certificateAuthority() {
@@ -131,7 +131,7 @@ public final class KubernetesClusterServiceMeshProfileArgs extends com.pulumi.re
         }
 
         /**
-         * @param certificateAuthority A `certificate_authority` block as defined below. When this property is specified, `key_vault_secrets_provider` is also required to be set. This configuration allows you to bring your own root certificate and keys for Istio CA in the Istio-based service mesh add-on for Azure Kubernetes Service.
+         * @param certificateAuthority A `certificateAuthority` block as defined below. When this property is specified, `keyVaultSecretsProvider` is also required to be set. This configuration allows you to bring your own root certificate and keys for Istio CA in the Istio-based service mesh add-on for Azure Kubernetes Service.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class KubernetesClusterServiceMeshProfileArgs extends com.pulumi.re
         }
 
         /**
-         * @param certificateAuthority A `certificate_authority` block as defined below. When this property is specified, `key_vault_secrets_provider` is also required to be set. This configuration allows you to bring your own root certificate and keys for Istio CA in the Istio-based service mesh add-on for Azure Kubernetes Service.
+         * @param certificateAuthority A `certificateAuthority` block as defined below. When this property is specified, `keyVaultSecretsProvider` is also required to be set. This configuration allows you to bring your own root certificate and keys for Istio CA in the Istio-based service mesh add-on for Azure Kubernetes Service.
          * 
          * @return builder
          * 

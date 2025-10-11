@@ -15,14 +15,14 @@ public final class ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs extends 
     public static final ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs Empty = new ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs();
 
     /**
-     * Specifies the number of violations to trigger an alert. Should be smaller or equal to `number_of_evaluation_periods`. Possible value is integer between 1 and 6.
+     * Specifies the number of violations to trigger an alert. Should be smaller or equal to `numberOfEvaluationPeriods`. Possible value is integer between 1 and 6.
      * 
      */
     @Import(name="minimumFailingPeriodsToTriggerAlert", required=true)
     private Output<Integer> minimumFailingPeriodsToTriggerAlert;
 
     /**
-     * @return Specifies the number of violations to trigger an alert. Should be smaller or equal to `number_of_evaluation_periods`. Possible value is integer between 1 and 6.
+     * @return Specifies the number of violations to trigger an alert. Should be smaller or equal to `numberOfEvaluationPeriods`. Possible value is integer between 1 and 6.
      * 
      */
     public Output<Integer> minimumFailingPeriodsToTriggerAlert() {
@@ -30,22 +30,22 @@ public final class ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs extends 
     }
 
     /**
-     * Specifies the number of aggregated look-back points. The look-back time window is calculated based on the aggregation granularity `window_duration` and the selected number of aggregated points. Possible value is integer between 1 and 6.
+     * Specifies the number of aggregated look-back points. The look-back time window is calculated based on the aggregation granularity `windowDuration` and the selected number of aggregated points. Possible value is integer between 1 and 6.
      * 
-     * &gt; **Note:** The query look back which is `window_duration`*`number_of_evaluation_periods` cannot exceed 48 hours.
+     * &gt; **Note:** The query look back which is `windowDuration`*`numberOfEvaluationPeriods` cannot exceed 48 hours.
      * 
-     * &gt; **Note:** `number_of_evaluation_periods` must be `1` for queries that do not project timestamp column
+     * &gt; **Note:** `numberOfEvaluationPeriods` must be `1` for queries that do not project timestamp column
      * 
      */
     @Import(name="numberOfEvaluationPeriods", required=true)
     private Output<Integer> numberOfEvaluationPeriods;
 
     /**
-     * @return Specifies the number of aggregated look-back points. The look-back time window is calculated based on the aggregation granularity `window_duration` and the selected number of aggregated points. Possible value is integer between 1 and 6.
+     * @return Specifies the number of aggregated look-back points. The look-back time window is calculated based on the aggregation granularity `windowDuration` and the selected number of aggregated points. Possible value is integer between 1 and 6.
      * 
-     * &gt; **Note:** The query look back which is `window_duration`*`number_of_evaluation_periods` cannot exceed 48 hours.
+     * &gt; **Note:** The query look back which is `windowDuration`*`numberOfEvaluationPeriods` cannot exceed 48 hours.
      * 
-     * &gt; **Note:** `number_of_evaluation_periods` must be `1` for queries that do not project timestamp column
+     * &gt; **Note:** `numberOfEvaluationPeriods` must be `1` for queries that do not project timestamp column
      * 
      */
     public Output<Integer> numberOfEvaluationPeriods() {
@@ -78,7 +78,7 @@ public final class ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs extends 
         }
 
         /**
-         * @param minimumFailingPeriodsToTriggerAlert Specifies the number of violations to trigger an alert. Should be smaller or equal to `number_of_evaluation_periods`. Possible value is integer between 1 and 6.
+         * @param minimumFailingPeriodsToTriggerAlert Specifies the number of violations to trigger an alert. Should be smaller or equal to `numberOfEvaluationPeriods`. Possible value is integer between 1 and 6.
          * 
          * @return builder
          * 
@@ -89,7 +89,7 @@ public final class ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs extends 
         }
 
         /**
-         * @param minimumFailingPeriodsToTriggerAlert Specifies the number of violations to trigger an alert. Should be smaller or equal to `number_of_evaluation_periods`. Possible value is integer between 1 and 6.
+         * @param minimumFailingPeriodsToTriggerAlert Specifies the number of violations to trigger an alert. Should be smaller or equal to `numberOfEvaluationPeriods`. Possible value is integer between 1 and 6.
          * 
          * @return builder
          * 
@@ -99,11 +99,11 @@ public final class ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs extends 
         }
 
         /**
-         * @param numberOfEvaluationPeriods Specifies the number of aggregated look-back points. The look-back time window is calculated based on the aggregation granularity `window_duration` and the selected number of aggregated points. Possible value is integer between 1 and 6.
+         * @param numberOfEvaluationPeriods Specifies the number of aggregated look-back points. The look-back time window is calculated based on the aggregation granularity `windowDuration` and the selected number of aggregated points. Possible value is integer between 1 and 6.
          * 
-         * &gt; **Note:** The query look back which is `window_duration`*`number_of_evaluation_periods` cannot exceed 48 hours.
+         * &gt; **Note:** The query look back which is `windowDuration`*`numberOfEvaluationPeriods` cannot exceed 48 hours.
          * 
-         * &gt; **Note:** `number_of_evaluation_periods` must be `1` for queries that do not project timestamp column
+         * &gt; **Note:** `numberOfEvaluationPeriods` must be `1` for queries that do not project timestamp column
          * 
          * @return builder
          * 
@@ -114,11 +114,11 @@ public final class ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs extends 
         }
 
         /**
-         * @param numberOfEvaluationPeriods Specifies the number of aggregated look-back points. The look-back time window is calculated based on the aggregation granularity `window_duration` and the selected number of aggregated points. Possible value is integer between 1 and 6.
+         * @param numberOfEvaluationPeriods Specifies the number of aggregated look-back points. The look-back time window is calculated based on the aggregation granularity `windowDuration` and the selected number of aggregated points. Possible value is integer between 1 and 6.
          * 
-         * &gt; **Note:** The query look back which is `window_duration`*`number_of_evaluation_periods` cannot exceed 48 hours.
+         * &gt; **Note:** The query look back which is `windowDuration`*`numberOfEvaluationPeriods` cannot exceed 48 hours.
          * 
-         * &gt; **Note:** `number_of_evaluation_periods` must be `1` for queries that do not project timestamp column
+         * &gt; **Note:** `numberOfEvaluationPeriods` must be `1` for queries that do not project timestamp column
          * 
          * @return builder
          * 

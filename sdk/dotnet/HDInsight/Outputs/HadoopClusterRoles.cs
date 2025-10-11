@@ -14,19 +14,19 @@ namespace Pulumi.Azure.HDInsight.Outputs
     public sealed class HadoopClusterRoles
     {
         /// <summary>
-        /// A `edge_node` block as defined below.
+        /// A `EdgeNode` block as defined below.
         /// </summary>
         public readonly Outputs.HadoopClusterRolesEdgeNode? EdgeNode;
         /// <summary>
-        /// A `head_node` block as defined above.
+        /// A `HeadNode` block as defined above.
         /// </summary>
         public readonly Outputs.HadoopClusterRolesHeadNode HeadNode;
         /// <summary>
-        /// A `worker_node` block as defined below.
+        /// A `WorkerNode` block as defined below.
         /// </summary>
         public readonly Outputs.HadoopClusterRolesWorkerNode WorkerNode;
         /// <summary>
-        /// A `zookeeper_node` block as defined below.
+        /// A `ZookeeperNode` block as defined below.
         /// </summary>
         public readonly Outputs.HadoopClusterRolesZookeeperNode ZookeeperNode;
 

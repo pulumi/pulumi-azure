@@ -41,7 +41,7 @@ public final class GetSpringCloudAppResult {
     private Boolean isPublic;
     private String name;
     /**
-     * @return A `persistent_disk` block as defined below.
+     * @return A `persistentDisk` block as defined below.
      * 
      */
     private List<GetSpringCloudAppPersistentDisk> persistentDisks;
@@ -98,7 +98,7 @@ public final class GetSpringCloudAppResult {
         return this.name;
     }
     /**
-     * @return A `persistent_disk` block as defined below.
+     * @return A `persistentDisk` block as defined below.
      * 
      */
     public List<GetSpringCloudAppPersistentDisk> persistentDisks() {

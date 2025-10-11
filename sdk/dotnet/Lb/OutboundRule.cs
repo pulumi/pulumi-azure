@@ -111,7 +111,7 @@ namespace Pulumi.Azure.Lb
         public Output<bool> EnableTcpReset { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `frontend_ip_configuration` blocks as defined below.
+        /// One or more `FrontendIpConfiguration` blocks as defined below.
         /// </summary>
         [Output("frontendIpConfigurations")]
         public Output<ImmutableArray<Outputs.OutboundRuleFrontendIpConfiguration>> FrontendIpConfigurations { get; private set; } = null!;
@@ -211,7 +211,7 @@ namespace Pulumi.Azure.Lb
         private InputList<Inputs.OutboundRuleFrontendIpConfigurationArgs>? _frontendIpConfigurations;
 
         /// <summary>
-        /// One or more `frontend_ip_configuration` blocks as defined below.
+        /// One or more `FrontendIpConfiguration` blocks as defined below.
         /// </summary>
         public InputList<Inputs.OutboundRuleFrontendIpConfigurationArgs> FrontendIpConfigurations
         {
@@ -276,7 +276,7 @@ namespace Pulumi.Azure.Lb
         private InputList<Inputs.OutboundRuleFrontendIpConfigurationGetArgs>? _frontendIpConfigurations;
 
         /// <summary>
-        /// One or more `frontend_ip_configuration` blocks as defined below.
+        /// One or more `FrontendIpConfiguration` blocks as defined below.
         /// </summary>
         public InputList<Inputs.OutboundRuleFrontendIpConfigurationGetArgs> FrontendIpConfigurations
         {

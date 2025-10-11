@@ -23,14 +23,14 @@ public final class SparkPoolState extends com.pulumi.resources.ResourceArgs {
     public static final SparkPoolState Empty = new SparkPoolState();
 
     /**
-     * An `auto_pause` block as defined below.
+     * An `autoPause` block as defined below.
      * 
      */
     @Import(name="autoPause")
     private @Nullable Output<SparkPoolAutoPauseArgs> autoPause;
 
     /**
-     * @return An `auto_pause` block as defined below.
+     * @return An `autoPause` block as defined below.
      * 
      */
     public Optional<Output<SparkPoolAutoPauseArgs>> autoPause() {
@@ -38,14 +38,14 @@ public final class SparkPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `auto_scale` block as defined below. Exactly one of `node_count` or `auto_scale` must be specified.
+     * An `autoScale` block as defined below. Exactly one of `nodeCount` or `autoScale` must be specified.
      * 
      */
     @Import(name="autoScale")
     private @Nullable Output<SparkPoolAutoScaleArgs> autoScale;
 
     /**
-     * @return An `auto_scale` block as defined below. Exactly one of `node_count` or `auto_scale` must be specified.
+     * @return An `autoScale` block as defined below. Exactly one of `nodeCount` or `autoScale` must be specified.
      * 
      */
     public Optional<Output<SparkPoolAutoScaleArgs>> autoScale() {
@@ -126,14 +126,14 @@ public final class SparkPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified.
+     * The number of nodes in the Spark Pool. Exactly one of `nodeCount` or `autoScale` must be specified.
      * 
      */
     @Import(name="nodeCount")
     private @Nullable Output<Integer> nodeCount;
 
     /**
-     * @return The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified.
+     * @return The number of nodes in the Spark Pool. Exactly one of `nodeCount` or `autoScale` must be specified.
      * 
      */
     public Optional<Output<Integer>> nodeCount() {
@@ -278,7 +278,7 @@ public final class SparkPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoPause An `auto_pause` block as defined below.
+         * @param autoPause An `autoPause` block as defined below.
          * 
          * @return builder
          * 
@@ -289,7 +289,7 @@ public final class SparkPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoPause An `auto_pause` block as defined below.
+         * @param autoPause An `autoPause` block as defined below.
          * 
          * @return builder
          * 
@@ -299,7 +299,7 @@ public final class SparkPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoScale An `auto_scale` block as defined below. Exactly one of `node_count` or `auto_scale` must be specified.
+         * @param autoScale An `autoScale` block as defined below. Exactly one of `nodeCount` or `autoScale` must be specified.
          * 
          * @return builder
          * 
@@ -310,7 +310,7 @@ public final class SparkPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoScale An `auto_scale` block as defined below. Exactly one of `node_count` or `auto_scale` must be specified.
+         * @param autoScale An `autoScale` block as defined below. Exactly one of `nodeCount` or `autoScale` must be specified.
          * 
          * @return builder
          * 
@@ -419,7 +419,7 @@ public final class SparkPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nodeCount The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified.
+         * @param nodeCount The number of nodes in the Spark Pool. Exactly one of `nodeCount` or `autoScale` must be specified.
          * 
          * @return builder
          * 
@@ -430,7 +430,7 @@ public final class SparkPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nodeCount The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified.
+         * @param nodeCount The number of nodes in the Spark Pool. Exactly one of `nodeCount` or `autoScale` must be specified.
          * 
          * @return builder
          * 

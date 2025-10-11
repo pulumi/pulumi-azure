@@ -18,7 +18,7 @@ namespace Pulumi.Azure.AppConfiguration.Outputs
         /// </summary>
         public readonly int DefaultRolloutPercentage;
         /// <summary>
-        /// One or more `groups` blocks as defined below.
+        /// One or more `Groups` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.ConfigurationFeatureTargetingFilterGroup> Groups;
         /// <summary>

@@ -145,7 +145,7 @@ namespace Pulumi.Azure.CosmosDB
     public sealed class GetRestorableDatabaseAccountsResult
     {
         /// <summary>
-        /// One or more `accounts` blocks as defined below.
+        /// One or more `Accounts` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRestorableDatabaseAccountsAccountResult> Accounts;
         /// <summary>

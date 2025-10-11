@@ -41,7 +41,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string>? LocalAuthReference { get; set; }
 
         /// <summary>
-        /// A `managed_identity` block as defined below.
+        /// A `ManagedIdentity` block as defined below.
         /// </summary>
         [Input("managedIdentity")]
         public Input<Inputs.FluxConfigurationBlobStorageManagedIdentityGetArgs>? ManagedIdentity { get; set; }
@@ -63,7 +63,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         }
 
         /// <summary>
-        /// A `service_principal` block as defined below.
+        /// A `ServicePrincipal` block as defined below.
         /// </summary>
         [Input("servicePrincipal")]
         public Input<Inputs.FluxConfigurationBlobStorageServicePrincipalGetArgs>? ServicePrincipal { get; set; }

@@ -23,12 +23,12 @@ public final class GetDataCollectionRuleResult {
      */
     private String dataCollectionEndpointId;
     /**
-     * @return One or more `data_flow` blocks as defined below.
+     * @return One or more `dataFlow` blocks as defined below.
      * 
      */
     private List<GetDataCollectionRuleDataFlow> dataFlows;
     /**
-     * @return A `data_sources` block as defined below. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
+     * @return A `dataSources` block as defined below. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
      * 
      */
     private List<GetDataCollectionRuleDataSource> dataSources;
@@ -38,7 +38,7 @@ public final class GetDataCollectionRuleResult {
      */
     private String description;
     /**
-     * @return Specifies a list of destination names. A `azure_monitor_metrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
+     * @return Specifies a list of destination names. A `azureMonitorMetrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
      * 
      */
     private List<GetDataCollectionRuleDestination> destinations;
@@ -54,7 +54,7 @@ public final class GetDataCollectionRuleResult {
     private List<GetDataCollectionRuleIdentity> identities;
     private String immutableId;
     /**
-     * @return The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+     * @return The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
      * 
      */
     private String kind;
@@ -70,7 +70,7 @@ public final class GetDataCollectionRuleResult {
     private String name;
     private String resourceGroupName;
     /**
-     * @return A `stream_declaration` block as defined below.
+     * @return A `streamDeclaration` block as defined below.
      * 
      */
     private List<GetDataCollectionRuleStreamDeclaration> streamDeclarations;
@@ -89,14 +89,14 @@ public final class GetDataCollectionRuleResult {
         return this.dataCollectionEndpointId;
     }
     /**
-     * @return One or more `data_flow` blocks as defined below.
+     * @return One or more `dataFlow` blocks as defined below.
      * 
      */
     public List<GetDataCollectionRuleDataFlow> dataFlows() {
         return this.dataFlows;
     }
     /**
-     * @return A `data_sources` block as defined below. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
+     * @return A `dataSources` block as defined below. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
      * 
      */
     public List<GetDataCollectionRuleDataSource> dataSources() {
@@ -110,7 +110,7 @@ public final class GetDataCollectionRuleResult {
         return this.description;
     }
     /**
-     * @return Specifies a list of destination names. A `azure_monitor_metrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
+     * @return Specifies a list of destination names. A `azureMonitorMetrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
      * 
      */
     public List<GetDataCollectionRuleDestination> destinations() {
@@ -134,7 +134,7 @@ public final class GetDataCollectionRuleResult {
         return this.immutableId;
     }
     /**
-     * @return The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+     * @return The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
      * 
      */
     public String kind() {
@@ -158,7 +158,7 @@ public final class GetDataCollectionRuleResult {
         return this.resourceGroupName;
     }
     /**
-     * @return A `stream_declaration` block as defined below.
+     * @return A `streamDeclaration` block as defined below.
      * 
      */
     public List<GetDataCollectionRuleStreamDeclaration> streamDeclarations() {

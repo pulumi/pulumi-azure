@@ -19,12 +19,12 @@ public final class LinuxWebAppAuthSettingsMicrosoft {
      */
     private String clientId;
     /**
-     * @return The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret_setting_name`.
+     * @return The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `clientSecretSettingName`.
      * 
      */
     private @Nullable String clientSecret;
     /**
-     * @return The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret`.
+     * @return The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `clientSecret`.
      * 
      */
     private @Nullable String clientSecretSettingName;
@@ -43,14 +43,14 @@ public final class LinuxWebAppAuthSettingsMicrosoft {
         return this.clientId;
     }
     /**
-     * @return The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret_setting_name`.
+     * @return The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `clientSecretSettingName`.
      * 
      */
     public Optional<String> clientSecret() {
         return Optional.ofNullable(this.clientSecret);
     }
     /**
-     * @return The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret`.
+     * @return The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `clientSecret`.
      * 
      */
     public Optional<String> clientSecretSettingName() {

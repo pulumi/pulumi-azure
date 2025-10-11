@@ -216,14 +216,14 @@ public class DatasetAzureSqlTable extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.schema);
     }
     /**
-     * A `schema_column` block as defined below.
+     * A `schemaColumn` block as defined below.
      * 
      */
     @Export(name="schemaColumns", refs={List.class,DatasetAzureSqlTableSchemaColumn.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DatasetAzureSqlTableSchemaColumn>> schemaColumns;
 
     /**
-     * @return A `schema_column` block as defined below.
+     * @return A `schemaColumn` block as defined below.
      * 
      */
     public Output<Optional<List<DatasetAzureSqlTableSchemaColumn>>> schemaColumns() {

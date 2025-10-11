@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Batch.Inputs
         private InputList<Inputs.AccountNetworkProfileAccountAccessIpRuleGetArgs>? _ipRules;
 
         /// <summary>
-        /// One or more `ip_rule` blocks as defined below.
+        /// One or more `IpRule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.AccountNetworkProfileAccountAccessIpRuleGetArgs> IpRules
         {

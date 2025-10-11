@@ -196,56 +196,56 @@ public class Diagnostic extends com.pulumi.resources.CustomResource {
         return this.apiManagementName;
     }
     /**
-     * A `backend_request` block as defined below.
+     * A `backendRequest` block as defined below.
      * 
      */
     @Export(name="backendRequest", refs={DiagnosticBackendRequest.class}, tree="[0]")
     private Output<DiagnosticBackendRequest> backendRequest;
 
     /**
-     * @return A `backend_request` block as defined below.
+     * @return A `backendRequest` block as defined below.
      * 
      */
     public Output<DiagnosticBackendRequest> backendRequest() {
         return this.backendRequest;
     }
     /**
-     * A `backend_response` block as defined below.
+     * A `backendResponse` block as defined below.
      * 
      */
     @Export(name="backendResponse", refs={DiagnosticBackendResponse.class}, tree="[0]")
     private Output<DiagnosticBackendResponse> backendResponse;
 
     /**
-     * @return A `backend_response` block as defined below.
+     * @return A `backendResponse` block as defined below.
      * 
      */
     public Output<DiagnosticBackendResponse> backendResponse() {
         return this.backendResponse;
     }
     /**
-     * A `frontend_request` block as defined below.
+     * A `frontendRequest` block as defined below.
      * 
      */
     @Export(name="frontendRequest", refs={DiagnosticFrontendRequest.class}, tree="[0]")
     private Output<DiagnosticFrontendRequest> frontendRequest;
 
     /**
-     * @return A `frontend_request` block as defined below.
+     * @return A `frontendRequest` block as defined below.
      * 
      */
     public Output<DiagnosticFrontendRequest> frontendRequest() {
         return this.frontendRequest;
     }
     /**
-     * A `frontend_response` block as defined below.
+     * A `frontendResponse` block as defined below.
      * 
      */
     @Export(name="frontendResponse", refs={DiagnosticFrontendResponse.class}, tree="[0]")
     private Output<DiagnosticFrontendResponse> frontendResponse;
 
     /**
-     * @return A `frontend_response` block as defined below.
+     * @return A `frontendResponse` block as defined below.
      * 
      */
     public Output<DiagnosticFrontendResponse> frontendResponse() {

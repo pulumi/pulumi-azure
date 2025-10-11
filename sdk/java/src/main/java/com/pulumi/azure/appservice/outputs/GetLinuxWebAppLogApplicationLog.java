@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetLinuxWebAppLogApplicationLog {
     /**
-     * @return A `azure_blob_storage` block as defined above.
+     * @return A `azureBlobStorage` block as defined above.
      * 
      */
     private List<GetLinuxWebAppLogApplicationLogAzureBlobStorage> azureBlobStorages;
@@ -25,7 +25,7 @@ public final class GetLinuxWebAppLogApplicationLog {
 
     private GetLinuxWebAppLogApplicationLog() {}
     /**
-     * @return A `azure_blob_storage` block as defined above.
+     * @return A `azureBlobStorage` block as defined above.
      * 
      */
     public List<GetLinuxWebAppLogApplicationLogAzureBlobStorage> azureBlobStorages() {

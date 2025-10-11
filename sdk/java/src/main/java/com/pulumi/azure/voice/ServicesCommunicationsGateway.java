@@ -288,14 +288,14 @@ public class ServicesCommunicationsGateway extends com.pulumi.resources.CustomRe
         return this.resourceGroupName;
     }
     /**
-     * A `service_location` block as defined below.
+     * A `serviceLocation` block as defined below.
      * 
      */
     @Export(name="serviceLocations", refs={List.class,ServicesCommunicationsGatewayServiceLocation.class}, tree="[0,1]")
     private Output<List<ServicesCommunicationsGatewayServiceLocation>> serviceLocations;
 
     /**
-     * @return A `service_location` block as defined below.
+     * @return A `serviceLocation` block as defined below.
      * 
      */
     public Output<List<ServicesCommunicationsGatewayServiceLocation>> serviceLocations() {

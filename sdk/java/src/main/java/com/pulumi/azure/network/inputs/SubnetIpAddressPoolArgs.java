@@ -50,7 +50,7 @@ public final class SubnetIpAddressPoolArgs extends com.pulumi.resources.Resource
     /**
      * The number of IP addresses to allocated to the subnet. The value must be a string that represents a positive number, e.g., `&#34;100&#34;`.
      * 
-     * &gt; **Note:** `number_of_ip_addresses` cannot be decreased.
+     * &gt; **Note:** `numberOfIpAddresses` cannot be decreased.
      * 
      */
     @Import(name="numberOfIpAddresses", required=true)
@@ -59,7 +59,7 @@ public final class SubnetIpAddressPoolArgs extends com.pulumi.resources.Resource
     /**
      * @return The number of IP addresses to allocated to the subnet. The value must be a string that represents a positive number, e.g., `&#34;100&#34;`.
      * 
-     * &gt; **Note:** `number_of_ip_addresses` cannot be decreased.
+     * &gt; **Note:** `numberOfIpAddresses` cannot be decreased.
      * 
      */
     public Output<String> numberOfIpAddresses() {
@@ -147,7 +147,7 @@ public final class SubnetIpAddressPoolArgs extends com.pulumi.resources.Resource
         /**
          * @param numberOfIpAddresses The number of IP addresses to allocated to the subnet. The value must be a string that represents a positive number, e.g., `&#34;100&#34;`.
          * 
-         * &gt; **Note:** `number_of_ip_addresses` cannot be decreased.
+         * &gt; **Note:** `numberOfIpAddresses` cannot be decreased.
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class SubnetIpAddressPoolArgs extends com.pulumi.resources.Resource
         /**
          * @param numberOfIpAddresses The number of IP addresses to allocated to the subnet. The value must be a string that represents a positive number, e.g., `&#34;100&#34;`.
          * 
-         * &gt; **Note:** `number_of_ip_addresses` cannot be decreased.
+         * &gt; **Note:** `numberOfIpAddresses` cannot be decreased.
          * 
          * @return builder
          * 

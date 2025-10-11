@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServerAzureadAdministrator {
     /**
-     * @return Specifies whether only AD Users and administrators (e.g. `azuread_administrator[0].login_username`) can be used to login, or also local database users (e.g. `administrator_login`). When `true`, the `administrator_login` and `administrator_login_password` properties can be omitted.
+     * @return Specifies whether only AD Users and administrators (e.g. `azuread_administrator[0].login_username`) can be used to login, or also local database users (e.g. `administratorLogin`). When `true`, the `administratorLogin` and `administratorLoginPassword` properties can be omitted.
      * 
      */
     private @Nullable Boolean azureadAuthenticationOnly;
@@ -36,7 +36,7 @@ public final class ServerAzureadAdministrator {
 
     private ServerAzureadAdministrator() {}
     /**
-     * @return Specifies whether only AD Users and administrators (e.g. `azuread_administrator[0].login_username`) can be used to login, or also local database users (e.g. `administrator_login`). When `true`, the `administrator_login` and `administrator_login_password` properties can be omitted.
+     * @return Specifies whether only AD Users and administrators (e.g. `azuread_administrator[0].login_username`) can be used to login, or also local database users (e.g. `administratorLogin`). When `true`, the `administratorLogin` and `administratorLoginPassword` properties can be omitted.
      * 
      */
     public Optional<Boolean> azureadAuthenticationOnly() {

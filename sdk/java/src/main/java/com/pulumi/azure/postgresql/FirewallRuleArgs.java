@@ -19,7 +19,7 @@ public final class FirewallRuleArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
+     * &gt; **Note:** The Azure feature `Allow access to Azure services` can be enabled by setting `startIpAddress` and `endIpAddress` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
      * 
      */
     @Import(name="endIpAddress", required=true)
@@ -28,7 +28,7 @@ public final class FirewallRuleArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
+     * &gt; **Note:** The Azure feature `Allow access to Azure services` can be enabled by setting `startIpAddress` and `endIpAddress` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
      * 
      */
     public Output<String> endIpAddress() {
@@ -126,7 +126,7 @@ public final class FirewallRuleArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param endIpAddress Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
+         * &gt; **Note:** The Azure feature `Allow access to Azure services` can be enabled by setting `startIpAddress` and `endIpAddress` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class FirewallRuleArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param endIpAddress Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
+         * &gt; **Note:** The Azure feature `Allow access to Azure services` can be enabled by setting `startIpAddress` and `endIpAddress` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
          * 
          * @return builder
          * 

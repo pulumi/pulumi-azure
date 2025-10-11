@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DatasetParquetAzureBlobFsLocation {
     /**
-     * @return Is the `file_system` using dynamic expression, function or system variables? Defaults to `false`.
+     * @return Is the `fileSystem` using dynamic expression, function or system variables? Defaults to `false`.
      * 
      */
     private @Nullable Boolean dynamicFileSystemEnabled;
@@ -45,7 +45,7 @@ public final class DatasetParquetAzureBlobFsLocation {
 
     private DatasetParquetAzureBlobFsLocation() {}
     /**
-     * @return Is the `file_system` using dynamic expression, function or system variables? Defaults to `false`.
+     * @return Is the `fileSystem` using dynamic expression, function or system variables? Defaults to `false`.
      * 
      */
     public Optional<Boolean> dynamicFileSystemEnabled() {

@@ -21,14 +21,14 @@ public final class ServiceHostnameConfigurationArgs extends com.pulumi.resources
     public static final ServiceHostnameConfigurationArgs Empty = new ServiceHostnameConfigurationArgs();
 
     /**
-     * One or more `developer_portal` blocks as documented below.
+     * One or more `developerPortal` blocks as documented below.
      * 
      */
     @Import(name="developerPortals")
     private @Nullable Output<List<ServiceHostnameConfigurationDeveloperPortalArgs>> developerPortals;
 
     /**
-     * @return One or more `developer_portal` blocks as documented below.
+     * @return One or more `developerPortal` blocks as documented below.
      * 
      */
     public Optional<Output<List<ServiceHostnameConfigurationDeveloperPortalArgs>>> developerPortals() {
@@ -124,7 +124,7 @@ public final class ServiceHostnameConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param developerPortals One or more `developer_portal` blocks as documented below.
+         * @param developerPortals One or more `developerPortal` blocks as documented below.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class ServiceHostnameConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param developerPortals One or more `developer_portal` blocks as documented below.
+         * @param developerPortals One or more `developerPortal` blocks as documented below.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class ServiceHostnameConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param developerPortals One or more `developer_portal` blocks as documented below.
+         * @param developerPortals One or more `developerPortal` blocks as documented below.
          * 
          * @return builder
          * 

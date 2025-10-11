@@ -24,7 +24,7 @@ public final class GetApplicationGatewaySslProfile {
      */
     private String name;
     /**
-     * @return a `ssl_policy` block as defined below.
+     * @return a `sslPolicy` block as defined below.
      * 
      */
     private List<GetApplicationGatewaySslProfileSslPolicy> sslPolicies;
@@ -56,7 +56,7 @@ public final class GetApplicationGatewaySslProfile {
         return this.name;
     }
     /**
-     * @return a `ssl_policy` block as defined below.
+     * @return a `sslPolicy` block as defined below.
      * 
      */
     public List<GetApplicationGatewaySslProfileSslPolicy> sslPolicies() {

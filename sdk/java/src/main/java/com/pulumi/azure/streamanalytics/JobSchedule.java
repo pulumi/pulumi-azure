@@ -187,7 +187,7 @@ public class JobSchedule extends com.pulumi.resources.CustomResource {
     /**
      * The starting mode of the Stream Analytics Job. Possible values are `JobStartTime`, `CustomTime` and `LastOutputEventTime`.
      * 
-     * &gt; **Note:** Setting `start_mode` to `LastOutputEventTime` is only possible if the job had been previously started and produced output.
+     * &gt; **Note:** Setting `startMode` to `LastOutputEventTime` is only possible if the job had been previously started and produced output.
      * 
      */
     @Export(name="startMode", refs={String.class}, tree="[0]")
@@ -196,21 +196,21 @@ public class JobSchedule extends com.pulumi.resources.CustomResource {
     /**
      * @return The starting mode of the Stream Analytics Job. Possible values are `JobStartTime`, `CustomTime` and `LastOutputEventTime`.
      * 
-     * &gt; **Note:** Setting `start_mode` to `LastOutputEventTime` is only possible if the job had been previously started and produced output.
+     * &gt; **Note:** Setting `startMode` to `LastOutputEventTime` is only possible if the job had been previously started and produced output.
      * 
      */
     public Output<String> startMode() {
         return this.startMode;
     }
     /**
-     * The time in ISO8601 format at which the Stream Analytics Job should be started e.g. `2022-04-01T00:00:00Z`. This property can only be specified if `start_mode` is set to `CustomTime`
+     * The time in ISO8601 format at which the Stream Analytics Job should be started e.g. `2022-04-01T00:00:00Z`. This property can only be specified if `startMode` is set to `CustomTime`
      * 
      */
     @Export(name="startTime", refs={String.class}, tree="[0]")
     private Output<String> startTime;
 
     /**
-     * @return The time in ISO8601 format at which the Stream Analytics Job should be started e.g. `2022-04-01T00:00:00Z`. This property can only be specified if `start_mode` is set to `CustomTime`
+     * @return The time in ISO8601 format at which the Stream Analytics Job should be started e.g. `2022-04-01T00:00:00Z`. This property can only be specified if `startMode` is set to `CustomTime`
      * 
      */
     public Output<String> startTime() {

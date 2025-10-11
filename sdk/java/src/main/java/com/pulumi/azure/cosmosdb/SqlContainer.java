@@ -144,7 +144,7 @@ public class SqlContainer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.analyticalStorageTtl);
     }
     /**
-     * An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+     * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
      * 
      * &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
      * 
@@ -153,7 +153,7 @@ public class SqlContainer extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ SqlContainerAutoscaleSettings> autoscaleSettings;
 
     /**
-     * @return An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+     * @return An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
      * 
      * &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
      * 
@@ -162,14 +162,14 @@ public class SqlContainer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.autoscaleSettings);
     }
     /**
-     * A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
+     * A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="conflictResolutionPolicy", refs={SqlContainerConflictResolutionPolicy.class}, tree="[0]")
     private Output<SqlContainerConflictResolutionPolicy> conflictResolutionPolicy;
 
     /**
-     * @return A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
+     * @return A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<SqlContainerConflictResolutionPolicy> conflictResolutionPolicy() {
@@ -204,14 +204,14 @@ public class SqlContainer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.defaultTtl);
     }
     /**
-     * An `indexing_policy` block as defined below.
+     * An `indexingPolicy` block as defined below.
      * 
      */
     @Export(name="indexingPolicy", refs={SqlContainerIndexingPolicy.class}, tree="[0]")
     private Output<SqlContainerIndexingPolicy> indexingPolicy;
 
     /**
-     * @return An `indexing_policy` block as defined below.
+     * @return An `indexingPolicy` block as defined below.
      * 
      */
     public Output<SqlContainerIndexingPolicy> indexingPolicy() {
@@ -262,7 +262,7 @@ public class SqlContainer extends com.pulumi.resources.CustomResource {
     /**
      * Define a partition key version. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
      * 
-     * &gt; **Note:** If `partition_key_version` is not specified when creating a new resource, you can update `partition_key_version` to `1`, updating to `2` forces a new resource to be created.
+     * &gt; **Note:** If `partitionKeyVersion` is not specified when creating a new resource, you can update `partitionKeyVersion` to `1`, updating to `2` forces a new resource to be created.
      * 
      */
     @Export(name="partitionKeyVersion", refs={Integer.class}, tree="[0]")
@@ -271,7 +271,7 @@ public class SqlContainer extends com.pulumi.resources.CustomResource {
     /**
      * @return Define a partition key version. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
      * 
-     * &gt; **Note:** If `partition_key_version` is not specified when creating a new resource, you can update `partition_key_version` to `1`, updating to `2` forces a new resource to be created.
+     * &gt; **Note:** If `partitionKeyVersion` is not specified when creating a new resource, you can update `partitionKeyVersion` to `1`, updating to `2` forces a new resource to be created.
      * 
      */
     public Output<Optional<Integer>> partitionKeyVersion() {
@@ -306,14 +306,14 @@ public class SqlContainer extends com.pulumi.resources.CustomResource {
         return this.throughput;
     }
     /**
-     * One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
+     * One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="uniqueKeys", refs={List.class,SqlContainerUniqueKey.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SqlContainerUniqueKey>> uniqueKeys;
 
     /**
-     * @return One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
+     * @return One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<List<SqlContainerUniqueKey>>> uniqueKeys() {

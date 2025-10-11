@@ -49,14 +49,14 @@ public final class KubernetesClusterWebAppRoutingArgs extends com.pulumi.resourc
     }
 
     /**
-     * A `web_app_routing_identity` block is exported. The exported attributes are defined below.
+     * A `webAppRoutingIdentity` block is exported. The exported attributes are defined below.
      * 
      */
     @Import(name="webAppRoutingIdentities")
     private @Nullable Output<List<KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs>> webAppRoutingIdentities;
 
     /**
-     * @return A `web_app_routing_identity` block is exported. The exported attributes are defined below.
+     * @return A `webAppRoutingIdentity` block is exported. The exported attributes are defined below.
      * 
      */
     public Optional<Output<List<KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs>>> webAppRoutingIdentities() {
@@ -142,7 +142,7 @@ public final class KubernetesClusterWebAppRoutingArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param webAppRoutingIdentities A `web_app_routing_identity` block is exported. The exported attributes are defined below.
+         * @param webAppRoutingIdentities A `webAppRoutingIdentity` block is exported. The exported attributes are defined below.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class KubernetesClusterWebAppRoutingArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param webAppRoutingIdentities A `web_app_routing_identity` block is exported. The exported attributes are defined below.
+         * @param webAppRoutingIdentities A `webAppRoutingIdentity` block is exported. The exported attributes are defined below.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class KubernetesClusterWebAppRoutingArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param webAppRoutingIdentities A `web_app_routing_identity` block is exported. The exported attributes are defined below.
+         * @param webAppRoutingIdentities A `webAppRoutingIdentity` block is exported. The exported attributes are defined below.
          * 
          * @return builder
          * 

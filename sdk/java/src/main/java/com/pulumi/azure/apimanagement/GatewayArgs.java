@@ -48,14 +48,14 @@ public final class GatewayArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `location_data` block as documented below.
+     * A `locationData` block as documented below.
      * 
      */
     @Import(name="locationData", required=true)
     private Output<GatewayLocationDataArgs> locationData;
 
     /**
-     * @return A `location_data` block as documented below.
+     * @return A `locationData` block as documented below.
      * 
      */
     public Output<GatewayLocationDataArgs> locationData() {
@@ -147,7 +147,7 @@ public final class GatewayArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param locationData A `location_data` block as documented below.
+         * @param locationData A `locationData` block as documented below.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class GatewayArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param locationData A `location_data` block as documented below.
+         * @param locationData A `locationData` block as documented below.
          * 
          * @return builder
          * 

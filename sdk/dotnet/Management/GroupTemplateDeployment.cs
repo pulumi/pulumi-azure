@@ -157,7 +157,7 @@ namespace Pulumi.Azure.Management
     public partial class GroupTemplateDeployment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
+        /// The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `None`, `requestContent`, `responseContent` and `requestContent, responseContent`.
         /// </summary>
         [Output("debugLevel")]
         public Output<string?> DebugLevel { get; private set; } = null!;
@@ -199,13 +199,13 @@ namespace Pulumi.Azure.Management
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `template_spec_version_id`.
+        /// The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `TemplateSpecVersionId`.
         /// </summary>
         [Output("templateContent")]
         public Output<string> TemplateContent { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Template Spec Version to deploy. Cannot be specified with `template_content`.
+        /// The ID of the Template Spec Version to deploy. Cannot be specified with `TemplateContent`.
         /// </summary>
         [Output("templateSpecVersionId")]
         public Output<string?> TemplateSpecVersionId { get; private set; } = null!;
@@ -257,7 +257,7 @@ namespace Pulumi.Azure.Management
     public sealed class GroupTemplateDeploymentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
+        /// The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `None`, `requestContent`, `responseContent` and `requestContent, responseContent`.
         /// </summary>
         [Input("debugLevel")]
         public Input<string>? DebugLevel { get; set; }
@@ -299,13 +299,13 @@ namespace Pulumi.Azure.Management
         }
 
         /// <summary>
-        /// The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `template_spec_version_id`.
+        /// The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `TemplateSpecVersionId`.
         /// </summary>
         [Input("templateContent")]
         public Input<string>? TemplateContent { get; set; }
 
         /// <summary>
-        /// The ID of the Template Spec Version to deploy. Cannot be specified with `template_content`.
+        /// The ID of the Template Spec Version to deploy. Cannot be specified with `TemplateContent`.
         /// </summary>
         [Input("templateSpecVersionId")]
         public Input<string>? TemplateSpecVersionId { get; set; }
@@ -319,7 +319,7 @@ namespace Pulumi.Azure.Management
     public sealed class GroupTemplateDeploymentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
+        /// The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `None`, `requestContent`, `responseContent` and `requestContent, responseContent`.
         /// </summary>
         [Input("debugLevel")]
         public Input<string>? DebugLevel { get; set; }
@@ -367,13 +367,13 @@ namespace Pulumi.Azure.Management
         }
 
         /// <summary>
-        /// The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `template_spec_version_id`.
+        /// The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `TemplateSpecVersionId`.
         /// </summary>
         [Input("templateContent")]
         public Input<string>? TemplateContent { get; set; }
 
         /// <summary>
-        /// The ID of the Template Spec Version to deploy. Cannot be specified with `template_content`.
+        /// The ID of the Template Spec Version to deploy. Cannot be specified with `TemplateContent`.
         /// </summary>
         [Input("templateSpecVersionId")]
         public Input<string>? TemplateSpecVersionId { get; set; }

@@ -144,7 +144,7 @@ namespace Pulumi.Azure.Mobile
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `pcc_rule` block as defined below. The set of PCC Rules that make up this service.
+        /// A `PccRule` block as defined below. The set of PCC Rules that make up this service.
         /// </summary>
         [Output("pccRules")]
         public Output<ImmutableArray<Outputs.NetworkServicePccRule>> PccRules { get; private set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.Azure.Mobile
         public Output<int> ServicePrecedence { get; private set; } = null!;
 
         /// <summary>
-        /// A `service_qos_policy` block as defined below. The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a `pcc_rule`. If this field is not specified then the `sim_policy` of User Equipment (UE) will define the QoS settings.
+        /// A `ServiceQosPolicy` block as defined below. The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a `PccRule`. If this field is not specified then the `SimPolicy` of User Equipment (UE) will define the QoS settings.
         /// </summary>
         [Output("serviceQosPolicy")]
         public Output<Outputs.NetworkServiceServiceQosPolicy?> ServiceQosPolicy { get; private set; } = null!;
@@ -235,7 +235,7 @@ namespace Pulumi.Azure.Mobile
         private InputList<Inputs.NetworkServicePccRuleArgs>? _pccRules;
 
         /// <summary>
-        /// A `pcc_rule` block as defined below. The set of PCC Rules that make up this service.
+        /// A `PccRule` block as defined below. The set of PCC Rules that make up this service.
         /// </summary>
         public InputList<Inputs.NetworkServicePccRuleArgs> PccRules
         {
@@ -250,7 +250,7 @@ namespace Pulumi.Azure.Mobile
         public Input<int> ServicePrecedence { get; set; } = null!;
 
         /// <summary>
-        /// A `service_qos_policy` block as defined below. The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a `pcc_rule`. If this field is not specified then the `sim_policy` of User Equipment (UE) will define the QoS settings.
+        /// A `ServiceQosPolicy` block as defined below. The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a `PccRule`. If this field is not specified then the `SimPolicy` of User Equipment (UE) will define the QoS settings.
         /// </summary>
         [Input("serviceQosPolicy")]
         public Input<Inputs.NetworkServiceServiceQosPolicyArgs>? ServiceQosPolicy { get; set; }
@@ -297,7 +297,7 @@ namespace Pulumi.Azure.Mobile
         private InputList<Inputs.NetworkServicePccRuleGetArgs>? _pccRules;
 
         /// <summary>
-        /// A `pcc_rule` block as defined below. The set of PCC Rules that make up this service.
+        /// A `PccRule` block as defined below. The set of PCC Rules that make up this service.
         /// </summary>
         public InputList<Inputs.NetworkServicePccRuleGetArgs> PccRules
         {
@@ -312,7 +312,7 @@ namespace Pulumi.Azure.Mobile
         public Input<int>? ServicePrecedence { get; set; }
 
         /// <summary>
-        /// A `service_qos_policy` block as defined below. The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a `pcc_rule`. If this field is not specified then the `sim_policy` of User Equipment (UE) will define the QoS settings.
+        /// A `ServiceQosPolicy` block as defined below. The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a `PccRule`. If this field is not specified then the `SimPolicy` of User Equipment (UE) will define the QoS settings.
         /// </summary>
         [Input("serviceQosPolicy")]
         public Input<Inputs.NetworkServiceServiceQosPolicyGetArgs>? ServiceQosPolicy { get; set; }

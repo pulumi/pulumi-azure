@@ -1765,12 +1765,30 @@ public final class ContainerserviceFunctions {
     /**
      * Use this data source to access information about an existing Container Registry Cache Rule.
      * 
+     * ## Example Usage
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerRegistry` - 2023-07-01
+     * 
      */
     public static Output<GetRegistryCacheRuleResult> getRegistryCacheRule(GetRegistryCacheRuleArgs args) {
         return getRegistryCacheRule(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Container Registry Cache Rule.
+     * 
+     * ## Example Usage
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerRegistry` - 2023-07-01
      * 
      */
     public static CompletableFuture<GetRegistryCacheRuleResult> getRegistryCacheRulePlain(GetRegistryCacheRulePlainArgs args) {
@@ -1779,6 +1797,15 @@ public final class ContainerserviceFunctions {
     /**
      * Use this data source to access information about an existing Container Registry Cache Rule.
      * 
+     * ## Example Usage
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerRegistry` - 2023-07-01
+     * 
      */
     public static Output<GetRegistryCacheRuleResult> getRegistryCacheRule(GetRegistryCacheRuleArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:containerservice/getRegistryCacheRule:getRegistryCacheRule", TypeShape.of(GetRegistryCacheRuleResult.class), args, Utilities.withVersion(options));
@@ -1786,12 +1813,30 @@ public final class ContainerserviceFunctions {
     /**
      * Use this data source to access information about an existing Container Registry Cache Rule.
      * 
+     * ## Example Usage
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerRegistry` - 2023-07-01
+     * 
      */
     public static Output<GetRegistryCacheRuleResult> getRegistryCacheRule(GetRegistryCacheRuleArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:containerservice/getRegistryCacheRule:getRegistryCacheRule", TypeShape.of(GetRegistryCacheRuleResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Container Registry Cache Rule.
+     * 
+     * ## Example Usage
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerRegistry` - 2023-07-01
      * 
      */
     public static CompletableFuture<GetRegistryCacheRuleResult> getRegistryCacheRulePlain(GetRegistryCacheRulePlainArgs args, InvokeOptions options) {

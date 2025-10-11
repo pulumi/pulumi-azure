@@ -13,7 +13,7 @@ namespace Pulumi.Azure.AppPlatform.Inputs
     public sealed class SpringCloudServiceConfigServerGitSettingRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `http_basic_auth` block as defined below.
+        /// A `HttpBasicAuth` block as defined below.
         /// </summary>
         [Input("httpBasicAuth")]
         public Input<Inputs.SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs>? HttpBasicAuth { get; set; }
@@ -55,7 +55,7 @@ namespace Pulumi.Azure.AppPlatform.Inputs
         }
 
         /// <summary>
-        /// A `ssh_auth` block as defined below.
+        /// A `SshAuth` block as defined below.
         /// </summary>
         [Input("sshAuth")]
         public Input<Inputs.SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs>? SshAuth { get; set; }

@@ -18,7 +18,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly string? Identity;
         /// <summary>
-        /// The Key Vault Secret ID. Could be either one of `id` or `versionless_id`.
+        /// The Key Vault Secret ID. Could be either one of `Id` or `VersionlessId`.
         /// </summary>
         public readonly string? KeyVaultSecretId;
         /// <summary>

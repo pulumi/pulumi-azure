@@ -46,14 +46,14 @@ public final class MongoClusterConnectionStringArgs extends com.pulumi.resources
     }
 
     /**
-     * The value of the Mongo Cluster connection string. The `&lt;user&gt;:&lt;password&gt;` placeholder returned from API will be replaced by the real `administrator_username` and `administrator_password` if available in the state.
+     * The value of the Mongo Cluster connection string. The `&lt;user&gt;:&lt;password&gt;` placeholder returned from API will be replaced by the real `administratorUsername` and `administratorPassword` if available in the state.
      * 
      */
     @Import(name="value")
     private @Nullable Output<String> value;
 
     /**
-     * @return The value of the Mongo Cluster connection string. The `&lt;user&gt;:&lt;password&gt;` placeholder returned from API will be replaced by the real `administrator_username` and `administrator_password` if available in the state.
+     * @return The value of the Mongo Cluster connection string. The `&lt;user&gt;:&lt;password&gt;` placeholder returned from API will be replaced by the real `administratorUsername` and `administratorPassword` if available in the state.
      * 
      */
     public Optional<Output<String>> value() {
@@ -129,7 +129,7 @@ public final class MongoClusterConnectionStringArgs extends com.pulumi.resources
         }
 
         /**
-         * @param value The value of the Mongo Cluster connection string. The `&lt;user&gt;:&lt;password&gt;` placeholder returned from API will be replaced by the real `administrator_username` and `administrator_password` if available in the state.
+         * @param value The value of the Mongo Cluster connection string. The `&lt;user&gt;:&lt;password&gt;` placeholder returned from API will be replaced by the real `administratorUsername` and `administratorPassword` if available in the state.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class MongoClusterConnectionStringArgs extends com.pulumi.resources
         }
 
         /**
-         * @param value The value of the Mongo Cluster connection string. The `&lt;user&gt;:&lt;password&gt;` placeholder returned from API will be replaced by the real `administrator_username` and `administrator_password` if available in the state.
+         * @param value The value of the Mongo Cluster connection string. The `&lt;user&gt;:&lt;password&gt;` placeholder returned from API will be replaced by the real `administratorUsername` and `administratorPassword` if available in the state.
          * 
          * @return builder
          * 

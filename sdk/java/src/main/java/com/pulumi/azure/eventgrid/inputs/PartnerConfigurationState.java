@@ -35,14 +35,14 @@ public final class PartnerConfigurationState extends com.pulumi.resources.Resour
     }
 
     /**
-     * One or more `partner_authorization` blocks as defined below.
+     * One or more `partnerAuthorization` blocks as defined below.
      * 
      */
     @Import(name="partnerAuthorizations")
     private @Nullable Output<List<PartnerConfigurationPartnerAuthorizationArgs>> partnerAuthorizations;
 
     /**
-     * @return One or more `partner_authorization` blocks as defined below.
+     * @return One or more `partnerAuthorization` blocks as defined below.
      * 
      */
     public Optional<Output<List<PartnerConfigurationPartnerAuthorizationArgs>>> partnerAuthorizations() {
@@ -128,7 +128,7 @@ public final class PartnerConfigurationState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param partnerAuthorizations One or more `partner_authorization` blocks as defined below.
+         * @param partnerAuthorizations One or more `partnerAuthorization` blocks as defined below.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class PartnerConfigurationState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param partnerAuthorizations One or more `partner_authorization` blocks as defined below.
+         * @param partnerAuthorizations One or more `partnerAuthorization` blocks as defined below.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class PartnerConfigurationState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param partnerAuthorizations One or more `partner_authorization` blocks as defined below.
+         * @param partnerAuthorizations One or more `partnerAuthorization` blocks as defined below.
          * 
          * @return builder
          * 

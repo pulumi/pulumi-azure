@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterUpgradePolicy {
     /**
-     * @return A `delta_health_policy` block as defined below
+     * @return A `deltaHealthPolicy` block as defined below
      * 
      */
     private @Nullable ClusterUpgradePolicyDeltaHealthPolicy deltaHealthPolicy;
@@ -40,7 +40,7 @@ public final class ClusterUpgradePolicy {
      */
     private @Nullable String healthCheckWaitDuration;
     /**
-     * @return A `health_policy` block as defined below
+     * @return A `healthPolicy` block as defined below
      * 
      */
     private @Nullable ClusterUpgradePolicyHealthPolicy healthPolicy;
@@ -62,7 +62,7 @@ public final class ClusterUpgradePolicy {
 
     private ClusterUpgradePolicy() {}
     /**
-     * @return A `delta_health_policy` block as defined below
+     * @return A `deltaHealthPolicy` block as defined below
      * 
      */
     public Optional<ClusterUpgradePolicyDeltaHealthPolicy> deltaHealthPolicy() {
@@ -97,7 +97,7 @@ public final class ClusterUpgradePolicy {
         return Optional.ofNullable(this.healthCheckWaitDuration);
     }
     /**
-     * @return A `health_policy` block as defined below
+     * @return A `healthPolicy` block as defined below
      * 
      */
     public Optional<ClusterUpgradePolicyHealthPolicy> healthPolicy() {

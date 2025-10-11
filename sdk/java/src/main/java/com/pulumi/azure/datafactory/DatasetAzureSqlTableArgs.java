@@ -155,14 +155,14 @@ public final class DatasetAzureSqlTableArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A `schema_column` block as defined below.
+     * A `schemaColumn` block as defined below.
      * 
      */
     @Import(name="schemaColumns")
     private @Nullable Output<List<DatasetAzureSqlTableSchemaColumnArgs>> schemaColumns;
 
     /**
-     * @return A `schema_column` block as defined below.
+     * @return A `schemaColumn` block as defined below.
      * 
      */
     public Optional<Output<List<DatasetAzureSqlTableSchemaColumnArgs>>> schemaColumns() {
@@ -418,7 +418,7 @@ public final class DatasetAzureSqlTableArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param schemaColumns A `schema_column` block as defined below.
+         * @param schemaColumns A `schemaColumn` block as defined below.
          * 
          * @return builder
          * 
@@ -429,7 +429,7 @@ public final class DatasetAzureSqlTableArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param schemaColumns A `schema_column` block as defined below.
+         * @param schemaColumns A `schemaColumn` block as defined below.
          * 
          * @return builder
          * 
@@ -439,7 +439,7 @@ public final class DatasetAzureSqlTableArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param schemaColumns A `schema_column` block as defined below.
+         * @param schemaColumns A `schemaColumn` block as defined below.
          * 
          * @return builder
          * 

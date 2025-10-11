@@ -99,28 +99,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:datafactory/integrationRuntimeSsis:IntegrationRuntimeSsis")
 public class IntegrationRuntimeSsis extends com.pulumi.resources.CustomResource {
     /**
-     * A `catalog_info` block as defined below.
+     * A `catalogInfo` block as defined below.
      * 
      */
     @Export(name="catalogInfo", refs={IntegrationRuntimeSsisCatalogInfo.class}, tree="[0]")
     private Output</* @Nullable */ IntegrationRuntimeSsisCatalogInfo> catalogInfo;
 
     /**
-     * @return A `catalog_info` block as defined below.
+     * @return A `catalogInfo` block as defined below.
      * 
      */
     public Output<Optional<IntegrationRuntimeSsisCatalogInfo>> catalogInfo() {
         return Codegen.optional(this.catalogInfo);
     }
     /**
-     * One `copy_compute_scale` block as defined below.
+     * One `copyComputeScale` block as defined below.
      * 
      */
     @Export(name="copyComputeScale", refs={IntegrationRuntimeSsisCopyComputeScale.class}, tree="[0]")
     private Output</* @Nullable */ IntegrationRuntimeSsisCopyComputeScale> copyComputeScale;
 
     /**
-     * @return One `copy_compute_scale` block as defined below.
+     * @return One `copyComputeScale` block as defined below.
      * 
      */
     public Output<Optional<IntegrationRuntimeSsisCopyComputeScale>> copyComputeScale() {
@@ -129,7 +129,7 @@ public class IntegrationRuntimeSsis extends com.pulumi.resources.CustomResource 
     /**
      * The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `azure.datafactory.CredentialUserManagedIdentity`
      * 
-     * &gt; **Note:** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
+     * &gt; **Note:** If `credentialName` is omitted, the integration runtime will use the Data Factory assigned identity.
      * 
      */
     @Export(name="credentialName", refs={String.class}, tree="[0]")
@@ -138,21 +138,21 @@ public class IntegrationRuntimeSsis extends com.pulumi.resources.CustomResource 
     /**
      * @return The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `azure.datafactory.CredentialUserManagedIdentity`
      * 
-     * &gt; **Note:** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
+     * &gt; **Note:** If `credentialName` is omitted, the integration runtime will use the Data Factory assigned identity.
      * 
      */
     public Output<Optional<String>> credentialName() {
         return Codegen.optional(this.credentialName);
     }
     /**
-     * A `custom_setup_script` block as defined below.
+     * A `customSetupScript` block as defined below.
      * 
      */
     @Export(name="customSetupScript", refs={IntegrationRuntimeSsisCustomSetupScript.class}, tree="[0]")
     private Output</* @Nullable */ IntegrationRuntimeSsisCustomSetupScript> customSetupScript;
 
     /**
-     * @return A `custom_setup_script` block as defined below.
+     * @return A `customSetupScript` block as defined below.
      * 
      */
     public Output<Optional<IntegrationRuntimeSsisCustomSetupScript>> customSetupScript() {
@@ -201,28 +201,28 @@ public class IntegrationRuntimeSsis extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.edition);
     }
     /**
-     * An `express_custom_setup` block as defined below.
+     * An `expressCustomSetup` block as defined below.
      * 
      */
     @Export(name="expressCustomSetup", refs={IntegrationRuntimeSsisExpressCustomSetup.class}, tree="[0]")
     private Output</* @Nullable */ IntegrationRuntimeSsisExpressCustomSetup> expressCustomSetup;
 
     /**
-     * @return An `express_custom_setup` block as defined below.
+     * @return An `expressCustomSetup` block as defined below.
      * 
      */
     public Output<Optional<IntegrationRuntimeSsisExpressCustomSetup>> expressCustomSetup() {
         return Codegen.optional(this.expressCustomSetup);
     }
     /**
-     * A `express_vnet_integration` block as defined below.
+     * A `expressVnetIntegration` block as defined below.
      * 
      */
     @Export(name="expressVnetIntegration", refs={IntegrationRuntimeSsisExpressVnetIntegration.class}, tree="[0]")
     private Output</* @Nullable */ IntegrationRuntimeSsisExpressVnetIntegration> expressVnetIntegration;
 
     /**
-     * @return A `express_vnet_integration` block as defined below.
+     * @return A `expressVnetIntegration` block as defined below.
      * 
      */
     public Output<Optional<IntegrationRuntimeSsisExpressVnetIntegration>> expressVnetIntegration() {
@@ -313,28 +313,28 @@ public class IntegrationRuntimeSsis extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.numberOfNodes);
     }
     /**
-     * One or more `package_store` block as defined below.
+     * One or more `packageStore` block as defined below.
      * 
      */
     @Export(name="packageStores", refs={List.class,IntegrationRuntimeSsisPackageStore.class}, tree="[0,1]")
     private Output</* @Nullable */ List<IntegrationRuntimeSsisPackageStore>> packageStores;
 
     /**
-     * @return One or more `package_store` block as defined below.
+     * @return One or more `packageStore` block as defined below.
      * 
      */
     public Output<Optional<List<IntegrationRuntimeSsisPackageStore>>> packageStores() {
         return Codegen.optional(this.packageStores);
     }
     /**
-     * One `pipeline_external_compute_scale` block as defined below.
+     * One `pipelineExternalComputeScale` block as defined below.
      * 
      */
     @Export(name="pipelineExternalComputeScale", refs={IntegrationRuntimeSsisPipelineExternalComputeScale.class}, tree="[0]")
     private Output</* @Nullable */ IntegrationRuntimeSsisPipelineExternalComputeScale> pipelineExternalComputeScale;
 
     /**
-     * @return One `pipeline_external_compute_scale` block as defined below.
+     * @return One `pipelineExternalComputeScale` block as defined below.
      * 
      */
     public Output<Optional<IntegrationRuntimeSsisPipelineExternalComputeScale>> pipelineExternalComputeScale() {
@@ -355,14 +355,14 @@ public class IntegrationRuntimeSsis extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.proxy);
     }
     /**
-     * A `vnet_integration` block as defined below.
+     * A `vnetIntegration` block as defined below.
      * 
      */
     @Export(name="vnetIntegration", refs={IntegrationRuntimeSsisVnetIntegration.class}, tree="[0]")
     private Output</* @Nullable */ IntegrationRuntimeSsisVnetIntegration> vnetIntegration;
 
     /**
-     * @return A `vnet_integration` block as defined below.
+     * @return A `vnetIntegration` block as defined below.
      * 
      */
     public Output<Optional<IntegrationRuntimeSsisVnetIntegration>> vnetIntegration() {

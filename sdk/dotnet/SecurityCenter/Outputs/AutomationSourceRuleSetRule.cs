@@ -14,7 +14,7 @@ namespace Pulumi.Azure.SecurityCenter.Outputs
     public sealed class AutomationSourceRuleSetRule
     {
         /// <summary>
-        /// A value that will be compared with the value in `property_path`.
+        /// A value that will be compared with the value in `PropertyPath`.
         /// </summary>
         public readonly string ExpectedValue;
         /// <summary>
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.SecurityCenter.Outputs
         /// <summary>
         /// The data type of the compared operands, must be one of: `Integer`, `String`, `Boolean` or `Number`.
         /// 
-        /// &gt; **Note:** The schema for Security Center alerts (when `event_source` is "Alerts") [can be found here](https://docs.microsoft.com/azure/security-center/alerts-schemas?tabs=schema-continuousexport)
+        /// &gt; **Note:** The schema for Security Center alerts (when `EventSource` is "Alerts") [can be found here](https://docs.microsoft.com/azure/security-center/alerts-schemas?tabs=schema-continuousexport)
         /// </summary>
         public readonly string PropertyType;
 

@@ -24,7 +24,7 @@ namespace Pulumi.Azure.ServiceBus.Outputs
         /// </summary>
         public readonly bool? IsClientScopedSubscriptionDurable;
         /// <summary>
-        /// Whether the client scoped subscription is shareable. Defaults to `true` Changing this forces a new resource to be created.
+        /// Whether the client scoped subscription is shareable. Defaults to `True` Changing this forces a new resource to be created.
         /// </summary>
         public readonly bool? IsClientScopedSubscriptionShareable;
 

@@ -25,7 +25,7 @@ namespace Pulumi.Azure.WorkloadsSAP.Inputs
         public Input<string> SubnetId { get; set; } = null!;
 
         /// <summary>
-        /// A `virtual_machine_configuration` block as defined below. Changing this forces a new resource to be created.
+        /// A `VirtualMachineConfiguration` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("virtualMachineConfiguration", required: true)]
         public Input<Inputs.ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfigurationArgs> VirtualMachineConfiguration { get; set; } = null!;

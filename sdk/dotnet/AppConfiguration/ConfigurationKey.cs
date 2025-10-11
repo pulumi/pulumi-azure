@@ -177,7 +177,7 @@ namespace Pulumi.Azure.AppConfiguration
         public Output<string> ConfigurationStoreId { get; private set; } = null!;
 
         /// <summary>
-        /// The content type of the App Configuration Key. This should only be set when type is set to `kv`.
+        /// The content type of the App Configuration Key. This should only be set when type is set to `Kv`.
         /// </summary>
         [Output("contentType")]
         public Output<string> ContentType { get; private set; } = null!;
@@ -213,25 +213,25 @@ namespace Pulumi.Azure.AppConfiguration
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the App Configuration Key. It can either be `kv` (simple [key/value](https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value)) or `vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/). Defaults to `kv`.
+        /// The type of the App Configuration Key. It can either be `Kv` (simple [key/value](https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value)) or `Vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/). Defaults to `Kv`.
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
 
         /// <summary>
-        /// The value of the App Configuration Key. This should only be set when type is set to `kv`.
+        /// The value of the App Configuration Key. This should only be set when type is set to `Kv`.
         /// 
-        /// &gt; **Note:** `value` and `vault_key_reference` are mutually exclusive.
+        /// &gt; **Note:** `Value` and `VaultKeyReference` are mutually exclusive.
         /// </summary>
         [Output("value")]
         public Output<string?> Value { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the vault secret this App Configuration Key refers to. This should only be set when `type` is set to `vault`.
+        /// The ID of the vault secret this App Configuration Key refers to. This should only be set when `Type` is set to `Vault`.
         /// 
-        /// &gt; **Note:** `vault_key_reference` and `value` are mutually exclusive.
+        /// &gt; **Note:** `VaultKeyReference` and `Value` are mutually exclusive.
         /// 
-        /// &gt; **Note:** When setting the `vault_key_reference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionless_id`
+        /// &gt; **Note:** When setting the `VaultKeyReference` using the `Id` will pin the value to specific version of the secret, to reference latest secret value use `VersionlessId`
         /// </summary>
         [Output("vaultKeyReference")]
         public Output<string?> VaultKeyReference { get; private set; } = null!;
@@ -289,7 +289,7 @@ namespace Pulumi.Azure.AppConfiguration
         public Input<string> ConfigurationStoreId { get; set; } = null!;
 
         /// <summary>
-        /// The content type of the App Configuration Key. This should only be set when type is set to `kv`.
+        /// The content type of the App Configuration Key. This should only be set when type is set to `Kv`.
         /// </summary>
         [Input("contentType")]
         public Input<string>? ContentType { get; set; }
@@ -331,25 +331,25 @@ namespace Pulumi.Azure.AppConfiguration
         }
 
         /// <summary>
-        /// The type of the App Configuration Key. It can either be `kv` (simple [key/value](https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value)) or `vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/). Defaults to `kv`.
+        /// The type of the App Configuration Key. It can either be `Kv` (simple [key/value](https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value)) or `Vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/). Defaults to `Kv`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// The value of the App Configuration Key. This should only be set when type is set to `kv`.
+        /// The value of the App Configuration Key. This should only be set when type is set to `Kv`.
         /// 
-        /// &gt; **Note:** `value` and `vault_key_reference` are mutually exclusive.
+        /// &gt; **Note:** `Value` and `VaultKeyReference` are mutually exclusive.
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 
         /// <summary>
-        /// The ID of the vault secret this App Configuration Key refers to. This should only be set when `type` is set to `vault`.
+        /// The ID of the vault secret this App Configuration Key refers to. This should only be set when `Type` is set to `Vault`.
         /// 
-        /// &gt; **Note:** `vault_key_reference` and `value` are mutually exclusive.
+        /// &gt; **Note:** `VaultKeyReference` and `Value` are mutually exclusive.
         /// 
-        /// &gt; **Note:** When setting the `vault_key_reference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionless_id`
+        /// &gt; **Note:** When setting the `VaultKeyReference` using the `Id` will pin the value to specific version of the secret, to reference latest secret value use `VersionlessId`
         /// </summary>
         [Input("vaultKeyReference")]
         public Input<string>? VaultKeyReference { get; set; }
@@ -369,7 +369,7 @@ namespace Pulumi.Azure.AppConfiguration
         public Input<string>? ConfigurationStoreId { get; set; }
 
         /// <summary>
-        /// The content type of the App Configuration Key. This should only be set when type is set to `kv`.
+        /// The content type of the App Configuration Key. This should only be set when type is set to `Kv`.
         /// </summary>
         [Input("contentType")]
         public Input<string>? ContentType { get; set; }
@@ -411,25 +411,25 @@ namespace Pulumi.Azure.AppConfiguration
         }
 
         /// <summary>
-        /// The type of the App Configuration Key. It can either be `kv` (simple [key/value](https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value)) or `vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/). Defaults to `kv`.
+        /// The type of the App Configuration Key. It can either be `Kv` (simple [key/value](https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value)) or `Vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/). Defaults to `Kv`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// The value of the App Configuration Key. This should only be set when type is set to `kv`.
+        /// The value of the App Configuration Key. This should only be set when type is set to `Kv`.
         /// 
-        /// &gt; **Note:** `value` and `vault_key_reference` are mutually exclusive.
+        /// &gt; **Note:** `Value` and `VaultKeyReference` are mutually exclusive.
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 
         /// <summary>
-        /// The ID of the vault secret this App Configuration Key refers to. This should only be set when `type` is set to `vault`.
+        /// The ID of the vault secret this App Configuration Key refers to. This should only be set when `Type` is set to `Vault`.
         /// 
-        /// &gt; **Note:** `vault_key_reference` and `value` are mutually exclusive.
+        /// &gt; **Note:** `VaultKeyReference` and `Value` are mutually exclusive.
         /// 
-        /// &gt; **Note:** When setting the `vault_key_reference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionless_id`
+        /// &gt; **Note:** When setting the `VaultKeyReference` using the `Id` will pin the value to specific version of the secret, to reference latest secret value use `VersionlessId`
         /// </summary>
         [Input("vaultKeyReference")]
         public Input<string>? VaultKeyReference { get; set; }

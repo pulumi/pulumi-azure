@@ -140,14 +140,14 @@ public final class LinkServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more (up to 8) `nat_ip_configuration` block as defined below.
+     * One or more (up to 8) `natIpConfiguration` block as defined below.
      * 
      */
     @Import(name="natIpConfigurations")
     private @Nullable Output<List<LinkServiceNatIpConfigurationArgs>> natIpConfigurations;
 
     /**
-     * @return One or more (up to 8) `nat_ip_configuration` block as defined below.
+     * @return One or more (up to 8) `natIpConfiguration` block as defined below.
      * 
      */
     public Optional<Output<List<LinkServiceNatIpConfigurationArgs>>> natIpConfigurations() {
@@ -437,7 +437,7 @@ public final class LinkServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param natIpConfigurations One or more (up to 8) `nat_ip_configuration` block as defined below.
+         * @param natIpConfigurations One or more (up to 8) `natIpConfiguration` block as defined below.
          * 
          * @return builder
          * 
@@ -448,7 +448,7 @@ public final class LinkServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param natIpConfigurations One or more (up to 8) `nat_ip_configuration` block as defined below.
+         * @param natIpConfigurations One or more (up to 8) `natIpConfiguration` block as defined below.
          * 
          * @return builder
          * 
@@ -458,7 +458,7 @@ public final class LinkServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param natIpConfigurations One or more (up to 8) `nat_ip_configuration` block as defined below.
+         * @param natIpConfigurations One or more (up to 8) `natIpConfiguration` block as defined below.
          * 
          * @return builder
          * 

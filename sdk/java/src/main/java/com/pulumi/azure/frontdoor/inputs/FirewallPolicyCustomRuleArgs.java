@@ -51,14 +51,14 @@ public final class FirewallPolicyCustomRuleArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * One or more `match_condition` block defined below. Can support up to `10` `match_condition` blocks.
+     * One or more `matchCondition` block defined below. Can support up to `10` `matchCondition` blocks.
      * 
      */
     @Import(name="matchConditions")
     private @Nullable Output<List<FirewallPolicyCustomRuleMatchConditionArgs>> matchConditions;
 
     /**
-     * @return One or more `match_condition` block defined below. Can support up to `10` `match_condition` blocks.
+     * @return One or more `matchCondition` block defined below. Can support up to `10` `matchCondition` blocks.
      * 
      */
     public Optional<Output<List<FirewallPolicyCustomRuleMatchConditionArgs>>> matchConditions() {
@@ -214,7 +214,7 @@ public final class FirewallPolicyCustomRuleArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param matchConditions One or more `match_condition` block defined below. Can support up to `10` `match_condition` blocks.
+         * @param matchConditions One or more `matchCondition` block defined below. Can support up to `10` `matchCondition` blocks.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class FirewallPolicyCustomRuleArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param matchConditions One or more `match_condition` block defined below. Can support up to `10` `match_condition` blocks.
+         * @param matchConditions One or more `matchCondition` block defined below. Can support up to `10` `matchCondition` blocks.
          * 
          * @return builder
          * 
@@ -235,7 +235,7 @@ public final class FirewallPolicyCustomRuleArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param matchConditions One or more `match_condition` block defined below. Can support up to `10` `match_condition` blocks.
+         * @param matchConditions One or more `matchCondition` block defined below. Can support up to `10` `matchCondition` blocks.
          * 
          * @return builder
          * 

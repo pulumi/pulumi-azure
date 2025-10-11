@@ -54,14 +54,14 @@ public final class CustomerManagedKeyArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
+     * URI pointing at the Key Vault. Required when using `federatedIdentityClientId`. Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
      * 
      */
     @Import(name="keyVaultUri")
     private @Nullable Output<String> keyVaultUri;
 
     /**
-     * @return URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
+     * @return URI pointing at the Key Vault. Required when using `federatedIdentityClientId`. Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
      * 
      */
     public Optional<Output<String>> keyVaultUri() {
@@ -84,14 +84,14 @@ public final class CustomerManagedKeyArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Key ID of a key in a managed HSM.  Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
+     * Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
      * 
      */
     @Import(name="managedHsmKeyId")
     private @Nullable Output<String> managedHsmKeyId;
 
     /**
-     * @return Key ID of a key in a managed HSM.  Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
+     * @return Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
      * 
      */
     public Optional<Output<String>> managedHsmKeyId() {
@@ -211,7 +211,7 @@ public final class CustomerManagedKeyArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param keyVaultUri URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
+         * @param keyVaultUri URI pointing at the Key Vault. Required when using `federatedIdentityClientId`. Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
          * 
          * @return builder
          * 
@@ -222,7 +222,7 @@ public final class CustomerManagedKeyArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param keyVaultUri URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
+         * @param keyVaultUri URI pointing at the Key Vault. Required when using `federatedIdentityClientId`. Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class CustomerManagedKeyArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param managedHsmKeyId Key ID of a key in a managed HSM.  Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
+         * @param managedHsmKeyId Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class CustomerManagedKeyArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param managedHsmKeyId Key ID of a key in a managed HSM.  Exactly one of `managed_hsm_key_id`, `key_vault_id`, or `key_vault_uri` must be specified.
+         * @param managedHsmKeyId Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
          * 
          * @return builder
          * 

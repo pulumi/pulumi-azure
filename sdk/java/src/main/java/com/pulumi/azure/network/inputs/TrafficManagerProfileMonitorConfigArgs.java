@@ -20,14 +20,14 @@ public final class TrafficManagerProfileMonitorConfigArgs extends com.pulumi.res
     public static final TrafficManagerProfileMonitorConfigArgs Empty = new TrafficManagerProfileMonitorConfigArgs();
 
     /**
-     * One or more `custom_header` blocks as defined below.
+     * One or more `customHeader` blocks as defined below.
      * 
      */
     @Import(name="customHeaders")
     private @Nullable Output<List<TrafficManagerProfileMonitorConfigCustomHeaderArgs>> customHeaders;
 
     /**
-     * @return One or more `custom_header` blocks as defined below.
+     * @return One or more `customHeader` blocks as defined below.
      * 
      */
     public Optional<Output<List<TrafficManagerProfileMonitorConfigCustomHeaderArgs>>> customHeaders() {
@@ -110,14 +110,14 @@ public final class TrafficManagerProfileMonitorConfigArgs extends com.pulumi.res
     }
 
     /**
-     * The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If `interval_in_seconds` is set to `30`, then `timeout_in_seconds` can be between `5` and `10`. The default value is `10`. If `interval_in_seconds` is set to `10`, then valid values are between `5` and `9` and `timeout_in_seconds` is required.
+     * The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If `intervalInSeconds` is set to `30`, then `timeoutInSeconds` can be between `5` and `10`. The default value is `10`. If `intervalInSeconds` is set to `10`, then valid values are between `5` and `9` and `timeoutInSeconds` is required.
      * 
      */
     @Import(name="timeoutInSeconds")
     private @Nullable Output<Integer> timeoutInSeconds;
 
     /**
-     * @return The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If `interval_in_seconds` is set to `30`, then `timeout_in_seconds` can be between `5` and `10`. The default value is `10`. If `interval_in_seconds` is set to `10`, then valid values are between `5` and `9` and `timeout_in_seconds` is required.
+     * @return The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If `intervalInSeconds` is set to `30`, then `timeoutInSeconds` can be between `5` and `10`. The default value is `10`. If `intervalInSeconds` is set to `10`, then valid values are between `5` and `9` and `timeoutInSeconds` is required.
      * 
      */
     public Optional<Output<Integer>> timeoutInSeconds() {
@@ -171,7 +171,7 @@ public final class TrafficManagerProfileMonitorConfigArgs extends com.pulumi.res
         }
 
         /**
-         * @param customHeaders One or more `custom_header` blocks as defined below.
+         * @param customHeaders One or more `customHeader` blocks as defined below.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class TrafficManagerProfileMonitorConfigArgs extends com.pulumi.res
         }
 
         /**
-         * @param customHeaders One or more `custom_header` blocks as defined below.
+         * @param customHeaders One or more `customHeader` blocks as defined below.
          * 
          * @return builder
          * 
@@ -192,7 +192,7 @@ public final class TrafficManagerProfileMonitorConfigArgs extends com.pulumi.res
         }
 
         /**
-         * @param customHeaders One or more `custom_header` blocks as defined below.
+         * @param customHeaders One or more `customHeader` blocks as defined below.
          * 
          * @return builder
          * 
@@ -317,7 +317,7 @@ public final class TrafficManagerProfileMonitorConfigArgs extends com.pulumi.res
         }
 
         /**
-         * @param timeoutInSeconds The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If `interval_in_seconds` is set to `30`, then `timeout_in_seconds` can be between `5` and `10`. The default value is `10`. If `interval_in_seconds` is set to `10`, then valid values are between `5` and `9` and `timeout_in_seconds` is required.
+         * @param timeoutInSeconds The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If `intervalInSeconds` is set to `30`, then `timeoutInSeconds` can be between `5` and `10`. The default value is `10`. If `intervalInSeconds` is set to `10`, then valid values are between `5` and `9` and `timeoutInSeconds` is required.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class TrafficManagerProfileMonitorConfigArgs extends com.pulumi.res
         }
 
         /**
-         * @param timeoutInSeconds The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If `interval_in_seconds` is set to `30`, then `timeout_in_seconds` can be between `5` and `10`. The default value is `10`. If `interval_in_seconds` is set to `10`, then valid values are between `5` and `9` and `timeout_in_seconds` is required.
+         * @param timeoutInSeconds The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If `intervalInSeconds` is set to `30`, then `timeoutInSeconds` can be between `5` and `10`. The default value is `10`. If `intervalInSeconds` is set to `10`, then valid values are between `5` and `9` and `timeoutInSeconds` is required.
          * 
          * @return builder
          * 

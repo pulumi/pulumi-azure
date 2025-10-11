@@ -36,7 +36,7 @@ public final class JobStepState extends com.pulumi.resources.ResourceArgs {
     /**
      * The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent&#39;s managed identity (user-assigned).
      * 
-     * !&gt; **Note:** Once set, `job_credential_id` cannot be removed. Removing the credential will force a new resource to be created.
+     * !&gt; **Note:** Once set, `jobCredentialId` cannot be removed. Removing the credential will force a new resource to be created.
      * 
      */
     @Import(name="jobCredentialId")
@@ -45,7 +45,7 @@ public final class JobStepState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent&#39;s managed identity (user-assigned).
      * 
-     * !&gt; **Note:** Once set, `job_credential_id` cannot be removed. Removing the credential will force a new resource to be created.
+     * !&gt; **Note:** Once set, `jobCredentialId` cannot be removed. Removing the credential will force a new resource to be created.
      * 
      */
     public Optional<Output<String>> jobCredentialId() {
@@ -104,7 +104,7 @@ public final class JobStepState extends com.pulumi.resources.ResourceArgs {
     /**
      * The maximum retry interval in seconds. Defaults to `120`.
      * 
-     * &gt; **Note:** `maximum_retry_interval_seconds` must be greater than `initial_retry_interval_seconds`.
+     * &gt; **Note:** `maximumRetryIntervalSeconds` must be greater than `initialRetryIntervalSeconds`.
      * 
      */
     @Import(name="maximumRetryIntervalSeconds")
@@ -113,7 +113,7 @@ public final class JobStepState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The maximum retry interval in seconds. Defaults to `120`.
      * 
-     * &gt; **Note:** `maximum_retry_interval_seconds` must be greater than `initial_retry_interval_seconds`.
+     * &gt; **Note:** `maximumRetryIntervalSeconds` must be greater than `initialRetryIntervalSeconds`.
      * 
      */
     public Optional<Output<Integer>> maximumRetryIntervalSeconds() {
@@ -136,14 +136,14 @@ public final class JobStepState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `output_target` block as defined below.
+     * An `outputTarget` block as defined below.
      * 
      */
     @Import(name="outputTarget")
     private @Nullable Output<JobStepOutputTargetArgs> outputTarget;
 
     /**
-     * @return An `output_target` block as defined below.
+     * @return An `outputTarget` block as defined below.
      * 
      */
     public Optional<Output<JobStepOutputTargetArgs>> outputTarget() {
@@ -273,7 +273,7 @@ public final class JobStepState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param jobCredentialId The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent&#39;s managed identity (user-assigned).
          * 
-         * !&gt; **Note:** Once set, `job_credential_id` cannot be removed. Removing the credential will force a new resource to be created.
+         * !&gt; **Note:** Once set, `jobCredentialId` cannot be removed. Removing the credential will force a new resource to be created.
          * 
          * @return builder
          * 
@@ -286,7 +286,7 @@ public final class JobStepState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param jobCredentialId The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent&#39;s managed identity (user-assigned).
          * 
-         * !&gt; **Note:** Once set, `job_credential_id` cannot be removed. Removing the credential will force a new resource to be created.
+         * !&gt; **Note:** Once set, `jobCredentialId` cannot be removed. Removing the credential will force a new resource to be created.
          * 
          * @return builder
          * 
@@ -365,7 +365,7 @@ public final class JobStepState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param maximumRetryIntervalSeconds The maximum retry interval in seconds. Defaults to `120`.
          * 
-         * &gt; **Note:** `maximum_retry_interval_seconds` must be greater than `initial_retry_interval_seconds`.
+         * &gt; **Note:** `maximumRetryIntervalSeconds` must be greater than `initialRetryIntervalSeconds`.
          * 
          * @return builder
          * 
@@ -378,7 +378,7 @@ public final class JobStepState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param maximumRetryIntervalSeconds The maximum retry interval in seconds. Defaults to `120`.
          * 
-         * &gt; **Note:** `maximum_retry_interval_seconds` must be greater than `initial_retry_interval_seconds`.
+         * &gt; **Note:** `maximumRetryIntervalSeconds` must be greater than `initialRetryIntervalSeconds`.
          * 
          * @return builder
          * 
@@ -409,7 +409,7 @@ public final class JobStepState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param outputTarget An `output_target` block as defined below.
+         * @param outputTarget An `outputTarget` block as defined below.
          * 
          * @return builder
          * 
@@ -420,7 +420,7 @@ public final class JobStepState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param outputTarget An `output_target` block as defined below.
+         * @param outputTarget An `outputTarget` block as defined below.
          * 
          * @return builder
          * 

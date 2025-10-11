@@ -174,7 +174,7 @@ namespace Pulumi.Azure.AppConfiguration
         /// </summary>
         public readonly bool DataPlaneProxyPrivateLinkDelegationEnabled;
         /// <summary>
-        /// An `encryption` block as defined below.
+        /// An `Encryption` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetConfigurationStoreEncryptionResult> Encryptions;
         /// <summary>
@@ -186,7 +186,7 @@ namespace Pulumi.Azure.AppConfiguration
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetConfigurationStoreIdentityResult> Identities;
         /// <summary>
@@ -202,11 +202,11 @@ namespace Pulumi.Azure.AppConfiguration
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// A `primary_read_key` block as defined below containing the primary read access key.
+        /// A `PrimaryReadKey` block as defined below containing the primary read access key.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetConfigurationStorePrimaryReadKeyResult> PrimaryReadKeys;
         /// <summary>
-        /// A `primary_write_key` block as defined below containing the primary write access key.
+        /// A `PrimaryWriteKey` block as defined below containing the primary write access key.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetConfigurationStorePrimaryWriteKeyResult> PrimaryWriteKeys;
         /// <summary>
@@ -219,16 +219,16 @@ namespace Pulumi.Azure.AppConfiguration
         /// </summary>
         public readonly bool PurgeProtectionEnabled;
         /// <summary>
-        /// One or more `replica` blocks as defined below.
+        /// One or more `Replica` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetConfigurationStoreReplicaResult> Replicas;
         public readonly string ResourceGroupName;
         /// <summary>
-        /// A `secondary_read_key` block as defined below containing the secondary read access key.
+        /// A `SecondaryReadKey` block as defined below containing the secondary read access key.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetConfigurationStoreSecondaryReadKeyResult> SecondaryReadKeys;
         /// <summary>
-        /// A `secondary_write_key` block as defined below containing the secondary write access key.
+        /// A `SecondaryWriteKey` block as defined below containing the secondary write access key.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetConfigurationStoreSecondaryWriteKeyResult> SecondaryWriteKeys;
         /// <summary>

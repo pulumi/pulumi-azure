@@ -51,18 +51,18 @@ public final class HciLogicalNetworkSubnetArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * One or more `ip_pool` block as defined above. Changing this forces a new resource to be created.
+     * One or more `ipPool` block as defined above. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** If `ip_pool` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignore_changes`.
+     * &gt; **Note:** If `ipPool` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignoreChanges`.
      * 
      */
     @Import(name="ipPools")
     private @Nullable Output<List<HciLogicalNetworkSubnetIpPoolArgs>> ipPools;
 
     /**
-     * @return One or more `ip_pool` block as defined above. Changing this forces a new resource to be created.
+     * @return One or more `ipPool` block as defined above. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** If `ip_pool` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignore_changes`.
+     * &gt; **Note:** If `ipPool` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignoreChanges`.
      * 
      */
     public Optional<Output<List<HciLogicalNetworkSubnetIpPoolArgs>>> ipPools() {
@@ -170,9 +170,9 @@ public final class HciLogicalNetworkSubnetArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param ipPools One or more `ip_pool` block as defined above. Changing this forces a new resource to be created.
+         * @param ipPools One or more `ipPool` block as defined above. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** If `ip_pool` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignore_changes`.
+         * &gt; **Note:** If `ipPool` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignoreChanges`.
          * 
          * @return builder
          * 
@@ -183,9 +183,9 @@ public final class HciLogicalNetworkSubnetArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param ipPools One or more `ip_pool` block as defined above. Changing this forces a new resource to be created.
+         * @param ipPools One or more `ipPool` block as defined above. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** If `ip_pool` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignore_changes`.
+         * &gt; **Note:** If `ipPool` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignoreChanges`.
          * 
          * @return builder
          * 
@@ -195,9 +195,9 @@ public final class HciLogicalNetworkSubnetArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param ipPools One or more `ip_pool` block as defined above. Changing this forces a new resource to be created.
+         * @param ipPools One or more `ipPool` block as defined above. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** If `ip_pool` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignore_changes`.
+         * &gt; **Note:** If `ipPool` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignoreChanges`.
          * 
          * @return builder
          * 

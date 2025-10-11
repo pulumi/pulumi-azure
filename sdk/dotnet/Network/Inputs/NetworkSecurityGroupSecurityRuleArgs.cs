@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `destination_address_prefixes` is not specified.
+        /// CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `DestinationAddressPrefixes` is not specified.
         /// </summary>
         [Input("destinationAddressPrefix")]
         public Input<string>? DestinationAddressPrefix { get; set; }
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<string>? _destinationAddressPrefixes;
 
         /// <summary>
-        /// List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
+        /// List of destination address prefixes. Tags may not be used. This is required if `DestinationAddressPrefix` is not specified.
         /// </summary>
         public InputList<string> DestinationAddressPrefixes
         {
@@ -55,7 +55,7 @@ namespace Pulumi.Azure.Network.Inputs
         }
 
         /// <summary>
-        /// Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
+        /// Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `DestinationPortRanges` is not specified.
         /// </summary>
         [Input("destinationPortRange")]
         public Input<string>? DestinationPortRange { get; set; }
@@ -64,7 +64,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<string>? _destinationPortRanges;
 
         /// <summary>
-        /// List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
+        /// List of destination ports or port ranges. This is required if `DestinationPortRange` is not specified.
         /// </summary>
         public InputList<string> DestinationPortRanges
         {
@@ -97,7 +97,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string> Protocol { get; set; } = null!;
 
         /// <summary>
-        /// CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `source_address_prefixes` is not specified.
+        /// CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `SourceAddressPrefixes` is not specified.
         /// </summary>
         [Input("sourceAddressPrefix")]
         public Input<string>? SourceAddressPrefix { get; set; }
@@ -106,7 +106,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<string>? _sourceAddressPrefixes;
 
         /// <summary>
-        /// List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
+        /// List of source address prefixes. Tags may not be used. This is required if `SourceAddressPrefix` is not specified.
         /// </summary>
         public InputList<string> SourceAddressPrefixes
         {
@@ -127,7 +127,7 @@ namespace Pulumi.Azure.Network.Inputs
         }
 
         /// <summary>
-        /// Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
+        /// Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `SourcePortRanges` is not specified.
         /// </summary>
         [Input("sourcePortRange")]
         public Input<string>? SourcePortRange { get; set; }
@@ -136,7 +136,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<string>? _sourcePortRanges;
 
         /// <summary>
-        /// List of source ports or port ranges. This is required if `source_port_range` is not specified.
+        /// List of source ports or port ranges. This is required if `SourcePortRange` is not specified.
         /// </summary>
         public InputList<string> SourcePortRanges
         {

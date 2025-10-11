@@ -19,14 +19,14 @@ public final class RegistryWebookArgs extends com.pulumi.resources.ResourceArgs 
     public static final RegistryWebookArgs Empty = new RegistryWebookArgs();
 
     /**
-     * A list of actions that trigger the Webhook to post notifications. At least one action needs to be specified. Valid values are: `push`, `delete`, `quarantine`, `chart_push`, `chart_delete`
+     * A list of actions that trigger the Webhook to post notifications. At least one action needs to be specified. Valid values are: `push`, `delete`, `quarantine`, `chartPush`, `chartDelete`
      * 
      */
     @Import(name="actions", required=true)
     private Output<List<String>> actions;
 
     /**
-     * @return A list of actions that trigger the Webhook to post notifications. At least one action needs to be specified. Valid values are: `push`, `delete`, `quarantine`, `chart_push`, `chart_delete`
+     * @return A list of actions that trigger the Webhook to post notifications. At least one action needs to be specified. Valid values are: `push`, `delete`, `quarantine`, `chartPush`, `chartDelete`
      * 
      */
     public Output<List<String>> actions() {
@@ -202,7 +202,7 @@ public final class RegistryWebookArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param actions A list of actions that trigger the Webhook to post notifications. At least one action needs to be specified. Valid values are: `push`, `delete`, `quarantine`, `chart_push`, `chart_delete`
+         * @param actions A list of actions that trigger the Webhook to post notifications. At least one action needs to be specified. Valid values are: `push`, `delete`, `quarantine`, `chartPush`, `chartDelete`
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class RegistryWebookArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param actions A list of actions that trigger the Webhook to post notifications. At least one action needs to be specified. Valid values are: `push`, `delete`, `quarantine`, `chart_push`, `chart_delete`
+         * @param actions A list of actions that trigger the Webhook to post notifications. At least one action needs to be specified. Valid values are: `push`, `delete`, `quarantine`, `chartPush`, `chartDelete`
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class RegistryWebookArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param actions A list of actions that trigger the Webhook to post notifications. At least one action needs to be specified. Valid values are: `push`, `delete`, `quarantine`, `chart_push`, `chart_delete`
+         * @param actions A list of actions that trigger the Webhook to post notifications. At least one action needs to be specified. Valid values are: `push`, `delete`, `quarantine`, `chartPush`, `chartDelete`
          * 
          * @return builder
          * 

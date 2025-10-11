@@ -36,14 +36,14 @@ public final class TrafficManagerAzureEndpointState extends com.pulumi.resources
     }
 
     /**
-     * One or more `custom_header` blocks as defined below.
+     * One or more `customHeader` blocks as defined below.
      * 
      */
     @Import(name="customHeaders")
     private @Nullable Output<List<TrafficManagerAzureEndpointCustomHeaderArgs>> customHeaders;
 
     /**
-     * @return One or more `custom_header` blocks as defined below.
+     * @return One or more `customHeader` blocks as defined below.
      * 
      */
     public Optional<Output<List<TrafficManagerAzureEndpointCustomHeaderArgs>>> customHeaders() {
@@ -225,7 +225,7 @@ public final class TrafficManagerAzureEndpointState extends com.pulumi.resources
         }
 
         /**
-         * @param customHeaders One or more `custom_header` blocks as defined below.
+         * @param customHeaders One or more `customHeader` blocks as defined below.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class TrafficManagerAzureEndpointState extends com.pulumi.resources
         }
 
         /**
-         * @param customHeaders One or more `custom_header` blocks as defined below.
+         * @param customHeaders One or more `customHeader` blocks as defined below.
          * 
          * @return builder
          * 
@@ -246,7 +246,7 @@ public final class TrafficManagerAzureEndpointState extends com.pulumi.resources
         }
 
         /**
-         * @param customHeaders One or more `custom_header` blocks as defined below.
+         * @param customHeaders One or more `customHeader` blocks as defined below.
          * 
          * @return builder
          * 

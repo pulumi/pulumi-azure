@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Storage.Inputs
         private InputList<Inputs.AccountSharePropertiesCorsRuleArgs>? _corsRules;
 
         /// <summary>
-        /// A `cors_rule` block as defined below.
+        /// A `CorsRule` block as defined below.
         /// </summary>
         public InputList<Inputs.AccountSharePropertiesCorsRuleArgs> CorsRules
         {
@@ -25,13 +25,13 @@ namespace Pulumi.Azure.Storage.Inputs
         }
 
         /// <summary>
-        /// A `retention_policy` block as defined below.
+        /// A `RetentionPolicy` block as defined below.
         /// </summary>
         [Input("retentionPolicy")]
         public Input<Inputs.AccountSharePropertiesRetentionPolicyArgs>? RetentionPolicy { get; set; }
 
         /// <summary>
-        /// A `smb` block as defined below.
+        /// A `Smb` block as defined below.
         /// </summary>
         [Input("smb")]
         public Input<Inputs.AccountSharePropertiesSmbArgs>? Smb { get; set; }

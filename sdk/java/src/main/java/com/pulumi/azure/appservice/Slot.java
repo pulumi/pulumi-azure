@@ -29,7 +29,7 @@ import javax.annotation.Nullable;
  * 
  * !&gt; **NOTE:** This resource has been deprecated in version 5.0 of the provider and will be removed in version 6.0. Please use `azure.appservice.LinuxWebAppSlot` and `azure.appservice.WindowsWebAppSlot` resources instead.
  * 
- * &gt; **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `azure.appservice.AppService` resource will be overwritten when promoting a Slot using the `azure.appservice.ActiveSlot` resource.
+ * &gt; **Note:** When using Slots - the `appSettings`, `connectionString` and `siteConfig` blocks on the `azure.appservice.AppService` resource will be overwritten when promoting a Slot using the `azure.appservice.ActiveSlot` resource.
  * 
  * ## Example Usage
  * 
@@ -267,14 +267,14 @@ public class Slot extends com.pulumi.resources.CustomResource {
         return this.appSettings;
     }
     /**
-     * A `auth_settings` block as defined below.
+     * A `authSettings` block as defined below.
      * 
      */
     @Export(name="authSettings", refs={SlotAuthSettings.class}, tree="[0]")
     private Output<SlotAuthSettings> authSettings;
 
     /**
-     * @return A `auth_settings` block as defined below.
+     * @return A `authSettings` block as defined below.
      * 
      */
     public Output<SlotAuthSettings> authSettings() {
@@ -295,14 +295,14 @@ public class Slot extends com.pulumi.resources.CustomResource {
         return this.clientAffinityEnabled;
     }
     /**
-     * An `connection_string` block as defined below.
+     * An `connectionString` block as defined below.
      * 
      */
     @Export(name="connectionStrings", refs={List.class,SlotConnectionString.class}, tree="[0,1]")
     private Output<List<SlotConnectionString>> connectionStrings;
 
     /**
-     * @return An `connection_string` block as defined below.
+     * @return An `connectionString` block as defined below.
      * 
      */
     public Output<List<SlotConnectionString>> connectionStrings() {
@@ -435,42 +435,42 @@ public class Slot extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * A `site_config` object as defined below.
+     * A `siteConfig` object as defined below.
      * 
      */
     @Export(name="siteConfig", refs={SlotSiteConfig.class}, tree="[0]")
     private Output<SlotSiteConfig> siteConfig;
 
     /**
-     * @return A `site_config` object as defined below.
+     * @return A `siteConfig` object as defined below.
      * 
      */
     public Output<SlotSiteConfig> siteConfig() {
         return this.siteConfig;
     }
     /**
-     * A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service slot.
+     * A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service slot.
      * 
      */
     @Export(name="siteCredentials", refs={List.class,SlotSiteCredential.class}, tree="[0,1]")
     private Output<List<SlotSiteCredential>> siteCredentials;
 
     /**
-     * @return A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service slot.
+     * @return A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service slot.
      * 
      */
     public Output<List<SlotSiteCredential>> siteCredentials() {
         return this.siteCredentials;
     }
     /**
-     * One or more `storage_account` blocks as defined below.
+     * One or more `storageAccount` blocks as defined below.
      * 
      */
     @Export(name="storageAccounts", refs={List.class,SlotStorageAccount.class}, tree="[0,1]")
     private Output<List<SlotStorageAccount>> storageAccounts;
 
     /**
-     * @return One or more `storage_account` blocks as defined below.
+     * @return One or more `storageAccount` blocks as defined below.
      * 
      */
     public Output<List<SlotStorageAccount>> storageAccounts() {

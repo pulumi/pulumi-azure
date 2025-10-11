@@ -12,7 +12,16 @@ namespace Pulumi.Azure.KeyVault
     /// <summary>
     /// Manages a Key Vault Managed Hardware Security Module Key.
     /// 
-    /// &gt; **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Managed Hardware Security Module Key resource on destroy, rather than the default soft-delete. See `purge_soft_deleted_hardware_security_modules_on_destroy` for more information.
+    /// &gt; **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Managed Hardware Security Module Key resource on destroy, rather than the default soft-delete. See `PurgeSoftDeletedHardwareSecurityModulesOnDestroy` for more information.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.KeyVault` - 2023-07-01
     /// 
     /// ## Import
     /// 
@@ -26,7 +35,7 @@ namespace Pulumi.Azure.KeyVault
     public partial class ManagedHardwareSecurityModuleKey : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the curve to use when creating an `EC-HSM` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field is required if `key_type` is `EC-HSM`. Changing this forces a new resource to be created.
+        /// Specifies the curve to use when creating an `EC-HSM` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field is required if `KeyType` is `EC-HSM`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("curve")]
         public Output<string?> Curve { get; private set; } = null!;
@@ -38,13 +47,13 @@ namespace Pulumi.Azure.KeyVault
         public Output<string?> ExpirationDate { get; private set; } = null!;
 
         /// <summary>
-        /// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify`, `wrapKey` and `import`. Please note these values are case-sensitive.
+        /// A list of JSON web key operations. Possible values include: `Decrypt`, `Encrypt`, `Sign`, `unwrapKey`, `Verify`, `wrapKey` and `Import`. Please note these values are case-sensitive.
         /// </summary>
         [Output("keyOpts")]
         public Output<ImmutableArray<string>> KeyOpts { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA-HSM` or `oct-HSM`. Changing this forces a new resource to be created.
+        /// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `KeyType` is `RSA-HSM` or `oct-HSM`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("keySize")]
         public Output<int?> KeySize { get; private set; } = null!;
@@ -70,7 +79,7 @@ namespace Pulumi.Azure.KeyVault
         /// <summary>
         /// Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
         /// 
-        /// &gt; **Note:** Once `expiration_date` is set, it's not possible to unset the key even if it is deleted &amp; recreated as underlying Azure API uses the restore of the purged key.
+        /// &gt; **Note:** Once `ExpirationDate` is set, it's not possible to unset the key even if it is deleted &amp; recreated as underlying Azure API uses the restore of the purged key.
         /// </summary>
         [Output("notBeforeDate")]
         public Output<string?> NotBeforeDate { get; private set; } = null!;
@@ -134,7 +143,7 @@ namespace Pulumi.Azure.KeyVault
     public sealed class ManagedHardwareSecurityModuleKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the curve to use when creating an `EC-HSM` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field is required if `key_type` is `EC-HSM`. Changing this forces a new resource to be created.
+        /// Specifies the curve to use when creating an `EC-HSM` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field is required if `KeyType` is `EC-HSM`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("curve")]
         public Input<string>? Curve { get; set; }
@@ -149,7 +158,7 @@ namespace Pulumi.Azure.KeyVault
         private InputList<string>? _keyOpts;
 
         /// <summary>
-        /// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify`, `wrapKey` and `import`. Please note these values are case-sensitive.
+        /// A list of JSON web key operations. Possible values include: `Decrypt`, `Encrypt`, `Sign`, `unwrapKey`, `Verify`, `wrapKey` and `Import`. Please note these values are case-sensitive.
         /// </summary>
         public InputList<string> KeyOpts
         {
@@ -158,7 +167,7 @@ namespace Pulumi.Azure.KeyVault
         }
 
         /// <summary>
-        /// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA-HSM` or `oct-HSM`. Changing this forces a new resource to be created.
+        /// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `KeyType` is `RSA-HSM` or `oct-HSM`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("keySize")]
         public Input<int>? KeySize { get; set; }
@@ -184,7 +193,7 @@ namespace Pulumi.Azure.KeyVault
         /// <summary>
         /// Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
         /// 
-        /// &gt; **Note:** Once `expiration_date` is set, it's not possible to unset the key even if it is deleted &amp; recreated as underlying Azure API uses the restore of the purged key.
+        /// &gt; **Note:** Once `ExpirationDate` is set, it's not possible to unset the key even if it is deleted &amp; recreated as underlying Azure API uses the restore of the purged key.
         /// </summary>
         [Input("notBeforeDate")]
         public Input<string>? NotBeforeDate { get; set; }
@@ -210,7 +219,7 @@ namespace Pulumi.Azure.KeyVault
     public sealed class ManagedHardwareSecurityModuleKeyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the curve to use when creating an `EC-HSM` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field is required if `key_type` is `EC-HSM`. Changing this forces a new resource to be created.
+        /// Specifies the curve to use when creating an `EC-HSM` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field is required if `KeyType` is `EC-HSM`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("curve")]
         public Input<string>? Curve { get; set; }
@@ -225,7 +234,7 @@ namespace Pulumi.Azure.KeyVault
         private InputList<string>? _keyOpts;
 
         /// <summary>
-        /// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify`, `wrapKey` and `import`. Please note these values are case-sensitive.
+        /// A list of JSON web key operations. Possible values include: `Decrypt`, `Encrypt`, `Sign`, `unwrapKey`, `Verify`, `wrapKey` and `Import`. Please note these values are case-sensitive.
         /// </summary>
         public InputList<string> KeyOpts
         {
@@ -234,7 +243,7 @@ namespace Pulumi.Azure.KeyVault
         }
 
         /// <summary>
-        /// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA-HSM` or `oct-HSM`. Changing this forces a new resource to be created.
+        /// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `KeyType` is `RSA-HSM` or `oct-HSM`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("keySize")]
         public Input<int>? KeySize { get; set; }
@@ -260,7 +269,7 @@ namespace Pulumi.Azure.KeyVault
         /// <summary>
         /// Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
         /// 
-        /// &gt; **Note:** Once `expiration_date` is set, it's not possible to unset the key even if it is deleted &amp; recreated as underlying Azure API uses the restore of the purged key.
+        /// &gt; **Note:** Once `ExpirationDate` is set, it's not possible to unset the key even if it is deleted &amp; recreated as underlying Azure API uses the restore of the purged key.
         /// </summary>
         [Input("notBeforeDate")]
         public Input<string>? NotBeforeDate { get; set; }

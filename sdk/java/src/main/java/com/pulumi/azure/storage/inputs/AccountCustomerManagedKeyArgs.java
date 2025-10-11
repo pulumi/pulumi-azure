@@ -17,14 +17,14 @@ public final class AccountCustomerManagedKeyArgs extends com.pulumi.resources.Re
     public static final AccountCustomerManagedKeyArgs Empty = new AccountCustomerManagedKeyArgs();
 
     /**
-     * The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. Exactly one of `key_vault_key_id` and `managed_hsm_key_id` may be specified.
+     * The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. Exactly one of `keyVaultKeyId` and `managedHsmKeyId` may be specified.
      * 
      */
     @Import(name="keyVaultKeyId")
     private @Nullable Output<String> keyVaultKeyId;
 
     /**
-     * @return The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. Exactly one of `key_vault_key_id` and `managed_hsm_key_id` may be specified.
+     * @return The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. Exactly one of `keyVaultKeyId` and `managedHsmKeyId` may be specified.
      * 
      */
     public Optional<Output<String>> keyVaultKeyId() {
@@ -32,14 +32,14 @@ public final class AccountCustomerManagedKeyArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The ID of the managed HSM Key. Exactly one of `key_vault_key_id` and `managed_hsm_key_id` may be specified.
+     * The ID of the managed HSM Key. Exactly one of `keyVaultKeyId` and `managedHsmKeyId` may be specified.
      * 
      */
     @Import(name="managedHsmKeyId")
     private @Nullable Output<String> managedHsmKeyId;
 
     /**
-     * @return The ID of the managed HSM Key. Exactly one of `key_vault_key_id` and `managed_hsm_key_id` may be specified.
+     * @return The ID of the managed HSM Key. Exactly one of `keyVaultKeyId` and `managedHsmKeyId` may be specified.
      * 
      */
     public Optional<Output<String>> managedHsmKeyId() {
@@ -49,7 +49,7 @@ public final class AccountCustomerManagedKeyArgs extends com.pulumi.resources.Re
     /**
      * The ID of a user assigned identity.
      * 
-     * &gt; **Note:** `customer_managed_key` can only be set when the `account_kind` is set to `StorageV2` or `account_tier` set to `Premium`, and the identity type is `UserAssigned`.
+     * &gt; **Note:** `customerManagedKey` can only be set when the `accountKind` is set to `StorageV2` or `accountTier` set to `Premium`, and the identity type is `UserAssigned`.
      * 
      */
     @Import(name="userAssignedIdentityId", required=true)
@@ -58,7 +58,7 @@ public final class AccountCustomerManagedKeyArgs extends com.pulumi.resources.Re
     /**
      * @return The ID of a user assigned identity.
      * 
-     * &gt; **Note:** `customer_managed_key` can only be set when the `account_kind` is set to `StorageV2` or `account_tier` set to `Premium`, and the identity type is `UserAssigned`.
+     * &gt; **Note:** `customerManagedKey` can only be set when the `accountKind` is set to `StorageV2` or `accountTier` set to `Premium`, and the identity type is `UserAssigned`.
      * 
      */
     public Output<String> userAssignedIdentityId() {
@@ -92,7 +92,7 @@ public final class AccountCustomerManagedKeyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param keyVaultKeyId The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. Exactly one of `key_vault_key_id` and `managed_hsm_key_id` may be specified.
+         * @param keyVaultKeyId The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. Exactly one of `keyVaultKeyId` and `managedHsmKeyId` may be specified.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class AccountCustomerManagedKeyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param keyVaultKeyId The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. Exactly one of `key_vault_key_id` and `managed_hsm_key_id` may be specified.
+         * @param keyVaultKeyId The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. Exactly one of `keyVaultKeyId` and `managedHsmKeyId` may be specified.
          * 
          * @return builder
          * 
@@ -113,7 +113,7 @@ public final class AccountCustomerManagedKeyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param managedHsmKeyId The ID of the managed HSM Key. Exactly one of `key_vault_key_id` and `managed_hsm_key_id` may be specified.
+         * @param managedHsmKeyId The ID of the managed HSM Key. Exactly one of `keyVaultKeyId` and `managedHsmKeyId` may be specified.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class AccountCustomerManagedKeyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param managedHsmKeyId The ID of the managed HSM Key. Exactly one of `key_vault_key_id` and `managed_hsm_key_id` may be specified.
+         * @param managedHsmKeyId The ID of the managed HSM Key. Exactly one of `keyVaultKeyId` and `managedHsmKeyId` may be specified.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class AccountCustomerManagedKeyArgs extends com.pulumi.resources.Re
         /**
          * @param userAssignedIdentityId The ID of a user assigned identity.
          * 
-         * &gt; **Note:** `customer_managed_key` can only be set when the `account_kind` is set to `StorageV2` or `account_tier` set to `Premium`, and the identity type is `UserAssigned`.
+         * &gt; **Note:** `customerManagedKey` can only be set when the `accountKind` is set to `StorageV2` or `accountTier` set to `Premium`, and the identity type is `UserAssigned`.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class AccountCustomerManagedKeyArgs extends com.pulumi.resources.Re
         /**
          * @param userAssignedIdentityId The ID of a user assigned identity.
          * 
-         * &gt; **Note:** `customer_managed_key` can only be set when the `account_kind` is set to `StorageV2` or `account_tier` set to `Premium`, and the identity type is `UserAssigned`.
+         * &gt; **Note:** `customerManagedKey` can only be set when the `accountKind` is set to `StorageV2` or `accountTier` set to `Premium`, and the identity type is `UserAssigned`.
          * 
          * @return builder
          * 

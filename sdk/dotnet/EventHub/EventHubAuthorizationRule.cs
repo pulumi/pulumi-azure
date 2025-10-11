@@ -90,13 +90,13 @@ namespace Pulumi.Azure.EventHub
         public Output<string> EventhubName { get; private set; } = null!;
 
         /// <summary>
-        /// Does this Authorization Rule have permissions to Listen to the Event Hub? Defaults to `false`.
+        /// Does this Authorization Rule have permissions to Listen to the Event Hub? Defaults to `False`.
         /// </summary>
         [Output("listen")]
         public Output<bool?> Listen { get; private set; } = null!;
 
         /// <summary>
-        /// Does this Authorization Rule have permissions to Manage to the Event Hub? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+        /// Does this Authorization Rule have permissions to Manage to the Event Hub? When this property is `True` - both `Listen` and `Send` must be too. Defaults to `False`.
         /// </summary>
         [Output("manage")]
         public Output<bool?> Manage { get; private set; } = null!;
@@ -158,7 +158,7 @@ namespace Pulumi.Azure.EventHub
         public Output<string> SecondaryKey { get; private set; } = null!;
 
         /// <summary>
-        /// Does this Authorization Rule have permissions to Send to the Event Hub? Defaults to `false`.
+        /// Does this Authorization Rule have permissions to Send to the Event Hub? Defaults to `False`.
         /// </summary>
         [Output("send")]
         public Output<bool?> Send { get; private set; } = null!;
@@ -225,13 +225,13 @@ namespace Pulumi.Azure.EventHub
         public Input<string> EventhubName { get; set; } = null!;
 
         /// <summary>
-        /// Does this Authorization Rule have permissions to Listen to the Event Hub? Defaults to `false`.
+        /// Does this Authorization Rule have permissions to Listen to the Event Hub? Defaults to `False`.
         /// </summary>
         [Input("listen")]
         public Input<bool>? Listen { get; set; }
 
         /// <summary>
-        /// Does this Authorization Rule have permissions to Manage to the Event Hub? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+        /// Does this Authorization Rule have permissions to Manage to the Event Hub? When this property is `True` - both `Listen` and `Send` must be too. Defaults to `False`.
         /// </summary>
         [Input("manage")]
         public Input<bool>? Manage { get; set; }
@@ -257,7 +257,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Does this Authorization Rule have permissions to Send to the Event Hub? Defaults to `false`.
+        /// Does this Authorization Rule have permissions to Send to the Event Hub? Defaults to `False`.
         /// </summary>
         [Input("send")]
         public Input<bool>? Send { get; set; }
@@ -277,13 +277,13 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? EventhubName { get; set; }
 
         /// <summary>
-        /// Does this Authorization Rule have permissions to Listen to the Event Hub? Defaults to `false`.
+        /// Does this Authorization Rule have permissions to Listen to the Event Hub? Defaults to `False`.
         /// </summary>
         [Input("listen")]
         public Input<bool>? Listen { get; set; }
 
         /// <summary>
-        /// Does this Authorization Rule have permissions to Manage to the Event Hub? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+        /// Does this Authorization Rule have permissions to Manage to the Event Hub? When this property is `True` - both `Listen` and `Send` must be too. Defaults to `False`.
         /// </summary>
         [Input("manage")]
         public Input<bool>? Manage { get; set; }
@@ -405,7 +405,7 @@ namespace Pulumi.Azure.EventHub
         }
 
         /// <summary>
-        /// Does this Authorization Rule have permissions to Send to the Event Hub? Defaults to `false`.
+        /// Does this Authorization Rule have permissions to Send to the Event Hub? Defaults to `False`.
         /// </summary>
         [Input("send")]
         public Input<bool>? Send { get; set; }

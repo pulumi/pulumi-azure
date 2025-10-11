@@ -49,14 +49,14 @@ public final class AaaaRecordState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of IPv6 Addresses. Conflicts with `target_resource_id`.
+     * List of IPv6 Addresses. Conflicts with `targetResourceId`.
      * 
      */
     @Import(name="records")
     private @Nullable Output<List<String>> records;
 
     /**
-     * @return List of IPv6 Addresses. Conflicts with `target_resource_id`.
+     * @return List of IPv6 Addresses. Conflicts with `targetResourceId`.
      * 
      */
     public Optional<Output<List<String>>> records() {
@@ -81,7 +81,7 @@ public final class AaaaRecordState extends com.pulumi.resources.ResourceArgs {
     /**
      * A mapping of tags to assign to the resource.
      * 
-     * &gt; **Note:** either `records` OR `target_resource_id` must be specified, but not both.
+     * &gt; **Note:** either `records` OR `targetResourceId` must be specified, but not both.
      * 
      */
     @Import(name="tags")
@@ -90,7 +90,7 @@ public final class AaaaRecordState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return A mapping of tags to assign to the resource.
      * 
-     * &gt; **Note:** either `records` OR `target_resource_id` must be specified, but not both.
+     * &gt; **Note:** either `records` OR `targetResourceId` must be specified, but not both.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -216,7 +216,7 @@ public final class AaaaRecordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param records List of IPv6 Addresses. Conflicts with `target_resource_id`.
+         * @param records List of IPv6 Addresses. Conflicts with `targetResourceId`.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class AaaaRecordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param records List of IPv6 Addresses. Conflicts with `target_resource_id`.
+         * @param records List of IPv6 Addresses. Conflicts with `targetResourceId`.
          * 
          * @return builder
          * 
@@ -237,7 +237,7 @@ public final class AaaaRecordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param records List of IPv6 Addresses. Conflicts with `target_resource_id`.
+         * @param records List of IPv6 Addresses. Conflicts with `targetResourceId`.
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class AaaaRecordState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tags A mapping of tags to assign to the resource.
          * 
-         * &gt; **Note:** either `records` OR `target_resource_id` must be specified, but not both.
+         * &gt; **Note:** either `records` OR `targetResourceId` must be specified, but not both.
          * 
          * @return builder
          * 
@@ -283,7 +283,7 @@ public final class AaaaRecordState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tags A mapping of tags to assign to the resource.
          * 
-         * &gt; **Note:** either `records` OR `target_resource_id` must be specified, but not both.
+         * &gt; **Note:** either `records` OR `targetResourceId` must be specified, but not both.
          * 
          * @return builder
          * 

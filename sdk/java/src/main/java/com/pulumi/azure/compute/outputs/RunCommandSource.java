@@ -16,7 +16,7 @@ public final class RunCommandSource {
     private @Nullable String script;
     private @Nullable String scriptUri;
     /**
-     * @return A `script_uri_managed_identity` block as defined above.
+     * @return A `scriptUriManagedIdentity` block as defined above.
      * 
      */
     private @Nullable RunCommandSourceScriptUriManagedIdentity scriptUriManagedIdentity;
@@ -32,7 +32,7 @@ public final class RunCommandSource {
         return Optional.ofNullable(this.scriptUri);
     }
     /**
-     * @return A `script_uri_managed_identity` block as defined above.
+     * @return A `scriptUriManagedIdentity` block as defined above.
      * 
      */
     public Optional<RunCommandSourceScriptUriManagedIdentity> scriptUriManagedIdentity() {

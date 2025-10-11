@@ -67,7 +67,7 @@ namespace Pulumi.Azure.DigitalTwins
         public Output<string> HostName { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.InstanceIdentity?> Identity { get; private set; } = null!;
@@ -143,7 +143,7 @@ namespace Pulumi.Azure.DigitalTwins
     public sealed class InstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.InstanceIdentityArgs>? Identity { get; set; }
@@ -193,7 +193,7 @@ namespace Pulumi.Azure.DigitalTwins
         public Input<string>? HostName { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.InstanceIdentityGetArgs>? Identity { get; set; }

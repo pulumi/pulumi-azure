@@ -20,14 +20,14 @@ public final class VirtualMachineOsProfileWindowsConfigArgs extends com.pulumi.r
     public static final VirtualMachineOsProfileWindowsConfigArgs Empty = new VirtualMachineOsProfileWindowsConfigArgs();
 
     /**
-     * An `additional_unattend_config` block as defined below.
+     * An `additionalUnattendConfig` block as defined below.
      * 
      */
     @Import(name="additionalUnattendConfigs")
     private @Nullable Output<List<VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArgs>> additionalUnattendConfigs;
 
     /**
-     * @return An `additional_unattend_config` block as defined below.
+     * @return An `additionalUnattendConfig` block as defined below.
      * 
      */
     public Optional<Output<List<VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArgs>>> additionalUnattendConfigs() {
@@ -127,7 +127,7 @@ public final class VirtualMachineOsProfileWindowsConfigArgs extends com.pulumi.r
         }
 
         /**
-         * @param additionalUnattendConfigs An `additional_unattend_config` block as defined below.
+         * @param additionalUnattendConfigs An `additionalUnattendConfig` block as defined below.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class VirtualMachineOsProfileWindowsConfigArgs extends com.pulumi.r
         }
 
         /**
-         * @param additionalUnattendConfigs An `additional_unattend_config` block as defined below.
+         * @param additionalUnattendConfigs An `additionalUnattendConfig` block as defined below.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class VirtualMachineOsProfileWindowsConfigArgs extends com.pulumi.r
         }
 
         /**
-         * @param additionalUnattendConfigs An `additional_unattend_config` block as defined below.
+         * @param additionalUnattendConfigs An `additionalUnattendConfig` block as defined below.
          * 
          * @return builder
          * 

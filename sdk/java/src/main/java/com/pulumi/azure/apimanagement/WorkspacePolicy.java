@@ -132,7 +132,7 @@ public class WorkspacePolicy extends com.pulumi.resources.CustomResource {
     /**
      * Specifies a publicly accessible URL to a policy XML document.
      * 
-     * &gt; **Note:** Exactly one of `xml_content` or `xml_link` must be specified.
+     * &gt; **Note:** Exactly one of `xmlContent` or `xmlLink` must be specified.
      * 
      */
     @Export(name="xmlLink", refs={String.class}, tree="[0]")
@@ -141,7 +141,7 @@ public class WorkspacePolicy extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies a publicly accessible URL to a policy XML document.
      * 
-     * &gt; **Note:** Exactly one of `xml_content` or `xml_link` must be specified.
+     * &gt; **Note:** Exactly one of `xmlContent` or `xmlLink` must be specified.
      * 
      */
     public Output<Optional<String>> xmlLink() {

@@ -24,7 +24,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// <summary>
         /// The value for this environment variable.
         /// 
-        /// &gt; **Note:** This value is ignored if `secret_name` is used
+        /// &gt; **Note:** This value is ignored if `SecretName` is used
         /// </summary>
         public readonly string? Value;
 

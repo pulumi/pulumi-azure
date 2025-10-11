@@ -13,7 +13,7 @@ namespace Pulumi.Azure.ElasticCloud.Inputs
     public sealed class ElasticsearchLogsFilteringTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the type of action which should be taken when the Tag matches the `name` and `value`. Possible values are `Exclude` and `Include`.
+        /// Specifies the type of action which should be taken when the Tag matches the `Name` and `Value`. Possible values are `Exclude` and `Include`.
         /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;

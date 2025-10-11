@@ -65,14 +65,14 @@ public final class HciDeploymentSettingScaleUnitHostNetworkArgs extends com.pulu
     }
 
     /**
-     * One or more `storage_network` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+     * One or more `storageNetwork` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
      * 
      */
     @Import(name="storageNetworks", required=true)
     private Output<List<HciDeploymentSettingScaleUnitHostNetworkStorageNetworkArgs>> storageNetworks;
 
     /**
-     * @return One or more `storage_network` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+     * @return One or more `storageNetwork` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
      * 
      */
     public Output<List<HciDeploymentSettingScaleUnitHostNetworkStorageNetworkArgs>> storageNetworks() {
@@ -180,7 +180,7 @@ public final class HciDeploymentSettingScaleUnitHostNetworkArgs extends com.pulu
         }
 
         /**
-         * @param storageNetworks One or more `storage_network` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+         * @param storageNetworks One or more `storageNetwork` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class HciDeploymentSettingScaleUnitHostNetworkArgs extends com.pulu
         }
 
         /**
-         * @param storageNetworks One or more `storage_network` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+         * @param storageNetworks One or more `storageNetwork` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class HciDeploymentSettingScaleUnitHostNetworkArgs extends com.pulu
         }
 
         /**
-         * @param storageNetworks One or more `storage_network` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+         * @param storageNetworks One or more `storageNetwork` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
          * 
          * @return builder
          * 

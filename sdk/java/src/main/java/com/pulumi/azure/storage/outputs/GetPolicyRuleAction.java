@@ -14,7 +14,7 @@ import java.util.Objects;
 @CustomType
 public final class GetPolicyRuleAction {
     /**
-     * @return A `base_blob` block as documented below.
+     * @return A `baseBlob` block as documented below.
      * 
      */
     private List<GetPolicyRuleActionBaseBlob> baseBlobs;
@@ -31,7 +31,7 @@ public final class GetPolicyRuleAction {
 
     private GetPolicyRuleAction() {}
     /**
-     * @return A `base_blob` block as documented below.
+     * @return A `baseBlob` block as documented below.
      * 
      */
     public List<GetPolicyRuleActionBaseBlob> baseBlobs() {

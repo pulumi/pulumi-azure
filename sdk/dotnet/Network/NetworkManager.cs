@@ -76,7 +76,7 @@ namespace Pulumi.Azure.Network
     public partial class NetworkManager : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// One or more `cross_tenant_scopes` blocks as defined below.
+        /// One or more `CrossTenantScopes` blocks as defined below.
         /// </summary>
         [Output("crossTenantScopes")]
         public Output<ImmutableArray<Outputs.NetworkManagerCrossTenantScope>> CrossTenantScopes { get; private set; } = null!;
@@ -106,7 +106,7 @@ namespace Pulumi.Azure.Network
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `scope` block as defined below.
+        /// A `Scope` block as defined below.
         /// </summary>
         [Output("scope")]
         public Output<Outputs.NetworkManagerScope> Scope { get; private set; } = null!;
@@ -194,7 +194,7 @@ namespace Pulumi.Azure.Network
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `scope` block as defined below.
+        /// A `Scope` block as defined below.
         /// </summary>
         [Input("scope", required: true)]
         public Input<Inputs.NetworkManagerScopeArgs> Scope { get; set; } = null!;
@@ -235,7 +235,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.NetworkManagerCrossTenantScopeGetArgs>? _crossTenantScopes;
 
         /// <summary>
-        /// One or more `cross_tenant_scopes` blocks as defined below.
+        /// One or more `CrossTenantScopes` blocks as defined below.
         /// </summary>
         public InputList<Inputs.NetworkManagerCrossTenantScopeGetArgs> CrossTenantScopes
         {
@@ -268,7 +268,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// A `scope` block as defined below.
+        /// A `Scope` block as defined below.
         /// </summary>
         [Input("scope")]
         public Input<Inputs.NetworkManagerScopeGetArgs>? Scope { get; set; }

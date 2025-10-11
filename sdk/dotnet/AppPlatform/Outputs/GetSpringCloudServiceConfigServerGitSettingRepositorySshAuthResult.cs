@@ -26,7 +26,7 @@ namespace Pulumi.Azure.AppPlatform.Outputs
         /// </summary>
         public readonly string PrivateKey;
         /// <summary>
-        /// Indicates whether the Config Server instance will fail to start if the host_key does not match.
+        /// Indicates whether the Config Server instance will fail to start if the HostKey does not match.
         /// </summary>
         public readonly bool StrictHostKeyCheckingEnabled;
 

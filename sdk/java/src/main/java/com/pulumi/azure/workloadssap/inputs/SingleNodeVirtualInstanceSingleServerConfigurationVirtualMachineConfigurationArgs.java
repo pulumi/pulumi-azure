@@ -32,14 +32,14 @@ public final class SingleNodeVirtualInstanceSingleServerConfigurationVirtualMach
     }
 
     /**
-     * An `os_profile` block as defined below. Changing this forces a new resource to be created.
+     * An `osProfile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="osProfile", required=true)
     private Output<SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationOsProfileArgs> osProfile;
 
     /**
-     * @return An `os_profile` block as defined below. Changing this forces a new resource to be created.
+     * @return An `osProfile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationOsProfileArgs> osProfile() {
@@ -109,7 +109,7 @@ public final class SingleNodeVirtualInstanceSingleServerConfigurationVirtualMach
         }
 
         /**
-         * @param osProfile An `os_profile` block as defined below. Changing this forces a new resource to be created.
+         * @param osProfile An `osProfile` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class SingleNodeVirtualInstanceSingleServerConfigurationVirtualMach
         }
 
         /**
-         * @param osProfile An `os_profile` block as defined below. Changing this forces a new resource to be created.
+         * @param osProfile An `osProfile` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

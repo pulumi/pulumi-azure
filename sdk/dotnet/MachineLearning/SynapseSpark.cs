@@ -144,13 +144,13 @@ namespace Pulumi.Azure.MachineLearning
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
+        /// An `Identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.SynapseSparkIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Synapse Spark to be created.
+        /// Whether local authentication methods is enabled. Defaults to `True`. Changing this forces a new Machine Learning Synapse Spark to be created.
         /// </summary>
         [Output("localAuthEnabled")]
         public Output<bool?> LocalAuthEnabled { get; private set; } = null!;
@@ -238,13 +238,13 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
+        /// An `Identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.SynapseSparkIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Synapse Spark to be created.
+        /// Whether local authentication methods is enabled. Defaults to `True`. Changing this forces a new Machine Learning Synapse Spark to be created.
         /// </summary>
         [Input("localAuthEnabled")]
         public Input<bool>? LocalAuthEnabled { get; set; }
@@ -300,13 +300,13 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
+        /// An `Identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.SynapseSparkIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Synapse Spark to be created.
+        /// Whether local authentication methods is enabled. Defaults to `True`. Changing this forces a new Machine Learning Synapse Spark to be created.
         /// </summary>
         [Input("localAuthEnabled")]
         public Input<bool>? LocalAuthEnabled { get; set; }

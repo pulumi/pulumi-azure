@@ -20,11 +20,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// <summary>
         /// The User Name to use for authentication against the registry to pull the image.
         /// 
-        /// &gt; **Note:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+        /// &gt; **Note:** `DockerRegistryUrl`, `DockerRegistryUsername`, and `DockerRegistryPassword` replace the use of the `AppSettings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `AppSettings` map.
         /// </summary>
         public readonly string? DockerRegistryPassword;
         /// <summary>
-        /// The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
+        /// The URL of the container registry where the `DockerImageName` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `DockerImageName`.
         /// </summary>
         public readonly string? DockerRegistryUrl;
         /// <summary>
@@ -46,17 +46,17 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? JavaServer;
         /// <summary>
-        /// The Version of the `java_server` to use.
+        /// The Version of the `JavaServer` to use.
         /// </summary>
         public readonly string? JavaServerVersion;
         /// <summary>
         /// The Version of Java to use. Possible values include `8`, `11`, and `17`.
         /// 
-        /// &gt; **Note:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
+        /// &gt; **Note:** The valid version combinations for `JavaVersion`, `JavaServer` and `JavaServerVersion` can be checked from the command line via `az webapp list-runtimes --os-type linux`.
         /// </summary>
         public readonly string? JavaVersion;
         /// <summary>
-        /// The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts` and `22-lts`. This property conflicts with `java_version`.
+        /// The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts` and `22-lts`. This property conflicts with `JavaVersion`.
         /// 
         /// &gt; **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
         /// </summary>

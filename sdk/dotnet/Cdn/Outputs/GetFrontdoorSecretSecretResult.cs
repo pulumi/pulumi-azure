@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Cdn.Outputs
     public sealed class GetFrontdoorSecretSecretResult
     {
         /// <summary>
-        /// A `customer_certificate` block as defined below.
+        /// A `CustomerCertificate` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFrontdoorSecretSecretCustomerCertificateResult> CustomerCertificates;
 

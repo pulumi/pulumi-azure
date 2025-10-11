@@ -18,14 +18,14 @@ public final class PolicyManagedRulesExclusionArgs extends com.pulumi.resources.
     public static final PolicyManagedRulesExclusionArgs Empty = new PolicyManagedRulesExclusionArgs();
 
     /**
-     * One or more `excluded_rule_set` block defined below.
+     * One or more `excludedRuleSet` block defined below.
      * 
      */
     @Import(name="excludedRuleSet")
     private @Nullable Output<PolicyManagedRulesExclusionExcludedRuleSetArgs> excludedRuleSet;
 
     /**
-     * @return One or more `excluded_rule_set` block defined below.
+     * @return One or more `excludedRuleSet` block defined below.
      * 
      */
     public Optional<Output<PolicyManagedRulesExclusionExcludedRuleSetArgs>> excludedRuleSet() {
@@ -105,7 +105,7 @@ public final class PolicyManagedRulesExclusionArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param excludedRuleSet One or more `excluded_rule_set` block defined below.
+         * @param excludedRuleSet One or more `excludedRuleSet` block defined below.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class PolicyManagedRulesExclusionArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param excludedRuleSet One or more `excluded_rule_set` block defined below.
+         * @param excludedRuleSet One or more `excludedRuleSet` block defined below.
          * 
          * @return builder
          * 

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.SiteRecovery.Outputs
     public sealed class VmwareReplicatedVmNetworkInterface
     {
         /// <summary>
-        /// Whether this `network_interface` is primary for the replicated VM.
+        /// Whether this `NetworkInterface` is primary for the replicated VM.
         /// </summary>
         public readonly bool IsPrimary;
         /// <summary>

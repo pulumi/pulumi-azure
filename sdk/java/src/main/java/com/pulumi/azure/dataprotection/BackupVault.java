@@ -86,7 +86,7 @@ public class BackupVault extends com.pulumi.resources.CustomResource {
     /**
      * Whether to enable cross-region restore for the Backup Vault.
      * 
-     * &gt; **Note:** The `cross_region_restore_enabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `cross_region_restore_enabled` is enabled, it cannot be disabled.
+     * &gt; **Note:** The `crossRegionRestoreEnabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `crossRegionRestoreEnabled` is enabled, it cannot be disabled.
      * 
      */
     @Export(name="crossRegionRestoreEnabled", refs={Boolean.class}, tree="[0]")
@@ -95,7 +95,7 @@ public class BackupVault extends com.pulumi.resources.CustomResource {
     /**
      * @return Whether to enable cross-region restore for the Backup Vault.
      * 
-     * &gt; **Note:** The `cross_region_restore_enabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `cross_region_restore_enabled` is enabled, it cannot be disabled.
+     * &gt; **Note:** The `crossRegionRestoreEnabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `crossRegionRestoreEnabled` is enabled, it cannot be disabled.
      * 
      */
     public Output<Optional<Boolean>> crossRegionRestoreEnabled() {
@@ -206,7 +206,7 @@ public class BackupVault extends com.pulumi.resources.CustomResource {
     /**
      * The soft delete retention duration for this Backup Vault. Possible values are between `14` and `180`. Defaults to `14`.
      * 
-     * &gt; **Note:** The `retention_duration_in_days` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retention_duration_in_days` is required when the `soft_delete` is set to `On`.
+     * &gt; **Note:** The `retentionDurationInDays` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retentionDurationInDays` is required when the `softDelete` is set to `On`.
      * 
      */
     @Export(name="retentionDurationInDays", refs={Double.class}, tree="[0]")
@@ -215,7 +215,7 @@ public class BackupVault extends com.pulumi.resources.CustomResource {
     /**
      * @return The soft delete retention duration for this Backup Vault. Possible values are between `14` and `180`. Defaults to `14`.
      * 
-     * &gt; **Note:** The `retention_duration_in_days` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retention_duration_in_days` is required when the `soft_delete` is set to `On`.
+     * &gt; **Note:** The `retentionDurationInDays` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retentionDurationInDays` is required when the `softDelete` is set to `On`.
      * 
      */
     public Output<Optional<Double>> retentionDurationInDays() {
@@ -224,7 +224,7 @@ public class BackupVault extends com.pulumi.resources.CustomResource {
     /**
      * The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off`, and `On`. Defaults to `On`.
      * 
-     * &gt; **Note:** Once the `soft_delete` is set to `AlwaysOn`, the setting cannot be changed.
+     * &gt; **Note:** Once the `softDelete` is set to `AlwaysOn`, the setting cannot be changed.
      * 
      */
     @Export(name="softDelete", refs={String.class}, tree="[0]")
@@ -233,7 +233,7 @@ public class BackupVault extends com.pulumi.resources.CustomResource {
     /**
      * @return The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off`, and `On`. Defaults to `On`.
      * 
-     * &gt; **Note:** Once the `soft_delete` is set to `AlwaysOn`, the setting cannot be changed.
+     * &gt; **Note:** Once the `softDelete` is set to `AlwaysOn`, the setting cannot be changed.
      * 
      */
     public Output<Optional<String>> softDelete() {

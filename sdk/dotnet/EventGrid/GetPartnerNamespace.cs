@@ -174,7 +174,7 @@ namespace Pulumi.Azure.EventGrid
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// One or more `inbound_ip_rule` blocks as defined below.
+        /// One or more `InboundIpRule` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPartnerNamespaceInboundIpRuleResult> InboundIpRules;
         /// <summary>

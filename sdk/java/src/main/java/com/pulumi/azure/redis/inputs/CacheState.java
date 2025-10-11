@@ -23,14 +23,14 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
     public static final CacheState Empty = new CacheState();
 
     /**
-     * Whether access key authentication is enabled? Defaults to `true`. `active_directory_authentication_enabled` must be set to `true` to disable access key authentication.
+     * Whether access key authentication is enabled? Defaults to `true`. `activeDirectoryAuthenticationEnabled` must be set to `true` to disable access key authentication.
      * 
      */
     @Import(name="accessKeysAuthenticationEnabled")
     private @Nullable Output<Boolean> accessKeysAuthenticationEnabled;
 
     /**
-     * @return Whether access key authentication is enabled? Defaults to `true`. `active_directory_authentication_enabled` must be set to `true` to disable access key authentication.
+     * @return Whether access key authentication is enabled? Defaults to `true`. `activeDirectoryAuthenticationEnabled` must be set to `true` to disable access key authentication.
      * 
      */
     public Optional<Output<Boolean>> accessKeysAuthenticationEnabled() {
@@ -162,14 +162,14 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of `patch_schedule` blocks as defined below.
+     * A list of `patchSchedule` blocks as defined below.
      * 
      */
     @Import(name="patchSchedules")
     private @Nullable Output<List<CachePatchScheduleArgs>> patchSchedules;
 
     /**
-     * @return A list of `patch_schedule` blocks as defined below.
+     * @return A list of `patchSchedule` blocks as defined below.
      * 
      */
     public Optional<Output<List<CachePatchScheduleArgs>>> patchSchedules() {
@@ -222,14 +222,14 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnet_id`. Changing this forces a new resource to be created.
+     * The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnetId`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="privateStaticIpAddress")
     private @Nullable Output<String> privateStaticIpAddress;
 
     /**
-     * @return The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnet_id`. Changing this forces a new resource to be created.
+     * @return The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnetId`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> privateStaticIpAddress() {
@@ -252,14 +252,14 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `redis_configuration` block as defined below - with some limitations by SKU - defaults/details are shown below.
+     * A `redisConfiguration` block as defined below - with some limitations by SKU - defaults/details are shown below.
      * 
      */
     @Import(name="redisConfiguration")
     private @Nullable Output<CacheRedisConfigurationArgs> redisConfiguration;
 
     /**
-     * @return A `redis_configuration` block as defined below - with some limitations by SKU - defaults/details are shown below.
+     * @return A `redisConfiguration` block as defined below - with some limitations by SKU - defaults/details are shown below.
      * 
      */
     public Optional<Output<CacheRedisConfigurationArgs>> redisConfiguration() {
@@ -301,14 +301,14 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amount of replicas to create per primary for this Redis Cache. If both `replicas_per_primary` and `replicas_per_master` are set, they need to be equal.
+     * Amount of replicas to create per primary for this Redis Cache. If both `replicasPerPrimary` and `replicasPerMaster` are set, they need to be equal.
      * 
      */
     @Import(name="replicasPerPrimary")
     private @Nullable Output<Integer> replicasPerPrimary;
 
     /**
-     * @return Amount of replicas to create per primary for this Redis Cache. If both `replicas_per_primary` and `replicas_per_master` are set, they need to be equal.
+     * @return Amount of replicas to create per primary for this Redis Cache. If both `replicasPerPrimary` and `replicasPerMaster` are set, they need to be equal.
      * 
      */
     public Optional<Output<Integer>> replicasPerPrimary() {
@@ -526,7 +526,7 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessKeysAuthenticationEnabled Whether access key authentication is enabled? Defaults to `true`. `active_directory_authentication_enabled` must be set to `true` to disable access key authentication.
+         * @param accessKeysAuthenticationEnabled Whether access key authentication is enabled? Defaults to `true`. `activeDirectoryAuthenticationEnabled` must be set to `true` to disable access key authentication.
          * 
          * @return builder
          * 
@@ -537,7 +537,7 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessKeysAuthenticationEnabled Whether access key authentication is enabled? Defaults to `true`. `active_directory_authentication_enabled` must be set to `true` to disable access key authentication.
+         * @param accessKeysAuthenticationEnabled Whether access key authentication is enabled? Defaults to `true`. `activeDirectoryAuthenticationEnabled` must be set to `true` to disable access key authentication.
          * 
          * @return builder
          * 
@@ -719,7 +719,7 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param patchSchedules A list of `patch_schedule` blocks as defined below.
+         * @param patchSchedules A list of `patchSchedule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -730,7 +730,7 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param patchSchedules A list of `patch_schedule` blocks as defined below.
+         * @param patchSchedules A list of `patchSchedule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -740,7 +740,7 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param patchSchedules A list of `patch_schedule` blocks as defined below.
+         * @param patchSchedules A list of `patchSchedule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -813,7 +813,7 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateStaticIpAddress The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnet_id`. Changing this forces a new resource to be created.
+         * @param privateStaticIpAddress The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnetId`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -824,7 +824,7 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateStaticIpAddress The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnet_id`. Changing this forces a new resource to be created.
+         * @param privateStaticIpAddress The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnetId`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -855,7 +855,7 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param redisConfiguration A `redis_configuration` block as defined below - with some limitations by SKU - defaults/details are shown below.
+         * @param redisConfiguration A `redisConfiguration` block as defined below - with some limitations by SKU - defaults/details are shown below.
          * 
          * @return builder
          * 
@@ -866,7 +866,7 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param redisConfiguration A `redis_configuration` block as defined below - with some limitations by SKU - defaults/details are shown below.
+         * @param redisConfiguration A `redisConfiguration` block as defined below - with some limitations by SKU - defaults/details are shown below.
          * 
          * @return builder
          * 
@@ -922,7 +922,7 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param replicasPerPrimary Amount of replicas to create per primary for this Redis Cache. If both `replicas_per_primary` and `replicas_per_master` are set, they need to be equal.
+         * @param replicasPerPrimary Amount of replicas to create per primary for this Redis Cache. If both `replicasPerPrimary` and `replicasPerMaster` are set, they need to be equal.
          * 
          * @return builder
          * 
@@ -933,7 +933,7 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param replicasPerPrimary Amount of replicas to create per primary for this Redis Cache. If both `replicas_per_primary` and `replicas_per_master` are set, they need to be equal.
+         * @param replicasPerPrimary Amount of replicas to create per primary for this Redis Cache. If both `replicasPerPrimary` and `replicasPerMaster` are set, they need to be equal.
          * 
          * @return builder
          * 

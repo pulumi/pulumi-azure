@@ -36,7 +36,7 @@ public final class PolicyVMBackupArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * Duration of the backup window in hours. Possible values are between `4` and `24` This is used when `frequency` is `Hourly`.
      * 
-     * &gt; **Note:** `hour_duration` must be multiplier of `hour_interval`
+     * &gt; **Note:** `hourDuration` must be multiplier of `hourInterval`
      * 
      */
     @Import(name="hourDuration")
@@ -45,7 +45,7 @@ public final class PolicyVMBackupArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * @return Duration of the backup window in hours. Possible values are between `4` and `24` This is used when `frequency` is `Hourly`.
      * 
-     * &gt; **Note:** `hour_duration` must be multiplier of `hour_interval`
+     * &gt; **Note:** `hourDuration` must be multiplier of `hourInterval`
      * 
      */
     public Optional<Output<Integer>> hourDuration() {
@@ -149,7 +149,7 @@ public final class PolicyVMBackupArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param hourDuration Duration of the backup window in hours. Possible values are between `4` and `24` This is used when `frequency` is `Hourly`.
          * 
-         * &gt; **Note:** `hour_duration` must be multiplier of `hour_interval`
+         * &gt; **Note:** `hourDuration` must be multiplier of `hourInterval`
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class PolicyVMBackupArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param hourDuration Duration of the backup window in hours. Possible values are between `4` and `24` This is used when `frequency` is `Hourly`.
          * 
-         * &gt; **Note:** `hour_duration` must be multiplier of `hour_interval`
+         * &gt; **Note:** `hourDuration` must be multiplier of `hourInterval`
          * 
          * @return builder
          * 

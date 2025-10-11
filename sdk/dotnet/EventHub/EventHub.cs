@@ -71,7 +71,7 @@ namespace Pulumi.Azure.EventHub
     public partial class EventHub : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A `capture_description` block as defined below.
+        /// A `CaptureDescription` block as defined below.
         /// </summary>
         [Output("captureDescription")]
         public Output<Outputs.EventHubCaptureDescription?> CaptureDescription { get; private set; } = null!;
@@ -79,7 +79,7 @@ namespace Pulumi.Azure.EventHub
         /// <summary>
         /// Specifies the number of days to retain the events for this Event Hub.
         /// 
-        /// &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `message_retention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
+        /// &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `MessageRetention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
         /// </summary>
         [Output("messageRetention")]
         public Output<int> MessageRetention { get; private set; } = null!;
@@ -102,9 +102,9 @@ namespace Pulumi.Azure.EventHub
         /// <summary>
         /// Specifies the current number of shards on the Event Hub.
         /// 
-        /// &gt; **Note:** `partition_count` cannot be changed unless Eventhub Namespace SKU is `Premium` and cannot be decreased.
+        /// &gt; **Note:** `PartitionCount` cannot be changed unless Eventhub Namespace SKU is `Premium` and cannot be decreased.
         /// 
-        /// &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `partition_count` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
+        /// &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `PartitionCount` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
         /// </summary>
         [Output("partitionCount")]
         public Output<int> PartitionCount { get; private set; } = null!;
@@ -119,7 +119,7 @@ namespace Pulumi.Azure.EventHub
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `retention_description` block as defined below.
+        /// A `RetentionDescription` block as defined below.
         /// </summary>
         [Output("retentionDescription")]
         public Output<Outputs.EventHubRetentionDescription> RetentionDescription { get; private set; } = null!;
@@ -177,7 +177,7 @@ namespace Pulumi.Azure.EventHub
     public sealed class EventHubArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `capture_description` block as defined below.
+        /// A `CaptureDescription` block as defined below.
         /// </summary>
         [Input("captureDescription")]
         public Input<Inputs.EventHubCaptureDescriptionArgs>? CaptureDescription { get; set; }
@@ -185,7 +185,7 @@ namespace Pulumi.Azure.EventHub
         /// <summary>
         /// Specifies the number of days to retain the events for this Event Hub.
         /// 
-        /// &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `message_retention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
+        /// &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `MessageRetention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
         /// </summary>
         [Input("messageRetention")]
         public Input<int>? MessageRetention { get; set; }
@@ -208,9 +208,9 @@ namespace Pulumi.Azure.EventHub
         /// <summary>
         /// Specifies the current number of shards on the Event Hub.
         /// 
-        /// &gt; **Note:** `partition_count` cannot be changed unless Eventhub Namespace SKU is `Premium` and cannot be decreased.
+        /// &gt; **Note:** `PartitionCount` cannot be changed unless Eventhub Namespace SKU is `Premium` and cannot be decreased.
         /// 
-        /// &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `partition_count` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
+        /// &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `PartitionCount` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
         /// </summary>
         [Input("partitionCount", required: true)]
         public Input<int> PartitionCount { get; set; } = null!;
@@ -219,7 +219,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// A `retention_description` block as defined below.
+        /// A `RetentionDescription` block as defined below.
         /// </summary>
         [Input("retentionDescription")]
         public Input<Inputs.EventHubRetentionDescriptionArgs>? RetentionDescription { get; set; }
@@ -239,7 +239,7 @@ namespace Pulumi.Azure.EventHub
     public sealed class EventHubState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `capture_description` block as defined below.
+        /// A `CaptureDescription` block as defined below.
         /// </summary>
         [Input("captureDescription")]
         public Input<Inputs.EventHubCaptureDescriptionGetArgs>? CaptureDescription { get; set; }
@@ -247,7 +247,7 @@ namespace Pulumi.Azure.EventHub
         /// <summary>
         /// Specifies the number of days to retain the events for this Event Hub.
         /// 
-        /// &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `message_retention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
+        /// &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `MessageRetention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
         /// </summary>
         [Input("messageRetention")]
         public Input<int>? MessageRetention { get; set; }
@@ -270,9 +270,9 @@ namespace Pulumi.Azure.EventHub
         /// <summary>
         /// Specifies the current number of shards on the Event Hub.
         /// 
-        /// &gt; **Note:** `partition_count` cannot be changed unless Eventhub Namespace SKU is `Premium` and cannot be decreased.
+        /// &gt; **Note:** `PartitionCount` cannot be changed unless Eventhub Namespace SKU is `Premium` and cannot be decreased.
         /// 
-        /// &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `partition_count` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
+        /// &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `PartitionCount` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
         /// </summary>
         [Input("partitionCount")]
         public Input<int>? PartitionCount { get; set; }
@@ -293,7 +293,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// A `retention_description` block as defined below.
+        /// A `RetentionDescription` block as defined below.
         /// </summary>
         [Input("retentionDescription")]
         public Input<Inputs.EventHubRetentionDescriptionGetArgs>? RetentionDescription { get; set; }

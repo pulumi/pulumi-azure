@@ -148,14 +148,14 @@ public final class MongoCollectionState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * One or more `system_indexes` blocks as defined below.
+     * One or more `systemIndexes` blocks as defined below.
      * 
      */
     @Import(name="systemIndexes")
     private @Nullable Output<List<MongoCollectionSystemIndexArgs>> systemIndexes;
 
     /**
-     * @return One or more `system_indexes` blocks as defined below.
+     * @return One or more `systemIndexes` blocks as defined below.
      * 
      */
     public Optional<Output<List<MongoCollectionSystemIndexArgs>>> systemIndexes() {
@@ -391,7 +391,7 @@ public final class MongoCollectionState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param systemIndexes One or more `system_indexes` blocks as defined below.
+         * @param systemIndexes One or more `systemIndexes` blocks as defined below.
          * 
          * @return builder
          * 
@@ -402,7 +402,7 @@ public final class MongoCollectionState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param systemIndexes One or more `system_indexes` blocks as defined below.
+         * @param systemIndexes One or more `systemIndexes` blocks as defined below.
          * 
          * @return builder
          * 
@@ -412,7 +412,7 @@ public final class MongoCollectionState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param systemIndexes One or more `system_indexes` blocks as defined below.
+         * @param systemIndexes One or more `systemIndexes` blocks as defined below.
          * 
          * @return builder
          * 

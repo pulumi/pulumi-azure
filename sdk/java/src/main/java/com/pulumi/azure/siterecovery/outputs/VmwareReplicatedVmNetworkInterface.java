@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VmwareReplicatedVmNetworkInterface {
     /**
-     * @return Whether this `network_interface` is primary for the replicated VM.
+     * @return Whether this `networkInterface` is primary for the replicated VM.
      * 
      */
     private Boolean isPrimary;
@@ -41,7 +41,7 @@ public final class VmwareReplicatedVmNetworkInterface {
 
     private VmwareReplicatedVmNetworkInterface() {}
     /**
-     * @return Whether this `network_interface` is primary for the replicated VM.
+     * @return Whether this `networkInterface` is primary for the replicated VM.
      * 
      */
     public Boolean isPrimary() {

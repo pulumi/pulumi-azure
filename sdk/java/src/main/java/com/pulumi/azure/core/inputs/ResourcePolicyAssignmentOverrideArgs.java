@@ -19,14 +19,14 @@ public final class ResourcePolicyAssignmentOverrideArgs extends com.pulumi.resou
     public static final ResourcePolicyAssignmentOverrideArgs Empty = new ResourcePolicyAssignmentOverrideArgs();
 
     /**
-     * One or more `override_selector` block as defined below.
+     * One or more `overrideSelector` block as defined below.
      * 
      */
     @Import(name="selectors")
     private @Nullable Output<List<ResourcePolicyAssignmentOverrideSelectorArgs>> selectors;
 
     /**
-     * @return One or more `override_selector` block as defined below.
+     * @return One or more `overrideSelector` block as defined below.
      * 
      */
     public Optional<Output<List<ResourcePolicyAssignmentOverrideSelectorArgs>>> selectors() {
@@ -74,7 +74,7 @@ public final class ResourcePolicyAssignmentOverrideArgs extends com.pulumi.resou
         }
 
         /**
-         * @param selectors One or more `override_selector` block as defined below.
+         * @param selectors One or more `overrideSelector` block as defined below.
          * 
          * @return builder
          * 
@@ -85,7 +85,7 @@ public final class ResourcePolicyAssignmentOverrideArgs extends com.pulumi.resou
         }
 
         /**
-         * @param selectors One or more `override_selector` block as defined below.
+         * @param selectors One or more `overrideSelector` block as defined below.
          * 
          * @return builder
          * 
@@ -95,7 +95,7 @@ public final class ResourcePolicyAssignmentOverrideArgs extends com.pulumi.resou
         }
 
         /**
-         * @param selectors One or more `override_selector` block as defined below.
+         * @param selectors One or more `overrideSelector` block as defined below.
          * 
          * @return builder
          * 

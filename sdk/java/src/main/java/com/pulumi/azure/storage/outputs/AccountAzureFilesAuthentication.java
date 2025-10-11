@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AccountAzureFilesAuthentication {
     /**
-     * @return A `active_directory` block as defined below. Required when `directory_type` is `AD`.
+     * @return A `activeDirectory` block as defined below. Required when `directoryType` is `AD`.
      * 
      */
     private @Nullable AccountAzureFilesAuthenticationActiveDirectory activeDirectory;
@@ -31,7 +31,7 @@ public final class AccountAzureFilesAuthentication {
 
     private AccountAzureFilesAuthentication() {}
     /**
-     * @return A `active_directory` block as defined below. Required when `directory_type` is `AD`.
+     * @return A `activeDirectory` block as defined below. Required when `directoryType` is `AD`.
      * 
      */
     public Optional<AccountAzureFilesAuthenticationActiveDirectory> activeDirectory() {

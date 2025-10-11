@@ -130,14 +130,14 @@ public class VpnServerConfiguration extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.clientRootCertificates);
     }
     /**
-     * A `ipsec_policy` block as defined below.
+     * A `ipsecPolicy` block as defined below.
      * 
      */
     @Export(name="ipsecPolicy", refs={VpnServerConfigurationIpsecPolicy.class}, tree="[0]")
     private Output</* @Nullable */ VpnServerConfigurationIpsecPolicy> ipsecPolicy;
 
     /**
-     * @return A `ipsec_policy` block as defined below.
+     * @return A `ipsecPolicy` block as defined below.
      * 
      */
     public Output<Optional<VpnServerConfigurationIpsecPolicy>> ipsecPolicy() {

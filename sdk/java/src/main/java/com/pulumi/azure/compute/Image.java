@@ -86,18 +86,18 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:compute/image:Image")
 public class Image extends com.pulumi.resources.CustomResource {
     /**
-     * One or more `data_disk` blocks as defined below.
+     * One or more `dataDisk` blocks as defined below.
      * 
-     * &gt; **Note:** `data_disk` cannot be set together with `source_virtual_machine_id`.
+     * &gt; **Note:** `dataDisk` cannot be set together with `sourceVirtualMachineId`.
      * 
      */
     @Export(name="dataDisks", refs={List.class,ImageDataDisk.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ImageDataDisk>> dataDisks;
 
     /**
-     * @return One or more `data_disk` blocks as defined below.
+     * @return One or more `dataDisk` blocks as defined below.
      * 
-     * &gt; **Note:** `data_disk` cannot be set together with `source_virtual_machine_id`.
+     * &gt; **Note:** `dataDisk` cannot be set together with `sourceVirtualMachineId`.
      * 
      */
     public Output<Optional<List<ImageDataDisk>>> dataDisks() {
@@ -146,18 +146,18 @@ public class Image extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * One or more `os_disk` blocks as defined below. Changing this forces a new resource to be created.
+     * One or more `osDisk` blocks as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** `os_disk` cannot be set together with `source_virtual_machine_id`.
+     * &gt; **Note:** `osDisk` cannot be set together with `sourceVirtualMachineId`.
      * 
      */
     @Export(name="osDisk", refs={ImageOsDisk.class}, tree="[0]")
     private Output</* @Nullable */ ImageOsDisk> osDisk;
 
     /**
-     * @return One or more `os_disk` blocks as defined below. Changing this forces a new resource to be created.
+     * @return One or more `osDisk` blocks as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** `os_disk` cannot be set together with `source_virtual_machine_id`.
+     * &gt; **Note:** `osDisk` cannot be set together with `sourceVirtualMachineId`.
      * 
      */
     public Output<Optional<ImageOsDisk>> osDisk() {
@@ -208,9 +208,9 @@ public class Image extends com.pulumi.resources.CustomResource {
     /**
      * Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+     * &gt; **Note:** `zoneResilient` can only be set to `true` if the image is stored in a region that supports availability zones.
      * 
-     * &gt; **Note:** `zone_resilient` cannot be set together with `source_virtual_machine_id`.
+     * &gt; **Note:** `zoneResilient` cannot be set together with `sourceVirtualMachineId`.
      * 
      */
     @Export(name="zoneResilient", refs={Boolean.class}, tree="[0]")
@@ -219,9 +219,9 @@ public class Image extends com.pulumi.resources.CustomResource {
     /**
      * @return Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+     * &gt; **Note:** `zoneResilient` can only be set to `true` if the image is stored in a region that supports availability zones.
      * 
-     * &gt; **Note:** `zone_resilient` cannot be set together with `source_virtual_machine_id`.
+     * &gt; **Note:** `zoneResilient` cannot be set together with `sourceVirtualMachineId`.
      * 
      */
     public Output<Optional<Boolean>> zoneResilient() {

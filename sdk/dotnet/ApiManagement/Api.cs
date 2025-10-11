@@ -85,13 +85,13 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> ApiManagementName { get; private set; } = null!;
 
         /// <summary>
-        /// Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
+        /// Type of API. Possible values are `Graphql`, `Http`, `Soap`, and `Websocket`. Defaults to `Http`.
         /// </summary>
         [Output("apiType")]
         public Output<string> ApiType { get; private set; } = null!;
 
         /// <summary>
-        /// A `contact` block as documented below.
+        /// A `Contact` block as documented below.
         /// </summary>
         [Output("contact")]
         public Output<Outputs.ApiContact?> Contact { get; private set; } = null!;
@@ -109,9 +109,9 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// A `import` block as documented below.
+        /// A `Import` block as documented below.
         /// 
-        /// &gt; **Note:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
+        /// &gt; **Note:** The `DisplayName`, `Description`, `Contact`, and `License` fields can be imported by the `Import` block, which might cause a drift if these fields are set along with the `Import` block.
         /// </summary>
         [Output("import")]
         public Output<Outputs.ApiImport?> Import { get; private set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<bool> IsOnline { get; private set; } = null!;
 
         /// <summary>
-        /// A `license` block as documented below.
+        /// A `License` block as documented below.
         /// </summary>
         [Output("license")]
         public Output<Outputs.ApiLicense?> License { get; private set; } = null!;
@@ -141,13 +141,13 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// An `oauth2_authorization` block as documented below.
+        /// An `Oauth2Authorization` block as documented below.
         /// </summary>
         [Output("oauth2Authorization")]
         public Output<Outputs.ApiOauth2Authorization?> Oauth2Authorization { get; private set; } = null!;
 
         /// <summary>
-        /// An `openid_authentication` block as documented below.
+        /// An `OpenidAuthentication` block as documented below.
         /// </summary>
         [Output("openidAuthentication")]
         public Output<Outputs.ApiOpenidAuthentication?> OpenidAuthentication { get; private set; } = null!;
@@ -159,9 +159,9 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> Path { get; private set; } = null!;
 
         /// <summary>
-        /// A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
+        /// A list of protocols the operations in this API can be invoked. Possible values are `Http`, `Https`, `Ws`, and `Wss`.
         /// 
-        /// &gt; **Note:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
+        /// &gt; **Note:** `DisplayName`, `Path` and `Protocols` are required when `SourceApiId` is not set.
         /// </summary>
         [Output("protocols")]
         public Output<ImmutableArray<string>> Protocols { get; private set; } = null!;
@@ -187,7 +187,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// Absolute URL of the backend service implementing this API.
         /// 
-        /// &gt; **Note:** The `service_url` is required when `api_type` is specified as `websocket`.
+        /// &gt; **Note:** The `ServiceUrl` is required when `ApiType` is specified as `Websocket`.
         /// </summary>
         [Output("serviceUrl")]
         public Output<string> ServiceUrl { get; private set; } = null!;
@@ -199,13 +199,13 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string?> SourceApiId { get; private set; } = null!;
 
         /// <summary>
-        /// A `subscription_key_parameter_names` block as documented below.
+        /// A `SubscriptionKeyParameterNames` block as documented below.
         /// </summary>
         [Output("subscriptionKeyParameterNames")]
         public Output<Outputs.ApiSubscriptionKeyParameterNames> SubscriptionKeyParameterNames { get; private set; } = null!;
 
         /// <summary>
-        /// Should this API require a subscription key? Defaults to `true`.
+        /// Should this API require a subscription key? Defaults to `True`.
         /// </summary>
         [Output("subscriptionRequired")]
         public Output<bool?> SubscriptionRequired { get; private set; } = null!;
@@ -231,7 +231,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The ID of the Version Set which this API is associated with.
         /// 
-        /// &gt; **Note:** When `version` is set, `version_set_id` must also be specified
+        /// &gt; **Note:** When `Version` is set, `VersionSetId` must also be specified
         /// </summary>
         [Output("versionSetId")]
         public Output<string> VersionSetId { get; private set; } = null!;
@@ -289,13 +289,13 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string> ApiManagementName { get; set; } = null!;
 
         /// <summary>
-        /// Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
+        /// Type of API. Possible values are `Graphql`, `Http`, `Soap`, and `Websocket`. Defaults to `Http`.
         /// </summary>
         [Input("apiType")]
         public Input<string>? ApiType { get; set; }
 
         /// <summary>
-        /// A `contact` block as documented below.
+        /// A `Contact` block as documented below.
         /// </summary>
         [Input("contact")]
         public Input<Inputs.ApiContactArgs>? Contact { get; set; }
@@ -313,15 +313,15 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// A `import` block as documented below.
+        /// A `Import` block as documented below.
         /// 
-        /// &gt; **Note:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
+        /// &gt; **Note:** The `DisplayName`, `Description`, `Contact`, and `License` fields can be imported by the `Import` block, which might cause a drift if these fields are set along with the `Import` block.
         /// </summary>
         [Input("import")]
         public Input<Inputs.ApiImportArgs>? Import { get; set; }
 
         /// <summary>
-        /// A `license` block as documented below.
+        /// A `License` block as documented below.
         /// </summary>
         [Input("license")]
         public Input<Inputs.ApiLicenseArgs>? License { get; set; }
@@ -333,13 +333,13 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// An `oauth2_authorization` block as documented below.
+        /// An `Oauth2Authorization` block as documented below.
         /// </summary>
         [Input("oauth2Authorization")]
         public Input<Inputs.ApiOauth2AuthorizationArgs>? Oauth2Authorization { get; set; }
 
         /// <summary>
-        /// An `openid_authentication` block as documented below.
+        /// An `OpenidAuthentication` block as documented below.
         /// </summary>
         [Input("openidAuthentication")]
         public Input<Inputs.ApiOpenidAuthenticationArgs>? OpenidAuthentication { get; set; }
@@ -354,9 +354,9 @@ namespace Pulumi.Azure.ApiManagement
         private InputList<string>? _protocols;
 
         /// <summary>
-        /// A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
+        /// A list of protocols the operations in this API can be invoked. Possible values are `Http`, `Https`, `Ws`, and `Wss`.
         /// 
-        /// &gt; **Note:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
+        /// &gt; **Note:** `DisplayName`, `Path` and `Protocols` are required when `SourceApiId` is not set.
         /// </summary>
         public InputList<string> Protocols
         {
@@ -385,7 +385,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// Absolute URL of the backend service implementing this API.
         /// 
-        /// &gt; **Note:** The `service_url` is required when `api_type` is specified as `websocket`.
+        /// &gt; **Note:** The `ServiceUrl` is required when `ApiType` is specified as `Websocket`.
         /// </summary>
         [Input("serviceUrl")]
         public Input<string>? ServiceUrl { get; set; }
@@ -397,13 +397,13 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? SourceApiId { get; set; }
 
         /// <summary>
-        /// A `subscription_key_parameter_names` block as documented below.
+        /// A `SubscriptionKeyParameterNames` block as documented below.
         /// </summary>
         [Input("subscriptionKeyParameterNames")]
         public Input<Inputs.ApiSubscriptionKeyParameterNamesArgs>? SubscriptionKeyParameterNames { get; set; }
 
         /// <summary>
-        /// Should this API require a subscription key? Defaults to `true`.
+        /// Should this API require a subscription key? Defaults to `True`.
         /// </summary>
         [Input("subscriptionRequired")]
         public Input<bool>? SubscriptionRequired { get; set; }
@@ -429,7 +429,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The ID of the Version Set which this API is associated with.
         /// 
-        /// &gt; **Note:** When `version` is set, `version_set_id` must also be specified
+        /// &gt; **Note:** When `Version` is set, `VersionSetId` must also be specified
         /// </summary>
         [Input("versionSetId")]
         public Input<string>? VersionSetId { get; set; }
@@ -449,13 +449,13 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? ApiManagementName { get; set; }
 
         /// <summary>
-        /// Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
+        /// Type of API. Possible values are `Graphql`, `Http`, `Soap`, and `Websocket`. Defaults to `Http`.
         /// </summary>
         [Input("apiType")]
         public Input<string>? ApiType { get; set; }
 
         /// <summary>
-        /// A `contact` block as documented below.
+        /// A `Contact` block as documented below.
         /// </summary>
         [Input("contact")]
         public Input<Inputs.ApiContactGetArgs>? Contact { get; set; }
@@ -473,9 +473,9 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// A `import` block as documented below.
+        /// A `Import` block as documented below.
         /// 
-        /// &gt; **Note:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
+        /// &gt; **Note:** The `DisplayName`, `Description`, `Contact`, and `License` fields can be imported by the `Import` block, which might cause a drift if these fields are set along with the `Import` block.
         /// </summary>
         [Input("import")]
         public Input<Inputs.ApiImportGetArgs>? Import { get; set; }
@@ -493,7 +493,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<bool>? IsOnline { get; set; }
 
         /// <summary>
-        /// A `license` block as documented below.
+        /// A `License` block as documented below.
         /// </summary>
         [Input("license")]
         public Input<Inputs.ApiLicenseGetArgs>? License { get; set; }
@@ -505,13 +505,13 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// An `oauth2_authorization` block as documented below.
+        /// An `Oauth2Authorization` block as documented below.
         /// </summary>
         [Input("oauth2Authorization")]
         public Input<Inputs.ApiOauth2AuthorizationGetArgs>? Oauth2Authorization { get; set; }
 
         /// <summary>
-        /// An `openid_authentication` block as documented below.
+        /// An `OpenidAuthentication` block as documented below.
         /// </summary>
         [Input("openidAuthentication")]
         public Input<Inputs.ApiOpenidAuthenticationGetArgs>? OpenidAuthentication { get; set; }
@@ -526,9 +526,9 @@ namespace Pulumi.Azure.ApiManagement
         private InputList<string>? _protocols;
 
         /// <summary>
-        /// A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
+        /// A list of protocols the operations in this API can be invoked. Possible values are `Http`, `Https`, `Ws`, and `Wss`.
         /// 
-        /// &gt; **Note:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
+        /// &gt; **Note:** `DisplayName`, `Path` and `Protocols` are required when `SourceApiId` is not set.
         /// </summary>
         public InputList<string> Protocols
         {
@@ -557,7 +557,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// Absolute URL of the backend service implementing this API.
         /// 
-        /// &gt; **Note:** The `service_url` is required when `api_type` is specified as `websocket`.
+        /// &gt; **Note:** The `ServiceUrl` is required when `ApiType` is specified as `Websocket`.
         /// </summary>
         [Input("serviceUrl")]
         public Input<string>? ServiceUrl { get; set; }
@@ -569,13 +569,13 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? SourceApiId { get; set; }
 
         /// <summary>
-        /// A `subscription_key_parameter_names` block as documented below.
+        /// A `SubscriptionKeyParameterNames` block as documented below.
         /// </summary>
         [Input("subscriptionKeyParameterNames")]
         public Input<Inputs.ApiSubscriptionKeyParameterNamesGetArgs>? SubscriptionKeyParameterNames { get; set; }
 
         /// <summary>
-        /// Should this API require a subscription key? Defaults to `true`.
+        /// Should this API require a subscription key? Defaults to `True`.
         /// </summary>
         [Input("subscriptionRequired")]
         public Input<bool>? SubscriptionRequired { get; set; }
@@ -601,7 +601,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The ID of the Version Set which this API is associated with.
         /// 
-        /// &gt; **Note:** When `version` is set, `version_set_id` must also be specified
+        /// &gt; **Note:** When `Version` is set, `VersionSetId` must also be specified
         /// </summary>
         [Input("versionSetId")]
         public Input<string>? VersionSetId { get; set; }

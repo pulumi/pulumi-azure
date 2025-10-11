@@ -19,7 +19,7 @@ namespace Pulumi.Azure.AppInsights.Inputs
         public Input<string>? Body { get; set; }
 
         /// <summary>
-        /// Should the following of redirects be enabled? Defaults to `true`.
+        /// Should the following of redirects be enabled? Defaults to `True`.
         /// </summary>
         [Input("followRedirectsEnabled")]
         public Input<bool>? FollowRedirectsEnabled { get; set; }
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.AppInsights.Inputs
         private InputList<Inputs.StandardWebTestRequestHeaderGetArgs>? _headers;
 
         /// <summary>
-        /// One or more `header` blocks as defined above.
+        /// One or more `Header` blocks as defined above.
         /// </summary>
         public InputList<Inputs.StandardWebTestRequestHeaderGetArgs> Headers
         {
@@ -43,7 +43,7 @@ namespace Pulumi.Azure.AppInsights.Inputs
         public Input<string>? HttpVerb { get; set; }
 
         /// <summary>
-        /// Should the parsing of dependend requests be enabled? Defaults to `true`.
+        /// Should the parsing of dependend requests be enabled? Defaults to `True`.
         /// </summary>
         [Input("parseDependentRequestsEnabled")]
         public Input<bool>? ParseDependentRequestsEnabled { get; set; }

@@ -268,14 +268,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:network/networkManagerDeployment:NetworkManagerDeployment")
 public class NetworkManagerDeployment extends com.pulumi.resources.CustomResource {
     /**
-     * A list of Network Manager Configuration IDs which should be aligned with `scope_access`.
+     * A list of Network Manager Configuration IDs which should be aligned with `scopeAccess`.
      * 
      */
     @Export(name="configurationIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> configurationIds;
 
     /**
-     * @return A list of Network Manager Configuration IDs which should be aligned with `scope_access`.
+     * @return A list of Network Manager Configuration IDs which should be aligned with `scopeAccess`.
      * 
      */
     public Output<List<String>> configurationIds() {

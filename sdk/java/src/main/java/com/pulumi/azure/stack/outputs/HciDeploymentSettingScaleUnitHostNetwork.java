@@ -31,7 +31,7 @@ public final class HciDeploymentSettingScaleUnitHostNetwork {
      */
     private @Nullable Boolean storageConnectivitySwitchlessEnabled;
     /**
-     * @return One or more `storage_network` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+     * @return One or more `storageNetwork` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
      * 
      */
     private List<HciDeploymentSettingScaleUnitHostNetworkStorageNetwork> storageNetworks;
@@ -59,7 +59,7 @@ public final class HciDeploymentSettingScaleUnitHostNetwork {
         return Optional.ofNullable(this.storageConnectivitySwitchlessEnabled);
     }
     /**
-     * @return One or more `storage_network` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+     * @return One or more `storageNetwork` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
      * 
      */
     public List<HciDeploymentSettingScaleUnitHostNetworkStorageNetwork> storageNetworks() {

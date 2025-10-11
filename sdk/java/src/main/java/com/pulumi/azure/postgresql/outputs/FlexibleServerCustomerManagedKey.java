@@ -22,9 +22,9 @@ public final class FlexibleServerCustomerManagedKey {
     /**
      * @return The geo backup user managed identity id for a Customer Managed Key. Must be added to `identity.identity_ids`.
      * 
-     * &gt; **Note:** This managed identity cannot be the same as `primary_user_assigned_identity_id`, additionally this identity must be created in the same region as the geo-redundant backup.
+     * &gt; **Note:** This managed identity cannot be the same as `primaryUserAssignedIdentityId`, additionally this identity must be created in the same region as the geo-redundant backup.
      * 
-     * &gt; **Note:** `primary_user_assigned_identity_id` or `geo_backup_user_assigned_identity_id` is required when `type` is set to `UserAssigned`.
+     * &gt; **Note:** `primaryUserAssignedIdentityId` or `geoBackupUserAssignedIdentityId` is required when `type` is set to `UserAssigned`.
      * 
      */
     private @Nullable String geoBackupUserAssignedIdentityId;
@@ -52,9 +52,9 @@ public final class FlexibleServerCustomerManagedKey {
     /**
      * @return The geo backup user managed identity id for a Customer Managed Key. Must be added to `identity.identity_ids`.
      * 
-     * &gt; **Note:** This managed identity cannot be the same as `primary_user_assigned_identity_id`, additionally this identity must be created in the same region as the geo-redundant backup.
+     * &gt; **Note:** This managed identity cannot be the same as `primaryUserAssignedIdentityId`, additionally this identity must be created in the same region as the geo-redundant backup.
      * 
-     * &gt; **Note:** `primary_user_assigned_identity_id` or `geo_backup_user_assigned_identity_id` is required when `type` is set to `UserAssigned`.
+     * &gt; **Note:** `primaryUserAssignedIdentityId` or `geoBackupUserAssignedIdentityId` is required when `type` is set to `UserAssigned`.
      * 
      */
     public Optional<String> geoBackupUserAssignedIdentityId() {

@@ -16,7 +16,7 @@ namespace Pulumi.Azure.HDInsight.Outputs
         /// <summary>
         /// Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
+        /// &gt; **Note:** One of the `StorageAccount` or `StorageAccountGen2` blocks must be marked as the default.
         /// </summary>
         public readonly bool IsDefault;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Azure.HDInsight.Outputs
         /// <summary>
         /// The ID of the Storage Container. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** When the `azure.storage.Container` resource is created with `storage_account_name`, this can be obtained from the `id` of the `azure.storage.Container` resource. When the `azure.storage.Container` resource is created with `storage_account_id`, please use `azure.storage.getContainers` data source to get the `data_plane_id` of the `azure.storage.Container` resource for this field.
+        /// &gt; **Note:** When the `azure.storage.Container` resource is created with `StorageAccountName`, this can be obtained from the `Id` of the `azure.storage.Container` resource. When the `azure.storage.Container` resource is created with `StorageAccountId`, please use `azure.storage.getContainers` data source to get the `DataPlaneId` of the `azure.storage.Container` resource for this field.
         /// </summary>
         public readonly string StorageContainerId;
         /// <summary>

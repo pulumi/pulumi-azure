@@ -14,7 +14,7 @@ namespace Pulumi.Azure.HDInsight.Outputs
     public sealed class InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence
     {
         /// <summary>
-        /// A list of `schedule` blocks as defined below.
+        /// A list of `Schedule` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceSchedule> Schedules;
         /// <summary>

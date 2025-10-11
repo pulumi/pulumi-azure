@@ -25,7 +25,7 @@ public final class GetVolumeGroupOracleVolume {
     private String capacityPoolId;
     private List<GetVolumeGroupOracleVolumeDataProtectionReplication> dataProtectionReplications;
     /**
-     * @return A `data_protection_snapshot_policy` block as defined below.
+     * @return A `dataProtectionSnapshotPolicy` block as defined below.
      * 
      */
     private List<GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicy> dataProtectionSnapshotPolicies;
@@ -35,7 +35,7 @@ public final class GetVolumeGroupOracleVolume {
      */
     private String encryptionKeySource;
     /**
-     * @return A `export_policy_rule` block as defined below.
+     * @return A `exportPolicyRule` block as defined below.
      * 
      */
     private List<GetVolumeGroupOracleVolumeExportPolicyRule> exportPolicyRules;
@@ -50,7 +50,7 @@ public final class GetVolumeGroupOracleVolume {
      */
     private String keyVaultPrivateEndpointId;
     /**
-     * @return A `mount_ip_addresses` block as defined below.
+     * @return A `mountIpAddresses` block as defined below.
      * 
      */
     private List<String> mountIpAddresses;
@@ -133,7 +133,7 @@ public final class GetVolumeGroupOracleVolume {
         return this.dataProtectionReplications;
     }
     /**
-     * @return A `data_protection_snapshot_policy` block as defined below.
+     * @return A `dataProtectionSnapshotPolicy` block as defined below.
      * 
      */
     public List<GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicy> dataProtectionSnapshotPolicies() {
@@ -147,7 +147,7 @@ public final class GetVolumeGroupOracleVolume {
         return this.encryptionKeySource;
     }
     /**
-     * @return A `export_policy_rule` block as defined below.
+     * @return A `exportPolicyRule` block as defined below.
      * 
      */
     public List<GetVolumeGroupOracleVolumeExportPolicyRule> exportPolicyRules() {
@@ -168,7 +168,7 @@ public final class GetVolumeGroupOracleVolume {
         return this.keyVaultPrivateEndpointId;
     }
     /**
-     * @return A `mount_ip_addresses` block as defined below.
+     * @return A `mountIpAddresses` block as defined below.
      * 
      */
     public List<String> mountIpAddresses() {

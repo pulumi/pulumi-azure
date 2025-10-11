@@ -16,7 +16,7 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         private InputList<Inputs.AccountRestoreDatabaseArgs>? _databases;
 
         /// <summary>
-        /// A `database` block as defined below. Changing this forces a new resource to be created.
+        /// A `Database` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.AccountRestoreDatabaseArgs> Databases
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         private InputList<Inputs.AccountRestoreGremlinDatabaseArgs>? _gremlinDatabases;
 
         /// <summary>
-        /// One or more `gremlin_database` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `GremlinDatabase` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.AccountRestoreGremlinDatabaseArgs> GremlinDatabases
         {

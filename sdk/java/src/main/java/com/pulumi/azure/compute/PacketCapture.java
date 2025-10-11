@@ -270,14 +270,14 @@ public class PacketCapture extends com.pulumi.resources.CustomResource {
         return this.networkWatcherId;
     }
     /**
-     * A `storage_location` block as defined below. Changing this forces a new resource to be created.
+     * A `storageLocation` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="storageLocation", refs={PacketCaptureStorageLocation.class}, tree="[0]")
     private Output<PacketCaptureStorageLocation> storageLocation;
 
     /**
-     * @return A `storage_location` block as defined below. Changing this forces a new resource to be created.
+     * @return A `storageLocation` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<PacketCaptureStorageLocation> storageLocation() {

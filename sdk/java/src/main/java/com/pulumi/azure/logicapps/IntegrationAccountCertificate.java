@@ -103,14 +103,14 @@ public class IntegrationAccountCertificate extends com.pulumi.resources.CustomRe
         return this.integrationAccountName;
     }
     /**
-     * A `key_vault_key` block as documented below.
+     * A `keyVaultKey` block as documented below.
      * 
      */
     @Export(name="keyVaultKey", refs={IntegrationAccountCertificateKeyVaultKey.class}, tree="[0]")
     private Output</* @Nullable */ IntegrationAccountCertificateKeyVaultKey> keyVaultKey;
 
     /**
-     * @return A `key_vault_key` block as documented below.
+     * @return A `keyVaultKey` block as documented below.
      * 
      */
     public Output<Optional<IntegrationAccountCertificateKeyVaultKey>> keyVaultKey() {

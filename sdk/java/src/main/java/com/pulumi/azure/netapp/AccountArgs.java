@@ -20,14 +20,14 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     public static final AccountArgs Empty = new AccountArgs();
 
     /**
-     * A `active_directory` block as defined below.
+     * A `activeDirectory` block as defined below.
      * 
      */
     @Import(name="activeDirectory")
     private @Nullable Output<AccountActiveDirectoryArgs> activeDirectory;
 
     /**
-     * @return A `active_directory` block as defined below.
+     * @return A `activeDirectory` block as defined below.
      * 
      */
     public Optional<Output<AccountActiveDirectoryArgs>> activeDirectory() {
@@ -139,7 +139,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param activeDirectory A `active_directory` block as defined below.
+         * @param activeDirectory A `activeDirectory` block as defined below.
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param activeDirectory A `active_directory` block as defined below.
+         * @param activeDirectory A `activeDirectory` block as defined below.
          * 
          * @return builder
          * 

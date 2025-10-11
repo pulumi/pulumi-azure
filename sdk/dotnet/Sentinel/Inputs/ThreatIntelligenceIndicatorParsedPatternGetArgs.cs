@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Sentinel.Inputs
         private InputList<Inputs.ThreatIntelligenceIndicatorParsedPatternPatternTypeValueGetArgs>? _patternTypeValues;
 
         /// <summary>
-        /// A `pattern_type_values` block as defined below.
+        /// A `PatternTypeValues` block as defined below.
         /// </summary>
         public InputList<Inputs.ThreatIntelligenceIndicatorParsedPatternPatternTypeValueGetArgs> PatternTypeValues
         {

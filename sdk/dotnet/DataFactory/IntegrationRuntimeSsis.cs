@@ -65,13 +65,13 @@ namespace Pulumi.Azure.DataFactory
     public partial class IntegrationRuntimeSsis : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A `catalog_info` block as defined below.
+        /// A `CatalogInfo` block as defined below.
         /// </summary>
         [Output("catalogInfo")]
         public Output<Outputs.IntegrationRuntimeSsisCatalogInfo?> CatalogInfo { get; private set; } = null!;
 
         /// <summary>
-        /// One `copy_compute_scale` block as defined below.
+        /// One `CopyComputeScale` block as defined below.
         /// </summary>
         [Output("copyComputeScale")]
         public Output<Outputs.IntegrationRuntimeSsisCopyComputeScale?> CopyComputeScale { get; private set; } = null!;
@@ -79,13 +79,13 @@ namespace Pulumi.Azure.DataFactory
         /// <summary>
         /// The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `azure.datafactory.CredentialUserManagedIdentity`
         /// 
-        /// &gt; **Note:** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
+        /// &gt; **Note:** If `CredentialName` is omitted, the integration runtime will use the Data Factory assigned identity.
         /// </summary>
         [Output("credentialName")]
         public Output<string?> CredentialName { get; private set; } = null!;
 
         /// <summary>
-        /// A `custom_setup_script` block as defined below.
+        /// A `CustomSetupScript` block as defined below.
         /// </summary>
         [Output("customSetupScript")]
         public Output<Outputs.IntegrationRuntimeSsisCustomSetupScript?> CustomSetupScript { get; private set; } = null!;
@@ -109,13 +109,13 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> Edition { get; private set; } = null!;
 
         /// <summary>
-        /// An `express_custom_setup` block as defined below.
+        /// An `ExpressCustomSetup` block as defined below.
         /// </summary>
         [Output("expressCustomSetup")]
         public Output<Outputs.IntegrationRuntimeSsisExpressCustomSetup?> ExpressCustomSetup { get; private set; } = null!;
 
         /// <summary>
-        /// A `express_vnet_integration` block as defined below.
+        /// A `ExpressVnetIntegration` block as defined below.
         /// </summary>
         [Output("expressVnetIntegration")]
         public Output<Outputs.IntegrationRuntimeSsisExpressVnetIntegration?> ExpressVnetIntegration { get; private set; } = null!;
@@ -157,25 +157,25 @@ namespace Pulumi.Azure.DataFactory
         public Output<int?> NumberOfNodes { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `package_store` block as defined below.
+        /// One or more `PackageStore` block as defined below.
         /// </summary>
         [Output("packageStores")]
         public Output<ImmutableArray<Outputs.IntegrationRuntimeSsisPackageStore>> PackageStores { get; private set; } = null!;
 
         /// <summary>
-        /// One `pipeline_external_compute_scale` block as defined below.
+        /// One `PipelineExternalComputeScale` block as defined below.
         /// </summary>
         [Output("pipelineExternalComputeScale")]
         public Output<Outputs.IntegrationRuntimeSsisPipelineExternalComputeScale?> PipelineExternalComputeScale { get; private set; } = null!;
 
         /// <summary>
-        /// A `proxy` block as defined below.
+        /// A `Proxy` block as defined below.
         /// </summary>
         [Output("proxy")]
         public Output<Outputs.IntegrationRuntimeSsisProxy?> Proxy { get; private set; } = null!;
 
         /// <summary>
-        /// A `vnet_integration` block as defined below.
+        /// A `VnetIntegration` block as defined below.
         /// </summary>
         [Output("vnetIntegration")]
         public Output<Outputs.IntegrationRuntimeSsisVnetIntegration?> VnetIntegration { get; private set; } = null!;
@@ -231,13 +231,13 @@ namespace Pulumi.Azure.DataFactory
     public sealed class IntegrationRuntimeSsisArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `catalog_info` block as defined below.
+        /// A `CatalogInfo` block as defined below.
         /// </summary>
         [Input("catalogInfo")]
         public Input<Inputs.IntegrationRuntimeSsisCatalogInfoArgs>? CatalogInfo { get; set; }
 
         /// <summary>
-        /// One `copy_compute_scale` block as defined below.
+        /// One `CopyComputeScale` block as defined below.
         /// </summary>
         [Input("copyComputeScale")]
         public Input<Inputs.IntegrationRuntimeSsisCopyComputeScaleArgs>? CopyComputeScale { get; set; }
@@ -245,13 +245,13 @@ namespace Pulumi.Azure.DataFactory
         /// <summary>
         /// The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `azure.datafactory.CredentialUserManagedIdentity`
         /// 
-        /// &gt; **Note:** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
+        /// &gt; **Note:** If `CredentialName` is omitted, the integration runtime will use the Data Factory assigned identity.
         /// </summary>
         [Input("credentialName")]
         public Input<string>? CredentialName { get; set; }
 
         /// <summary>
-        /// A `custom_setup_script` block as defined below.
+        /// A `CustomSetupScript` block as defined below.
         /// </summary>
         [Input("customSetupScript")]
         public Input<Inputs.IntegrationRuntimeSsisCustomSetupScriptArgs>? CustomSetupScript { get; set; }
@@ -275,13 +275,13 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Edition { get; set; }
 
         /// <summary>
-        /// An `express_custom_setup` block as defined below.
+        /// An `ExpressCustomSetup` block as defined below.
         /// </summary>
         [Input("expressCustomSetup")]
         public Input<Inputs.IntegrationRuntimeSsisExpressCustomSetupArgs>? ExpressCustomSetup { get; set; }
 
         /// <summary>
-        /// A `express_vnet_integration` block as defined below.
+        /// A `ExpressVnetIntegration` block as defined below.
         /// </summary>
         [Input("expressVnetIntegration")]
         public Input<Inputs.IntegrationRuntimeSsisExpressVnetIntegrationArgs>? ExpressVnetIntegration { get; set; }
@@ -326,7 +326,7 @@ namespace Pulumi.Azure.DataFactory
         private InputList<Inputs.IntegrationRuntimeSsisPackageStoreArgs>? _packageStores;
 
         /// <summary>
-        /// One or more `package_store` block as defined below.
+        /// One or more `PackageStore` block as defined below.
         /// </summary>
         public InputList<Inputs.IntegrationRuntimeSsisPackageStoreArgs> PackageStores
         {
@@ -335,19 +335,19 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// One `pipeline_external_compute_scale` block as defined below.
+        /// One `PipelineExternalComputeScale` block as defined below.
         /// </summary>
         [Input("pipelineExternalComputeScale")]
         public Input<Inputs.IntegrationRuntimeSsisPipelineExternalComputeScaleArgs>? PipelineExternalComputeScale { get; set; }
 
         /// <summary>
-        /// A `proxy` block as defined below.
+        /// A `Proxy` block as defined below.
         /// </summary>
         [Input("proxy")]
         public Input<Inputs.IntegrationRuntimeSsisProxyArgs>? Proxy { get; set; }
 
         /// <summary>
-        /// A `vnet_integration` block as defined below.
+        /// A `VnetIntegration` block as defined below.
         /// </summary>
         [Input("vnetIntegration")]
         public Input<Inputs.IntegrationRuntimeSsisVnetIntegrationArgs>? VnetIntegration { get; set; }
@@ -361,13 +361,13 @@ namespace Pulumi.Azure.DataFactory
     public sealed class IntegrationRuntimeSsisState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `catalog_info` block as defined below.
+        /// A `CatalogInfo` block as defined below.
         /// </summary>
         [Input("catalogInfo")]
         public Input<Inputs.IntegrationRuntimeSsisCatalogInfoGetArgs>? CatalogInfo { get; set; }
 
         /// <summary>
-        /// One `copy_compute_scale` block as defined below.
+        /// One `CopyComputeScale` block as defined below.
         /// </summary>
         [Input("copyComputeScale")]
         public Input<Inputs.IntegrationRuntimeSsisCopyComputeScaleGetArgs>? CopyComputeScale { get; set; }
@@ -375,13 +375,13 @@ namespace Pulumi.Azure.DataFactory
         /// <summary>
         /// The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `azure.datafactory.CredentialUserManagedIdentity`
         /// 
-        /// &gt; **Note:** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
+        /// &gt; **Note:** If `CredentialName` is omitted, the integration runtime will use the Data Factory assigned identity.
         /// </summary>
         [Input("credentialName")]
         public Input<string>? CredentialName { get; set; }
 
         /// <summary>
-        /// A `custom_setup_script` block as defined below.
+        /// A `CustomSetupScript` block as defined below.
         /// </summary>
         [Input("customSetupScript")]
         public Input<Inputs.IntegrationRuntimeSsisCustomSetupScriptGetArgs>? CustomSetupScript { get; set; }
@@ -405,13 +405,13 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Edition { get; set; }
 
         /// <summary>
-        /// An `express_custom_setup` block as defined below.
+        /// An `ExpressCustomSetup` block as defined below.
         /// </summary>
         [Input("expressCustomSetup")]
         public Input<Inputs.IntegrationRuntimeSsisExpressCustomSetupGetArgs>? ExpressCustomSetup { get; set; }
 
         /// <summary>
-        /// A `express_vnet_integration` block as defined below.
+        /// A `ExpressVnetIntegration` block as defined below.
         /// </summary>
         [Input("expressVnetIntegration")]
         public Input<Inputs.IntegrationRuntimeSsisExpressVnetIntegrationGetArgs>? ExpressVnetIntegration { get; set; }
@@ -456,7 +456,7 @@ namespace Pulumi.Azure.DataFactory
         private InputList<Inputs.IntegrationRuntimeSsisPackageStoreGetArgs>? _packageStores;
 
         /// <summary>
-        /// One or more `package_store` block as defined below.
+        /// One or more `PackageStore` block as defined below.
         /// </summary>
         public InputList<Inputs.IntegrationRuntimeSsisPackageStoreGetArgs> PackageStores
         {
@@ -465,19 +465,19 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// One `pipeline_external_compute_scale` block as defined below.
+        /// One `PipelineExternalComputeScale` block as defined below.
         /// </summary>
         [Input("pipelineExternalComputeScale")]
         public Input<Inputs.IntegrationRuntimeSsisPipelineExternalComputeScaleGetArgs>? PipelineExternalComputeScale { get; set; }
 
         /// <summary>
-        /// A `proxy` block as defined below.
+        /// A `Proxy` block as defined below.
         /// </summary>
         [Input("proxy")]
         public Input<Inputs.IntegrationRuntimeSsisProxyGetArgs>? Proxy { get; set; }
 
         /// <summary>
-        /// A `vnet_integration` block as defined below.
+        /// A `VnetIntegration` block as defined below.
         /// </summary>
         [Input("vnetIntegration")]
         public Input<Inputs.IntegrationRuntimeSsisVnetIntegrationGetArgs>? VnetIntegration { get; set; }

@@ -25,7 +25,7 @@ public final class GetConfigurationResult {
      */
     private String inGuestUserPatchMode;
     /**
-     * @return An `install_patches` block as defined below.
+     * @return An `installPatches` block as defined below.
      * 
      */
     private List<GetConfigurationInstallPatch> installPatches;
@@ -78,7 +78,7 @@ public final class GetConfigurationResult {
         return this.inGuestUserPatchMode;
     }
     /**
-     * @return An `install_patches` block as defined below.
+     * @return An `installPatches` block as defined below.
      * 
      */
     public List<GetConfigurationInstallPatch> installPatches() {

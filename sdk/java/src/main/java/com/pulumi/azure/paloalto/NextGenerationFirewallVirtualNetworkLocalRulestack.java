@@ -191,42 +191,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:paloalto/nextGenerationFirewallVirtualNetworkLocalRulestack:NextGenerationFirewallVirtualNetworkLocalRulestack")
 public class NextGenerationFirewallVirtualNetworkLocalRulestack extends com.pulumi.resources.CustomResource {
     /**
-     * One or more `destination_nat` blocks as defined below.
+     * One or more `destinationNat` blocks as defined below.
      * 
      */
     @Export(name="destinationNats", refs={List.class,NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNat.class}, tree="[0,1]")
     private Output</* @Nullable */ List<NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNat>> destinationNats;
 
     /**
-     * @return One or more `destination_nat` blocks as defined below.
+     * @return One or more `destinationNat` blocks as defined below.
      * 
      */
     public Output<Optional<List<NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNat>>> destinationNats() {
         return Codegen.optional(this.destinationNats);
     }
     /**
-     * A `dns_settings` block as defined below.
+     * A `dnsSettings` block as defined below.
      * 
      */
     @Export(name="dnsSettings", refs={NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings.class}, tree="[0]")
     private Output</* @Nullable */ NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings> dnsSettings;
 
     /**
-     * @return A `dns_settings` block as defined below.
+     * @return A `dnsSettings` block as defined below.
      * 
      */
     public Output<Optional<NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings>> dnsSettings() {
         return Codegen.optional(this.dnsSettings);
     }
     /**
-     * The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
+     * The marketplace offer ID. Defaults to `panSwfwCloudNgfw`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="marketplaceOfferId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> marketplaceOfferId;
 
     /**
-     * @return The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
+     * @return The marketplace offer ID. Defaults to `panSwfwCloudNgfw`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> marketplaceOfferId() {
@@ -247,14 +247,14 @@ public class NextGenerationFirewallVirtualNetworkLocalRulestack extends com.pulu
         return this.name;
     }
     /**
-     * A `network_profile` block as defined below.
+     * A `networkProfile` block as defined below.
      * 
      */
     @Export(name="networkProfile", refs={NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile.class}, tree="[0]")
     private Output<NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile> networkProfile;
 
     /**
-     * @return A `network_profile` block as defined below.
+     * @return A `networkProfile` block as defined below.
      * 
      */
     public Output<NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile> networkProfile() {
@@ -263,7 +263,7 @@ public class NextGenerationFirewallVirtualNetworkLocalRulestack extends com.pulu
     /**
      * The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
      * 
-     * &gt; **Note:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
+     * &gt; **Note:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
      * 
      */
     @Export(name="planId", refs={String.class}, tree="[0]")
@@ -272,7 +272,7 @@ public class NextGenerationFirewallVirtualNetworkLocalRulestack extends com.pulu
     /**
      * @return The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
      * 
-     * &gt; **Note:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
+     * &gt; **Note:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
      * 
      */
     public Output<Optional<String>> planId() {

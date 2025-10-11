@@ -212,9 +212,9 @@ namespace Pulumi.Azure.ElasticSan
         public Output<string> ElasticSanId { get; private set; } = null!;
 
         /// <summary>
-        /// An `encryption` block as defined below.
+        /// An `Encryption` block as defined below.
         /// 
-        /// &gt; **Note:** The `encryption` block can only be set when `encryption_type` is set to `EncryptionAtRestWithCustomerManagedKey`.
+        /// &gt; **Note:** The `Encryption` block can only be set when `EncryptionType` is set to `EncryptionAtRestWithCustomerManagedKey`.
         /// </summary>
         [Output("encryption")]
         public Output<Outputs.VolumeGroupEncryption?> Encryption { get; private set; } = null!;
@@ -226,7 +226,7 @@ namespace Pulumi.Azure.ElasticSan
         public Output<string?> EncryptionType { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Elastic SAN Volume Group.
+        /// An `Identity` block as defined below. Specifies the Managed Identity which should be assigned to this Elastic SAN Volume Group.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.VolumeGroupIdentity?> Identity { get; private set; } = null!;
@@ -238,7 +238,7 @@ namespace Pulumi.Azure.ElasticSan
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `network_rule` blocks as defined below.
+        /// One or more `NetworkRule` blocks as defined below.
         /// </summary>
         [Output("networkRules")]
         public Output<ImmutableArray<Outputs.VolumeGroupNetworkRule>> NetworkRules { get; private set; } = null!;
@@ -302,9 +302,9 @@ namespace Pulumi.Azure.ElasticSan
         public Input<string> ElasticSanId { get; set; } = null!;
 
         /// <summary>
-        /// An `encryption` block as defined below.
+        /// An `Encryption` block as defined below.
         /// 
-        /// &gt; **Note:** The `encryption` block can only be set when `encryption_type` is set to `EncryptionAtRestWithCustomerManagedKey`.
+        /// &gt; **Note:** The `Encryption` block can only be set when `EncryptionType` is set to `EncryptionAtRestWithCustomerManagedKey`.
         /// </summary>
         [Input("encryption")]
         public Input<Inputs.VolumeGroupEncryptionArgs>? Encryption { get; set; }
@@ -316,7 +316,7 @@ namespace Pulumi.Azure.ElasticSan
         public Input<string>? EncryptionType { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Elastic SAN Volume Group.
+        /// An `Identity` block as defined below. Specifies the Managed Identity which should be assigned to this Elastic SAN Volume Group.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.VolumeGroupIdentityArgs>? Identity { get; set; }
@@ -331,7 +331,7 @@ namespace Pulumi.Azure.ElasticSan
         private InputList<Inputs.VolumeGroupNetworkRuleArgs>? _networkRules;
 
         /// <summary>
-        /// One or more `network_rule` blocks as defined below.
+        /// One or more `NetworkRule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.VolumeGroupNetworkRuleArgs> NetworkRules
         {
@@ -360,9 +360,9 @@ namespace Pulumi.Azure.ElasticSan
         public Input<string>? ElasticSanId { get; set; }
 
         /// <summary>
-        /// An `encryption` block as defined below.
+        /// An `Encryption` block as defined below.
         /// 
-        /// &gt; **Note:** The `encryption` block can only be set when `encryption_type` is set to `EncryptionAtRestWithCustomerManagedKey`.
+        /// &gt; **Note:** The `Encryption` block can only be set when `EncryptionType` is set to `EncryptionAtRestWithCustomerManagedKey`.
         /// </summary>
         [Input("encryption")]
         public Input<Inputs.VolumeGroupEncryptionGetArgs>? Encryption { get; set; }
@@ -374,7 +374,7 @@ namespace Pulumi.Azure.ElasticSan
         public Input<string>? EncryptionType { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Elastic SAN Volume Group.
+        /// An `Identity` block as defined below. Specifies the Managed Identity which should be assigned to this Elastic SAN Volume Group.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.VolumeGroupIdentityGetArgs>? Identity { get; set; }
@@ -389,7 +389,7 @@ namespace Pulumi.Azure.ElasticSan
         private InputList<Inputs.VolumeGroupNetworkRuleGetArgs>? _networkRules;
 
         /// <summary>
-        /// One or more `network_rule` blocks as defined below.
+        /// One or more `NetworkRule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.VolumeGroupNetworkRuleGetArgs> NetworkRules
         {

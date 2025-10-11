@@ -25,19 +25,19 @@ namespace Pulumi.Azure.ServiceFabric.Inputs
         public Input<int> FrontendPort { get; set; } = null!;
 
         /// <summary>
-        /// Protocol for the probe. Can be one of `tcp`, `udp`, `http`, or `https`.
+        /// Protocol for the probe. Can be one of `Tcp`, `Udp`, `Http`, or `Https`.
         /// </summary>
         [Input("probeProtocol", required: true)]
         public Input<string> ProbeProtocol { get; set; } = null!;
 
         /// <summary>
-        /// Path for the probe to check, when probe protocol is set to `http`.
+        /// Path for the probe to check, when probe protocol is set to `Http`.
         /// </summary>
         [Input("probeRequestPath")]
         public Input<string>? ProbeRequestPath { get; set; }
 
         /// <summary>
-        /// The transport protocol used in this rule. Can be one of `tcp` or `udp`.
+        /// The transport protocol used in this rule. Can be one of `Tcp` or `Udp`.
         /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;

@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Hpc.Inputs
         public Input<string> BaseDn { get; set; } = null!;
 
         /// <summary>
-        /// A `bind` block as defined above.
+        /// A `Bind` block as defined above.
         /// </summary>
         [Input("bind")]
         public Input<Inputs.CacheDirectoryLdapBindGetArgs>? Bind { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Hpc.Inputs
         public Input<string>? CertificateValidationUri { get; set; }
 
         /// <summary>
-        /// Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificate_validation_uri` is provided.
+        /// Whether the certificate should be automatically downloaded. This can be set to `True` only when `CertificateValidationUri` is provided.
         /// </summary>
         [Input("downloadCertificateAutomatically")]
         public Input<bool>? DownloadCertificateAutomatically { get; set; }

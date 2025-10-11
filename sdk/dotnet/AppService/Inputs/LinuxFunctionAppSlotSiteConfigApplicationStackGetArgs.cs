@@ -16,7 +16,7 @@ namespace Pulumi.Azure.AppService.Inputs
         private InputList<Inputs.LinuxFunctionAppSlotSiteConfigApplicationStackDockerGetArgs>? _dockers;
 
         /// <summary>
-        /// a `docker` block as detailed below.
+        /// a `Docker` block as detailed below.
         /// </summary>
         public InputList<Inputs.LinuxFunctionAppSlotSiteConfigApplicationStackDockerGetArgs> Dockers
         {
@@ -61,7 +61,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<bool>? UseCustomRuntime { get; set; }
 
         /// <summary>
-        /// Should the DotNet process use an isolated runtime. Defaults to `false`.
+        /// Should the DotNet process use an isolated runtime. Defaults to `False`.
         /// </summary>
         [Input("useDotnetIsolatedRuntime")]
         public Input<bool>? UseDotnetIsolatedRuntime { get; set; }

@@ -34,14 +34,14 @@ public final class FrontdoorRoutingRuleForwardingConfigurationArgs extends com.p
     }
 
     /**
-     * Specify the minimum caching duration (in ISO8601 notation e.g. `P1DT2H` for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. `cache_duration` works only in combination with `cache_enabled` set to `true`.
+     * Specify the minimum caching duration (in ISO8601 notation e.g. `P1DT2H` for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. `cacheDuration` works only in combination with `cacheEnabled` set to `true`.
      * 
      */
     @Import(name="cacheDuration")
     private @Nullable Output<String> cacheDuration;
 
     /**
-     * @return Specify the minimum caching duration (in ISO8601 notation e.g. `P1DT2H` for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. `cache_duration` works only in combination with `cache_enabled` set to `true`.
+     * @return Specify the minimum caching duration (in ISO8601 notation e.g. `P1DT2H` for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. `cacheDuration` works only in combination with `cacheEnabled` set to `true`.
      * 
      */
     public Optional<Output<String>> cacheDuration() {
@@ -79,14 +79,14 @@ public final class FrontdoorRoutingRuleForwardingConfigurationArgs extends com.p
     }
 
     /**
-     * Specify query parameters (array). Works only in combination with `cache_query_parameter_strip_directive` set to `StripAllExcept` or `StripOnly`.
+     * Specify query parameters (array). Works only in combination with `cacheQueryParameterStripDirective` set to `StripAllExcept` or `StripOnly`.
      * 
      */
     @Import(name="cacheQueryParameters")
     private @Nullable Output<List<String>> cacheQueryParameters;
 
     /**
-     * @return Specify query parameters (array). Works only in combination with `cache_query_parameter_strip_directive` set to `StripAllExcept` or `StripOnly`.
+     * @return Specify query parameters (array). Works only in combination with `cacheQueryParameterStripDirective` set to `StripAllExcept` or `StripOnly`.
      * 
      */
     public Optional<Output<List<String>>> cacheQueryParameters() {
@@ -191,7 +191,7 @@ public final class FrontdoorRoutingRuleForwardingConfigurationArgs extends com.p
         }
 
         /**
-         * @param cacheDuration Specify the minimum caching duration (in ISO8601 notation e.g. `P1DT2H` for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. `cache_duration` works only in combination with `cache_enabled` set to `true`.
+         * @param cacheDuration Specify the minimum caching duration (in ISO8601 notation e.g. `P1DT2H` for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. `cacheDuration` works only in combination with `cacheEnabled` set to `true`.
          * 
          * @return builder
          * 
@@ -202,7 +202,7 @@ public final class FrontdoorRoutingRuleForwardingConfigurationArgs extends com.p
         }
 
         /**
-         * @param cacheDuration Specify the minimum caching duration (in ISO8601 notation e.g. `P1DT2H` for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. `cache_duration` works only in combination with `cache_enabled` set to `true`.
+         * @param cacheDuration Specify the minimum caching duration (in ISO8601 notation e.g. `P1DT2H` for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. `cacheDuration` works only in combination with `cacheEnabled` set to `true`.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class FrontdoorRoutingRuleForwardingConfigurationArgs extends com.p
         }
 
         /**
-         * @param cacheQueryParameters Specify query parameters (array). Works only in combination with `cache_query_parameter_strip_directive` set to `StripAllExcept` or `StripOnly`.
+         * @param cacheQueryParameters Specify query parameters (array). Works only in combination with `cacheQueryParameterStripDirective` set to `StripAllExcept` or `StripOnly`.
          * 
          * @return builder
          * 
@@ -265,7 +265,7 @@ public final class FrontdoorRoutingRuleForwardingConfigurationArgs extends com.p
         }
 
         /**
-         * @param cacheQueryParameters Specify query parameters (array). Works only in combination with `cache_query_parameter_strip_directive` set to `StripAllExcept` or `StripOnly`.
+         * @param cacheQueryParameters Specify query parameters (array). Works only in combination with `cacheQueryParameterStripDirective` set to `StripAllExcept` or `StripOnly`.
          * 
          * @return builder
          * 
@@ -275,7 +275,7 @@ public final class FrontdoorRoutingRuleForwardingConfigurationArgs extends com.p
         }
 
         /**
-         * @param cacheQueryParameters Specify query parameters (array). Works only in combination with `cache_query_parameter_strip_directive` set to `StripAllExcept` or `StripOnly`.
+         * @param cacheQueryParameters Specify query parameters (array). Works only in combination with `cacheQueryParameterStripDirective` set to `StripAllExcept` or `StripOnly`.
          * 
          * @return builder
          * 

@@ -35,7 +35,7 @@ public final class KubernetesClusterDefaultNodePoolUpgradeSettingsArgs extends c
     /**
      * The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
      * 
-     * &gt; **Note:** If a percentage is provided, the number of surge nodes is calculated from the `node_count` value on the current cluster. Node surge can allow a cluster to have more nodes than `max_count` during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade.
+     * &gt; **Note:** If a percentage is provided, the number of surge nodes is calculated from the `nodeCount` value on the current cluster. Node surge can allow a cluster to have more nodes than `maxCount` during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade.
      * 
      */
     @Import(name="maxSurge", required=true)
@@ -44,7 +44,7 @@ public final class KubernetesClusterDefaultNodePoolUpgradeSettingsArgs extends c
     /**
      * @return The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
      * 
-     * &gt; **Note:** If a percentage is provided, the number of surge nodes is calculated from the `node_count` value on the current cluster. Node surge can allow a cluster to have more nodes than `max_count` during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade.
+     * &gt; **Note:** If a percentage is provided, the number of surge nodes is calculated from the `nodeCount` value on the current cluster. Node surge can allow a cluster to have more nodes than `maxCount` during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade.
      * 
      */
     public Output<String> maxSurge() {
@@ -116,7 +116,7 @@ public final class KubernetesClusterDefaultNodePoolUpgradeSettingsArgs extends c
         /**
          * @param maxSurge The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
          * 
-         * &gt; **Note:** If a percentage is provided, the number of surge nodes is calculated from the `node_count` value on the current cluster. Node surge can allow a cluster to have more nodes than `max_count` during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade.
+         * &gt; **Note:** If a percentage is provided, the number of surge nodes is calculated from the `nodeCount` value on the current cluster. Node surge can allow a cluster to have more nodes than `maxCount` during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class KubernetesClusterDefaultNodePoolUpgradeSettingsArgs extends c
         /**
          * @param maxSurge The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
          * 
-         * &gt; **Note:** If a percentage is provided, the number of surge nodes is calculated from the `node_count` value on the current cluster. Node surge can allow a cluster to have more nodes than `max_count` during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade.
+         * &gt; **Note:** If a percentage is provided, the number of surge nodes is calculated from the `nodeCount` value on the current cluster. Node surge can allow a cluster to have more nodes than `maxCount` during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade.
          * 
          * @return builder
          * 

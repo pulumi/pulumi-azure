@@ -146,14 +146,14 @@ public class ProvisionedCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.arcAgentDesiredVersion);
     }
     /**
-     * An `azure_active_directory` block as defined below.
+     * An `azureActiveDirectory` block as defined below.
      * 
      */
     @Export(name="azureActiveDirectory", refs={ProvisionedClusterAzureActiveDirectory.class}, tree="[0]")
     private Output</* @Nullable */ ProvisionedClusterAzureActiveDirectory> azureActiveDirectory;
 
     /**
-     * @return An `azure_active_directory` block as defined below.
+     * @return An `azureActiveDirectory` block as defined below.
      * 
      */
     public Output<Optional<ProvisionedClusterAzureActiveDirectory>> azureActiveDirectory() {

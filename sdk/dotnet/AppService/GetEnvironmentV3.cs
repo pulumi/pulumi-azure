@@ -170,7 +170,7 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly bool AllowNewPrivateEndpointConnections;
         /// <summary>
-        /// A `cluster_setting` block as defined below.
+        /// A `ClusterSetting` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetEnvironmentV3ClusterSettingResult> ClusterSettings;
         /// <summary>

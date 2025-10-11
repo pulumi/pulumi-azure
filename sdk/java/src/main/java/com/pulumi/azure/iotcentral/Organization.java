@@ -91,14 +91,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:iotcentral/organization:Organization")
 public class Organization extends com.pulumi.resources.CustomResource {
     /**
-     * Custom `display_name` for the organization.
+     * Custom `displayName` for the organization.
      * 
      */
     @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
-     * @return Custom `display_name` for the organization.
+     * @return Custom `displayName` for the organization.
      * 
      */
     public Output<String> displayName() {
@@ -133,14 +133,14 @@ public class Organization extends com.pulumi.resources.CustomResource {
         return this.organizationId;
     }
     /**
-     * The `organization_id` of the parent organization. Changing this forces a new resource to be created.
+     * The `organizationId` of the parent organization. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="parentOrganizationId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> parentOrganizationId;
 
     /**
-     * @return The `organization_id` of the parent organization. Changing this forces a new resource to be created.
+     * @return The `organizationId` of the parent organization. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> parentOrganizationId() {

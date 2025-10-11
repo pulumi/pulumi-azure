@@ -13,19 +13,19 @@ namespace Pulumi.Azure.Network.Inputs
     public sealed class VpnSiteO365PolicyTrafficCategoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Is allow endpoint enabled? The `Allow` endpoint is required for connectivity to specific O365 services and features, but are not as sensitive to network performance and latency as other endpoint types. Defaults to `false`.
+        /// Is allow endpoint enabled? The `Allow` endpoint is required for connectivity to specific O365 services and features, but are not as sensitive to network performance and latency as other endpoint types. Defaults to `False`.
         /// </summary>
         [Input("allowEndpointEnabled")]
         public Input<bool>? AllowEndpointEnabled { get; set; }
 
         /// <summary>
-        /// Is default endpoint enabled? The `Default` endpoint represents O365 services and dependencies that do not require any optimization, and can be treated by customer networks as normal Internet bound traffic. Defaults to `false`.
+        /// Is default endpoint enabled? The `Default` endpoint represents O365 services and dependencies that do not require any optimization, and can be treated by customer networks as normal Internet bound traffic. Defaults to `False`.
         /// </summary>
         [Input("defaultEndpointEnabled")]
         public Input<bool>? DefaultEndpointEnabled { get; set; }
 
         /// <summary>
-        /// Is optimize endpoint enabled? The `Optimize` endpoint is required for connectivity to every O365 service and represents the O365 scenario that is the most sensitive to network performance, latency, and availability. Defaults to `false`.
+        /// Is optimize endpoint enabled? The `Optimize` endpoint is required for connectivity to every O365 service and represents the O365 scenario that is the most sensitive to network performance, latency, and availability. Defaults to `False`.
         /// </summary>
         [Input("optimizeEndpointEnabled")]
         public Input<bool>? OptimizeEndpointEnabled { get; set; }

@@ -27,7 +27,7 @@ namespace Pulumi.Azure.ServiceBus.Inputs
         public Input<bool>? IsClientScopedSubscriptionDurable { get; set; }
 
         /// <summary>
-        /// Whether the client scoped subscription is shareable. Defaults to `true` Changing this forces a new resource to be created.
+        /// Whether the client scoped subscription is shareable. Defaults to `True` Changing this forces a new resource to be created.
         /// </summary>
         [Input("isClientScopedSubscriptionShareable")]
         public Input<bool>? IsClientScopedSubscriptionShareable { get; set; }

@@ -13,7 +13,7 @@ public final class LinuxVirtualMachineScaleSetSecretCertificate {
     /**
      * @return The Secret URL of a Key Vault Certificate.
      * 
-     * &gt; **Note:** This can be sourced from the `secret_id` field within the `azure.keyvault.Certificate` Resource.
+     * &gt; **Note:** This can be sourced from the `secretId` field within the `azure.keyvault.Certificate` Resource.
      * 
      * &gt; **Note:** The certificate must have been uploaded/created in PFX format, PEM certificates are not currently supported by Azure.
      * 
@@ -24,7 +24,7 @@ public final class LinuxVirtualMachineScaleSetSecretCertificate {
     /**
      * @return The Secret URL of a Key Vault Certificate.
      * 
-     * &gt; **Note:** This can be sourced from the `secret_id` field within the `azure.keyvault.Certificate` Resource.
+     * &gt; **Note:** This can be sourced from the `secretId` field within the `azure.keyvault.Certificate` Resource.
      * 
      * &gt; **Note:** The certificate must have been uploaded/created in PFX format, PEM certificates are not currently supported by Azure.
      * 

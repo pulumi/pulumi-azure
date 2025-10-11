@@ -21,14 +21,14 @@ public final class VirtualMachineStorageConfigurationArgs extends com.pulumi.res
     public static final VirtualMachineStorageConfigurationArgs Empty = new VirtualMachineStorageConfigurationArgs();
 
     /**
-     * A `storage_settings` block as defined below.
+     * A `storageSettings` block as defined below.
      * 
      */
     @Import(name="dataSettings")
     private @Nullable Output<VirtualMachineStorageConfigurationDataSettingsArgs> dataSettings;
 
     /**
-     * @return A `storage_settings` block as defined below.
+     * @return A `storageSettings` block as defined below.
      * 
      */
     public Optional<Output<VirtualMachineStorageConfigurationDataSettingsArgs>> dataSettings() {
@@ -51,14 +51,14 @@ public final class VirtualMachineStorageConfigurationArgs extends com.pulumi.res
     }
 
     /**
-     * A `storage_settings` block as defined below.
+     * A `storageSettings` block as defined below.
      * 
      */
     @Import(name="logSettings")
     private @Nullable Output<VirtualMachineStorageConfigurationLogSettingsArgs> logSettings;
 
     /**
-     * @return A `storage_settings` block as defined below.
+     * @return A `storageSettings` block as defined below.
      * 
      */
     public Optional<Output<VirtualMachineStorageConfigurationLogSettingsArgs>> logSettings() {
@@ -96,14 +96,14 @@ public final class VirtualMachineStorageConfigurationArgs extends com.pulumi.res
     }
 
     /**
-     * An `temp_db_settings` block as defined below.
+     * An `tempDbSettings` block as defined below.
      * 
      */
     @Import(name="tempDbSettings")
     private @Nullable Output<VirtualMachineStorageConfigurationTempDbSettingsArgs> tempDbSettings;
 
     /**
-     * @return An `temp_db_settings` block as defined below.
+     * @return An `tempDbSettings` block as defined below.
      * 
      */
     public Optional<Output<VirtualMachineStorageConfigurationTempDbSettingsArgs>> tempDbSettings() {
@@ -140,7 +140,7 @@ public final class VirtualMachineStorageConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param dataSettings A `storage_settings` block as defined below.
+         * @param dataSettings A `storageSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class VirtualMachineStorageConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param dataSettings A `storage_settings` block as defined below.
+         * @param dataSettings A `storageSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class VirtualMachineStorageConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param logSettings A `storage_settings` block as defined below.
+         * @param logSettings A `storageSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class VirtualMachineStorageConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param logSettings A `storage_settings` block as defined below.
+         * @param logSettings A `storageSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class VirtualMachineStorageConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param tempDbSettings An `temp_db_settings` block as defined below.
+         * @param tempDbSettings An `tempDbSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class VirtualMachineStorageConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param tempDbSettings An `temp_db_settings` block as defined below.
+         * @param tempDbSettings An `tempDbSettings` block as defined below.
          * 
          * @return builder
          * 

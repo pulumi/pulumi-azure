@@ -49,7 +49,7 @@ public final class MonitorIdentityArgs extends com.pulumi.resources.ResourceArgs
     /**
      * Specifies the identity type of the Datadog Monitor. At this time the only allowed value is `SystemAssigned`.
      * 
-     * &gt; **Note:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Datadog Monitor has been created. More details are available below.
+     * &gt; **Note:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Datadog Monitor has been created. More details are available below.
      * 
      */
     @Import(name="type", required=true)
@@ -58,7 +58,7 @@ public final class MonitorIdentityArgs extends com.pulumi.resources.ResourceArgs
     /**
      * @return Specifies the identity type of the Datadog Monitor. At this time the only allowed value is `SystemAssigned`.
      * 
-     * &gt; **Note:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Datadog Monitor has been created. More details are available below.
+     * &gt; **Note:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Datadog Monitor has been created. More details are available below.
      * 
      */
     public Output<String> type() {
@@ -136,7 +136,7 @@ public final class MonitorIdentityArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param type Specifies the identity type of the Datadog Monitor. At this time the only allowed value is `SystemAssigned`.
          * 
-         * &gt; **Note:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Datadog Monitor has been created. More details are available below.
+         * &gt; **Note:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Datadog Monitor has been created. More details are available below.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class MonitorIdentityArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param type Specifies the identity type of the Datadog Monitor. At this time the only allowed value is `SystemAssigned`.
          * 
-         * &gt; **Note:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Datadog Monitor has been created. More details are available below.
+         * &gt; **Note:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Datadog Monitor has been created. More details are available below.
          * 
          * @return builder
          * 

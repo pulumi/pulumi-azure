@@ -163,18 +163,18 @@ public final class FrontdoorOriginArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A `private_link` block as defined below.
+     * A `privateLink` block as defined below.
      * 
-     * &gt; **Note:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificate_name_check_enabled` field is set to `true`.
+     * &gt; **Note:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificateNameCheckEnabled` field is set to `true`.
      * 
      */
     @Import(name="privateLink")
     private @Nullable Output<FrontdoorOriginPrivateLinkArgs> privateLink;
 
     /**
-     * @return A `private_link` block as defined below.
+     * @return A `privateLink` block as defined below.
      * 
-     * &gt; **Note:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificate_name_check_enabled` field is set to `true`.
+     * &gt; **Note:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificateNameCheckEnabled` field is set to `true`.
      * 
      */
     public Optional<Output<FrontdoorOriginPrivateLinkArgs>> privateLink() {
@@ -428,9 +428,9 @@ public final class FrontdoorOriginArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param privateLink A `private_link` block as defined below.
+         * @param privateLink A `privateLink` block as defined below.
          * 
-         * &gt; **Note:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificate_name_check_enabled` field is set to `true`.
+         * &gt; **Note:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificateNameCheckEnabled` field is set to `true`.
          * 
          * @return builder
          * 
@@ -441,9 +441,9 @@ public final class FrontdoorOriginArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param privateLink A `private_link` block as defined below.
+         * @param privateLink A `privateLink` block as defined below.
          * 
-         * &gt; **Note:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificate_name_check_enabled` field is set to `true`.
+         * &gt; **Note:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificateNameCheckEnabled` field is set to `true`.
          * 
          * @return builder
          * 

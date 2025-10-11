@@ -89,7 +89,7 @@ namespace Pulumi.Azure.AppPlatform
     public partial class SpringCloudAppCosmosDBAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the API type which should be used when connecting to the CosmosDB Account. Possible values are `cassandra`, `gremlin`, `mongo`, `sql` or `table`. Changing this forces a new resource to be created.
+        /// Specifies the API type which should be used when connecting to the CosmosDB Account. Possible values are `Cassandra`, `Gremlin`, `Mongo`, `Sql` or `Table`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("apiType")]
         public Output<string> ApiType { get; private set; } = null!;
@@ -107,31 +107,31 @@ namespace Pulumi.Azure.AppPlatform
         public Output<string> CosmosdbAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the Cassandra Keyspace which the Spring Cloud App should be associated with. Should only be set when `api_type` is `cassandra`.
+        /// Specifies the name of the Cassandra Keyspace which the Spring Cloud App should be associated with. Should only be set when `ApiType` is `Cassandra`.
         /// </summary>
         [Output("cosmosdbCassandraKeyspaceName")]
         public Output<string?> CosmosdbCassandraKeyspaceName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the Gremlin Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `gremlin`.
+        /// Specifies the name of the Gremlin Database which the Spring Cloud App should be associated with. Should only be set when `ApiType` is `Gremlin`.
         /// </summary>
         [Output("cosmosdbGremlinDatabaseName")]
         public Output<string?> CosmosdbGremlinDatabaseName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the Gremlin Graph which the Spring Cloud App should be associated with. Should only be set when `api_type` is `gremlin`.
+        /// Specifies the name of the Gremlin Graph which the Spring Cloud App should be associated with. Should only be set when `ApiType` is `Gremlin`.
         /// </summary>
         [Output("cosmosdbGremlinGraphName")]
         public Output<string?> CosmosdbGremlinGraphName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the Mongo Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `mongo`.
+        /// Specifies the name of the Mongo Database which the Spring Cloud App should be associated with. Should only be set when `ApiType` is `Mongo`.
         /// </summary>
         [Output("cosmosdbMongoDatabaseName")]
         public Output<string?> CosmosdbMongoDatabaseName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the SQL Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `sql`.
+        /// Specifies the name of the SQL Database which the Spring Cloud App should be associated with. Should only be set when `ApiType` is `Sql`.
         /// </summary>
         [Output("cosmosdbSqlDatabaseName")]
         public Output<string?> CosmosdbSqlDatabaseName { get; private set; } = null!;
@@ -195,7 +195,7 @@ namespace Pulumi.Azure.AppPlatform
     public sealed class SpringCloudAppCosmosDBAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the API type which should be used when connecting to the CosmosDB Account. Possible values are `cassandra`, `gremlin`, `mongo`, `sql` or `table`. Changing this forces a new resource to be created.
+        /// Specifies the API type which should be used when connecting to the CosmosDB Account. Possible values are `Cassandra`, `Gremlin`, `Mongo`, `Sql` or `Table`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("apiType", required: true)]
         public Input<string> ApiType { get; set; } = null!;
@@ -213,31 +213,31 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string> CosmosdbAccountId { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the Cassandra Keyspace which the Spring Cloud App should be associated with. Should only be set when `api_type` is `cassandra`.
+        /// Specifies the name of the Cassandra Keyspace which the Spring Cloud App should be associated with. Should only be set when `ApiType` is `Cassandra`.
         /// </summary>
         [Input("cosmosdbCassandraKeyspaceName")]
         public Input<string>? CosmosdbCassandraKeyspaceName { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Gremlin Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `gremlin`.
+        /// Specifies the name of the Gremlin Database which the Spring Cloud App should be associated with. Should only be set when `ApiType` is `Gremlin`.
         /// </summary>
         [Input("cosmosdbGremlinDatabaseName")]
         public Input<string>? CosmosdbGremlinDatabaseName { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Gremlin Graph which the Spring Cloud App should be associated with. Should only be set when `api_type` is `gremlin`.
+        /// Specifies the name of the Gremlin Graph which the Spring Cloud App should be associated with. Should only be set when `ApiType` is `Gremlin`.
         /// </summary>
         [Input("cosmosdbGremlinGraphName")]
         public Input<string>? CosmosdbGremlinGraphName { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Mongo Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `mongo`.
+        /// Specifies the name of the Mongo Database which the Spring Cloud App should be associated with. Should only be set when `ApiType` is `Mongo`.
         /// </summary>
         [Input("cosmosdbMongoDatabaseName")]
         public Input<string>? CosmosdbMongoDatabaseName { get; set; }
 
         /// <summary>
-        /// Specifies the name of the SQL Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `sql`.
+        /// Specifies the name of the SQL Database which the Spring Cloud App should be associated with. Should only be set when `ApiType` is `Sql`.
         /// </summary>
         [Input("cosmosdbSqlDatabaseName")]
         public Input<string>? CosmosdbSqlDatabaseName { get; set; }
@@ -263,7 +263,7 @@ namespace Pulumi.Azure.AppPlatform
     public sealed class SpringCloudAppCosmosDBAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the API type which should be used when connecting to the CosmosDB Account. Possible values are `cassandra`, `gremlin`, `mongo`, `sql` or `table`. Changing this forces a new resource to be created.
+        /// Specifies the API type which should be used when connecting to the CosmosDB Account. Possible values are `Cassandra`, `Gremlin`, `Mongo`, `Sql` or `Table`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("apiType")]
         public Input<string>? ApiType { get; set; }
@@ -281,31 +281,31 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string>? CosmosdbAccountId { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Cassandra Keyspace which the Spring Cloud App should be associated with. Should only be set when `api_type` is `cassandra`.
+        /// Specifies the name of the Cassandra Keyspace which the Spring Cloud App should be associated with. Should only be set when `ApiType` is `Cassandra`.
         /// </summary>
         [Input("cosmosdbCassandraKeyspaceName")]
         public Input<string>? CosmosdbCassandraKeyspaceName { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Gremlin Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `gremlin`.
+        /// Specifies the name of the Gremlin Database which the Spring Cloud App should be associated with. Should only be set when `ApiType` is `Gremlin`.
         /// </summary>
         [Input("cosmosdbGremlinDatabaseName")]
         public Input<string>? CosmosdbGremlinDatabaseName { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Gremlin Graph which the Spring Cloud App should be associated with. Should only be set when `api_type` is `gremlin`.
+        /// Specifies the name of the Gremlin Graph which the Spring Cloud App should be associated with. Should only be set when `ApiType` is `Gremlin`.
         /// </summary>
         [Input("cosmosdbGremlinGraphName")]
         public Input<string>? CosmosdbGremlinGraphName { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Mongo Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `mongo`.
+        /// Specifies the name of the Mongo Database which the Spring Cloud App should be associated with. Should only be set when `ApiType` is `Mongo`.
         /// </summary>
         [Input("cosmosdbMongoDatabaseName")]
         public Input<string>? CosmosdbMongoDatabaseName { get; set; }
 
         /// <summary>
-        /// Specifies the name of the SQL Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `sql`.
+        /// Specifies the name of the SQL Database which the Spring Cloud App should be associated with. Should only be set when `ApiType` is `Sql`.
         /// </summary>
         [Input("cosmosdbSqlDatabaseName")]
         public Input<string>? CosmosdbSqlDatabaseName { get; set; }

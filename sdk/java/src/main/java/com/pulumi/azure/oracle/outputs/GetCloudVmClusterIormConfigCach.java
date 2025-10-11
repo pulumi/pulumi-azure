@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetCloudVmClusterIormConfigCach {
     /**
-     * @return A `db_plans` block as defined above.
+     * @return A `dbPlans` block as defined above.
      * 
      */
     private List<GetCloudVmClusterIormConfigCachDbPlan> dbPlans;
@@ -35,7 +35,7 @@ public final class GetCloudVmClusterIormConfigCach {
 
     private GetCloudVmClusterIormConfigCach() {}
     /**
-     * @return A `db_plans` block as defined above.
+     * @return A `dbPlans` block as defined above.
      * 
      */
     public List<GetCloudVmClusterIormConfigCachDbPlan> dbPlans() {

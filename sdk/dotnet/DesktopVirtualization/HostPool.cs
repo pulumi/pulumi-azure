@@ -112,7 +112,7 @@ namespace Pulumi.Azure.DesktopVirtualization
 
         /// <summary>
         /// A valid integer value from 0 to 999999 for the maximum number of users that have concurrent sessions on a session host.
-        /// Should only be set if the `type` of your Virtual Desktop Host Pool is `Pooled`.
+        /// Should only be set if the `Type` of your Virtual Desktop Host Pool is `Pooled`.
         /// </summary>
         [Output("maximumSessionsAllowed")]
         public Output<int?> MaximumSessionsAllowed { get; private set; } = null!;
@@ -126,7 +126,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         /// <summary>
         /// `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`. `Direct` Assignment – Admin selects a specific host to assign to an user. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** `personal_desktop_assignment_type` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
+        /// &gt; **Note:** `PersonalDesktopAssignmentType` is required if the `Type` of your Virtual Desktop Host Pool is `Personal`
         /// </summary>
         [Output("personalDesktopAssignmentType")]
         public Output<string?> PersonalDesktopAssignmentType { get; private set; } = null!;
@@ -150,13 +150,13 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `scheduled_agent_updates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
+        /// A `ScheduledAgentUpdates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
         /// </summary>
         [Output("scheduledAgentUpdates")]
         public Output<Outputs.HostPoolScheduledAgentUpdates?> ScheduledAgentUpdates { get; private set; } = null!;
 
         /// <summary>
-        /// Enables or disables the Start VM on Connection Feature. Defaults to `false`.
+        /// Enables or disables the Start VM on Connection Feature. Defaults to `False`.
         /// </summary>
         [Output("startVmOnConnect")]
         public Output<bool?> StartVmOnConnect { get; private set; } = null!;
@@ -174,7 +174,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// Allows you to test service changes before they are deployed to production. Defaults to `false`.
+        /// Allows you to test service changes before they are deployed to production. Defaults to `False`.
         /// </summary>
         [Output("validateEnvironment")]
         public Output<bool?> ValidateEnvironment { get; private set; } = null!;
@@ -265,7 +265,7 @@ namespace Pulumi.Azure.DesktopVirtualization
 
         /// <summary>
         /// A valid integer value from 0 to 999999 for the maximum number of users that have concurrent sessions on a session host.
-        /// Should only be set if the `type` of your Virtual Desktop Host Pool is `Pooled`.
+        /// Should only be set if the `Type` of your Virtual Desktop Host Pool is `Pooled`.
         /// </summary>
         [Input("maximumSessionsAllowed")]
         public Input<int>? MaximumSessionsAllowed { get; set; }
@@ -279,7 +279,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         /// <summary>
         /// `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`. `Direct` Assignment – Admin selects a specific host to assign to an user. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** `personal_desktop_assignment_type` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
+        /// &gt; **Note:** `PersonalDesktopAssignmentType` is required if the `Type` of your Virtual Desktop Host Pool is `Personal`
         /// </summary>
         [Input("personalDesktopAssignmentType")]
         public Input<string>? PersonalDesktopAssignmentType { get; set; }
@@ -303,13 +303,13 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `scheduled_agent_updates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
+        /// A `ScheduledAgentUpdates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
         /// </summary>
         [Input("scheduledAgentUpdates")]
         public Input<Inputs.HostPoolScheduledAgentUpdatesArgs>? ScheduledAgentUpdates { get; set; }
 
         /// <summary>
-        /// Enables or disables the Start VM on Connection Feature. Defaults to `false`.
+        /// Enables or disables the Start VM on Connection Feature. Defaults to `False`.
         /// </summary>
         [Input("startVmOnConnect")]
         public Input<bool>? StartVmOnConnect { get; set; }
@@ -333,7 +333,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Allows you to test service changes before they are deployed to production. Defaults to `false`.
+        /// Allows you to test service changes before they are deployed to production. Defaults to `False`.
         /// </summary>
         [Input("validateEnvironment")]
         public Input<bool>? ValidateEnvironment { get; set; }
@@ -386,7 +386,7 @@ namespace Pulumi.Azure.DesktopVirtualization
 
         /// <summary>
         /// A valid integer value from 0 to 999999 for the maximum number of users that have concurrent sessions on a session host.
-        /// Should only be set if the `type` of your Virtual Desktop Host Pool is `Pooled`.
+        /// Should only be set if the `Type` of your Virtual Desktop Host Pool is `Pooled`.
         /// </summary>
         [Input("maximumSessionsAllowed")]
         public Input<int>? MaximumSessionsAllowed { get; set; }
@@ -400,7 +400,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         /// <summary>
         /// `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`. `Direct` Assignment – Admin selects a specific host to assign to an user. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** `personal_desktop_assignment_type` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
+        /// &gt; **Note:** `PersonalDesktopAssignmentType` is required if the `Type` of your Virtual Desktop Host Pool is `Personal`
         /// </summary>
         [Input("personalDesktopAssignmentType")]
         public Input<string>? PersonalDesktopAssignmentType { get; set; }
@@ -424,13 +424,13 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// A `scheduled_agent_updates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
+        /// A `ScheduledAgentUpdates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
         /// </summary>
         [Input("scheduledAgentUpdates")]
         public Input<Inputs.HostPoolScheduledAgentUpdatesGetArgs>? ScheduledAgentUpdates { get; set; }
 
         /// <summary>
-        /// Enables or disables the Start VM on Connection Feature. Defaults to `false`.
+        /// Enables or disables the Start VM on Connection Feature. Defaults to `False`.
         /// </summary>
         [Input("startVmOnConnect")]
         public Input<bool>? StartVmOnConnect { get; set; }
@@ -454,7 +454,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// Allows you to test service changes before they are deployed to production. Defaults to `false`.
+        /// Allows you to test service changes before they are deployed to production. Defaults to `False`.
         /// </summary>
         [Input("validateEnvironment")]
         public Input<bool>? ValidateEnvironment { get; set; }

@@ -23,7 +23,7 @@ public final class ElasticSanArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the base size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
      * 
-     * &gt; **Note:** When updating `base_size_in_tib`, the new value should be greater than the existing one.
+     * &gt; **Note:** When updating `baseSizeInTib`, the new value should be greater than the existing one.
      * 
      */
     @Import(name="baseSizeInTib", required=true)
@@ -32,7 +32,7 @@ public final class ElasticSanArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Specifies the base size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
      * 
-     * &gt; **Note:** When updating `base_size_in_tib`, the new value should be greater than the existing one.
+     * &gt; **Note:** When updating `baseSizeInTib`, the new value should be greater than the existing one.
      * 
      */
     public Output<Integer> baseSizeInTib() {
@@ -42,7 +42,7 @@ public final class ElasticSanArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the extended size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
      * 
-     * &gt; **Note:** `extended_size_in_tib` cannot be removed and when updating, the new value should be greater than the existing one.
+     * &gt; **Note:** `extendedSizeInTib` cannot be removed and when updating, the new value should be greater than the existing one.
      * 
      */
     @Import(name="extendedSizeInTib")
@@ -51,7 +51,7 @@ public final class ElasticSanArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Specifies the extended size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
      * 
-     * &gt; **Note:** `extended_size_in_tib` cannot be removed and when updating, the new value should be greater than the existing one.
+     * &gt; **Note:** `extendedSizeInTib` cannot be removed and when updating, the new value should be greater than the existing one.
      * 
      */
     public Optional<Output<Integer>> extendedSizeInTib() {
@@ -186,7 +186,7 @@ public final class ElasticSanArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param baseSizeInTib Specifies the base size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
          * 
-         * &gt; **Note:** When updating `base_size_in_tib`, the new value should be greater than the existing one.
+         * &gt; **Note:** When updating `baseSizeInTib`, the new value should be greater than the existing one.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class ElasticSanArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param baseSizeInTib Specifies the base size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
          * 
-         * &gt; **Note:** When updating `base_size_in_tib`, the new value should be greater than the existing one.
+         * &gt; **Note:** When updating `baseSizeInTib`, the new value should be greater than the existing one.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class ElasticSanArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param extendedSizeInTib Specifies the extended size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
          * 
-         * &gt; **Note:** `extended_size_in_tib` cannot be removed and when updating, the new value should be greater than the existing one.
+         * &gt; **Note:** `extendedSizeInTib` cannot be removed and when updating, the new value should be greater than the existing one.
          * 
          * @return builder
          * 
@@ -224,7 +224,7 @@ public final class ElasticSanArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param extendedSizeInTib Specifies the extended size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
          * 
-         * &gt; **Note:** `extended_size_in_tib` cannot be removed and when updating, the new value should be greater than the existing one.
+         * &gt; **Note:** `extendedSizeInTib` cannot be removed and when updating, the new value should be greater than the existing one.
          * 
          * @return builder
          * 

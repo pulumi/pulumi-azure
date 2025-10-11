@@ -20,14 +20,14 @@ public final class ApplicationGatewayHttpListenerArgs extends com.pulumi.resourc
     public static final ApplicationGatewayHttpListenerArgs Empty = new ApplicationGatewayHttpListenerArgs();
 
     /**
-     * One or more `custom_error_configuration` blocks as defined below.
+     * One or more `customErrorConfiguration` blocks as defined below.
      * 
      */
     @Import(name="customErrorConfigurations")
     private @Nullable Output<List<ApplicationGatewayHttpListenerCustomErrorConfigurationArgs>> customErrorConfigurations;
 
     /**
-     * @return One or more `custom_error_configuration` blocks as defined below.
+     * @return One or more `customErrorConfiguration` blocks as defined below.
      * 
      */
     public Optional<Output<List<ApplicationGatewayHttpListenerCustomErrorConfigurationArgs>>> customErrorConfigurations() {
@@ -127,7 +127,7 @@ public final class ApplicationGatewayHttpListenerArgs extends com.pulumi.resourc
     /**
      * A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
      * 
-     * &gt; **Note:** The `host_names` and `host_name` are mutually exclusive and cannot both be set.
+     * &gt; **Note:** The `hostNames` and `hostName` are mutually exclusive and cannot both be set.
      * 
      */
     @Import(name="hostNames")
@@ -136,7 +136,7 @@ public final class ApplicationGatewayHttpListenerArgs extends com.pulumi.resourc
     /**
      * @return A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
      * 
-     * &gt; **Note:** The `host_names` and `host_name` are mutually exclusive and cannot both be set.
+     * &gt; **Note:** The `hostNames` and `hostName` are mutually exclusive and cannot both be set.
      * 
      */
     public Optional<Output<List<String>>> hostNames() {
@@ -303,7 +303,7 @@ public final class ApplicationGatewayHttpListenerArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param customErrorConfigurations One or more `custom_error_configuration` blocks as defined below.
+         * @param customErrorConfigurations One or more `customErrorConfiguration` blocks as defined below.
          * 
          * @return builder
          * 
@@ -314,7 +314,7 @@ public final class ApplicationGatewayHttpListenerArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param customErrorConfigurations One or more `custom_error_configuration` blocks as defined below.
+         * @param customErrorConfigurations One or more `customErrorConfiguration` blocks as defined below.
          * 
          * @return builder
          * 
@@ -324,7 +324,7 @@ public final class ApplicationGatewayHttpListenerArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param customErrorConfigurations One or more `custom_error_configuration` blocks as defined below.
+         * @param customErrorConfigurations One or more `customErrorConfiguration` blocks as defined below.
          * 
          * @return builder
          * 
@@ -462,7 +462,7 @@ public final class ApplicationGatewayHttpListenerArgs extends com.pulumi.resourc
         /**
          * @param hostNames A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
          * 
-         * &gt; **Note:** The `host_names` and `host_name` are mutually exclusive and cannot both be set.
+         * &gt; **Note:** The `hostNames` and `hostName` are mutually exclusive and cannot both be set.
          * 
          * @return builder
          * 
@@ -475,7 +475,7 @@ public final class ApplicationGatewayHttpListenerArgs extends com.pulumi.resourc
         /**
          * @param hostNames A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
          * 
-         * &gt; **Note:** The `host_names` and `host_name` are mutually exclusive and cannot both be set.
+         * &gt; **Note:** The `hostNames` and `hostName` are mutually exclusive and cannot both be set.
          * 
          * @return builder
          * 
@@ -487,7 +487,7 @@ public final class ApplicationGatewayHttpListenerArgs extends com.pulumi.resourc
         /**
          * @param hostNames A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
          * 
-         * &gt; **Note:** The `host_names` and `host_name` are mutually exclusive and cannot both be set.
+         * &gt; **Note:** The `hostNames` and `hostName` are mutually exclusive and cannot both be set.
          * 
          * @return builder
          * 

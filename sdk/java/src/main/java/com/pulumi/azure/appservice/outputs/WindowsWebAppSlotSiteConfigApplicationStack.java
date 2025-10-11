@@ -27,12 +27,12 @@ public final class WindowsWebAppSlotSiteConfigApplicationStack {
     /**
      * @return The User Name to use for authentication against the registry to pull the image.
      * 
-     * &gt; **Note:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+     * &gt; **Note:** `dockerRegistryUrl`, `dockerRegistryUsername`, and `dockerRegistryPassword` replace the use of the `appSettings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `appSettings` map.
      * 
      */
     private @Nullable String dockerRegistryPassword;
     /**
-     * @return The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
+     * @return The URL of the container registry where the `dockerImageName` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `dockerImageName`.
      * 
      */
     private @Nullable String dockerRegistryUrl;
@@ -42,28 +42,28 @@ public final class WindowsWebAppSlotSiteConfigApplicationStack {
      */
     private @Nullable String dockerRegistryUsername;
     /**
-     * @return The version of .NET to use when `current_stack` is set to `dotnetcore`. Possible values include `v4.0`.
+     * @return The version of .NET to use when `currentStack` is set to `dotnetcore`. Possible values include `v4.0`.
      * 
      */
     private @Nullable String dotnetCoreVersion;
     /**
-     * @return The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0` and `v9.0`.
+     * @return The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0` and `v9.0`.
      * 
      */
     private @Nullable String dotnetVersion;
     /**
      * @deprecated
-     * this property has been deprecated in favour of `tomcat_version` and `java_embedded_server_enabled`
+     * this property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled`
      * 
      */
-    @Deprecated /* this property has been deprecated in favour of `tomcat_version` and `java_embedded_server_enabled` */
+    @Deprecated /* this property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled` */
     private @Nullable String javaContainer;
     /**
      * @deprecated
-     * This property has been deprecated in favour of `tomcat_version` and `java_embedded_server_enabled`
+     * This property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled`
      * 
      */
-    @Deprecated /* This property has been deprecated in favour of `tomcat_version` and `java_embedded_server_enabled` */
+    @Deprecated /* This property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled` */
     private @Nullable String javaContainerVersion;
     /**
      * @return Should the Java Embedded Server (Java SE) be used to run the app.
@@ -71,21 +71,21 @@ public final class WindowsWebAppSlotSiteConfigApplicationStack {
      */
     private @Nullable Boolean javaEmbeddedServerEnabled;
     /**
-     * @return The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `java_container` and `java_container_version`.
+     * @return The version of Java to use when `currentStack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `javaContainer` and `javaContainerVersion`.
      * 
-     * &gt; **Note:** For compatible combinations of `java_version`, `java_container` and `java_container_version` users can use `az webapp list-runtimes` from command line.
+     * &gt; **Note:** For compatible combinations of `javaVersion`, `javaContainer` and `javaContainerVersion` users can use `az webapp list-runtimes` from command line.
      * 
      */
     private @Nullable String javaVersion;
     /**
-     * @return The version of node to use when `current_stack` is set to `node`. Possible values include `~12`, `~14`, `~16`, `~18`, `~20` and `~22`.
+     * @return The version of node to use when `currentStack` is set to `node`. Possible values include `~12`, `~14`, `~16`, `~18`, `~20` and `~22`.
      * 
-     * &gt; **Note:** This property conflicts with `java_version`.
+     * &gt; **Note:** This property conflicts with `javaVersion`.
      * 
      */
     private @Nullable String nodeVersion;
     /**
-     * @return The version of PHP to use when `current_stack` is set to `php`. Possible values are `7.1`, `7.4` and `Off`.
+     * @return The version of PHP to use when `currentStack` is set to `php`. Possible values are `7.1`, `7.4` and `Off`.
      * 
      * &gt; **Note:** The value `Off` is used to signify latest supported by the service.
      * 
@@ -124,14 +124,14 @@ public final class WindowsWebAppSlotSiteConfigApplicationStack {
     /**
      * @return The User Name to use for authentication against the registry to pull the image.
      * 
-     * &gt; **Note:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+     * &gt; **Note:** `dockerRegistryUrl`, `dockerRegistryUsername`, and `dockerRegistryPassword` replace the use of the `appSettings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `appSettings` map.
      * 
      */
     public Optional<String> dockerRegistryPassword() {
         return Optional.ofNullable(this.dockerRegistryPassword);
     }
     /**
-     * @return The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
+     * @return The URL of the container registry where the `dockerImageName` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `dockerImageName`.
      * 
      */
     public Optional<String> dockerRegistryUrl() {
@@ -145,14 +145,14 @@ public final class WindowsWebAppSlotSiteConfigApplicationStack {
         return Optional.ofNullable(this.dockerRegistryUsername);
     }
     /**
-     * @return The version of .NET to use when `current_stack` is set to `dotnetcore`. Possible values include `v4.0`.
+     * @return The version of .NET to use when `currentStack` is set to `dotnetcore`. Possible values include `v4.0`.
      * 
      */
     public Optional<String> dotnetCoreVersion() {
         return Optional.ofNullable(this.dotnetCoreVersion);
     }
     /**
-     * @return The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0` and `v9.0`.
+     * @return The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0` and `v9.0`.
      * 
      */
     public Optional<String> dotnetVersion() {
@@ -160,19 +160,19 @@ public final class WindowsWebAppSlotSiteConfigApplicationStack {
     }
     /**
      * @deprecated
-     * this property has been deprecated in favour of `tomcat_version` and `java_embedded_server_enabled`
+     * this property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled`
      * 
      */
-    @Deprecated /* this property has been deprecated in favour of `tomcat_version` and `java_embedded_server_enabled` */
+    @Deprecated /* this property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled` */
     public Optional<String> javaContainer() {
         return Optional.ofNullable(this.javaContainer);
     }
     /**
      * @deprecated
-     * This property has been deprecated in favour of `tomcat_version` and `java_embedded_server_enabled`
+     * This property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled`
      * 
      */
-    @Deprecated /* This property has been deprecated in favour of `tomcat_version` and `java_embedded_server_enabled` */
+    @Deprecated /* This property has been deprecated in favour of `tomcatVersion` and `javaEmbeddedServerEnabled` */
     public Optional<String> javaContainerVersion() {
         return Optional.ofNullable(this.javaContainerVersion);
     }
@@ -184,25 +184,25 @@ public final class WindowsWebAppSlotSiteConfigApplicationStack {
         return Optional.ofNullable(this.javaEmbeddedServerEnabled);
     }
     /**
-     * @return The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `java_container` and `java_container_version`.
+     * @return The version of Java to use when `currentStack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `javaContainer` and `javaContainerVersion`.
      * 
-     * &gt; **Note:** For compatible combinations of `java_version`, `java_container` and `java_container_version` users can use `az webapp list-runtimes` from command line.
+     * &gt; **Note:** For compatible combinations of `javaVersion`, `javaContainer` and `javaContainerVersion` users can use `az webapp list-runtimes` from command line.
      * 
      */
     public Optional<String> javaVersion() {
         return Optional.ofNullable(this.javaVersion);
     }
     /**
-     * @return The version of node to use when `current_stack` is set to `node`. Possible values include `~12`, `~14`, `~16`, `~18`, `~20` and `~22`.
+     * @return The version of node to use when `currentStack` is set to `node`. Possible values include `~12`, `~14`, `~16`, `~18`, `~20` and `~22`.
      * 
-     * &gt; **Note:** This property conflicts with `java_version`.
+     * &gt; **Note:** This property conflicts with `javaVersion`.
      * 
      */
     public Optional<String> nodeVersion() {
         return Optional.ofNullable(this.nodeVersion);
     }
     /**
-     * @return The version of PHP to use when `current_stack` is set to `php`. Possible values are `7.1`, `7.4` and `Off`.
+     * @return The version of PHP to use when `currentStack` is set to `php`. Possible values are `7.1`, `7.4` and `Off`.
      * 
      * &gt; **Note:** The value `Off` is used to signify latest supported by the service.
      * 

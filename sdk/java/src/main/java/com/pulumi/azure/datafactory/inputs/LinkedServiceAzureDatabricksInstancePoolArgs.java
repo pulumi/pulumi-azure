@@ -48,14 +48,14 @@ public final class LinkedServiceAzureDatabricksInstancePoolArgs extends com.pulu
     }
 
     /**
-     * The max number of worker nodes. Set this value if you want to enable autoscaling between the `min_number_of_workers` and this value. Omit this value to use a fixed number of workers defined in the `min_number_of_workers` property.
+     * The max number of worker nodes. Set this value if you want to enable autoscaling between the `minNumberOfWorkers` and this value. Omit this value to use a fixed number of workers defined in the `minNumberOfWorkers` property.
      * 
      */
     @Import(name="maxNumberOfWorkers")
     private @Nullable Output<Integer> maxNumberOfWorkers;
 
     /**
-     * @return The max number of worker nodes. Set this value if you want to enable autoscaling between the `min_number_of_workers` and this value. Omit this value to use a fixed number of workers defined in the `min_number_of_workers` property.
+     * @return The max number of worker nodes. Set this value if you want to enable autoscaling between the `minNumberOfWorkers` and this value. Omit this value to use a fixed number of workers defined in the `minNumberOfWorkers` property.
      * 
      */
     public Optional<Output<Integer>> maxNumberOfWorkers() {
@@ -147,7 +147,7 @@ public final class LinkedServiceAzureDatabricksInstancePoolArgs extends com.pulu
         }
 
         /**
-         * @param maxNumberOfWorkers The max number of worker nodes. Set this value if you want to enable autoscaling between the `min_number_of_workers` and this value. Omit this value to use a fixed number of workers defined in the `min_number_of_workers` property.
+         * @param maxNumberOfWorkers The max number of worker nodes. Set this value if you want to enable autoscaling between the `minNumberOfWorkers` and this value. Omit this value to use a fixed number of workers defined in the `minNumberOfWorkers` property.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class LinkedServiceAzureDatabricksInstancePoolArgs extends com.pulu
         }
 
         /**
-         * @param maxNumberOfWorkers The max number of worker nodes. Set this value if you want to enable autoscaling between the `min_number_of_workers` and this value. Omit this value to use a fixed number of workers defined in the `min_number_of_workers` property.
+         * @param maxNumberOfWorkers The max number of worker nodes. Set this value if you want to enable autoscaling between the `minNumberOfWorkers` and this value. Omit this value to use a fixed number of workers defined in the `minNumberOfWorkers` property.
          * 
          * @return builder
          * 

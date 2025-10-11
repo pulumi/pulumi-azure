@@ -25,7 +25,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         }
 
         /// <summary>
-        /// Should the image cache be enabled? Defaults to `true`.
+        /// Should the image cache be enabled? Defaults to `True`.
         /// </summary>
         [Input("cacheEnabled")]
         public Input<bool>? CacheEnabled { get; set; }
@@ -71,7 +71,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         }
 
         /// <summary>
-        /// Should the image built be pushed to the registry or not? Defaults to `true`.
+        /// Should the image built be pushed to the registry or not? Defaults to `True`.
         /// </summary>
         [Input("pushEnabled")]
         public Input<bool>? PushEnabled { get; set; }

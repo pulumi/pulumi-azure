@@ -14,11 +14,11 @@ namespace Pulumi.Azure.FrontDoor.Outputs
     public sealed class RulesEngineRule
     {
         /// <summary>
-        /// An `action` block as defined below.
+        /// An `Action` block as defined below.
         /// </summary>
         public readonly Outputs.RulesEngineRuleAction? Action;
         /// <summary>
-        /// One or more `match_condition` block as defined below.
+        /// One or more `MatchCondition` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.RulesEngineRuleMatchCondition> MatchConditions;
         /// <summary>

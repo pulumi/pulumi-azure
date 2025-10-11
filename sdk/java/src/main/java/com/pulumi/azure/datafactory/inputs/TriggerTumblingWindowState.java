@@ -233,14 +233,14 @@ public final class TriggerTumblingWindowState extends com.pulumi.resources.Resou
     }
 
     /**
-     * One or more `trigger_dependency` block as defined below.
+     * One or more `triggerDependency` block as defined below.
      * 
      */
     @Import(name="triggerDependencies")
     private @Nullable Output<List<TriggerTumblingWindowTriggerDependencyArgs>> triggerDependencies;
 
     /**
-     * @return One or more `trigger_dependency` block as defined below.
+     * @return One or more `triggerDependency` block as defined below.
      * 
      */
     public Optional<Output<List<TriggerTumblingWindowTriggerDependencyArgs>>> triggerDependencies() {
@@ -590,7 +590,7 @@ public final class TriggerTumblingWindowState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param triggerDependencies One or more `trigger_dependency` block as defined below.
+         * @param triggerDependencies One or more `triggerDependency` block as defined below.
          * 
          * @return builder
          * 
@@ -601,7 +601,7 @@ public final class TriggerTumblingWindowState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param triggerDependencies One or more `trigger_dependency` block as defined below.
+         * @param triggerDependencies One or more `triggerDependency` block as defined below.
          * 
          * @return builder
          * 
@@ -611,7 +611,7 @@ public final class TriggerTumblingWindowState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param triggerDependencies One or more `trigger_dependency` block as defined below.
+         * @param triggerDependencies One or more `triggerDependency` block as defined below.
          * 
          * @return builder
          * 

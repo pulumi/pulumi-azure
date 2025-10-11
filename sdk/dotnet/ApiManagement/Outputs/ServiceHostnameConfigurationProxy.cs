@@ -20,7 +20,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// <summary>
         /// The password associated with the certificate provided above.
         /// 
-        /// &gt; **Note:** Either `key_vault_certificate_id` or `certificate` and `certificate_password` must be specified.
+        /// &gt; **Note:** Either `KeyVaultCertificateId` or `Certificate` and `CertificatePassword` must be specified.
         /// </summary>
         public readonly string? CertificatePassword;
         /// <summary>
@@ -32,7 +32,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// </summary>
         public readonly string? CertificateStatus;
         /// <summary>
-        /// Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to `false`.
+        /// Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to `False`.
         /// </summary>
         public readonly bool? DefaultSslBinding;
         /// <summary>
@@ -46,16 +46,16 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// <summary>
         /// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
         /// 
-        /// &gt; **Note:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
+        /// &gt; **Note:** Setting this field requires the `Identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
         /// </summary>
         public readonly string? KeyVaultCertificateId;
         public readonly string? KeyVaultId;
         /// <summary>
-        /// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+        /// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `False`.
         /// </summary>
         public readonly bool? NegotiateClientCertificate;
         /// <summary>
-        /// The Managed Identity Client ID to use to access the Key Vault. This Identity must be specified in the `identity` block to be used.
+        /// The Managed Identity Client ID to use to access the Key Vault. This Identity must be specified in the `Identity` block to be used.
         /// </summary>
         public readonly string? SslKeyvaultIdentityClientId;
         /// <summary>

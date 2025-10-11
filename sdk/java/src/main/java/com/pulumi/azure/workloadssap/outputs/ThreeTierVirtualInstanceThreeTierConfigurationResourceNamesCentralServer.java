@@ -20,12 +20,12 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCe
      */
     private @Nullable String availabilitySetName;
     /**
-     * @return A `load_balancer` block as defined below. Changing this forces a new resource to be created.
+     * @return A `loadBalancer` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerLoadBalancer loadBalancer;
     /**
-     * @return One or more `virtual_machine` blocks as defined below. Changing this forces a new resource to be created.
+     * @return One or more `virtualMachine` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable List<ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachine> virtualMachines;
@@ -39,14 +39,14 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCe
         return Optional.ofNullable(this.availabilitySetName);
     }
     /**
-     * @return A `load_balancer` block as defined below. Changing this forces a new resource to be created.
+     * @return A `loadBalancer` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerLoadBalancer> loadBalancer() {
         return Optional.ofNullable(this.loadBalancer);
     }
     /**
-     * @return One or more `virtual_machine` blocks as defined below. Changing this forces a new resource to be created.
+     * @return One or more `virtualMachine` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public List<ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachine> virtualMachines() {

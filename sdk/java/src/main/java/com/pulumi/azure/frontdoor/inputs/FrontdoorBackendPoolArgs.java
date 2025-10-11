@@ -34,14 +34,14 @@ public final class FrontdoorBackendPoolArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Specifies the name of the `backend_pool_health_probe` block within this resource to use for this `Backend Pool`.
+     * Specifies the name of the `backendPoolHealthProbe` block within this resource to use for this `Backend Pool`.
      * 
      */
     @Import(name="healthProbeName", required=true)
     private Output<String> healthProbeName;
 
     /**
-     * @return Specifies the name of the `backend_pool_health_probe` block within this resource to use for this `Backend Pool`.
+     * @return Specifies the name of the `backendPoolHealthProbe` block within this resource to use for this `Backend Pool`.
      * 
      */
     public Output<String> healthProbeName() {
@@ -64,14 +64,14 @@ public final class FrontdoorBackendPoolArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Specifies the name of the `backend_pool_load_balancing` block within this resource to use for this `Backend Pool`.
+     * Specifies the name of the `backendPoolLoadBalancing` block within this resource to use for this `Backend Pool`.
      * 
      */
     @Import(name="loadBalancingName", required=true)
     private Output<String> loadBalancingName;
 
     /**
-     * @return Specifies the name of the `backend_pool_load_balancing` block within this resource to use for this `Backend Pool`.
+     * @return Specifies the name of the `backendPoolLoadBalancing` block within this resource to use for this `Backend Pool`.
      * 
      */
     public Output<String> loadBalancingName() {
@@ -153,7 +153,7 @@ public final class FrontdoorBackendPoolArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param healthProbeName Specifies the name of the `backend_pool_health_probe` block within this resource to use for this `Backend Pool`.
+         * @param healthProbeName Specifies the name of the `backendPoolHealthProbe` block within this resource to use for this `Backend Pool`.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class FrontdoorBackendPoolArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param healthProbeName Specifies the name of the `backend_pool_health_probe` block within this resource to use for this `Backend Pool`.
+         * @param healthProbeName Specifies the name of the `backendPoolHealthProbe` block within this resource to use for this `Backend Pool`.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class FrontdoorBackendPoolArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param loadBalancingName Specifies the name of the `backend_pool_load_balancing` block within this resource to use for this `Backend Pool`.
+         * @param loadBalancingName Specifies the name of the `backendPoolLoadBalancing` block within this resource to use for this `Backend Pool`.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class FrontdoorBackendPoolArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param loadBalancingName Specifies the name of the `backend_pool_load_balancing` block within this resource to use for this `Backend Pool`.
+         * @param loadBalancingName Specifies the name of the `backendPoolLoadBalancing` block within this resource to use for this `Backend Pool`.
          * 
          * @return builder
          * 

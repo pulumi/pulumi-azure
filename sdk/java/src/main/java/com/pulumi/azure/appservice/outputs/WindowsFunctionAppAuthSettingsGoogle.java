@@ -19,12 +19,12 @@ public final class WindowsFunctionAppAuthSettingsGoogle {
      */
     private String clientId;
     /**
-     * @return The client secret associated with the Google web application. Cannot be specified with `client_secret_setting_name`.
+     * @return The client secret associated with the Google web application. Cannot be specified with `clientSecretSettingName`.
      * 
      */
     private @Nullable String clientSecret;
     /**
-     * @return The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
+     * @return The app setting name that contains the `clientSecret` value used for Google login. Cannot be specified with `clientSecret`.
      * 
      */
     private @Nullable String clientSecretSettingName;
@@ -43,14 +43,14 @@ public final class WindowsFunctionAppAuthSettingsGoogle {
         return this.clientId;
     }
     /**
-     * @return The client secret associated with the Google web application. Cannot be specified with `client_secret_setting_name`.
+     * @return The client secret associated with the Google web application. Cannot be specified with `clientSecretSettingName`.
      * 
      */
     public Optional<String> clientSecret() {
         return Optional.ofNullable(this.clientSecret);
     }
     /**
-     * @return The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
+     * @return The app setting name that contains the `clientSecret` value used for Google login. Cannot be specified with `clientSecret`.
      * 
      */
     public Optional<String> clientSecretSettingName() {

@@ -16,7 +16,7 @@ namespace Pulumi.Azure.HDInsight.Inputs
         private InputList<Inputs.HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleGetArgs>? _schedules;
 
         /// <summary>
-        /// A list of `schedule` blocks as defined below.
+        /// A list of `Schedule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleGetArgs> Schedules
         {

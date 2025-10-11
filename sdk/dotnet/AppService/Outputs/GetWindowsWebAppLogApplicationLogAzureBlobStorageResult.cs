@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class GetWindowsWebAppLogApplicationLogAzureBlobStorageResult
     {
         /// <summary>
-        /// The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
+        /// The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `HttpLogs`
         /// </summary>
         public readonly string Level;
         /// <summary>

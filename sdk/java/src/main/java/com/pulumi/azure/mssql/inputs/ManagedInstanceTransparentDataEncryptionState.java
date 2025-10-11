@@ -51,7 +51,7 @@ public final class ManagedInstanceTransparentDataEncryptionState extends com.pul
      * 
      * &gt; **Note:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: &#39;get&#39;, &#39;wrapKey&#39; and &#39;unwrapKey&#39;
      * 
-     * &gt; **Note:** If `managed_instance_id` denotes a secondary instance deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary instance&#39;s transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
+     * &gt; **Note:** If `managedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary instance&#39;s transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
      * 
      */
     @Import(name="managedHsmKeyId")
@@ -62,7 +62,7 @@ public final class ManagedInstanceTransparentDataEncryptionState extends com.pul
      * 
      * &gt; **Note:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: &#39;get&#39;, &#39;wrapKey&#39; and &#39;unwrapKey&#39;
      * 
-     * &gt; **Note:** If `managed_instance_id` denotes a secondary instance deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary instance&#39;s transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
+     * &gt; **Note:** If `managedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary instance&#39;s transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
      * 
      */
     public Optional<Output<String>> managedHsmKeyId() {
@@ -158,7 +158,7 @@ public final class ManagedInstanceTransparentDataEncryptionState extends com.pul
          * 
          * &gt; **Note:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: &#39;get&#39;, &#39;wrapKey&#39; and &#39;unwrapKey&#39;
          * 
-         * &gt; **Note:** If `managed_instance_id` denotes a secondary instance deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary instance&#39;s transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
+         * &gt; **Note:** If `managedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary instance&#39;s transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class ManagedInstanceTransparentDataEncryptionState extends com.pul
          * 
          * &gt; **Note:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: &#39;get&#39;, &#39;wrapKey&#39; and &#39;unwrapKey&#39;
          * 
-         * &gt; **Note:** If `managed_instance_id` denotes a secondary instance deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary instance&#39;s transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
+         * &gt; **Note:** If `managedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary instance&#39;s transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
          * 
          * @return builder
          * 

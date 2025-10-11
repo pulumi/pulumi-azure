@@ -16,14 +16,14 @@ public final class CertifiateCertificatePolicyLifetimeActionTriggerArgs extends 
     public static final CertifiateCertificatePolicyLifetimeActionTriggerArgs Empty = new CertifiateCertificatePolicyLifetimeActionTriggerArgs();
 
     /**
-     * The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with `lifetime_percentage`.
+     * The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with `lifetimePercentage`.
      * 
      */
     @Import(name="daysBeforeExpiry")
     private @Nullable Output<Integer> daysBeforeExpiry;
 
     /**
-     * @return The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with `lifetime_percentage`.
+     * @return The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with `lifetimePercentage`.
      * 
      */
     public Optional<Output<Integer>> daysBeforeExpiry() {
@@ -31,14 +31,14 @@ public final class CertifiateCertificatePolicyLifetimeActionTriggerArgs extends 
     }
 
     /**
-     * The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with `days_before_expiry`.
+     * The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with `daysBeforeExpiry`.
      * 
      */
     @Import(name="lifetimePercentage")
     private @Nullable Output<Integer> lifetimePercentage;
 
     /**
-     * @return The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with `days_before_expiry`.
+     * @return The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with `daysBeforeExpiry`.
      * 
      */
     public Optional<Output<Integer>> lifetimePercentage() {
@@ -71,7 +71,7 @@ public final class CertifiateCertificatePolicyLifetimeActionTriggerArgs extends 
         }
 
         /**
-         * @param daysBeforeExpiry The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with `lifetime_percentage`.
+         * @param daysBeforeExpiry The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with `lifetimePercentage`.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class CertifiateCertificatePolicyLifetimeActionTriggerArgs extends 
         }
 
         /**
-         * @param daysBeforeExpiry The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with `lifetime_percentage`.
+         * @param daysBeforeExpiry The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with `lifetimePercentage`.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class CertifiateCertificatePolicyLifetimeActionTriggerArgs extends 
         }
 
         /**
-         * @param lifetimePercentage The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with `days_before_expiry`.
+         * @param lifetimePercentage The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with `daysBeforeExpiry`.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class CertifiateCertificatePolicyLifetimeActionTriggerArgs extends 
         }
 
         /**
-         * @param lifetimePercentage The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with `days_before_expiry`.
+         * @param lifetimePercentage The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with `daysBeforeExpiry`.
          * 
          * @return builder
          * 

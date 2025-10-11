@@ -30,14 +30,14 @@ public final class FirewallPolicyInsightsLogAnalyticsWorkspaceArgs extends com.p
     }
 
     /**
-     * The ID of the Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to when their locations match the `firewall_location`.
+     * The ID of the Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to when their locations match the `firewallLocation`.
      * 
      */
     @Import(name="id", required=true)
     private Output<String> id;
 
     /**
-     * @return The ID of the Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to when their locations match the `firewall_location`.
+     * @return The ID of the Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to when their locations match the `firewallLocation`.
      * 
      */
     public Output<String> id() {
@@ -91,7 +91,7 @@ public final class FirewallPolicyInsightsLogAnalyticsWorkspaceArgs extends com.p
         }
 
         /**
-         * @param id The ID of the Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to when their locations match the `firewall_location`.
+         * @param id The ID of the Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to when their locations match the `firewallLocation`.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class FirewallPolicyInsightsLogAnalyticsWorkspaceArgs extends com.p
         }
 
         /**
-         * @param id The ID of the Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to when their locations match the `firewall_location`.
+         * @param id The ID of the Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to when their locations match the `firewallLocation`.
          * 
          * @return builder
          * 

@@ -13,15 +13,15 @@ namespace Pulumi.Azure.Batch.Inputs
     public sealed class AccountNetworkProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `account_access` block as defined below.
+        /// An `AccountAccess` block as defined below.
         /// </summary>
         [Input("accountAccess")]
         public Input<Inputs.AccountNetworkProfileAccountAccessArgs>? AccountAccess { get; set; }
 
         /// <summary>
-        /// A `node_management_access` block as defined below.
+        /// A `NodeManagementAccess` block as defined below.
         /// 
-        /// &gt; **NOTE:** At least one of `account_access` or `node_management_access` must be specified.
+        /// &gt; **NOTE:** At least one of `AccountAccess` or `NodeManagementAccess` must be specified.
         /// </summary>
         [Input("nodeManagementAccess")]
         public Input<Inputs.AccountNetworkProfileNodeManagementAccessArgs>? NodeManagementAccess { get; set; }

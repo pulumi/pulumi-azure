@@ -22,15 +22,15 @@ namespace Pulumi.Azure.ServiceFabric.Outputs
         /// </summary>
         public readonly int FrontendPort;
         /// <summary>
-        /// Protocol for the probe. Can be one of `tcp`, `udp`, `http`, or `https`.
+        /// Protocol for the probe. Can be one of `Tcp`, `Udp`, `Http`, or `Https`.
         /// </summary>
         public readonly string ProbeProtocol;
         /// <summary>
-        /// Path for the probe to check, when probe protocol is set to `http`.
+        /// Path for the probe to check, when probe protocol is set to `Http`.
         /// </summary>
         public readonly string? ProbeRequestPath;
         /// <summary>
-        /// The transport protocol used in this rule. Can be one of `tcp` or `udp`.
+        /// The transport protocol used in this rule. Can be one of `Tcp` or `Udp`.
         /// </summary>
         public readonly string Protocol;
 

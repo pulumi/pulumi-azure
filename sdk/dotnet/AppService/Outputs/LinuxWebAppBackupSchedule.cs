@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class LinuxWebAppBackupSchedule
     {
         /// <summary>
-        /// How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
+        /// How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `FrequencyUnit` should be set to `Day`).
         /// 
         /// &gt; **Note:** Not all intervals are supported on all Linux Web App SKUs. Please refer to the official documentation for appropriate values.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string FrequencyUnit;
         /// <summary>
-        /// Should the service keep at least one backup, regardless of the age of backup? Defaults to `false`.
+        /// Should the service keep at least one backup, regardless of the age of backup? Defaults to `False`.
         /// </summary>
         public readonly bool? KeepAtLeastOneBackup;
         /// <summary>

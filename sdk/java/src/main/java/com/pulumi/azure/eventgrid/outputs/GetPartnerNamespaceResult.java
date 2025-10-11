@@ -25,7 +25,7 @@ public final class GetPartnerNamespaceResult {
      */
     private String id;
     /**
-     * @return One or more `inbound_ip_rule` blocks as defined below.
+     * @return One or more `inboundIpRule` blocks as defined below.
      * 
      */
     private List<GetPartnerNamespaceInboundIpRule> inboundIpRules;
@@ -78,7 +78,7 @@ public final class GetPartnerNamespaceResult {
         return this.id;
     }
     /**
-     * @return One or more `inbound_ip_rule` blocks as defined below.
+     * @return One or more `inboundIpRule` blocks as defined below.
      * 
      */
     public List<GetPartnerNamespaceInboundIpRule> inboundIpRules() {

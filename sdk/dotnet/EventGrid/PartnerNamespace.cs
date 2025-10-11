@@ -70,13 +70,13 @@ namespace Pulumi.Azure.EventGrid
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `inbound_ip_rule` blocks as defined below.
+        /// One or more `InboundIpRule` blocks as defined below.
         /// </summary>
         [Output("inboundIpRules")]
         public Output<ImmutableArray<Outputs.PartnerNamespaceInboundIpRule>> InboundIpRules { get; private set; } = null!;
 
         /// <summary>
-        /// Whether local authentication methods are enabled for the Event Grid Partner Namespace. Defaults to `true`.
+        /// Whether local authentication methods are enabled for the Event Grid Partner Namespace. Defaults to `True`.
         /// </summary>
         [Output("localAuthenticationEnabled")]
         public Output<bool?> LocalAuthenticationEnabled { get; private set; } = null!;
@@ -173,7 +173,7 @@ namespace Pulumi.Azure.EventGrid
         private InputList<Inputs.PartnerNamespaceInboundIpRuleArgs>? _inboundIpRules;
 
         /// <summary>
-        /// One or more `inbound_ip_rule` blocks as defined below.
+        /// One or more `InboundIpRule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.PartnerNamespaceInboundIpRuleArgs> InboundIpRules
         {
@@ -182,7 +182,7 @@ namespace Pulumi.Azure.EventGrid
         }
 
         /// <summary>
-        /// Whether local authentication methods are enabled for the Event Grid Partner Namespace. Defaults to `true`.
+        /// Whether local authentication methods are enabled for the Event Grid Partner Namespace. Defaults to `True`.
         /// </summary>
         [Input("localAuthenticationEnabled")]
         public Input<bool>? LocalAuthenticationEnabled { get; set; }
@@ -253,7 +253,7 @@ namespace Pulumi.Azure.EventGrid
         private InputList<Inputs.PartnerNamespaceInboundIpRuleGetArgs>? _inboundIpRules;
 
         /// <summary>
-        /// One or more `inbound_ip_rule` blocks as defined below.
+        /// One or more `InboundIpRule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.PartnerNamespaceInboundIpRuleGetArgs> InboundIpRules
         {
@@ -262,7 +262,7 @@ namespace Pulumi.Azure.EventGrid
         }
 
         /// <summary>
-        /// Whether local authentication methods are enabled for the Event Grid Partner Namespace. Defaults to `true`.
+        /// Whether local authentication methods are enabled for the Event Grid Partner Namespace. Defaults to `True`.
         /// </summary>
         [Input("localAuthenticationEnabled")]
         public Input<bool>? LocalAuthenticationEnabled { get; set; }

@@ -76,7 +76,7 @@ namespace Pulumi.Azure.PaloAlto
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The `versionles_id` of the Key Vault Certificate to use. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
+        /// The `VersionlesId` of the Key Vault Certificate to use. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
         /// </summary>
         [Output("keyVaultCertificateId")]
         public Output<string?> KeyVaultCertificateId { get; private set; } = null!;
@@ -94,9 +94,9 @@ namespace Pulumi.Azure.PaloAlto
         public Output<string> RulestackId { get; private set; } = null!;
 
         /// <summary>
-        /// Should a Self Signed Certificate be used. Defaults to `false`. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
+        /// Should a Self Signed Certificate be used. Defaults to `False`. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
         /// 
-        /// &gt; **Note:** One and only one of `self_signed` or `key_vault_certificate_id` must be specified.
+        /// &gt; **Note:** One and only one of `SelfSigned` or `KeyVaultCertificateId` must be specified.
         /// </summary>
         [Output("selfSigned")]
         public Output<bool?> SelfSigned { get; private set; } = null!;
@@ -160,7 +160,7 @@ namespace Pulumi.Azure.PaloAlto
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The `versionles_id` of the Key Vault Certificate to use. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
+        /// The `VersionlesId` of the Key Vault Certificate to use. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
         /// </summary>
         [Input("keyVaultCertificateId")]
         public Input<string>? KeyVaultCertificateId { get; set; }
@@ -178,9 +178,9 @@ namespace Pulumi.Azure.PaloAlto
         public Input<string> RulestackId { get; set; } = null!;
 
         /// <summary>
-        /// Should a Self Signed Certificate be used. Defaults to `false`. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
+        /// Should a Self Signed Certificate be used. Defaults to `False`. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
         /// 
-        /// &gt; **Note:** One and only one of `self_signed` or `key_vault_certificate_id` must be specified.
+        /// &gt; **Note:** One and only one of `SelfSigned` or `KeyVaultCertificateId` must be specified.
         /// </summary>
         [Input("selfSigned")]
         public Input<bool>? SelfSigned { get; set; }
@@ -206,7 +206,7 @@ namespace Pulumi.Azure.PaloAlto
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The `versionles_id` of the Key Vault Certificate to use. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
+        /// The `VersionlesId` of the Key Vault Certificate to use. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
         /// </summary>
         [Input("keyVaultCertificateId")]
         public Input<string>? KeyVaultCertificateId { get; set; }
@@ -224,9 +224,9 @@ namespace Pulumi.Azure.PaloAlto
         public Input<string>? RulestackId { get; set; }
 
         /// <summary>
-        /// Should a Self Signed Certificate be used. Defaults to `false`. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
+        /// Should a Self Signed Certificate be used. Defaults to `False`. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
         /// 
-        /// &gt; **Note:** One and only one of `self_signed` or `key_vault_certificate_id` must be specified.
+        /// &gt; **Note:** One and only one of `SelfSigned` or `KeyVaultCertificateId` must be specified.
         /// </summary>
         [Input("selfSigned")]
         public Input<bool>? SelfSigned { get; set; }

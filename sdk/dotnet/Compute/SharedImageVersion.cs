@@ -78,15 +78,15 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
+        /// &gt; **NOTE:** You must specify exact one of `BlobUri`, `ManagedImageId` and `OsDiskSnapshotId`.
         /// 
-        /// &gt; **NOTE:** `blob_uri` and `storage_account_id` must be specified together
+        /// &gt; **NOTE:** `BlobUri` and `StorageAccountId` must be specified together
         /// </summary>
         [Output("blobUri")]
         public Output<string?> BlobUri { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether this Shared Image Version can be deleted from the Azure Regions this is replicated to. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Specifies whether this Shared Image Version can be deleted from the Azure Regions this is replicated to. Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("deletionOfReplicatedLocationsEnabled")]
         public Output<bool?> DeletionOfReplicatedLocationsEnabled { get; private set; } = null!;
@@ -98,7 +98,7 @@ namespace Pulumi.Azure.Compute
         public Output<string?> EndOfLifeDate { get; private set; } = null!;
 
         /// <summary>
-        /// Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
+        /// Should this Image Version be excluded from the `Latest` filter? If set to `True` this Image Version won't be returned for the `Latest` version. Defaults to `False`.
         /// </summary>
         [Output("excludeFromLatest")]
         public Output<bool?> ExcludeFromLatest { get; private set; } = null!;
@@ -126,7 +126,7 @@ namespace Pulumi.Azure.Compute
         /// 
         /// &gt; **NOTE:** The ID can be sourced from the `azure.compute.Image` data source or resource
         /// 
-        /// &gt; **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
+        /// &gt; **NOTE:** You must specify exact one of `BlobUri`, `ManagedImageId` and `OsDiskSnapshotId`.
         /// </summary>
         [Output("managedImageId")]
         public Output<string?> ManagedImageId { get; private set; } = null!;
@@ -140,7 +140,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
+        /// &gt; **NOTE:** You must specify exact one of `BlobUri`, `ManagedImageId` and `OsDiskSnapshotId`.
         /// </summary>
         [Output("osDiskSnapshotId")]
         public Output<string?> OsDiskSnapshotId { get; private set; } = null!;
@@ -160,7 +160,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** `blob_uri` and `storage_account_id` must be specified together
+        /// &gt; **NOTE:** `BlobUri` and `StorageAccountId` must be specified together
         /// </summary>
         [Output("storageAccountId")]
         public Output<string?> StorageAccountId { get; private set; } = null!;
@@ -172,7 +172,7 @@ namespace Pulumi.Azure.Compute
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `target_region` blocks as documented below.
+        /// One or more `TargetRegion` blocks as documented below.
         /// </summary>
         [Output("targetRegions")]
         public Output<ImmutableArray<Outputs.SharedImageVersionTargetRegion>> TargetRegions { get; private set; } = null!;
@@ -226,15 +226,15 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
+        /// &gt; **NOTE:** You must specify exact one of `BlobUri`, `ManagedImageId` and `OsDiskSnapshotId`.
         /// 
-        /// &gt; **NOTE:** `blob_uri` and `storage_account_id` must be specified together
+        /// &gt; **NOTE:** `BlobUri` and `StorageAccountId` must be specified together
         /// </summary>
         [Input("blobUri")]
         public Input<string>? BlobUri { get; set; }
 
         /// <summary>
-        /// Specifies whether this Shared Image Version can be deleted from the Azure Regions this is replicated to. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Specifies whether this Shared Image Version can be deleted from the Azure Regions this is replicated to. Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("deletionOfReplicatedLocationsEnabled")]
         public Input<bool>? DeletionOfReplicatedLocationsEnabled { get; set; }
@@ -246,7 +246,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? EndOfLifeDate { get; set; }
 
         /// <summary>
-        /// Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
+        /// Should this Image Version be excluded from the `Latest` filter? If set to `True` this Image Version won't be returned for the `Latest` version. Defaults to `False`.
         /// </summary>
         [Input("excludeFromLatest")]
         public Input<bool>? ExcludeFromLatest { get; set; }
@@ -274,7 +274,7 @@ namespace Pulumi.Azure.Compute
         /// 
         /// &gt; **NOTE:** The ID can be sourced from the `azure.compute.Image` data source or resource
         /// 
-        /// &gt; **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
+        /// &gt; **NOTE:** You must specify exact one of `BlobUri`, `ManagedImageId` and `OsDiskSnapshotId`.
         /// </summary>
         [Input("managedImageId")]
         public Input<string>? ManagedImageId { get; set; }
@@ -288,7 +288,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
+        /// &gt; **NOTE:** You must specify exact one of `BlobUri`, `ManagedImageId` and `OsDiskSnapshotId`.
         /// </summary>
         [Input("osDiskSnapshotId")]
         public Input<string>? OsDiskSnapshotId { get; set; }
@@ -308,7 +308,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** `blob_uri` and `storage_account_id` must be specified together
+        /// &gt; **NOTE:** `BlobUri` and `StorageAccountId` must be specified together
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }
@@ -329,7 +329,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.SharedImageVersionTargetRegionArgs>? _targetRegions;
 
         /// <summary>
-        /// One or more `target_region` blocks as documented below.
+        /// One or more `TargetRegion` blocks as documented below.
         /// </summary>
         public InputList<Inputs.SharedImageVersionTargetRegionArgs> TargetRegions
         {
@@ -348,15 +348,15 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
+        /// &gt; **NOTE:** You must specify exact one of `BlobUri`, `ManagedImageId` and `OsDiskSnapshotId`.
         /// 
-        /// &gt; **NOTE:** `blob_uri` and `storage_account_id` must be specified together
+        /// &gt; **NOTE:** `BlobUri` and `StorageAccountId` must be specified together
         /// </summary>
         [Input("blobUri")]
         public Input<string>? BlobUri { get; set; }
 
         /// <summary>
-        /// Specifies whether this Shared Image Version can be deleted from the Azure Regions this is replicated to. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Specifies whether this Shared Image Version can be deleted from the Azure Regions this is replicated to. Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("deletionOfReplicatedLocationsEnabled")]
         public Input<bool>? DeletionOfReplicatedLocationsEnabled { get; set; }
@@ -368,7 +368,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? EndOfLifeDate { get; set; }
 
         /// <summary>
-        /// Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
+        /// Should this Image Version be excluded from the `Latest` filter? If set to `True` this Image Version won't be returned for the `Latest` version. Defaults to `False`.
         /// </summary>
         [Input("excludeFromLatest")]
         public Input<bool>? ExcludeFromLatest { get; set; }
@@ -396,7 +396,7 @@ namespace Pulumi.Azure.Compute
         /// 
         /// &gt; **NOTE:** The ID can be sourced from the `azure.compute.Image` data source or resource
         /// 
-        /// &gt; **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
+        /// &gt; **NOTE:** You must specify exact one of `BlobUri`, `ManagedImageId` and `OsDiskSnapshotId`.
         /// </summary>
         [Input("managedImageId")]
         public Input<string>? ManagedImageId { get; set; }
@@ -410,7 +410,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
+        /// &gt; **NOTE:** You must specify exact one of `BlobUri`, `ManagedImageId` and `OsDiskSnapshotId`.
         /// </summary>
         [Input("osDiskSnapshotId")]
         public Input<string>? OsDiskSnapshotId { get; set; }
@@ -430,7 +430,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** `blob_uri` and `storage_account_id` must be specified together
+        /// &gt; **NOTE:** `BlobUri` and `StorageAccountId` must be specified together
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }
@@ -451,7 +451,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.SharedImageVersionTargetRegionGetArgs>? _targetRegions;
 
         /// <summary>
-        /// One or more `target_region` blocks as documented below.
+        /// One or more `TargetRegion` blocks as documented below.
         /// </summary>
         public InputList<Inputs.SharedImageVersionTargetRegionGetArgs> TargetRegions
         {

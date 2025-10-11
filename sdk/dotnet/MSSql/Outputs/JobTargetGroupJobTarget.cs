@@ -16,19 +16,19 @@ namespace Pulumi.Azure.MSSql.Outputs
         /// <summary>
         /// The name of the MS SQL Database.
         /// 
-        /// &gt; **Note:** This cannot be set in combination with `elastic_pool_name`.
+        /// &gt; **Note:** This cannot be set in combination with `ElasticPoolName`.
         /// </summary>
         public readonly string? DatabaseName;
         /// <summary>
         /// The name of the MS SQL Elastic Pool.
         /// 
-        /// &gt; **Note:** This cannot be set in combination with `database_name`.
+        /// &gt; **Note:** This cannot be set in combination with `DatabaseName`.
         /// </summary>
         public readonly string? ElasticPoolName;
         /// <summary>
         /// The ID of the job credential to use during execution of jobs.
         /// 
-        /// &gt; **Note:** This is required when `membership_type` is `Include`, unless `database_name` is set.
+        /// &gt; **Note:** This is required when `MembershipType` is `Include`, unless `DatabaseName` is set.
         /// </summary>
         public readonly string? JobCredentialId;
         /// <summary>
@@ -40,7 +40,7 @@ namespace Pulumi.Azure.MSSql.Outputs
         /// </summary>
         public readonly string ServerName;
         /// <summary>
-        /// The job target type. This value is computed based on `server_name`, `database_name`, and `elastic_pool_name`.
+        /// The job target type. This value is computed based on `ServerName`, `DatabaseName`, and `ElasticPoolName`.
         /// </summary>
         public readonly string? Type;
 

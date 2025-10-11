@@ -16,7 +16,7 @@ namespace Pulumi.Azure.AppService.Inputs
         private InputList<string>? _appSettingNames;
 
         /// <summary>
-        /// A list of `app_setting` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+        /// A list of `AppSetting` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
         /// </summary>
         public InputList<string> AppSettingNames
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.AppService.Inputs
         private InputList<string>? _connectionStringNames;
 
         /// <summary>
-        /// A list of `connection_string` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+        /// A list of `ConnectionString` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
         /// </summary>
         public InputList<string> ConnectionStringNames
         {

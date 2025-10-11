@@ -18,14 +18,14 @@ public final class ConfigurationBackupRetentionPolicyArgs extends com.pulumi.res
     public static final ConfigurationBackupRetentionPolicyArgs Empty = new ConfigurationBackupRetentionPolicyArgs();
 
     /**
-     * A `daily_schedule` block as defined below.
+     * A `dailySchedule` block as defined below.
      * 
      */
     @Import(name="dailySchedule")
     private @Nullable Output<ConfigurationBackupRetentionPolicyDailyScheduleArgs> dailySchedule;
 
     /**
-     * @return A `daily_schedule` block as defined below.
+     * @return A `dailySchedule` block as defined below.
      * 
      */
     public Optional<Output<ConfigurationBackupRetentionPolicyDailyScheduleArgs>> dailySchedule() {
@@ -48,14 +48,14 @@ public final class ConfigurationBackupRetentionPolicyArgs extends com.pulumi.res
     }
 
     /**
-     * A `weekly_schedule` block as defined below.
+     * A `weeklySchedule` block as defined below.
      * 
      */
     @Import(name="weeklySchedule")
     private @Nullable Output<ConfigurationBackupRetentionPolicyWeeklyScheduleArgs> weeklySchedule;
 
     /**
-     * @return A `weekly_schedule` block as defined below.
+     * @return A `weeklySchedule` block as defined below.
      * 
      */
     public Optional<Output<ConfigurationBackupRetentionPolicyWeeklyScheduleArgs>> weeklySchedule() {
@@ -89,7 +89,7 @@ public final class ConfigurationBackupRetentionPolicyArgs extends com.pulumi.res
         }
 
         /**
-         * @param dailySchedule A `daily_schedule` block as defined below.
+         * @param dailySchedule A `dailySchedule` block as defined below.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class ConfigurationBackupRetentionPolicyArgs extends com.pulumi.res
         }
 
         /**
-         * @param dailySchedule A `daily_schedule` block as defined below.
+         * @param dailySchedule A `dailySchedule` block as defined below.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class ConfigurationBackupRetentionPolicyArgs extends com.pulumi.res
         }
 
         /**
-         * @param weeklySchedule A `weekly_schedule` block as defined below.
+         * @param weeklySchedule A `weeklySchedule` block as defined below.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class ConfigurationBackupRetentionPolicyArgs extends com.pulumi.res
         }
 
         /**
-         * @param weeklySchedule A `weekly_schedule` block as defined below.
+         * @param weeklySchedule A `weeklySchedule` block as defined below.
          * 
          * @return builder
          * 

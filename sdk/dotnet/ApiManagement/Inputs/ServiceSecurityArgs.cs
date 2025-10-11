@@ -13,7 +13,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
     public sealed class ServiceSecurityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should SSL 3.0 be enabled on the backend of the gateway? Defaults to `false`.
+        /// Should SSL 3.0 be enabled on the backend of the gateway? Defaults to `False`.
         /// 
         /// &gt; **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Ssl30` field
         /// </summary>
@@ -21,7 +21,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public Input<bool>? BackendSsl30Enabled { get; set; }
 
         /// <summary>
-        /// Should TLS 1.0 be enabled on the backend of the gateway? Defaults to `false`.
+        /// Should TLS 1.0 be enabled on the backend of the gateway? Defaults to `False`.
         /// 
         /// &gt; **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` field
         /// </summary>
@@ -29,7 +29,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public Input<bool>? BackendTls10Enabled { get; set; }
 
         /// <summary>
-        /// Should TLS 1.1 be enabled on the backend of the gateway? Defaults to `false`.
+        /// Should TLS 1.1 be enabled on the backend of the gateway? Defaults to `False`.
         /// 
         /// &gt; **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` field
         /// </summary>
@@ -55,7 +55,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public Input<bool>? EnableFrontendTls11 { get; set; }
 
         /// <summary>
-        /// Should SSL 3.0 be enabled on the frontend of the gateway? Defaults to `false`.
+        /// Should SSL 3.0 be enabled on the frontend of the gateway? Defaults to `False`.
         /// 
         /// &gt; **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Ssl30` field
         /// </summary>
@@ -63,7 +63,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public Input<bool>? FrontendSsl30Enabled { get; set; }
 
         /// <summary>
-        /// Should TLS 1.0 be enabled on the frontend of the gateway? Defaults to `false`.
+        /// Should TLS 1.0 be enabled on the frontend of the gateway? Defaults to `False`.
         /// 
         /// &gt; **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` field
         /// </summary>
@@ -71,7 +71,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public Input<bool>? FrontendTls10Enabled { get; set; }
 
         /// <summary>
-        /// Should TLS 1.1 be enabled on the frontend of the gateway? Defaults to `false`.
+        /// Should TLS 1.1 be enabled on the frontend of the gateway? Defaults to `False`.
         /// 
         /// &gt; **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` field
         /// </summary>
@@ -79,7 +79,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public Input<bool>? FrontendTls11Enabled { get; set; }
 
         /// <summary>
-        /// Should the `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+        /// Should the `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `False`.
         /// 
         /// &gt; **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` field
         /// </summary>
@@ -87,7 +87,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public Input<bool>? TlsEcdheEcdsaWithAes128CbcShaCiphersEnabled { get; set; }
 
         /// <summary>
-        /// Should the `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+        /// Should the `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `False`.
         /// 
         /// &gt; **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` field
         /// </summary>
@@ -95,7 +95,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public Input<bool>? TlsEcdheEcdsaWithAes256CbcShaCiphersEnabled { get; set; }
 
         /// <summary>
-        /// Should the `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+        /// Should the `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `False`.
         /// 
         /// &gt; **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA` field
         /// </summary>
@@ -103,7 +103,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public Input<bool>? TlsEcdheRsaWithAes128CbcShaCiphersEnabled { get; set; }
 
         /// <summary>
-        /// Should the `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+        /// Should the `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `False`.
         /// 
         /// &gt; **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA` field
         /// </summary>
@@ -111,7 +111,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public Input<bool>? TlsEcdheRsaWithAes256CbcShaCiphersEnabled { get; set; }
 
         /// <summary>
-        /// Should the `TLS_RSA_WITH_AES_128_CBC_SHA256` cipher be enabled? Defaults to `false`.
+        /// Should the `TLS_RSA_WITH_AES_128_CBC_SHA256` cipher be enabled? Defaults to `False`.
         /// 
         /// &gt; **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256` field
         /// </summary>
@@ -119,7 +119,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public Input<bool>? TlsRsaWithAes128CbcSha256CiphersEnabled { get; set; }
 
         /// <summary>
-        /// Should the `TLS_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+        /// Should the `TLS_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `False`.
         /// 
         /// &gt; **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA` field
         /// </summary>
@@ -127,7 +127,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public Input<bool>? TlsRsaWithAes128CbcShaCiphersEnabled { get; set; }
 
         /// <summary>
-        /// Should the `TLS_RSA_WITH_AES_128_GCM_SHA256` cipher be enabled? Defaults to `false`.
+        /// Should the `TLS_RSA_WITH_AES_128_GCM_SHA256` cipher be enabled? Defaults to `False`.
         /// 
         /// &gt; **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_GCM_SHA256` field
         /// </summary>
@@ -135,7 +135,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public Input<bool>? TlsRsaWithAes128GcmSha256CiphersEnabled { get; set; }
 
         /// <summary>
-        /// Should the `TLS_RSA_WITH_AES_256_CBC_SHA256` cipher be enabled? Defaults to `false`.
+        /// Should the `TLS_RSA_WITH_AES_256_CBC_SHA256` cipher be enabled? Defaults to `False`.
         /// 
         /// &gt; **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_CBC_SHA256` field
         /// </summary>
@@ -143,7 +143,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public Input<bool>? TlsRsaWithAes256CbcSha256CiphersEnabled { get; set; }
 
         /// <summary>
-        /// Should the `TLS_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+        /// Should the `TLS_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `False`.
         /// 
         /// &gt; **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_CBC_SHA` field
         /// </summary>
@@ -151,7 +151,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public Input<bool>? TlsRsaWithAes256CbcShaCiphersEnabled { get; set; }
 
         /// <summary>
-        /// Should the `TLS_RSA_WITH_AES_256_GCM_SHA384` cipher be enabled? Defaults to `false`.
+        /// Should the `TLS_RSA_WITH_AES_256_GCM_SHA384` cipher be enabled? Defaults to `False`.
         /// 
         /// &gt; **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_GCM_SHA384` field
         /// </summary>

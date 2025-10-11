@@ -22,15 +22,15 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly string AlertSensitivity;
         /// <summary>
-        /// One or more `dimension` blocks as defined below.
+        /// One or more `Dimension` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.MetricAlertDynamicCriteriaDimension> Dimensions;
         /// <summary>
-        /// The number of violations to trigger an alert. Should be smaller or equal to `evaluation_total_count`. Defaults to `4`.
+        /// The number of violations to trigger an alert. Should be smaller or equal to `EvaluationTotalCount`. Defaults to `4`.
         /// </summary>
         public readonly int? EvaluationFailureCount;
         /// <summary>
-        /// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`window_size`) and the selected number of aggregated points. Defaults to `4`.
+        /// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`WindowSize`) and the selected number of aggregated points. Defaults to `4`.
         /// </summary>
         public readonly int? EvaluationTotalCount;
         /// <summary>

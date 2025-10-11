@@ -19,7 +19,7 @@ public final class DataCollectionRuleDataFlow {
      */
     private @Nullable String builtInTransform;
     /**
-     * @return Specifies a list of destination names. A `azure_monitor_metrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
+     * @return Specifies a list of destination names. A `azureMonitorMetrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
      * 
      */
     private List<String> destinations;
@@ -48,7 +48,7 @@ public final class DataCollectionRuleDataFlow {
         return Optional.ofNullable(this.builtInTransform);
     }
     /**
-     * @return Specifies a list of destination names. A `azure_monitor_metrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
+     * @return Specifies a list of destination names. A `azureMonitorMetrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
      * 
      */
     public List<String> destinations() {

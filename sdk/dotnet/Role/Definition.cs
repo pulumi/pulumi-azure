@@ -116,7 +116,7 @@ namespace Pulumi.Azure.Role
         /// <summary>
         /// One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, `/providers/Microsoft.Management/managementGroups/0b1f6471-1bf0-4dda-aec3-111122223333` , or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
         /// 
-        /// &gt; **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
+        /// &gt; **NOTE:** The value for `Scope` is automatically included in this list if no other values supplied.
         /// </summary>
         [Output("assignableScopes")]
         public Output<ImmutableArray<string>> AssignableScopes { get; private set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.Azure.Role
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `permissions` block as defined below.
+        /// A `Permissions` block as defined below.
         /// </summary>
         [Output("permissions")]
         public Output<ImmutableArray<Outputs.DefinitionPermission>> Permissions { get; private set; } = null!;
@@ -152,7 +152,7 @@ namespace Pulumi.Azure.Role
         public Output<string> RoleDefinitionResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// The scope at which the Role Definition applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, `/providers/Microsoft.Management/managementGroups/0b1f6471-1bf0-4dda-aec3-111122223333`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. It is recommended to use the first entry of the `assignable_scopes`. Changing this forces a new resource to be created.
+        /// The scope at which the Role Definition applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, `/providers/Microsoft.Management/managementGroups/0b1f6471-1bf0-4dda-aec3-111122223333`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. It is recommended to use the first entry of the `AssignableScopes`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("scope")]
         public Output<string> Scope { get; private set; } = null!;
@@ -209,7 +209,7 @@ namespace Pulumi.Azure.Role
         /// <summary>
         /// One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, `/providers/Microsoft.Management/managementGroups/0b1f6471-1bf0-4dda-aec3-111122223333` , or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
         /// 
-        /// &gt; **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
+        /// &gt; **NOTE:** The value for `Scope` is automatically included in this list if no other values supplied.
         /// </summary>
         public InputList<string> AssignableScopes
         {
@@ -233,7 +233,7 @@ namespace Pulumi.Azure.Role
         private InputList<Inputs.DefinitionPermissionArgs>? _permissions;
 
         /// <summary>
-        /// A `permissions` block as defined below.
+        /// A `Permissions` block as defined below.
         /// </summary>
         public InputList<Inputs.DefinitionPermissionArgs> Permissions
         {
@@ -248,7 +248,7 @@ namespace Pulumi.Azure.Role
         public Input<string>? RoleDefinitionId { get; set; }
 
         /// <summary>
-        /// The scope at which the Role Definition applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, `/providers/Microsoft.Management/managementGroups/0b1f6471-1bf0-4dda-aec3-111122223333`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. It is recommended to use the first entry of the `assignable_scopes`. Changing this forces a new resource to be created.
+        /// The scope at which the Role Definition applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, `/providers/Microsoft.Management/managementGroups/0b1f6471-1bf0-4dda-aec3-111122223333`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. It is recommended to use the first entry of the `AssignableScopes`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;
@@ -267,7 +267,7 @@ namespace Pulumi.Azure.Role
         /// <summary>
         /// One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, `/providers/Microsoft.Management/managementGroups/0b1f6471-1bf0-4dda-aec3-111122223333` , or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
         /// 
-        /// &gt; **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
+        /// &gt; **NOTE:** The value for `Scope` is automatically included in this list if no other values supplied.
         /// </summary>
         public InputList<string> AssignableScopes
         {
@@ -291,7 +291,7 @@ namespace Pulumi.Azure.Role
         private InputList<Inputs.DefinitionPermissionGetArgs>? _permissions;
 
         /// <summary>
-        /// A `permissions` block as defined below.
+        /// A `Permissions` block as defined below.
         /// </summary>
         public InputList<Inputs.DefinitionPermissionGetArgs> Permissions
         {
@@ -312,7 +312,7 @@ namespace Pulumi.Azure.Role
         public Input<string>? RoleDefinitionResourceId { get; set; }
 
         /// <summary>
-        /// The scope at which the Role Definition applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, `/providers/Microsoft.Management/managementGroups/0b1f6471-1bf0-4dda-aec3-111122223333`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. It is recommended to use the first entry of the `assignable_scopes`. Changing this forces a new resource to be created.
+        /// The scope at which the Role Definition applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, `/providers/Microsoft.Management/managementGroups/0b1f6471-1bf0-4dda-aec3-111122223333`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. It is recommended to use the first entry of the `AssignableScopes`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }

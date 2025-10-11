@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class VpnSiteO365Policy
     {
         /// <summary>
-        /// A `traffic_category` block as defined above.
+        /// A `TrafficCategory` block as defined above.
         /// </summary>
         public readonly Outputs.VpnSiteO365PolicyTrafficCategory? TrafficCategory;
 

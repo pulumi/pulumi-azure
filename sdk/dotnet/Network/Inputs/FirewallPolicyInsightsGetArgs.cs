@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Network.Inputs
     public sealed class FirewallPolicyInsightsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the default Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to, when there is no location matches in the `log_analytics_workspace`.
+        /// The ID of the default Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to, when there is no location matches in the `LogAnalyticsWorkspace`.
         /// </summary>
         [Input("defaultLogAnalyticsWorkspaceId", required: true)]
         public Input<string> DefaultLogAnalyticsWorkspaceId { get; set; } = null!;
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<Inputs.FirewallPolicyInsightsLogAnalyticsWorkspaceGetArgs>? _logAnalyticsWorkspaces;
 
         /// <summary>
-        /// A list of `log_analytics_workspace` block as defined below.
+        /// A list of `LogAnalyticsWorkspace` block as defined below.
         /// </summary>
         public InputList<Inputs.FirewallPolicyInsightsLogAnalyticsWorkspaceGetArgs> LogAnalyticsWorkspaces
         {

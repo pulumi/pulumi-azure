@@ -147,14 +147,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:network/pointToPointVpnGateway:PointToPointVpnGateway")
 public class PointToPointVpnGateway extends com.pulumi.resources.CustomResource {
     /**
-     * A `connection_configuration` block as defined below.
+     * A `connectionConfiguration` block as defined below.
      * 
      */
     @Export(name="connectionConfigurations", refs={List.class,PointToPointVpnGatewayConnectionConfiguration.class}, tree="[0,1]")
     private Output<List<PointToPointVpnGatewayConnectionConfiguration>> connectionConfigurations;
 
     /**
-     * @return A `connection_configuration` block as defined below.
+     * @return A `connectionConfiguration` block as defined below.
      * 
      */
     public Output<List<PointToPointVpnGatewayConnectionConfiguration>> connectionConfigurations() {

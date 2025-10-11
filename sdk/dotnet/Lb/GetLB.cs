@@ -166,7 +166,7 @@ namespace Pulumi.Azure.Lb
     public sealed class GetLBResult
     {
         /// <summary>
-        /// A `frontend_ip_configuration` block as documented below.
+        /// A `FrontendIpConfiguration` block as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLBFrontendIpConfigurationResult> FrontendIpConfigurations;
         /// <summary>
@@ -186,7 +186,7 @@ namespace Pulumi.Azure.Lb
         /// </summary>
         public readonly string PrivateIpAddress;
         /// <summary>
-        /// The list of private IP address assigned to the load balancer in `frontend_ip_configuration` blocks, if any.
+        /// The list of private IP address assigned to the load balancer in `FrontendIpConfiguration` blocks, if any.
         /// </summary>
         public readonly ImmutableArray<string> PrivateIpAddresses;
         public readonly string ResourceGroupName;

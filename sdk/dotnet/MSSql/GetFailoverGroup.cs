@@ -175,11 +175,11 @@ namespace Pulumi.Azure.MSSql
         public readonly string Id;
         public readonly string Name;
         /// <summary>
-        /// A `partner_server` block as defined below.
+        /// A `PartnerServer` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFailoverGroupPartnerServerResult> PartnerServers;
         /// <summary>
-        /// A `read_write_endpoint_failover_policy` block as defined below.
+        /// A `ReadWriteEndpointFailoverPolicy` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFailoverGroupReadWriteEndpointFailoverPolicyResult> ReadWriteEndpointFailoverPolicies;
         /// <summary>

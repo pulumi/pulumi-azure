@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Pim.Outputs
     public sealed class RoleManagementPolicyActivationRules
     {
         /// <summary>
-        /// An `approval_stage` block as defined below.
+        /// An `ApprovalStage` block as defined below.
         /// </summary>
         public readonly Outputs.RoleManagementPolicyActivationRulesApprovalStage? ApprovalStage;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Pim.Outputs
         /// </summary>
         public readonly string? MaximumDuration;
         /// <summary>
-        /// Is approval required for activation. If `true` an `approval_stage` block must be provided.
+        /// Is approval required for activation. If `True` an `ApprovalStage` block must be provided.
         /// </summary>
         public readonly bool? RequireApproval;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Pim.Outputs
         /// </summary>
         public readonly bool? RequireJustification;
         /// <summary>
-        /// Is multi-factor authentication required to activate the role. Conflicts with `required_conditional_access_authentication_context`.
+        /// Is multi-factor authentication required to activate the role. Conflicts with `RequiredConditionalAccessAuthenticationContext`.
         /// </summary>
         public readonly bool? RequireMultifactorAuthentication;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Azure.Pim.Outputs
         /// </summary>
         public readonly bool? RequireTicketInfo;
         /// <summary>
-        /// The Entra ID Conditional Access context that must be present for activation. Conflicts with `require_multifactor_authentication`.
+        /// The Entra ID Conditional Access context that must be present for activation. Conflicts with `RequireMultifactorAuthentication`.
         /// </summary>
         public readonly string? RequiredConditionalAccessAuthenticationContext;
 

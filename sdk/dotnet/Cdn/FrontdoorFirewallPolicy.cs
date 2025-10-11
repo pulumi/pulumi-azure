@@ -186,9 +186,9 @@ namespace Pulumi.Azure.Cdn
     /// });
     /// ```
     /// 
-    /// ## `scrubbing_rule` Examples:
+    /// ## `ScrubbingRule` Examples:
     /// 
-    /// The following table shows examples of `scrubbing_rule`'s that can be used to protect sensitive data:
+    /// The following table shows examples of `ScrubbingRule`'s that can be used to protect sensitive data:
     /// 
     /// | Match Variable               | Operator       | Selector      | What Gets Scrubbed                                                            |
     /// | :--------------------------- | :------------- | :------------ | :---------------------------------------------------------------------------- |
@@ -217,25 +217,25 @@ namespace Pulumi.Azure.Cdn
         public Output<int> CaptchaCookieExpirationInMinutes { get; private set; } = null!;
 
         /// <summary>
-        /// If a `custom_rule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
+        /// If a `CustomRule` block's action type is `Block`, this is the response body. The body must be specified in base64 encoding.
         /// </summary>
         [Output("customBlockResponseBody")]
         public Output<string?> CustomBlockResponseBody { get; private set; } = null!;
 
         /// <summary>
-        /// If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
+        /// If a `CustomRule` block's action type is `Block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
         /// </summary>
         [Output("customBlockResponseStatusCode")]
         public Output<int?> CustomBlockResponseStatusCode { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `custom_rule` blocks as defined below.
+        /// One or more `CustomRule` blocks as defined below.
         /// </summary>
         [Output("customRules")]
         public Output<ImmutableArray<Outputs.FrontdoorFirewallPolicyCustomRule>> CustomRules { get; private set; } = null!;
 
         /// <summary>
-        /// Is the Front Door Firewall Policy enabled? Defaults to `true`.
+        /// Is the Front Door Firewall Policy enabled? Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -250,15 +250,15 @@ namespace Pulumi.Azure.Cdn
         public Output<int> JsChallengeCookieExpirationInMinutes { get; private set; } = null!;
 
         /// <summary>
-        /// A `log_scrubbing` block as defined below.
+        /// A `LogScrubbing` block as defined below.
         /// 
-        /// !&gt; **Note:** Setting the`log_scrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+        /// !&gt; **Note:** Setting the`LogScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
         /// </summary>
         [Output("logScrubbing")]
         public Output<Outputs.FrontdoorFirewallPolicyLogScrubbing?> LogScrubbing { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `managed_rule` blocks as defined below.
+        /// One or more `ManagedRule` blocks as defined below.
         /// </summary>
         [Output("managedRules")]
         public Output<ImmutableArray<Outputs.FrontdoorFirewallPolicyManagedRule>> ManagedRules { get; private set; } = null!;
@@ -282,7 +282,7 @@ namespace Pulumi.Azure.Cdn
         public Output<string?> RedirectUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Should policy managed rules inspect the request body content? Defaults to `true`.
+        /// Should policy managed rules inspect the request body content? Defaults to `True`.
         /// 
         /// &gt; **Note:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
         /// </summary>
@@ -298,7 +298,7 @@ namespace Pulumi.Azure.Cdn
         /// <summary>
         /// The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy sku's may contain both `custom` and `managed` rules.
+        /// &gt; **Note:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `Custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy sku's may contain both `Custom` and `Managed` rules.
         /// </summary>
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
@@ -359,13 +359,13 @@ namespace Pulumi.Azure.Cdn
         public Input<int>? CaptchaCookieExpirationInMinutes { get; set; }
 
         /// <summary>
-        /// If a `custom_rule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
+        /// If a `CustomRule` block's action type is `Block`, this is the response body. The body must be specified in base64 encoding.
         /// </summary>
         [Input("customBlockResponseBody")]
         public Input<string>? CustomBlockResponseBody { get; set; }
 
         /// <summary>
-        /// If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
+        /// If a `CustomRule` block's action type is `Block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
         /// </summary>
         [Input("customBlockResponseStatusCode")]
         public Input<int>? CustomBlockResponseStatusCode { get; set; }
@@ -374,7 +374,7 @@ namespace Pulumi.Azure.Cdn
         private InputList<Inputs.FrontdoorFirewallPolicyCustomRuleArgs>? _customRules;
 
         /// <summary>
-        /// One or more `custom_rule` blocks as defined below.
+        /// One or more `CustomRule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.FrontdoorFirewallPolicyCustomRuleArgs> CustomRules
         {
@@ -383,7 +383,7 @@ namespace Pulumi.Azure.Cdn
         }
 
         /// <summary>
-        /// Is the Front Door Firewall Policy enabled? Defaults to `true`.
+        /// Is the Front Door Firewall Policy enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -392,9 +392,9 @@ namespace Pulumi.Azure.Cdn
         public Input<int>? JsChallengeCookieExpirationInMinutes { get; set; }
 
         /// <summary>
-        /// A `log_scrubbing` block as defined below.
+        /// A `LogScrubbing` block as defined below.
         /// 
-        /// !&gt; **Note:** Setting the`log_scrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+        /// !&gt; **Note:** Setting the`LogScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
         /// </summary>
         [Input("logScrubbing")]
         public Input<Inputs.FrontdoorFirewallPolicyLogScrubbingArgs>? LogScrubbing { get; set; }
@@ -403,7 +403,7 @@ namespace Pulumi.Azure.Cdn
         private InputList<Inputs.FrontdoorFirewallPolicyManagedRuleArgs>? _managedRules;
 
         /// <summary>
-        /// One or more `managed_rule` blocks as defined below.
+        /// One or more `ManagedRule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.FrontdoorFirewallPolicyManagedRuleArgs> ManagedRules
         {
@@ -430,7 +430,7 @@ namespace Pulumi.Azure.Cdn
         public Input<string>? RedirectUrl { get; set; }
 
         /// <summary>
-        /// Should policy managed rules inspect the request body content? Defaults to `true`.
+        /// Should policy managed rules inspect the request body content? Defaults to `True`.
         /// 
         /// &gt; **Note:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
         /// </summary>
@@ -446,7 +446,7 @@ namespace Pulumi.Azure.Cdn
         /// <summary>
         /// The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy sku's may contain both `custom` and `managed` rules.
+        /// &gt; **Note:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `Custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy sku's may contain both `Custom` and `Managed` rules.
         /// </summary>
         [Input("skuName", required: true)]
         public Input<string> SkuName { get; set; } = null!;
@@ -475,13 +475,13 @@ namespace Pulumi.Azure.Cdn
         public Input<int>? CaptchaCookieExpirationInMinutes { get; set; }
 
         /// <summary>
-        /// If a `custom_rule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
+        /// If a `CustomRule` block's action type is `Block`, this is the response body. The body must be specified in base64 encoding.
         /// </summary>
         [Input("customBlockResponseBody")]
         public Input<string>? CustomBlockResponseBody { get; set; }
 
         /// <summary>
-        /// If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
+        /// If a `CustomRule` block's action type is `Block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
         /// </summary>
         [Input("customBlockResponseStatusCode")]
         public Input<int>? CustomBlockResponseStatusCode { get; set; }
@@ -490,7 +490,7 @@ namespace Pulumi.Azure.Cdn
         private InputList<Inputs.FrontdoorFirewallPolicyCustomRuleGetArgs>? _customRules;
 
         /// <summary>
-        /// One or more `custom_rule` blocks as defined below.
+        /// One or more `CustomRule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.FrontdoorFirewallPolicyCustomRuleGetArgs> CustomRules
         {
@@ -499,7 +499,7 @@ namespace Pulumi.Azure.Cdn
         }
 
         /// <summary>
-        /// Is the Front Door Firewall Policy enabled? Defaults to `true`.
+        /// Is the Front Door Firewall Policy enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -520,9 +520,9 @@ namespace Pulumi.Azure.Cdn
         public Input<int>? JsChallengeCookieExpirationInMinutes { get; set; }
 
         /// <summary>
-        /// A `log_scrubbing` block as defined below.
+        /// A `LogScrubbing` block as defined below.
         /// 
-        /// !&gt; **Note:** Setting the`log_scrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+        /// !&gt; **Note:** Setting the`LogScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
         /// </summary>
         [Input("logScrubbing")]
         public Input<Inputs.FrontdoorFirewallPolicyLogScrubbingGetArgs>? LogScrubbing { get; set; }
@@ -531,7 +531,7 @@ namespace Pulumi.Azure.Cdn
         private InputList<Inputs.FrontdoorFirewallPolicyManagedRuleGetArgs>? _managedRules;
 
         /// <summary>
-        /// One or more `managed_rule` blocks as defined below.
+        /// One or more `ManagedRule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.FrontdoorFirewallPolicyManagedRuleGetArgs> ManagedRules
         {
@@ -558,7 +558,7 @@ namespace Pulumi.Azure.Cdn
         public Input<string>? RedirectUrl { get; set; }
 
         /// <summary>
-        /// Should policy managed rules inspect the request body content? Defaults to `true`.
+        /// Should policy managed rules inspect the request body content? Defaults to `True`.
         /// 
         /// &gt; **Note:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
         /// </summary>
@@ -574,7 +574,7 @@ namespace Pulumi.Azure.Cdn
         /// <summary>
         /// The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy sku's may contain both `custom` and `managed` rules.
+        /// &gt; **Note:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `Custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy sku's may contain both `Custom` and `Managed` rules.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }

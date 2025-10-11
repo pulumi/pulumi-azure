@@ -17,7 +17,7 @@ public final class ScaleSetOsProfileLinuxConfigSshKey {
      * 
      * &gt; **Note:** Azure only supports RSA SSH2 key signatures of at least 2048 bits in length
      * 
-     * &gt; **NOTE:** Rather than defining this in-line you can source this from a local file using the `file` function - for example `key_data = file(&#34;~/.ssh/id_rsa.pub&#34;)`.
+     * &gt; **NOTE:** Rather than defining this in-line you can source this from a local file using the `file` function - for example `keyData = file(&#34;~/.ssh/id_rsa.pub&#34;)`.
      * 
      */
     private @Nullable String keyData;
@@ -35,7 +35,7 @@ public final class ScaleSetOsProfileLinuxConfigSshKey {
      * 
      * &gt; **Note:** Azure only supports RSA SSH2 key signatures of at least 2048 bits in length
      * 
-     * &gt; **NOTE:** Rather than defining this in-line you can source this from a local file using the `file` function - for example `key_data = file(&#34;~/.ssh/id_rsa.pub&#34;)`.
+     * &gt; **NOTE:** Rather than defining this in-line you can source this from a local file using the `file` function - for example `keyData = file(&#34;~/.ssh/id_rsa.pub&#34;)`.
      * 
      */
     public Optional<String> keyData() {

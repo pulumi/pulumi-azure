@@ -30,7 +30,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string AppCommandLine;
         /// <summary>
-        /// A `cors` block as defined above.
+        /// A `Cors` block as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAppServiceSiteConfigCorResult> Cors;
         /// <summary>
@@ -54,7 +54,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool Http2Enabled;
         /// <summary>
-        /// One or more `ip_restriction` blocks as defined above.
+        /// One or more `IpRestriction` blocks as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAppServiceSiteConfigIpRestrictionResult> IpRestrictions;
         /// <summary>
@@ -106,7 +106,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string RemoteDebuggingVersion;
         /// <summary>
-        /// One or more `scm_ip_restriction` blocks as defined above.
+        /// One or more `ScmIpRestriction` blocks as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAppServiceSiteConfigScmIpRestrictionResult> ScmIpRestrictions;
         /// <summary>

@@ -14,47 +14,47 @@ namespace Pulumi.Azure.Monitoring.Outputs
     public sealed class AlertProcessingRuleSuppressionCondition
     {
         /// <summary>
-        /// A `alert_context` block as defined above.
+        /// A `AlertContext` block as defined above.
         /// </summary>
         public readonly Outputs.AlertProcessingRuleSuppressionConditionAlertContext? AlertContext;
         /// <summary>
-        /// A `alert_rule_id` block as defined above.
+        /// A `AlertRuleId` block as defined above.
         /// </summary>
         public readonly Outputs.AlertProcessingRuleSuppressionConditionAlertRuleId? AlertRuleId;
         /// <summary>
-        /// A `alert_rule_name` block as defined above.
+        /// A `AlertRuleName` block as defined above.
         /// </summary>
         public readonly Outputs.AlertProcessingRuleSuppressionConditionAlertRuleName? AlertRuleName;
         /// <summary>
-        /// A `description` block as defined below.
+        /// A `Description` block as defined below.
         /// </summary>
         public readonly Outputs.AlertProcessingRuleSuppressionConditionDescription? Description;
         /// <summary>
-        /// A `monitor_condition` block as defined below.
+        /// A `MonitorCondition` block as defined below.
         /// </summary>
         public readonly Outputs.AlertProcessingRuleSuppressionConditionMonitorCondition? MonitorCondition;
         /// <summary>
-        /// A `monitor_service` block as defined below.
+        /// A `MonitorService` block as defined below.
         /// </summary>
         public readonly Outputs.AlertProcessingRuleSuppressionConditionMonitorService? MonitorService;
         /// <summary>
-        /// A `severity` block as defined below.
+        /// A `Severity` block as defined below.
         /// </summary>
         public readonly Outputs.AlertProcessingRuleSuppressionConditionSeverity? Severity;
         /// <summary>
-        /// A `signal_type` block as defined below.
+        /// A `SignalType` block as defined below.
         /// </summary>
         public readonly Outputs.AlertProcessingRuleSuppressionConditionSignalType? SignalType;
         /// <summary>
-        /// A `target_resource` block as defined below.
+        /// A `TargetResource` block as defined below.
         /// </summary>
         public readonly Outputs.AlertProcessingRuleSuppressionConditionTargetResource? TargetResource;
         /// <summary>
-        /// A `target_resource_group` block as defined below.
+        /// A `TargetResourceGroup` block as defined below.
         /// </summary>
         public readonly Outputs.AlertProcessingRuleSuppressionConditionTargetResourceGroup? TargetResourceGroup;
         /// <summary>
-        /// A `target_resource_type` block as defined below.
+        /// A `TargetResourceType` block as defined below.
         /// </summary>
         public readonly Outputs.AlertProcessingRuleSuppressionConditionTargetResourceType? TargetResourceType;
 

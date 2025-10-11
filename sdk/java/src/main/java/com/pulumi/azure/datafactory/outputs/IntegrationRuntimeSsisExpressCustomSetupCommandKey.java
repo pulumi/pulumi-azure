@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class IntegrationRuntimeSsisExpressCustomSetupCommandKey {
     /**
-     * @return A `key_vault_secret_reference` block as defined below.
+     * @return A `keyVaultSecretReference` block as defined below.
      * 
      */
     private @Nullable IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword keyVaultPassword;
@@ -36,7 +36,7 @@ public final class IntegrationRuntimeSsisExpressCustomSetupCommandKey {
 
     private IntegrationRuntimeSsisExpressCustomSetupCommandKey() {}
     /**
-     * @return A `key_vault_secret_reference` block as defined below.
+     * @return A `keyVaultSecretReference` block as defined below.
      * 
      */
     public Optional<IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword> keyVaultPassword() {

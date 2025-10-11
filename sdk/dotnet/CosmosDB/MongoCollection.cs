@@ -78,7 +78,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> AccountName { get; private set; } = null!;
 
         /// <summary>
-        /// The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
+        /// The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `N` – items will expire `N` seconds after their last modified time.
         /// </summary>
         [Output("analyticalStorageTtl")]
         public Output<int?> AnalyticalStorageTtl { get; private set; } = null!;
@@ -99,7 +99,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<int?> DefaultTtlSeconds { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `index` blocks as defined below.
+        /// One or more `Index` blocks as defined below.
         /// </summary>
         [Output("indices")]
         public Output<ImmutableArray<Outputs.MongoCollectionIndex>> Indices { get; private set; } = null!;
@@ -123,7 +123,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string?> ShardKey { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `system_indexes` blocks as defined below.
+        /// One or more `SystemIndexes` blocks as defined below.
         /// </summary>
         [Output("systemIndexes")]
         public Output<ImmutableArray<Outputs.MongoCollectionSystemIndex>> SystemIndexes { get; private set; } = null!;
@@ -184,7 +184,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
+        /// The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `N` – items will expire `N` seconds after their last modified time.
         /// </summary>
         [Input("analyticalStorageTtl")]
         public Input<int>? AnalyticalStorageTtl { get; set; }
@@ -208,7 +208,7 @@ namespace Pulumi.Azure.CosmosDB
         private InputList<Inputs.MongoCollectionIndexArgs>? _indices;
 
         /// <summary>
-        /// One or more `index` blocks as defined below.
+        /// One or more `Index` blocks as defined below.
         /// </summary>
         public InputList<Inputs.MongoCollectionIndexArgs> Indices
         {
@@ -252,7 +252,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? AccountName { get; set; }
 
         /// <summary>
-        /// The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
+        /// The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `N` – items will expire `N` seconds after their last modified time.
         /// </summary>
         [Input("analyticalStorageTtl")]
         public Input<int>? AnalyticalStorageTtl { get; set; }
@@ -276,7 +276,7 @@ namespace Pulumi.Azure.CosmosDB
         private InputList<Inputs.MongoCollectionIndexGetArgs>? _indices;
 
         /// <summary>
-        /// One or more `index` blocks as defined below.
+        /// One or more `Index` blocks as defined below.
         /// </summary>
         public InputList<Inputs.MongoCollectionIndexGetArgs> Indices
         {
@@ -306,7 +306,7 @@ namespace Pulumi.Azure.CosmosDB
         private InputList<Inputs.MongoCollectionSystemIndexGetArgs>? _systemIndexes;
 
         /// <summary>
-        /// One or more `system_indexes` blocks as defined below.
+        /// One or more `SystemIndexes` blocks as defined below.
         /// </summary>
         public InputList<Inputs.MongoCollectionSystemIndexGetArgs> SystemIndexes
         {

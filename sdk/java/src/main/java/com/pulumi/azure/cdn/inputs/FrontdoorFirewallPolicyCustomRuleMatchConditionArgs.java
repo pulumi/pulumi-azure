@@ -19,14 +19,14 @@ public final class FrontdoorFirewallPolicyCustomRuleMatchConditionArgs extends c
     public static final FrontdoorFirewallPolicyCustomRuleMatchConditionArgs Empty = new FrontdoorFirewallPolicyCustomRuleMatchConditionArgs();
 
     /**
-     * Up to `600` possible values to match. Limit is in total across all `match_condition` blocks and `match_values` arguments. String value itself can be up to `256` characters in length.
+     * Up to `600` possible values to match. Limit is in total across all `matchCondition` blocks and `matchValues` arguments. String value itself can be up to `256` characters in length.
      * 
      */
     @Import(name="matchValues", required=true)
     private Output<List<String>> matchValues;
 
     /**
-     * @return Up to `600` possible values to match. Limit is in total across all `match_condition` blocks and `match_values` arguments. String value itself can be up to `256` characters in length.
+     * @return Up to `600` possible values to match. Limit is in total across all `matchCondition` blocks and `matchValues` arguments. String value itself can be up to `256` characters in length.
      * 
      */
     public Output<List<String>> matchValues() {
@@ -79,14 +79,14 @@ public final class FrontdoorFirewallPolicyCustomRuleMatchConditionArgs extends c
     }
 
     /**
-     * Match against a specific key if the `match_variable` is `QueryString`, `PostArgs`, `RequestHeader`, or `Cookies`.
+     * Match against a specific key if the `matchVariable` is `QueryString`, `PostArgs`, `RequestHeader`, or `Cookies`.
      * 
      */
     @Import(name="selector")
     private @Nullable Output<String> selector;
 
     /**
-     * @return Match against a specific key if the `match_variable` is `QueryString`, `PostArgs`, `RequestHeader`, or `Cookies`.
+     * @return Match against a specific key if the `matchVariable` is `QueryString`, `PostArgs`, `RequestHeader`, or `Cookies`.
      * 
      */
     public Optional<Output<String>> selector() {
@@ -138,7 +138,7 @@ public final class FrontdoorFirewallPolicyCustomRuleMatchConditionArgs extends c
         }
 
         /**
-         * @param matchValues Up to `600` possible values to match. Limit is in total across all `match_condition` blocks and `match_values` arguments. String value itself can be up to `256` characters in length.
+         * @param matchValues Up to `600` possible values to match. Limit is in total across all `matchCondition` blocks and `matchValues` arguments. String value itself can be up to `256` characters in length.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class FrontdoorFirewallPolicyCustomRuleMatchConditionArgs extends c
         }
 
         /**
-         * @param matchValues Up to `600` possible values to match. Limit is in total across all `match_condition` blocks and `match_values` arguments. String value itself can be up to `256` characters in length.
+         * @param matchValues Up to `600` possible values to match. Limit is in total across all `matchCondition` blocks and `matchValues` arguments. String value itself can be up to `256` characters in length.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class FrontdoorFirewallPolicyCustomRuleMatchConditionArgs extends c
         }
 
         /**
-         * @param matchValues Up to `600` possible values to match. Limit is in total across all `match_condition` blocks and `match_values` arguments. String value itself can be up to `256` characters in length.
+         * @param matchValues Up to `600` possible values to match. Limit is in total across all `matchCondition` blocks and `matchValues` arguments. String value itself can be up to `256` characters in length.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class FrontdoorFirewallPolicyCustomRuleMatchConditionArgs extends c
         }
 
         /**
-         * @param selector Match against a specific key if the `match_variable` is `QueryString`, `PostArgs`, `RequestHeader`, or `Cookies`.
+         * @param selector Match against a specific key if the `matchVariable` is `QueryString`, `PostArgs`, `RequestHeader`, or `Cookies`.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class FrontdoorFirewallPolicyCustomRuleMatchConditionArgs extends c
         }
 
         /**
-         * @param selector Match against a specific key if the `match_variable` is `QueryString`, `PostArgs`, `RequestHeader`, or `Cookies`.
+         * @param selector Match against a specific key if the `matchVariable` is `QueryString`, `PostArgs`, `RequestHeader`, or `Cookies`.
          * 
          * @return builder
          * 

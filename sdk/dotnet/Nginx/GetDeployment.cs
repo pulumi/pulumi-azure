@@ -166,7 +166,7 @@ namespace Pulumi.Azure.Nginx
     public sealed class GetDeploymentResult
     {
         /// <summary>
-        /// An `auto_scale_profile` block as defined below.
+        /// An `AutoScaleProfile` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDeploymentAutoScaleProfileResult> AutoScaleProfiles;
         /// <summary>
@@ -190,11 +190,11 @@ namespace Pulumi.Azure.Nginx
         /// </summary>
         public readonly string Email;
         /// <summary>
-        /// A `frontend_private` block as defined below.
+        /// A `FrontendPrivate` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDeploymentFrontendPrivateResult> FrontendPrivates;
         /// <summary>
-        /// A `frontend_public` block as defined below.
+        /// A `FrontendPublic` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDeploymentFrontendPublicResult> FrontendPublics;
         /// <summary>
@@ -202,7 +202,7 @@ namespace Pulumi.Azure.Nginx
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A `identity` block as defined below.
+        /// A `Identity` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDeploymentIdentityResult> Identities;
         /// <summary>
@@ -220,7 +220,7 @@ namespace Pulumi.Azure.Nginx
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// A `network_interface` block as defined below.
+        /// A `NetworkInterface` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDeploymentNetworkInterfaceResult> NetworkInterfaces;
         /// <summary>
@@ -237,7 +237,7 @@ namespace Pulumi.Azure.Nginx
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// A `web_application_firewall` block as defined below.
+        /// A `WebApplicationFirewall` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDeploymentWebApplicationFirewallResult> WebApplicationFirewalls;
 

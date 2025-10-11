@@ -18,7 +18,7 @@ public final class GetWindowsWebAppSiteConfigAutoHealSettingAction {
      */
     private String actionType;
     /**
-     * @return A `custom_action` block as defined below.
+     * @return A `customAction` block as defined below.
      * 
      */
     private List<GetWindowsWebAppSiteConfigAutoHealSettingActionCustomAction> customActions;
@@ -37,7 +37,7 @@ public final class GetWindowsWebAppSiteConfigAutoHealSettingAction {
         return this.actionType;
     }
     /**
-     * @return A `custom_action` block as defined below.
+     * @return A `customAction` block as defined below.
      * 
      */
     public List<GetWindowsWebAppSiteConfigAutoHealSettingActionCustomAction> customActions() {

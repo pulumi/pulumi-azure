@@ -87,7 +87,7 @@ namespace Pulumi.Azure.Cognitive
         public Output<bool?> DynamicThrottlingEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A `model` block as defined below. Changing this forces a new resource to be created.
+        /// A `Model` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("model")]
         public Output<Outputs.DeploymentModel> Model { get; private set; } = null!;
@@ -105,7 +105,7 @@ namespace Pulumi.Azure.Cognitive
         public Output<string?> RaiPolicyName { get; private set; } = null!;
 
         /// <summary>
-        /// A `sku` block as defined below.
+        /// A `Sku` block as defined below.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.DeploymentSku> Sku { get; private set; } = null!;
@@ -175,7 +175,7 @@ namespace Pulumi.Azure.Cognitive
         public Input<bool>? DynamicThrottlingEnabled { get; set; }
 
         /// <summary>
-        /// A `model` block as defined below. Changing this forces a new resource to be created.
+        /// A `Model` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("model", required: true)]
         public Input<Inputs.DeploymentModelArgs> Model { get; set; } = null!;
@@ -193,7 +193,7 @@ namespace Pulumi.Azure.Cognitive
         public Input<string>? RaiPolicyName { get; set; }
 
         /// <summary>
-        /// A `sku` block as defined below.
+        /// A `Sku` block as defined below.
         /// </summary>
         [Input("sku", required: true)]
         public Input<Inputs.DeploymentSkuArgs> Sku { get; set; } = null!;
@@ -225,7 +225,7 @@ namespace Pulumi.Azure.Cognitive
         public Input<bool>? DynamicThrottlingEnabled { get; set; }
 
         /// <summary>
-        /// A `model` block as defined below. Changing this forces a new resource to be created.
+        /// A `Model` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("model")]
         public Input<Inputs.DeploymentModelGetArgs>? Model { get; set; }
@@ -243,7 +243,7 @@ namespace Pulumi.Azure.Cognitive
         public Input<string>? RaiPolicyName { get; set; }
 
         /// <summary>
-        /// A `sku` block as defined below.
+        /// A `Sku` block as defined below.
         /// </summary>
         [Input("sku")]
         public Input<Inputs.DeploymentSkuGetArgs>? Sku { get; set; }

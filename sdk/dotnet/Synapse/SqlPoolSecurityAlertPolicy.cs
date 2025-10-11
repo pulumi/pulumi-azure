@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Synapse
     /// <summary>
     /// Manages a Security Alert Policy for a Synapse SQL Pool.
     /// 
+    /// ## Example Usage
+    /// 
     /// ## Import
     /// 
     /// Synapse SQL Pool Security Alert Policies can be imported using the `resource id`, e.g.
@@ -30,7 +32,7 @@ namespace Pulumi.Azure.Synapse
         public Output<ImmutableArray<string>> DisabledAlerts { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
+        /// Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `False`.
         /// </summary>
         [Output("emailAccountAdminsEnabled")]
         public Output<bool?> EmailAccountAdminsEnabled { get; private set; } = null!;
@@ -134,7 +136,7 @@ namespace Pulumi.Azure.Synapse
         }
 
         /// <summary>
-        /// Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
+        /// Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `False`.
         /// </summary>
         [Input("emailAccountAdminsEnabled")]
         public Input<bool>? EmailAccountAdminsEnabled { get; set; }
@@ -212,7 +214,7 @@ namespace Pulumi.Azure.Synapse
         }
 
         /// <summary>
-        /// Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
+        /// Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `False`.
         /// </summary>
         [Input("emailAccountAdminsEnabled")]
         public Input<bool>? EmailAccountAdminsEnabled { get; set; }

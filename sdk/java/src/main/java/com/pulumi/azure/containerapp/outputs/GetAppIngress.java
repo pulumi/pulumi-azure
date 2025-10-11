@@ -33,7 +33,7 @@ public final class GetAppIngress {
      */
     private List<GetAppIngressCor> cors;
     /**
-     * @return One or more `custom_domain` block as detailed below.
+     * @return One or more `customDomain` block as detailed below.
      * 
      */
     private List<GetAppIngressCustomDomain> customDomains;
@@ -53,7 +53,7 @@ public final class GetAppIngress {
      */
     private String fqdn;
     /**
-     * @return One or more `ip_security_restriction` blocks for IP-filtering rules as defined below.
+     * @return One or more `ipSecurityRestriction` blocks for IP-filtering rules as defined below.
      * 
      */
     private List<GetAppIngressIpSecurityRestriction> ipSecurityRestrictions;
@@ -63,7 +63,7 @@ public final class GetAppIngress {
      */
     private Integer targetPort;
     /**
-     * @return A `traffic_weight` block as detailed below.
+     * @return A `trafficWeight` block as detailed below.
      * 
      */
     private List<GetAppIngressTrafficWeight> trafficWeights;
@@ -96,7 +96,7 @@ public final class GetAppIngress {
         return this.cors;
     }
     /**
-     * @return One or more `custom_domain` block as detailed below.
+     * @return One or more `customDomain` block as detailed below.
      * 
      */
     public List<GetAppIngressCustomDomain> customDomains() {
@@ -124,7 +124,7 @@ public final class GetAppIngress {
         return this.fqdn;
     }
     /**
-     * @return One or more `ip_security_restriction` blocks for IP-filtering rules as defined below.
+     * @return One or more `ipSecurityRestriction` blocks for IP-filtering rules as defined below.
      * 
      */
     public List<GetAppIngressIpSecurityRestriction> ipSecurityRestrictions() {
@@ -138,7 +138,7 @@ public final class GetAppIngress {
         return this.targetPort;
     }
     /**
-     * @return A `traffic_weight` block as detailed below.
+     * @return A `trafficWeight` block as detailed below.
      * 
      */
     public List<GetAppIngressTrafficWeight> trafficWeights() {

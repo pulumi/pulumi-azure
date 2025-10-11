@@ -91,7 +91,7 @@ namespace Pulumi.Azure.DesktopVirtualization
     public partial class ApplicationGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`. A value here is mandatory for connections to the desktop using the Windows 365 portal. Without it the connection will hang at 'Loading Client'.
+        /// Option to set the display name for the default sessionDesktop desktop when `Type` is set to `Desktop`. A value here is mandatory for connections to the desktop using the Windows 365 portal. Without it the connection will hang at 'Loading Client'.
         /// </summary>
         [Output("defaultDesktopDisplayName")]
         public Output<string?> DefaultDesktopDisplayName { get; private set; } = null!;
@@ -191,7 +191,7 @@ namespace Pulumi.Azure.DesktopVirtualization
     public sealed class ApplicationGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`. A value here is mandatory for connections to the desktop using the Windows 365 portal. Without it the connection will hang at 'Loading Client'.
+        /// Option to set the display name for the default sessionDesktop desktop when `Type` is set to `Desktop`. A value here is mandatory for connections to the desktop using the Windows 365 portal. Without it the connection will hang at 'Loading Client'.
         /// </summary>
         [Input("defaultDesktopDisplayName")]
         public Input<string>? DefaultDesktopDisplayName { get; set; }
@@ -259,7 +259,7 @@ namespace Pulumi.Azure.DesktopVirtualization
     public sealed class ApplicationGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`. A value here is mandatory for connections to the desktop using the Windows 365 portal. Without it the connection will hang at 'Loading Client'.
+        /// Option to set the display name for the default sessionDesktop desktop when `Type` is set to `Desktop`. A value here is mandatory for connections to the desktop using the Windows 365 portal. Without it the connection will hang at 'Loading Client'.
         /// </summary>
         [Input("defaultDesktopDisplayName")]
         public Input<string>? DefaultDesktopDisplayName { get; set; }

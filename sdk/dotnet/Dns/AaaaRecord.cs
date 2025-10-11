@@ -121,7 +121,7 @@ namespace Pulumi.Azure.Dns
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// List of IPv6 Addresses. Conflicts with `target_resource_id`.
+        /// List of IPv6 Addresses. Conflicts with `TargetResourceId`.
         /// </summary>
         [Output("records")]
         public Output<ImmutableArray<string>> Records { get; private set; } = null!;
@@ -135,13 +135,13 @@ namespace Pulumi.Azure.Dns
         /// <summary>
         /// A mapping of tags to assign to the resource.
         /// 
-        /// &gt; **Note:** either `records` OR `target_resource_id` must be specified, but not both.
+        /// &gt; **Note:** either `Records` OR `TargetResourceId` must be specified, but not both.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The Azure resource id of the target object. Conflicts with `records`.
+        /// The Azure resource id of the target object. Conflicts with `Records`.
         /// </summary>
         [Output("targetResourceId")]
         public Output<string?> TargetResourceId { get; private set; } = null!;
@@ -214,7 +214,7 @@ namespace Pulumi.Azure.Dns
         private InputList<string>? _records;
 
         /// <summary>
-        /// List of IPv6 Addresses. Conflicts with `target_resource_id`.
+        /// List of IPv6 Addresses. Conflicts with `TargetResourceId`.
         /// </summary>
         public InputList<string> Records
         {
@@ -234,7 +234,7 @@ namespace Pulumi.Azure.Dns
         /// <summary>
         /// A mapping of tags to assign to the resource.
         /// 
-        /// &gt; **Note:** either `records` OR `target_resource_id` must be specified, but not both.
+        /// &gt; **Note:** either `Records` OR `TargetResourceId` must be specified, but not both.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -243,7 +243,7 @@ namespace Pulumi.Azure.Dns
         }
 
         /// <summary>
-        /// The Azure resource id of the target object. Conflicts with `records`.
+        /// The Azure resource id of the target object. Conflicts with `Records`.
         /// </summary>
         [Input("targetResourceId")]
         public Input<string>? TargetResourceId { get; set; }
@@ -284,7 +284,7 @@ namespace Pulumi.Azure.Dns
         private InputList<string>? _records;
 
         /// <summary>
-        /// List of IPv6 Addresses. Conflicts with `target_resource_id`.
+        /// List of IPv6 Addresses. Conflicts with `TargetResourceId`.
         /// </summary>
         public InputList<string> Records
         {
@@ -304,7 +304,7 @@ namespace Pulumi.Azure.Dns
         /// <summary>
         /// A mapping of tags to assign to the resource.
         /// 
-        /// &gt; **Note:** either `records` OR `target_resource_id` must be specified, but not both.
+        /// &gt; **Note:** either `Records` OR `TargetResourceId` must be specified, but not both.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -313,7 +313,7 @@ namespace Pulumi.Azure.Dns
         }
 
         /// <summary>
-        /// The Azure resource id of the target object. Conflicts with `records`.
+        /// The Azure resource id of the target object. Conflicts with `Records`.
         /// </summary>
         [Input("targetResourceId")]
         public Input<string>? TargetResourceId { get; set; }

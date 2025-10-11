@@ -107,7 +107,7 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
         /// 
-        /// &gt; **Note:** If `parent_registry_id` is not specified, the Connected Registry will be connected to the Container Registry identified by `container_registry_id`.
+        /// &gt; **Note:** If `ParentRegistryId` is not specified, the Connected Registry will be connected to the Container Registry identified by `ContainerRegistryId`.
         /// </summary>
         [Output("containerRegistryId")]
         public Output<string> ContainerRegistryId { get; private set; } = null!;
@@ -131,7 +131,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `notification` blocks as defined below.
+        /// One or more `Notification` blocks as defined below.
         /// </summary>
         [Output("notifications")]
         public Output<ImmutableArray<Outputs.ConnectedRegistryNotification>> Notifications { get; private set; } = null!;
@@ -233,7 +233,7 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
         /// 
-        /// &gt; **Note:** If `parent_registry_id` is not specified, the Connected Registry will be connected to the Container Registry identified by `container_registry_id`.
+        /// &gt; **Note:** If `ParentRegistryId` is not specified, the Connected Registry will be connected to the Container Registry identified by `ContainerRegistryId`.
         /// </summary>
         [Input("containerRegistryId", required: true)]
         public Input<string> ContainerRegistryId { get; set; } = null!;
@@ -260,7 +260,7 @@ namespace Pulumi.Azure.ContainerService
         private InputList<Inputs.ConnectedRegistryNotificationArgs>? _notifications;
 
         /// <summary>
-        /// One or more `notification` blocks as defined below.
+        /// One or more `Notification` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ConnectedRegistryNotificationArgs> Notifications
         {
@@ -327,7 +327,7 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
         /// 
-        /// &gt; **Note:** If `parent_registry_id` is not specified, the Connected Registry will be connected to the Container Registry identified by `container_registry_id`.
+        /// &gt; **Note:** If `ParentRegistryId` is not specified, the Connected Registry will be connected to the Container Registry identified by `ContainerRegistryId`.
         /// </summary>
         [Input("containerRegistryId")]
         public Input<string>? ContainerRegistryId { get; set; }
@@ -354,7 +354,7 @@ namespace Pulumi.Azure.ContainerService
         private InputList<Inputs.ConnectedRegistryNotificationGetArgs>? _notifications;
 
         /// <summary>
-        /// One or more `notification` blocks as defined below.
+        /// One or more `Notification` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ConnectedRegistryNotificationGetArgs> Notifications
         {

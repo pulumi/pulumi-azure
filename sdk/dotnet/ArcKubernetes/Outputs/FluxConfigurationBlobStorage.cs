@@ -30,7 +30,7 @@ namespace Pulumi.Azure.ArcKubernetes.Outputs
         /// </summary>
         public readonly string? SasToken;
         /// <summary>
-        /// A `service_principal` block as defined below.
+        /// A `ServicePrincipal` block as defined below.
         /// </summary>
         public readonly Outputs.FluxConfigurationBlobStorageServicePrincipal? ServicePrincipal;
         /// <summary>

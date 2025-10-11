@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PolicyManagedRulesManagedRuleSet {
     /**
-     * @return One or more `rule_group_override` block defined below.
+     * @return One or more `ruleGroupOverride` block defined below.
      * 
      */
     private @Nullable List<PolicyManagedRulesManagedRuleSetRuleGroupOverride> ruleGroupOverrides;
@@ -32,7 +32,7 @@ public final class PolicyManagedRulesManagedRuleSet {
 
     private PolicyManagedRulesManagedRuleSet() {}
     /**
-     * @return One or more `rule_group_override` block defined below.
+     * @return One or more `ruleGroupOverride` block defined below.
      * 
      */
     public List<PolicyManagedRulesManagedRuleSetRuleGroupOverride> ruleGroupOverrides() {

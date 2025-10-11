@@ -19,14 +19,14 @@ public final class NetworkServiceServiceQosPolicyArgs extends com.pulumi.resourc
     public static final NetworkServiceServiceQosPolicyArgs Empty = new NetworkServiceServiceQosPolicyArgs();
 
     /**
-     * QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemption_capability` and `preemption_vulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `qos_indicator` is used to derive the ARP value. Defaults to `9`. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+     * QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `qosIndicator` is used to derive the ARP value. Defaults to `9`. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
      * 
      */
     @Import(name="allocationAndRetentionPriorityLevel")
     private @Nullable Output<Integer> allocationAndRetentionPriorityLevel;
 
     /**
-     * @return QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemption_capability` and `preemption_vulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `qos_indicator` is used to derive the ARP value. Defaults to `9`. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+     * @return QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `qosIndicator` is used to derive the ARP value. Defaults to `9`. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
      * 
      */
     public Optional<Output<Integer>> allocationAndRetentionPriorityLevel() {
@@ -34,14 +34,14 @@ public final class NetworkServiceServiceQosPolicyArgs extends com.pulumi.resourc
     }
 
     /**
-     * A `maximum_bit_rate` block as defined below. The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
+     * A `maximumBitRate` block as defined below. The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
      * 
      */
     @Import(name="maximumBitRate", required=true)
     private Output<NetworkServiceServiceQosPolicyMaximumBitRateArgs> maximumBitRate;
 
     /**
-     * @return A `maximum_bit_rate` block as defined below. The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
+     * @return A `maximumBitRate` block as defined below. The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
      * 
      */
     public Output<NetworkServiceServiceQosPolicyMaximumBitRateArgs> maximumBitRate() {
@@ -122,7 +122,7 @@ public final class NetworkServiceServiceQosPolicyArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param allocationAndRetentionPriorityLevel QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemption_capability` and `preemption_vulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `qos_indicator` is used to derive the ARP value. Defaults to `9`. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+         * @param allocationAndRetentionPriorityLevel QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `qosIndicator` is used to derive the ARP value. Defaults to `9`. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class NetworkServiceServiceQosPolicyArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param allocationAndRetentionPriorityLevel QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemption_capability` and `preemption_vulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `qos_indicator` is used to derive the ARP value. Defaults to `9`. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+         * @param allocationAndRetentionPriorityLevel QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `qosIndicator` is used to derive the ARP value. Defaults to `9`. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class NetworkServiceServiceQosPolicyArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param maximumBitRate A `maximum_bit_rate` block as defined below. The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
+         * @param maximumBitRate A `maximumBitRate` block as defined below. The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class NetworkServiceServiceQosPolicyArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param maximumBitRate A `maximum_bit_rate` block as defined below. The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
+         * @param maximumBitRate A `maximumBitRate` block as defined below. The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
          * 
          * @return builder
          * 

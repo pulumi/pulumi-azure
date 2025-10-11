@@ -304,6 +304,15 @@ class HciLogicalNetwork(pulumi.CustomResource):
         """
         Manages an Azure Stack HCI Logical Network.
 
+        ## Example Usage
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.AzureStackHCI` - 2024-01-01
+
         ## Import
 
         Azure Stack HCI Logical Networks can be imported using the `resource id`, e.g.
@@ -331,6 +340,15 @@ class HciLogicalNetwork(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Stack HCI Logical Network.
+
+        ## Example Usage
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.AzureStackHCI` - 2024-01-01
 
         ## Import
 

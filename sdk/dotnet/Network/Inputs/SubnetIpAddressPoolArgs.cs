@@ -33,7 +33,7 @@ namespace Pulumi.Azure.Network.Inputs
         /// <summary>
         /// The number of IP addresses to allocated to the subnet. The value must be a string that represents a positive number, e.g., `"100"`.
         /// 
-        /// &gt; **Note:** `number_of_ip_addresses` cannot be decreased.
+        /// &gt; **Note:** `NumberOfIpAddresses` cannot be decreased.
         /// </summary>
         [Input("numberOfIpAddresses", required: true)]
         public Input<string> NumberOfIpAddresses { get; set; } = null!;

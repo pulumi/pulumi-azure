@@ -70,25 +70,25 @@ namespace Pulumi.Azure.PostgreSql
     public partial class Server : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Administrator login for the PostgreSQL Server. Required when `create_mode` is `Default`. Changing this forces a new resource to be created.
+        /// The Administrator login for the PostgreSQL Server. Required when `CreateMode` is `Default`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("administratorLogin")]
         public Output<string> AdministratorLogin { get; private set; } = null!;
 
         /// <summary>
-        /// The Password associated with the `administrator_login` for the PostgreSQL Server.
+        /// The Password associated with the `AdministratorLogin` for the PostgreSQL Server.
         /// </summary>
         [Output("administratorLoginPassword")]
         public Output<string?> AdministratorLoginPassword { get; private set; } = null!;
 
         /// <summary>
-        /// An integer value used to trigger an update for `administrator_login_password_wo`. This property should be incremented when updating `administrator_login_password_wo`.
+        /// An integer value used to trigger an update for `AdministratorLoginPasswordWo`. This property should be incremented when updating `AdministratorLoginPasswordWo`.
         /// </summary>
         [Output("administratorLoginPasswordWoVersion")]
         public Output<int?> AdministratorLoginPasswordWoVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Defaults to `true`.
+        /// Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Defaults to `True`.
         /// </summary>
         [Output("autoGrowEnabled")]
         public Output<bool?> AutoGrowEnabled { get; private set; } = null!;
@@ -124,7 +124,7 @@ namespace Pulumi.Azure.PostgreSql
         public Output<bool?> GeoRedundantBackupEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ServerIdentity?> Identity { get; private set; } = null!;
@@ -132,7 +132,7 @@ namespace Pulumi.Azure.PostgreSql
         /// <summary>
         /// Whether or not infrastructure is encrypted for this server. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** This property is currently still in development and not supported by Microsoft. If the `infrastructure_encryption_enabled` attribute is set to `true` the PostgreSQL instance will incur a substantial performance degradation due to a second encryption pass on top of the existing default encryption that is already provided by Azure Storage. It is strongly suggested to leave this value `false` as not doing so can lead to unclear error messages.
+        /// &gt; **Note:** This property is currently still in development and not supported by Microsoft. If the `InfrastructureEncryptionEnabled` attribute is set to `True` the PostgreSQL instance will incur a substantial performance degradation due to a second encryption pass on top of the existing default encryption that is already provided by Azure Storage. It is strongly suggested to leave this value `False` as not doing so can lead to unclear error messages.
         /// </summary>
         [Output("infrastructureEncryptionEnabled")]
         public Output<bool?> InfrastructureEncryptionEnabled { get; private set; } = null!;
@@ -150,7 +150,7 @@ namespace Pulumi.Azure.PostgreSql
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Whether or not public network access is allowed for this server. Defaults to `true`.
+        /// Whether or not public network access is allowed for this server. Defaults to `True`.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
@@ -162,23 +162,23 @@ namespace Pulumi.Azure.PostgreSql
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// When `create_mode` is `PointInTimeRestore` the point in time to restore from `creation_source_server_id`. It should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
+        /// When `CreateMode` is `PointInTimeRestore` the point in time to restore from `CreationSourceServerId`. It should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
         /// </summary>
         [Output("restorePointInTime")]
         public Output<string?> RestorePointInTime { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/rest/api/postgresql/singleserver/servers/create#sku). Possible values are `B_Gen4_1`, `B_Gen4_2`, `B_Gen5_1`, `B_Gen5_2`, `GP_Gen4_2`, `GP_Gen4_4`, `GP_Gen4_8`, `GP_Gen4_16`, `GP_Gen4_32`, `GP_Gen5_2`, `GP_Gen5_4`, `GP_Gen5_8`, `GP_Gen5_16`, `GP_Gen5_32`, `GP_Gen5_64`, `MO_Gen5_2`, `MO_Gen5_4`, `MO_Gen5_8`, `MO_Gen5_16` and `MO_Gen5_32`.
+        /// Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `Tier` + `Family` + `Cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/rest/api/postgresql/singleserver/servers/create#sku). Possible values are `B_Gen4_1`, `B_Gen4_2`, `B_Gen5_1`, `B_Gen5_2`, `GP_Gen4_2`, `GP_Gen4_4`, `GP_Gen4_8`, `GP_Gen4_16`, `GP_Gen4_32`, `GP_Gen5_2`, `GP_Gen5_4`, `GP_Gen5_8`, `GP_Gen5_16`, `GP_Gen5_32`, `GP_Gen5_64`, `MO_Gen5_2`, `MO_Gen5_4`, `MO_Gen5_8`, `MO_Gen5_16` and `MO_Gen5_32`.
         /// 
-        /// &gt; **Note:** When replication is set up and `sku_name` is changed to a higher tier or more capacity for the primary, all replicas are scaled up to the same tier/capacity. This is an Azure requirement, for more information see the [replica scaling documentation](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas#scaling)
+        /// &gt; **Note:** When replication is set up and `SkuName` is changed to a higher tier or more capacity for the primary, all replicas are scaled up to the same tier/capacity. This is an Azure requirement, for more information see the [replica scaling documentation](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas#scaling)
         /// </summary>
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
+        /// Specifies if SSL should be enforced on connections. Possible values are `True` and `False`.
         /// 
-        /// &gt; **Note:** `ssl_minimal_tls_version_enforced` must be set to `TLSEnforcementDisabled` when `ssl_enforcement_enabled` is set to `false`.
+        /// &gt; **Note:** `SslMinimalTlsVersionEnforced` must be set to `TLSEnforcementDisabled` when `SslEnforcementEnabled` is set to `False`.
         /// </summary>
         [Output("sslEnforcementEnabled")]
         public Output<bool> SslEnforcementEnabled { get; private set; } = null!;
@@ -202,7 +202,7 @@ namespace Pulumi.Azure.PostgreSql
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threat_detection_policy` block supports fields documented below.
+        /// Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `ThreatDetectionPolicy` block supports fields documented below.
         /// </summary>
         [Output("threatDetectionPolicy")]
         public Output<Outputs.ServerThreatDetectionPolicy?> ThreatDetectionPolicy { get; private set; } = null!;
@@ -264,7 +264,7 @@ namespace Pulumi.Azure.PostgreSql
     public sealed class ServerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Administrator login for the PostgreSQL Server. Required when `create_mode` is `Default`. Changing this forces a new resource to be created.
+        /// The Administrator login for the PostgreSQL Server. Required when `CreateMode` is `Default`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("administratorLogin")]
         public Input<string>? AdministratorLogin { get; set; }
@@ -273,7 +273,7 @@ namespace Pulumi.Azure.PostgreSql
         private Input<string>? _administratorLoginPassword;
 
         /// <summary>
-        /// The Password associated with the `administrator_login` for the PostgreSQL Server.
+        /// The Password associated with the `AdministratorLogin` for the PostgreSQL Server.
         /// </summary>
         public Input<string>? AdministratorLoginPassword
         {
@@ -286,13 +286,13 @@ namespace Pulumi.Azure.PostgreSql
         }
 
         /// <summary>
-        /// An integer value used to trigger an update for `administrator_login_password_wo`. This property should be incremented when updating `administrator_login_password_wo`.
+        /// An integer value used to trigger an update for `AdministratorLoginPasswordWo`. This property should be incremented when updating `AdministratorLoginPasswordWo`.
         /// </summary>
         [Input("administratorLoginPasswordWoVersion")]
         public Input<int>? AdministratorLoginPasswordWoVersion { get; set; }
 
         /// <summary>
-        /// Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Defaults to `true`.
+        /// Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Defaults to `True`.
         /// </summary>
         [Input("autoGrowEnabled")]
         public Input<bool>? AutoGrowEnabled { get; set; }
@@ -322,7 +322,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<bool>? GeoRedundantBackupEnabled { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ServerIdentityArgs>? Identity { get; set; }
@@ -330,7 +330,7 @@ namespace Pulumi.Azure.PostgreSql
         /// <summary>
         /// Whether or not infrastructure is encrypted for this server. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** This property is currently still in development and not supported by Microsoft. If the `infrastructure_encryption_enabled` attribute is set to `true` the PostgreSQL instance will incur a substantial performance degradation due to a second encryption pass on top of the existing default encryption that is already provided by Azure Storage. It is strongly suggested to leave this value `false` as not doing so can lead to unclear error messages.
+        /// &gt; **Note:** This property is currently still in development and not supported by Microsoft. If the `InfrastructureEncryptionEnabled` attribute is set to `True` the PostgreSQL instance will incur a substantial performance degradation due to a second encryption pass on top of the existing default encryption that is already provided by Azure Storage. It is strongly suggested to leave this value `False` as not doing so can lead to unclear error messages.
         /// </summary>
         [Input("infrastructureEncryptionEnabled")]
         public Input<bool>? InfrastructureEncryptionEnabled { get; set; }
@@ -348,7 +348,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether or not public network access is allowed for this server. Defaults to `true`.
+        /// Whether or not public network access is allowed for this server. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -360,23 +360,23 @@ namespace Pulumi.Azure.PostgreSql
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// When `create_mode` is `PointInTimeRestore` the point in time to restore from `creation_source_server_id`. It should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
+        /// When `CreateMode` is `PointInTimeRestore` the point in time to restore from `CreationSourceServerId`. It should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
         /// </summary>
         [Input("restorePointInTime")]
         public Input<string>? RestorePointInTime { get; set; }
 
         /// <summary>
-        /// Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/rest/api/postgresql/singleserver/servers/create#sku). Possible values are `B_Gen4_1`, `B_Gen4_2`, `B_Gen5_1`, `B_Gen5_2`, `GP_Gen4_2`, `GP_Gen4_4`, `GP_Gen4_8`, `GP_Gen4_16`, `GP_Gen4_32`, `GP_Gen5_2`, `GP_Gen5_4`, `GP_Gen5_8`, `GP_Gen5_16`, `GP_Gen5_32`, `GP_Gen5_64`, `MO_Gen5_2`, `MO_Gen5_4`, `MO_Gen5_8`, `MO_Gen5_16` and `MO_Gen5_32`.
+        /// Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `Tier` + `Family` + `Cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/rest/api/postgresql/singleserver/servers/create#sku). Possible values are `B_Gen4_1`, `B_Gen4_2`, `B_Gen5_1`, `B_Gen5_2`, `GP_Gen4_2`, `GP_Gen4_4`, `GP_Gen4_8`, `GP_Gen4_16`, `GP_Gen4_32`, `GP_Gen5_2`, `GP_Gen5_4`, `GP_Gen5_8`, `GP_Gen5_16`, `GP_Gen5_32`, `GP_Gen5_64`, `MO_Gen5_2`, `MO_Gen5_4`, `MO_Gen5_8`, `MO_Gen5_16` and `MO_Gen5_32`.
         /// 
-        /// &gt; **Note:** When replication is set up and `sku_name` is changed to a higher tier or more capacity for the primary, all replicas are scaled up to the same tier/capacity. This is an Azure requirement, for more information see the [replica scaling documentation](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas#scaling)
+        /// &gt; **Note:** When replication is set up and `SkuName` is changed to a higher tier or more capacity for the primary, all replicas are scaled up to the same tier/capacity. This is an Azure requirement, for more information see the [replica scaling documentation](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas#scaling)
         /// </summary>
         [Input("skuName", required: true)]
         public Input<string> SkuName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
+        /// Specifies if SSL should be enforced on connections. Possible values are `True` and `False`.
         /// 
-        /// &gt; **Note:** `ssl_minimal_tls_version_enforced` must be set to `TLSEnforcementDisabled` when `ssl_enforcement_enabled` is set to `false`.
+        /// &gt; **Note:** `SslMinimalTlsVersionEnforced` must be set to `TLSEnforcementDisabled` when `SslEnforcementEnabled` is set to `False`.
         /// </summary>
         [Input("sslEnforcementEnabled", required: true)]
         public Input<bool> SslEnforcementEnabled { get; set; } = null!;
@@ -406,7 +406,7 @@ namespace Pulumi.Azure.PostgreSql
         }
 
         /// <summary>
-        /// Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threat_detection_policy` block supports fields documented below.
+        /// Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `ThreatDetectionPolicy` block supports fields documented below.
         /// </summary>
         [Input("threatDetectionPolicy")]
         public Input<Inputs.ServerThreatDetectionPolicyArgs>? ThreatDetectionPolicy { get; set; }
@@ -426,7 +426,7 @@ namespace Pulumi.Azure.PostgreSql
     public sealed class ServerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Administrator login for the PostgreSQL Server. Required when `create_mode` is `Default`. Changing this forces a new resource to be created.
+        /// The Administrator login for the PostgreSQL Server. Required when `CreateMode` is `Default`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("administratorLogin")]
         public Input<string>? AdministratorLogin { get; set; }
@@ -435,7 +435,7 @@ namespace Pulumi.Azure.PostgreSql
         private Input<string>? _administratorLoginPassword;
 
         /// <summary>
-        /// The Password associated with the `administrator_login` for the PostgreSQL Server.
+        /// The Password associated with the `AdministratorLogin` for the PostgreSQL Server.
         /// </summary>
         public Input<string>? AdministratorLoginPassword
         {
@@ -448,13 +448,13 @@ namespace Pulumi.Azure.PostgreSql
         }
 
         /// <summary>
-        /// An integer value used to trigger an update for `administrator_login_password_wo`. This property should be incremented when updating `administrator_login_password_wo`.
+        /// An integer value used to trigger an update for `AdministratorLoginPasswordWo`. This property should be incremented when updating `AdministratorLoginPasswordWo`.
         /// </summary>
         [Input("administratorLoginPasswordWoVersion")]
         public Input<int>? AdministratorLoginPasswordWoVersion { get; set; }
 
         /// <summary>
-        /// Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Defaults to `true`.
+        /// Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Defaults to `True`.
         /// </summary>
         [Input("autoGrowEnabled")]
         public Input<bool>? AutoGrowEnabled { get; set; }
@@ -490,7 +490,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<bool>? GeoRedundantBackupEnabled { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ServerIdentityGetArgs>? Identity { get; set; }
@@ -498,7 +498,7 @@ namespace Pulumi.Azure.PostgreSql
         /// <summary>
         /// Whether or not infrastructure is encrypted for this server. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** This property is currently still in development and not supported by Microsoft. If the `infrastructure_encryption_enabled` attribute is set to `true` the PostgreSQL instance will incur a substantial performance degradation due to a second encryption pass on top of the existing default encryption that is already provided by Azure Storage. It is strongly suggested to leave this value `false` as not doing so can lead to unclear error messages.
+        /// &gt; **Note:** This property is currently still in development and not supported by Microsoft. If the `InfrastructureEncryptionEnabled` attribute is set to `True` the PostgreSQL instance will incur a substantial performance degradation due to a second encryption pass on top of the existing default encryption that is already provided by Azure Storage. It is strongly suggested to leave this value `False` as not doing so can lead to unclear error messages.
         /// </summary>
         [Input("infrastructureEncryptionEnabled")]
         public Input<bool>? InfrastructureEncryptionEnabled { get; set; }
@@ -516,7 +516,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether or not public network access is allowed for this server. Defaults to `true`.
+        /// Whether or not public network access is allowed for this server. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -528,23 +528,23 @@ namespace Pulumi.Azure.PostgreSql
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// When `create_mode` is `PointInTimeRestore` the point in time to restore from `creation_source_server_id`. It should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
+        /// When `CreateMode` is `PointInTimeRestore` the point in time to restore from `CreationSourceServerId`. It should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
         /// </summary>
         [Input("restorePointInTime")]
         public Input<string>? RestorePointInTime { get; set; }
 
         /// <summary>
-        /// Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/rest/api/postgresql/singleserver/servers/create#sku). Possible values are `B_Gen4_1`, `B_Gen4_2`, `B_Gen5_1`, `B_Gen5_2`, `GP_Gen4_2`, `GP_Gen4_4`, `GP_Gen4_8`, `GP_Gen4_16`, `GP_Gen4_32`, `GP_Gen5_2`, `GP_Gen5_4`, `GP_Gen5_8`, `GP_Gen5_16`, `GP_Gen5_32`, `GP_Gen5_64`, `MO_Gen5_2`, `MO_Gen5_4`, `MO_Gen5_8`, `MO_Gen5_16` and `MO_Gen5_32`.
+        /// Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `Tier` + `Family` + `Cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/rest/api/postgresql/singleserver/servers/create#sku). Possible values are `B_Gen4_1`, `B_Gen4_2`, `B_Gen5_1`, `B_Gen5_2`, `GP_Gen4_2`, `GP_Gen4_4`, `GP_Gen4_8`, `GP_Gen4_16`, `GP_Gen4_32`, `GP_Gen5_2`, `GP_Gen5_4`, `GP_Gen5_8`, `GP_Gen5_16`, `GP_Gen5_32`, `GP_Gen5_64`, `MO_Gen5_2`, `MO_Gen5_4`, `MO_Gen5_8`, `MO_Gen5_16` and `MO_Gen5_32`.
         /// 
-        /// &gt; **Note:** When replication is set up and `sku_name` is changed to a higher tier or more capacity for the primary, all replicas are scaled up to the same tier/capacity. This is an Azure requirement, for more information see the [replica scaling documentation](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas#scaling)
+        /// &gt; **Note:** When replication is set up and `SkuName` is changed to a higher tier or more capacity for the primary, all replicas are scaled up to the same tier/capacity. This is an Azure requirement, for more information see the [replica scaling documentation](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas#scaling)
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
 
         /// <summary>
-        /// Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
+        /// Specifies if SSL should be enforced on connections. Possible values are `True` and `False`.
         /// 
-        /// &gt; **Note:** `ssl_minimal_tls_version_enforced` must be set to `TLSEnforcementDisabled` when `ssl_enforcement_enabled` is set to `false`.
+        /// &gt; **Note:** `SslMinimalTlsVersionEnforced` must be set to `TLSEnforcementDisabled` when `SslEnforcementEnabled` is set to `False`.
         /// </summary>
         [Input("sslEnforcementEnabled")]
         public Input<bool>? SslEnforcementEnabled { get; set; }
@@ -574,7 +574,7 @@ namespace Pulumi.Azure.PostgreSql
         }
 
         /// <summary>
-        /// Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threat_detection_policy` block supports fields documented below.
+        /// Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `ThreatDetectionPolicy` block supports fields documented below.
         /// </summary>
         [Input("threatDetectionPolicy")]
         public Input<Inputs.ServerThreatDetectionPolicyGetArgs>? ThreatDetectionPolicy { get; set; }

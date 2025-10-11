@@ -14,7 +14,7 @@ namespace Pulumi.Azure.TrafficManager.Outputs
     public sealed class ProfileMonitorConfig
     {
         /// <summary>
-        /// One or more `custom_header` blocks as defined below.
+        /// One or more `CustomHeader` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.ProfileMonitorConfigCustomHeader> CustomHeaders;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Azure.TrafficManager.Outputs
         /// </summary>
         public readonly int? IntervalInSeconds;
         /// <summary>
-        /// The path used by the monitoring checks. Required when `protocol` is set to `HTTP` or `HTTPS` - cannot be set when `protocol` is set to `TCP`.
+        /// The path used by the monitoring checks. Required when `Protocol` is set to `HTTP` or `HTTPS` - cannot be set when `Protocol` is set to `TCP`.
         /// </summary>
         public readonly string? Path;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Azure.TrafficManager.Outputs
         /// </summary>
         public readonly string Protocol;
         /// <summary>
-        /// The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If `interval_in_seconds` is set to `30`, then `timeout_in_seconds` can be between `5` and `10`. The default value is `10`. If `interval_in_seconds` is set to `10`, then valid values are between `5` and `9` and `timeout_in_seconds` is required.
+        /// The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If `IntervalInSeconds` is set to `30`, then `TimeoutInSeconds` can be between `5` and `10`. The default value is `10`. If `IntervalInSeconds` is set to `10`, then valid values are between `5` and `9` and `TimeoutInSeconds` is required.
         /// </summary>
         public readonly int? TimeoutInSeconds;
         /// <summary>

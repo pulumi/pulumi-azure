@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
     public sealed class ApiOpenidAuthentication
     {
         /// <summary>
-        /// How to send token to the server. A list of zero or more methods. Valid values are `authorizationHeader` and `query`.
+        /// How to send token to the server. A list of zero or more methods. Valid values are `authorizationHeader` and `Query`.
         /// </summary>
         public readonly ImmutableArray<string> BearerTokenSendingMethods;
         /// <summary>

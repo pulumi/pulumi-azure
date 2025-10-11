@@ -24,13 +24,13 @@ namespace Pulumi.Azure.Compute.Outputs
         /// <summary>
         /// Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
         /// 
-        /// &gt; **NOTE:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
+        /// &gt; **NOTE:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a `DependsOn` between this resource and the Load Balancer Rule.
         /// </summary>
         public readonly ImmutableArray<string> LoadBalancerBackendAddressPoolIds;
         /// <summary>
         /// Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound NAT pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
         /// 
-        /// &gt; **NOTE:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
+        /// &gt; **NOTE:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a `DependsOn` between this resource and the Load Balancer Rule.
         /// </summary>
         public readonly ImmutableArray<string> LoadBalancerInboundNatRulesIds;
         /// <summary>
@@ -38,11 +38,11 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Specifies if this ip_configuration is the primary one.
+        /// Specifies if this IpConfiguration is the primary one.
         /// </summary>
         public readonly bool Primary;
         /// <summary>
-        /// Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The `public_ip_address_configuration` block is documented below.
+        /// Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The `PublicIpAddressConfiguration` block is documented below.
         /// </summary>
         public readonly Outputs.ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration? PublicIpAddressConfiguration;
         /// <summary>

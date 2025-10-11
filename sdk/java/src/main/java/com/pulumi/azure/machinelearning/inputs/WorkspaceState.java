@@ -40,7 +40,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
     /**
      * The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** The `admin_enabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
+     * &gt; **Note:** The `adminEnabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
      * 
      */
     @Import(name="containerRegistryId")
@@ -49,7 +49,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** The `admin_enabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
+     * &gt; **Note:** The `adminEnabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
      * 
      */
     public Optional<Output<String>> containerRegistryId() {
@@ -102,14 +102,14 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `feature_store` block as defined below.
+     * A `featureStore` block as defined below.
      * 
      */
     @Import(name="featureStore")
     private @Nullable Output<WorkspaceFeatureStoreArgs> featureStore;
 
     /**
-     * @return A `feature_store` block as defined below.
+     * @return A `featureStore` block as defined below.
      * 
      */
     public Optional<Output<WorkspaceFeatureStoreArgs>> featureStore() {
@@ -222,14 +222,14 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `managed_network` block as defined below.
+     * A `managedNetwork` block as defined below.
      * 
      */
     @Import(name="managedNetwork")
     private @Nullable Output<WorkspaceManagedNetworkArgs> managedNetwork;
 
     /**
-     * @return A `managed_network` block as defined below.
+     * @return A `managedNetwork` block as defined below.
      * 
      */
     public Optional<Output<WorkspaceManagedNetworkArgs>> managedNetwork() {
@@ -269,7 +269,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
     /**
      * Enable public access when this Machine Learning Workspace is behind VNet. Defaults to `true`.
      * 
-     * &gt; **Note:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
+     * &gt; **Note:** `publicAccessBehindVirtualNetworkEnabled` is deprecated and will be removed in favour of the property `publicNetworkAccessEnabled`.
      * 
      */
     @Import(name="publicNetworkAccessEnabled")
@@ -278,7 +278,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Enable public access when this Machine Learning Workspace is behind VNet. Defaults to `true`.
      * 
-     * &gt; **Note:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
+     * &gt; **Note:** `publicAccessBehindVirtualNetworkEnabled` is deprecated and will be removed in favour of the property `publicNetworkAccessEnabled`.
      * 
      */
     public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
@@ -301,14 +301,14 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `serverless_compute` block as defined below.
+     * A `serverlessCompute` block as defined below.
      * 
      */
     @Import(name="serverlessCompute")
     private @Nullable Output<WorkspaceServerlessComputeArgs> serverlessCompute;
 
     /**
-     * @return A `serverless_compute` block as defined below.
+     * @return A `serverlessCompute` block as defined below.
      * 
      */
     public Optional<Output<WorkspaceServerlessComputeArgs>> serverlessCompute() {
@@ -318,7 +318,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
     /**
      * Whether to enable service-side encryption with customer-managed keys (CMK). Default to `false`. Changing this forces a new resource to be created.
      * 
-     * !&gt; **Note:** Setting `service_side_encryption_enabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
+     * !&gt; **Note:** Setting `serviceSideEncryptionEnabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
      * 
      */
     @Import(name="serviceSideEncryptionEnabled")
@@ -327,7 +327,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Whether to enable service-side encryption with customer-managed keys (CMK). Default to `false`. Changing this forces a new resource to be created.
      * 
-     * !&gt; **Note:** Setting `service_side_encryption_enabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
+     * !&gt; **Note:** Setting `serviceSideEncryptionEnabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
      * 
      */
     public Optional<Output<Boolean>> serviceSideEncryptionEnabled() {
@@ -352,7 +352,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
     /**
      * The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** The `account_tier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
+     * &gt; **Note:** The `accountTier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
      * 
      */
     @Import(name="storageAccountId")
@@ -361,7 +361,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** The `account_tier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
+     * &gt; **Note:** The `accountTier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
      * 
      */
     public Optional<Output<String>> storageAccountId() {
@@ -384,14 +384,14 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable V1 API features, enabling `v1_legacy_mode` may prevent you from using features provided by the v2 API. Defaults to `false`.
+     * Enable V1 API features, enabling `v1LegacyMode` may prevent you from using features provided by the v2 API. Defaults to `false`.
      * 
      */
     @Import(name="v1LegacyModeEnabled")
     private @Nullable Output<Boolean> v1LegacyModeEnabled;
 
     /**
-     * @return Enable V1 API features, enabling `v1_legacy_mode` may prevent you from using features provided by the v2 API. Defaults to `false`.
+     * @return Enable V1 API features, enabling `v1LegacyMode` may prevent you from using features provided by the v2 API. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> v1LegacyModeEnabled() {
@@ -485,7 +485,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param containerRegistryId The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** The `admin_enabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
+         * &gt; **Note:** The `adminEnabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
          * 
          * @return builder
          * 
@@ -498,7 +498,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param containerRegistryId The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** The `admin_enabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
+         * &gt; **Note:** The `adminEnabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
          * 
          * @return builder
          * 
@@ -571,7 +571,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param featureStore A `feature_store` block as defined below.
+         * @param featureStore A `featureStore` block as defined below.
          * 
          * @return builder
          * 
@@ -582,7 +582,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param featureStore A `feature_store` block as defined below.
+         * @param featureStore A `featureStore` block as defined below.
          * 
          * @return builder
          * 
@@ -739,7 +739,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managedNetwork A `managed_network` block as defined below.
+         * @param managedNetwork A `managedNetwork` block as defined below.
          * 
          * @return builder
          * 
@@ -750,7 +750,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managedNetwork A `managed_network` block as defined below.
+         * @param managedNetwork A `managedNetwork` block as defined below.
          * 
          * @return builder
          * 
@@ -804,7 +804,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param publicNetworkAccessEnabled Enable public access when this Machine Learning Workspace is behind VNet. Defaults to `true`.
          * 
-         * &gt; **Note:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
+         * &gt; **Note:** `publicAccessBehindVirtualNetworkEnabled` is deprecated and will be removed in favour of the property `publicNetworkAccessEnabled`.
          * 
          * @return builder
          * 
@@ -817,7 +817,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param publicNetworkAccessEnabled Enable public access when this Machine Learning Workspace is behind VNet. Defaults to `true`.
          * 
-         * &gt; **Note:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
+         * &gt; **Note:** `publicAccessBehindVirtualNetworkEnabled` is deprecated and will be removed in favour of the property `publicNetworkAccessEnabled`.
          * 
          * @return builder
          * 
@@ -848,7 +848,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serverlessCompute A `serverless_compute` block as defined below.
+         * @param serverlessCompute A `serverlessCompute` block as defined below.
          * 
          * @return builder
          * 
@@ -859,7 +859,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serverlessCompute A `serverless_compute` block as defined below.
+         * @param serverlessCompute A `serverlessCompute` block as defined below.
          * 
          * @return builder
          * 
@@ -871,7 +871,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param serviceSideEncryptionEnabled Whether to enable service-side encryption with customer-managed keys (CMK). Default to `false`. Changing this forces a new resource to be created.
          * 
-         * !&gt; **Note:** Setting `service_side_encryption_enabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
+         * !&gt; **Note:** Setting `serviceSideEncryptionEnabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
          * 
          * @return builder
          * 
@@ -884,7 +884,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param serviceSideEncryptionEnabled Whether to enable service-side encryption with customer-managed keys (CMK). Default to `false`. Changing this forces a new resource to be created.
          * 
-         * !&gt; **Note:** Setting `service_side_encryption_enabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
+         * !&gt; **Note:** Setting `serviceSideEncryptionEnabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
          * 
          * @return builder
          * 
@@ -917,7 +917,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param storageAccountId The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** The `account_tier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
+         * &gt; **Note:** The `accountTier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
          * 
          * @return builder
          * 
@@ -930,7 +930,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param storageAccountId The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** The `account_tier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
+         * &gt; **Note:** The `accountTier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
          * 
          * @return builder
          * 
@@ -961,7 +961,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param v1LegacyModeEnabled Enable V1 API features, enabling `v1_legacy_mode` may prevent you from using features provided by the v2 API. Defaults to `false`.
+         * @param v1LegacyModeEnabled Enable V1 API features, enabling `v1LegacyMode` may prevent you from using features provided by the v2 API. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -972,7 +972,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param v1LegacyModeEnabled Enable V1 API features, enabling `v1_legacy_mode` may prevent you from using features provided by the v2 API. Defaults to `false`.
+         * @param v1LegacyModeEnabled Enable V1 API features, enabling `v1LegacyMode` may prevent you from using features provided by the v2 API. Defaults to `false`.
          * 
          * @return builder
          * 

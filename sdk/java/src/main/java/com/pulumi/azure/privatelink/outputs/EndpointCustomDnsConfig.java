@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EndpointCustomDnsConfig {
     /**
-     * @return The fully qualified domain name to the `private_dns_zone`.
+     * @return The fully qualified domain name to the `privateDnsZone`.
      * 
      */
     private @Nullable String fqdn;
     /**
-     * @return A list of all IP Addresses that map to the `private_dns_zone` fqdn.
+     * @return A list of all IP Addresses that map to the `privateDnsZone` fqdn.
      * 
      */
     private @Nullable List<String> ipAddresses;
 
     private EndpointCustomDnsConfig() {}
     /**
-     * @return The fully qualified domain name to the `private_dns_zone`.
+     * @return The fully qualified domain name to the `privateDnsZone`.
      * 
      */
     public Optional<String> fqdn() {
         return Optional.ofNullable(this.fqdn);
     }
     /**
-     * @return A list of all IP Addresses that map to the `private_dns_zone` fqdn.
+     * @return A list of all IP Addresses that map to the `privateDnsZone` fqdn.
      * 
      */
     public List<String> ipAddresses() {

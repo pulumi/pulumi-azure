@@ -15,14 +15,14 @@ public final class GetSubscriptionsPlainArgs extends com.pulumi.resources.Invoke
     public static final GetSubscriptionsPlainArgs Empty = new GetSubscriptionsPlainArgs();
 
     /**
-     * A case-insensitive value which must be contained within the `display_name` field, used to filter the results
+     * A case-insensitive value which must be contained within the `displayName` field, used to filter the results
      * 
      */
     @Import(name="displayNameContains")
     private @Nullable String displayNameContains;
 
     /**
-     * @return A case-insensitive value which must be contained within the `display_name` field, used to filter the results
+     * @return A case-insensitive value which must be contained within the `displayName` field, used to filter the results
      * 
      */
     public Optional<String> displayNameContains() {
@@ -30,14 +30,14 @@ public final class GetSubscriptionsPlainArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * A case-insensitive prefix which can be used to filter on the `display_name` field
+     * A case-insensitive prefix which can be used to filter on the `displayName` field
      * 
      */
     @Import(name="displayNamePrefix")
     private @Nullable String displayNamePrefix;
 
     /**
-     * @return A case-insensitive prefix which can be used to filter on the `display_name` field
+     * @return A case-insensitive prefix which can be used to filter on the `displayName` field
      * 
      */
     public Optional<String> displayNamePrefix() {
@@ -70,7 +70,7 @@ public final class GetSubscriptionsPlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param displayNameContains A case-insensitive value which must be contained within the `display_name` field, used to filter the results
+         * @param displayNameContains A case-insensitive value which must be contained within the `displayName` field, used to filter the results
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class GetSubscriptionsPlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param displayNamePrefix A case-insensitive prefix which can be used to filter on the `display_name` field
+         * @param displayNamePrefix A case-insensitive prefix which can be used to filter on the `displayName` field
          * 
          * @return builder
          * 

@@ -51,14 +51,14 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A `partner_server` block as defined below.
+     * A `partnerServer` block as defined below.
      * 
      */
     @Import(name="partnerServers")
     private @Nullable Output<List<FailoverGroupPartnerServerArgs>> partnerServers;
 
     /**
-     * @return A `partner_server` block as defined below.
+     * @return A `partnerServer` block as defined below.
      * 
      */
     public Optional<Output<List<FailoverGroupPartnerServerArgs>>> partnerServers() {
@@ -66,14 +66,14 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A `read_write_endpoint_failover_policy` block as defined below.
+     * A `readWriteEndpointFailoverPolicy` block as defined below.
      * 
      */
     @Import(name="readWriteEndpointFailoverPolicy")
     private @Nullable Output<FailoverGroupReadWriteEndpointFailoverPolicyArgs> readWriteEndpointFailoverPolicy;
 
     /**
-     * @return A `read_write_endpoint_failover_policy` block as defined below.
+     * @return A `readWriteEndpointFailoverPolicy` block as defined below.
      * 
      */
     public Optional<Output<FailoverGroupReadWriteEndpointFailoverPolicyArgs>> readWriteEndpointFailoverPolicy() {
@@ -208,7 +208,7 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param partnerServers A `partner_server` block as defined below.
+         * @param partnerServers A `partnerServer` block as defined below.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param partnerServers A `partner_server` block as defined below.
+         * @param partnerServers A `partnerServer` block as defined below.
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param partnerServers A `partner_server` block as defined below.
+         * @param partnerServers A `partnerServer` block as defined below.
          * 
          * @return builder
          * 
@@ -239,7 +239,7 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param readWriteEndpointFailoverPolicy A `read_write_endpoint_failover_policy` block as defined below.
+         * @param readWriteEndpointFailoverPolicy A `readWriteEndpointFailoverPolicy` block as defined below.
          * 
          * @return builder
          * 
@@ -250,7 +250,7 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param readWriteEndpointFailoverPolicy A `read_write_endpoint_failover_policy` block as defined below.
+         * @param readWriteEndpointFailoverPolicy A `readWriteEndpointFailoverPolicy` block as defined below.
          * 
          * @return builder
          * 

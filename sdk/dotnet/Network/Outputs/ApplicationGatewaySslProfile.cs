@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// a `ssl_policy` block as defined below.
+        /// a `SslPolicy` block as defined below.
         /// </summary>
         public readonly Outputs.ApplicationGatewaySslProfileSslPolicy? SslPolicy;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<string> TrustedClientCertificateNames;
         /// <summary>
-        /// Should client certificate issuer DN be verified? Defaults to `false`.
+        /// Should client certificate issuer DN be verified? Defaults to `False`.
         /// </summary>
         public readonly bool? VerifyClientCertIssuerDn;
         /// <summary>

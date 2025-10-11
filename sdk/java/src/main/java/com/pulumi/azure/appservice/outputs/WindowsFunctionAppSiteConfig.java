@@ -22,7 +22,7 @@ public final class WindowsFunctionAppSiteConfig {
     /**
      * @return If this Windows Function App is Always On enabled. Defaults to `false`.
      * 
-     * &gt; **Note:** when running in a Consumption or Premium Plan, `always_on` feature should be turned off. Please turn it off before upgrading the service plan from standard to premium.
+     * &gt; **Note:** when running in a Consumption or Premium Plan, `alwaysOn` feature should be turned off. Please turn it off before upgrading the service plan from standard to premium.
      * 
      */
     private @Nullable Boolean alwaysOn;
@@ -47,7 +47,7 @@ public final class WindowsFunctionAppSiteConfig {
      */
     private @Nullable Integer appScaleLimit;
     /**
-     * @return An `app_service_logs` block as defined above.
+     * @return An `appServiceLogs` block as defined above.
      * 
      */
     private @Nullable WindowsFunctionAppSiteConfigAppServiceLogs appServiceLogs;
@@ -62,7 +62,7 @@ public final class WindowsFunctionAppSiteConfig {
      */
     private @Nullable String applicationInsightsKey;
     /**
-     * @return An `application_stack` block as defined above.
+     * @return An `applicationStack` block as defined above.
      * 
      * &gt; **Note:** If this is set, there must not be an application setting `FUNCTIONS_WORKER_RUNTIME`.
      * 
@@ -94,7 +94,7 @@ public final class WindowsFunctionAppSiteConfig {
      */
     private @Nullable String ftpsState;
     /**
-     * @return The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+     * @return The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
      * 
      */
     private @Nullable Integer healthCheckEvictionTimeInMin;
@@ -109,12 +109,12 @@ public final class WindowsFunctionAppSiteConfig {
      */
     private @Nullable Boolean http2Enabled;
     /**
-     * @return The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+     * @return The Default action for traffic that does not match any `ipRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
      * 
      */
     private @Nullable String ipRestrictionDefaultAction;
     /**
-     * @return One or more `ip_restriction` blocks as defined above.
+     * @return One or more `ipRestriction` blocks as defined above.
      * 
      */
     private @Nullable List<WindowsFunctionAppSiteConfigIpRestriction> ipRestrictions;
@@ -156,12 +156,12 @@ public final class WindowsFunctionAppSiteConfig {
      */
     private @Nullable Boolean runtimeScaleMonitoringEnabled;
     /**
-     * @return The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+     * @return The Default action for traffic that does not match any `scmIpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
      * 
      */
     private @Nullable String scmIpRestrictionDefaultAction;
     /**
-     * @return One or more `scm_ip_restriction` blocks as defined above.
+     * @return One or more `scmIpRestriction` blocks as defined above.
      * 
      */
     private @Nullable List<WindowsFunctionAppSiteConfigScmIpRestriction> scmIpRestrictions;
@@ -176,7 +176,7 @@ public final class WindowsFunctionAppSiteConfig {
      */
     private @Nullable String scmType;
     /**
-     * @return Should the Windows Function App `ip_restriction` configuration be used for the SCM also.
+     * @return Should the Windows Function App `ipRestriction` configuration be used for the SCM also.
      * 
      */
     private @Nullable Boolean scmUseMainIpRestriction;
@@ -210,7 +210,7 @@ public final class WindowsFunctionAppSiteConfig {
     /**
      * @return If this Windows Function App is Always On enabled. Defaults to `false`.
      * 
-     * &gt; **Note:** when running in a Consumption or Premium Plan, `always_on` feature should be turned off. Please turn it off before upgrading the service plan from standard to premium.
+     * &gt; **Note:** when running in a Consumption or Premium Plan, `alwaysOn` feature should be turned off. Please turn it off before upgrading the service plan from standard to premium.
      * 
      */
     public Optional<Boolean> alwaysOn() {
@@ -245,7 +245,7 @@ public final class WindowsFunctionAppSiteConfig {
         return Optional.ofNullable(this.appScaleLimit);
     }
     /**
-     * @return An `app_service_logs` block as defined above.
+     * @return An `appServiceLogs` block as defined above.
      * 
      */
     public Optional<WindowsFunctionAppSiteConfigAppServiceLogs> appServiceLogs() {
@@ -266,7 +266,7 @@ public final class WindowsFunctionAppSiteConfig {
         return Optional.ofNullable(this.applicationInsightsKey);
     }
     /**
-     * @return An `application_stack` block as defined above.
+     * @return An `applicationStack` block as defined above.
      * 
      * &gt; **Note:** If this is set, there must not be an application setting `FUNCTIONS_WORKER_RUNTIME`.
      * 
@@ -310,7 +310,7 @@ public final class WindowsFunctionAppSiteConfig {
         return Optional.ofNullable(this.ftpsState);
     }
     /**
-     * @return The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+     * @return The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
      * 
      */
     public Optional<Integer> healthCheckEvictionTimeInMin() {
@@ -331,14 +331,14 @@ public final class WindowsFunctionAppSiteConfig {
         return Optional.ofNullable(this.http2Enabled);
     }
     /**
-     * @return The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+     * @return The Default action for traffic that does not match any `ipRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
      * 
      */
     public Optional<String> ipRestrictionDefaultAction() {
         return Optional.ofNullable(this.ipRestrictionDefaultAction);
     }
     /**
-     * @return One or more `ip_restriction` blocks as defined above.
+     * @return One or more `ipRestriction` blocks as defined above.
      * 
      */
     public List<WindowsFunctionAppSiteConfigIpRestriction> ipRestrictions() {
@@ -396,14 +396,14 @@ public final class WindowsFunctionAppSiteConfig {
         return Optional.ofNullable(this.runtimeScaleMonitoringEnabled);
     }
     /**
-     * @return The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+     * @return The Default action for traffic that does not match any `scmIpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
      * 
      */
     public Optional<String> scmIpRestrictionDefaultAction() {
         return Optional.ofNullable(this.scmIpRestrictionDefaultAction);
     }
     /**
-     * @return One or more `scm_ip_restriction` blocks as defined above.
+     * @return One or more `scmIpRestriction` blocks as defined above.
      * 
      */
     public List<WindowsFunctionAppSiteConfigScmIpRestriction> scmIpRestrictions() {
@@ -424,7 +424,7 @@ public final class WindowsFunctionAppSiteConfig {
         return Optional.ofNullable(this.scmType);
     }
     /**
-     * @return Should the Windows Function App `ip_restriction` configuration be used for the SCM also.
+     * @return Should the Windows Function App `ipRestriction` configuration be used for the SCM also.
      * 
      */
     public Optional<Boolean> scmUseMainIpRestriction() {

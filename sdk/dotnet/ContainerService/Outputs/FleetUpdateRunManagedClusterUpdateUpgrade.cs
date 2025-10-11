@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class FleetUpdateRunManagedClusterUpdateUpgrade
     {
         /// <summary>
-        /// Specifies the Kubernetes version to upgrade the member clusters to. This is required if `type` is set to `Full`.
+        /// Specifies the Kubernetes version to upgrade the member clusters to. This is required if `Type` is set to `Full`.
         /// </summary>
         public readonly string? KubernetesVersion;
         /// <summary>

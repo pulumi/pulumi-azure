@@ -114,7 +114,7 @@ namespace Pulumi.Azure.CosmosDB
     public partial class CassandraDatacenter : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Determines whether availability zones are enabled. Defaults to `true`.
+        /// Determines whether availability zones are enabled. Defaults to `True`.
         /// </summary>
         [Output("availabilityZonesEnabled")]
         public Output<bool?> AvailabilityZonesEnabled { get; private set; } = null!;
@@ -188,7 +188,7 @@ namespace Pulumi.Azure.CosmosDB
         /// <summary>
         /// Determines the selected sku.
         /// 
-        /// &gt; **Note:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
+        /// &gt; **Note:** In v4.0 of the provider the `SkuName` will have a default value of `Standard_E16s_v5`.
         /// </summary>
         [Output("skuName")]
         public Output<string?> SkuName { get; private set; } = null!;
@@ -240,7 +240,7 @@ namespace Pulumi.Azure.CosmosDB
     public sealed class CassandraDatacenterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Determines whether availability zones are enabled. Defaults to `true`.
+        /// Determines whether availability zones are enabled. Defaults to `True`.
         /// </summary>
         [Input("availabilityZonesEnabled")]
         public Input<bool>? AvailabilityZonesEnabled { get; set; }
@@ -308,7 +308,7 @@ namespace Pulumi.Azure.CosmosDB
         /// <summary>
         /// Determines the selected sku.
         /// 
-        /// &gt; **Note:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
+        /// &gt; **Note:** In v4.0 of the provider the `SkuName` will have a default value of `Standard_E16s_v5`.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
@@ -322,7 +322,7 @@ namespace Pulumi.Azure.CosmosDB
     public sealed class CassandraDatacenterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Determines whether availability zones are enabled. Defaults to `true`.
+        /// Determines whether availability zones are enabled. Defaults to `True`.
         /// </summary>
         [Input("availabilityZonesEnabled")]
         public Input<bool>? AvailabilityZonesEnabled { get; set; }
@@ -402,7 +402,7 @@ namespace Pulumi.Azure.CosmosDB
         /// <summary>
         /// Determines the selected sku.
         /// 
-        /// &gt; **Note:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
+        /// &gt; **Note:** In v4.0 of the provider the `SkuName` will have a default value of `Standard_E16s_v5`.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }

@@ -22,7 +22,7 @@ namespace Pulumi.Azure.AppService.Inputs
         private Input<string>? _clientSecret;
 
         /// <summary>
-        /// The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret_setting_name`.
+        /// The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `ClientSecretSettingName`.
         /// </summary>
         public Input<string>? ClientSecret
         {
@@ -35,7 +35,7 @@ namespace Pulumi.Azure.AppService.Inputs
         }
 
         /// <summary>
-        /// The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret`.
+        /// The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `ClientSecret`.
         /// </summary>
         [Input("clientSecretSettingName")]
         public Input<string>? ClientSecretSettingName { get; set; }

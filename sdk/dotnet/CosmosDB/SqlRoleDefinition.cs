@@ -108,7 +108,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `permissions` block as defined below.
+        /// A `Permissions` block as defined below.
         /// </summary>
         [Output("permissions")]
         public Output<ImmutableArray<Outputs.SqlRoleDefinitionPermission>> Permissions { get; private set; } = null!;
@@ -207,7 +207,7 @@ namespace Pulumi.Azure.CosmosDB
         private InputList<Inputs.SqlRoleDefinitionPermissionArgs>? _permissions;
 
         /// <summary>
-        /// A `permissions` block as defined below.
+        /// A `Permissions` block as defined below.
         /// </summary>
         public InputList<Inputs.SqlRoleDefinitionPermissionArgs> Permissions
         {
@@ -271,7 +271,7 @@ namespace Pulumi.Azure.CosmosDB
         private InputList<Inputs.SqlRoleDefinitionPermissionGetArgs>? _permissions;
 
         /// <summary>
-        /// A `permissions` block as defined below.
+        /// A `Permissions` block as defined below.
         /// </summary>
         public InputList<Inputs.SqlRoleDefinitionPermissionGetArgs> Permissions
         {

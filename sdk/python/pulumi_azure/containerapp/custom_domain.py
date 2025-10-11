@@ -205,6 +205,8 @@ class CustomDomain(pulumi.CustomResource):
         """
         Manages a Container App Custom Domain.
 
+        ## Example Usage
+
         ### Managed Certificate
 
         ```python
@@ -253,6 +255,8 @@ class CustomDomain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Container App Custom Domain.
+
+        ## Example Usage
 
         ### Managed Certificate
 

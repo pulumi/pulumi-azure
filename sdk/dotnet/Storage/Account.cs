@@ -142,7 +142,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Defaults to `StorageV2`.
         /// 
-        /// &gt; **Note:** Changing the `account_kind` value from `Storage` to `StorageV2` will not trigger a force new on the storage account, it will only upgrade the existing storage account from `Storage` to `StorageV2` keeping the existing storage account in place.
+        /// &gt; **Note:** Changing the `AccountKind` value from `Storage` to `StorageV2` will not trigger a force new on the storage account, it will only upgrade the existing storage account from `Storage` to `StorageV2` keeping the existing storage account in place.
         /// </summary>
         [Output("accountKind")]
         public Output<string?> AccountKind { get; private set; } = null!;
@@ -162,9 +162,9 @@ namespace Pulumi.Azure.Storage
         public Output<string> AccountTier { get; private set; } = null!;
 
         /// <summary>
-        /// Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
+        /// Allow or disallow nested items within this Account to opt into being public. Defaults to `True`.
         /// 
-        /// &gt; **Note:** At this time `allow_nested_items_to_be_public` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
+        /// &gt; **Note:** At this time `AllowNestedItemsToBePublic` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
         /// </summary>
         [Output("allowNestedItemsToBePublic")]
         public Output<bool?> AllowNestedItemsToBePublic { get; private set; } = null!;
@@ -176,39 +176,39 @@ namespace Pulumi.Azure.Storage
         public Output<string?> AllowedCopyScope { get; private set; } = null!;
 
         /// <summary>
-        /// A `azure_files_authentication` block as defined below.
+        /// A `AzureFilesAuthentication` block as defined below.
         /// </summary>
         [Output("azureFilesAuthentication")]
         public Output<Outputs.AccountAzureFilesAuthentication?> AzureFilesAuthentication { get; private set; } = null!;
 
         /// <summary>
-        /// A `blob_properties` block as defined below.
+        /// A `BlobProperties` block as defined below.
         /// </summary>
         [Output("blobProperties")]
         public Output<Outputs.AccountBlobProperties> BlobProperties { get; private set; } = null!;
 
         /// <summary>
-        /// Should cross Tenant replication be enabled? Defaults to `false`.
+        /// Should cross Tenant replication be enabled? Defaults to `False`.
         /// </summary>
         [Output("crossTenantReplicationEnabled")]
         public Output<bool?> CrossTenantReplicationEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A `custom_domain` block as documented below.
+        /// A `CustomDomain` block as documented below.
         /// </summary>
         [Output("customDomain")]
         public Output<Outputs.AccountCustomDomain?> CustomDomain { get; private set; } = null!;
 
         /// <summary>
-        /// A `customer_managed_key` block as documented below.
+        /// A `CustomerManagedKey` block as documented below.
         /// 
-        /// &gt; **Note:** It's possible to define a Customer Managed Key both within either the `customer_managed_key` block or by using the `azure.storage.CustomerManagedKey` resource. However, it's not possible to use both methods to manage a Customer Managed Key for a Storage Account, since these will conflict. When using the `azure.storage.CustomerManagedKey` resource, you will need to use `ignore_changes` on the `customer_managed_key` block.
+        /// &gt; **Note:** It's possible to define a Customer Managed Key both within either the `CustomerManagedKey` block or by using the `azure.storage.CustomerManagedKey` resource. However, it's not possible to use both methods to manage a Customer Managed Key for a Storage Account, since these will conflict. When using the `azure.storage.CustomerManagedKey` resource, you will need to use `IgnoreChanges` on the `CustomerManagedKey` block.
         /// </summary>
         [Output("customerManagedKey")]
         public Output<Outputs.AccountCustomerManagedKey?> CustomerManagedKey { get; private set; } = null!;
 
         /// <summary>
-        /// Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
+        /// Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `False`
         /// </summary>
         [Output("defaultToOauthAuthentication")]
         public Output<bool?> DefaultToOauthAuthentication { get; private set; } = null!;
@@ -228,27 +228,27 @@ namespace Pulumi.Azure.Storage
         public Output<string?> EdgeZone { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
+        /// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `True`.
         /// </summary>
         [Output("httpsTrafficOnlyEnabled")]
         public Output<bool?> HttpsTrafficOnlyEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.AccountIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// An `immutability_policy` block as defined below. Changing this forces a new resource to be created.
+        /// An `ImmutabilityPolicy` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("immutabilityPolicy")]
         public Output<Outputs.AccountImmutabilityPolicy?> ImmutabilityPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
+        /// Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `False`.
         /// 
-        /// &gt; **Note:** This can only be `true` when `account_kind` is `StorageV2` or when `account_tier` is `Premium` *and* `account_kind` is one of `BlockBlobStorage` or `FileStorage`.
+        /// &gt; **Note:** This can only be `True` when `AccountKind` is `StorageV2` or when `AccountTier` is `Premium` *and* `AccountKind` is one of `BlockBlobStorage` or `FileStorage`.
         /// </summary>
         [Output("infrastructureEncryptionEnabled")]
         public Output<bool?> InfrastructureEncryptionEnabled { get; private set; } = null!;
@@ -256,21 +256,21 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** This can only be `true` when `account_tier` is `Standard` or when `account_tier` is `Premium` *and* `account_kind` is `BlockBlobStorage`
+        /// &gt; **Note:** This can only be `True` when `AccountTier` is `Standard` or when `AccountTier` is `Premium` *and* `AccountKind` is `BlockBlobStorage`
         /// </summary>
         [Output("isHnsEnabled")]
         public Output<bool?> IsHnsEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Are Large File Shares Enabled? Defaults to `false`.
+        /// Are Large File Shares Enabled? Defaults to `False`.
         /// 
-        /// &gt; **Note:** Large File Shares are enabled by default when using an `account_kind` of `FileStorage`.
+        /// &gt; **Note:** Large File Shares are enabled by default when using an `AccountKind` of `FileStorage`.
         /// </summary>
         [Output("largeFileShareEnabled")]
         public Output<bool> LargeFileShareEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Is Local User Enabled? Defaults to `true`.
+        /// Is Local User Enabled? Defaults to `True`.
         /// </summary>
         [Output("localUserEnabled")]
         public Output<bool?> LocalUserEnabled { get; private set; } = null!;
@@ -286,7 +286,7 @@ namespace Pulumi.Azure.Storage
         /// 
         /// &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         /// 
-        /// &gt; **Note:** At this time `min_tls_version` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
+        /// &gt; **Note:** At this time `MinTlsVersion` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
         /// </summary>
         [Output("minTlsVersion")]
         public Output<string?> MinTlsVersion { get; private set; } = null!;
@@ -298,15 +298,15 @@ namespace Pulumi.Azure.Storage
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `network_rules` block as documented below.
+        /// A `NetworkRules` block as documented below.
         /// </summary>
         [Output("networkRules")]
         public Output<Outputs.AccountNetworkRules> NetworkRules { get; private set; } = null!;
 
         /// <summary>
-        /// Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
+        /// Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `False`.
         /// 
-        /// &gt; **Note:** This can only be `true` when `account_tier` is `Standard` and `account_kind` is `StorageV2`, or `account_tier` is `Premium` and `account_kind` is `BlockBlobStorage`. Additionally, the `is_hns_enabled` is `true` and `account_replication_type` must be `LRS` or `RAGRS`.
+        /// &gt; **Note:** This can only be `True` when `AccountTier` is `Standard` and `AccountKind` is `StorageV2`, or `AccountTier` is `Premium` and `AccountKind` is `BlockBlobStorage`. Additionally, the `IsHnsEnabled` is `True` and `AccountReplicationType` must be `LRS` or `RAGRS`.
         /// </summary>
         [Output("nfsv3Enabled")]
         public Output<bool?> Nfsv3Enabled { get; private set; } = null!;
@@ -528,13 +528,13 @@ namespace Pulumi.Azure.Storage
         public Output<string> PrimaryWebMicrosoftHost { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the version of the **provisioned** billing model (e.g. when `account_kind = "FileStorage"` for Storage File). Possible value is `V2`. Changing this forces a new resource to be created.
+        /// Specifies the version of the **provisioned** billing model (e.g. when `AccountKind = "FileStorage"` for Storage File). Possible value is `V2`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("provisionedBillingModelVersion")]
         public Output<string?> ProvisionedBillingModelVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the public network access is enabled? Defaults to `true`.
+        /// Whether the public network access is enabled? Defaults to `True`.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
@@ -546,9 +546,9 @@ namespace Pulumi.Azure.Storage
         public Output<string?> QueueEncryptionKeyType { get; private set; } = null!;
 
         /// <summary>
-        /// A `queue_properties` block as defined below.
+        /// A `QueueProperties` block as defined below.
         /// 
-        /// &gt; **Note:** `queue_properties` can only be configured when `account_tier` is set to `Standard` and `account_kind` is set to either `Storage` or `StorageV2`.
+        /// &gt; **Note:** `QueueProperties` can only be configured when `AccountTier` is set to `Standard` and `AccountKind` is set to either `Storage` or `StorageV2`.
         /// </summary>
         [Output("queueProperties")]
         public Output<Outputs.AccountQueueProperties> QueueProperties { get; private set; } = null!;
@@ -560,13 +560,13 @@ namespace Pulumi.Azure.Storage
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `routing` block as defined below.
+        /// A `Routing` block as defined below.
         /// </summary>
         [Output("routing")]
         public Output<Outputs.AccountRouting> Routing { get; private set; } = null!;
 
         /// <summary>
-        /// A `sas_policy` block as defined below.
+        /// A `SasPolicy` block as defined below.
         /// </summary>
         [Output("sasPolicy")]
         public Output<Outputs.AccountSasPolicy?> SasPolicy { get; private set; } = null!;
@@ -790,15 +790,15 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// Boolean, enable SFTP for the storage account
         /// 
-        /// &gt; **Note:** SFTP support requires `is_hns_enabled` set to `true`. [More information on SFTP support can be found here](https://learn.microsoft.com/azure/storage/blobs/secure-file-transfer-protocol-support). Defaults to `false`
+        /// &gt; **Note:** SFTP support requires `IsHnsEnabled` set to `True`. [More information on SFTP support can be found here](https://learn.microsoft.com/azure/storage/blobs/secure-file-transfer-protocol-support). Defaults to `False`
         /// </summary>
         [Output("sftpEnabled")]
         public Output<bool?> SftpEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A `share_properties` block as defined below.
+        /// A `ShareProperties` block as defined below.
         /// 
-        /// &gt; **Note:** `share_properties` can only be configured when either `account_tier` is `Standard` and `account_kind` is either `Storage` or `StorageV2` - or when `account_tier` is `Premium` and `account_kind` is `FileStorage`.
+        /// &gt; **Note:** `ShareProperties` can only be configured when either `AccountTier` is `Standard` and `AccountKind` is either `Storage` or `StorageV2` - or when `AccountTier` is `Premium` and `AccountKind` is `FileStorage`.
         /// </summary>
         [Output("shareProperties")]
         public Output<Outputs.AccountShareProperties> ShareProperties { get; private set; } = null!;
@@ -807,11 +807,11 @@ namespace Pulumi.Azure.Storage
         public Output<bool?> SharedAccessKeyEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A `static_website` block as defined below.
+        /// A `StaticWebsite` block as defined below.
         /// 
-        /// &gt; **Note:** `static_website` can only be set when the `account_kind` is set to `StorageV2` or `BlockBlobStorage`.
+        /// &gt; **Note:** `StaticWebsite` can only be set when the `AccountKind` is set to `StorageV2` or `BlockBlobStorage`.
         /// 
-        /// &gt; **Note:** If `static_website` is specified, the service will automatically create a `azure.storage.Container` named `$web`.
+        /// &gt; **Note:** If `StaticWebsite` is specified, the service will automatically create a `azure.storage.Container` named `$web`.
         /// </summary>
         [Output("staticWebsite")]
         public Output<Outputs.AccountStaticWebsite> StaticWebsite { get; private set; } = null!;
@@ -819,7 +819,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
         /// 
-        /// &gt; **Note:** `queue_encryption_key_type` and `table_encryption_key_type` cannot be set to `Account` when `account_kind` is set `Storage`
+        /// &gt; **Note:** `QueueEncryptionKeyType` and `TableEncryptionKeyType` cannot be set to `Account` when `AccountKind` is set `Storage`
         /// </summary>
         [Output("tableEncryptionKeyType")]
         public Output<string?> TableEncryptionKeyType { get; private set; } = null!;
@@ -894,7 +894,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Defaults to `StorageV2`.
         /// 
-        /// &gt; **Note:** Changing the `account_kind` value from `Storage` to `StorageV2` will not trigger a force new on the storage account, it will only upgrade the existing storage account from `Storage` to `StorageV2` keeping the existing storage account in place.
+        /// &gt; **Note:** Changing the `AccountKind` value from `Storage` to `StorageV2` will not trigger a force new on the storage account, it will only upgrade the existing storage account from `Storage` to `StorageV2` keeping the existing storage account in place.
         /// </summary>
         [Input("accountKind")]
         public Input<string>? AccountKind { get; set; }
@@ -914,9 +914,9 @@ namespace Pulumi.Azure.Storage
         public Input<string> AccountTier { get; set; } = null!;
 
         /// <summary>
-        /// Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
+        /// Allow or disallow nested items within this Account to opt into being public. Defaults to `True`.
         /// 
-        /// &gt; **Note:** At this time `allow_nested_items_to_be_public` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
+        /// &gt; **Note:** At this time `AllowNestedItemsToBePublic` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
         /// </summary>
         [Input("allowNestedItemsToBePublic")]
         public Input<bool>? AllowNestedItemsToBePublic { get; set; }
@@ -928,39 +928,39 @@ namespace Pulumi.Azure.Storage
         public Input<string>? AllowedCopyScope { get; set; }
 
         /// <summary>
-        /// A `azure_files_authentication` block as defined below.
+        /// A `AzureFilesAuthentication` block as defined below.
         /// </summary>
         [Input("azureFilesAuthentication")]
         public Input<Inputs.AccountAzureFilesAuthenticationArgs>? AzureFilesAuthentication { get; set; }
 
         /// <summary>
-        /// A `blob_properties` block as defined below.
+        /// A `BlobProperties` block as defined below.
         /// </summary>
         [Input("blobProperties")]
         public Input<Inputs.AccountBlobPropertiesArgs>? BlobProperties { get; set; }
 
         /// <summary>
-        /// Should cross Tenant replication be enabled? Defaults to `false`.
+        /// Should cross Tenant replication be enabled? Defaults to `False`.
         /// </summary>
         [Input("crossTenantReplicationEnabled")]
         public Input<bool>? CrossTenantReplicationEnabled { get; set; }
 
         /// <summary>
-        /// A `custom_domain` block as documented below.
+        /// A `CustomDomain` block as documented below.
         /// </summary>
         [Input("customDomain")]
         public Input<Inputs.AccountCustomDomainArgs>? CustomDomain { get; set; }
 
         /// <summary>
-        /// A `customer_managed_key` block as documented below.
+        /// A `CustomerManagedKey` block as documented below.
         /// 
-        /// &gt; **Note:** It's possible to define a Customer Managed Key both within either the `customer_managed_key` block or by using the `azure.storage.CustomerManagedKey` resource. However, it's not possible to use both methods to manage a Customer Managed Key for a Storage Account, since these will conflict. When using the `azure.storage.CustomerManagedKey` resource, you will need to use `ignore_changes` on the `customer_managed_key` block.
+        /// &gt; **Note:** It's possible to define a Customer Managed Key both within either the `CustomerManagedKey` block or by using the `azure.storage.CustomerManagedKey` resource. However, it's not possible to use both methods to manage a Customer Managed Key for a Storage Account, since these will conflict. When using the `azure.storage.CustomerManagedKey` resource, you will need to use `IgnoreChanges` on the `CustomerManagedKey` block.
         /// </summary>
         [Input("customerManagedKey")]
         public Input<Inputs.AccountCustomerManagedKeyArgs>? CustomerManagedKey { get; set; }
 
         /// <summary>
-        /// Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
+        /// Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `False`
         /// </summary>
         [Input("defaultToOauthAuthentication")]
         public Input<bool>? DefaultToOauthAuthentication { get; set; }
@@ -980,27 +980,27 @@ namespace Pulumi.Azure.Storage
         public Input<string>? EdgeZone { get; set; }
 
         /// <summary>
-        /// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
+        /// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `True`.
         /// </summary>
         [Input("httpsTrafficOnlyEnabled")]
         public Input<bool>? HttpsTrafficOnlyEnabled { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.AccountIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// An `immutability_policy` block as defined below. Changing this forces a new resource to be created.
+        /// An `ImmutabilityPolicy` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("immutabilityPolicy")]
         public Input<Inputs.AccountImmutabilityPolicyArgs>? ImmutabilityPolicy { get; set; }
 
         /// <summary>
-        /// Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
+        /// Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `False`.
         /// 
-        /// &gt; **Note:** This can only be `true` when `account_kind` is `StorageV2` or when `account_tier` is `Premium` *and* `account_kind` is one of `BlockBlobStorage` or `FileStorage`.
+        /// &gt; **Note:** This can only be `True` when `AccountKind` is `StorageV2` or when `AccountTier` is `Premium` *and* `AccountKind` is one of `BlockBlobStorage` or `FileStorage`.
         /// </summary>
         [Input("infrastructureEncryptionEnabled")]
         public Input<bool>? InfrastructureEncryptionEnabled { get; set; }
@@ -1008,21 +1008,21 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** This can only be `true` when `account_tier` is `Standard` or when `account_tier` is `Premium` *and* `account_kind` is `BlockBlobStorage`
+        /// &gt; **Note:** This can only be `True` when `AccountTier` is `Standard` or when `AccountTier` is `Premium` *and* `AccountKind` is `BlockBlobStorage`
         /// </summary>
         [Input("isHnsEnabled")]
         public Input<bool>? IsHnsEnabled { get; set; }
 
         /// <summary>
-        /// Are Large File Shares Enabled? Defaults to `false`.
+        /// Are Large File Shares Enabled? Defaults to `False`.
         /// 
-        /// &gt; **Note:** Large File Shares are enabled by default when using an `account_kind` of `FileStorage`.
+        /// &gt; **Note:** Large File Shares are enabled by default when using an `AccountKind` of `FileStorage`.
         /// </summary>
         [Input("largeFileShareEnabled")]
         public Input<bool>? LargeFileShareEnabled { get; set; }
 
         /// <summary>
-        /// Is Local User Enabled? Defaults to `true`.
+        /// Is Local User Enabled? Defaults to `True`.
         /// </summary>
         [Input("localUserEnabled")]
         public Input<bool>? LocalUserEnabled { get; set; }
@@ -1038,7 +1038,7 @@ namespace Pulumi.Azure.Storage
         /// 
         /// &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         /// 
-        /// &gt; **Note:** At this time `min_tls_version` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
+        /// &gt; **Note:** At this time `MinTlsVersion` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
         /// </summary>
         [Input("minTlsVersion")]
         public Input<string>? MinTlsVersion { get; set; }
@@ -1050,27 +1050,27 @@ namespace Pulumi.Azure.Storage
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `network_rules` block as documented below.
+        /// A `NetworkRules` block as documented below.
         /// </summary>
         [Input("networkRules")]
         public Input<Inputs.AccountNetworkRulesArgs>? NetworkRules { get; set; }
 
         /// <summary>
-        /// Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
+        /// Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `False`.
         /// 
-        /// &gt; **Note:** This can only be `true` when `account_tier` is `Standard` and `account_kind` is `StorageV2`, or `account_tier` is `Premium` and `account_kind` is `BlockBlobStorage`. Additionally, the `is_hns_enabled` is `true` and `account_replication_type` must be `LRS` or `RAGRS`.
+        /// &gt; **Note:** This can only be `True` when `AccountTier` is `Standard` and `AccountKind` is `StorageV2`, or `AccountTier` is `Premium` and `AccountKind` is `BlockBlobStorage`. Additionally, the `IsHnsEnabled` is `True` and `AccountReplicationType` must be `LRS` or `RAGRS`.
         /// </summary>
         [Input("nfsv3Enabled")]
         public Input<bool>? Nfsv3Enabled { get; set; }
 
         /// <summary>
-        /// Specifies the version of the **provisioned** billing model (e.g. when `account_kind = "FileStorage"` for Storage File). Possible value is `V2`. Changing this forces a new resource to be created.
+        /// Specifies the version of the **provisioned** billing model (e.g. when `AccountKind = "FileStorage"` for Storage File). Possible value is `V2`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("provisionedBillingModelVersion")]
         public Input<string>? ProvisionedBillingModelVersion { get; set; }
 
         /// <summary>
-        /// Whether the public network access is enabled? Defaults to `true`.
+        /// Whether the public network access is enabled? Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -1082,9 +1082,9 @@ namespace Pulumi.Azure.Storage
         public Input<string>? QueueEncryptionKeyType { get; set; }
 
         /// <summary>
-        /// A `queue_properties` block as defined below.
+        /// A `QueueProperties` block as defined below.
         /// 
-        /// &gt; **Note:** `queue_properties` can only be configured when `account_tier` is set to `Standard` and `account_kind` is set to either `Storage` or `StorageV2`.
+        /// &gt; **Note:** `QueueProperties` can only be configured when `AccountTier` is set to `Standard` and `AccountKind` is set to either `Storage` or `StorageV2`.
         /// </summary>
         [Input("queueProperties")]
         public Input<Inputs.AccountQueuePropertiesArgs>? QueueProperties { get; set; }
@@ -1096,13 +1096,13 @@ namespace Pulumi.Azure.Storage
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `routing` block as defined below.
+        /// A `Routing` block as defined below.
         /// </summary>
         [Input("routing")]
         public Input<Inputs.AccountRoutingArgs>? Routing { get; set; }
 
         /// <summary>
-        /// A `sas_policy` block as defined below.
+        /// A `SasPolicy` block as defined below.
         /// </summary>
         [Input("sasPolicy")]
         public Input<Inputs.AccountSasPolicyArgs>? SasPolicy { get; set; }
@@ -1110,15 +1110,15 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// Boolean, enable SFTP for the storage account
         /// 
-        /// &gt; **Note:** SFTP support requires `is_hns_enabled` set to `true`. [More information on SFTP support can be found here](https://learn.microsoft.com/azure/storage/blobs/secure-file-transfer-protocol-support). Defaults to `false`
+        /// &gt; **Note:** SFTP support requires `IsHnsEnabled` set to `True`. [More information on SFTP support can be found here](https://learn.microsoft.com/azure/storage/blobs/secure-file-transfer-protocol-support). Defaults to `False`
         /// </summary>
         [Input("sftpEnabled")]
         public Input<bool>? SftpEnabled { get; set; }
 
         /// <summary>
-        /// A `share_properties` block as defined below.
+        /// A `ShareProperties` block as defined below.
         /// 
-        /// &gt; **Note:** `share_properties` can only be configured when either `account_tier` is `Standard` and `account_kind` is either `Storage` or `StorageV2` - or when `account_tier` is `Premium` and `account_kind` is `FileStorage`.
+        /// &gt; **Note:** `ShareProperties` can only be configured when either `AccountTier` is `Standard` and `AccountKind` is either `Storage` or `StorageV2` - or when `AccountTier` is `Premium` and `AccountKind` is `FileStorage`.
         /// </summary>
         [Input("shareProperties")]
         public Input<Inputs.AccountSharePropertiesArgs>? ShareProperties { get; set; }
@@ -1127,11 +1127,11 @@ namespace Pulumi.Azure.Storage
         public Input<bool>? SharedAccessKeyEnabled { get; set; }
 
         /// <summary>
-        /// A `static_website` block as defined below.
+        /// A `StaticWebsite` block as defined below.
         /// 
-        /// &gt; **Note:** `static_website` can only be set when the `account_kind` is set to `StorageV2` or `BlockBlobStorage`.
+        /// &gt; **Note:** `StaticWebsite` can only be set when the `AccountKind` is set to `StorageV2` or `BlockBlobStorage`.
         /// 
-        /// &gt; **Note:** If `static_website` is specified, the service will automatically create a `azure.storage.Container` named `$web`.
+        /// &gt; **Note:** If `StaticWebsite` is specified, the service will automatically create a `azure.storage.Container` named `$web`.
         /// </summary>
         [Input("staticWebsite")]
         public Input<Inputs.AccountStaticWebsiteArgs>? StaticWebsite { get; set; }
@@ -1139,7 +1139,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
         /// 
-        /// &gt; **Note:** `queue_encryption_key_type` and `table_encryption_key_type` cannot be set to `Account` when `account_kind` is set `Storage`
+        /// &gt; **Note:** `QueueEncryptionKeyType` and `TableEncryptionKeyType` cannot be set to `Account` when `AccountKind` is set `Storage`
         /// </summary>
         [Input("tableEncryptionKeyType")]
         public Input<string>? TableEncryptionKeyType { get; set; }
@@ -1173,7 +1173,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Defaults to `StorageV2`.
         /// 
-        /// &gt; **Note:** Changing the `account_kind` value from `Storage` to `StorageV2` will not trigger a force new on the storage account, it will only upgrade the existing storage account from `Storage` to `StorageV2` keeping the existing storage account in place.
+        /// &gt; **Note:** Changing the `AccountKind` value from `Storage` to `StorageV2` will not trigger a force new on the storage account, it will only upgrade the existing storage account from `Storage` to `StorageV2` keeping the existing storage account in place.
         /// </summary>
         [Input("accountKind")]
         public Input<string>? AccountKind { get; set; }
@@ -1193,9 +1193,9 @@ namespace Pulumi.Azure.Storage
         public Input<string>? AccountTier { get; set; }
 
         /// <summary>
-        /// Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
+        /// Allow or disallow nested items within this Account to opt into being public. Defaults to `True`.
         /// 
-        /// &gt; **Note:** At this time `allow_nested_items_to_be_public` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
+        /// &gt; **Note:** At this time `AllowNestedItemsToBePublic` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
         /// </summary>
         [Input("allowNestedItemsToBePublic")]
         public Input<bool>? AllowNestedItemsToBePublic { get; set; }
@@ -1207,39 +1207,39 @@ namespace Pulumi.Azure.Storage
         public Input<string>? AllowedCopyScope { get; set; }
 
         /// <summary>
-        /// A `azure_files_authentication` block as defined below.
+        /// A `AzureFilesAuthentication` block as defined below.
         /// </summary>
         [Input("azureFilesAuthentication")]
         public Input<Inputs.AccountAzureFilesAuthenticationGetArgs>? AzureFilesAuthentication { get; set; }
 
         /// <summary>
-        /// A `blob_properties` block as defined below.
+        /// A `BlobProperties` block as defined below.
         /// </summary>
         [Input("blobProperties")]
         public Input<Inputs.AccountBlobPropertiesGetArgs>? BlobProperties { get; set; }
 
         /// <summary>
-        /// Should cross Tenant replication be enabled? Defaults to `false`.
+        /// Should cross Tenant replication be enabled? Defaults to `False`.
         /// </summary>
         [Input("crossTenantReplicationEnabled")]
         public Input<bool>? CrossTenantReplicationEnabled { get; set; }
 
         /// <summary>
-        /// A `custom_domain` block as documented below.
+        /// A `CustomDomain` block as documented below.
         /// </summary>
         [Input("customDomain")]
         public Input<Inputs.AccountCustomDomainGetArgs>? CustomDomain { get; set; }
 
         /// <summary>
-        /// A `customer_managed_key` block as documented below.
+        /// A `CustomerManagedKey` block as documented below.
         /// 
-        /// &gt; **Note:** It's possible to define a Customer Managed Key both within either the `customer_managed_key` block or by using the `azure.storage.CustomerManagedKey` resource. However, it's not possible to use both methods to manage a Customer Managed Key for a Storage Account, since these will conflict. When using the `azure.storage.CustomerManagedKey` resource, you will need to use `ignore_changes` on the `customer_managed_key` block.
+        /// &gt; **Note:** It's possible to define a Customer Managed Key both within either the `CustomerManagedKey` block or by using the `azure.storage.CustomerManagedKey` resource. However, it's not possible to use both methods to manage a Customer Managed Key for a Storage Account, since these will conflict. When using the `azure.storage.CustomerManagedKey` resource, you will need to use `IgnoreChanges` on the `CustomerManagedKey` block.
         /// </summary>
         [Input("customerManagedKey")]
         public Input<Inputs.AccountCustomerManagedKeyGetArgs>? CustomerManagedKey { get; set; }
 
         /// <summary>
-        /// Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
+        /// Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `False`
         /// </summary>
         [Input("defaultToOauthAuthentication")]
         public Input<bool>? DefaultToOauthAuthentication { get; set; }
@@ -1259,27 +1259,27 @@ namespace Pulumi.Azure.Storage
         public Input<string>? EdgeZone { get; set; }
 
         /// <summary>
-        /// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
+        /// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `True`.
         /// </summary>
         [Input("httpsTrafficOnlyEnabled")]
         public Input<bool>? HttpsTrafficOnlyEnabled { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.AccountIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// An `immutability_policy` block as defined below. Changing this forces a new resource to be created.
+        /// An `ImmutabilityPolicy` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("immutabilityPolicy")]
         public Input<Inputs.AccountImmutabilityPolicyGetArgs>? ImmutabilityPolicy { get; set; }
 
         /// <summary>
-        /// Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
+        /// Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `False`.
         /// 
-        /// &gt; **Note:** This can only be `true` when `account_kind` is `StorageV2` or when `account_tier` is `Premium` *and* `account_kind` is one of `BlockBlobStorage` or `FileStorage`.
+        /// &gt; **Note:** This can only be `True` when `AccountKind` is `StorageV2` or when `AccountTier` is `Premium` *and* `AccountKind` is one of `BlockBlobStorage` or `FileStorage`.
         /// </summary>
         [Input("infrastructureEncryptionEnabled")]
         public Input<bool>? InfrastructureEncryptionEnabled { get; set; }
@@ -1287,21 +1287,21 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** This can only be `true` when `account_tier` is `Standard` or when `account_tier` is `Premium` *and* `account_kind` is `BlockBlobStorage`
+        /// &gt; **Note:** This can only be `True` when `AccountTier` is `Standard` or when `AccountTier` is `Premium` *and* `AccountKind` is `BlockBlobStorage`
         /// </summary>
         [Input("isHnsEnabled")]
         public Input<bool>? IsHnsEnabled { get; set; }
 
         /// <summary>
-        /// Are Large File Shares Enabled? Defaults to `false`.
+        /// Are Large File Shares Enabled? Defaults to `False`.
         /// 
-        /// &gt; **Note:** Large File Shares are enabled by default when using an `account_kind` of `FileStorage`.
+        /// &gt; **Note:** Large File Shares are enabled by default when using an `AccountKind` of `FileStorage`.
         /// </summary>
         [Input("largeFileShareEnabled")]
         public Input<bool>? LargeFileShareEnabled { get; set; }
 
         /// <summary>
-        /// Is Local User Enabled? Defaults to `true`.
+        /// Is Local User Enabled? Defaults to `True`.
         /// </summary>
         [Input("localUserEnabled")]
         public Input<bool>? LocalUserEnabled { get; set; }
@@ -1317,7 +1317,7 @@ namespace Pulumi.Azure.Storage
         /// 
         /// &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         /// 
-        /// &gt; **Note:** At this time `min_tls_version` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
+        /// &gt; **Note:** At this time `MinTlsVersion` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
         /// </summary>
         [Input("minTlsVersion")]
         public Input<string>? MinTlsVersion { get; set; }
@@ -1329,15 +1329,15 @@ namespace Pulumi.Azure.Storage
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `network_rules` block as documented below.
+        /// A `NetworkRules` block as documented below.
         /// </summary>
         [Input("networkRules")]
         public Input<Inputs.AccountNetworkRulesGetArgs>? NetworkRules { get; set; }
 
         /// <summary>
-        /// Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
+        /// Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `False`.
         /// 
-        /// &gt; **Note:** This can only be `true` when `account_tier` is `Standard` and `account_kind` is `StorageV2`, or `account_tier` is `Premium` and `account_kind` is `BlockBlobStorage`. Additionally, the `is_hns_enabled` is `true` and `account_replication_type` must be `LRS` or `RAGRS`.
+        /// &gt; **Note:** This can only be `True` when `AccountTier` is `Standard` and `AccountKind` is `StorageV2`, or `AccountTier` is `Premium` and `AccountKind` is `BlockBlobStorage`. Additionally, the `IsHnsEnabled` is `True` and `AccountReplicationType` must be `LRS` or `RAGRS`.
         /// </summary>
         [Input("nfsv3Enabled")]
         public Input<bool>? Nfsv3Enabled { get; set; }
@@ -1589,13 +1589,13 @@ namespace Pulumi.Azure.Storage
         public Input<string>? PrimaryWebMicrosoftHost { get; set; }
 
         /// <summary>
-        /// Specifies the version of the **provisioned** billing model (e.g. when `account_kind = "FileStorage"` for Storage File). Possible value is `V2`. Changing this forces a new resource to be created.
+        /// Specifies the version of the **provisioned** billing model (e.g. when `AccountKind = "FileStorage"` for Storage File). Possible value is `V2`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("provisionedBillingModelVersion")]
         public Input<string>? ProvisionedBillingModelVersion { get; set; }
 
         /// <summary>
-        /// Whether the public network access is enabled? Defaults to `true`.
+        /// Whether the public network access is enabled? Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -1607,9 +1607,9 @@ namespace Pulumi.Azure.Storage
         public Input<string>? QueueEncryptionKeyType { get; set; }
 
         /// <summary>
-        /// A `queue_properties` block as defined below.
+        /// A `QueueProperties` block as defined below.
         /// 
-        /// &gt; **Note:** `queue_properties` can only be configured when `account_tier` is set to `Standard` and `account_kind` is set to either `Storage` or `StorageV2`.
+        /// &gt; **Note:** `QueueProperties` can only be configured when `AccountTier` is set to `Standard` and `AccountKind` is set to either `Storage` or `StorageV2`.
         /// </summary>
         [Input("queueProperties")]
         public Input<Inputs.AccountQueuePropertiesGetArgs>? QueueProperties { get; set; }
@@ -1621,13 +1621,13 @@ namespace Pulumi.Azure.Storage
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// A `routing` block as defined below.
+        /// A `Routing` block as defined below.
         /// </summary>
         [Input("routing")]
         public Input<Inputs.AccountRoutingGetArgs>? Routing { get; set; }
 
         /// <summary>
-        /// A `sas_policy` block as defined below.
+        /// A `SasPolicy` block as defined below.
         /// </summary>
         [Input("sasPolicy")]
         public Input<Inputs.AccountSasPolicyGetArgs>? SasPolicy { get; set; }
@@ -1881,15 +1881,15 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// Boolean, enable SFTP for the storage account
         /// 
-        /// &gt; **Note:** SFTP support requires `is_hns_enabled` set to `true`. [More information on SFTP support can be found here](https://learn.microsoft.com/azure/storage/blobs/secure-file-transfer-protocol-support). Defaults to `false`
+        /// &gt; **Note:** SFTP support requires `IsHnsEnabled` set to `True`. [More information on SFTP support can be found here](https://learn.microsoft.com/azure/storage/blobs/secure-file-transfer-protocol-support). Defaults to `False`
         /// </summary>
         [Input("sftpEnabled")]
         public Input<bool>? SftpEnabled { get; set; }
 
         /// <summary>
-        /// A `share_properties` block as defined below.
+        /// A `ShareProperties` block as defined below.
         /// 
-        /// &gt; **Note:** `share_properties` can only be configured when either `account_tier` is `Standard` and `account_kind` is either `Storage` or `StorageV2` - or when `account_tier` is `Premium` and `account_kind` is `FileStorage`.
+        /// &gt; **Note:** `ShareProperties` can only be configured when either `AccountTier` is `Standard` and `AccountKind` is either `Storage` or `StorageV2` - or when `AccountTier` is `Premium` and `AccountKind` is `FileStorage`.
         /// </summary>
         [Input("shareProperties")]
         public Input<Inputs.AccountSharePropertiesGetArgs>? ShareProperties { get; set; }
@@ -1898,11 +1898,11 @@ namespace Pulumi.Azure.Storage
         public Input<bool>? SharedAccessKeyEnabled { get; set; }
 
         /// <summary>
-        /// A `static_website` block as defined below.
+        /// A `StaticWebsite` block as defined below.
         /// 
-        /// &gt; **Note:** `static_website` can only be set when the `account_kind` is set to `StorageV2` or `BlockBlobStorage`.
+        /// &gt; **Note:** `StaticWebsite` can only be set when the `AccountKind` is set to `StorageV2` or `BlockBlobStorage`.
         /// 
-        /// &gt; **Note:** If `static_website` is specified, the service will automatically create a `azure.storage.Container` named `$web`.
+        /// &gt; **Note:** If `StaticWebsite` is specified, the service will automatically create a `azure.storage.Container` named `$web`.
         /// </summary>
         [Input("staticWebsite")]
         public Input<Inputs.AccountStaticWebsiteGetArgs>? StaticWebsite { get; set; }
@@ -1910,7 +1910,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
         /// 
-        /// &gt; **Note:** `queue_encryption_key_type` and `table_encryption_key_type` cannot be set to `Account` when `account_kind` is set `Storage`
+        /// &gt; **Note:** `QueueEncryptionKeyType` and `TableEncryptionKeyType` cannot be set to `Account` when `AccountKind` is set `Storage`
         /// </summary>
         [Input("tableEncryptionKeyType")]
         public Input<string>? TableEncryptionKeyType { get; set; }

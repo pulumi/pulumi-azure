@@ -14,11 +14,11 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class GetWindowsWebAppSiteConfigAutoHealSettingActionCustomActionResult
     {
         /// <summary>
-        /// The command run when this `auto_heal` action is triggered.
+        /// The command run when this `AutoHeal` action is triggered.
         /// </summary>
         public readonly string Executable;
         /// <summary>
-        /// The parameters passed to the `executable`.
+        /// The parameters passed to the `Executable`.
         /// </summary>
         public readonly string Parameters;
 

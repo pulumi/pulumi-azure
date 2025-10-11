@@ -21,7 +21,7 @@ public final class PolicyCustomRuleMatchCondition {
      */
     private @Nullable List<String> matchValues;
     /**
-     * @return One or more `match_variables` blocks as defined below.
+     * @return One or more `matchVariables` blocks as defined below.
      * 
      */
     private List<PolicyCustomRuleMatchConditionMatchVariable> matchVariables;
@@ -50,7 +50,7 @@ public final class PolicyCustomRuleMatchCondition {
         return this.matchValues == null ? List.of() : this.matchValues;
     }
     /**
-     * @return One or more `match_variables` blocks as defined below.
+     * @return One or more `matchVariables` blocks as defined below.
      * 
      */
     public List<PolicyCustomRuleMatchConditionMatchVariable> matchVariables() {

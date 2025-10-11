@@ -179,7 +179,7 @@ namespace Pulumi.Azure.Network
         public readonly string Name;
         public readonly string ResourceGroupName;
         /// <summary>
-        /// One or more `security_rule` blocks as defined below.
+        /// One or more `SecurityRule` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworkSecurityGroupSecurityRuleResult> SecurityRules;
         /// <summary>

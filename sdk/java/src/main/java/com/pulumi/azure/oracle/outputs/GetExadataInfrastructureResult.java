@@ -48,7 +48,7 @@ public final class GetExadataInfrastructureResult {
      */
     private Integer cpuCount;
     /**
-     * @return A `customer_contacts` block as defined below.
+     * @return A `customerContacts` block as defined below.
      * 
      */
     private List<String> customerContacts;
@@ -73,7 +73,7 @@ public final class GetExadataInfrastructureResult {
      */
     private String dbServerVersion;
     /**
-     * @return A `defined_file_system_configuration` block as defined below.
+     * @return A `definedFileSystemConfiguration` block as defined below.
      * 
      */
     private List<GetExadataInfrastructureDefinedFileSystemConfiguration> definedFileSystemConfigurations;
@@ -83,7 +83,7 @@ public final class GetExadataInfrastructureResult {
      */
     private String displayName;
     /**
-     * @return A `estimated_patching_time` block as defined below.
+     * @return A `estimatedPatchingTime` block as defined below.
      * 
      */
     private List<GetExadataInfrastructureEstimatedPatchingTime> estimatedPatchingTimes;
@@ -113,7 +113,7 @@ public final class GetExadataInfrastructureResult {
      */
     private String location;
     /**
-     * @return A `maintenance_window` block as defined below.
+     * @return A `maintenanceWindow` block as defined below.
      * 
      */
     private List<GetExadataInfrastructureMaintenanceWindow> maintenanceWindows;
@@ -254,7 +254,7 @@ public final class GetExadataInfrastructureResult {
         return this.cpuCount;
     }
     /**
-     * @return A `customer_contacts` block as defined below.
+     * @return A `customerContacts` block as defined below.
      * 
      */
     public List<String> customerContacts() {
@@ -289,7 +289,7 @@ public final class GetExadataInfrastructureResult {
         return this.dbServerVersion;
     }
     /**
-     * @return A `defined_file_system_configuration` block as defined below.
+     * @return A `definedFileSystemConfiguration` block as defined below.
      * 
      */
     public List<GetExadataInfrastructureDefinedFileSystemConfiguration> definedFileSystemConfigurations() {
@@ -303,7 +303,7 @@ public final class GetExadataInfrastructureResult {
         return this.displayName;
     }
     /**
-     * @return A `estimated_patching_time` block as defined below.
+     * @return A `estimatedPatchingTime` block as defined below.
      * 
      */
     public List<GetExadataInfrastructureEstimatedPatchingTime> estimatedPatchingTimes() {
@@ -345,7 +345,7 @@ public final class GetExadataInfrastructureResult {
         return this.location;
     }
     /**
-     * @return A `maintenance_window` block as defined below.
+     * @return A `maintenanceWindow` block as defined below.
      * 
      */
     public List<GetExadataInfrastructureMaintenanceWindow> maintenanceWindows() {

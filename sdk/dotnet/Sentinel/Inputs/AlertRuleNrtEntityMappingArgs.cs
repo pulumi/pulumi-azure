@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Sentinel.Inputs
         private InputList<Inputs.AlertRuleNrtEntityMappingFieldMappingArgs>? _fieldMappings;
 
         /// <summary>
-        /// A list of `field_mapping` blocks as defined below.
+        /// A list of `FieldMapping` blocks as defined below.
         /// </summary>
         public InputList<Inputs.AlertRuleNrtEntityMappingFieldMappingArgs> FieldMappings
         {

@@ -18,7 +18,7 @@ public final class AlertRuleScheduledEntityMapping {
      */
     private String entityType;
     /**
-     * @return A list of `field_mapping` blocks as defined below.
+     * @return A list of `fieldMapping` blocks as defined below.
      * 
      */
     private List<AlertRuleScheduledEntityMappingFieldMapping> fieldMappings;
@@ -32,7 +32,7 @@ public final class AlertRuleScheduledEntityMapping {
         return this.entityType;
     }
     /**
-     * @return A list of `field_mapping` blocks as defined below.
+     * @return A list of `fieldMapping` blocks as defined below.
      * 
      */
     public List<AlertRuleScheduledEntityMappingFieldMapping> fieldMappings() {

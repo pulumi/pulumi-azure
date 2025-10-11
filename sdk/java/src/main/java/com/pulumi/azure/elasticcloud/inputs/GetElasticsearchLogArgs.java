@@ -17,14 +17,14 @@ public final class GetElasticsearchLogArgs extends com.pulumi.resources.Resource
     public static final GetElasticsearchLogArgs Empty = new GetElasticsearchLogArgs();
 
     /**
-     * A list of `filtering_tag` blocks as defined above.
+     * A list of `filteringTag` blocks as defined above.
      * 
      */
     @Import(name="filteringTags", required=true)
     private Output<List<GetElasticsearchLogFilteringTagArgs>> filteringTags;
 
     /**
-     * @return A list of `filtering_tag` blocks as defined above.
+     * @return A list of `filteringTag` blocks as defined above.
      * 
      */
     public Output<List<GetElasticsearchLogFilteringTagArgs>> filteringTags() {
@@ -104,7 +104,7 @@ public final class GetElasticsearchLogArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param filteringTags A list of `filtering_tag` blocks as defined above.
+         * @param filteringTags A list of `filteringTag` blocks as defined above.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class GetElasticsearchLogArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param filteringTags A list of `filtering_tag` blocks as defined above.
+         * @param filteringTags A list of `filteringTag` blocks as defined above.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class GetElasticsearchLogArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param filteringTags A list of `filtering_tag` blocks as defined above.
+         * @param filteringTags A list of `filteringTag` blocks as defined above.
          * 
          * @return builder
          * 

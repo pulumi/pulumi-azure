@@ -146,13 +146,13 @@ import javax.annotation.Nullable;
 public class ManagedDisk extends com.pulumi.resources.CustomResource {
     /**
      * The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
-     * * `Import` - Import a VHD file in to the managed disk (VHD specified with `source_uri`).
-     * * `ImportSecure` - Securely import a VHD file in to the managed disk (VHD specified with `source_uri`).
+     * * `Import` - Import a VHD file in to the managed disk (VHD specified with `sourceUri`).
+     * * `ImportSecure` - Securely import a VHD file in to the managed disk (VHD specified with `sourceUri`).
      * * `Empty` - Create an empty managed disk.
-     * * `Copy` - Copy an existing managed disk or snapshot (specified with `source_resource_id`).
-     * * `FromImage` - Copy a Platform Image (specified with `image_reference_id`)
-     * * `Restore` - Set by Azure Backup or Site Recovery on a restored disk (specified with `source_resource_id`).
-     * * `Upload` - Upload a VHD disk with the help of SAS URL (to be used with `upload_size_bytes`).
+     * * `Copy` - Copy an existing managed disk or snapshot (specified with `sourceResourceId`).
+     * * `FromImage` - Copy a Platform Image (specified with `imageReferenceId`)
+     * * `Restore` - Set by Azure Backup or Site Recovery on a restored disk (specified with `sourceResourceId`).
+     * * `Upload` - Upload a VHD disk with the help of SAS URL (to be used with `uploadSizeBytes`).
      * 
      */
     @Export(name="createOption", refs={String.class}, tree="[0]")
@@ -160,13 +160,13 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
-     * * `Import` - Import a VHD file in to the managed disk (VHD specified with `source_uri`).
-     * * `ImportSecure` - Securely import a VHD file in to the managed disk (VHD specified with `source_uri`).
+     * * `Import` - Import a VHD file in to the managed disk (VHD specified with `sourceUri`).
+     * * `ImportSecure` - Securely import a VHD file in to the managed disk (VHD specified with `sourceUri`).
      * * `Empty` - Create an empty managed disk.
-     * * `Copy` - Copy an existing managed disk or snapshot (specified with `source_resource_id`).
-     * * `FromImage` - Copy a Platform Image (specified with `image_reference_id`)
-     * * `Restore` - Set by Azure Backup or Site Recovery on a restored disk (specified with `source_resource_id`).
-     * * `Upload` - Upload a VHD disk with the help of SAS URL (to be used with `upload_size_bytes`).
+     * * `Copy` - Copy an existing managed disk or snapshot (specified with `sourceResourceId`).
+     * * `FromImage` - Copy a Platform Image (specified with `imageReferenceId`)
+     * * `Restore` - Set by Azure Backup or Site Recovery on a restored disk (specified with `sourceResourceId`).
+     * * `Upload` - Upload a VHD disk with the help of SAS URL (to be used with `uploadSizeBytes`).
      * 
      */
     public Output<String> createOption() {
@@ -175,7 +175,7 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the disk access resource for using private endpoints on disks.
      * 
-     * &gt; **Note:** `disk_access_id` is only supported when `network_access_policy` is set to `AllowPrivate`.
+     * &gt; **Note:** `diskAccessId` is only supported when `networkAccessPolicy` is set to `AllowPrivate`.
      * 
      */
     @Export(name="diskAccessId", refs={String.class}, tree="[0]")
@@ -184,14 +184,14 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID of the disk access resource for using private endpoints on disks.
      * 
-     * &gt; **Note:** `disk_access_id` is only supported when `network_access_policy` is set to `AllowPrivate`.
+     * &gt; **Note:** `diskAccessId` is only supported when `networkAccessPolicy` is set to `AllowPrivate`.
      * 
      */
     public Output<Optional<String>> diskAccessId() {
         return Codegen.optional(this.diskAccessId);
     }
     /**
-     * The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
+     * The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secureVmDiskEncryptionSetId`.
      * 
      * &gt; **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
      * 
@@ -202,7 +202,7 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> diskEncryptionSetId;
 
     /**
-     * @return The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
+     * @return The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secureVmDiskEncryptionSetId`.
      * 
      * &gt; **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
      * 
@@ -289,32 +289,32 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.edgeZone);
     }
     /**
-     * A `encryption_settings` block as defined below.
+     * A `encryptionSettings` block as defined below.
      * 
-     * &gt; **NOTE:** Removing `encryption_settings` forces a new resource to be created.
+     * &gt; **NOTE:** Removing `encryptionSettings` forces a new resource to be created.
      * 
      */
     @Export(name="encryptionSettings", refs={ManagedDiskEncryptionSettings.class}, tree="[0]")
     private Output</* @Nullable */ ManagedDiskEncryptionSettings> encryptionSettings;
 
     /**
-     * @return A `encryption_settings` block as defined below.
+     * @return A `encryptionSettings` block as defined below.
      * 
-     * &gt; **NOTE:** Removing `encryption_settings` forces a new resource to be created.
+     * &gt; **NOTE:** Removing `encryptionSettings` forces a new resource to be created.
      * 
      */
     public Output<Optional<ManagedDiskEncryptionSettings>> encryptionSettings() {
         return Codegen.optional(this.encryptionSettings);
     }
     /**
-     * ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified. Changing this forces a new resource to be created.
+     * ID of a Gallery Image Version to copy when `createOption` is `FromImage`. This field cannot be specified if imageReferenceId is specified. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="galleryImageReferenceId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> galleryImageReferenceId;
 
     /**
-     * @return ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified. Changing this forces a new resource to be created.
+     * @return ID of a Gallery Image Version to copy when `createOption` is `FromImage`. This field cannot be specified if imageReferenceId is specified. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> galleryImageReferenceId() {
@@ -335,14 +335,14 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.hyperVGeneration);
     }
     /**
-     * ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified. Changing this forces a new resource to be created.
+     * ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`. This field cannot be specified if galleryImageReferenceId is specified. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="imageReferenceId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> imageReferenceId;
 
     /**
-     * @return ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified. Changing this forces a new resource to be created.
+     * @return ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`. This field cannot be specified if galleryImageReferenceId is specified. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> imageReferenceId() {
@@ -383,7 +383,7 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
     /**
      * The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
      * 
-     * &gt; **Note:** Premium SSD maxShares limit: `P15` and `P20` disks: 2. `P30`,`P40`,`P50` disks: 5. `P60`,`P70`,`P80` disks: 10. For ultra disks the `max_shares` minimum value is 1 and the maximum is 5.
+     * &gt; **Note:** Premium SSD maxShares limit: `P15` and `P20` disks: 2. `P30`,`P40`,`P50` disks: 5. `P60`,`P70`,`P80` disks: 10. For ultra disks the `maxShares` minimum value is 1 and the maximum is 5.
      * 
      */
     @Export(name="maxShares", refs={Integer.class}, tree="[0]")
@@ -392,7 +392,7 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
     /**
      * @return The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
      * 
-     * &gt; **Note:** Premium SSD maxShares limit: `P15` and `P20` disks: 2. `P30`,`P40`,`P50` disks: 5. `P60`,`P70`,`P80` disks: 10. For ultra disks the `max_shares` minimum value is 1 and the maximum is 5.
+     * &gt; **Note:** Premium SSD maxShares limit: `P15` and `P20` disks: 2. `P30`,`P40`,`P50` disks: 5. `P60`,`P70`,`P80` disks: 10. For ultra disks the `maxShares` minimum value is 1 and the maximum is 5.
      * 
      */
     public Output<Integer> maxShares() {
@@ -447,7 +447,7 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
     /**
      * Specifies whether this Managed Disk should be optimized for frequent disk attachments (where a disk is attached/detached more than 5 times in a day). Defaults to `false`.
      * 
-     * &gt; **Note:** Setting `optimized_frequent_attach_enabled` to `true` causes the disks to not align with the fault domain of the Virtual Machine, which can have operational implications.
+     * &gt; **Note:** Setting `optimizedFrequentAttachEnabled` to `true` causes the disks to not align with the fault domain of the Virtual Machine, which can have operational implications.
      * 
      */
     @Export(name="optimizedFrequentAttachEnabled", refs={Boolean.class}, tree="[0]")
@@ -456,7 +456,7 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies whether this Managed Disk should be optimized for frequent disk attachments (where a disk is attached/detached more than 5 times in a day). Defaults to `false`.
      * 
-     * &gt; **Note:** Setting `optimized_frequent_attach_enabled` to `true` causes the disks to not align with the fault domain of the Virtual Machine, which can have operational implications.
+     * &gt; **Note:** Setting `optimizedFrequentAttachEnabled` to `true` causes the disks to not align with the fault domain of the Virtual Machine, which can have operational implications.
      * 
      */
     public Output<Optional<Boolean>> optimizedFrequentAttachEnabled() {
@@ -523,18 +523,18 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
+     * The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `secure_vm_disk_encryption_set_id` can only be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
+     * &gt; **NOTE:** `secureVmDiskEncryptionSetId` can only be specified when `securityType` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
      * 
      */
     @Export(name="secureVmDiskEncryptionSetId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> secureVmDiskEncryptionSetId;
 
     /**
-     * @return The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
+     * @return The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `secure_vm_disk_encryption_set_id` can only be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
+     * &gt; **NOTE:** `secureVmDiskEncryptionSetId` can only be specified when `securityType` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
      * 
      */
     public Output<Optional<String>> secureVmDiskEncryptionSetId() {
@@ -543,11 +543,11 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
     /**
      * Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** When `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `create_option` must be one of `FromImage` or `ImportSecure`.
+     * &gt; **NOTE:** When `securityType` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `createOption` must be one of `FromImage` or `ImportSecure`.
      * 
-     * &gt; **NOTE:** `security_type` cannot be specified when `trusted_launch_enabled` is set to true.
+     * &gt; **NOTE:** `securityType` cannot be specified when `trustedLaunchEnabled` is set to true.
      * 
-     * &gt; **NOTE:** `secure_vm_disk_encryption_set_id` must be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
+     * &gt; **NOTE:** `secureVmDiskEncryptionSetId` must be specified when `securityType` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
      * 
      */
     @Export(name="securityType", refs={String.class}, tree="[0]")
@@ -556,53 +556,53 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
     /**
      * @return Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** When `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `create_option` must be one of `FromImage` or `ImportSecure`.
+     * &gt; **NOTE:** When `securityType` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `createOption` must be one of `FromImage` or `ImportSecure`.
      * 
-     * &gt; **NOTE:** `security_type` cannot be specified when `trusted_launch_enabled` is set to true.
+     * &gt; **NOTE:** `securityType` cannot be specified when `trustedLaunchEnabled` is set to true.
      * 
-     * &gt; **NOTE:** `secure_vm_disk_encryption_set_id` must be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
+     * &gt; **NOTE:** `secureVmDiskEncryptionSetId` must be specified when `securityType` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
      * 
      */
     public Output<Optional<String>> securityType() {
         return Codegen.optional(this.securityType);
     }
     /**
-     * The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`. Changing this forces a new resource to be created.
+     * The ID of an existing Managed Disk or Snapshot to copy when `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="sourceResourceId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sourceResourceId;
 
     /**
-     * @return The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`. Changing this forces a new resource to be created.
+     * @return The ID of an existing Managed Disk or Snapshot to copy when `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> sourceResourceId() {
         return Codegen.optional(this.sourceResourceId);
     }
     /**
-     * URI to a valid VHD file to be used when `create_option` is `Import` or `ImportSecure`. Changing this forces a new resource to be created.
+     * URI to a valid VHD file to be used when `createOption` is `Import` or `ImportSecure`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="sourceUri", refs={String.class}, tree="[0]")
     private Output<String> sourceUri;
 
     /**
-     * @return URI to a valid VHD file to be used when `create_option` is `Import` or `ImportSecure`. Changing this forces a new resource to be created.
+     * @return URI to a valid VHD file to be used when `createOption` is `Import` or `ImportSecure`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> sourceUri() {
         return this.sourceUri;
     }
     /**
-     * The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import` or `ImportSecure`. Changing this forces a new resource to be created.
+     * The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import` or `ImportSecure`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="storageAccountId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageAccountId;
 
     /**
-     * @return The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import` or `ImportSecure`. Changing this forces a new resource to be created.
+     * @return The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import` or `ImportSecure`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> storageAccountId() {
@@ -649,7 +649,7 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
     /**
      * Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Trusted Launch can only be enabled when `create_option` is `FromImage` or `Import`.
+     * &gt; **Note:** Trusted Launch can only be enabled when `createOption` is `FromImage` or `Import`.
      * 
      */
     @Export(name="trustedLaunchEnabled", refs={Boolean.class}, tree="[0]")
@@ -658,21 +658,21 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Trusted Launch can only be enabled when `create_option` is `FromImage` or `Import`.
+     * &gt; **Note:** Trusted Launch can only be enabled when `createOption` is `FromImage` or `Import`.
      * 
      */
     public Output<Optional<Boolean>> trustedLaunchEnabled() {
         return Codegen.optional(this.trustedLaunchEnabled);
     }
     /**
-     * Specifies the size of the managed disk to create in bytes. Required when `create_option` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
+     * Specifies the size of the managed disk to create in bytes. Required when `createOption` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
      * 
      */
     @Export(name="uploadSizeBytes", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> uploadSizeBytes;
 
     /**
-     * @return Specifies the size of the managed disk to create in bytes. Required when `create_option` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
+     * @return Specifies the size of the managed disk to create in bytes. Required when `createOption` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Integer>> uploadSizeBytes() {

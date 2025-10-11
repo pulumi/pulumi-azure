@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Maintenance.Inputs
         private InputList<Inputs.ConfigurationInstallPatchesLinuxGetArgs>? _linuxes;
 
         /// <summary>
-        /// A `linux` block as defined above. This property only applies when `scope` is set to `InGuestPatch`
+        /// A `Linux` block as defined above. This property only applies when `Scope` is set to `InGuestPatch`
         /// </summary>
         public InputList<Inputs.ConfigurationInstallPatchesLinuxGetArgs> Linuxes
         {
@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Maintenance.Inputs
         }
 
         /// <summary>
-        /// Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed. Possible values are `Always`, `IfRequired` and `Never`. This property only applies when `scope` is set to `InGuestPatch`.
+        /// Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed. Possible values are `Always`, `IfRequired` and `Never`. This property only applies when `Scope` is set to `InGuestPatch`.
         /// </summary>
         [Input("reboot")]
         public Input<string>? Reboot { get; set; }
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Maintenance.Inputs
         private InputList<Inputs.ConfigurationInstallPatchesWindowGetArgs>? _windows;
 
         /// <summary>
-        /// A `windows` block as defined above. This property only applies when `scope` is set to `InGuestPatch`
+        /// A `Windows` block as defined above. This property only applies when `Scope` is set to `InGuestPatch`
         /// </summary>
         public InputList<Inputs.ConfigurationInstallPatchesWindowGetArgs> Windows
         {

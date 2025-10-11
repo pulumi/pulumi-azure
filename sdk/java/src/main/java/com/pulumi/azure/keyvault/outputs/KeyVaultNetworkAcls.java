@@ -18,7 +18,7 @@ public final class KeyVaultNetworkAcls {
      */
     private String bypass;
     /**
-     * @return The Default Action to use when no rules match from `ip_rules` / `virtual_network_subnet_ids`. Possible values are `Allow` and `Deny`.
+     * @return The Default Action to use when no rules match from `ipRules` / `virtualNetworkSubnetIds`. Possible values are `Allow` and `Deny`.
      * 
      */
     private String defaultAction;
@@ -42,7 +42,7 @@ public final class KeyVaultNetworkAcls {
         return this.bypass;
     }
     /**
-     * @return The Default Action to use when no rules match from `ip_rules` / `virtual_network_subnet_ids`. Possible values are `Allow` and `Deny`.
+     * @return The Default Action to use when no rules match from `ipRules` / `virtualNetworkSubnetIds`. Possible values are `Allow` and `Deny`.
      * 
      */
     public String defaultAction() {

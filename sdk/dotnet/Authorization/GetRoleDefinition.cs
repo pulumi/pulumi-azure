@@ -203,7 +203,7 @@ namespace Pulumi.Azure.Authorization
         /// <summary>
         /// Specifies the Scope at which the Custom Role Definition exists.
         /// 
-        /// &gt; **Note:** One of `name` or `role_definition_id` must be specified.
+        /// &gt; **Note:** One of `Name` or `RoleDefinitionId` must be specified.
         /// </summary>
         [Input("scope")]
         public string? Scope { get; set; }
@@ -233,7 +233,7 @@ namespace Pulumi.Azure.Authorization
         /// <summary>
         /// Specifies the Scope at which the Custom Role Definition exists.
         /// 
-        /// &gt; **Note:** One of `name` or `role_definition_id` must be specified.
+        /// &gt; **Note:** One of `Name` or `RoleDefinitionId` must be specified.
         /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }
@@ -262,7 +262,7 @@ namespace Pulumi.Azure.Authorization
         public readonly string Id;
         public readonly string Name;
         /// <summary>
-        /// A `permissions` block as documented below.
+        /// A `Permissions` block as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRoleDefinitionPermissionResult> Permissions;
         public readonly string RoleDefinitionId;

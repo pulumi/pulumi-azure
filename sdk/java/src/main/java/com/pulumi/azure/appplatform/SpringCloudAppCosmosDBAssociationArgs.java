@@ -62,14 +62,14 @@ public final class SpringCloudAppCosmosDBAssociationArgs extends com.pulumi.reso
     }
 
     /**
-     * Specifies the name of the Cassandra Keyspace which the Spring Cloud App should be associated with. Should only be set when `api_type` is `cassandra`.
+     * Specifies the name of the Cassandra Keyspace which the Spring Cloud App should be associated with. Should only be set when `apiType` is `cassandra`.
      * 
      */
     @Import(name="cosmosdbCassandraKeyspaceName")
     private @Nullable Output<String> cosmosdbCassandraKeyspaceName;
 
     /**
-     * @return Specifies the name of the Cassandra Keyspace which the Spring Cloud App should be associated with. Should only be set when `api_type` is `cassandra`.
+     * @return Specifies the name of the Cassandra Keyspace which the Spring Cloud App should be associated with. Should only be set when `apiType` is `cassandra`.
      * 
      */
     public Optional<Output<String>> cosmosdbCassandraKeyspaceName() {
@@ -77,14 +77,14 @@ public final class SpringCloudAppCosmosDBAssociationArgs extends com.pulumi.reso
     }
 
     /**
-     * Specifies the name of the Gremlin Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `gremlin`.
+     * Specifies the name of the Gremlin Database which the Spring Cloud App should be associated with. Should only be set when `apiType` is `gremlin`.
      * 
      */
     @Import(name="cosmosdbGremlinDatabaseName")
     private @Nullable Output<String> cosmosdbGremlinDatabaseName;
 
     /**
-     * @return Specifies the name of the Gremlin Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `gremlin`.
+     * @return Specifies the name of the Gremlin Database which the Spring Cloud App should be associated with. Should only be set when `apiType` is `gremlin`.
      * 
      */
     public Optional<Output<String>> cosmosdbGremlinDatabaseName() {
@@ -92,14 +92,14 @@ public final class SpringCloudAppCosmosDBAssociationArgs extends com.pulumi.reso
     }
 
     /**
-     * Specifies the name of the Gremlin Graph which the Spring Cloud App should be associated with. Should only be set when `api_type` is `gremlin`.
+     * Specifies the name of the Gremlin Graph which the Spring Cloud App should be associated with. Should only be set when `apiType` is `gremlin`.
      * 
      */
     @Import(name="cosmosdbGremlinGraphName")
     private @Nullable Output<String> cosmosdbGremlinGraphName;
 
     /**
-     * @return Specifies the name of the Gremlin Graph which the Spring Cloud App should be associated with. Should only be set when `api_type` is `gremlin`.
+     * @return Specifies the name of the Gremlin Graph which the Spring Cloud App should be associated with. Should only be set when `apiType` is `gremlin`.
      * 
      */
     public Optional<Output<String>> cosmosdbGremlinGraphName() {
@@ -107,14 +107,14 @@ public final class SpringCloudAppCosmosDBAssociationArgs extends com.pulumi.reso
     }
 
     /**
-     * Specifies the name of the Mongo Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `mongo`.
+     * Specifies the name of the Mongo Database which the Spring Cloud App should be associated with. Should only be set when `apiType` is `mongo`.
      * 
      */
     @Import(name="cosmosdbMongoDatabaseName")
     private @Nullable Output<String> cosmosdbMongoDatabaseName;
 
     /**
-     * @return Specifies the name of the Mongo Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `mongo`.
+     * @return Specifies the name of the Mongo Database which the Spring Cloud App should be associated with. Should only be set when `apiType` is `mongo`.
      * 
      */
     public Optional<Output<String>> cosmosdbMongoDatabaseName() {
@@ -122,14 +122,14 @@ public final class SpringCloudAppCosmosDBAssociationArgs extends com.pulumi.reso
     }
 
     /**
-     * Specifies the name of the SQL Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `sql`.
+     * Specifies the name of the SQL Database which the Spring Cloud App should be associated with. Should only be set when `apiType` is `sql`.
      * 
      */
     @Import(name="cosmosdbSqlDatabaseName")
     private @Nullable Output<String> cosmosdbSqlDatabaseName;
 
     /**
-     * @return Specifies the name of the SQL Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `sql`.
+     * @return Specifies the name of the SQL Database which the Spring Cloud App should be associated with. Should only be set when `apiType` is `sql`.
      * 
      */
     public Optional<Output<String>> cosmosdbSqlDatabaseName() {
@@ -263,7 +263,7 @@ public final class SpringCloudAppCosmosDBAssociationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param cosmosdbCassandraKeyspaceName Specifies the name of the Cassandra Keyspace which the Spring Cloud App should be associated with. Should only be set when `api_type` is `cassandra`.
+         * @param cosmosdbCassandraKeyspaceName Specifies the name of the Cassandra Keyspace which the Spring Cloud App should be associated with. Should only be set when `apiType` is `cassandra`.
          * 
          * @return builder
          * 
@@ -274,7 +274,7 @@ public final class SpringCloudAppCosmosDBAssociationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param cosmosdbCassandraKeyspaceName Specifies the name of the Cassandra Keyspace which the Spring Cloud App should be associated with. Should only be set when `api_type` is `cassandra`.
+         * @param cosmosdbCassandraKeyspaceName Specifies the name of the Cassandra Keyspace which the Spring Cloud App should be associated with. Should only be set when `apiType` is `cassandra`.
          * 
          * @return builder
          * 
@@ -284,7 +284,7 @@ public final class SpringCloudAppCosmosDBAssociationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param cosmosdbGremlinDatabaseName Specifies the name of the Gremlin Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `gremlin`.
+         * @param cosmosdbGremlinDatabaseName Specifies the name of the Gremlin Database which the Spring Cloud App should be associated with. Should only be set when `apiType` is `gremlin`.
          * 
          * @return builder
          * 
@@ -295,7 +295,7 @@ public final class SpringCloudAppCosmosDBAssociationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param cosmosdbGremlinDatabaseName Specifies the name of the Gremlin Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `gremlin`.
+         * @param cosmosdbGremlinDatabaseName Specifies the name of the Gremlin Database which the Spring Cloud App should be associated with. Should only be set when `apiType` is `gremlin`.
          * 
          * @return builder
          * 
@@ -305,7 +305,7 @@ public final class SpringCloudAppCosmosDBAssociationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param cosmosdbGremlinGraphName Specifies the name of the Gremlin Graph which the Spring Cloud App should be associated with. Should only be set when `api_type` is `gremlin`.
+         * @param cosmosdbGremlinGraphName Specifies the name of the Gremlin Graph which the Spring Cloud App should be associated with. Should only be set when `apiType` is `gremlin`.
          * 
          * @return builder
          * 
@@ -316,7 +316,7 @@ public final class SpringCloudAppCosmosDBAssociationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param cosmosdbGremlinGraphName Specifies the name of the Gremlin Graph which the Spring Cloud App should be associated with. Should only be set when `api_type` is `gremlin`.
+         * @param cosmosdbGremlinGraphName Specifies the name of the Gremlin Graph which the Spring Cloud App should be associated with. Should only be set when `apiType` is `gremlin`.
          * 
          * @return builder
          * 
@@ -326,7 +326,7 @@ public final class SpringCloudAppCosmosDBAssociationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param cosmosdbMongoDatabaseName Specifies the name of the Mongo Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `mongo`.
+         * @param cosmosdbMongoDatabaseName Specifies the name of the Mongo Database which the Spring Cloud App should be associated with. Should only be set when `apiType` is `mongo`.
          * 
          * @return builder
          * 
@@ -337,7 +337,7 @@ public final class SpringCloudAppCosmosDBAssociationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param cosmosdbMongoDatabaseName Specifies the name of the Mongo Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `mongo`.
+         * @param cosmosdbMongoDatabaseName Specifies the name of the Mongo Database which the Spring Cloud App should be associated with. Should only be set when `apiType` is `mongo`.
          * 
          * @return builder
          * 
@@ -347,7 +347,7 @@ public final class SpringCloudAppCosmosDBAssociationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param cosmosdbSqlDatabaseName Specifies the name of the SQL Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `sql`.
+         * @param cosmosdbSqlDatabaseName Specifies the name of the SQL Database which the Spring Cloud App should be associated with. Should only be set when `apiType` is `sql`.
          * 
          * @return builder
          * 
@@ -358,7 +358,7 @@ public final class SpringCloudAppCosmosDBAssociationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param cosmosdbSqlDatabaseName Specifies the name of the SQL Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `sql`.
+         * @param cosmosdbSqlDatabaseName Specifies the name of the SQL Database which the Spring Cloud App should be associated with. Should only be set when `apiType` is `sql`.
          * 
          * @return builder
          * 

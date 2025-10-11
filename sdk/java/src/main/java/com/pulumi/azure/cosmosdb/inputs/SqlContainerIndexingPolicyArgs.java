@@ -21,14 +21,14 @@ public final class SqlContainerIndexingPolicyArgs extends com.pulumi.resources.R
     public static final SqlContainerIndexingPolicyArgs Empty = new SqlContainerIndexingPolicyArgs();
 
     /**
-     * One or more `composite_index` blocks as defined below.
+     * One or more `compositeIndex` blocks as defined below.
      * 
      */
     @Import(name="compositeIndices")
     private @Nullable Output<List<SqlContainerIndexingPolicyCompositeIndexArgs>> compositeIndices;
 
     /**
-     * @return One or more `composite_index` blocks as defined below.
+     * @return One or more `compositeIndex` blocks as defined below.
      * 
      */
     public Optional<Output<List<SqlContainerIndexingPolicyCompositeIndexArgs>>> compositeIndices() {
@@ -36,14 +36,14 @@ public final class SqlContainerIndexingPolicyArgs extends com.pulumi.resources.R
     }
 
     /**
-     * One or more `excluded_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
+     * One or more `excludedPath` blocks as defined below. Either `includedPath` or `excludedPath` must contain the `path` `/*`
      * 
      */
     @Import(name="excludedPaths")
     private @Nullable Output<List<SqlContainerIndexingPolicyExcludedPathArgs>> excludedPaths;
 
     /**
-     * @return One or more `excluded_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
+     * @return One or more `excludedPath` blocks as defined below. Either `includedPath` or `excludedPath` must contain the `path` `/*`
      * 
      */
     public Optional<Output<List<SqlContainerIndexingPolicyExcludedPathArgs>>> excludedPaths() {
@@ -51,14 +51,14 @@ public final class SqlContainerIndexingPolicyArgs extends com.pulumi.resources.R
     }
 
     /**
-     * One or more `included_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
+     * One or more `includedPath` blocks as defined below. Either `includedPath` or `excludedPath` must contain the `path` `/*`
      * 
      */
     @Import(name="includedPaths")
     private @Nullable Output<List<SqlContainerIndexingPolicyIncludedPathArgs>> includedPaths;
 
     /**
-     * @return One or more `included_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
+     * @return One or more `includedPath` blocks as defined below. Either `includedPath` or `excludedPath` must contain the `path` `/*`
      * 
      */
     public Optional<Output<List<SqlContainerIndexingPolicyIncludedPathArgs>>> includedPaths() {
@@ -81,14 +81,14 @@ public final class SqlContainerIndexingPolicyArgs extends com.pulumi.resources.R
     }
 
     /**
-     * One or more `spatial_index` blocks as defined below.
+     * One or more `spatialIndex` blocks as defined below.
      * 
      */
     @Import(name="spatialIndices")
     private @Nullable Output<List<SqlContainerIndexingPolicySpatialIndexArgs>> spatialIndices;
 
     /**
-     * @return One or more `spatial_index` blocks as defined below.
+     * @return One or more `spatialIndex` blocks as defined below.
      * 
      */
     public Optional<Output<List<SqlContainerIndexingPolicySpatialIndexArgs>>> spatialIndices() {
@@ -124,7 +124,7 @@ public final class SqlContainerIndexingPolicyArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param compositeIndices One or more `composite_index` blocks as defined below.
+         * @param compositeIndices One or more `compositeIndex` blocks as defined below.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class SqlContainerIndexingPolicyArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param compositeIndices One or more `composite_index` blocks as defined below.
+         * @param compositeIndices One or more `compositeIndex` blocks as defined below.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class SqlContainerIndexingPolicyArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param compositeIndices One or more `composite_index` blocks as defined below.
+         * @param compositeIndices One or more `compositeIndex` blocks as defined below.
          * 
          * @return builder
          * 
@@ -155,7 +155,7 @@ public final class SqlContainerIndexingPolicyArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param excludedPaths One or more `excluded_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
+         * @param excludedPaths One or more `excludedPath` blocks as defined below. Either `includedPath` or `excludedPath` must contain the `path` `/*`
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class SqlContainerIndexingPolicyArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param excludedPaths One or more `excluded_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
+         * @param excludedPaths One or more `excludedPath` blocks as defined below. Either `includedPath` or `excludedPath` must contain the `path` `/*`
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class SqlContainerIndexingPolicyArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param excludedPaths One or more `excluded_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
+         * @param excludedPaths One or more `excludedPath` blocks as defined below. Either `includedPath` or `excludedPath` must contain the `path` `/*`
          * 
          * @return builder
          * 
@@ -186,7 +186,7 @@ public final class SqlContainerIndexingPolicyArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param includedPaths One or more `included_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
+         * @param includedPaths One or more `includedPath` blocks as defined below. Either `includedPath` or `excludedPath` must contain the `path` `/*`
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class SqlContainerIndexingPolicyArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param includedPaths One or more `included_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
+         * @param includedPaths One or more `includedPath` blocks as defined below. Either `includedPath` or `excludedPath` must contain the `path` `/*`
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class SqlContainerIndexingPolicyArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param includedPaths One or more `included_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
+         * @param includedPaths One or more `includedPath` blocks as defined below. Either `includedPath` or `excludedPath` must contain the `path` `/*`
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class SqlContainerIndexingPolicyArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param spatialIndices One or more `spatial_index` blocks as defined below.
+         * @param spatialIndices One or more `spatialIndex` blocks as defined below.
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class SqlContainerIndexingPolicyArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param spatialIndices One or more `spatial_index` blocks as defined below.
+         * @param spatialIndices One or more `spatialIndex` blocks as defined below.
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class SqlContainerIndexingPolicyArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param spatialIndices One or more `spatial_index` blocks as defined below.
+         * @param spatialIndices One or more `spatialIndex` blocks as defined below.
          * 
          * @return builder
          * 

@@ -120,7 +120,7 @@ namespace Pulumi.Azure.Compute
         public Output<string?> ConfigFile { get; private set; } = null!;
 
         /// <summary>
-        /// Should the Gallery Application reports health. Defaults to `false`.
+        /// Should the Gallery Application reports health. Defaults to `False`.
         /// </summary>
         [Output("enableHealthCheck")]
         public Output<bool?> EnableHealthCheck { get; private set; } = null!;
@@ -132,7 +132,7 @@ namespace Pulumi.Azure.Compute
         public Output<string?> EndOfLifeDate { get; private set; } = null!;
 
         /// <summary>
-        /// Should the Gallery Application Version be excluded from the `latest` filter? If set to `true` this Gallery Application Version won't be returned for the `latest` version. Defaults to `false`.
+        /// Should the Gallery Application Version be excluded from the `Latest` filter? If set to `True` this Gallery Application Version won't be returned for the `Latest` version. Defaults to `False`.
         /// </summary>
         [Output("excludeFromLatest")]
         public Output<bool?> ExcludeFromLatest { get; private set; } = null!;
@@ -150,7 +150,7 @@ namespace Pulumi.Azure.Compute
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// A `manage_action` block as defined below.
+        /// A `ManageAction` block as defined below.
         /// </summary>
         [Output("manageAction")]
         public Output<Outputs.GalleryApplicationVersionManageAction> ManageAction { get; private set; } = null!;
@@ -168,7 +168,7 @@ namespace Pulumi.Azure.Compute
         public Output<string?> PackageFile { get; private set; } = null!;
 
         /// <summary>
-        /// A `source` block as defined below.
+        /// A `Source` block as defined below.
         /// </summary>
         [Output("source")]
         public Output<Outputs.GalleryApplicationVersionSource> Source { get; private set; } = null!;
@@ -180,7 +180,7 @@ namespace Pulumi.Azure.Compute
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `target_region` blocks as defined below.
+        /// One or more `TargetRegion` blocks as defined below.
         /// </summary>
         [Output("targetRegions")]
         public Output<ImmutableArray<Outputs.GalleryApplicationVersionTargetRegion>> TargetRegions { get; private set; } = null!;
@@ -238,7 +238,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? ConfigFile { get; set; }
 
         /// <summary>
-        /// Should the Gallery Application reports health. Defaults to `false`.
+        /// Should the Gallery Application reports health. Defaults to `False`.
         /// </summary>
         [Input("enableHealthCheck")]
         public Input<bool>? EnableHealthCheck { get; set; }
@@ -250,7 +250,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? EndOfLifeDate { get; set; }
 
         /// <summary>
-        /// Should the Gallery Application Version be excluded from the `latest` filter? If set to `true` this Gallery Application Version won't be returned for the `latest` version. Defaults to `false`.
+        /// Should the Gallery Application Version be excluded from the `Latest` filter? If set to `True` this Gallery Application Version won't be returned for the `Latest` version. Defaults to `False`.
         /// </summary>
         [Input("excludeFromLatest")]
         public Input<bool>? ExcludeFromLatest { get; set; }
@@ -268,7 +268,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A `manage_action` block as defined below.
+        /// A `ManageAction` block as defined below.
         /// </summary>
         [Input("manageAction", required: true)]
         public Input<Inputs.GalleryApplicationVersionManageActionArgs> ManageAction { get; set; } = null!;
@@ -286,7 +286,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? PackageFile { get; set; }
 
         /// <summary>
-        /// A `source` block as defined below.
+        /// A `Source` block as defined below.
         /// </summary>
         [Input("source", required: true)]
         public Input<Inputs.GalleryApplicationVersionSourceArgs> Source { get; set; } = null!;
@@ -307,7 +307,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.GalleryApplicationVersionTargetRegionArgs>? _targetRegions;
 
         /// <summary>
-        /// One or more `target_region` blocks as defined below.
+        /// One or more `TargetRegion` blocks as defined below.
         /// </summary>
         public InputList<Inputs.GalleryApplicationVersionTargetRegionArgs> TargetRegions
         {
@@ -330,7 +330,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? ConfigFile { get; set; }
 
         /// <summary>
-        /// Should the Gallery Application reports health. Defaults to `false`.
+        /// Should the Gallery Application reports health. Defaults to `False`.
         /// </summary>
         [Input("enableHealthCheck")]
         public Input<bool>? EnableHealthCheck { get; set; }
@@ -342,7 +342,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? EndOfLifeDate { get; set; }
 
         /// <summary>
-        /// Should the Gallery Application Version be excluded from the `latest` filter? If set to `true` this Gallery Application Version won't be returned for the `latest` version. Defaults to `false`.
+        /// Should the Gallery Application Version be excluded from the `Latest` filter? If set to `True` this Gallery Application Version won't be returned for the `Latest` version. Defaults to `False`.
         /// </summary>
         [Input("excludeFromLatest")]
         public Input<bool>? ExcludeFromLatest { get; set; }
@@ -360,7 +360,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A `manage_action` block as defined below.
+        /// A `ManageAction` block as defined below.
         /// </summary>
         [Input("manageAction")]
         public Input<Inputs.GalleryApplicationVersionManageActionGetArgs>? ManageAction { get; set; }
@@ -378,7 +378,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? PackageFile { get; set; }
 
         /// <summary>
-        /// A `source` block as defined below.
+        /// A `Source` block as defined below.
         /// </summary>
         [Input("source")]
         public Input<Inputs.GalleryApplicationVersionSourceGetArgs>? Source { get; set; }
@@ -399,7 +399,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.GalleryApplicationVersionTargetRegionGetArgs>? _targetRegions;
 
         /// <summary>
-        /// One or more `target_region` blocks as defined below.
+        /// One or more `TargetRegion` blocks as defined below.
         /// </summary>
         public InputList<Inputs.GalleryApplicationVersionTargetRegionGetArgs> TargetRegions
         {

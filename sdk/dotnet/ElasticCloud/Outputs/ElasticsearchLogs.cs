@@ -14,19 +14,19 @@ namespace Pulumi.Azure.ElasticCloud.Outputs
     public sealed class ElasticsearchLogs
     {
         /// <summary>
-        /// A list of `filtering_tag` blocks as defined above.
+        /// A list of `FilteringTag` blocks as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.ElasticsearchLogsFilteringTag> FilteringTags;
         /// <summary>
-        /// Specifies if the Azure Activity Logs should be sent to the Elasticsearch cluster. Defaults to `false`.
+        /// Specifies if the Azure Activity Logs should be sent to the Elasticsearch cluster. Defaults to `False`.
         /// </summary>
         public readonly bool? SendActivityLogs;
         /// <summary>
-        /// Specifies if the AzureAD Logs should be sent to the Elasticsearch cluster. Defaults to `false`.
+        /// Specifies if the AzureAD Logs should be sent to the Elasticsearch cluster. Defaults to `False`.
         /// </summary>
         public readonly bool? SendAzureadLogs;
         /// <summary>
-        /// Specifies if the Azure Subscription Logs should be sent to the Elasticsearch cluster. Defaults to `false`.
+        /// Specifies if the Azure Subscription Logs should be sent to the Elasticsearch cluster. Defaults to `False`.
         /// </summary>
         public readonly bool? SendSubscriptionLogs;
 

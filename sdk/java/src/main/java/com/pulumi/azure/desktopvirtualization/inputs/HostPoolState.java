@@ -133,7 +133,7 @@ public final class HostPoolState extends com.pulumi.resources.ResourceArgs {
     /**
      * `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`. `Direct` Assignment – Admin selects a specific host to assign to an user. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** `personal_desktop_assignment_type` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
+     * &gt; **Note:** `personalDesktopAssignmentType` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
      * 
      */
     @Import(name="personalDesktopAssignmentType")
@@ -142,7 +142,7 @@ public final class HostPoolState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`. `Direct` Assignment – Admin selects a specific host to assign to an user. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** `personal_desktop_assignment_type` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
+     * &gt; **Note:** `personalDesktopAssignmentType` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
      * 
      */
     public Optional<Output<String>> personalDesktopAssignmentType() {
@@ -195,14 +195,14 @@ public final class HostPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `scheduled_agent_updates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
+     * A `scheduledAgentUpdates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
      * 
      */
     @Import(name="scheduledAgentUpdates")
     private @Nullable Output<HostPoolScheduledAgentUpdatesArgs> scheduledAgentUpdates;
 
     /**
-     * @return A `scheduled_agent_updates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
+     * @return A `scheduledAgentUpdates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
      * 
      */
     public Optional<Output<HostPoolScheduledAgentUpdatesArgs>> scheduledAgentUpdates() {
@@ -480,7 +480,7 @@ public final class HostPoolState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param personalDesktopAssignmentType `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`. `Direct` Assignment – Admin selects a specific host to assign to an user. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** `personal_desktop_assignment_type` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
+         * &gt; **Note:** `personalDesktopAssignmentType` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
          * 
          * @return builder
          * 
@@ -493,7 +493,7 @@ public final class HostPoolState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param personalDesktopAssignmentType `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`. `Direct` Assignment – Admin selects a specific host to assign to an user. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** `personal_desktop_assignment_type` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
+         * &gt; **Note:** `personalDesktopAssignmentType` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
          * 
          * @return builder
          * 
@@ -566,7 +566,7 @@ public final class HostPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scheduledAgentUpdates A `scheduled_agent_updates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
+         * @param scheduledAgentUpdates A `scheduledAgentUpdates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
          * 
          * @return builder
          * 
@@ -577,7 +577,7 @@ public final class HostPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scheduledAgentUpdates A `scheduled_agent_updates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
+         * @param scheduledAgentUpdates A `scheduledAgentUpdates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
          * 
          * @return builder
          * 

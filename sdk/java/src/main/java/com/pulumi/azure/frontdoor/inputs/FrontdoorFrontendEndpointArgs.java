@@ -19,14 +19,14 @@ public final class FrontdoorFrontendEndpointArgs extends com.pulumi.resources.Re
     public static final FrontdoorFrontendEndpointArgs Empty = new FrontdoorFrontendEndpointArgs();
 
     /**
-     * Specifies the host name of the `frontend_endpoint`. Must be a domain name. In order to use a name.azurefd.net domain, the name value must match the Front Door name.
+     * Specifies the host name of the `frontendEndpoint`. Must be a domain name. In order to use a name.azurefd.net domain, the name value must match the Front Door name.
      * 
      */
     @Import(name="hostName", required=true)
     private Output<String> hostName;
 
     /**
-     * @return Specifies the host name of the `frontend_endpoint`. Must be a domain name. In order to use a name.azurefd.net domain, the name value must match the Front Door name.
+     * @return Specifies the host name of the `frontendEndpoint`. Must be a domain name. In order to use a name.azurefd.net domain, the name value must match the Front Door name.
      * 
      */
     public Output<String> hostName() {
@@ -49,14 +49,14 @@ public final class FrontdoorFrontendEndpointArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Specifies the name of the `frontend_endpoint`.
+     * Specifies the name of the `frontendEndpoint`.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the `frontend_endpoint`.
+     * @return Specifies the name of the `frontendEndpoint`.
      * 
      */
     public Output<String> name() {
@@ -138,7 +138,7 @@ public final class FrontdoorFrontendEndpointArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param hostName Specifies the host name of the `frontend_endpoint`. Must be a domain name. In order to use a name.azurefd.net domain, the name value must match the Front Door name.
+         * @param hostName Specifies the host name of the `frontendEndpoint`. Must be a domain name. In order to use a name.azurefd.net domain, the name value must match the Front Door name.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class FrontdoorFrontendEndpointArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param hostName Specifies the host name of the `frontend_endpoint`. Must be a domain name. In order to use a name.azurefd.net domain, the name value must match the Front Door name.
+         * @param hostName Specifies the host name of the `frontendEndpoint`. Must be a domain name. In order to use a name.azurefd.net domain, the name value must match the Front Door name.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class FrontdoorFrontendEndpointArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param name Specifies the name of the `frontend_endpoint`.
+         * @param name Specifies the name of the `frontendEndpoint`.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class FrontdoorFrontendEndpointArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param name Specifies the name of the `frontend_endpoint`.
+         * @param name Specifies the name of the `frontendEndpoint`.
          * 
          * @return builder
          * 

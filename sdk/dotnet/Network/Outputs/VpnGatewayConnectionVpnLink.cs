@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly int? BandwidthMbps;
         /// <summary>
-        /// Should the BGP be enabled? Defaults to `false`. Changing this forces a new VPN Gateway Connection to be created.
+        /// Should the BGP be enabled? Defaults to `False`. Changing this forces a new VPN Gateway Connection to be created.
         /// </summary>
         public readonly bool? BgpEnabled;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? ConnectionMode;
         /// <summary>
-        /// One or more `custom_bgp_address` blocks as defined below.
+        /// One or more `CustomBgpAddress` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.VpnGatewayConnectionVpnLinkCustomBgpAddress> CustomBgpAddresses;
         /// <summary>
@@ -42,11 +42,11 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<string> IngressNatRuleIds;
         /// <summary>
-        /// One or more `ipsec_policy` blocks as defined above.
+        /// One or more `IpsecPolicy` blocks as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.VpnGatewayConnectionVpnLinkIpsecPolicy> IpsecPolicies;
         /// <summary>
-        /// Whether to use local Azure IP to initiate connection? Defaults to `false`.
+        /// Whether to use local Azure IP to initiate connection? Defaults to `False`.
         /// </summary>
         public readonly bool? LocalAzureIpAddressEnabled;
         /// <summary>
@@ -54,7 +54,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Whether to enable policy-based traffic selectors? Defaults to `false`.
+        /// Whether to enable policy-based traffic selectors? Defaults to `False`.
         /// </summary>
         public readonly bool? PolicyBasedTrafficSelectorEnabled;
         /// <summary>
@@ -62,7 +62,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? Protocol;
         /// <summary>
-        /// Should the rate limit be enabled? Defaults to `false`.
+        /// Should the rate limit be enabled? Defaults to `False`.
         /// </summary>
         public readonly bool? RatelimitEnabled;
         /// <summary>

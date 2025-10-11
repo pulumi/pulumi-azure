@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Consumption.Outputs
     public sealed class BudgetManagementGroupFilter
     {
         /// <summary>
-        /// One or more `dimension` blocks as defined below to filter the budget on.
+        /// One or more `Dimension` blocks as defined below to filter the budget on.
         /// </summary>
         public readonly ImmutableArray<Outputs.BudgetManagementGroupFilterDimension> Dimensions;
         /// <summary>
-        /// One or more `tag` blocks as defined below to filter the budget on.
+        /// One or more `Tag` blocks as defined below to filter the budget on.
         /// </summary>
         public readonly ImmutableArray<Outputs.BudgetManagementGroupFilterTag> Tags;
 

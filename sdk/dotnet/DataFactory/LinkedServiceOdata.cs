@@ -12,7 +12,7 @@ namespace Pulumi.Azure.DataFactory
     /// <summary>
     /// Manages a Linked Service (connection) between a Database and Azure Data Factory through OData protocol.
     /// 
-    /// &gt; **Note:** All arguments including the connection_string will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+    /// &gt; **Note:** All arguments including the ConnectionString will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
     /// 
     /// ## Example Usage
     /// 
@@ -83,7 +83,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<ImmutableArray<string>> Annotations { get; private set; } = null!;
 
         /// <summary>
-        /// A `basic_authentication` block as defined below.
+        /// A `BasicAuthentication` block as defined below.
         /// </summary>
         [Output("basicAuthentication")]
         public Output<Outputs.LinkedServiceOdataBasicAuthentication?> BasicAuthentication { get; private set; } = null!;
@@ -195,7 +195,7 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// A `basic_authentication` block as defined below.
+        /// A `BasicAuthentication` block as defined below.
         /// </summary>
         [Input("basicAuthentication")]
         public Input<Inputs.LinkedServiceOdataBasicAuthenticationArgs>? BasicAuthentication { get; set; }
@@ -275,7 +275,7 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// A `basic_authentication` block as defined below.
+        /// A `BasicAuthentication` block as defined below.
         /// </summary>
         [Input("basicAuthentication")]
         public Input<Inputs.LinkedServiceOdataBasicAuthenticationGetArgs>? BasicAuthentication { get; set; }

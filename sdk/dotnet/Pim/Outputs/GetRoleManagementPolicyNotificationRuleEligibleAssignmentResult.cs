@@ -14,15 +14,15 @@ namespace Pulumi.Azure.Pim.Outputs
     public sealed class GetRoleManagementPolicyNotificationRuleEligibleAssignmentResult
     {
         /// <summary>
-        /// A `notification_settings` block as defined above.
+        /// A `NotificationSettings` block as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationResult> AdminNotifications;
         /// <summary>
-        /// A `notification_settings` block as defined above.
+        /// A `NotificationSettings` block as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationResult> ApproverNotifications;
         /// <summary>
-        /// A `notification_settings` block as defined above.
+        /// A `NotificationSettings` block as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationResult> AssigneeNotifications;
 

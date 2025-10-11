@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Healthcare.Outputs
     public sealed class FhirServiceIdentity
     {
         /// <summary>
-        /// A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+        /// A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `Type` is set to `UserAssigned`.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         public readonly string? PrincipalId;

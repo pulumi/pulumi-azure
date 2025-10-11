@@ -135,14 +135,14 @@ public class JobTargetGroup extends com.pulumi.resources.CustomResource {
         return this.jobAgentId;
     }
     /**
-     * One or more `job_target` blocks as defined below.
+     * One or more `jobTarget` blocks as defined below.
      * 
      */
     @Export(name="jobTargets", refs={List.class,JobTargetGroupJobTarget.class}, tree="[0,1]")
     private Output</* @Nullable */ List<JobTargetGroupJobTarget>> jobTargets;
 
     /**
-     * @return One or more `job_target` blocks as defined below.
+     * @return One or more `jobTarget` blocks as defined below.
      * 
      */
     public Output<Optional<List<JobTargetGroupJobTarget>>> jobTargets() {

@@ -20,7 +20,7 @@ public final class ApiDiagnosticFrontendResponse {
      */
     private @Nullable Integer bodyBytes;
     /**
-     * @return A `data_masking` block as defined below.
+     * @return A `dataMasking` block as defined below.
      * 
      */
     private @Nullable ApiDiagnosticFrontendResponseDataMasking dataMasking;
@@ -39,7 +39,7 @@ public final class ApiDiagnosticFrontendResponse {
         return Optional.ofNullable(this.bodyBytes);
     }
     /**
-     * @return A `data_masking` block as defined below.
+     * @return A `dataMasking` block as defined below.
      * 
      */
     public Optional<ApiDiagnosticFrontendResponseDataMasking> dataMasking() {

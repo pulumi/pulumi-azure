@@ -20,7 +20,7 @@ public final class SubscriptionPolicyAssignmentResourceSelector {
      */
     private @Nullable String name;
     /**
-     * @return One or more `resource_selector` block as defined below.
+     * @return One or more `resourceSelector` block as defined below.
      * 
      */
     private List<SubscriptionPolicyAssignmentResourceSelectorSelector> selectors;
@@ -34,7 +34,7 @@ public final class SubscriptionPolicyAssignmentResourceSelector {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return One or more `resource_selector` block as defined below.
+     * @return One or more `resourceSelector` block as defined below.
      * 
      */
     public List<SubscriptionPolicyAssignmentResourceSelectorSelector> selectors() {

@@ -36,14 +36,14 @@ public final class GremlinGraphIndexPolicyArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * One or more `composite_index` blocks as defined below.
+     * One or more `compositeIndex` blocks as defined below.
      * 
      */
     @Import(name="compositeIndices")
     private @Nullable Output<List<GremlinGraphIndexPolicyCompositeIndexArgs>> compositeIndices;
 
     /**
-     * @return One or more `composite_index` blocks as defined below.
+     * @return One or more `compositeIndex` blocks as defined below.
      * 
      */
     public Optional<Output<List<GremlinGraphIndexPolicyCompositeIndexArgs>>> compositeIndices() {
@@ -51,14 +51,14 @@ public final class GremlinGraphIndexPolicyArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * List of paths to exclude from indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
+     * List of paths to exclude from indexing. Required if `indexingMode` is `Consistent` or `Lazy`.
      * 
      */
     @Import(name="excludedPaths")
     private @Nullable Output<List<String>> excludedPaths;
 
     /**
-     * @return List of paths to exclude from indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
+     * @return List of paths to exclude from indexing. Required if `indexingMode` is `Consistent` or `Lazy`.
      * 
      */
     public Optional<Output<List<String>>> excludedPaths() {
@@ -66,14 +66,14 @@ public final class GremlinGraphIndexPolicyArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * List of paths to include in the indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
+     * List of paths to include in the indexing. Required if `indexingMode` is `Consistent` or `Lazy`.
      * 
      */
     @Import(name="includedPaths")
     private @Nullable Output<List<String>> includedPaths;
 
     /**
-     * @return List of paths to include in the indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
+     * @return List of paths to include in the indexing. Required if `indexingMode` is `Consistent` or `Lazy`.
      * 
      */
     public Optional<Output<List<String>>> includedPaths() {
@@ -96,14 +96,14 @@ public final class GremlinGraphIndexPolicyArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * One or more `spatial_index` blocks as defined below.
+     * One or more `spatialIndex` blocks as defined below.
      * 
      */
     @Import(name="spatialIndices")
     private @Nullable Output<List<GremlinGraphIndexPolicySpatialIndexArgs>> spatialIndices;
 
     /**
-     * @return One or more `spatial_index` blocks as defined below.
+     * @return One or more `spatialIndex` blocks as defined below.
      * 
      */
     public Optional<Output<List<GremlinGraphIndexPolicySpatialIndexArgs>>> spatialIndices() {
@@ -161,7 +161,7 @@ public final class GremlinGraphIndexPolicyArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param compositeIndices One or more `composite_index` blocks as defined below.
+         * @param compositeIndices One or more `compositeIndex` blocks as defined below.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class GremlinGraphIndexPolicyArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param compositeIndices One or more `composite_index` blocks as defined below.
+         * @param compositeIndices One or more `compositeIndex` blocks as defined below.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class GremlinGraphIndexPolicyArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param compositeIndices One or more `composite_index` blocks as defined below.
+         * @param compositeIndices One or more `compositeIndex` blocks as defined below.
          * 
          * @return builder
          * 
@@ -192,7 +192,7 @@ public final class GremlinGraphIndexPolicyArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param excludedPaths List of paths to exclude from indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
+         * @param excludedPaths List of paths to exclude from indexing. Required if `indexingMode` is `Consistent` or `Lazy`.
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class GremlinGraphIndexPolicyArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param excludedPaths List of paths to exclude from indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
+         * @param excludedPaths List of paths to exclude from indexing. Required if `indexingMode` is `Consistent` or `Lazy`.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class GremlinGraphIndexPolicyArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param excludedPaths List of paths to exclude from indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
+         * @param excludedPaths List of paths to exclude from indexing. Required if `indexingMode` is `Consistent` or `Lazy`.
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class GremlinGraphIndexPolicyArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param includedPaths List of paths to include in the indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
+         * @param includedPaths List of paths to include in the indexing. Required if `indexingMode` is `Consistent` or `Lazy`.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class GremlinGraphIndexPolicyArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param includedPaths List of paths to include in the indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
+         * @param includedPaths List of paths to include in the indexing. Required if `indexingMode` is `Consistent` or `Lazy`.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class GremlinGraphIndexPolicyArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param includedPaths List of paths to include in the indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
+         * @param includedPaths List of paths to include in the indexing. Required if `indexingMode` is `Consistent` or `Lazy`.
          * 
          * @return builder
          * 
@@ -275,7 +275,7 @@ public final class GremlinGraphIndexPolicyArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param spatialIndices One or more `spatial_index` blocks as defined below.
+         * @param spatialIndices One or more `spatialIndex` blocks as defined below.
          * 
          * @return builder
          * 
@@ -286,7 +286,7 @@ public final class GremlinGraphIndexPolicyArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param spatialIndices One or more `spatial_index` blocks as defined below.
+         * @param spatialIndices One or more `spatialIndex` blocks as defined below.
          * 
          * @return builder
          * 
@@ -296,7 +296,7 @@ public final class GremlinGraphIndexPolicyArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param spatialIndices One or more `spatial_index` blocks as defined below.
+         * @param spatialIndices One or more `spatialIndex` blocks as defined below.
          * 
          * @return builder
          * 

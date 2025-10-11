@@ -20,7 +20,7 @@ public final class AppIngressTrafficWeight {
      */
     private @Nullable String label;
     /**
-     * @return This traffic Weight applies to the latest stable Container Revision. At most only one `traffic_weight` block can have the `latest_revision` set to `true`.
+     * @return This traffic Weight applies to the latest stable Container Revision. At most only one `trafficWeight` block can have the `latestRevision` set to `true`.
      * 
      */
     private @Nullable Boolean latestRevision;
@@ -32,9 +32,9 @@ public final class AppIngressTrafficWeight {
      */
     private Integer percentage;
     /**
-     * @return The suffix string to which this `traffic_weight` applies.
+     * @return The suffix string to which this `trafficWeight` applies.
      * 
-     * &gt; **Note:** If `latest_revision` is `false`, the `revision_suffix` shall be specified.
+     * &gt; **Note:** If `latestRevision` is `false`, the `revisionSuffix` shall be specified.
      * 
      */
     private @Nullable String revisionSuffix;
@@ -48,7 +48,7 @@ public final class AppIngressTrafficWeight {
         return Optional.ofNullable(this.label);
     }
     /**
-     * @return This traffic Weight applies to the latest stable Container Revision. At most only one `traffic_weight` block can have the `latest_revision` set to `true`.
+     * @return This traffic Weight applies to the latest stable Container Revision. At most only one `trafficWeight` block can have the `latestRevision` set to `true`.
      * 
      */
     public Optional<Boolean> latestRevision() {
@@ -64,9 +64,9 @@ public final class AppIngressTrafficWeight {
         return this.percentage;
     }
     /**
-     * @return The suffix string to which this `traffic_weight` applies.
+     * @return The suffix string to which this `trafficWeight` applies.
      * 
-     * &gt; **Note:** If `latest_revision` is `false`, the `revision_suffix` shall be specified.
+     * &gt; **Note:** If `latestRevision` is `false`, the `revisionSuffix` shall be specified.
      * 
      */
     public Optional<String> revisionSuffix() {

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class ApplicationGatewayProbe
     {
         /// <summary>
-        /// The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as `127.0.0.1`, unless otherwise configured in custom probe. Cannot be set if `pick_host_name_from_backend_http_settings` is set to `true`.
+        /// The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as `127.0.0.1`, unless otherwise configured in custom probe. Cannot be set if `PickHostNameFromBackendHttpSettings` is set to `True`.
         /// </summary>
         public readonly string? Host;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly int Interval;
         /// <summary>
-        /// A `match` block as defined above.
+        /// A `Match` block as defined above.
         /// </summary>
         public readonly Outputs.ApplicationGatewayProbeMatch? Match;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string Path;
         /// <summary>
-        /// Whether the host header should be picked from the backend HTTP settings. Defaults to `false`.
+        /// Whether the host header should be picked from the backend HTTP settings. Defaults to `False`.
         /// </summary>
         public readonly bool? PickHostNameFromBackendHttpSettings;
         /// <summary>

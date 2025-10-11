@@ -21,18 +21,18 @@ public final class HubArgs extends com.pulumi.resources.ResourceArgs {
     public static final HubArgs Empty = new HubArgs();
 
     /**
-     * A `apns_credential` block as defined below.
+     * A `apnsCredential` block as defined below.
      * 
-     * &gt; **Note:** Removing the `apns_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we&#39;ll remove this limitation when the SDK bug is fixed.
+     * &gt; **Note:** Removing the `apnsCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we&#39;ll remove this limitation when the SDK bug is fixed.
      * 
      */
     @Import(name="apnsCredential")
     private @Nullable Output<HubApnsCredentialArgs> apnsCredential;
 
     /**
-     * @return A `apns_credential` block as defined below.
+     * @return A `apnsCredential` block as defined below.
      * 
-     * &gt; **Note:** Removing the `apns_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we&#39;ll remove this limitation when the SDK bug is fixed.
+     * &gt; **Note:** Removing the `apnsCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we&#39;ll remove this limitation when the SDK bug is fixed.
      * 
      */
     public Optional<Output<HubApnsCredentialArgs>> apnsCredential() {
@@ -40,14 +40,14 @@ public final class HubArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `browser_credential` block as defined below.
+     * A `browserCredential` block as defined below.
      * 
      */
     @Import(name="browserCredential")
     private @Nullable Output<HubBrowserCredentialArgs> browserCredential;
 
     /**
-     * @return A `browser_credential` block as defined below.
+     * @return A `browserCredential` block as defined below.
      * 
      */
     public Optional<Output<HubBrowserCredentialArgs>> browserCredential() {
@@ -55,18 +55,18 @@ public final class HubArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `gcm_credential` block as defined below.
+     * A `gcmCredential` block as defined below.
      * 
-     * &gt; **Note:** Removing the `gcm_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we&#39;ll remove this limitation when the SDK bug is fixed.
+     * &gt; **Note:** Removing the `gcmCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we&#39;ll remove this limitation when the SDK bug is fixed.
      * 
      */
     @Import(name="gcmCredential")
     private @Nullable Output<HubGcmCredentialArgs> gcmCredential;
 
     /**
-     * @return A `gcm_credential` block as defined below.
+     * @return A `gcmCredential` block as defined below.
      * 
-     * &gt; **Note:** Removing the `gcm_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we&#39;ll remove this limitation when the SDK bug is fixed.
+     * &gt; **Note:** Removing the `gcmCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we&#39;ll remove this limitation when the SDK bug is fixed.
      * 
      */
     public Optional<Output<HubGcmCredentialArgs>> gcmCredential() {
@@ -180,9 +180,9 @@ public final class HubArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apnsCredential A `apns_credential` block as defined below.
+         * @param apnsCredential A `apnsCredential` block as defined below.
          * 
-         * &gt; **Note:** Removing the `apns_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we&#39;ll remove this limitation when the SDK bug is fixed.
+         * &gt; **Note:** Removing the `apnsCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we&#39;ll remove this limitation when the SDK bug is fixed.
          * 
          * @return builder
          * 
@@ -193,9 +193,9 @@ public final class HubArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apnsCredential A `apns_credential` block as defined below.
+         * @param apnsCredential A `apnsCredential` block as defined below.
          * 
-         * &gt; **Note:** Removing the `apns_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we&#39;ll remove this limitation when the SDK bug is fixed.
+         * &gt; **Note:** Removing the `apnsCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we&#39;ll remove this limitation when the SDK bug is fixed.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class HubArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param browserCredential A `browser_credential` block as defined below.
+         * @param browserCredential A `browserCredential` block as defined below.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class HubArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param browserCredential A `browser_credential` block as defined below.
+         * @param browserCredential A `browserCredential` block as defined below.
          * 
          * @return builder
          * 
@@ -226,9 +226,9 @@ public final class HubArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param gcmCredential A `gcm_credential` block as defined below.
+         * @param gcmCredential A `gcmCredential` block as defined below.
          * 
-         * &gt; **Note:** Removing the `gcm_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we&#39;ll remove this limitation when the SDK bug is fixed.
+         * &gt; **Note:** Removing the `gcmCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we&#39;ll remove this limitation when the SDK bug is fixed.
          * 
          * @return builder
          * 
@@ -239,9 +239,9 @@ public final class HubArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param gcmCredential A `gcm_credential` block as defined below.
+         * @param gcmCredential A `gcmCredential` block as defined below.
          * 
-         * &gt; **Note:** Removing the `gcm_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we&#39;ll remove this limitation when the SDK bug is fixed.
+         * &gt; **Note:** Removing the `gcmCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we&#39;ll remove this limitation when the SDK bug is fixed.
          * 
          * @return builder
          * 

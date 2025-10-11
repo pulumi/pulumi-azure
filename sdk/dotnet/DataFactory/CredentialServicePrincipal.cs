@@ -154,7 +154,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string> ServicePrincipalId { get; private set; } = null!;
 
         /// <summary>
-        /// A `service_principal_key` block as defined below.
+        /// A `ServicePrincipalKey` block as defined below.
         /// </summary>
         [Output("servicePrincipalKey")]
         public Output<Outputs.CredentialServicePrincipalServicePrincipalKey?> ServicePrincipalKey { get; private set; } = null!;
@@ -248,7 +248,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string> ServicePrincipalId { get; set; } = null!;
 
         /// <summary>
-        /// A `service_principal_key` block as defined below.
+        /// A `ServicePrincipalKey` block as defined below.
         /// </summary>
         [Input("servicePrincipalKey")]
         public Input<Inputs.CredentialServicePrincipalServicePrincipalKeyArgs>? ServicePrincipalKey { get; set; }
@@ -304,7 +304,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? ServicePrincipalId { get; set; }
 
         /// <summary>
-        /// A `service_principal_key` block as defined below.
+        /// A `ServicePrincipalKey` block as defined below.
         /// </summary>
         [Input("servicePrincipalKey")]
         public Input<Inputs.CredentialServicePrincipalServicePrincipalKeyGetArgs>? ServicePrincipalKey { get; set; }

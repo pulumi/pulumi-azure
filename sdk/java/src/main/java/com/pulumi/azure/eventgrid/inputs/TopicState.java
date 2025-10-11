@@ -53,14 +53,14 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `inbound_ip_rule` blocks as defined below.
+     * One or more `inboundIpRule` blocks as defined below.
      * 
      */
     @Import(name="inboundIpRules")
     private @Nullable Output<List<TopicInboundIpRuleArgs>> inboundIpRules;
 
     /**
-     * @return One or more `inbound_ip_rule` blocks as defined below.
+     * @return One or more `inboundIpRule` blocks as defined below.
      * 
      */
     public Optional<Output<List<TopicInboundIpRuleArgs>>> inboundIpRules() {
@@ -68,14 +68,14 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
+     * A `inputMappingDefaultValues` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="inputMappingDefaultValues")
     private @Nullable Output<TopicInputMappingDefaultValuesArgs> inputMappingDefaultValues;
 
     /**
-     * @return A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
+     * @return A `inputMappingDefaultValues` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<TopicInputMappingDefaultValuesArgs>> inputMappingDefaultValues() {
@@ -83,14 +83,14 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `input_mapping_fields` block as defined below. Changing this forces a new resource to be created.
+     * A `inputMappingFields` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="inputMappingFields")
     private @Nullable Output<TopicInputMappingFieldsArgs> inputMappingFields;
 
     /**
-     * @return A `input_mapping_fields` block as defined below. Changing this forces a new resource to be created.
+     * @return A `inputMappingFields` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<TopicInputMappingFieldsArgs>> inputMappingFields() {
@@ -312,7 +312,7 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param inboundIpRules One or more `inbound_ip_rule` blocks as defined below.
+         * @param inboundIpRules One or more `inboundIpRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -323,7 +323,7 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param inboundIpRules One or more `inbound_ip_rule` blocks as defined below.
+         * @param inboundIpRules One or more `inboundIpRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -333,7 +333,7 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param inboundIpRules One or more `inbound_ip_rule` blocks as defined below.
+         * @param inboundIpRules One or more `inboundIpRule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -343,7 +343,7 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param inputMappingDefaultValues A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
+         * @param inputMappingDefaultValues A `inputMappingDefaultValues` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -354,7 +354,7 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param inputMappingDefaultValues A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
+         * @param inputMappingDefaultValues A `inputMappingDefaultValues` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -364,7 +364,7 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param inputMappingFields A `input_mapping_fields` block as defined below. Changing this forces a new resource to be created.
+         * @param inputMappingFields A `inputMappingFields` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -375,7 +375,7 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param inputMappingFields A `input_mapping_fields` block as defined below. Changing this forces a new resource to be created.
+         * @param inputMappingFields A `inputMappingFields` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

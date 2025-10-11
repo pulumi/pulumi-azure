@@ -189,7 +189,7 @@ namespace Pulumi.Azure.AppService
         public readonly bool Reserved;
         public readonly string ResourceGroupName;
         /// <summary>
-        /// A `sku` block as documented below.
+        /// A `Sku` block as documented below.
         /// </summary>
         public readonly Outputs.GetAppServicePlanSkuResult Sku;
         /// <summary>

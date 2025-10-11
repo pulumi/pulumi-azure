@@ -24,7 +24,7 @@ public final class GetGatewayResult {
      */
     private String id;
     /**
-     * @return A `location_data` block as documented below.
+     * @return A `locationData` block as documented below.
      * 
      */
     private List<GetGatewayLocationData> locationDatas;
@@ -53,7 +53,7 @@ public final class GetGatewayResult {
         return this.id;
     }
     /**
-     * @return A `location_data` block as documented below.
+     * @return A `locationData` block as documented below.
      * 
      */
     public List<GetGatewayLocationData> locationDatas() {

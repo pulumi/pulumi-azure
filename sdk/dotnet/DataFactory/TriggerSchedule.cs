@@ -65,7 +65,7 @@ namespace Pulumi.Azure.DataFactory
     public partial class TriggerSchedule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies if the Data Factory Schedule Trigger is activated. Defaults to `true`.
+        /// Specifies if the Data Factory Schedule Trigger is activated. Defaults to `True`.
         /// </summary>
         [Output("activated")]
         public Output<bool?> Activated { get; private set; } = null!;
@@ -125,13 +125,13 @@ namespace Pulumi.Azure.DataFactory
         public Output<ImmutableDictionary<string, string>> PipelineParameters { get; private set; } = null!;
 
         /// <summary>
-        /// A `pipeline` block as defined below.
+        /// A `Pipeline` block as defined below.
         /// </summary>
         [Output("pipelines")]
         public Output<ImmutableArray<Outputs.TriggerSchedulePipeline>> Pipelines { get; private set; } = null!;
 
         /// <summary>
-        /// A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
+        /// A `Schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `Frequency` and `Interval` properties.
         /// </summary>
         [Output("schedule")]
         public Output<Outputs.TriggerScheduleSchedule?> Schedule { get; private set; } = null!;
@@ -195,7 +195,7 @@ namespace Pulumi.Azure.DataFactory
     public sealed class TriggerScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies if the Data Factory Schedule Trigger is activated. Defaults to `true`.
+        /// Specifies if the Data Factory Schedule Trigger is activated. Defaults to `True`.
         /// </summary>
         [Input("activated")]
         public Input<bool>? Activated { get; set; }
@@ -270,7 +270,7 @@ namespace Pulumi.Azure.DataFactory
         private InputList<Inputs.TriggerSchedulePipelineArgs>? _pipelines;
 
         /// <summary>
-        /// A `pipeline` block as defined below.
+        /// A `Pipeline` block as defined below.
         /// </summary>
         public InputList<Inputs.TriggerSchedulePipelineArgs> Pipelines
         {
@@ -279,7 +279,7 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
+        /// A `Schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `Frequency` and `Interval` properties.
         /// </summary>
         [Input("schedule")]
         public Input<Inputs.TriggerScheduleScheduleArgs>? Schedule { get; set; }
@@ -305,7 +305,7 @@ namespace Pulumi.Azure.DataFactory
     public sealed class TriggerScheduleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies if the Data Factory Schedule Trigger is activated. Defaults to `true`.
+        /// Specifies if the Data Factory Schedule Trigger is activated. Defaults to `True`.
         /// </summary>
         [Input("activated")]
         public Input<bool>? Activated { get; set; }
@@ -380,7 +380,7 @@ namespace Pulumi.Azure.DataFactory
         private InputList<Inputs.TriggerSchedulePipelineGetArgs>? _pipelines;
 
         /// <summary>
-        /// A `pipeline` block as defined below.
+        /// A `Pipeline` block as defined below.
         /// </summary>
         public InputList<Inputs.TriggerSchedulePipelineGetArgs> Pipelines
         {
@@ -389,7 +389,7 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
+        /// A `Schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `Frequency` and `Interval` properties.
         /// </summary>
         [Input("schedule")]
         public Input<Inputs.TriggerScheduleScheduleGetArgs>? Schedule { get; set; }

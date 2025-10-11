@@ -28,7 +28,7 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
     /**
      * If this Windows Web App is Always On enabled. Defaults to `true`.
      * 
-     * &gt; **Note:** `always_on` must be explicitly set to `false` when using `Free`, `F1`, `D1`, or `Shared` Service Plans.
+     * &gt; **Note:** `alwaysOn` must be explicitly set to `false` when using `Free`, `F1`, `D1`, or `Shared` Service Plans.
      * 
      */
     @Import(name="alwaysOn")
@@ -37,7 +37,7 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
     /**
      * @return If this Windows Web App is Always On enabled. Defaults to `true`.
      * 
-     * &gt; **Note:** `always_on` must be explicitly set to `false` when using `Free`, `F1`, `D1`, or `Shared` Service Plans.
+     * &gt; **Note:** `alwaysOn` must be explicitly set to `false` when using `Free`, `F1`, `D1`, or `Shared` Service Plans.
      * 
      */
     public Optional<Output<Boolean>> alwaysOn() {
@@ -90,14 +90,14 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A `application_stack` block as defined above.
+     * A `applicationStack` block as defined above.
      * 
      */
     @Import(name="applicationStack")
     private @Nullable Output<WindowsWebAppSiteConfigApplicationStackArgs> applicationStack;
 
     /**
-     * @return A `application_stack` block as defined above.
+     * @return A `applicationStack` block as defined above.
      * 
      */
     public Optional<Output<WindowsWebAppSiteConfigApplicationStackArgs>> applicationStack() {
@@ -105,14 +105,14 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A `auto_heal_setting` block as defined above. Required with `auto_heal`.
+     * A `autoHealSetting` block as defined above. Required with `autoHeal`.
      * 
      */
     @Import(name="autoHealSetting")
     private @Nullable Output<WindowsWebAppSiteConfigAutoHealSettingArgs> autoHealSetting;
 
     /**
-     * @return A `auto_heal_setting` block as defined above. Required with `auto_heal`.
+     * @return A `autoHealSetting` block as defined above. Required with `autoHeal`.
      * 
      */
     public Optional<Output<WindowsWebAppSiteConfigAutoHealSettingArgs>> autoHealSetting() {
@@ -194,14 +194,14 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * One or more `handler_mapping` blocks as defined below.
+     * One or more `handlerMapping` blocks as defined below.
      * 
      */
     @Import(name="handlerMappings")
     private @Nullable Output<List<WindowsWebAppSiteConfigHandlerMappingArgs>> handlerMappings;
 
     /**
-     * @return One or more `handler_mapping` blocks as defined below.
+     * @return One or more `handlerMapping` blocks as defined below.
      * 
      */
     public Optional<Output<List<WindowsWebAppSiteConfigHandlerMappingArgs>>> handlerMappings() {
@@ -209,14 +209,14 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+     * The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
      * 
      */
     @Import(name="healthCheckEvictionTimeInMin")
     private @Nullable Output<Integer> healthCheckEvictionTimeInMin;
 
     /**
-     * @return The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+     * @return The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
      * 
      */
     public Optional<Output<Integer>> healthCheckEvictionTimeInMin() {
@@ -254,14 +254,14 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+     * The Default action for traffic that does not match any `ipRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
      * 
      */
     @Import(name="ipRestrictionDefaultAction")
     private @Nullable Output<String> ipRestrictionDefaultAction;
 
     /**
-     * @return The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+     * @return The Default action for traffic that does not match any `ipRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
      * 
      */
     public Optional<Output<String>> ipRestrictionDefaultAction() {
@@ -269,14 +269,14 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * One or more `ip_restriction` blocks as defined above.
+     * One or more `ipRestriction` blocks as defined above.
      * 
      */
     @Import(name="ipRestrictions")
     private @Nullable Output<List<WindowsWebAppSiteConfigIpRestrictionArgs>> ipRestrictions;
 
     /**
-     * @return One or more `ip_restriction` blocks as defined above.
+     * @return One or more `ipRestriction` blocks as defined above.
      * 
      */
     public Optional<Output<List<WindowsWebAppSiteConfigIpRestrictionArgs>>> ipRestrictions() {
@@ -381,14 +381,14 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+     * The Default action for traffic that does not match any `scmIpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
      * 
      */
     @Import(name="scmIpRestrictionDefaultAction")
     private @Nullable Output<String> scmIpRestrictionDefaultAction;
 
     /**
-     * @return The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+     * @return The Default action for traffic that does not match any `scmIpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
      * 
      */
     public Optional<Output<String>> scmIpRestrictionDefaultAction() {
@@ -396,14 +396,14 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * One or more `scm_ip_restriction` blocks as defined above.
+     * One or more `scmIpRestriction` blocks as defined above.
      * 
      */
     @Import(name="scmIpRestrictions")
     private @Nullable Output<List<WindowsWebAppSiteConfigScmIpRestrictionArgs>> scmIpRestrictions;
 
     /**
-     * @return One or more `scm_ip_restriction` blocks as defined above.
+     * @return One or more `scmIpRestriction` blocks as defined above.
      * 
      */
     public Optional<Output<List<WindowsWebAppSiteConfigScmIpRestrictionArgs>>> scmIpRestrictions() {
@@ -433,14 +433,14 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Should the Windows Web App `ip_restriction` configuration be used for the SCM also.
+     * Should the Windows Web App `ipRestriction` configuration be used for the SCM also.
      * 
      */
     @Import(name="scmUseMainIpRestriction")
     private @Nullable Output<Boolean> scmUseMainIpRestriction;
 
     /**
-     * @return Should the Windows Web App `ip_restriction` configuration be used for the SCM also.
+     * @return Should the Windows Web App `ipRestriction` configuration be used for the SCM also.
      * 
      */
     public Optional<Output<Boolean>> scmUseMainIpRestriction() {
@@ -463,14 +463,14 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * One or more `virtual_application` blocks as defined below.
+     * One or more `virtualApplication` blocks as defined below.
      * 
      */
     @Import(name="virtualApplications")
     private @Nullable Output<List<WindowsWebAppSiteConfigVirtualApplicationArgs>> virtualApplications;
 
     /**
-     * @return One or more `virtual_application` blocks as defined below.
+     * @return One or more `virtualApplication` blocks as defined below.
      * 
      */
     public Optional<Output<List<WindowsWebAppSiteConfigVirtualApplicationArgs>>> virtualApplications() {
@@ -591,7 +591,7 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
         /**
          * @param alwaysOn If this Windows Web App is Always On enabled. Defaults to `true`.
          * 
-         * &gt; **Note:** `always_on` must be explicitly set to `false` when using `Free`, `F1`, `D1`, or `Shared` Service Plans.
+         * &gt; **Note:** `alwaysOn` must be explicitly set to `false` when using `Free`, `F1`, `D1`, or `Shared` Service Plans.
          * 
          * @return builder
          * 
@@ -604,7 +604,7 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
         /**
          * @param alwaysOn If this Windows Web App is Always On enabled. Defaults to `true`.
          * 
-         * &gt; **Note:** `always_on` must be explicitly set to `false` when using `Free`, `F1`, `D1`, or `Shared` Service Plans.
+         * &gt; **Note:** `alwaysOn` must be explicitly set to `false` when using `Free`, `F1`, `D1`, or `Shared` Service Plans.
          * 
          * @return builder
          * 
@@ -677,7 +677,7 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param applicationStack A `application_stack` block as defined above.
+         * @param applicationStack A `applicationStack` block as defined above.
          * 
          * @return builder
          * 
@@ -688,7 +688,7 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param applicationStack A `application_stack` block as defined above.
+         * @param applicationStack A `applicationStack` block as defined above.
          * 
          * @return builder
          * 
@@ -698,7 +698,7 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param autoHealSetting A `auto_heal_setting` block as defined above. Required with `auto_heal`.
+         * @param autoHealSetting A `autoHealSetting` block as defined above. Required with `autoHeal`.
          * 
          * @return builder
          * 
@@ -709,7 +709,7 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param autoHealSetting A `auto_heal_setting` block as defined above. Required with `auto_heal`.
+         * @param autoHealSetting A `autoHealSetting` block as defined above. Required with `autoHeal`.
          * 
          * @return builder
          * 
@@ -831,7 +831,7 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param handlerMappings One or more `handler_mapping` blocks as defined below.
+         * @param handlerMappings One or more `handlerMapping` blocks as defined below.
          * 
          * @return builder
          * 
@@ -842,7 +842,7 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param handlerMappings One or more `handler_mapping` blocks as defined below.
+         * @param handlerMappings One or more `handlerMapping` blocks as defined below.
          * 
          * @return builder
          * 
@@ -852,7 +852,7 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param handlerMappings One or more `handler_mapping` blocks as defined below.
+         * @param handlerMappings One or more `handlerMapping` blocks as defined below.
          * 
          * @return builder
          * 
@@ -862,7 +862,7 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param healthCheckEvictionTimeInMin The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+         * @param healthCheckEvictionTimeInMin The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
          * 
          * @return builder
          * 
@@ -873,7 +873,7 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param healthCheckEvictionTimeInMin The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+         * @param healthCheckEvictionTimeInMin The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `healthCheckPath`.
          * 
          * @return builder
          * 
@@ -925,7 +925,7 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param ipRestrictionDefaultAction The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         * @param ipRestrictionDefaultAction The Default action for traffic that does not match any `ipRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
          * 
          * @return builder
          * 
@@ -936,7 +936,7 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param ipRestrictionDefaultAction The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         * @param ipRestrictionDefaultAction The Default action for traffic that does not match any `ipRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
          * 
          * @return builder
          * 
@@ -946,7 +946,7 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param ipRestrictions One or more `ip_restriction` blocks as defined above.
+         * @param ipRestrictions One or more `ipRestriction` blocks as defined above.
          * 
          * @return builder
          * 
@@ -957,7 +957,7 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param ipRestrictions One or more `ip_restriction` blocks as defined above.
+         * @param ipRestrictions One or more `ipRestriction` blocks as defined above.
          * 
          * @return builder
          * 
@@ -967,7 +967,7 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param ipRestrictions One or more `ip_restriction` blocks as defined above.
+         * @param ipRestrictions One or more `ipRestriction` blocks as defined above.
          * 
          * @return builder
          * 
@@ -1112,7 +1112,7 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param scmIpRestrictionDefaultAction The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         * @param scmIpRestrictionDefaultAction The Default action for traffic that does not match any `scmIpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
          * 
          * @return builder
          * 
@@ -1123,7 +1123,7 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param scmIpRestrictionDefaultAction The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         * @param scmIpRestrictionDefaultAction The Default action for traffic that does not match any `scmIpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
          * 
          * @return builder
          * 
@@ -1133,7 +1133,7 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param scmIpRestrictions One or more `scm_ip_restriction` blocks as defined above.
+         * @param scmIpRestrictions One or more `scmIpRestriction` blocks as defined above.
          * 
          * @return builder
          * 
@@ -1144,7 +1144,7 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param scmIpRestrictions One or more `scm_ip_restriction` blocks as defined above.
+         * @param scmIpRestrictions One or more `scmIpRestriction` blocks as defined above.
          * 
          * @return builder
          * 
@@ -1154,7 +1154,7 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param scmIpRestrictions One or more `scm_ip_restriction` blocks as defined above.
+         * @param scmIpRestrictions One or more `scmIpRestriction` blocks as defined above.
          * 
          * @return builder
          * 
@@ -1194,7 +1194,7 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param scmUseMainIpRestriction Should the Windows Web App `ip_restriction` configuration be used for the SCM also.
+         * @param scmUseMainIpRestriction Should the Windows Web App `ipRestriction` configuration be used for the SCM also.
          * 
          * @return builder
          * 
@@ -1205,7 +1205,7 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param scmUseMainIpRestriction Should the Windows Web App `ip_restriction` configuration be used for the SCM also.
+         * @param scmUseMainIpRestriction Should the Windows Web App `ipRestriction` configuration be used for the SCM also.
          * 
          * @return builder
          * 
@@ -1236,7 +1236,7 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param virtualApplications One or more `virtual_application` blocks as defined below.
+         * @param virtualApplications One or more `virtualApplication` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1247,7 +1247,7 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param virtualApplications One or more `virtual_application` blocks as defined below.
+         * @param virtualApplications One or more `virtualApplication` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1257,7 +1257,7 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param virtualApplications One or more `virtual_application` blocks as defined below.
+         * @param virtualApplications One or more `virtualApplication` blocks as defined below.
          * 
          * @return builder
          * 

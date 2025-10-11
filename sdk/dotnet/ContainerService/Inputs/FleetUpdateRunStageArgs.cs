@@ -22,7 +22,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         private InputList<Inputs.FleetUpdateRunStageGroupArgs>? _groups;
 
         /// <summary>
-        /// One or more `group` blocks as defined below.
+        /// One or more `Group` blocks as defined below.
         /// </summary>
         public InputList<Inputs.FleetUpdateRunStageGroupArgs> Groups
         {

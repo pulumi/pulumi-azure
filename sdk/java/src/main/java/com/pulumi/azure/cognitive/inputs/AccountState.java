@@ -41,7 +41,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     /**
      * If `kind` is `TextAnalytics` this specifies the key of the Search service.
      * 
-     * &gt; **Note:** `custom_question_answering_search_service_id` and `custom_question_answering_search_service_key` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qna_runtime_endpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
+     * &gt; **Note:** `customQuestionAnsweringSearchServiceId` and `customQuestionAnsweringSearchServiceKey` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qnaRuntimeEndpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
      * 
      */
     @Import(name="customQuestionAnsweringSearchServiceKey")
@@ -50,7 +50,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return If `kind` is `TextAnalytics` this specifies the key of the Search service.
      * 
-     * &gt; **Note:** `custom_question_answering_search_service_id` and `custom_question_answering_search_service_key` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qna_runtime_endpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
+     * &gt; **Note:** `customQuestionAnsweringSearchServiceId` and `customQuestionAnsweringSearchServiceKey` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qnaRuntimeEndpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
      * 
      */
     public Optional<Output<String>> customQuestionAnsweringSearchServiceKey() {
@@ -58,18 +58,18 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The subdomain name used for Entra ID token-based authentication. This attribute is required when `network_acls` is specified. This attribute is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://&lt;custom_subdomain_name&gt;.openai.azure.com/`. This can be specified during creation or added later, but once set changing this forces a new resource to be created.
+     * The subdomain name used for Entra ID token-based authentication. This attribute is required when `networkAcls` is specified. This attribute is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://&lt;custom_subdomain_name&gt;.openai.azure.com/`. This can be specified during creation or added later, but once set changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** If you do not specify a `custom_subdomain_name` then you will not be able to attach a Private Endpoint to the resource. Moreover, functionality that requires Entra ID authentication, including Agent service, will not be accessible.
+     * &gt; **Note:** If you do not specify a `customSubdomainName` then you will not be able to attach a Private Endpoint to the resource. Moreover, functionality that requires Entra ID authentication, including Agent service, will not be accessible.
      * 
      */
     @Import(name="customSubdomainName")
     private @Nullable Output<String> customSubdomainName;
 
     /**
-     * @return The subdomain name used for Entra ID token-based authentication. This attribute is required when `network_acls` is specified. This attribute is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://&lt;custom_subdomain_name&gt;.openai.azure.com/`. This can be specified during creation or added later, but once set changing this forces a new resource to be created.
+     * @return The subdomain name used for Entra ID token-based authentication. This attribute is required when `networkAcls` is specified. This attribute is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://&lt;custom_subdomain_name&gt;.openai.azure.com/`. This can be specified during creation or added later, but once set changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** If you do not specify a `custom_subdomain_name` then you will not be able to attach a Private Endpoint to the resource. Moreover, functionality that requires Entra ID authentication, including Agent service, will not be accessible.
+     * &gt; **Note:** If you do not specify a `customSubdomainName` then you will not be able to attach a Private Endpoint to the resource. Moreover, functionality that requires Entra ID authentication, including Agent service, will not be accessible.
      * 
      */
     public Optional<Output<String>> customSubdomainName() {
@@ -77,14 +77,14 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `customer_managed_key` block as documented below.
+     * A `customerManagedKey` block as documented below.
      * 
      */
     @Import(name="customerManagedKey")
     private @Nullable Output<AccountCustomerManagedKeyArgs> customerManagedKey;
 
     /**
-     * @return A `customer_managed_key` block as documented below.
+     * @return A `customerManagedKey` block as documented below.
      * 
      */
     public Optional<Output<AccountCustomerManagedKeyArgs>> customerManagedKey() {
@@ -284,14 +284,14 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `network_acls` block as defined below. When this property is specified, `custom_subdomain_name` is also required to be set.
+     * A `networkAcls` block as defined below. When this property is specified, `customSubdomainName` is also required to be set.
      * 
      */
     @Import(name="networkAcls")
     private @Nullable Output<AccountNetworkAclsArgs> networkAcls;
 
     /**
-     * @return A `network_acls` block as defined below. When this property is specified, `custom_subdomain_name` is also required to be set.
+     * @return A `networkAcls` block as defined below. When this property is specified, `customSubdomainName` is also required to be set.
      * 
      */
     public Optional<Output<AccountNetworkAclsArgs>> networkAcls() {
@@ -299,14 +299,14 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `network_injection` block as defined below. Only applicable if the `kind` is set to `AIServices`.
+     * A `networkInjection` block as defined below. Only applicable if the `kind` is set to `AIServices`.
      * 
      */
     @Import(name="networkInjection")
     private @Nullable Output<AccountNetworkInjectionArgs> networkInjection;
 
     /**
-     * @return A `network_injection` block as defined below. Only applicable if the `kind` is set to `AIServices`.
+     * @return A `networkInjection` block as defined below. Only applicable if the `kind` is set to `AIServices`.
      * 
      */
     public Optional<Output<AccountNetworkInjectionArgs>> networkInjection() {
@@ -344,14 +344,14 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether project management is enabled when the `kind` is set to `AIServices`. Once enabled, `project_management_enabled` cannot be disabled. Changing this forces a new resource to be created. Defaults to `false`.
+     * Whether project management is enabled when the `kind` is set to `AIServices`. Once enabled, `projectManagementEnabled` cannot be disabled. Changing this forces a new resource to be created. Defaults to `false`.
      * 
      */
     @Import(name="projectManagementEnabled")
     private @Nullable Output<Boolean> projectManagementEnabled;
 
     /**
-     * @return Whether project management is enabled when the `kind` is set to `AIServices`. Once enabled, `project_management_enabled` cannot be disabled. Changing this forces a new resource to be created. Defaults to `false`.
+     * @return Whether project management is enabled when the `kind` is set to `AIServices`. Once enabled, `projectManagementEnabled` cannot be disabled. Changing this forces a new resource to be created. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> projectManagementEnabled() {
@@ -542,7 +542,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param customQuestionAnsweringSearchServiceKey If `kind` is `TextAnalytics` this specifies the key of the Search service.
          * 
-         * &gt; **Note:** `custom_question_answering_search_service_id` and `custom_question_answering_search_service_key` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qna_runtime_endpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
+         * &gt; **Note:** `customQuestionAnsweringSearchServiceId` and `customQuestionAnsweringSearchServiceKey` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qnaRuntimeEndpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
          * 
          * @return builder
          * 
@@ -555,7 +555,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param customQuestionAnsweringSearchServiceKey If `kind` is `TextAnalytics` this specifies the key of the Search service.
          * 
-         * &gt; **Note:** `custom_question_answering_search_service_id` and `custom_question_answering_search_service_key` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qna_runtime_endpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
+         * &gt; **Note:** `customQuestionAnsweringSearchServiceId` and `customQuestionAnsweringSearchServiceKey` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qnaRuntimeEndpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
          * 
          * @return builder
          * 
@@ -565,9 +565,9 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customSubdomainName The subdomain name used for Entra ID token-based authentication. This attribute is required when `network_acls` is specified. This attribute is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://&lt;custom_subdomain_name&gt;.openai.azure.com/`. This can be specified during creation or added later, but once set changing this forces a new resource to be created.
+         * @param customSubdomainName The subdomain name used for Entra ID token-based authentication. This attribute is required when `networkAcls` is specified. This attribute is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://&lt;custom_subdomain_name&gt;.openai.azure.com/`. This can be specified during creation or added later, but once set changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** If you do not specify a `custom_subdomain_name` then you will not be able to attach a Private Endpoint to the resource. Moreover, functionality that requires Entra ID authentication, including Agent service, will not be accessible.
+         * &gt; **Note:** If you do not specify a `customSubdomainName` then you will not be able to attach a Private Endpoint to the resource. Moreover, functionality that requires Entra ID authentication, including Agent service, will not be accessible.
          * 
          * @return builder
          * 
@@ -578,9 +578,9 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customSubdomainName The subdomain name used for Entra ID token-based authentication. This attribute is required when `network_acls` is specified. This attribute is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://&lt;custom_subdomain_name&gt;.openai.azure.com/`. This can be specified during creation or added later, but once set changing this forces a new resource to be created.
+         * @param customSubdomainName The subdomain name used for Entra ID token-based authentication. This attribute is required when `networkAcls` is specified. This attribute is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://&lt;custom_subdomain_name&gt;.openai.azure.com/`. This can be specified during creation or added later, but once set changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** If you do not specify a `custom_subdomain_name` then you will not be able to attach a Private Endpoint to the resource. Moreover, functionality that requires Entra ID authentication, including Agent service, will not be accessible.
+         * &gt; **Note:** If you do not specify a `customSubdomainName` then you will not be able to attach a Private Endpoint to the resource. Moreover, functionality that requires Entra ID authentication, including Agent service, will not be accessible.
          * 
          * @return builder
          * 
@@ -590,7 +590,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customerManagedKey A `customer_managed_key` block as documented below.
+         * @param customerManagedKey A `customerManagedKey` block as documented below.
          * 
          * @return builder
          * 
@@ -601,7 +601,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customerManagedKey A `customer_managed_key` block as documented below.
+         * @param customerManagedKey A `customerManagedKey` block as documented below.
          * 
          * @return builder
          * 
@@ -885,7 +885,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkAcls A `network_acls` block as defined below. When this property is specified, `custom_subdomain_name` is also required to be set.
+         * @param networkAcls A `networkAcls` block as defined below. When this property is specified, `customSubdomainName` is also required to be set.
          * 
          * @return builder
          * 
@@ -896,7 +896,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkAcls A `network_acls` block as defined below. When this property is specified, `custom_subdomain_name` is also required to be set.
+         * @param networkAcls A `networkAcls` block as defined below. When this property is specified, `customSubdomainName` is also required to be set.
          * 
          * @return builder
          * 
@@ -906,7 +906,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkInjection A `network_injection` block as defined below. Only applicable if the `kind` is set to `AIServices`.
+         * @param networkInjection A `networkInjection` block as defined below. Only applicable if the `kind` is set to `AIServices`.
          * 
          * @return builder
          * 
@@ -917,7 +917,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkInjection A `network_injection` block as defined below. Only applicable if the `kind` is set to `AIServices`.
+         * @param networkInjection A `networkInjection` block as defined below. Only applicable if the `kind` is set to `AIServices`.
          * 
          * @return builder
          * 
@@ -969,7 +969,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param projectManagementEnabled Whether project management is enabled when the `kind` is set to `AIServices`. Once enabled, `project_management_enabled` cannot be disabled. Changing this forces a new resource to be created. Defaults to `false`.
+         * @param projectManagementEnabled Whether project management is enabled when the `kind` is set to `AIServices`. Once enabled, `projectManagementEnabled` cannot be disabled. Changing this forces a new resource to be created. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -980,7 +980,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param projectManagementEnabled Whether project management is enabled when the `kind` is set to `AIServices`. Once enabled, `project_management_enabled` cannot be disabled. Changing this forces a new resource to be created. Defaults to `false`.
+         * @param projectManagementEnabled Whether project management is enabled when the `kind` is set to `AIServices`. Once enabled, `projectManagementEnabled` cannot be disabled. Changing this forces a new resource to be created. Defaults to `false`.
          * 
          * @return builder
          * 

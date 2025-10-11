@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class LinuxWebAppSlotLogs
     {
         /// <summary>
-        /// A `application_logs` block as defined above.
+        /// A `ApplicationLogs` block as defined above.
         /// </summary>
         public readonly Outputs.LinuxWebAppSlotLogsApplicationLogs? ApplicationLogs;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool? FailedRequestTracing;
         /// <summary>
-        /// An `http_logs` block as defined above.
+        /// An `HttpLogs` block as defined above.
         /// </summary>
         public readonly Outputs.LinuxWebAppSlotLogsHttpLogs? HttpLogs;
 

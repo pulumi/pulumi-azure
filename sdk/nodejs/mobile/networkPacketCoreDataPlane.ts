@@ -7,6 +7,15 @@ import * as utilities from "../utilities";
 /**
  * Manages a Mobile Network Packet Core Data Plane.
  *
+ * ## Example Usage
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.MobileNetwork` - 2022-11-01
+ *
  * ## Import
  *
  * Mobile Network Packet Core Data Plane can be imported using the `resource id`, e.g.

@@ -313,19 +313,19 @@ namespace Pulumi.Azure.SiteRecovery
     public partial class ReplicationRecoveryPlan : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An `azure_to_azure_settings` block as defined below.
+        /// An `AzureToAzureSettings` block as defined below.
         /// </summary>
         [Output("azureToAzureSettings")]
         public Output<Outputs.ReplicationRecoveryPlanAzureToAzureSettings?> AzureToAzureSettings { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `boot_recovery_group` blocks as defined below.
+        /// One or more `BootRecoveryGroup` blocks as defined below.
         /// </summary>
         [Output("bootRecoveryGroups")]
         public Output<ImmutableArray<Outputs.ReplicationRecoveryPlanBootRecoveryGroup>> BootRecoveryGroups { get; private set; } = null!;
 
         /// <summary>
-        /// One `failover_recovery_group` block as defined below.
+        /// One `FailoverRecoveryGroup` block as defined below.
         /// </summary>
         [Output("failoverRecoveryGroup")]
         public Output<Outputs.ReplicationRecoveryPlanFailoverRecoveryGroup> FailoverRecoveryGroup { get; private set; } = null!;
@@ -343,7 +343,7 @@ namespace Pulumi.Azure.SiteRecovery
         public Output<string> RecoveryVaultId { get; private set; } = null!;
 
         /// <summary>
-        /// One `shutdown_recovery_group` block as defined below.
+        /// One `ShutdownRecoveryGroup` block as defined below.
         /// </summary>
         [Output("shutdownRecoveryGroup")]
         public Output<Outputs.ReplicationRecoveryPlanShutdownRecoveryGroup> ShutdownRecoveryGroup { get; private set; } = null!;
@@ -407,7 +407,7 @@ namespace Pulumi.Azure.SiteRecovery
     public sealed class ReplicationRecoveryPlanArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `azure_to_azure_settings` block as defined below.
+        /// An `AzureToAzureSettings` block as defined below.
         /// </summary>
         [Input("azureToAzureSettings")]
         public Input<Inputs.ReplicationRecoveryPlanAzureToAzureSettingsArgs>? AzureToAzureSettings { get; set; }
@@ -416,7 +416,7 @@ namespace Pulumi.Azure.SiteRecovery
         private InputList<Inputs.ReplicationRecoveryPlanBootRecoveryGroupArgs>? _bootRecoveryGroups;
 
         /// <summary>
-        /// One or more `boot_recovery_group` blocks as defined below.
+        /// One or more `BootRecoveryGroup` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ReplicationRecoveryPlanBootRecoveryGroupArgs> BootRecoveryGroups
         {
@@ -425,7 +425,7 @@ namespace Pulumi.Azure.SiteRecovery
         }
 
         /// <summary>
-        /// One `failover_recovery_group` block as defined below.
+        /// One `FailoverRecoveryGroup` block as defined below.
         /// </summary>
         [Input("failoverRecoveryGroup", required: true)]
         public Input<Inputs.ReplicationRecoveryPlanFailoverRecoveryGroupArgs> FailoverRecoveryGroup { get; set; } = null!;
@@ -443,7 +443,7 @@ namespace Pulumi.Azure.SiteRecovery
         public Input<string> RecoveryVaultId { get; set; } = null!;
 
         /// <summary>
-        /// One `shutdown_recovery_group` block as defined below.
+        /// One `ShutdownRecoveryGroup` block as defined below.
         /// </summary>
         [Input("shutdownRecoveryGroup", required: true)]
         public Input<Inputs.ReplicationRecoveryPlanShutdownRecoveryGroupArgs> ShutdownRecoveryGroup { get; set; } = null!;
@@ -469,7 +469,7 @@ namespace Pulumi.Azure.SiteRecovery
     public sealed class ReplicationRecoveryPlanState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `azure_to_azure_settings` block as defined below.
+        /// An `AzureToAzureSettings` block as defined below.
         /// </summary>
         [Input("azureToAzureSettings")]
         public Input<Inputs.ReplicationRecoveryPlanAzureToAzureSettingsGetArgs>? AzureToAzureSettings { get; set; }
@@ -478,7 +478,7 @@ namespace Pulumi.Azure.SiteRecovery
         private InputList<Inputs.ReplicationRecoveryPlanBootRecoveryGroupGetArgs>? _bootRecoveryGroups;
 
         /// <summary>
-        /// One or more `boot_recovery_group` blocks as defined below.
+        /// One or more `BootRecoveryGroup` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ReplicationRecoveryPlanBootRecoveryGroupGetArgs> BootRecoveryGroups
         {
@@ -487,7 +487,7 @@ namespace Pulumi.Azure.SiteRecovery
         }
 
         /// <summary>
-        /// One `failover_recovery_group` block as defined below.
+        /// One `FailoverRecoveryGroup` block as defined below.
         /// </summary>
         [Input("failoverRecoveryGroup")]
         public Input<Inputs.ReplicationRecoveryPlanFailoverRecoveryGroupGetArgs>? FailoverRecoveryGroup { get; set; }
@@ -505,7 +505,7 @@ namespace Pulumi.Azure.SiteRecovery
         public Input<string>? RecoveryVaultId { get; set; }
 
         /// <summary>
-        /// One `shutdown_recovery_group` block as defined below.
+        /// One `ShutdownRecoveryGroup` block as defined below.
         /// </summary>
         [Input("shutdownRecoveryGroup")]
         public Input<Inputs.ReplicationRecoveryPlanShutdownRecoveryGroupGetArgs>? ShutdownRecoveryGroup { get; set; }

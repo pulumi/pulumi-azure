@@ -53,14 +53,14 @@ public final class DatasetBinaryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `azure_blob_storage_location` block as defined below.
+     * A `azureBlobStorageLocation` block as defined below.
      * 
      */
     @Import(name="azureBlobStorageLocation")
     private @Nullable Output<DatasetBinaryAzureBlobStorageLocationArgs> azureBlobStorageLocation;
 
     /**
-     * @return A `azure_blob_storage_location` block as defined below.
+     * @return A `azureBlobStorageLocation` block as defined below.
      * 
      */
     public Optional<Output<DatasetBinaryAzureBlobStorageLocationArgs>> azureBlobStorageLocation() {
@@ -128,14 +128,14 @@ public final class DatasetBinaryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `http_server_location` block as defined below.
+     * A `httpServerLocation` block as defined below.
      * 
      */
     @Import(name="httpServerLocation")
     private @Nullable Output<DatasetBinaryHttpServerLocationArgs> httpServerLocation;
 
     /**
-     * @return A `http_server_location` block as defined below.
+     * @return A `httpServerLocation` block as defined below.
      * 
      */
     public Optional<Output<DatasetBinaryHttpServerLocationArgs>> httpServerLocation() {
@@ -192,14 +192,14 @@ public final class DatasetBinaryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `sftp_server_location` block as defined below.
+     * A `sftpServerLocation` block as defined below.
      * 
      */
     @Import(name="sftpServerLocation")
     private @Nullable Output<DatasetBinarySftpServerLocationArgs> sftpServerLocation;
 
     /**
-     * @return A `sftp_server_location` block as defined below.
+     * @return A `sftpServerLocation` block as defined below.
      * 
      */
     public Optional<Output<DatasetBinarySftpServerLocationArgs>> sftpServerLocation() {
@@ -294,7 +294,7 @@ public final class DatasetBinaryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param azureBlobStorageLocation A `azure_blob_storage_location` block as defined below.
+         * @param azureBlobStorageLocation A `azureBlobStorageLocation` block as defined below.
          * 
          * @return builder
          * 
@@ -305,7 +305,7 @@ public final class DatasetBinaryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param azureBlobStorageLocation A `azure_blob_storage_location` block as defined below.
+         * @param azureBlobStorageLocation A `azureBlobStorageLocation` block as defined below.
          * 
          * @return builder
          * 
@@ -399,7 +399,7 @@ public final class DatasetBinaryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param httpServerLocation A `http_server_location` block as defined below.
+         * @param httpServerLocation A `httpServerLocation` block as defined below.
          * 
          * @return builder
          * 
@@ -410,7 +410,7 @@ public final class DatasetBinaryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param httpServerLocation A `http_server_location` block as defined below.
+         * @param httpServerLocation A `httpServerLocation` block as defined below.
          * 
          * @return builder
          * 
@@ -487,7 +487,7 @@ public final class DatasetBinaryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sftpServerLocation A `sftp_server_location` block as defined below.
+         * @param sftpServerLocation A `sftpServerLocation` block as defined below.
          * 
          * @return builder
          * 
@@ -498,7 +498,7 @@ public final class DatasetBinaryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sftpServerLocation A `sftp_server_location` block as defined below.
+         * @param sftpServerLocation A `sftpServerLocation` block as defined below.
          * 
          * @return builder
          * 

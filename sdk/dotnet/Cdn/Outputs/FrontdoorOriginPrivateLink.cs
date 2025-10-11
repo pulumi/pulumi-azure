@@ -20,17 +20,17 @@ namespace Pulumi.Azure.Cdn.Outputs
         /// <summary>
         /// The ID of the Azure Resource to connect to via the Private Link.
         /// 
-        /// &gt; **Note:** the `private_link_target_id` property must specify the Resource ID of the Private Link Service when using Load Balancer as an Origin.
+        /// &gt; **Note:** the `PrivateLinkTargetId` property must specify the Resource ID of the Private Link Service when using Load Balancer as an Origin.
         /// </summary>
         public readonly string PrivateLinkTargetId;
         /// <summary>
-        /// Specifies the request message that will be submitted to the `private_link_target_id` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for CDN FrontDoor Private Link Origin`.
+        /// Specifies the request message that will be submitted to the `PrivateLinkTargetId` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for CDN FrontDoor Private Link Origin`.
         /// </summary>
         public readonly string? RequestMessage;
         /// <summary>
-        /// Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blob_secondary`, `Gateway`, `managedEnvironments`, `sites`, `web` and `web_secondary`.
+        /// Specifies the type of target for this Private Link Endpoint. Possible values are `Blob`, `BlobSecondary`, `Gateway`, `managedEnvironments`, `Sites`, `Web` and `WebSecondary`.
         /// 
-        /// &gt; **Note:** `target_type` cannot be specified when using a Load Balancer as an Origin.
+        /// &gt; **Note:** `TargetType` cannot be specified when using a Load Balancer as an Origin.
         /// </summary>
         public readonly string? TargetType;
 

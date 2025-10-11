@@ -91,7 +91,7 @@ namespace Pulumi.Azure.Storage
     public partial class BlobInventoryPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// One or more `rules` blocks as defined below.
+        /// One or more `Rules` blocks as defined below.
         /// </summary>
         [Output("rules")]
         public Output<ImmutableArray<Outputs.BlobInventoryPolicyRule>> Rules { get; private set; } = null!;
@@ -152,7 +152,7 @@ namespace Pulumi.Azure.Storage
         private InputList<Inputs.BlobInventoryPolicyRuleArgs>? _rules;
 
         /// <summary>
-        /// One or more `rules` blocks as defined below.
+        /// One or more `Rules` blocks as defined below.
         /// </summary>
         public InputList<Inputs.BlobInventoryPolicyRuleArgs> Rules
         {
@@ -178,7 +178,7 @@ namespace Pulumi.Azure.Storage
         private InputList<Inputs.BlobInventoryPolicyRuleGetArgs>? _rules;
 
         /// <summary>
-        /// One or more `rules` blocks as defined below.
+        /// One or more `Rules` blocks as defined below.
         /// </summary>
         public InputList<Inputs.BlobInventoryPolicyRuleGetArgs> Rules
         {

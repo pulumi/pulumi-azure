@@ -110,14 +110,14 @@ public final class GroupPolicySetDefinitionArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * One or more `policy_definition_group` blocks as defined below.
+     * One or more `policyDefinitionGroup` blocks as defined below.
      * 
      */
     @Import(name="policyDefinitionGroups")
     private @Nullable Output<List<GroupPolicySetDefinitionPolicyDefinitionGroupArgs>> policyDefinitionGroups;
 
     /**
-     * @return One or more `policy_definition_group` blocks as defined below.
+     * @return One or more `policyDefinitionGroup` blocks as defined below.
      * 
      */
     public Optional<Output<List<GroupPolicySetDefinitionPolicyDefinitionGroupArgs>>> policyDefinitionGroups() {
@@ -125,14 +125,14 @@ public final class GroupPolicySetDefinitionArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * One or more `policy_definition_reference` blocks as defined below.
+     * One or more `policyDefinitionReference` blocks as defined below.
      * 
      */
     @Import(name="policyDefinitionReferences", required=true)
     private Output<List<GroupPolicySetDefinitionPolicyDefinitionReferenceArgs>> policyDefinitionReferences;
 
     /**
-     * @return One or more `policy_definition_reference` blocks as defined below.
+     * @return One or more `policyDefinitionReference` blocks as defined below.
      * 
      */
     public Output<List<GroupPolicySetDefinitionPolicyDefinitionReferenceArgs>> policyDefinitionReferences() {
@@ -313,7 +313,7 @@ public final class GroupPolicySetDefinitionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param policyDefinitionGroups One or more `policy_definition_group` blocks as defined below.
+         * @param policyDefinitionGroups One or more `policyDefinitionGroup` blocks as defined below.
          * 
          * @return builder
          * 
@@ -324,7 +324,7 @@ public final class GroupPolicySetDefinitionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param policyDefinitionGroups One or more `policy_definition_group` blocks as defined below.
+         * @param policyDefinitionGroups One or more `policyDefinitionGroup` blocks as defined below.
          * 
          * @return builder
          * 
@@ -334,7 +334,7 @@ public final class GroupPolicySetDefinitionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param policyDefinitionGroups One or more `policy_definition_group` blocks as defined below.
+         * @param policyDefinitionGroups One or more `policyDefinitionGroup` blocks as defined below.
          * 
          * @return builder
          * 
@@ -344,7 +344,7 @@ public final class GroupPolicySetDefinitionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param policyDefinitionReferences One or more `policy_definition_reference` blocks as defined below.
+         * @param policyDefinitionReferences One or more `policyDefinitionReference` blocks as defined below.
          * 
          * @return builder
          * 
@@ -355,7 +355,7 @@ public final class GroupPolicySetDefinitionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param policyDefinitionReferences One or more `policy_definition_reference` blocks as defined below.
+         * @param policyDefinitionReferences One or more `policyDefinitionReference` blocks as defined below.
          * 
          * @return builder
          * 
@@ -365,7 +365,7 @@ public final class GroupPolicySetDefinitionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param policyDefinitionReferences One or more `policy_definition_reference` blocks as defined below.
+         * @param policyDefinitionReferences One or more `policyDefinitionReference` blocks as defined below.
          * 
          * @return builder
          * 

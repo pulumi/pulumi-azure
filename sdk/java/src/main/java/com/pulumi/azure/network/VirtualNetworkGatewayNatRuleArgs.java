@@ -20,14 +20,14 @@ public final class VirtualNetworkGatewayNatRuleArgs extends com.pulumi.resources
     public static final VirtualNetworkGatewayNatRuleArgs Empty = new VirtualNetworkGatewayNatRuleArgs();
 
     /**
-     * One or more `external_mapping` blocks as documented below.
+     * One or more `externalMapping` blocks as documented below.
      * 
      */
     @Import(name="externalMappings", required=true)
     private Output<List<VirtualNetworkGatewayNatRuleExternalMappingArgs>> externalMappings;
 
     /**
-     * @return One or more `external_mapping` blocks as documented below.
+     * @return One or more `externalMapping` blocks as documented below.
      * 
      */
     public Output<List<VirtualNetworkGatewayNatRuleExternalMappingArgs>> externalMappings() {
@@ -35,14 +35,14 @@ public final class VirtualNetworkGatewayNatRuleArgs extends com.pulumi.resources
     }
 
     /**
-     * One or more `internal_mapping` blocks as documented below.
+     * One or more `internalMapping` blocks as documented below.
      * 
      */
     @Import(name="internalMappings", required=true)
     private Output<List<VirtualNetworkGatewayNatRuleInternalMappingArgs>> internalMappings;
 
     /**
-     * @return One or more `internal_mapping` blocks as documented below.
+     * @return One or more `internalMapping` blocks as documented below.
      * 
      */
     public Output<List<VirtualNetworkGatewayNatRuleInternalMappingArgs>> internalMappings() {
@@ -171,7 +171,7 @@ public final class VirtualNetworkGatewayNatRuleArgs extends com.pulumi.resources
         }
 
         /**
-         * @param externalMappings One or more `external_mapping` blocks as documented below.
+         * @param externalMappings One or more `externalMapping` blocks as documented below.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class VirtualNetworkGatewayNatRuleArgs extends com.pulumi.resources
         }
 
         /**
-         * @param externalMappings One or more `external_mapping` blocks as documented below.
+         * @param externalMappings One or more `externalMapping` blocks as documented below.
          * 
          * @return builder
          * 
@@ -192,7 +192,7 @@ public final class VirtualNetworkGatewayNatRuleArgs extends com.pulumi.resources
         }
 
         /**
-         * @param externalMappings One or more `external_mapping` blocks as documented below.
+         * @param externalMappings One or more `externalMapping` blocks as documented below.
          * 
          * @return builder
          * 
@@ -202,7 +202,7 @@ public final class VirtualNetworkGatewayNatRuleArgs extends com.pulumi.resources
         }
 
         /**
-         * @param internalMappings One or more `internal_mapping` blocks as documented below.
+         * @param internalMappings One or more `internalMapping` blocks as documented below.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class VirtualNetworkGatewayNatRuleArgs extends com.pulumi.resources
         }
 
         /**
-         * @param internalMappings One or more `internal_mapping` blocks as documented below.
+         * @param internalMappings One or more `internalMapping` blocks as documented below.
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class VirtualNetworkGatewayNatRuleArgs extends com.pulumi.resources
         }
 
         /**
-         * @param internalMappings One or more `internal_mapping` blocks as documented below.
+         * @param internalMappings One or more `internalMapping` blocks as documented below.
          * 
          * @return builder
          * 

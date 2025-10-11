@@ -8,6 +8,15 @@ import * as utilities from "../utilities";
 
 /**
  * Get information about a Mobile Network Sim.
+ *
+ * ## Example Usage
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.MobileNetwork` - 2022-11-01
  */
 export function getNetworkSim(args: GetNetworkSimArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkSimResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -76,6 +85,15 @@ export interface GetNetworkSimResult {
 }
 /**
  * Get information about a Mobile Network Sim.
+ *
+ * ## Example Usage
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.MobileNetwork` - 2022-11-01
  */
 export function getNetworkSimOutput(args: GetNetworkSimOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkSimResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -80,13 +80,13 @@ namespace Pulumi.Azure.Storage
         public Output<string?> CacheControl { get; private set; } = null!;
 
         /// <summary>
-        /// The MD5 sum of the blob contents. Cannot be defined if `source_uri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
+        /// The MD5 sum of the blob contents. Cannot be defined if `SourceUri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
         /// </summary>
         [Output("contentMd5")]
         public Output<string?> ContentMd5 { get; private set; } = null!;
 
         /// <summary>
-        /// The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
+        /// The content type of the storage blob. Cannot be defined if `SourceUri` is defined. Defaults to `application/octet-stream`.
         /// </summary>
         [Output("contentType")]
         public Output<string?> ContentType { get; private set; } = null!;
@@ -112,33 +112,33 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
+        /// &gt; **NOTE:** `Parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
         /// </summary>
         [Output("parallelism")]
         public Output<int?> Parallelism { get; private set; } = null!;
 
         /// <summary>
-        /// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to `0`. Changing this forces a new resource to be created.
+        /// Used only for `Page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to `0`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** `size` is required if `source_uri` is not set.
+        /// &gt; **Note:** `Size` is required if `SourceUri` is not set.
         /// </summary>
         [Output("size")]
         public Output<int?> Size { get; private set; } = null!;
 
         /// <summary>
-        /// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified. Changing this forces a new resource to be created.
+        /// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `SourceContent` or `SourceUri` is specified. Changing this forces a new resource to be created.
         /// </summary>
         [Output("source")]
         public Output<AssetOrArchive?> Source { get; private set; } = null!;
 
         /// <summary>
-        /// The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified. Changing this forces a new resource to be created.
+        /// The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `Source` or `SourceUri` is specified. Changing this forces a new resource to be created.
         /// </summary>
         [Output("sourceContent")]
         public Output<string?> SourceContent { get; private set; } = null!;
 
         /// <summary>
-        /// The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `source_content` is specified.
+        /// The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `Source` or `SourceContent` is specified.
         /// </summary>
         [Output("sourceUri")]
         public Output<string?> SourceUri { get; private set; } = null!;
@@ -226,13 +226,13 @@ namespace Pulumi.Azure.Storage
         public Input<string>? CacheControl { get; set; }
 
         /// <summary>
-        /// The MD5 sum of the blob contents. Cannot be defined if `source_uri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
+        /// The MD5 sum of the blob contents. Cannot be defined if `SourceUri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
         /// </summary>
         [Input("contentMd5")]
         public Input<string>? ContentMd5 { get; set; }
 
         /// <summary>
-        /// The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
+        /// The content type of the storage blob. Cannot be defined if `SourceUri` is defined. Defaults to `application/octet-stream`.
         /// </summary>
         [Input("contentType")]
         public Input<string>? ContentType { get; set; }
@@ -264,33 +264,33 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
+        /// &gt; **NOTE:** `Parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
         /// </summary>
         [Input("parallelism")]
         public Input<int>? Parallelism { get; set; }
 
         /// <summary>
-        /// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to `0`. Changing this forces a new resource to be created.
+        /// Used only for `Page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to `0`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** `size` is required if `source_uri` is not set.
+        /// &gt; **Note:** `Size` is required if `SourceUri` is not set.
         /// </summary>
         [Input("size")]
         public Input<int>? Size { get; set; }
 
         /// <summary>
-        /// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified. Changing this forces a new resource to be created.
+        /// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `SourceContent` or `SourceUri` is specified. Changing this forces a new resource to be created.
         /// </summary>
         [Input("source")]
         public Input<AssetOrArchive>? Source { get; set; }
 
         /// <summary>
-        /// The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified. Changing this forces a new resource to be created.
+        /// The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `Source` or `SourceUri` is specified. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sourceContent")]
         public Input<string>? SourceContent { get; set; }
 
         /// <summary>
-        /// The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `source_content` is specified.
+        /// The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `Source` or `SourceContent` is specified.
         /// </summary>
         [Input("sourceUri")]
         public Input<string>? SourceUri { get; set; }
@@ -334,13 +334,13 @@ namespace Pulumi.Azure.Storage
         public Input<string>? CacheControl { get; set; }
 
         /// <summary>
-        /// The MD5 sum of the blob contents. Cannot be defined if `source_uri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
+        /// The MD5 sum of the blob contents. Cannot be defined if `SourceUri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
         /// </summary>
         [Input("contentMd5")]
         public Input<string>? ContentMd5 { get; set; }
 
         /// <summary>
-        /// The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
+        /// The content type of the storage blob. Cannot be defined if `SourceUri` is defined. Defaults to `application/octet-stream`.
         /// </summary>
         [Input("contentType")]
         public Input<string>? ContentType { get; set; }
@@ -372,33 +372,33 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
+        /// &gt; **NOTE:** `Parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
         /// </summary>
         [Input("parallelism")]
         public Input<int>? Parallelism { get; set; }
 
         /// <summary>
-        /// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to `0`. Changing this forces a new resource to be created.
+        /// Used only for `Page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to `0`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** `size` is required if `source_uri` is not set.
+        /// &gt; **Note:** `Size` is required if `SourceUri` is not set.
         /// </summary>
         [Input("size")]
         public Input<int>? Size { get; set; }
 
         /// <summary>
-        /// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified. Changing this forces a new resource to be created.
+        /// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `SourceContent` or `SourceUri` is specified. Changing this forces a new resource to be created.
         /// </summary>
         [Input("source")]
         public Input<AssetOrArchive>? Source { get; set; }
 
         /// <summary>
-        /// The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified. Changing this forces a new resource to be created.
+        /// The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `Source` or `SourceUri` is specified. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sourceContent")]
         public Input<string>? SourceContent { get; set; }
 
         /// <summary>
-        /// The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `source_content` is specified.
+        /// The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `Source` or `SourceContent` is specified.
         /// </summary>
         [Input("sourceUri")]
         public Input<string>? SourceUri { get; set; }

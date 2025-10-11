@@ -34,7 +34,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly int AppScaleLimit;
         /// <summary>
-        /// A `app_service_logs` block as defined above.
+        /// A `AppServiceLogs` block as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetWindowsFunctionAppSiteConfigAppServiceLogResult> AppServiceLogs;
         /// <summary>
@@ -46,11 +46,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string ApplicationInsightsKey;
         /// <summary>
-        /// A `application_stack` block as defined above.
+        /// A `ApplicationStack` block as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetWindowsFunctionAppSiteConfigApplicationStackResult> ApplicationStacks;
         /// <summary>
-        /// A `cors` block as defined above.
+        /// A `Cors` block as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetWindowsFunctionAppSiteConfigCorResult> Cors;
         /// <summary>
@@ -82,11 +82,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool Http2Enabled;
         /// <summary>
-        /// The Default action for traffic that does not match any `ip_restriction` rule.
+        /// The Default action for traffic that does not match any `IpRestriction` rule.
         /// </summary>
         public readonly string IpRestrictionDefaultAction;
         /// <summary>
-        /// One or more `ip_restriction` blocks as defined above.
+        /// One or more `IpRestriction` blocks as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetWindowsFunctionAppSiteConfigIpRestrictionResult> IpRestrictions;
         /// <summary>
@@ -118,11 +118,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool RuntimeScaleMonitoringEnabled;
         /// <summary>
-        /// The Default action for traffic that does not match any `scm_ip_restriction` rule.
+        /// The Default action for traffic that does not match any `ScmIpRestriction` rule.
         /// </summary>
         public readonly string ScmIpRestrictionDefaultAction;
         /// <summary>
-        /// One or more `scm_ip_restriction` blocks as defined above.
+        /// One or more `ScmIpRestriction` blocks as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetWindowsFunctionAppSiteConfigScmIpRestrictionResult> ScmIpRestrictions;
         /// <summary>
@@ -134,7 +134,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string ScmType;
         /// <summary>
-        /// Is the `ip_restriction` configuration used for the SCM?.
+        /// Is the `IpRestriction` configuration used for the SCM?.
         /// </summary>
         public readonly bool ScmUseMainIpRestriction;
         /// <summary>

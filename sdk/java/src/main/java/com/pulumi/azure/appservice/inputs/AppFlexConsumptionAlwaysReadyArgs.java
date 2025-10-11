@@ -18,14 +18,14 @@ public final class AppFlexConsumptionAlwaysReadyArgs extends com.pulumi.resource
     public static final AppFlexConsumptionAlwaysReadyArgs Empty = new AppFlexConsumptionAlwaysReadyArgs();
 
     /**
-     * The instance count of the `always_ready` of the  Function App. The minimum number is `0`. The total number of `instance_count` should not exceed the `maximum_instance_count`.
+     * The instance count of the `alwaysReady` of the  Function App. The minimum number is `0`. The total number of `instanceCount` should not exceed the `maximumInstanceCount`.
      * 
      */
     @Import(name="instanceCount")
     private @Nullable Output<Integer> instanceCount;
 
     /**
-     * @return The instance count of the `always_ready` of the  Function App. The minimum number is `0`. The total number of `instance_count` should not exceed the `maximum_instance_count`.
+     * @return The instance count of the `alwaysReady` of the  Function App. The minimum number is `0`. The total number of `instanceCount` should not exceed the `maximumInstanceCount`.
      * 
      */
     public Optional<Output<Integer>> instanceCount() {
@@ -33,14 +33,14 @@ public final class AppFlexConsumptionAlwaysReadyArgs extends com.pulumi.resource
     }
 
     /**
-     * The name of the `always_ready` of the Function App.
+     * The name of the `alwaysReady` of the Function App.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the `always_ready` of the Function App.
+     * @return The name of the `alwaysReady` of the Function App.
      * 
      */
     public Output<String> name() {
@@ -73,7 +73,7 @@ public final class AppFlexConsumptionAlwaysReadyArgs extends com.pulumi.resource
         }
 
         /**
-         * @param instanceCount The instance count of the `always_ready` of the  Function App. The minimum number is `0`. The total number of `instance_count` should not exceed the `maximum_instance_count`.
+         * @param instanceCount The instance count of the `alwaysReady` of the  Function App. The minimum number is `0`. The total number of `instanceCount` should not exceed the `maximumInstanceCount`.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class AppFlexConsumptionAlwaysReadyArgs extends com.pulumi.resource
         }
 
         /**
-         * @param instanceCount The instance count of the `always_ready` of the  Function App. The minimum number is `0`. The total number of `instance_count` should not exceed the `maximum_instance_count`.
+         * @param instanceCount The instance count of the `alwaysReady` of the  Function App. The minimum number is `0`. The total number of `instanceCount` should not exceed the `maximumInstanceCount`.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class AppFlexConsumptionAlwaysReadyArgs extends com.pulumi.resource
         }
 
         /**
-         * @param name The name of the `always_ready` of the Function App.
+         * @param name The name of the `alwaysReady` of the Function App.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class AppFlexConsumptionAlwaysReadyArgs extends com.pulumi.resource
         }
 
         /**
-         * @param name The name of the `always_ready` of the Function App.
+         * @param name The name of the `alwaysReady` of the Function App.
          * 
          * @return builder
          * 

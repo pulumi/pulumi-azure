@@ -22,7 +22,7 @@ namespace Pulumi.Azure.MSSql.Outputs
         /// </summary>
         public readonly string MssqlDatabaseId;
         /// <summary>
-        /// The name of the output schema. Defaults to `dbo`.
+        /// The name of the output schema. Defaults to `Dbo`.
         /// </summary>
         public readonly string? SchemaName;
         /// <summary>

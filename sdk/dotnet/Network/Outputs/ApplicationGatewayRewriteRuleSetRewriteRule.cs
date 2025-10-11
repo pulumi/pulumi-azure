@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class ApplicationGatewayRewriteRuleSetRewriteRule
     {
         /// <summary>
-        /// One or more `condition` blocks as defined above.
+        /// One or more `Condition` blocks as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationGatewayRewriteRuleSetRewriteRuleCondition> Conditions;
         /// <summary>
@@ -22,11 +22,11 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// One or more `request_header_configuration` blocks as defined above.
+        /// One or more `RequestHeaderConfiguration` blocks as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration> RequestHeaderConfigurations;
         /// <summary>
-        /// One or more `response_header_configuration` blocks as defined above.
+        /// One or more `ResponseHeaderConfiguration` blocks as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration> ResponseHeaderConfigurations;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly int RuleSequence;
         /// <summary>
-        /// One `url` block as defined below
+        /// One `Url` block as defined below
         /// </summary>
         public readonly Outputs.ApplicationGatewayRewriteRuleSetRewriteRuleUrl? Url;
 

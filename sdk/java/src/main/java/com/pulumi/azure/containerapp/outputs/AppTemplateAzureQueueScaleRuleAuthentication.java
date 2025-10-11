@@ -16,7 +16,7 @@ public final class AppTemplateAzureQueueScaleRuleAuthentication {
      */
     private String secretName;
     /**
-     * @return The Trigger Parameter name to use the supply the value retrieved from the `secret_name`.
+     * @return The Trigger Parameter name to use the supply the value retrieved from the `secretName`.
      * 
      */
     private String triggerParameter;
@@ -30,7 +30,7 @@ public final class AppTemplateAzureQueueScaleRuleAuthentication {
         return this.secretName;
     }
     /**
-     * @return The Trigger Parameter name to use the supply the value retrieved from the `secret_name`.
+     * @return The Trigger Parameter name to use the supply the value retrieved from the `secretName`.
      * 
      */
     public String triggerParameter() {

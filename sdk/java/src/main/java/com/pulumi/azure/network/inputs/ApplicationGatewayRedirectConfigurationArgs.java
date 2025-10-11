@@ -100,14 +100,14 @@ public final class ApplicationGatewayRedirectConfigurationArgs extends com.pulum
     }
 
     /**
-     * The name of the listener to redirect to. Cannot be set if `target_url` is set.
+     * The name of the listener to redirect to. Cannot be set if `targetUrl` is set.
      * 
      */
     @Import(name="targetListenerName")
     private @Nullable Output<String> targetListenerName;
 
     /**
-     * @return The name of the listener to redirect to. Cannot be set if `target_url` is set.
+     * @return The name of the listener to redirect to. Cannot be set if `targetUrl` is set.
      * 
      */
     public Optional<Output<String>> targetListenerName() {
@@ -115,14 +115,14 @@ public final class ApplicationGatewayRedirectConfigurationArgs extends com.pulum
     }
 
     /**
-     * The URL to redirect the request to. Cannot be set if `target_listener_name` is set.
+     * The URL to redirect the request to. Cannot be set if `targetListenerName` is set.
      * 
      */
     @Import(name="targetUrl")
     private @Nullable Output<String> targetUrl;
 
     /**
-     * @return The URL to redirect the request to. Cannot be set if `target_listener_name` is set.
+     * @return The URL to redirect the request to. Cannot be set if `targetListenerName` is set.
      * 
      */
     public Optional<Output<String>> targetUrl() {
@@ -275,7 +275,7 @@ public final class ApplicationGatewayRedirectConfigurationArgs extends com.pulum
         }
 
         /**
-         * @param targetListenerName The name of the listener to redirect to. Cannot be set if `target_url` is set.
+         * @param targetListenerName The name of the listener to redirect to. Cannot be set if `targetUrl` is set.
          * 
          * @return builder
          * 
@@ -286,7 +286,7 @@ public final class ApplicationGatewayRedirectConfigurationArgs extends com.pulum
         }
 
         /**
-         * @param targetListenerName The name of the listener to redirect to. Cannot be set if `target_url` is set.
+         * @param targetListenerName The name of the listener to redirect to. Cannot be set if `targetUrl` is set.
          * 
          * @return builder
          * 
@@ -296,7 +296,7 @@ public final class ApplicationGatewayRedirectConfigurationArgs extends com.pulum
         }
 
         /**
-         * @param targetUrl The URL to redirect the request to. Cannot be set if `target_listener_name` is set.
+         * @param targetUrl The URL to redirect the request to. Cannot be set if `targetListenerName` is set.
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class ApplicationGatewayRedirectConfigurationArgs extends com.pulum
         }
 
         /**
-         * @param targetUrl The URL to redirect the request to. Cannot be set if `target_listener_name` is set.
+         * @param targetUrl The URL to redirect the request to. Cannot be set if `targetListenerName` is set.
          * 
          * @return builder
          * 

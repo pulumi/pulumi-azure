@@ -75,7 +75,7 @@ namespace Pulumi.Azure.ContainerService
     public partial class KubernetesClusterExtension : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An `aks_assigned_identity` block as defined below.
+        /// An `AksAssignedIdentity` block as defined below.
         /// </summary>
         [Output("aksAssignedIdentities")]
         public Output<ImmutableArray<Outputs.KubernetesClusterExtensionAksAssignedIdentity>> AksAssignedIdentities { get; private set; } = null!;
@@ -117,7 +117,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `plan` block as defined below. Changing this forces a new resource to be created.
+        /// A `Plan` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("plan")]
         public Output<Outputs.KubernetesClusterExtensionPlan?> Plan { get; private set; } = null!;
@@ -235,7 +235,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `plan` block as defined below. Changing this forces a new resource to be created.
+        /// A `Plan` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("plan")]
         public Input<Inputs.KubernetesClusterExtensionPlanArgs>? Plan { get; set; }
@@ -276,7 +276,7 @@ namespace Pulumi.Azure.ContainerService
         private InputList<Inputs.KubernetesClusterExtensionAksAssignedIdentityGetArgs>? _aksAssignedIdentities;
 
         /// <summary>
-        /// An `aks_assigned_identity` block as defined below.
+        /// An `AksAssignedIdentity` block as defined below.
         /// </summary>
         public InputList<Inputs.KubernetesClusterExtensionAksAssignedIdentityGetArgs> AksAssignedIdentities
         {
@@ -333,7 +333,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `plan` block as defined below. Changing this forces a new resource to be created.
+        /// A `Plan` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("plan")]
         public Input<Inputs.KubernetesClusterExtensionPlanGetArgs>? Plan { get; set; }

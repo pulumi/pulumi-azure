@@ -24,14 +24,14 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
     public static final EndpointState Empty = new EndpointState();
 
     /**
-     * A `custom_dns_configs` block as defined below.
+     * A `customDnsConfigs` block as defined below.
      * 
      */
     @Import(name="customDnsConfigs")
     private @Nullable Output<List<EndpointCustomDnsConfigArgs>> customDnsConfigs;
 
     /**
-     * @return A `custom_dns_configs` block as defined below.
+     * @return A `customDnsConfigs` block as defined below.
      * 
      */
     public Optional<Output<List<EndpointCustomDnsConfigArgs>>> customDnsConfigs() {
@@ -54,14 +54,14 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
+     * One or more `ipConfiguration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
      * 
      */
     @Import(name="ipConfigurations")
     private @Nullable Output<List<EndpointIpConfigurationArgs>> ipConfigurations;
 
     /**
-     * @return One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
+     * @return One or more `ipConfiguration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
      * 
      */
     public Optional<Output<List<EndpointIpConfigurationArgs>>> ipConfigurations() {
@@ -99,14 +99,14 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `network_interface` block as defined below.
+     * A `networkInterface` block as defined below.
      * 
      */
     @Import(name="networkInterfaces")
     private @Nullable Output<List<EndpointNetworkInterfaceArgs>> networkInterfaces;
 
     /**
-     * @return A `network_interface` block as defined below.
+     * @return A `networkInterface` block as defined below.
      * 
      */
     public Optional<Output<List<EndpointNetworkInterfaceArgs>>> networkInterfaces() {
@@ -114,14 +114,14 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `private_dns_zone_configs` block as defined below.
+     * A `privateDnsZoneConfigs` block as defined below.
      * 
      */
     @Import(name="privateDnsZoneConfigs")
     private @Nullable Output<List<EndpointPrivateDnsZoneConfigArgs>> privateDnsZoneConfigs;
 
     /**
-     * @return A `private_dns_zone_configs` block as defined below.
+     * @return A `privateDnsZoneConfigs` block as defined below.
      * 
      */
     public Optional<Output<List<EndpointPrivateDnsZoneConfigArgs>>> privateDnsZoneConfigs() {
@@ -129,14 +129,14 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `private_dns_zone_group` block as defined below.
+     * A `privateDnsZoneGroup` block as defined below.
      * 
      */
     @Import(name="privateDnsZoneGroup")
     private @Nullable Output<EndpointPrivateDnsZoneGroupArgs> privateDnsZoneGroup;
 
     /**
-     * @return A `private_dns_zone_group` block as defined below.
+     * @return A `privateDnsZoneGroup` block as defined below.
      * 
      */
     public Optional<Output<EndpointPrivateDnsZoneGroupArgs>> privateDnsZoneGroup() {
@@ -144,14 +144,14 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `private_service_connection` block as defined below.
+     * A `privateServiceConnection` block as defined below.
      * 
      */
     @Import(name="privateServiceConnection")
     private @Nullable Output<EndpointPrivateServiceConnectionArgs> privateServiceConnection;
 
     /**
-     * @return A `private_service_connection` block as defined below.
+     * @return A `privateServiceConnection` block as defined below.
      * 
      */
     public Optional<Output<EndpointPrivateServiceConnectionArgs>> privateServiceConnection() {
@@ -239,7 +239,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customDnsConfigs A `custom_dns_configs` block as defined below.
+         * @param customDnsConfigs A `customDnsConfigs` block as defined below.
          * 
          * @return builder
          * 
@@ -250,7 +250,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customDnsConfigs A `custom_dns_configs` block as defined below.
+         * @param customDnsConfigs A `customDnsConfigs` block as defined below.
          * 
          * @return builder
          * 
@@ -260,7 +260,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customDnsConfigs A `custom_dns_configs` block as defined below.
+         * @param customDnsConfigs A `customDnsConfigs` block as defined below.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipConfigurations One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
+         * @param ipConfigurations One or more `ipConfiguration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
          * 
          * @return builder
          * 
@@ -302,7 +302,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipConfigurations One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
+         * @param ipConfigurations One or more `ipConfiguration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
          * 
          * @return builder
          * 
@@ -312,7 +312,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipConfigurations One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
+         * @param ipConfigurations One or more `ipConfiguration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
          * 
          * @return builder
          * 
@@ -364,7 +364,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkInterfaces A `network_interface` block as defined below.
+         * @param networkInterfaces A `networkInterface` block as defined below.
          * 
          * @return builder
          * 
@@ -375,7 +375,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkInterfaces A `network_interface` block as defined below.
+         * @param networkInterfaces A `networkInterface` block as defined below.
          * 
          * @return builder
          * 
@@ -385,7 +385,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkInterfaces A `network_interface` block as defined below.
+         * @param networkInterfaces A `networkInterface` block as defined below.
          * 
          * @return builder
          * 
@@ -395,7 +395,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateDnsZoneConfigs A `private_dns_zone_configs` block as defined below.
+         * @param privateDnsZoneConfigs A `privateDnsZoneConfigs` block as defined below.
          * 
          * @return builder
          * 
@@ -406,7 +406,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateDnsZoneConfigs A `private_dns_zone_configs` block as defined below.
+         * @param privateDnsZoneConfigs A `privateDnsZoneConfigs` block as defined below.
          * 
          * @return builder
          * 
@@ -416,7 +416,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateDnsZoneConfigs A `private_dns_zone_configs` block as defined below.
+         * @param privateDnsZoneConfigs A `privateDnsZoneConfigs` block as defined below.
          * 
          * @return builder
          * 
@@ -426,7 +426,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateDnsZoneGroup A `private_dns_zone_group` block as defined below.
+         * @param privateDnsZoneGroup A `privateDnsZoneGroup` block as defined below.
          * 
          * @return builder
          * 
@@ -437,7 +437,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateDnsZoneGroup A `private_dns_zone_group` block as defined below.
+         * @param privateDnsZoneGroup A `privateDnsZoneGroup` block as defined below.
          * 
          * @return builder
          * 
@@ -447,7 +447,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateServiceConnection A `private_service_connection` block as defined below.
+         * @param privateServiceConnection A `privateServiceConnection` block as defined below.
          * 
          * @return builder
          * 
@@ -458,7 +458,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateServiceConnection A `private_service_connection` block as defined below.
+         * @param privateServiceConnection A `privateServiceConnection` block as defined below.
          * 
          * @return builder
          * 

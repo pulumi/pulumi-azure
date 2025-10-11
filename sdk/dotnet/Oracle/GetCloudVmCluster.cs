@@ -186,7 +186,7 @@ namespace Pulumi.Azure.Oracle
         /// </summary>
         public readonly string ComputeModel;
         /// <summary>
-        /// A `compute_nodes` block as defined below.
+        /// A `ComputeNodes` block as defined below.
         /// </summary>
         public readonly ImmutableArray<string> ComputeNodes;
         /// <summary>
@@ -194,7 +194,7 @@ namespace Pulumi.Azure.Oracle
         /// </summary>
         public readonly int CpuCoreCount;
         /// <summary>
-        /// A `data_collection_options` block as defined below.
+        /// A `DataCollectionOptions` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCloudVmClusterDataCollectionOptionResult> DataCollectionOptions;
         /// <summary>
@@ -210,7 +210,7 @@ namespace Pulumi.Azure.Oracle
         /// </summary>
         public readonly int DbNodeStorageSizeInGbs;
         /// <summary>
-        /// A `db_servers` block as defined below.
+        /// A `DbServers` block as defined below.
         /// </summary>
         public readonly ImmutableArray<string> DbServers;
         /// <summary>
@@ -226,7 +226,7 @@ namespace Pulumi.Azure.Oracle
         /// </summary>
         public readonly string Domain;
         /// <summary>
-        /// A `file_system_configuration` block as defined below.
+        /// A `FileSystemConfiguration` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCloudVmClusterFileSystemConfigurationResult> FileSystemConfigurations;
         /// <summary>
@@ -246,7 +246,7 @@ namespace Pulumi.Azure.Oracle
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A `iorm_config_cache` block as defined below.
+        /// A `IormConfigCache` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCloudVmClusterIormConfigCachResult> IormConfigCaches;
         /// <summary>
@@ -313,7 +313,7 @@ namespace Pulumi.Azure.Oracle
         /// </summary>
         public readonly string ScanDnsRecordId;
         /// <summary>
-        /// A `scan_ip_ids` block as defined below.
+        /// A `ScanIpIds` block as defined below.
         /// </summary>
         public readonly ImmutableArray<string> ScanIpIds;
         /// <summary>

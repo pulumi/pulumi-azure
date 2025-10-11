@@ -18,14 +18,14 @@ public final class WindowsWebAppSlotLogsApplicationLogsArgs extends com.pulumi.r
     public static final WindowsWebAppSlotLogsApplicationLogsArgs Empty = new WindowsWebAppSlotLogsApplicationLogsArgs();
 
     /**
-     * An `azure_blob_storage` block as defined below.
+     * An `azureBlobStorage` block as defined below.
      * 
      */
     @Import(name="azureBlobStorage")
     private @Nullable Output<WindowsWebAppSlotLogsApplicationLogsAzureBlobStorageArgs> azureBlobStorage;
 
     /**
-     * @return An `azure_blob_storage` block as defined below.
+     * @return An `azureBlobStorage` block as defined below.
      * 
      */
     public Optional<Output<WindowsWebAppSlotLogsApplicationLogsAzureBlobStorageArgs>> azureBlobStorage() {
@@ -73,7 +73,7 @@ public final class WindowsWebAppSlotLogsApplicationLogsArgs extends com.pulumi.r
         }
 
         /**
-         * @param azureBlobStorage An `azure_blob_storage` block as defined below.
+         * @param azureBlobStorage An `azureBlobStorage` block as defined below.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class WindowsWebAppSlotLogsApplicationLogsArgs extends com.pulumi.r
         }
 
         /**
-         * @param azureBlobStorage An `azure_blob_storage` block as defined below.
+         * @param azureBlobStorage An `azureBlobStorage` block as defined below.
          * 
          * @return builder
          * 

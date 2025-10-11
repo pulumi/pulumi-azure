@@ -13,38 +13,38 @@ import java.util.Objects;
 @CustomType
 public final class SparkClusterRoles {
     /**
-     * @return A `head_node` block as defined above.
+     * @return A `headNode` block as defined above.
      * 
      */
     private SparkClusterRolesHeadNode headNode;
     /**
-     * @return A `worker_node` block as defined below.
+     * @return A `workerNode` block as defined below.
      * 
      */
     private SparkClusterRolesWorkerNode workerNode;
     /**
-     * @return A `zookeeper_node` block as defined below.
+     * @return A `zookeeperNode` block as defined below.
      * 
      */
     private SparkClusterRolesZookeeperNode zookeeperNode;
 
     private SparkClusterRoles() {}
     /**
-     * @return A `head_node` block as defined above.
+     * @return A `headNode` block as defined above.
      * 
      */
     public SparkClusterRolesHeadNode headNode() {
         return this.headNode;
     }
     /**
-     * @return A `worker_node` block as defined below.
+     * @return A `workerNode` block as defined below.
      * 
      */
     public SparkClusterRolesWorkerNode workerNode() {
         return this.workerNode;
     }
     /**
-     * @return A `zookeeper_node` block as defined below.
+     * @return A `zookeeperNode` block as defined below.
      * 
      */
     public SparkClusterRolesZookeeperNode zookeeperNode() {

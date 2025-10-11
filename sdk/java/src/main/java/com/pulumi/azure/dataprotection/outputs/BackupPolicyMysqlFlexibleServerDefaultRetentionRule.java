@@ -12,14 +12,14 @@ import java.util.Objects;
 @CustomType
 public final class BackupPolicyMysqlFlexibleServerDefaultRetentionRule {
     /**
-     * @return A `life_cycle` block as defined below. Changing this forces a new resource to be created.
+     * @return A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     private List<BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycle> lifeCycles;
 
     private BackupPolicyMysqlFlexibleServerDefaultRetentionRule() {}
     /**
-     * @return A `life_cycle` block as defined below. Changing this forces a new resource to be created.
+     * @return A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public List<BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycle> lifeCycles() {

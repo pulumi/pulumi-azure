@@ -151,7 +151,7 @@ namespace Pulumi.Azure.Oracle
     public sealed class GetAdbsCharacterSetsResult
     {
         /// <summary>
-        /// A `character_sets` block as defined below.
+        /// A `CharacterSets` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAdbsCharacterSetsCharacterSetResult> CharacterSets;
         /// <summary>

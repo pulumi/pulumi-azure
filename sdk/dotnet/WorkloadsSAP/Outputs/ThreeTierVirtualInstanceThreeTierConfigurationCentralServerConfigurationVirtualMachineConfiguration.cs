@@ -14,11 +14,11 @@ namespace Pulumi.Azure.WorkloadsSAP.Outputs
     public sealed class ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfiguration
     {
         /// <summary>
-        /// An `image` block as defined below. Changing this forces a new resource to be created.
+        /// An `Image` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public readonly Outputs.ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfigurationImage Image;
         /// <summary>
-        /// An `os_profile` block as defined below. Changing this forces a new resource to be created.
+        /// An `OsProfile` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public readonly Outputs.ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfigurationOsProfile OsProfile;
         /// <summary>

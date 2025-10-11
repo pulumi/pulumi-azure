@@ -24,7 +24,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// 
         /// &gt; **NOTE:** Not all resources have category groups available.
         /// 
-        /// &gt; **NOTE:** Exactly one of `category` or `category_group` must be specified.
+        /// &gt; **NOTE:** Exactly one of `Category` or `CategoryGroup` must be specified.
         /// </summary>
         public readonly string? CategoryGroup;
         public readonly Outputs.DiagnosticSettingEnabledLogRetentionPolicy? RetentionPolicy;

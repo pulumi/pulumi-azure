@@ -83,7 +83,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Whether public network access is allowed for this Virtual Desktop Workspace. Defaults to `true`.
+        /// Whether public network access is allowed for this Virtual Desktop Workspace. Defaults to `True`.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
@@ -171,7 +171,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether public network access is allowed for this Virtual Desktop Workspace. Defaults to `true`.
+        /// Whether public network access is allowed for this Virtual Desktop Workspace. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -227,7 +227,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether public network access is allowed for this Virtual Desktop Workspace. Defaults to `true`.
+        /// Whether public network access is allowed for this Virtual Desktop Workspace. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }

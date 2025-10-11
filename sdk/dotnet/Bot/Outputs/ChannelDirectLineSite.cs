@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Bot.Outputs
     public sealed class ChannelDirectLineSite
     {
         /// <summary>
-        /// Enables/Disables this site. Defaults to `true`.
+        /// Enables/Disables this site. Defaults to `True`.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
@@ -42,23 +42,23 @@ namespace Pulumi.Azure.Bot.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Is the storage site enabled for detailed logging? Defaults to `true`.
+        /// Is the storage site enabled for detailed logging? Defaults to `True`.
         /// </summary>
         public readonly bool? StorageEnabled;
         /// <summary>
-        /// This field is required when `is_secure_site_enabled` is enabled. Determines which origins can establish a Directline conversation for this site.
+        /// This field is required when `IsSecureSiteEnabled` is enabled. Determines which origins can establish a Directline conversation for this site.
         /// </summary>
         public readonly ImmutableArray<string> TrustedOrigins;
         /// <summary>
-        /// Is the user upload enabled for this site? Defaults to `true`.
+        /// Is the user upload enabled for this site? Defaults to `True`.
         /// </summary>
         public readonly bool? UserUploadEnabled;
         /// <summary>
-        /// Enables v1 of the Directline protocol for this site. Defaults to `true`.
+        /// Enables v1 of the Directline protocol for this site. Defaults to `True`.
         /// </summary>
         public readonly bool? V1Allowed;
         /// <summary>
-        /// Enables v3 of the Directline protocol for this site. Defaults to `true`.
+        /// Enables v3 of the Directline protocol for this site. Defaults to `True`.
         /// </summary>
         public readonly bool? V3Allowed;
 

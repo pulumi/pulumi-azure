@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Sentinel.Outputs
         /// </summary>
         public readonly string? PatternTypeKey;
         /// <summary>
-        /// A `pattern_type_values` block as defined below.
+        /// A `PatternTypeValues` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.ThreatIntelligenceIndicatorParsedPatternPatternTypeValue> PatternTypeValues;
 

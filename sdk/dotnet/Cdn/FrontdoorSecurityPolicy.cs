@@ -151,7 +151,7 @@ namespace Pulumi.Azure.Cdn
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// An `security_policies` block as defined below.
+        /// An `SecurityPolicies` block as defined below.
         /// </summary>
         [Output("securityPolicies")]
         public Output<Outputs.FrontdoorSecurityPolicySecurityPolicies> SecurityPolicies { get; private set; } = null!;
@@ -215,7 +215,7 @@ namespace Pulumi.Azure.Cdn
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// An `security_policies` block as defined below.
+        /// An `SecurityPolicies` block as defined below.
         /// </summary>
         [Input("securityPolicies", required: true)]
         public Input<Inputs.FrontdoorSecurityPolicySecurityPoliciesArgs> SecurityPolicies { get; set; } = null!;
@@ -241,7 +241,7 @@ namespace Pulumi.Azure.Cdn
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// An `security_policies` block as defined below.
+        /// An `SecurityPolicies` block as defined below.
         /// </summary>
         [Input("securityPolicies")]
         public Input<Inputs.FrontdoorSecurityPolicySecurityPoliciesGetArgs>? SecurityPolicies { get; set; }

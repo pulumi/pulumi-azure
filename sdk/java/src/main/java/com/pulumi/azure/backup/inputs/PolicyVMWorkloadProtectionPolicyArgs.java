@@ -53,14 +53,14 @@ public final class PolicyVMWorkloadProtectionPolicyArgs extends com.pulumi.resou
     }
 
     /**
-     * A `retention_daily` block as defined below.
+     * A `retentionDaily` block as defined below.
      * 
      */
     @Import(name="retentionDaily")
     private @Nullable Output<PolicyVMWorkloadProtectionPolicyRetentionDailyArgs> retentionDaily;
 
     /**
-     * @return A `retention_daily` block as defined below.
+     * @return A `retentionDaily` block as defined below.
      * 
      */
     public Optional<Output<PolicyVMWorkloadProtectionPolicyRetentionDailyArgs>> retentionDaily() {
@@ -68,14 +68,14 @@ public final class PolicyVMWorkloadProtectionPolicyArgs extends com.pulumi.resou
     }
 
     /**
-     * A `retention_monthly` block as defined below.
+     * A `retentionMonthly` block as defined below.
      * 
      */
     @Import(name="retentionMonthly")
     private @Nullable Output<PolicyVMWorkloadProtectionPolicyRetentionMonthlyArgs> retentionMonthly;
 
     /**
-     * @return A `retention_monthly` block as defined below.
+     * @return A `retentionMonthly` block as defined below.
      * 
      */
     public Optional<Output<PolicyVMWorkloadProtectionPolicyRetentionMonthlyArgs>> retentionMonthly() {
@@ -83,14 +83,14 @@ public final class PolicyVMWorkloadProtectionPolicyArgs extends com.pulumi.resou
     }
 
     /**
-     * A `retention_weekly` block as defined below.
+     * A `retentionWeekly` block as defined below.
      * 
      */
     @Import(name="retentionWeekly")
     private @Nullable Output<PolicyVMWorkloadProtectionPolicyRetentionWeeklyArgs> retentionWeekly;
 
     /**
-     * @return A `retention_weekly` block as defined below.
+     * @return A `retentionWeekly` block as defined below.
      * 
      */
     public Optional<Output<PolicyVMWorkloadProtectionPolicyRetentionWeeklyArgs>> retentionWeekly() {
@@ -98,14 +98,14 @@ public final class PolicyVMWorkloadProtectionPolicyArgs extends com.pulumi.resou
     }
 
     /**
-     * A `retention_yearly` block as defined below.
+     * A `retentionYearly` block as defined below.
      * 
      */
     @Import(name="retentionYearly")
     private @Nullable Output<PolicyVMWorkloadProtectionPolicyRetentionYearlyArgs> retentionYearly;
 
     /**
-     * @return A `retention_yearly` block as defined below.
+     * @return A `retentionYearly` block as defined below.
      * 
      */
     public Optional<Output<PolicyVMWorkloadProtectionPolicyRetentionYearlyArgs>> retentionYearly() {
@@ -113,14 +113,14 @@ public final class PolicyVMWorkloadProtectionPolicyArgs extends com.pulumi.resou
     }
 
     /**
-     * A `simple_retention` block as defined below.
+     * A `simpleRetention` block as defined below.
      * 
      */
     @Import(name="simpleRetention")
     private @Nullable Output<PolicyVMWorkloadProtectionPolicySimpleRetentionArgs> simpleRetention;
 
     /**
-     * @return A `simple_retention` block as defined below.
+     * @return A `simpleRetention` block as defined below.
      * 
      */
     public Optional<Output<PolicyVMWorkloadProtectionPolicySimpleRetentionArgs>> simpleRetention() {
@@ -200,7 +200,7 @@ public final class PolicyVMWorkloadProtectionPolicyArgs extends com.pulumi.resou
         }
 
         /**
-         * @param retentionDaily A `retention_daily` block as defined below.
+         * @param retentionDaily A `retentionDaily` block as defined below.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class PolicyVMWorkloadProtectionPolicyArgs extends com.pulumi.resou
         }
 
         /**
-         * @param retentionDaily A `retention_daily` block as defined below.
+         * @param retentionDaily A `retentionDaily` block as defined below.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class PolicyVMWorkloadProtectionPolicyArgs extends com.pulumi.resou
         }
 
         /**
-         * @param retentionMonthly A `retention_monthly` block as defined below.
+         * @param retentionMonthly A `retentionMonthly` block as defined below.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class PolicyVMWorkloadProtectionPolicyArgs extends com.pulumi.resou
         }
 
         /**
-         * @param retentionMonthly A `retention_monthly` block as defined below.
+         * @param retentionMonthly A `retentionMonthly` block as defined below.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class PolicyVMWorkloadProtectionPolicyArgs extends com.pulumi.resou
         }
 
         /**
-         * @param retentionWeekly A `retention_weekly` block as defined below.
+         * @param retentionWeekly A `retentionWeekly` block as defined below.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class PolicyVMWorkloadProtectionPolicyArgs extends com.pulumi.resou
         }
 
         /**
-         * @param retentionWeekly A `retention_weekly` block as defined below.
+         * @param retentionWeekly A `retentionWeekly` block as defined below.
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class PolicyVMWorkloadProtectionPolicyArgs extends com.pulumi.resou
         }
 
         /**
-         * @param retentionYearly A `retention_yearly` block as defined below.
+         * @param retentionYearly A `retentionYearly` block as defined below.
          * 
          * @return builder
          * 
@@ -274,7 +274,7 @@ public final class PolicyVMWorkloadProtectionPolicyArgs extends com.pulumi.resou
         }
 
         /**
-         * @param retentionYearly A `retention_yearly` block as defined below.
+         * @param retentionYearly A `retentionYearly` block as defined below.
          * 
          * @return builder
          * 
@@ -284,7 +284,7 @@ public final class PolicyVMWorkloadProtectionPolicyArgs extends com.pulumi.resou
         }
 
         /**
-         * @param simpleRetention A `simple_retention` block as defined below.
+         * @param simpleRetention A `simpleRetention` block as defined below.
          * 
          * @return builder
          * 
@@ -295,7 +295,7 @@ public final class PolicyVMWorkloadProtectionPolicyArgs extends com.pulumi.resou
         }
 
         /**
-         * @param simpleRetention A `simple_retention` block as defined below.
+         * @param simpleRetention A `simpleRetention` block as defined below.
          * 
          * @return builder
          * 

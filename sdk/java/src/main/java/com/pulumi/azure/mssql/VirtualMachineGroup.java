@@ -171,14 +171,14 @@ public class VirtualMachineGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A `wsfc_domain_profile` block as defined below.
+     * A `wsfcDomainProfile` block as defined below.
      * 
      */
     @Export(name="wsfcDomainProfile", refs={VirtualMachineGroupWsfcDomainProfile.class}, tree="[0]")
     private Output<VirtualMachineGroupWsfcDomainProfile> wsfcDomainProfile;
 
     /**
-     * @return A `wsfc_domain_profile` block as defined below.
+     * @return A `wsfcDomainProfile` block as defined below.
      * 
      */
     public Output<VirtualMachineGroupWsfcDomainProfile> wsfcDomainProfile() {

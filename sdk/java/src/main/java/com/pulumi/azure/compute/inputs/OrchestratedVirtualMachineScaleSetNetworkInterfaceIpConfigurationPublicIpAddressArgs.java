@@ -50,14 +50,14 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
     }
 
     /**
-     * One or more `ip_tag` blocks as defined above. Changing this forces a new resource to be created.
+     * One or more `ipTag` blocks as defined above. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="ipTags")
     private @Nullable Output<List<OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs>> ipTags;
 
     /**
-     * @return One or more `ip_tag` blocks as defined above. Changing this forces a new resource to be created.
+     * @return One or more `ipTag` blocks as defined above. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs>>> ipTags() {
@@ -197,7 +197,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
         }
 
         /**
-         * @param ipTags One or more `ip_tag` blocks as defined above. Changing this forces a new resource to be created.
+         * @param ipTags One or more `ipTag` blocks as defined above. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
         }
 
         /**
-         * @param ipTags One or more `ip_tag` blocks as defined above. Changing this forces a new resource to be created.
+         * @param ipTags One or more `ipTag` blocks as defined above. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
         }
 
         /**
-         * @param ipTags One or more `ip_tag` blocks as defined above. Changing this forces a new resource to be created.
+         * @param ipTags One or more `ipTag` blocks as defined above. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

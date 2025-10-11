@@ -132,7 +132,7 @@ public final class GetAutonomousDatabaseResult {
      */
     private String location;
     /**
-     * @return A `long_term_backup_schedule` block as defined below
+     * @return A `longTermBackupSchedule` block as defined below
      * 
      */
     private List<GetAutonomousDatabaseLongTermBackupSchedule> longTermBackupSchedules;
@@ -468,7 +468,7 @@ public final class GetAutonomousDatabaseResult {
         return this.location;
     }
     /**
-     * @return A `long_term_backup_schedule` block as defined below
+     * @return A `longTermBackupSchedule` block as defined below
      * 
      */
     public List<GetAutonomousDatabaseLongTermBackupSchedule> longTermBackupSchedules() {

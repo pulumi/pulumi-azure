@@ -20,7 +20,7 @@ public final class FrontdoorRoutingRuleForwardingConfiguration {
      */
     private String backendPoolName;
     /**
-     * @return Specify the minimum caching duration (in ISO8601 notation e.g. `P1DT2H` for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. `cache_duration` works only in combination with `cache_enabled` set to `true`.
+     * @return Specify the minimum caching duration (in ISO8601 notation e.g. `P1DT2H` for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. `cacheDuration` works only in combination with `cacheEnabled` set to `true`.
      * 
      */
     private @Nullable String cacheDuration;
@@ -35,7 +35,7 @@ public final class FrontdoorRoutingRuleForwardingConfiguration {
      */
     private @Nullable String cacheQueryParameterStripDirective;
     /**
-     * @return Specify query parameters (array). Works only in combination with `cache_query_parameter_strip_directive` set to `StripAllExcept` or `StripOnly`.
+     * @return Specify query parameters (array). Works only in combination with `cacheQueryParameterStripDirective` set to `StripAllExcept` or `StripOnly`.
      * 
      */
     private @Nullable List<String> cacheQueryParameters;
@@ -64,7 +64,7 @@ public final class FrontdoorRoutingRuleForwardingConfiguration {
         return this.backendPoolName;
     }
     /**
-     * @return Specify the minimum caching duration (in ISO8601 notation e.g. `P1DT2H` for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. `cache_duration` works only in combination with `cache_enabled` set to `true`.
+     * @return Specify the minimum caching duration (in ISO8601 notation e.g. `P1DT2H` for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. `cacheDuration` works only in combination with `cacheEnabled` set to `true`.
      * 
      */
     public Optional<String> cacheDuration() {
@@ -85,7 +85,7 @@ public final class FrontdoorRoutingRuleForwardingConfiguration {
         return Optional.ofNullable(this.cacheQueryParameterStripDirective);
     }
     /**
-     * @return Specify query parameters (array). Works only in combination with `cache_query_parameter_strip_directive` set to `StripAllExcept` or `StripOnly`.
+     * @return Specify query parameters (array). Works only in combination with `cacheQueryParameterStripDirective` set to `StripAllExcept` or `StripOnly`.
      * 
      */
     public List<String> cacheQueryParameters() {

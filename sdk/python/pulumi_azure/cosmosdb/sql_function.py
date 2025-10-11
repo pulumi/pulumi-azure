@@ -139,6 +139,8 @@ class SqlFunction(pulumi.CustomResource):
         """
         Manages an SQL User Defined Function.
 
+        ## Example Usage
+
         ## Import
 
         SQL User Defined Functions can be imported using the `resource id`, e.g.
@@ -161,6 +163,8 @@ class SqlFunction(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an SQL User Defined Function.
+
+        ## Example Usage
 
         ## Import
 

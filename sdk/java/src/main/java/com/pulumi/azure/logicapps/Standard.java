@@ -209,7 +209,7 @@ public class Standard extends com.pulumi.resources.CustomResource {
     /**
      * A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
      * 
-     * &gt; **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn&#39;t* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
+     * &gt; **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn&#39;t* be configured separately as part of the appSettings you specify.  `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
      * 
      */
     @Export(name="appSettings", refs={Map.class,String.class}, tree="[0,1,1]")
@@ -218,21 +218,21 @@ public class Standard extends com.pulumi.resources.CustomResource {
     /**
      * @return A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
      * 
-     * &gt; **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn&#39;t* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
+     * &gt; **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn&#39;t* be configured separately as part of the appSettings you specify.  `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
      * 
      */
     public Output<Map<String,String>> appSettings() {
         return this.appSettings;
     }
     /**
-     * If `use_extension_bundle` is set to `true` this controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
+     * If `useExtensionBundle` is set to `true` this controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
      * 
      */
     @Export(name="bundleVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> bundleVersion;
 
     /**
-     * @return If `use_extension_bundle` is set to `true` this controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
+     * @return If `useExtensionBundle` is set to `true` this controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
      * 
      */
     public Output<Optional<String>> bundleVersion() {
@@ -267,14 +267,14 @@ public class Standard extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.clientCertificateMode);
     }
     /**
-     * A `connection_string` block as defined below.
+     * A `connectionString` block as defined below.
      * 
      */
     @Export(name="connectionStrings", refs={List.class,StandardConnectionString.class}, tree="[0,1]")
     private Output<List<StandardConnectionString>> connectionStrings;
 
     /**
-     * @return A `connection_string` block as defined below.
+     * @return A `connectionString` block as defined below.
      * 
      */
     public Output<List<StandardConnectionString>> connectionStrings() {
@@ -421,14 +421,14 @@ public class Standard extends com.pulumi.resources.CustomResource {
         return this.outboundIpAddresses;
     }
     /**
-     * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+     * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      * 
      */
     @Export(name="possibleOutboundIpAddresses", refs={String.class}, tree="[0]")
     private Output<String> possibleOutboundIpAddresses;
 
     /**
-     * @return A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+     * @return A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      * 
      */
     public Output<String> possibleOutboundIpAddresses() {
@@ -481,28 +481,28 @@ public class Standard extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.scmPublishBasicAuthenticationEnabled);
     }
     /**
-     * A `site_config` object as defined below.
+     * A `siteConfig` object as defined below.
      * 
      */
     @Export(name="siteConfig", refs={StandardSiteConfig.class}, tree="[0]")
     private Output<StandardSiteConfig> siteConfig;
 
     /**
-     * @return A `site_config` object as defined below.
+     * @return A `siteConfig` object as defined below.
      * 
      */
     public Output<StandardSiteConfig> siteConfig() {
         return this.siteConfig;
     }
     /**
-     * A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+     * A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
      * 
      */
     @Export(name="siteCredentials", refs={List.class,StandardSiteCredential.class}, tree="[0,1]")
     private Output<List<StandardSiteCredential>> siteCredentials;
 
     /**
-     * @return A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+     * @return A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
      * 
      */
     public Output<List<StandardSiteCredential>> siteCredentials() {

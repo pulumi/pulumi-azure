@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Automanage.Inputs
     public sealed class ConfigurationBackupRetentionPolicyDailyScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `retention_duration` block as defined below.
+        /// A `RetentionDuration` block as defined below.
         /// </summary>
         [Input("retentionDuration")]
         public Input<Inputs.ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArgs>? RetentionDuration { get; set; }

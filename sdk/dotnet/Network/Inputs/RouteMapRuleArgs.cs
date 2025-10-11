@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<Inputs.RouteMapRuleActionArgs>? _actions;
 
         /// <summary>
-        /// An `action` block as defined below.
+        /// An `Action` block as defined below.
         /// </summary>
         public InputList<Inputs.RouteMapRuleActionArgs> Actions
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<Inputs.RouteMapRuleMatchCriterionArgs>? _matchCriterions;
 
         /// <summary>
-        /// A `match_criterion` block as defined below.
+        /// A `MatchCriterion` block as defined below.
         /// </summary>
         public InputList<Inputs.RouteMapRuleMatchCriterionArgs> MatchCriterions
         {

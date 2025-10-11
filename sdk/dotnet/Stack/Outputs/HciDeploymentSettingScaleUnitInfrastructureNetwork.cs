@@ -14,9 +14,9 @@ namespace Pulumi.Azure.Stack.Outputs
     public sealed class HciDeploymentSettingScaleUnitInfrastructureNetwork
     {
         /// <summary>
-        /// Whether DHCP is enabled for hosts and cluster IPs. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
+        /// Whether DHCP is enabled for hosts and cluster IPs. Possible values are `True` and `False`. defaults to `False`. Changing this forces a new Stack HCI Deployment Setting to be created.
         /// 
-        /// &gt; **Note:** If `dhcp_enabled` is set to `false`, the deployment will use static IPs. If set to `true`, the gateway and DNS servers are not required.
+        /// &gt; **Note:** If `DhcpEnabled` is set to `False`, the deployment will use static IPs. If set to `True`, the gateway and DNS servers are not required.
         /// </summary>
         public readonly bool? DhcpEnabled;
         /// <summary>
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Stack.Outputs
         /// </summary>
         public readonly string Gateway;
         /// <summary>
-        /// One or more `ip_pool` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+        /// One or more `IpPool` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
         /// </summary>
         public readonly ImmutableArray<Outputs.HciDeploymentSettingScaleUnitInfrastructureNetworkIpPool> IpPools;
         /// <summary>

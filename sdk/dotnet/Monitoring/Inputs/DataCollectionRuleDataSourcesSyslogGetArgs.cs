@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         private InputList<string>? _facilityNames;
 
         /// <summary>
-        /// Specifies a list of facility names. Use a wildcard `*` to collect logs for all facility names. Possible values are `alert`, `*`, `audit`, `auth`, `authpriv`, `clock`, `cron`, `daemon`, `ftp`, `kern`, `local5`, `local4`, `local1`, `local7`, `local6`, `local3`, `local2`, `local0`, `lpr`, `mail`, `mark`, `news`, `nopri`, `ntp`, `syslog`, `user` and `uucp`.
+        /// Specifies a list of facility names. Use a wildcard `*` to collect logs for all facility names. Possible values are `Alert`, `*`, `Audit`, `Auth`, `Authpriv`, `Clock`, `Cron`, `Daemon`, `Ftp`, `Kern`, `Local5`, `Local4`, `Local1`, `Local7`, `Local6`, `Local3`, `Local2`, `Local0`, `Lpr`, `Mail`, `Mark`, `News`, `Nopri`, `Ntp`, `Syslog`, `User` and `Uucp`.
         /// </summary>
         public InputList<string> FacilityNames
         {

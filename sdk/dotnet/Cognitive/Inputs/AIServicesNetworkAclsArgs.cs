@@ -20,7 +20,7 @@ namespace Pulumi.Azure.Cognitive.Inputs
         public Input<string>? Bypass { get; set; }
 
         /// <summary>
-        /// The Default Action to use when no rules match from `ip_rules` / `virtual_network_rules`. Possible values are `Allow` and `Deny`.
+        /// The Default Action to use when no rules match from `IpRules` / `VirtualNetworkRules`. Possible values are `Allow` and `Deny`.
         /// </summary>
         [Input("defaultAction", required: true)]
         public Input<string> DefaultAction { get; set; } = null!;
@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Cognitive.Inputs
         private InputList<Inputs.AIServicesNetworkAclsVirtualNetworkRuleArgs>? _virtualNetworkRules;
 
         /// <summary>
-        /// A `virtual_network_rules` block as defined below.
+        /// A `VirtualNetworkRules` block as defined below.
         /// </summary>
         public InputList<Inputs.AIServicesNetworkAclsVirtualNetworkRuleArgs> VirtualNetworkRules
         {

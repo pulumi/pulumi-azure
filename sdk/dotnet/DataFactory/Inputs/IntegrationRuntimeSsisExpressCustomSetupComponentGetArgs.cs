@@ -13,7 +13,7 @@ namespace Pulumi.Azure.DataFactory.Inputs
     public sealed class IntegrationRuntimeSsisExpressCustomSetupComponentGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `key_vault_secret_reference` block as defined below.
+        /// A `KeyVaultSecretReference` block as defined below.
         /// </summary>
         [Input("keyVaultLicense")]
         public Input<Inputs.IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseGetArgs>? KeyVaultLicense { get; set; }

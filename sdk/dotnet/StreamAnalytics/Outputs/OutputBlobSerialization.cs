@@ -16,25 +16,25 @@ namespace Pulumi.Azure.StreamAnalytics.Outputs
         /// <summary>
         /// The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
         /// 
-        /// &gt; **Note:** This is required when `type` is set to `Csv` or `Json`.
+        /// &gt; **Note:** This is required when `Type` is set to `Csv` or `Json`.
         /// </summary>
         public readonly string? Encoding;
         /// <summary>
         /// The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
         /// 
-        /// &gt; **Note:** This is required when `type` is set to `Csv`.
+        /// &gt; **Note:** This is required when `Type` is set to `Csv`.
         /// </summary>
         public readonly string? FieldDelimiter;
         /// <summary>
         /// Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
         /// 
-        /// &gt; **Note:** This is Required and can only be specified when `type` is set to `Json`.
+        /// &gt; **Note:** This is Required and can only be specified when `Type` is set to `Json`.
         /// </summary>
         public readonly string? Format;
         /// <summary>
         /// The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv`, `Json` and `Parquet`.
         /// 
-        /// &gt; **Note:** `batch_max_wait_time` and `batch_min_rows` are required when `type` is set to `Parquet`
+        /// &gt; **Note:** `BatchMaxWaitTime` and `BatchMinRows` are required when `Type` is set to `Parquet`
         /// </summary>
         public readonly string Type;
 

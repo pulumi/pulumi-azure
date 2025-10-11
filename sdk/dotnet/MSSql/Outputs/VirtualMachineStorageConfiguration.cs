@@ -14,7 +14,7 @@ namespace Pulumi.Azure.MSSql.Outputs
     public sealed class VirtualMachineStorageConfiguration
     {
         /// <summary>
-        /// A `storage_settings` block as defined below.
+        /// A `StorageSettings` block as defined below.
         /// </summary>
         public readonly Outputs.VirtualMachineStorageConfigurationDataSettings? DataSettings;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.MSSql.Outputs
         /// </summary>
         public readonly string DiskType;
         /// <summary>
-        /// A `storage_settings` block as defined below.
+        /// A `StorageSettings` block as defined below.
         /// </summary>
         public readonly Outputs.VirtualMachineStorageConfigurationLogSettings? LogSettings;
         /// <summary>
@@ -30,11 +30,11 @@ namespace Pulumi.Azure.MSSql.Outputs
         /// </summary>
         public readonly string StorageWorkloadType;
         /// <summary>
-        /// Specifies whether to set system databases (except tempDb) location to newly created data storage. Possible values are `true` and `false`. Defaults to `false`.
+        /// Specifies whether to set system databases (except tempDb) location to newly created data storage. Possible values are `True` and `False`. Defaults to `False`.
         /// </summary>
         public readonly bool? SystemDbOnDataDiskEnabled;
         /// <summary>
-        /// An `temp_db_settings` block as defined below.
+        /// An `TempDbSettings` block as defined below.
         /// </summary>
         public readonly Outputs.VirtualMachineStorageConfigurationTempDbSettings? TempDbSettings;
 

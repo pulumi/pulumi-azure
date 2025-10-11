@@ -18,7 +18,7 @@ public final class AppConnectionAuthentication {
      */
     private @Nullable String certificate;
     /**
-     * @return Client ID for `userAssignedIdentity` or `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalSecret` or `servicePrincipalCertificate`. When `type` is set to `userAssignedIdentity`, `client_id` and `subscription_id` should be either both specified or both not specified.
+     * @return Client ID for `userAssignedIdentity` or `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalSecret` or `servicePrincipalCertificate`. When `type` is set to `userAssignedIdentity`, `clientId` and `subscriptionId` should be either both specified or both not specified.
      * 
      */
     private @Nullable String clientId;
@@ -38,7 +38,7 @@ public final class AppConnectionAuthentication {
      */
     private @Nullable String secret;
     /**
-     * @return Subscription ID for `userAssignedIdentity`. `subscription_id` and `client_id` should be either both specified or both not specified.
+     * @return Subscription ID for `userAssignedIdentity`. `subscriptionId` and `clientId` should be either both specified or both not specified.
      * 
      */
     private @Nullable String subscriptionId;
@@ -57,7 +57,7 @@ public final class AppConnectionAuthentication {
         return Optional.ofNullable(this.certificate);
     }
     /**
-     * @return Client ID for `userAssignedIdentity` or `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalSecret` or `servicePrincipalCertificate`. When `type` is set to `userAssignedIdentity`, `client_id` and `subscription_id` should be either both specified or both not specified.
+     * @return Client ID for `userAssignedIdentity` or `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalSecret` or `servicePrincipalCertificate`. When `type` is set to `userAssignedIdentity`, `clientId` and `subscriptionId` should be either both specified or both not specified.
      * 
      */
     public Optional<String> clientId() {
@@ -85,7 +85,7 @@ public final class AppConnectionAuthentication {
         return Optional.ofNullable(this.secret);
     }
     /**
-     * @return Subscription ID for `userAssignedIdentity`. `subscription_id` and `client_id` should be either both specified or both not specified.
+     * @return Subscription ID for `userAssignedIdentity`. `subscriptionId` and `clientId` should be either both specified or both not specified.
      * 
      */
     public Optional<String> subscriptionId() {

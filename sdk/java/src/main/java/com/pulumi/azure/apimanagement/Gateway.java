@@ -125,14 +125,14 @@ public class Gateway extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * A `location_data` block as documented below.
+     * A `locationData` block as documented below.
      * 
      */
     @Export(name="locationData", refs={GatewayLocationData.class}, tree="[0]")
     private Output<GatewayLocationData> locationData;
 
     /**
-     * @return A `location_data` block as documented below.
+     * @return A `locationData` block as documented below.
      * 
      */
     public Output<GatewayLocationData> locationData() {

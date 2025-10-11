@@ -99,7 +99,7 @@ namespace Pulumi.Azure.Network
     public partial class Firewall : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dns_servers` provided with a not empty list.
+        /// Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `True`. It will be set to `True` if `DnsServers` provided with a not empty list.
         /// </summary>
         [Output("dnsProxyEnabled")]
         public Output<bool> DnsProxyEnabled { get; private set; } = null!;
@@ -117,7 +117,7 @@ namespace Pulumi.Azure.Network
         public Output<string?> FirewallPolicyId { get; private set; } = null!;
 
         /// <summary>
-        /// An `ip_configuration` block as documented below.
+        /// An `IpConfiguration` block as documented below.
         /// </summary>
         [Output("ipConfigurations")]
         public Output<ImmutableArray<Outputs.FirewallIpConfiguration>> IpConfigurations { get; private set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.Azure.Network
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// A `management_ip_configuration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnet_id` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
+        /// A `ManagementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `SubnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
         /// </summary>
         [Output("managementIpConfiguration")]
         public Output<Outputs.FirewallManagementIpConfiguration?> ManagementIpConfiguration { get; private set; } = null!;
@@ -177,7 +177,7 @@ namespace Pulumi.Azure.Network
         public Output<string> ThreatIntelMode { get; private set; } = null!;
 
         /// <summary>
-        /// A `virtual_hub` block as documented below.
+        /// A `VirtualHub` block as documented below.
         /// </summary>
         [Output("virtualHub")]
         public Output<Outputs.FirewallVirtualHub?> VirtualHub { get; private set; } = null!;
@@ -237,7 +237,7 @@ namespace Pulumi.Azure.Network
     public sealed class FirewallArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dns_servers` provided with a not empty list.
+        /// Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `True`. It will be set to `True` if `DnsServers` provided with a not empty list.
         /// </summary>
         [Input("dnsProxyEnabled")]
         public Input<bool>? DnsProxyEnabled { get; set; }
@@ -264,7 +264,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.FirewallIpConfigurationArgs>? _ipConfigurations;
 
         /// <summary>
-        /// An `ip_configuration` block as documented below.
+        /// An `IpConfiguration` block as documented below.
         /// </summary>
         public InputList<Inputs.FirewallIpConfigurationArgs> IpConfigurations
         {
@@ -279,7 +279,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A `management_ip_configuration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnet_id` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
+        /// A `ManagementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `SubnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("managementIpConfiguration")]
         public Input<Inputs.FirewallManagementIpConfigurationArgs>? ManagementIpConfiguration { get; set; }
@@ -339,7 +339,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? ThreatIntelMode { get; set; }
 
         /// <summary>
-        /// A `virtual_hub` block as documented below.
+        /// A `VirtualHub` block as documented below.
         /// </summary>
         [Input("virtualHub")]
         public Input<Inputs.FirewallVirtualHubArgs>? VirtualHub { get; set; }
@@ -367,7 +367,7 @@ namespace Pulumi.Azure.Network
     public sealed class FirewallState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dns_servers` provided with a not empty list.
+        /// Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `True`. It will be set to `True` if `DnsServers` provided with a not empty list.
         /// </summary>
         [Input("dnsProxyEnabled")]
         public Input<bool>? DnsProxyEnabled { get; set; }
@@ -394,7 +394,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.FirewallIpConfigurationGetArgs>? _ipConfigurations;
 
         /// <summary>
-        /// An `ip_configuration` block as documented below.
+        /// An `IpConfiguration` block as documented below.
         /// </summary>
         public InputList<Inputs.FirewallIpConfigurationGetArgs> IpConfigurations
         {
@@ -409,7 +409,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A `management_ip_configuration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnet_id` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
+        /// A `ManagementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `SubnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("managementIpConfiguration")]
         public Input<Inputs.FirewallManagementIpConfigurationGetArgs>? ManagementIpConfiguration { get; set; }
@@ -469,7 +469,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? ThreatIntelMode { get; set; }
 
         /// <summary>
-        /// A `virtual_hub` block as documented below.
+        /// A `VirtualHub` block as documented below.
         /// </summary>
         [Input("virtualHub")]
         public Input<Inputs.FirewallVirtualHubGetArgs>? VirtualHub { get; set; }

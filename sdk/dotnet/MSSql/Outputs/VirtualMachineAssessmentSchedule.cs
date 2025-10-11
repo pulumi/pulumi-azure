@@ -20,7 +20,7 @@ namespace Pulumi.Azure.MSSql.Outputs
         /// <summary>
         /// How many months between assessment runs. Valid values are between `1` and `5`.
         /// 
-        /// &gt; **Note:** Either one of `weekly_interval` or `monthly_occurrence` must be specified.
+        /// &gt; **Note:** Either one of `WeeklyInterval` or `MonthlyOccurrence` must be specified.
         /// </summary>
         public readonly int? MonthlyOccurrence;
         /// <summary>

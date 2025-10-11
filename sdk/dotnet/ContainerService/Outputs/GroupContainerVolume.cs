@@ -14,11 +14,11 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class GroupContainerVolume
     {
         /// <summary>
-        /// Boolean as to whether the mounted volume should be an empty directory. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Boolean as to whether the mounted volume should be an empty directory. Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly bool? EmptyDir;
         /// <summary>
-        /// A `git_repo` block as defined below. Changing this forces a new resource to be created.
+        /// A `GitRepo` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public readonly Outputs.GroupContainerVolumeGitRepo? GitRepo;
         /// <summary>
@@ -30,15 +30,15 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
+        /// Specify if the volume is to be mounted as read only or not. The default value is `False`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly bool? ReadOnly;
         /// <summary>
         /// A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** Exactly one of `empty_dir` volume, `git_repo` volume, `secret` volume or storage account volume (`share_name`, `storage_account_name`, and `storage_account_key`) must be specified.
+        /// &gt; **Note:** Exactly one of `EmptyDir` volume, `GitRepo` volume, `Secret` volume or storage account volume (`ShareName`, `StorageAccountName`, and `StorageAccountKey`) must be specified.
         /// 
-        /// &gt; **Note:** when using a storage account volume, all of `share_name`, `storage_account_name`, and `storage_account_key` must be specified.
+        /// &gt; **Note:** when using a storage account volume, all of `ShareName`, `StorageAccountName`, and `StorageAccountKey` must be specified.
         /// 
         /// &gt; **Note:** The secret values must be supplied as Base64 encoded strings. The secret values are decoded to their original values when mounted in the volume on the container.
         /// </summary>

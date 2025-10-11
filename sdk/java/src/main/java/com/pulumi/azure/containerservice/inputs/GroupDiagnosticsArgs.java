@@ -15,14 +15,14 @@ public final class GroupDiagnosticsArgs extends com.pulumi.resources.ResourceArg
     public static final GroupDiagnosticsArgs Empty = new GroupDiagnosticsArgs();
 
     /**
-     * A `log_analytics` block as defined below. Changing this forces a new resource to be created.
+     * A `logAnalytics` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="logAnalytics", required=true)
     private Output<GroupDiagnosticsLogAnalyticsArgs> logAnalytics;
 
     /**
-     * @return A `log_analytics` block as defined below. Changing this forces a new resource to be created.
+     * @return A `logAnalytics` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<GroupDiagnosticsLogAnalyticsArgs> logAnalytics() {
@@ -54,7 +54,7 @@ public final class GroupDiagnosticsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param logAnalytics A `log_analytics` block as defined below. Changing this forces a new resource to be created.
+         * @param logAnalytics A `logAnalytics` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class GroupDiagnosticsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param logAnalytics A `log_analytics` block as defined below. Changing this forces a new resource to be created.
+         * @param logAnalytics A `logAnalytics` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -124,7 +124,7 @@ namespace Pulumi.Azure.ContainerService
     public sealed class GetKubernetesServiceVersionsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Should Preview versions of Kubernetes in AKS be included? Defaults to `true`
+        /// Should Preview versions of Kubernetes in AKS be included? Defaults to `True`
         /// </summary>
         [Input("includePreview")]
         public bool? IncludePreview { get; set; }
@@ -150,7 +150,7 @@ namespace Pulumi.Azure.ContainerService
     public sealed class GetKubernetesServiceVersionsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Should Preview versions of Kubernetes in AKS be included? Defaults to `true`
+        /// Should Preview versions of Kubernetes in AKS be included? Defaults to `True`
         /// </summary>
         [Input("includePreview")]
         public Input<bool>? IncludePreview { get; set; }
@@ -187,7 +187,7 @@ namespace Pulumi.Azure.ContainerService
         public readonly string Id;
         public readonly bool? IncludePreview;
         /// <summary>
-        /// The most recent version available. If `include_preview == false`, this is the most recent non-preview version available.
+        /// The most recent version available. If `IncludePreview == false`, this is the most recent non-preview version available.
         /// </summary>
         public readonly string LatestVersion;
         public readonly string Location;

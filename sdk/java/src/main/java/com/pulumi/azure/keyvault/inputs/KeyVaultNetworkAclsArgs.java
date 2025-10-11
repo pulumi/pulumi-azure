@@ -33,14 +33,14 @@ public final class KeyVaultNetworkAclsArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The Default Action to use when no rules match from `ip_rules` / `virtual_network_subnet_ids`. Possible values are `Allow` and `Deny`.
+     * The Default Action to use when no rules match from `ipRules` / `virtualNetworkSubnetIds`. Possible values are `Allow` and `Deny`.
      * 
      */
     @Import(name="defaultAction", required=true)
     private Output<String> defaultAction;
 
     /**
-     * @return The Default Action to use when no rules match from `ip_rules` / `virtual_network_subnet_ids`. Possible values are `Allow` and `Deny`.
+     * @return The Default Action to use when no rules match from `ipRules` / `virtualNetworkSubnetIds`. Possible values are `Allow` and `Deny`.
      * 
      */
     public Output<String> defaultAction() {
@@ -126,7 +126,7 @@ public final class KeyVaultNetworkAclsArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param defaultAction The Default Action to use when no rules match from `ip_rules` / `virtual_network_subnet_ids`. Possible values are `Allow` and `Deny`.
+         * @param defaultAction The Default Action to use when no rules match from `ipRules` / `virtualNetworkSubnetIds`. Possible values are `Allow` and `Deny`.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class KeyVaultNetworkAclsArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param defaultAction The Default Action to use when no rules match from `ip_rules` / `virtual_network_subnet_ids`. Possible values are `Allow` and `Deny`.
+         * @param defaultAction The Default Action to use when no rules match from `ipRules` / `virtualNetworkSubnetIds`. Possible values are `Allow` and `Deny`.
          * 
          * @return builder
          * 

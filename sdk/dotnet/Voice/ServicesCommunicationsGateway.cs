@@ -200,7 +200,7 @@ namespace Pulumi.Azure.Voice
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `service_location` block as defined below.
+        /// A `ServiceLocation` block as defined below.
         /// </summary>
         [Output("serviceLocations")]
         public Output<ImmutableArray<Outputs.ServicesCommunicationsGatewayServiceLocation>> ServiceLocations { get; private set; } = null!;
@@ -345,7 +345,7 @@ namespace Pulumi.Azure.Voice
         private InputList<Inputs.ServicesCommunicationsGatewayServiceLocationArgs>? _serviceLocations;
 
         /// <summary>
-        /// A `service_location` block as defined below.
+        /// A `ServiceLocation` block as defined below.
         /// </summary>
         public InputList<Inputs.ServicesCommunicationsGatewayServiceLocationArgs> ServiceLocations
         {
@@ -461,7 +461,7 @@ namespace Pulumi.Azure.Voice
         private InputList<Inputs.ServicesCommunicationsGatewayServiceLocationGetArgs>? _serviceLocations;
 
         /// <summary>
-        /// A `service_location` block as defined below.
+        /// A `ServiceLocation` block as defined below.
         /// </summary>
         public InputList<Inputs.ServicesCommunicationsGatewayServiceLocationGetArgs> ServiceLocations
         {

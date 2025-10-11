@@ -23,7 +23,7 @@ public final class DataCollectionRuleDataSourcesPerformanceCounter {
      */
     private String name;
     /**
-     * @return The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `1800` inclusive. `sampling_frequency_in_seconds` must be equal to `60` seconds for counters collected with `Microsoft-InsightsMetrics` stream.
+     * @return The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `1800` inclusive. `samplingFrequencyInSeconds` must be equal to `60` seconds for counters collected with `Microsoft-InsightsMetrics` stream.
      * 
      */
     private Integer samplingFrequencyInSeconds;
@@ -49,7 +49,7 @@ public final class DataCollectionRuleDataSourcesPerformanceCounter {
         return this.name;
     }
     /**
-     * @return The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `1800` inclusive. `sampling_frequency_in_seconds` must be equal to `60` seconds for counters collected with `Microsoft-InsightsMetrics` stream.
+     * @return The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `1800` inclusive. `samplingFrequencyInSeconds` must be equal to `60` seconds for counters collected with `Microsoft-InsightsMetrics` stream.
      * 
      */
     public Integer samplingFrequencyInSeconds() {

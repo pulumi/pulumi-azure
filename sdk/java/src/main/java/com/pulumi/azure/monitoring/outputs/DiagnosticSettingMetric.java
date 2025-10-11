@@ -18,10 +18,10 @@ public final class DiagnosticSettingMetric {
     private @Nullable Boolean enabled;
     /**
      * @deprecated
-     * `retention_policy` has been deprecated in favor of the `azure.storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention
+     * `retentionPolicy` has been deprecated in favor of the `azure.storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention
      * 
      */
-    @Deprecated /* `retention_policy` has been deprecated in favor of the `azure.storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention */
+    @Deprecated /* `retentionPolicy` has been deprecated in favor of the `azure.storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention */
     private @Nullable DiagnosticSettingMetricRetentionPolicy retentionPolicy;
 
     private DiagnosticSettingMetric() {}
@@ -33,10 +33,10 @@ public final class DiagnosticSettingMetric {
     }
     /**
      * @deprecated
-     * `retention_policy` has been deprecated in favor of the `azure.storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention
+     * `retentionPolicy` has been deprecated in favor of the `azure.storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention
      * 
      */
-    @Deprecated /* `retention_policy` has been deprecated in favor of the `azure.storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention */
+    @Deprecated /* `retentionPolicy` has been deprecated in favor of the `azure.storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention */
     public Optional<DiagnosticSettingMetricRetentionPolicy> retentionPolicy() {
         return Optional.ofNullable(this.retentionPolicy);
     }

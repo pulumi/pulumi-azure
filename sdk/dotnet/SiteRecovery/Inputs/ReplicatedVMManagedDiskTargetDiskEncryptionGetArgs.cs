@@ -13,13 +13,13 @@ namespace Pulumi.Azure.SiteRecovery.Inputs
     public sealed class ReplicatedVMManagedDiskTargetDiskEncryptionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `disk_encryption_key` block as defined below.
+        /// A `DiskEncryptionKey` block as defined below.
         /// </summary>
         [Input("diskEncryptionKey", required: true)]
         public Input<Inputs.ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyGetArgs> DiskEncryptionKey { get; set; } = null!;
 
         /// <summary>
-        /// A `key_encryption_key` block as defined below.
+        /// A `KeyEncryptionKey` block as defined below.
         /// </summary>
         [Input("keyEncryptionKey")]
         public Input<Inputs.ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyGetArgs>? KeyEncryptionKey { get; set; }

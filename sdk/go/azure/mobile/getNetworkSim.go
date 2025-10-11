@@ -12,6 +12,15 @@ import (
 )
 
 // Get information about a Mobile Network Sim.
+//
+// ## Example Usage
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.MobileNetwork` - 2022-11-01
 func LookupNetworkSim(ctx *pulumi.Context, args *LookupNetworkSimArgs, opts ...pulumi.InvokeOption) (*LookupNetworkSimResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNetworkSimResult

@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Automation.Outputs
         /// </summary>
         public readonly string? TagFilter;
         /// <summary>
-        /// A mapping of tags used for query filter. One or more `tags` block as defined below.
+        /// A mapping of tags used for query filter. One or more `Tags` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.SoftwareUpdateConfigurationTargetAzureQueryTag> Tags;
 

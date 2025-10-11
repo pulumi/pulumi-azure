@@ -118,19 +118,19 @@ namespace Pulumi.Azure.MSSql
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `partner_server` block as defined below.
+        /// A `PartnerServer` block as defined below.
         /// </summary>
         [Output("partnerServers")]
         public Output<ImmutableArray<Outputs.FailoverGroupPartnerServer>> PartnerServers { get; private set; } = null!;
 
         /// <summary>
-        /// A `read_write_endpoint_failover_policy` block as defined below.
+        /// A `ReadWriteEndpointFailoverPolicy` block as defined below.
         /// </summary>
         [Output("readWriteEndpointFailoverPolicy")]
         public Output<Outputs.FailoverGroupReadWriteEndpointFailoverPolicy> ReadWriteEndpointFailoverPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Whether failover is enabled for the readonly endpoint. Defaults to `false`.
+        /// Whether failover is enabled for the readonly endpoint. Defaults to `False`.
         /// </summary>
         [Output("readonlyEndpointFailoverPolicyEnabled")]
         public Output<bool> ReadonlyEndpointFailoverPolicyEnabled { get; private set; } = null!;
@@ -219,7 +219,7 @@ namespace Pulumi.Azure.MSSql
         private InputList<Inputs.FailoverGroupPartnerServerArgs>? _partnerServers;
 
         /// <summary>
-        /// A `partner_server` block as defined below.
+        /// A `PartnerServer` block as defined below.
         /// </summary>
         public InputList<Inputs.FailoverGroupPartnerServerArgs> PartnerServers
         {
@@ -228,13 +228,13 @@ namespace Pulumi.Azure.MSSql
         }
 
         /// <summary>
-        /// A `read_write_endpoint_failover_policy` block as defined below.
+        /// A `ReadWriteEndpointFailoverPolicy` block as defined below.
         /// </summary>
         [Input("readWriteEndpointFailoverPolicy", required: true)]
         public Input<Inputs.FailoverGroupReadWriteEndpointFailoverPolicyArgs> ReadWriteEndpointFailoverPolicy { get; set; } = null!;
 
         /// <summary>
-        /// Whether failover is enabled for the readonly endpoint. Defaults to `false`.
+        /// Whether failover is enabled for the readonly endpoint. Defaults to `False`.
         /// </summary>
         [Input("readonlyEndpointFailoverPolicyEnabled")]
         public Input<bool>? ReadonlyEndpointFailoverPolicyEnabled { get; set; }
@@ -287,7 +287,7 @@ namespace Pulumi.Azure.MSSql
         private InputList<Inputs.FailoverGroupPartnerServerGetArgs>? _partnerServers;
 
         /// <summary>
-        /// A `partner_server` block as defined below.
+        /// A `PartnerServer` block as defined below.
         /// </summary>
         public InputList<Inputs.FailoverGroupPartnerServerGetArgs> PartnerServers
         {
@@ -296,13 +296,13 @@ namespace Pulumi.Azure.MSSql
         }
 
         /// <summary>
-        /// A `read_write_endpoint_failover_policy` block as defined below.
+        /// A `ReadWriteEndpointFailoverPolicy` block as defined below.
         /// </summary>
         [Input("readWriteEndpointFailoverPolicy")]
         public Input<Inputs.FailoverGroupReadWriteEndpointFailoverPolicyGetArgs>? ReadWriteEndpointFailoverPolicy { get; set; }
 
         /// <summary>
-        /// Whether failover is enabled for the readonly endpoint. Defaults to `false`.
+        /// Whether failover is enabled for the readonly endpoint. Defaults to `False`.
         /// </summary>
         [Input("readonlyEndpointFailoverPolicyEnabled")]
         public Input<bool>? ReadonlyEndpointFailoverPolicyEnabled { get; set; }

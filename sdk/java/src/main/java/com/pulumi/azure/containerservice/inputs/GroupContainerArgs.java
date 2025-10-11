@@ -100,14 +100,14 @@ public final class GroupContainerArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The definition of a readiness probe for this container as documented in the `liveness_probe` block below. Changing this forces a new resource to be created.
+     * The definition of a readiness probe for this container as documented in the `livenessProbe` block below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="livenessProbe")
     private @Nullable Output<GroupContainerLivenessProbeArgs> livenessProbe;
 
     /**
-     * @return The definition of a readiness probe for this container as documented in the `liveness_probe` block below. Changing this forces a new resource to be created.
+     * @return The definition of a readiness probe for this container as documented in the `livenessProbe` block below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<GroupContainerLivenessProbeArgs>> livenessProbe() {
@@ -175,14 +175,14 @@ public final class GroupContainerArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The definition of a readiness probe for this container as documented in the `readiness_probe` block below. Changing this forces a new resource to be created.
+     * The definition of a readiness probe for this container as documented in the `readinessProbe` block below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="readinessProbe")
     private @Nullable Output<GroupContainerReadinessProbeArgs> readinessProbe;
 
     /**
-     * @return The definition of a readiness probe for this container as documented in the `readiness_probe` block below. Changing this forces a new resource to be created.
+     * @return The definition of a readiness probe for this container as documented in the `readinessProbe` block below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<GroupContainerReadinessProbeArgs>> readinessProbe() {
@@ -387,7 +387,7 @@ public final class GroupContainerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param livenessProbe The definition of a readiness probe for this container as documented in the `liveness_probe` block below. Changing this forces a new resource to be created.
+         * @param livenessProbe The definition of a readiness probe for this container as documented in the `livenessProbe` block below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -398,7 +398,7 @@ public final class GroupContainerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param livenessProbe The definition of a readiness probe for this container as documented in the `liveness_probe` block below. Changing this forces a new resource to be created.
+         * @param livenessProbe The definition of a readiness probe for this container as documented in the `livenessProbe` block below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -502,7 +502,7 @@ public final class GroupContainerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param readinessProbe The definition of a readiness probe for this container as documented in the `readiness_probe` block below. Changing this forces a new resource to be created.
+         * @param readinessProbe The definition of a readiness probe for this container as documented in the `readinessProbe` block below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -513,7 +513,7 @@ public final class GroupContainerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param readinessProbe The definition of a readiness probe for this container as documented in the `readiness_probe` block below. Changing this forces a new resource to be created.
+         * @param readinessProbe The definition of a readiness probe for this container as documented in the `readinessProbe` block below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

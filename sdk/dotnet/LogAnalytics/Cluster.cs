@@ -69,7 +69,7 @@ namespace Pulumi.Azure.LogAnalytics
         public Output<string> ClusterId { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
+        /// An `Identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ClusterIdentity> Identity { get; private set; } = null!;
@@ -153,7 +153,7 @@ namespace Pulumi.Azure.LogAnalytics
     public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
+        /// An `Identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
         /// </summary>
         [Input("identity", required: true)]
         public Input<Inputs.ClusterIdentityArgs> Identity { get; set; } = null!;
@@ -211,7 +211,7 @@ namespace Pulumi.Azure.LogAnalytics
         public Input<string>? ClusterId { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
+        /// An `Identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ClusterIdentityGetArgs>? Identity { get; set; }

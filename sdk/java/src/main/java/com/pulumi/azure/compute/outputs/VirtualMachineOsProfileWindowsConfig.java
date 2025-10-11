@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VirtualMachineOsProfileWindowsConfig {
     /**
-     * @return An `additional_unattend_config` block as defined below.
+     * @return An `additionalUnattendConfig` block as defined below.
      * 
      */
     private @Nullable List<VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig> additionalUnattendConfigs;
@@ -45,7 +45,7 @@ public final class VirtualMachineOsProfileWindowsConfig {
 
     private VirtualMachineOsProfileWindowsConfig() {}
     /**
-     * @return An `additional_unattend_config` block as defined below.
+     * @return An `additionalUnattendConfig` block as defined below.
      * 
      */
     public List<VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig> additionalUnattendConfigs() {

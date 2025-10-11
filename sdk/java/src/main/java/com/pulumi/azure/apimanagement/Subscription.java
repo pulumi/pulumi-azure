@@ -112,7 +112,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Only one of `product_id` and `api_id` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
+     * &gt; **Note:** Only one of `productId` and `apiId` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
      * 
      */
     @Export(name="apiId", refs={String.class}, tree="[0]")
@@ -121,7 +121,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Only one of `product_id` and `api_id` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
+     * &gt; **Note:** Only one of `productId` and `apiId` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
      * 
      */
     public Output<Optional<String>> apiId() {
@@ -172,7 +172,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Only one of `product_id` and `api_id` can be set. If both are missing `all_apis` scope is used for the subscription.
+     * &gt; **Note:** Only one of `productId` and `apiId` can be set. If both are missing `allApis` scope is used for the subscription.
      * 
      */
     @Export(name="productId", refs={String.class}, tree="[0]")
@@ -181,7 +181,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Only one of `product_id` and `api_id` can be set. If both are missing `all_apis` scope is used for the subscription.
+     * &gt; **Note:** Only one of `productId` and `apiId` can be set. If both are missing `allApis` scope is used for the subscription.
      * 
      */
     public Output<Optional<String>> productId() {

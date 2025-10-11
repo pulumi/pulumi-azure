@@ -182,7 +182,7 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A `ip_configuration` block as defined below.
+        /// A `IpConfiguration` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBastionHostIpConfigurationResult> IpConfigurations;
         /// <summary>

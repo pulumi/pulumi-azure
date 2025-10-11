@@ -19,7 +19,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfig {
      */
     private @Nullable Integer swapFileSizeMb;
     /**
-     * @return A `sysctl_config` block as defined below.
+     * @return A `sysctlConfig` block as defined below.
      * 
      */
     private @Nullable KubernetesClusterNodePoolLinuxOsConfigSysctlConfig sysctlConfig;
@@ -35,10 +35,10 @@ public final class KubernetesClusterNodePoolLinuxOsConfig {
     private @Nullable String transparentHugePageDefrag;
     /**
      * @deprecated
-     * this property has been deprecated in favour of `transparent_huge_page` and will be removed in version 5.0 of the Provider.
+     * this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider.
      * 
      */
-    @Deprecated /* this property has been deprecated in favour of `transparent_huge_page` and will be removed in version 5.0 of the Provider. */
+    @Deprecated /* this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider. */
     private @Nullable String transparentHugePageEnabled;
 
     private KubernetesClusterNodePoolLinuxOsConfig() {}
@@ -50,7 +50,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfig {
         return Optional.ofNullable(this.swapFileSizeMb);
     }
     /**
-     * @return A `sysctl_config` block as defined below.
+     * @return A `sysctlConfig` block as defined below.
      * 
      */
     public Optional<KubernetesClusterNodePoolLinuxOsConfigSysctlConfig> sysctlConfig() {
@@ -72,10 +72,10 @@ public final class KubernetesClusterNodePoolLinuxOsConfig {
     }
     /**
      * @deprecated
-     * this property has been deprecated in favour of `transparent_huge_page` and will be removed in version 5.0 of the Provider.
+     * this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider.
      * 
      */
-    @Deprecated /* this property has been deprecated in favour of `transparent_huge_page` and will be removed in version 5.0 of the Provider. */
+    @Deprecated /* this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider. */
     public Optional<String> transparentHugePageEnabled() {
         return Optional.ofNullable(this.transparentHugePageEnabled);
     }

@@ -94,13 +94,13 @@ namespace Pulumi.Azure.Sentinel
     public partial class Metadata : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An `author` blocks as defined below.
+        /// An `Author` blocks as defined below.
         /// </summary>
         [Output("author")]
         public Output<Outputs.MetadataAuthor?> Author { get; private set; } = null!;
 
         /// <summary>
-        /// A `category` block as defined below.
+        /// A `Category` block as defined below.
         /// </summary>
         [Output("category")]
         public Output<Outputs.MetadataCategory?> Category { get; private set; } = null!;
@@ -124,7 +124,7 @@ namespace Pulumi.Azure.Sentinel
         public Output<string?> CustomVersion { get; private set; } = null!;
 
         /// <summary>
-        /// A JSON formatted `dependency` block as defined below. Dependency for the content item, what other content items it requires to work.
+        /// A JSON formatted `Dependency` block as defined below. Dependency for the content item, what other content items it requires to work.
         /// </summary>
         [Output("dependency")]
         public Output<string?> Dependency { get; private set; } = null!;
@@ -184,13 +184,13 @@ namespace Pulumi.Azure.Sentinel
         public Output<ImmutableArray<string>> Providers { get; private set; } = null!;
 
         /// <summary>
-        /// A `source` block as defined below.
+        /// A `Source` block as defined below.
         /// </summary>
         [Output("source")]
         public Output<Outputs.MetadataSource> Source { get; private set; } = null!;
 
         /// <summary>
-        /// A `support` block as defined below.
+        /// A `Support` block as defined below.
         /// </summary>
         [Output("support")]
         public Output<Outputs.MetadataSupport?> Support { get; private set; } = null!;
@@ -266,13 +266,13 @@ namespace Pulumi.Azure.Sentinel
     public sealed class MetadataArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `author` blocks as defined below.
+        /// An `Author` blocks as defined below.
         /// </summary>
         [Input("author")]
         public Input<Inputs.MetadataAuthorArgs>? Author { get; set; }
 
         /// <summary>
-        /// A `category` block as defined below.
+        /// A `Category` block as defined below.
         /// </summary>
         [Input("category")]
         public Input<Inputs.MetadataCategoryArgs>? Category { get; set; }
@@ -296,7 +296,7 @@ namespace Pulumi.Azure.Sentinel
         public Input<string>? CustomVersion { get; set; }
 
         /// <summary>
-        /// A JSON formatted `dependency` block as defined below. Dependency for the content item, what other content items it requires to work.
+        /// A JSON formatted `Dependency` block as defined below. Dependency for the content item, what other content items it requires to work.
         /// </summary>
         [Input("dependency")]
         public Input<string>? Dependency { get; set; }
@@ -374,13 +374,13 @@ namespace Pulumi.Azure.Sentinel
         }
 
         /// <summary>
-        /// A `source` block as defined below.
+        /// A `Source` block as defined below.
         /// </summary>
         [Input("source")]
         public Input<Inputs.MetadataSourceArgs>? Source { get; set; }
 
         /// <summary>
-        /// A `support` block as defined below.
+        /// A `Support` block as defined below.
         /// </summary>
         [Input("support")]
         public Input<Inputs.MetadataSupportArgs>? Support { get; set; }
@@ -430,13 +430,13 @@ namespace Pulumi.Azure.Sentinel
     public sealed class MetadataState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `author` blocks as defined below.
+        /// An `Author` blocks as defined below.
         /// </summary>
         [Input("author")]
         public Input<Inputs.MetadataAuthorGetArgs>? Author { get; set; }
 
         /// <summary>
-        /// A `category` block as defined below.
+        /// A `Category` block as defined below.
         /// </summary>
         [Input("category")]
         public Input<Inputs.MetadataCategoryGetArgs>? Category { get; set; }
@@ -460,7 +460,7 @@ namespace Pulumi.Azure.Sentinel
         public Input<string>? CustomVersion { get; set; }
 
         /// <summary>
-        /// A JSON formatted `dependency` block as defined below. Dependency for the content item, what other content items it requires to work.
+        /// A JSON formatted `Dependency` block as defined below. Dependency for the content item, what other content items it requires to work.
         /// </summary>
         [Input("dependency")]
         public Input<string>? Dependency { get; set; }
@@ -538,13 +538,13 @@ namespace Pulumi.Azure.Sentinel
         }
 
         /// <summary>
-        /// A `source` block as defined below.
+        /// A `Source` block as defined below.
         /// </summary>
         [Input("source")]
         public Input<Inputs.MetadataSourceGetArgs>? Source { get; set; }
 
         /// <summary>
-        /// A `support` block as defined below.
+        /// A `Support` block as defined below.
         /// </summary>
         [Input("support")]
         public Input<Inputs.MetadataSupportGetArgs>? Support { get; set; }

@@ -47,14 +47,14 @@ public final class DataCollectionRuleDataSourcesPerformanceCounterArgs extends c
     }
 
     /**
-     * The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `1800` inclusive. `sampling_frequency_in_seconds` must be equal to `60` seconds for counters collected with `Microsoft-InsightsMetrics` stream.
+     * The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `1800` inclusive. `samplingFrequencyInSeconds` must be equal to `60` seconds for counters collected with `Microsoft-InsightsMetrics` stream.
      * 
      */
     @Import(name="samplingFrequencyInSeconds", required=true)
     private Output<Integer> samplingFrequencyInSeconds;
 
     /**
-     * @return The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `1800` inclusive. `sampling_frequency_in_seconds` must be equal to `60` seconds for counters collected with `Microsoft-InsightsMetrics` stream.
+     * @return The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `1800` inclusive. `samplingFrequencyInSeconds` must be equal to `60` seconds for counters collected with `Microsoft-InsightsMetrics` stream.
      * 
      */
     public Output<Integer> samplingFrequencyInSeconds() {
@@ -156,7 +156,7 @@ public final class DataCollectionRuleDataSourcesPerformanceCounterArgs extends c
         }
 
         /**
-         * @param samplingFrequencyInSeconds The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `1800` inclusive. `sampling_frequency_in_seconds` must be equal to `60` seconds for counters collected with `Microsoft-InsightsMetrics` stream.
+         * @param samplingFrequencyInSeconds The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `1800` inclusive. `samplingFrequencyInSeconds` must be equal to `60` seconds for counters collected with `Microsoft-InsightsMetrics` stream.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class DataCollectionRuleDataSourcesPerformanceCounterArgs extends c
         }
 
         /**
-         * @param samplingFrequencyInSeconds The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `1800` inclusive. `sampling_frequency_in_seconds` must be equal to `60` seconds for counters collected with `Microsoft-InsightsMetrics` stream.
+         * @param samplingFrequencyInSeconds The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `1800` inclusive. `samplingFrequencyInSeconds` must be equal to `60` seconds for counters collected with `Microsoft-InsightsMetrics` stream.
          * 
          * @return builder
          * 

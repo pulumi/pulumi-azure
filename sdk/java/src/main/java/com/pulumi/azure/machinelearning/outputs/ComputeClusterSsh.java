@@ -25,7 +25,7 @@ public final class ComputeClusterSsh {
     /**
      * @return SSH public key of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
      * 
-     * &gt; **Note:** At least one of `admin_password` and `key_value` shoud be specified.
+     * &gt; **Note:** At least one of `adminPassword` and `keyValue` shoud be specified.
      * 
      */
     private @Nullable String keyValue;
@@ -48,7 +48,7 @@ public final class ComputeClusterSsh {
     /**
      * @return SSH public key of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
      * 
-     * &gt; **Note:** At least one of `admin_password` and `key_value` shoud be specified.
+     * &gt; **Note:** At least one of `adminPassword` and `keyValue` shoud be specified.
      * 
      */
     public Optional<String> keyValue() {

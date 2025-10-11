@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService
     /// 
     /// !&gt; **NOTE:** This resource has been deprecated in version 5.0 of the provider and will be removed in version 6.0. Please use `azure.appservice.LinuxWebAppSlot` and `azure.appservice.WindowsWebAppSlot` resources instead.
     /// 
-    /// &gt; **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `azure.appservice.AppService` resource will be overwritten when promoting a Slot using the `azure.appservice.ActiveSlot` resource.
+    /// &gt; **Note:** When using Slots - the `AppSettings`, `ConnectionString` and `SiteConfig` blocks on the `azure.appservice.AppService` resource will be overwritten when promoting a Slot using the `azure.appservice.ActiveSlot` resource.
     /// 
     /// ## Example Usage
     /// 
@@ -210,7 +210,7 @@ namespace Pulumi.Azure.AppService
         public Output<ImmutableDictionary<string, string>> AppSettings { get; private set; } = null!;
 
         /// <summary>
-        /// A `auth_settings` block as defined below.
+        /// A `AuthSettings` block as defined below.
         /// </summary>
         [Output("authSettings")]
         public Output<Outputs.SlotAuthSettings> AuthSettings { get; private set; } = null!;
@@ -222,7 +222,7 @@ namespace Pulumi.Azure.AppService
         public Output<bool> ClientAffinityEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// An `connection_string` block as defined below.
+        /// An `ConnectionString` block as defined below.
         /// </summary>
         [Output("connectionStrings")]
         public Output<ImmutableArray<Outputs.SlotConnectionString>> ConnectionStrings { get; private set; } = null!;
@@ -234,19 +234,19 @@ namespace Pulumi.Azure.AppService
         public Output<string> DefaultSiteHostname { get; private set; } = null!;
 
         /// <summary>
-        /// Is the App Service Slot Enabled? Defaults to `true`.
+        /// Is the App Service Slot Enabled? Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// Can the App Service Slot only be accessed via HTTPS? Defaults to `false`.
+        /// Can the App Service Slot only be accessed via HTTPS? Defaults to `False`.
         /// </summary>
         [Output("httpsOnly")]
         public Output<bool?> HttpsOnly { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.SlotIdentity?> Identity { get; private set; } = null!;
@@ -264,7 +264,7 @@ namespace Pulumi.Azure.AppService
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// A `logs` block as defined below.
+        /// A `Logs` block as defined below.
         /// </summary>
         [Output("logs")]
         public Output<Outputs.SlotLogs> Logs { get; private set; } = null!;
@@ -282,19 +282,19 @@ namespace Pulumi.Azure.AppService
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `site_config` object as defined below.
+        /// A `SiteConfig` object as defined below.
         /// </summary>
         [Output("siteConfig")]
         public Output<Outputs.SlotSiteConfig> SiteConfig { get; private set; } = null!;
 
         /// <summary>
-        /// A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service slot.
+        /// A `SiteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service slot.
         /// </summary>
         [Output("siteCredentials")]
         public Output<ImmutableArray<Outputs.SlotSiteCredential>> SiteCredentials { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `storage_account` blocks as defined below.
+        /// One or more `StorageAccount` blocks as defined below.
         /// </summary>
         [Output("storageAccounts")]
         public Output<ImmutableArray<Outputs.SlotStorageAccount>> StorageAccounts { get; private set; } = null!;
@@ -376,7 +376,7 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// A `auth_settings` block as defined below.
+        /// A `AuthSettings` block as defined below.
         /// </summary>
         [Input("authSettings")]
         public Input<Inputs.SlotAuthSettingsArgs>? AuthSettings { get; set; }
@@ -391,7 +391,7 @@ namespace Pulumi.Azure.AppService
         private InputList<Inputs.SlotConnectionStringArgs>? _connectionStrings;
 
         /// <summary>
-        /// An `connection_string` block as defined below.
+        /// An `ConnectionString` block as defined below.
         /// </summary>
         public InputList<Inputs.SlotConnectionStringArgs> ConnectionStrings
         {
@@ -400,19 +400,19 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// Is the App Service Slot Enabled? Defaults to `true`.
+        /// Is the App Service Slot Enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Can the App Service Slot only be accessed via HTTPS? Defaults to `false`.
+        /// Can the App Service Slot only be accessed via HTTPS? Defaults to `False`.
         /// </summary>
         [Input("httpsOnly")]
         public Input<bool>? HttpsOnly { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.SlotIdentityArgs>? Identity { get; set; }
@@ -430,7 +430,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A `logs` block as defined below.
+        /// A `Logs` block as defined below.
         /// </summary>
         [Input("logs")]
         public Input<Inputs.SlotLogsArgs>? Logs { get; set; }
@@ -448,7 +448,7 @@ namespace Pulumi.Azure.AppService
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `site_config` object as defined below.
+        /// A `SiteConfig` object as defined below.
         /// </summary>
         [Input("siteConfig")]
         public Input<Inputs.SlotSiteConfigArgs>? SiteConfig { get; set; }
@@ -457,7 +457,7 @@ namespace Pulumi.Azure.AppService
         private InputList<Inputs.SlotStorageAccountArgs>? _storageAccounts;
 
         /// <summary>
-        /// One or more `storage_account` blocks as defined below.
+        /// One or more `StorageAccount` blocks as defined below.
         /// </summary>
         public InputList<Inputs.SlotStorageAccountArgs> StorageAccounts
         {
@@ -510,7 +510,7 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// A `auth_settings` block as defined below.
+        /// A `AuthSettings` block as defined below.
         /// </summary>
         [Input("authSettings")]
         public Input<Inputs.SlotAuthSettingsGetArgs>? AuthSettings { get; set; }
@@ -525,7 +525,7 @@ namespace Pulumi.Azure.AppService
         private InputList<Inputs.SlotConnectionStringGetArgs>? _connectionStrings;
 
         /// <summary>
-        /// An `connection_string` block as defined below.
+        /// An `ConnectionString` block as defined below.
         /// </summary>
         public InputList<Inputs.SlotConnectionStringGetArgs> ConnectionStrings
         {
@@ -540,19 +540,19 @@ namespace Pulumi.Azure.AppService
         public Input<string>? DefaultSiteHostname { get; set; }
 
         /// <summary>
-        /// Is the App Service Slot Enabled? Defaults to `true`.
+        /// Is the App Service Slot Enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Can the App Service Slot only be accessed via HTTPS? Defaults to `false`.
+        /// Can the App Service Slot only be accessed via HTTPS? Defaults to `False`.
         /// </summary>
         [Input("httpsOnly")]
         public Input<bool>? HttpsOnly { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.SlotIdentityGetArgs>? Identity { get; set; }
@@ -570,7 +570,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A `logs` block as defined below.
+        /// A `Logs` block as defined below.
         /// </summary>
         [Input("logs")]
         public Input<Inputs.SlotLogsGetArgs>? Logs { get; set; }
@@ -588,7 +588,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// A `site_config` object as defined below.
+        /// A `SiteConfig` object as defined below.
         /// </summary>
         [Input("siteConfig")]
         public Input<Inputs.SlotSiteConfigGetArgs>? SiteConfig { get; set; }
@@ -597,7 +597,7 @@ namespace Pulumi.Azure.AppService
         private InputList<Inputs.SlotSiteCredentialGetArgs>? _siteCredentials;
 
         /// <summary>
-        /// A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service slot.
+        /// A `SiteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service slot.
         /// </summary>
         public InputList<Inputs.SlotSiteCredentialGetArgs> SiteCredentials
         {
@@ -609,7 +609,7 @@ namespace Pulumi.Azure.AppService
         private InputList<Inputs.SlotStorageAccountGetArgs>? _storageAccounts;
 
         /// <summary>
-        /// One or more `storage_account` blocks as defined below.
+        /// One or more `StorageAccount` blocks as defined below.
         /// </summary>
         public InputList<Inputs.SlotStorageAccountGetArgs> StorageAccounts
         {

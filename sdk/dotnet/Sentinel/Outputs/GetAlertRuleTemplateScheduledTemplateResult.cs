@@ -38,11 +38,11 @@ namespace Pulumi.Azure.Sentinel.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Tactics;
         /// <summary>
-        /// The alert trigger operator, combined with `trigger_threshold`, setting alert threshold of this Sentinel Scheduled Alert Rule Template.
+        /// The alert trigger operator, combined with `TriggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule Template.
         /// </summary>
         public readonly string TriggerOperator;
         /// <summary>
-        /// The baseline number of query results generated, combined with `trigger_operator`, setting alert threshold of this Sentinel Scheduled Alert Rule Template.
+        /// The baseline number of query results generated, combined with `TriggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule Template.
         /// </summary>
         public readonly int TriggerThreshold;
 

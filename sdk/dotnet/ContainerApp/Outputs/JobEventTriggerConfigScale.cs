@@ -26,7 +26,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly int? PollingIntervalInSeconds;
         /// <summary>
-        /// A `rules` block as defined below.
+        /// A `Rules` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.JobEventTriggerConfigScaleRule> Rules;
 

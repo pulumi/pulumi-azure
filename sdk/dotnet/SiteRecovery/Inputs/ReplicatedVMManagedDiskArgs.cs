@@ -25,7 +25,7 @@ namespace Pulumi.Azure.SiteRecovery.Inputs
         public Input<string> StagingStorageAccountId { get; set; } = null!;
 
         /// <summary>
-        /// A `target_disk_encryption` block as defined below.
+        /// A `TargetDiskEncryption` block as defined below.
         /// </summary>
         [Input("targetDiskEncryption")]
         public Input<Inputs.ReplicatedVMManagedDiskTargetDiskEncryptionArgs>? TargetDiskEncryption { get; set; }
@@ -33,7 +33,7 @@ namespace Pulumi.Azure.SiteRecovery.Inputs
         /// <summary>
         /// The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** Creating replicated vm with `target_disk_encryption_set_id` wil take more time (up to 5 hours), please extend the `timeout` for `create`.
+        /// &gt; **Note:** Creating replicated vm with `TargetDiskEncryptionSetId` wil take more time (up to 5 hours), please extend the `Timeout` for `Create`.
         /// </summary>
         [Input("targetDiskEncryptionSetId")]
         public Input<string>? TargetDiskEncryptionSetId { get; set; }

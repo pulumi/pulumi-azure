@@ -16,7 +16,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         private InputList<Inputs.KubernetesClusterAciConnectorLinuxConnectorIdentityGetArgs>? _connectorIdentities;
 
         /// <summary>
-        /// A `connector_identity` block is exported. The exported attributes are defined below.
+        /// A `ConnectorIdentity` block is exported. The exported attributes are defined below.
         /// </summary>
         public InputList<Inputs.KubernetesClusterAciConnectorLinuxConnectorIdentityGetArgs> ConnectorIdentities
         {

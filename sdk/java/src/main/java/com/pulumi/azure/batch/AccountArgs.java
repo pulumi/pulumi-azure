@@ -69,14 +69,14 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `key_vault_reference` block, as defined below, that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
+     * A `keyVaultReference` block, as defined below, that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
      * 
      */
     @Import(name="keyVaultReference")
     private @Nullable Output<AccountKeyVaultReferenceArgs> keyVaultReference;
 
     /**
-     * @return A `key_vault_reference` block, as defined below, that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
+     * @return A `keyVaultReference` block, as defined below, that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
      * 
      */
     public Optional<Output<AccountKeyVaultReferenceArgs>> keyVaultReference() {
@@ -114,14 +114,14 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `network_profile` block as defined below.
+     * A `networkProfile` block as defined below.
      * 
      */
     @Import(name="networkProfile")
     private @Nullable Output<AccountNetworkProfileArgs> networkProfile;
 
     /**
-     * @return A `network_profile` block as defined below.
+     * @return A `networkProfile` block as defined below.
      * 
      */
     public Optional<Output<AccountNetworkProfileArgs>> networkProfile() {
@@ -146,7 +146,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Whether public network access is allowed for this server. Defaults to `true`.
      * 
-     * &gt; **NOTE:** When using `UserSubscription` mode, an Azure KeyVault reference has to be specified. See `key_vault_reference` below.
+     * &gt; **NOTE:** When using `UserSubscription` mode, an Azure KeyVault reference has to be specified. See `keyVaultReference` below.
      * 
      * &gt; **NOTE:** When using `UserSubscription` mode, the `Microsoft Azure Batch` service principal has to have `Contributor` role on your subscription scope, as documented [here](https://docs.microsoft.com/azure/batch/batch-account-create-portal#additional-configuration-for-user-subscription-mode).
      * 
@@ -157,7 +157,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Whether public network access is allowed for this server. Defaults to `true`.
      * 
-     * &gt; **NOTE:** When using `UserSubscription` mode, an Azure KeyVault reference has to be specified. See `key_vault_reference` below.
+     * &gt; **NOTE:** When using `UserSubscription` mode, an Azure KeyVault reference has to be specified. See `keyVaultReference` below.
      * 
      * &gt; **NOTE:** When using `UserSubscription` mode, the `Microsoft Azure Batch` service principal has to have `Contributor` role on your subscription scope, as documented [here](https://docs.microsoft.com/azure/batch/batch-account-create-portal#additional-configuration-for-user-subscription-mode).
      * 
@@ -207,7 +207,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
      * 
-     * &gt; **NOTE:** When using `storage_account_id`, the `storage_account_authentication_mode` must be specified as well.
+     * &gt; **NOTE:** When using `storageAccountId`, the `storageAccountAuthenticationMode` must be specified as well.
      * 
      */
     @Import(name="storageAccountId")
@@ -216,7 +216,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
      * 
-     * &gt; **NOTE:** When using `storage_account_id`, the `storage_account_authentication_mode` must be specified as well.
+     * &gt; **NOTE:** When using `storageAccountId`, the `storageAccountAuthenticationMode` must be specified as well.
      * 
      */
     public Optional<Output<String>> storageAccountId() {
@@ -364,7 +364,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyVaultReference A `key_vault_reference` block, as defined below, that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
+         * @param keyVaultReference A `keyVaultReference` block, as defined below, that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
          * 
          * @return builder
          * 
@@ -375,7 +375,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyVaultReference A `key_vault_reference` block, as defined below, that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
+         * @param keyVaultReference A `keyVaultReference` block, as defined below, that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
          * 
          * @return builder
          * 
@@ -427,7 +427,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkProfile A `network_profile` block as defined below.
+         * @param networkProfile A `networkProfile` block as defined below.
          * 
          * @return builder
          * 
@@ -438,7 +438,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkProfile A `network_profile` block as defined below.
+         * @param networkProfile A `networkProfile` block as defined below.
          * 
          * @return builder
          * 
@@ -471,7 +471,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param publicNetworkAccessEnabled Whether public network access is allowed for this server. Defaults to `true`.
          * 
-         * &gt; **NOTE:** When using `UserSubscription` mode, an Azure KeyVault reference has to be specified. See `key_vault_reference` below.
+         * &gt; **NOTE:** When using `UserSubscription` mode, an Azure KeyVault reference has to be specified. See `keyVaultReference` below.
          * 
          * &gt; **NOTE:** When using `UserSubscription` mode, the `Microsoft Azure Batch` service principal has to have `Contributor` role on your subscription scope, as documented [here](https://docs.microsoft.com/azure/batch/batch-account-create-portal#additional-configuration-for-user-subscription-mode).
          * 
@@ -486,7 +486,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param publicNetworkAccessEnabled Whether public network access is allowed for this server. Defaults to `true`.
          * 
-         * &gt; **NOTE:** When using `UserSubscription` mode, an Azure KeyVault reference has to be specified. See `key_vault_reference` below.
+         * &gt; **NOTE:** When using `UserSubscription` mode, an Azure KeyVault reference has to be specified. See `keyVaultReference` below.
          * 
          * &gt; **NOTE:** When using `UserSubscription` mode, the `Microsoft Azure Batch` service principal has to have `Contributor` role on your subscription scope, as documented [here](https://docs.microsoft.com/azure/batch/batch-account-create-portal#additional-configuration-for-user-subscription-mode).
          * 
@@ -550,7 +550,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param storageAccountId Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
          * 
-         * &gt; **NOTE:** When using `storage_account_id`, the `storage_account_authentication_mode` must be specified as well.
+         * &gt; **NOTE:** When using `storageAccountId`, the `storageAccountAuthenticationMode` must be specified as well.
          * 
          * @return builder
          * 
@@ -563,7 +563,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param storageAccountId Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
          * 
-         * &gt; **NOTE:** When using `storage_account_id`, the `storage_account_authentication_mode` must be specified as well.
+         * &gt; **NOTE:** When using `storageAccountId`, the `storageAccountAuthenticationMode` must be specified as well.
          * 
          * @return builder
          * 

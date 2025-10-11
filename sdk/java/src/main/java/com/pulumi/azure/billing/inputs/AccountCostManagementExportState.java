@@ -21,7 +21,7 @@ public final class AccountCostManagementExportState extends com.pulumi.resources
     /**
      * Is the cost management export active? Default is `true`.
      * 
-     * * * `file_format` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
+     * * * `fileFormat` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
      * 
      */
     @Import(name="active")
@@ -30,7 +30,7 @@ public final class AccountCostManagementExportState extends com.pulumi.resources
     /**
      * @return Is the cost management export active? Default is `true`.
      * 
-     * * * `file_format` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
+     * * * `fileFormat` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
      * 
      */
     public Optional<Output<Boolean>> active() {
@@ -53,14 +53,14 @@ public final class AccountCostManagementExportState extends com.pulumi.resources
     }
 
     /**
-     * A `export_data_options` block as defined below.
+     * A `exportDataOptions` block as defined below.
      * 
      */
     @Import(name="exportDataOptions")
     private @Nullable Output<AccountCostManagementExportExportDataOptionsArgs> exportDataOptions;
 
     /**
-     * @return A `export_data_options` block as defined below.
+     * @return A `exportDataOptions` block as defined below.
      * 
      */
     public Optional<Output<AccountCostManagementExportExportDataOptionsArgs>> exportDataOptions() {
@@ -68,14 +68,14 @@ public final class AccountCostManagementExportState extends com.pulumi.resources
     }
 
     /**
-     * A `export_data_storage_location` block as defined below.
+     * A `exportDataStorageLocation` block as defined below.
      * 
      */
     @Import(name="exportDataStorageLocation")
     private @Nullable Output<AccountCostManagementExportExportDataStorageLocationArgs> exportDataStorageLocation;
 
     /**
-     * @return A `export_data_storage_location` block as defined below.
+     * @return A `exportDataStorageLocation` block as defined below.
      * 
      */
     public Optional<Output<AccountCostManagementExportExportDataStorageLocationArgs>> exportDataStorageLocation() {
@@ -184,7 +184,7 @@ public final class AccountCostManagementExportState extends com.pulumi.resources
         /**
          * @param active Is the cost management export active? Default is `true`.
          * 
-         * * * `file_format` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
+         * * * `fileFormat` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class AccountCostManagementExportState extends com.pulumi.resources
         /**
          * @param active Is the cost management export active? Default is `true`.
          * 
-         * * * `file_format` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
+         * * * `fileFormat` - (Optional) Format for export. Valid values are `Csv` only. Default is `Csv`.
          * 
          * @return builder
          * 
@@ -228,7 +228,7 @@ public final class AccountCostManagementExportState extends com.pulumi.resources
         }
 
         /**
-         * @param exportDataOptions A `export_data_options` block as defined below.
+         * @param exportDataOptions A `exportDataOptions` block as defined below.
          * 
          * @return builder
          * 
@@ -239,7 +239,7 @@ public final class AccountCostManagementExportState extends com.pulumi.resources
         }
 
         /**
-         * @param exportDataOptions A `export_data_options` block as defined below.
+         * @param exportDataOptions A `exportDataOptions` block as defined below.
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class AccountCostManagementExportState extends com.pulumi.resources
         }
 
         /**
-         * @param exportDataStorageLocation A `export_data_storage_location` block as defined below.
+         * @param exportDataStorageLocation A `exportDataStorageLocation` block as defined below.
          * 
          * @return builder
          * 
@@ -260,7 +260,7 @@ public final class AccountCostManagementExportState extends com.pulumi.resources
         }
 
         /**
-         * @param exportDataStorageLocation A `export_data_storage_location` block as defined below.
+         * @param exportDataStorageLocation A `exportDataStorageLocation` block as defined below.
          * 
          * @return builder
          * 

@@ -158,7 +158,7 @@ namespace Pulumi.Azure.EventGrid
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// An `identity` block as defined below, which contains the Managed Service Identity information for this Event Grid System Topic.
+        /// An `Identity` block as defined below, which contains the Managed Service Identity information for this Event Grid System Topic.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetSystemTopicIdentityResult> Identities;
         public readonly string Location;

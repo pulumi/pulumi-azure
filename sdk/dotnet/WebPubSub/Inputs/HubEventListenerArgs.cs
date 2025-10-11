@@ -28,7 +28,7 @@ namespace Pulumi.Azure.WebPubSub.Inputs
         private InputList<string>? _systemEventNameFilters;
 
         /// <summary>
-        /// Specifies the list of system events. Supported values are `connected` and `disconnected`.
+        /// Specifies the list of system events. Supported values are `Connected` and `Disconnected`.
         /// </summary>
         public InputList<string> SystemEventNameFilters
         {

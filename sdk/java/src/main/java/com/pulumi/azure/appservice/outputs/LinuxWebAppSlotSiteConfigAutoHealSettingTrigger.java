@@ -21,17 +21,17 @@ public final class LinuxWebAppSlotSiteConfigAutoHealSettingTrigger {
      */
     private @Nullable LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequests requests;
     /**
-     * @return A `slow_request` block as defined above.
+     * @return A `slowRequest` block as defined above.
      * 
      */
     private @Nullable LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest slowRequest;
     /**
-     * @return One or more `slow_request_with_path` blocks as defined above.
+     * @return One or more `slowRequestWithPath` blocks as defined above.
      * 
      */
     private @Nullable List<LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath> slowRequestWithPaths;
     /**
-     * @return One or more `status_code` blocks as defined above.
+     * @return One or more `statusCode` blocks as defined above.
      * 
      */
     private @Nullable List<LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode> statusCodes;
@@ -45,21 +45,21 @@ public final class LinuxWebAppSlotSiteConfigAutoHealSettingTrigger {
         return Optional.ofNullable(this.requests);
     }
     /**
-     * @return A `slow_request` block as defined above.
+     * @return A `slowRequest` block as defined above.
      * 
      */
     public Optional<LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest> slowRequest() {
         return Optional.ofNullable(this.slowRequest);
     }
     /**
-     * @return One or more `slow_request_with_path` blocks as defined above.
+     * @return One or more `slowRequestWithPath` blocks as defined above.
      * 
      */
     public List<LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPath> slowRequestWithPaths() {
         return this.slowRequestWithPaths == null ? List.of() : this.slowRequestWithPaths;
     }
     /**
-     * @return One or more `status_code` blocks as defined above.
+     * @return One or more `statusCode` blocks as defined above.
      * 
      */
     public List<LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode> statusCodes() {

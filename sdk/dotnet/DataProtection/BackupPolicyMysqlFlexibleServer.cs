@@ -164,7 +164,7 @@ namespace Pulumi.Azure.DataProtection
         public Output<ImmutableArray<string>> BackupRepeatingTimeIntervals { get; private set; } = null!;
 
         /// <summary>
-        /// A `default_retention_rule` block as defined below. Changing this forces a new resource to be created.
+        /// A `DefaultRetentionRule` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("defaultRetentionRule")]
         public Output<Outputs.BackupPolicyMysqlFlexibleServerDefaultRetentionRule> DefaultRetentionRule { get; private set; } = null!;
@@ -176,7 +176,7 @@ namespace Pulumi.Azure.DataProtection
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `retention_rule` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `RetentionRule` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("retentionRules")]
         public Output<ImmutableArray<Outputs.BackupPolicyMysqlFlexibleServerRetentionRule>> RetentionRules { get; private set; } = null!;
@@ -252,7 +252,7 @@ namespace Pulumi.Azure.DataProtection
         }
 
         /// <summary>
-        /// A `default_retention_rule` block as defined below. Changing this forces a new resource to be created.
+        /// A `DefaultRetentionRule` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("defaultRetentionRule", required: true)]
         public Input<Inputs.BackupPolicyMysqlFlexibleServerDefaultRetentionRuleArgs> DefaultRetentionRule { get; set; } = null!;
@@ -267,7 +267,7 @@ namespace Pulumi.Azure.DataProtection
         private InputList<Inputs.BackupPolicyMysqlFlexibleServerRetentionRuleArgs>? _retentionRules;
 
         /// <summary>
-        /// One or more `retention_rule` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `RetentionRule` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.BackupPolicyMysqlFlexibleServerRetentionRuleArgs> RetentionRules
         {
@@ -308,7 +308,7 @@ namespace Pulumi.Azure.DataProtection
         }
 
         /// <summary>
-        /// A `default_retention_rule` block as defined below. Changing this forces a new resource to be created.
+        /// A `DefaultRetentionRule` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("defaultRetentionRule")]
         public Input<Inputs.BackupPolicyMysqlFlexibleServerDefaultRetentionRuleGetArgs>? DefaultRetentionRule { get; set; }
@@ -323,7 +323,7 @@ namespace Pulumi.Azure.DataProtection
         private InputList<Inputs.BackupPolicyMysqlFlexibleServerRetentionRuleGetArgs>? _retentionRules;
 
         /// <summary>
-        /// One or more `retention_rule` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `RetentionRule` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.BackupPolicyMysqlFlexibleServerRetentionRuleGetArgs> RetentionRules
         {

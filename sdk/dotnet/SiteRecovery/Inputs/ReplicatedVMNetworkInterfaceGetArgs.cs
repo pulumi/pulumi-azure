@@ -49,7 +49,7 @@ namespace Pulumi.Azure.SiteRecovery.Inputs
         public Input<string>? RecoveryPublicIpAddressId { get; set; }
 
         /// <summary>
-        /// (Required if the network_interface block is specified) Id source network interface.
+        /// (Required if the NetworkInterface block is specified) Id source network interface.
         /// </summary>
         [Input("sourceNetworkInterfaceId")]
         public Input<string>? SourceNetworkInterfaceId { get; set; }

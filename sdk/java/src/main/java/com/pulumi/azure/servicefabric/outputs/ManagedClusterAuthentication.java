@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ManagedClusterAuthentication {
     /**
-     * @return A `active_directory` block as defined above.
+     * @return A `activeDirectory` block as defined above.
      * 
      */
     private @Nullable ManagedClusterAuthenticationActiveDirectory activeDirectory;
@@ -26,7 +26,7 @@ public final class ManagedClusterAuthentication {
 
     private ManagedClusterAuthentication() {}
     /**
-     * @return A `active_directory` block as defined above.
+     * @return A `activeDirectory` block as defined above.
      * 
      */
     public Optional<ManagedClusterAuthenticationActiveDirectory> activeDirectory() {

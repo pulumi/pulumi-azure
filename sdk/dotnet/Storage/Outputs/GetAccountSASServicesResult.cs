@@ -14,19 +14,19 @@ namespace Pulumi.Azure.Storage.Outputs
     public sealed class GetAccountSASServicesResult
     {
         /// <summary>
-        /// Should permission be granted to `blob` services within this storage account?
+        /// Should permission be granted to `Blob` services within this storage account?
         /// </summary>
         public readonly bool Blob;
         /// <summary>
-        /// Should permission be granted to `file` services within this storage account?
+        /// Should permission be granted to `File` services within this storage account?
         /// </summary>
         public readonly bool File;
         /// <summary>
-        /// Should permission be granted to `queue` services within this storage account?
+        /// Should permission be granted to `Queue` services within this storage account?
         /// </summary>
         public readonly bool Queue;
         /// <summary>
-        /// Should permission be granted to `table` services within this storage account?
+        /// Should permission be granted to `Table` services within this storage account?
         /// </summary>
         public readonly bool Table;
 

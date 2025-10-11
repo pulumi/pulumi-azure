@@ -164,18 +164,18 @@ public final class IoTHubState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `fallback_route` block as defined below. If the fallback route is enabled, messages that don&#39;t match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+     * A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don&#39;t match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
      * 
-     * &gt; **Note:** If `fallback_route` isn&#39;t explicitly specified, the fallback route wouldn&#39;t be enabled by default.
+     * &gt; **Note:** If `fallbackRoute` isn&#39;t explicitly specified, the fallback route wouldn&#39;t be enabled by default.
      * 
      */
     @Import(name="fallbackRoute")
     private @Nullable Output<IoTHubFallbackRouteArgs> fallbackRoute;
 
     /**
-     * @return A `fallback_route` block as defined below. If the fallback route is enabled, messages that don&#39;t match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+     * @return A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don&#39;t match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
      * 
-     * &gt; **Note:** If `fallback_route` isn&#39;t explicitly specified, the fallback route wouldn&#39;t be enabled by default.
+     * &gt; **Note:** If `fallbackRoute` isn&#39;t explicitly specified, the fallback route wouldn&#39;t be enabled by default.
      * 
      */
     public Optional<Output<IoTHubFallbackRouteArgs>> fallbackRoute() {
@@ -183,14 +183,14 @@ public final class IoTHubState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `file_upload` block as defined below.
+     * A `fileUpload` block as defined below.
      * 
      */
     @Import(name="fileUpload")
     private @Nullable Output<IoTHubFileUploadArgs> fileUpload;
 
     /**
-     * @return A `file_upload` block as defined below.
+     * @return A `fileUpload` block as defined below.
      * 
      */
     public Optional<Output<IoTHubFileUploadArgs>> fileUpload() {
@@ -280,14 +280,14 @@ public final class IoTHubState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `network_rule_set` block as defined below.
+     * A `networkRuleSet` block as defined below.
      * 
      */
     @Import(name="networkRuleSets")
     private @Nullable Output<List<IoTHubNetworkRuleSetArgs>> networkRuleSets;
 
     /**
-     * @return A `network_rule_set` block as defined below.
+     * @return A `networkRuleSet` block as defined below.
      * 
      */
     public Optional<Output<List<IoTHubNetworkRuleSetArgs>>> networkRuleSets() {
@@ -324,14 +324,14 @@ public final class IoTHubState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `shared_access_policy` blocks as defined below.
+     * One or more `sharedAccessPolicy` blocks as defined below.
      * 
      */
     @Import(name="sharedAccessPolicies")
     private @Nullable Output<List<IoTHubSharedAccessPolicyArgs>> sharedAccessPolicies;
 
     /**
-     * @return One or more `shared_access_policy` blocks as defined below.
+     * @return One or more `sharedAccessPolicy` blocks as defined below.
      * 
      */
     public Optional<Output<List<IoTHubSharedAccessPolicyArgs>>> sharedAccessPolicies() {
@@ -617,9 +617,9 @@ public final class IoTHubState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fallbackRoute A `fallback_route` block as defined below. If the fallback route is enabled, messages that don&#39;t match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+         * @param fallbackRoute A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don&#39;t match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
          * 
-         * &gt; **Note:** If `fallback_route` isn&#39;t explicitly specified, the fallback route wouldn&#39;t be enabled by default.
+         * &gt; **Note:** If `fallbackRoute` isn&#39;t explicitly specified, the fallback route wouldn&#39;t be enabled by default.
          * 
          * @return builder
          * 
@@ -630,9 +630,9 @@ public final class IoTHubState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fallbackRoute A `fallback_route` block as defined below. If the fallback route is enabled, messages that don&#39;t match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+         * @param fallbackRoute A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don&#39;t match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
          * 
-         * &gt; **Note:** If `fallback_route` isn&#39;t explicitly specified, the fallback route wouldn&#39;t be enabled by default.
+         * &gt; **Note:** If `fallbackRoute` isn&#39;t explicitly specified, the fallback route wouldn&#39;t be enabled by default.
          * 
          * @return builder
          * 
@@ -642,7 +642,7 @@ public final class IoTHubState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fileUpload A `file_upload` block as defined below.
+         * @param fileUpload A `fileUpload` block as defined below.
          * 
          * @return builder
          * 
@@ -653,7 +653,7 @@ public final class IoTHubState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fileUpload A `file_upload` block as defined below.
+         * @param fileUpload A `fileUpload` block as defined below.
          * 
          * @return builder
          * 
@@ -777,7 +777,7 @@ public final class IoTHubState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkRuleSets A `network_rule_set` block as defined below.
+         * @param networkRuleSets A `networkRuleSet` block as defined below.
          * 
          * @return builder
          * 
@@ -788,7 +788,7 @@ public final class IoTHubState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkRuleSets A `network_rule_set` block as defined below.
+         * @param networkRuleSets A `networkRuleSet` block as defined below.
          * 
          * @return builder
          * 
@@ -798,7 +798,7 @@ public final class IoTHubState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkRuleSets A `network_rule_set` block as defined below.
+         * @param networkRuleSets A `networkRuleSet` block as defined below.
          * 
          * @return builder
          * 
@@ -851,7 +851,7 @@ public final class IoTHubState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sharedAccessPolicies One or more `shared_access_policy` blocks as defined below.
+         * @param sharedAccessPolicies One or more `sharedAccessPolicy` blocks as defined below.
          * 
          * @return builder
          * 
@@ -862,7 +862,7 @@ public final class IoTHubState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sharedAccessPolicies One or more `shared_access_policy` blocks as defined below.
+         * @param sharedAccessPolicies One or more `sharedAccessPolicy` blocks as defined below.
          * 
          * @return builder
          * 
@@ -872,7 +872,7 @@ public final class IoTHubState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sharedAccessPolicies One or more `shared_access_policy` blocks as defined below.
+         * @param sharedAccessPolicies One or more `sharedAccessPolicy` blocks as defined below.
          * 
          * @return builder
          * 

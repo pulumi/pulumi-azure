@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Communication.Inputs
         private InputList<Inputs.EmailServiceDomainVerificationRecordDkim2GetArgs>? _dkim2s;
 
         /// <summary>
-        /// (Optional) An `dkim2` block as defined below.
+        /// (Optional) An `Dkim2` block as defined below.
         /// </summary>
         public InputList<Inputs.EmailServiceDomainVerificationRecordDkim2GetArgs> Dkim2s
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Communication.Inputs
         private InputList<Inputs.EmailServiceDomainVerificationRecordDkimGetArgs>? _dkims;
 
         /// <summary>
-        /// (Optional) An `dkim` block as defined below.
+        /// (Optional) An `Dkim` block as defined below.
         /// </summary>
         public InputList<Inputs.EmailServiceDomainVerificationRecordDkimGetArgs> Dkims
         {
@@ -40,7 +40,7 @@ namespace Pulumi.Azure.Communication.Inputs
         private InputList<Inputs.EmailServiceDomainVerificationRecordDmarcGetArgs>? _dmarcs;
 
         /// <summary>
-        /// (Optional) An `dmarc` block as defined below.
+        /// (Optional) An `Dmarc` block as defined below.
         /// </summary>
         public InputList<Inputs.EmailServiceDomainVerificationRecordDmarcGetArgs> Dmarcs
         {
@@ -52,7 +52,7 @@ namespace Pulumi.Azure.Communication.Inputs
         private InputList<Inputs.EmailServiceDomainVerificationRecordDomainGetArgs>? _domains;
 
         /// <summary>
-        /// (Optional) An `domain` block as defined below.
+        /// (Optional) An `Domain` block as defined below.
         /// </summary>
         public InputList<Inputs.EmailServiceDomainVerificationRecordDomainGetArgs> Domains
         {
@@ -64,7 +64,7 @@ namespace Pulumi.Azure.Communication.Inputs
         private InputList<Inputs.EmailServiceDomainVerificationRecordSpfGetArgs>? _spfs;
 
         /// <summary>
-        /// (Optional) An `spf` block as defined below.
+        /// (Optional) An `Spf` block as defined below.
         /// </summary>
         public InputList<Inputs.EmailServiceDomainVerificationRecordSpfGetArgs> Spfs
         {

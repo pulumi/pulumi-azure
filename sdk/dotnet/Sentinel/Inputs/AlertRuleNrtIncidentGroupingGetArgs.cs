@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Sentinel.Inputs
         private InputList<string>? _byAlertDetails;
 
         /// <summary>
-        /// A list of alert details to group by, only when the `entity_matching_method` is `Selected`. Possible values are `DisplayName` and `Severity`.
+        /// A list of alert details to group by, only when the `EntityMatchingMethod` is `Selected`. Possible values are `DisplayName` and `Severity`.
         /// </summary>
         public InputList<string> ByAlertDetails
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Sentinel.Inputs
         private InputList<string>? _byCustomDetails;
 
         /// <summary>
-        /// A list of custom details keys to group by, only when the `entity_matching_method` is `Selected`. Only keys defined in the `custom_details` may be used.
+        /// A list of custom details keys to group by, only when the `EntityMatchingMethod` is `Selected`. Only keys defined in the `CustomDetails` may be used.
         /// </summary>
         public InputList<string> ByCustomDetails
         {
@@ -40,7 +40,7 @@ namespace Pulumi.Azure.Sentinel.Inputs
         private InputList<string>? _byEntities;
 
         /// <summary>
-        /// A list of entity types to group by, only when the `entity_matching_method` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+        /// A list of entity types to group by, only when the `EntityMatchingMethod` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
         /// </summary>
         public InputList<string> ByEntities
         {
@@ -49,7 +49,7 @@ namespace Pulumi.Azure.Sentinel.Inputs
         }
 
         /// <summary>
-        /// Enable grouping incidents created from alerts triggered by this Sentinel NRT Alert Rule. Defaults to `true`.
+        /// Enable grouping incidents created from alerts triggered by this Sentinel NRT Alert Rule. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -67,7 +67,7 @@ namespace Pulumi.Azure.Sentinel.Inputs
         public Input<string>? LookbackDuration { get; set; }
 
         /// <summary>
-        /// Whether to re-open closed matching incidents? Defaults to `false`.
+        /// Whether to re-open closed matching incidents? Defaults to `False`.
         /// </summary>
         [Input("reopenClosedIncidents")]
         public Input<bool>? ReopenClosedIncidents { get; set; }

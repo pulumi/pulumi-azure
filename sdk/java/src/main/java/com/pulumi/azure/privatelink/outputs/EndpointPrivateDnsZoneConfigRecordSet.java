@@ -14,12 +14,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EndpointPrivateDnsZoneConfigRecordSet {
     /**
-     * @return The fully qualified domain name to the `private_dns_zone`.
+     * @return The fully qualified domain name to the `privateDnsZone`.
      * 
      */
     private @Nullable String fqdn;
     /**
-     * @return A list of all IP Addresses that map to the `private_dns_zone` fqdn.
+     * @return A list of all IP Addresses that map to the `privateDnsZone` fqdn.
      * 
      */
     private @Nullable List<String> ipAddresses;
@@ -29,7 +29,7 @@ public final class EndpointPrivateDnsZoneConfigRecordSet {
      */
     private @Nullable String name;
     /**
-     * @return The time to live for each connection to the `private_dns_zone`.
+     * @return The time to live for each connection to the `privateDnsZone`.
      * 
      */
     private @Nullable Integer ttl;
@@ -41,14 +41,14 @@ public final class EndpointPrivateDnsZoneConfigRecordSet {
 
     private EndpointPrivateDnsZoneConfigRecordSet() {}
     /**
-     * @return The fully qualified domain name to the `private_dns_zone`.
+     * @return The fully qualified domain name to the `privateDnsZone`.
      * 
      */
     public Optional<String> fqdn() {
         return Optional.ofNullable(this.fqdn);
     }
     /**
-     * @return A list of all IP Addresses that map to the `private_dns_zone` fqdn.
+     * @return A list of all IP Addresses that map to the `privateDnsZone` fqdn.
      * 
      */
     public List<String> ipAddresses() {
@@ -62,7 +62,7 @@ public final class EndpointPrivateDnsZoneConfigRecordSet {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return The time to live for each connection to the `private_dns_zone`.
+     * @return The time to live for each connection to the `privateDnsZone`.
      * 
      */
     public Optional<Integer> ttl() {

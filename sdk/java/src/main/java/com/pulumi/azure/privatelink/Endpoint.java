@@ -27,6 +27,187 @@ import javax.annotation.Nullable;
  * 
  * Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. Private Endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. The service could be an Azure service such as Azure Storage, SQL, etc. or your own Private Link Service.
  * 
+ * ## Example Usage
+ * 
+ * Using a Private Link Service Alias with existing resources:
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.core.inputs.GetResourceGroupArgs;
+ * import com.pulumi.azure.network.NetworkFunctions;
+ * import com.pulumi.azure.network.inputs.GetVirtualNetworkArgs;
+ * import com.pulumi.azure.network.inputs.GetSubnetArgs;
+ * import com.pulumi.azure.privatelink.Endpoint;
+ * import com.pulumi.azure.privatelink.EndpointArgs;
+ * import com.pulumi.azure.privatelink.inputs.EndpointPrivateServiceConnectionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var example = CoreFunctions.getResourceGroup(GetResourceGroupArgs.builder()
+ *             .name("example-resources")
+ *             .build());
+ * 
+ *         final var vnet = NetworkFunctions.getVirtualNetwork(GetVirtualNetworkArgs.builder()
+ *             .name("example-network")
+ *             .resourceGroupName(example.name())
+ *             .build());
+ * 
+ *         final var subnet = NetworkFunctions.getSubnet(GetSubnetArgs.builder()
+ *             .name("default")
+ *             .virtualNetworkName(vnet.name())
+ *             .resourceGroupName(example.name())
+ *             .build());
+ * 
+ *         var exampleEndpoint = new Endpoint("exampleEndpoint", EndpointArgs.builder()
+ *             .name("example-endpoint")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .subnetId(subnet.id())
+ *             .privateServiceConnection(EndpointPrivateServiceConnectionArgs.builder()
+ *                 .name("example-privateserviceconnection")
+ *                 .privateConnectionResourceAlias("example-privatelinkservice.d20286c8-4ea5-11eb-9584-8f53157226c6.centralus.azure.privatelinkservice")
+ *                 .isManualConnection(true)
+ *                 .requestMessage("PL")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * Using a Private Endpoint pointing to an *owned* Azure service, with proper DNS configuration:
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.storage.Account;
+ * import com.pulumi.azure.storage.AccountArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.privatedns.Zone;
+ * import com.pulumi.azure.privatedns.ZoneArgs;
+ * import com.pulumi.azure.privatelink.Endpoint;
+ * import com.pulumi.azure.privatelink.EndpointArgs;
+ * import com.pulumi.azure.privatelink.inputs.EndpointPrivateServiceConnectionArgs;
+ * import com.pulumi.azure.privatelink.inputs.EndpointPrivateDnsZoneGroupArgs;
+ * import com.pulumi.azure.privatedns.ZoneVirtualNetworkLink;
+ * import com.pulumi.azure.privatedns.ZoneVirtualNetworkLinkArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("example-rg")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
+ *             .name("exampleaccount")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
+ *             .build());
+ * 
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
+ *             .name("virtnetname")
+ *             .addressSpaces("10.0.0.0/16")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .build());
+ * 
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
+ *             .name("subnetname")
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes("10.0.2.0/24")
+ *             .build());
+ * 
+ *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()
+ *             .name("privatelink.blob.core.windows.net")
+ *             .resourceGroupName(example.name())
+ *             .build());
+ * 
+ *         var exampleEndpoint = new Endpoint("exampleEndpoint", EndpointArgs.builder()
+ *             .name("example-endpoint")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .subnetId(exampleSubnet.id())
+ *             .privateServiceConnection(EndpointPrivateServiceConnectionArgs.builder()
+ *                 .name("example-privateserviceconnection")
+ *                 .privateConnectionResourceId(exampleAccount.id())
+ *                 .subresourceNames("blob")
+ *                 .isManualConnection(false)
+ *                 .build())
+ *             .privateDnsZoneGroup(EndpointPrivateDnsZoneGroupArgs.builder()
+ *                 .name("example-dns-zone-group")
+ *                 .privateDnsZoneIds(exampleZone.id())
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleZoneVirtualNetworkLink = new ZoneVirtualNetworkLink("exampleZoneVirtualNetworkLink", ZoneVirtualNetworkLinkArgs.builder()
+ *             .name("example-link")
+ *             .resourceGroupName(example.name())
+ *             .privateDnsZoneName(exampleZone.name())
+ *             .virtualNetworkId(exampleVirtualNetwork.id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## Example HCL Configurations
+ * 
+ * * How to conneca `Private Endpoint` to a Application Gateway
+ * * How to connect a `Private Endpoint` to a Cosmos MongoDB
+ * * How to connect a `Private Endpoint` to a Cosmos PostgreSQL
+ * * How to connect a `Private Endpoint` to a PostgreSQL Server
+ * * How to connect a `Private Endpoint` to a Private Link Service
+ * * How to connect a `Private Endpoint` to a Private DNS Group
+ * * How to connect a `Private Endpoint` to a Databricks Workspace
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Network` - 2024-05-01
+ * 
  * ## Import
  * 
  * Private Endpoints can be imported using the `resource id`, e.g.
@@ -39,14 +220,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:privatelink/endpoint:Endpoint")
 public class Endpoint extends com.pulumi.resources.CustomResource {
     /**
-     * A `custom_dns_configs` block as defined below.
+     * A `customDnsConfigs` block as defined below.
      * 
      */
     @Export(name="customDnsConfigs", refs={List.class,EndpointCustomDnsConfig.class}, tree="[0,1]")
     private Output<List<EndpointCustomDnsConfig>> customDnsConfigs;
 
     /**
-     * @return A `custom_dns_configs` block as defined below.
+     * @return A `customDnsConfigs` block as defined below.
      * 
      */
     public Output<List<EndpointCustomDnsConfig>> customDnsConfigs() {
@@ -67,14 +248,14 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.customNetworkInterfaceName);
     }
     /**
-     * One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
+     * One or more `ipConfiguration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
      * 
      */
     @Export(name="ipConfigurations", refs={List.class,EndpointIpConfiguration.class}, tree="[0,1]")
     private Output</* @Nullable */ List<EndpointIpConfiguration>> ipConfigurations;
 
     /**
-     * @return One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
+     * @return One or more `ipConfiguration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
      * 
      */
     public Output<Optional<List<EndpointIpConfiguration>>> ipConfigurations() {
@@ -109,56 +290,56 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A `network_interface` block as defined below.
+     * A `networkInterface` block as defined below.
      * 
      */
     @Export(name="networkInterfaces", refs={List.class,EndpointNetworkInterface.class}, tree="[0,1]")
     private Output<List<EndpointNetworkInterface>> networkInterfaces;
 
     /**
-     * @return A `network_interface` block as defined below.
+     * @return A `networkInterface` block as defined below.
      * 
      */
     public Output<List<EndpointNetworkInterface>> networkInterfaces() {
         return this.networkInterfaces;
     }
     /**
-     * A `private_dns_zone_configs` block as defined below.
+     * A `privateDnsZoneConfigs` block as defined below.
      * 
      */
     @Export(name="privateDnsZoneConfigs", refs={List.class,EndpointPrivateDnsZoneConfig.class}, tree="[0,1]")
     private Output<List<EndpointPrivateDnsZoneConfig>> privateDnsZoneConfigs;
 
     /**
-     * @return A `private_dns_zone_configs` block as defined below.
+     * @return A `privateDnsZoneConfigs` block as defined below.
      * 
      */
     public Output<List<EndpointPrivateDnsZoneConfig>> privateDnsZoneConfigs() {
         return this.privateDnsZoneConfigs;
     }
     /**
-     * A `private_dns_zone_group` block as defined below.
+     * A `privateDnsZoneGroup` block as defined below.
      * 
      */
     @Export(name="privateDnsZoneGroup", refs={EndpointPrivateDnsZoneGroup.class}, tree="[0]")
     private Output</* @Nullable */ EndpointPrivateDnsZoneGroup> privateDnsZoneGroup;
 
     /**
-     * @return A `private_dns_zone_group` block as defined below.
+     * @return A `privateDnsZoneGroup` block as defined below.
      * 
      */
     public Output<Optional<EndpointPrivateDnsZoneGroup>> privateDnsZoneGroup() {
         return Codegen.optional(this.privateDnsZoneGroup);
     }
     /**
-     * A `private_service_connection` block as defined below.
+     * A `privateServiceConnection` block as defined below.
      * 
      */
     @Export(name="privateServiceConnection", refs={EndpointPrivateServiceConnection.class}, tree="[0]")
     private Output<EndpointPrivateServiceConnection> privateServiceConnection;
 
     /**
-     * @return A `private_service_connection` block as defined below.
+     * @return A `privateServiceConnection` block as defined below.
      * 
      */
     public Output<EndpointPrivateServiceConnection> privateServiceConnection() {

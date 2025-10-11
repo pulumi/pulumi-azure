@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class WindowsFunctionAppSlotBackup
     {
         /// <summary>
-        /// Should this backup job be enabled? Defaults to `true`.
+        /// Should this backup job be enabled? Defaults to `True`.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// a `schedule` block as detailed below.
+        /// a `Schedule` block as detailed below.
         /// </summary>
         public readonly Outputs.WindowsFunctionAppSlotBackupSchedule Schedule;
         /// <summary>

@@ -12,14 +12,14 @@ import java.util.Objects;
 @CustomType
 public final class CacheDefaultAccessPolicy {
     /**
-     * @return One or more `access_rule` blocks (up to three) as defined above.
+     * @return One or more `accessRule` blocks (up to three) as defined above.
      * 
      */
     private List<CacheDefaultAccessPolicyAccessRule> accessRules;
 
     private CacheDefaultAccessPolicy() {}
     /**
-     * @return One or more `access_rule` blocks (up to three) as defined above.
+     * @return One or more `accessRule` blocks (up to three) as defined above.
      * 
      */
     public List<CacheDefaultAccessPolicyAccessRule> accessRules() {

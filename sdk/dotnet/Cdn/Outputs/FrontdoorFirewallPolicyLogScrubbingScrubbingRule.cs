@@ -14,23 +14,23 @@ namespace Pulumi.Azure.Cdn.Outputs
     public sealed class FrontdoorFirewallPolicyLogScrubbingScrubbingRule
     {
         /// <summary>
-        /// Is this `scrubbing_rule` enabled? Defaults to `true`.
+        /// Is this `ScrubbingRule` enabled? Defaults to `True`.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
         /// The variable to be scrubbed from the logs. Possible values include `QueryStringArgNames`, `RequestBodyJsonArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestIPAddress`, or `RequestUri`.
         /// 
-        /// &gt; **Note:** `RequestIPAddress` and `RequestUri` must use the `EqualsAny` `operator`.
+        /// &gt; **Note:** `RequestIPAddress` and `RequestUri` must use the `EqualsAny` `Operator`.
         /// </summary>
         public readonly string MatchVariable;
         /// <summary>
-        /// When the `match_variable` is a collection, operate on the `selector` to specify which elements in the collection this `scrubbing_rule` applies to. Possible values are `Equals` or `EqualsAny`. Defaults to `Equals`.
+        /// When the `MatchVariable` is a collection, operate on the `Selector` to specify which elements in the collection this `ScrubbingRule` applies to. Possible values are `Equals` or `EqualsAny`. Defaults to `Equals`.
         /// </summary>
         public readonly string? Operator;
         /// <summary>
-        /// When the `match_variable` is a collection, the `operator` is used to specify which elements in the collection this `scrubbing_rule` applies to.
+        /// When the `MatchVariable` is a collection, the `Operator` is used to specify which elements in the collection this `ScrubbingRule` applies to.
         /// 
-        /// &gt; **Note:** The `selector` field cannot be set if the `operator` is set to `EqualsAny`.
+        /// &gt; **Note:** The `Selector` field cannot be set if the `Operator` is set to `EqualsAny`.
         /// </summary>
         public readonly string? Selector;
 

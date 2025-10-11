@@ -22,7 +22,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         private InputList<Inputs.ApiOperationResponseHeaderArgs>? _headers;
 
         /// <summary>
-        /// One or more `header` blocks as defined above.
+        /// One or more `Header` blocks as defined above.
         /// </summary>
         public InputList<Inputs.ApiOperationResponseHeaderArgs> Headers
         {
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         private InputList<Inputs.ApiOperationResponseRepresentationArgs>? _representations;
 
         /// <summary>
-        /// One or more `representation` blocks as defined above.
+        /// One or more `Representation` blocks as defined above.
         /// </summary>
         public InputList<Inputs.ApiOperationResponseRepresentationArgs> Representations
         {

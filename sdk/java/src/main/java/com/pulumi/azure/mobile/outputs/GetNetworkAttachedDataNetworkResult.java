@@ -31,7 +31,7 @@ public final class GetNetworkAttachedDataNetworkResult {
     private String mobileNetworkDataNetworkName;
     private String mobileNetworkPacketCoreDataPlaneId;
     /**
-     * @return A `network_address_port_translation` block as defined below.
+     * @return A `networkAddressPortTranslation` block as defined below.
      * 
      */
     private List<GetNetworkAttachedDataNetworkNetworkAddressPortTranslation> networkAddressPortTranslations;
@@ -92,7 +92,7 @@ public final class GetNetworkAttachedDataNetworkResult {
         return this.mobileNetworkPacketCoreDataPlaneId;
     }
     /**
-     * @return A `network_address_port_translation` block as defined below.
+     * @return A `networkAddressPortTranslation` block as defined below.
      * 
      */
     public List<GetNetworkAttachedDataNetworkNetworkAddressPortTranslation> networkAddressPortTranslations() {

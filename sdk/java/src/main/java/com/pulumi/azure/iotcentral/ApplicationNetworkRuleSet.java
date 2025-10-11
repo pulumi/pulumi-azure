@@ -143,14 +143,14 @@ public class ApplicationNetworkRuleSet extends com.pulumi.resources.CustomResour
         return this.iotcentralApplicationId;
     }
     /**
-     * One or more `ip_rule` blocks as defined below.
+     * One or more `ipRule` blocks as defined below.
      * 
      */
     @Export(name="ipRules", refs={List.class,ApplicationNetworkRuleSetIpRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ApplicationNetworkRuleSetIpRule>> ipRules;
 
     /**
-     * @return One or more `ip_rule` blocks as defined below.
+     * @return One or more `ipRule` blocks as defined below.
      * 
      */
     public Output<Optional<List<ApplicationNetworkRuleSetIpRule>>> ipRules() {

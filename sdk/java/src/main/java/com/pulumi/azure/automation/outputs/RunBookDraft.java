@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RunBookDraft {
     /**
-     * @return A `publish_content_link` block as defined above.
+     * @return A `publishContentLink` block as defined above.
      * 
      */
     private @Nullable RunBookDraftContentLink contentLink;
@@ -40,7 +40,7 @@ public final class RunBookDraft {
 
     private RunBookDraft() {}
     /**
-     * @return A `publish_content_link` block as defined above.
+     * @return A `publishContentLink` block as defined above.
      * 
      */
     public Optional<RunBookDraftContentLink> contentLink() {

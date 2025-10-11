@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Automanage.Inputs
     public sealed class ConfigurationBackupRetentionPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `daily_schedule` block as defined below.
+        /// A `DailySchedule` block as defined below.
         /// </summary>
         [Input("dailySchedule")]
         public Input<Inputs.ConfigurationBackupRetentionPolicyDailyScheduleArgs>? DailySchedule { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Automanage.Inputs
         public Input<string>? RetentionPolicyType { get; set; }
 
         /// <summary>
-        /// A `weekly_schedule` block as defined below.
+        /// A `WeeklySchedule` block as defined below.
         /// </summary>
         [Input("weeklySchedule")]
         public Input<Inputs.ConfigurationBackupRetentionPolicyWeeklyScheduleArgs>? WeeklySchedule { get; set; }

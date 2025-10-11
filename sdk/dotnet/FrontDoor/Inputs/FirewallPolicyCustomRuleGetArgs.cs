@@ -19,7 +19,7 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         public Input<string> Action { get; set; } = null!;
 
         /// <summary>
-        /// Is the rule is enabled or disabled? Defaults to `true`.
+        /// Is the rule is enabled or disabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         private InputList<Inputs.FirewallPolicyCustomRuleMatchConditionGetArgs>? _matchConditions;
 
         /// <summary>
-        /// One or more `match_condition` block defined below. Can support up to `10` `match_condition` blocks.
+        /// One or more `MatchCondition` block defined below. Can support up to `10` `MatchCondition` blocks.
         /// </summary>
         public InputList<Inputs.FirewallPolicyCustomRuleMatchConditionGetArgs> MatchConditions
         {

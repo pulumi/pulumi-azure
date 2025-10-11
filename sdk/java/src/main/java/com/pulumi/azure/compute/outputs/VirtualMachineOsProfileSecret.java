@@ -19,7 +19,7 @@ public final class VirtualMachineOsProfileSecret {
      */
     private String sourceVaultId;
     /**
-     * @return One or more `vault_certificates` blocks as defined below.
+     * @return One or more `vaultCertificates` blocks as defined below.
      * 
      */
     private @Nullable List<VirtualMachineOsProfileSecretVaultCertificate> vaultCertificates;
@@ -33,7 +33,7 @@ public final class VirtualMachineOsProfileSecret {
         return this.sourceVaultId;
     }
     /**
-     * @return One or more `vault_certificates` blocks as defined below.
+     * @return One or more `vaultCertificates` blocks as defined below.
      * 
      */
     public List<VirtualMachineOsProfileSecretVaultCertificate> vaultCertificates() {

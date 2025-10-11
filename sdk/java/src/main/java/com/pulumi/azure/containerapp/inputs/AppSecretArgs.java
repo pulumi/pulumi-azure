@@ -19,7 +19,7 @@ public final class AppSecretArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
      * 
-     * !&gt; **Note:** `identity` must be used together with `key_vault_secret_id`
+     * !&gt; **Note:** `identity` must be used together with `keyVaultSecretId`
      * 
      */
     @Import(name="identity")
@@ -28,7 +28,7 @@ public final class AppSecretArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
      * 
-     * !&gt; **Note:** `identity` must be used together with `key_vault_secret_id`
+     * !&gt; **Note:** `identity` must be used together with `keyVaultSecretId`
      * 
      */
     public Optional<Output<String>> identity() {
@@ -38,7 +38,7 @@ public final class AppSecretArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The ID of a Key Vault secret. This can be a versioned or version-less ID.
      * 
-     * !&gt; **Note:** When using `key_vault_secret_id`, `ignore_changes` should be used to ignore any changes to `value`.
+     * !&gt; **Note:** When using `keyVaultSecretId`, `ignoreChanges` should be used to ignore any changes to `value`.
      * 
      */
     @Import(name="keyVaultSecretId")
@@ -47,7 +47,7 @@ public final class AppSecretArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The ID of a Key Vault secret. This can be a versioned or version-less ID.
      * 
-     * !&gt; **Note:** When using `key_vault_secret_id`, `ignore_changes` should be used to ignore any changes to `value`.
+     * !&gt; **Note:** When using `keyVaultSecretId`, `ignoreChanges` should be used to ignore any changes to `value`.
      * 
      */
     public Optional<Output<String>> keyVaultSecretId() {
@@ -72,7 +72,7 @@ public final class AppSecretArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The value for this secret.
      * 
-     * !&gt; **Note:** `value` will be ignored if `key_vault_secret_id` and `identity` are provided.
+     * !&gt; **Note:** `value` will be ignored if `keyVaultSecretId` and `identity` are provided.
      * 
      */
     @Import(name="value")
@@ -81,7 +81,7 @@ public final class AppSecretArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The value for this secret.
      * 
-     * !&gt; **Note:** `value` will be ignored if `key_vault_secret_id` and `identity` are provided.
+     * !&gt; **Note:** `value` will be ignored if `keyVaultSecretId` and `identity` are provided.
      * 
      */
     public Optional<Output<String>> value() {
@@ -118,7 +118,7 @@ public final class AppSecretArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param identity The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
          * 
-         * !&gt; **Note:** `identity` must be used together with `key_vault_secret_id`
+         * !&gt; **Note:** `identity` must be used together with `keyVaultSecretId`
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class AppSecretArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param identity The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
          * 
-         * !&gt; **Note:** `identity` must be used together with `key_vault_secret_id`
+         * !&gt; **Note:** `identity` must be used together with `keyVaultSecretId`
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class AppSecretArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param keyVaultSecretId The ID of a Key Vault secret. This can be a versioned or version-less ID.
          * 
-         * !&gt; **Note:** When using `key_vault_secret_id`, `ignore_changes` should be used to ignore any changes to `value`.
+         * !&gt; **Note:** When using `keyVaultSecretId`, `ignoreChanges` should be used to ignore any changes to `value`.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class AppSecretArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param keyVaultSecretId The ID of a Key Vault secret. This can be a versioned or version-less ID.
          * 
-         * !&gt; **Note:** When using `key_vault_secret_id`, `ignore_changes` should be used to ignore any changes to `value`.
+         * !&gt; **Note:** When using `keyVaultSecretId`, `ignoreChanges` should be used to ignore any changes to `value`.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class AppSecretArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param value The value for this secret.
          * 
-         * !&gt; **Note:** `value` will be ignored if `key_vault_secret_id` and `identity` are provided.
+         * !&gt; **Note:** `value` will be ignored if `keyVaultSecretId` and `identity` are provided.
          * 
          * @return builder
          * 
@@ -202,7 +202,7 @@ public final class AppSecretArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param value The value for this secret.
          * 
-         * !&gt; **Note:** `value` will be ignored if `key_vault_secret_id` and `identity` are provided.
+         * !&gt; **Note:** `value` will be ignored if `keyVaultSecretId` and `identity` are provided.
          * 
          * @return builder
          * 

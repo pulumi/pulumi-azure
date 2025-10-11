@@ -208,28 +208,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:pim/roleManagementPolicy:RoleManagementPolicy")
 public class RoleManagementPolicy extends com.pulumi.resources.CustomResource {
     /**
-     * An `activation_rules` block as defined below.
+     * An `activationRules` block as defined below.
      * 
      */
     @Export(name="activationRules", refs={RoleManagementPolicyActivationRules.class}, tree="[0]")
     private Output<RoleManagementPolicyActivationRules> activationRules;
 
     /**
-     * @return An `activation_rules` block as defined below.
+     * @return An `activationRules` block as defined below.
      * 
      */
     public Output<RoleManagementPolicyActivationRules> activationRules() {
         return this.activationRules;
     }
     /**
-     * An `active_assignment_rules` block as defined below.
+     * An `activeAssignmentRules` block as defined below.
      * 
      */
     @Export(name="activeAssignmentRules", refs={RoleManagementPolicyActiveAssignmentRules.class}, tree="[0]")
     private Output<RoleManagementPolicyActiveAssignmentRules> activeAssignmentRules;
 
     /**
-     * @return An `active_assignment_rules` block as defined below.
+     * @return An `activeAssignmentRules` block as defined below.
      * 
      */
     public Output<RoleManagementPolicyActiveAssignmentRules> activeAssignmentRules() {
@@ -250,14 +250,14 @@ public class RoleManagementPolicy extends com.pulumi.resources.CustomResource {
         return this.description;
     }
     /**
-     * An `eligible_assignment_rules` block as defined below.
+     * An `eligibleAssignmentRules` block as defined below.
      * 
      */
     @Export(name="eligibleAssignmentRules", refs={RoleManagementPolicyEligibleAssignmentRules.class}, tree="[0]")
     private Output<RoleManagementPolicyEligibleAssignmentRules> eligibleAssignmentRules;
 
     /**
-     * @return An `eligible_assignment_rules` block as defined below.
+     * @return An `eligibleAssignmentRules` block as defined below.
      * 
      */
     public Output<RoleManagementPolicyEligibleAssignmentRules> eligibleAssignmentRules() {
@@ -278,14 +278,14 @@ public class RoleManagementPolicy extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A `notification_rules` block as defined below.
+     * A `notificationRules` block as defined below.
      * 
      */
     @Export(name="notificationRules", refs={RoleManagementPolicyNotificationRules.class}, tree="[0]")
     private Output<RoleManagementPolicyNotificationRules> notificationRules;
 
     /**
-     * @return A `notification_rules` block as defined below.
+     * @return A `notificationRules` block as defined below.
      * 
      */
     public Output<RoleManagementPolicyNotificationRules> notificationRules() {

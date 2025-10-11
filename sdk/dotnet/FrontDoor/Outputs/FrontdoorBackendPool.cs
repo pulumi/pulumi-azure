@@ -14,11 +14,11 @@ namespace Pulumi.Azure.FrontDoor.Outputs
     public sealed class FrontdoorBackendPool
     {
         /// <summary>
-        /// A `backend` block as defined below.
+        /// A `Backend` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FrontdoorBackendPoolBackend> Backends;
         /// <summary>
-        /// Specifies the name of the `backend_pool_health_probe` block within this resource to use for this `Backend Pool`.
+        /// Specifies the name of the `BackendPoolHealthProbe` block within this resource to use for this `Backend Pool`.
         /// </summary>
         public readonly string HealthProbeName;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Azure.FrontDoor.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// Specifies the name of the `backend_pool_load_balancing` block within this resource to use for this `Backend Pool`.
+        /// Specifies the name of the `BackendPoolLoadBalancing` block within this resource to use for this `Backend Pool`.
         /// </summary>
         public readonly string LoadBalancingName;
         /// <summary>

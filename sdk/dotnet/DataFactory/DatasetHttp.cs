@@ -136,7 +136,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> RequestMethod { get; private set; } = null!;
 
         /// <summary>
-        /// A `schema_column` block as defined below.
+        /// A `SchemaColumn` block as defined below.
         /// </summary>
         [Output("schemaColumns")]
         public Output<ImmutableArray<Outputs.DatasetHttpSchemaColumn>> SchemaColumns { get; private set; } = null!;
@@ -277,7 +277,7 @@ namespace Pulumi.Azure.DataFactory
         private InputList<Inputs.DatasetHttpSchemaColumnArgs>? _schemaColumns;
 
         /// <summary>
-        /// A `schema_column` block as defined below.
+        /// A `SchemaColumn` block as defined below.
         /// </summary>
         public InputList<Inputs.DatasetHttpSchemaColumnArgs> SchemaColumns
         {
@@ -383,7 +383,7 @@ namespace Pulumi.Azure.DataFactory
         private InputList<Inputs.DatasetHttpSchemaColumnGetArgs>? _schemaColumns;
 
         /// <summary>
-        /// A `schema_column` block as defined below.
+        /// A `SchemaColumn` block as defined below.
         /// </summary>
         public InputList<Inputs.DatasetHttpSchemaColumnGetArgs> SchemaColumns
         {

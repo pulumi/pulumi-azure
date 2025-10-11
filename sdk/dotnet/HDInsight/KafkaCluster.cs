@@ -122,19 +122,19 @@ namespace Pulumi.Azure.HDInsight
         public Output<string> ClusterVersion { get; private set; } = null!;
 
         /// <summary>
-        /// A `component_version` block as defined below.
+        /// A `ComponentVersion` block as defined below.
         /// </summary>
         [Output("componentVersion")]
         public Output<Outputs.KafkaClusterComponentVersion> ComponentVersion { get; private set; } = null!;
 
         /// <summary>
-        /// A `compute_isolation` block as defined below.
+        /// A `ComputeIsolation` block as defined below.
         /// </summary>
         [Output("computeIsolation")]
         public Output<Outputs.KafkaClusterComputeIsolation?> ComputeIsolation { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `disk_encryption` block as defined below.
+        /// One or more `DiskEncryption` block as defined below.
         /// 
         /// &gt; **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         /// </summary>
@@ -148,13 +148,13 @@ namespace Pulumi.Azure.HDInsight
         public Output<bool?> EncryptionInTransitEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// An `extension` block as defined below.
+        /// An `Extension` block as defined below.
         /// </summary>
         [Output("extension")]
         public Output<Outputs.KafkaClusterExtension?> Extension { get; private set; } = null!;
 
         /// <summary>
-        /// A `gateway` block as defined below.
+        /// A `Gateway` block as defined below.
         /// </summary>
         [Output("gateway")]
         public Output<Outputs.KafkaClusterGateway> Gateway { get; private set; } = null!;
@@ -178,13 +178,13 @@ namespace Pulumi.Azure.HDInsight
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// A `metastores` block as defined below.
+        /// A `Metastores` block as defined below.
         /// </summary>
         [Output("metastores")]
         public Output<Outputs.KafkaClusterMetastores?> Metastores { get; private set; } = null!;
 
         /// <summary>
-        /// A `monitor` block as defined below.
+        /// A `Monitor` block as defined below.
         /// </summary>
         [Output("monitor")]
         public Output<Outputs.KafkaClusterMonitor?> Monitor { get; private set; } = null!;
@@ -196,13 +196,13 @@ namespace Pulumi.Azure.HDInsight
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `network` block as defined below.
+        /// A `Network` block as defined below.
         /// </summary>
         [Output("network")]
         public Output<Outputs.KafkaClusterNetwork?> Network { get; private set; } = null!;
 
         /// <summary>
-        /// A `private_link_configuration` block as defined below.
+        /// A `PrivateLinkConfiguration` block as defined below.
         /// </summary>
         [Output("privateLinkConfiguration")]
         public Output<Outputs.KafkaClusterPrivateLinkConfiguration?> PrivateLinkConfiguration { get; private set; } = null!;
@@ -214,19 +214,19 @@ namespace Pulumi.Azure.HDInsight
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `rest_proxy` block as defined below.
+        /// A `RestProxy` block as defined below.
         /// </summary>
         [Output("restProxy")]
         public Output<Outputs.KafkaClusterRestProxy?> RestProxy { get; private set; } = null!;
 
         /// <summary>
-        /// A `roles` block as defined below.
+        /// A `Roles` block as defined below.
         /// </summary>
         [Output("roles")]
         public Output<Outputs.KafkaClusterRoles> Roles { get; private set; } = null!;
 
         /// <summary>
-        /// A `security_profile` block as defined below. Changing this forces a new resource to be created.
+        /// A `SecurityProfile` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("securityProfile")]
         public Output<Outputs.KafkaClusterSecurityProfile?> SecurityProfile { get; private set; } = null!;
@@ -238,13 +238,13 @@ namespace Pulumi.Azure.HDInsight
         public Output<string> SshEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// A `storage_account_gen2` block as defined below.
+        /// A `StorageAccountGen2` block as defined below.
         /// </summary>
         [Output("storageAccountGen2")]
         public Output<Outputs.KafkaClusterStorageAccountGen2?> StorageAccountGen2 { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `storage_account` block as defined below.
+        /// One or more `StorageAccount` block as defined below.
         /// </summary>
         [Output("storageAccounts")]
         public Output<ImmutableArray<Outputs.KafkaClusterStorageAccount>> StorageAccounts { get; private set; } = null!;
@@ -320,13 +320,13 @@ namespace Pulumi.Azure.HDInsight
         public Input<string> ClusterVersion { get; set; } = null!;
 
         /// <summary>
-        /// A `component_version` block as defined below.
+        /// A `ComponentVersion` block as defined below.
         /// </summary>
         [Input("componentVersion", required: true)]
         public Input<Inputs.KafkaClusterComponentVersionArgs> ComponentVersion { get; set; } = null!;
 
         /// <summary>
-        /// A `compute_isolation` block as defined below.
+        /// A `ComputeIsolation` block as defined below.
         /// </summary>
         [Input("computeIsolation")]
         public Input<Inputs.KafkaClusterComputeIsolationArgs>? ComputeIsolation { get; set; }
@@ -335,7 +335,7 @@ namespace Pulumi.Azure.HDInsight
         private InputList<Inputs.KafkaClusterDiskEncryptionArgs>? _diskEncryptions;
 
         /// <summary>
-        /// One or more `disk_encryption` block as defined below.
+        /// One or more `DiskEncryption` block as defined below.
         /// 
         /// &gt; **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         /// </summary>
@@ -352,13 +352,13 @@ namespace Pulumi.Azure.HDInsight
         public Input<bool>? EncryptionInTransitEnabled { get; set; }
 
         /// <summary>
-        /// An `extension` block as defined below.
+        /// An `Extension` block as defined below.
         /// </summary>
         [Input("extension")]
         public Input<Inputs.KafkaClusterExtensionArgs>? Extension { get; set; }
 
         /// <summary>
-        /// A `gateway` block as defined below.
+        /// A `Gateway` block as defined below.
         /// </summary>
         [Input("gateway", required: true)]
         public Input<Inputs.KafkaClusterGatewayArgs> Gateway { get; set; } = null!;
@@ -370,13 +370,13 @@ namespace Pulumi.Azure.HDInsight
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A `metastores` block as defined below.
+        /// A `Metastores` block as defined below.
         /// </summary>
         [Input("metastores")]
         public Input<Inputs.KafkaClusterMetastoresArgs>? Metastores { get; set; }
 
         /// <summary>
-        /// A `monitor` block as defined below.
+        /// A `Monitor` block as defined below.
         /// </summary>
         [Input("monitor")]
         public Input<Inputs.KafkaClusterMonitorArgs>? Monitor { get; set; }
@@ -388,13 +388,13 @@ namespace Pulumi.Azure.HDInsight
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `network` block as defined below.
+        /// A `Network` block as defined below.
         /// </summary>
         [Input("network")]
         public Input<Inputs.KafkaClusterNetworkArgs>? Network { get; set; }
 
         /// <summary>
-        /// A `private_link_configuration` block as defined below.
+        /// A `PrivateLinkConfiguration` block as defined below.
         /// </summary>
         [Input("privateLinkConfiguration")]
         public Input<Inputs.KafkaClusterPrivateLinkConfigurationArgs>? PrivateLinkConfiguration { get; set; }
@@ -406,25 +406,25 @@ namespace Pulumi.Azure.HDInsight
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `rest_proxy` block as defined below.
+        /// A `RestProxy` block as defined below.
         /// </summary>
         [Input("restProxy")]
         public Input<Inputs.KafkaClusterRestProxyArgs>? RestProxy { get; set; }
 
         /// <summary>
-        /// A `roles` block as defined below.
+        /// A `Roles` block as defined below.
         /// </summary>
         [Input("roles", required: true)]
         public Input<Inputs.KafkaClusterRolesArgs> Roles { get; set; } = null!;
 
         /// <summary>
-        /// A `security_profile` block as defined below. Changing this forces a new resource to be created.
+        /// A `SecurityProfile` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("securityProfile")]
         public Input<Inputs.KafkaClusterSecurityProfileArgs>? SecurityProfile { get; set; }
 
         /// <summary>
-        /// A `storage_account_gen2` block as defined below.
+        /// A `StorageAccountGen2` block as defined below.
         /// </summary>
         [Input("storageAccountGen2")]
         public Input<Inputs.KafkaClusterStorageAccountGen2Args>? StorageAccountGen2 { get; set; }
@@ -433,7 +433,7 @@ namespace Pulumi.Azure.HDInsight
         private InputList<Inputs.KafkaClusterStorageAccountArgs>? _storageAccounts;
 
         /// <summary>
-        /// One or more `storage_account` block as defined below.
+        /// One or more `StorageAccount` block as defined below.
         /// </summary>
         public InputList<Inputs.KafkaClusterStorageAccountArgs> StorageAccounts
         {
@@ -480,13 +480,13 @@ namespace Pulumi.Azure.HDInsight
         public Input<string>? ClusterVersion { get; set; }
 
         /// <summary>
-        /// A `component_version` block as defined below.
+        /// A `ComponentVersion` block as defined below.
         /// </summary>
         [Input("componentVersion")]
         public Input<Inputs.KafkaClusterComponentVersionGetArgs>? ComponentVersion { get; set; }
 
         /// <summary>
-        /// A `compute_isolation` block as defined below.
+        /// A `ComputeIsolation` block as defined below.
         /// </summary>
         [Input("computeIsolation")]
         public Input<Inputs.KafkaClusterComputeIsolationGetArgs>? ComputeIsolation { get; set; }
@@ -495,7 +495,7 @@ namespace Pulumi.Azure.HDInsight
         private InputList<Inputs.KafkaClusterDiskEncryptionGetArgs>? _diskEncryptions;
 
         /// <summary>
-        /// One or more `disk_encryption` block as defined below.
+        /// One or more `DiskEncryption` block as defined below.
         /// 
         /// &gt; **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         /// </summary>
@@ -512,13 +512,13 @@ namespace Pulumi.Azure.HDInsight
         public Input<bool>? EncryptionInTransitEnabled { get; set; }
 
         /// <summary>
-        /// An `extension` block as defined below.
+        /// An `Extension` block as defined below.
         /// </summary>
         [Input("extension")]
         public Input<Inputs.KafkaClusterExtensionGetArgs>? Extension { get; set; }
 
         /// <summary>
-        /// A `gateway` block as defined below.
+        /// A `Gateway` block as defined below.
         /// </summary>
         [Input("gateway")]
         public Input<Inputs.KafkaClusterGatewayGetArgs>? Gateway { get; set; }
@@ -542,13 +542,13 @@ namespace Pulumi.Azure.HDInsight
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A `metastores` block as defined below.
+        /// A `Metastores` block as defined below.
         /// </summary>
         [Input("metastores")]
         public Input<Inputs.KafkaClusterMetastoresGetArgs>? Metastores { get; set; }
 
         /// <summary>
-        /// A `monitor` block as defined below.
+        /// A `Monitor` block as defined below.
         /// </summary>
         [Input("monitor")]
         public Input<Inputs.KafkaClusterMonitorGetArgs>? Monitor { get; set; }
@@ -560,13 +560,13 @@ namespace Pulumi.Azure.HDInsight
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `network` block as defined below.
+        /// A `Network` block as defined below.
         /// </summary>
         [Input("network")]
         public Input<Inputs.KafkaClusterNetworkGetArgs>? Network { get; set; }
 
         /// <summary>
-        /// A `private_link_configuration` block as defined below.
+        /// A `PrivateLinkConfiguration` block as defined below.
         /// </summary>
         [Input("privateLinkConfiguration")]
         public Input<Inputs.KafkaClusterPrivateLinkConfigurationGetArgs>? PrivateLinkConfiguration { get; set; }
@@ -578,19 +578,19 @@ namespace Pulumi.Azure.HDInsight
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// A `rest_proxy` block as defined below.
+        /// A `RestProxy` block as defined below.
         /// </summary>
         [Input("restProxy")]
         public Input<Inputs.KafkaClusterRestProxyGetArgs>? RestProxy { get; set; }
 
         /// <summary>
-        /// A `roles` block as defined below.
+        /// A `Roles` block as defined below.
         /// </summary>
         [Input("roles")]
         public Input<Inputs.KafkaClusterRolesGetArgs>? Roles { get; set; }
 
         /// <summary>
-        /// A `security_profile` block as defined below. Changing this forces a new resource to be created.
+        /// A `SecurityProfile` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("securityProfile")]
         public Input<Inputs.KafkaClusterSecurityProfileGetArgs>? SecurityProfile { get; set; }
@@ -602,7 +602,7 @@ namespace Pulumi.Azure.HDInsight
         public Input<string>? SshEndpoint { get; set; }
 
         /// <summary>
-        /// A `storage_account_gen2` block as defined below.
+        /// A `StorageAccountGen2` block as defined below.
         /// </summary>
         [Input("storageAccountGen2")]
         public Input<Inputs.KafkaClusterStorageAccountGen2GetArgs>? StorageAccountGen2 { get; set; }
@@ -611,7 +611,7 @@ namespace Pulumi.Azure.HDInsight
         private InputList<Inputs.KafkaClusterStorageAccountGetArgs>? _storageAccounts;
 
         /// <summary>
-        /// One or more `storage_account` block as defined below.
+        /// One or more `StorageAccount` block as defined below.
         /// </summary>
         public InputList<Inputs.KafkaClusterStorageAccountGetArgs> StorageAccounts
         {

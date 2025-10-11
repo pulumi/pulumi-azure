@@ -31,7 +31,7 @@ public final class CertificateCertificatePolicyX509CertificateProperties {
      */
     private String subject;
     /**
-     * @return A `subject_alternative_names` block as defined below.
+     * @return A `subjectAlternativeNames` block as defined below.
      * 
      */
     private @Nullable CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames subjectAlternativeNames;
@@ -64,7 +64,7 @@ public final class CertificateCertificatePolicyX509CertificateProperties {
         return this.subject;
     }
     /**
-     * @return A `subject_alternative_names` block as defined below.
+     * @return A `subjectAlternativeNames` block as defined below.
      * 
      */
     public Optional<CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames> subjectAlternativeNames() {

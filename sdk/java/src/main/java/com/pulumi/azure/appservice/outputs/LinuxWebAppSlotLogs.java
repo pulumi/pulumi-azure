@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LinuxWebAppSlotLogs {
     /**
-     * @return A `application_logs` block as defined above.
+     * @return A `applicationLogs` block as defined above.
      * 
      */
     private @Nullable LinuxWebAppSlotLogsApplicationLogs applicationLogs;
@@ -29,14 +29,14 @@ public final class LinuxWebAppSlotLogs {
      */
     private @Nullable Boolean failedRequestTracing;
     /**
-     * @return An `http_logs` block as defined above.
+     * @return An `httpLogs` block as defined above.
      * 
      */
     private @Nullable LinuxWebAppSlotLogsHttpLogs httpLogs;
 
     private LinuxWebAppSlotLogs() {}
     /**
-     * @return A `application_logs` block as defined above.
+     * @return A `applicationLogs` block as defined above.
      * 
      */
     public Optional<LinuxWebAppSlotLogsApplicationLogs> applicationLogs() {
@@ -57,7 +57,7 @@ public final class LinuxWebAppSlotLogs {
         return Optional.ofNullable(this.failedRequestTracing);
     }
     /**
-     * @return An `http_logs` block as defined above.
+     * @return An `httpLogs` block as defined above.
      * 
      */
     public Optional<LinuxWebAppSlotLogsHttpLogs> httpLogs() {

@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetPoolStartTaskUserIdentity {
     /**
-     * @return A `auto_user` block that describes the user identity under which the start task runs.
+     * @return A `autoUser` block that describes the user identity under which the start task runs.
      * 
      */
     private List<GetPoolStartTaskUserIdentityAutoUser> autoUsers;
@@ -25,7 +25,7 @@ public final class GetPoolStartTaskUserIdentity {
 
     private GetPoolStartTaskUserIdentity() {}
     /**
-     * @return A `auto_user` block that describes the user identity under which the start task runs.
+     * @return A `autoUser` block that describes the user identity under which the start task runs.
      * 
      */
     public List<GetPoolStartTaskUserIdentityAutoUser> autoUsers() {

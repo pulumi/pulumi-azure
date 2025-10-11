@@ -19,7 +19,7 @@ public final class WindowsWebAppSlotSiteConfigAutoHealSettingAction {
      */
     private String actionType;
     /**
-     * @return A `custom_action` block as defined below.
+     * @return A `customAction` block as defined below.
      * 
      */
     private @Nullable WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomAction customAction;
@@ -38,7 +38,7 @@ public final class WindowsWebAppSlotSiteConfigAutoHealSettingAction {
         return this.actionType;
     }
     /**
-     * @return A `custom_action` block as defined below.
+     * @return A `customAction` block as defined below.
      * 
      */
     public Optional<WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomAction> customAction() {

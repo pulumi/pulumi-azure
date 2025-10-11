@@ -19,14 +19,14 @@ public final class ResolverInboundEndpointArgs extends com.pulumi.resources.Reso
     public static final ResolverInboundEndpointArgs Empty = new ResolverInboundEndpointArgs();
 
     /**
-     * One `ip_configurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+     * One `ipConfigurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
      * 
      */
     @Import(name="ipConfigurations", required=true)
     private Output<ResolverInboundEndpointIpConfigurationsArgs> ipConfigurations;
 
     /**
-     * @return One `ip_configurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+     * @return One `ipConfigurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
      * 
      */
     public Output<ResolverInboundEndpointIpConfigurationsArgs> ipConfigurations() {
@@ -122,7 +122,7 @@ public final class ResolverInboundEndpointArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param ipConfigurations One `ip_configurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+         * @param ipConfigurations One `ipConfigurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class ResolverInboundEndpointArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param ipConfigurations One `ip_configurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+         * @param ipConfigurations One `ipConfigurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
          * 
          * @return builder
          * 

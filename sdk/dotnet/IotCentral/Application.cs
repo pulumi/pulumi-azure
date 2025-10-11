@@ -65,15 +65,15 @@ namespace Pulumi.Azure.IotCentral
     public partial class Application : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A `display_name` name. Custom display name for the IoT Central application. Default is resource name.
+        /// A `DisplayName` name. Custom display name for the IoT Central application. Default is resource name.
         /// 
-        /// &gt; **Note:** Due to a bug in the provider, the default value of `display_name` of a newly created IoT Central App will be the Resource Group Name, it will be fixed and use resource name in 4.0. For an existing IoT Central App, this could be fixed by specifying the `display_name` explicitly.
+        /// &gt; **Note:** Due to a bug in the provider, the default value of `DisplayName` of a newly created IoT Central App will be the Resource Group Name, it will be fixed and use resource name in 4.0. For an existing IoT Central App, this could be fixed by specifying the `DisplayName` explicitly.
         /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ApplicationIdentity?> Identity { get; private set; } = null!;
@@ -91,7 +91,7 @@ namespace Pulumi.Azure.IotCentral
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Whether public network access is allowed for the IoT Central Application. Defaults to `true`.
+        /// Whether public network access is allowed for the IoT Central Application. Defaults to `True`.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
@@ -103,13 +103,13 @@ namespace Pulumi.Azure.IotCentral
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `sku` name. Possible values is `ST0`, `ST1`, `ST2`, Default value is `ST1`
+        /// A `Sku` name. Possible values is `ST0`, `ST1`, `ST2`, Default value is `ST1`
         /// </summary>
         [Output("sku")]
         public Output<string?> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// A `sub_domain` name. Subdomain for the IoT Central URL. Each application must have a unique subdomain.
+        /// A `SubDomain` name. Subdomain for the IoT Central URL. Each application must have a unique subdomain.
         /// </summary>
         [Output("subDomain")]
         public Output<string> SubDomain { get; private set; } = null!;
@@ -121,7 +121,7 @@ namespace Pulumi.Azure.IotCentral
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A `template` name. IoT Central application template name. Defaults to `iotc-pnp-preview@1.0.0`. Changing this forces a new resource to be created.
+        /// A `Template` name. IoT Central application template name. Defaults to `iotc-pnp-preview@1.0.0`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("template")]
         public Output<string?> Template { get; private set; } = null!;
@@ -173,15 +173,15 @@ namespace Pulumi.Azure.IotCentral
     public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `display_name` name. Custom display name for the IoT Central application. Default is resource name.
+        /// A `DisplayName` name. Custom display name for the IoT Central application. Default is resource name.
         /// 
-        /// &gt; **Note:** Due to a bug in the provider, the default value of `display_name` of a newly created IoT Central App will be the Resource Group Name, it will be fixed and use resource name in 4.0. For an existing IoT Central App, this could be fixed by specifying the `display_name` explicitly.
+        /// &gt; **Note:** Due to a bug in the provider, the default value of `DisplayName` of a newly created IoT Central App will be the Resource Group Name, it will be fixed and use resource name in 4.0. For an existing IoT Central App, this could be fixed by specifying the `DisplayName` explicitly.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ApplicationIdentityArgs>? Identity { get; set; }
@@ -199,7 +199,7 @@ namespace Pulumi.Azure.IotCentral
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether public network access is allowed for the IoT Central Application. Defaults to `true`.
+        /// Whether public network access is allowed for the IoT Central Application. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -211,13 +211,13 @@ namespace Pulumi.Azure.IotCentral
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `sku` name. Possible values is `ST0`, `ST1`, `ST2`, Default value is `ST1`
+        /// A `Sku` name. Possible values is `ST0`, `ST1`, `ST2`, Default value is `ST1`
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
 
         /// <summary>
-        /// A `sub_domain` name. Subdomain for the IoT Central URL. Each application must have a unique subdomain.
+        /// A `SubDomain` name. Subdomain for the IoT Central URL. Each application must have a unique subdomain.
         /// </summary>
         [Input("subDomain", required: true)]
         public Input<string> SubDomain { get; set; } = null!;
@@ -235,7 +235,7 @@ namespace Pulumi.Azure.IotCentral
         }
 
         /// <summary>
-        /// A `template` name. IoT Central application template name. Defaults to `iotc-pnp-preview@1.0.0`. Changing this forces a new resource to be created.
+        /// A `Template` name. IoT Central application template name. Defaults to `iotc-pnp-preview@1.0.0`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("template")]
         public Input<string>? Template { get; set; }
@@ -249,15 +249,15 @@ namespace Pulumi.Azure.IotCentral
     public sealed class ApplicationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `display_name` name. Custom display name for the IoT Central application. Default is resource name.
+        /// A `DisplayName` name. Custom display name for the IoT Central application. Default is resource name.
         /// 
-        /// &gt; **Note:** Due to a bug in the provider, the default value of `display_name` of a newly created IoT Central App will be the Resource Group Name, it will be fixed and use resource name in 4.0. For an existing IoT Central App, this could be fixed by specifying the `display_name` explicitly.
+        /// &gt; **Note:** Due to a bug in the provider, the default value of `DisplayName` of a newly created IoT Central App will be the Resource Group Name, it will be fixed and use resource name in 4.0. For an existing IoT Central App, this could be fixed by specifying the `DisplayName` explicitly.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ApplicationIdentityGetArgs>? Identity { get; set; }
@@ -275,7 +275,7 @@ namespace Pulumi.Azure.IotCentral
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether public network access is allowed for the IoT Central Application. Defaults to `true`.
+        /// Whether public network access is allowed for the IoT Central Application. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -287,13 +287,13 @@ namespace Pulumi.Azure.IotCentral
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// A `sku` name. Possible values is `ST0`, `ST1`, `ST2`, Default value is `ST1`
+        /// A `Sku` name. Possible values is `ST0`, `ST1`, `ST2`, Default value is `ST1`
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
 
         /// <summary>
-        /// A `sub_domain` name. Subdomain for the IoT Central URL. Each application must have a unique subdomain.
+        /// A `SubDomain` name. Subdomain for the IoT Central URL. Each application must have a unique subdomain.
         /// </summary>
         [Input("subDomain")]
         public Input<string>? SubDomain { get; set; }
@@ -311,7 +311,7 @@ namespace Pulumi.Azure.IotCentral
         }
 
         /// <summary>
-        /// A `template` name. IoT Central application template name. Defaults to `iotc-pnp-preview@1.0.0`. Changing this forces a new resource to be created.
+        /// A `Template` name. IoT Central application template name. Defaults to `iotc-pnp-preview@1.0.0`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("template")]
         public Input<string>? Template { get; set; }

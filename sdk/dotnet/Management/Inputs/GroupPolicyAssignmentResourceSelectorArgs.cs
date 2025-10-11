@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Management.Inputs
         private InputList<Inputs.GroupPolicyAssignmentResourceSelectorSelectorArgs>? _selectors;
 
         /// <summary>
-        /// One or more `resource_selector` block as defined below.
+        /// One or more `ResourceSelector` block as defined below.
         /// </summary>
         public InputList<Inputs.GroupPolicyAssignmentResourceSelectorSelectorArgs> Selectors
         {

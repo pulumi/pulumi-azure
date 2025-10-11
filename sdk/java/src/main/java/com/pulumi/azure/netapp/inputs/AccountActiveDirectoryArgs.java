@@ -81,7 +81,7 @@ public final class AccountActiveDirectoryArgs extends com.pulumi.resources.Resou
     /**
      * kdc server IP addresses for the active directory machine.
      * 
-     * &gt; **Note:** If you plan on using **Kerberos** volumes, both `ad_name` and `kdc_ip` are required in order to create the volume.
+     * &gt; **Note:** If you plan on using **Kerberos** volumes, both `adName` and `kdcIp` are required in order to create the volume.
      * 
      */
     @Import(name="kerberosKdcIp")
@@ -90,7 +90,7 @@ public final class AccountActiveDirectoryArgs extends com.pulumi.resources.Resou
     /**
      * @return kdc server IP addresses for the active directory machine.
      * 
-     * &gt; **Note:** If you plan on using **Kerberos** volumes, both `ad_name` and `kdc_ip` are required in order to create the volume.
+     * &gt; **Note:** If you plan on using **Kerberos** volumes, both `adName` and `kdcIp` are required in order to create the volume.
      * 
      */
     public Optional<Output<String>> kerberosKdcIp() {
@@ -173,14 +173,14 @@ public final class AccountActiveDirectoryArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * When LDAP over SSL/TLS is enabled, the LDAP client is required to have a *base64 encoded Active Directory Certificate Service&#39;s self-signed root CA certificate*, this optional parameter is used only for dual protocol with LDAP user-mapping volumes. Required if `ldap_over_tls_enabled` is set to `true`.
+     * When LDAP over SSL/TLS is enabled, the LDAP client is required to have a *base64 encoded Active Directory Certificate Service&#39;s self-signed root CA certificate*, this optional parameter is used only for dual protocol with LDAP user-mapping volumes. Required if `ldapOverTlsEnabled` is set to `true`.
      * 
      */
     @Import(name="serverRootCaCertificate")
     private @Nullable Output<String> serverRootCaCertificate;
 
     /**
-     * @return When LDAP over SSL/TLS is enabled, the LDAP client is required to have a *base64 encoded Active Directory Certificate Service&#39;s self-signed root CA certificate*, this optional parameter is used only for dual protocol with LDAP user-mapping volumes. Required if `ldap_over_tls_enabled` is set to `true`.
+     * @return When LDAP over SSL/TLS is enabled, the LDAP client is required to have a *base64 encoded Active Directory Certificate Service&#39;s self-signed root CA certificate*, this optional parameter is used only for dual protocol with LDAP user-mapping volumes. Required if `ldapOverTlsEnabled` is set to `true`.
      * 
      */
     public Optional<Output<String>> serverRootCaCertificate() {
@@ -366,7 +366,7 @@ public final class AccountActiveDirectoryArgs extends com.pulumi.resources.Resou
         /**
          * @param kerberosKdcIp kdc server IP addresses for the active directory machine.
          * 
-         * &gt; **Note:** If you plan on using **Kerberos** volumes, both `ad_name` and `kdc_ip` are required in order to create the volume.
+         * &gt; **Note:** If you plan on using **Kerberos** volumes, both `adName` and `kdcIp` are required in order to create the volume.
          * 
          * @return builder
          * 
@@ -379,7 +379,7 @@ public final class AccountActiveDirectoryArgs extends com.pulumi.resources.Resou
         /**
          * @param kerberosKdcIp kdc server IP addresses for the active directory machine.
          * 
-         * &gt; **Note:** If you plan on using **Kerberos** volumes, both `ad_name` and `kdc_ip` are required in order to create the volume.
+         * &gt; **Note:** If you plan on using **Kerberos** volumes, both `adName` and `kdcIp` are required in order to create the volume.
          * 
          * @return builder
          * 
@@ -494,7 +494,7 @@ public final class AccountActiveDirectoryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param serverRootCaCertificate When LDAP over SSL/TLS is enabled, the LDAP client is required to have a *base64 encoded Active Directory Certificate Service&#39;s self-signed root CA certificate*, this optional parameter is used only for dual protocol with LDAP user-mapping volumes. Required if `ldap_over_tls_enabled` is set to `true`.
+         * @param serverRootCaCertificate When LDAP over SSL/TLS is enabled, the LDAP client is required to have a *base64 encoded Active Directory Certificate Service&#39;s self-signed root CA certificate*, this optional parameter is used only for dual protocol with LDAP user-mapping volumes. Required if `ldapOverTlsEnabled` is set to `true`.
          * 
          * @return builder
          * 
@@ -505,7 +505,7 @@ public final class AccountActiveDirectoryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param serverRootCaCertificate When LDAP over SSL/TLS is enabled, the LDAP client is required to have a *base64 encoded Active Directory Certificate Service&#39;s self-signed root CA certificate*, this optional parameter is used only for dual protocol with LDAP user-mapping volumes. Required if `ldap_over_tls_enabled` is set to `true`.
+         * @param serverRootCaCertificate When LDAP over SSL/TLS is enabled, the LDAP client is required to have a *base64 encoded Active Directory Certificate Service&#39;s self-signed root CA certificate*, this optional parameter is used only for dual protocol with LDAP user-mapping volumes. Required if `ldapOverTlsEnabled` is set to `true`.
          * 
          * @return builder
          * 

@@ -26,7 +26,7 @@ namespace Pulumi.Azure.MSSql.Outputs
         /// </summary>
         public readonly string AuthenticationType;
         /// <summary>
-        /// The resource id for the storage account used to store BACPAC file. If set, private endpoint connection will be created for the storage account. Must match storage account used for storage_uri parameter.
+        /// The resource id for the storage account used to store BACPAC file. If set, private endpoint connection will be created for the storage account. Must match storage account used for StorageUri parameter.
         /// </summary>
         public readonly string? StorageAccountId;
         /// <summary>

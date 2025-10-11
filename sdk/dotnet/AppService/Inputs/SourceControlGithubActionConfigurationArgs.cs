@@ -13,19 +13,19 @@ namespace Pulumi.Azure.AppService.Inputs
     public sealed class SourceControlGithubActionConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `code_configuration` block as defined above. Changing this forces a new resource to be created.
+        /// A `CodeConfiguration` block as defined above. Changing this forces a new resource to be created.
         /// </summary>
         [Input("codeConfiguration")]
         public Input<Inputs.SourceControlGithubActionConfigurationCodeConfigurationArgs>? CodeConfiguration { get; set; }
 
         /// <summary>
-        /// A `container_configuration` block as defined above.
+        /// A `ContainerConfiguration` block as defined above.
         /// </summary>
         [Input("containerConfiguration")]
         public Input<Inputs.SourceControlGithubActionConfigurationContainerConfigurationArgs>? ContainerConfiguration { get; set; }
 
         /// <summary>
-        /// Whether to generate the GitHub work flow file. Defaults to `true`. Changing this forces a new resource to be created.
+        /// Whether to generate the GitHub work flow file. Defaults to `True`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("generateWorkflowFile")]
         public Input<bool>? GenerateWorkflowFile { get; set; }

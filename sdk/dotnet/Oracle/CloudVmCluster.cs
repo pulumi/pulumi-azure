@@ -169,7 +169,7 @@ namespace Pulumi.Azure.Oracle
         public Output<int> CpuCoreCount { get; private set; } = null!;
 
         /// <summary>
-        /// A `data_collection_options` block as defined below. Changing this forces a new Cloud VM Cluster to be created.
+        /// A `DataCollectionOptions` block as defined below. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Output("dataCollectionOptions")]
         public Output<Outputs.CloudVmClusterDataCollectionOptions> DataCollectionOptions { get; private set; } = null!;
@@ -211,7 +211,7 @@ namespace Pulumi.Azure.Oracle
         public Output<string> Domain { get; private set; } = null!;
 
         /// <summary>
-        /// A `file_system_configuration` block as defined below.
+        /// A `FileSystemConfiguration` block as defined below.
         /// </summary>
         [Output("fileSystemConfigurations")]
         public Output<ImmutableArray<Outputs.CloudVmClusterFileSystemConfiguration>> FileSystemConfigurations { get; private set; } = null!;
@@ -241,7 +241,7 @@ namespace Pulumi.Azure.Oracle
         public Output<string> LicenseModel { get; private set; } = null!;
 
         /// <summary>
-        /// If true, database backup on local Exadata storage is configured for the Cloud VM Cluster. If `false`, database backup on local Exadata storage is not available in the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
+        /// If true, database backup on local Exadata storage is configured for the Cloud VM Cluster. If `False`, database backup on local Exadata storage is not available in the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Output("localBackupEnabled")]
         public Output<bool> LocalBackupEnabled { get; private set; } = null!;
@@ -289,7 +289,7 @@ namespace Pulumi.Azure.Oracle
         public Output<int?> ScanListenerPortTcpSsl { get; private set; } = null!;
 
         /// <summary>
-        /// If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created. Changing this forces a new Cloud VM Cluster to be created.
+        /// If true, the sparse disk group is configured for the Cloud VM Cluster. If `False`, the sparse disk group is not created. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Output("sparseDiskgroupEnabled")]
         public Output<bool> SparseDiskgroupEnabled { get; private set; } = null!;
@@ -407,7 +407,7 @@ namespace Pulumi.Azure.Oracle
         public Input<int> CpuCoreCount { get; set; } = null!;
 
         /// <summary>
-        /// A `data_collection_options` block as defined below. Changing this forces a new Cloud VM Cluster to be created.
+        /// A `DataCollectionOptions` block as defined below. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("dataCollectionOptions")]
         public Input<Inputs.CloudVmClusterDataCollectionOptionsArgs>? DataCollectionOptions { get; set; }
@@ -458,7 +458,7 @@ namespace Pulumi.Azure.Oracle
         private InputList<Inputs.CloudVmClusterFileSystemConfigurationArgs>? _fileSystemConfigurations;
 
         /// <summary>
-        /// A `file_system_configuration` block as defined below.
+        /// A `FileSystemConfiguration` block as defined below.
         /// </summary>
         public InputList<Inputs.CloudVmClusterFileSystemConfigurationArgs> FileSystemConfigurations
         {
@@ -485,7 +485,7 @@ namespace Pulumi.Azure.Oracle
         public Input<string> LicenseModel { get; set; } = null!;
 
         /// <summary>
-        /// If true, database backup on local Exadata storage is configured for the Cloud VM Cluster. If `false`, database backup on local Exadata storage is not available in the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
+        /// If true, database backup on local Exadata storage is configured for the Cloud VM Cluster. If `False`, database backup on local Exadata storage is not available in the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("localBackupEnabled")]
         public Input<bool>? LocalBackupEnabled { get; set; }
@@ -527,7 +527,7 @@ namespace Pulumi.Azure.Oracle
         public Input<int>? ScanListenerPortTcpSsl { get; set; }
 
         /// <summary>
-        /// If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created. Changing this forces a new Cloud VM Cluster to be created.
+        /// If true, the sparse disk group is configured for the Cloud VM Cluster. If `False`, the sparse disk group is not created. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("sparseDiskgroupEnabled")]
         public Input<bool>? SparseDiskgroupEnabled { get; set; }
@@ -619,7 +619,7 @@ namespace Pulumi.Azure.Oracle
         public Input<int>? CpuCoreCount { get; set; }
 
         /// <summary>
-        /// A `data_collection_options` block as defined below. Changing this forces a new Cloud VM Cluster to be created.
+        /// A `DataCollectionOptions` block as defined below. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("dataCollectionOptions")]
         public Input<Inputs.CloudVmClusterDataCollectionOptionsGetArgs>? DataCollectionOptions { get; set; }
@@ -670,7 +670,7 @@ namespace Pulumi.Azure.Oracle
         private InputList<Inputs.CloudVmClusterFileSystemConfigurationGetArgs>? _fileSystemConfigurations;
 
         /// <summary>
-        /// A `file_system_configuration` block as defined below.
+        /// A `FileSystemConfiguration` block as defined below.
         /// </summary>
         public InputList<Inputs.CloudVmClusterFileSystemConfigurationGetArgs> FileSystemConfigurations
         {
@@ -703,7 +703,7 @@ namespace Pulumi.Azure.Oracle
         public Input<string>? LicenseModel { get; set; }
 
         /// <summary>
-        /// If true, database backup on local Exadata storage is configured for the Cloud VM Cluster. If `false`, database backup on local Exadata storage is not available in the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
+        /// If true, database backup on local Exadata storage is configured for the Cloud VM Cluster. If `False`, database backup on local Exadata storage is not available in the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("localBackupEnabled")]
         public Input<bool>? LocalBackupEnabled { get; set; }
@@ -751,7 +751,7 @@ namespace Pulumi.Azure.Oracle
         public Input<int>? ScanListenerPortTcpSsl { get; set; }
 
         /// <summary>
-        /// If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created. Changing this forces a new Cloud VM Cluster to be created.
+        /// If true, the sparse disk group is configured for the Cloud VM Cluster. If `False`, the sparse disk group is not created. Changing this forces a new Cloud VM Cluster to be created.
         /// </summary>
         [Input("sparseDiskgroupEnabled")]
         public Input<bool>? SparseDiskgroupEnabled { get; set; }

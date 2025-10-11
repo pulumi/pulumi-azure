@@ -13,13 +13,13 @@ namespace Pulumi.Azure.Storage.Inputs
     public sealed class ShareAclAccessPolicyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The time at which this Access Policy should be valid untilWhen using `storage_account_id` this should be in RFC3339 format. If using the deprecated `storage_account_name` property, this uses the [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+        /// The time at which this Access Policy should be valid untilWhen using `StorageAccountId` this should be in RFC3339 format. If using the deprecated `StorageAccountName` property, this uses the [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
         /// </summary>
         [Input("expiry")]
         public Input<string>? Expiry { get; set; }
 
         /// <summary>
-        /// The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
+        /// The permissions which should be associated with this Shared Identifier. Possible value is combination of `R` (read), `W` (write), `D` (delete), and `L` (list).
         /// 
         /// &gt; **Note:** Permission order is strict at the service side, and permissions need to be listed in the order above.
         /// </summary>
@@ -27,7 +27,7 @@ namespace Pulumi.Azure.Storage.Inputs
         public Input<string> Permissions { get; set; } = null!;
 
         /// <summary>
-        /// The time at which this Access Policy should be valid from. When using `storage_account_id` this should be in RFC3339 format. If using the deprecated `storage_account_name` property, this uses the [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+        /// The time at which this Access Policy should be valid from. When using `StorageAccountId` this should be in RFC3339 format. If using the deprecated `StorageAccountName` property, this uses the [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
         /// </summary>
         [Input("start")]
         public Input<string>? Start { get; set; }

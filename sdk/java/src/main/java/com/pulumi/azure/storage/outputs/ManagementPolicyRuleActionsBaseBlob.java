@@ -15,16 +15,16 @@ public final class ManagementPolicyRuleActionsBaseBlob {
     /**
      * @return Whether a blob should automatically be tiered from cool back to hot if it&#39;s accessed again after being tiered to cool. Defaults to `false`.
      * 
-     * &gt; **Note:** The `auto_tier_to_hot_from_cool_enabled` must be used together with `tier_to_cool_after_days_since_last_access_time_greater_than`.
+     * &gt; **Note:** The `autoTierToHotFromCoolEnabled` must be used together with `tierToCoolAfterDaysSinceLastAccessTimeGreaterThan`.
      * 
      */
     private @Nullable Boolean autoTierToHotFromCoolEnabled;
     /**
      * @return The age in days after creation to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
      * 
-     * &gt; **Note:** The `delete_after_days_since_modification_greater_than`, `delete_after_days_since_last_access_time_greater_than` and `delete_after_days_since_creation_greater_than` can not be set at the same time.
+     * &gt; **Note:** The `deleteAfterDaysSinceModificationGreaterThan`, `deleteAfterDaysSinceLastAccessTimeGreaterThan` and `deleteAfterDaysSinceCreationGreaterThan` can not be set at the same time.
      * 
-     * &gt; **Note:** The `last_access_time_enabled` must be set to `true` in the `azure.storage.Account` in order to use `tier_to_cool_after_days_since_last_access_time_greater_than`, `tier_to_archive_after_days_since_last_access_time_greater_than` and `delete_after_days_since_last_access_time_greater_than`.
+     * &gt; **Note:** The `lastAccessTimeEnabled` must be set to `true` in the `azure.storage.Account` in order to use `tierToCoolAfterDaysSinceLastAccessTimeGreaterThan`, `tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan` and `deleteAfterDaysSinceLastAccessTimeGreaterThan`.
      * 
      */
     private @Nullable Integer deleteAfterDaysSinceCreationGreaterThan;
@@ -41,7 +41,7 @@ public final class ManagementPolicyRuleActionsBaseBlob {
     /**
      * @return The age in days after creation to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and `99999`. Defaults to `-1`.
      * 
-     * &gt; **Note:** The `tier_to_archive_after_days_since_modification_greater_than`, `tier_to_archive_after_days_since_last_access_time_greater_than` and `tier_to_archive_after_days_since_creation_greater_than` can not be set at the same time.
+     * &gt; **Note:** The `tierToArchiveAfterDaysSinceModificationGreaterThan`, `tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan` and `tierToArchiveAfterDaysSinceCreationGreaterThan` can not be set at the same time.
      * 
      */
     private @Nullable Integer tierToArchiveAfterDaysSinceCreationGreaterThan;
@@ -63,7 +63,7 @@ public final class ManagementPolicyRuleActionsBaseBlob {
     /**
      * @return The age in days after creation to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
      * 
-     * &gt; **Note:** The `tier_to_cool_after_days_since_modification_greater_than`, `tier_to_cool_after_days_since_last_access_time_greater_than` and `tier_to_cool_after_days_since_creation_greater_than` can not be set at the same time.
+     * &gt; **Note:** The `tierToCoolAfterDaysSinceModificationGreaterThan`, `tierToCoolAfterDaysSinceLastAccessTimeGreaterThan` and `tierToCoolAfterDaysSinceCreationGreaterThan` can not be set at the same time.
      * 
      */
     private @Nullable Integer tierToColdAfterDaysSinceCreationGreaterThan;
@@ -80,7 +80,7 @@ public final class ManagementPolicyRuleActionsBaseBlob {
     /**
      * @return The age in days after creation to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
      * 
-     * &gt; **Note:** The `tier_to_cool_after_days_since_modification_greater_than`, `tier_to_cool_after_days_since_last_access_time_greater_than` and `tier_to_cool_after_days_since_creation_greater_than` can not be set at the same time.
+     * &gt; **Note:** The `tierToCoolAfterDaysSinceModificationGreaterThan`, `tierToCoolAfterDaysSinceLastAccessTimeGreaterThan` and `tierToCoolAfterDaysSinceCreationGreaterThan` can not be set at the same time.
      * 
      */
     private @Nullable Integer tierToCoolAfterDaysSinceCreationGreaterThan;
@@ -99,7 +99,7 @@ public final class ManagementPolicyRuleActionsBaseBlob {
     /**
      * @return Whether a blob should automatically be tiered from cool back to hot if it&#39;s accessed again after being tiered to cool. Defaults to `false`.
      * 
-     * &gt; **Note:** The `auto_tier_to_hot_from_cool_enabled` must be used together with `tier_to_cool_after_days_since_last_access_time_greater_than`.
+     * &gt; **Note:** The `autoTierToHotFromCoolEnabled` must be used together with `tierToCoolAfterDaysSinceLastAccessTimeGreaterThan`.
      * 
      */
     public Optional<Boolean> autoTierToHotFromCoolEnabled() {
@@ -108,9 +108,9 @@ public final class ManagementPolicyRuleActionsBaseBlob {
     /**
      * @return The age in days after creation to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
      * 
-     * &gt; **Note:** The `delete_after_days_since_modification_greater_than`, `delete_after_days_since_last_access_time_greater_than` and `delete_after_days_since_creation_greater_than` can not be set at the same time.
+     * &gt; **Note:** The `deleteAfterDaysSinceModificationGreaterThan`, `deleteAfterDaysSinceLastAccessTimeGreaterThan` and `deleteAfterDaysSinceCreationGreaterThan` can not be set at the same time.
      * 
-     * &gt; **Note:** The `last_access_time_enabled` must be set to `true` in the `azure.storage.Account` in order to use `tier_to_cool_after_days_since_last_access_time_greater_than`, `tier_to_archive_after_days_since_last_access_time_greater_than` and `delete_after_days_since_last_access_time_greater_than`.
+     * &gt; **Note:** The `lastAccessTimeEnabled` must be set to `true` in the `azure.storage.Account` in order to use `tierToCoolAfterDaysSinceLastAccessTimeGreaterThan`, `tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan` and `deleteAfterDaysSinceLastAccessTimeGreaterThan`.
      * 
      */
     public Optional<Integer> deleteAfterDaysSinceCreationGreaterThan() {
@@ -133,7 +133,7 @@ public final class ManagementPolicyRuleActionsBaseBlob {
     /**
      * @return The age in days after creation to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and `99999`. Defaults to `-1`.
      * 
-     * &gt; **Note:** The `tier_to_archive_after_days_since_modification_greater_than`, `tier_to_archive_after_days_since_last_access_time_greater_than` and `tier_to_archive_after_days_since_creation_greater_than` can not be set at the same time.
+     * &gt; **Note:** The `tierToArchiveAfterDaysSinceModificationGreaterThan`, `tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan` and `tierToArchiveAfterDaysSinceCreationGreaterThan` can not be set at the same time.
      * 
      */
     public Optional<Integer> tierToArchiveAfterDaysSinceCreationGreaterThan() {
@@ -163,7 +163,7 @@ public final class ManagementPolicyRuleActionsBaseBlob {
     /**
      * @return The age in days after creation to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
      * 
-     * &gt; **Note:** The `tier_to_cool_after_days_since_modification_greater_than`, `tier_to_cool_after_days_since_last_access_time_greater_than` and `tier_to_cool_after_days_since_creation_greater_than` can not be set at the same time.
+     * &gt; **Note:** The `tierToCoolAfterDaysSinceModificationGreaterThan`, `tierToCoolAfterDaysSinceLastAccessTimeGreaterThan` and `tierToCoolAfterDaysSinceCreationGreaterThan` can not be set at the same time.
      * 
      */
     public Optional<Integer> tierToColdAfterDaysSinceCreationGreaterThan() {
@@ -186,7 +186,7 @@ public final class ManagementPolicyRuleActionsBaseBlob {
     /**
      * @return The age in days after creation to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
      * 
-     * &gt; **Note:** The `tier_to_cool_after_days_since_modification_greater_than`, `tier_to_cool_after_days_since_last_access_time_greater_than` and `tier_to_cool_after_days_since_creation_greater_than` can not be set at the same time.
+     * &gt; **Note:** The `tierToCoolAfterDaysSinceModificationGreaterThan`, `tierToCoolAfterDaysSinceLastAccessTimeGreaterThan` and `tierToCoolAfterDaysSinceCreationGreaterThan` can not be set at the same time.
      * 
      */
     public Optional<Integer> tierToCoolAfterDaysSinceCreationGreaterThan() {

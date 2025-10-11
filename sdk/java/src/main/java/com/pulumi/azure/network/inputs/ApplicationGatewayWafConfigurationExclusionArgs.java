@@ -32,14 +32,14 @@ public final class ApplicationGatewayWafConfigurationExclusionArgs extends com.p
     }
 
     /**
-     * String value which will be used for the filter operation. If empty will exclude all traffic on this `match_variable`
+     * String value which will be used for the filter operation. If empty will exclude all traffic on this `matchVariable`
      * 
      */
     @Import(name="selector")
     private @Nullable Output<String> selector;
 
     /**
-     * @return String value which will be used for the filter operation. If empty will exclude all traffic on this `match_variable`
+     * @return String value which will be used for the filter operation. If empty will exclude all traffic on this `matchVariable`
      * 
      */
     public Optional<Output<String>> selector() {
@@ -47,14 +47,14 @@ public final class ApplicationGatewayWafConfigurationExclusionArgs extends com.p
     }
 
     /**
-     * Operator which will be used to search in the variable content. Possible values are `Contains`, `EndsWith`, `Equals`, `EqualsAny` and `StartsWith`. If empty will exclude all traffic on this `match_variable`
+     * Operator which will be used to search in the variable content. Possible values are `Contains`, `EndsWith`, `Equals`, `EqualsAny` and `StartsWith`. If empty will exclude all traffic on this `matchVariable`
      * 
      */
     @Import(name="selectorMatchOperator")
     private @Nullable Output<String> selectorMatchOperator;
 
     /**
-     * @return Operator which will be used to search in the variable content. Possible values are `Contains`, `EndsWith`, `Equals`, `EqualsAny` and `StartsWith`. If empty will exclude all traffic on this `match_variable`
+     * @return Operator which will be used to search in the variable content. Possible values are `Contains`, `EndsWith`, `Equals`, `EqualsAny` and `StartsWith`. If empty will exclude all traffic on this `matchVariable`
      * 
      */
     public Optional<Output<String>> selectorMatchOperator() {
@@ -109,7 +109,7 @@ public final class ApplicationGatewayWafConfigurationExclusionArgs extends com.p
         }
 
         /**
-         * @param selector String value which will be used for the filter operation. If empty will exclude all traffic on this `match_variable`
+         * @param selector String value which will be used for the filter operation. If empty will exclude all traffic on this `matchVariable`
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class ApplicationGatewayWafConfigurationExclusionArgs extends com.p
         }
 
         /**
-         * @param selector String value which will be used for the filter operation. If empty will exclude all traffic on this `match_variable`
+         * @param selector String value which will be used for the filter operation. If empty will exclude all traffic on this `matchVariable`
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class ApplicationGatewayWafConfigurationExclusionArgs extends com.p
         }
 
         /**
-         * @param selectorMatchOperator Operator which will be used to search in the variable content. Possible values are `Contains`, `EndsWith`, `Equals`, `EqualsAny` and `StartsWith`. If empty will exclude all traffic on this `match_variable`
+         * @param selectorMatchOperator Operator which will be used to search in the variable content. Possible values are `Contains`, `EndsWith`, `Equals`, `EqualsAny` and `StartsWith`. If empty will exclude all traffic on this `matchVariable`
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class ApplicationGatewayWafConfigurationExclusionArgs extends com.p
         }
 
         /**
-         * @param selectorMatchOperator Operator which will be used to search in the variable content. Possible values are `Contains`, `EndsWith`, `Equals`, `EqualsAny` and `StartsWith`. If empty will exclude all traffic on this `match_variable`
+         * @param selectorMatchOperator Operator which will be used to search in the variable content. Possible values are `Contains`, `EndsWith`, `Equals`, `EqualsAny` and `StartsWith`. If empty will exclude all traffic on this `matchVariable`
          * 
          * @return builder
          * 

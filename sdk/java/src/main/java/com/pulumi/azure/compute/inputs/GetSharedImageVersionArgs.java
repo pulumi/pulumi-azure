@@ -53,7 +53,7 @@ public final class GetSharedImageVersionArgs extends com.pulumi.resources.Invoke
      * 
      * &gt; **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
      * 
-     * &gt; **Note:** In 3.0, `latest` may return an image version with `exclude_from_latest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `exlude_from_latest` set to `true`.
+     * &gt; **Note:** In 3.0, `latest` may return an image version with `excludeFromLatest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `exludeFromLatest` set to `true`.
      * 
      */
     @Import(name="name", required=true)
@@ -64,7 +64,7 @@ public final class GetSharedImageVersionArgs extends com.pulumi.resources.Invoke
      * 
      * &gt; **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
      * 
-     * &gt; **Note:** In 3.0, `latest` may return an image version with `exclude_from_latest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `exlude_from_latest` set to `true`.
+     * &gt; **Note:** In 3.0, `latest` may return an image version with `excludeFromLatest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `exludeFromLatest` set to `true`.
      * 
      */
     public Output<String> name() {
@@ -192,7 +192,7 @@ public final class GetSharedImageVersionArgs extends com.pulumi.resources.Invoke
          * 
          * &gt; **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
          * 
-         * &gt; **Note:** In 3.0, `latest` may return an image version with `exclude_from_latest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `exlude_from_latest` set to `true`.
+         * &gt; **Note:** In 3.0, `latest` may return an image version with `excludeFromLatest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `exludeFromLatest` set to `true`.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class GetSharedImageVersionArgs extends com.pulumi.resources.Invoke
          * 
          * &gt; **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
          * 
-         * &gt; **Note:** In 3.0, `latest` may return an image version with `exclude_from_latest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `exlude_from_latest` set to `true`.
+         * &gt; **Note:** In 3.0, `latest` may return an image version with `excludeFromLatest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `exludeFromLatest` set to `true`.
          * 
          * @return builder
          * 

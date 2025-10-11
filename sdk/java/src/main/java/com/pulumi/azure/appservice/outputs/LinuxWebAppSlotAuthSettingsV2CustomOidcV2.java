@@ -14,12 +14,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LinuxWebAppSlotAuthSettingsV2CustomOidcV2 {
     /**
-     * @return The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
+     * @return The endpoint to make the Authorisation Request as supplied by `openidConfigurationEndpoint` response.
      * 
      */
     private @Nullable String authorisationEndpoint;
     /**
-     * @return The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
+     * @return The endpoint that provides the keys necessary to validate the token as supplied by `openidConfigurationEndpoint` response.
      * 
      */
     private @Nullable String certificationUri;
@@ -39,14 +39,14 @@ public final class LinuxWebAppSlotAuthSettingsV2CustomOidcV2 {
      */
     private @Nullable String clientSecretSettingName;
     /**
-     * @return The endpoint that issued the Token as supplied by `openid_configuration_endpoint` response.
+     * @return The endpoint that issued the Token as supplied by `openidConfigurationEndpoint` response.
      * 
      */
     private @Nullable String issuerEndpoint;
     /**
      * @return The name of the Custom OIDC Authentication Provider.
      * 
-     * &gt; **Note:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
+     * &gt; **Note:** An `appSetting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
      * 
      */
     private String name;
@@ -56,7 +56,7 @@ public final class LinuxWebAppSlotAuthSettingsV2CustomOidcV2 {
      */
     private @Nullable String nameClaimType;
     /**
-     * @return The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
+     * @return The app setting name that contains the `clientSecret` value used for the Custom OIDC Login.
      * 
      */
     private String openidConfigurationEndpoint;
@@ -66,21 +66,21 @@ public final class LinuxWebAppSlotAuthSettingsV2CustomOidcV2 {
      */
     private @Nullable List<String> scopes;
     /**
-     * @return The endpoint used to request a Token as supplied by `openid_configuration_endpoint` response.
+     * @return The endpoint used to request a Token as supplied by `openidConfigurationEndpoint` response.
      * 
      */
     private @Nullable String tokenEndpoint;
 
     private LinuxWebAppSlotAuthSettingsV2CustomOidcV2() {}
     /**
-     * @return The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
+     * @return The endpoint to make the Authorisation Request as supplied by `openidConfigurationEndpoint` response.
      * 
      */
     public Optional<String> authorisationEndpoint() {
         return Optional.ofNullable(this.authorisationEndpoint);
     }
     /**
-     * @return The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
+     * @return The endpoint that provides the keys necessary to validate the token as supplied by `openidConfigurationEndpoint` response.
      * 
      */
     public Optional<String> certificationUri() {
@@ -108,7 +108,7 @@ public final class LinuxWebAppSlotAuthSettingsV2CustomOidcV2 {
         return Optional.ofNullable(this.clientSecretSettingName);
     }
     /**
-     * @return The endpoint that issued the Token as supplied by `openid_configuration_endpoint` response.
+     * @return The endpoint that issued the Token as supplied by `openidConfigurationEndpoint` response.
      * 
      */
     public Optional<String> issuerEndpoint() {
@@ -117,7 +117,7 @@ public final class LinuxWebAppSlotAuthSettingsV2CustomOidcV2 {
     /**
      * @return The name of the Custom OIDC Authentication Provider.
      * 
-     * &gt; **Note:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
+     * &gt; **Note:** An `appSetting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
      * 
      */
     public String name() {
@@ -131,7 +131,7 @@ public final class LinuxWebAppSlotAuthSettingsV2CustomOidcV2 {
         return Optional.ofNullable(this.nameClaimType);
     }
     /**
-     * @return The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
+     * @return The app setting name that contains the `clientSecret` value used for the Custom OIDC Login.
      * 
      */
     public String openidConfigurationEndpoint() {
@@ -145,7 +145,7 @@ public final class LinuxWebAppSlotAuthSettingsV2CustomOidcV2 {
         return this.scopes == null ? List.of() : this.scopes;
     }
     /**
-     * @return The endpoint used to request a Token as supplied by `openid_configuration_endpoint` response.
+     * @return The endpoint used to request a Token as supplied by `openidConfigurationEndpoint` response.
      * 
      */
     public Optional<String> tokenEndpoint() {

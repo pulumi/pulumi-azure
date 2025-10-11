@@ -14,9 +14,9 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SharedImageGallerySharing {
     /**
-     * @return A `community_gallery` block as defined below. Changing this forces a new resource to be created.
+     * @return A `communityGallery` block as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** `community_gallery` must be set when `permission` is set to `Community`.
+     * &gt; **Note:** `communityGallery` must be set when `permission` is set to `Community`.
      * 
      */
     private @Nullable SharedImageGallerySharingCommunityGallery communityGallery;
@@ -30,9 +30,9 @@ public final class SharedImageGallerySharing {
 
     private SharedImageGallerySharing() {}
     /**
-     * @return A `community_gallery` block as defined below. Changing this forces a new resource to be created.
+     * @return A `communityGallery` block as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** `community_gallery` must be set when `permission` is set to `Community`.
+     * &gt; **Note:** `communityGallery` must be set when `permission` is set to `Community`.
      * 
      */
     public Optional<SharedImageGallerySharingCommunityGallery> communityGallery() {

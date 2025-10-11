@@ -21,7 +21,7 @@ public final class NetworkSimPolicySliceDataNetwork {
      */
     private @Nullable List<String> additionalAllowedSessionTypes;
     /**
-     * @return Default QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemption_capability` and `preemption_vulnerability` allow it. `1` is the highest level of priority. If this field is not specified then `qos_indicator` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+     * @return Default QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. `1` is the highest level of priority. If this field is not specified then `qosIndicator` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
      * 
      */
     private @Nullable Integer allocationAndRetentionPriorityLevel;
@@ -61,7 +61,7 @@ public final class NetworkSimPolicySliceDataNetwork {
      */
     private Integer qosIndicator;
     /**
-     * @return A `session_aggregate_maximum_bit_rate` block as defined below.
+     * @return A `sessionAggregateMaximumBitRate` block as defined below.
      * 
      */
     private NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate sessionAggregateMaximumBitRate;
@@ -75,7 +75,7 @@ public final class NetworkSimPolicySliceDataNetwork {
         return this.additionalAllowedSessionTypes == null ? List.of() : this.additionalAllowedSessionTypes;
     }
     /**
-     * @return Default QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemption_capability` and `preemption_vulnerability` allow it. `1` is the highest level of priority. If this field is not specified then `qos_indicator` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+     * @return Default QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. `1` is the highest level of priority. If this field is not specified then `qosIndicator` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
      * 
      */
     public Optional<Integer> allocationAndRetentionPriorityLevel() {
@@ -131,7 +131,7 @@ public final class NetworkSimPolicySliceDataNetwork {
         return this.qosIndicator;
     }
     /**
-     * @return A `session_aggregate_maximum_bit_rate` block as defined below.
+     * @return A `sessionAggregateMaximumBitRate` block as defined below.
      * 
      */
     public NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate sessionAggregateMaximumBitRate() {

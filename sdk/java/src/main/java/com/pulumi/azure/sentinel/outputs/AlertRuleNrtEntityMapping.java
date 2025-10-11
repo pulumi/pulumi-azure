@@ -18,7 +18,7 @@ public final class AlertRuleNrtEntityMapping {
      */
     private String entityType;
     /**
-     * @return A list of `field_mapping` blocks as defined below.
+     * @return A list of `fieldMapping` blocks as defined below.
      * 
      */
     private List<AlertRuleNrtEntityMappingFieldMapping> fieldMappings;
@@ -32,7 +32,7 @@ public final class AlertRuleNrtEntityMapping {
         return this.entityType;
     }
     /**
-     * @return A list of `field_mapping` blocks as defined below.
+     * @return A list of `fieldMapping` blocks as defined below.
      * 
      */
     public List<AlertRuleNrtEntityMappingFieldMapping> fieldMappings() {

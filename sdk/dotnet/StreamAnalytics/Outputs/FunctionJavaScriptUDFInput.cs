@@ -14,11 +14,11 @@ namespace Pulumi.Azure.StreamAnalytics.Outputs
     public sealed class FunctionJavaScriptUDFInput
     {
         /// <summary>
-        /// Is this input parameter a configuration parameter? Defaults to `false`.
+        /// Is this input parameter a configuration parameter? Defaults to `False`.
         /// </summary>
         public readonly bool? ConfigurationParameter;
         /// <summary>
-        /// The Data Type for the Input Argument of this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
+        /// The Data Type for the Input Argument of this JavaScript Function. Possible values include `Array`, `Any`, `Bigint`, `Datetime`, `Float`, `nvarchar(max)` and `Record`.
         /// </summary>
         public readonly string Type;
 

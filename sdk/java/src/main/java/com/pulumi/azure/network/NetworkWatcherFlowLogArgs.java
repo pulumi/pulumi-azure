@@ -68,19 +68,19 @@ public final class NetworkWatcherFlowLogArgs extends com.pulumi.resources.Resour
 
     /**
      * @deprecated
-     * The property `network_security_group_id` has been superseded by `target_resource_id` and will be removed in version 5.0 of the AzureRM Provider.
+     * The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* The property `network_security_group_id` has been superseded by `target_resource_id` and will be removed in version 5.0 of the AzureRM Provider. */
+    @Deprecated /* The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider. */
     @Import(name="networkSecurityGroupId")
     private @Nullable Output<String> networkSecurityGroupId;
 
     /**
      * @deprecated
-     * The property `network_security_group_id` has been superseded by `target_resource_id` and will be removed in version 5.0 of the AzureRM Provider.
+     * The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* The property `network_security_group_id` has been superseded by `target_resource_id` and will be removed in version 5.0 of the AzureRM Provider. */
+    @Deprecated /* The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider. */
     public Optional<Output<String>> networkSecurityGroupId() {
         return Optional.ofNullable(this.networkSecurityGroupId);
     }
@@ -116,14 +116,14 @@ public final class NetworkWatcherFlowLogArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * A `retention_policy` block as documented below.
+     * A `retentionPolicy` block as documented below.
      * 
      */
     @Import(name="retentionPolicy", required=true)
     private Output<NetworkWatcherFlowLogRetentionPolicyArgs> retentionPolicy;
 
     /**
-     * @return A `retention_policy` block as documented below.
+     * @return A `retentionPolicy` block as documented below.
      * 
      */
     public Output<NetworkWatcherFlowLogRetentionPolicyArgs> retentionPolicy() {
@@ -176,14 +176,14 @@ public final class NetworkWatcherFlowLogArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * A `traffic_analytics` block as documented below.
+     * A `trafficAnalytics` block as documented below.
      * 
      */
     @Import(name="trafficAnalytics")
     private @Nullable Output<NetworkWatcherFlowLogTrafficAnalyticsArgs> trafficAnalytics;
 
     /**
-     * @return A `traffic_analytics` block as documented below.
+     * @return A `trafficAnalytics` block as documented below.
      * 
      */
     public Optional<Output<NetworkWatcherFlowLogTrafficAnalyticsArgs>> trafficAnalytics() {
@@ -307,10 +307,10 @@ public final class NetworkWatcherFlowLogArgs extends com.pulumi.resources.Resour
          * @return builder
          * 
          * @deprecated
-         * The property `network_security_group_id` has been superseded by `target_resource_id` and will be removed in version 5.0 of the AzureRM Provider.
+         * The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider.
          * 
          */
-        @Deprecated /* The property `network_security_group_id` has been superseded by `target_resource_id` and will be removed in version 5.0 of the AzureRM Provider. */
+        @Deprecated /* The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider. */
         public Builder networkSecurityGroupId(@Nullable Output<String> networkSecurityGroupId) {
             $.networkSecurityGroupId = networkSecurityGroupId;
             return this;
@@ -320,10 +320,10 @@ public final class NetworkWatcherFlowLogArgs extends com.pulumi.resources.Resour
          * @return builder
          * 
          * @deprecated
-         * The property `network_security_group_id` has been superseded by `target_resource_id` and will be removed in version 5.0 of the AzureRM Provider.
+         * The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider.
          * 
          */
-        @Deprecated /* The property `network_security_group_id` has been superseded by `target_resource_id` and will be removed in version 5.0 of the AzureRM Provider. */
+        @Deprecated /* The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider. */
         public Builder networkSecurityGroupId(String networkSecurityGroupId) {
             return networkSecurityGroupId(Output.of(networkSecurityGroupId));
         }
@@ -371,7 +371,7 @@ public final class NetworkWatcherFlowLogArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param retentionPolicy A `retention_policy` block as documented below.
+         * @param retentionPolicy A `retentionPolicy` block as documented below.
          * 
          * @return builder
          * 
@@ -382,7 +382,7 @@ public final class NetworkWatcherFlowLogArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param retentionPolicy A `retention_policy` block as documented below.
+         * @param retentionPolicy A `retentionPolicy` block as documented below.
          * 
          * @return builder
          * 
@@ -455,7 +455,7 @@ public final class NetworkWatcherFlowLogArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param trafficAnalytics A `traffic_analytics` block as documented below.
+         * @param trafficAnalytics A `trafficAnalytics` block as documented below.
          * 
          * @return builder
          * 
@@ -466,7 +466,7 @@ public final class NetworkWatcherFlowLogArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param trafficAnalytics A `traffic_analytics` block as documented below.
+         * @param trafficAnalytics A `trafficAnalytics` block as documented below.
          * 
          * @return builder
          * 

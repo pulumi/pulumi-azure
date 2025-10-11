@@ -174,14 +174,14 @@ public class SingleNodeVirtualInstance extends com.pulumi.resources.CustomResour
         return this.sapProduct;
     }
     /**
-     * A `single_server_configuration` block as defined below. Changing this forces a new resource to be created.
+     * A `singleServerConfiguration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="singleServerConfiguration", refs={SingleNodeVirtualInstanceSingleServerConfiguration.class}, tree="[0]")
     private Output<SingleNodeVirtualInstanceSingleServerConfiguration> singleServerConfiguration;
 
     /**
-     * @return A `single_server_configuration` block as defined below. Changing this forces a new resource to be created.
+     * @return A `singleServerConfiguration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<SingleNodeVirtualInstanceSingleServerConfiguration> singleServerConfiguration() {

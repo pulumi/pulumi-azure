@@ -36,14 +36,14 @@ public final class RulesEngineRuleArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * One or more `match_condition` block as defined below.
+     * One or more `matchCondition` block as defined below.
      * 
      */
     @Import(name="matchConditions")
     private @Nullable Output<List<RulesEngineRuleMatchConditionArgs>> matchConditions;
 
     /**
-     * @return One or more `match_condition` block as defined below.
+     * @return One or more `matchCondition` block as defined below.
      * 
      */
     public Optional<Output<List<RulesEngineRuleMatchConditionArgs>>> matchConditions() {
@@ -129,7 +129,7 @@ public final class RulesEngineRuleArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param matchConditions One or more `match_condition` block as defined below.
+         * @param matchConditions One or more `matchCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class RulesEngineRuleArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param matchConditions One or more `match_condition` block as defined below.
+         * @param matchConditions One or more `matchCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class RulesEngineRuleArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param matchConditions One or more `match_condition` block as defined below.
+         * @param matchConditions One or more `matchCondition` block as defined below.
          * 
          * @return builder
          * 

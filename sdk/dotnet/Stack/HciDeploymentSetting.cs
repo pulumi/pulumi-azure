@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Stack
         public Output<ImmutableArray<string>> ArcResourceIds { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `scale_unit` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+        /// One or more `ScaleUnit` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
         /// </summary>
         [Output("scaleUnits")]
         public Output<ImmutableArray<Outputs.HciDeploymentSettingScaleUnit>> ScaleUnits { get; private set; } = null!;
@@ -113,7 +113,7 @@ namespace Pulumi.Azure.Stack
         private InputList<Inputs.HciDeploymentSettingScaleUnitArgs>? _scaleUnits;
 
         /// <summary>
-        /// One or more `scale_unit` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+        /// One or more `ScaleUnit` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
         /// </summary>
         public InputList<Inputs.HciDeploymentSettingScaleUnitArgs> ScaleUnits
         {
@@ -157,7 +157,7 @@ namespace Pulumi.Azure.Stack
         private InputList<Inputs.HciDeploymentSettingScaleUnitGetArgs>? _scaleUnits;
 
         /// <summary>
-        /// One or more `scale_unit` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+        /// One or more `ScaleUnit` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
         /// </summary>
         public InputList<Inputs.HciDeploymentSettingScaleUnitGetArgs> ScaleUnits
         {

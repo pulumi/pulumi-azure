@@ -19,7 +19,7 @@ public final class FluxConfigurationKustomizationPostBuild {
      */
     private @Nullable Map<String,String> substitute;
     /**
-     * @return A `substitute_from` block as defined below.
+     * @return A `substituteFrom` block as defined below.
      * 
      */
     private @Nullable List<FluxConfigurationKustomizationPostBuildSubstituteFrom> substituteFroms;
@@ -33,7 +33,7 @@ public final class FluxConfigurationKustomizationPostBuild {
         return this.substitute == null ? Map.of() : this.substitute;
     }
     /**
-     * @return A `substitute_from` block as defined below.
+     * @return A `substituteFrom` block as defined below.
      * 
      */
     public List<FluxConfigurationKustomizationPostBuildSubstituteFrom> substituteFroms() {

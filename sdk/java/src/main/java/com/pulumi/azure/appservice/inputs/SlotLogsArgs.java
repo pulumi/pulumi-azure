@@ -18,14 +18,14 @@ public final class SlotLogsArgs extends com.pulumi.resources.ResourceArgs {
     public static final SlotLogsArgs Empty = new SlotLogsArgs();
 
     /**
-     * An `application_logs` block as defined below.
+     * An `applicationLogs` block as defined below.
      * 
      */
     @Import(name="applicationLogs")
     private @Nullable Output<SlotLogsApplicationLogsArgs> applicationLogs;
 
     /**
-     * @return An `application_logs` block as defined below.
+     * @return An `applicationLogs` block as defined below.
      * 
      */
     public Optional<Output<SlotLogsApplicationLogsArgs>> applicationLogs() {
@@ -63,14 +63,14 @@ public final class SlotLogsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `http_logs` block as defined below.
+     * An `httpLogs` block as defined below.
      * 
      */
     @Import(name="httpLogs")
     private @Nullable Output<SlotLogsHttpLogsArgs> httpLogs;
 
     /**
-     * @return An `http_logs` block as defined below.
+     * @return An `httpLogs` block as defined below.
      * 
      */
     public Optional<Output<SlotLogsHttpLogsArgs>> httpLogs() {
@@ -105,7 +105,7 @@ public final class SlotLogsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationLogs An `application_logs` block as defined below.
+         * @param applicationLogs An `applicationLogs` block as defined below.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class SlotLogsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationLogs An `application_logs` block as defined below.
+         * @param applicationLogs An `applicationLogs` block as defined below.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class SlotLogsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param httpLogs An `http_logs` block as defined below.
+         * @param httpLogs An `httpLogs` block as defined below.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class SlotLogsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param httpLogs An `http_logs` block as defined below.
+         * @param httpLogs An `httpLogs` block as defined below.
          * 
          * @return builder
          * 

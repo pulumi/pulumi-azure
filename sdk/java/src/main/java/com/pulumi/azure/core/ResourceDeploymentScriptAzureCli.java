@@ -149,14 +149,14 @@ public class ResourceDeploymentScriptAzureCli extends com.pulumi.resources.Custo
         return Codegen.optional(this.container);
     }
     /**
-     * An `environment_variable` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+     * An `environmentVariable` block as defined below. Changing this forces a new Resource Deployment Script to be created.
      * 
      */
     @Export(name="environmentVariables", refs={List.class,ResourceDeploymentScriptAzureCliEnvironmentVariable.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ResourceDeploymentScriptAzureCliEnvironmentVariable>> environmentVariables;
 
     /**
-     * @return An `environment_variable` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+     * @return An `environmentVariable` block as defined below. Changing this forces a new Resource Deployment Script to be created.
      * 
      */
     public Output<Optional<List<ResourceDeploymentScriptAzureCliEnvironmentVariable>>> environmentVariables() {
@@ -289,14 +289,14 @@ public class ResourceDeploymentScriptAzureCli extends com.pulumi.resources.Custo
         return Codegen.optional(this.scriptContent);
     }
     /**
-     * A `storage_account` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+     * A `storageAccount` block as defined below. Changing this forces a new Resource Deployment Script to be created.
      * 
      */
     @Export(name="storageAccount", refs={ResourceDeploymentScriptAzureCliStorageAccount.class}, tree="[0]")
     private Output</* @Nullable */ ResourceDeploymentScriptAzureCliStorageAccount> storageAccount;
 
     /**
-     * @return A `storage_account` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+     * @return A `storageAccount` block as defined below. Changing this forces a new Resource Deployment Script to be created.
      * 
      */
     public Output<Optional<ResourceDeploymentScriptAzureCliStorageAccount>> storageAccount() {

@@ -35,14 +35,14 @@ public final class NetworkAclArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `private_endpoint` block as defined below.
+     * A `privateEndpoint` block as defined below.
      * 
      */
     @Import(name="privateEndpoints")
     private @Nullable Output<List<NetworkAclPrivateEndpointArgs>> privateEndpoints;
 
     /**
-     * @return A `private_endpoint` block as defined below.
+     * @return A `privateEndpoint` block as defined below.
      * 
      */
     public Optional<Output<List<NetworkAclPrivateEndpointArgs>>> privateEndpoints() {
@@ -50,14 +50,14 @@ public final class NetworkAclArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `public_network` block as defined below.
+     * A `publicNetwork` block as defined below.
      * 
      */
     @Import(name="publicNetwork", required=true)
     private Output<NetworkAclPublicNetworkArgs> publicNetwork;
 
     /**
-     * @return A `public_network` block as defined below.
+     * @return A `publicNetwork` block as defined below.
      * 
      */
     public Output<NetworkAclPublicNetworkArgs> publicNetwork() {
@@ -128,7 +128,7 @@ public final class NetworkAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateEndpoints A `private_endpoint` block as defined below.
+         * @param privateEndpoints A `privateEndpoint` block as defined below.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class NetworkAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateEndpoints A `private_endpoint` block as defined below.
+         * @param privateEndpoints A `privateEndpoint` block as defined below.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class NetworkAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateEndpoints A `private_endpoint` block as defined below.
+         * @param privateEndpoints A `privateEndpoint` block as defined below.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class NetworkAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicNetwork A `public_network` block as defined below.
+         * @param publicNetwork A `publicNetwork` block as defined below.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class NetworkAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicNetwork A `public_network` block as defined below.
+         * @param publicNetwork A `publicNetwork` block as defined below.
          * 
          * @return builder
          * 

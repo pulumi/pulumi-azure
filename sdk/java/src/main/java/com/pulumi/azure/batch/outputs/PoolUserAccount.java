@@ -20,7 +20,7 @@ public final class PoolUserAccount {
      */
     private String elevationLevel;
     /**
-     * @return The `linux_user_configuration` block defined below is a linux-specific user configuration for the user account. This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
+     * @return The `linuxUserConfiguration` block defined below is a linux-specific user configuration for the user account. This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
      * 
      */
     private @Nullable List<PoolUserAccountLinuxUserConfiguration> linuxUserConfigurations;
@@ -35,7 +35,7 @@ public final class PoolUserAccount {
      */
     private String password;
     /**
-     * @return The `windows_user_configuration` block defined below is a windows-specific user configuration for the user account. This property can only be specified if the user is on a Windows pool. If not specified and on a Windows pool, the user is created with the default options.
+     * @return The `windowsUserConfiguration` block defined below is a windows-specific user configuration for the user account. This property can only be specified if the user is on a Windows pool. If not specified and on a Windows pool, the user is created with the default options.
      * 
      */
     private @Nullable List<PoolUserAccountWindowsUserConfiguration> windowsUserConfigurations;
@@ -49,7 +49,7 @@ public final class PoolUserAccount {
         return this.elevationLevel;
     }
     /**
-     * @return The `linux_user_configuration` block defined below is a linux-specific user configuration for the user account. This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
+     * @return The `linuxUserConfiguration` block defined below is a linux-specific user configuration for the user account. This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
      * 
      */
     public List<PoolUserAccountLinuxUserConfiguration> linuxUserConfigurations() {
@@ -70,7 +70,7 @@ public final class PoolUserAccount {
         return this.password;
     }
     /**
-     * @return The `windows_user_configuration` block defined below is a windows-specific user configuration for the user account. This property can only be specified if the user is on a Windows pool. If not specified and on a Windows pool, the user is created with the default options.
+     * @return The `windowsUserConfiguration` block defined below is a windows-specific user configuration for the user account. This property can only be specified if the user is on a Windows pool. If not specified and on a Windows pool, the user is created with the default options.
      * 
      */
     public List<PoolUserAccountWindowsUserConfiguration> windowsUserConfigurations() {

@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Automation.Inputs
     public sealed class ModuleModuleLinkGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `hash` block as defined below.
+        /// A `Hash` block as defined below.
         /// </summary>
         [Input("hash")]
         public Input<Inputs.ModuleModuleLinkHashGetArgs>? Hash { get; set; }

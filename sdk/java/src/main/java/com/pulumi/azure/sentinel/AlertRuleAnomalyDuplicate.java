@@ -248,14 +248,14 @@ public class AlertRuleAnomalyDuplicate extends com.pulumi.resources.CustomResour
         return this.mode;
     }
     /**
-     * A list of `multi_select_observation` blocks as defined below.
+     * A list of `multiSelectObservation` blocks as defined below.
      * 
      */
     @Export(name="multiSelectObservations", refs={List.class,AlertRuleAnomalyDuplicateMultiSelectObservation.class}, tree="[0,1]")
     private Output<List<AlertRuleAnomalyDuplicateMultiSelectObservation>> multiSelectObservations;
 
     /**
-     * @return A list of `multi_select_observation` blocks as defined below.
+     * @return A list of `multiSelectObservation` blocks as defined below.
      * 
      */
     public Output<List<AlertRuleAnomalyDuplicateMultiSelectObservation>> multiSelectObservations() {
@@ -268,28 +268,28 @@ public class AlertRuleAnomalyDuplicate extends com.pulumi.resources.CustomResour
         return this.name;
     }
     /**
-     * A list of `prioritized_exclude_observation` blocks as defined below.
+     * A list of `prioritizedExcludeObservation` blocks as defined below.
      * 
      */
     @Export(name="prioritizedExcludeObservations", refs={List.class,AlertRuleAnomalyDuplicatePrioritizedExcludeObservation.class}, tree="[0,1]")
     private Output<List<AlertRuleAnomalyDuplicatePrioritizedExcludeObservation>> prioritizedExcludeObservations;
 
     /**
-     * @return A list of `prioritized_exclude_observation` blocks as defined below.
+     * @return A list of `prioritizedExcludeObservation` blocks as defined below.
      * 
      */
     public Output<List<AlertRuleAnomalyDuplicatePrioritizedExcludeObservation>> prioritizedExcludeObservations() {
         return this.prioritizedExcludeObservations;
     }
     /**
-     * A `required_data_connector` block as defined below.
+     * A `requiredDataConnector` block as defined below.
      * 
      */
     @Export(name="requiredDataConnectors", refs={List.class,AlertRuleAnomalyDuplicateRequiredDataConnector.class}, tree="[0,1]")
     private Output<List<AlertRuleAnomalyDuplicateRequiredDataConnector>> requiredDataConnectors;
 
     /**
-     * @return A `required_data_connector` block as defined below.
+     * @return A `requiredDataConnector` block as defined below.
      * 
      */
     public Output<List<AlertRuleAnomalyDuplicateRequiredDataConnector>> requiredDataConnectors() {
@@ -310,14 +310,14 @@ public class AlertRuleAnomalyDuplicate extends com.pulumi.resources.CustomResour
         return this.settingsDefinitionId;
     }
     /**
-     * A list of `single_select_observation` blocks as defined below.
+     * A list of `singleSelectObservation` blocks as defined below.
      * 
      */
     @Export(name="singleSelectObservations", refs={List.class,AlertRuleAnomalyDuplicateSingleSelectObservation.class}, tree="[0,1]")
     private Output<List<AlertRuleAnomalyDuplicateSingleSelectObservation>> singleSelectObservations;
 
     /**
-     * @return A list of `single_select_observation` blocks as defined below.
+     * @return A list of `singleSelectObservation` blocks as defined below.
      * 
      */
     public Output<List<AlertRuleAnomalyDuplicateSingleSelectObservation>> singleSelectObservations() {
@@ -352,18 +352,18 @@ public class AlertRuleAnomalyDuplicate extends com.pulumi.resources.CustomResour
         return this.techniques;
     }
     /**
-     * A list of `threshold_observation` blocks as defined below.
+     * A list of `thresholdObservation` blocks as defined below.
      * 
-     * &gt; **Note:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
+     * &gt; **Note:** un-specified `multiSelectObservation`, `singleSelectObservation`, `prioritizedExcludeObservation` and `thresholdObservation` will be inherited from the built-in Anomaly Alert Rule.
      * 
      */
     @Export(name="thresholdObservations", refs={List.class,AlertRuleAnomalyDuplicateThresholdObservation.class}, tree="[0,1]")
     private Output<List<AlertRuleAnomalyDuplicateThresholdObservation>> thresholdObservations;
 
     /**
-     * @return A list of `threshold_observation` blocks as defined below.
+     * @return A list of `thresholdObservation` blocks as defined below.
      * 
-     * &gt; **Note:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
+     * &gt; **Note:** un-specified `multiSelectObservation`, `singleSelectObservation`, `prioritizedExcludeObservation` and `thresholdObservation` will be inherited from the built-in Anomaly Alert Rule.
      * 
      */
     public Output<List<AlertRuleAnomalyDuplicateThresholdObservation>> thresholdObservations() {

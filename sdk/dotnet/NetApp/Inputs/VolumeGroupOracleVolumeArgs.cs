@@ -19,19 +19,19 @@ namespace Pulumi.Azure.NetApp.Inputs
         public Input<string> CapacityPoolId { get; set; } = null!;
 
         /// <summary>
-        /// A `data_protection_replication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
+        /// A `DataProtectionReplication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
         /// </summary>
         [Input("dataProtectionReplication")]
         public Input<Inputs.VolumeGroupOracleVolumeDataProtectionReplicationArgs>? DataProtectionReplication { get; set; }
 
         /// <summary>
-        /// A `data_protection_snapshot_policy` block as defined below.
+        /// A `DataProtectionSnapshotPolicy` block as defined below.
         /// </summary>
         [Input("dataProtectionSnapshotPolicy")]
         public Input<Inputs.VolumeGroupOracleVolumeDataProtectionSnapshotPolicyArgs>? DataProtectionSnapshotPolicy { get; set; }
 
         /// <summary>
-        /// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`. Changing this forces a new resource to be created.
+        /// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `KeyVaultPrivateEndpointId`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("encryptionKeySource")]
         public Input<string>? EncryptionKeySource { get; set; }
@@ -40,7 +40,7 @@ namespace Pulumi.Azure.NetApp.Inputs
         private InputList<Inputs.VolumeGroupOracleVolumeExportPolicyRuleArgs>? _exportPolicyRules;
 
         /// <summary>
-        /// One or more `export_policy_rule` blocks as defined below.
+        /// One or more `ExportPolicyRule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.VolumeGroupOracleVolumeExportPolicyRuleArgs> ExportPolicyRules
         {
@@ -55,7 +55,7 @@ namespace Pulumi.Azure.NetApp.Inputs
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
+        /// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `EncryptionKeySource`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("keyVaultPrivateEndpointId")]
         public Input<string>? KeyVaultPrivateEndpointId { get; set; }
@@ -81,9 +81,9 @@ namespace Pulumi.Azure.NetApp.Inputs
         public Input<string>? NetworkFeatures { get; set; }
 
         /// <summary>
-        /// The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3_enabled = false` and `nfsv41_enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`.
+        /// The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `Nfsv3Enabled = false` and `Nfsv41Enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`.
         /// 
-        /// &gt; **Note:** When converting protocols between NFSv3 and NFSv4.1, ensure that export policy rules are updated accordingly to avoid configuration drift. Update the `nfsv3_enabled` and `nfsv41_enabled` flags to match the new protocol.
+        /// &gt; **Note:** When converting protocols between NFSv3 and NFSv4.1, ensure that export policy rules are updated accordingly to avoid configuration drift. Update the `Nfsv3Enabled` and `Nfsv41Enabled` flags to match the new protocol.
         /// </summary>
         [Input("protocols", required: true)]
         public Input<string> Protocols { get; set; } = null!;
@@ -91,13 +91,13 @@ namespace Pulumi.Azure.NetApp.Inputs
         /// <summary>
         /// The ID of the proximity placement group (PPG). Changing this forces a new Application Volume Group to be created and data will be lost. 
         /// 
-        /// &gt; **Note:** For Oracle application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for Oracle](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-oracle-considerations) for details and other requirements. Note that this cannot be used together with `zone`.
+        /// &gt; **Note:** For Oracle application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for Oracle](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-oracle-considerations) for details and other requirements. Note that this cannot be used together with `Zone`.
         /// </summary>
         [Input("proximityPlacementGroupId")]
         public Input<string>? ProximityPlacementGroupId { get; set; }
 
         /// <summary>
-        /// Volume security style. Possible values are `ntfs` and `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        /// Volume security style. Possible values are `Ntfs` and `Unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
         /// </summary>
         [Input("securityStyle", required: true)]
         public Input<string> SecurityStyle { get; set; } = null!;
@@ -157,7 +157,7 @@ namespace Pulumi.Azure.NetApp.Inputs
         public Input<string> VolumeSpecName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`, depending on the Azure region. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Note that this cannot be used together with `proximity_placement_group_id`.
+        /// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`, depending on the Azure region. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement). Note that this cannot be used together with `ProximityPlacementGroupId`.
         /// </summary>
         [Input("zone")]
         public Input<string>? Zone { get; set; }

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class ScaleSetBootDiagnostics
     {
         /// <summary>
-        /// Whether to enable boot diagnostics for the virtual machine. Defaults to `true`.
+        /// Whether to enable boot diagnostics for the virtual machine. Defaults to `True`.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>

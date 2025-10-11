@@ -165,7 +165,7 @@ namespace Pulumi.Azure.Kusto
         /// <summary>
         /// The Managed HSM Key ID for CMK encryption.
         /// 
-        /// &gt; **Note:** Exactly one of `managed_hsm_key_id` or `key_vault_id` must be specified.
+        /// &gt; **Note:** Exactly one of `ManagedHsmKeyId` or `KeyVaultId` must be specified.
         /// </summary>
         [Output("managedHsmKeyId")]
         public Output<string?> ManagedHsmKeyId { get; private set; } = null!;
@@ -249,7 +249,7 @@ namespace Pulumi.Azure.Kusto
         /// <summary>
         /// The Managed HSM Key ID for CMK encryption.
         /// 
-        /// &gt; **Note:** Exactly one of `managed_hsm_key_id` or `key_vault_id` must be specified.
+        /// &gt; **Note:** Exactly one of `ManagedHsmKeyId` or `KeyVaultId` must be specified.
         /// </summary>
         [Input("managedHsmKeyId")]
         public Input<string>? ManagedHsmKeyId { get; set; }
@@ -295,7 +295,7 @@ namespace Pulumi.Azure.Kusto
         /// <summary>
         /// The Managed HSM Key ID for CMK encryption.
         /// 
-        /// &gt; **Note:** Exactly one of `managed_hsm_key_id` or `key_vault_id` must be specified.
+        /// &gt; **Note:** Exactly one of `ManagedHsmKeyId` or `KeyVaultId` must be specified.
         /// </summary>
         [Input("managedHsmKeyId")]
         public Input<string>? ManagedHsmKeyId { get; set; }

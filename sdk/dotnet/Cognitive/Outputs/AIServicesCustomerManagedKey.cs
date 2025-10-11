@@ -18,11 +18,11 @@ namespace Pulumi.Azure.Cognitive.Outputs
         /// </summary>
         public readonly string? IdentityClientId;
         /// <summary>
-        /// The ID of the Key Vault Key which should be used to encrypt the data in this AI Services Account. Exactly one of `key_vault_key_id`, `managed_hsm_key_id` must be specified.
+        /// The ID of the Key Vault Key which should be used to encrypt the data in this AI Services Account. Exactly one of `KeyVaultKeyId`, `ManagedHsmKeyId` must be specified.
         /// </summary>
         public readonly string? KeyVaultKeyId;
         /// <summary>
-        /// The ID of the managed HSM Key which should be used to encrypt the data in this AI Services Account. Exactly one of `key_vault_key_id`, `managed_hsm_key_id` must be specified.
+        /// The ID of the managed HSM Key which should be used to encrypt the data in this AI Services Account. Exactly one of `KeyVaultKeyId`, `ManagedHsmKeyId` must be specified.
         /// </summary>
         public readonly string? ManagedHsmKeyId;
 

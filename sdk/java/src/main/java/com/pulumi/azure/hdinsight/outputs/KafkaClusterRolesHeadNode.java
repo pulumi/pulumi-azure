@@ -22,14 +22,14 @@ public final class KafkaClusterRolesHeadNode {
      */
     private @Nullable String password;
     /**
-     * @return The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
+     * @return The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable List<KafkaClusterRolesHeadNodeScriptAction> scriptActions;
     /**
      * @return A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
+     * &gt; **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
      * 
      */
     private @Nullable List<String> sshKeys;
@@ -65,7 +65,7 @@ public final class KafkaClusterRolesHeadNode {
         return Optional.ofNullable(this.password);
     }
     /**
-     * @return The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
+     * @return The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public List<KafkaClusterRolesHeadNodeScriptAction> scriptActions() {
@@ -74,7 +74,7 @@ public final class KafkaClusterRolesHeadNode {
     /**
      * @return A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
+     * &gt; **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
      * 
      */
     public List<String> sshKeys() {

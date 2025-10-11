@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages a Network Watcher Flow Log.
     /// 
-    /// &gt; **Note:** The `azure.network.NetworkWatcherFlowLog` creates a new storage lifecyle management rule that overwrites existing rules. Please make sure to use a `storage_account` with no existing management rules, until the issue is fixed.
+    /// &gt; **Note:** The `azure.network.NetworkWatcherFlowLog` creates a new storage lifecyle management rule that overwrites existing rules. Please make sure to use a `StorageAccount` with no existing management rules, until the issue is fixed.
     /// 
     /// ## Example Usage
     /// 
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.Network
         public Output<bool> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// The location where the Network Watcher Flow Log resides. Changing this forces a new resource to be created. Defaults to the `location` of the Network Watcher.
+        /// The location where the Network Watcher Flow Log resides. Changing this forces a new resource to be created. Defaults to the `Location` of the Network Watcher.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -141,7 +141,7 @@ namespace Pulumi.Azure.Network
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `retention_policy` block as documented below.
+        /// A `RetentionPolicy` block as documented below.
         /// </summary>
         [Output("retentionPolicy")]
         public Output<Outputs.NetworkWatcherFlowLogRetentionPolicy> RetentionPolicy { get; private set; } = null!;
@@ -165,7 +165,7 @@ namespace Pulumi.Azure.Network
         public Output<string> TargetResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// A `traffic_analytics` block as documented below.
+        /// A `TrafficAnalytics` block as documented below.
         /// </summary>
         [Output("trafficAnalytics")]
         public Output<Outputs.NetworkWatcherFlowLogTrafficAnalytics?> TrafficAnalytics { get; private set; } = null!;
@@ -229,7 +229,7 @@ namespace Pulumi.Azure.Network
         public Input<bool> Enabled { get; set; } = null!;
 
         /// <summary>
-        /// The location where the Network Watcher Flow Log resides. Changing this forces a new resource to be created. Defaults to the `location` of the Network Watcher.
+        /// The location where the Network Watcher Flow Log resides. Changing this forces a new resource to be created. Defaults to the `Location` of the Network Watcher.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -256,7 +256,7 @@ namespace Pulumi.Azure.Network
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `retention_policy` block as documented below.
+        /// A `RetentionPolicy` block as documented below.
         /// </summary>
         [Input("retentionPolicy", required: true)]
         public Input<Inputs.NetworkWatcherFlowLogRetentionPolicyArgs> RetentionPolicy { get; set; } = null!;
@@ -286,7 +286,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? TargetResourceId { get; set; }
 
         /// <summary>
-        /// A `traffic_analytics` block as documented below.
+        /// A `TrafficAnalytics` block as documented below.
         /// </summary>
         [Input("trafficAnalytics")]
         public Input<Inputs.NetworkWatcherFlowLogTrafficAnalyticsArgs>? TrafficAnalytics { get; set; }
@@ -312,7 +312,7 @@ namespace Pulumi.Azure.Network
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The location where the Network Watcher Flow Log resides. Changing this forces a new resource to be created. Defaults to the `location` of the Network Watcher.
+        /// The location where the Network Watcher Flow Log resides. Changing this forces a new resource to be created. Defaults to the `Location` of the Network Watcher.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -339,7 +339,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// A `retention_policy` block as documented below.
+        /// A `RetentionPolicy` block as documented below.
         /// </summary>
         [Input("retentionPolicy")]
         public Input<Inputs.NetworkWatcherFlowLogRetentionPolicyGetArgs>? RetentionPolicy { get; set; }
@@ -369,7 +369,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? TargetResourceId { get; set; }
 
         /// <summary>
-        /// A `traffic_analytics` block as documented below.
+        /// A `TrafficAnalytics` block as documented below.
         /// </summary>
         [Input("trafficAnalytics")]
         public Input<Inputs.NetworkWatcherFlowLogTrafficAnalyticsGetArgs>? TrafficAnalytics { get; set; }

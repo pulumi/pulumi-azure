@@ -115,29 +115,29 @@ namespace Pulumi.Azure.Monitoring
     public partial class MetricAlert : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// One or more `action` blocks as defined below.
+        /// One or more `Action` blocks as defined below.
         /// </summary>
         [Output("actions")]
         public Output<ImmutableArray<Outputs.MetricAlertAction>> Actions { get; private set; } = null!;
 
         /// <summary>
-        /// A `application_insights_web_test_location_availability_criteria` block as defined below.
+        /// A `ApplicationInsightsWebTestLocationAvailabilityCriteria` block as defined below.
         /// 
-        /// &gt; **Note:** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
+        /// &gt; **Note:** One of either `Criteria`, `DynamicCriteria` or `ApplicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
         /// </summary>
         [Output("applicationInsightsWebTestLocationAvailabilityCriteria")]
         public Output<Outputs.MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria?> ApplicationInsightsWebTestLocationAvailabilityCriteria { get; private set; } = null!;
 
         /// <summary>
-        /// Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
+        /// Should the alerts in this Metric Alert be auto resolved? Defaults to `True`.
         /// </summary>
         [Output("autoMitigate")]
         public Output<bool?> AutoMitigate { get; private set; } = null!;
 
         /// <summary>
-        /// One or more (static) `criteria` blocks as defined below.
+        /// One or more (static) `Criteria` blocks as defined below.
         /// 
-        /// &gt; **Note:** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
+        /// &gt; **Note:** One of either `Criteria`, `DynamicCriteria` or `ApplicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
         /// </summary>
         [Output("criterias")]
         public Output<ImmutableArray<Outputs.MetricAlertCriteria>> Criterias { get; private set; } = null!;
@@ -149,15 +149,15 @@ namespace Pulumi.Azure.Monitoring
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// A `dynamic_criteria` block as defined below.
+        /// A `DynamicCriteria` block as defined below.
         /// 
-        /// &gt; **Note:** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
+        /// &gt; **Note:** One of either `Criteria`, `DynamicCriteria` or `ApplicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
         /// </summary>
         [Output("dynamicCriteria")]
         public Output<Outputs.MetricAlertDynamicCriteria?> DynamicCriteria { get; private set; } = null!;
 
         /// <summary>
-        /// Should this Metric Alert be enabled? Defaults to `true`.
+        /// Should this Metric Alert be enabled? Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -215,7 +215,7 @@ namespace Pulumi.Azure.Monitoring
         public Output<string> TargetResourceType { get; private set; } = null!;
 
         /// <summary>
-        /// The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
+        /// The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `Frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
         /// </summary>
         [Output("windowSize")]
         public Output<string?> WindowSize { get; private set; } = null!;
@@ -270,7 +270,7 @@ namespace Pulumi.Azure.Monitoring
         private InputList<Inputs.MetricAlertActionArgs>? _actions;
 
         /// <summary>
-        /// One or more `action` blocks as defined below.
+        /// One or more `Action` blocks as defined below.
         /// </summary>
         public InputList<Inputs.MetricAlertActionArgs> Actions
         {
@@ -279,15 +279,15 @@ namespace Pulumi.Azure.Monitoring
         }
 
         /// <summary>
-        /// A `application_insights_web_test_location_availability_criteria` block as defined below.
+        /// A `ApplicationInsightsWebTestLocationAvailabilityCriteria` block as defined below.
         /// 
-        /// &gt; **Note:** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
+        /// &gt; **Note:** One of either `Criteria`, `DynamicCriteria` or `ApplicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
         /// </summary>
         [Input("applicationInsightsWebTestLocationAvailabilityCriteria")]
         public Input<Inputs.MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs>? ApplicationInsightsWebTestLocationAvailabilityCriteria { get; set; }
 
         /// <summary>
-        /// Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
+        /// Should the alerts in this Metric Alert be auto resolved? Defaults to `True`.
         /// </summary>
         [Input("autoMitigate")]
         public Input<bool>? AutoMitigate { get; set; }
@@ -296,9 +296,9 @@ namespace Pulumi.Azure.Monitoring
         private InputList<Inputs.MetricAlertCriteriaArgs>? _criterias;
 
         /// <summary>
-        /// One or more (static) `criteria` blocks as defined below.
+        /// One or more (static) `Criteria` blocks as defined below.
         /// 
-        /// &gt; **Note:** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
+        /// &gt; **Note:** One of either `Criteria`, `DynamicCriteria` or `ApplicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
         /// </summary>
         public InputList<Inputs.MetricAlertCriteriaArgs> Criterias
         {
@@ -313,15 +313,15 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A `dynamic_criteria` block as defined below.
+        /// A `DynamicCriteria` block as defined below.
         /// 
-        /// &gt; **Note:** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
+        /// &gt; **Note:** One of either `Criteria`, `DynamicCriteria` or `ApplicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
         /// </summary>
         [Input("dynamicCriteria")]
         public Input<Inputs.MetricAlertDynamicCriteriaArgs>? DynamicCriteria { get; set; }
 
         /// <summary>
-        /// Should this Metric Alert be enabled? Defaults to `true`.
+        /// Should this Metric Alert be enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -391,7 +391,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? TargetResourceType { get; set; }
 
         /// <summary>
-        /// The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
+        /// The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `Frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
         /// </summary>
         [Input("windowSize")]
         public Input<string>? WindowSize { get; set; }
@@ -408,7 +408,7 @@ namespace Pulumi.Azure.Monitoring
         private InputList<Inputs.MetricAlertActionGetArgs>? _actions;
 
         /// <summary>
-        /// One or more `action` blocks as defined below.
+        /// One or more `Action` blocks as defined below.
         /// </summary>
         public InputList<Inputs.MetricAlertActionGetArgs> Actions
         {
@@ -417,15 +417,15 @@ namespace Pulumi.Azure.Monitoring
         }
 
         /// <summary>
-        /// A `application_insights_web_test_location_availability_criteria` block as defined below.
+        /// A `ApplicationInsightsWebTestLocationAvailabilityCriteria` block as defined below.
         /// 
-        /// &gt; **Note:** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
+        /// &gt; **Note:** One of either `Criteria`, `DynamicCriteria` or `ApplicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
         /// </summary>
         [Input("applicationInsightsWebTestLocationAvailabilityCriteria")]
         public Input<Inputs.MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaGetArgs>? ApplicationInsightsWebTestLocationAvailabilityCriteria { get; set; }
 
         /// <summary>
-        /// Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
+        /// Should the alerts in this Metric Alert be auto resolved? Defaults to `True`.
         /// </summary>
         [Input("autoMitigate")]
         public Input<bool>? AutoMitigate { get; set; }
@@ -434,9 +434,9 @@ namespace Pulumi.Azure.Monitoring
         private InputList<Inputs.MetricAlertCriteriaGetArgs>? _criterias;
 
         /// <summary>
-        /// One or more (static) `criteria` blocks as defined below.
+        /// One or more (static) `Criteria` blocks as defined below.
         /// 
-        /// &gt; **Note:** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
+        /// &gt; **Note:** One of either `Criteria`, `DynamicCriteria` or `ApplicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
         /// </summary>
         public InputList<Inputs.MetricAlertCriteriaGetArgs> Criterias
         {
@@ -451,15 +451,15 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A `dynamic_criteria` block as defined below.
+        /// A `DynamicCriteria` block as defined below.
         /// 
-        /// &gt; **Note:** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
+        /// &gt; **Note:** One of either `Criteria`, `DynamicCriteria` or `ApplicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
         /// </summary>
         [Input("dynamicCriteria")]
         public Input<Inputs.MetricAlertDynamicCriteriaGetArgs>? DynamicCriteria { get; set; }
 
         /// <summary>
-        /// Should this Metric Alert be enabled? Defaults to `true`.
+        /// Should this Metric Alert be enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -529,7 +529,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? TargetResourceType { get; set; }
 
         /// <summary>
-        /// The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
+        /// The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `Frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
         /// </summary>
         [Input("windowSize")]
         public Input<string>? WindowSize { get; set; }

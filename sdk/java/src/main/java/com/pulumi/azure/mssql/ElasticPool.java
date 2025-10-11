@@ -110,26 +110,26 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:mssql/elasticPool:ElasticPool")
 public class ElasticPool extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies the type of enclave to be used by the elastic pool. When `enclave_type` is not specified (e.g., the default) enclaves are not enabled on the elastic pool. Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclave_type` field from the configuration file will force the creation of a new resource. Possible values are `Default` or `VBS`.
+     * Specifies the type of enclave to be used by the elastic pool. When `enclaveType` is not specified (e.g., the default) enclaves are not enabled on the elastic pool. Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclaveType` field from the configuration file will force the creation of a new resource. Possible values are `Default` or `VBS`.
      * 
-     * &gt; **Note:** All databases that are added to the elastic pool must have the same `enclave_type` as the elastic pool.
+     * &gt; **Note:** All databases that are added to the elastic pool must have the same `enclaveType` as the elastic pool.
      * 
-     * &gt; **Note:** `enclave_type` is not supported for DC-series SKUs.
+     * &gt; **Note:** `enclaveType` is not supported for DC-series SKUs.
      * 
-     * &gt; **Note:** The default value for `enclave_type` field is unset not `Default`.
+     * &gt; **Note:** The default value for `enclaveType` field is unset not `Default`.
      * 
      */
     @Export(name="enclaveType", refs={String.class}, tree="[0]")
     private Output<String> enclaveType;
 
     /**
-     * @return Specifies the type of enclave to be used by the elastic pool. When `enclave_type` is not specified (e.g., the default) enclaves are not enabled on the elastic pool. Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclave_type` field from the configuration file will force the creation of a new resource. Possible values are `Default` or `VBS`.
+     * @return Specifies the type of enclave to be used by the elastic pool. When `enclaveType` is not specified (e.g., the default) enclaves are not enabled on the elastic pool. Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclaveType` field from the configuration file will force the creation of a new resource. Possible values are `Default` or `VBS`.
      * 
-     * &gt; **Note:** All databases that are added to the elastic pool must have the same `enclave_type` as the elastic pool.
+     * &gt; **Note:** All databases that are added to the elastic pool must have the same `enclaveType` as the elastic pool.
      * 
-     * &gt; **Note:** `enclave_type` is not supported for DC-series SKUs.
+     * &gt; **Note:** `enclaveType` is not supported for DC-series SKUs.
      * 
-     * &gt; **Note:** The default value for `enclave_type` field is unset not `Default`.
+     * &gt; **Note:** The default value for `enclaveType` field is unset not `Default`.
      * 
      */
     public Output<String> enclaveType() {
@@ -178,32 +178,32 @@ public class ElasticPool extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.maintenanceConfigurationName);
     }
     /**
-     * The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
+     * The max data size of the elastic pool in bytes. Conflicts with `maxSizeGb`.
      * 
-     * &gt; **Note:** One of either `max_size_gb` or `max_size_bytes` must be specified.
+     * &gt; **Note:** One of either `maxSizeGb` or `maxSizeBytes` must be specified.
      * 
      */
     @Export(name="maxSizeBytes", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxSizeBytes;
 
     /**
-     * @return The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
+     * @return The max data size of the elastic pool in bytes. Conflicts with `maxSizeGb`.
      * 
-     * &gt; **Note:** One of either `max_size_gb` or `max_size_bytes` must be specified.
+     * &gt; **Note:** One of either `maxSizeGb` or `maxSizeBytes` must be specified.
      * 
      */
     public Output<Integer> maxSizeBytes() {
         return this.maxSizeBytes;
     }
     /**
-     * The max data size of the elastic pool in gigabytes. Conflicts with `max_size_bytes`.
+     * The max data size of the elastic pool in gigabytes. Conflicts with `maxSizeBytes`.
      * 
      */
     @Export(name="maxSizeGb", refs={Double.class}, tree="[0]")
     private Output<Double> maxSizeGb;
 
     /**
-     * @return The max data size of the elastic pool in gigabytes. Conflicts with `max_size_bytes`.
+     * @return The max data size of the elastic pool in gigabytes. Conflicts with `maxSizeBytes`.
      * 
      */
     public Output<Double> maxSizeGb() {
@@ -224,14 +224,14 @@ public class ElasticPool extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A `per_database_settings` block as defined below.
+     * A `perDatabaseSettings` block as defined below.
      * 
      */
     @Export(name="perDatabaseSettings", refs={ElasticPoolPerDatabaseSettings.class}, tree="[0]")
     private Output<ElasticPoolPerDatabaseSettings> perDatabaseSettings;
 
     /**
-     * @return A `per_database_settings` block as defined below.
+     * @return A `perDatabaseSettings` block as defined below.
      * 
      */
     public Output<ElasticPoolPerDatabaseSettings> perDatabaseSettings() {

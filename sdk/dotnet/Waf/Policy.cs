@@ -186,7 +186,7 @@ namespace Pulumi.Azure.Waf
     public partial class Policy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// One or more `custom_rules` blocks as defined below.
+        /// One or more `CustomRules` blocks as defined below.
         /// </summary>
         [Output("customRules")]
         public Output<ImmutableArray<Outputs.PolicyCustomRule>> CustomRules { get; private set; } = null!;
@@ -204,7 +204,7 @@ namespace Pulumi.Azure.Waf
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// A `managed_rules` blocks as defined below.
+        /// A `ManagedRules` blocks as defined below.
         /// </summary>
         [Output("managedRules")]
         public Output<Outputs.PolicyManagedRules> ManagedRules { get; private set; } = null!;
@@ -222,7 +222,7 @@ namespace Pulumi.Azure.Waf
         public Output<ImmutableArray<string>> PathBasedRuleIds { get; private set; } = null!;
 
         /// <summary>
-        /// A `policy_settings` block as defined below.
+        /// A `PolicySettings` block as defined below.
         /// </summary>
         [Output("policySettings")]
         public Output<Outputs.PolicyPolicySettings?> PolicySettings { get; private set; } = null!;
@@ -289,7 +289,7 @@ namespace Pulumi.Azure.Waf
         private InputList<Inputs.PolicyCustomRuleArgs>? _customRules;
 
         /// <summary>
-        /// One or more `custom_rules` blocks as defined below.
+        /// One or more `CustomRules` blocks as defined below.
         /// </summary>
         public InputList<Inputs.PolicyCustomRuleArgs> CustomRules
         {
@@ -304,7 +304,7 @@ namespace Pulumi.Azure.Waf
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A `managed_rules` blocks as defined below.
+        /// A `ManagedRules` blocks as defined below.
         /// </summary>
         [Input("managedRules", required: true)]
         public Input<Inputs.PolicyManagedRulesArgs> ManagedRules { get; set; } = null!;
@@ -316,7 +316,7 @@ namespace Pulumi.Azure.Waf
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `policy_settings` block as defined below.
+        /// A `PolicySettings` block as defined below.
         /// </summary>
         [Input("policySettings")]
         public Input<Inputs.PolicyPolicySettingsArgs>? PolicySettings { get; set; }
@@ -351,7 +351,7 @@ namespace Pulumi.Azure.Waf
         private InputList<Inputs.PolicyCustomRuleGetArgs>? _customRules;
 
         /// <summary>
-        /// One or more `custom_rules` blocks as defined below.
+        /// One or more `CustomRules` blocks as defined below.
         /// </summary>
         public InputList<Inputs.PolicyCustomRuleGetArgs> CustomRules
         {
@@ -378,7 +378,7 @@ namespace Pulumi.Azure.Waf
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A `managed_rules` blocks as defined below.
+        /// A `ManagedRules` blocks as defined below.
         /// </summary>
         [Input("managedRules")]
         public Input<Inputs.PolicyManagedRulesGetArgs>? ManagedRules { get; set; }
@@ -402,7 +402,7 @@ namespace Pulumi.Azure.Waf
         }
 
         /// <summary>
-        /// A `policy_settings` block as defined below.
+        /// A `PolicySettings` block as defined below.
         /// </summary>
         [Input("policySettings")]
         public Input<Inputs.PolicyPolicySettingsGetArgs>? PolicySettings { get; set; }

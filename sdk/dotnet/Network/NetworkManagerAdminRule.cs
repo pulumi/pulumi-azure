@@ -159,7 +159,7 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableArray<string>> DestinationPortRanges { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `destination` blocks as defined below.
+        /// One or more `Destination` blocks as defined below.
         /// </summary>
         [Output("destinations")]
         public Output<ImmutableArray<Outputs.NetworkManagerAdminRuleDestination>> Destinations { get; private set; } = null!;
@@ -195,7 +195,7 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableArray<string>> SourcePortRanges { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `source` blocks as defined below.
+        /// One or more `Source` blocks as defined below.
         /// </summary>
         [Output("sources")]
         public Output<ImmutableArray<Outputs.NetworkManagerAdminRuleSource>> Sources { get; private set; } = null!;
@@ -280,7 +280,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.NetworkManagerAdminRuleDestinationArgs>? _destinations;
 
         /// <summary>
-        /// One or more `destination` blocks as defined below.
+        /// One or more `Destination` blocks as defined below.
         /// </summary>
         public InputList<Inputs.NetworkManagerAdminRuleDestinationArgs> Destinations
         {
@@ -328,7 +328,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.NetworkManagerAdminRuleSourceArgs>? _sources;
 
         /// <summary>
-        /// One or more `source` blocks as defined below.
+        /// One or more `Source` blocks as defined below.
         /// </summary>
         public InputList<Inputs.NetworkManagerAdminRuleSourceArgs> Sources
         {
@@ -378,7 +378,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.NetworkManagerAdminRuleDestinationGetArgs>? _destinations;
 
         /// <summary>
-        /// One or more `destination` blocks as defined below.
+        /// One or more `Destination` blocks as defined below.
         /// </summary>
         public InputList<Inputs.NetworkManagerAdminRuleDestinationGetArgs> Destinations
         {
@@ -426,7 +426,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.NetworkManagerAdminRuleSourceGetArgs>? _sources;
 
         /// <summary>
-        /// One or more `source` blocks as defined below.
+        /// One or more `Source` blocks as defined below.
         /// </summary>
         public InputList<Inputs.NetworkManagerAdminRuleSourceGetArgs> Sources
         {

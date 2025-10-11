@@ -84,7 +84,7 @@ namespace Pulumi.Azure.EventHub
         /// <summary>
         /// Specifies the Type of this schema group. Possible values are `Avro`, `Unknown` and `Json`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** When `schema_type` is specified as `Json`, `schema_compatibility` must be set to `None`.
+        /// &gt; **Note:** When `SchemaType` is specified as `Json`, `SchemaCompatibility` must be set to `None`.
         /// </summary>
         [Output("schemaType")]
         public Output<string> SchemaType { get; private set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.Azure.EventHub
         /// <summary>
         /// Specifies the Type of this schema group. Possible values are `Avro`, `Unknown` and `Json`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** When `schema_type` is specified as `Json`, `schema_compatibility` must be set to `None`.
+        /// &gt; **Note:** When `SchemaType` is specified as `Json`, `SchemaCompatibility` must be set to `None`.
         /// </summary>
         [Input("schemaType", required: true)]
         public Input<string> SchemaType { get; set; } = null!;
@@ -190,7 +190,7 @@ namespace Pulumi.Azure.EventHub
         /// <summary>
         /// Specifies the Type of this schema group. Possible values are `Avro`, `Unknown` and `Json`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** When `schema_type` is specified as `Json`, `schema_compatibility` must be set to `None`.
+        /// &gt; **Note:** When `SchemaType` is specified as `Json`, `SchemaCompatibility` must be set to `None`.
         /// </summary>
         [Input("schemaType")]
         public Input<string>? SchemaType { get; set; }

@@ -27,12 +27,12 @@ public final class FrontdoorRoutingRule {
      */
     private @Nullable Boolean enabled;
     /**
-     * @return A `forwarding_configuration` block as defined below.
+     * @return A `forwardingConfiguration` block as defined below.
      * 
      */
     private @Nullable FrontdoorRoutingRuleForwardingConfiguration forwardingConfiguration;
     /**
-     * @return The names of the `frontend_endpoint` blocks within this resource to associate with this `routing_rule`.
+     * @return The names of the `frontendEndpoint` blocks within this resource to associate with this `routingRule`.
      * 
      */
     private List<String> frontendEndpoints;
@@ -52,7 +52,7 @@ public final class FrontdoorRoutingRule {
      */
     private List<String> patternsToMatches;
     /**
-     * @return A `redirect_configuration` block as defined below.
+     * @return A `redirectConfiguration` block as defined below.
      * 
      */
     private @Nullable FrontdoorRoutingRuleRedirectConfiguration redirectConfiguration;
@@ -73,14 +73,14 @@ public final class FrontdoorRoutingRule {
         return Optional.ofNullable(this.enabled);
     }
     /**
-     * @return A `forwarding_configuration` block as defined below.
+     * @return A `forwardingConfiguration` block as defined below.
      * 
      */
     public Optional<FrontdoorRoutingRuleForwardingConfiguration> forwardingConfiguration() {
         return Optional.ofNullable(this.forwardingConfiguration);
     }
     /**
-     * @return The names of the `frontend_endpoint` blocks within this resource to associate with this `routing_rule`.
+     * @return The names of the `frontendEndpoint` blocks within this resource to associate with this `routingRule`.
      * 
      */
     public List<String> frontendEndpoints() {
@@ -108,7 +108,7 @@ public final class FrontdoorRoutingRule {
         return this.patternsToMatches;
     }
     /**
-     * @return A `redirect_configuration` block as defined below.
+     * @return A `redirectConfiguration` block as defined below.
      * 
      */
     public Optional<FrontdoorRoutingRuleRedirectConfiguration> redirectConfiguration() {

@@ -12,6 +12,15 @@ namespace Pulumi.Azure.ServiceBus
     /// <summary>
     /// Manages an Authorization Rule for a ServiceBus Queue.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.ServiceBus` - 2024-01-01
+    /// 
     /// ## Import
     /// 
     /// ServiceBus Queue Authorization Rules can be imported using the `resource id`, e.g.
@@ -24,13 +33,13 @@ namespace Pulumi.Azure.ServiceBus
     public partial class QueueAuthorizationRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Does this Authorization Rule have Listen permissions to the ServiceBus Queue? Defaults to `false`.
+        /// Does this Authorization Rule have Listen permissions to the ServiceBus Queue? Defaults to `False`.
         /// </summary>
         [Output("listen")]
         public Output<bool?> Listen { get; private set; } = null!;
 
         /// <summary>
-        /// Does this Authorization Rule have Manage permissions to the ServiceBus Queue? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+        /// Does this Authorization Rule have Manage permissions to the ServiceBus Queue? When this property is `True` - both `Listen` and `Send` must be too. Defaults to `False`.
         /// </summary>
         [Output("manage")]
         public Output<bool?> Manage { get; private set; } = null!;
@@ -86,7 +95,7 @@ namespace Pulumi.Azure.ServiceBus
         public Output<string> SecondaryKey { get; private set; } = null!;
 
         /// <summary>
-        /// Does this Authorization Rule have Send permissions to the ServiceBus Queue? Defaults to `false`.
+        /// Does this Authorization Rule have Send permissions to the ServiceBus Queue? Defaults to `False`.
         /// </summary>
         [Output("send")]
         public Output<bool?> Send { get; private set; } = null!;
@@ -151,13 +160,13 @@ namespace Pulumi.Azure.ServiceBus
     public sealed class QueueAuthorizationRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Does this Authorization Rule have Listen permissions to the ServiceBus Queue? Defaults to `false`.
+        /// Does this Authorization Rule have Listen permissions to the ServiceBus Queue? Defaults to `False`.
         /// </summary>
         [Input("listen")]
         public Input<bool>? Listen { get; set; }
 
         /// <summary>
-        /// Does this Authorization Rule have Manage permissions to the ServiceBus Queue? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+        /// Does this Authorization Rule have Manage permissions to the ServiceBus Queue? When this property is `True` - both `Listen` and `Send` must be too. Defaults to `False`.
         /// </summary>
         [Input("manage")]
         public Input<bool>? Manage { get; set; }
@@ -177,7 +186,7 @@ namespace Pulumi.Azure.ServiceBus
         public Input<string> QueueId { get; set; } = null!;
 
         /// <summary>
-        /// Does this Authorization Rule have Send permissions to the ServiceBus Queue? Defaults to `false`.
+        /// Does this Authorization Rule have Send permissions to the ServiceBus Queue? Defaults to `False`.
         /// </summary>
         [Input("send")]
         public Input<bool>? Send { get; set; }
@@ -191,13 +200,13 @@ namespace Pulumi.Azure.ServiceBus
     public sealed class QueueAuthorizationRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Does this Authorization Rule have Listen permissions to the ServiceBus Queue? Defaults to `false`.
+        /// Does this Authorization Rule have Listen permissions to the ServiceBus Queue? Defaults to `False`.
         /// </summary>
         [Input("listen")]
         public Input<bool>? Listen { get; set; }
 
         /// <summary>
-        /// Does this Authorization Rule have Manage permissions to the ServiceBus Queue? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+        /// Does this Authorization Rule have Manage permissions to the ServiceBus Queue? When this property is `True` - both `Listen` and `Send` must be too. Defaults to `False`.
         /// </summary>
         [Input("manage")]
         public Input<bool>? Manage { get; set; }
@@ -313,7 +322,7 @@ namespace Pulumi.Azure.ServiceBus
         }
 
         /// <summary>
-        /// Does this Authorization Rule have Send permissions to the ServiceBus Queue? Defaults to `false`.
+        /// Does this Authorization Rule have Send permissions to the ServiceBus Queue? Defaults to `False`.
         /// </summary>
         [Input("send")]
         public Input<bool>? Send { get; set; }

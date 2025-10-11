@@ -18,11 +18,11 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string AffinityCookieName;
         /// <summary>
-        /// One or more `authentication_certificate` blocks as defined below.
+        /// One or more `AuthenticationCertificate` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationGatewayBackendHttpSettingAuthenticationCertificateResult> AuthenticationCertificates;
         /// <summary>
-        /// A `connection_draining` block as defined below.
+        /// A `ConnectionDraining` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationGatewayBackendHttpSettingConnectionDrainingResult> ConnectionDrainings;
         /// <summary>
@@ -70,7 +70,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly int RequestTimeout;
         /// <summary>
-        /// A list of `trusted_root_certificate` names.
+        /// A list of `TrustedRootCertificate` names.
         /// </summary>
         public readonly ImmutableArray<string> TrustedRootCertificateNames;
 

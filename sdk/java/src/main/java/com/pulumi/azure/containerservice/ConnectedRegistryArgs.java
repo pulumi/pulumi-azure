@@ -52,7 +52,7 @@ public final class ConnectedRegistryArgs extends com.pulumi.resources.ResourceAr
     /**
      * The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
      * 
-     * &gt; **Note:** If `parent_registry_id` is not specified, the Connected Registry will be connected to the Container Registry identified by `container_registry_id`.
+     * &gt; **Note:** If `parentRegistryId` is not specified, the Connected Registry will be connected to the Container Registry identified by `containerRegistryId`.
      * 
      */
     @Import(name="containerRegistryId", required=true)
@@ -61,7 +61,7 @@ public final class ConnectedRegistryArgs extends com.pulumi.resources.ResourceAr
     /**
      * @return The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
      * 
-     * &gt; **Note:** If `parent_registry_id` is not specified, the Connected Registry will be connected to the Container Registry identified by `container_registry_id`.
+     * &gt; **Note:** If `parentRegistryId` is not specified, the Connected Registry will be connected to the Container Registry identified by `containerRegistryId`.
      * 
      */
     public Output<String> containerRegistryId() {
@@ -293,7 +293,7 @@ public final class ConnectedRegistryArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param containerRegistryId The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
          * 
-         * &gt; **Note:** If `parent_registry_id` is not specified, the Connected Registry will be connected to the Container Registry identified by `container_registry_id`.
+         * &gt; **Note:** If `parentRegistryId` is not specified, the Connected Registry will be connected to the Container Registry identified by `containerRegistryId`.
          * 
          * @return builder
          * 
@@ -306,7 +306,7 @@ public final class ConnectedRegistryArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param containerRegistryId The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
          * 
-         * &gt; **Note:** If `parent_registry_id` is not specified, the Connected Registry will be connected to the Container Registry identified by `container_registry_id`.
+         * &gt; **Note:** If `parentRegistryId` is not specified, the Connected Registry will be connected to the Container Registry identified by `containerRegistryId`.
          * 
          * @return builder
          * 

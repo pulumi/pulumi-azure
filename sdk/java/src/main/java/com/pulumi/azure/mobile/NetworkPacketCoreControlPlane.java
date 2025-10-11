@@ -230,14 +230,14 @@ public class NetworkPacketCoreControlPlane extends com.pulumi.resources.CustomRe
         return Codegen.optional(this.interoperabilitySettingsJson);
     }
     /**
-     * One or more `local_diagnostics_access` blocks as defined below. Specifies the Kubernetes ingress configuration that controls access to the packet core diagnostics through local APIs.
+     * One or more `localDiagnosticsAccess` blocks as defined below. Specifies the Kubernetes ingress configuration that controls access to the packet core diagnostics through local APIs.
      * 
      */
     @Export(name="localDiagnosticsAccess", refs={NetworkPacketCoreControlPlaneLocalDiagnosticsAccess.class}, tree="[0]")
     private Output<NetworkPacketCoreControlPlaneLocalDiagnosticsAccess> localDiagnosticsAccess;
 
     /**
-     * @return One or more `local_diagnostics_access` blocks as defined below. Specifies the Kubernetes ingress configuration that controls access to the packet core diagnostics through local APIs.
+     * @return One or more `localDiagnosticsAccess` blocks as defined below. Specifies the Kubernetes ingress configuration that controls access to the packet core diagnostics through local APIs.
      * 
      */
     public Output<NetworkPacketCoreControlPlaneLocalDiagnosticsAccess> localDiagnosticsAccess() {

@@ -14,9 +14,9 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class VpnSiteLink
     {
         /// <summary>
-        /// A `bgp` block as defined above.
+        /// A `Bgp` block as defined above.
         /// 
-        /// &gt; **Note:** The `link.bgp` has to be set when the `address_cidrs` isn't specified.
+        /// &gt; **Note:** The `link.bgp` has to be set when the `AddressCidrs` isn't specified.
         /// </summary>
         public readonly Outputs.VpnSiteLinkBgp? Bgp;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// <summary>
         /// The IP address of this VPN Site Link.
         /// 
-        /// &gt; **Note:** Either `fqdn` or `ip_address` should be specified.
+        /// &gt; **Note:** Either `Fqdn` or `IpAddress` should be specified.
         /// </summary>
         public readonly string? IpAddress;
         /// <summary>

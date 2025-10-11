@@ -34,14 +34,14 @@ public final class EndpointCustomDomainArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A `cdn_managed_https` block as defined below.
+     * A `cdnManagedHttps` block as defined below.
      * 
      */
     @Import(name="cdnManagedHttps")
     private @Nullable Output<EndpointCustomDomainCdnManagedHttpsArgs> cdnManagedHttps;
 
     /**
-     * @return A `cdn_managed_https` block as defined below.
+     * @return A `cdnManagedHttps` block as defined below.
      * 
      */
     public Optional<Output<EndpointCustomDomainCdnManagedHttpsArgs>> cdnManagedHttps() {
@@ -79,18 +79,18 @@ public final class EndpointCustomDomainArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A `user_managed_https` block as defined below.
+     * A `userManagedHttps` block as defined below.
      * 
-     * &gt; **Note:** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
+     * &gt; **Note:** Only one of `cdnManagedHttps` and `userManagedHttps` can be specified.
      * 
      */
     @Import(name="userManagedHttps")
     private @Nullable Output<EndpointCustomDomainUserManagedHttpsArgs> userManagedHttps;
 
     /**
-     * @return A `user_managed_https` block as defined below.
+     * @return A `userManagedHttps` block as defined below.
      * 
-     * &gt; **Note:** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
+     * &gt; **Note:** Only one of `cdnManagedHttps` and `userManagedHttps` can be specified.
      * 
      */
     public Optional<Output<EndpointCustomDomainUserManagedHttpsArgs>> userManagedHttps() {
@@ -147,7 +147,7 @@ public final class EndpointCustomDomainArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param cdnManagedHttps A `cdn_managed_https` block as defined below.
+         * @param cdnManagedHttps A `cdnManagedHttps` block as defined below.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class EndpointCustomDomainArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param cdnManagedHttps A `cdn_managed_https` block as defined below.
+         * @param cdnManagedHttps A `cdnManagedHttps` block as defined below.
          * 
          * @return builder
          * 
@@ -210,9 +210,9 @@ public final class EndpointCustomDomainArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param userManagedHttps A `user_managed_https` block as defined below.
+         * @param userManagedHttps A `userManagedHttps` block as defined below.
          * 
-         * &gt; **Note:** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
+         * &gt; **Note:** Only one of `cdnManagedHttps` and `userManagedHttps` can be specified.
          * 
          * @return builder
          * 
@@ -223,9 +223,9 @@ public final class EndpointCustomDomainArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param userManagedHttps A `user_managed_https` block as defined below.
+         * @param userManagedHttps A `userManagedHttps` block as defined below.
          * 
-         * &gt; **Note:** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
+         * &gt; **Note:** Only one of `cdnManagedHttps` and `userManagedHttps` can be specified.
          * 
          * @return builder
          * 

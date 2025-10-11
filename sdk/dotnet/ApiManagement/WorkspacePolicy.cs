@@ -92,7 +92,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// Specifies a publicly accessible URL to a policy XML document.
         /// 
-        /// &gt; **Note:** Exactly one of `xml_content` or `xml_link` must be specified.
+        /// &gt; **Note:** Exactly one of `XmlContent` or `XmlLink` must be specified.
         /// </summary>
         [Output("xmlLink")]
         public Output<string?> XmlLink { get; private set; } = null!;
@@ -158,7 +158,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// Specifies a publicly accessible URL to a policy XML document.
         /// 
-        /// &gt; **Note:** Exactly one of `xml_content` or `xml_link` must be specified.
+        /// &gt; **Note:** Exactly one of `XmlContent` or `XmlLink` must be specified.
         /// </summary>
         [Input("xmlLink")]
         public Input<string>? XmlLink { get; set; }
@@ -186,7 +186,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// Specifies a publicly accessible URL to a policy XML document.
         /// 
-        /// &gt; **Note:** Exactly one of `xml_content` or `xml_link` must be specified.
+        /// &gt; **Note:** Exactly one of `XmlContent` or `XmlLink` must be specified.
         /// </summary>
         [Input("xmlLink")]
         public Input<string>? XmlLink { get; set; }

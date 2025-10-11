@@ -20,6 +20,15 @@ import javax.annotation.Nullable;
 /**
  * Manages a Stream Analytics Output to a ServiceBus Topic.
  * 
+ * ## Example Usage
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.StreamAnalytics` - 2021-10-01-preview
+ * 
  * ## Import
  * 
  * Stream Analytics Output ServiceBus Topic&#39;s can be imported using the `resource id`, e.g.
@@ -116,28 +125,28 @@ public class OutputServicebusTopic extends com.pulumi.resources.CustomResource {
         return this.servicebusNamespace;
     }
     /**
-     * The shared access policy key for the specified shared access policy. Required if `authentication_mode` is `ConnectionString`.
+     * The shared access policy key for the specified shared access policy. Required if `authenticationMode` is `ConnectionString`.
      * 
      */
     @Export(name="sharedAccessPolicyKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sharedAccessPolicyKey;
 
     /**
-     * @return The shared access policy key for the specified shared access policy. Required if `authentication_mode` is `ConnectionString`.
+     * @return The shared access policy key for the specified shared access policy. Required if `authenticationMode` is `ConnectionString`.
      * 
      */
     public Output<Optional<String>> sharedAccessPolicyKey() {
         return Codegen.optional(this.sharedAccessPolicyKey);
     }
     /**
-     * The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required if `authentication_mode` is `ConnectionString`.
+     * The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required if `authenticationMode` is `ConnectionString`.
      * 
      */
     @Export(name="sharedAccessPolicyName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sharedAccessPolicyName;
 
     /**
-     * @return The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required if `authentication_mode` is `ConnectionString`.
+     * @return The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required if `authenticationMode` is `ConnectionString`.
      * 
      */
     public Output<Optional<String>> sharedAccessPolicyName() {

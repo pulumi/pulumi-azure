@@ -149,7 +149,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> IntegrationRuntimeName { get; private set; } = null!;
 
         /// <summary>
-        /// A `key_vault_password` block as defined below. Use this argument to store Snowflake password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+        /// A `KeyVaultPassword` block as defined below. Use this argument to store Snowflake password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
         /// </summary>
         [Output("keyVaultPassword")]
         public Output<Outputs.LinkedServiceSnowflakeKeyVaultPassword?> KeyVaultPassword { get; private set; } = null!;
@@ -261,7 +261,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? IntegrationRuntimeName { get; set; }
 
         /// <summary>
-        /// A `key_vault_password` block as defined below. Use this argument to store Snowflake password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+        /// A `KeyVaultPassword` block as defined below. Use this argument to store Snowflake password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
         /// </summary>
         [Input("keyVaultPassword")]
         public Input<Inputs.LinkedServiceSnowflakeKeyVaultPasswordArgs>? KeyVaultPassword { get; set; }
@@ -341,7 +341,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? IntegrationRuntimeName { get; set; }
 
         /// <summary>
-        /// A `key_vault_password` block as defined below. Use this argument to store Snowflake password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+        /// A `KeyVaultPassword` block as defined below. Use this argument to store Snowflake password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
         /// </summary>
         [Input("keyVaultPassword")]
         public Input<Inputs.LinkedServiceSnowflakeKeyVaultPasswordGetArgs>? KeyVaultPassword { get; set; }

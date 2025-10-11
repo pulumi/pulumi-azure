@@ -91,7 +91,7 @@ namespace Pulumi.Azure.Network
     public partial class NetworkManagerRoutingRuleCollection : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Whether to enable the BGP route propagation. Defaults to `false`.
+        /// Whether to enable the BGP route propagation. Defaults to `False`.
         /// </summary>
         [Output("bgpRoutePropagationEnabled")]
         public Output<bool?> BgpRoutePropagationEnabled { get; private set; } = null!;
@@ -167,7 +167,7 @@ namespace Pulumi.Azure.Network
     public sealed class NetworkManagerRoutingRuleCollectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to enable the BGP route propagation. Defaults to `false`.
+        /// Whether to enable the BGP route propagation. Defaults to `False`.
         /// </summary>
         [Input("bgpRoutePropagationEnabled")]
         public Input<bool>? BgpRoutePropagationEnabled { get; set; }
@@ -211,7 +211,7 @@ namespace Pulumi.Azure.Network
     public sealed class NetworkManagerRoutingRuleCollectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to enable the BGP route propagation. Defaults to `false`.
+        /// Whether to enable the BGP route propagation. Defaults to `False`.
         /// </summary>
         [Input("bgpRoutePropagationEnabled")]
         public Input<bool>? BgpRoutePropagationEnabled { get; set; }

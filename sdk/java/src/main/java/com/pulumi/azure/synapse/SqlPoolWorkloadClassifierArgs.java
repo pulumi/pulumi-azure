@@ -47,14 +47,14 @@ public final class SqlPoolWorkloadClassifierArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The workload classifier importance. The allowed values are `low`, `below_normal`, `normal`, `above_normal` and `high`.
+     * The workload classifier importance. The allowed values are `low`, `belowNormal`, `normal`, `aboveNormal` and `high`.
      * 
      */
     @Import(name="importance")
     private @Nullable Output<String> importance;
 
     /**
-     * @return The workload classifier importance. The allowed values are `low`, `below_normal`, `normal`, `above_normal` and `high`.
+     * @return The workload classifier importance. The allowed values are `low`, `belowNormal`, `normal`, `aboveNormal` and `high`.
      * 
      */
     public Optional<Output<String>> importance() {
@@ -210,7 +210,7 @@ public final class SqlPoolWorkloadClassifierArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param importance The workload classifier importance. The allowed values are `low`, `below_normal`, `normal`, `above_normal` and `high`.
+         * @param importance The workload classifier importance. The allowed values are `low`, `belowNormal`, `normal`, `aboveNormal` and `high`.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class SqlPoolWorkloadClassifierArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param importance The workload classifier importance. The allowed values are `low`, `below_normal`, `normal`, `above_normal` and `high`.
+         * @param importance The workload classifier importance. The allowed values are `low`, `belowNormal`, `normal`, `aboveNormal` and `high`.
          * 
          * @return builder
          * 

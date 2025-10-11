@@ -19,14 +19,14 @@ public final class TableAclArgs extends com.pulumi.resources.ResourceArgs {
     public static final TableAclArgs Empty = new TableAclArgs();
 
     /**
-     * An `access_policy` block as defined below.
+     * An `accessPolicy` block as defined below.
      * 
      */
     @Import(name="accessPolicies")
     private @Nullable Output<List<TableAclAccessPolicyArgs>> accessPolicies;
 
     /**
-     * @return An `access_policy` block as defined below.
+     * @return An `accessPolicy` block as defined below.
      * 
      */
     public Optional<Output<List<TableAclAccessPolicyArgs>>> accessPolicies() {
@@ -74,7 +74,7 @@ public final class TableAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessPolicies An `access_policy` block as defined below.
+         * @param accessPolicies An `accessPolicy` block as defined below.
          * 
          * @return builder
          * 
@@ -85,7 +85,7 @@ public final class TableAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessPolicies An `access_policy` block as defined below.
+         * @param accessPolicies An `accessPolicy` block as defined below.
          * 
          * @return builder
          * 
@@ -95,7 +95,7 @@ public final class TableAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessPolicies An `access_policy` block as defined below.
+         * @param accessPolicies An `accessPolicy` block as defined below.
          * 
          * @return builder
          * 

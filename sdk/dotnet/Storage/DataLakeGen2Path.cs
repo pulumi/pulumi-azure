@@ -70,7 +70,7 @@ namespace Pulumi.Azure.Storage
     public partial class DataLakeGen2Path : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
+        /// One or more `Ace` blocks as defined below to specify the entries for the ACL for the path.
         /// </summary>
         [Output("aces")]
         public Output<ImmutableArray<Outputs.DataLakeGen2PathAce>> Aces { get; private set; } = null!;
@@ -100,7 +100,7 @@ namespace Pulumi.Azure.Storage
         public Output<string> Path { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the type for path to create. Currently only `directory` is supported. Changing this forces a new resource to be created.
+        /// Specifies the type for path to create. Currently only `Directory` is supported. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resource")]
         public Output<string> Resource { get; private set; } = null!;
@@ -161,7 +161,7 @@ namespace Pulumi.Azure.Storage
         private InputList<Inputs.DataLakeGen2PathAceArgs>? _aces;
 
         /// <summary>
-        /// One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
+        /// One or more `Ace` blocks as defined below to specify the entries for the ACL for the path.
         /// </summary>
         public InputList<Inputs.DataLakeGen2PathAceArgs> Aces
         {
@@ -194,7 +194,7 @@ namespace Pulumi.Azure.Storage
         public Input<string> Path { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the type for path to create. Currently only `directory` is supported. Changing this forces a new resource to be created.
+        /// Specifies the type for path to create. Currently only `Directory` is supported. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resource", required: true)]
         public Input<string> Resource { get; set; } = null!;
@@ -217,7 +217,7 @@ namespace Pulumi.Azure.Storage
         private InputList<Inputs.DataLakeGen2PathAceGetArgs>? _aces;
 
         /// <summary>
-        /// One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
+        /// One or more `Ace` blocks as defined below to specify the entries for the ACL for the path.
         /// </summary>
         public InputList<Inputs.DataLakeGen2PathAceGetArgs> Aces
         {
@@ -250,7 +250,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? Path { get; set; }
 
         /// <summary>
-        /// Specifies the type for path to create. Currently only `directory` is supported. Changing this forces a new resource to be created.
+        /// Specifies the type for path to create. Currently only `Directory` is supported. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resource")]
         public Input<string>? Resource { get; set; }

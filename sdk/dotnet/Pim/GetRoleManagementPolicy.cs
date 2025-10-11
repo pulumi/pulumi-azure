@@ -283,11 +283,11 @@ namespace Pulumi.Azure.Pim
     public sealed class GetRoleManagementPolicyResult
     {
         /// <summary>
-        /// An `activation_rules` block as defined below.
+        /// An `ActivationRules` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRoleManagementPolicyActivationRuleResult> ActivationRules;
         /// <summary>
-        /// An `active_assignment_rules` block as defined below.
+        /// An `ActiveAssignmentRules` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRoleManagementPolicyActiveAssignmentRuleResult> ActiveAssignmentRules;
         /// <summary>
@@ -295,7 +295,7 @@ namespace Pulumi.Azure.Pim
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// An `eligible_assignment_rules` block as defined below.
+        /// An `EligibleAssignmentRules` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRoleManagementPolicyEligibleAssignmentRuleResult> EligibleAssignmentRules;
         /// <summary>
@@ -307,7 +307,7 @@ namespace Pulumi.Azure.Pim
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// A `notification_rules` block as defined below.
+        /// A `NotificationRules` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRoleManagementPolicyNotificationRuleResult> NotificationRules;
         public readonly string RoleDefinitionId;

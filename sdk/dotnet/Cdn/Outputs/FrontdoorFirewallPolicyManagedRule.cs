@@ -18,11 +18,11 @@ namespace Pulumi.Azure.Cdn.Outputs
         /// </summary>
         public readonly string Action;
         /// <summary>
-        /// One or more `exclusion` blocks as defined below.
+        /// One or more `Exclusion` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FrontdoorFirewallPolicyManagedRuleExclusion> Exclusions;
         /// <summary>
-        /// One or more `override` blocks as defined below.
+        /// One or more `Override` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FrontdoorFirewallPolicyManagedRuleOverride> Overrides;
         /// <summary>

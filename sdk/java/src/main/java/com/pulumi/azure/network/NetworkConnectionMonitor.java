@@ -317,28 +317,28 @@ public class NetworkConnectionMonitor extends com.pulumi.resources.CustomResourc
         return Codegen.optional(this.tags);
     }
     /**
-     * A `test_configuration` block as defined below.
+     * A `testConfiguration` block as defined below.
      * 
      */
     @Export(name="testConfigurations", refs={List.class,NetworkConnectionMonitorTestConfiguration.class}, tree="[0,1]")
     private Output<List<NetworkConnectionMonitorTestConfiguration>> testConfigurations;
 
     /**
-     * @return A `test_configuration` block as defined below.
+     * @return A `testConfiguration` block as defined below.
      * 
      */
     public Output<List<NetworkConnectionMonitorTestConfiguration>> testConfigurations() {
         return this.testConfigurations;
     }
     /**
-     * A `test_group` block as defined below.
+     * A `testGroup` block as defined below.
      * 
      */
     @Export(name="testGroups", refs={List.class,NetworkConnectionMonitorTestGroup.class}, tree="[0,1]")
     private Output<List<NetworkConnectionMonitorTestGroup>> testGroups;
 
     /**
-     * @return A `test_group` block as defined below.
+     * @return A `testGroup` block as defined below.
      * 
      */
     public Output<List<NetworkConnectionMonitorTestGroup>> testGroups() {

@@ -14,15 +14,15 @@ namespace Pulumi.Azure.HDInsight.Outputs
     public sealed class HBaseClusterRoles
     {
         /// <summary>
-        /// A `head_node` block as defined above.
+        /// A `HeadNode` block as defined above.
         /// </summary>
         public readonly Outputs.HBaseClusterRolesHeadNode HeadNode;
         /// <summary>
-        /// A `worker_node` block as defined below.
+        /// A `WorkerNode` block as defined below.
         /// </summary>
         public readonly Outputs.HBaseClusterRolesWorkerNode WorkerNode;
         /// <summary>
-        /// A `zookeeper_node` block as defined below.
+        /// A `ZookeeperNode` block as defined below.
         /// </summary>
         public readonly Outputs.HBaseClusterRolesZookeeperNode ZookeeperNode;
 

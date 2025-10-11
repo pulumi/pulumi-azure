@@ -30,9 +30,9 @@ namespace Pulumi.Azure.AppInsights.Outputs
         /// </summary>
         public readonly string? ResourceType;
         /// <summary>
-        /// Type of workbook supported by the workbook template. Defaults to `workbook`.
+        /// Type of workbook supported by the workbook template. Defaults to `Workbook`.
         /// 
-        /// &gt; **Note:** See [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-automate#galleries) for more information of `resource_type` and `type`.
+        /// &gt; **Note:** See [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-automate#galleries) for more information of `ResourceType` and `Type`.
         /// </summary>
         public readonly string? Type;
 

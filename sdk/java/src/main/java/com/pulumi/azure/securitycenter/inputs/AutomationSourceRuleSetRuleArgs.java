@@ -15,14 +15,14 @@ public final class AutomationSourceRuleSetRuleArgs extends com.pulumi.resources.
     public static final AutomationSourceRuleSetRuleArgs Empty = new AutomationSourceRuleSetRuleArgs();
 
     /**
-     * A value that will be compared with the value in `property_path`.
+     * A value that will be compared with the value in `propertyPath`.
      * 
      */
     @Import(name="expectedValue", required=true)
     private Output<String> expectedValue;
 
     /**
-     * @return A value that will be compared with the value in `property_path`.
+     * @return A value that will be compared with the value in `propertyPath`.
      * 
      */
     public Output<String> expectedValue() {
@@ -62,7 +62,7 @@ public final class AutomationSourceRuleSetRuleArgs extends com.pulumi.resources.
     /**
      * The data type of the compared operands, must be one of: `Integer`, `String`, `Boolean` or `Number`.
      * 
-     * &gt; **Note:** The schema for Security Center alerts (when `event_source` is &#34;Alerts&#34;) [can be found here](https://docs.microsoft.com/azure/security-center/alerts-schemas?tabs=schema-continuousexport)
+     * &gt; **Note:** The schema for Security Center alerts (when `eventSource` is &#34;Alerts&#34;) [can be found here](https://docs.microsoft.com/azure/security-center/alerts-schemas?tabs=schema-continuousexport)
      * 
      */
     @Import(name="propertyType", required=true)
@@ -71,7 +71,7 @@ public final class AutomationSourceRuleSetRuleArgs extends com.pulumi.resources.
     /**
      * @return The data type of the compared operands, must be one of: `Integer`, `String`, `Boolean` or `Number`.
      * 
-     * &gt; **Note:** The schema for Security Center alerts (when `event_source` is &#34;Alerts&#34;) [can be found here](https://docs.microsoft.com/azure/security-center/alerts-schemas?tabs=schema-continuousexport)
+     * &gt; **Note:** The schema for Security Center alerts (when `eventSource` is &#34;Alerts&#34;) [can be found here](https://docs.microsoft.com/azure/security-center/alerts-schemas?tabs=schema-continuousexport)
      * 
      */
     public Output<String> propertyType() {
@@ -106,7 +106,7 @@ public final class AutomationSourceRuleSetRuleArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param expectedValue A value that will be compared with the value in `property_path`.
+         * @param expectedValue A value that will be compared with the value in `propertyPath`.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class AutomationSourceRuleSetRuleArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param expectedValue A value that will be compared with the value in `property_path`.
+         * @param expectedValue A value that will be compared with the value in `propertyPath`.
          * 
          * @return builder
          * 
@@ -171,7 +171,7 @@ public final class AutomationSourceRuleSetRuleArgs extends com.pulumi.resources.
         /**
          * @param propertyType The data type of the compared operands, must be one of: `Integer`, `String`, `Boolean` or `Number`.
          * 
-         * &gt; **Note:** The schema for Security Center alerts (when `event_source` is &#34;Alerts&#34;) [can be found here](https://docs.microsoft.com/azure/security-center/alerts-schemas?tabs=schema-continuousexport)
+         * &gt; **Note:** The schema for Security Center alerts (when `eventSource` is &#34;Alerts&#34;) [can be found here](https://docs.microsoft.com/azure/security-center/alerts-schemas?tabs=schema-continuousexport)
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class AutomationSourceRuleSetRuleArgs extends com.pulumi.resources.
         /**
          * @param propertyType The data type of the compared operands, must be one of: `Integer`, `String`, `Boolean` or `Number`.
          * 
-         * &gt; **Note:** The schema for Security Center alerts (when `event_source` is &#34;Alerts&#34;) [can be found here](https://docs.microsoft.com/azure/security-center/alerts-schemas?tabs=schema-continuousexport)
+         * &gt; **Note:** The schema for Security Center alerts (when `eventSource` is &#34;Alerts&#34;) [can be found here](https://docs.microsoft.com/azure/security-center/alerts-schemas?tabs=schema-continuousexport)
          * 
          * @return builder
          * 

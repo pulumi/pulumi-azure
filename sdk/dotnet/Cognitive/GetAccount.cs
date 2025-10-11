@@ -198,7 +198,7 @@ namespace Pulumi.Azure.Cognitive
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A `identity` block as defined below.
+        /// A `Identity` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAccountIdentityResult> Identities;
         /// <summary>
@@ -219,7 +219,7 @@ namespace Pulumi.Azure.Cognitive
         /// </summary>
         public readonly string PrimaryAccessKey;
         /// <summary>
-        /// If `kind` is `QnAMaker` the link to the QNA runtime.
+        /// If `Kind` is `QnAMaker` the link to the QNA runtime.
         /// </summary>
         public readonly string QnaRuntimeEndpoint;
         public readonly string ResourceGroupName;

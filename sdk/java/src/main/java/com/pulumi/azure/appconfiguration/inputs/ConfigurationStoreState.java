@@ -44,7 +44,7 @@ public final class ConfigurationStoreState extends com.pulumi.resources.Resource
     /**
      * Whether data plane proxy private link delegation is enabled. Defaults to `false`.
      * 
-     * &gt; **Note:** `data_plane_proxy_private_link_delegation_enabled` cannot be set to `true` when `data_plane_proxy_authentication_mode` is set to `Local`.
+     * &gt; **Note:** `dataPlaneProxyPrivateLinkDelegationEnabled` cannot be set to `true` when `dataPlaneProxyAuthenticationMode` is set to `Local`.
      * 
      */
     @Import(name="dataPlaneProxyPrivateLinkDelegationEnabled")
@@ -53,7 +53,7 @@ public final class ConfigurationStoreState extends com.pulumi.resources.Resource
     /**
      * @return Whether data plane proxy private link delegation is enabled. Defaults to `false`.
      * 
-     * &gt; **Note:** `data_plane_proxy_private_link_delegation_enabled` cannot be set to `true` when `data_plane_proxy_authentication_mode` is set to `Local`.
+     * &gt; **Note:** `dataPlaneProxyPrivateLinkDelegationEnabled` cannot be set to `true` when `dataPlaneProxyAuthenticationMode` is set to `Local`.
      * 
      */
     public Optional<Output<Boolean>> dataPlaneProxyPrivateLinkDelegationEnabled() {
@@ -151,14 +151,14 @@ public final class ConfigurationStoreState extends com.pulumi.resources.Resource
     }
 
     /**
-     * A `primary_read_key` block as defined below containing the primary read access key.
+     * A `primaryReadKey` block as defined below containing the primary read access key.
      * 
      */
     @Import(name="primaryReadKeys")
     private @Nullable Output<List<ConfigurationStorePrimaryReadKeyArgs>> primaryReadKeys;
 
     /**
-     * @return A `primary_read_key` block as defined below containing the primary read access key.
+     * @return A `primaryReadKey` block as defined below containing the primary read access key.
      * 
      */
     public Optional<Output<List<ConfigurationStorePrimaryReadKeyArgs>>> primaryReadKeys() {
@@ -166,14 +166,14 @@ public final class ConfigurationStoreState extends com.pulumi.resources.Resource
     }
 
     /**
-     * A `primary_write_key` block as defined below containing the primary write access key.
+     * A `primaryWriteKey` block as defined below containing the primary write access key.
      * 
      */
     @Import(name="primaryWriteKeys")
     private @Nullable Output<List<ConfigurationStorePrimaryWriteKeyArgs>> primaryWriteKeys;
 
     /**
-     * @return A `primary_write_key` block as defined below containing the primary write access key.
+     * @return A `primaryWriteKey` block as defined below containing the primary write access key.
      * 
      */
     public Optional<Output<List<ConfigurationStorePrimaryWriteKeyArgs>>> primaryWriteKeys() {
@@ -183,7 +183,7 @@ public final class ConfigurationStoreState extends com.pulumi.resources.Resource
     /**
      * The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
      * 
-     * &gt; **Note:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
+     * &gt; **Note:** If `publicNetworkAccess` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
      * 
      */
     @Import(name="publicNetworkAccess")
@@ -192,7 +192,7 @@ public final class ConfigurationStoreState extends com.pulumi.resources.Resource
     /**
      * @return The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
      * 
-     * &gt; **Note:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
+     * &gt; **Note:** If `publicNetworkAccess` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
      * 
      */
     public Optional<Output<String>> publicNetworkAccess() {
@@ -249,14 +249,14 @@ public final class ConfigurationStoreState extends com.pulumi.resources.Resource
     }
 
     /**
-     * A `secondary_read_key` block as defined below containing the secondary read access key.
+     * A `secondaryReadKey` block as defined below containing the secondary read access key.
      * 
      */
     @Import(name="secondaryReadKeys")
     private @Nullable Output<List<ConfigurationStoreSecondaryReadKeyArgs>> secondaryReadKeys;
 
     /**
-     * @return A `secondary_read_key` block as defined below containing the secondary read access key.
+     * @return A `secondaryReadKey` block as defined below containing the secondary read access key.
      * 
      */
     public Optional<Output<List<ConfigurationStoreSecondaryReadKeyArgs>>> secondaryReadKeys() {
@@ -264,14 +264,14 @@ public final class ConfigurationStoreState extends com.pulumi.resources.Resource
     }
 
     /**
-     * A `secondary_write_key` block as defined below containing the secondary write access key.
+     * A `secondaryWriteKey` block as defined below containing the secondary write access key.
      * 
      */
     @Import(name="secondaryWriteKeys")
     private @Nullable Output<List<ConfigurationStoreSecondaryWriteKeyArgs>> secondaryWriteKeys;
 
     /**
-     * @return A `secondary_write_key` block as defined below containing the secondary write access key.
+     * @return A `secondaryWriteKey` block as defined below containing the secondary write access key.
      * 
      */
     public Optional<Output<List<ConfigurationStoreSecondaryWriteKeyArgs>>> secondaryWriteKeys() {
@@ -397,7 +397,7 @@ public final class ConfigurationStoreState extends com.pulumi.resources.Resource
         /**
          * @param dataPlaneProxyPrivateLinkDelegationEnabled Whether data plane proxy private link delegation is enabled. Defaults to `false`.
          * 
-         * &gt; **Note:** `data_plane_proxy_private_link_delegation_enabled` cannot be set to `true` when `data_plane_proxy_authentication_mode` is set to `Local`.
+         * &gt; **Note:** `dataPlaneProxyPrivateLinkDelegationEnabled` cannot be set to `true` when `dataPlaneProxyAuthenticationMode` is set to `Local`.
          * 
          * @return builder
          * 
@@ -410,7 +410,7 @@ public final class ConfigurationStoreState extends com.pulumi.resources.Resource
         /**
          * @param dataPlaneProxyPrivateLinkDelegationEnabled Whether data plane proxy private link delegation is enabled. Defaults to `false`.
          * 
-         * &gt; **Note:** `data_plane_proxy_private_link_delegation_enabled` cannot be set to `true` when `data_plane_proxy_authentication_mode` is set to `Local`.
+         * &gt; **Note:** `dataPlaneProxyPrivateLinkDelegationEnabled` cannot be set to `true` when `dataPlaneProxyAuthenticationMode` is set to `Local`.
          * 
          * @return builder
          * 
@@ -546,7 +546,7 @@ public final class ConfigurationStoreState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param primaryReadKeys A `primary_read_key` block as defined below containing the primary read access key.
+         * @param primaryReadKeys A `primaryReadKey` block as defined below containing the primary read access key.
          * 
          * @return builder
          * 
@@ -557,7 +557,7 @@ public final class ConfigurationStoreState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param primaryReadKeys A `primary_read_key` block as defined below containing the primary read access key.
+         * @param primaryReadKeys A `primaryReadKey` block as defined below containing the primary read access key.
          * 
          * @return builder
          * 
@@ -567,7 +567,7 @@ public final class ConfigurationStoreState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param primaryReadKeys A `primary_read_key` block as defined below containing the primary read access key.
+         * @param primaryReadKeys A `primaryReadKey` block as defined below containing the primary read access key.
          * 
          * @return builder
          * 
@@ -577,7 +577,7 @@ public final class ConfigurationStoreState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param primaryWriteKeys A `primary_write_key` block as defined below containing the primary write access key.
+         * @param primaryWriteKeys A `primaryWriteKey` block as defined below containing the primary write access key.
          * 
          * @return builder
          * 
@@ -588,7 +588,7 @@ public final class ConfigurationStoreState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param primaryWriteKeys A `primary_write_key` block as defined below containing the primary write access key.
+         * @param primaryWriteKeys A `primaryWriteKey` block as defined below containing the primary write access key.
          * 
          * @return builder
          * 
@@ -598,7 +598,7 @@ public final class ConfigurationStoreState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param primaryWriteKeys A `primary_write_key` block as defined below containing the primary write access key.
+         * @param primaryWriteKeys A `primaryWriteKey` block as defined below containing the primary write access key.
          * 
          * @return builder
          * 
@@ -610,7 +610,7 @@ public final class ConfigurationStoreState extends com.pulumi.resources.Resource
         /**
          * @param publicNetworkAccess The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
          * 
-         * &gt; **Note:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
+         * &gt; **Note:** If `publicNetworkAccess` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
          * 
          * @return builder
          * 
@@ -623,7 +623,7 @@ public final class ConfigurationStoreState extends com.pulumi.resources.Resource
         /**
          * @param publicNetworkAccess The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
          * 
-         * &gt; **Note:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
+         * &gt; **Note:** If `publicNetworkAccess` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
          * 
          * @return builder
          * 
@@ -710,7 +710,7 @@ public final class ConfigurationStoreState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param secondaryReadKeys A `secondary_read_key` block as defined below containing the secondary read access key.
+         * @param secondaryReadKeys A `secondaryReadKey` block as defined below containing the secondary read access key.
          * 
          * @return builder
          * 
@@ -721,7 +721,7 @@ public final class ConfigurationStoreState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param secondaryReadKeys A `secondary_read_key` block as defined below containing the secondary read access key.
+         * @param secondaryReadKeys A `secondaryReadKey` block as defined below containing the secondary read access key.
          * 
          * @return builder
          * 
@@ -731,7 +731,7 @@ public final class ConfigurationStoreState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param secondaryReadKeys A `secondary_read_key` block as defined below containing the secondary read access key.
+         * @param secondaryReadKeys A `secondaryReadKey` block as defined below containing the secondary read access key.
          * 
          * @return builder
          * 
@@ -741,7 +741,7 @@ public final class ConfigurationStoreState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param secondaryWriteKeys A `secondary_write_key` block as defined below containing the secondary write access key.
+         * @param secondaryWriteKeys A `secondaryWriteKey` block as defined below containing the secondary write access key.
          * 
          * @return builder
          * 
@@ -752,7 +752,7 @@ public final class ConfigurationStoreState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param secondaryWriteKeys A `secondary_write_key` block as defined below containing the secondary write access key.
+         * @param secondaryWriteKeys A `secondaryWriteKey` block as defined below containing the secondary write access key.
          * 
          * @return builder
          * 
@@ -762,7 +762,7 @@ public final class ConfigurationStoreState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param secondaryWriteKeys A `secondary_write_key` block as defined below containing the secondary write access key.
+         * @param secondaryWriteKeys A `secondaryWriteKey` block as defined below containing the secondary write access key.
          * 
          * @return builder
          * 

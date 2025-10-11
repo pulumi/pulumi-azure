@@ -48,14 +48,14 @@ public final class IoTHubEndpointArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The connection string for the endpoint. This attribute is mandatory and can only be specified when `authentication_type` is `keyBased`.
+     * The connection string for the endpoint. This attribute is mandatory and can only be specified when `authenticationType` is `keyBased`.
      * 
      */
     @Import(name="connectionString")
     private @Nullable Output<String> connectionString;
 
     /**
-     * @return The connection string for the endpoint. This attribute is mandatory and can only be specified when `authentication_type` is `keyBased`.
+     * @return The connection string for the endpoint. This attribute is mandatory and can only be specified when `authenticationType` is `keyBased`.
      * 
      */
     public Optional<Output<String>> connectionString() {
@@ -93,14 +93,14 @@ public final class IoTHubEndpointArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * URI of the Service Bus or Event Hubs Namespace endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
+     * URI of the Service Bus or Event Hubs Namespace endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
      * 
      */
     @Import(name="endpointUri")
     private @Nullable Output<String> endpointUri;
 
     /**
-     * @return URI of the Service Bus or Event Hubs Namespace endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
+     * @return URI of the Service Bus or Event Hubs Namespace endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
      * 
      */
     public Optional<Output<String>> endpointUri() {
@@ -108,14 +108,14 @@ public final class IoTHubEndpointArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Name of the Service Bus Queue/Topic or Event Hub. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
+     * Name of the Service Bus Queue/Topic or Event Hub. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
      * 
      */
     @Import(name="entityPath")
     private @Nullable Output<String> entityPath;
 
     /**
-     * @return Name of the Service Bus Queue/Topic or Event Hub. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
+     * @return Name of the Service Bus Queue/Topic or Event Hub. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
      * 
      */
     public Optional<Output<String>> entityPath() {
@@ -140,7 +140,7 @@ public final class IoTHubEndpointArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * The ID of the User Managed Identity used to authenticate against the endpoint.
      * 
-     * &gt; **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the IoT Hub. If `identity_id` is omitted when `authentication_type` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
+     * &gt; **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the IoT Hub. If `identityId` is omitted when `authenticationType` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
      * 
      * &gt; **Note:** An IoT Hub can only be updated to use the System-Assigned Managed Identity for `endpoint` since it is not possible to grant access to the endpoint until after creation. The extracted resources `azurerm_iothub_endpoint_*` can be used to configure Endpoints with the IoT Hub&#39;s System-Assigned Managed Identity without the need for an update.
      * 
@@ -151,7 +151,7 @@ public final class IoTHubEndpointArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * @return The ID of the User Managed Identity used to authenticate against the endpoint.
      * 
-     * &gt; **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the IoT Hub. If `identity_id` is omitted when `authentication_type` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
+     * &gt; **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the IoT Hub. If `identityId` is omitted when `authenticationType` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
      * 
      * &gt; **Note:** An IoT Hub can only be updated to use the System-Assigned Managed Identity for `endpoint` since it is not possible to grant access to the endpoint until after creation. The extracted resources `azurerm_iothub_endpoint_*` can be used to configure Endpoints with the IoT Hub&#39;s System-Assigned Managed Identity without the need for an update.
      * 
@@ -208,7 +208,7 @@ public final class IoTHubEndpointArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * The subscription ID for the endpoint.
      * 
-     * &gt; **Note:** When `subscription_id` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
+     * &gt; **Note:** When `subscriptionId` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
      * 
      */
     @Import(name="subscriptionId")
@@ -217,7 +217,7 @@ public final class IoTHubEndpointArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * @return The subscription ID for the endpoint.
      * 
-     * &gt; **Note:** When `subscription_id` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
+     * &gt; **Note:** When `subscriptionId` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
      * 
      */
     public Optional<Output<String>> subscriptionId() {
@@ -319,7 +319,7 @@ public final class IoTHubEndpointArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param connectionString The connection string for the endpoint. This attribute is mandatory and can only be specified when `authentication_type` is `keyBased`.
+         * @param connectionString The connection string for the endpoint. This attribute is mandatory and can only be specified when `authenticationType` is `keyBased`.
          * 
          * @return builder
          * 
@@ -330,7 +330,7 @@ public final class IoTHubEndpointArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param connectionString The connection string for the endpoint. This attribute is mandatory and can only be specified when `authentication_type` is `keyBased`.
+         * @param connectionString The connection string for the endpoint. This attribute is mandatory and can only be specified when `authenticationType` is `keyBased`.
          * 
          * @return builder
          * 
@@ -382,7 +382,7 @@ public final class IoTHubEndpointArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param endpointUri URI of the Service Bus or Event Hubs Namespace endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
+         * @param endpointUri URI of the Service Bus or Event Hubs Namespace endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
          * 
          * @return builder
          * 
@@ -393,7 +393,7 @@ public final class IoTHubEndpointArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param endpointUri URI of the Service Bus or Event Hubs Namespace endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
+         * @param endpointUri URI of the Service Bus or Event Hubs Namespace endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
          * 
          * @return builder
          * 
@@ -403,7 +403,7 @@ public final class IoTHubEndpointArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param entityPath Name of the Service Bus Queue/Topic or Event Hub. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
+         * @param entityPath Name of the Service Bus Queue/Topic or Event Hub. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
          * 
          * @return builder
          * 
@@ -414,7 +414,7 @@ public final class IoTHubEndpointArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param entityPath Name of the Service Bus Queue/Topic or Event Hub. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
+         * @param entityPath Name of the Service Bus Queue/Topic or Event Hub. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
          * 
          * @return builder
          * 
@@ -447,7 +447,7 @@ public final class IoTHubEndpointArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param identityId The ID of the User Managed Identity used to authenticate against the endpoint.
          * 
-         * &gt; **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the IoT Hub. If `identity_id` is omitted when `authentication_type` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
+         * &gt; **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the IoT Hub. If `identityId` is omitted when `authenticationType` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
          * 
          * &gt; **Note:** An IoT Hub can only be updated to use the System-Assigned Managed Identity for `endpoint` since it is not possible to grant access to the endpoint until after creation. The extracted resources `azurerm_iothub_endpoint_*` can be used to configure Endpoints with the IoT Hub&#39;s System-Assigned Managed Identity without the need for an update.
          * 
@@ -462,7 +462,7 @@ public final class IoTHubEndpointArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param identityId The ID of the User Managed Identity used to authenticate against the endpoint.
          * 
-         * &gt; **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the IoT Hub. If `identity_id` is omitted when `authentication_type` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
+         * &gt; **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the IoT Hub. If `identityId` is omitted when `authenticationType` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
          * 
          * &gt; **Note:** An IoT Hub can only be updated to use the System-Assigned Managed Identity for `endpoint` since it is not possible to grant access to the endpoint until after creation. The extracted resources `azurerm_iothub_endpoint_*` can be used to configure Endpoints with the IoT Hub&#39;s System-Assigned Managed Identity without the need for an update.
          * 
@@ -539,7 +539,7 @@ public final class IoTHubEndpointArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param subscriptionId The subscription ID for the endpoint.
          * 
-         * &gt; **Note:** When `subscription_id` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
+         * &gt; **Note:** When `subscriptionId` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
          * 
          * @return builder
          * 
@@ -552,7 +552,7 @@ public final class IoTHubEndpointArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param subscriptionId The subscription ID for the endpoint.
          * 
-         * &gt; **Note:** When `subscription_id` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
+         * &gt; **Note:** When `subscriptionId` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
          * 
          * @return builder
          * 

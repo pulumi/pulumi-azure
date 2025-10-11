@@ -32,14 +32,14 @@ public final class EnvironmentDaprComponentSecretArgs extends com.pulumi.resourc
     }
 
     /**
-     * The Key Vault Secret ID. Could be either one of `id` or `versionless_id`.
+     * The Key Vault Secret ID. Could be either one of `id` or `versionlessId`.
      * 
      */
     @Import(name="keyVaultSecretId")
     private @Nullable Output<String> keyVaultSecretId;
 
     /**
-     * @return The Key Vault Secret ID. Could be either one of `id` or `versionless_id`.
+     * @return The Key Vault Secret ID. Could be either one of `id` or `versionlessId`.
      * 
      */
     public Optional<Output<String>> keyVaultSecretId() {
@@ -125,7 +125,7 @@ public final class EnvironmentDaprComponentSecretArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param keyVaultSecretId The Key Vault Secret ID. Could be either one of `id` or `versionless_id`.
+         * @param keyVaultSecretId The Key Vault Secret ID. Could be either one of `id` or `versionlessId`.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class EnvironmentDaprComponentSecretArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param keyVaultSecretId The Key Vault Secret ID. Could be either one of `id` or `versionless_id`.
+         * @param keyVaultSecretId The Key Vault Secret ID. Could be either one of `id` or `versionlessId`.
          * 
          * @return builder
          * 

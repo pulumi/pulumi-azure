@@ -134,42 +134,42 @@ public class EndpointEventhub extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.authenticationType);
     }
     /**
-     * The connection string for the endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `keyBased`.
+     * The connection string for the endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `keyBased`.
      * 
      */
     @Export(name="connectionString", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> connectionString;
 
     /**
-     * @return The connection string for the endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `keyBased`.
+     * @return The connection string for the endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `keyBased`.
      * 
      */
     public Output<Optional<String>> connectionString() {
         return Codegen.optional(this.connectionString);
     }
     /**
-     * URI of the Event Hubs Namespace endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+     * URI of the Event Hubs Namespace endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
      * 
      */
     @Export(name="endpointUri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> endpointUri;
 
     /**
-     * @return URI of the Event Hubs Namespace endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+     * @return URI of the Event Hubs Namespace endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
      * 
      */
     public Output<Optional<String>> endpointUri() {
         return Codegen.optional(this.endpointUri);
     }
     /**
-     * Name of the Event Hub. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+     * Name of the Event Hub. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
      * 
      */
     @Export(name="entityPath", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> entityPath;
 
     /**
-     * @return Name of the Event Hub. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
+     * @return Name of the Event Hub. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
      * 
      */
     public Output<Optional<String>> entityPath() {
@@ -178,7 +178,7 @@ public class EndpointEventhub extends com.pulumi.resources.CustomResource {
     /**
      * ID of the User Managed Identity used to authenticate against the Event Hub endpoint.
      * 
-     * &gt; **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
+     * &gt; **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
      * 
      */
     @Export(name="identityId", refs={String.class}, tree="[0]")
@@ -187,7 +187,7 @@ public class EndpointEventhub extends com.pulumi.resources.CustomResource {
     /**
      * @return ID of the User Managed Identity used to authenticate against the Event Hub endpoint.
      * 
-     * &gt; **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
+     * &gt; **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
      * 
      */
     public Output<Optional<String>> identityId() {
@@ -238,7 +238,7 @@ public class EndpointEventhub extends com.pulumi.resources.CustomResource {
     /**
      * The subscription ID for the endpoint.
      * 
-     * &gt; **Note:** When `subscription_id` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
+     * &gt; **Note:** When `subscriptionId` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
      * 
      */
     @Export(name="subscriptionId", refs={String.class}, tree="[0]")
@@ -247,7 +247,7 @@ public class EndpointEventhub extends com.pulumi.resources.CustomResource {
     /**
      * @return The subscription ID for the endpoint.
      * 
-     * &gt; **Note:** When `subscription_id` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
+     * &gt; **Note:** When `subscriptionId` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
      * 
      */
     public Output<String> subscriptionId() {

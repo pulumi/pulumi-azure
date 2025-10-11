@@ -55,7 +55,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string> Image { get; set; } = null!;
 
         /// <summary>
-        /// The definition of a readiness probe for this container as documented in the `liveness_probe` block below. Changing this forces a new resource to be created.
+        /// The definition of a readiness probe for this container as documented in the `LivenessProbe` block below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("livenessProbe")]
         public Input<Inputs.GroupContainerLivenessProbeGetArgs>? LivenessProbe { get; set; }
@@ -82,7 +82,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         private InputList<Inputs.GroupContainerPortGetArgs>? _ports;
 
         /// <summary>
-        /// A set of public ports for the container. Changing this forces a new resource to be created. Set as documented in the `ports` block below.
+        /// A set of public ports for the container. Changing this forces a new resource to be created. Set as documented in the `Ports` block below.
         /// </summary>
         public InputList<Inputs.GroupContainerPortGetArgs> Ports
         {
@@ -91,7 +91,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         }
 
         /// <summary>
-        /// The definition of a readiness probe for this container as documented in the `readiness_probe` block below. Changing this forces a new resource to be created.
+        /// The definition of a readiness probe for this container as documented in the `ReadinessProbe` block below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("readinessProbe")]
         public Input<Inputs.GroupContainerReadinessProbeGetArgs>? ReadinessProbe { get; set; }
@@ -116,7 +116,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         private InputList<Inputs.GroupContainerSecurityGetArgs>? _securities;
 
         /// <summary>
-        /// The definition of the security context for this container as documented in the `security` block below. Changing this forces a new resource to be created.
+        /// The definition of the security context for this container as documented in the `Security` block below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.GroupContainerSecurityGetArgs> Securities
         {
@@ -128,7 +128,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         private InputList<Inputs.GroupContainerVolumeGetArgs>? _volumes;
 
         /// <summary>
-        /// The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
+        /// The definition of a volume mount for this container as documented in the `Volume` block below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.GroupContainerVolumeGetArgs> Volumes
         {

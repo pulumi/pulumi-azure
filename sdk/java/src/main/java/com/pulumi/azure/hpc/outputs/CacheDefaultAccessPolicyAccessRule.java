@@ -20,12 +20,12 @@ public final class CacheDefaultAccessPolicyAccessRule {
      */
     private String access;
     /**
-     * @return The anonymous GID used when `root_squash_enabled` is `true`.
+     * @return The anonymous GID used when `rootSquashEnabled` is `true`.
      * 
      */
     private @Nullable Integer anonymousGid;
     /**
-     * @return The anonymous UID used when `root_squash_enabled` is `true`.
+     * @return The anonymous UID used when `rootSquashEnabled` is `true`.
      * 
      */
     private @Nullable Integer anonymousUid;
@@ -42,7 +42,7 @@ public final class CacheDefaultAccessPolicyAccessRule {
     /**
      * @return The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
      * 
-     * &gt; **Note:** Each `access_rule` should set a unique `scope`.
+     * &gt; **Note:** Each `accessRule` should set a unique `scope`.
      * 
      */
     private String scope;
@@ -66,14 +66,14 @@ public final class CacheDefaultAccessPolicyAccessRule {
         return this.access;
     }
     /**
-     * @return The anonymous GID used when `root_squash_enabled` is `true`.
+     * @return The anonymous GID used when `rootSquashEnabled` is `true`.
      * 
      */
     public Optional<Integer> anonymousGid() {
         return Optional.ofNullable(this.anonymousGid);
     }
     /**
-     * @return The anonymous UID used when `root_squash_enabled` is `true`.
+     * @return The anonymous UID used when `rootSquashEnabled` is `true`.
      * 
      */
     public Optional<Integer> anonymousUid() {
@@ -96,7 +96,7 @@ public final class CacheDefaultAccessPolicyAccessRule {
     /**
      * @return The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
      * 
-     * &gt; **Note:** Each `access_rule` should set a unique `scope`.
+     * &gt; **Note:** Each `accessRule` should set a unique `scope`.
      * 
      */
     public String scope() {

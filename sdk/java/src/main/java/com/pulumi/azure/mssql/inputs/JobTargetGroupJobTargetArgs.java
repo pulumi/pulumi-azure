@@ -19,7 +19,7 @@ public final class JobTargetGroupJobTargetArgs extends com.pulumi.resources.Reso
     /**
      * The name of the MS SQL Database.
      * 
-     * &gt; **Note:** This cannot be set in combination with `elastic_pool_name`.
+     * &gt; **Note:** This cannot be set in combination with `elasticPoolName`.
      * 
      */
     @Import(name="databaseName")
@@ -28,7 +28,7 @@ public final class JobTargetGroupJobTargetArgs extends com.pulumi.resources.Reso
     /**
      * @return The name of the MS SQL Database.
      * 
-     * &gt; **Note:** This cannot be set in combination with `elastic_pool_name`.
+     * &gt; **Note:** This cannot be set in combination with `elasticPoolName`.
      * 
      */
     public Optional<Output<String>> databaseName() {
@@ -38,7 +38,7 @@ public final class JobTargetGroupJobTargetArgs extends com.pulumi.resources.Reso
     /**
      * The name of the MS SQL Elastic Pool.
      * 
-     * &gt; **Note:** This cannot be set in combination with `database_name`.
+     * &gt; **Note:** This cannot be set in combination with `databaseName`.
      * 
      */
     @Import(name="elasticPoolName")
@@ -47,7 +47,7 @@ public final class JobTargetGroupJobTargetArgs extends com.pulumi.resources.Reso
     /**
      * @return The name of the MS SQL Elastic Pool.
      * 
-     * &gt; **Note:** This cannot be set in combination with `database_name`.
+     * &gt; **Note:** This cannot be set in combination with `databaseName`.
      * 
      */
     public Optional<Output<String>> elasticPoolName() {
@@ -57,7 +57,7 @@ public final class JobTargetGroupJobTargetArgs extends com.pulumi.resources.Reso
     /**
      * The ID of the job credential to use during execution of jobs.
      * 
-     * &gt; **Note:** This is required when `membership_type` is `Include`, unless `database_name` is set.
+     * &gt; **Note:** This is required when `membershipType` is `Include`, unless `databaseName` is set.
      * 
      */
     @Import(name="jobCredentialId")
@@ -66,7 +66,7 @@ public final class JobTargetGroupJobTargetArgs extends com.pulumi.resources.Reso
     /**
      * @return The ID of the job credential to use during execution of jobs.
      * 
-     * &gt; **Note:** This is required when `membership_type` is `Include`, unless `database_name` is set.
+     * &gt; **Note:** This is required when `membershipType` is `Include`, unless `databaseName` is set.
      * 
      */
     public Optional<Output<String>> jobCredentialId() {
@@ -104,14 +104,14 @@ public final class JobTargetGroupJobTargetArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The job target type. This value is computed based on `server_name`, `database_name`, and `elastic_pool_name`.
+     * The job target type. This value is computed based on `serverName`, `databaseName`, and `elasticPoolName`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The job target type. This value is computed based on `server_name`, `database_name`, and `elastic_pool_name`.
+     * @return The job target type. This value is computed based on `serverName`, `databaseName`, and `elasticPoolName`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -150,7 +150,7 @@ public final class JobTargetGroupJobTargetArgs extends com.pulumi.resources.Reso
         /**
          * @param databaseName The name of the MS SQL Database.
          * 
-         * &gt; **Note:** This cannot be set in combination with `elastic_pool_name`.
+         * &gt; **Note:** This cannot be set in combination with `elasticPoolName`.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class JobTargetGroupJobTargetArgs extends com.pulumi.resources.Reso
         /**
          * @param databaseName The name of the MS SQL Database.
          * 
-         * &gt; **Note:** This cannot be set in combination with `elastic_pool_name`.
+         * &gt; **Note:** This cannot be set in combination with `elasticPoolName`.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class JobTargetGroupJobTargetArgs extends com.pulumi.resources.Reso
         /**
          * @param elasticPoolName The name of the MS SQL Elastic Pool.
          * 
-         * &gt; **Note:** This cannot be set in combination with `database_name`.
+         * &gt; **Note:** This cannot be set in combination with `databaseName`.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class JobTargetGroupJobTargetArgs extends com.pulumi.resources.Reso
         /**
          * @param elasticPoolName The name of the MS SQL Elastic Pool.
          * 
-         * &gt; **Note:** This cannot be set in combination with `database_name`.
+         * &gt; **Note:** This cannot be set in combination with `databaseName`.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class JobTargetGroupJobTargetArgs extends com.pulumi.resources.Reso
         /**
          * @param jobCredentialId The ID of the job credential to use during execution of jobs.
          * 
-         * &gt; **Note:** This is required when `membership_type` is `Include`, unless `database_name` is set.
+         * &gt; **Note:** This is required when `membershipType` is `Include`, unless `databaseName` is set.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class JobTargetGroupJobTargetArgs extends com.pulumi.resources.Reso
         /**
          * @param jobCredentialId The ID of the job credential to use during execution of jobs.
          * 
-         * &gt; **Note:** This is required when `membership_type` is `Include`, unless `database_name` is set.
+         * &gt; **Note:** This is required when `membershipType` is `Include`, unless `databaseName` is set.
          * 
          * @return builder
          * 
@@ -265,7 +265,7 @@ public final class JobTargetGroupJobTargetArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param type The job target type. This value is computed based on `server_name`, `database_name`, and `elastic_pool_name`.
+         * @param type The job target type. This value is computed based on `serverName`, `databaseName`, and `elasticPoolName`.
          * 
          * @return builder
          * 
@@ -276,7 +276,7 @@ public final class JobTargetGroupJobTargetArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param type The job target type. This value is computed based on `server_name`, `database_name`, and `elastic_pool_name`.
+         * @param type The job target type. This value is computed based on `serverName`, `databaseName`, and `elasticPoolName`.
          * 
          * @return builder
          * 

@@ -54,7 +54,7 @@ public final class GetCacheResult {
     private String name;
     private Boolean nonSslPortEnabled;
     /**
-     * @return A list of `patch_schedule` blocks as defined below.
+     * @return A list of `patchSchedule` blocks as defined below.
      * 
      */
     private List<GetCachePatchSchedule> patchSchedules;
@@ -79,7 +79,7 @@ public final class GetCacheResult {
      */
     private String privateStaticIpAddress;
     /**
-     * @return A `redis_configuration` block as defined below.
+     * @return A `redisConfiguration` block as defined below.
      * 
      */
     private List<GetCacheRedisConfiguration> redisConfigurations;
@@ -170,7 +170,7 @@ public final class GetCacheResult {
         return this.nonSslPortEnabled;
     }
     /**
-     * @return A list of `patch_schedule` blocks as defined below.
+     * @return A list of `patchSchedule` blocks as defined below.
      * 
      */
     public List<GetCachePatchSchedule> patchSchedules() {
@@ -205,7 +205,7 @@ public final class GetCacheResult {
         return this.privateStaticIpAddress;
     }
     /**
-     * @return A `redis_configuration` block as defined below.
+     * @return A `redisConfiguration` block as defined below.
      * 
      */
     public List<GetCacheRedisConfiguration> redisConfigurations() {

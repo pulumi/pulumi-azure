@@ -103,13 +103,13 @@ namespace Pulumi.Azure.CosmosDB
         /// <summary>
         /// A list of Mongo Roles which are inherited to the Mongo Role Definition.
         /// 
-        /// &gt; **Note:** The role that needs to be inherited should exist in the Mongo DB of `cosmos_mongo_database_id`.
+        /// &gt; **Note:** The role that needs to be inherited should exist in the Mongo DB of `CosmosMongoDatabaseId`.
         /// </summary>
         [Output("inheritedRoleNames")]
         public Output<ImmutableArray<string>> InheritedRoleNames { get; private set; } = null!;
 
         /// <summary>
-        /// A `privilege` block as defined below.
+        /// A `Privilege` block as defined below.
         /// </summary>
         [Output("privileges")]
         public Output<ImmutableArray<Outputs.MongoRoleDefinitionPrivilege>> Privileges { get; private set; } = null!;
@@ -178,7 +178,7 @@ namespace Pulumi.Azure.CosmosDB
         /// <summary>
         /// A list of Mongo Roles which are inherited to the Mongo Role Definition.
         /// 
-        /// &gt; **Note:** The role that needs to be inherited should exist in the Mongo DB of `cosmos_mongo_database_id`.
+        /// &gt; **Note:** The role that needs to be inherited should exist in the Mongo DB of `CosmosMongoDatabaseId`.
         /// </summary>
         public InputList<string> InheritedRoleNames
         {
@@ -190,7 +190,7 @@ namespace Pulumi.Azure.CosmosDB
         private InputList<Inputs.MongoRoleDefinitionPrivilegeArgs>? _privileges;
 
         /// <summary>
-        /// A `privilege` block as defined below.
+        /// A `Privilege` block as defined below.
         /// </summary>
         public InputList<Inputs.MongoRoleDefinitionPrivilegeArgs> Privileges
         {
@@ -224,7 +224,7 @@ namespace Pulumi.Azure.CosmosDB
         /// <summary>
         /// A list of Mongo Roles which are inherited to the Mongo Role Definition.
         /// 
-        /// &gt; **Note:** The role that needs to be inherited should exist in the Mongo DB of `cosmos_mongo_database_id`.
+        /// &gt; **Note:** The role that needs to be inherited should exist in the Mongo DB of `CosmosMongoDatabaseId`.
         /// </summary>
         public InputList<string> InheritedRoleNames
         {
@@ -236,7 +236,7 @@ namespace Pulumi.Azure.CosmosDB
         private InputList<Inputs.MongoRoleDefinitionPrivilegeGetArgs>? _privileges;
 
         /// <summary>
-        /// A `privilege` block as defined below.
+        /// A `Privilege` block as defined below.
         /// </summary>
         public InputList<Inputs.MongoRoleDefinitionPrivilegeGetArgs> Privileges
         {

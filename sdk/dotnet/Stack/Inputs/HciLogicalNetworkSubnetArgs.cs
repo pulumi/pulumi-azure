@@ -28,9 +28,9 @@ namespace Pulumi.Azure.Stack.Inputs
         private InputList<Inputs.HciLogicalNetworkSubnetIpPoolArgs>? _ipPools;
 
         /// <summary>
-        /// One or more `ip_pool` block as defined above. Changing this forces a new resource to be created.
+        /// One or more `IpPool` block as defined above. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** If `ip_pool` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignore_changes`.
+        /// &gt; **Note:** If `IpPool` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `IgnoreChanges`.
         /// </summary>
         public InputList<Inputs.HciLogicalNetworkSubnetIpPoolArgs> IpPools
         {
@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Stack.Inputs
         private InputList<Inputs.HciLogicalNetworkSubnetRouteArgs>? _routes;
 
         /// <summary>
-        /// A `route` block as defined above. Changing this forces a new resource to be created.
+        /// A `Route` block as defined above. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.HciLogicalNetworkSubnetRouteArgs> Routes
         {

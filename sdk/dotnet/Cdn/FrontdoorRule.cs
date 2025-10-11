@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Cdn
     /// <summary>
     /// Manages a Front Door (standard/premium) Rule.
     /// 
-    /// !&gt; **Note:** The Rules resource **must** include a `depends_on` meta-argument which references the `azure.cdn.FrontdoorOrigin` and the `azure.cdn.FrontdoorOriginGroup`.
+    /// !&gt; **Note:** The Rules resource **must** include a `DependsOn` meta-argument which references the `azure.cdn.FrontdoorOrigin` and the `azure.cdn.FrontdoorOriginGroup`.
     /// 
     /// ## Example Usage
     /// 
@@ -212,7 +212,7 @@ namespace Pulumi.Azure.Cdn
     /// 
     /// ## Specifying IP Address Ranges
     /// 
-    /// When specifying IP address ranges in the `socket_address_condition` and the `remote_address_condition` `match_values` use the following format:
+    /// When specifying IP address ranges in the `SocketAddressCondition` and the `RemoteAddressCondition` `MatchValues` use the following format:
     /// 
     /// Use `CIDR` notation when specifying IP address blocks. This means that the syntax for an IP address block is the base IP address followed by a forward slash and the prefix size For example:
     /// 
@@ -234,19 +234,19 @@ namespace Pulumi.Azure.Cdn
     /// 
     /// | Variable name | Description |
     /// |---------------|-------------|
-    /// | `socket_ip`      | The IP address of the direct connection to Front Door Profiles edge. If the client used an HTTP proxy or a load balancer to send the request, the value of `socket_ip` is the IP address of the proxy or load balancer. |
-    /// | `client_ip`      | The IP address of the client that made the original request. If there was an `X-Forwarded-For` header in the request, then the client IP address is picked from the header. |
-    /// | `client_port`    | The IP port of the client that made the request. |
-    /// | `hostname`       | The host name in the request from the client. |
-    /// | `geo_country`    | Indicates the requester's country/region of origin through its country/region code. |
-    /// | `http_method`    | The method used to make the URL request, such as `GET` or `POST`. |
-    /// | `http_version`   | The request protocol. Usually `HTTP/1.0`, `HTTP/1.1`, or `HTTP/2.0`. |
-    /// | `query_string`   | The list of variable/value pairs that follows the "?" in the requested URL. For example, in the request `http://contoso.com:8080/article.aspx?id=123&amp;title=fabrikam`, the `query_string` value will be `id=123&amp;title=fabrikam`. |
-    /// | `request_scheme` | The request scheme: `http` or `https`. |
-    /// | `request_uri`    | The full original request URI (with arguments). For example, in the request `http://contoso.com:8080/article.aspx?id=123&amp;title=fabrikam`, the `request_uri` value will be `/article.aspx?id=123&amp;title=fabrikam`. |
-    /// | `ssl_protocol`   | The protocol of an established TLS connection. |
-    /// | `server_port`    | The port of the server that accepted a request. |
-    /// | `url_path`       | Identifies the specific resource in the host that the web client wants to access. This is the part of the request URI without the arguments. For example, in the request `http://contoso.com:8080/article.aspx?id=123&amp;title=fabrikam`, the `uri_path` value will be `/article.aspx`. |
+    /// | `SocketIp`      | The IP address of the direct connection to Front Door Profiles edge. If the client used an HTTP proxy or a load balancer to send the request, the value of `SocketIp` is the IP address of the proxy or load balancer. |
+    /// | `ClientIp`      | The IP address of the client that made the original request. If there was an `X-Forwarded-For` header in the request, then the client IP address is picked from the header. |
+    /// | `ClientPort`    | The IP port of the client that made the request. |
+    /// | `Hostname`       | The host name in the request from the client. |
+    /// | `GeoCountry`    | Indicates the requester's country/region of origin through its country/region code. |
+    /// | `HttpMethod`    | The method used to make the URL request, such as `GET` or `POST`. |
+    /// | `HttpVersion`   | The request protocol. Usually `HTTP/1.0`, `HTTP/1.1`, or `HTTP/2.0`. |
+    /// | `QueryString`   | The list of variable/value pairs that follows the "?" in the requested URL. For example, in the request `http://contoso.com:8080/article.aspx?id=123&amp;title=fabrikam`, the `QueryString` value will be `id=123&amp;title=fabrikam`. |
+    /// | `RequestScheme` | The request scheme: `Http` or `Https`. |
+    /// | `RequestUri`    | The full original request URI (with arguments). For example, in the request `http://contoso.com:8080/article.aspx?id=123&amp;title=fabrikam`, the `RequestUri` value will be `/article.aspx?id=123&amp;title=fabrikam`. |
+    /// | `SslProtocol`   | The protocol of an established TLS connection. |
+    /// | `ServerPort`    | The port of the server that accepted a request. |
+    /// | `UrlPath`       | Identifies the specific resource in the host that the web client wants to access. This is the part of the request URI without the arguments. For example, in the request `http://contoso.com:8080/article.aspx?id=123&amp;title=fabrikam`, the `UriPath` value will be `/article.aspx`. |
     /// 
     /// ### Action Server Variable Format
     /// 
@@ -262,11 +262,11 @@ namespace Pulumi.Azure.Cdn
     /// 
     /// Action Server variables are supported on the following actions:
     /// 
-    /// * `route_configuration_override_action`
-    /// * `request_header_action`
-    /// * `response_header_action`
-    /// * `url_redirect_action`
-    /// * `url_rewrite_action`
+    /// * `RouteConfigurationOverrideAction`
+    /// * `RequestHeaderAction`
+    /// * `ResponseHeaderAction`
+    /// * `UrlRedirectAction`
+    /// * `UrlRewriteAction`
     /// 
     /// ***
     /// 
@@ -356,7 +356,7 @@ namespace Pulumi.Azure.Cdn
     public partial class FrontdoorRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An `actions` block as defined below.
+        /// An `Actions` block as defined below.
         /// </summary>
         [Output("actions")]
         public Output<Outputs.FrontdoorRuleActions> Actions { get; private set; } = null!;
@@ -380,7 +380,7 @@ namespace Pulumi.Azure.Cdn
         public Output<string> CdnFrontdoorRuleSetName { get; private set; } = null!;
 
         /// <summary>
-        /// A `conditions` block as defined below.
+        /// A `Conditions` block as defined below.
         /// </summary>
         [Output("conditions")]
         public Output<Outputs.FrontdoorRuleConditions?> Conditions { get; private set; } = null!;
@@ -446,7 +446,7 @@ namespace Pulumi.Azure.Cdn
     public sealed class FrontdoorRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `actions` block as defined below.
+        /// An `Actions` block as defined below.
         /// </summary>
         [Input("actions", required: true)]
         public Input<Inputs.FrontdoorRuleActionsArgs> Actions { get; set; } = null!;
@@ -464,7 +464,7 @@ namespace Pulumi.Azure.Cdn
         public Input<string> CdnFrontdoorRuleSetId { get; set; } = null!;
 
         /// <summary>
-        /// A `conditions` block as defined below.
+        /// A `Conditions` block as defined below.
         /// </summary>
         [Input("conditions")]
         public Input<Inputs.FrontdoorRuleConditionsArgs>? Conditions { get; set; }
@@ -492,7 +492,7 @@ namespace Pulumi.Azure.Cdn
     public sealed class FrontdoorRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `actions` block as defined below.
+        /// An `Actions` block as defined below.
         /// </summary>
         [Input("actions")]
         public Input<Inputs.FrontdoorRuleActionsGetArgs>? Actions { get; set; }
@@ -516,7 +516,7 @@ namespace Pulumi.Azure.Cdn
         public Input<string>? CdnFrontdoorRuleSetName { get; set; }
 
         /// <summary>
-        /// A `conditions` block as defined below.
+        /// A `Conditions` block as defined below.
         /// </summary>
         [Input("conditions")]
         public Input<Inputs.FrontdoorRuleConditionsGetArgs>? Conditions { get; set; }

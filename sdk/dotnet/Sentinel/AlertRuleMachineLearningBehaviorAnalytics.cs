@@ -76,7 +76,7 @@ namespace Pulumi.Azure.Sentinel
         public Output<string> AlertRuleTemplateGuid { get; private set; } = null!;
 
         /// <summary>
-        /// Should this Sentinel Machine Learning Behavior Analytics Alert Rule be enabled? Defaults to `true`.
+        /// Should this Sentinel Machine Learning Behavior Analytics Alert Rule be enabled? Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -146,7 +146,7 @@ namespace Pulumi.Azure.Sentinel
         public Input<string> AlertRuleTemplateGuid { get; set; } = null!;
 
         /// <summary>
-        /// Should this Sentinel Machine Learning Behavior Analytics Alert Rule be enabled? Defaults to `true`.
+        /// Should this Sentinel Machine Learning Behavior Analytics Alert Rule be enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -178,7 +178,7 @@ namespace Pulumi.Azure.Sentinel
         public Input<string>? AlertRuleTemplateGuid { get; set; }
 
         /// <summary>
-        /// Should this Sentinel Machine Learning Behavior Analytics Alert Rule be enabled? Defaults to `true`.
+        /// Should this Sentinel Machine Learning Behavior Analytics Alert Rule be enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

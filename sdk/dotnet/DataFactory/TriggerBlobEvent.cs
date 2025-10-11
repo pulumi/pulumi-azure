@@ -103,7 +103,7 @@ namespace Pulumi.Azure.DataFactory
     public partial class TriggerBlobEvent : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies if the Data Factory Blob Event Trigger is activated. Defaults to `true`.
+        /// Specifies if the Data Factory Blob Event Trigger is activated. Defaults to `True`.
         /// </summary>
         [Output("activated")]
         public Output<bool?> Activated { get; private set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.Azure.DataFactory
         /// <summary>
         /// The pattern that blob path ends with for trigger to fire.
         /// 
-        /// &gt; **Note:** At least one of `blob_path_begins_with` and `blob_path_ends_with` must be set.
+        /// &gt; **Note:** At least one of `BlobPathBeginsWith` and `BlobPathEndsWith` must be set.
         /// </summary>
         [Output("blobPathEndsWith")]
         public Output<string?> BlobPathEndsWith { get; private set; } = null!;
@@ -165,7 +165,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `pipeline` blocks as defined below.
+        /// One or more `Pipeline` blocks as defined below.
         /// </summary>
         [Output("pipelines")]
         public Output<ImmutableArray<Outputs.TriggerBlobEventPipeline>> Pipelines { get; private set; } = null!;
@@ -223,7 +223,7 @@ namespace Pulumi.Azure.DataFactory
     public sealed class TriggerBlobEventArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies if the Data Factory Blob Event Trigger is activated. Defaults to `true`.
+        /// Specifies if the Data Factory Blob Event Trigger is activated. Defaults to `True`.
         /// </summary>
         [Input("activated")]
         public Input<bool>? Activated { get; set; }
@@ -261,7 +261,7 @@ namespace Pulumi.Azure.DataFactory
         /// <summary>
         /// The pattern that blob path ends with for trigger to fire.
         /// 
-        /// &gt; **Note:** At least one of `blob_path_begins_with` and `blob_path_ends_with` must be set.
+        /// &gt; **Note:** At least one of `BlobPathBeginsWith` and `BlobPathEndsWith` must be set.
         /// </summary>
         [Input("blobPathEndsWith")]
         public Input<string>? BlobPathEndsWith { get; set; }
@@ -306,7 +306,7 @@ namespace Pulumi.Azure.DataFactory
         private InputList<Inputs.TriggerBlobEventPipelineArgs>? _pipelines;
 
         /// <summary>
-        /// One or more `pipeline` blocks as defined below.
+        /// One or more `Pipeline` blocks as defined below.
         /// </summary>
         public InputList<Inputs.TriggerBlobEventPipelineArgs> Pipelines
         {
@@ -329,7 +329,7 @@ namespace Pulumi.Azure.DataFactory
     public sealed class TriggerBlobEventState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies if the Data Factory Blob Event Trigger is activated. Defaults to `true`.
+        /// Specifies if the Data Factory Blob Event Trigger is activated. Defaults to `True`.
         /// </summary>
         [Input("activated")]
         public Input<bool>? Activated { get; set; }
@@ -367,7 +367,7 @@ namespace Pulumi.Azure.DataFactory
         /// <summary>
         /// The pattern that blob path ends with for trigger to fire.
         /// 
-        /// &gt; **Note:** At least one of `blob_path_begins_with` and `blob_path_ends_with` must be set.
+        /// &gt; **Note:** At least one of `BlobPathBeginsWith` and `BlobPathEndsWith` must be set.
         /// </summary>
         [Input("blobPathEndsWith")]
         public Input<string>? BlobPathEndsWith { get; set; }
@@ -412,7 +412,7 @@ namespace Pulumi.Azure.DataFactory
         private InputList<Inputs.TriggerBlobEventPipelineGetArgs>? _pipelines;
 
         /// <summary>
-        /// One or more `pipeline` blocks as defined below.
+        /// One or more `Pipeline` blocks as defined below.
         /// </summary>
         public InputList<Inputs.TriggerBlobEventPipelineGetArgs> Pipelines
         {

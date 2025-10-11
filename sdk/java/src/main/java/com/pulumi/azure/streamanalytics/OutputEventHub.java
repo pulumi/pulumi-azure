@@ -227,28 +227,28 @@ public class OutputEventHub extends com.pulumi.resources.CustomResource {
         return this.servicebusNamespace;
     }
     /**
-     * The shared access policy key for the specified shared access policy. Required when `authentication_mode` is set to `ConnectionString`.
+     * The shared access policy key for the specified shared access policy. Required when `authenticationMode` is set to `ConnectionString`.
      * 
      */
     @Export(name="sharedAccessPolicyKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sharedAccessPolicyKey;
 
     /**
-     * @return The shared access policy key for the specified shared access policy. Required when `authentication_mode` is set to `ConnectionString`.
+     * @return The shared access policy key for the specified shared access policy. Required when `authenticationMode` is set to `ConnectionString`.
      * 
      */
     public Output<Optional<String>> sharedAccessPolicyKey() {
         return Codegen.optional(this.sharedAccessPolicyKey);
     }
     /**
-     * The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required when `authentication_mode` is set to `ConnectionString`.
+     * The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required when `authenticationMode` is set to `ConnectionString`.
      * 
      */
     @Export(name="sharedAccessPolicyName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sharedAccessPolicyName;
 
     /**
-     * @return The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required when `authentication_mode` is set to `ConnectionString`.
+     * @return The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required when `authenticationMode` is set to `ConnectionString`.
      * 
      */
     public Output<Optional<String>> sharedAccessPolicyName() {

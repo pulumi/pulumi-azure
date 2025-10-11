@@ -170,7 +170,7 @@ namespace Pulumi.Azure.Consumption
         /// </summary>
         public readonly double Amount;
         /// <summary>
-        /// A `filter` block as defined below.
+        /// A `Filter` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBudgetResourceGroupFilterResult> Filters;
         /// <summary>
@@ -182,7 +182,7 @@ namespace Pulumi.Azure.Consumption
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// A `notification` block as defined below.
+        /// A `Notification` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBudgetResourceGroupNotificationResult> Notifications;
         public readonly string ResourceGroupId;
@@ -191,7 +191,7 @@ namespace Pulumi.Azure.Consumption
         /// </summary>
         public readonly string TimeGrain;
         /// <summary>
-        /// A `time_period` block as defined below.
+        /// A `TimePeriod` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBudgetResourceGroupTimePeriodResult> TimePeriods;
 

@@ -14,12 +14,12 @@ import java.util.Objects;
 @CustomType
 public final class GetCatalogResult {
     /**
-     * @return A `catalog_adogit` block as defined below.
+     * @return A `catalogAdogit` block as defined below.
      * 
      */
     private List<GetCatalogCatalogAdogit> catalogAdogits;
     /**
-     * @return A `catalog_github` block as defined below.
+     * @return A `catalogGithub` block as defined below.
      * 
      */
     private List<GetCatalogCatalogGithub> catalogGithubs;
@@ -33,14 +33,14 @@ public final class GetCatalogResult {
 
     private GetCatalogResult() {}
     /**
-     * @return A `catalog_adogit` block as defined below.
+     * @return A `catalogAdogit` block as defined below.
      * 
      */
     public List<GetCatalogCatalogAdogit> catalogAdogits() {
         return this.catalogAdogits;
     }
     /**
-     * @return A `catalog_github` block as defined below.
+     * @return A `catalogGithub` block as defined below.
      * 
      */
     public List<GetCatalogCatalogGithub> catalogGithubs() {

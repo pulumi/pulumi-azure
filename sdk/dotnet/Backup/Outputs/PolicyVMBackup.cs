@@ -18,13 +18,13 @@ namespace Pulumi.Azure.Backup.Outputs
         /// </summary>
         public readonly string Frequency;
         /// <summary>
-        /// Duration of the backup window in hours. Possible values are between `4` and `24` This is used when `frequency` is `Hourly`.
+        /// Duration of the backup window in hours. Possible values are between `4` and `24` This is used when `Frequency` is `Hourly`.
         /// 
-        /// &gt; **Note:** `hour_duration` must be multiplier of `hour_interval`
+        /// &gt; **Note:** `HourDuration` must be multiplier of `HourInterval`
         /// </summary>
         public readonly int? HourDuration;
         /// <summary>
-        /// Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used when `frequency` is `Hourly`.
+        /// Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used when `Frequency` is `Hourly`.
         /// </summary>
         public readonly int? HourInterval;
         /// <summary>
@@ -32,7 +32,7 @@ namespace Pulumi.Azure.Backup.Outputs
         /// </summary>
         public readonly string Time;
         /// <summary>
-        /// The days of the week to perform backups on. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`. This is used when `frequency` is `Weekly`.
+        /// The days of the week to perform backups on. Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`. This is used when `Frequency` is `Weekly`.
         /// </summary>
         public readonly ImmutableArray<string> Weekdays;
 

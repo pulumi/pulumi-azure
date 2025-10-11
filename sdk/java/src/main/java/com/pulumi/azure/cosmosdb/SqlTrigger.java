@@ -16,6 +16,8 @@ import javax.annotation.Nullable;
 /**
  * Manages an SQL Trigger.
  * 
+ * ## Example Usage
+ * 
  * ## Import
  * 
  * SQL Triggers can be imported using the `resource id`, e.g.

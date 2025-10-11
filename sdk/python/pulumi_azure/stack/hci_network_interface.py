@@ -313,6 +313,15 @@ class HciNetworkInterface(pulumi.CustomResource):
         """
         Manages an Azure Stack HCI Network Interface.
 
+        ## Example Usage
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.AzureStackHCI` - 2024-01-01
+
         ## Import
 
         Azure Stack HCI Network Interfaces can be imported using the `resource id`, e.g.
@@ -342,6 +351,15 @@ class HciNetworkInterface(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Stack HCI Network Interface.
+
+        ## Example Usage
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.AzureStackHCI` - 2024-01-01
 
         ## Import
 

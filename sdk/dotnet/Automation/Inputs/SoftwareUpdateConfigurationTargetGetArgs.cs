@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Automation.Inputs
         private InputList<Inputs.SoftwareUpdateConfigurationTargetAzureQueryGetArgs>? _azureQueries;
 
         /// <summary>
-        /// One or more `azure_query` blocks as defined above.
+        /// One or more `AzureQuery` blocks as defined above.
         /// </summary>
         public InputList<Inputs.SoftwareUpdateConfigurationTargetAzureQueryGetArgs> AzureQueries
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Automation.Inputs
         private InputList<Inputs.SoftwareUpdateConfigurationTargetNonAzureQueryGetArgs>? _nonAzureQueries;
 
         /// <summary>
-        /// One or more `non_azure_query` blocks as defined above.
+        /// One or more `NonAzureQuery` blocks as defined above.
         /// </summary>
         public InputList<Inputs.SoftwareUpdateConfigurationTargetNonAzureQueryGetArgs> NonAzureQueries
         {

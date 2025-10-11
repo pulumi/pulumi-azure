@@ -16,7 +16,7 @@ import java.util.Objects;
 @CustomType
 public final class GetApplicationGatewayWafConfiguration {
     /**
-     * @return One or more `disabled_rule_group` blocks as defined below.
+     * @return One or more `disabledRuleGroup` blocks as defined below.
      * 
      */
     private List<GetApplicationGatewayWafConfigurationDisabledRuleGroup> disabledRuleGroups;
@@ -63,7 +63,7 @@ public final class GetApplicationGatewayWafConfiguration {
 
     private GetApplicationGatewayWafConfiguration() {}
     /**
-     * @return One or more `disabled_rule_group` blocks as defined below.
+     * @return One or more `disabledRuleGroup` blocks as defined below.
      * 
      */
     public List<GetApplicationGatewayWafConfigurationDisabledRuleGroup> disabledRuleGroups() {

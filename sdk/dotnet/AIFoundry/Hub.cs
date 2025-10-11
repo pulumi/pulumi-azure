@@ -131,7 +131,7 @@ namespace Pulumi.Azure.AIFoundry
         public Output<string> DiscoveryUrl { get; private set; } = null!;
 
         /// <summary>
-        /// An `encryption` block as defined below. Changing this forces a new AI Foundry Hub to be created.
+        /// An `Encryption` block as defined below. Changing this forces a new AI Foundry Hub to be created.
         /// </summary>
         [Output("encryption")]
         public Output<Outputs.HubEncryption?> Encryption { get; private set; } = null!;
@@ -143,15 +143,15 @@ namespace Pulumi.Azure.AIFoundry
         public Output<string?> FriendlyName { get; private set; } = null!;
 
         /// <summary>
-        /// Whether High Business Impact (HBI) should be enabled or not. Enabling this setting will reduce diagnostic data collected by the service. Changing this forces a new AI Foundry Hub to be created. Defaults to `false`.
+        /// Whether High Business Impact (HBI) should be enabled or not. Enabling this setting will reduce diagnostic data collected by the service. Changing this forces a new AI Foundry Hub to be created. Defaults to `False`.
         /// 
-        /// &gt; **Note:** `high_business_impact_enabled` will be enabled by default when creating an AI Foundry Hub with `encryption` enabled.
+        /// &gt; **Note:** `HighBusinessImpactEnabled` will be enabled by default when creating an AI Foundry Hub with `Encryption` enabled.
         /// </summary>
         [Output("highBusinessImpactEnabled")]
         public Output<bool> HighBusinessImpactEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A `identity` block as defined below.
+        /// A `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.HubIdentity> Identity { get; private set; } = null!;
@@ -169,7 +169,7 @@ namespace Pulumi.Azure.AIFoundry
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// A `managed_network` block as defined below.
+        /// A `ManagedNetwork` block as defined below.
         /// </summary>
         [Output("managedNetwork")]
         public Output<Outputs.HubManagedNetwork> ManagedNetwork { get; private set; } = null!;
@@ -281,7 +281,7 @@ namespace Pulumi.Azure.AIFoundry
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// An `encryption` block as defined below. Changing this forces a new AI Foundry Hub to be created.
+        /// An `Encryption` block as defined below. Changing this forces a new AI Foundry Hub to be created.
         /// </summary>
         [Input("encryption")]
         public Input<Inputs.HubEncryptionArgs>? Encryption { get; set; }
@@ -293,15 +293,15 @@ namespace Pulumi.Azure.AIFoundry
         public Input<string>? FriendlyName { get; set; }
 
         /// <summary>
-        /// Whether High Business Impact (HBI) should be enabled or not. Enabling this setting will reduce diagnostic data collected by the service. Changing this forces a new AI Foundry Hub to be created. Defaults to `false`.
+        /// Whether High Business Impact (HBI) should be enabled or not. Enabling this setting will reduce diagnostic data collected by the service. Changing this forces a new AI Foundry Hub to be created. Defaults to `False`.
         /// 
-        /// &gt; **Note:** `high_business_impact_enabled` will be enabled by default when creating an AI Foundry Hub with `encryption` enabled.
+        /// &gt; **Note:** `HighBusinessImpactEnabled` will be enabled by default when creating an AI Foundry Hub with `Encryption` enabled.
         /// </summary>
         [Input("highBusinessImpactEnabled")]
         public Input<bool>? HighBusinessImpactEnabled { get; set; }
 
         /// <summary>
-        /// A `identity` block as defined below.
+        /// A `Identity` block as defined below.
         /// </summary>
         [Input("identity", required: true)]
         public Input<Inputs.HubIdentityArgs> Identity { get; set; } = null!;
@@ -319,7 +319,7 @@ namespace Pulumi.Azure.AIFoundry
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A `managed_network` block as defined below.
+        /// A `ManagedNetwork` block as defined below.
         /// </summary>
         [Input("managedNetwork")]
         public Input<Inputs.HubManagedNetworkArgs>? ManagedNetwork { get; set; }
@@ -399,7 +399,7 @@ namespace Pulumi.Azure.AIFoundry
         public Input<string>? DiscoveryUrl { get; set; }
 
         /// <summary>
-        /// An `encryption` block as defined below. Changing this forces a new AI Foundry Hub to be created.
+        /// An `Encryption` block as defined below. Changing this forces a new AI Foundry Hub to be created.
         /// </summary>
         [Input("encryption")]
         public Input<Inputs.HubEncryptionGetArgs>? Encryption { get; set; }
@@ -411,15 +411,15 @@ namespace Pulumi.Azure.AIFoundry
         public Input<string>? FriendlyName { get; set; }
 
         /// <summary>
-        /// Whether High Business Impact (HBI) should be enabled or not. Enabling this setting will reduce diagnostic data collected by the service. Changing this forces a new AI Foundry Hub to be created. Defaults to `false`.
+        /// Whether High Business Impact (HBI) should be enabled or not. Enabling this setting will reduce diagnostic data collected by the service. Changing this forces a new AI Foundry Hub to be created. Defaults to `False`.
         /// 
-        /// &gt; **Note:** `high_business_impact_enabled` will be enabled by default when creating an AI Foundry Hub with `encryption` enabled.
+        /// &gt; **Note:** `HighBusinessImpactEnabled` will be enabled by default when creating an AI Foundry Hub with `Encryption` enabled.
         /// </summary>
         [Input("highBusinessImpactEnabled")]
         public Input<bool>? HighBusinessImpactEnabled { get; set; }
 
         /// <summary>
-        /// A `identity` block as defined below.
+        /// A `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.HubIdentityGetArgs>? Identity { get; set; }
@@ -437,7 +437,7 @@ namespace Pulumi.Azure.AIFoundry
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A `managed_network` block as defined below.
+        /// A `ManagedNetwork` block as defined below.
         /// </summary>
         [Input("managedNetwork")]
         public Input<Inputs.HubManagedNetworkGetArgs>? ManagedNetwork { get; set; }

@@ -165,14 +165,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:compute/virtualMachine:VirtualMachine")
 public class VirtualMachine extends com.pulumi.resources.CustomResource {
     /**
-     * An `additional_capabilities` block as defined below.
+     * An `additionalCapabilities` block as defined below.
      * 
      */
     @Export(name="additionalCapabilities", refs={VirtualMachineAdditionalCapabilities.class}, tree="[0]")
     private Output</* @Nullable */ VirtualMachineAdditionalCapabilities> additionalCapabilities;
 
     /**
-     * @return An `additional_capabilities` block as defined below.
+     * @return An `additionalCapabilities` block as defined below.
      * 
      */
     public Output<Optional<VirtualMachineAdditionalCapabilities>> additionalCapabilities() {
@@ -193,14 +193,14 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
         return this.availabilitySetId;
     }
     /**
-     * A `boot_diagnostics` block as defined below.
+     * A `bootDiagnostics` block as defined below.
      * 
      */
     @Export(name="bootDiagnostics", refs={VirtualMachineBootDiagnostics.class}, tree="[0]")
     private Output</* @Nullable */ VirtualMachineBootDiagnostics> bootDiagnostics;
 
     /**
-     * @return A `boot_diagnostics` block as defined below.
+     * @return A `bootDiagnostics` block as defined below.
      * 
      */
     public Output<Optional<VirtualMachineBootDiagnostics>> bootDiagnostics() {
@@ -313,56 +313,56 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
         return this.networkInterfaceIds;
     }
     /**
-     * An `os_profile` block as defined below. Required when `create_option` in the `storage_os_disk` block is set to `FromImage`.
+     * An `osProfile` block as defined below. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
      * 
      */
     @Export(name="osProfile", refs={VirtualMachineOsProfile.class}, tree="[0]")
     private Output</* @Nullable */ VirtualMachineOsProfile> osProfile;
 
     /**
-     * @return An `os_profile` block as defined below. Required when `create_option` in the `storage_os_disk` block is set to `FromImage`.
+     * @return An `osProfile` block as defined below. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
      * 
      */
     public Output<Optional<VirtualMachineOsProfile>> osProfile() {
         return Codegen.optional(this.osProfile);
     }
     /**
-     * (Required, when a Linux machine) An `os_profile_linux_config` block as defined below.
+     * (Required, when a Linux machine) An `osProfileLinuxConfig` block as defined below.
      * 
      */
     @Export(name="osProfileLinuxConfig", refs={VirtualMachineOsProfileLinuxConfig.class}, tree="[0]")
     private Output</* @Nullable */ VirtualMachineOsProfileLinuxConfig> osProfileLinuxConfig;
 
     /**
-     * @return (Required, when a Linux machine) An `os_profile_linux_config` block as defined below.
+     * @return (Required, when a Linux machine) An `osProfileLinuxConfig` block as defined below.
      * 
      */
     public Output<Optional<VirtualMachineOsProfileLinuxConfig>> osProfileLinuxConfig() {
         return Codegen.optional(this.osProfileLinuxConfig);
     }
     /**
-     * One or more `os_profile_secrets` blocks as defined below.
+     * One or more `osProfileSecrets` blocks as defined below.
      * 
      */
     @Export(name="osProfileSecrets", refs={List.class,VirtualMachineOsProfileSecret.class}, tree="[0,1]")
     private Output</* @Nullable */ List<VirtualMachineOsProfileSecret>> osProfileSecrets;
 
     /**
-     * @return One or more `os_profile_secrets` blocks as defined below.
+     * @return One or more `osProfileSecrets` blocks as defined below.
      * 
      */
     public Output<Optional<List<VirtualMachineOsProfileSecret>>> osProfileSecrets() {
         return Codegen.optional(this.osProfileSecrets);
     }
     /**
-     * (Required, when a Windows machine) An `os_profile_windows_config` block as defined below.
+     * (Required, when a Windows machine) An `osProfileWindowsConfig` block as defined below.
      * 
      */
     @Export(name="osProfileWindowsConfig", refs={VirtualMachineOsProfileWindowsConfig.class}, tree="[0]")
     private Output</* @Nullable */ VirtualMachineOsProfileWindowsConfig> osProfileWindowsConfig;
 
     /**
-     * @return (Required, when a Windows machine) An `os_profile_windows_config` block as defined below.
+     * @return (Required, when a Windows machine) An `osProfileWindowsConfig` block as defined below.
      * 
      */
     public Output<Optional<VirtualMachineOsProfileWindowsConfig>> osProfileWindowsConfig() {
@@ -425,7 +425,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * One or more `storage_data_disk` blocks as defined below.
+     * One or more `storageDataDisk` blocks as defined below.
      * 
      * &gt; **Please Note:** Data Disks can also be attached either using this block or the `azure.compute.DataDiskAttachment` resource - but not both.
      * 
@@ -434,7 +434,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
     private Output<List<VirtualMachineStorageDataDisk>> storageDataDisks;
 
     /**
-     * @return One or more `storage_data_disk` blocks as defined below.
+     * @return One or more `storageDataDisk` blocks as defined below.
      * 
      * &gt; **Please Note:** Data Disks can also be attached either using this block or the `azure.compute.DataDiskAttachment` resource - but not both.
      * 
@@ -443,28 +443,28 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
         return this.storageDataDisks;
     }
     /**
-     * A `storage_image_reference` block as defined below. Changing this forces a new resource to be created.
+     * A `storageImageReference` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="storageImageReference", refs={VirtualMachineStorageImageReference.class}, tree="[0]")
     private Output<VirtualMachineStorageImageReference> storageImageReference;
 
     /**
-     * @return A `storage_image_reference` block as defined below. Changing this forces a new resource to be created.
+     * @return A `storageImageReference` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<VirtualMachineStorageImageReference> storageImageReference() {
         return this.storageImageReference;
     }
     /**
-     * A `storage_os_disk` block as defined below.
+     * A `storageOsDisk` block as defined below.
      * 
      */
     @Export(name="storageOsDisk", refs={VirtualMachineStorageOsDisk.class}, tree="[0]")
     private Output<VirtualMachineStorageOsDisk> storageOsDisk;
 
     /**
-     * @return A `storage_os_disk` block as defined below.
+     * @return A `storageOsDisk` block as defined below.
      * 
      */
     public Output<VirtualMachineStorageOsDisk> storageOsDisk() {

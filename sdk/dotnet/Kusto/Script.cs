@@ -153,7 +153,7 @@ namespace Pulumi.Azure.Kusto
         public Output<string?> SasToken { get; private set; } = null!;
 
         /// <summary>
-        /// The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties. Changing this forces a new resource to be created.
+        /// The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `Url` and `SasToken` properties. Changing this forces a new resource to be created.
         /// </summary>
         [Output("scriptContent")]
         public Output<string?> ScriptContent { get; private set; } = null!;
@@ -259,7 +259,7 @@ namespace Pulumi.Azure.Kusto
         private Input<string>? _scriptContent;
 
         /// <summary>
-        /// The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties. Changing this forces a new resource to be created.
+        /// The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `Url` and `SasToken` properties. Changing this forces a new resource to be created.
         /// </summary>
         public Input<string>? ScriptContent
         {
@@ -329,7 +329,7 @@ namespace Pulumi.Azure.Kusto
         private Input<string>? _scriptContent;
 
         /// <summary>
-        /// The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties. Changing this forces a new resource to be created.
+        /// The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `Url` and `SasToken` properties. Changing this forces a new resource to be created.
         /// </summary>
         public Input<string>? ScriptContent
         {

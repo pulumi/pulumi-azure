@@ -129,14 +129,14 @@ public final class LinkedServiceDataLakeStorageGen2Args extends com.pulumi.resou
     }
 
     /**
-     * The service principal id with which to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `storage_account_key` and `use_managed_identity`.
+     * The service principal id with which to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `storageAccountKey` and `useManagedIdentity`.
      * 
      */
     @Import(name="servicePrincipalId")
     private @Nullable Output<String> servicePrincipalId;
 
     /**
-     * @return The service principal id with which to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `storage_account_key` and `use_managed_identity`.
+     * @return The service principal id with which to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `storageAccountKey` and `useManagedIdentity`.
      * 
      */
     public Optional<Output<String>> servicePrincipalId() {
@@ -159,14 +159,14 @@ public final class LinkedServiceDataLakeStorageGen2Args extends com.pulumi.resou
     }
 
     /**
-     * The Storage Account Key with which to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `service_principal_id`, `service_principal_key`, `tenant` and `use_managed_identity`.
+     * The Storage Account Key with which to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `servicePrincipalId`, `servicePrincipalKey`, `tenant` and `useManagedIdentity`.
      * 
      */
     @Import(name="storageAccountKey")
     private @Nullable Output<String> storageAccountKey;
 
     /**
-     * @return The Storage Account Key with which to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `service_principal_id`, `service_principal_key`, `tenant` and `use_managed_identity`.
+     * @return The Storage Account Key with which to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `servicePrincipalId`, `servicePrincipalKey`, `tenant` and `useManagedIdentity`.
      * 
      */
     public Optional<Output<String>> storageAccountKey() {
@@ -176,7 +176,7 @@ public final class LinkedServiceDataLakeStorageGen2Args extends com.pulumi.resou
     /**
      * The tenant id or name in which the service principal exists to authenticate against the Azure Data Lake Storage Gen2 account.
      * 
-     * &gt; **Note:** If `service_principal_id` is used, `service_principal_key` and `tenant` are also required.
+     * &gt; **Note:** If `servicePrincipalId` is used, `servicePrincipalKey` and `tenant` are also required.
      * 
      */
     @Import(name="tenant")
@@ -185,7 +185,7 @@ public final class LinkedServiceDataLakeStorageGen2Args extends com.pulumi.resou
     /**
      * @return The tenant id or name in which the service principal exists to authenticate against the Azure Data Lake Storage Gen2 account.
      * 
-     * &gt; **Note:** If `service_principal_id` is used, `service_principal_key` and `tenant` are also required.
+     * &gt; **Note:** If `servicePrincipalId` is used, `servicePrincipalKey` and `tenant` are also required.
      * 
      */
     public Optional<Output<String>> tenant() {
@@ -212,14 +212,14 @@ public final class LinkedServiceDataLakeStorageGen2Args extends com.pulumi.resou
     }
 
     /**
-     * Whether to use the Data Factory&#39;s managed identity to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `service_principal_id`, `service_principal_key`, `tenant` and `storage_account_key`.
+     * Whether to use the Data Factory&#39;s managed identity to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `servicePrincipalId`, `servicePrincipalKey`, `tenant` and `storageAccountKey`.
      * 
      */
     @Import(name="useManagedIdentity")
     private @Nullable Output<Boolean> useManagedIdentity;
 
     /**
-     * @return Whether to use the Data Factory&#39;s managed identity to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `service_principal_id`, `service_principal_key`, `tenant` and `storage_account_key`.
+     * @return Whether to use the Data Factory&#39;s managed identity to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `servicePrincipalId`, `servicePrincipalKey`, `tenant` and `storageAccountKey`.
      * 
      */
     public Optional<Output<Boolean>> useManagedIdentity() {
@@ -424,7 +424,7 @@ public final class LinkedServiceDataLakeStorageGen2Args extends com.pulumi.resou
         }
 
         /**
-         * @param servicePrincipalId The service principal id with which to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `storage_account_key` and `use_managed_identity`.
+         * @param servicePrincipalId The service principal id with which to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `storageAccountKey` and `useManagedIdentity`.
          * 
          * @return builder
          * 
@@ -435,7 +435,7 @@ public final class LinkedServiceDataLakeStorageGen2Args extends com.pulumi.resou
         }
 
         /**
-         * @param servicePrincipalId The service principal id with which to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `storage_account_key` and `use_managed_identity`.
+         * @param servicePrincipalId The service principal id with which to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `storageAccountKey` and `useManagedIdentity`.
          * 
          * @return builder
          * 
@@ -466,7 +466,7 @@ public final class LinkedServiceDataLakeStorageGen2Args extends com.pulumi.resou
         }
 
         /**
-         * @param storageAccountKey The Storage Account Key with which to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `service_principal_id`, `service_principal_key`, `tenant` and `use_managed_identity`.
+         * @param storageAccountKey The Storage Account Key with which to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `servicePrincipalId`, `servicePrincipalKey`, `tenant` and `useManagedIdentity`.
          * 
          * @return builder
          * 
@@ -477,7 +477,7 @@ public final class LinkedServiceDataLakeStorageGen2Args extends com.pulumi.resou
         }
 
         /**
-         * @param storageAccountKey The Storage Account Key with which to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `service_principal_id`, `service_principal_key`, `tenant` and `use_managed_identity`.
+         * @param storageAccountKey The Storage Account Key with which to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `servicePrincipalId`, `servicePrincipalKey`, `tenant` and `useManagedIdentity`.
          * 
          * @return builder
          * 
@@ -489,7 +489,7 @@ public final class LinkedServiceDataLakeStorageGen2Args extends com.pulumi.resou
         /**
          * @param tenant The tenant id or name in which the service principal exists to authenticate against the Azure Data Lake Storage Gen2 account.
          * 
-         * &gt; **Note:** If `service_principal_id` is used, `service_principal_key` and `tenant` are also required.
+         * &gt; **Note:** If `servicePrincipalId` is used, `servicePrincipalKey` and `tenant` are also required.
          * 
          * @return builder
          * 
@@ -502,7 +502,7 @@ public final class LinkedServiceDataLakeStorageGen2Args extends com.pulumi.resou
         /**
          * @param tenant The tenant id or name in which the service principal exists to authenticate against the Azure Data Lake Storage Gen2 account.
          * 
-         * &gt; **Note:** If `service_principal_id` is used, `service_principal_key` and `tenant` are also required.
+         * &gt; **Note:** If `servicePrincipalId` is used, `servicePrincipalKey` and `tenant` are also required.
          * 
          * @return builder
          * 
@@ -537,7 +537,7 @@ public final class LinkedServiceDataLakeStorageGen2Args extends com.pulumi.resou
         }
 
         /**
-         * @param useManagedIdentity Whether to use the Data Factory&#39;s managed identity to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `service_principal_id`, `service_principal_key`, `tenant` and `storage_account_key`.
+         * @param useManagedIdentity Whether to use the Data Factory&#39;s managed identity to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `servicePrincipalId`, `servicePrincipalKey`, `tenant` and `storageAccountKey`.
          * 
          * @return builder
          * 
@@ -548,7 +548,7 @@ public final class LinkedServiceDataLakeStorageGen2Args extends com.pulumi.resou
         }
 
         /**
-         * @param useManagedIdentity Whether to use the Data Factory&#39;s managed identity to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `service_principal_id`, `service_principal_key`, `tenant` and `storage_account_key`.
+         * @param useManagedIdentity Whether to use the Data Factory&#39;s managed identity to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `servicePrincipalId`, `servicePrincipalKey`, `tenant` and `storageAccountKey`.
          * 
          * @return builder
          * 

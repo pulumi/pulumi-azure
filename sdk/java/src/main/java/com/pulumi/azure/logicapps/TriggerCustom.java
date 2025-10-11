@@ -100,14 +100,14 @@ public class TriggerCustom extends com.pulumi.resources.CustomResource {
         return this.body;
     }
     /**
-     * The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group and security_center_automation.
+     * The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitorActionGroup and security_center_automation.
      * 
      */
     @Export(name="callbackUrl", refs={String.class}, tree="[0]")
     private Output<String> callbackUrl;
 
     /**
-     * @return The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group and security_center_automation.
+     * @return The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitorActionGroup and security_center_automation.
      * 
      */
     public Output<String> callbackUrl() {

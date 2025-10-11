@@ -51,7 +51,7 @@ namespace Pulumi.Azure.AppPlatform.Inputs
         }
 
         /// <summary>
-        /// Indicates whether the Config Server instance will fail to start if the host_key does not match. Defaults to `true`.
+        /// Indicates whether the Config Server instance will fail to start if the HostKey does not match. Defaults to `True`.
         /// </summary>
         [Input("strictHostKeyCheckingEnabled")]
         public Input<bool>? StrictHostKeyCheckingEnabled { get; set; }

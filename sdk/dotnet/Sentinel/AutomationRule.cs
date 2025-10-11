@@ -79,21 +79,21 @@ namespace Pulumi.Azure.Sentinel
     public partial class AutomationRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// One or more `action_incident_task` blocks as defined below.
+        /// One or more `ActionIncidentTask` blocks as defined below.
         /// </summary>
         [Output("actionIncidentTasks")]
         public Output<ImmutableArray<Outputs.AutomationRuleActionIncidentTask>> ActionIncidentTasks { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `action_incident` blocks as defined below.
+        /// One or more `ActionIncident` blocks as defined below.
         /// </summary>
         [Output("actionIncidents")]
         public Output<ImmutableArray<Outputs.AutomationRuleActionIncident>> ActionIncidents { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `action_playbook` blocks as defined below.
+        /// One or more `ActionPlaybook` blocks as defined below.
         /// 
-        /// &gt; **Note:** Either one `action_incident` block or `action_playbook` block has to be specified.
+        /// &gt; **Note:** Either one `ActionIncident` block or `ActionPlaybook` block has to be specified.
         /// </summary>
         [Output("actionPlaybooks")]
         public Output<ImmutableArray<Outputs.AutomationRuleActionPlaybook>> ActionPlaybooks { get; private set; } = null!;
@@ -111,7 +111,7 @@ namespace Pulumi.Azure.Sentinel
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// Whether this Sentinel Automation Rule is enabled? Defaults to `true`.
+        /// Whether this Sentinel Automation Rule is enabled? Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -206,7 +206,7 @@ namespace Pulumi.Azure.Sentinel
         private InputList<Inputs.AutomationRuleActionIncidentTaskArgs>? _actionIncidentTasks;
 
         /// <summary>
-        /// One or more `action_incident_task` blocks as defined below.
+        /// One or more `ActionIncidentTask` blocks as defined below.
         /// </summary>
         public InputList<Inputs.AutomationRuleActionIncidentTaskArgs> ActionIncidentTasks
         {
@@ -218,7 +218,7 @@ namespace Pulumi.Azure.Sentinel
         private InputList<Inputs.AutomationRuleActionIncidentArgs>? _actionIncidents;
 
         /// <summary>
-        /// One or more `action_incident` blocks as defined below.
+        /// One or more `ActionIncident` blocks as defined below.
         /// </summary>
         public InputList<Inputs.AutomationRuleActionIncidentArgs> ActionIncidents
         {
@@ -230,9 +230,9 @@ namespace Pulumi.Azure.Sentinel
         private InputList<Inputs.AutomationRuleActionPlaybookArgs>? _actionPlaybooks;
 
         /// <summary>
-        /// One or more `action_playbook` blocks as defined below.
+        /// One or more `ActionPlaybook` blocks as defined below.
         /// 
-        /// &gt; **Note:** Either one `action_incident` block or `action_playbook` block has to be specified.
+        /// &gt; **Note:** Either one `ActionIncident` block or `ActionPlaybook` block has to be specified.
         /// </summary>
         public InputList<Inputs.AutomationRuleActionPlaybookArgs> ActionPlaybooks
         {
@@ -253,7 +253,7 @@ namespace Pulumi.Azure.Sentinel
         public Input<string> DisplayName { get; set; } = null!;
 
         /// <summary>
-        /// Whether this Sentinel Automation Rule is enabled? Defaults to `true`.
+        /// Whether this Sentinel Automation Rule is enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -306,7 +306,7 @@ namespace Pulumi.Azure.Sentinel
         private InputList<Inputs.AutomationRuleActionIncidentTaskGetArgs>? _actionIncidentTasks;
 
         /// <summary>
-        /// One or more `action_incident_task` blocks as defined below.
+        /// One or more `ActionIncidentTask` blocks as defined below.
         /// </summary>
         public InputList<Inputs.AutomationRuleActionIncidentTaskGetArgs> ActionIncidentTasks
         {
@@ -318,7 +318,7 @@ namespace Pulumi.Azure.Sentinel
         private InputList<Inputs.AutomationRuleActionIncidentGetArgs>? _actionIncidents;
 
         /// <summary>
-        /// One or more `action_incident` blocks as defined below.
+        /// One or more `ActionIncident` blocks as defined below.
         /// </summary>
         public InputList<Inputs.AutomationRuleActionIncidentGetArgs> ActionIncidents
         {
@@ -330,9 +330,9 @@ namespace Pulumi.Azure.Sentinel
         private InputList<Inputs.AutomationRuleActionPlaybookGetArgs>? _actionPlaybooks;
 
         /// <summary>
-        /// One or more `action_playbook` blocks as defined below.
+        /// One or more `ActionPlaybook` blocks as defined below.
         /// 
-        /// &gt; **Note:** Either one `action_incident` block or `action_playbook` block has to be specified.
+        /// &gt; **Note:** Either one `ActionIncident` block or `ActionPlaybook` block has to be specified.
         /// </summary>
         public InputList<Inputs.AutomationRuleActionPlaybookGetArgs> ActionPlaybooks
         {
@@ -353,7 +353,7 @@ namespace Pulumi.Azure.Sentinel
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// Whether this Sentinel Automation Rule is enabled? Defaults to `true`.
+        /// Whether this Sentinel Automation Rule is enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

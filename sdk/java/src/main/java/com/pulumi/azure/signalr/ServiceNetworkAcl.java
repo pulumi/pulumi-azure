@@ -20,6 +20,15 @@ import javax.annotation.Nullable;
 /**
  * Manages the Network ACL for a SignalR service.
  * 
+ * ## Example Usage
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.SignalRService` - 2024-03-01
+ * 
  * ## Import
  * 
  * Network ACLs for a SignalR service can be imported using the `resource id`, e.g.
@@ -46,28 +55,28 @@ public class ServiceNetworkAcl extends com.pulumi.resources.CustomResource {
         return this.defaultAction;
     }
     /**
-     * A `private_endpoint` block as defined below.
+     * A `privateEndpoint` block as defined below.
      * 
      */
     @Export(name="privateEndpoints", refs={List.class,ServiceNetworkAclPrivateEndpoint.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ServiceNetworkAclPrivateEndpoint>> privateEndpoints;
 
     /**
-     * @return A `private_endpoint` block as defined below.
+     * @return A `privateEndpoint` block as defined below.
      * 
      */
     public Output<Optional<List<ServiceNetworkAclPrivateEndpoint>>> privateEndpoints() {
         return Codegen.optional(this.privateEndpoints);
     }
     /**
-     * A `public_network` block as defined below.
+     * A `publicNetwork` block as defined below.
      * 
      */
     @Export(name="publicNetwork", refs={ServiceNetworkAclPublicNetwork.class}, tree="[0]")
     private Output<ServiceNetworkAclPublicNetwork> publicNetwork;
 
     /**
-     * @return A `public_network` block as defined below.
+     * @return A `publicNetwork` block as defined below.
      * 
      */
     public Output<ServiceNetworkAclPublicNetwork> publicNetwork() {

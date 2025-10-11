@@ -166,19 +166,19 @@ namespace Pulumi.Azure.AppService
     public sealed class GetLinuxWebAppResult
     {
         /// <summary>
-        /// An `app_metadata` block as defined below.
+        /// An `AppMetadata` block as defined below.
         /// </summary>
         public readonly ImmutableDictionary<string, string> AppMetadata;
         /// <summary>
-        /// An `app_settings` block as defined below.
+        /// An `AppSettings` block as defined below.
         /// </summary>
         public readonly ImmutableDictionary<string, string> AppSettings;
         /// <summary>
-        /// An `auth_settings` block as defined below.
+        /// An `AuthSettings` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxWebAppAuthSettingResult> AuthSettings;
         /// <summary>
-        /// An `auth_settings_v2` block as defined below.
+        /// An `AuthSettingsV2` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxWebAppAuthSettingsV2Result> AuthSettingsV2s;
         /// <summary>
@@ -186,7 +186,7 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly string Availability;
         /// <summary>
-        /// A `backup` block as defined below.
+        /// A `Backup` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxWebAppBackupResult> Backups;
         /// <summary>
@@ -206,7 +206,7 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly string ClientCertificateMode;
         /// <summary>
-        /// A `connection_string` block as defined below.
+        /// A `ConnectionString` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxWebAppConnectionStringResult> ConnectionStrings;
         /// <summary>
@@ -238,7 +238,7 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A `identity` block as defined below.
+        /// A `Identity` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxWebAppIdentityResult> Identities;
         public readonly string KeyVaultReferenceIdentityId;
@@ -251,7 +251,7 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// A `logs` block as defined below.
+        /// A `Logs` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxWebAppLogResult> Logs;
         /// <summary>
@@ -259,7 +259,7 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// A `outbound_ip_address_list` block as defined below.
+        /// A `OutboundIpAddressList` block as defined below.
         /// </summary>
         public readonly ImmutableArray<string> OutboundIpAddressLists;
         /// <summary>
@@ -267,11 +267,11 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly string OutboundIpAddresses;
         /// <summary>
-        /// A `possible_outbound_ip_address_list` block as defined below.
+        /// A `PossibleOutboundIpAddressList` block as defined below.
         /// </summary>
         public readonly ImmutableArray<string> PossibleOutboundIpAddressLists;
         /// <summary>
-        /// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+        /// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `OutboundIpAddresses`.
         /// </summary>
         public readonly string PossibleOutboundIpAddresses;
         /// <summary>
@@ -284,19 +284,19 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly string ServicePlanId;
         /// <summary>
-        /// A `site_config` block as defined below.
+        /// A `SiteConfig` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxWebAppSiteConfigResult> SiteConfigs;
         /// <summary>
-        /// A `site_credential` block as defined below.
+        /// A `SiteCredential` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxWebAppSiteCredentialResult> SiteCredentials;
         /// <summary>
-        /// A `sticky_settings` block as defined below.
+        /// A `StickySettings` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxWebAppStickySettingResult> StickySettings;
         /// <summary>
-        /// A `storage_account` block as defined below.
+        /// A `StorageAccount` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxWebAppStorageAccountResult> StorageAccounts;
         /// <summary>

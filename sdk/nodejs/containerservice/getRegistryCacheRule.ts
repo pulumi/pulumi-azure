@@ -6,6 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Container Registry Cache Rule.
+ *
+ * ## Example Usage
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.ContainerRegistry` - 2023-07-01
  */
 export function getRegistryCacheRule(args: GetRegistryCacheRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryCacheRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -54,6 +63,15 @@ export interface GetRegistryCacheRuleResult {
 }
 /**
  * Use this data source to access information about an existing Container Registry Cache Rule.
+ *
+ * ## Example Usage
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.ContainerRegistry` - 2023-07-01
  */
 export function getRegistryCacheRuleOutput(args: GetRegistryCacheRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRegistryCacheRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

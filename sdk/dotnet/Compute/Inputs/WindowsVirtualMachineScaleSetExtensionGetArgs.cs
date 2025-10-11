@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Compute.Inputs
     public sealed class WindowsVirtualMachineScaleSetExtensionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
+        /// Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `True`.
         /// </summary>
         [Input("autoUpgradeMinorVersion")]
         public Input<bool>? AutoUpgradeMinorVersion { get; set; }
@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Compute.Inputs
         /// <summary>
         /// A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
         /// 
-        /// &gt; **Note:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
+        /// &gt; **Note:** Keys within the `ProtectedSettings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
         /// </summary>
         public Input<string>? ProtectedSettings
         {
@@ -55,9 +55,9 @@ namespace Pulumi.Azure.Compute.Inputs
         }
 
         /// <summary>
-        /// A `protected_settings_from_key_vault` block as defined below.
+        /// A `ProtectedSettingsFromKeyVault` block as defined below.
         /// 
-        /// &gt; **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
+        /// &gt; **Note:** `ProtectedSettingsFromKeyVault` cannot be used with `ProtectedSettings`
         /// </summary>
         [Input("protectedSettingsFromKeyVault")]
         public Input<Inputs.WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultGetArgs>? ProtectedSettingsFromKeyVault { get; set; }
@@ -83,7 +83,7 @@ namespace Pulumi.Azure.Compute.Inputs
         /// <summary>
         /// A JSON String which specifies Settings for the Extension.
         /// 
-        /// &gt; **Note:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
+        /// &gt; **Note:** Keys within the `Settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
         /// </summary>
         [Input("settings")]
         public Input<string>? Settings { get; set; }

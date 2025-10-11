@@ -14,19 +14,19 @@ namespace Pulumi.Azure.WorkloadsSAP.Outputs
     public sealed class ThreeTierVirtualInstanceThreeTierConfigurationResourceNames
     {
         /// <summary>
-        /// An `application_server` block as defined below. Changing this forces a new resource to be created.
+        /// An `ApplicationServer` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public readonly Outputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServer? ApplicationServer;
         /// <summary>
-        /// A `central_server` block as defined below. Changing this forces a new resource to be created.
+        /// A `CentralServer` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public readonly Outputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServer? CentralServer;
         /// <summary>
-        /// A `database_server` block as defined below. Changing this forces a new resource to be created.
+        /// A `DatabaseServer` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public readonly Outputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServer? DatabaseServer;
         /// <summary>
-        /// A `shared_storage` block as defined below. Changing this forces a new resource to be created.
+        /// A `SharedStorage` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public readonly Outputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesSharedStorage? SharedStorage;
 

@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Waf.Inputs
         public Input<string>? Action { get; set; }
 
         /// <summary>
-        /// Describes if the managed rule is in enabled state or disabled state. Defaults to `false`.
+        /// Describes if the managed rule is in enabled state or disabled state. Defaults to `False`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

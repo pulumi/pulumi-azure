@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         public Input<string>? CdnFrontdoorOriginGroupId { get; set; }
 
         /// <summary>
-        /// Should the Front Door dynamically compress the content? Possible values include `true` or `false`.
+        /// Should the Front Door dynamically compress the content? Possible values include `True` or `False`.
         /// 
         /// &gt; **Note:** Content won't be compressed on AzureFrontDoor when requested content is smaller than `1 byte` or larger than `1 MB`.
         /// </summary>
@@ -41,13 +41,13 @@ namespace Pulumi.Azure.Cdn.Inputs
         /// <summary>
         /// The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`.
         /// 
-        /// &gt; **Note:** If the `cdn_frontdoor_origin_group_id` is not defined you cannot set the `forwarding_protocol`.
+        /// &gt; **Note:** If the `CdnFrontdoorOriginGroupId` is not defined you cannot set the `ForwardingProtocol`.
         /// </summary>
         [Input("forwardingProtocol")]
         public Input<string>? ForwardingProtocol { get; set; }
 
         /// <summary>
-        /// `IncludeSpecifiedQueryStrings` query strings specified in the `query_string_parameters` field get included when the cache key gets generated. `UseQueryString` cache every unique URL, each unique URL will have its own cache key. `IgnoreSpecifiedQueryStrings` query strings specified in the `query_string_parameters` field get excluded when the cache key gets generated. `IgnoreQueryString` query strings aren't considered when the cache key gets generated. Possible values include `IgnoreQueryString`, `UseQueryString`, `IgnoreSpecifiedQueryStrings` or `IncludeSpecifiedQueryStrings`.
+        /// `IncludeSpecifiedQueryStrings` query strings specified in the `QueryStringParameters` field get included when the cache key gets generated. `UseQueryString` cache every unique URL, each unique URL will have its own cache key. `IgnoreSpecifiedQueryStrings` query strings specified in the `QueryStringParameters` field get excluded when the cache key gets generated. `IgnoreQueryString` query strings aren't considered when the cache key gets generated. Possible values include `IgnoreQueryString`, `UseQueryString`, `IgnoreSpecifiedQueryStrings` or `IncludeSpecifiedQueryStrings`.
         /// </summary>
         [Input("queryStringCachingBehavior")]
         public Input<string>? QueryStringCachingBehavior { get; set; }
@@ -58,7 +58,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         /// <summary>
         /// A list of query string parameter names.
         /// 
-        /// &gt; **Note:** `query_string_parameters` is a required field when the `query_string_caching_behavior` is set to `IncludeSpecifiedQueryStrings` or `IgnoreSpecifiedQueryStrings`.
+        /// &gt; **Note:** `QueryStringParameters` is a required field when the `QueryStringCachingBehavior` is set to `IncludeSpecifiedQueryStrings` or `IgnoreSpecifiedQueryStrings`.
         /// </summary>
         public InputList<string> QueryStringParameters
         {

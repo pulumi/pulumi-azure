@@ -19,7 +19,7 @@ namespace Pulumi.Azure.NetApp.Outputs
         public readonly string CapacityPoolId;
         public readonly ImmutableArray<Outputs.GetVolumeGroupOracleVolumeDataProtectionReplicationResult> DataProtectionReplications;
         /// <summary>
-        /// A `data_protection_snapshot_policy` block as defined below.
+        /// A `DataProtectionSnapshotPolicy` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVolumeGroupOracleVolumeDataProtectionSnapshotPolicyResult> DataProtectionSnapshotPolicies;
         /// <summary>
@@ -27,7 +27,7 @@ namespace Pulumi.Azure.NetApp.Outputs
         /// </summary>
         public readonly string EncryptionKeySource;
         /// <summary>
-        /// A `export_policy_rule` block as defined below.
+        /// A `ExportPolicyRule` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVolumeGroupOracleVolumeExportPolicyRuleResult> ExportPolicyRules;
         /// <summary>
@@ -39,7 +39,7 @@ namespace Pulumi.Azure.NetApp.Outputs
         /// </summary>
         public readonly string KeyVaultPrivateEndpointId;
         /// <summary>
-        /// A `mount_ip_addresses` block as defined below.
+        /// A `MountIpAddresses` block as defined below.
         /// </summary>
         public readonly ImmutableArray<string> MountIpAddresses;
         /// <summary>
@@ -51,7 +51,7 @@ namespace Pulumi.Azure.NetApp.Outputs
         /// </summary>
         public readonly string NetworkFeatures;
         /// <summary>
-        /// A `protocols` block as defined below.
+        /// A `Protocols` block as defined below.
         /// </summary>
         public readonly ImmutableArray<string> Protocols;
         /// <summary>

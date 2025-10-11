@@ -18,15 +18,15 @@ namespace Pulumi.Azure.NetApp.Outputs
         /// </summary>
         public readonly string CapacityPoolId;
         /// <summary>
-        /// A `data_protection_replication` block as defined below.
+        /// A `DataProtectionReplication` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVolumeGroupSapHanaVolumeDataProtectionReplicationResult> DataProtectionReplications;
         /// <summary>
-        /// A `data_protection_snapshot_policy` block as defined below.
+        /// A `DataProtectionSnapshotPolicy` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyResult> DataProtectionSnapshotPolicies;
         /// <summary>
-        /// A `export_policy_rule` block as defined below.
+        /// A `ExportPolicyRule` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVolumeGroupSapHanaVolumeExportPolicyRuleResult> ExportPolicyRules;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.NetApp.Outputs
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A `mount_ip_addresses` block as defined below.
+        /// A `MountIpAddresses` block as defined below.
         /// </summary>
         public readonly ImmutableArray<string> MountIpAddresses;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.Azure.NetApp.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// A `protocols` block as defined below.
+        /// A `Protocols` block as defined below.
         /// </summary>
         public readonly ImmutableArray<string> Protocols;
         /// <summary>

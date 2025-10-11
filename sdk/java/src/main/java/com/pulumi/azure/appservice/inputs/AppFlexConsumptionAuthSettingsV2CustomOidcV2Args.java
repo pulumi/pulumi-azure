@@ -18,14 +18,14 @@ public final class AppFlexConsumptionAuthSettingsV2CustomOidcV2Args extends com.
     public static final AppFlexConsumptionAuthSettingsV2CustomOidcV2Args Empty = new AppFlexConsumptionAuthSettingsV2CustomOidcV2Args();
 
     /**
-     * The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
+     * The endpoint to make the Authorisation Request as supplied by `openidConfigurationEndpoint` response.
      * 
      */
     @Import(name="authorisationEndpoint")
     private @Nullable Output<String> authorisationEndpoint;
 
     /**
-     * @return The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
+     * @return The endpoint to make the Authorisation Request as supplied by `openidConfigurationEndpoint` response.
      * 
      */
     public Optional<Output<String>> authorisationEndpoint() {
@@ -33,14 +33,14 @@ public final class AppFlexConsumptionAuthSettingsV2CustomOidcV2Args extends com.
     }
 
     /**
-     * The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
+     * The endpoint that provides the keys necessary to validate the token as supplied by `openidConfigurationEndpoint` response.
      * 
      */
     @Import(name="certificationUri")
     private @Nullable Output<String> certificationUri;
 
     /**
-     * @return The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
+     * @return The endpoint that provides the keys necessary to validate the token as supplied by `openidConfigurationEndpoint` response.
      * 
      */
     public Optional<Output<String>> certificationUri() {
@@ -93,14 +93,14 @@ public final class AppFlexConsumptionAuthSettingsV2CustomOidcV2Args extends com.
     }
 
     /**
-     * The endpoint that issued the Token as supplied by `openid_configuration_endpoint` response.
+     * The endpoint that issued the Token as supplied by `openidConfigurationEndpoint` response.
      * 
      */
     @Import(name="issuerEndpoint")
     private @Nullable Output<String> issuerEndpoint;
 
     /**
-     * @return The endpoint that issued the Token as supplied by `openid_configuration_endpoint` response.
+     * @return The endpoint that issued the Token as supplied by `openidConfigurationEndpoint` response.
      * 
      */
     public Optional<Output<String>> issuerEndpoint() {
@@ -110,7 +110,7 @@ public final class AppFlexConsumptionAuthSettingsV2CustomOidcV2Args extends com.
     /**
      * The name of the Custom OIDC Authentication Provider.
      * 
-     * &gt; **Note:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
+     * &gt; **Note:** An `appSetting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
      * 
      */
     @Import(name="name", required=true)
@@ -119,7 +119,7 @@ public final class AppFlexConsumptionAuthSettingsV2CustomOidcV2Args extends com.
     /**
      * @return The name of the Custom OIDC Authentication Provider.
      * 
-     * &gt; **Note:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
+     * &gt; **Note:** An `appSetting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
      * 
      */
     public Output<String> name() {
@@ -142,14 +142,14 @@ public final class AppFlexConsumptionAuthSettingsV2CustomOidcV2Args extends com.
     }
 
     /**
-     * The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
+     * The app setting name that contains the `clientSecret` value used for the Custom OIDC Login.
      * 
      */
     @Import(name="openidConfigurationEndpoint", required=true)
     private Output<String> openidConfigurationEndpoint;
 
     /**
-     * @return The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
+     * @return The app setting name that contains the `clientSecret` value used for the Custom OIDC Login.
      * 
      */
     public Output<String> openidConfigurationEndpoint() {
@@ -172,14 +172,14 @@ public final class AppFlexConsumptionAuthSettingsV2CustomOidcV2Args extends com.
     }
 
     /**
-     * The endpoint used to request a Token as supplied by `openid_configuration_endpoint` response.
+     * The endpoint used to request a Token as supplied by `openidConfigurationEndpoint` response.
      * 
      */
     @Import(name="tokenEndpoint")
     private @Nullable Output<String> tokenEndpoint;
 
     /**
-     * @return The endpoint used to request a Token as supplied by `openid_configuration_endpoint` response.
+     * @return The endpoint used to request a Token as supplied by `openidConfigurationEndpoint` response.
      * 
      */
     public Optional<Output<String>> tokenEndpoint() {
@@ -221,7 +221,7 @@ public final class AppFlexConsumptionAuthSettingsV2CustomOidcV2Args extends com.
         }
 
         /**
-         * @param authorisationEndpoint The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
+         * @param authorisationEndpoint The endpoint to make the Authorisation Request as supplied by `openidConfigurationEndpoint` response.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class AppFlexConsumptionAuthSettingsV2CustomOidcV2Args extends com.
         }
 
         /**
-         * @param authorisationEndpoint The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
+         * @param authorisationEndpoint The endpoint to make the Authorisation Request as supplied by `openidConfigurationEndpoint` response.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class AppFlexConsumptionAuthSettingsV2CustomOidcV2Args extends com.
         }
 
         /**
-         * @param certificationUri The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
+         * @param certificationUri The endpoint that provides the keys necessary to validate the token as supplied by `openidConfigurationEndpoint` response.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class AppFlexConsumptionAuthSettingsV2CustomOidcV2Args extends com.
         }
 
         /**
-         * @param certificationUri The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
+         * @param certificationUri The endpoint that provides the keys necessary to validate the token as supplied by `openidConfigurationEndpoint` response.
          * 
          * @return builder
          * 
@@ -326,7 +326,7 @@ public final class AppFlexConsumptionAuthSettingsV2CustomOidcV2Args extends com.
         }
 
         /**
-         * @param issuerEndpoint The endpoint that issued the Token as supplied by `openid_configuration_endpoint` response.
+         * @param issuerEndpoint The endpoint that issued the Token as supplied by `openidConfigurationEndpoint` response.
          * 
          * @return builder
          * 
@@ -337,7 +337,7 @@ public final class AppFlexConsumptionAuthSettingsV2CustomOidcV2Args extends com.
         }
 
         /**
-         * @param issuerEndpoint The endpoint that issued the Token as supplied by `openid_configuration_endpoint` response.
+         * @param issuerEndpoint The endpoint that issued the Token as supplied by `openidConfigurationEndpoint` response.
          * 
          * @return builder
          * 
@@ -349,7 +349,7 @@ public final class AppFlexConsumptionAuthSettingsV2CustomOidcV2Args extends com.
         /**
          * @param name The name of the Custom OIDC Authentication Provider.
          * 
-         * &gt; **Note:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
+         * &gt; **Note:** An `appSetting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
          * 
          * @return builder
          * 
@@ -362,7 +362,7 @@ public final class AppFlexConsumptionAuthSettingsV2CustomOidcV2Args extends com.
         /**
          * @param name The name of the Custom OIDC Authentication Provider.
          * 
-         * &gt; **Note:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
+         * &gt; **Note:** An `appSetting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
          * 
          * @return builder
          * 
@@ -393,7 +393,7 @@ public final class AppFlexConsumptionAuthSettingsV2CustomOidcV2Args extends com.
         }
 
         /**
-         * @param openidConfigurationEndpoint The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
+         * @param openidConfigurationEndpoint The app setting name that contains the `clientSecret` value used for the Custom OIDC Login.
          * 
          * @return builder
          * 
@@ -404,7 +404,7 @@ public final class AppFlexConsumptionAuthSettingsV2CustomOidcV2Args extends com.
         }
 
         /**
-         * @param openidConfigurationEndpoint The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
+         * @param openidConfigurationEndpoint The app setting name that contains the `clientSecret` value used for the Custom OIDC Login.
          * 
          * @return builder
          * 
@@ -445,7 +445,7 @@ public final class AppFlexConsumptionAuthSettingsV2CustomOidcV2Args extends com.
         }
 
         /**
-         * @param tokenEndpoint The endpoint used to request a Token as supplied by `openid_configuration_endpoint` response.
+         * @param tokenEndpoint The endpoint used to request a Token as supplied by `openidConfigurationEndpoint` response.
          * 
          * @return builder
          * 
@@ -456,7 +456,7 @@ public final class AppFlexConsumptionAuthSettingsV2CustomOidcV2Args extends com.
         }
 
         /**
-         * @param tokenEndpoint The endpoint used to request a Token as supplied by `openid_configuration_endpoint` response.
+         * @param tokenEndpoint The endpoint used to request a Token as supplied by `openidConfigurationEndpoint` response.
          * 
          * @return builder
          * 

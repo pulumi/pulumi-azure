@@ -34,11 +34,11 @@ namespace Pulumi.Azure.MSSql.Outputs
         /// </summary>
         public readonly string? State;
         /// <summary>
-        /// Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
+        /// Specifies the identifier key of the Threat Detection audit storage account. Required if `State` is `Enabled`.
         /// </summary>
         public readonly string? StorageAccountAccessKey;
         /// <summary>
-        /// Specifies the blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+        /// Specifies the blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all Threat Detection audit logs. Required if `State` is `Enabled`.
         /// </summary>
         public readonly string? StorageEndpoint;
 

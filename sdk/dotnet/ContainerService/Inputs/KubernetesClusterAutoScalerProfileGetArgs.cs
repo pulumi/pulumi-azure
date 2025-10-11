@@ -13,19 +13,19 @@ namespace Pulumi.Azure.ContainerService.Inputs
     public sealed class KubernetesClusterAutoScalerProfileGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Detect similar node groups and balance the number of nodes between them. Defaults to `false`.
+        /// Detect similar node groups and balance the number of nodes between them. Defaults to `False`.
         /// </summary>
         [Input("balanceSimilarNodeGroups")]
         public Input<bool>? BalanceSimilarNodeGroups { get; set; }
 
         /// <summary>
-        /// Whether DaemonSet pods will be gracefully terminated from empty nodes. Defaults to `false`.
+        /// Whether DaemonSet pods will be gracefully terminated from empty nodes. Defaults to `False`.
         /// </summary>
         [Input("daemonsetEvictionForEmptyNodesEnabled")]
         public Input<bool>? DaemonsetEvictionForEmptyNodesEnabled { get; set; }
 
         /// <summary>
-        /// Whether DaemonSet pods will be gracefully terminated from non-empty nodes. Defaults to `true`.
+        /// Whether DaemonSet pods will be gracefully terminated from non-empty nodes. Defaults to `True`.
         /// </summary>
         [Input("daemonsetEvictionForOccupiedNodesEnabled")]
         public Input<bool>? DaemonsetEvictionForOccupiedNodesEnabled { get; set; }
@@ -37,13 +37,13 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string>? EmptyBulkDeleteMax { get; set; }
 
         /// <summary>
-        /// Expander to use. Possible values are `least-waste`, `priority`, `most-pods` and `random`. Defaults to `random`.
+        /// Expander to use. Possible values are `least-waste`, `Priority`, `most-pods` and `Random`. Defaults to `Random`.
         /// </summary>
         [Input("expander")]
         public Input<string>? Expander { get; set; }
 
         /// <summary>
-        /// Whether DaemonSet pods will be ignored when calculating resource utilization for scale down. Defaults to `false`.
+        /// Whether DaemonSet pods will be ignored when calculating resource utilization for scale down. Defaults to `False`.
         /// </summary>
         [Input("ignoreDaemonsetsUtilizationEnabled")]
         public Input<bool>? IgnoreDaemonsetsUtilizationEnabled { get; set; }
@@ -85,7 +85,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string>? ScaleDownDelayAfterAdd { get; set; }
 
         /// <summary>
-        /// How long after node deletion that scale down evaluation resumes. Defaults to the value used for `scan_interval`.
+        /// How long after node deletion that scale down evaluation resumes. Defaults to the value used for `ScanInterval`.
         /// </summary>
         [Input("scaleDownDelayAfterDelete")]
         public Input<string>? ScaleDownDelayAfterDelete { get; set; }
@@ -124,7 +124,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<bool>? SkipNodesWithLocalStorage { get; set; }
 
         /// <summary>
-        /// If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
+        /// If `True` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `True`.
         /// </summary>
         [Input("skipNodesWithSystemPods")]
         public Input<bool>? SkipNodesWithSystemPods { get; set; }

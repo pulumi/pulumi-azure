@@ -198,14 +198,14 @@ public class LinkedServiceWeb extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.parameters);
     }
     /**
-     * The password for Basic authentication. Required if `authentication_type` sets to `Basic`.
+     * The password for Basic authentication. Required if `authenticationType` sets to `Basic`.
      * 
      */
     @Export(name="password", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> password;
 
     /**
-     * @return The password for Basic authentication. Required if `authentication_type` sets to `Basic`.
+     * @return The password for Basic authentication. Required if `authenticationType` sets to `Basic`.
      * 
      */
     public Output<Optional<String>> password() {
@@ -226,14 +226,14 @@ public class LinkedServiceWeb extends com.pulumi.resources.CustomResource {
         return this.url;
     }
     /**
-     * The username for Basic authentication. Required if `authentication_type` sets to `Basic`.
+     * The username for Basic authentication. Required if `authenticationType` sets to `Basic`.
      * 
      */
     @Export(name="username", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> username;
 
     /**
-     * @return The username for Basic authentication. Required if `authentication_type` sets to `Basic`.
+     * @return The username for Basic authentication. Required if `authenticationType` sets to `Basic`.
      * 
      */
     public Output<Optional<String>> username() {

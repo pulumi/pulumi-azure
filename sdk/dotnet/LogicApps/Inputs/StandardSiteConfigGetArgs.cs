@@ -13,7 +13,7 @@ namespace Pulumi.Azure.LogicApps.Inputs
     public sealed class StandardSiteConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should the Logic App be loaded at all times? Defaults to `false`.
+        /// Should the Logic App be loaded at all times? Defaults to `False`.
         /// </summary>
         [Input("alwaysOn")]
         public Input<bool>? AlwaysOn { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Azure.LogicApps.Inputs
         public Input<string>? AutoSwapSlotName { get; set; }
 
         /// <summary>
-        /// A `cors` block as defined below.
+        /// A `Cors` block as defined below.
         /// </summary>
         [Input("cors")]
         public Input<Inputs.StandardSiteConfigCorsGetArgs>? Cors { get; set; }
@@ -61,7 +61,7 @@ namespace Pulumi.Azure.LogicApps.Inputs
         public Input<string>? HealthCheckPath { get; set; }
 
         /// <summary>
-        /// Specifies whether the HTTP2 protocol should be enabled. Defaults to `false`.
+        /// Specifies whether the HTTP2 protocol should be enabled. Defaults to `False`.
         /// </summary>
         [Input("http2Enabled")]
         public Input<bool>? Http2Enabled { get; set; }
@@ -70,9 +70,9 @@ namespace Pulumi.Azure.LogicApps.Inputs
         private InputList<Inputs.StandardSiteConfigIpRestrictionGetArgs>? _ipRestrictions;
 
         /// <summary>
-        /// A list of `ip_restriction` objects representing IP restrictions as defined below.
+        /// A list of `IpRestriction` objects representing IP restrictions as defined below.
         /// 
-        /// &gt; **Note:** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+        /// &gt; **Note:** User has to explicitly set `IpRestriction` to empty slice (`[]`) to remove it.
         /// </summary>
         public InputList<Inputs.StandardSiteConfigIpRestrictionGetArgs> IpRestrictions
         {
@@ -81,9 +81,9 @@ namespace Pulumi.Azure.LogicApps.Inputs
         }
 
         /// <summary>
-        /// Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`.
+        /// Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `Kind` of application deployed to `functionapp,linux,container,workflowapp`.
         /// 
-        /// &gt; **Note:** You must set `os_type` in `azure.appservice.ServicePlan` to `Linux` when this property is set.
+        /// &gt; **Note:** You must set `OsType` in `azure.appservice.ServicePlan` to `Linux` when this property is set.
         /// </summary>
         [Input("linuxFxVersion")]
         public Input<string>? LinuxFxVersion { get; set; }
@@ -106,7 +106,7 @@ namespace Pulumi.Azure.LogicApps.Inputs
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
-        /// Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
+        /// Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `False`.
         /// </summary>
         [Input("runtimeScaleMonitoringEnabled")]
         public Input<bool>? RuntimeScaleMonitoringEnabled { get; set; }
@@ -115,9 +115,9 @@ namespace Pulumi.Azure.LogicApps.Inputs
         private InputList<Inputs.StandardSiteConfigScmIpRestrictionGetArgs>? _scmIpRestrictions;
 
         /// <summary>
-        /// A list of `scm_ip_restriction` objects representing SCM IP restrictions as defined below.
+        /// A list of `ScmIpRestriction` objects representing SCM IP restrictions as defined below.
         /// 
-        /// &gt; **Note:** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+        /// &gt; **Note:** User has to explicitly set `ScmIpRestriction` to empty slice (`[]`) to remove it.
         /// </summary>
         public InputList<Inputs.StandardSiteConfigScmIpRestrictionGetArgs> ScmIpRestrictions
         {
@@ -140,15 +140,15 @@ namespace Pulumi.Azure.LogicApps.Inputs
         public Input<string>? ScmType { get; set; }
 
         /// <summary>
-        /// Should the Logic App `ip_restriction` configuration be used for the SCM too. Defaults to `false`.
+        /// Should the Logic App `IpRestriction` configuration be used for the SCM too. Defaults to `False`.
         /// </summary>
         [Input("scmUseMainIpRestriction")]
         public Input<bool>? ScmUseMainIpRestriction { get; set; }
 
         /// <summary>
-        /// Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
+        /// Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to `True`.
         /// 
-        /// &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+        /// &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `Use32BitWorkerProcess` must be set to `True`.
         /// </summary>
         [Input("use32BitWorkerProcess")]
         public Input<bool>? Use32BitWorkerProcess { get; set; }

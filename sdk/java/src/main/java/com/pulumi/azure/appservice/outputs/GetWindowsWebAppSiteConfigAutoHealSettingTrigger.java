@@ -26,17 +26,17 @@ public final class GetWindowsWebAppSiteConfigAutoHealSettingTrigger {
      */
     private List<GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequest> requests;
     /**
-     * @return (Optional) One or more `slow_request_with_path` blocks as defined above.
+     * @return (Optional) One or more `slowRequestWithPath` blocks as defined above.
      * 
      */
     private List<GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPath> slowRequestWithPaths;
     /**
-     * @return A `slow_request` block as defined above.
+     * @return A `slowRequest` block as defined above.
      * 
      */
     private List<GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests;
     /**
-     * @return A `status_code` block as defined above.
+     * @return A `statusCode` block as defined above.
      * 
      */
     private List<GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode> statusCodes;
@@ -57,21 +57,21 @@ public final class GetWindowsWebAppSiteConfigAutoHealSettingTrigger {
         return this.requests;
     }
     /**
-     * @return (Optional) One or more `slow_request_with_path` blocks as defined above.
+     * @return (Optional) One or more `slowRequestWithPath` blocks as defined above.
      * 
      */
     public List<GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPath> slowRequestWithPaths() {
         return this.slowRequestWithPaths;
     }
     /**
-     * @return A `slow_request` block as defined above.
+     * @return A `slowRequest` block as defined above.
      * 
      */
     public List<GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests() {
         return this.slowRequests;
     }
     /**
-     * @return A `status_code` block as defined above.
+     * @return A `statusCode` block as defined above.
      * 
      */
     public List<GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode> statusCodes() {

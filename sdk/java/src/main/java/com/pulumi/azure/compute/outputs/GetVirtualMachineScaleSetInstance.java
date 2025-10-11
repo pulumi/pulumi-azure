@@ -48,7 +48,7 @@ public final class GetVirtualMachineScaleSetInstance {
      */
     private List<String> privateIpAddresses;
     /**
-     * @return A `public_ip_address` block as defined below.
+     * @return A `publicIpAddress` block as defined below.
      * 
      */
     private String publicIpAddress;
@@ -119,7 +119,7 @@ public final class GetVirtualMachineScaleSetInstance {
         return this.privateIpAddresses;
     }
     /**
-     * @return A `public_ip_address` block as defined below.
+     * @return A `publicIpAddress` block as defined below.
      * 
      */
     public String publicIpAddress() {

@@ -21,7 +21,7 @@ namespace Pulumi.Azure.HDInsight.Inputs
         /// <summary>
         /// The Azure Active Directory Security Group name. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** The `security_group_name` property will be Required in version 3.0 of the AzureRM Provider.
+        /// &gt; **Note:** The `SecurityGroupName` property will be Required in version 3.0 of the AzureRM Provider.
         /// </summary>
         [Input("securityGroupName", required: true)]
         public Input<string> SecurityGroupName { get; set; } = null!;

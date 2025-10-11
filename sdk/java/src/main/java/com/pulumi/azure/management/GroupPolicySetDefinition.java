@@ -187,28 +187,28 @@ public class GroupPolicySetDefinition extends com.pulumi.resources.CustomResourc
         return Codegen.optional(this.parameters);
     }
     /**
-     * One or more `policy_definition_group` blocks as defined below.
+     * One or more `policyDefinitionGroup` blocks as defined below.
      * 
      */
     @Export(name="policyDefinitionGroups", refs={List.class,GroupPolicySetDefinitionPolicyDefinitionGroup.class}, tree="[0,1]")
     private Output</* @Nullable */ List<GroupPolicySetDefinitionPolicyDefinitionGroup>> policyDefinitionGroups;
 
     /**
-     * @return One or more `policy_definition_group` blocks as defined below.
+     * @return One or more `policyDefinitionGroup` blocks as defined below.
      * 
      */
     public Output<Optional<List<GroupPolicySetDefinitionPolicyDefinitionGroup>>> policyDefinitionGroups() {
         return Codegen.optional(this.policyDefinitionGroups);
     }
     /**
-     * One or more `policy_definition_reference` blocks as defined below.
+     * One or more `policyDefinitionReference` blocks as defined below.
      * 
      */
     @Export(name="policyDefinitionReferences", refs={List.class,GroupPolicySetDefinitionPolicyDefinitionReference.class}, tree="[0,1]")
     private Output<List<GroupPolicySetDefinitionPolicyDefinitionReference>> policyDefinitionReferences;
 
     /**
-     * @return One or more `policy_definition_reference` blocks as defined below.
+     * @return One or more `policyDefinitionReference` blocks as defined below.
      * 
      */
     public Output<List<GroupPolicySetDefinitionPolicyDefinitionReference>> policyDefinitionReferences() {

@@ -95,14 +95,14 @@ public final class KubernetesClusterMaintenanceWindowAutoUpgradeArgs extends com
     }
 
     /**
-     * One or more `not_allowed` block as defined below.
+     * One or more `notAllowed` block as defined below.
      * 
      */
     @Import(name="notAlloweds")
     private @Nullable Output<List<KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArgs>> notAlloweds;
 
     /**
-     * @return One or more `not_allowed` block as defined below.
+     * @return One or more `notAllowed` block as defined below.
      * 
      */
     public Optional<Output<List<KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArgs>>> notAlloweds() {
@@ -125,14 +125,14 @@ public final class KubernetesClusterMaintenanceWindowAutoUpgradeArgs extends com
     }
 
     /**
-     * The time for maintenance to begin, based on the timezone determined by `utc_offset`. Format is `HH:mm`.
+     * The time for maintenance to begin, based on the timezone determined by `utcOffset`. Format is `HH:mm`.
      * 
      */
     @Import(name="startTime")
     private @Nullable Output<String> startTime;
 
     /**
-     * @return The time for maintenance to begin, based on the timezone determined by `utc_offset`. Format is `HH:mm`.
+     * @return The time for maintenance to begin, based on the timezone determined by `utcOffset`. Format is `HH:mm`.
      * 
      */
     public Optional<Output<String>> startTime() {
@@ -155,7 +155,7 @@ public final class KubernetesClusterMaintenanceWindowAutoUpgradeArgs extends com
     }
 
     /**
-     * Specifies on which instance of the allowed days specified in `day_of_week` the maintenance occurs. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
+     * Specifies on which instance of the allowed days specified in `dayOfWeek` the maintenance occurs. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
      * Required in combination with relative monthly frequency.
      * 
      */
@@ -163,7 +163,7 @@ public final class KubernetesClusterMaintenanceWindowAutoUpgradeArgs extends com
     private @Nullable Output<String> weekIndex;
 
     /**
-     * @return Specifies on which instance of the allowed days specified in `day_of_week` the maintenance occurs. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
+     * @return Specifies on which instance of the allowed days specified in `dayOfWeek` the maintenance occurs. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
      * Required in combination with relative monthly frequency.
      * 
      */
@@ -310,7 +310,7 @@ public final class KubernetesClusterMaintenanceWindowAutoUpgradeArgs extends com
         }
 
         /**
-         * @param notAlloweds One or more `not_allowed` block as defined below.
+         * @param notAlloweds One or more `notAllowed` block as defined below.
          * 
          * @return builder
          * 
@@ -321,7 +321,7 @@ public final class KubernetesClusterMaintenanceWindowAutoUpgradeArgs extends com
         }
 
         /**
-         * @param notAlloweds One or more `not_allowed` block as defined below.
+         * @param notAlloweds One or more `notAllowed` block as defined below.
          * 
          * @return builder
          * 
@@ -331,7 +331,7 @@ public final class KubernetesClusterMaintenanceWindowAutoUpgradeArgs extends com
         }
 
         /**
-         * @param notAlloweds One or more `not_allowed` block as defined below.
+         * @param notAlloweds One or more `notAllowed` block as defined below.
          * 
          * @return builder
          * 
@@ -362,7 +362,7 @@ public final class KubernetesClusterMaintenanceWindowAutoUpgradeArgs extends com
         }
 
         /**
-         * @param startTime The time for maintenance to begin, based on the timezone determined by `utc_offset`. Format is `HH:mm`.
+         * @param startTime The time for maintenance to begin, based on the timezone determined by `utcOffset`. Format is `HH:mm`.
          * 
          * @return builder
          * 
@@ -373,7 +373,7 @@ public final class KubernetesClusterMaintenanceWindowAutoUpgradeArgs extends com
         }
 
         /**
-         * @param startTime The time for maintenance to begin, based on the timezone determined by `utc_offset`. Format is `HH:mm`.
+         * @param startTime The time for maintenance to begin, based on the timezone determined by `utcOffset`. Format is `HH:mm`.
          * 
          * @return builder
          * 
@@ -404,7 +404,7 @@ public final class KubernetesClusterMaintenanceWindowAutoUpgradeArgs extends com
         }
 
         /**
-         * @param weekIndex Specifies on which instance of the allowed days specified in `day_of_week` the maintenance occurs. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
+         * @param weekIndex Specifies on which instance of the allowed days specified in `dayOfWeek` the maintenance occurs. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
          * Required in combination with relative monthly frequency.
          * 
          * @return builder
@@ -416,7 +416,7 @@ public final class KubernetesClusterMaintenanceWindowAutoUpgradeArgs extends com
         }
 
         /**
-         * @param weekIndex Specifies on which instance of the allowed days specified in `day_of_week` the maintenance occurs. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
+         * @param weekIndex Specifies on which instance of the allowed days specified in `dayOfWeek` the maintenance occurs. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
          * Required in combination with relative monthly frequency.
          * 
          * @return builder

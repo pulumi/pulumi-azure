@@ -169,7 +169,7 @@ namespace Pulumi.Azure.Cdn
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `secret` block as defined below. Changing this forces a new Front Door Secret to be created.
+        /// A `Secret` block as defined below. Changing this forces a new Front Door Secret to be created.
         /// </summary>
         [Output("secret")]
         public Output<Outputs.FrontdoorSecretSecret> Secret { get; private set; } = null!;
@@ -233,7 +233,7 @@ namespace Pulumi.Azure.Cdn
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `secret` block as defined below. Changing this forces a new Front Door Secret to be created.
+        /// A `Secret` block as defined below. Changing this forces a new Front Door Secret to be created.
         /// </summary>
         [Input("secret", required: true)]
         public Input<Inputs.FrontdoorSecretSecretArgs> Secret { get; set; } = null!;
@@ -265,7 +265,7 @@ namespace Pulumi.Azure.Cdn
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `secret` block as defined below. Changing this forces a new Front Door Secret to be created.
+        /// A `Secret` block as defined below. Changing this forces a new Front Door Secret to be created.
         /// </summary>
         [Input("secret")]
         public Input<Inputs.FrontdoorSecretSecretGetArgs>? Secret { get; set; }

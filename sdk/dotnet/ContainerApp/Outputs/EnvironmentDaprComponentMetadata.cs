@@ -18,7 +18,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The name of a secret specified in the `secrets` block that contains the value for this metadata configuration item.
+        /// The name of a secret specified in the `Secrets` block that contains the value for this metadata configuration item.
         /// </summary>
         public readonly string? SecretName;
         /// <summary>

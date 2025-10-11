@@ -14,7 +14,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
     public sealed class WorkflowAccessControlTriggerOpenAuthenticationPolicy
     {
         /// <summary>
-        /// A `claim` block as defined below.
+        /// A `Claim` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.WorkflowAccessControlTriggerOpenAuthenticationPolicyClaim> Claims;
         /// <summary>

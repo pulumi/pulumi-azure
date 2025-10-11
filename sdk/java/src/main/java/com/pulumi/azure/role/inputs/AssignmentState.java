@@ -34,7 +34,7 @@ public final class AssignmentState extends com.pulumi.resources.ResourceArgs {
     /**
      * The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** `condition` is required when `condition_version` is set.
+     * &gt; **Note:** `condition` is required when `conditionVersion` is set.
      * 
      */
     @Import(name="conditionVersion")
@@ -43,7 +43,7 @@ public final class AssignmentState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** `condition` is required when `condition_version` is set.
+     * &gt; **Note:** `condition` is required when `conditionVersion` is set.
      * 
      */
     public Optional<Output<String>> conditionVersion() {
@@ -119,14 +119,14 @@ public final class AssignmentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
+     * The type of the `principalId`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
      * 
      */
     @Import(name="principalType")
     private @Nullable Output<String> principalType;
 
     /**
-     * @return The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
+     * @return The type of the `principalId`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
      * 
      */
     public Optional<Output<String>> principalType() {
@@ -151,7 +151,7 @@ public final class AssignmentState extends com.pulumi.resources.ResourceArgs {
     /**
      * The name of a built-in Role. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Either `role_definition_id` or `role_definition_name` must be set.
+     * &gt; **Note:** Either `roleDefinitionId` or `roleDefinitionName` must be set.
      * 
      */
     @Import(name="roleDefinitionName")
@@ -160,7 +160,7 @@ public final class AssignmentState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The name of a built-in Role. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Either `role_definition_id` or `role_definition_name` must be set.
+     * &gt; **Note:** Either `roleDefinitionId` or `roleDefinitionName` must be set.
      * 
      */
     public Optional<Output<String>> roleDefinitionName() {
@@ -183,7 +183,7 @@ public final class AssignmentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. Defaults to `false`.
+     * If the `principalId` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principalId` is a `Service Principal` identity. Defaults to `false`.
      * 
      * &gt; **Note:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
      * 
@@ -192,7 +192,7 @@ public final class AssignmentState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Boolean> skipServicePrincipalAadCheck;
 
     /**
-     * @return If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. Defaults to `false`.
+     * @return If the `principalId` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principalId` is a `Service Principal` identity. Defaults to `false`.
      * 
      * &gt; **Note:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
      * 
@@ -259,7 +259,7 @@ public final class AssignmentState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param conditionVersion The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** `condition` is required when `condition_version` is set.
+         * &gt; **Note:** `condition` is required when `conditionVersion` is set.
          * 
          * @return builder
          * 
@@ -272,7 +272,7 @@ public final class AssignmentState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param conditionVersion The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** `condition` is required when `condition_version` is set.
+         * &gt; **Note:** `condition` is required when `conditionVersion` is set.
          * 
          * @return builder
          * 
@@ -374,7 +374,7 @@ public final class AssignmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param principalType The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
+         * @param principalType The type of the `principalId`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
          * 
          * @return builder
          * 
@@ -385,7 +385,7 @@ public final class AssignmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param principalType The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
+         * @param principalType The type of the `principalId`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
          * 
          * @return builder
          * 
@@ -418,7 +418,7 @@ public final class AssignmentState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param roleDefinitionName The name of a built-in Role. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** Either `role_definition_id` or `role_definition_name` must be set.
+         * &gt; **Note:** Either `roleDefinitionId` or `roleDefinitionName` must be set.
          * 
          * @return builder
          * 
@@ -431,7 +431,7 @@ public final class AssignmentState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param roleDefinitionName The name of a built-in Role. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** Either `role_definition_id` or `role_definition_name` must be set.
+         * &gt; **Note:** Either `roleDefinitionId` or `roleDefinitionName` must be set.
          * 
          * @return builder
          * 
@@ -462,7 +462,7 @@ public final class AssignmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skipServicePrincipalAadCheck If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. Defaults to `false`.
+         * @param skipServicePrincipalAadCheck If the `principalId` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principalId` is a `Service Principal` identity. Defaults to `false`.
          * 
          * &gt; **Note:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
          * 
@@ -475,7 +475,7 @@ public final class AssignmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skipServicePrincipalAadCheck If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. Defaults to `false`.
+         * @param skipServicePrincipalAadCheck If the `principalId` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principalId` is a `Service Principal` identity. Defaults to `false`.
          * 
          * &gt; **Note:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
          * 

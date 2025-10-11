@@ -13,13 +13,13 @@ namespace Pulumi.Azure.Cdn.Inputs
     public sealed class EndpointGlobalDeliveryRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `cache_expiration_action` block as defined above.
+        /// A `CacheExpirationAction` block as defined above.
         /// </summary>
         [Input("cacheExpirationAction")]
         public Input<Inputs.EndpointGlobalDeliveryRuleCacheExpirationActionArgs>? CacheExpirationAction { get; set; }
 
         /// <summary>
-        /// A `cache_key_query_string_action` block as defined above.
+        /// A `CacheKeyQueryStringAction` block as defined above.
         /// </summary>
         [Input("cacheKeyQueryStringAction")]
         public Input<Inputs.EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArgs>? CacheKeyQueryStringAction { get; set; }
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         private InputList<Inputs.EndpointGlobalDeliveryRuleModifyRequestHeaderActionArgs>? _modifyRequestHeaderActions;
 
         /// <summary>
-        /// A `modify_request_header_action` block as defined below.
+        /// A `ModifyRequestHeaderAction` block as defined below.
         /// </summary>
         public InputList<Inputs.EndpointGlobalDeliveryRuleModifyRequestHeaderActionArgs> ModifyRequestHeaderActions
         {
@@ -40,7 +40,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         private InputList<Inputs.EndpointGlobalDeliveryRuleModifyResponseHeaderActionArgs>? _modifyResponseHeaderActions;
 
         /// <summary>
-        /// A `modify_response_header_action` block as defined below.
+        /// A `ModifyResponseHeaderAction` block as defined below.
         /// </summary>
         public InputList<Inputs.EndpointGlobalDeliveryRuleModifyResponseHeaderActionArgs> ModifyResponseHeaderActions
         {
@@ -49,13 +49,13 @@ namespace Pulumi.Azure.Cdn.Inputs
         }
 
         /// <summary>
-        /// A `url_redirect_action` block as defined below.
+        /// A `UrlRedirectAction` block as defined below.
         /// </summary>
         [Input("urlRedirectAction")]
         public Input<Inputs.EndpointGlobalDeliveryRuleUrlRedirectActionArgs>? UrlRedirectAction { get; set; }
 
         /// <summary>
-        /// A `url_rewrite_action` block as defined below.
+        /// A `UrlRewriteAction` block as defined below.
         /// </summary>
         [Input("urlRewriteAction")]
         public Input<Inputs.EndpointGlobalDeliveryRuleUrlRewriteActionArgs>? UrlRewriteAction { get; set; }

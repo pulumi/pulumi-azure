@@ -33,14 +33,14 @@ public final class ThreatIntelligenceIndicatorParsedPatternArgs extends com.pulu
     }
 
     /**
-     * A `pattern_type_values` block as defined below.
+     * A `patternTypeValues` block as defined below.
      * 
      */
     @Import(name="patternTypeValues")
     private @Nullable Output<List<ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArgs>> patternTypeValues;
 
     /**
-     * @return A `pattern_type_values` block as defined below.
+     * @return A `patternTypeValues` block as defined below.
      * 
      */
     public Optional<Output<List<ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArgs>>> patternTypeValues() {
@@ -94,7 +94,7 @@ public final class ThreatIntelligenceIndicatorParsedPatternArgs extends com.pulu
         }
 
         /**
-         * @param patternTypeValues A `pattern_type_values` block as defined below.
+         * @param patternTypeValues A `patternTypeValues` block as defined below.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class ThreatIntelligenceIndicatorParsedPatternArgs extends com.pulu
         }
 
         /**
-         * @param patternTypeValues A `pattern_type_values` block as defined below.
+         * @param patternTypeValues A `patternTypeValues` block as defined below.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class ThreatIntelligenceIndicatorParsedPatternArgs extends com.pulu
         }
 
         /**
-         * @param patternTypeValues A `pattern_type_values` block as defined below.
+         * @param patternTypeValues A `patternTypeValues` block as defined below.
          * 
          * @return builder
          * 

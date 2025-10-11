@@ -13,13 +13,13 @@ namespace Pulumi.Azure.Cognitive.Inputs
     public sealed class AccountRaiPolicyContentFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether the filter should block content. Possible values are `true` or `false`.
+        /// Whether the filter should block content. Possible values are `True` or `False`.
         /// </summary>
         [Input("blockEnabled", required: true)]
         public Input<bool> BlockEnabled { get; set; } = null!;
 
         /// <summary>
-        /// Whether the filter is enabled. Possible values are `true` or `false`.
+        /// Whether the filter is enabled. Possible values are `True` or `False`.
         /// </summary>
         [Input("filterEnabled", required: true)]
         public Input<bool> FilterEnabled { get; set; } = null!;

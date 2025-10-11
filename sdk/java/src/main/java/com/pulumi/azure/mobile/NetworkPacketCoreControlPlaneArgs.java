@@ -128,14 +128,14 @@ public final class NetworkPacketCoreControlPlaneArgs extends com.pulumi.resource
     }
 
     /**
-     * One or more `local_diagnostics_access` blocks as defined below. Specifies the Kubernetes ingress configuration that controls access to the packet core diagnostics through local APIs.
+     * One or more `localDiagnosticsAccess` blocks as defined below. Specifies the Kubernetes ingress configuration that controls access to the packet core diagnostics through local APIs.
      * 
      */
     @Import(name="localDiagnosticsAccess", required=true)
     private Output<NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs> localDiagnosticsAccess;
 
     /**
-     * @return One or more `local_diagnostics_access` blocks as defined below. Specifies the Kubernetes ingress configuration that controls access to the packet core diagnostics through local APIs.
+     * @return One or more `localDiagnosticsAccess` blocks as defined below. Specifies the Kubernetes ingress configuration that controls access to the packet core diagnostics through local APIs.
      * 
      */
     public Output<NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs> localDiagnosticsAccess() {
@@ -465,7 +465,7 @@ public final class NetworkPacketCoreControlPlaneArgs extends com.pulumi.resource
         }
 
         /**
-         * @param localDiagnosticsAccess One or more `local_diagnostics_access` blocks as defined below. Specifies the Kubernetes ingress configuration that controls access to the packet core diagnostics through local APIs.
+         * @param localDiagnosticsAccess One or more `localDiagnosticsAccess` blocks as defined below. Specifies the Kubernetes ingress configuration that controls access to the packet core diagnostics through local APIs.
          * 
          * @return builder
          * 
@@ -476,7 +476,7 @@ public final class NetworkPacketCoreControlPlaneArgs extends com.pulumi.resource
         }
 
         /**
-         * @param localDiagnosticsAccess One or more `local_diagnostics_access` blocks as defined below. Specifies the Kubernetes ingress configuration that controls access to the packet core diagnostics through local APIs.
+         * @param localDiagnosticsAccess One or more `localDiagnosticsAccess` blocks as defined below. Specifies the Kubernetes ingress configuration that controls access to the packet core diagnostics through local APIs.
          * 
          * @return builder
          * 

@@ -14,15 +14,15 @@ namespace Pulumi.Azure.HDInsight.Outputs
     public sealed class KafkaClusterMetastores
     {
         /// <summary>
-        /// An `ambari` block as defined below.
+        /// An `Ambari` block as defined below.
         /// </summary>
         public readonly Outputs.KafkaClusterMetastoresAmbari? Ambari;
         /// <summary>
-        /// A `hive` block as defined below.
+        /// A `Hive` block as defined below.
         /// </summary>
         public readonly Outputs.KafkaClusterMetastoresHive? Hive;
         /// <summary>
-        /// An `oozie` block as defined below.
+        /// An `Oozie` block as defined below.
         /// </summary>
         public readonly Outputs.KafkaClusterMetastoresOozie? Oozie;
 

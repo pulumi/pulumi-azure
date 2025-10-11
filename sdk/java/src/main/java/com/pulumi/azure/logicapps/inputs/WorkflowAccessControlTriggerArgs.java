@@ -33,14 +33,14 @@ public final class WorkflowAccessControlTriggerArgs extends com.pulumi.resources
     }
 
     /**
-     * A `open_authentication_policy` block as defined below.
+     * A `openAuthenticationPolicy` block as defined below.
      * 
      */
     @Import(name="openAuthenticationPolicies")
     private @Nullable Output<List<WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs>> openAuthenticationPolicies;
 
     /**
-     * @return A `open_authentication_policy` block as defined below.
+     * @return A `openAuthenticationPolicy` block as defined below.
      * 
      */
     public Optional<Output<List<WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs>>> openAuthenticationPolicies() {
@@ -104,7 +104,7 @@ public final class WorkflowAccessControlTriggerArgs extends com.pulumi.resources
         }
 
         /**
-         * @param openAuthenticationPolicies A `open_authentication_policy` block as defined below.
+         * @param openAuthenticationPolicies A `openAuthenticationPolicy` block as defined below.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class WorkflowAccessControlTriggerArgs extends com.pulumi.resources
         }
 
         /**
-         * @param openAuthenticationPolicies A `open_authentication_policy` block as defined below.
+         * @param openAuthenticationPolicies A `openAuthenticationPolicy` block as defined below.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class WorkflowAccessControlTriggerArgs extends com.pulumi.resources
         }
 
         /**
-         * @param openAuthenticationPolicies A `open_authentication_policy` block as defined below.
+         * @param openAuthenticationPolicies A `openAuthenticationPolicy` block as defined below.
          * 
          * @return builder
          * 

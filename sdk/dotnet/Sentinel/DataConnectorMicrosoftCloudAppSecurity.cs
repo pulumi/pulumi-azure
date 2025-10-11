@@ -64,15 +64,15 @@ namespace Pulumi.Azure.Sentinel
     public partial class DataConnectorMicrosoftCloudAppSecurity : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Should the alerts be enabled? Defaults to `true`.
+        /// Should the alerts be enabled? Defaults to `True`.
         /// </summary>
         [Output("alertsEnabled")]
         public Output<bool?> AlertsEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Should the Discovery Logs be enabled? Defaults to `true`.
+        /// Should the Discovery Logs be enabled? Defaults to `True`.
         /// 
-        /// &gt; **Note:** One of either `alerts_enabled` or `discovery_logs_enabled` has to be specified.
+        /// &gt; **Note:** One of either `AlertsEnabled` or `DiscoveryLogsEnabled` has to be specified.
         /// </summary>
         [Output("discoveryLogsEnabled")]
         public Output<bool?> DiscoveryLogsEnabled { get; private set; } = null!;
@@ -144,15 +144,15 @@ namespace Pulumi.Azure.Sentinel
     public sealed class DataConnectorMicrosoftCloudAppSecurityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should the alerts be enabled? Defaults to `true`.
+        /// Should the alerts be enabled? Defaults to `True`.
         /// </summary>
         [Input("alertsEnabled")]
         public Input<bool>? AlertsEnabled { get; set; }
 
         /// <summary>
-        /// Should the Discovery Logs be enabled? Defaults to `true`.
+        /// Should the Discovery Logs be enabled? Defaults to `True`.
         /// 
-        /// &gt; **Note:** One of either `alerts_enabled` or `discovery_logs_enabled` has to be specified.
+        /// &gt; **Note:** One of either `AlertsEnabled` or `DiscoveryLogsEnabled` has to be specified.
         /// </summary>
         [Input("discoveryLogsEnabled")]
         public Input<bool>? DiscoveryLogsEnabled { get; set; }
@@ -186,15 +186,15 @@ namespace Pulumi.Azure.Sentinel
     public sealed class DataConnectorMicrosoftCloudAppSecurityState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should the alerts be enabled? Defaults to `true`.
+        /// Should the alerts be enabled? Defaults to `True`.
         /// </summary>
         [Input("alertsEnabled")]
         public Input<bool>? AlertsEnabled { get; set; }
 
         /// <summary>
-        /// Should the Discovery Logs be enabled? Defaults to `true`.
+        /// Should the Discovery Logs be enabled? Defaults to `True`.
         /// 
-        /// &gt; **Note:** One of either `alerts_enabled` or `discovery_logs_enabled` has to be specified.
+        /// &gt; **Note:** One of either `AlertsEnabled` or `DiscoveryLogsEnabled` has to be specified.
         /// </summary>
         [Input("discoveryLogsEnabled")]
         public Input<bool>? DiscoveryLogsEnabled { get; set; }

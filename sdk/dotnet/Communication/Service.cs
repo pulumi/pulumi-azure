@@ -57,7 +57,7 @@ namespace Pulumi.Azure.Communication
     public partial class Service : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK`, `usgov` and `United States`. Defaults to `United States`. Changing this forces a new Communication Service to be created.
+        /// The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK`, `Usgov` and `United States`. Defaults to `United States`. Changing this forces a new Communication Service to be created.
         /// </summary>
         [Output("dataLocation")]
         public Output<string?> DataLocation { get; private set; } = null!;
@@ -164,7 +164,7 @@ namespace Pulumi.Azure.Communication
     public sealed class ServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK`, `usgov` and `United States`. Defaults to `United States`. Changing this forces a new Communication Service to be created.
+        /// The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK`, `Usgov` and `United States`. Defaults to `United States`. Changing this forces a new Communication Service to be created.
         /// </summary>
         [Input("dataLocation")]
         public Input<string>? DataLocation { get; set; }
@@ -202,7 +202,7 @@ namespace Pulumi.Azure.Communication
     public sealed class ServiceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK`, `usgov` and `United States`. Defaults to `United States`. Changing this forces a new Communication Service to be created.
+        /// The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK`, `Usgov` and `United States`. Defaults to `United States`. Changing this forces a new Communication Service to be created.
         /// </summary>
         [Input("dataLocation")]
         public Input<string>? DataLocation { get; set; }

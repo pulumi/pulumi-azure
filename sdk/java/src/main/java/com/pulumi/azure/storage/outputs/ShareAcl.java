@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ShareAcl {
     /**
-     * @return An `access_policy` block as defined below.
+     * @return An `accessPolicy` block as defined below.
      * 
      */
     private @Nullable List<ShareAclAccessPolicy> accessPolicies;
@@ -26,7 +26,7 @@ public final class ShareAcl {
 
     private ShareAcl() {}
     /**
-     * @return An `access_policy` block as defined below.
+     * @return An `accessPolicy` block as defined below.
      * 
      */
     public List<ShareAclAccessPolicy> accessPolicies() {

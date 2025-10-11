@@ -88,7 +88,7 @@ namespace Pulumi.Azure.Communication
         public Output<string> MailFromSenderDomain { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Email Communication Service resource. If `domain_management` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
+        /// The name of the Email Communication Service resource. If `DomainManagement` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -100,13 +100,13 @@ namespace Pulumi.Azure.Communication
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Describes user engagement tracking is enabled or disabled. Defaults to `false`.
+        /// Describes user engagement tracking is enabled or disabled. Defaults to `False`.
         /// </summary>
         [Output("userEngagementTrackingEnabled")]
         public Output<bool?> UserEngagementTrackingEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) An `verification_records` block as defined below.
+        /// (Optional) An `VerificationRecords` block as defined below.
         /// </summary>
         [Output("verificationRecords")]
         public Output<ImmutableArray<Outputs.EmailServiceDomainVerificationRecord>> VerificationRecords { get; private set; } = null!;
@@ -170,7 +170,7 @@ namespace Pulumi.Azure.Communication
         public Input<string> EmailServiceId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Email Communication Service resource. If `domain_management` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
+        /// The name of the Email Communication Service resource. If `DomainManagement` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -188,7 +188,7 @@ namespace Pulumi.Azure.Communication
         }
 
         /// <summary>
-        /// Describes user engagement tracking is enabled or disabled. Defaults to `false`.
+        /// Describes user engagement tracking is enabled or disabled. Defaults to `False`.
         /// </summary>
         [Input("userEngagementTrackingEnabled")]
         public Input<bool>? UserEngagementTrackingEnabled { get; set; }
@@ -226,7 +226,7 @@ namespace Pulumi.Azure.Communication
         public Input<string>? MailFromSenderDomain { get; set; }
 
         /// <summary>
-        /// The name of the Email Communication Service resource. If `domain_management` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
+        /// The name of the Email Communication Service resource. If `DomainManagement` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -244,7 +244,7 @@ namespace Pulumi.Azure.Communication
         }
 
         /// <summary>
-        /// Describes user engagement tracking is enabled or disabled. Defaults to `false`.
+        /// Describes user engagement tracking is enabled or disabled. Defaults to `False`.
         /// </summary>
         [Input("userEngagementTrackingEnabled")]
         public Input<bool>? UserEngagementTrackingEnabled { get; set; }
@@ -253,7 +253,7 @@ namespace Pulumi.Azure.Communication
         private InputList<Inputs.EmailServiceDomainVerificationRecordGetArgs>? _verificationRecords;
 
         /// <summary>
-        /// (Optional) An `verification_records` block as defined below.
+        /// (Optional) An `VerificationRecords` block as defined below.
         /// </summary>
         public InputList<Inputs.EmailServiceDomainVerificationRecordGetArgs> VerificationRecords
         {

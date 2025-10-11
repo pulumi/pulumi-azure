@@ -14,7 +14,7 @@ namespace Pulumi.Azure.EventGrid.Outputs
     public sealed class SystemTopicEventSubscriptionSubjectFilter
     {
         /// <summary>
-        /// Specifies if `subject_begins_with` and `subject_ends_with` case sensitive. This value
+        /// Specifies if `SubjectBeginsWith` and `SubjectEndsWith` case sensitive. This value
         /// </summary>
         public readonly bool? CaseSensitive;
         /// <summary>

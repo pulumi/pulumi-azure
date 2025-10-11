@@ -48,14 +48,14 @@ public final class StandardSiteConfigScmIpRestrictionArgs extends com.pulumi.res
     }
 
     /**
-     * The `headers` block for this specific `ip_restriction` as defined below.
+     * The `headers` block for this specific `ipRestriction` as defined below.
      * 
      */
     @Import(name="headers")
     private @Nullable Output<StandardSiteConfigScmIpRestrictionHeadersArgs> headers;
 
     /**
-     * @return The `headers` block for this specific `ip_restriction` as defined below.
+     * @return The `headers` block for this specific `ipRestriction` as defined below.
      * 
      */
     public Optional<Output<StandardSiteConfigScmIpRestrictionHeadersArgs>> headers() {
@@ -125,7 +125,7 @@ public final class StandardSiteConfigScmIpRestrictionArgs extends com.pulumi.res
     /**
      * The Virtual Network Subnet ID used for this IP Restriction.
      * 
-     * &gt; **Note:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+     * &gt; **Note:** One of either `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified.
      * 
      */
     @Import(name="virtualNetworkSubnetId")
@@ -134,7 +134,7 @@ public final class StandardSiteConfigScmIpRestrictionArgs extends com.pulumi.res
     /**
      * @return The Virtual Network Subnet ID used for this IP Restriction.
      * 
-     * &gt; **Note:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+     * &gt; **Note:** One of either `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified.
      * 
      */
     public Optional<Output<String>> virtualNetworkSubnetId() {
@@ -215,7 +215,7 @@ public final class StandardSiteConfigScmIpRestrictionArgs extends com.pulumi.res
         }
 
         /**
-         * @param headers The `headers` block for this specific `ip_restriction` as defined below.
+         * @param headers The `headers` block for this specific `ipRestriction` as defined below.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class StandardSiteConfigScmIpRestrictionArgs extends com.pulumi.res
         }
 
         /**
-         * @param headers The `headers` block for this specific `ip_restriction` as defined below.
+         * @param headers The `headers` block for this specific `ipRestriction` as defined below.
          * 
          * @return builder
          * 
@@ -322,7 +322,7 @@ public final class StandardSiteConfigScmIpRestrictionArgs extends com.pulumi.res
         /**
          * @param virtualNetworkSubnetId The Virtual Network Subnet ID used for this IP Restriction.
          * 
-         * &gt; **Note:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+         * &gt; **Note:** One of either `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified.
          * 
          * @return builder
          * 
@@ -335,7 +335,7 @@ public final class StandardSiteConfigScmIpRestrictionArgs extends com.pulumi.res
         /**
          * @param virtualNetworkSubnetId The Virtual Network Subnet ID used for this IP Restriction.
          * 
-         * &gt; **Note:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+         * &gt; **Note:** One of either `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified.
          * 
          * @return builder
          * 

@@ -34,11 +34,11 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// If this ip_configuration is the primary one.
+        /// If this IpConfiguration is the primary one.
         /// </summary>
         public readonly bool Primary;
         /// <summary>
-        /// The virtual machines scale set IP Configuration's PublicIPAddress configuration. The `public_ip_address` is documented below.
+        /// The virtual machines scale set IP Configuration's PublicIPAddress configuration. The `PublicIpAddress` is documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressResult> PublicIpAddresses;
         /// <summary>

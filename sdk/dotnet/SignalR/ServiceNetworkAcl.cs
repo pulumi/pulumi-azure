@@ -12,6 +12,15 @@ namespace Pulumi.Azure.SignalR
     /// <summary>
     /// Manages the Network ACL for a SignalR service.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.SignalRService` - 2024-03-01
+    /// 
     /// ## Import
     /// 
     /// Network ACLs for a SignalR service can be imported using the `resource id`, e.g.
@@ -30,13 +39,13 @@ namespace Pulumi.Azure.SignalR
         public Output<string> DefaultAction { get; private set; } = null!;
 
         /// <summary>
-        /// A `private_endpoint` block as defined below.
+        /// A `PrivateEndpoint` block as defined below.
         /// </summary>
         [Output("privateEndpoints")]
         public Output<ImmutableArray<Outputs.ServiceNetworkAclPrivateEndpoint>> PrivateEndpoints { get; private set; } = null!;
 
         /// <summary>
-        /// A `public_network` block as defined below.
+        /// A `PublicNetwork` block as defined below.
         /// </summary>
         [Output("publicNetwork")]
         public Output<Outputs.ServiceNetworkAclPublicNetwork> PublicNetwork { get; private set; } = null!;
@@ -103,7 +112,7 @@ namespace Pulumi.Azure.SignalR
         private InputList<Inputs.ServiceNetworkAclPrivateEndpointArgs>? _privateEndpoints;
 
         /// <summary>
-        /// A `private_endpoint` block as defined below.
+        /// A `PrivateEndpoint` block as defined below.
         /// </summary>
         public InputList<Inputs.ServiceNetworkAclPrivateEndpointArgs> PrivateEndpoints
         {
@@ -112,7 +121,7 @@ namespace Pulumi.Azure.SignalR
         }
 
         /// <summary>
-        /// A `public_network` block as defined below.
+        /// A `PublicNetwork` block as defined below.
         /// </summary>
         [Input("publicNetwork", required: true)]
         public Input<Inputs.ServiceNetworkAclPublicNetworkArgs> PublicNetwork { get; set; } = null!;
@@ -141,7 +150,7 @@ namespace Pulumi.Azure.SignalR
         private InputList<Inputs.ServiceNetworkAclPrivateEndpointGetArgs>? _privateEndpoints;
 
         /// <summary>
-        /// A `private_endpoint` block as defined below.
+        /// A `PrivateEndpoint` block as defined below.
         /// </summary>
         public InputList<Inputs.ServiceNetworkAclPrivateEndpointGetArgs> PrivateEndpoints
         {
@@ -150,7 +159,7 @@ namespace Pulumi.Azure.SignalR
         }
 
         /// <summary>
-        /// A `public_network` block as defined below.
+        /// A `PublicNetwork` block as defined below.
         /// </summary>
         [Input("publicNetwork")]
         public Input<Inputs.ServiceNetworkAclPublicNetworkGetArgs>? PublicNetwork { get; set; }

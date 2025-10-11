@@ -110,7 +110,7 @@ public class NetworkManagerIpamPoolStaticCidr extends com.pulumi.resources.Custo
     /**
      * Specifies a list of IPv4 or IPv6 IP address prefixes which will be allocated to the Static CIDR.
      * 
-     * &gt; **Note:** Exactly one of `address_prefixes` or `number_of_ip_addresses_to_allocate` must be specified.
+     * &gt; **Note:** Exactly one of `addressPrefixes` or `numberOfIpAddressesToAllocate` must be specified.
      * 
      */
     @Export(name="addressPrefixes", refs={List.class,String.class}, tree="[0,1]")
@@ -119,7 +119,7 @@ public class NetworkManagerIpamPoolStaticCidr extends com.pulumi.resources.Custo
     /**
      * @return Specifies a list of IPv4 or IPv6 IP address prefixes which will be allocated to the Static CIDR.
      * 
-     * &gt; **Note:** Exactly one of `address_prefixes` or `number_of_ip_addresses_to_allocate` must be specified.
+     * &gt; **Note:** Exactly one of `addressPrefixes` or `numberOfIpAddressesToAllocate` must be specified.
      * 
      */
     public Output<Optional<List<String>>> addressPrefixes() {
@@ -156,7 +156,7 @@ public class NetworkManagerIpamPoolStaticCidr extends com.pulumi.resources.Custo
     /**
      * The number of IP addresses to allocate to the Static CIDR. The value must be a string representing a positive integer which is a positive power of 2, e.g., `&#34;16&#34;`.
      * 
-     * &gt; **Note:** Exactly one of `address_prefixes` or `number_of_ip_addresses_to_allocate` must be specified.
+     * &gt; **Note:** Exactly one of `addressPrefixes` or `numberOfIpAddressesToAllocate` must be specified.
      * 
      */
     @Export(name="numberOfIpAddressesToAllocate", refs={String.class}, tree="[0]")
@@ -165,7 +165,7 @@ public class NetworkManagerIpamPoolStaticCidr extends com.pulumi.resources.Custo
     /**
      * @return The number of IP addresses to allocate to the Static CIDR. The value must be a string representing a positive integer which is a positive power of 2, e.g., `&#34;16&#34;`.
      * 
-     * &gt; **Note:** Exactly one of `address_prefixes` or `number_of_ip_addresses_to_allocate` must be specified.
+     * &gt; **Note:** Exactly one of `addressPrefixes` or `numberOfIpAddressesToAllocate` must be specified.
      * 
      */
     public Output<Optional<String>> numberOfIpAddressesToAllocate() {

@@ -22,7 +22,7 @@ namespace Pulumi.Azure.AppService.Inputs
         private Input<string>? _consumerSecret;
 
         /// <summary>
-        /// The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret_setting_name`.
+        /// The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `ConsumerSecretSettingName`.
         /// </summary>
         public Input<string>? ConsumerSecret
         {
@@ -35,7 +35,7 @@ namespace Pulumi.Azure.AppService.Inputs
         }
 
         /// <summary>
-        /// The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret`.
+        /// The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `ConsumerSecret`.
         /// </summary>
         [Input("consumerSecretSettingName")]
         public Input<string>? ConsumerSecretSettingName { get; set; }

@@ -13,7 +13,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
     public sealed class JobTemplateInitContainerVolumeMountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the volume to mount. This must match the name of a volume defined in the `volume` block.
+        /// The name of the volume to mount. This must match the name of a volume defined in the `Volume` block.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

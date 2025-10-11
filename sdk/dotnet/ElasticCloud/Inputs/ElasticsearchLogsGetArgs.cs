@@ -16,7 +16,7 @@ namespace Pulumi.Azure.ElasticCloud.Inputs
         private InputList<Inputs.ElasticsearchLogsFilteringTagGetArgs>? _filteringTags;
 
         /// <summary>
-        /// A list of `filtering_tag` blocks as defined above.
+        /// A list of `FilteringTag` blocks as defined above.
         /// </summary>
         public InputList<Inputs.ElasticsearchLogsFilteringTagGetArgs> FilteringTags
         {
@@ -25,19 +25,19 @@ namespace Pulumi.Azure.ElasticCloud.Inputs
         }
 
         /// <summary>
-        /// Specifies if the Azure Activity Logs should be sent to the Elasticsearch cluster. Defaults to `false`.
+        /// Specifies if the Azure Activity Logs should be sent to the Elasticsearch cluster. Defaults to `False`.
         /// </summary>
         [Input("sendActivityLogs")]
         public Input<bool>? SendActivityLogs { get; set; }
 
         /// <summary>
-        /// Specifies if the AzureAD Logs should be sent to the Elasticsearch cluster. Defaults to `false`.
+        /// Specifies if the AzureAD Logs should be sent to the Elasticsearch cluster. Defaults to `False`.
         /// </summary>
         [Input("sendAzureadLogs")]
         public Input<bool>? SendAzureadLogs { get; set; }
 
         /// <summary>
-        /// Specifies if the Azure Subscription Logs should be sent to the Elasticsearch cluster. Defaults to `false`.
+        /// Specifies if the Azure Subscription Logs should be sent to the Elasticsearch cluster. Defaults to `False`.
         /// </summary>
         [Input("sendSubscriptionLogs")]
         public Input<bool>? SendSubscriptionLogs { get; set; }

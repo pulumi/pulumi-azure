@@ -155,13 +155,13 @@ namespace Pulumi.Azure.LogicApps
         /// <summary>
         /// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
         /// 
-        /// &gt; **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
+        /// &gt; **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the AppSettings you specify.  `AzureWebJobsStorage` is filled based on `StorageAccountName` and `StorageAccountAccessKey`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `Version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
         /// </summary>
         [Output("appSettings")]
         public Output<ImmutableDictionary<string, string>> AppSettings { get; private set; } = null!;
 
         /// <summary>
-        /// If `use_extension_bundle` is set to `true` this controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
+        /// If `UseExtensionBundle` is set to `True` this controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
         /// </summary>
         [Output("bundleVersion")]
         public Output<string?> BundleVersion { get; private set; } = null!;
@@ -179,7 +179,7 @@ namespace Pulumi.Azure.LogicApps
         public Output<string?> ClientCertificateMode { get; private set; } = null!;
 
         /// <summary>
-        /// A `connection_string` block as defined below.
+        /// A `ConnectionString` block as defined below.
         /// </summary>
         [Output("connectionStrings")]
         public Output<ImmutableArray<Outputs.StandardConnectionString>> ConnectionStrings { get; private set; } = null!;
@@ -197,25 +197,25 @@ namespace Pulumi.Azure.LogicApps
         public Output<string> DefaultHostname { get; private set; } = null!;
 
         /// <summary>
-        /// Is the Logic App enabled? Defaults to `true`.
+        /// Is the Logic App enabled? Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the FTP basic authentication publishing profile is enabled. Defaults to `true`.
+        /// Whether the FTP basic authentication publishing profile is enabled. Defaults to `True`.
         /// </summary>
         [Output("ftpPublishBasicAuthenticationEnabled")]
         public Output<bool?> FtpPublishBasicAuthenticationEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Can the Logic App only be accessed via HTTPS? Defaults to `false`.
+        /// Can the Logic App only be accessed via HTTPS? Defaults to `False`.
         /// </summary>
         [Output("httpsOnly")]
         public Output<bool?> HttpsOnly { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.StandardIdentity?> Identity { get; private set; } = null!;
@@ -245,7 +245,7 @@ namespace Pulumi.Azure.LogicApps
         public Output<string> OutboundIpAddresses { get; private set; } = null!;
 
         /// <summary>
-        /// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+        /// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `OutboundIpAddresses`.
         /// </summary>
         [Output("possibleOutboundIpAddresses")]
         public Output<string> PossibleOutboundIpAddresses { get; private set; } = null!;
@@ -265,19 +265,19 @@ namespace Pulumi.Azure.LogicApps
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the default SCM basic authentication publishing profile is enabled. Defaults to `true`.
+        /// Whether the default SCM basic authentication publishing profile is enabled. Defaults to `True`.
         /// </summary>
         [Output("scmPublishBasicAuthenticationEnabled")]
         public Output<bool?> ScmPublishBasicAuthenticationEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A `site_config` object as defined below.
+        /// A `SiteConfig` object as defined below.
         /// </summary>
         [Output("siteConfig")]
         public Output<Outputs.StandardSiteConfig> SiteConfig { get; private set; } = null!;
 
         /// <summary>
-        /// A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+        /// A `SiteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
         /// </summary>
         [Output("siteCredentials")]
         public Output<ImmutableArray<Outputs.StandardSiteCredential>> SiteCredentials { get; private set; } = null!;
@@ -304,7 +304,7 @@ namespace Pulumi.Azure.LogicApps
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
+        /// Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `True`.
         /// </summary>
         [Output("useExtensionBundle")]
         public Output<bool?> UseExtensionBundle { get; private set; } = null!;
@@ -319,7 +319,7 @@ namespace Pulumi.Azure.LogicApps
         public Output<string?> VirtualNetworkSubnetId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether allow routing traffic between the Logic App and Storage Account content share through a virtual network. Defaults to `false`.
+        /// Specifies whether allow routing traffic between the Logic App and Storage Account content share through a virtual network. Defaults to `False`.
         /// </summary>
         [Output("vnetContentShareEnabled")]
         public Output<bool?> VnetContentShareEnabled { get; private set; } = null!;
@@ -386,7 +386,7 @@ namespace Pulumi.Azure.LogicApps
         /// <summary>
         /// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
         /// 
-        /// &gt; **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
+        /// &gt; **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the AppSettings you specify.  `AzureWebJobsStorage` is filled based on `StorageAccountName` and `StorageAccountAccessKey`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `Version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
         /// </summary>
         public InputMap<string> AppSettings
         {
@@ -395,7 +395,7 @@ namespace Pulumi.Azure.LogicApps
         }
 
         /// <summary>
-        /// If `use_extension_bundle` is set to `true` this controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
+        /// If `UseExtensionBundle` is set to `True` this controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
         /// </summary>
         [Input("bundleVersion")]
         public Input<string>? BundleVersion { get; set; }
@@ -416,7 +416,7 @@ namespace Pulumi.Azure.LogicApps
         private InputList<Inputs.StandardConnectionStringArgs>? _connectionStrings;
 
         /// <summary>
-        /// A `connection_string` block as defined below.
+        /// A `ConnectionString` block as defined below.
         /// </summary>
         public InputList<Inputs.StandardConnectionStringArgs> ConnectionStrings
         {
@@ -425,25 +425,25 @@ namespace Pulumi.Azure.LogicApps
         }
 
         /// <summary>
-        /// Is the Logic App enabled? Defaults to `true`.
+        /// Is the Logic App enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Whether the FTP basic authentication publishing profile is enabled. Defaults to `true`.
+        /// Whether the FTP basic authentication publishing profile is enabled. Defaults to `True`.
         /// </summary>
         [Input("ftpPublishBasicAuthenticationEnabled")]
         public Input<bool>? FtpPublishBasicAuthenticationEnabled { get; set; }
 
         /// <summary>
-        /// Can the Logic App only be accessed via HTTPS? Defaults to `false`.
+        /// Can the Logic App only be accessed via HTTPS? Defaults to `False`.
         /// </summary>
         [Input("httpsOnly")]
         public Input<bool>? HttpsOnly { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.StandardIdentityArgs>? Identity { get; set; }
@@ -475,13 +475,13 @@ namespace Pulumi.Azure.LogicApps
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Whether the default SCM basic authentication publishing profile is enabled. Defaults to `true`.
+        /// Whether the default SCM basic authentication publishing profile is enabled. Defaults to `True`.
         /// </summary>
         [Input("scmPublishBasicAuthenticationEnabled")]
         public Input<bool>? ScmPublishBasicAuthenticationEnabled { get; set; }
 
         /// <summary>
-        /// A `site_config` object as defined below.
+        /// A `SiteConfig` object as defined below.
         /// </summary>
         [Input("siteConfig")]
         public Input<Inputs.StandardSiteConfigArgs>? SiteConfig { get; set; }
@@ -524,7 +524,7 @@ namespace Pulumi.Azure.LogicApps
         }
 
         /// <summary>
-        /// Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
+        /// Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `True`.
         /// </summary>
         [Input("useExtensionBundle")]
         public Input<bool>? UseExtensionBundle { get; set; }
@@ -539,7 +539,7 @@ namespace Pulumi.Azure.LogicApps
         public Input<string>? VirtualNetworkSubnetId { get; set; }
 
         /// <summary>
-        /// Specifies whether allow routing traffic between the Logic App and Storage Account content share through a virtual network. Defaults to `false`.
+        /// Specifies whether allow routing traffic between the Logic App and Storage Account content share through a virtual network. Defaults to `False`.
         /// </summary>
         [Input("vnetContentShareEnabled")]
         public Input<bool>? VnetContentShareEnabled { get; set; }
@@ -564,7 +564,7 @@ namespace Pulumi.Azure.LogicApps
         /// <summary>
         /// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
         /// 
-        /// &gt; **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
+        /// &gt; **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the AppSettings you specify.  `AzureWebJobsStorage` is filled based on `StorageAccountName` and `StorageAccountAccessKey`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `Version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
         /// </summary>
         public InputMap<string> AppSettings
         {
@@ -573,7 +573,7 @@ namespace Pulumi.Azure.LogicApps
         }
 
         /// <summary>
-        /// If `use_extension_bundle` is set to `true` this controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
+        /// If `UseExtensionBundle` is set to `True` this controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
         /// </summary>
         [Input("bundleVersion")]
         public Input<string>? BundleVersion { get; set; }
@@ -594,7 +594,7 @@ namespace Pulumi.Azure.LogicApps
         private InputList<Inputs.StandardConnectionStringGetArgs>? _connectionStrings;
 
         /// <summary>
-        /// A `connection_string` block as defined below.
+        /// A `ConnectionString` block as defined below.
         /// </summary>
         public InputList<Inputs.StandardConnectionStringGetArgs> ConnectionStrings
         {
@@ -615,25 +615,25 @@ namespace Pulumi.Azure.LogicApps
         public Input<string>? DefaultHostname { get; set; }
 
         /// <summary>
-        /// Is the Logic App enabled? Defaults to `true`.
+        /// Is the Logic App enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Whether the FTP basic authentication publishing profile is enabled. Defaults to `true`.
+        /// Whether the FTP basic authentication publishing profile is enabled. Defaults to `True`.
         /// </summary>
         [Input("ftpPublishBasicAuthenticationEnabled")]
         public Input<bool>? FtpPublishBasicAuthenticationEnabled { get; set; }
 
         /// <summary>
-        /// Can the Logic App only be accessed via HTTPS? Defaults to `false`.
+        /// Can the Logic App only be accessed via HTTPS? Defaults to `False`.
         /// </summary>
         [Input("httpsOnly")]
         public Input<bool>? HttpsOnly { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.StandardIdentityGetArgs>? Identity { get; set; }
@@ -663,7 +663,7 @@ namespace Pulumi.Azure.LogicApps
         public Input<string>? OutboundIpAddresses { get; set; }
 
         /// <summary>
-        /// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+        /// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `OutboundIpAddresses`.
         /// </summary>
         [Input("possibleOutboundIpAddresses")]
         public Input<string>? PossibleOutboundIpAddresses { get; set; }
@@ -683,13 +683,13 @@ namespace Pulumi.Azure.LogicApps
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// Whether the default SCM basic authentication publishing profile is enabled. Defaults to `true`.
+        /// Whether the default SCM basic authentication publishing profile is enabled. Defaults to `True`.
         /// </summary>
         [Input("scmPublishBasicAuthenticationEnabled")]
         public Input<bool>? ScmPublishBasicAuthenticationEnabled { get; set; }
 
         /// <summary>
-        /// A `site_config` object as defined below.
+        /// A `SiteConfig` object as defined below.
         /// </summary>
         [Input("siteConfig")]
         public Input<Inputs.StandardSiteConfigGetArgs>? SiteConfig { get; set; }
@@ -698,7 +698,7 @@ namespace Pulumi.Azure.LogicApps
         private InputList<Inputs.StandardSiteCredentialGetArgs>? _siteCredentials;
 
         /// <summary>
-        /// A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+        /// A `SiteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
         /// </summary>
         public InputList<Inputs.StandardSiteCredentialGetArgs> SiteCredentials
         {
@@ -744,7 +744,7 @@ namespace Pulumi.Azure.LogicApps
         }
 
         /// <summary>
-        /// Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
+        /// Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `True`.
         /// </summary>
         [Input("useExtensionBundle")]
         public Input<bool>? UseExtensionBundle { get; set; }
@@ -759,7 +759,7 @@ namespace Pulumi.Azure.LogicApps
         public Input<string>? VirtualNetworkSubnetId { get; set; }
 
         /// <summary>
-        /// Specifies whether allow routing traffic between the Logic App and Storage Account content share through a virtual network. Defaults to `false`.
+        /// Specifies whether allow routing traffic between the Logic App and Storage Account content share through a virtual network. Defaults to `False`.
         /// </summary>
         [Input("vnetContentShareEnabled")]
         public Input<bool>? VnetContentShareEnabled { get; set; }

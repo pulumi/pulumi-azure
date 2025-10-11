@@ -39,14 +39,14 @@ public final class FactoryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customer_managed_key_id` is set.
+     * Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customerManagedKeyId` is set.
      * 
      */
     @Import(name="customerManagedKeyIdentityId")
     private @Nullable Output<String> customerManagedKeyIdentityId;
 
     /**
-     * @return Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customer_managed_key_id` is set.
+     * @return Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customerManagedKeyId` is set.
      * 
      */
     public Optional<Output<String>> customerManagedKeyIdentityId() {
@@ -54,14 +54,14 @@ public final class FactoryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `github_configuration` block as defined below.
+     * A `githubConfiguration` block as defined below.
      * 
      */
     @Import(name="githubConfiguration")
     private @Nullable Output<FactoryGithubConfigurationArgs> githubConfiguration;
 
     /**
-     * @return A `github_configuration` block as defined below.
+     * @return A `githubConfiguration` block as defined below.
      * 
      */
     public Optional<Output<FactoryGithubConfigurationArgs>> githubConfiguration() {
@@ -69,14 +69,14 @@ public final class FactoryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of `global_parameter` blocks as defined above.
+     * A list of `globalParameter` blocks as defined above.
      * 
      */
     @Import(name="globalParameters")
     private @Nullable Output<List<FactoryGlobalParameterArgs>> globalParameters;
 
     /**
-     * @return A list of `global_parameter` blocks as defined above.
+     * @return A list of `globalParameter` blocks as defined above.
      * 
      */
     public Optional<Output<List<FactoryGlobalParameterArgs>>> globalParameters() {
@@ -204,14 +204,14 @@ public final class FactoryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `vsts_configuration` block as defined below.
+     * A `vstsConfiguration` block as defined below.
      * 
      */
     @Import(name="vstsConfiguration")
     private @Nullable Output<FactoryVstsConfigurationArgs> vstsConfiguration;
 
     /**
-     * @return A `vsts_configuration` block as defined below.
+     * @return A `vstsConfiguration` block as defined below.
      * 
      */
     public Optional<Output<FactoryVstsConfigurationArgs>> vstsConfiguration() {
@@ -276,7 +276,7 @@ public final class FactoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customerManagedKeyIdentityId Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customer_managed_key_id` is set.
+         * @param customerManagedKeyIdentityId Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customerManagedKeyId` is set.
          * 
          * @return builder
          * 
@@ -287,7 +287,7 @@ public final class FactoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customerManagedKeyIdentityId Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customer_managed_key_id` is set.
+         * @param customerManagedKeyIdentityId Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customerManagedKeyId` is set.
          * 
          * @return builder
          * 
@@ -297,7 +297,7 @@ public final class FactoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param githubConfiguration A `github_configuration` block as defined below.
+         * @param githubConfiguration A `githubConfiguration` block as defined below.
          * 
          * @return builder
          * 
@@ -308,7 +308,7 @@ public final class FactoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param githubConfiguration A `github_configuration` block as defined below.
+         * @param githubConfiguration A `githubConfiguration` block as defined below.
          * 
          * @return builder
          * 
@@ -318,7 +318,7 @@ public final class FactoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param globalParameters A list of `global_parameter` blocks as defined above.
+         * @param globalParameters A list of `globalParameter` blocks as defined above.
          * 
          * @return builder
          * 
@@ -329,7 +329,7 @@ public final class FactoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param globalParameters A list of `global_parameter` blocks as defined above.
+         * @param globalParameters A list of `globalParameter` blocks as defined above.
          * 
          * @return builder
          * 
@@ -339,7 +339,7 @@ public final class FactoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param globalParameters A list of `global_parameter` blocks as defined above.
+         * @param globalParameters A list of `globalParameter` blocks as defined above.
          * 
          * @return builder
          * 
@@ -517,7 +517,7 @@ public final class FactoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vstsConfiguration A `vsts_configuration` block as defined below.
+         * @param vstsConfiguration A `vstsConfiguration` block as defined below.
          * 
          * @return builder
          * 
@@ -528,7 +528,7 @@ public final class FactoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vstsConfiguration A `vsts_configuration` block as defined below.
+         * @param vstsConfiguration A `vstsConfiguration` block as defined below.
          * 
          * @return builder
          * 

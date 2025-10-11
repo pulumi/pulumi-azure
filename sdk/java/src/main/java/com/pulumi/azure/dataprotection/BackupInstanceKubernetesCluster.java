@@ -264,14 +264,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:dataprotection/backupInstanceKubernetesCluster:BackupInstanceKubernetesCluster")
 public class BackupInstanceKubernetesCluster extends com.pulumi.resources.CustomResource {
     /**
-     * A `backup_datasource_parameters` block as defined below.
+     * A `backupDatasourceParameters` block as defined below.
      * 
      */
     @Export(name="backupDatasourceParameters", refs={BackupInstanceKubernetesClusterBackupDatasourceParameters.class}, tree="[0]")
     private Output</* @Nullable */ BackupInstanceKubernetesClusterBackupDatasourceParameters> backupDatasourceParameters;
 
     /**
-     * @return A `backup_datasource_parameters` block as defined below.
+     * @return A `backupDatasourceParameters` block as defined below.
      * 
      */
     public Output<Optional<BackupInstanceKubernetesClusterBackupDatasourceParameters>> backupDatasourceParameters() {

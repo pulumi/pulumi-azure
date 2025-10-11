@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Mobile.Outputs
     public sealed class NetworkSimPolicySlice
     {
         /// <summary>
-        /// An array of `data_network` block as defined below.
+        /// An array of `DataNetwork` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.NetworkSimPolicySliceDataNetwork> DataNetworks;
         /// <summary>
-        /// The ID of default data network to use if the user equipment does not explicitly specify it. Configuration for this object must exist in the `data_network` block.
+        /// The ID of default data network to use if the user equipment does not explicitly specify it. Configuration for this object must exist in the `DataNetwork` block.
         /// </summary>
         public readonly string DefaultDataNetworkId;
         /// <summary>

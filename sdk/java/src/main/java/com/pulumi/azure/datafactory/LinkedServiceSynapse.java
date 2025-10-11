@@ -246,14 +246,14 @@ public class LinkedServiceSynapse extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.integrationRuntimeName);
     }
     /**
-     * A `key_vault_password` block as defined below. Use this argument to store Synapse password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+     * A `keyVaultPassword` block as defined below. Use this argument to store Synapse password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
      * 
      */
     @Export(name="keyVaultPassword", refs={LinkedServiceSynapseKeyVaultPassword.class}, tree="[0]")
     private Output</* @Nullable */ LinkedServiceSynapseKeyVaultPassword> keyVaultPassword;
 
     /**
-     * @return A `key_vault_password` block as defined below. Use this argument to store Synapse password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+     * @return A `keyVaultPassword` block as defined below. Use this argument to store Synapse password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
      * 
      */
     public Output<Optional<LinkedServiceSynapseKeyVaultPassword>> keyVaultPassword() {

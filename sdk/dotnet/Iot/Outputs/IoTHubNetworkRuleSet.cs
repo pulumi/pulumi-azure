@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Iot.Outputs
     public sealed class IoTHubNetworkRuleSet
     {
         /// <summary>
-        /// Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.
+        /// Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `False`.
         /// </summary>
         public readonly bool? ApplyToBuiltinEventhubEndpoint;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Iot.Outputs
         /// </summary>
         public readonly string? DefaultAction;
         /// <summary>
-        /// One or more `ip_rule` blocks as defined below.
+        /// One or more `IpRule` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.IoTHubNetworkRuleSetIpRule> IpRules;
 

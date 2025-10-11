@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Cdn.Outputs
     public sealed class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation
     {
         /// <summary>
-        /// One or more `domain` blocks as defined below.
+        /// One or more `Domain` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain> Domains;
         /// <summary>

@@ -49,7 +49,7 @@ public final class EligibleRoleAssignmentScheduleExpirationArgs extends com.pulu
     /**
      * The end date/time of the role assignment. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Only one of `duration_days`, `duration_hours` or `end_date_time` should be specified.
+     * &gt; **Note:** Only one of `durationDays`, `durationHours` or `endDateTime` should be specified.
      * 
      */
     @Import(name="endDateTime")
@@ -58,7 +58,7 @@ public final class EligibleRoleAssignmentScheduleExpirationArgs extends com.pulu
     /**
      * @return The end date/time of the role assignment. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Only one of `duration_days`, `duration_hours` or `end_date_time` should be specified.
+     * &gt; **Note:** Only one of `durationDays`, `durationHours` or `endDateTime` should be specified.
      * 
      */
     public Optional<Output<String>> endDateTime() {
@@ -136,7 +136,7 @@ public final class EligibleRoleAssignmentScheduleExpirationArgs extends com.pulu
         /**
          * @param endDateTime The end date/time of the role assignment. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** Only one of `duration_days`, `duration_hours` or `end_date_time` should be specified.
+         * &gt; **Note:** Only one of `durationDays`, `durationHours` or `endDateTime` should be specified.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class EligibleRoleAssignmentScheduleExpirationArgs extends com.pulu
         /**
          * @param endDateTime The end date/time of the role assignment. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** Only one of `duration_days`, `duration_hours` or `end_date_time` should be specified.
+         * &gt; **Note:** Only one of `durationDays`, `durationHours` or `endDateTime` should be specified.
          * 
          * @return builder
          * 

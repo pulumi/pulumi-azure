@@ -14,11 +14,11 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class AppServiceLogsHttpLogs
     {
         /// <summary>
-        /// An `azure_blob_storage` block as defined below.
+        /// An `AzureBlobStorage` block as defined below.
         /// </summary>
         public readonly Outputs.AppServiceLogsHttpLogsAzureBlobStorage? AzureBlobStorage;
         /// <summary>
-        /// A `file_system` block as defined below.
+        /// A `FileSystem` block as defined below.
         /// </summary>
         public readonly Outputs.AppServiceLogsHttpLogsFileSystem? FileSystem;
 

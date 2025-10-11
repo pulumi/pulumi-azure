@@ -111,7 +111,7 @@ public class Account extends com.pulumi.resources.CustomResource {
     /**
      * If `kind` is `TextAnalytics` this specifies the key of the Search service.
      * 
-     * &gt; **Note:** `custom_question_answering_search_service_id` and `custom_question_answering_search_service_key` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qna_runtime_endpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
+     * &gt; **Note:** `customQuestionAnsweringSearchServiceId` and `customQuestionAnsweringSearchServiceKey` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qnaRuntimeEndpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
      * 
      */
     @Export(name="customQuestionAnsweringSearchServiceKey", refs={String.class}, tree="[0]")
@@ -120,39 +120,39 @@ public class Account extends com.pulumi.resources.CustomResource {
     /**
      * @return If `kind` is `TextAnalytics` this specifies the key of the Search service.
      * 
-     * &gt; **Note:** `custom_question_answering_search_service_id` and `custom_question_answering_search_service_key` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qna_runtime_endpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
+     * &gt; **Note:** `customQuestionAnsweringSearchServiceId` and `customQuestionAnsweringSearchServiceKey` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qnaRuntimeEndpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
      * 
      */
     public Output<Optional<String>> customQuestionAnsweringSearchServiceKey() {
         return Codegen.optional(this.customQuestionAnsweringSearchServiceKey);
     }
     /**
-     * The subdomain name used for Entra ID token-based authentication. This attribute is required when `network_acls` is specified. This attribute is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://&lt;custom_subdomain_name&gt;.openai.azure.com/`. This can be specified during creation or added later, but once set changing this forces a new resource to be created.
+     * The subdomain name used for Entra ID token-based authentication. This attribute is required when `networkAcls` is specified. This attribute is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://&lt;custom_subdomain_name&gt;.openai.azure.com/`. This can be specified during creation or added later, but once set changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** If you do not specify a `custom_subdomain_name` then you will not be able to attach a Private Endpoint to the resource. Moreover, functionality that requires Entra ID authentication, including Agent service, will not be accessible.
+     * &gt; **Note:** If you do not specify a `customSubdomainName` then you will not be able to attach a Private Endpoint to the resource. Moreover, functionality that requires Entra ID authentication, including Agent service, will not be accessible.
      * 
      */
     @Export(name="customSubdomainName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customSubdomainName;
 
     /**
-     * @return The subdomain name used for Entra ID token-based authentication. This attribute is required when `network_acls` is specified. This attribute is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://&lt;custom_subdomain_name&gt;.openai.azure.com/`. This can be specified during creation or added later, but once set changing this forces a new resource to be created.
+     * @return The subdomain name used for Entra ID token-based authentication. This attribute is required when `networkAcls` is specified. This attribute is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://&lt;custom_subdomain_name&gt;.openai.azure.com/`. This can be specified during creation or added later, but once set changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** If you do not specify a `custom_subdomain_name` then you will not be able to attach a Private Endpoint to the resource. Moreover, functionality that requires Entra ID authentication, including Agent service, will not be accessible.
+     * &gt; **Note:** If you do not specify a `customSubdomainName` then you will not be able to attach a Private Endpoint to the resource. Moreover, functionality that requires Entra ID authentication, including Agent service, will not be accessible.
      * 
      */
     public Output<Optional<String>> customSubdomainName() {
         return Codegen.optional(this.customSubdomainName);
     }
     /**
-     * A `customer_managed_key` block as documented below.
+     * A `customerManagedKey` block as documented below.
      * 
      */
     @Export(name="customerManagedKey", refs={AccountCustomerManagedKey.class}, tree="[0]")
     private Output</* @Nullable */ AccountCustomerManagedKey> customerManagedKey;
 
     /**
-     * @return A `customer_managed_key` block as documented below.
+     * @return A `customerManagedKey` block as documented below.
      * 
      */
     public Output<Optional<AccountCustomerManagedKey>> customerManagedKey() {
@@ -339,28 +339,28 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A `network_acls` block as defined below. When this property is specified, `custom_subdomain_name` is also required to be set.
+     * A `networkAcls` block as defined below. When this property is specified, `customSubdomainName` is also required to be set.
      * 
      */
     @Export(name="networkAcls", refs={AccountNetworkAcls.class}, tree="[0]")
     private Output</* @Nullable */ AccountNetworkAcls> networkAcls;
 
     /**
-     * @return A `network_acls` block as defined below. When this property is specified, `custom_subdomain_name` is also required to be set.
+     * @return A `networkAcls` block as defined below. When this property is specified, `customSubdomainName` is also required to be set.
      * 
      */
     public Output<Optional<AccountNetworkAcls>> networkAcls() {
         return Codegen.optional(this.networkAcls);
     }
     /**
-     * A `network_injection` block as defined below. Only applicable if the `kind` is set to `AIServices`.
+     * A `networkInjection` block as defined below. Only applicable if the `kind` is set to `AIServices`.
      * 
      */
     @Export(name="networkInjection", refs={AccountNetworkInjection.class}, tree="[0]")
     private Output</* @Nullable */ AccountNetworkInjection> networkInjection;
 
     /**
-     * @return A `network_injection` block as defined below. Only applicable if the `kind` is set to `AIServices`.
+     * @return A `networkInjection` block as defined below. Only applicable if the `kind` is set to `AIServices`.
      * 
      */
     public Output<Optional<AccountNetworkInjection>> networkInjection() {
@@ -395,14 +395,14 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.primaryAccessKey;
     }
     /**
-     * Whether project management is enabled when the `kind` is set to `AIServices`. Once enabled, `project_management_enabled` cannot be disabled. Changing this forces a new resource to be created. Defaults to `false`.
+     * Whether project management is enabled when the `kind` is set to `AIServices`. Once enabled, `projectManagementEnabled` cannot be disabled. Changing this forces a new resource to be created. Defaults to `false`.
      * 
      */
     @Export(name="projectManagementEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> projectManagementEnabled;
 
     /**
-     * @return Whether project management is enabled when the `kind` is set to `AIServices`. Once enabled, `project_management_enabled` cannot be disabled. Changing this forces a new resource to be created. Defaults to `false`.
+     * @return Whether project management is enabled when the `kind` is set to `AIServices`. Once enabled, `projectManagementEnabled` cannot be disabled. Changing this forces a new resource to be created. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> projectManagementEnabled() {

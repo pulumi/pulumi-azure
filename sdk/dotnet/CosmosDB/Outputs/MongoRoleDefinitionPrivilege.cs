@@ -18,7 +18,7 @@ namespace Pulumi.Azure.CosmosDB.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Actions;
         /// <summary>
-        /// A `resource` block as defined below.
+        /// A `Resource` block as defined below.
         /// </summary>
         public readonly Outputs.MongoRoleDefinitionPrivilegeResource Resource;
 

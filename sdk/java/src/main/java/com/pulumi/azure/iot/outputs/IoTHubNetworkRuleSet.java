@@ -25,7 +25,7 @@ public final class IoTHubNetworkRuleSet {
      */
     private @Nullable String defaultAction;
     /**
-     * @return One or more `ip_rule` blocks as defined below.
+     * @return One or more `ipRule` blocks as defined below.
      * 
      */
     private @Nullable List<IoTHubNetworkRuleSetIpRule> ipRules;
@@ -46,7 +46,7 @@ public final class IoTHubNetworkRuleSet {
         return Optional.ofNullable(this.defaultAction);
     }
     /**
-     * @return One or more `ip_rule` blocks as defined below.
+     * @return One or more `ipRule` blocks as defined below.
      * 
      */
     public List<IoTHubNetworkRuleSetIpRule> ipRules() {

@@ -17,14 +17,14 @@ public final class HBaseClusterRolesArgs extends com.pulumi.resources.ResourceAr
     public static final HBaseClusterRolesArgs Empty = new HBaseClusterRolesArgs();
 
     /**
-     * A `head_node` block as defined above.
+     * A `headNode` block as defined above.
      * 
      */
     @Import(name="headNode", required=true)
     private Output<HBaseClusterRolesHeadNodeArgs> headNode;
 
     /**
-     * @return A `head_node` block as defined above.
+     * @return A `headNode` block as defined above.
      * 
      */
     public Output<HBaseClusterRolesHeadNodeArgs> headNode() {
@@ -32,14 +32,14 @@ public final class HBaseClusterRolesArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A `worker_node` block as defined below.
+     * A `workerNode` block as defined below.
      * 
      */
     @Import(name="workerNode", required=true)
     private Output<HBaseClusterRolesWorkerNodeArgs> workerNode;
 
     /**
-     * @return A `worker_node` block as defined below.
+     * @return A `workerNode` block as defined below.
      * 
      */
     public Output<HBaseClusterRolesWorkerNodeArgs> workerNode() {
@@ -47,14 +47,14 @@ public final class HBaseClusterRolesArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A `zookeeper_node` block as defined below.
+     * A `zookeeperNode` block as defined below.
      * 
      */
     @Import(name="zookeeperNode", required=true)
     private Output<HBaseClusterRolesZookeeperNodeArgs> zookeeperNode;
 
     /**
-     * @return A `zookeeper_node` block as defined below.
+     * @return A `zookeeperNode` block as defined below.
      * 
      */
     public Output<HBaseClusterRolesZookeeperNodeArgs> zookeeperNode() {
@@ -88,7 +88,7 @@ public final class HBaseClusterRolesArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param headNode A `head_node` block as defined above.
+         * @param headNode A `headNode` block as defined above.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class HBaseClusterRolesArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param headNode A `head_node` block as defined above.
+         * @param headNode A `headNode` block as defined above.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class HBaseClusterRolesArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param workerNode A `worker_node` block as defined below.
+         * @param workerNode A `workerNode` block as defined below.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class HBaseClusterRolesArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param workerNode A `worker_node` block as defined below.
+         * @param workerNode A `workerNode` block as defined below.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class HBaseClusterRolesArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param zookeeperNode A `zookeeper_node` block as defined below.
+         * @param zookeeperNode A `zookeeperNode` block as defined below.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class HBaseClusterRolesArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param zookeeperNode A `zookeeper_node` block as defined below.
+         * @param zookeeperNode A `zookeeperNode` block as defined below.
          * 
          * @return builder
          * 

@@ -174,14 +174,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:nginx/configuration:Configuration")
 public class Configuration extends com.pulumi.resources.CustomResource {
     /**
-     * One or more `config_file` blocks as defined below.
+     * One or more `configFile` blocks as defined below.
      * 
      */
     @Export(name="configFiles", refs={List.class,ConfigurationConfigFile.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ConfigurationConfigFile>> configFiles;
 
     /**
-     * @return One or more `config_file` blocks as defined below.
+     * @return One or more `configFile` blocks as defined below.
      * 
      */
     public Output<Optional<List<ConfigurationConfigFile>>> configFiles() {
@@ -216,14 +216,14 @@ public class Configuration extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.packageData);
     }
     /**
-     * One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified.
+     * One or more `protectedFile` blocks with sensitive information as defined below. If specified `configFile` must also be specified.
      * 
      */
     @Export(name="protectedFiles", refs={List.class,ConfigurationProtectedFile.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ConfigurationProtectedFile>> protectedFiles;
 
     /**
-     * @return One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified.
+     * @return One or more `protectedFile` blocks with sensitive information as defined below. If specified `configFile` must also be specified.
      * 
      */
     public Output<Optional<List<ConfigurationProtectedFile>>> protectedFiles() {

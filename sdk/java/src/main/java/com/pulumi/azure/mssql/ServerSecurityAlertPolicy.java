@@ -210,7 +210,7 @@ public class ServerSecurityAlertPolicy extends com.pulumi.resources.CustomResour
     /**
      * Specifies the primary access key of the Threat Detection audit logs blob storage endpoint.
      * 
-     * &gt; **Note:** The `storage_account_access_key` only applies if the storage account is not behind a virtual network or a firewall.
+     * &gt; **Note:** The `storageAccountAccessKey` only applies if the storage account is not behind a virtual network or a firewall.
      * 
      */
     @Export(name="storageAccountAccessKey", refs={String.class}, tree="[0]")
@@ -219,7 +219,7 @@ public class ServerSecurityAlertPolicy extends com.pulumi.resources.CustomResour
     /**
      * @return Specifies the primary access key of the Threat Detection audit logs blob storage endpoint.
      * 
-     * &gt; **Note:** The `storage_account_access_key` only applies if the storage account is not behind a virtual network or a firewall.
+     * &gt; **Note:** The `storageAccountAccessKey` only applies if the storage account is not behind a virtual network or a firewall.
      * 
      */
     public Output<Optional<String>> storageAccountAccessKey() {
@@ -228,9 +228,9 @@ public class ServerSecurityAlertPolicy extends com.pulumi.resources.CustomResour
     /**
      * Specifies the blob storage endpoint that will hold all Threat Detection audit logs (e.g., `https://example.blob.core.windows.net`).
      * 
-     * &gt; **Note:** The `storage_account_access_key` field is required when the `storage_endpoint` field has been set.
+     * &gt; **Note:** The `storageAccountAccessKey` field is required when the `storageEndpoint` field has been set.
      * 
-     * &gt; **Note:** Storage accounts configured with `shared_access_key_enabled = false` cannot be used for the `storage_endpoint` field.
+     * &gt; **Note:** Storage accounts configured with `sharedAccessKeyEnabled = false` cannot be used for the `storageEndpoint` field.
      * 
      */
     @Export(name="storageEndpoint", refs={String.class}, tree="[0]")
@@ -239,9 +239,9 @@ public class ServerSecurityAlertPolicy extends com.pulumi.resources.CustomResour
     /**
      * @return Specifies the blob storage endpoint that will hold all Threat Detection audit logs (e.g., `https://example.blob.core.windows.net`).
      * 
-     * &gt; **Note:** The `storage_account_access_key` field is required when the `storage_endpoint` field has been set.
+     * &gt; **Note:** The `storageAccountAccessKey` field is required when the `storageEndpoint` field has been set.
      * 
-     * &gt; **Note:** Storage accounts configured with `shared_access_key_enabled = false` cannot be used for the `storage_endpoint` field.
+     * &gt; **Note:** Storage accounts configured with `sharedAccessKeyEnabled = false` cannot be used for the `storageEndpoint` field.
      * 
      */
     public Output<Optional<String>> storageEndpoint() {

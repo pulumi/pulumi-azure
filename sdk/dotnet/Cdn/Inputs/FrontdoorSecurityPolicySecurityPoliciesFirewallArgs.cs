@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Cdn.Inputs
     public sealed class FrontdoorSecurityPolicySecurityPoliciesFirewallArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `association` block as defined below.
+        /// An `Association` block as defined below.
         /// </summary>
         [Input("association", required: true)]
         public Input<Inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs> Association { get; set; } = null!;

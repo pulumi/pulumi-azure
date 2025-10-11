@@ -128,7 +128,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
 
         /// <summary>
-        /// A `schema_column` block as defined below.
+        /// A `SchemaColumn` block as defined below.
         /// </summary>
         [Output("schemaColumns")]
         public Output<ImmutableArray<Outputs.DatasetCosmosDBApiSchemaColumn>> SchemaColumns { get; private set; } = null!;
@@ -257,7 +257,7 @@ namespace Pulumi.Azure.DataFactory
         private InputList<Inputs.DatasetCosmosDBApiSchemaColumnArgs>? _schemaColumns;
 
         /// <summary>
-        /// A `schema_column` block as defined below.
+        /// A `SchemaColumn` block as defined below.
         /// </summary>
         public InputList<Inputs.DatasetCosmosDBApiSchemaColumnArgs> SchemaColumns
         {
@@ -351,7 +351,7 @@ namespace Pulumi.Azure.DataFactory
         private InputList<Inputs.DatasetCosmosDBApiSchemaColumnGetArgs>? _schemaColumns;
 
         /// <summary>
-        /// A `schema_column` block as defined below.
+        /// A `SchemaColumn` block as defined below.
         /// </summary>
         public InputList<Inputs.DatasetCosmosDBApiSchemaColumnGetArgs> SchemaColumns
         {

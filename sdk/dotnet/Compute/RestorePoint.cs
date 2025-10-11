@@ -139,7 +139,7 @@ namespace Pulumi.Azure.Compute
     public partial class RestorePoint : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Whether the Consistency Mode of the Virtual Machine Restore Point is set to `CrashConsistent`. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Whether the Consistency Mode of the Virtual Machine Restore Point is set to `CrashConsistent`. Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("crashConsistencyModeEnabled")]
         public Output<bool?> CrashConsistencyModeEnabled { get; private set; } = null!;
@@ -209,7 +209,7 @@ namespace Pulumi.Azure.Compute
     public sealed class RestorePointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether the Consistency Mode of the Virtual Machine Restore Point is set to `CrashConsistent`. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Whether the Consistency Mode of the Virtual Machine Restore Point is set to `CrashConsistent`. Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("crashConsistencyModeEnabled")]
         public Input<bool>? CrashConsistencyModeEnabled { get; set; }
@@ -247,7 +247,7 @@ namespace Pulumi.Azure.Compute
     public sealed class RestorePointState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether the Consistency Mode of the Virtual Machine Restore Point is set to `CrashConsistent`. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Whether the Consistency Mode of the Virtual Machine Restore Point is set to `CrashConsistent`. Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("crashConsistencyModeEnabled")]
         public Input<bool>? CrashConsistencyModeEnabled { get; set; }

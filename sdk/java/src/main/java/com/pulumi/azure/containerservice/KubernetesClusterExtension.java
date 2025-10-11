@@ -101,14 +101,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:containerservice/kubernetesClusterExtension:KubernetesClusterExtension")
 public class KubernetesClusterExtension extends com.pulumi.resources.CustomResource {
     /**
-     * An `aks_assigned_identity` block as defined below.
+     * An `aksAssignedIdentity` block as defined below.
      * 
      */
     @Export(name="aksAssignedIdentities", refs={List.class,KubernetesClusterExtensionAksAssignedIdentity.class}, tree="[0,1]")
     private Output<List<KubernetesClusterExtensionAksAssignedIdentity>> aksAssignedIdentities;
 
     /**
-     * @return An `aks_assigned_identity` block as defined below.
+     * @return An `aksAssignedIdentity` block as defined below.
      * 
      */
     public Output<List<KubernetesClusterExtensionAksAssignedIdentity>> aksAssignedIdentities() {

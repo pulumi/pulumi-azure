@@ -23,7 +23,7 @@ public final class AutoscaleSettingProfile {
      */
     private AutoscaleSettingProfileCapacity capacity;
     /**
-     * @return A `fixed_date` block as defined below. This cannot be specified if a `recurrence` block is specified.
+     * @return A `fixedDate` block as defined below. This cannot be specified if a `recurrence` block is specified.
      * 
      */
     private @Nullable AutoscaleSettingProfileFixedDate fixedDate;
@@ -33,7 +33,7 @@ public final class AutoscaleSettingProfile {
      */
     private String name;
     /**
-     * @return A `recurrence` block as defined below. This cannot be specified if a `fixed_date` block is specified.
+     * @return A `recurrence` block as defined below. This cannot be specified if a `fixedDate` block is specified.
      * 
      */
     private @Nullable AutoscaleSettingProfileRecurrence recurrence;
@@ -52,7 +52,7 @@ public final class AutoscaleSettingProfile {
         return this.capacity;
     }
     /**
-     * @return A `fixed_date` block as defined below. This cannot be specified if a `recurrence` block is specified.
+     * @return A `fixedDate` block as defined below. This cannot be specified if a `recurrence` block is specified.
      * 
      */
     public Optional<AutoscaleSettingProfileFixedDate> fixedDate() {
@@ -66,7 +66,7 @@ public final class AutoscaleSettingProfile {
         return this.name;
     }
     /**
-     * @return A `recurrence` block as defined below. This cannot be specified if a `fixed_date` block is specified.
+     * @return A `recurrence` block as defined below. This cannot be specified if a `fixedDate` block is specified.
      * 
      */
     public Optional<AutoscaleSettingProfileRecurrence> recurrence() {

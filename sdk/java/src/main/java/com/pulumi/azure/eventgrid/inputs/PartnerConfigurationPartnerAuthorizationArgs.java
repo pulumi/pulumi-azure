@@ -19,7 +19,7 @@ public final class PartnerConfigurationPartnerAuthorizationArgs extends com.pulu
     /**
      * Expiration time of the partner authorization. Value should be in RFC 3339 format in UTC time zone, for example: &#34;2025-02-04T00:00:00Z&#34;.
      * 
-     * &gt; **Note:** If the time from `authorization_expiration_time_in_utc` expires, any request from this partner to create, update or delete resources in the subscriber&#39;s context will fail. If not specified, the authorization will expire after `default_maximum_expiration_time_in_days`.
+     * &gt; **Note:** If the time from `authorizationExpirationTimeInUtc` expires, any request from this partner to create, update or delete resources in the subscriber&#39;s context will fail. If not specified, the authorization will expire after `defaultMaximumExpirationTimeInDays`.
      * 
      */
     @Import(name="authorizationExpirationTimeInUtc")
@@ -28,7 +28,7 @@ public final class PartnerConfigurationPartnerAuthorizationArgs extends com.pulu
     /**
      * @return Expiration time of the partner authorization. Value should be in RFC 3339 format in UTC time zone, for example: &#34;2025-02-04T00:00:00Z&#34;.
      * 
-     * &gt; **Note:** If the time from `authorization_expiration_time_in_utc` expires, any request from this partner to create, update or delete resources in the subscriber&#39;s context will fail. If not specified, the authorization will expire after `default_maximum_expiration_time_in_days`.
+     * &gt; **Note:** If the time from `authorizationExpirationTimeInUtc` expires, any request from this partner to create, update or delete resources in the subscriber&#39;s context will fail. If not specified, the authorization will expire after `defaultMaximumExpirationTimeInDays`.
      * 
      */
     public Optional<Output<String>> authorizationExpirationTimeInUtc() {
@@ -94,7 +94,7 @@ public final class PartnerConfigurationPartnerAuthorizationArgs extends com.pulu
         /**
          * @param authorizationExpirationTimeInUtc Expiration time of the partner authorization. Value should be in RFC 3339 format in UTC time zone, for example: &#34;2025-02-04T00:00:00Z&#34;.
          * 
-         * &gt; **Note:** If the time from `authorization_expiration_time_in_utc` expires, any request from this partner to create, update or delete resources in the subscriber&#39;s context will fail. If not specified, the authorization will expire after `default_maximum_expiration_time_in_days`.
+         * &gt; **Note:** If the time from `authorizationExpirationTimeInUtc` expires, any request from this partner to create, update or delete resources in the subscriber&#39;s context will fail. If not specified, the authorization will expire after `defaultMaximumExpirationTimeInDays`.
          * 
          * @return builder
          * 
@@ -107,7 +107,7 @@ public final class PartnerConfigurationPartnerAuthorizationArgs extends com.pulu
         /**
          * @param authorizationExpirationTimeInUtc Expiration time of the partner authorization. Value should be in RFC 3339 format in UTC time zone, for example: &#34;2025-02-04T00:00:00Z&#34;.
          * 
-         * &gt; **Note:** If the time from `authorization_expiration_time_in_utc` expires, any request from this partner to create, update or delete resources in the subscriber&#39;s context will fail. If not specified, the authorization will expire after `default_maximum_expiration_time_in_days`.
+         * &gt; **Note:** If the time from `authorizationExpirationTimeInUtc` expires, any request from this partner to create, update or delete resources in the subscriber&#39;s context will fail. If not specified, the authorization will expire after `defaultMaximumExpirationTimeInDays`.
          * 
          * @return builder
          * 

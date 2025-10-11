@@ -19,7 +19,7 @@ public final class NetworkManagerIpamPoolStaticCidrState extends com.pulumi.reso
     /**
      * Specifies a list of IPv4 or IPv6 IP address prefixes which will be allocated to the Static CIDR.
      * 
-     * &gt; **Note:** Exactly one of `address_prefixes` or `number_of_ip_addresses_to_allocate` must be specified.
+     * &gt; **Note:** Exactly one of `addressPrefixes` or `numberOfIpAddressesToAllocate` must be specified.
      * 
      */
     @Import(name="addressPrefixes")
@@ -28,7 +28,7 @@ public final class NetworkManagerIpamPoolStaticCidrState extends com.pulumi.reso
     /**
      * @return Specifies a list of IPv4 or IPv6 IP address prefixes which will be allocated to the Static CIDR.
      * 
-     * &gt; **Note:** Exactly one of `address_prefixes` or `number_of_ip_addresses_to_allocate` must be specified.
+     * &gt; **Note:** Exactly one of `addressPrefixes` or `numberOfIpAddressesToAllocate` must be specified.
      * 
      */
     public Optional<Output<List<String>>> addressPrefixes() {
@@ -68,7 +68,7 @@ public final class NetworkManagerIpamPoolStaticCidrState extends com.pulumi.reso
     /**
      * The number of IP addresses to allocate to the Static CIDR. The value must be a string representing a positive integer which is a positive power of 2, e.g., `&#34;16&#34;`.
      * 
-     * &gt; **Note:** Exactly one of `address_prefixes` or `number_of_ip_addresses_to_allocate` must be specified.
+     * &gt; **Note:** Exactly one of `addressPrefixes` or `numberOfIpAddressesToAllocate` must be specified.
      * 
      */
     @Import(name="numberOfIpAddressesToAllocate")
@@ -77,7 +77,7 @@ public final class NetworkManagerIpamPoolStaticCidrState extends com.pulumi.reso
     /**
      * @return The number of IP addresses to allocate to the Static CIDR. The value must be a string representing a positive integer which is a positive power of 2, e.g., `&#34;16&#34;`.
      * 
-     * &gt; **Note:** Exactly one of `address_prefixes` or `number_of_ip_addresses_to_allocate` must be specified.
+     * &gt; **Note:** Exactly one of `addressPrefixes` or `numberOfIpAddressesToAllocate` must be specified.
      * 
      */
     public Optional<Output<String>> numberOfIpAddressesToAllocate() {
@@ -114,7 +114,7 @@ public final class NetworkManagerIpamPoolStaticCidrState extends com.pulumi.reso
         /**
          * @param addressPrefixes Specifies a list of IPv4 or IPv6 IP address prefixes which will be allocated to the Static CIDR.
          * 
-         * &gt; **Note:** Exactly one of `address_prefixes` or `number_of_ip_addresses_to_allocate` must be specified.
+         * &gt; **Note:** Exactly one of `addressPrefixes` or `numberOfIpAddressesToAllocate` must be specified.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class NetworkManagerIpamPoolStaticCidrState extends com.pulumi.reso
         /**
          * @param addressPrefixes Specifies a list of IPv4 or IPv6 IP address prefixes which will be allocated to the Static CIDR.
          * 
-         * &gt; **Note:** Exactly one of `address_prefixes` or `number_of_ip_addresses_to_allocate` must be specified.
+         * &gt; **Note:** Exactly one of `addressPrefixes` or `numberOfIpAddressesToAllocate` must be specified.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class NetworkManagerIpamPoolStaticCidrState extends com.pulumi.reso
         /**
          * @param addressPrefixes Specifies a list of IPv4 or IPv6 IP address prefixes which will be allocated to the Static CIDR.
          * 
-         * &gt; **Note:** Exactly one of `address_prefixes` or `number_of_ip_addresses_to_allocate` must be specified.
+         * &gt; **Note:** Exactly one of `addressPrefixes` or `numberOfIpAddressesToAllocate` must be specified.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class NetworkManagerIpamPoolStaticCidrState extends com.pulumi.reso
         /**
          * @param numberOfIpAddressesToAllocate The number of IP addresses to allocate to the Static CIDR. The value must be a string representing a positive integer which is a positive power of 2, e.g., `&#34;16&#34;`.
          * 
-         * &gt; **Note:** Exactly one of `address_prefixes` or `number_of_ip_addresses_to_allocate` must be specified.
+         * &gt; **Note:** Exactly one of `addressPrefixes` or `numberOfIpAddressesToAllocate` must be specified.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class NetworkManagerIpamPoolStaticCidrState extends com.pulumi.reso
         /**
          * @param numberOfIpAddressesToAllocate The number of IP addresses to allocate to the Static CIDR. The value must be a string representing a positive integer which is a positive power of 2, e.g., `&#34;16&#34;`.
          * 
-         * &gt; **Note:** Exactly one of `address_prefixes` or `number_of_ip_addresses_to_allocate` must be specified.
+         * &gt; **Note:** Exactly one of `addressPrefixes` or `numberOfIpAddressesToAllocate` must be specified.
          * 
          * @return builder
          * 

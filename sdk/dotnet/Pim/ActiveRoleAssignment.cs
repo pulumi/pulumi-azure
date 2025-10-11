@@ -157,7 +157,7 @@ namespace Pulumi.Azure.Pim
         public Output<string> RoleDefinitionId { get; private set; } = null!;
 
         /// <summary>
-        /// A `schedule` block as defined below. Changing this forces a new resource to be created.
+        /// A `Schedule` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("schedule")]
         public Output<Outputs.ActiveRoleAssignmentSchedule> Schedule { get; private set; } = null!;
@@ -169,7 +169,7 @@ namespace Pulumi.Azure.Pim
         public Output<string> Scope { get; private set; } = null!;
 
         /// <summary>
-        /// A `ticket` block as defined below. Changing this forces a new resource to be created.
+        /// A `Ticket` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("ticket")]
         public Output<Outputs.ActiveRoleAssignmentTicket> Ticket { get; private set; } = null!;
@@ -239,7 +239,7 @@ namespace Pulumi.Azure.Pim
         public Input<string> RoleDefinitionId { get; set; } = null!;
 
         /// <summary>
-        /// A `schedule` block as defined below. Changing this forces a new resource to be created.
+        /// A `Schedule` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("schedule")]
         public Input<Inputs.ActiveRoleAssignmentScheduleArgs>? Schedule { get; set; }
@@ -251,7 +251,7 @@ namespace Pulumi.Azure.Pim
         public Input<string> Scope { get; set; } = null!;
 
         /// <summary>
-        /// A `ticket` block as defined below. Changing this forces a new resource to be created.
+        /// A `Ticket` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("ticket")]
         public Input<Inputs.ActiveRoleAssignmentTicketArgs>? Ticket { get; set; }
@@ -289,7 +289,7 @@ namespace Pulumi.Azure.Pim
         public Input<string>? RoleDefinitionId { get; set; }
 
         /// <summary>
-        /// A `schedule` block as defined below. Changing this forces a new resource to be created.
+        /// A `Schedule` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("schedule")]
         public Input<Inputs.ActiveRoleAssignmentScheduleGetArgs>? Schedule { get; set; }
@@ -301,7 +301,7 @@ namespace Pulumi.Azure.Pim
         public Input<string>? Scope { get; set; }
 
         /// <summary>
-        /// A `ticket` block as defined below. Changing this forces a new resource to be created.
+        /// A `Ticket` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("ticket")]
         public Input<Inputs.ActiveRoleAssignmentTicketGetArgs>? Ticket { get; set; }

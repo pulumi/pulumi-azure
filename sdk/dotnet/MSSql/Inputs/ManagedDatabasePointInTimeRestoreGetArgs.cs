@@ -13,7 +13,7 @@ namespace Pulumi.Azure.MSSql.Inputs
     public sealed class ManagedDatabasePointInTimeRestoreGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The point in time for the restore from `source_database_id`. Changing this forces a new resource to be created.
+        /// The point in time for the restore from `SourceDatabaseId`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("restorePointInTime", required: true)]
         public Input<string> RestorePointInTime { get; set; } = null!;

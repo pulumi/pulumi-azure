@@ -205,14 +205,14 @@ public class LinkedServiceAzureFileStorage extends com.pulumi.resources.CustomRe
         return Codegen.optional(this.integrationRuntimeName);
     }
     /**
-     * A `key_vault_password` block as defined below. Use this argument to store Azure File Storage password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+     * A `keyVaultPassword` block as defined below. Use this argument to store Azure File Storage password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
      * 
      */
     @Export(name="keyVaultPassword", refs={LinkedServiceAzureFileStorageKeyVaultPassword.class}, tree="[0]")
     private Output</* @Nullable */ LinkedServiceAzureFileStorageKeyVaultPassword> keyVaultPassword;
 
     /**
-     * @return A `key_vault_password` block as defined below. Use this argument to store Azure File Storage password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+     * @return A `keyVaultPassword` block as defined below. Use this argument to store Azure File Storage password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
      * 
      */
     public Output<Optional<LinkedServiceAzureFileStorageKeyVaultPassword>> keyVaultPassword() {

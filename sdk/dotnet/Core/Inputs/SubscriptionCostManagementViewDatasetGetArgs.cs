@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Core.Inputs
         private InputList<Inputs.SubscriptionCostManagementViewDatasetAggregationGetArgs>? _aggregations;
 
         /// <summary>
-        /// One or more `aggregation` blocks as defined above.
+        /// One or more `Aggregation` blocks as defined above.
         /// </summary>
         public InputList<Inputs.SubscriptionCostManagementViewDatasetAggregationGetArgs> Aggregations
         {
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Core.Inputs
         private InputList<Inputs.SubscriptionCostManagementViewDatasetGroupingGetArgs>? _groupings;
 
         /// <summary>
-        /// One or more `grouping` blocks as defined below.
+        /// One or more `Grouping` blocks as defined below.
         /// </summary>
         public InputList<Inputs.SubscriptionCostManagementViewDatasetGroupingGetArgs> Groupings
         {
@@ -46,7 +46,7 @@ namespace Pulumi.Azure.Core.Inputs
         private InputList<Inputs.SubscriptionCostManagementViewDatasetSortingGetArgs>? _sortings;
 
         /// <summary>
-        /// One or more `sorting` blocks as defined below, containing the order by expression to be used in the report
+        /// One or more `Sorting` blocks as defined below, containing the order by expression to be used in the report
         /// </summary>
         public InputList<Inputs.SubscriptionCostManagementViewDatasetSortingGetArgs> Sortings
         {

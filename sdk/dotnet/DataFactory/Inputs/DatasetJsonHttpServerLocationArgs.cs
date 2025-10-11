@@ -13,13 +13,13 @@ namespace Pulumi.Azure.DataFactory.Inputs
     public sealed class DatasetJsonHttpServerLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+        /// Is the `Filename` using dynamic expression, function or system variables? Defaults to `False`.
         /// </summary>
         [Input("dynamicFilenameEnabled")]
         public Input<bool>? DynamicFilenameEnabled { get; set; }
 
         /// <summary>
-        /// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        /// Is the `Path` using dynamic expression, function or system variables? Defaults to `False`.
         /// </summary>
         [Input("dynamicPathEnabled")]
         public Input<bool>? DynamicPathEnabled { get; set; }

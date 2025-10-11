@@ -114,7 +114,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
 
         /// <summary>
-        /// A `schema_column` block as defined below.
+        /// A `SchemaColumn` block as defined below.
         /// </summary>
         [Output("schemaColumns")]
         public Output<ImmutableArray<Outputs.DatasetMysqlSchemaColumn>> SchemaColumns { get; private set; } = null!;
@@ -243,7 +243,7 @@ namespace Pulumi.Azure.DataFactory
         private InputList<Inputs.DatasetMysqlSchemaColumnArgs>? _schemaColumns;
 
         /// <summary>
-        /// A `schema_column` block as defined below.
+        /// A `SchemaColumn` block as defined below.
         /// </summary>
         public InputList<Inputs.DatasetMysqlSchemaColumnArgs> SchemaColumns
         {
@@ -337,7 +337,7 @@ namespace Pulumi.Azure.DataFactory
         private InputList<Inputs.DatasetMysqlSchemaColumnGetArgs>? _schemaColumns;
 
         /// <summary>
-        /// A `schema_column` block as defined below.
+        /// A `SchemaColumn` block as defined below.
         /// </summary>
         public InputList<Inputs.DatasetMysqlSchemaColumnGetArgs> SchemaColumns
         {

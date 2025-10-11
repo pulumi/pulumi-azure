@@ -151,7 +151,7 @@ namespace Pulumi.Azure.Nginx
     public sealed class GetConfigurationResult
     {
         /// <summary>
-        /// A `config_file` block as defined below.
+        /// A `ConfigFile` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetConfigurationConfigFileResult> ConfigFiles;
         /// <summary>
@@ -164,7 +164,7 @@ namespace Pulumi.Azure.Nginx
         /// </summary>
         public readonly string PackageData;
         /// <summary>
-        /// A `protected_file` block as defined below.
+        /// A `ProtectedFile` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetConfigurationProtectedFileResult> ProtectedFiles;
         /// <summary>

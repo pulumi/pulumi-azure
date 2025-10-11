@@ -113,14 +113,14 @@ public final class GalleryApplicationVersionArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * A `manage_action` block as defined below.
+     * A `manageAction` block as defined below.
      * 
      */
     @Import(name="manageAction", required=true)
     private Output<GalleryApplicationVersionManageActionArgs> manageAction;
 
     /**
-     * @return A `manage_action` block as defined below.
+     * @return A `manageAction` block as defined below.
      * 
      */
     public Output<GalleryApplicationVersionManageActionArgs> manageAction() {
@@ -188,14 +188,14 @@ public final class GalleryApplicationVersionArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * One or more `target_region` blocks as defined below.
+     * One or more `targetRegion` blocks as defined below.
      * 
      */
     @Import(name="targetRegions", required=true)
     private Output<List<GalleryApplicationVersionTargetRegionArgs>> targetRegions;
 
     /**
-     * @return One or more `target_region` blocks as defined below.
+     * @return One or more `targetRegion` blocks as defined below.
      * 
      */
     public Output<List<GalleryApplicationVersionTargetRegionArgs>> targetRegions() {
@@ -364,7 +364,7 @@ public final class GalleryApplicationVersionArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param manageAction A `manage_action` block as defined below.
+         * @param manageAction A `manageAction` block as defined below.
          * 
          * @return builder
          * 
@@ -375,7 +375,7 @@ public final class GalleryApplicationVersionArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param manageAction A `manage_action` block as defined below.
+         * @param manageAction A `manageAction` block as defined below.
          * 
          * @return builder
          * 
@@ -469,7 +469,7 @@ public final class GalleryApplicationVersionArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param targetRegions One or more `target_region` blocks as defined below.
+         * @param targetRegions One or more `targetRegion` blocks as defined below.
          * 
          * @return builder
          * 
@@ -480,7 +480,7 @@ public final class GalleryApplicationVersionArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param targetRegions One or more `target_region` blocks as defined below.
+         * @param targetRegions One or more `targetRegion` blocks as defined below.
          * 
          * @return builder
          * 
@@ -490,7 +490,7 @@ public final class GalleryApplicationVersionArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param targetRegions One or more `target_region` blocks as defined below.
+         * @param targetRegions One or more `targetRegion` blocks as defined below.
          * 
          * @return builder
          * 

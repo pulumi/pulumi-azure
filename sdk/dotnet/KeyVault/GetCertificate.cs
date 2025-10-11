@@ -187,7 +187,7 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         public readonly string CertificateDataBase64;
         /// <summary>
-        /// A `certificate_policy` block as defined below.
+        /// A `CertificatePolicy` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCertificateCertificatePolicyResult> CertificatePolicies;
         /// <summary>

@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AppServiceLogsHttpLogs {
     /**
-     * @return An `azure_blob_storage` block as defined below.
+     * @return An `azureBlobStorage` block as defined below.
      * 
      */
     private @Nullable AppServiceLogsHttpLogsAzureBlobStorage azureBlobStorage;
     /**
-     * @return A `file_system` block as defined below.
+     * @return A `fileSystem` block as defined below.
      * 
      */
     private @Nullable AppServiceLogsHttpLogsFileSystem fileSystem;
 
     private AppServiceLogsHttpLogs() {}
     /**
-     * @return An `azure_blob_storage` block as defined below.
+     * @return An `azureBlobStorage` block as defined below.
      * 
      */
     public Optional<AppServiceLogsHttpLogsAzureBlobStorage> azureBlobStorage() {
         return Optional.ofNullable(this.azureBlobStorage);
     }
     /**
-     * @return A `file_system` block as defined below.
+     * @return A `fileSystem` block as defined below.
      * 
      */
     public Optional<AppServiceLogsHttpLogsFileSystem> fileSystem() {

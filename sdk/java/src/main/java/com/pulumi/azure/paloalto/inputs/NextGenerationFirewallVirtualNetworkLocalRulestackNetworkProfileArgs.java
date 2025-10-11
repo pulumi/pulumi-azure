@@ -78,14 +78,14 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProf
     }
 
     /**
-     * A `vnet_configuration` block as defined below.
+     * A `vnetConfiguration` block as defined below.
      * 
      */
     @Import(name="vnetConfiguration", required=true)
     private Output<NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationArgs> vnetConfiguration;
 
     /**
-     * @return A `vnet_configuration` block as defined below.
+     * @return A `vnetConfiguration` block as defined below.
      * 
      */
     public Output<NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationArgs> vnetConfiguration() {
@@ -241,7 +241,7 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProf
         }
 
         /**
-         * @param vnetConfiguration A `vnet_configuration` block as defined below.
+         * @param vnetConfiguration A `vnetConfiguration` block as defined below.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProf
         }
 
         /**
-         * @param vnetConfiguration A `vnet_configuration` block as defined below.
+         * @param vnetConfiguration A `vnetConfiguration` block as defined below.
          * 
          * @return builder
          * 

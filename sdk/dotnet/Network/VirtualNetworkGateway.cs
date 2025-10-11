@@ -147,25 +147,25 @@ namespace Pulumi.Azure.Network
     public partial class VirtualNetworkGateway : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// If `true`, an active-active Virtual Network Gateway will be created. An active-active gateway requires a `HighPerformance` or an `UltraPerformance` SKU. If `false`, an active-standby gateway will be created. Defaults to `false`.
+        /// If `True`, an active-active Virtual Network Gateway will be created. An active-active gateway requires a `HighPerformance` or an `UltraPerformance` SKU. If `False`, an active-standby gateway will be created. Defaults to `False`.
         /// </summary>
         [Output("activeActive")]
         public Output<bool> ActiveActive { get; private set; } = null!;
 
         /// <summary>
-        /// Is BGP Route Translation for NAT enabled? Defaults to `false`.
+        /// Is BGP Route Translation for NAT enabled? Defaults to `False`.
         /// </summary>
         [Output("bgpRouteTranslationForNatEnabled")]
         public Output<bool?> BgpRouteTranslationForNatEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A `bgp_settings` block which is documented below. In this block the BGP specific settings can be defined.
+        /// A `BgpSettings` block which is documented below. In this block the BGP specific settings can be defined.
         /// </summary>
         [Output("bgpSettings")]
         public Output<Outputs.VirtualNetworkGatewayBgpSettings> BgpSettings { get; private set; } = null!;
 
         /// <summary>
-        /// A `custom_route` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
+        /// A `CustomRoute` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
         /// </summary>
         [Output("customRoute")]
         public Output<Outputs.VirtualNetworkGatewayCustomRoute?> CustomRoute { get; private set; } = null!;
@@ -189,7 +189,7 @@ namespace Pulumi.Azure.Network
         public Output<string?> EdgeZone { get; private set; } = null!;
 
         /// <summary>
-        /// If `true`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `false`.
+        /// If `True`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `False`.
         /// </summary>
         [Output("enableBgp")]
         public Output<bool> EnableBgp { get; private set; } = null!;
@@ -197,22 +197,22 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** The available values depend on the `type` and `sku` arguments - where `Generation2` is only value for a `sku` larger than `VpnGw2` or `VpnGw2AZ`.
+        /// &gt; **Note:** The available values depend on the `Type` and `Sku` arguments - where `Generation2` is only value for a `Sku` larger than `VpnGw2` or `VpnGw2AZ`.
         /// </summary>
         [Output("generation")]
         public Output<string> Generation { get; private set; } = null!;
 
         /// <summary>
-        /// One or more (up to 3) `ip_configuration` blocks documented below. Changing this forces a new resource to be created. 
-        /// An active-standby gateway requires exactly one `ip_configuration` block,
-        /// an active-active gateway requires exactly two `ip_configuration` blocks whereas
-        /// an active-active zone redundant gateway with P2S configuration requires exactly three `ip_configuration` blocks.
+        /// One or more (up to 3) `IpConfiguration` blocks documented below. Changing this forces a new resource to be created. 
+        /// An active-standby gateway requires exactly one `IpConfiguration` block,
+        /// an active-active gateway requires exactly two `IpConfiguration` blocks whereas
+        /// an active-active zone redundant gateway with P2S configuration requires exactly three `IpConfiguration` blocks.
         /// </summary>
         [Output("ipConfigurations")]
         public Output<ImmutableArray<Outputs.VirtualNetworkGatewayIpConfiguration>> IpConfigurations { get; private set; } = null!;
 
         /// <summary>
-        /// Is IP Sec Replay Protection enabled? Defaults to `true`.
+        /// Is IP Sec Replay Protection enabled? Defaults to `True`.
         /// </summary>
         [Output("ipSecReplayProtectionEnabled")]
         public Output<bool?> IpSecReplayProtectionEnabled { get; private set; } = null!;
@@ -230,7 +230,7 @@ namespace Pulumi.Azure.Network
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `policy_group` blocks as defined below.
+        /// One or more `PolicyGroup` blocks as defined below.
         /// </summary>
         [Output("policyGroups")]
         public Output<ImmutableArray<Outputs.VirtualNetworkGatewayPolicyGroup>> PolicyGroups { get; private set; } = null!;
@@ -242,7 +242,7 @@ namespace Pulumi.Azure.Network
         public Output<bool?> PrivateIpAddressEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Is remote vnet traffic that is used to configure this gateway to accept traffic from other Azure Virtual Networks enabled? Defaults to `false`.
+        /// Is remote vnet traffic that is used to configure this gateway to accept traffic from other Azure Virtual Networks enabled? Defaults to `False`.
         /// </summary>
         [Output("remoteVnetTrafficEnabled")]
         public Output<bool?> RemoteVnetTrafficEnabled { get; private set; } = null!;
@@ -254,7 +254,7 @@ namespace Pulumi.Azure.Network
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` SKU is only supported by an `ExpressRoute` gateway.
+        /// Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `Type`, `VpnType` and `Generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` SKU is only supported by an `ExpressRoute` gateway.
         /// 
         /// &gt; **Note:** To build a UltraPerformance ExpressRoute Virtual Network gateway, the associated Public IP needs to be SKU "Basic" not "Standard"
         /// 
@@ -276,13 +276,13 @@ namespace Pulumi.Azure.Network
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// Is remote vnet traffic that is used to configure this gateway to accept traffic from remote Virtual WAN networks enabled? Defaults to `false`.
+        /// Is remote vnet traffic that is used to configure this gateway to accept traffic from remote Virtual WAN networks enabled? Defaults to `False`.
         /// </summary>
         [Output("virtualWanTrafficEnabled")]
         public Output<bool?> VirtualWanTrafficEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
+        /// A `VpnClientConfiguration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
         /// </summary>
         [Output("vpnClientConfiguration")]
         public Output<Outputs.VirtualNetworkGatewayVpnClientConfiguration?> VpnClientConfiguration { get; private set; } = null!;
@@ -340,25 +340,25 @@ namespace Pulumi.Azure.Network
     public sealed class VirtualNetworkGatewayArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If `true`, an active-active Virtual Network Gateway will be created. An active-active gateway requires a `HighPerformance` or an `UltraPerformance` SKU. If `false`, an active-standby gateway will be created. Defaults to `false`.
+        /// If `True`, an active-active Virtual Network Gateway will be created. An active-active gateway requires a `HighPerformance` or an `UltraPerformance` SKU. If `False`, an active-standby gateway will be created. Defaults to `False`.
         /// </summary>
         [Input("activeActive")]
         public Input<bool>? ActiveActive { get; set; }
 
         /// <summary>
-        /// Is BGP Route Translation for NAT enabled? Defaults to `false`.
+        /// Is BGP Route Translation for NAT enabled? Defaults to `False`.
         /// </summary>
         [Input("bgpRouteTranslationForNatEnabled")]
         public Input<bool>? BgpRouteTranslationForNatEnabled { get; set; }
 
         /// <summary>
-        /// A `bgp_settings` block which is documented below. In this block the BGP specific settings can be defined.
+        /// A `BgpSettings` block which is documented below. In this block the BGP specific settings can be defined.
         /// </summary>
         [Input("bgpSettings")]
         public Input<Inputs.VirtualNetworkGatewayBgpSettingsArgs>? BgpSettings { get; set; }
 
         /// <summary>
-        /// A `custom_route` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
+        /// A `CustomRoute` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
         /// </summary>
         [Input("customRoute")]
         public Input<Inputs.VirtualNetworkGatewayCustomRouteArgs>? CustomRoute { get; set; }
@@ -382,7 +382,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? EdgeZone { get; set; }
 
         /// <summary>
-        /// If `true`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `false`.
+        /// If `True`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `False`.
         /// </summary>
         [Input("enableBgp")]
         public Input<bool>? EnableBgp { get; set; }
@@ -390,7 +390,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** The available values depend on the `type` and `sku` arguments - where `Generation2` is only value for a `sku` larger than `VpnGw2` or `VpnGw2AZ`.
+        /// &gt; **Note:** The available values depend on the `Type` and `Sku` arguments - where `Generation2` is only value for a `Sku` larger than `VpnGw2` or `VpnGw2AZ`.
         /// </summary>
         [Input("generation")]
         public Input<string>? Generation { get; set; }
@@ -399,10 +399,10 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.VirtualNetworkGatewayIpConfigurationArgs>? _ipConfigurations;
 
         /// <summary>
-        /// One or more (up to 3) `ip_configuration` blocks documented below. Changing this forces a new resource to be created. 
-        /// An active-standby gateway requires exactly one `ip_configuration` block,
-        /// an active-active gateway requires exactly two `ip_configuration` blocks whereas
-        /// an active-active zone redundant gateway with P2S configuration requires exactly three `ip_configuration` blocks.
+        /// One or more (up to 3) `IpConfiguration` blocks documented below. Changing this forces a new resource to be created. 
+        /// An active-standby gateway requires exactly one `IpConfiguration` block,
+        /// an active-active gateway requires exactly two `IpConfiguration` blocks whereas
+        /// an active-active zone redundant gateway with P2S configuration requires exactly three `IpConfiguration` blocks.
         /// </summary>
         public InputList<Inputs.VirtualNetworkGatewayIpConfigurationArgs> IpConfigurations
         {
@@ -411,7 +411,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// Is IP Sec Replay Protection enabled? Defaults to `true`.
+        /// Is IP Sec Replay Protection enabled? Defaults to `True`.
         /// </summary>
         [Input("ipSecReplayProtectionEnabled")]
         public Input<bool>? IpSecReplayProtectionEnabled { get; set; }
@@ -432,7 +432,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.VirtualNetworkGatewayPolicyGroupArgs>? _policyGroups;
 
         /// <summary>
-        /// One or more `policy_group` blocks as defined below.
+        /// One or more `PolicyGroup` blocks as defined below.
         /// </summary>
         public InputList<Inputs.VirtualNetworkGatewayPolicyGroupArgs> PolicyGroups
         {
@@ -447,7 +447,7 @@ namespace Pulumi.Azure.Network
         public Input<bool>? PrivateIpAddressEnabled { get; set; }
 
         /// <summary>
-        /// Is remote vnet traffic that is used to configure this gateway to accept traffic from other Azure Virtual Networks enabled? Defaults to `false`.
+        /// Is remote vnet traffic that is used to configure this gateway to accept traffic from other Azure Virtual Networks enabled? Defaults to `False`.
         /// </summary>
         [Input("remoteVnetTrafficEnabled")]
         public Input<bool>? RemoteVnetTrafficEnabled { get; set; }
@@ -459,7 +459,7 @@ namespace Pulumi.Azure.Network
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` SKU is only supported by an `ExpressRoute` gateway.
+        /// Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `Type`, `VpnType` and `Generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` SKU is only supported by an `ExpressRoute` gateway.
         /// 
         /// &gt; **Note:** To build a UltraPerformance ExpressRoute Virtual Network gateway, the associated Public IP needs to be SKU "Basic" not "Standard"
         /// 
@@ -487,13 +487,13 @@ namespace Pulumi.Azure.Network
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Is remote vnet traffic that is used to configure this gateway to accept traffic from remote Virtual WAN networks enabled? Defaults to `false`.
+        /// Is remote vnet traffic that is used to configure this gateway to accept traffic from remote Virtual WAN networks enabled? Defaults to `False`.
         /// </summary>
         [Input("virtualWanTrafficEnabled")]
         public Input<bool>? VirtualWanTrafficEnabled { get; set; }
 
         /// <summary>
-        /// A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
+        /// A `VpnClientConfiguration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
         /// </summary>
         [Input("vpnClientConfiguration")]
         public Input<Inputs.VirtualNetworkGatewayVpnClientConfigurationArgs>? VpnClientConfiguration { get; set; }
@@ -513,25 +513,25 @@ namespace Pulumi.Azure.Network
     public sealed class VirtualNetworkGatewayState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If `true`, an active-active Virtual Network Gateway will be created. An active-active gateway requires a `HighPerformance` or an `UltraPerformance` SKU. If `false`, an active-standby gateway will be created. Defaults to `false`.
+        /// If `True`, an active-active Virtual Network Gateway will be created. An active-active gateway requires a `HighPerformance` or an `UltraPerformance` SKU. If `False`, an active-standby gateway will be created. Defaults to `False`.
         /// </summary>
         [Input("activeActive")]
         public Input<bool>? ActiveActive { get; set; }
 
         /// <summary>
-        /// Is BGP Route Translation for NAT enabled? Defaults to `false`.
+        /// Is BGP Route Translation for NAT enabled? Defaults to `False`.
         /// </summary>
         [Input("bgpRouteTranslationForNatEnabled")]
         public Input<bool>? BgpRouteTranslationForNatEnabled { get; set; }
 
         /// <summary>
-        /// A `bgp_settings` block which is documented below. In this block the BGP specific settings can be defined.
+        /// A `BgpSettings` block which is documented below. In this block the BGP specific settings can be defined.
         /// </summary>
         [Input("bgpSettings")]
         public Input<Inputs.VirtualNetworkGatewayBgpSettingsGetArgs>? BgpSettings { get; set; }
 
         /// <summary>
-        /// A `custom_route` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
+        /// A `CustomRoute` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
         /// </summary>
         [Input("customRoute")]
         public Input<Inputs.VirtualNetworkGatewayCustomRouteGetArgs>? CustomRoute { get; set; }
@@ -555,7 +555,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? EdgeZone { get; set; }
 
         /// <summary>
-        /// If `true`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `false`.
+        /// If `True`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `False`.
         /// </summary>
         [Input("enableBgp")]
         public Input<bool>? EnableBgp { get; set; }
@@ -563,7 +563,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** The available values depend on the `type` and `sku` arguments - where `Generation2` is only value for a `sku` larger than `VpnGw2` or `VpnGw2AZ`.
+        /// &gt; **Note:** The available values depend on the `Type` and `Sku` arguments - where `Generation2` is only value for a `Sku` larger than `VpnGw2` or `VpnGw2AZ`.
         /// </summary>
         [Input("generation")]
         public Input<string>? Generation { get; set; }
@@ -572,10 +572,10 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.VirtualNetworkGatewayIpConfigurationGetArgs>? _ipConfigurations;
 
         /// <summary>
-        /// One or more (up to 3) `ip_configuration` blocks documented below. Changing this forces a new resource to be created. 
-        /// An active-standby gateway requires exactly one `ip_configuration` block,
-        /// an active-active gateway requires exactly two `ip_configuration` blocks whereas
-        /// an active-active zone redundant gateway with P2S configuration requires exactly three `ip_configuration` blocks.
+        /// One or more (up to 3) `IpConfiguration` blocks documented below. Changing this forces a new resource to be created. 
+        /// An active-standby gateway requires exactly one `IpConfiguration` block,
+        /// an active-active gateway requires exactly two `IpConfiguration` blocks whereas
+        /// an active-active zone redundant gateway with P2S configuration requires exactly three `IpConfiguration` blocks.
         /// </summary>
         public InputList<Inputs.VirtualNetworkGatewayIpConfigurationGetArgs> IpConfigurations
         {
@@ -584,7 +584,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// Is IP Sec Replay Protection enabled? Defaults to `true`.
+        /// Is IP Sec Replay Protection enabled? Defaults to `True`.
         /// </summary>
         [Input("ipSecReplayProtectionEnabled")]
         public Input<bool>? IpSecReplayProtectionEnabled { get; set; }
@@ -605,7 +605,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.VirtualNetworkGatewayPolicyGroupGetArgs>? _policyGroups;
 
         /// <summary>
-        /// One or more `policy_group` blocks as defined below.
+        /// One or more `PolicyGroup` blocks as defined below.
         /// </summary>
         public InputList<Inputs.VirtualNetworkGatewayPolicyGroupGetArgs> PolicyGroups
         {
@@ -620,7 +620,7 @@ namespace Pulumi.Azure.Network
         public Input<bool>? PrivateIpAddressEnabled { get; set; }
 
         /// <summary>
-        /// Is remote vnet traffic that is used to configure this gateway to accept traffic from other Azure Virtual Networks enabled? Defaults to `false`.
+        /// Is remote vnet traffic that is used to configure this gateway to accept traffic from other Azure Virtual Networks enabled? Defaults to `False`.
         /// </summary>
         [Input("remoteVnetTrafficEnabled")]
         public Input<bool>? RemoteVnetTrafficEnabled { get; set; }
@@ -632,7 +632,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` SKU is only supported by an `ExpressRoute` gateway.
+        /// Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `Type`, `VpnType` and `Generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` SKU is only supported by an `ExpressRoute` gateway.
         /// 
         /// &gt; **Note:** To build a UltraPerformance ExpressRoute Virtual Network gateway, the associated Public IP needs to be SKU "Basic" not "Standard"
         /// 
@@ -660,13 +660,13 @@ namespace Pulumi.Azure.Network
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// Is remote vnet traffic that is used to configure this gateway to accept traffic from remote Virtual WAN networks enabled? Defaults to `false`.
+        /// Is remote vnet traffic that is used to configure this gateway to accept traffic from remote Virtual WAN networks enabled? Defaults to `False`.
         /// </summary>
         [Input("virtualWanTrafficEnabled")]
         public Input<bool>? VirtualWanTrafficEnabled { get; set; }
 
         /// <summary>
-        /// A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
+        /// A `VpnClientConfiguration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
         /// </summary>
         [Input("vpnClientConfiguration")]
         public Input<Inputs.VirtualNetworkGatewayVpnClientConfigurationGetArgs>? VpnClientConfiguration { get; set; }

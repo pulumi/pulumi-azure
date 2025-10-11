@@ -127,7 +127,7 @@ namespace Pulumi.Azure.AppPlatform
         public Output<int?> InstanceCount { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the language framework of the container image. The only possible value is `springboot`.
+        /// Specifies the language framework of the container image. The only possible value is `Springboot`.
         /// </summary>
         [Output("languageFramework")]
         public Output<string?> LanguageFramework { get; private set; } = null!;
@@ -139,7 +139,7 @@ namespace Pulumi.Azure.AppPlatform
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `quota` block as defined below.
+        /// A `Quota` block as defined below.
         /// </summary>
         [Output("quota")]
         public Output<Outputs.SpringCloudContainerDeploymentQuota> Quota { get; private set; } = null!;
@@ -269,7 +269,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<int>? InstanceCount { get; set; }
 
         /// <summary>
-        /// Specifies the language framework of the container image. The only possible value is `springboot`.
+        /// Specifies the language framework of the container image. The only possible value is `Springboot`.
         /// </summary>
         [Input("languageFramework")]
         public Input<string>? LanguageFramework { get; set; }
@@ -281,7 +281,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `quota` block as defined below.
+        /// A `Quota` block as defined below.
         /// </summary>
         [Input("quota")]
         public Input<Inputs.SpringCloudContainerDeploymentQuotaArgs>? Quota { get; set; }
@@ -373,7 +373,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<int>? InstanceCount { get; set; }
 
         /// <summary>
-        /// Specifies the language framework of the container image. The only possible value is `springboot`.
+        /// Specifies the language framework of the container image. The only possible value is `Springboot`.
         /// </summary>
         [Input("languageFramework")]
         public Input<string>? LanguageFramework { get; set; }
@@ -385,7 +385,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `quota` block as defined below.
+        /// A `Quota` block as defined below.
         /// </summary>
         [Input("quota")]
         public Input<Inputs.SpringCloudContainerDeploymentQuotaGetArgs>? Quota { get; set; }

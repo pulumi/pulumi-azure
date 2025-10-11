@@ -14,7 +14,7 @@ import java.util.Objects;
 @CustomType
 public final class GetRoleManagementPolicyActivationRule {
     /**
-     * @return An `approval_stage` block as defined below.
+     * @return An `approvalStage` block as defined below.
      * 
      */
     private List<GetRoleManagementPolicyActivationRuleApprovalStage> approvalStages;
@@ -51,7 +51,7 @@ public final class GetRoleManagementPolicyActivationRule {
 
     private GetRoleManagementPolicyActivationRule() {}
     /**
-     * @return An `approval_stage` block as defined below.
+     * @return An `approvalStage` block as defined below.
      * 
      */
     public List<GetRoleManagementPolicyActivationRuleApprovalStage> approvalStages() {

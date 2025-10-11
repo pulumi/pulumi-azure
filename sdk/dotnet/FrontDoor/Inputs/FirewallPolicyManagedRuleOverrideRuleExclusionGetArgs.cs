@@ -25,7 +25,7 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         public Input<string> Operator { get; set; } = null!;
 
         /// <summary>
-        /// Selector for the value in the `match_variable` attribute this exclusion applies to.
+        /// Selector for the value in the `MatchVariable` attribute this exclusion applies to.
         /// </summary>
         [Input("selector", required: true)]
         public Input<string> Selector { get; set; } = null!;

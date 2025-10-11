@@ -276,13 +276,13 @@ namespace Pulumi.Azure.KeyVault
     public partial class Certifiate : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
+        /// A `Certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
         /// </summary>
         [Output("certificate")]
         public Output<Outputs.CertifiateCertificate?> KeyVaultCertificate { get; private set; } = null!;
 
         /// <summary>
-        /// A `certificate_attribute` block as defined below.
+        /// A `CertificateAttribute` block as defined below.
         /// </summary>
         [Output("certificateAttributes")]
         public Output<ImmutableArray<Outputs.CertifiateCertificateAttribute>> CertificateAttributes { get; private set; } = null!;
@@ -300,9 +300,9 @@ namespace Pulumi.Azure.KeyVault
         public Output<string> CertificateDataBase64 { get; private set; } = null!;
 
         /// <summary>
-        /// A `certificate_policy` block as defined below. Changing this (except the `lifetime_action` field) will create a new version of the Key Vault Certificate.
+        /// A `CertificatePolicy` block as defined below. Changing this (except the `LifetimeAction` field) will create a new version of the Key Vault Certificate.
         /// 
-        /// &gt; **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
+        /// &gt; **NOTE:** When creating a Key Vault Certificate, at least one of `Certificate` or `CertificatePolicy` is required. Provide `Certificate` to import an existing certificate, `CertificatePolicy` to generate a new certificate.
         /// </summary>
         [Output("certificatePolicy")]
         public Output<Outputs.CertifiateCertificatePolicy> CertificatePolicy { get; private set; } = null!;
@@ -414,15 +414,15 @@ namespace Pulumi.Azure.KeyVault
     public sealed class CertifiateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
+        /// A `Certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
         /// </summary>
         [Input("certificate")]
         public Input<Inputs.CertifiateCertificateArgs>? KeyVaultCertificate { get; set; }
 
         /// <summary>
-        /// A `certificate_policy` block as defined below. Changing this (except the `lifetime_action` field) will create a new version of the Key Vault Certificate.
+        /// A `CertificatePolicy` block as defined below. Changing this (except the `LifetimeAction` field) will create a new version of the Key Vault Certificate.
         /// 
-        /// &gt; **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
+        /// &gt; **NOTE:** When creating a Key Vault Certificate, at least one of `Certificate` or `CertificatePolicy` is required. Provide `Certificate` to import an existing certificate, `CertificatePolicy` to generate a new certificate.
         /// </summary>
         [Input("certificatePolicy")]
         public Input<Inputs.CertifiateCertificatePolicyArgs>? CertificatePolicy { get; set; }
@@ -460,7 +460,7 @@ namespace Pulumi.Azure.KeyVault
     public sealed class CertifiateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
+        /// A `Certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
         /// </summary>
         [Input("certificate")]
         public Input<Inputs.CertifiateCertificateGetArgs>? KeyVaultCertificate { get; set; }
@@ -469,7 +469,7 @@ namespace Pulumi.Azure.KeyVault
         private InputList<Inputs.CertifiateCertificateAttributeGetArgs>? _certificateAttributes;
 
         /// <summary>
-        /// A `certificate_attribute` block as defined below.
+        /// A `CertificateAttribute` block as defined below.
         /// </summary>
         public InputList<Inputs.CertifiateCertificateAttributeGetArgs> CertificateAttributes
         {
@@ -490,9 +490,9 @@ namespace Pulumi.Azure.KeyVault
         public Input<string>? CertificateDataBase64 { get; set; }
 
         /// <summary>
-        /// A `certificate_policy` block as defined below. Changing this (except the `lifetime_action` field) will create a new version of the Key Vault Certificate.
+        /// A `CertificatePolicy` block as defined below. Changing this (except the `LifetimeAction` field) will create a new version of the Key Vault Certificate.
         /// 
-        /// &gt; **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
+        /// &gt; **NOTE:** When creating a Key Vault Certificate, at least one of `Certificate` or `CertificatePolicy` is required. Provide `Certificate` to import an existing certificate, `CertificatePolicy` to generate a new certificate.
         /// </summary>
         [Input("certificatePolicy")]
         public Input<Inputs.CertifiateCertificatePolicyGetArgs>? CertificatePolicy { get; set; }

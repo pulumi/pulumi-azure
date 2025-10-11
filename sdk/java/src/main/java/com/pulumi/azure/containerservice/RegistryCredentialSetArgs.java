@@ -19,14 +19,14 @@ public final class RegistryCredentialSetArgs extends com.pulumi.resources.Resour
     public static final RegistryCredentialSetArgs Empty = new RegistryCredentialSetArgs();
 
     /**
-     * A `authentication_credentials` block as defined below.
+     * A `authenticationCredentials` block as defined below.
      * 
      */
     @Import(name="authenticationCredentials", required=true)
     private Output<RegistryCredentialSetAuthenticationCredentialsArgs> authenticationCredentials;
 
     /**
-     * @return A `authentication_credentials` block as defined below.
+     * @return A `authenticationCredentials` block as defined below.
      * 
      */
     public Output<RegistryCredentialSetAuthenticationCredentialsArgs> authenticationCredentials() {
@@ -122,7 +122,7 @@ public final class RegistryCredentialSetArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param authenticationCredentials A `authentication_credentials` block as defined below.
+         * @param authenticationCredentials A `authenticationCredentials` block as defined below.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class RegistryCredentialSetArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param authenticationCredentials A `authentication_credentials` block as defined below.
+         * @param authenticationCredentials A `authenticationCredentials` block as defined below.
          * 
          * @return builder
          * 

@@ -14,11 +14,11 @@ namespace Pulumi.Azure.RecoveryServices.Outputs
     public sealed class VaultMonitoring
     {
         /// <summary>
-        /// Enabling/Disabling built-in Azure Monitor alerts for security scenarios and job failure scenarios. Defaults to `true`.
+        /// Enabling/Disabling built-in Azure Monitor alerts for security scenarios and job failure scenarios. Defaults to `True`.
         /// </summary>
         public readonly bool? AlertsForAllJobFailuresEnabled;
         /// <summary>
-        /// Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
+        /// Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `True`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
         /// </summary>
         public readonly bool? AlertsForCriticalOperationFailuresEnabled;
 

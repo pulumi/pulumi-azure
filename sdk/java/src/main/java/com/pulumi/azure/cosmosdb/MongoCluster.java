@@ -146,14 +146,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:cosmosdb/mongoCluster:MongoCluster")
 public class MongoCluster extends com.pulumi.resources.CustomResource {
     /**
-     * The Password associated with the `administrator_username` for the MongoDB Cluster.
+     * The Password associated with the `administratorUsername` for the MongoDB Cluster.
      * 
      */
     @Export(name="administratorPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> administratorPassword;
 
     /**
-     * @return The Password associated with the `administrator_username` for the MongoDB Cluster.
+     * @return The Password associated with the `administratorUsername` for the MongoDB Cluster.
      * 
      */
     public Output<Optional<String>> administratorPassword() {
@@ -188,14 +188,14 @@ public class MongoCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.computeTier);
     }
     /**
-     * The list of `connection_strings` blocks as defined below.
+     * The list of `connectionStrings` blocks as defined below.
      * 
      */
     @Export(name="connectionStrings", refs={List.class,MongoClusterConnectionString.class}, tree="[0,1]")
     private Output<List<MongoClusterConnectionString>> connectionStrings;
 
     /**
-     * @return The list of `connection_strings` blocks as defined below.
+     * @return The list of `connectionStrings` blocks as defined below.
      * 
      */
     public Output<List<MongoClusterConnectionString>> connectionStrings() {

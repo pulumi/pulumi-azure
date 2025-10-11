@@ -177,14 +177,14 @@ public class ARecord extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * List of IPv4 Addresses. Conflicts with `target_resource_id`.
+     * List of IPv4 Addresses. Conflicts with `targetResourceId`.
      * 
      */
     @Export(name="records", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> records;
 
     /**
-     * @return List of IPv4 Addresses. Conflicts with `target_resource_id`.
+     * @return List of IPv4 Addresses. Conflicts with `targetResourceId`.
      * 
      */
     public Output<Optional<List<String>>> records() {
@@ -207,7 +207,7 @@ public class ARecord extends com.pulumi.resources.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      * 
-     * &gt; **Note:** either `records` OR `target_resource_id` must be specified, but not both.
+     * &gt; **Note:** either `records` OR `targetResourceId` must be specified, but not both.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
@@ -216,7 +216,7 @@ public class ARecord extends com.pulumi.resources.CustomResource {
     /**
      * @return A mapping of tags to assign to the resource.
      * 
-     * &gt; **Note:** either `records` OR `target_resource_id` must be specified, but not both.
+     * &gt; **Note:** either `records` OR `targetResourceId` must be specified, but not both.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
@@ -253,7 +253,7 @@ public class ARecord extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** The `zone_name` should be the name of resource `azure.dns.Zone` instead of `azure.privatedns.Zone`.
+     * &gt; **Note:** The `zoneName` should be the name of resource `azure.dns.Zone` instead of `azure.privatedns.Zone`.
      * 
      */
     @Export(name="zoneName", refs={String.class}, tree="[0]")
@@ -262,7 +262,7 @@ public class ARecord extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** The `zone_name` should be the name of resource `azure.dns.Zone` instead of `azure.privatedns.Zone`.
+     * &gt; **Note:** The `zoneName` should be the name of resource `azure.dns.Zone` instead of `azure.privatedns.Zone`.
      * 
      */
     public Output<String> zoneName() {

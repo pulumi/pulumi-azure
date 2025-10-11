@@ -34,14 +34,14 @@ public final class PolicyPolicySettingsArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Whether the firewall should block a request with upload size greater then `file_upload_limit_in_mb`.
+     * Whether the firewall should block a request with upload size greater then `fileUploadLimitInMb`.
      * 
      */
     @Import(name="fileUploadEnforcement")
     private @Nullable Output<Boolean> fileUploadEnforcement;
 
     /**
-     * @return Whether the firewall should block a request with upload size greater then `file_upload_limit_in_mb`.
+     * @return Whether the firewall should block a request with upload size greater then `fileUploadLimitInMb`.
      * 
      */
     public Optional<Output<Boolean>> fileUploadEnforcement() {
@@ -79,14 +79,14 @@ public final class PolicyPolicySettingsArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * One `log_scrubbing` block as defined below.
+     * One `logScrubbing` block as defined below.
      * 
      */
     @Import(name="logScrubbing")
     private @Nullable Output<PolicyPolicySettingsLogScrubbingArgs> logScrubbing;
 
     /**
-     * @return One `log_scrubbing` block as defined below.
+     * @return One `logScrubbing` block as defined below.
      * 
      */
     public Optional<Output<PolicyPolicySettingsLogScrubbingArgs>> logScrubbing() {
@@ -139,14 +139,14 @@ public final class PolicyPolicySettingsArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Whether the firewall should block a request with body size greater then `max_request_body_size_in_kb`. Defaults to `true`.
+     * Whether the firewall should block a request with body size greater then `maxRequestBodySizeInKb`. Defaults to `true`.
      * 
      */
     @Import(name="requestBodyEnforcement")
     private @Nullable Output<Boolean> requestBodyEnforcement;
 
     /**
-     * @return Whether the firewall should block a request with body size greater then `max_request_body_size_in_kb`. Defaults to `true`.
+     * @return Whether the firewall should block a request with body size greater then `maxRequestBodySizeInKb`. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> requestBodyEnforcement() {
@@ -223,7 +223,7 @@ public final class PolicyPolicySettingsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param fileUploadEnforcement Whether the firewall should block a request with upload size greater then `file_upload_limit_in_mb`.
+         * @param fileUploadEnforcement Whether the firewall should block a request with upload size greater then `fileUploadLimitInMb`.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class PolicyPolicySettingsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param fileUploadEnforcement Whether the firewall should block a request with upload size greater then `file_upload_limit_in_mb`.
+         * @param fileUploadEnforcement Whether the firewall should block a request with upload size greater then `fileUploadLimitInMb`.
          * 
          * @return builder
          * 
@@ -286,7 +286,7 @@ public final class PolicyPolicySettingsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param logScrubbing One `log_scrubbing` block as defined below.
+         * @param logScrubbing One `logScrubbing` block as defined below.
          * 
          * @return builder
          * 
@@ -297,7 +297,7 @@ public final class PolicyPolicySettingsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param logScrubbing One `log_scrubbing` block as defined below.
+         * @param logScrubbing One `logScrubbing` block as defined below.
          * 
          * @return builder
          * 
@@ -370,7 +370,7 @@ public final class PolicyPolicySettingsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param requestBodyEnforcement Whether the firewall should block a request with body size greater then `max_request_body_size_in_kb`. Defaults to `true`.
+         * @param requestBodyEnforcement Whether the firewall should block a request with body size greater then `maxRequestBodySizeInKb`. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -381,7 +381,7 @@ public final class PolicyPolicySettingsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param requestBodyEnforcement Whether the firewall should block a request with body size greater then `max_request_body_size_in_kb`. Defaults to `true`.
+         * @param requestBodyEnforcement Whether the firewall should block a request with body size greater then `maxRequestBodySizeInKb`. Defaults to `true`.
          * 
          * @return builder
          * 

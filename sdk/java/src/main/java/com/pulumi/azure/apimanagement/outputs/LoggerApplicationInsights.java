@@ -19,7 +19,7 @@ public final class LoggerApplicationInsights {
     /**
      * @return The instrumentation key used to push data to Application Insights.
      * 
-     * &gt; **Note:** Either `connection_string` or `instrumentation_key` have to be specified.
+     * &gt; **Note:** Either `connectionString` or `instrumentationKey` have to be specified.
      * 
      */
     private @Nullable String instrumentationKey;
@@ -35,7 +35,7 @@ public final class LoggerApplicationInsights {
     /**
      * @return The instrumentation key used to push data to Application Insights.
      * 
-     * &gt; **Note:** Either `connection_string` or `instrumentation_key` have to be specified.
+     * &gt; **Note:** Either `connectionString` or `instrumentationKey` have to be specified.
      * 
      */
     public Optional<String> instrumentationKey() {

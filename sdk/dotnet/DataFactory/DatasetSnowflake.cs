@@ -114,7 +114,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
 
         /// <summary>
-        /// A `schema_column` block as defined below.
+        /// A `SchemaColumn` block as defined below.
         /// </summary>
         [Output("schemaColumns")]
         public Output<ImmutableArray<Outputs.DatasetSnowflakeSchemaColumn>> SchemaColumns { get; private set; } = null!;
@@ -247,7 +247,7 @@ namespace Pulumi.Azure.DataFactory
         private InputList<Inputs.DatasetSnowflakeSchemaColumnArgs>? _schemaColumns;
 
         /// <summary>
-        /// A `schema_column` block as defined below.
+        /// A `SchemaColumn` block as defined below.
         /// </summary>
         public InputList<Inputs.DatasetSnowflakeSchemaColumnArgs> SchemaColumns
         {
@@ -345,7 +345,7 @@ namespace Pulumi.Azure.DataFactory
         private InputList<Inputs.DatasetSnowflakeSchemaColumnGetArgs>? _schemaColumns;
 
         /// <summary>
-        /// A `schema_column` block as defined below.
+        /// A `SchemaColumn` block as defined below.
         /// </summary>
         public InputList<Inputs.DatasetSnowflakeSchemaColumnGetArgs> SchemaColumns
         {

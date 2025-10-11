@@ -38,14 +38,14 @@ public final class InteractiveQueryClusterRolesHeadNodeArgs extends com.pulumi.r
     }
 
     /**
-     * The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
+     * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="scriptActions")
     private @Nullable Output<List<InteractiveQueryClusterRolesHeadNodeScriptActionArgs>> scriptActions;
 
     /**
-     * @return The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
+     * @return The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<InteractiveQueryClusterRolesHeadNodeScriptActionArgs>>> scriptActions() {
@@ -55,7 +55,7 @@ public final class InteractiveQueryClusterRolesHeadNodeArgs extends com.pulumi.r
     /**
      * A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
+     * &gt; **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
      * 
      */
     @Import(name="sshKeys")
@@ -64,7 +64,7 @@ public final class InteractiveQueryClusterRolesHeadNodeArgs extends com.pulumi.r
     /**
      * @return A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
+     * &gt; **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
      * 
      */
     public Optional<Output<List<String>>> sshKeys() {
@@ -191,7 +191,7 @@ public final class InteractiveQueryClusterRolesHeadNodeArgs extends com.pulumi.r
         }
 
         /**
-         * @param scriptActions The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
+         * @param scriptActions The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -202,7 +202,7 @@ public final class InteractiveQueryClusterRolesHeadNodeArgs extends com.pulumi.r
         }
 
         /**
-         * @param scriptActions The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
+         * @param scriptActions The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class InteractiveQueryClusterRolesHeadNodeArgs extends com.pulumi.r
         }
 
         /**
-         * @param scriptActions The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
+         * @param scriptActions The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -224,7 +224,7 @@ public final class InteractiveQueryClusterRolesHeadNodeArgs extends com.pulumi.r
         /**
          * @param sshKeys A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
+         * &gt; **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
          * 
          * @return builder
          * 
@@ -237,7 +237,7 @@ public final class InteractiveQueryClusterRolesHeadNodeArgs extends com.pulumi.r
         /**
          * @param sshKeys A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
+         * &gt; **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class InteractiveQueryClusterRolesHeadNodeArgs extends com.pulumi.r
         /**
          * @param sshKeys A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
+         * &gt; **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
          * 
          * @return builder
          * 

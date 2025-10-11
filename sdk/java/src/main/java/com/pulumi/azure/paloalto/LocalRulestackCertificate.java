@@ -115,14 +115,14 @@ public class LocalRulestackCertificate extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.description);
     }
     /**
-     * The `versionles_id` of the Key Vault Certificate to use. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
+     * The `versionlesId` of the Key Vault Certificate to use. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
      * 
      */
     @Export(name="keyVaultCertificateId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> keyVaultCertificateId;
 
     /**
-     * @return The `versionles_id` of the Key Vault Certificate to use. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
+     * @return The `versionlesId` of the Key Vault Certificate to use. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
      * 
      */
     public Output<Optional<String>> keyVaultCertificateId() {
@@ -159,7 +159,7 @@ public class LocalRulestackCertificate extends com.pulumi.resources.CustomResour
     /**
      * Should a Self Signed Certificate be used. Defaults to `false`. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
      * 
-     * &gt; **Note:** One and only one of `self_signed` or `key_vault_certificate_id` must be specified.
+     * &gt; **Note:** One and only one of `selfSigned` or `keyVaultCertificateId` must be specified.
      * 
      */
     @Export(name="selfSigned", refs={Boolean.class}, tree="[0]")
@@ -168,7 +168,7 @@ public class LocalRulestackCertificate extends com.pulumi.resources.CustomResour
     /**
      * @return Should a Self Signed Certificate be used. Defaults to `false`. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
      * 
-     * &gt; **Note:** One and only one of `self_signed` or `key_vault_certificate_id` must be specified.
+     * &gt; **Note:** One and only one of `selfSigned` or `keyVaultCertificateId` must be specified.
      * 
      */
     public Output<Optional<Boolean>> selfSigned() {

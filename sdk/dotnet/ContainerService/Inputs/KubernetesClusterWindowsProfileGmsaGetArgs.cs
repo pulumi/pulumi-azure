@@ -21,7 +21,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         /// <summary>
         /// Specifies the root domain name for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster.
         /// 
-        /// &gt; **Note:** The properties `dns_server` and `root_domain` must both either be set or unset, i.e. empty.
+        /// &gt; **Note:** The properties `DnsServer` and `RootDomain` must both either be set or unset, i.e. empty.
         /// </summary>
         [Input("rootDomain", required: true)]
         public Input<string> RootDomain { get; set; } = null!;

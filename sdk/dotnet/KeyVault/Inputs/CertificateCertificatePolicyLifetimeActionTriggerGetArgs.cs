@@ -13,13 +13,13 @@ namespace Pulumi.Azure.KeyVault.Inputs
     public sealed class CertificateCertificatePolicyLifetimeActionTriggerGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with `lifetime_percentage`.
+        /// The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with `LifetimePercentage`.
         /// </summary>
         [Input("daysBeforeExpiry")]
         public Input<int>? DaysBeforeExpiry { get; set; }
 
         /// <summary>
-        /// The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with `days_before_expiry`.
+        /// The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with `DaysBeforeExpiry`.
         /// </summary>
         [Input("lifetimePercentage")]
         public Input<int>? LifetimePercentage { get; set; }

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Lighthouse.Outputs
     public sealed class DefinitionEligibleAuthorization
     {
         /// <summary>
-        /// A `just_in_time_access_policy` block as defined below.
+        /// A `JustInTimeAccessPolicy` block as defined below.
         /// </summary>
         public readonly Outputs.DefinitionEligibleAuthorizationJustInTimeAccessPolicy? JustInTimeAccessPolicy;
         /// <summary>

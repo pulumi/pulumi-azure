@@ -25,7 +25,7 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         }
 
         /// <summary>
-        /// A `resource` block as defined below.
+        /// A `Resource` block as defined below.
         /// </summary>
         [Input("resource", required: true)]
         public Input<Inputs.MongoRoleDefinitionPrivilegeResourceArgs> Resource { get; set; } = null!;

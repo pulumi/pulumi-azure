@@ -26,7 +26,7 @@ namespace Pulumi.Azure.PrivateLink.Outputs
         /// </summary>
         public readonly string? PrivateDnsZoneId;
         /// <summary>
-        /// A `record_sets` block as defined below.
+        /// A `RecordSets` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.EndpointPrivateDnsZoneConfigRecordSet> RecordSets;
 

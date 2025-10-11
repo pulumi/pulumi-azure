@@ -109,21 +109,21 @@ namespace Pulumi.Azure.Backup
     public partial class PolicyVM : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Configures the Policy backup frequency, times &amp; days as documented in the `backup` block below.
+        /// Configures the Policy backup frequency, times &amp; days as documented in the `Backup` block below.
         /// </summary>
         [Output("backup")]
         public Output<Outputs.PolicyVMBackup> Backup { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the instant restore resource group name as documented in the `instant_restore_resource_group` block below.
+        /// Specifies the instant restore resource group name as documented in the `InstantRestoreResourceGroup` block below.
         /// </summary>
         [Output("instantRestoreResourceGroup")]
         public Output<Outputs.PolicyVMInstantRestoreResourceGroup?> InstantRestoreResourceGroup { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policy_type` is `V1`, and `1` to `30` when `policy_type` is `V2`.
+        /// Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `PolicyType` is `V1`, and `1` to `30` when `PolicyType` is `V2`.
         /// 
-        /// &gt; **Note:** `instant_restore_retention_days` **must** be set to `5` if the backup frequency is set to `Weekly`.
+        /// &gt; **Note:** `InstantRestoreRetentionDays` **must** be set to `5` if the backup frequency is set to `Weekly`.
         /// </summary>
         [Output("instantRestoreRetentionDays")]
         public Output<int> InstantRestoreRetentionDays { get; private set; } = null!;
@@ -153,31 +153,31 @@ namespace Pulumi.Azure.Backup
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Configures the policy daily retention as documented in the `retention_daily` block below. Required when backup frequency is `Daily`.
+        /// Configures the policy daily retention as documented in the `RetentionDaily` block below. Required when backup frequency is `Daily`.
         /// </summary>
         [Output("retentionDaily")]
         public Output<Outputs.PolicyVMRetentionDaily?> RetentionDaily { get; private set; } = null!;
 
         /// <summary>
-        /// Configures the policy monthly retention as documented in the `retention_monthly` block below.
+        /// Configures the policy monthly retention as documented in the `RetentionMonthly` block below.
         /// </summary>
         [Output("retentionMonthly")]
         public Output<Outputs.PolicyVMRetentionMonthly?> RetentionMonthly { get; private set; } = null!;
 
         /// <summary>
-        /// Configures the policy weekly retention as documented in the `retention_weekly` block below. Required when backup frequency is `Weekly`.
+        /// Configures the policy weekly retention as documented in the `RetentionWeekly` block below. Required when backup frequency is `Weekly`.
         /// </summary>
         [Output("retentionWeekly")]
         public Output<Outputs.PolicyVMRetentionWeekly?> RetentionWeekly { get; private set; } = null!;
 
         /// <summary>
-        /// Configures the policy yearly retention as documented in the `retention_yearly` block below.
+        /// Configures the policy yearly retention as documented in the `RetentionYearly` block below.
         /// </summary>
         [Output("retentionYearly")]
         public Output<Outputs.PolicyVMRetentionYearly?> RetentionYearly { get; private set; } = null!;
 
         /// <summary>
-        /// A `tiering_policy` block as defined below.
+        /// A `TieringPolicy` block as defined below.
         /// </summary>
         [Output("tieringPolicy")]
         public Output<Outputs.PolicyVMTieringPolicy?> TieringPolicy { get; private set; } = null!;
@@ -235,21 +235,21 @@ namespace Pulumi.Azure.Backup
     public sealed class PolicyVMArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configures the Policy backup frequency, times &amp; days as documented in the `backup` block below.
+        /// Configures the Policy backup frequency, times &amp; days as documented in the `Backup` block below.
         /// </summary>
         [Input("backup", required: true)]
         public Input<Inputs.PolicyVMBackupArgs> Backup { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the instant restore resource group name as documented in the `instant_restore_resource_group` block below.
+        /// Specifies the instant restore resource group name as documented in the `InstantRestoreResourceGroup` block below.
         /// </summary>
         [Input("instantRestoreResourceGroup")]
         public Input<Inputs.PolicyVMInstantRestoreResourceGroupArgs>? InstantRestoreResourceGroup { get; set; }
 
         /// <summary>
-        /// Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policy_type` is `V1`, and `1` to `30` when `policy_type` is `V2`.
+        /// Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `PolicyType` is `V1`, and `1` to `30` when `PolicyType` is `V2`.
         /// 
-        /// &gt; **Note:** `instant_restore_retention_days` **must** be set to `5` if the backup frequency is set to `Weekly`.
+        /// &gt; **Note:** `InstantRestoreRetentionDays` **must** be set to `5` if the backup frequency is set to `Weekly`.
         /// </summary>
         [Input("instantRestoreRetentionDays")]
         public Input<int>? InstantRestoreRetentionDays { get; set; }
@@ -279,31 +279,31 @@ namespace Pulumi.Azure.Backup
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Configures the policy daily retention as documented in the `retention_daily` block below. Required when backup frequency is `Daily`.
+        /// Configures the policy daily retention as documented in the `RetentionDaily` block below. Required when backup frequency is `Daily`.
         /// </summary>
         [Input("retentionDaily")]
         public Input<Inputs.PolicyVMRetentionDailyArgs>? RetentionDaily { get; set; }
 
         /// <summary>
-        /// Configures the policy monthly retention as documented in the `retention_monthly` block below.
+        /// Configures the policy monthly retention as documented in the `RetentionMonthly` block below.
         /// </summary>
         [Input("retentionMonthly")]
         public Input<Inputs.PolicyVMRetentionMonthlyArgs>? RetentionMonthly { get; set; }
 
         /// <summary>
-        /// Configures the policy weekly retention as documented in the `retention_weekly` block below. Required when backup frequency is `Weekly`.
+        /// Configures the policy weekly retention as documented in the `RetentionWeekly` block below. Required when backup frequency is `Weekly`.
         /// </summary>
         [Input("retentionWeekly")]
         public Input<Inputs.PolicyVMRetentionWeeklyArgs>? RetentionWeekly { get; set; }
 
         /// <summary>
-        /// Configures the policy yearly retention as documented in the `retention_yearly` block below.
+        /// Configures the policy yearly retention as documented in the `RetentionYearly` block below.
         /// </summary>
         [Input("retentionYearly")]
         public Input<Inputs.PolicyVMRetentionYearlyArgs>? RetentionYearly { get; set; }
 
         /// <summary>
-        /// A `tiering_policy` block as defined below.
+        /// A `TieringPolicy` block as defined below.
         /// </summary>
         [Input("tieringPolicy")]
         public Input<Inputs.PolicyVMTieringPolicyArgs>? TieringPolicy { get; set; }
@@ -323,21 +323,21 @@ namespace Pulumi.Azure.Backup
     public sealed class PolicyVMState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configures the Policy backup frequency, times &amp; days as documented in the `backup` block below.
+        /// Configures the Policy backup frequency, times &amp; days as documented in the `Backup` block below.
         /// </summary>
         [Input("backup")]
         public Input<Inputs.PolicyVMBackupGetArgs>? Backup { get; set; }
 
         /// <summary>
-        /// Specifies the instant restore resource group name as documented in the `instant_restore_resource_group` block below.
+        /// Specifies the instant restore resource group name as documented in the `InstantRestoreResourceGroup` block below.
         /// </summary>
         [Input("instantRestoreResourceGroup")]
         public Input<Inputs.PolicyVMInstantRestoreResourceGroupGetArgs>? InstantRestoreResourceGroup { get; set; }
 
         /// <summary>
-        /// Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policy_type` is `V1`, and `1` to `30` when `policy_type` is `V2`.
+        /// Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `PolicyType` is `V1`, and `1` to `30` when `PolicyType` is `V2`.
         /// 
-        /// &gt; **Note:** `instant_restore_retention_days` **must** be set to `5` if the backup frequency is set to `Weekly`.
+        /// &gt; **Note:** `InstantRestoreRetentionDays` **must** be set to `5` if the backup frequency is set to `Weekly`.
         /// </summary>
         [Input("instantRestoreRetentionDays")]
         public Input<int>? InstantRestoreRetentionDays { get; set; }
@@ -367,31 +367,31 @@ namespace Pulumi.Azure.Backup
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// Configures the policy daily retention as documented in the `retention_daily` block below. Required when backup frequency is `Daily`.
+        /// Configures the policy daily retention as documented in the `RetentionDaily` block below. Required when backup frequency is `Daily`.
         /// </summary>
         [Input("retentionDaily")]
         public Input<Inputs.PolicyVMRetentionDailyGetArgs>? RetentionDaily { get; set; }
 
         /// <summary>
-        /// Configures the policy monthly retention as documented in the `retention_monthly` block below.
+        /// Configures the policy monthly retention as documented in the `RetentionMonthly` block below.
         /// </summary>
         [Input("retentionMonthly")]
         public Input<Inputs.PolicyVMRetentionMonthlyGetArgs>? RetentionMonthly { get; set; }
 
         /// <summary>
-        /// Configures the policy weekly retention as documented in the `retention_weekly` block below. Required when backup frequency is `Weekly`.
+        /// Configures the policy weekly retention as documented in the `RetentionWeekly` block below. Required when backup frequency is `Weekly`.
         /// </summary>
         [Input("retentionWeekly")]
         public Input<Inputs.PolicyVMRetentionWeeklyGetArgs>? RetentionWeekly { get; set; }
 
         /// <summary>
-        /// Configures the policy yearly retention as documented in the `retention_yearly` block below.
+        /// Configures the policy yearly retention as documented in the `RetentionYearly` block below.
         /// </summary>
         [Input("retentionYearly")]
         public Input<Inputs.PolicyVMRetentionYearlyGetArgs>? RetentionYearly { get; set; }
 
         /// <summary>
-        /// A `tiering_policy` block as defined below.
+        /// A `TieringPolicy` block as defined below.
         /// </summary>
         [Input("tieringPolicy")]
         public Input<Inputs.PolicyVMTieringPolicyGetArgs>? TieringPolicy { get; set; }

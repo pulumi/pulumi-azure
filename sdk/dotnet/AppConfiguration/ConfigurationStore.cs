@@ -213,15 +213,15 @@ namespace Pulumi.Azure.AppConfiguration
         public Output<string?> DataPlaneProxyAuthenticationMode { get; private set; } = null!;
 
         /// <summary>
-        /// Whether data plane proxy private link delegation is enabled. Defaults to `false`.
+        /// Whether data plane proxy private link delegation is enabled. Defaults to `False`.
         /// 
-        /// &gt; **Note:** `data_plane_proxy_private_link_delegation_enabled` cannot be set to `true` when `data_plane_proxy_authentication_mode` is set to `Local`.
+        /// &gt; **Note:** `DataPlaneProxyPrivateLinkDelegationEnabled` cannot be set to `True` when `DataPlaneProxyAuthenticationMode` is set to `Local`.
         /// </summary>
         [Output("dataPlaneProxyPrivateLinkDelegationEnabled")]
         public Output<bool?> DataPlaneProxyPrivateLinkDelegationEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// An `encryption` block as defined below.
+        /// An `Encryption` block as defined below.
         /// </summary>
         [Output("encryption")]
         public Output<Outputs.ConfigurationStoreEncryption?> Encryption { get; private set; } = null!;
@@ -233,13 +233,13 @@ namespace Pulumi.Azure.AppConfiguration
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ConfigurationStoreIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// Whether local authentication methods is enabled. Defaults to `true`.
+        /// Whether local authentication methods is enabled. Defaults to `True`.
         /// </summary>
         [Output("localAuthEnabled")]
         public Output<bool?> LocalAuthEnabled { get; private set; } = null!;
@@ -257,13 +257,13 @@ namespace Pulumi.Azure.AppConfiguration
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `primary_read_key` block as defined below containing the primary read access key.
+        /// A `PrimaryReadKey` block as defined below containing the primary read access key.
         /// </summary>
         [Output("primaryReadKeys")]
         public Output<ImmutableArray<Outputs.ConfigurationStorePrimaryReadKey>> PrimaryReadKeys { get; private set; } = null!;
 
         /// <summary>
-        /// A `primary_write_key` block as defined below containing the primary write access key.
+        /// A `PrimaryWriteKey` block as defined below containing the primary write access key.
         /// </summary>
         [Output("primaryWriteKeys")]
         public Output<ImmutableArray<Outputs.ConfigurationStorePrimaryWriteKey>> PrimaryWriteKeys { get; private set; } = null!;
@@ -271,13 +271,13 @@ namespace Pulumi.Azure.AppConfiguration
         /// <summary>
         /// The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
         /// 
-        /// &gt; **Note:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
+        /// &gt; **Note:** If `PublicNetworkAccess` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
         /// </summary>
         [Output("publicNetworkAccess")]
         public Output<string?> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
-        /// Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
+        /// Whether Purge Protection is enabled. This field only works for `Standard` sku. Defaults to `False`.
         /// 
         /// !&gt; **Note:** Once Purge Protection has been enabled it's not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
         /// </summary>
@@ -285,7 +285,7 @@ namespace Pulumi.Azure.AppConfiguration
         public Output<bool?> PurgeProtectionEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `replica` blocks as defined below.
+        /// One or more `Replica` blocks as defined below.
         /// </summary>
         [Output("replicas")]
         public Output<ImmutableArray<Outputs.ConfigurationStoreReplica>> Replicas { get; private set; } = null!;
@@ -297,27 +297,27 @@ namespace Pulumi.Azure.AppConfiguration
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `secondary_read_key` block as defined below containing the secondary read access key.
+        /// A `SecondaryReadKey` block as defined below containing the secondary read access key.
         /// </summary>
         [Output("secondaryReadKeys")]
         public Output<ImmutableArray<Outputs.ConfigurationStoreSecondaryReadKey>> SecondaryReadKeys { get; private set; } = null!;
 
         /// <summary>
-        /// A `secondary_write_key` block as defined below containing the secondary write access key.
+        /// A `SecondaryWriteKey` block as defined below containing the secondary write access key.
         /// </summary>
         [Output("secondaryWriteKeys")]
         public Output<ImmutableArray<Outputs.ConfigurationStoreSecondaryWriteKey>> SecondaryWriteKeys { get; private set; } = null!;
 
         /// <summary>
-        /// The SKU name of the App Configuration. Possible values are `free`, `developer`, `standard` and `premium`. Defaults to `free`.
+        /// The SKU name of the App Configuration. Possible values are `Free`, `Developer`, `Standard` and `Premium`. Defaults to `Free`.
         /// 
-        /// &gt; **Note:** Azure does not support downgrading `sku` to a lower tier, except from `premium` to `standard`. Downgrading will force a new resource to be created.
+        /// &gt; **Note:** Azure does not support downgrading `Sku` to a lower tier, except from `Premium` to `Standard`. Downgrading will force a new resource to be created.
         /// </summary>
         [Output("sku")]
         public Output<string?> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
+        /// The number of days that items should be retained for once soft-deleted. This field only works for `Standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** If Purge Protection is enabled, this field can only be configured one time and cannot be updated.
         /// </summary>
@@ -383,27 +383,27 @@ namespace Pulumi.Azure.AppConfiguration
         public Input<string>? DataPlaneProxyAuthenticationMode { get; set; }
 
         /// <summary>
-        /// Whether data plane proxy private link delegation is enabled. Defaults to `false`.
+        /// Whether data plane proxy private link delegation is enabled. Defaults to `False`.
         /// 
-        /// &gt; **Note:** `data_plane_proxy_private_link_delegation_enabled` cannot be set to `true` when `data_plane_proxy_authentication_mode` is set to `Local`.
+        /// &gt; **Note:** `DataPlaneProxyPrivateLinkDelegationEnabled` cannot be set to `True` when `DataPlaneProxyAuthenticationMode` is set to `Local`.
         /// </summary>
         [Input("dataPlaneProxyPrivateLinkDelegationEnabled")]
         public Input<bool>? DataPlaneProxyPrivateLinkDelegationEnabled { get; set; }
 
         /// <summary>
-        /// An `encryption` block as defined below.
+        /// An `Encryption` block as defined below.
         /// </summary>
         [Input("encryption")]
         public Input<Inputs.ConfigurationStoreEncryptionArgs>? Encryption { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ConfigurationStoreIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Whether local authentication methods is enabled. Defaults to `true`.
+        /// Whether local authentication methods is enabled. Defaults to `True`.
         /// </summary>
         [Input("localAuthEnabled")]
         public Input<bool>? LocalAuthEnabled { get; set; }
@@ -423,13 +423,13 @@ namespace Pulumi.Azure.AppConfiguration
         /// <summary>
         /// The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
         /// 
-        /// &gt; **Note:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
+        /// &gt; **Note:** If `PublicNetworkAccess` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
         /// </summary>
         [Input("publicNetworkAccess")]
         public Input<string>? PublicNetworkAccess { get; set; }
 
         /// <summary>
-        /// Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
+        /// Whether Purge Protection is enabled. This field only works for `Standard` sku. Defaults to `False`.
         /// 
         /// !&gt; **Note:** Once Purge Protection has been enabled it's not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
         /// </summary>
@@ -440,7 +440,7 @@ namespace Pulumi.Azure.AppConfiguration
         private InputList<Inputs.ConfigurationStoreReplicaArgs>? _replicas;
 
         /// <summary>
-        /// One or more `replica` blocks as defined below.
+        /// One or more `Replica` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ConfigurationStoreReplicaArgs> Replicas
         {
@@ -455,15 +455,15 @@ namespace Pulumi.Azure.AppConfiguration
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The SKU name of the App Configuration. Possible values are `free`, `developer`, `standard` and `premium`. Defaults to `free`.
+        /// The SKU name of the App Configuration. Possible values are `Free`, `Developer`, `Standard` and `Premium`. Defaults to `Free`.
         /// 
-        /// &gt; **Note:** Azure does not support downgrading `sku` to a lower tier, except from `premium` to `standard`. Downgrading will force a new resource to be created.
+        /// &gt; **Note:** Azure does not support downgrading `Sku` to a lower tier, except from `Premium` to `Standard`. Downgrading will force a new resource to be created.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
 
         /// <summary>
-        /// The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
+        /// The number of days that items should be retained for once soft-deleted. This field only works for `Standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** If Purge Protection is enabled, this field can only be configured one time and cannot be updated.
         /// </summary>
@@ -497,15 +497,15 @@ namespace Pulumi.Azure.AppConfiguration
         public Input<string>? DataPlaneProxyAuthenticationMode { get; set; }
 
         /// <summary>
-        /// Whether data plane proxy private link delegation is enabled. Defaults to `false`.
+        /// Whether data plane proxy private link delegation is enabled. Defaults to `False`.
         /// 
-        /// &gt; **Note:** `data_plane_proxy_private_link_delegation_enabled` cannot be set to `true` when `data_plane_proxy_authentication_mode` is set to `Local`.
+        /// &gt; **Note:** `DataPlaneProxyPrivateLinkDelegationEnabled` cannot be set to `True` when `DataPlaneProxyAuthenticationMode` is set to `Local`.
         /// </summary>
         [Input("dataPlaneProxyPrivateLinkDelegationEnabled")]
         public Input<bool>? DataPlaneProxyPrivateLinkDelegationEnabled { get; set; }
 
         /// <summary>
-        /// An `encryption` block as defined below.
+        /// An `Encryption` block as defined below.
         /// </summary>
         [Input("encryption")]
         public Input<Inputs.ConfigurationStoreEncryptionGetArgs>? Encryption { get; set; }
@@ -517,13 +517,13 @@ namespace Pulumi.Azure.AppConfiguration
         public Input<string>? Endpoint { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ConfigurationStoreIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Whether local authentication methods is enabled. Defaults to `true`.
+        /// Whether local authentication methods is enabled. Defaults to `True`.
         /// </summary>
         [Input("localAuthEnabled")]
         public Input<bool>? LocalAuthEnabled { get; set; }
@@ -544,7 +544,7 @@ namespace Pulumi.Azure.AppConfiguration
         private InputList<Inputs.ConfigurationStorePrimaryReadKeyGetArgs>? _primaryReadKeys;
 
         /// <summary>
-        /// A `primary_read_key` block as defined below containing the primary read access key.
+        /// A `PrimaryReadKey` block as defined below containing the primary read access key.
         /// </summary>
         public InputList<Inputs.ConfigurationStorePrimaryReadKeyGetArgs> PrimaryReadKeys
         {
@@ -556,7 +556,7 @@ namespace Pulumi.Azure.AppConfiguration
         private InputList<Inputs.ConfigurationStorePrimaryWriteKeyGetArgs>? _primaryWriteKeys;
 
         /// <summary>
-        /// A `primary_write_key` block as defined below containing the primary write access key.
+        /// A `PrimaryWriteKey` block as defined below containing the primary write access key.
         /// </summary>
         public InputList<Inputs.ConfigurationStorePrimaryWriteKeyGetArgs> PrimaryWriteKeys
         {
@@ -567,13 +567,13 @@ namespace Pulumi.Azure.AppConfiguration
         /// <summary>
         /// The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
         /// 
-        /// &gt; **Note:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
+        /// &gt; **Note:** If `PublicNetworkAccess` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
         /// </summary>
         [Input("publicNetworkAccess")]
         public Input<string>? PublicNetworkAccess { get; set; }
 
         /// <summary>
-        /// Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
+        /// Whether Purge Protection is enabled. This field only works for `Standard` sku. Defaults to `False`.
         /// 
         /// !&gt; **Note:** Once Purge Protection has been enabled it's not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
         /// </summary>
@@ -584,7 +584,7 @@ namespace Pulumi.Azure.AppConfiguration
         private InputList<Inputs.ConfigurationStoreReplicaGetArgs>? _replicas;
 
         /// <summary>
-        /// One or more `replica` blocks as defined below.
+        /// One or more `Replica` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ConfigurationStoreReplicaGetArgs> Replicas
         {
@@ -602,7 +602,7 @@ namespace Pulumi.Azure.AppConfiguration
         private InputList<Inputs.ConfigurationStoreSecondaryReadKeyGetArgs>? _secondaryReadKeys;
 
         /// <summary>
-        /// A `secondary_read_key` block as defined below containing the secondary read access key.
+        /// A `SecondaryReadKey` block as defined below containing the secondary read access key.
         /// </summary>
         public InputList<Inputs.ConfigurationStoreSecondaryReadKeyGetArgs> SecondaryReadKeys
         {
@@ -614,7 +614,7 @@ namespace Pulumi.Azure.AppConfiguration
         private InputList<Inputs.ConfigurationStoreSecondaryWriteKeyGetArgs>? _secondaryWriteKeys;
 
         /// <summary>
-        /// A `secondary_write_key` block as defined below containing the secondary write access key.
+        /// A `SecondaryWriteKey` block as defined below containing the secondary write access key.
         /// </summary>
         public InputList<Inputs.ConfigurationStoreSecondaryWriteKeyGetArgs> SecondaryWriteKeys
         {
@@ -623,15 +623,15 @@ namespace Pulumi.Azure.AppConfiguration
         }
 
         /// <summary>
-        /// The SKU name of the App Configuration. Possible values are `free`, `developer`, `standard` and `premium`. Defaults to `free`.
+        /// The SKU name of the App Configuration. Possible values are `Free`, `Developer`, `Standard` and `Premium`. Defaults to `Free`.
         /// 
-        /// &gt; **Note:** Azure does not support downgrading `sku` to a lower tier, except from `premium` to `standard`. Downgrading will force a new resource to be created.
+        /// &gt; **Note:** Azure does not support downgrading `Sku` to a lower tier, except from `Premium` to `Standard`. Downgrading will force a new resource to be created.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
 
         /// <summary>
-        /// The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
+        /// The number of days that items should be retained for once soft-deleted. This field only works for `Standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** If Purge Protection is enabled, this field can only be configured one time and cannot be updated.
         /// </summary>

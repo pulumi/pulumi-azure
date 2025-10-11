@@ -50,7 +50,7 @@ public final class GetServiceResult {
      */
     private String name;
     /**
-     * @return The `nat_ip_configuration` block as defined below.
+     * @return The `natIpConfiguration` block as defined below.
      * 
      */
     private List<GetServiceNatIpConfiguration> natIpConfigurations;
@@ -117,7 +117,7 @@ public final class GetServiceResult {
         return this.name;
     }
     /**
-     * @return The `nat_ip_configuration` block as defined below.
+     * @return The `natIpConfiguration` block as defined below.
      * 
      */
     public List<GetServiceNatIpConfiguration> natIpConfigurations() {

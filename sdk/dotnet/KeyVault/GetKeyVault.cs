@@ -145,7 +145,7 @@ namespace Pulumi.Azure.KeyVault
     public sealed class GetKeyVaultResult
     {
         /// <summary>
-        /// One or more `access_policy` blocks as defined below.
+        /// One or more `AccessPolicy` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKeyVaultAccessPolicyResult> AccessPolicies;
         /// <summary>

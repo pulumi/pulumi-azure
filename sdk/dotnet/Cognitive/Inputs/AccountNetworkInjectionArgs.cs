@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Cognitive.Inputs
     public sealed class AccountNetworkInjectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies what features network injection applies to. The only possible value is `agent`.
+        /// Specifies what features network injection applies to. The only possible value is `Agent`.
         /// </summary>
         [Input("scenario", required: true)]
         public Input<string> Scenario { get; set; } = null!;

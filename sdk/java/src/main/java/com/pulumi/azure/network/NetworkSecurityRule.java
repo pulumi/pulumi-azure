@@ -158,7 +158,7 @@ public class NetworkSecurityRule extends com.pulumi.resources.CustomResource {
     /**
      * A List of destination Application Security Group IDs
      * 
-     * &gt; **Note:** One of `destination_address_prefix`, `destination_address_prefixes` or `destination_application_security_group_ids` must be specified.
+     * &gt; **Note:** One of `destinationAddressPrefix`, `destinationAddressPrefixes` or `destinationApplicationSecurityGroupIds` must be specified.
      * 
      */
     @Export(name="destinationApplicationSecurityGroupIds", refs={String.class}, tree="[0]")
@@ -167,35 +167,35 @@ public class NetworkSecurityRule extends com.pulumi.resources.CustomResource {
     /**
      * @return A List of destination Application Security Group IDs
      * 
-     * &gt; **Note:** One of `destination_address_prefix`, `destination_address_prefixes` or `destination_application_security_group_ids` must be specified.
+     * &gt; **Note:** One of `destinationAddressPrefix`, `destinationAddressPrefixes` or `destinationApplicationSecurityGroupIds` must be specified.
      * 
      */
     public Output<Optional<String>> destinationApplicationSecurityGroupIds() {
         return Codegen.optional(this.destinationApplicationSecurityGroupIds);
     }
     /**
-     * Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
+     * Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destinationPortRanges` is not specified.
      * 
      */
     @Export(name="destinationPortRange", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> destinationPortRange;
 
     /**
-     * @return Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
+     * @return Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destinationPortRanges` is not specified.
      * 
      */
     public Output<Optional<String>> destinationPortRange() {
         return Codegen.optional(this.destinationPortRange);
     }
     /**
-     * List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
+     * List of destination ports or port ranges. This is required if `destinationPortRange` is not specified.
      * 
      */
     @Export(name="destinationPortRanges", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> destinationPortRanges;
 
     /**
-     * @return List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
+     * @return List of destination ports or port ranges. This is required if `destinationPortRange` is not specified.
      * 
      */
     public Output<Optional<List<String>>> destinationPortRanges() {
@@ -316,7 +316,7 @@ public class NetworkSecurityRule extends com.pulumi.resources.CustomResource {
     /**
      * A List of source Application Security Group IDs
      * 
-     * &gt; **Note:** One of `source_address_prefix`, `source_address_prefixes` or `source_application_security_group_ids` must be specified.
+     * &gt; **Note:** One of `sourceAddressPrefix`, `sourceAddressPrefixes` or `sourceApplicationSecurityGroupIds` must be specified.
      * 
      */
     @Export(name="sourceApplicationSecurityGroupIds", refs={String.class}, tree="[0]")
@@ -325,35 +325,35 @@ public class NetworkSecurityRule extends com.pulumi.resources.CustomResource {
     /**
      * @return A List of source Application Security Group IDs
      * 
-     * &gt; **Note:** One of `source_address_prefix`, `source_address_prefixes` or `source_application_security_group_ids` must be specified.
+     * &gt; **Note:** One of `sourceAddressPrefix`, `sourceAddressPrefixes` or `sourceApplicationSecurityGroupIds` must be specified.
      * 
      */
     public Output<Optional<String>> sourceApplicationSecurityGroupIds() {
         return Codegen.optional(this.sourceApplicationSecurityGroupIds);
     }
     /**
-     * Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
+     * Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `sourcePortRanges` is not specified.
      * 
      */
     @Export(name="sourcePortRange", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sourcePortRange;
 
     /**
-     * @return Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
+     * @return Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `sourcePortRanges` is not specified.
      * 
      */
     public Output<Optional<String>> sourcePortRange() {
         return Codegen.optional(this.sourcePortRange);
     }
     /**
-     * List of source ports or port ranges. This is required if `source_port_range` is not specified.
+     * List of source ports or port ranges. This is required if `sourcePortRange` is not specified.
      * 
      */
     @Export(name="sourcePortRanges", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> sourcePortRanges;
 
     /**
-     * @return List of source ports or port ranges. This is required if `source_port_range` is not specified.
+     * @return List of source ports or port ranges. This is required if `sourcePortRange` is not specified.
      * 
      */
     public Output<Optional<List<String>>> sourcePortRanges() {

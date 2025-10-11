@@ -117,49 +117,49 @@ namespace Pulumi.Azure.Search
     public partial class Service : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies a list of inbound IPv4 or CIDRs that are allowed to access the Search Service. If the incoming IP request is from an IP address which is not included in the `allowed_ips` it will be blocked by the Search Services firewall.
+        /// Specifies a list of inbound IPv4 or CIDRs that are allowed to access the Search Service. If the incoming IP request is from an IP address which is not included in the `AllowedIps` it will be blocked by the Search Services firewall.
         /// 
-        /// &gt; **Note:** The `allowed_ips` are only applied if the `public_network_access_enabled` field has been set to `true`, else all traffic over the public interface will be rejected, even if the `allowed_ips` field has been defined. When the `public_network_access_enabled` field has been set to `false` the private endpoint connections are the only allowed access point to the Search Service.
+        /// &gt; **Note:** The `AllowedIps` are only applied if the `PublicNetworkAccessEnabled` field has been set to `True`, else all traffic over the public interface will be rejected, even if the `AllowedIps` field has been defined. When the `PublicNetworkAccessEnabled` field has been set to `False` the private endpoint connections are the only allowed access point to the Search Service.
         /// </summary>
         [Output("allowedIps")]
         public Output<ImmutableArray<string>> AllowedIps { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the response that the Search Service should return for requests that fail authentication. Possible values include `http401WithBearerChallenge` or `http403`.
+        /// Specifies the response that the Search Service should return for requests that fail authentication. Possible values include `http401WithBearerChallenge` or `Http403`.
         /// 
-        /// &gt; **Note:** `authentication_failure_mode` can only be configured when using `local_authentication_enabled` is set to `true` - which when set together specifies that both API Keys and AzureAD Authentication should be supported.
+        /// &gt; **Note:** `AuthenticationFailureMode` can only be configured when using `LocalAuthenticationEnabled` is set to `True` - which when set together specifies that both API Keys and AzureAD Authentication should be supported.
         /// </summary>
         [Output("authenticationFailureMode")]
         public Output<string?> AuthenticationFailureMode { get; private set; } = null!;
 
         /// <summary>
-        /// Describes whether the search service is compliant or not with respect to having non-customer encrypted resources. If a service has more than one non-customer encrypted resource and `Enforcement` is `enabled` then the service will be marked as `NonCompliant`. If all the resources are customer encrypted, then the service will be marked as `Compliant`.
+        /// Describes whether the search service is compliant or not with respect to having non-customer encrypted resources. If a service has more than one non-customer encrypted resource and `Enforcement` is `Enabled` then the service will be marked as `NonCompliant`. If all the resources are customer encrypted, then the service will be marked as `Compliant`.
         /// </summary>
         [Output("customerManagedKeyEncryptionComplianceStatus")]
         public Output<string> CustomerManagedKeyEncryptionComplianceStatus { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.
+        /// Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `False`.
         /// </summary>
         [Output("customerManagedKeyEnforcementEnabled")]
         public Output<bool?> CustomerManagedKeyEnforcementEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
+        /// Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `Default`. Defaults to `Default`. Changing this forces a new Search Service to be created.
         /// 
-        /// &gt; **Note:** `hosting_mode` can only be configured when `sku` is set to `standard3`.
+        /// &gt; **Note:** `HostingMode` can only be configured when `Sku` is set to `Standard3`.
         /// </summary>
         [Output("hostingMode")]
         public Output<string?> HostingMode { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ServiceIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the Search Service allows authenticating using API Keys? Defaults to `true`.
+        /// Specifies whether the Search Service allows authenticating using API Keys? Defaults to `True`.
         /// </summary>
         [Output("localAuthenticationEnabled")]
         public Output<bool?> LocalAuthenticationEnabled { get; private set; } = null!;
@@ -183,9 +183,9 @@ namespace Pulumi.Azure.Search
         public Output<string?> NetworkRuleBypassOption { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the number of partitions which should be created. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
+        /// Specifies the number of partitions which should be created. This field cannot be set when using a `Free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
         /// 
-        /// &gt; **Note:** when `hosting_mode` is set to `highDensity` the maximum number of partitions allowed is `3`.
+        /// &gt; **Note:** when `HostingMode` is set to `highDensity` the maximum number of partitions allowed is `3`.
         /// </summary>
         [Output("partitionCount")]
         public Output<int?> PartitionCount { get; private set; } = null!;
@@ -197,19 +197,19 @@ namespace Pulumi.Azure.Search
         public Output<string> PrimaryKey { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether Public Network Access is allowed for this resource. Defaults to `true`.
+        /// Specifies whether Public Network Access is allowed for this resource. Defaults to `True`.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A `query_keys` block as defined below.
+        /// A `QueryKeys` block as defined below.
         /// </summary>
         [Output("queryKeys")]
         public Output<ImmutableArray<Outputs.ServiceQueryKey>> QueryKeys { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the number of Replica's which should be created for this Search Service. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)).
+        /// Specifies the number of Replica's which should be created for this Search Service. This field cannot be set when using a `Free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)).
         /// </summary>
         [Output("replicaCount")]
         public Output<int?> ReplicaCount { get; private set; } = null!;
@@ -227,19 +227,19 @@ namespace Pulumi.Azure.Search
         public Output<string> SecondaryKey { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Semantic Search SKU which should be used for this Search Service. Possible values include `free` and `standard`.
+        /// Specifies the Semantic Search SKU which should be used for this Search Service. Possible values include `Free` and `Standard`.
         /// 
-        /// &gt; **Note:** The `semantic_search_sku` cannot be defined if your Search Services `sku` is set to `free`. The Semantic Search feature is only available in certain regions, please see the [product documentation](https://learn.microsoft.com/azure/search/semantic-search-overview#availability-and-pricing) for more information.
+        /// &gt; **Note:** The `SemanticSearchSku` cannot be defined if your Search Services `Sku` is set to `Free`. The Semantic Search feature is only available in certain regions, please see the [product documentation](https://learn.microsoft.com/azure/search/semantic-search-overview#availability-and-pricing) for more information.
         /// </summary>
         [Output("semanticSearchSku")]
         public Output<string?> SemanticSearchSku { get; private set; } = null!;
 
         /// <summary>
-        /// The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2`. Changing this forces a new Search Service to be created.
+        /// The SKU which should be used for this Search Service. Possible values include `Basic`, `Free`, `Standard`, `Standard2`, `Standard3`, `StorageOptimizedL1` and `StorageOptimizedL2`. Changing this forces a new Search Service to be created.
         /// 
-        /// &gt; **Note:** The `basic` and `free` SKUs provision the Search Service in a Shared Cluster - the `standard` SKUs use a Dedicated Cluster.
+        /// &gt; **Note:** The `Basic` and `Free` SKUs provision the Search Service in a Shared Cluster - the `Standard` SKUs use a Dedicated Cluster.
         /// 
-        /// &gt; **Note:** The SKUs `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2` are only available by submitting a quota increase request to Microsoft. Please see the [product documentation](https://learn.microsoft.com/azure/azure-resource-manager/troubleshooting/error-resource-quota?tabs=azure-cli) on how to submit a quota increase request.
+        /// &gt; **Note:** The SKUs `Standard2`, `Standard3`, `StorageOptimizedL1` and `StorageOptimizedL2` are only available by submitting a quota increase request to Microsoft. Please see the [product documentation](https://learn.microsoft.com/azure/azure-resource-manager/troubleshooting/error-resource-quota?tabs=azure-cli) on how to submit a quota increase request.
         /// </summary>
         [Output("sku")]
         public Output<string> Sku { get; private set; } = null!;
@@ -305,9 +305,9 @@ namespace Pulumi.Azure.Search
         private InputList<string>? _allowedIps;
 
         /// <summary>
-        /// Specifies a list of inbound IPv4 or CIDRs that are allowed to access the Search Service. If the incoming IP request is from an IP address which is not included in the `allowed_ips` it will be blocked by the Search Services firewall.
+        /// Specifies a list of inbound IPv4 or CIDRs that are allowed to access the Search Service. If the incoming IP request is from an IP address which is not included in the `AllowedIps` it will be blocked by the Search Services firewall.
         /// 
-        /// &gt; **Note:** The `allowed_ips` are only applied if the `public_network_access_enabled` field has been set to `true`, else all traffic over the public interface will be rejected, even if the `allowed_ips` field has been defined. When the `public_network_access_enabled` field has been set to `false` the private endpoint connections are the only allowed access point to the Search Service.
+        /// &gt; **Note:** The `AllowedIps` are only applied if the `PublicNetworkAccessEnabled` field has been set to `True`, else all traffic over the public interface will be rejected, even if the `AllowedIps` field has been defined. When the `PublicNetworkAccessEnabled` field has been set to `False` the private endpoint connections are the only allowed access point to the Search Service.
         /// </summary>
         public InputList<string> AllowedIps
         {
@@ -316,35 +316,35 @@ namespace Pulumi.Azure.Search
         }
 
         /// <summary>
-        /// Specifies the response that the Search Service should return for requests that fail authentication. Possible values include `http401WithBearerChallenge` or `http403`.
+        /// Specifies the response that the Search Service should return for requests that fail authentication. Possible values include `http401WithBearerChallenge` or `Http403`.
         /// 
-        /// &gt; **Note:** `authentication_failure_mode` can only be configured when using `local_authentication_enabled` is set to `true` - which when set together specifies that both API Keys and AzureAD Authentication should be supported.
+        /// &gt; **Note:** `AuthenticationFailureMode` can only be configured when using `LocalAuthenticationEnabled` is set to `True` - which when set together specifies that both API Keys and AzureAD Authentication should be supported.
         /// </summary>
         [Input("authenticationFailureMode")]
         public Input<string>? AuthenticationFailureMode { get; set; }
 
         /// <summary>
-        /// Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.
+        /// Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `False`.
         /// </summary>
         [Input("customerManagedKeyEnforcementEnabled")]
         public Input<bool>? CustomerManagedKeyEnforcementEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
+        /// Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `Default`. Defaults to `Default`. Changing this forces a new Search Service to be created.
         /// 
-        /// &gt; **Note:** `hosting_mode` can only be configured when `sku` is set to `standard3`.
+        /// &gt; **Note:** `HostingMode` can only be configured when `Sku` is set to `Standard3`.
         /// </summary>
         [Input("hostingMode")]
         public Input<string>? HostingMode { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Specifies whether the Search Service allows authenticating using API Keys? Defaults to `true`.
+        /// Specifies whether the Search Service allows authenticating using API Keys? Defaults to `True`.
         /// </summary>
         [Input("localAuthenticationEnabled")]
         public Input<bool>? LocalAuthenticationEnabled { get; set; }
@@ -368,21 +368,21 @@ namespace Pulumi.Azure.Search
         public Input<string>? NetworkRuleBypassOption { get; set; }
 
         /// <summary>
-        /// Specifies the number of partitions which should be created. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
+        /// Specifies the number of partitions which should be created. This field cannot be set when using a `Free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
         /// 
-        /// &gt; **Note:** when `hosting_mode` is set to `highDensity` the maximum number of partitions allowed is `3`.
+        /// &gt; **Note:** when `HostingMode` is set to `highDensity` the maximum number of partitions allowed is `3`.
         /// </summary>
         [Input("partitionCount")]
         public Input<int>? PartitionCount { get; set; }
 
         /// <summary>
-        /// Specifies whether Public Network Access is allowed for this resource. Defaults to `true`.
+        /// Specifies whether Public Network Access is allowed for this resource. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the number of Replica's which should be created for this Search Service. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)).
+        /// Specifies the number of Replica's which should be created for this Search Service. This field cannot be set when using a `Free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)).
         /// </summary>
         [Input("replicaCount")]
         public Input<int>? ReplicaCount { get; set; }
@@ -394,19 +394,19 @@ namespace Pulumi.Azure.Search
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the Semantic Search SKU which should be used for this Search Service. Possible values include `free` and `standard`.
+        /// Specifies the Semantic Search SKU which should be used for this Search Service. Possible values include `Free` and `Standard`.
         /// 
-        /// &gt; **Note:** The `semantic_search_sku` cannot be defined if your Search Services `sku` is set to `free`. The Semantic Search feature is only available in certain regions, please see the [product documentation](https://learn.microsoft.com/azure/search/semantic-search-overview#availability-and-pricing) for more information.
+        /// &gt; **Note:** The `SemanticSearchSku` cannot be defined if your Search Services `Sku` is set to `Free`. The Semantic Search feature is only available in certain regions, please see the [product documentation](https://learn.microsoft.com/azure/search/semantic-search-overview#availability-and-pricing) for more information.
         /// </summary>
         [Input("semanticSearchSku")]
         public Input<string>? SemanticSearchSku { get; set; }
 
         /// <summary>
-        /// The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2`. Changing this forces a new Search Service to be created.
+        /// The SKU which should be used for this Search Service. Possible values include `Basic`, `Free`, `Standard`, `Standard2`, `Standard3`, `StorageOptimizedL1` and `StorageOptimizedL2`. Changing this forces a new Search Service to be created.
         /// 
-        /// &gt; **Note:** The `basic` and `free` SKUs provision the Search Service in a Shared Cluster - the `standard` SKUs use a Dedicated Cluster.
+        /// &gt; **Note:** The `Basic` and `Free` SKUs provision the Search Service in a Shared Cluster - the `Standard` SKUs use a Dedicated Cluster.
         /// 
-        /// &gt; **Note:** The SKUs `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2` are only available by submitting a quota increase request to Microsoft. Please see the [product documentation](https://learn.microsoft.com/azure/azure-resource-manager/troubleshooting/error-resource-quota?tabs=azure-cli) on how to submit a quota increase request.
+        /// &gt; **Note:** The SKUs `Standard2`, `Standard3`, `StorageOptimizedL1` and `StorageOptimizedL2` are only available by submitting a quota increase request to Microsoft. Please see the [product documentation](https://learn.microsoft.com/azure/azure-resource-manager/troubleshooting/error-resource-quota?tabs=azure-cli) on how to submit a quota increase request.
         /// </summary>
         [Input("sku", required: true)]
         public Input<string> Sku { get; set; } = null!;
@@ -435,9 +435,9 @@ namespace Pulumi.Azure.Search
         private InputList<string>? _allowedIps;
 
         /// <summary>
-        /// Specifies a list of inbound IPv4 or CIDRs that are allowed to access the Search Service. If the incoming IP request is from an IP address which is not included in the `allowed_ips` it will be blocked by the Search Services firewall.
+        /// Specifies a list of inbound IPv4 or CIDRs that are allowed to access the Search Service. If the incoming IP request is from an IP address which is not included in the `AllowedIps` it will be blocked by the Search Services firewall.
         /// 
-        /// &gt; **Note:** The `allowed_ips` are only applied if the `public_network_access_enabled` field has been set to `true`, else all traffic over the public interface will be rejected, even if the `allowed_ips` field has been defined. When the `public_network_access_enabled` field has been set to `false` the private endpoint connections are the only allowed access point to the Search Service.
+        /// &gt; **Note:** The `AllowedIps` are only applied if the `PublicNetworkAccessEnabled` field has been set to `True`, else all traffic over the public interface will be rejected, even if the `AllowedIps` field has been defined. When the `PublicNetworkAccessEnabled` field has been set to `False` the private endpoint connections are the only allowed access point to the Search Service.
         /// </summary>
         public InputList<string> AllowedIps
         {
@@ -446,41 +446,41 @@ namespace Pulumi.Azure.Search
         }
 
         /// <summary>
-        /// Specifies the response that the Search Service should return for requests that fail authentication. Possible values include `http401WithBearerChallenge` or `http403`.
+        /// Specifies the response that the Search Service should return for requests that fail authentication. Possible values include `http401WithBearerChallenge` or `Http403`.
         /// 
-        /// &gt; **Note:** `authentication_failure_mode` can only be configured when using `local_authentication_enabled` is set to `true` - which when set together specifies that both API Keys and AzureAD Authentication should be supported.
+        /// &gt; **Note:** `AuthenticationFailureMode` can only be configured when using `LocalAuthenticationEnabled` is set to `True` - which when set together specifies that both API Keys and AzureAD Authentication should be supported.
         /// </summary>
         [Input("authenticationFailureMode")]
         public Input<string>? AuthenticationFailureMode { get; set; }
 
         /// <summary>
-        /// Describes whether the search service is compliant or not with respect to having non-customer encrypted resources. If a service has more than one non-customer encrypted resource and `Enforcement` is `enabled` then the service will be marked as `NonCompliant`. If all the resources are customer encrypted, then the service will be marked as `Compliant`.
+        /// Describes whether the search service is compliant or not with respect to having non-customer encrypted resources. If a service has more than one non-customer encrypted resource and `Enforcement` is `Enabled` then the service will be marked as `NonCompliant`. If all the resources are customer encrypted, then the service will be marked as `Compliant`.
         /// </summary>
         [Input("customerManagedKeyEncryptionComplianceStatus")]
         public Input<string>? CustomerManagedKeyEncryptionComplianceStatus { get; set; }
 
         /// <summary>
-        /// Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.
+        /// Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `False`.
         /// </summary>
         [Input("customerManagedKeyEnforcementEnabled")]
         public Input<bool>? CustomerManagedKeyEnforcementEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
+        /// Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `Default`. Defaults to `Default`. Changing this forces a new Search Service to be created.
         /// 
-        /// &gt; **Note:** `hosting_mode` can only be configured when `sku` is set to `standard3`.
+        /// &gt; **Note:** `HostingMode` can only be configured when `Sku` is set to `Standard3`.
         /// </summary>
         [Input("hostingMode")]
         public Input<string>? HostingMode { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ServiceIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Specifies whether the Search Service allows authenticating using API Keys? Defaults to `true`.
+        /// Specifies whether the Search Service allows authenticating using API Keys? Defaults to `True`.
         /// </summary>
         [Input("localAuthenticationEnabled")]
         public Input<bool>? LocalAuthenticationEnabled { get; set; }
@@ -504,9 +504,9 @@ namespace Pulumi.Azure.Search
         public Input<string>? NetworkRuleBypassOption { get; set; }
 
         /// <summary>
-        /// Specifies the number of partitions which should be created. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
+        /// Specifies the number of partitions which should be created. This field cannot be set when using a `Free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
         /// 
-        /// &gt; **Note:** when `hosting_mode` is set to `highDensity` the maximum number of partitions allowed is `3`.
+        /// &gt; **Note:** when `HostingMode` is set to `highDensity` the maximum number of partitions allowed is `3`.
         /// </summary>
         [Input("partitionCount")]
         public Input<int>? PartitionCount { get; set; }
@@ -528,7 +528,7 @@ namespace Pulumi.Azure.Search
         }
 
         /// <summary>
-        /// Specifies whether Public Network Access is allowed for this resource. Defaults to `true`.
+        /// Specifies whether Public Network Access is allowed for this resource. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -537,7 +537,7 @@ namespace Pulumi.Azure.Search
         private InputList<Inputs.ServiceQueryKeyGetArgs>? _queryKeys;
 
         /// <summary>
-        /// A `query_keys` block as defined below.
+        /// A `QueryKeys` block as defined below.
         /// </summary>
         public InputList<Inputs.ServiceQueryKeyGetArgs> QueryKeys
         {
@@ -546,7 +546,7 @@ namespace Pulumi.Azure.Search
         }
 
         /// <summary>
-        /// Specifies the number of Replica's which should be created for this Search Service. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)).
+        /// Specifies the number of Replica's which should be created for this Search Service. This field cannot be set when using a `Free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)).
         /// </summary>
         [Input("replicaCount")]
         public Input<int>? ReplicaCount { get; set; }
@@ -574,19 +574,19 @@ namespace Pulumi.Azure.Search
         }
 
         /// <summary>
-        /// Specifies the Semantic Search SKU which should be used for this Search Service. Possible values include `free` and `standard`.
+        /// Specifies the Semantic Search SKU which should be used for this Search Service. Possible values include `Free` and `Standard`.
         /// 
-        /// &gt; **Note:** The `semantic_search_sku` cannot be defined if your Search Services `sku` is set to `free`. The Semantic Search feature is only available in certain regions, please see the [product documentation](https://learn.microsoft.com/azure/search/semantic-search-overview#availability-and-pricing) for more information.
+        /// &gt; **Note:** The `SemanticSearchSku` cannot be defined if your Search Services `Sku` is set to `Free`. The Semantic Search feature is only available in certain regions, please see the [product documentation](https://learn.microsoft.com/azure/search/semantic-search-overview#availability-and-pricing) for more information.
         /// </summary>
         [Input("semanticSearchSku")]
         public Input<string>? SemanticSearchSku { get; set; }
 
         /// <summary>
-        /// The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2`. Changing this forces a new Search Service to be created.
+        /// The SKU which should be used for this Search Service. Possible values include `Basic`, `Free`, `Standard`, `Standard2`, `Standard3`, `StorageOptimizedL1` and `StorageOptimizedL2`. Changing this forces a new Search Service to be created.
         /// 
-        /// &gt; **Note:** The `basic` and `free` SKUs provision the Search Service in a Shared Cluster - the `standard` SKUs use a Dedicated Cluster.
+        /// &gt; **Note:** The `Basic` and `Free` SKUs provision the Search Service in a Shared Cluster - the `Standard` SKUs use a Dedicated Cluster.
         /// 
-        /// &gt; **Note:** The SKUs `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2` are only available by submitting a quota increase request to Microsoft. Please see the [product documentation](https://learn.microsoft.com/azure/azure-resource-manager/troubleshooting/error-resource-quota?tabs=azure-cli) on how to submit a quota increase request.
+        /// &gt; **Note:** The SKUs `Standard2`, `Standard3`, `StorageOptimizedL1` and `StorageOptimizedL2` are only available by submitting a quota increase request to Microsoft. Please see the [product documentation](https://learn.microsoft.com/azure/azure-resource-manager/troubleshooting/error-resource-quota?tabs=azure-cli) on how to submit a quota increase request.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }

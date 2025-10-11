@@ -125,7 +125,7 @@ namespace Pulumi.Azure.LogicApps
         public Output<string> Content { get; private set; } = null!;
 
         /// <summary>
-        /// A `guest_identity` block as documented below.
+        /// A `GuestIdentity` block as documented below.
         /// </summary>
         [Output("guestIdentity")]
         public Output<Outputs.IntegrationAccountAgreementGuestIdentity> GuestIdentity { get; private set; } = null!;
@@ -137,7 +137,7 @@ namespace Pulumi.Azure.LogicApps
         public Output<string> GuestPartnerName { get; private set; } = null!;
 
         /// <summary>
-        /// A `host_identity` block as documented below.
+        /// A `HostIdentity` block as documented below.
         /// </summary>
         [Output("hostIdentity")]
         public Output<Outputs.IntegrationAccountAgreementHostIdentity> HostIdentity { get; private set; } = null!;
@@ -231,7 +231,7 @@ namespace Pulumi.Azure.LogicApps
         public Input<string> Content { get; set; } = null!;
 
         /// <summary>
-        /// A `guest_identity` block as documented below.
+        /// A `GuestIdentity` block as documented below.
         /// </summary>
         [Input("guestIdentity", required: true)]
         public Input<Inputs.IntegrationAccountAgreementGuestIdentityArgs> GuestIdentity { get; set; } = null!;
@@ -243,7 +243,7 @@ namespace Pulumi.Azure.LogicApps
         public Input<string> GuestPartnerName { get; set; } = null!;
 
         /// <summary>
-        /// A `host_identity` block as documented below.
+        /// A `HostIdentity` block as documented below.
         /// </summary>
         [Input("hostIdentity", required: true)]
         public Input<Inputs.IntegrationAccountAgreementHostIdentityArgs> HostIdentity { get; set; } = null!;
@@ -305,7 +305,7 @@ namespace Pulumi.Azure.LogicApps
         public Input<string>? Content { get; set; }
 
         /// <summary>
-        /// A `guest_identity` block as documented below.
+        /// A `GuestIdentity` block as documented below.
         /// </summary>
         [Input("guestIdentity")]
         public Input<Inputs.IntegrationAccountAgreementGuestIdentityGetArgs>? GuestIdentity { get; set; }
@@ -317,7 +317,7 @@ namespace Pulumi.Azure.LogicApps
         public Input<string>? GuestPartnerName { get; set; }
 
         /// <summary>
-        /// A `host_identity` block as documented below.
+        /// A `HostIdentity` block as documented below.
         /// </summary>
         [Input("hostIdentity")]
         public Input<Inputs.IntegrationAccountAgreementHostIdentityGetArgs>? HostIdentity { get; set; }

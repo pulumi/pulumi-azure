@@ -204,7 +204,7 @@ public class CNameRecord extends com.pulumi.resources.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      * 
-     * &gt; **Note:** either `record` OR `target_resource_id` must be specified, but not both.
+     * &gt; **Note:** either `record` OR `targetResourceId` must be specified, but not both.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
@@ -213,7 +213,7 @@ public class CNameRecord extends com.pulumi.resources.CustomResource {
     /**
      * @return A mapping of tags to assign to the resource.
      * 
-     * &gt; **Note:** either `record` OR `target_resource_id` must be specified, but not both.
+     * &gt; **Note:** either `record` OR `targetResourceId` must be specified, but not both.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

@@ -88,13 +88,13 @@ namespace Pulumi.Azure.NetApp
     public partial class Account : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A `active_directory` block as defined below.
+        /// A `ActiveDirectory` block as defined below.
         /// </summary>
         [Output("activeDirectory")]
         public Output<Outputs.AccountActiveDirectory?> ActiveDirectory { get; private set; } = null!;
 
         /// <summary>
-        /// The `identity` block where it is used when customer managed keys based encryption will be enabled as defined below.
+        /// The `Identity` block where it is used when customer managed keys based encryption will be enabled as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.AccountIdentity?> Identity { get; private set; } = null!;
@@ -170,13 +170,13 @@ namespace Pulumi.Azure.NetApp
     public sealed class AccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `active_directory` block as defined below.
+        /// A `ActiveDirectory` block as defined below.
         /// </summary>
         [Input("activeDirectory")]
         public Input<Inputs.AccountActiveDirectoryArgs>? ActiveDirectory { get; set; }
 
         /// <summary>
-        /// The `identity` block where it is used when customer managed keys based encryption will be enabled as defined below.
+        /// The `Identity` block where it is used when customer managed keys based encryption will be enabled as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.AccountIdentityArgs>? Identity { get; set; }
@@ -220,13 +220,13 @@ namespace Pulumi.Azure.NetApp
     public sealed class AccountState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `active_directory` block as defined below.
+        /// A `ActiveDirectory` block as defined below.
         /// </summary>
         [Input("activeDirectory")]
         public Input<Inputs.AccountActiveDirectoryGetArgs>? ActiveDirectory { get; set; }
 
         /// <summary>
-        /// The `identity` block where it is used when customer managed keys based encryption will be enabled as defined below.
+        /// The `Identity` block where it is used when customer managed keys based encryption will be enabled as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.AccountIdentityGetArgs>? Identity { get; set; }

@@ -14,19 +14,19 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class WindowsFunctionAppSlotAuthSettingsV2
     {
         /// <summary>
-        /// An `active_directory_v2` block as defined below.
+        /// An `ActiveDirectoryV2` block as defined below.
         /// </summary>
         public readonly Outputs.WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2? ActiveDirectoryV2;
         /// <summary>
-        /// An `apple_v2` block as defined below.
+        /// An `AppleV2` block as defined below.
         /// </summary>
         public readonly Outputs.WindowsFunctionAppSlotAuthSettingsV2AppleV2? AppleV2;
         /// <summary>
-        /// Should the AuthV2 Settings be enabled. Defaults to `false`.
+        /// Should the AuthV2 Settings be enabled. Defaults to `False`.
         /// </summary>
         public readonly bool? AuthEnabled;
         /// <summary>
-        /// An `azure_static_web_app_v2` block as defined below.
+        /// An `AzureStaticWebAppV2` block as defined below.
         /// </summary>
         public readonly Outputs.WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2? AzureStaticWebAppV2;
         /// <summary>
@@ -36,23 +36,23 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? ConfigFilePath;
         /// <summary>
-        /// Zero or more `custom_oidc_v2` blocks as defined below.
+        /// Zero or more `CustomOidcV2` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2> CustomOidcV2s;
         /// <summary>
-        /// The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+        /// The Default Authentication Provider to use when the `UnauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `Apple`, `Azureactivedirectory`, `Facebook`, `Github`, `Google`, `Twitter` and the `Name` of your `CustomOidcV2` provider.
         /// 
-        /// &gt; **Note:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+        /// &gt; **Note:** Whilst any value will be accepted by the API for `DefaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or CustomOidc name) as it is used to build the auth endpoint URI.
         /// </summary>
         public readonly string? DefaultProvider;
         /// <summary>
-        /// The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+        /// The paths which should be excluded from the `UnauthenticatedAction` when it is set to `RedirectToLoginPage`.
         /// 
-        /// &gt; **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
+        /// &gt; **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `AppSettings` as it takes priority.
         /// </summary>
         public readonly ImmutableArray<string> ExcludedPaths;
         /// <summary>
-        /// A `facebook_v2` block as defined below.
+        /// A `FacebookV2` block as defined below.
         /// </summary>
         public readonly Outputs.WindowsFunctionAppSlotAuthSettingsV2FacebookV2? FacebookV2;
         /// <summary>
@@ -68,11 +68,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? ForwardProxyCustomSchemeHeaderName;
         /// <summary>
-        /// A `github_v2` block as defined below.
+        /// A `GithubV2` block as defined below.
         /// </summary>
         public readonly Outputs.WindowsFunctionAppSlotAuthSettingsV2GithubV2? GithubV2;
         /// <summary>
-        /// A `google_v2` block as defined below.
+        /// A `GoogleV2` block as defined below.
         /// </summary>
         public readonly Outputs.WindowsFunctionAppSlotAuthSettingsV2GoogleV2? GoogleV2;
         /// <summary>
@@ -80,11 +80,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? HttpRouteApiPrefix;
         /// <summary>
-        /// A `login` block as defined below.
+        /// A `Login` block as defined below.
         /// </summary>
         public readonly Outputs.WindowsFunctionAppSlotAuthSettingsV2Login Login;
         /// <summary>
-        /// A `microsoft_v2` block as defined below.
+        /// A `MicrosoftV2` block as defined below.
         /// </summary>
         public readonly Outputs.WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2? MicrosoftV2;
         /// <summary>
@@ -92,7 +92,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool? RequireAuthentication;
         /// <summary>
-        /// Should HTTPS be required on connections? Defaults to `true`.
+        /// Should HTTPS be required on connections? Defaults to `True`.
         /// </summary>
         public readonly bool? RequireHttps;
         /// <summary>
@@ -100,7 +100,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? RuntimeVersion;
         /// <summary>
-        /// A `twitter_v2` block as defined below.
+        /// A `TwitterV2` block as defined below.
         /// </summary>
         public readonly Outputs.WindowsFunctionAppSlotAuthSettingsV2TwitterV2? TwitterV2;
         /// <summary>

@@ -187,7 +187,7 @@ namespace Pulumi.Azure.Lb
     public sealed class GetBackendAddressPoolResult
     {
         /// <summary>
-        /// A list of `backend_address` block as defined below.
+        /// A list of `BackendAddress` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBackendAddressPoolBackendAddressResult> BackendAddresses;
         /// <summary>

@@ -79,25 +79,25 @@ namespace Pulumi.Azure.ServiceFabric
         public Output<ImmutableArray<string>> AddOnFeatures { get; private set; } = null!;
 
         /// <summary>
-        /// An `azure_active_directory` block as defined below.
+        /// An `AzureActiveDirectory` block as defined below.
         /// </summary>
         [Output("azureActiveDirectory")]
         public Output<Outputs.ClusterAzureActiveDirectory?> AzureActiveDirectory { get; private set; } = null!;
 
         /// <summary>
-        /// A `certificate` block as defined below. Conflicts with `certificate_common_names`.
+        /// A `Certificate` block as defined below. Conflicts with `CertificateCommonNames`.
         /// </summary>
         [Output("certificate")]
         public Output<Outputs.ClusterCertificate?> Certificate { get; private set; } = null!;
 
         /// <summary>
-        /// A `certificate_common_names` block as defined below. Conflicts with `certificate`.
+        /// A `CertificateCommonNames` block as defined below. Conflicts with `Certificate`.
         /// </summary>
         [Output("certificateCommonNames")]
         public Output<Outputs.ClusterCertificateCommonNames?> CertificateCommonNames { get; private set; } = null!;
 
         /// <summary>
-        /// A `client_certificate_common_name` block as defined below.
+        /// A `ClientCertificateCommonName` block as defined below.
         /// 
         /// &gt; **Note:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
         /// </summary>
@@ -105,7 +105,7 @@ namespace Pulumi.Azure.ServiceFabric
         public Output<ImmutableArray<Outputs.ClusterClientCertificateCommonName>> ClientCertificateCommonNames { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `client_certificate_thumbprint` blocks as defined below.
+        /// One or more `ClientCertificateThumbprint` blocks as defined below.
         /// </summary>
         [Output("clientCertificateThumbprints")]
         public Output<ImmutableArray<Outputs.ClusterClientCertificateThumbprint>> ClientCertificateThumbprints { get; private set; } = null!;
@@ -123,13 +123,13 @@ namespace Pulumi.Azure.ServiceFabric
         public Output<string> ClusterEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// A `diagnostics_config` block as defined below.
+        /// A `DiagnosticsConfig` block as defined below.
         /// </summary>
         [Output("diagnosticsConfig")]
         public Output<Outputs.ClusterDiagnosticsConfig?> DiagnosticsConfig { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `fabric_settings` blocks as defined below.
+        /// One or more `FabricSettings` blocks as defined below.
         /// </summary>
         [Output("fabricSettings")]
         public Output<ImmutableArray<Outputs.ClusterFabricSetting>> FabricSettings { get; private set; } = null!;
@@ -153,7 +153,7 @@ namespace Pulumi.Azure.ServiceFabric
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `node_type` blocks as defined below.
+        /// One or more `NodeType` blocks as defined below.
         /// </summary>
         [Output("nodeTypes")]
         public Output<ImmutableArray<Outputs.ClusterNodeType>> NodeTypes { get; private set; } = null!;
@@ -173,13 +173,13 @@ namespace Pulumi.Azure.ServiceFabric
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `reverse_proxy_certificate` block as defined below. Conflicts with `reverse_proxy_certificate_common_names`.
+        /// A `ReverseProxyCertificate` block as defined below. Conflicts with `ReverseProxyCertificateCommonNames`.
         /// </summary>
         [Output("reverseProxyCertificate")]
         public Output<Outputs.ClusterReverseProxyCertificate?> ReverseProxyCertificate { get; private set; } = null!;
 
         /// <summary>
-        /// A `reverse_proxy_certificate_common_names` block as defined below. Conflicts with `reverse_proxy_certificate`.
+        /// A `ReverseProxyCertificateCommonNames` block as defined below. Conflicts with `ReverseProxyCertificate`.
         /// </summary>
         [Output("reverseProxyCertificateCommonNames")]
         public Output<Outputs.ClusterReverseProxyCertificateCommonNames?> ReverseProxyCertificateCommonNames { get; private set; } = null!;
@@ -203,7 +203,7 @@ namespace Pulumi.Azure.ServiceFabric
         public Output<string> UpgradeMode { get; private set; } = null!;
 
         /// <summary>
-        /// A `upgrade_policy` block as defined below.
+        /// A `UpgradePolicy` block as defined below.
         /// </summary>
         [Output("upgradePolicy")]
         public Output<Outputs.ClusterUpgradePolicy?> UpgradePolicy { get; private set; } = null!;
@@ -279,19 +279,19 @@ namespace Pulumi.Azure.ServiceFabric
         }
 
         /// <summary>
-        /// An `azure_active_directory` block as defined below.
+        /// An `AzureActiveDirectory` block as defined below.
         /// </summary>
         [Input("azureActiveDirectory")]
         public Input<Inputs.ClusterAzureActiveDirectoryArgs>? AzureActiveDirectory { get; set; }
 
         /// <summary>
-        /// A `certificate` block as defined below. Conflicts with `certificate_common_names`.
+        /// A `Certificate` block as defined below. Conflicts with `CertificateCommonNames`.
         /// </summary>
         [Input("certificate")]
         public Input<Inputs.ClusterCertificateArgs>? Certificate { get; set; }
 
         /// <summary>
-        /// A `certificate_common_names` block as defined below. Conflicts with `certificate`.
+        /// A `CertificateCommonNames` block as defined below. Conflicts with `Certificate`.
         /// </summary>
         [Input("certificateCommonNames")]
         public Input<Inputs.ClusterCertificateCommonNamesArgs>? CertificateCommonNames { get; set; }
@@ -300,7 +300,7 @@ namespace Pulumi.Azure.ServiceFabric
         private InputList<Inputs.ClusterClientCertificateCommonNameArgs>? _clientCertificateCommonNames;
 
         /// <summary>
-        /// A `client_certificate_common_name` block as defined below.
+        /// A `ClientCertificateCommonName` block as defined below.
         /// 
         /// &gt; **Note:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
         /// </summary>
@@ -314,7 +314,7 @@ namespace Pulumi.Azure.ServiceFabric
         private InputList<Inputs.ClusterClientCertificateThumbprintArgs>? _clientCertificateThumbprints;
 
         /// <summary>
-        /// One or more `client_certificate_thumbprint` blocks as defined below.
+        /// One or more `ClientCertificateThumbprint` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ClusterClientCertificateThumbprintArgs> ClientCertificateThumbprints
         {
@@ -329,7 +329,7 @@ namespace Pulumi.Azure.ServiceFabric
         public Input<string>? ClusterCodeVersion { get; set; }
 
         /// <summary>
-        /// A `diagnostics_config` block as defined below.
+        /// A `DiagnosticsConfig` block as defined below.
         /// </summary>
         [Input("diagnosticsConfig")]
         public Input<Inputs.ClusterDiagnosticsConfigArgs>? DiagnosticsConfig { get; set; }
@@ -338,7 +338,7 @@ namespace Pulumi.Azure.ServiceFabric
         private InputList<Inputs.ClusterFabricSettingArgs>? _fabricSettings;
 
         /// <summary>
-        /// One or more `fabric_settings` blocks as defined below.
+        /// One or more `FabricSettings` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ClusterFabricSettingArgs> FabricSettings
         {
@@ -368,7 +368,7 @@ namespace Pulumi.Azure.ServiceFabric
         private InputList<Inputs.ClusterNodeTypeArgs>? _nodeTypes;
 
         /// <summary>
-        /// One or more `node_type` blocks as defined below.
+        /// One or more `NodeType` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ClusterNodeTypeArgs> NodeTypes
         {
@@ -391,13 +391,13 @@ namespace Pulumi.Azure.ServiceFabric
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `reverse_proxy_certificate` block as defined below. Conflicts with `reverse_proxy_certificate_common_names`.
+        /// A `ReverseProxyCertificate` block as defined below. Conflicts with `ReverseProxyCertificateCommonNames`.
         /// </summary>
         [Input("reverseProxyCertificate")]
         public Input<Inputs.ClusterReverseProxyCertificateArgs>? ReverseProxyCertificate { get; set; }
 
         /// <summary>
-        /// A `reverse_proxy_certificate_common_names` block as defined below. Conflicts with `reverse_proxy_certificate`.
+        /// A `ReverseProxyCertificateCommonNames` block as defined below. Conflicts with `ReverseProxyCertificate`.
         /// </summary>
         [Input("reverseProxyCertificateCommonNames")]
         public Input<Inputs.ClusterReverseProxyCertificateCommonNamesArgs>? ReverseProxyCertificateCommonNames { get; set; }
@@ -427,7 +427,7 @@ namespace Pulumi.Azure.ServiceFabric
         public Input<string> UpgradeMode { get; set; } = null!;
 
         /// <summary>
-        /// A `upgrade_policy` block as defined below.
+        /// A `UpgradePolicy` block as defined below.
         /// </summary>
         [Input("upgradePolicy")]
         public Input<Inputs.ClusterUpgradePolicyArgs>? UpgradePolicy { get; set; }
@@ -465,19 +465,19 @@ namespace Pulumi.Azure.ServiceFabric
         }
 
         /// <summary>
-        /// An `azure_active_directory` block as defined below.
+        /// An `AzureActiveDirectory` block as defined below.
         /// </summary>
         [Input("azureActiveDirectory")]
         public Input<Inputs.ClusterAzureActiveDirectoryGetArgs>? AzureActiveDirectory { get; set; }
 
         /// <summary>
-        /// A `certificate` block as defined below. Conflicts with `certificate_common_names`.
+        /// A `Certificate` block as defined below. Conflicts with `CertificateCommonNames`.
         /// </summary>
         [Input("certificate")]
         public Input<Inputs.ClusterCertificateGetArgs>? Certificate { get; set; }
 
         /// <summary>
-        /// A `certificate_common_names` block as defined below. Conflicts with `certificate`.
+        /// A `CertificateCommonNames` block as defined below. Conflicts with `Certificate`.
         /// </summary>
         [Input("certificateCommonNames")]
         public Input<Inputs.ClusterCertificateCommonNamesGetArgs>? CertificateCommonNames { get; set; }
@@ -486,7 +486,7 @@ namespace Pulumi.Azure.ServiceFabric
         private InputList<Inputs.ClusterClientCertificateCommonNameGetArgs>? _clientCertificateCommonNames;
 
         /// <summary>
-        /// A `client_certificate_common_name` block as defined below.
+        /// A `ClientCertificateCommonName` block as defined below.
         /// 
         /// &gt; **Note:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
         /// </summary>
@@ -500,7 +500,7 @@ namespace Pulumi.Azure.ServiceFabric
         private InputList<Inputs.ClusterClientCertificateThumbprintGetArgs>? _clientCertificateThumbprints;
 
         /// <summary>
-        /// One or more `client_certificate_thumbprint` blocks as defined below.
+        /// One or more `ClientCertificateThumbprint` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ClusterClientCertificateThumbprintGetArgs> ClientCertificateThumbprints
         {
@@ -521,7 +521,7 @@ namespace Pulumi.Azure.ServiceFabric
         public Input<string>? ClusterEndpoint { get; set; }
 
         /// <summary>
-        /// A `diagnostics_config` block as defined below.
+        /// A `DiagnosticsConfig` block as defined below.
         /// </summary>
         [Input("diagnosticsConfig")]
         public Input<Inputs.ClusterDiagnosticsConfigGetArgs>? DiagnosticsConfig { get; set; }
@@ -530,7 +530,7 @@ namespace Pulumi.Azure.ServiceFabric
         private InputList<Inputs.ClusterFabricSettingGetArgs>? _fabricSettings;
 
         /// <summary>
-        /// One or more `fabric_settings` blocks as defined below.
+        /// One or more `FabricSettings` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ClusterFabricSettingGetArgs> FabricSettings
         {
@@ -560,7 +560,7 @@ namespace Pulumi.Azure.ServiceFabric
         private InputList<Inputs.ClusterNodeTypeGetArgs>? _nodeTypes;
 
         /// <summary>
-        /// One or more `node_type` blocks as defined below.
+        /// One or more `NodeType` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ClusterNodeTypeGetArgs> NodeTypes
         {
@@ -583,13 +583,13 @@ namespace Pulumi.Azure.ServiceFabric
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// A `reverse_proxy_certificate` block as defined below. Conflicts with `reverse_proxy_certificate_common_names`.
+        /// A `ReverseProxyCertificate` block as defined below. Conflicts with `ReverseProxyCertificateCommonNames`.
         /// </summary>
         [Input("reverseProxyCertificate")]
         public Input<Inputs.ClusterReverseProxyCertificateGetArgs>? ReverseProxyCertificate { get; set; }
 
         /// <summary>
-        /// A `reverse_proxy_certificate_common_names` block as defined below. Conflicts with `reverse_proxy_certificate`.
+        /// A `ReverseProxyCertificateCommonNames` block as defined below. Conflicts with `ReverseProxyCertificate`.
         /// </summary>
         [Input("reverseProxyCertificateCommonNames")]
         public Input<Inputs.ClusterReverseProxyCertificateCommonNamesGetArgs>? ReverseProxyCertificateCommonNames { get; set; }
@@ -619,7 +619,7 @@ namespace Pulumi.Azure.ServiceFabric
         public Input<string>? UpgradeMode { get; set; }
 
         /// <summary>
-        /// A `upgrade_policy` block as defined below.
+        /// A `UpgradePolicy` block as defined below.
         /// </summary>
         [Input("upgradePolicy")]
         public Input<Inputs.ClusterUpgradePolicyGetArgs>? UpgradePolicy { get; set; }

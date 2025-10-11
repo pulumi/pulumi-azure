@@ -16,14 +16,14 @@ public final class DataCollectionRuleDataSourcesDataImportArgs extends com.pulum
     public static final DataCollectionRuleDataSourcesDataImportArgs Empty = new DataCollectionRuleDataSourcesDataImportArgs();
 
     /**
-     * An `event_hub_data_source` block as defined below.
+     * An `eventHubDataSource` block as defined below.
      * 
      */
     @Import(name="eventHubDataSources", required=true)
     private Output<List<DataCollectionRuleDataSourcesDataImportEventHubDataSourceArgs>> eventHubDataSources;
 
     /**
-     * @return An `event_hub_data_source` block as defined below.
+     * @return An `eventHubDataSource` block as defined below.
      * 
      */
     public Output<List<DataCollectionRuleDataSourcesDataImportEventHubDataSourceArgs>> eventHubDataSources() {
@@ -55,7 +55,7 @@ public final class DataCollectionRuleDataSourcesDataImportArgs extends com.pulum
         }
 
         /**
-         * @param eventHubDataSources An `event_hub_data_source` block as defined below.
+         * @param eventHubDataSources An `eventHubDataSource` block as defined below.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class DataCollectionRuleDataSourcesDataImportArgs extends com.pulum
         }
 
         /**
-         * @param eventHubDataSources An `event_hub_data_source` block as defined below.
+         * @param eventHubDataSources An `eventHubDataSource` block as defined below.
          * 
          * @return builder
          * 
@@ -76,7 +76,7 @@ public final class DataCollectionRuleDataSourcesDataImportArgs extends com.pulum
         }
 
         /**
-         * @param eventHubDataSources An `event_hub_data_source` block as defined below.
+         * @param eventHubDataSources An `eventHubDataSource` block as defined below.
          * 
          * @return builder
          * 

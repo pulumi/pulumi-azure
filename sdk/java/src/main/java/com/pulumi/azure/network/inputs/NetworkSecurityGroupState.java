@@ -66,7 +66,7 @@ public final class NetworkSecurityGroupState extends com.pulumi.resources.Resour
     /**
      * A list of objects representing security rules, as defined below.
      * 
-     * &gt; **NOTE** Since `security_rule` can be configured both inline and via the separate `azure.network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+     * &gt; **NOTE** Since `securityRule` can be configured both inline and via the separate `azure.network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      * 
      */
     @Import(name="securityRules")
@@ -75,7 +75,7 @@ public final class NetworkSecurityGroupState extends com.pulumi.resources.Resour
     /**
      * @return A list of objects representing security rules, as defined below.
      * 
-     * &gt; **NOTE** Since `security_rule` can be configured both inline and via the separate `azure.network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+     * &gt; **NOTE** Since `securityRule` can be configured both inline and via the separate `azure.network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      * 
      */
     public Optional<Output<List<NetworkSecurityGroupSecurityRuleArgs>>> securityRules() {
@@ -191,7 +191,7 @@ public final class NetworkSecurityGroupState extends com.pulumi.resources.Resour
         /**
          * @param securityRules A list of objects representing security rules, as defined below.
          * 
-         * &gt; **NOTE** Since `security_rule` can be configured both inline and via the separate `azure.network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+         * &gt; **NOTE** Since `securityRule` can be configured both inline and via the separate `azure.network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class NetworkSecurityGroupState extends com.pulumi.resources.Resour
         /**
          * @param securityRules A list of objects representing security rules, as defined below.
          * 
-         * &gt; **NOTE** Since `security_rule` can be configured both inline and via the separate `azure.network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+         * &gt; **NOTE** Since `securityRule` can be configured both inline and via the separate `azure.network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class NetworkSecurityGroupState extends com.pulumi.resources.Resour
         /**
          * @param securityRules A list of objects representing security rules, as defined below.
          * 
-         * &gt; **NOTE** Since `security_rule` can be configured both inline and via the separate `azure.network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+         * &gt; **NOTE** Since `securityRule` can be configured both inline and via the separate `azure.network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 

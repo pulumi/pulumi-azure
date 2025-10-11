@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class GetSharedImageVersionsImageResult
     {
         /// <summary>
-        /// Is this Image Version excluded from the `latest` filter?
+        /// Is this Image Version excluded from the `Latest` filter?
         /// </summary>
         public readonly bool ExcludeFromLatest;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// One or more `target_region` blocks as documented below.
+        /// One or more `TargetRegion` blocks as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetSharedImageVersionsImageTargetRegionResult> TargetRegions;
 

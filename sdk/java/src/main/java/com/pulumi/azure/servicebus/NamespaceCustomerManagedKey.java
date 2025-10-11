@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
  * 
  * !&gt; **Note:** It is not possible to remove the Customer Managed Key from the Service Bus Namespace once it&#39;s been added. To remove the Customer Managed Key, the parent Service Bus Namespace must be deleted and recreated.
  * 
- * &gt; **Note:** This resource should only be used to create a Customer Managed Key for Service Bus Namespaces with System Assigned identities. The `customer_managed_key` block in `azure.servicebus.Namespace` should be used to create a Customer Managed Key for a Service Bus Namespace with a User Assigned identity.
+ * &gt; **Note:** This resource should only be used to create a Customer Managed Key for Service Bus Namespaces with System Assigned identities. The `customerManagedKey` block in `azure.servicebus.Namespace` should be used to create a Customer Managed Key for a Service Bus Namespace with a User Assigned identity.
  * 
  * ## Example Usage
  * 

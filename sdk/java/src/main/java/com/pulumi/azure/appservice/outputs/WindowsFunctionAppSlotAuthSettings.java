@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WindowsFunctionAppSlotAuthSettings {
     /**
-     * @return an `active_directory` block as detailed below.
+     * @return an `activeDirectory` block as detailed below.
      * 
      */
     private @Nullable WindowsFunctionAppSlotAuthSettingsActiveDirectory activeDirectory;
@@ -40,7 +40,7 @@ public final class WindowsFunctionAppSlotAuthSettings {
     /**
      * @return The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
      * 
-     * &gt; **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to &#34;RedirectToLoginPage&#34;.
+     * &gt; **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to &#34;RedirectToLoginPage&#34;.
      * 
      */
     private @Nullable String defaultProvider;
@@ -104,7 +104,7 @@ public final class WindowsFunctionAppSlotAuthSettings {
 
     private WindowsFunctionAppSlotAuthSettings() {}
     /**
-     * @return an `active_directory` block as detailed below.
+     * @return an `activeDirectory` block as detailed below.
      * 
      */
     public Optional<WindowsFunctionAppSlotAuthSettingsActiveDirectory> activeDirectory() {
@@ -127,7 +127,7 @@ public final class WindowsFunctionAppSlotAuthSettings {
     /**
      * @return The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
      * 
-     * &gt; **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to &#34;RedirectToLoginPage&#34;.
+     * &gt; **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to &#34;RedirectToLoginPage&#34;.
      * 
      */
     public Optional<String> defaultProvider() {

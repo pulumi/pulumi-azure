@@ -72,7 +72,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> ApiManagementId { get; private set; } = null!;
 
         /// <summary>
-        /// The display name of the API Management Tag. Defaults to the `name`.
+        /// The display name of the API Management Tag. Defaults to the `Name`.
         /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
@@ -136,7 +136,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string> ApiManagementId { get; set; } = null!;
 
         /// <summary>
-        /// The display name of the API Management Tag. Defaults to the `name`.
+        /// The display name of the API Management Tag. Defaults to the `Name`.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
@@ -162,7 +162,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? ApiManagementId { get; set; }
 
         /// <summary>
-        /// The display name of the API Management Tag. Defaults to the `name`.
+        /// The display name of the API Management Tag. Defaults to the `Name`.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }

@@ -16,14 +16,14 @@ public final class GetShareAcl extends com.pulumi.resources.InvokeArgs {
     public static final GetShareAcl Empty = new GetShareAcl();
 
     /**
-     * An `access_policy` block as defined below.
+     * An `accessPolicy` block as defined below.
      * 
      */
     @Import(name="accessPolicies", required=true)
     private List<GetShareAclAccessPolicy> accessPolicies;
 
     /**
-     * @return An `access_policy` block as defined below.
+     * @return An `accessPolicy` block as defined below.
      * 
      */
     public List<GetShareAclAccessPolicy> accessPolicies() {
@@ -71,7 +71,7 @@ public final class GetShareAcl extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param accessPolicies An `access_policy` block as defined below.
+         * @param accessPolicies An `accessPolicy` block as defined below.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class GetShareAcl extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param accessPolicies An `access_policy` block as defined below.
+         * @param accessPolicies An `accessPolicy` block as defined below.
          * 
          * @return builder
          * 

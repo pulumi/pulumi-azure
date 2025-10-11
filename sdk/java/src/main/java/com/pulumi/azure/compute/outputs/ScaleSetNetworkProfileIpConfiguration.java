@@ -28,14 +28,14 @@ public final class ScaleSetNetworkProfileIpConfiguration {
     /**
      * @return Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
      * 
-     * &gt; **NOTE:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
+     * &gt; **NOTE:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a `dependsOn` between this resource and the Load Balancer Rule.
      * 
      */
     private @Nullable List<String> loadBalancerBackendAddressPoolIds;
     /**
      * @return Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound NAT pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
      * 
-     * &gt; **NOTE:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
+     * &gt; **NOTE:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a `dependsOn` between this resource and the Load Balancer Rule.
      * 
      */
     private @Nullable List<String> loadBalancerInboundNatRulesIds;
@@ -45,12 +45,12 @@ public final class ScaleSetNetworkProfileIpConfiguration {
      */
     private String name;
     /**
-     * @return Specifies if this ip_configuration is the primary one.
+     * @return Specifies if this ipConfiguration is the primary one.
      * 
      */
     private Boolean primary;
     /**
-     * @return Describes a virtual machines scale set IP Configuration&#39;s PublicIPAddress configuration. The `public_ip_address_configuration` block is documented below.
+     * @return Describes a virtual machines scale set IP Configuration&#39;s PublicIPAddress configuration. The `publicIpAddressConfiguration` block is documented below.
      * 
      */
     private @Nullable ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration publicIpAddressConfiguration;
@@ -78,7 +78,7 @@ public final class ScaleSetNetworkProfileIpConfiguration {
     /**
      * @return Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
      * 
-     * &gt; **NOTE:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
+     * &gt; **NOTE:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a `dependsOn` between this resource and the Load Balancer Rule.
      * 
      */
     public List<String> loadBalancerBackendAddressPoolIds() {
@@ -87,7 +87,7 @@ public final class ScaleSetNetworkProfileIpConfiguration {
     /**
      * @return Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound NAT pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
      * 
-     * &gt; **NOTE:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
+     * &gt; **NOTE:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a `dependsOn` between this resource and the Load Balancer Rule.
      * 
      */
     public List<String> loadBalancerInboundNatRulesIds() {
@@ -101,14 +101,14 @@ public final class ScaleSetNetworkProfileIpConfiguration {
         return this.name;
     }
     /**
-     * @return Specifies if this ip_configuration is the primary one.
+     * @return Specifies if this ipConfiguration is the primary one.
      * 
      */
     public Boolean primary() {
         return this.primary;
     }
     /**
-     * @return Describes a virtual machines scale set IP Configuration&#39;s PublicIPAddress configuration. The `public_ip_address_configuration` block is documented below.
+     * @return Describes a virtual machines scale set IP Configuration&#39;s PublicIPAddress configuration. The `publicIpAddressConfiguration` block is documented below.
      * 
      */
     public Optional<ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration> publicIpAddressConfiguration() {

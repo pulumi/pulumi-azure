@@ -105,7 +105,7 @@ namespace Pulumi.Azure.Sentinel
         public Output<ImmutableArray<string>> DisplayNameFilters { get; private set; } = null!;
 
         /// <summary>
-        /// Should this Sentinel MS Security Incident Alert Rule be enabled? Defaults to `true`.
+        /// Should this Sentinel MS Security Incident Alert Rule be enabled? Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -225,7 +225,7 @@ namespace Pulumi.Azure.Sentinel
         }
 
         /// <summary>
-        /// Should this Sentinel MS Security Incident Alert Rule be enabled? Defaults to `true`.
+        /// Should this Sentinel MS Security Incident Alert Rule be enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -313,7 +313,7 @@ namespace Pulumi.Azure.Sentinel
         }
 
         /// <summary>
-        /// Should this Sentinel MS Security Incident Alert Rule be enabled? Defaults to `true`.
+        /// Should this Sentinel MS Security Incident Alert Rule be enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

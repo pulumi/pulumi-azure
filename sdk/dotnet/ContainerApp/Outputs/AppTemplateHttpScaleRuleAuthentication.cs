@@ -18,7 +18,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly string SecretName;
         /// <summary>
-        /// The Trigger Parameter name to use the supply the value retrieved from the `secret_name`.
+        /// The Trigger Parameter name to use the supply the value retrieved from the `SecretName`.
         /// </summary>
         public readonly string? TriggerParameter;
 

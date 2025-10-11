@@ -20,14 +20,14 @@ public final class ExtensionState extends com.pulumi.resources.ResourceArgs {
     public static final ExtensionState Empty = new ExtensionState();
 
     /**
-     * Specifies if the platform deploys the latest minor version update to the `type_handler_version` specified.
+     * Specifies if the platform deploys the latest minor version update to the `typeHandlerVersion` specified.
      * 
      */
     @Import(name="autoUpgradeMinorVersion")
     private @Nullable Output<Boolean> autoUpgradeMinorVersion;
 
     /**
-     * @return Specifies if the platform deploys the latest minor version update to the `type_handler_version` specified.
+     * @return Specifies if the platform deploys the latest minor version update to the `typeHandlerVersion` specified.
      * 
      */
     public Optional<Output<Boolean>> autoUpgradeMinorVersion() {
@@ -52,7 +52,7 @@ public final class ExtensionState extends com.pulumi.resources.ResourceArgs {
     /**
      * Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
      * 
-     * &gt; **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
+     * &gt; **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failureSuppressionEnabled` value.
      * 
      */
     @Import(name="failureSuppressionEnabled")
@@ -61,7 +61,7 @@ public final class ExtensionState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
      * 
-     * &gt; **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
+     * &gt; **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failureSuppressionEnabled` value.
      * 
      */
     public Optional<Output<Boolean>> failureSuppressionEnabled() {
@@ -84,18 +84,18 @@ public final class ExtensionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
+     * The protectedSettings passed to the extension, like settings, these are specified as a JSON object in a string.
      * 
-     * &gt; **Note:** Certain VM Extensions require that the keys in the `protected_settings` block are case sensitive. If you&#39;re seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
+     * &gt; **Note:** Certain VM Extensions require that the keys in the `protectedSettings` block are case sensitive. If you&#39;re seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
      * 
      */
     @Import(name="protectedSettings")
     private @Nullable Output<String> protectedSettings;
 
     /**
-     * @return The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
+     * @return The protectedSettings passed to the extension, like settings, these are specified as a JSON object in a string.
      * 
-     * &gt; **Note:** Certain VM Extensions require that the keys in the `protected_settings` block are case sensitive. If you&#39;re seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
+     * &gt; **Note:** Certain VM Extensions require that the keys in the `protectedSettings` block are case sensitive. If you&#39;re seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
      * 
      */
     public Optional<Output<String>> protectedSettings() {
@@ -103,18 +103,18 @@ public final class ExtensionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `protected_settings_from_key_vault` block as defined below.
+     * A `protectedSettingsFromKeyVault` block as defined below.
      * 
-     * &gt; **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
+     * &gt; **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`
      * 
      */
     @Import(name="protectedSettingsFromKeyVault")
     private @Nullable Output<ExtensionProtectedSettingsFromKeyVaultArgs> protectedSettingsFromKeyVault;
 
     /**
-     * @return A `protected_settings_from_key_vault` block as defined below.
+     * @return A `protectedSettingsFromKeyVault` block as defined below.
      * 
-     * &gt; **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
+     * &gt; **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`
      * 
      */
     public Optional<Output<ExtensionProtectedSettingsFromKeyVaultArgs>> protectedSettingsFromKeyVault() {
@@ -271,7 +271,7 @@ public final class ExtensionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoUpgradeMinorVersion Specifies if the platform deploys the latest minor version update to the `type_handler_version` specified.
+         * @param autoUpgradeMinorVersion Specifies if the platform deploys the latest minor version update to the `typeHandlerVersion` specified.
          * 
          * @return builder
          * 
@@ -282,7 +282,7 @@ public final class ExtensionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoUpgradeMinorVersion Specifies if the platform deploys the latest minor version update to the `type_handler_version` specified.
+         * @param autoUpgradeMinorVersion Specifies if the platform deploys the latest minor version update to the `typeHandlerVersion` specified.
          * 
          * @return builder
          * 
@@ -315,7 +315,7 @@ public final class ExtensionState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param failureSuppressionEnabled Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
          * 
-         * &gt; **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
+         * &gt; **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failureSuppressionEnabled` value.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class ExtensionState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param failureSuppressionEnabled Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
          * 
-         * &gt; **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
+         * &gt; **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failureSuppressionEnabled` value.
          * 
          * @return builder
          * 
@@ -359,9 +359,9 @@ public final class ExtensionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protectedSettings The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
+         * @param protectedSettings The protectedSettings passed to the extension, like settings, these are specified as a JSON object in a string.
          * 
-         * &gt; **Note:** Certain VM Extensions require that the keys in the `protected_settings` block are case sensitive. If you&#39;re seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
+         * &gt; **Note:** Certain VM Extensions require that the keys in the `protectedSettings` block are case sensitive. If you&#39;re seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
          * 
          * @return builder
          * 
@@ -372,9 +372,9 @@ public final class ExtensionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protectedSettings The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
+         * @param protectedSettings The protectedSettings passed to the extension, like settings, these are specified as a JSON object in a string.
          * 
-         * &gt; **Note:** Certain VM Extensions require that the keys in the `protected_settings` block are case sensitive. If you&#39;re seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
+         * &gt; **Note:** Certain VM Extensions require that the keys in the `protectedSettings` block are case sensitive. If you&#39;re seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
          * 
          * @return builder
          * 
@@ -384,9 +384,9 @@ public final class ExtensionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protectedSettingsFromKeyVault A `protected_settings_from_key_vault` block as defined below.
+         * @param protectedSettingsFromKeyVault A `protectedSettingsFromKeyVault` block as defined below.
          * 
-         * &gt; **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
+         * &gt; **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`
          * 
          * @return builder
          * 
@@ -397,9 +397,9 @@ public final class ExtensionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protectedSettingsFromKeyVault A `protected_settings_from_key_vault` block as defined below.
+         * @param protectedSettingsFromKeyVault A `protectedSettingsFromKeyVault` block as defined below.
          * 
-         * &gt; **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
+         * &gt; **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`
          * 
          * @return builder
          * 

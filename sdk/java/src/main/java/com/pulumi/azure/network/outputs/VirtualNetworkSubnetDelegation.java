@@ -17,7 +17,7 @@ public final class VirtualNetworkSubnetDelegation {
      */
     private String name;
     /**
-     * @return A `service_delegation` block as defined below.
+     * @return A `serviceDelegation` block as defined below.
      * 
      */
     private VirtualNetworkSubnetDelegationServiceDelegation serviceDelegation;
@@ -31,7 +31,7 @@ public final class VirtualNetworkSubnetDelegation {
         return this.name;
     }
     /**
-     * @return A `service_delegation` block as defined below.
+     * @return A `serviceDelegation` block as defined below.
      * 
      */
     public VirtualNetworkSubnetDelegationServiceDelegation serviceDelegation() {

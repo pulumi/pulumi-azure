@@ -52,14 +52,14 @@ public final class LinkedServiceAzureSqlDatabaseArgs extends com.pulumi.resource
     }
 
     /**
-     * The connection string in which to authenticate with Azure SQL Database. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
+     * The connection string in which to authenticate with Azure SQL Database. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
      * 
      */
     @Import(name="connectionString")
     private @Nullable Output<String> connectionString;
 
     /**
-     * @return The connection string in which to authenticate with Azure SQL Database. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
+     * @return The connection string in which to authenticate with Azure SQL Database. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
      * 
      */
     public Optional<Output<String>> connectionString() {
@@ -127,14 +127,14 @@ public final class LinkedServiceAzureSqlDatabaseArgs extends com.pulumi.resource
     }
 
     /**
-     * A `key_vault_connection_string` block as defined below. Use this argument to store Azure SQL Database connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
+     * A `keyVaultConnectionString` block as defined below. Use this argument to store Azure SQL Database connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
      * 
      */
     @Import(name="keyVaultConnectionString")
     private @Nullable Output<LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringArgs> keyVaultConnectionString;
 
     /**
-     * @return A `key_vault_connection_string` block as defined below. Use this argument to store Azure SQL Database connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
+     * @return A `keyVaultConnectionString` block as defined below. Use this argument to store Azure SQL Database connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
      * 
      */
     public Optional<Output<LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringArgs>> keyVaultConnectionString() {
@@ -142,14 +142,14 @@ public final class LinkedServiceAzureSqlDatabaseArgs extends com.pulumi.resource
     }
 
     /**
-     * A `key_vault_password` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+     * A `keyVaultPassword` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
      * 
      */
     @Import(name="keyVaultPassword")
     private @Nullable Output<LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs> keyVaultPassword;
 
     /**
-     * @return A `key_vault_password` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+     * @return A `keyVaultPassword` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
      * 
      */
     public Optional<Output<LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs>> keyVaultPassword() {
@@ -187,14 +187,14 @@ public final class LinkedServiceAzureSqlDatabaseArgs extends com.pulumi.resource
     }
 
     /**
-     * The service principal id in which to authenticate against the Azure SQL Database. Required if `service_principal_key` is set.
+     * The service principal id in which to authenticate against the Azure SQL Database. Required if `servicePrincipalKey` is set.
      * 
      */
     @Import(name="servicePrincipalId")
     private @Nullable Output<String> servicePrincipalId;
 
     /**
-     * @return The service principal id in which to authenticate against the Azure SQL Database. Required if `service_principal_key` is set.
+     * @return The service principal id in which to authenticate against the Azure SQL Database. Required if `servicePrincipalKey` is set.
      * 
      */
     public Optional<Output<String>> servicePrincipalId() {
@@ -202,14 +202,14 @@ public final class LinkedServiceAzureSqlDatabaseArgs extends com.pulumi.resource
     }
 
     /**
-     * The service principal key in which to authenticate against the Azure SQL Database. Required if `service_principal_id` is set.
+     * The service principal key in which to authenticate against the Azure SQL Database. Required if `servicePrincipalId` is set.
      * 
      */
     @Import(name="servicePrincipalKey")
     private @Nullable Output<String> servicePrincipalKey;
 
     /**
-     * @return The service principal key in which to authenticate against the Azure SQL Database. Required if `service_principal_id` is set.
+     * @return The service principal key in which to authenticate against the Azure SQL Database. Required if `servicePrincipalId` is set.
      * 
      */
     public Optional<Output<String>> servicePrincipalKey() {
@@ -232,14 +232,14 @@ public final class LinkedServiceAzureSqlDatabaseArgs extends com.pulumi.resource
     }
 
     /**
-     * Whether to use the Data Factory&#39;s managed identity to authenticate against the Azure SQL Database. Incompatible with `service_principal_id` and `service_principal_key`
+     * Whether to use the Data Factory&#39;s managed identity to authenticate against the Azure SQL Database. Incompatible with `servicePrincipalId` and `servicePrincipalKey`
      * 
      */
     @Import(name="useManagedIdentity")
     private @Nullable Output<Boolean> useManagedIdentity;
 
     /**
-     * @return Whether to use the Data Factory&#39;s managed identity to authenticate against the Azure SQL Database. Incompatible with `service_principal_id` and `service_principal_key`
+     * @return Whether to use the Data Factory&#39;s managed identity to authenticate against the Azure SQL Database. Incompatible with `servicePrincipalId` and `servicePrincipalKey`
      * 
      */
     public Optional<Output<Boolean>> useManagedIdentity() {
@@ -337,7 +337,7 @@ public final class LinkedServiceAzureSqlDatabaseArgs extends com.pulumi.resource
         }
 
         /**
-         * @param connectionString The connection string in which to authenticate with Azure SQL Database. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
+         * @param connectionString The connection string in which to authenticate with Azure SQL Database. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
          * 
          * @return builder
          * 
@@ -348,7 +348,7 @@ public final class LinkedServiceAzureSqlDatabaseArgs extends com.pulumi.resource
         }
 
         /**
-         * @param connectionString The connection string in which to authenticate with Azure SQL Database. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
+         * @param connectionString The connection string in which to authenticate with Azure SQL Database. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
          * 
          * @return builder
          * 
@@ -442,7 +442,7 @@ public final class LinkedServiceAzureSqlDatabaseArgs extends com.pulumi.resource
         }
 
         /**
-         * @param keyVaultConnectionString A `key_vault_connection_string` block as defined below. Use this argument to store Azure SQL Database connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
+         * @param keyVaultConnectionString A `keyVaultConnectionString` block as defined below. Use this argument to store Azure SQL Database connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
          * 
          * @return builder
          * 
@@ -453,7 +453,7 @@ public final class LinkedServiceAzureSqlDatabaseArgs extends com.pulumi.resource
         }
 
         /**
-         * @param keyVaultConnectionString A `key_vault_connection_string` block as defined below. Use this argument to store Azure SQL Database connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
+         * @param keyVaultConnectionString A `keyVaultConnectionString` block as defined below. Use this argument to store Azure SQL Database connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
          * 
          * @return builder
          * 
@@ -463,7 +463,7 @@ public final class LinkedServiceAzureSqlDatabaseArgs extends com.pulumi.resource
         }
 
         /**
-         * @param keyVaultPassword A `key_vault_password` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+         * @param keyVaultPassword A `keyVaultPassword` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
          * 
          * @return builder
          * 
@@ -474,7 +474,7 @@ public final class LinkedServiceAzureSqlDatabaseArgs extends com.pulumi.resource
         }
 
         /**
-         * @param keyVaultPassword A `key_vault_password` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+         * @param keyVaultPassword A `keyVaultPassword` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
          * 
          * @return builder
          * 
@@ -526,7 +526,7 @@ public final class LinkedServiceAzureSqlDatabaseArgs extends com.pulumi.resource
         }
 
         /**
-         * @param servicePrincipalId The service principal id in which to authenticate against the Azure SQL Database. Required if `service_principal_key` is set.
+         * @param servicePrincipalId The service principal id in which to authenticate against the Azure SQL Database. Required if `servicePrincipalKey` is set.
          * 
          * @return builder
          * 
@@ -537,7 +537,7 @@ public final class LinkedServiceAzureSqlDatabaseArgs extends com.pulumi.resource
         }
 
         /**
-         * @param servicePrincipalId The service principal id in which to authenticate against the Azure SQL Database. Required if `service_principal_key` is set.
+         * @param servicePrincipalId The service principal id in which to authenticate against the Azure SQL Database. Required if `servicePrincipalKey` is set.
          * 
          * @return builder
          * 
@@ -547,7 +547,7 @@ public final class LinkedServiceAzureSqlDatabaseArgs extends com.pulumi.resource
         }
 
         /**
-         * @param servicePrincipalKey The service principal key in which to authenticate against the Azure SQL Database. Required if `service_principal_id` is set.
+         * @param servicePrincipalKey The service principal key in which to authenticate against the Azure SQL Database. Required if `servicePrincipalId` is set.
          * 
          * @return builder
          * 
@@ -558,7 +558,7 @@ public final class LinkedServiceAzureSqlDatabaseArgs extends com.pulumi.resource
         }
 
         /**
-         * @param servicePrincipalKey The service principal key in which to authenticate against the Azure SQL Database. Required if `service_principal_id` is set.
+         * @param servicePrincipalKey The service principal key in which to authenticate against the Azure SQL Database. Required if `servicePrincipalId` is set.
          * 
          * @return builder
          * 
@@ -589,7 +589,7 @@ public final class LinkedServiceAzureSqlDatabaseArgs extends com.pulumi.resource
         }
 
         /**
-         * @param useManagedIdentity Whether to use the Data Factory&#39;s managed identity to authenticate against the Azure SQL Database. Incompatible with `service_principal_id` and `service_principal_key`
+         * @param useManagedIdentity Whether to use the Data Factory&#39;s managed identity to authenticate against the Azure SQL Database. Incompatible with `servicePrincipalId` and `servicePrincipalKey`
          * 
          * @return builder
          * 
@@ -600,7 +600,7 @@ public final class LinkedServiceAzureSqlDatabaseArgs extends com.pulumi.resource
         }
 
         /**
-         * @param useManagedIdentity Whether to use the Data Factory&#39;s managed identity to authenticate against the Azure SQL Database. Incompatible with `service_principal_id` and `service_principal_key`
+         * @param useManagedIdentity Whether to use the Data Factory&#39;s managed identity to authenticate against the Azure SQL Database. Incompatible with `servicePrincipalId` and `servicePrincipalKey`
          * 
          * @return builder
          * 

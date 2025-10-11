@@ -13,9 +13,9 @@ namespace Pulumi.Azure.DesktopVirtualization.Inputs
     public sealed class HostPoolScheduledAgentUpdatesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enables or disables scheduled updates of the AVD agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts. If this is enabled then up to two `schedule` blocks must be defined. Default is `false`.
+        /// Enables or disables scheduled updates of the AVD agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts. If this is enabled then up to two `Schedule` blocks must be defined. Default is `False`.
         /// 
-        /// &gt; **Note:** if `enabled` is set to `true` then at least one and a maximum of two `schedule` blocks must be provided.
+        /// &gt; **Note:** if `Enabled` is set to `True` then at least one and a maximum of two `Schedule` blocks must be provided.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -24,7 +24,7 @@ namespace Pulumi.Azure.DesktopVirtualization.Inputs
         private InputList<Inputs.HostPoolScheduledAgentUpdatesScheduleArgs>? _schedules;
 
         /// <summary>
-        /// A `schedule` block as defined below. A maximum of two blocks can be added.
+        /// A `Schedule` block as defined below. A maximum of two blocks can be added.
         /// </summary>
         public InputList<Inputs.HostPoolScheduledAgentUpdatesScheduleArgs> Schedules
         {
@@ -33,13 +33,13 @@ namespace Pulumi.Azure.DesktopVirtualization.Inputs
         }
 
         /// <summary>
-        /// Specifies the time zone in which the agent update schedule will apply, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). If `use_session_host_timezone` is enabled then it will override this setting. Default is `UTC`
+        /// Specifies the time zone in which the agent update schedule will apply, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). If `UseSessionHostTimezone` is enabled then it will override this setting. Default is `UTC`
         /// </summary>
         [Input("timezone")]
         public Input<string>? Timezone { get; set; }
 
         /// <summary>
-        /// Specifies whether scheduled agent updates should be applied based on the timezone of the affected session host. If configured then this setting overrides `timezone`. Default is `false`.
+        /// Specifies whether scheduled agent updates should be applied based on the timezone of the affected session host. If configured then this setting overrides `Timezone`. Default is `False`.
         /// </summary>
         [Input("useSessionHostTimezone")]
         public Input<bool>? UseSessionHostTimezone { get; set; }

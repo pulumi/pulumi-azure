@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 /**
  * Manages a Management Group.
  * 
- * !&gt; **Note:** Configuring `subscription_ids` is not supported when using the `azure.management.GroupSubscriptionAssociation` resource, results will be unpredictable.
+ * !&gt; **Note:** Configuring `subscriptionIds` is not supported when using the `azure.management.GroupSubscriptionAssociation` resource, results will be unpredictable.
  * 
  * ## Example Usage
  * 
@@ -128,7 +128,7 @@ public class Group extends com.pulumi.resources.CustomResource {
     /**
      * A list of Subscription GUIDs which should be assigned to the Management Group.
      * 
-     * &gt; **Note:** To clear all Subscriptions from the Management Group set `subscription_ids` to an empty list
+     * &gt; **Note:** To clear all Subscriptions from the Management Group set `subscriptionIds` to an empty list
      * 
      */
     @Export(name="subscriptionIds", refs={List.class,String.class}, tree="[0,1]")
@@ -137,7 +137,7 @@ public class Group extends com.pulumi.resources.CustomResource {
     /**
      * @return A list of Subscription GUIDs which should be assigned to the Management Group.
      * 
-     * &gt; **Note:** To clear all Subscriptions from the Management Group set `subscription_ids` to an empty list
+     * &gt; **Note:** To clear all Subscriptions from the Management Group set `subscriptionIds` to an empty list
      * 
      */
     public Output<List<String>> subscriptionIds() {

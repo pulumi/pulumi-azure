@@ -33,17 +33,17 @@ public final class GetDomainResult {
      */
     private List<GetDomainIdentity> identities;
     /**
-     * @return One or more `inbound_ip_rule` blocks as defined below.
+     * @return One or more `inboundIpRule` blocks as defined below.
      * 
      */
     private List<GetDomainInboundIpRule> inboundIpRules;
     /**
-     * @return A `input_mapping_default_values` block as defined below.
+     * @return A `inputMappingDefaultValues` block as defined below.
      * 
      */
     private List<GetDomainInputMappingDefaultValue> inputMappingDefaultValues;
     /**
-     * @return A `input_mapping_fields` block as defined below.
+     * @return A `inputMappingFields` block as defined below.
      * 
      */
     private List<GetDomainInputMappingField> inputMappingFields;
@@ -103,21 +103,21 @@ public final class GetDomainResult {
         return this.identities;
     }
     /**
-     * @return One or more `inbound_ip_rule` blocks as defined below.
+     * @return One or more `inboundIpRule` blocks as defined below.
      * 
      */
     public List<GetDomainInboundIpRule> inboundIpRules() {
         return this.inboundIpRules;
     }
     /**
-     * @return A `input_mapping_default_values` block as defined below.
+     * @return A `inputMappingDefaultValues` block as defined below.
      * 
      */
     public List<GetDomainInputMappingDefaultValue> inputMappingDefaultValues() {
         return this.inputMappingDefaultValues;
     }
     /**
-     * @return A `input_mapping_fields` block as defined below.
+     * @return A `inputMappingFields` block as defined below.
      * 
      */
     public List<GetDomainInputMappingField> inputMappingFields() {

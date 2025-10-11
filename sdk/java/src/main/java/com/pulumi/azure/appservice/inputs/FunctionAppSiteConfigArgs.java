@@ -161,18 +161,18 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * A list of `ip_restriction` objects representing IP restrictions as defined below.
+     * A list of `ipRestriction` objects representing IP restrictions as defined below.
      * 
-     * &gt; **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+     * &gt; **NOTE** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
      * 
      */
     @Import(name="ipRestrictions")
     private @Nullable Output<List<FunctionAppSiteConfigIpRestrictionArgs>> ipRestrictions;
 
     /**
-     * @return A list of `ip_restriction` objects representing IP restrictions as defined below.
+     * @return A list of `ipRestriction` objects representing IP restrictions as defined below.
      * 
-     * &gt; **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+     * &gt; **NOTE** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
      * 
      */
     public Optional<Output<List<FunctionAppSiteConfigIpRestrictionArgs>>> ipRestrictions() {
@@ -255,18 +255,18 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
+     * A list of `scmIpRestriction` objects representing IP restrictions as defined below.
      * 
-     * &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+     * &gt; **NOTE** User has to explicitly set `scmIpRestriction` to empty slice (`[]`) to remove it.
      * 
      */
     @Import(name="scmIpRestrictions")
     private @Nullable Output<List<FunctionAppSiteConfigScmIpRestrictionArgs>> scmIpRestrictions;
 
     /**
-     * @return A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
+     * @return A list of `scmIpRestriction` objects representing IP restrictions as defined below.
      * 
-     * &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+     * &gt; **NOTE** User has to explicitly set `scmIpRestriction` to empty slice (`[]`) to remove it.
      * 
      */
     public Optional<Output<List<FunctionAppSiteConfigScmIpRestrictionArgs>>> scmIpRestrictions() {
@@ -276,7 +276,7 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
     /**
      * The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
      * 
-     * &gt; **NOTE:** This setting is incompatible with the `source_control` block which updates this value based on the setting provided.
+     * &gt; **NOTE:** This setting is incompatible with the `sourceControl` block which updates this value based on the setting provided.
      * 
      */
     @Import(name="scmType")
@@ -285,7 +285,7 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
     /**
      * @return The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
      * 
-     * &gt; **NOTE:** This setting is incompatible with the `source_control` block which updates this value based on the setting provided.
+     * &gt; **NOTE:** This setting is incompatible with the `sourceControl` block which updates this value based on the setting provided.
      * 
      */
     public Optional<Output<String>> scmType() {
@@ -295,7 +295,7 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
     /**
      * IP security restrictions for scm to use main. Defaults to `false`.
      * 
-     * &gt; **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
+     * &gt; **NOTE** Any `scmIpRestriction` blocks configured are ignored by the service when `scmUseMainIpRestriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
      * 
      */
     @Import(name="scmUseMainIpRestriction")
@@ -304,7 +304,7 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
     /**
      * @return IP security restrictions for scm to use main. Defaults to `false`.
      * 
-     * &gt; **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
+     * &gt; **NOTE** Any `scmIpRestriction` blocks configured are ignored by the service when `scmUseMainIpRestriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
      * 
      */
     public Optional<Output<Boolean>> scmUseMainIpRestriction() {
@@ -314,7 +314,7 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
     /**
      * Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
      * 
-     * &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+     * &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
      * 
      */
     @Import(name="use32BitWorkerProcess")
@@ -323,7 +323,7 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
     /**
      * @return Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
      * 
-     * &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+     * &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
      * 
      */
     public Optional<Output<Boolean>> use32BitWorkerProcess() {
@@ -590,9 +590,9 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param ipRestrictions A list of `ip_restriction` objects representing IP restrictions as defined below.
+         * @param ipRestrictions A list of `ipRestriction` objects representing IP restrictions as defined below.
          * 
-         * &gt; **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+         * &gt; **NOTE** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -603,9 +603,9 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param ipRestrictions A list of `ip_restriction` objects representing IP restrictions as defined below.
+         * @param ipRestrictions A list of `ipRestriction` objects representing IP restrictions as defined below.
          * 
-         * &gt; **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+         * &gt; **NOTE** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -615,9 +615,9 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param ipRestrictions A list of `ip_restriction` objects representing IP restrictions as defined below.
+         * @param ipRestrictions A list of `ipRestriction` objects representing IP restrictions as defined below.
          * 
-         * &gt; **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+         * &gt; **NOTE** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -732,9 +732,9 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param scmIpRestrictions A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
+         * @param scmIpRestrictions A list of `scmIpRestriction` objects representing IP restrictions as defined below.
          * 
-         * &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+         * &gt; **NOTE** User has to explicitly set `scmIpRestriction` to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -745,9 +745,9 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param scmIpRestrictions A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
+         * @param scmIpRestrictions A list of `scmIpRestriction` objects representing IP restrictions as defined below.
          * 
-         * &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+         * &gt; **NOTE** User has to explicitly set `scmIpRestriction` to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -757,9 +757,9 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param scmIpRestrictions A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
+         * @param scmIpRestrictions A list of `scmIpRestriction` objects representing IP restrictions as defined below.
          * 
-         * &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+         * &gt; **NOTE** User has to explicitly set `scmIpRestriction` to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -771,7 +771,7 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
         /**
          * @param scmType The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
          * 
-         * &gt; **NOTE:** This setting is incompatible with the `source_control` block which updates this value based on the setting provided.
+         * &gt; **NOTE:** This setting is incompatible with the `sourceControl` block which updates this value based on the setting provided.
          * 
          * @return builder
          * 
@@ -784,7 +784,7 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
         /**
          * @param scmType The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
          * 
-         * &gt; **NOTE:** This setting is incompatible with the `source_control` block which updates this value based on the setting provided.
+         * &gt; **NOTE:** This setting is incompatible with the `sourceControl` block which updates this value based on the setting provided.
          * 
          * @return builder
          * 
@@ -796,7 +796,7 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
         /**
          * @param scmUseMainIpRestriction IP security restrictions for scm to use main. Defaults to `false`.
          * 
-         * &gt; **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
+         * &gt; **NOTE** Any `scmIpRestriction` blocks configured are ignored by the service when `scmUseMainIpRestriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
          * 
          * @return builder
          * 
@@ -809,7 +809,7 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
         /**
          * @param scmUseMainIpRestriction IP security restrictions for scm to use main. Defaults to `false`.
          * 
-         * &gt; **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
+         * &gt; **NOTE** Any `scmIpRestriction` blocks configured are ignored by the service when `scmUseMainIpRestriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
          * 
          * @return builder
          * 
@@ -821,7 +821,7 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
         /**
          * @param use32BitWorkerProcess Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
          * 
-         * &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+         * &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
          * 
          * @return builder
          * 
@@ -834,7 +834,7 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
         /**
          * @param use32BitWorkerProcess Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
          * 
-         * &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+         * &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
          * 
          * @return builder
          * 

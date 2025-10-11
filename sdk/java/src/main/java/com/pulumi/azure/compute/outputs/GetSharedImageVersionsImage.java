@@ -45,7 +45,7 @@ public final class GetSharedImageVersionsImage {
      */
     private Map<String,String> tags;
     /**
-     * @return One or more `target_region` blocks as documented below.
+     * @return One or more `targetRegion` blocks as documented below.
      * 
      */
     private List<GetSharedImageVersionsImageTargetRegion> targetRegions;
@@ -94,7 +94,7 @@ public final class GetSharedImageVersionsImage {
         return this.tags;
     }
     /**
-     * @return One or more `target_region` blocks as documented below.
+     * @return One or more `targetRegion` blocks as documented below.
      * 
      */
     public List<GetSharedImageVersionsImageTargetRegion> targetRegions() {

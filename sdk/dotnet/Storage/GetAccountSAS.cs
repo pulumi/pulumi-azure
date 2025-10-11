@@ -265,7 +265,7 @@ namespace Pulumi.Azure.Storage
         private string? _connectionString;
 
         /// <summary>
-        /// The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of a `azure.storage.Account` resource.
+        /// The connection string for the storage account to which this SAS applies. Typically directly from the `PrimaryConnectionString` attribute of a `azure.storage.Account` resource.
         /// </summary>
         public string? ConnectionString
         {
@@ -282,7 +282,7 @@ namespace Pulumi.Azure.Storage
         public string Expiry { get; set; } = null!;
 
         /// <summary>
-        /// Only permit `https` access. If `false`, both `http` and `https` are permitted. Defaults to `true`.
+        /// Only permit `Https` access. If `False`, both `Http` and `Https` are permitted. Defaults to `True`.
         /// </summary>
         [Input("httpsOnly")]
         public bool? HttpsOnly { get; set; }
@@ -294,19 +294,19 @@ namespace Pulumi.Azure.Storage
         public string? IpAddresses { get; set; }
 
         /// <summary>
-        /// A `permissions` block as defined below.
+        /// A `Permissions` block as defined below.
         /// </summary>
         [Input("permissions", required: true)]
         public Inputs.GetAccountSASPermissionsArgs Permissions { get; set; } = null!;
 
         /// <summary>
-        /// A `resource_types` block as defined below.
+        /// A `ResourceTypes` block as defined below.
         /// </summary>
         [Input("resourceTypes", required: true)]
         public Inputs.GetAccountSASResourceTypesArgs ResourceTypes { get; set; } = null!;
 
         /// <summary>
-        /// A `services` block as defined below.
+        /// A `Services` block as defined below.
         /// </summary>
         [Input("services", required: true)]
         public Inputs.GetAccountSASServicesArgs Services { get; set; } = null!;
@@ -335,7 +335,7 @@ namespace Pulumi.Azure.Storage
         private Input<string>? _connectionString;
 
         /// <summary>
-        /// The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of a `azure.storage.Account` resource.
+        /// The connection string for the storage account to which this SAS applies. Typically directly from the `PrimaryConnectionString` attribute of a `azure.storage.Account` resource.
         /// </summary>
         public Input<string>? ConnectionString
         {
@@ -356,7 +356,7 @@ namespace Pulumi.Azure.Storage
         public Input<string> Expiry { get; set; } = null!;
 
         /// <summary>
-        /// Only permit `https` access. If `false`, both `http` and `https` are permitted. Defaults to `true`.
+        /// Only permit `Https` access. If `False`, both `Http` and `Https` are permitted. Defaults to `True`.
         /// </summary>
         [Input("httpsOnly")]
         public Input<bool>? HttpsOnly { get; set; }
@@ -368,19 +368,19 @@ namespace Pulumi.Azure.Storage
         public Input<string>? IpAddresses { get; set; }
 
         /// <summary>
-        /// A `permissions` block as defined below.
+        /// A `Permissions` block as defined below.
         /// </summary>
         [Input("permissions", required: true)]
         public Input<Inputs.GetAccountSASPermissionsInputArgs> Permissions { get; set; } = null!;
 
         /// <summary>
-        /// A `resource_types` block as defined below.
+        /// A `ResourceTypes` block as defined below.
         /// </summary>
         [Input("resourceTypes", required: true)]
         public Input<Inputs.GetAccountSASResourceTypesInputArgs> ResourceTypes { get; set; } = null!;
 
         /// <summary>
-        /// A `services` block as defined below.
+        /// A `Services` block as defined below.
         /// </summary>
         [Input("services", required: true)]
         public Input<Inputs.GetAccountSASServicesInputArgs> Services { get; set; } = null!;

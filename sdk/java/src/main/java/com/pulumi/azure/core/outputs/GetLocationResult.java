@@ -24,7 +24,7 @@ public final class GetLocationResult {
     private String id;
     private String location;
     /**
-     * @return A `zone_mappings` block as defined below.
+     * @return A `zoneMappings` block as defined below.
      * 
      */
     private List<GetLocationZoneMapping> zoneMappings;
@@ -48,7 +48,7 @@ public final class GetLocationResult {
         return this.location;
     }
     /**
-     * @return A `zone_mappings` block as defined below.
+     * @return A `zoneMappings` block as defined below.
      * 
      */
     public List<GetLocationZoneMapping> zoneMappings() {

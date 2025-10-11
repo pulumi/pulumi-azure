@@ -99,42 +99,42 @@ public class Factory extends com.pulumi.resources.CustomResource {
         return this.customerManagedKeyId;
     }
     /**
-     * Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customer_managed_key_id` is set.
+     * Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customerManagedKeyId` is set.
      * 
      */
     @Export(name="customerManagedKeyIdentityId", refs={String.class}, tree="[0]")
     private Output<String> customerManagedKeyIdentityId;
 
     /**
-     * @return Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customer_managed_key_id` is set.
+     * @return Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customerManagedKeyId` is set.
      * 
      */
     public Output<String> customerManagedKeyIdentityId() {
         return this.customerManagedKeyIdentityId;
     }
     /**
-     * A `github_configuration` block as defined below.
+     * A `githubConfiguration` block as defined below.
      * 
      */
     @Export(name="githubConfiguration", refs={FactoryGithubConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ FactoryGithubConfiguration> githubConfiguration;
 
     /**
-     * @return A `github_configuration` block as defined below.
+     * @return A `githubConfiguration` block as defined below.
      * 
      */
     public Output<Optional<FactoryGithubConfiguration>> githubConfiguration() {
         return Codegen.optional(this.githubConfiguration);
     }
     /**
-     * A list of `global_parameter` blocks as defined above.
+     * A list of `globalParameter` blocks as defined above.
      * 
      */
     @Export(name="globalParameters", refs={List.class,FactoryGlobalParameter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<FactoryGlobalParameter>> globalParameters;
 
     /**
-     * @return A list of `global_parameter` blocks as defined above.
+     * @return A list of `globalParameter` blocks as defined above.
      * 
      */
     public Output<Optional<List<FactoryGlobalParameter>>> globalParameters() {
@@ -253,14 +253,14 @@ public class Factory extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A `vsts_configuration` block as defined below.
+     * A `vstsConfiguration` block as defined below.
      * 
      */
     @Export(name="vstsConfiguration", refs={FactoryVstsConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ FactoryVstsConfiguration> vstsConfiguration;
 
     /**
-     * @return A `vsts_configuration` block as defined below.
+     * @return A `vstsConfiguration` block as defined below.
      * 
      */
     public Output<Optional<FactoryVstsConfiguration>> vstsConfiguration() {

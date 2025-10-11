@@ -13,7 +13,7 @@ namespace Pulumi.Azure.ElasticCloud.Inputs
     public sealed class GetElasticsearchLogFilteringTagArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The type of action which is taken when the Tag matches the `name` and `value`.
+        /// The type of action which is taken when the Tag matches the `Name` and `Value`.
         /// </summary>
         [Input("action", required: true)]
         public string Action { get; set; } = null!;

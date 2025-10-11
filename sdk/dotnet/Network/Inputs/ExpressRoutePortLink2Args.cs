@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Network.Inputs
     public sealed class ExpressRoutePortLink2Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether enable administration state on the Express Route Port Link? Defaults to `false`.
+        /// Whether enable administration state on the Express Route Port Link? Defaults to `False`.
         /// </summary>
         [Input("adminEnabled")]
         public Input<bool>? AdminEnabled { get; set; }
@@ -55,9 +55,9 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string>? MacsecCknKeyvaultSecretId { get; set; }
 
         /// <summary>
-        /// Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
+        /// Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `False`.
         /// 
-        /// &gt; **Note:** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
+        /// &gt; **Note:** `MacsecCknKeyvaultSecretId` and `MacsecCakKeyvaultSecretId` should be used together with `Identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
         /// </summary>
         [Input("macsecSciEnabled")]
         public Input<bool>? MacsecSciEnabled { get; set; }

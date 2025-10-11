@@ -27,14 +27,14 @@ public final class AppFlexConsumptionAuthSettingsArgs extends com.pulumi.resourc
     public static final AppFlexConsumptionAuthSettingsArgs Empty = new AppFlexConsumptionAuthSettingsArgs();
 
     /**
-     * An `active_directory` block as defined above.
+     * An `activeDirectory` block as defined above.
      * 
      */
     @Import(name="activeDirectory")
     private @Nullable Output<AppFlexConsumptionAuthSettingsActiveDirectoryArgs> activeDirectory;
 
     /**
-     * @return An `active_directory` block as defined above.
+     * @return An `activeDirectory` block as defined above.
      * 
      */
     public Optional<Output<AppFlexConsumptionAuthSettingsActiveDirectoryArgs>> activeDirectory() {
@@ -74,7 +74,7 @@ public final class AppFlexConsumptionAuthSettingsArgs extends com.pulumi.resourc
     /**
      * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
      * 
-     * &gt; **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to &#34;RedirectToLoginPage&#34;.
+     * &gt; **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to &#34;RedirectToLoginPage&#34;.
      * 
      */
     @Import(name="defaultProvider")
@@ -83,7 +83,7 @@ public final class AppFlexConsumptionAuthSettingsArgs extends com.pulumi.resourc
     /**
      * @return The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
      * 
-     * &gt; **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to &#34;RedirectToLoginPage&#34;.
+     * &gt; **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to &#34;RedirectToLoginPage&#34;.
      * 
      */
     public Optional<Output<String>> defaultProvider() {
@@ -298,7 +298,7 @@ public final class AppFlexConsumptionAuthSettingsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param activeDirectory An `active_directory` block as defined above.
+         * @param activeDirectory An `activeDirectory` block as defined above.
          * 
          * @return builder
          * 
@@ -309,7 +309,7 @@ public final class AppFlexConsumptionAuthSettingsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param activeDirectory An `active_directory` block as defined above.
+         * @param activeDirectory An `activeDirectory` block as defined above.
          * 
          * @return builder
          * 
@@ -373,7 +373,7 @@ public final class AppFlexConsumptionAuthSettingsArgs extends com.pulumi.resourc
         /**
          * @param defaultProvider The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
          * 
-         * &gt; **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to &#34;RedirectToLoginPage&#34;.
+         * &gt; **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to &#34;RedirectToLoginPage&#34;.
          * 
          * @return builder
          * 
@@ -386,7 +386,7 @@ public final class AppFlexConsumptionAuthSettingsArgs extends com.pulumi.resourc
         /**
          * @param defaultProvider The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
          * 
-         * &gt; **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to &#34;RedirectToLoginPage&#34;.
+         * &gt; **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to &#34;RedirectToLoginPage&#34;.
          * 
          * @return builder
          * 

@@ -163,13 +163,13 @@ namespace Pulumi.Azure.Compute
     public partial class ScaleSetPacketCapture : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `Filter` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("filters")]
         public Output<ImmutableArray<Outputs.ScaleSetPacketCaptureFilter>> Filters { get; private set; } = null!;
 
         /// <summary>
-        /// A `machine_scope` block as defined below. Changing this forces a new resource to be created.
+        /// A `MachineScope` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("machineScope")]
         public Output<Outputs.ScaleSetPacketCaptureMachineScope?> MachineScope { get; private set; } = null!;
@@ -205,7 +205,7 @@ namespace Pulumi.Azure.Compute
         public Output<string> NetworkWatcherId { get; private set; } = null!;
 
         /// <summary>
-        /// A `storage_location` block as defined below. Changing this forces a new resource to be created.
+        /// A `StorageLocation` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("storageLocation")]
         public Output<Outputs.ScaleSetPacketCaptureStorageLocation> StorageLocation { get; private set; } = null!;
@@ -266,7 +266,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.ScaleSetPacketCaptureFilterArgs>? _filters;
 
         /// <summary>
-        /// One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `Filter` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.ScaleSetPacketCaptureFilterArgs> Filters
         {
@@ -275,7 +275,7 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// A `machine_scope` block as defined below. Changing this forces a new resource to be created.
+        /// A `MachineScope` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("machineScope")]
         public Input<Inputs.ScaleSetPacketCaptureMachineScopeArgs>? MachineScope { get; set; }
@@ -311,7 +311,7 @@ namespace Pulumi.Azure.Compute
         public Input<string> NetworkWatcherId { get; set; } = null!;
 
         /// <summary>
-        /// A `storage_location` block as defined below. Changing this forces a new resource to be created.
+        /// A `StorageLocation` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageLocation", required: true)]
         public Input<Inputs.ScaleSetPacketCaptureStorageLocationArgs> StorageLocation { get; set; } = null!;
@@ -334,7 +334,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.ScaleSetPacketCaptureFilterGetArgs>? _filters;
 
         /// <summary>
-        /// One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `Filter` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.ScaleSetPacketCaptureFilterGetArgs> Filters
         {
@@ -343,7 +343,7 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// A `machine_scope` block as defined below. Changing this forces a new resource to be created.
+        /// A `MachineScope` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("machineScope")]
         public Input<Inputs.ScaleSetPacketCaptureMachineScopeGetArgs>? MachineScope { get; set; }
@@ -379,7 +379,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? NetworkWatcherId { get; set; }
 
         /// <summary>
-        /// A `storage_location` block as defined below. Changing this forces a new resource to be created.
+        /// A `StorageLocation` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageLocation")]
         public Input<Inputs.ScaleSetPacketCaptureStorageLocationGetArgs>? StorageLocation { get; set; }

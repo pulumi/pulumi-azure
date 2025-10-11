@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ScheduledQueryRulesAlertTrigger {
     /**
-     * @return A `metric_trigger` block as defined above. Trigger condition for metric query rule.
+     * @return A `metricTrigger` block as defined above. Trigger condition for metric query rule.
      * 
      */
     private @Nullable ScheduledQueryRulesAlertTriggerMetricTrigger metricTrigger;
@@ -32,7 +32,7 @@ public final class ScheduledQueryRulesAlertTrigger {
 
     private ScheduledQueryRulesAlertTrigger() {}
     /**
-     * @return A `metric_trigger` block as defined above. Trigger condition for metric query rule.
+     * @return A `metricTrigger` block as defined above. Trigger condition for metric query rule.
      * 
      */
     public Optional<ScheduledQueryRulesAlertTriggerMetricTrigger> metricTrigger() {

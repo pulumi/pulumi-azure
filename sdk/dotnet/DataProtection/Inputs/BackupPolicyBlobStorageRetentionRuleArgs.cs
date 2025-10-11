@@ -13,13 +13,13 @@ namespace Pulumi.Azure.DataProtection.Inputs
     public sealed class BackupPolicyBlobStorageRetentionRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `criteria` block as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
+        /// A `Criteria` block as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
         /// </summary>
         [Input("criteria", required: true)]
         public Input<Inputs.BackupPolicyBlobStorageRetentionRuleCriteriaArgs> Criteria { get; set; } = null!;
 
         /// <summary>
-        /// A `life_cycle` block as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
+        /// A `LifeCycle` block as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
         /// </summary>
         [Input("lifeCycle", required: true)]
         public Input<Inputs.BackupPolicyBlobStorageRetentionRuleLifeCycleArgs> LifeCycle { get; set; } = null!;

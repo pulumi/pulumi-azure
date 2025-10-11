@@ -225,7 +225,7 @@ public class VolumeGroup extends com.pulumi.resources.CustomResource {
     /**
      * An `encryption` block as defined below.
      * 
-     * &gt; **Note:** The `encryption` block can only be set when `encryption_type` is set to `EncryptionAtRestWithCustomerManagedKey`.
+     * &gt; **Note:** The `encryption` block can only be set when `encryptionType` is set to `EncryptionAtRestWithCustomerManagedKey`.
      * 
      */
     @Export(name="encryption", refs={VolumeGroupEncryption.class}, tree="[0]")
@@ -234,7 +234,7 @@ public class VolumeGroup extends com.pulumi.resources.CustomResource {
     /**
      * @return An `encryption` block as defined below.
      * 
-     * &gt; **Note:** The `encryption` block can only be set when `encryption_type` is set to `EncryptionAtRestWithCustomerManagedKey`.
+     * &gt; **Note:** The `encryption` block can only be set when `encryptionType` is set to `EncryptionAtRestWithCustomerManagedKey`.
      * 
      */
     public Output<Optional<VolumeGroupEncryption>> encryption() {
@@ -283,14 +283,14 @@ public class VolumeGroup extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * One or more `network_rule` blocks as defined below.
+     * One or more `networkRule` blocks as defined below.
      * 
      */
     @Export(name="networkRules", refs={List.class,VolumeGroupNetworkRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<VolumeGroupNetworkRule>> networkRules;
 
     /**
-     * @return One or more `network_rule` blocks as defined below.
+     * @return One or more `networkRule` blocks as defined below.
      * 
      */
     public Output<Optional<List<VolumeGroupNetworkRule>>> networkRules() {

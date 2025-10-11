@@ -40,7 +40,7 @@ public final class GetNetworkInterfaceResult {
      */
     private String internalDnsNameLabel;
     /**
-     * @return One or more `ip_configuration` blocks as defined below.
+     * @return One or more `ipConfiguration` blocks as defined below.
      * 
      */
     private List<GetNetworkInterfaceIpConfiguration> ipConfigurations;
@@ -128,7 +128,7 @@ public final class GetNetworkInterfaceResult {
         return this.internalDnsNameLabel;
     }
     /**
-     * @return One or more `ip_configuration` blocks as defined below.
+     * @return One or more `ipConfiguration` blocks as defined below.
      * 
      */
     public List<GetNetworkInterfaceIpConfiguration> ipConfigurations() {

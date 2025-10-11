@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Oracle.Outputs
     public sealed class GetCloudVmClusterIormConfigCachDbPlanResult
     {
         /// <summary>
-        /// The database name. For the default `DbPlan`, the `dbName` is `default`.
+        /// The database name. For the default `DbPlan`, the `dbName` is `Default`.
         /// </summary>
         public readonly string DbName;
         /// <summary>

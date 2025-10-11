@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Synapse.Outputs
         /// </summary>
         public readonly string Content;
         /// <summary>
-        /// The name of the file where the spark configuration `content` will be stored.
+        /// The name of the file where the spark configuration `Content` will be stored.
         /// </summary>
         public readonly string Filename;
 

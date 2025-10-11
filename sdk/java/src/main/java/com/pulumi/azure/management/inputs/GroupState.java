@@ -64,7 +64,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     /**
      * A list of Subscription GUIDs which should be assigned to the Management Group.
      * 
-     * &gt; **Note:** To clear all Subscriptions from the Management Group set `subscription_ids` to an empty list
+     * &gt; **Note:** To clear all Subscriptions from the Management Group set `subscriptionIds` to an empty list
      * 
      */
     @Import(name="subscriptionIds")
@@ -73,7 +73,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return A list of Subscription GUIDs which should be assigned to the Management Group.
      * 
-     * &gt; **Note:** To clear all Subscriptions from the Management Group set `subscription_ids` to an empty list
+     * &gt; **Note:** To clear all Subscriptions from the Management Group set `subscriptionIds` to an empty list
      * 
      */
     public Optional<Output<List<String>>> subscriptionIds() {
@@ -189,7 +189,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param subscriptionIds A list of Subscription GUIDs which should be assigned to the Management Group.
          * 
-         * &gt; **Note:** To clear all Subscriptions from the Management Group set `subscription_ids` to an empty list
+         * &gt; **Note:** To clear all Subscriptions from the Management Group set `subscriptionIds` to an empty list
          * 
          * @return builder
          * 
@@ -202,7 +202,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param subscriptionIds A list of Subscription GUIDs which should be assigned to the Management Group.
          * 
-         * &gt; **Note:** To clear all Subscriptions from the Management Group set `subscription_ids` to an empty list
+         * &gt; **Note:** To clear all Subscriptions from the Management Group set `subscriptionIds` to an empty list
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param subscriptionIds A list of Subscription GUIDs which should be assigned to the Management Group.
          * 
-         * &gt; **Note:** To clear all Subscriptions from the Management Group set `subscription_ids` to an empty list
+         * &gt; **Note:** To clear all Subscriptions from the Management Group set `subscriptionIds` to an empty list
          * 
          * @return builder
          * 

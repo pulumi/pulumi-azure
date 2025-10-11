@@ -147,7 +147,7 @@ namespace Pulumi.Azure.ElasticSan
     public partial class Volume : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A `create_source` block as defined below.
+        /// A `CreateSource` block as defined below.
         /// </summary>
         [Output("createSource")]
         public Output<Outputs.VolumeCreateSource?> CreateSource { get; private set; } = null!;
@@ -161,7 +161,7 @@ namespace Pulumi.Azure.ElasticSan
         /// <summary>
         /// Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
         /// 
-        /// &gt; **Note:** The size can only be increased. If `create_source` is specified, then the size must be equal to or greater than the source's size.
+        /// &gt; **Note:** The size can only be increased. If `CreateSource` is specified, then the size must be equal to or greater than the source's size.
         /// </summary>
         [Output("sizeInGib")]
         public Output<int> SizeInGib { get; private set; } = null!;
@@ -243,7 +243,7 @@ namespace Pulumi.Azure.ElasticSan
     public sealed class VolumeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `create_source` block as defined below.
+        /// A `CreateSource` block as defined below.
         /// </summary>
         [Input("createSource")]
         public Input<Inputs.VolumeCreateSourceArgs>? CreateSource { get; set; }
@@ -257,7 +257,7 @@ namespace Pulumi.Azure.ElasticSan
         /// <summary>
         /// Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
         /// 
-        /// &gt; **Note:** The size can only be increased. If `create_source` is specified, then the size must be equal to or greater than the source's size.
+        /// &gt; **Note:** The size can only be increased. If `CreateSource` is specified, then the size must be equal to or greater than the source's size.
         /// </summary>
         [Input("sizeInGib", required: true)]
         public Input<int> SizeInGib { get; set; } = null!;
@@ -277,7 +277,7 @@ namespace Pulumi.Azure.ElasticSan
     public sealed class VolumeState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `create_source` block as defined below.
+        /// A `CreateSource` block as defined below.
         /// </summary>
         [Input("createSource")]
         public Input<Inputs.VolumeCreateSourceGetArgs>? CreateSource { get; set; }
@@ -291,7 +291,7 @@ namespace Pulumi.Azure.ElasticSan
         /// <summary>
         /// Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
         /// 
-        /// &gt; **Note:** The size can only be increased. If `create_source` is specified, then the size must be equal to or greater than the source's size.
+        /// &gt; **Note:** The size can only be increased. If `CreateSource` is specified, then the size must be equal to or greater than the source's size.
         /// </summary>
         [Input("sizeInGib")]
         public Input<int>? SizeInGib { get; set; }

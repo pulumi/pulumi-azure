@@ -16,7 +16,7 @@ namespace Pulumi.Azure.ChaosStudio.Inputs
         private InputList<Inputs.ExperimentStepBranchGetArgs>? _branches;
 
         /// <summary>
-        /// One or more `branch` blocks as defined above.
+        /// One or more `Branch` blocks as defined above.
         /// </summary>
         public InputList<Inputs.ExperimentStepBranchGetArgs> Branches
         {

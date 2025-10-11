@@ -48,18 +48,18 @@ public final class LinuxWebAppAuthSettingsV2GoogleV2Args extends com.pulumi.reso
     }
 
     /**
-     * The app setting name that contains the `client_secret` value used for Google Login.
+     * The app setting name that contains the `clientSecret` value used for Google Login.
      * 
-     * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
+     * !&gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
      * 
      */
     @Import(name="clientSecretSettingName", required=true)
     private Output<String> clientSecretSettingName;
 
     /**
-     * @return The app setting name that contains the `client_secret` value used for Google Login.
+     * @return The app setting name that contains the `clientSecret` value used for Google Login.
      * 
-     * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
+     * !&gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
      * 
      */
     public Output<String> clientSecretSettingName() {
@@ -161,9 +161,9 @@ public final class LinuxWebAppAuthSettingsV2GoogleV2Args extends com.pulumi.reso
         }
 
         /**
-         * @param clientSecretSettingName The app setting name that contains the `client_secret` value used for Google Login.
+         * @param clientSecretSettingName The app setting name that contains the `clientSecret` value used for Google Login.
          * 
-         * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
+         * !&gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
          * 
          * @return builder
          * 
@@ -174,9 +174,9 @@ public final class LinuxWebAppAuthSettingsV2GoogleV2Args extends com.pulumi.reso
         }
 
         /**
-         * @param clientSecretSettingName The app setting name that contains the `client_secret` value used for Google Login.
+         * @param clientSecretSettingName The app setting name that contains the `clientSecret` value used for Google Login.
          * 
-         * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
+         * !&gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
          * 
          * @return builder
          * 

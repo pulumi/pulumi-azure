@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class ManagedDiskEncryptionSettingsDiskEncryptionKey
     {
         /// <summary>
-        /// The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as `id` on the `azure.keyvault.Secret` resource.
+        /// The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as `Id` on the `azure.keyvault.Secret` resource.
         /// </summary>
         public readonly string SecretUrl;
         /// <summary>
-        /// The ID of the source Key Vault. This can be found as `id` on the `azure.keyvault.KeyVault` resource.
+        /// The ID of the source Key Vault. This can be found as `Id` on the `azure.keyvault.KeyVault` resource.
         /// </summary>
         public readonly string SourceVaultId;
 

@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 /**
  * Manages a Front Door (standard/premium) Origin.
  * 
- * !&gt; **Note:** If you are attempting to implement an Origin that uses its own Private Link Service with a Load Balancer the Profile resource in your configuration file **must** have a `depends_on` meta-argument which references the `azure.privatedns.LinkService`, see `Example Usage With Private Link Service` below.
+ * !&gt; **Note:** If you are attempting to implement an Origin that uses its own Private Link Service with a Load Balancer the Profile resource in your configuration file **must** have a `dependsOn` meta-argument which references the `azure.privatedns.LinkService`, see `Example Usage With Private Link Service` below.
  * 
  * ## Example Usage
  * 
@@ -478,18 +478,18 @@ public class FrontdoorOrigin extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.priority);
     }
     /**
-     * A `private_link` block as defined below.
+     * A `privateLink` block as defined below.
      * 
-     * &gt; **Note:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificate_name_check_enabled` field is set to `true`.
+     * &gt; **Note:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificateNameCheckEnabled` field is set to `true`.
      * 
      */
     @Export(name="privateLink", refs={FrontdoorOriginPrivateLink.class}, tree="[0]")
     private Output</* @Nullable */ FrontdoorOriginPrivateLink> privateLink;
 
     /**
-     * @return A `private_link` block as defined below.
+     * @return A `privateLink` block as defined below.
      * 
-     * &gt; **Note:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificate_name_check_enabled` field is set to `true`.
+     * &gt; **Note:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificateNameCheckEnabled` field is set to `true`.
      * 
      */
     public Output<Optional<FrontdoorOriginPrivateLink>> privateLink() {

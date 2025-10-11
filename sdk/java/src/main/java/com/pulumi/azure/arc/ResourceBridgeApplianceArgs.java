@@ -94,14 +94,14 @@ public final class ResourceBridgeApplianceArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The `public_key_base64` is an RSA public key in PKCS1 format encoded in base64. Changing this forces a new resource to be created.
+     * The `publicKeyBase64` is an RSA public key in PKCS1 format encoded in base64. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="publicKeyBase64")
     private @Nullable Output<String> publicKeyBase64;
 
     /**
-     * @return The `public_key_base64` is an RSA public key in PKCS1 format encoded in base64. Changing this forces a new resource to be created.
+     * @return The `publicKeyBase64` is an RSA public key in PKCS1 format encoded in base64. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> publicKeyBase64() {
@@ -275,7 +275,7 @@ public final class ResourceBridgeApplianceArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param publicKeyBase64 The `public_key_base64` is an RSA public key in PKCS1 format encoded in base64. Changing this forces a new resource to be created.
+         * @param publicKeyBase64 The `publicKeyBase64` is an RSA public key in PKCS1 format encoded in base64. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -286,7 +286,7 @@ public final class ResourceBridgeApplianceArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param publicKeyBase64 The `public_key_base64` is an RSA public key in PKCS1 format encoded in base64. Changing this forces a new resource to be created.
+         * @param publicKeyBase64 The `publicKeyBase64` is an RSA public key in PKCS1 format encoded in base64. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

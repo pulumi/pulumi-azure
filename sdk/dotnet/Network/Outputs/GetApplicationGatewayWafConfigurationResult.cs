@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class GetApplicationGatewayWafConfigurationResult
     {
         /// <summary>
-        /// One or more `disabled_rule_group` blocks as defined below.
+        /// One or more `DisabledRuleGroup` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationGatewayWafConfigurationDisabledRuleGroupResult> DisabledRuleGroups;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
-        /// One or more `exclusion` blocks as defined below.
+        /// One or more `Exclusion` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationGatewayWafConfigurationExclusionResult> Exclusions;
         /// <summary>

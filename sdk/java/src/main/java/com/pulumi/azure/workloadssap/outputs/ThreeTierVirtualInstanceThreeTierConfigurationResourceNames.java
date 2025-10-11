@@ -15,50 +15,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ThreeTierVirtualInstanceThreeTierConfigurationResourceNames {
     /**
-     * @return An `application_server` block as defined below. Changing this forces a new resource to be created.
+     * @return An `applicationServer` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServer applicationServer;
     /**
-     * @return A `central_server` block as defined below. Changing this forces a new resource to be created.
+     * @return A `centralServer` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServer centralServer;
     /**
-     * @return A `database_server` block as defined below. Changing this forces a new resource to be created.
+     * @return A `databaseServer` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServer databaseServer;
     /**
-     * @return A `shared_storage` block as defined below. Changing this forces a new resource to be created.
+     * @return A `sharedStorage` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesSharedStorage sharedStorage;
 
     private ThreeTierVirtualInstanceThreeTierConfigurationResourceNames() {}
     /**
-     * @return An `application_server` block as defined below. Changing this forces a new resource to be created.
+     * @return An `applicationServer` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServer> applicationServer() {
         return Optional.ofNullable(this.applicationServer);
     }
     /**
-     * @return A `central_server` block as defined below. Changing this forces a new resource to be created.
+     * @return A `centralServer` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServer> centralServer() {
         return Optional.ofNullable(this.centralServer);
     }
     /**
-     * @return A `database_server` block as defined below. Changing this forces a new resource to be created.
+     * @return A `databaseServer` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServer> databaseServer() {
         return Optional.ofNullable(this.databaseServer);
     }
     /**
-     * @return A `shared_storage` block as defined below. Changing this forces a new resource to be created.
+     * @return A `sharedStorage` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesSharedStorage> sharedStorage() {

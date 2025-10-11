@@ -20,13 +20,13 @@ namespace Pulumi.Azure.Backup.Outputs
         /// </summary>
         public readonly string Frequency;
         /// <summary>
-        /// A `hourly` block defined as below. This is required when `frequency` is set to `Hourly`.
+        /// A `Hourly` block defined as below. This is required when `Frequency` is set to `Hourly`.
         /// </summary>
         public readonly Outputs.PolicyFileShareBackupHourly? Hourly;
         /// <summary>
         /// The time of day to perform the backup in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
         /// 
-        /// &gt; **Note:** `time` is required when `frequency` is set to `Daily`.
+        /// &gt; **Note:** `Time` is required when `Frequency` is set to `Daily`.
         /// </summary>
         public readonly string? Time;
 

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Storage.Outputs
     public sealed class GetShareAclResult
     {
         /// <summary>
-        /// An `access_policy` block as defined below.
+        /// An `AccessPolicy` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetShareAclAccessPolicyResult> AccessPolicies;
         /// <summary>

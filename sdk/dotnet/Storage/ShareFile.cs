@@ -111,7 +111,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// An absolute path to a file on the local system. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** The file specified with `source` can not be empty.
+        /// &gt; **Note:** The file specified with `Source` can not be empty.
         /// </summary>
         [Output("source")]
         public Output<string?> Source { get; private set; } = null!;
@@ -216,7 +216,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// An absolute path to a file on the local system. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** The file specified with `source` can not be empty.
+        /// &gt; **Note:** The file specified with `Source` can not be empty.
         /// </summary>
         [Input("source")]
         public Input<string>? Source { get; set; }
@@ -289,7 +289,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// An absolute path to a file on the local system. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** The file specified with `source` can not be empty.
+        /// &gt; **Note:** The file specified with `Source` can not be empty.
         /// </summary>
         [Input("source")]
         public Input<string>? Source { get; set; }

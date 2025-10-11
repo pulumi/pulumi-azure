@@ -26,7 +26,7 @@ namespace Pulumi.Azure.KeyVault.Outputs
         /// </summary>
         public readonly string Subject;
         /// <summary>
-        /// A `subject_alternative_names` block as defined below.
+        /// A `SubjectAlternativeNames` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameResult> SubjectAlternativeNames;
         /// <summary>

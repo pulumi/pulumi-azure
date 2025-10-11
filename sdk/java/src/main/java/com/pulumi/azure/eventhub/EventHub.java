@@ -94,14 +94,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:eventhub/eventHub:EventHub")
 public class EventHub extends com.pulumi.resources.CustomResource {
     /**
-     * A `capture_description` block as defined below.
+     * A `captureDescription` block as defined below.
      * 
      */
     @Export(name="captureDescription", refs={EventHubCaptureDescription.class}, tree="[0]")
     private Output</* @Nullable */ EventHubCaptureDescription> captureDescription;
 
     /**
-     * @return A `capture_description` block as defined below.
+     * @return A `captureDescription` block as defined below.
      * 
      */
     public Output<Optional<EventHubCaptureDescription>> captureDescription() {
@@ -110,7 +110,7 @@ public class EventHub extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the number of days to retain the events for this Event Hub.
      * 
-     * &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `message_retention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
+     * &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `messageRetention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
      * 
      */
     @Export(name="messageRetention", refs={Integer.class}, tree="[0]")
@@ -119,7 +119,7 @@ public class EventHub extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies the number of days to retain the events for this Event Hub.
      * 
-     * &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `message_retention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
+     * &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `messageRetention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
      * 
      */
     public Output<Integer> messageRetention() {
@@ -155,10 +155,10 @@ public class EventHub extends com.pulumi.resources.CustomResource {
     }
     /**
      * @deprecated
-     * `namespace_name` has been deprecated in favour of `namespace_id` and will be removed in v5.0 of the AzureRM Provider
+     * `namespaceName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `namespace_name` has been deprecated in favour of `namespace_id` and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated /* `namespaceName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider */
     @Export(name="namespaceName", refs={String.class}, tree="[0]")
     private Output<String> namespaceName;
 
@@ -168,9 +168,9 @@ public class EventHub extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the current number of shards on the Event Hub.
      * 
-     * &gt; **Note:** `partition_count` cannot be changed unless Eventhub Namespace SKU is `Premium` and cannot be decreased.
+     * &gt; **Note:** `partitionCount` cannot be changed unless Eventhub Namespace SKU is `Premium` and cannot be decreased.
      * 
-     * &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `partition_count` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
+     * &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `partitionCount` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
      * 
      */
     @Export(name="partitionCount", refs={Integer.class}, tree="[0]")
@@ -179,9 +179,9 @@ public class EventHub extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies the current number of shards on the Event Hub.
      * 
-     * &gt; **Note:** `partition_count` cannot be changed unless Eventhub Namespace SKU is `Premium` and cannot be decreased.
+     * &gt; **Note:** `partitionCount` cannot be changed unless Eventhub Namespace SKU is `Premium` and cannot be decreased.
      * 
-     * &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `partition_count` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
+     * &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `partitionCount` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
      * 
      */
     public Output<Integer> partitionCount() {
@@ -203,10 +203,10 @@ public class EventHub extends com.pulumi.resources.CustomResource {
     }
     /**
      * @deprecated
-     * `resource_group_name` has been deprecated in favour of `namespace_id` and will be removed in v5.0 of the AzureRM Provider
+     * `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* `resource_group_name` has been deprecated in favour of `namespace_id` and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated /* `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider */
     @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
@@ -214,14 +214,14 @@ public class EventHub extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * A `retention_description` block as defined below.
+     * A `retentionDescription` block as defined below.
      * 
      */
     @Export(name="retentionDescription", refs={EventHubRetentionDescription.class}, tree="[0]")
     private Output<EventHubRetentionDescription> retentionDescription;
 
     /**
-     * @return A `retention_description` block as defined below.
+     * @return A `retentionDescription` block as defined below.
      * 
      */
     public Output<EventHubRetentionDescription> retentionDescription() {

@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class ProjectEnvironmentTypeUserRoleAssignment {
     /**
-     * @return A list of roles to assign to the `user_id`.
+     * @return A list of roles to assign to the `userId`.
      * 
      */
     private List<String> roles;
@@ -24,7 +24,7 @@ public final class ProjectEnvironmentTypeUserRoleAssignment {
 
     private ProjectEnvironmentTypeUserRoleAssignment() {}
     /**
-     * @return A list of roles to assign to the `user_id`.
+     * @return A list of roles to assign to the `userId`.
      * 
      */
     public List<String> roles() {

@@ -20,19 +20,19 @@ public final class FrontdoorOriginPrivateLink {
     /**
      * @return The ID of the Azure Resource to connect to via the Private Link.
      * 
-     * &gt; **Note:** the `private_link_target_id` property must specify the Resource ID of the Private Link Service when using Load Balancer as an Origin.
+     * &gt; **Note:** the `privateLinkTargetId` property must specify the Resource ID of the Private Link Service when using Load Balancer as an Origin.
      * 
      */
     private String privateLinkTargetId;
     /**
-     * @return Specifies the request message that will be submitted to the `private_link_target_id` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for CDN FrontDoor Private Link Origin`.
+     * @return Specifies the request message that will be submitted to the `privateLinkTargetId` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for CDN FrontDoor Private Link Origin`.
      * 
      */
     private @Nullable String requestMessage;
     /**
-     * @return Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blob_secondary`, `Gateway`, `managedEnvironments`, `sites`, `web` and `web_secondary`.
+     * @return Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blobSecondary`, `Gateway`, `managedEnvironments`, `sites`, `web` and `webSecondary`.
      * 
-     * &gt; **Note:** `target_type` cannot be specified when using a Load Balancer as an Origin.
+     * &gt; **Note:** `targetType` cannot be specified when using a Load Balancer as an Origin.
      * 
      */
     private @Nullable String targetType;
@@ -48,23 +48,23 @@ public final class FrontdoorOriginPrivateLink {
     /**
      * @return The ID of the Azure Resource to connect to via the Private Link.
      * 
-     * &gt; **Note:** the `private_link_target_id` property must specify the Resource ID of the Private Link Service when using Load Balancer as an Origin.
+     * &gt; **Note:** the `privateLinkTargetId` property must specify the Resource ID of the Private Link Service when using Load Balancer as an Origin.
      * 
      */
     public String privateLinkTargetId() {
         return this.privateLinkTargetId;
     }
     /**
-     * @return Specifies the request message that will be submitted to the `private_link_target_id` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for CDN FrontDoor Private Link Origin`.
+     * @return Specifies the request message that will be submitted to the `privateLinkTargetId` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for CDN FrontDoor Private Link Origin`.
      * 
      */
     public Optional<String> requestMessage() {
         return Optional.ofNullable(this.requestMessage);
     }
     /**
-     * @return Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blob_secondary`, `Gateway`, `managedEnvironments`, `sites`, `web` and `web_secondary`.
+     * @return Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blobSecondary`, `Gateway`, `managedEnvironments`, `sites`, `web` and `webSecondary`.
      * 
-     * &gt; **Note:** `target_type` cannot be specified when using a Load Balancer as an Origin.
+     * &gt; **Note:** `targetType` cannot be specified when using a Load Balancer as an Origin.
      * 
      */
     public Optional<String> targetType() {

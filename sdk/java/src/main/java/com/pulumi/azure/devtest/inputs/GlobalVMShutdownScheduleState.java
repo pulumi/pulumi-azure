@@ -64,14 +64,14 @@ public final class GlobalVMShutdownScheduleState extends com.pulumi.resources.Re
     }
 
     /**
-     * The notification setting of a schedule. A `notification_settings` block as defined below.
+     * The notification setting of a schedule. A `notificationSettings` block as defined below.
      * 
      */
     @Import(name="notificationSettings")
     private @Nullable Output<GlobalVMShutdownScheduleNotificationSettingsArgs> notificationSettings;
 
     /**
-     * @return The notification setting of a schedule. A `notification_settings` block as defined below.
+     * @return The notification setting of a schedule. A `notificationSettings` block as defined below.
      * 
      */
     public Optional<Output<GlobalVMShutdownScheduleNotificationSettingsArgs>> notificationSettings() {
@@ -217,7 +217,7 @@ public final class GlobalVMShutdownScheduleState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param notificationSettings The notification setting of a schedule. A `notification_settings` block as defined below.
+         * @param notificationSettings The notification setting of a schedule. A `notificationSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -228,7 +228,7 @@ public final class GlobalVMShutdownScheduleState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param notificationSettings The notification setting of a schedule. A `notification_settings` block as defined below.
+         * @param notificationSettings The notification setting of a schedule. A `notificationSettings` block as defined below.
          * 
          * @return builder
          * 

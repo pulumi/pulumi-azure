@@ -65,7 +65,7 @@ public final class BackupInstanceBlogStorageArgs extends com.pulumi.resources.Re
     /**
      * The list of the container names of the source Storage Account.
      * 
-     * &gt; **Note:** The `storage_account_container_names` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storage_account_container_names` will force a new resource to be created since it can&#39;t be removed once specified.
+     * &gt; **Note:** The `storageAccountContainerNames` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storageAccountContainerNames` will force a new resource to be created since it can&#39;t be removed once specified.
      * 
      */
     @Import(name="storageAccountContainerNames")
@@ -74,7 +74,7 @@ public final class BackupInstanceBlogStorageArgs extends com.pulumi.resources.Re
     /**
      * @return The list of the container names of the source Storage Account.
      * 
-     * &gt; **Note:** The `storage_account_container_names` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storage_account_container_names` will force a new resource to be created since it can&#39;t be removed once specified.
+     * &gt; **Note:** The `storageAccountContainerNames` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storageAccountContainerNames` will force a new resource to be created since it can&#39;t be removed once specified.
      * 
      */
     public Optional<Output<List<String>>> storageAccountContainerNames() {
@@ -206,7 +206,7 @@ public final class BackupInstanceBlogStorageArgs extends com.pulumi.resources.Re
         /**
          * @param storageAccountContainerNames The list of the container names of the source Storage Account.
          * 
-         * &gt; **Note:** The `storage_account_container_names` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storage_account_container_names` will force a new resource to be created since it can&#39;t be removed once specified.
+         * &gt; **Note:** The `storageAccountContainerNames` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storageAccountContainerNames` will force a new resource to be created since it can&#39;t be removed once specified.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class BackupInstanceBlogStorageArgs extends com.pulumi.resources.Re
         /**
          * @param storageAccountContainerNames The list of the container names of the source Storage Account.
          * 
-         * &gt; **Note:** The `storage_account_container_names` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storage_account_container_names` will force a new resource to be created since it can&#39;t be removed once specified.
+         * &gt; **Note:** The `storageAccountContainerNames` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storageAccountContainerNames` will force a new resource to be created since it can&#39;t be removed once specified.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class BackupInstanceBlogStorageArgs extends com.pulumi.resources.Re
         /**
          * @param storageAccountContainerNames The list of the container names of the source Storage Account.
          * 
-         * &gt; **Note:** The `storage_account_container_names` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storage_account_container_names` will force a new resource to be created since it can&#39;t be removed once specified.
+         * &gt; **Note:** The `storageAccountContainerNames` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storageAccountContainerNames` will force a new resource to be created since it can&#39;t be removed once specified.
          * 
          * @return builder
          * 

@@ -49,14 +49,14 @@ public final class NetworkSecurityGroupSecurityRuleArgs extends com.pulumi.resou
     }
 
     /**
-     * CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `destination_address_prefixes` is not specified.
+     * CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `destinationAddressPrefixes` is not specified.
      * 
      */
     @Import(name="destinationAddressPrefix")
     private @Nullable Output<String> destinationAddressPrefix;
 
     /**
-     * @return CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `destination_address_prefixes` is not specified.
+     * @return CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `destinationAddressPrefixes` is not specified.
      * 
      */
     public Optional<Output<String>> destinationAddressPrefix() {
@@ -64,14 +64,14 @@ public final class NetworkSecurityGroupSecurityRuleArgs extends com.pulumi.resou
     }
 
     /**
-     * List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
+     * List of destination address prefixes. Tags may not be used. This is required if `destinationAddressPrefix` is not specified.
      * 
      */
     @Import(name="destinationAddressPrefixes")
     private @Nullable Output<List<String>> destinationAddressPrefixes;
 
     /**
-     * @return List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
+     * @return List of destination address prefixes. Tags may not be used. This is required if `destinationAddressPrefix` is not specified.
      * 
      */
     public Optional<Output<List<String>>> destinationAddressPrefixes() {
@@ -94,14 +94,14 @@ public final class NetworkSecurityGroupSecurityRuleArgs extends com.pulumi.resou
     }
 
     /**
-     * Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
+     * Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destinationPortRanges` is not specified.
      * 
      */
     @Import(name="destinationPortRange")
     private @Nullable Output<String> destinationPortRange;
 
     /**
-     * @return Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
+     * @return Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destinationPortRanges` is not specified.
      * 
      */
     public Optional<Output<String>> destinationPortRange() {
@@ -109,14 +109,14 @@ public final class NetworkSecurityGroupSecurityRuleArgs extends com.pulumi.resou
     }
 
     /**
-     * List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
+     * List of destination ports or port ranges. This is required if `destinationPortRange` is not specified.
      * 
      */
     @Import(name="destinationPortRanges")
     private @Nullable Output<List<String>> destinationPortRanges;
 
     /**
-     * @return List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
+     * @return List of destination ports or port ranges. This is required if `destinationPortRange` is not specified.
      * 
      */
     public Optional<Output<List<String>>> destinationPortRanges() {
@@ -184,14 +184,14 @@ public final class NetworkSecurityGroupSecurityRuleArgs extends com.pulumi.resou
     }
 
     /**
-     * CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `source_address_prefixes` is not specified.
+     * CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `sourceAddressPrefixes` is not specified.
      * 
      */
     @Import(name="sourceAddressPrefix")
     private @Nullable Output<String> sourceAddressPrefix;
 
     /**
-     * @return CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `source_address_prefixes` is not specified.
+     * @return CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `sourceAddressPrefixes` is not specified.
      * 
      */
     public Optional<Output<String>> sourceAddressPrefix() {
@@ -199,14 +199,14 @@ public final class NetworkSecurityGroupSecurityRuleArgs extends com.pulumi.resou
     }
 
     /**
-     * List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
+     * List of source address prefixes. Tags may not be used. This is required if `sourceAddressPrefix` is not specified.
      * 
      */
     @Import(name="sourceAddressPrefixes")
     private @Nullable Output<List<String>> sourceAddressPrefixes;
 
     /**
-     * @return List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
+     * @return List of source address prefixes. Tags may not be used. This is required if `sourceAddressPrefix` is not specified.
      * 
      */
     public Optional<Output<List<String>>> sourceAddressPrefixes() {
@@ -229,14 +229,14 @@ public final class NetworkSecurityGroupSecurityRuleArgs extends com.pulumi.resou
     }
 
     /**
-     * Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
+     * Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `sourcePortRanges` is not specified.
      * 
      */
     @Import(name="sourcePortRange")
     private @Nullable Output<String> sourcePortRange;
 
     /**
-     * @return Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
+     * @return Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `sourcePortRanges` is not specified.
      * 
      */
     public Optional<Output<String>> sourcePortRange() {
@@ -244,14 +244,14 @@ public final class NetworkSecurityGroupSecurityRuleArgs extends com.pulumi.resou
     }
 
     /**
-     * List of source ports or port ranges. This is required if `source_port_range` is not specified.
+     * List of source ports or port ranges. This is required if `sourcePortRange` is not specified.
      * 
      */
     @Import(name="sourcePortRanges")
     private @Nullable Output<List<String>> sourcePortRanges;
 
     /**
-     * @return List of source ports or port ranges. This is required if `source_port_range` is not specified.
+     * @return List of source ports or port ranges. This is required if `sourcePortRange` is not specified.
      * 
      */
     public Optional<Output<List<String>>> sourcePortRanges() {
@@ -340,7 +340,7 @@ public final class NetworkSecurityGroupSecurityRuleArgs extends com.pulumi.resou
         }
 
         /**
-         * @param destinationAddressPrefix CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `destination_address_prefixes` is not specified.
+         * @param destinationAddressPrefix CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `destinationAddressPrefixes` is not specified.
          * 
          * @return builder
          * 
@@ -351,7 +351,7 @@ public final class NetworkSecurityGroupSecurityRuleArgs extends com.pulumi.resou
         }
 
         /**
-         * @param destinationAddressPrefix CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `destination_address_prefixes` is not specified.
+         * @param destinationAddressPrefix CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `destinationAddressPrefixes` is not specified.
          * 
          * @return builder
          * 
@@ -361,7 +361,7 @@ public final class NetworkSecurityGroupSecurityRuleArgs extends com.pulumi.resou
         }
 
         /**
-         * @param destinationAddressPrefixes List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
+         * @param destinationAddressPrefixes List of destination address prefixes. Tags may not be used. This is required if `destinationAddressPrefix` is not specified.
          * 
          * @return builder
          * 
@@ -372,7 +372,7 @@ public final class NetworkSecurityGroupSecurityRuleArgs extends com.pulumi.resou
         }
 
         /**
-         * @param destinationAddressPrefixes List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
+         * @param destinationAddressPrefixes List of destination address prefixes. Tags may not be used. This is required if `destinationAddressPrefix` is not specified.
          * 
          * @return builder
          * 
@@ -382,7 +382,7 @@ public final class NetworkSecurityGroupSecurityRuleArgs extends com.pulumi.resou
         }
 
         /**
-         * @param destinationAddressPrefixes List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
+         * @param destinationAddressPrefixes List of destination address prefixes. Tags may not be used. This is required if `destinationAddressPrefix` is not specified.
          * 
          * @return builder
          * 
@@ -423,7 +423,7 @@ public final class NetworkSecurityGroupSecurityRuleArgs extends com.pulumi.resou
         }
 
         /**
-         * @param destinationPortRange Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
+         * @param destinationPortRange Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destinationPortRanges` is not specified.
          * 
          * @return builder
          * 
@@ -434,7 +434,7 @@ public final class NetworkSecurityGroupSecurityRuleArgs extends com.pulumi.resou
         }
 
         /**
-         * @param destinationPortRange Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
+         * @param destinationPortRange Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destinationPortRanges` is not specified.
          * 
          * @return builder
          * 
@@ -444,7 +444,7 @@ public final class NetworkSecurityGroupSecurityRuleArgs extends com.pulumi.resou
         }
 
         /**
-         * @param destinationPortRanges List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
+         * @param destinationPortRanges List of destination ports or port ranges. This is required if `destinationPortRange` is not specified.
          * 
          * @return builder
          * 
@@ -455,7 +455,7 @@ public final class NetworkSecurityGroupSecurityRuleArgs extends com.pulumi.resou
         }
 
         /**
-         * @param destinationPortRanges List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
+         * @param destinationPortRanges List of destination ports or port ranges. This is required if `destinationPortRange` is not specified.
          * 
          * @return builder
          * 
@@ -465,7 +465,7 @@ public final class NetworkSecurityGroupSecurityRuleArgs extends com.pulumi.resou
         }
 
         /**
-         * @param destinationPortRanges List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
+         * @param destinationPortRanges List of destination ports or port ranges. This is required if `destinationPortRange` is not specified.
          * 
          * @return builder
          * 
@@ -559,7 +559,7 @@ public final class NetworkSecurityGroupSecurityRuleArgs extends com.pulumi.resou
         }
 
         /**
-         * @param sourceAddressPrefix CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `source_address_prefixes` is not specified.
+         * @param sourceAddressPrefix CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `sourceAddressPrefixes` is not specified.
          * 
          * @return builder
          * 
@@ -570,7 +570,7 @@ public final class NetworkSecurityGroupSecurityRuleArgs extends com.pulumi.resou
         }
 
         /**
-         * @param sourceAddressPrefix CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `source_address_prefixes` is not specified.
+         * @param sourceAddressPrefix CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `sourceAddressPrefixes` is not specified.
          * 
          * @return builder
          * 
@@ -580,7 +580,7 @@ public final class NetworkSecurityGroupSecurityRuleArgs extends com.pulumi.resou
         }
 
         /**
-         * @param sourceAddressPrefixes List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
+         * @param sourceAddressPrefixes List of source address prefixes. Tags may not be used. This is required if `sourceAddressPrefix` is not specified.
          * 
          * @return builder
          * 
@@ -591,7 +591,7 @@ public final class NetworkSecurityGroupSecurityRuleArgs extends com.pulumi.resou
         }
 
         /**
-         * @param sourceAddressPrefixes List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
+         * @param sourceAddressPrefixes List of source address prefixes. Tags may not be used. This is required if `sourceAddressPrefix` is not specified.
          * 
          * @return builder
          * 
@@ -601,7 +601,7 @@ public final class NetworkSecurityGroupSecurityRuleArgs extends com.pulumi.resou
         }
 
         /**
-         * @param sourceAddressPrefixes List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
+         * @param sourceAddressPrefixes List of source address prefixes. Tags may not be used. This is required if `sourceAddressPrefix` is not specified.
          * 
          * @return builder
          * 
@@ -642,7 +642,7 @@ public final class NetworkSecurityGroupSecurityRuleArgs extends com.pulumi.resou
         }
 
         /**
-         * @param sourcePortRange Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
+         * @param sourcePortRange Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `sourcePortRanges` is not specified.
          * 
          * @return builder
          * 
@@ -653,7 +653,7 @@ public final class NetworkSecurityGroupSecurityRuleArgs extends com.pulumi.resou
         }
 
         /**
-         * @param sourcePortRange Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
+         * @param sourcePortRange Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `sourcePortRanges` is not specified.
          * 
          * @return builder
          * 
@@ -663,7 +663,7 @@ public final class NetworkSecurityGroupSecurityRuleArgs extends com.pulumi.resou
         }
 
         /**
-         * @param sourcePortRanges List of source ports or port ranges. This is required if `source_port_range` is not specified.
+         * @param sourcePortRanges List of source ports or port ranges. This is required if `sourcePortRange` is not specified.
          * 
          * @return builder
          * 
@@ -674,7 +674,7 @@ public final class NetworkSecurityGroupSecurityRuleArgs extends com.pulumi.resou
         }
 
         /**
-         * @param sourcePortRanges List of source ports or port ranges. This is required if `source_port_range` is not specified.
+         * @param sourcePortRanges List of source ports or port ranges. This is required if `sourcePortRange` is not specified.
          * 
          * @return builder
          * 
@@ -684,7 +684,7 @@ public final class NetworkSecurityGroupSecurityRuleArgs extends com.pulumi.resou
         }
 
         /**
-         * @param sourcePortRanges List of source ports or port ranges. This is required if `source_port_range` is not specified.
+         * @param sourcePortRanges List of source ports or port ranges. This is required if `sourcePortRange` is not specified.
          * 
          * @return builder
          * 

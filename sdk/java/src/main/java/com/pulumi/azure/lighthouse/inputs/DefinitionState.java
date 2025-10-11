@@ -50,14 +50,14 @@ public final class DefinitionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `eligible_authorization` block as defined below.
+     * An `eligibleAuthorization` block as defined below.
      * 
      */
     @Import(name="eligibleAuthorizations")
     private @Nullable Output<List<DefinitionEligibleAuthorizationArgs>> eligibleAuthorizations;
 
     /**
-     * @return An `eligible_authorization` block as defined below.
+     * @return An `eligibleAuthorization` block as defined below.
      * 
      */
     public Optional<Output<List<DefinitionEligibleAuthorizationArgs>>> eligibleAuthorizations() {
@@ -223,7 +223,7 @@ public final class DefinitionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eligibleAuthorizations An `eligible_authorization` block as defined below.
+         * @param eligibleAuthorizations An `eligibleAuthorization` block as defined below.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class DefinitionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eligibleAuthorizations An `eligible_authorization` block as defined below.
+         * @param eligibleAuthorizations An `eligibleAuthorization` block as defined below.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class DefinitionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eligibleAuthorizations An `eligible_authorization` block as defined below.
+         * @param eligibleAuthorizations An `eligibleAuthorization` block as defined below.
          * 
          * @return builder
          * 

@@ -151,7 +151,7 @@ namespace Pulumi.Azure.AppPlatform
     public sealed class GetSpringCloudServiceResult
     {
         /// <summary>
-        /// A `config_server_git_setting` block as defined below.
+        /// A `ConfigServerGitSetting` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetSpringCloudServiceConfigServerGitSettingResult> ConfigServerGitSettings;
         /// <summary>
@@ -171,7 +171,7 @@ namespace Pulumi.Azure.AppPlatform
         /// </summary>
         public readonly ImmutableArray<string> OutboundPublicIpAddresses;
         /// <summary>
-        /// A list of `required_network_traffic_rules` blocks as defined below.
+        /// A list of `RequiredNetworkTrafficRules` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetSpringCloudServiceRequiredNetworkTrafficRuleResult> RequiredNetworkTrafficRules;
         public readonly string ResourceGroupName;

@@ -229,7 +229,7 @@ namespace Pulumi.Azure.Kusto
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// is the first record of every file ignored? Defaults to `false`.
+        /// is the first record of every file ignored? Defaults to `False`.
         /// </summary>
         [Output("skipFirstRecord")]
         public Output<bool?> SkipFirstRecord { get; private set; } = null!;
@@ -377,7 +377,7 @@ namespace Pulumi.Azure.Kusto
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// is the first record of every file ignored? Defaults to `false`.
+        /// is the first record of every file ignored? Defaults to `False`.
         /// </summary>
         [Input("skipFirstRecord")]
         public Input<bool>? SkipFirstRecord { get; set; }
@@ -487,7 +487,7 @@ namespace Pulumi.Azure.Kusto
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// is the first record of every file ignored? Defaults to `false`.
+        /// is the first record of every file ignored? Defaults to `False`.
         /// </summary>
         [Input("skipFirstRecord")]
         public Input<bool>? SkipFirstRecord { get; set; }

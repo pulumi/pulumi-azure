@@ -81,7 +81,7 @@ namespace Pulumi.Azure.Orbital
     public partial class Spacecraft : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A `links` block as defined below. Changing this forces a new resource to be created.
+        /// A `Links` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("links")]
         public Output<ImmutableArray<Outputs.SpacecraftLink>> Links { get; private set; } = null!;
@@ -178,7 +178,7 @@ namespace Pulumi.Azure.Orbital
         private InputList<Inputs.SpacecraftLinkArgs>? _links;
 
         /// <summary>
-        /// A `links` block as defined below. Changing this forces a new resource to be created.
+        /// A `Links` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.SpacecraftLinkArgs> Links
         {
@@ -252,7 +252,7 @@ namespace Pulumi.Azure.Orbital
         private InputList<Inputs.SpacecraftLinkGetArgs>? _links;
 
         /// <summary>
-        /// A `links` block as defined below. Changing this forces a new resource to be created.
+        /// A `Links` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.SpacecraftLinkGetArgs> Links
         {

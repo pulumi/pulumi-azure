@@ -36,14 +36,14 @@ public final class FrontdoorOriginGroupArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A `health_probe` block as defined below.
+     * A `healthProbe` block as defined below.
      * 
      */
     @Import(name="healthProbe")
     private @Nullable Output<FrontdoorOriginGroupHealthProbeArgs> healthProbe;
 
     /**
-     * @return A `health_probe` block as defined below.
+     * @return A `healthProbe` block as defined below.
      * 
      */
     public Optional<Output<FrontdoorOriginGroupHealthProbeArgs>> healthProbe() {
@@ -51,14 +51,14 @@ public final class FrontdoorOriginGroupArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A `load_balancing` block as defined below.
+     * A `loadBalancing` block as defined below.
      * 
      */
     @Import(name="loadBalancing", required=true)
     private Output<FrontdoorOriginGroupLoadBalancingArgs> loadBalancing;
 
     /**
-     * @return A `load_balancing` block as defined below.
+     * @return A `loadBalancing` block as defined below.
      * 
      */
     public Output<FrontdoorOriginGroupLoadBalancingArgs> loadBalancing() {
@@ -165,7 +165,7 @@ public final class FrontdoorOriginGroupArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param healthProbe A `health_probe` block as defined below.
+         * @param healthProbe A `healthProbe` block as defined below.
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class FrontdoorOriginGroupArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param healthProbe A `health_probe` block as defined below.
+         * @param healthProbe A `healthProbe` block as defined below.
          * 
          * @return builder
          * 
@@ -186,7 +186,7 @@ public final class FrontdoorOriginGroupArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param loadBalancing A `load_balancing` block as defined below.
+         * @param loadBalancing A `loadBalancing` block as defined below.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class FrontdoorOriginGroupArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param loadBalancing A `load_balancing` block as defined below.
+         * @param loadBalancing A `loadBalancing` block as defined below.
          * 
          * @return builder
          * 

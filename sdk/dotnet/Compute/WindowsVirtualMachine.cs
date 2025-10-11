@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Compute
     /// 
     /// ## Disclaimers
     /// 
-    /// &gt; **Note** This provider will automatically remove the OS Disk by default - this behaviour can be configured using the `features` setting within the Provider block.
+    /// &gt; **Note** This provider will automatically remove the OS Disk by default - this behaviour can be configured using the `Features` setting within the Provider block.
     /// 
     /// &gt; **Note** All arguments including the administrator login and password will be stored in the raw state as plain-text.
     /// 
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Compute
     /// 
     /// &gt; **Note** This resource does not support attaching existing OS Disks. You can instead capture an image of the OS Disk or continue to use the `azure.compute.VirtualMachine` resource instead.
     /// 
-    /// &gt; In this release there's a known issue where the `public_ip_address` and `public_ip_addresses` fields may not be fully populated for Dynamic Public IP's.
+    /// &gt; In this release there's a known issue where the `PublicIpAddress` and `PublicIpAddresses` fields may not be fully populated for Dynamic Public IP's.
     /// 
     /// ## Example Usage
     /// 
@@ -128,13 +128,13 @@ namespace Pulumi.Azure.Compute
     public partial class WindowsVirtualMachine : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A `additional_capabilities` block as defined below.
+        /// A `AdditionalCapabilities` block as defined below.
         /// </summary>
         [Output("additionalCapabilities")]
         public Output<Outputs.WindowsVirtualMachineAdditionalCapabilities?> AdditionalCapabilities { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `AdditionalUnattendContent` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("additionalUnattendContents")]
         public Output<ImmutableArray<Outputs.WindowsVirtualMachineAdditionalUnattendContent>> AdditionalUnattendContents { get; private set; } = null!;
@@ -142,7 +142,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+        /// &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `OsManagedDiskId`.
         /// </summary>
         [Output("adminPassword")]
         public Output<string?> AdminPassword { get; private set; } = null!;
@@ -150,13 +150,13 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+        /// &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `OsManagedDiskId`.
         /// </summary>
         [Output("adminUsername")]
         public Output<string?> AdminUsername { get; private set; } = null!;
 
         /// <summary>
-        /// Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
+        /// Should Extension Operations be allowed on this Virtual Machine? Defaults to `True`.
         /// </summary>
         [Output("allowExtensionOperations")]
         public Output<bool> AllowExtensionOperations { get; private set; } = null!;
@@ -171,15 +171,15 @@ namespace Pulumi.Azure.Compute
         public Output<string?> AvailabilitySetId { get; private set; } = null!;
 
         /// <summary>
-        /// A `boot_diagnostics` block as defined below.
+        /// A `BootDiagnostics` block as defined below.
         /// </summary>
         [Output("bootDiagnostics")]
         public Output<Outputs.WindowsVirtualMachineBootDiagnostics?> BootDiagnostics { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
+        /// Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `False`.
         /// 
-        /// &gt; **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
+        /// &gt; **NOTE:** `BypassPlatformSafetyChecksOnUserScheduleEnabled` can only be set to `True` when `PatchMode` is set to `AutomaticByPlatform`.
         /// </summary>
         [Output("bypassPlatformSafetyChecksOnUserScheduleEnabled")]
         public Output<bool?> BypassPlatformSafetyChecksOnUserScheduleEnabled { get; private set; } = null!;
@@ -187,13 +187,13 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
         /// 
-        /// &gt; **NOTE:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
+        /// &gt; **NOTE:** `CapacityReservationGroupId` cannot be used with `AvailabilitySetId` or `ProximityPlacementGroupId`
         /// </summary>
         [Output("capacityReservationGroupId")]
         public Output<string?> CapacityReservationGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.
+        /// Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `Name` field. If the value of the `Name` field is not a valid `ComputerName`, then you must specify `ComputerName`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("computerName")]
         public Output<string> ComputerName { get; private set; } = null!;
@@ -205,13 +205,13 @@ namespace Pulumi.Azure.Compute
         public Output<string?> CustomData { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of a Dedicated Host Group that this Windows Virtual Machine should be run within. Conflicts with `dedicated_host_id`.
+        /// The ID of a Dedicated Host Group that this Windows Virtual Machine should be run within. Conflicts with `DedicatedHostId`.
         /// </summary>
         [Output("dedicatedHostGroupId")]
         public Output<string?> DedicatedHostGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicated_host_group_id`.
+        /// The ID of a Dedicated Host where this machine should be run on. Conflicts with `DedicatedHostGroupId`.
         /// </summary>
         [Output("dedicatedHostId")]
         public Output<string?> DedicatedHostId { get; private set; } = null!;
@@ -229,7 +229,7 @@ namespace Pulumi.Azure.Compute
         public Output<string?> EdgeZone { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
+        /// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `True`.
         /// </summary>
         [Output("enableAutomaticUpdates")]
         public Output<bool> EnableAutomaticUpdates { get; private set; } = null!;
@@ -243,7 +243,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
+        /// &gt; **NOTE:** This can only be configured when `Priority` is set to `Spot`.
         /// </summary>
         [Output("evictionPolicy")]
         public Output<string?> EvictionPolicy { get; private set; } = null!;
@@ -255,23 +255,23 @@ namespace Pulumi.Azure.Compute
         public Output<string?> ExtensionsTimeBudget { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `gallery_application` blocks as defined below.
+        /// One or more `GalleryApplication` blocks as defined below.
         /// 
-        /// &gt; **Note** Gallery Application Assignments can be defined either directly on `azure.compute.WindowsVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it's recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `azure.compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
+        /// &gt; **Note** Gallery Application Assignments can be defined either directly on `azure.compute.WindowsVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it's recommended to use `IgnoreChanges` for the `GalleryApplication` block on the corresponding `azure.compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
         /// </summary>
         [Output("galleryApplications")]
         public Output<ImmutableArray<Outputs.WindowsVirtualMachineGalleryApplication>> GalleryApplications { get; private set; } = null!;
 
         /// <summary>
-        /// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+        /// Should the VM be patched without requiring a reboot? Possible values are `True` or `False`. Defaults to `False`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
         /// 
-        /// &gt; **NOTE:** Hotpatching can only be enabled if the `patch_mode` is set to `AutomaticByPlatform`, the `provision_vm_agent` is set to `true`, your `source_image_reference` references a hotpatching enabled image, and the VM's `size` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM. An example of how to correctly configure a Windows Virtual Machine to use the `hotpatching_enabled` field can be found in the `./examples/virtual-machines/windows/hotpatching-enabled` directory within the GitHub Repository.
+        /// &gt; **NOTE:** Hotpatching can only be enabled if the `PatchMode` is set to `AutomaticByPlatform`, the `ProvisionVmAgent` is set to `True`, your `SourceImageReference` references a hotpatching enabled image, and the VM's `Size` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM. An example of how to correctly configure a Windows Virtual Machine to use the `HotpatchingEnabled` field can be found in the `./examples/virtual-machines/windows/hotpatching-enabled` directory within the GitHub Repository.
         /// </summary>
         [Output("hotpatchingEnabled")]
         public Output<bool> HotpatchingEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.WindowsVirtualMachineIdentity?> Identity { get; private set; } = null!;
@@ -289,9 +289,9 @@ namespace Pulumi.Azure.Compute
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
+        /// The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `EvictionPolicy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
         /// 
-        /// &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
+        /// &gt; **NOTE:** This can only be configured when `Priority` is set to `Spot`.
         /// </summary>
         [Output("maxBidPrice")]
         public Output<double?> MaxBidPrice { get; private set; } = null!;
@@ -309,13 +309,13 @@ namespace Pulumi.Azure.Compute
         public Output<ImmutableArray<string>> NetworkInterfaceIds { get; private set; } = null!;
 
         /// <summary>
-        /// An `os_disk` block as defined below.
+        /// An `OsDisk` block as defined below.
         /// </summary>
         [Output("osDisk")]
         public Output<Outputs.WindowsVirtualMachineOsDisk> OsDisk { get; private set; } = null!;
 
         /// <summary>
-        /// A `os_image_notification` block as defined below.
+        /// A `OsImageNotification` block as defined below.
         /// </summary>
         [Output("osImageNotification")]
         public Output<Outputs.WindowsVirtualMachineOsImageNotification?> OsImageNotification { get; private set; } = null!;
@@ -323,7 +323,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine.
         /// 
-        /// &gt; **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `admin_username`, `admin_password`, `bypass_platform_safety_checks_on_user_schedule_enabled`, `computer_name`, `custom_data`, `provision_vm_agent`, `patch_mode`, `patch_assessment_mode`, or `reboot_setting`.
+        /// &gt; **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `AdminUsername`, `AdminPassword`, `BypassPlatformSafetyChecksOnUserScheduleEnabled`, `ComputerName`, `CustomData`, `ProvisionVmAgent`, `PatchMode`, `PatchAssessmentMode`, or `RebootSetting`.
         /// </summary>
         [Output("osManagedDiskId")]
         public Output<string> OsManagedDiskId { get; private set; } = null!;
@@ -331,7 +331,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
         /// 
-        /// &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
+        /// &gt; **NOTE:** If the `PatchAssessmentMode` is set to `AutomaticByPlatform` then the `ProvisionVmAgent` field must be set to `True`.
         /// </summary>
         [Output("patchAssessmentMode")]
         public Output<string> PatchAssessmentMode { get; private set; } = null!;
@@ -339,13 +339,13 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
         /// 
-        /// &gt; **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`. If the Virtual Machine is using a hotpatching enabled image the `patch_mode` must always be set to `AutomaticByPlatform`.
+        /// &gt; **NOTE:** If `PatchMode` is set to `AutomaticByPlatform` then `ProvisionVmAgent` must also be set to `True`. If the Virtual Machine is using a hotpatching enabled image the `PatchMode` must always be set to `AutomaticByPlatform`.
         /// </summary>
         [Output("patchMode")]
         public Output<string> PatchMode { get; private set; } = null!;
 
         /// <summary>
-        /// A `plan` block as defined below. Changing this forces a new resource to be created.
+        /// A `Plan` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("plan")]
         public Output<Outputs.WindowsVirtualMachinePlan?> Plan { get; private set; } = null!;
@@ -375,9 +375,9 @@ namespace Pulumi.Azure.Compute
         public Output<ImmutableArray<string>> PrivateIpAddresses { get; private set; } = null!;
 
         /// <summary>
-        /// Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
+        /// Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `True`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
+        /// &gt; **NOTE:** If `ProvisionVmAgent` is set to `False` then `AllowExtensionOperations` must also be set to `False`.
         /// </summary>
         [Output("provisionVmAgent")]
         public Output<bool> ProvisionVmAgent { get; private set; } = null!;
@@ -403,7 +403,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
         /// 
-        /// &gt; **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
+        /// &gt; **NOTE:** `RebootSetting` can only be set when `PatchMode` is set to `AutomaticByPlatform`.
         /// </summary>
         [Output("rebootSetting")]
         public Output<string?> RebootSetting { get; private set; } = null!;
@@ -415,7 +415,7 @@ namespace Pulumi.Azure.Compute
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `secret` blocks as defined below.
+        /// One or more `Secret` blocks as defined below.
         /// </summary>
         [Output("secrets")]
         public Output<ImmutableArray<Outputs.WindowsVirtualMachineSecret>> Secrets { get; private set; } = null!;
@@ -435,15 +435,15 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
         /// 
-        /// &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+        /// &gt; **NOTE:** One of either `SourceImageId` or `SourceImageReference` must be set.
         /// </summary>
         [Output("sourceImageId")]
         public Output<string?> SourceImageId { get; private set; } = null!;
 
         /// <summary>
-        /// A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
+        /// A `SourceImageReference` block as defined below. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+        /// &gt; **NOTE:** One of either `SourceImageId` or `SourceImageReference` must be set.
         /// </summary>
         [Output("sourceImageReference")]
         public Output<Outputs.WindowsVirtualMachineSourceImageReference?> SourceImageReference { get; private set; } = null!;
@@ -455,7 +455,7 @@ namespace Pulumi.Azure.Compute
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A `termination_notification` block as defined below.
+        /// A `TerminationNotification` block as defined below.
         /// </summary>
         [Output("terminationNotification")]
         public Output<Outputs.WindowsVirtualMachineTerminationNotification> TerminationNotification { get; private set; } = null!;
@@ -481,17 +481,17 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
         /// 
-        /// &gt; **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
+        /// &gt; **NOTE:** To update `VirtualMachineScaleSetId` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
         /// 
         /// &gt; **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
         /// 
-        /// &gt; **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
+        /// &gt; **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `SinglePlacementGroup` set to `False`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
         /// </summary>
         [Output("virtualMachineScaleSetId")]
         public Output<string?> VirtualMachineScaleSetId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+        /// Specifies whether VMAgent Platform Updates is enabled. Defaults to `False`.
         /// </summary>
         [Output("vmAgentPlatformUpdatesEnabled")]
         public Output<bool> VmAgentPlatformUpdatesEnabled { get; private set; } = null!;
@@ -503,13 +503,13 @@ namespace Pulumi.Azure.Compute
         public Output<bool?> VtpmEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `WinrmListener` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("winrmListeners")]
         public Output<ImmutableArray<Outputs.WindowsVirtualMachineWinrmListener>> WinrmListeners { get; private set; } = null!;
 
         /// <summary>
-        /// * `zones` - (Optional) Specifies the Availability Zone in which this Windows Virtual Machine should be located. Changing this forces a new Windows Virtual Machine to be created.
+        /// * `Zones` - (Optional) Specifies the Availability Zone in which this Windows Virtual Machine should be located. Changing this forces a new Windows Virtual Machine to be created.
         /// </summary>
         [Output("zone")]
         public Output<string?> Zone { get; private set; } = null!;
@@ -566,7 +566,7 @@ namespace Pulumi.Azure.Compute
     public sealed class WindowsVirtualMachineArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `additional_capabilities` block as defined below.
+        /// A `AdditionalCapabilities` block as defined below.
         /// </summary>
         [Input("additionalCapabilities")]
         public Input<Inputs.WindowsVirtualMachineAdditionalCapabilitiesArgs>? AdditionalCapabilities { get; set; }
@@ -575,7 +575,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.WindowsVirtualMachineAdditionalUnattendContentArgs>? _additionalUnattendContents;
 
         /// <summary>
-        /// One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `AdditionalUnattendContent` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.WindowsVirtualMachineAdditionalUnattendContentArgs> AdditionalUnattendContents
         {
@@ -589,7 +589,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+        /// &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `OsManagedDiskId`.
         /// </summary>
         public Input<string>? AdminPassword
         {
@@ -604,13 +604,13 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+        /// &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `OsManagedDiskId`.
         /// </summary>
         [Input("adminUsername")]
         public Input<string>? AdminUsername { get; set; }
 
         /// <summary>
-        /// Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
+        /// Should Extension Operations be allowed on this Virtual Machine? Defaults to `True`.
         /// </summary>
         [Input("allowExtensionOperations")]
         public Input<bool>? AllowExtensionOperations { get; set; }
@@ -625,15 +625,15 @@ namespace Pulumi.Azure.Compute
         public Input<string>? AvailabilitySetId { get; set; }
 
         /// <summary>
-        /// A `boot_diagnostics` block as defined below.
+        /// A `BootDiagnostics` block as defined below.
         /// </summary>
         [Input("bootDiagnostics")]
         public Input<Inputs.WindowsVirtualMachineBootDiagnosticsArgs>? BootDiagnostics { get; set; }
 
         /// <summary>
-        /// Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
+        /// Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `False`.
         /// 
-        /// &gt; **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
+        /// &gt; **NOTE:** `BypassPlatformSafetyChecksOnUserScheduleEnabled` can only be set to `True` when `PatchMode` is set to `AutomaticByPlatform`.
         /// </summary>
         [Input("bypassPlatformSafetyChecksOnUserScheduleEnabled")]
         public Input<bool>? BypassPlatformSafetyChecksOnUserScheduleEnabled { get; set; }
@@ -641,13 +641,13 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
         /// 
-        /// &gt; **NOTE:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
+        /// &gt; **NOTE:** `CapacityReservationGroupId` cannot be used with `AvailabilitySetId` or `ProximityPlacementGroupId`
         /// </summary>
         [Input("capacityReservationGroupId")]
         public Input<string>? CapacityReservationGroupId { get; set; }
 
         /// <summary>
-        /// Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.
+        /// Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `Name` field. If the value of the `Name` field is not a valid `ComputerName`, then you must specify `ComputerName`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("computerName")]
         public Input<string>? ComputerName { get; set; }
@@ -669,13 +669,13 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// The ID of a Dedicated Host Group that this Windows Virtual Machine should be run within. Conflicts with `dedicated_host_id`.
+        /// The ID of a Dedicated Host Group that this Windows Virtual Machine should be run within. Conflicts with `DedicatedHostId`.
         /// </summary>
         [Input("dedicatedHostGroupId")]
         public Input<string>? DedicatedHostGroupId { get; set; }
 
         /// <summary>
-        /// The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicated_host_group_id`.
+        /// The ID of a Dedicated Host where this machine should be run on. Conflicts with `DedicatedHostGroupId`.
         /// </summary>
         [Input("dedicatedHostId")]
         public Input<string>? DedicatedHostId { get; set; }
@@ -693,7 +693,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? EdgeZone { get; set; }
 
         /// <summary>
-        /// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
+        /// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `True`.
         /// </summary>
         [Input("enableAutomaticUpdates")]
         public Input<bool>? EnableAutomaticUpdates { get; set; }
@@ -707,7 +707,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
+        /// &gt; **NOTE:** This can only be configured when `Priority` is set to `Spot`.
         /// </summary>
         [Input("evictionPolicy")]
         public Input<string>? EvictionPolicy { get; set; }
@@ -722,9 +722,9 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.WindowsVirtualMachineGalleryApplicationArgs>? _galleryApplications;
 
         /// <summary>
-        /// One or more `gallery_application` blocks as defined below.
+        /// One or more `GalleryApplication` blocks as defined below.
         /// 
-        /// &gt; **Note** Gallery Application Assignments can be defined either directly on `azure.compute.WindowsVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it's recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `azure.compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
+        /// &gt; **Note** Gallery Application Assignments can be defined either directly on `azure.compute.WindowsVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it's recommended to use `IgnoreChanges` for the `GalleryApplication` block on the corresponding `azure.compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
         /// </summary>
         public InputList<Inputs.WindowsVirtualMachineGalleryApplicationArgs> GalleryApplications
         {
@@ -733,15 +733,15 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+        /// Should the VM be patched without requiring a reboot? Possible values are `True` or `False`. Defaults to `False`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
         /// 
-        /// &gt; **NOTE:** Hotpatching can only be enabled if the `patch_mode` is set to `AutomaticByPlatform`, the `provision_vm_agent` is set to `true`, your `source_image_reference` references a hotpatching enabled image, and the VM's `size` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM. An example of how to correctly configure a Windows Virtual Machine to use the `hotpatching_enabled` field can be found in the `./examples/virtual-machines/windows/hotpatching-enabled` directory within the GitHub Repository.
+        /// &gt; **NOTE:** Hotpatching can only be enabled if the `PatchMode` is set to `AutomaticByPlatform`, the `ProvisionVmAgent` is set to `True`, your `SourceImageReference` references a hotpatching enabled image, and the VM's `Size` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM. An example of how to correctly configure a Windows Virtual Machine to use the `HotpatchingEnabled` field can be found in the `./examples/virtual-machines/windows/hotpatching-enabled` directory within the GitHub Repository.
         /// </summary>
         [Input("hotpatchingEnabled")]
         public Input<bool>? HotpatchingEnabled { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.WindowsVirtualMachineIdentityArgs>? Identity { get; set; }
@@ -759,9 +759,9 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
+        /// The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `EvictionPolicy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
         /// 
-        /// &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
+        /// &gt; **NOTE:** This can only be configured when `Priority` is set to `Spot`.
         /// </summary>
         [Input("maxBidPrice")]
         public Input<double>? MaxBidPrice { get; set; }
@@ -785,13 +785,13 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// An `os_disk` block as defined below.
+        /// An `OsDisk` block as defined below.
         /// </summary>
         [Input("osDisk", required: true)]
         public Input<Inputs.WindowsVirtualMachineOsDiskArgs> OsDisk { get; set; } = null!;
 
         /// <summary>
-        /// A `os_image_notification` block as defined below.
+        /// A `OsImageNotification` block as defined below.
         /// </summary>
         [Input("osImageNotification")]
         public Input<Inputs.WindowsVirtualMachineOsImageNotificationArgs>? OsImageNotification { get; set; }
@@ -799,7 +799,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine.
         /// 
-        /// &gt; **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `admin_username`, `admin_password`, `bypass_platform_safety_checks_on_user_schedule_enabled`, `computer_name`, `custom_data`, `provision_vm_agent`, `patch_mode`, `patch_assessment_mode`, or `reboot_setting`.
+        /// &gt; **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `AdminUsername`, `AdminPassword`, `BypassPlatformSafetyChecksOnUserScheduleEnabled`, `ComputerName`, `CustomData`, `ProvisionVmAgent`, `PatchMode`, `PatchAssessmentMode`, or `RebootSetting`.
         /// </summary>
         [Input("osManagedDiskId")]
         public Input<string>? OsManagedDiskId { get; set; }
@@ -807,7 +807,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
         /// 
-        /// &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
+        /// &gt; **NOTE:** If the `PatchAssessmentMode` is set to `AutomaticByPlatform` then the `ProvisionVmAgent` field must be set to `True`.
         /// </summary>
         [Input("patchAssessmentMode")]
         public Input<string>? PatchAssessmentMode { get; set; }
@@ -815,13 +815,13 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
         /// 
-        /// &gt; **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`. If the Virtual Machine is using a hotpatching enabled image the `patch_mode` must always be set to `AutomaticByPlatform`.
+        /// &gt; **NOTE:** If `PatchMode` is set to `AutomaticByPlatform` then `ProvisionVmAgent` must also be set to `True`. If the Virtual Machine is using a hotpatching enabled image the `PatchMode` must always be set to `AutomaticByPlatform`.
         /// </summary>
         [Input("patchMode")]
         public Input<string>? PatchMode { get; set; }
 
         /// <summary>
-        /// A `plan` block as defined below. Changing this forces a new resource to be created.
+        /// A `Plan` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("plan")]
         public Input<Inputs.WindowsVirtualMachinePlanArgs>? Plan { get; set; }
@@ -839,9 +839,9 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Priority { get; set; }
 
         /// <summary>
-        /// Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
+        /// Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `True`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
+        /// &gt; **NOTE:** If `ProvisionVmAgent` is set to `False` then `AllowExtensionOperations` must also be set to `False`.
         /// </summary>
         [Input("provisionVmAgent")]
         public Input<bool>? ProvisionVmAgent { get; set; }
@@ -855,7 +855,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
         /// 
-        /// &gt; **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
+        /// &gt; **NOTE:** `RebootSetting` can only be set when `PatchMode` is set to `AutomaticByPlatform`.
         /// </summary>
         [Input("rebootSetting")]
         public Input<string>? RebootSetting { get; set; }
@@ -870,7 +870,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.WindowsVirtualMachineSecretArgs>? _secrets;
 
         /// <summary>
-        /// One or more `secret` blocks as defined below.
+        /// One or more `Secret` blocks as defined below.
         /// </summary>
         public InputList<Inputs.WindowsVirtualMachineSecretArgs> Secrets
         {
@@ -893,15 +893,15 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
         /// 
-        /// &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+        /// &gt; **NOTE:** One of either `SourceImageId` or `SourceImageReference` must be set.
         /// </summary>
         [Input("sourceImageId")]
         public Input<string>? SourceImageId { get; set; }
 
         /// <summary>
-        /// A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
+        /// A `SourceImageReference` block as defined below. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+        /// &gt; **NOTE:** One of either `SourceImageId` or `SourceImageReference` must be set.
         /// </summary>
         [Input("sourceImageReference")]
         public Input<Inputs.WindowsVirtualMachineSourceImageReferenceArgs>? SourceImageReference { get; set; }
@@ -919,7 +919,7 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// A `termination_notification` block as defined below.
+        /// A `TerminationNotification` block as defined below.
         /// </summary>
         [Input("terminationNotification")]
         public Input<Inputs.WindowsVirtualMachineTerminationNotificationArgs>? TerminationNotification { get; set; }
@@ -939,17 +939,17 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
         /// 
-        /// &gt; **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
+        /// &gt; **NOTE:** To update `VirtualMachineScaleSetId` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
         /// 
         /// &gt; **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
         /// 
-        /// &gt; **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
+        /// &gt; **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `SinglePlacementGroup` set to `False`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
         /// </summary>
         [Input("virtualMachineScaleSetId")]
         public Input<string>? VirtualMachineScaleSetId { get; set; }
 
         /// <summary>
-        /// Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+        /// Specifies whether VMAgent Platform Updates is enabled. Defaults to `False`.
         /// </summary>
         [Input("vmAgentPlatformUpdatesEnabled")]
         public Input<bool>? VmAgentPlatformUpdatesEnabled { get; set; }
@@ -964,7 +964,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.WindowsVirtualMachineWinrmListenerArgs>? _winrmListeners;
 
         /// <summary>
-        /// One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `WinrmListener` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.WindowsVirtualMachineWinrmListenerArgs> WinrmListeners
         {
@@ -973,7 +973,7 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// * `zones` - (Optional) Specifies the Availability Zone in which this Windows Virtual Machine should be located. Changing this forces a new Windows Virtual Machine to be created.
+        /// * `Zones` - (Optional) Specifies the Availability Zone in which this Windows Virtual Machine should be located. Changing this forces a new Windows Virtual Machine to be created.
         /// </summary>
         [Input("zone")]
         public Input<string>? Zone { get; set; }
@@ -987,7 +987,7 @@ namespace Pulumi.Azure.Compute
     public sealed class WindowsVirtualMachineState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `additional_capabilities` block as defined below.
+        /// A `AdditionalCapabilities` block as defined below.
         /// </summary>
         [Input("additionalCapabilities")]
         public Input<Inputs.WindowsVirtualMachineAdditionalCapabilitiesGetArgs>? AdditionalCapabilities { get; set; }
@@ -996,7 +996,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.WindowsVirtualMachineAdditionalUnattendContentGetArgs>? _additionalUnattendContents;
 
         /// <summary>
-        /// One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `AdditionalUnattendContent` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.WindowsVirtualMachineAdditionalUnattendContentGetArgs> AdditionalUnattendContents
         {
@@ -1010,7 +1010,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+        /// &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `OsManagedDiskId`.
         /// </summary>
         public Input<string>? AdminPassword
         {
@@ -1025,13 +1025,13 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+        /// &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `OsManagedDiskId`.
         /// </summary>
         [Input("adminUsername")]
         public Input<string>? AdminUsername { get; set; }
 
         /// <summary>
-        /// Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
+        /// Should Extension Operations be allowed on this Virtual Machine? Defaults to `True`.
         /// </summary>
         [Input("allowExtensionOperations")]
         public Input<bool>? AllowExtensionOperations { get; set; }
@@ -1046,15 +1046,15 @@ namespace Pulumi.Azure.Compute
         public Input<string>? AvailabilitySetId { get; set; }
 
         /// <summary>
-        /// A `boot_diagnostics` block as defined below.
+        /// A `BootDiagnostics` block as defined below.
         /// </summary>
         [Input("bootDiagnostics")]
         public Input<Inputs.WindowsVirtualMachineBootDiagnosticsGetArgs>? BootDiagnostics { get; set; }
 
         /// <summary>
-        /// Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
+        /// Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `False`.
         /// 
-        /// &gt; **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
+        /// &gt; **NOTE:** `BypassPlatformSafetyChecksOnUserScheduleEnabled` can only be set to `True` when `PatchMode` is set to `AutomaticByPlatform`.
         /// </summary>
         [Input("bypassPlatformSafetyChecksOnUserScheduleEnabled")]
         public Input<bool>? BypassPlatformSafetyChecksOnUserScheduleEnabled { get; set; }
@@ -1062,13 +1062,13 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
         /// 
-        /// &gt; **NOTE:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
+        /// &gt; **NOTE:** `CapacityReservationGroupId` cannot be used with `AvailabilitySetId` or `ProximityPlacementGroupId`
         /// </summary>
         [Input("capacityReservationGroupId")]
         public Input<string>? CapacityReservationGroupId { get; set; }
 
         /// <summary>
-        /// Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.
+        /// Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `Name` field. If the value of the `Name` field is not a valid `ComputerName`, then you must specify `ComputerName`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("computerName")]
         public Input<string>? ComputerName { get; set; }
@@ -1090,13 +1090,13 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// The ID of a Dedicated Host Group that this Windows Virtual Machine should be run within. Conflicts with `dedicated_host_id`.
+        /// The ID of a Dedicated Host Group that this Windows Virtual Machine should be run within. Conflicts with `DedicatedHostId`.
         /// </summary>
         [Input("dedicatedHostGroupId")]
         public Input<string>? DedicatedHostGroupId { get; set; }
 
         /// <summary>
-        /// The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicated_host_group_id`.
+        /// The ID of a Dedicated Host where this machine should be run on. Conflicts with `DedicatedHostGroupId`.
         /// </summary>
         [Input("dedicatedHostId")]
         public Input<string>? DedicatedHostId { get; set; }
@@ -1114,7 +1114,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? EdgeZone { get; set; }
 
         /// <summary>
-        /// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
+        /// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `True`.
         /// </summary>
         [Input("enableAutomaticUpdates")]
         public Input<bool>? EnableAutomaticUpdates { get; set; }
@@ -1128,7 +1128,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
+        /// &gt; **NOTE:** This can only be configured when `Priority` is set to `Spot`.
         /// </summary>
         [Input("evictionPolicy")]
         public Input<string>? EvictionPolicy { get; set; }
@@ -1143,9 +1143,9 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.WindowsVirtualMachineGalleryApplicationGetArgs>? _galleryApplications;
 
         /// <summary>
-        /// One or more `gallery_application` blocks as defined below.
+        /// One or more `GalleryApplication` blocks as defined below.
         /// 
-        /// &gt; **Note** Gallery Application Assignments can be defined either directly on `azure.compute.WindowsVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it's recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `azure.compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
+        /// &gt; **Note** Gallery Application Assignments can be defined either directly on `azure.compute.WindowsVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it's recommended to use `IgnoreChanges` for the `GalleryApplication` block on the corresponding `azure.compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
         /// </summary>
         public InputList<Inputs.WindowsVirtualMachineGalleryApplicationGetArgs> GalleryApplications
         {
@@ -1154,15 +1154,15 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+        /// Should the VM be patched without requiring a reboot? Possible values are `True` or `False`. Defaults to `False`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
         /// 
-        /// &gt; **NOTE:** Hotpatching can only be enabled if the `patch_mode` is set to `AutomaticByPlatform`, the `provision_vm_agent` is set to `true`, your `source_image_reference` references a hotpatching enabled image, and the VM's `size` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM. An example of how to correctly configure a Windows Virtual Machine to use the `hotpatching_enabled` field can be found in the `./examples/virtual-machines/windows/hotpatching-enabled` directory within the GitHub Repository.
+        /// &gt; **NOTE:** Hotpatching can only be enabled if the `PatchMode` is set to `AutomaticByPlatform`, the `ProvisionVmAgent` is set to `True`, your `SourceImageReference` references a hotpatching enabled image, and the VM's `Size` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM. An example of how to correctly configure a Windows Virtual Machine to use the `HotpatchingEnabled` field can be found in the `./examples/virtual-machines/windows/hotpatching-enabled` directory within the GitHub Repository.
         /// </summary>
         [Input("hotpatchingEnabled")]
         public Input<bool>? HotpatchingEnabled { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.WindowsVirtualMachineIdentityGetArgs>? Identity { get; set; }
@@ -1180,9 +1180,9 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
+        /// The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `EvictionPolicy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
         /// 
-        /// &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
+        /// &gt; **NOTE:** This can only be configured when `Priority` is set to `Spot`.
         /// </summary>
         [Input("maxBidPrice")]
         public Input<double>? MaxBidPrice { get; set; }
@@ -1206,13 +1206,13 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// An `os_disk` block as defined below.
+        /// An `OsDisk` block as defined below.
         /// </summary>
         [Input("osDisk")]
         public Input<Inputs.WindowsVirtualMachineOsDiskGetArgs>? OsDisk { get; set; }
 
         /// <summary>
-        /// A `os_image_notification` block as defined below.
+        /// A `OsImageNotification` block as defined below.
         /// </summary>
         [Input("osImageNotification")]
         public Input<Inputs.WindowsVirtualMachineOsImageNotificationGetArgs>? OsImageNotification { get; set; }
@@ -1220,7 +1220,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine.
         /// 
-        /// &gt; **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `admin_username`, `admin_password`, `bypass_platform_safety_checks_on_user_schedule_enabled`, `computer_name`, `custom_data`, `provision_vm_agent`, `patch_mode`, `patch_assessment_mode`, or `reboot_setting`.
+        /// &gt; **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `AdminUsername`, `AdminPassword`, `BypassPlatformSafetyChecksOnUserScheduleEnabled`, `ComputerName`, `CustomData`, `ProvisionVmAgent`, `PatchMode`, `PatchAssessmentMode`, or `RebootSetting`.
         /// </summary>
         [Input("osManagedDiskId")]
         public Input<string>? OsManagedDiskId { get; set; }
@@ -1228,7 +1228,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
         /// 
-        /// &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
+        /// &gt; **NOTE:** If the `PatchAssessmentMode` is set to `AutomaticByPlatform` then the `ProvisionVmAgent` field must be set to `True`.
         /// </summary>
         [Input("patchAssessmentMode")]
         public Input<string>? PatchAssessmentMode { get; set; }
@@ -1236,13 +1236,13 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
         /// 
-        /// &gt; **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`. If the Virtual Machine is using a hotpatching enabled image the `patch_mode` must always be set to `AutomaticByPlatform`.
+        /// &gt; **NOTE:** If `PatchMode` is set to `AutomaticByPlatform` then `ProvisionVmAgent` must also be set to `True`. If the Virtual Machine is using a hotpatching enabled image the `PatchMode` must always be set to `AutomaticByPlatform`.
         /// </summary>
         [Input("patchMode")]
         public Input<string>? PatchMode { get; set; }
 
         /// <summary>
-        /// A `plan` block as defined below. Changing this forces a new resource to be created.
+        /// A `Plan` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("plan")]
         public Input<Inputs.WindowsVirtualMachinePlanGetArgs>? Plan { get; set; }
@@ -1278,9 +1278,9 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
+        /// Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `True`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
+        /// &gt; **NOTE:** If `ProvisionVmAgent` is set to `False` then `AllowExtensionOperations` must also be set to `False`.
         /// </summary>
         [Input("provisionVmAgent")]
         public Input<bool>? ProvisionVmAgent { get; set; }
@@ -1312,7 +1312,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
         /// 
-        /// &gt; **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
+        /// &gt; **NOTE:** `RebootSetting` can only be set when `PatchMode` is set to `AutomaticByPlatform`.
         /// </summary>
         [Input("rebootSetting")]
         public Input<string>? RebootSetting { get; set; }
@@ -1327,7 +1327,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.WindowsVirtualMachineSecretGetArgs>? _secrets;
 
         /// <summary>
-        /// One or more `secret` blocks as defined below.
+        /// One or more `Secret` blocks as defined below.
         /// </summary>
         public InputList<Inputs.WindowsVirtualMachineSecretGetArgs> Secrets
         {
@@ -1350,15 +1350,15 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
         /// 
-        /// &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+        /// &gt; **NOTE:** One of either `SourceImageId` or `SourceImageReference` must be set.
         /// </summary>
         [Input("sourceImageId")]
         public Input<string>? SourceImageId { get; set; }
 
         /// <summary>
-        /// A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
+        /// A `SourceImageReference` block as defined below. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+        /// &gt; **NOTE:** One of either `SourceImageId` or `SourceImageReference` must be set.
         /// </summary>
         [Input("sourceImageReference")]
         public Input<Inputs.WindowsVirtualMachineSourceImageReferenceGetArgs>? SourceImageReference { get; set; }
@@ -1376,7 +1376,7 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// A `termination_notification` block as defined below.
+        /// A `TerminationNotification` block as defined below.
         /// </summary>
         [Input("terminationNotification")]
         public Input<Inputs.WindowsVirtualMachineTerminationNotificationGetArgs>? TerminationNotification { get; set; }
@@ -1402,17 +1402,17 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
         /// 
-        /// &gt; **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
+        /// &gt; **NOTE:** To update `VirtualMachineScaleSetId` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
         /// 
         /// &gt; **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
         /// 
-        /// &gt; **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
+        /// &gt; **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `SinglePlacementGroup` set to `False`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
         /// </summary>
         [Input("virtualMachineScaleSetId")]
         public Input<string>? VirtualMachineScaleSetId { get; set; }
 
         /// <summary>
-        /// Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+        /// Specifies whether VMAgent Platform Updates is enabled. Defaults to `False`.
         /// </summary>
         [Input("vmAgentPlatformUpdatesEnabled")]
         public Input<bool>? VmAgentPlatformUpdatesEnabled { get; set; }
@@ -1427,7 +1427,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.WindowsVirtualMachineWinrmListenerGetArgs>? _winrmListeners;
 
         /// <summary>
-        /// One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `WinrmListener` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.WindowsVirtualMachineWinrmListenerGetArgs> WinrmListeners
         {
@@ -1436,7 +1436,7 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// * `zones` - (Optional) Specifies the Availability Zone in which this Windows Virtual Machine should be located. Changing this forces a new Windows Virtual Machine to be created.
+        /// * `Zones` - (Optional) Specifies the Availability Zone in which this Windows Virtual Machine should be located. Changing this forces a new Windows Virtual Machine to be created.
         /// </summary>
         [Input("zone")]
         public Input<string>? Zone { get; set; }

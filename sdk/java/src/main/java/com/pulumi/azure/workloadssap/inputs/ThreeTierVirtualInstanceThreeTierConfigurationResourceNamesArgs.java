@@ -19,14 +19,14 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesAr
     public static final ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesArgs Empty = new ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesArgs();
 
     /**
-     * An `application_server` block as defined below. Changing this forces a new resource to be created.
+     * An `applicationServer` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="applicationServer")
     private @Nullable Output<ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerArgs> applicationServer;
 
     /**
-     * @return An `application_server` block as defined below. Changing this forces a new resource to be created.
+     * @return An `applicationServer` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerArgs>> applicationServer() {
@@ -34,14 +34,14 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesAr
     }
 
     /**
-     * A `central_server` block as defined below. Changing this forces a new resource to be created.
+     * A `centralServer` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="centralServer")
     private @Nullable Output<ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerArgs> centralServer;
 
     /**
-     * @return A `central_server` block as defined below. Changing this forces a new resource to be created.
+     * @return A `centralServer` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerArgs>> centralServer() {
@@ -49,14 +49,14 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesAr
     }
 
     /**
-     * A `database_server` block as defined below. Changing this forces a new resource to be created.
+     * A `databaseServer` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="databaseServer")
     private @Nullable Output<ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerArgs> databaseServer;
 
     /**
-     * @return A `database_server` block as defined below. Changing this forces a new resource to be created.
+     * @return A `databaseServer` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerArgs>> databaseServer() {
@@ -64,14 +64,14 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesAr
     }
 
     /**
-     * A `shared_storage` block as defined below. Changing this forces a new resource to be created.
+     * A `sharedStorage` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="sharedStorage")
     private @Nullable Output<ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesSharedStorageArgs> sharedStorage;
 
     /**
-     * @return A `shared_storage` block as defined below. Changing this forces a new resource to be created.
+     * @return A `sharedStorage` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesSharedStorageArgs>> sharedStorage() {
@@ -106,7 +106,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesAr
         }
 
         /**
-         * @param applicationServer An `application_server` block as defined below. Changing this forces a new resource to be created.
+         * @param applicationServer An `applicationServer` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesAr
         }
 
         /**
-         * @param applicationServer An `application_server` block as defined below. Changing this forces a new resource to be created.
+         * @param applicationServer An `applicationServer` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesAr
         }
 
         /**
-         * @param centralServer A `central_server` block as defined below. Changing this forces a new resource to be created.
+         * @param centralServer A `centralServer` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesAr
         }
 
         /**
-         * @param centralServer A `central_server` block as defined below. Changing this forces a new resource to be created.
+         * @param centralServer A `centralServer` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesAr
         }
 
         /**
-         * @param databaseServer A `database_server` block as defined below. Changing this forces a new resource to be created.
+         * @param databaseServer A `databaseServer` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesAr
         }
 
         /**
-         * @param databaseServer A `database_server` block as defined below. Changing this forces a new resource to be created.
+         * @param databaseServer A `databaseServer` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesAr
         }
 
         /**
-         * @param sharedStorage A `shared_storage` block as defined below. Changing this forces a new resource to be created.
+         * @param sharedStorage A `sharedStorage` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesAr
         }
 
         /**
-         * @param sharedStorage A `shared_storage` block as defined below. Changing this forces a new resource to be created.
+         * @param sharedStorage A `sharedStorage` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

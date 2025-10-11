@@ -13,13 +13,13 @@ namespace Pulumi.Azure.ManagedLustre.Inputs
     public sealed class FileSystemEncryptionKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The URL to the Key Vault Key used as the Encryption Key. This can be found as `id` on the `azure.keyvault.Key` resource.
+        /// The URL to the Key Vault Key used as the Encryption Key. This can be found as `Id` on the `azure.keyvault.Key` resource.
         /// </summary>
         [Input("keyUrl", required: true)]
         public Input<string> KeyUrl { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the source Key Vault. This can be found as `id` on the `azure.keyvault.KeyVault` resource.
+        /// The ID of the source Key Vault. This can be found as `Id` on the `azure.keyvault.KeyVault` resource.
         /// </summary>
         [Input("sourceVaultId", required: true)]
         public Input<string> SourceVaultId { get; set; } = null!;

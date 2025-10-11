@@ -53,14 +53,14 @@ public final class GrafanaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `azure_monitor_workspace_integrations` block as defined below.
+     * A `azureMonitorWorkspaceIntegrations` block as defined below.
      * 
      */
     @Import(name="azureMonitorWorkspaceIntegrations")
     private @Nullable Output<List<GrafanaAzureMonitorWorkspaceIntegrationArgs>> azureMonitorWorkspaceIntegrations;
 
     /**
-     * @return A `azure_monitor_workspace_integrations` block as defined below.
+     * @return A `azureMonitorWorkspaceIntegrations` block as defined below.
      * 
      */
     public Optional<Output<List<GrafanaAzureMonitorWorkspaceIntegrationArgs>>> azureMonitorWorkspaceIntegrations() {
@@ -312,7 +312,7 @@ public final class GrafanaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param azureMonitorWorkspaceIntegrations A `azure_monitor_workspace_integrations` block as defined below.
+         * @param azureMonitorWorkspaceIntegrations A `azureMonitorWorkspaceIntegrations` block as defined below.
          * 
          * @return builder
          * 
@@ -323,7 +323,7 @@ public final class GrafanaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param azureMonitorWorkspaceIntegrations A `azure_monitor_workspace_integrations` block as defined below.
+         * @param azureMonitorWorkspaceIntegrations A `azureMonitorWorkspaceIntegrations` block as defined below.
          * 
          * @return builder
          * 
@@ -333,7 +333,7 @@ public final class GrafanaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param azureMonitorWorkspaceIntegrations A `azure_monitor_workspace_integrations` block as defined below.
+         * @param azureMonitorWorkspaceIntegrations A `azureMonitorWorkspaceIntegrations` block as defined below.
          * 
          * @return builder
          * 

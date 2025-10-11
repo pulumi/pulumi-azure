@@ -44,9 +44,9 @@ public final class FunctionAppSlotState extends com.pulumi.resources.ResourceArg
      * 
      * &gt; **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of the application code for function app to be successfully deployed. `Important Default key pairs`: (`&#34;WEBSITE_RUN_FROM_PACKAGE&#34; = &#34;&#34;`, `&#34;FUNCTIONS_WORKER_RUNTIME&#34; = &#34;node&#34;` (or python, etc), `&#34;WEBSITE_NODE_DEFAULT_VERSION&#34; = &#34;10.14.1&#34;`, `&#34;APPINSIGHTS_INSTRUMENTATIONKEY&#34; = &#34;&#34;`).
      * 
-     * &gt; **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn&#39;t be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
+     * &gt; **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn&#39;t be configured separately. `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
      * 
-     * &gt; **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+     * &gt; **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
      * 
      */
     @Import(name="appSettings")
@@ -57,9 +57,9 @@ public final class FunctionAppSlotState extends com.pulumi.resources.ResourceArg
      * 
      * &gt; **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of the application code for function app to be successfully deployed. `Important Default key pairs`: (`&#34;WEBSITE_RUN_FROM_PACKAGE&#34; = &#34;&#34;`, `&#34;FUNCTIONS_WORKER_RUNTIME&#34; = &#34;node&#34;` (or python, etc), `&#34;WEBSITE_NODE_DEFAULT_VERSION&#34; = &#34;10.14.1&#34;`, `&#34;APPINSIGHTS_INSTRUMENTATIONKEY&#34; = &#34;&#34;`).
      * 
-     * &gt; **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn&#39;t be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
+     * &gt; **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn&#39;t be configured separately. `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
      * 
-     * &gt; **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+     * &gt; **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
      * 
      */
     public Optional<Output<Map<String,String>>> appSettings() {
@@ -67,14 +67,14 @@ public final class FunctionAppSlotState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * An `auth_settings` block as defined below.
+     * An `authSettings` block as defined below.
      * 
      */
     @Import(name="authSettings")
     private @Nullable Output<FunctionAppSlotAuthSettingsArgs> authSettings;
 
     /**
-     * @return An `auth_settings` block as defined below.
+     * @return An `authSettings` block as defined below.
      * 
      */
     public Optional<Output<FunctionAppSlotAuthSettingsArgs>> authSettings() {
@@ -82,14 +82,14 @@ public final class FunctionAppSlotState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A `connection_string` block as defined below.
+     * A `connectionString` block as defined below.
      * 
      */
     @Import(name="connectionStrings")
     private @Nullable Output<List<FunctionAppSlotConnectionStringArgs>> connectionStrings;
 
     /**
-     * @return A `connection_string` block as defined below.
+     * @return A `connectionString` block as defined below.
      * 
      */
     public Optional<Output<List<FunctionAppSlotConnectionStringArgs>>> connectionStrings() {
@@ -281,14 +281,14 @@ public final class FunctionAppSlotState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+     * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      * 
      */
     @Import(name="possibleOutboundIpAddresses")
     private @Nullable Output<String> possibleOutboundIpAddresses;
 
     /**
-     * @return A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+     * @return A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      * 
      */
     public Optional<Output<String>> possibleOutboundIpAddresses() {
@@ -311,14 +311,14 @@ public final class FunctionAppSlotState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A `site_config` object as defined below.
+     * A `siteConfig` object as defined below.
      * 
      */
     @Import(name="siteConfig")
     private @Nullable Output<FunctionAppSlotSiteConfigArgs> siteConfig;
 
     /**
-     * @return A `site_config` object as defined below.
+     * @return A `siteConfig` object as defined below.
      * 
      */
     public Optional<Output<FunctionAppSlotSiteConfigArgs>> siteConfig() {
@@ -326,14 +326,14 @@ public final class FunctionAppSlotState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A `site_credential` block as defined below, which contains the site-level credentials used to publish to this Function App Slot.
+     * A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this Function App Slot.
      * 
      */
     @Import(name="siteCredentials")
     private @Nullable Output<List<FunctionAppSlotSiteCredentialArgs>> siteCredentials;
 
     /**
-     * @return A `site_credential` block as defined below, which contains the site-level credentials used to publish to this Function App Slot.
+     * @return A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this Function App Slot.
      * 
      */
     public Optional<Output<List<FunctionAppSlotSiteCredentialArgs>>> siteCredentials() {
@@ -473,9 +473,9 @@ public final class FunctionAppSlotState extends com.pulumi.resources.ResourceArg
          * 
          * &gt; **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of the application code for function app to be successfully deployed. `Important Default key pairs`: (`&#34;WEBSITE_RUN_FROM_PACKAGE&#34; = &#34;&#34;`, `&#34;FUNCTIONS_WORKER_RUNTIME&#34; = &#34;node&#34;` (or python, etc), `&#34;WEBSITE_NODE_DEFAULT_VERSION&#34; = &#34;10.14.1&#34;`, `&#34;APPINSIGHTS_INSTRUMENTATIONKEY&#34; = &#34;&#34;`).
          * 
-         * &gt; **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn&#39;t be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
+         * &gt; **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn&#39;t be configured separately. `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
          * 
-         * &gt; **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+         * &gt; **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
          * 
          * @return builder
          * 
@@ -490,9 +490,9 @@ public final class FunctionAppSlotState extends com.pulumi.resources.ResourceArg
          * 
          * &gt; **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of the application code for function app to be successfully deployed. `Important Default key pairs`: (`&#34;WEBSITE_RUN_FROM_PACKAGE&#34; = &#34;&#34;`, `&#34;FUNCTIONS_WORKER_RUNTIME&#34; = &#34;node&#34;` (or python, etc), `&#34;WEBSITE_NODE_DEFAULT_VERSION&#34; = &#34;10.14.1&#34;`, `&#34;APPINSIGHTS_INSTRUMENTATIONKEY&#34; = &#34;&#34;`).
          * 
-         * &gt; **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn&#39;t be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
+         * &gt; **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn&#39;t be configured separately. `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
          * 
-         * &gt; **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+         * &gt; **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
          * 
          * @return builder
          * 
@@ -502,7 +502,7 @@ public final class FunctionAppSlotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param authSettings An `auth_settings` block as defined below.
+         * @param authSettings An `authSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -513,7 +513,7 @@ public final class FunctionAppSlotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param authSettings An `auth_settings` block as defined below.
+         * @param authSettings An `authSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -523,7 +523,7 @@ public final class FunctionAppSlotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param connectionStrings A `connection_string` block as defined below.
+         * @param connectionStrings A `connectionString` block as defined below.
          * 
          * @return builder
          * 
@@ -534,7 +534,7 @@ public final class FunctionAppSlotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param connectionStrings A `connection_string` block as defined below.
+         * @param connectionStrings A `connectionString` block as defined below.
          * 
          * @return builder
          * 
@@ -544,7 +544,7 @@ public final class FunctionAppSlotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param connectionStrings A `connection_string` block as defined below.
+         * @param connectionStrings A `connectionString` block as defined below.
          * 
          * @return builder
          * 
@@ -810,7 +810,7 @@ public final class FunctionAppSlotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param possibleOutboundIpAddresses A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+         * @param possibleOutboundIpAddresses A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
          * 
          * @return builder
          * 
@@ -821,7 +821,7 @@ public final class FunctionAppSlotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param possibleOutboundIpAddresses A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+         * @param possibleOutboundIpAddresses A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
          * 
          * @return builder
          * 
@@ -852,7 +852,7 @@ public final class FunctionAppSlotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param siteConfig A `site_config` object as defined below.
+         * @param siteConfig A `siteConfig` object as defined below.
          * 
          * @return builder
          * 
@@ -863,7 +863,7 @@ public final class FunctionAppSlotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param siteConfig A `site_config` object as defined below.
+         * @param siteConfig A `siteConfig` object as defined below.
          * 
          * @return builder
          * 
@@ -873,7 +873,7 @@ public final class FunctionAppSlotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param siteCredentials A `site_credential` block as defined below, which contains the site-level credentials used to publish to this Function App Slot.
+         * @param siteCredentials A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this Function App Slot.
          * 
          * @return builder
          * 
@@ -884,7 +884,7 @@ public final class FunctionAppSlotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param siteCredentials A `site_credential` block as defined below, which contains the site-level credentials used to publish to this Function App Slot.
+         * @param siteCredentials A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this Function App Slot.
          * 
          * @return builder
          * 
@@ -894,7 +894,7 @@ public final class FunctionAppSlotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param siteCredentials A `site_credential` block as defined below, which contains the site-level credentials used to publish to this Function App Slot.
+         * @param siteCredentials A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this Function App Slot.
          * 
          * @return builder
          * 

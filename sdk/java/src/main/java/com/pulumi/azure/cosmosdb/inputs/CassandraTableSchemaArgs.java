@@ -20,14 +20,14 @@ public final class CassandraTableSchemaArgs extends com.pulumi.resources.Resourc
     public static final CassandraTableSchemaArgs Empty = new CassandraTableSchemaArgs();
 
     /**
-     * One or more `cluster_key` blocks as defined below.
+     * One or more `clusterKey` blocks as defined below.
      * 
      */
     @Import(name="clusterKeys")
     private @Nullable Output<List<CassandraTableSchemaClusterKeyArgs>> clusterKeys;
 
     /**
-     * @return One or more `cluster_key` blocks as defined below.
+     * @return One or more `clusterKey` blocks as defined below.
      * 
      */
     public Optional<Output<List<CassandraTableSchemaClusterKeyArgs>>> clusterKeys() {
@@ -50,14 +50,14 @@ public final class CassandraTableSchemaArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * One or more `partition_key` blocks as defined below.
+     * One or more `partitionKey` blocks as defined below.
      * 
      */
     @Import(name="partitionKeys", required=true)
     private Output<List<CassandraTableSchemaPartitionKeyArgs>> partitionKeys;
 
     /**
-     * @return One or more `partition_key` blocks as defined below.
+     * @return One or more `partitionKey` blocks as defined below.
      * 
      */
     public Output<List<CassandraTableSchemaPartitionKeyArgs>> partitionKeys() {
@@ -91,7 +91,7 @@ public final class CassandraTableSchemaArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param clusterKeys One or more `cluster_key` blocks as defined below.
+         * @param clusterKeys One or more `clusterKey` blocks as defined below.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class CassandraTableSchemaArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param clusterKeys One or more `cluster_key` blocks as defined below.
+         * @param clusterKeys One or more `clusterKey` blocks as defined below.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class CassandraTableSchemaArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param clusterKeys One or more `cluster_key` blocks as defined below.
+         * @param clusterKeys One or more `clusterKey` blocks as defined below.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class CassandraTableSchemaArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param partitionKeys One or more `partition_key` blocks as defined below.
+         * @param partitionKeys One or more `partitionKey` blocks as defined below.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class CassandraTableSchemaArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param partitionKeys One or more `partition_key` blocks as defined below.
+         * @param partitionKeys One or more `partitionKey` blocks as defined below.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class CassandraTableSchemaArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param partitionKeys One or more `partition_key` blocks as defined below.
+         * @param partitionKeys One or more `partitionKey` blocks as defined below.
          * 
          * @return builder
          * 

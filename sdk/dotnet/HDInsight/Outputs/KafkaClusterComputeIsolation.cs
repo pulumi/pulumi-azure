@@ -14,7 +14,7 @@ namespace Pulumi.Azure.HDInsight.Outputs
     public sealed class KafkaClusterComputeIsolation
     {
         /// <summary>
-        /// This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
+        /// This field indicates whether enable compute isolation or not. Possible values are `True` or `False`.
         /// </summary>
         public readonly bool? ComputeIsolationEnabled;
         /// <summary>

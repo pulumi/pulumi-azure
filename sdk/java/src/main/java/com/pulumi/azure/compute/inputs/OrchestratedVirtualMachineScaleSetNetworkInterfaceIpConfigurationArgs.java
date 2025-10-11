@@ -52,7 +52,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
     /**
      * A list of Backend Address Pools IDs from a Load Balancer which this Virtual Machine Scale Set should be connected to.
      * 
-     * &gt; **Note:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a depends_on between this resource and the Load Balancer Rule.
+     * &gt; **Note:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a dependsOn between this resource and the Load Balancer Rule.
      * 
      */
     @Import(name="loadBalancerBackendAddressPoolIds")
@@ -61,7 +61,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
     /**
      * @return A list of Backend Address Pools IDs from a Load Balancer which this Virtual Machine Scale Set should be connected to.
      * 
-     * &gt; **Note:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a depends_on between this resource and the Load Balancer Rule.
+     * &gt; **Note:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a dependsOn between this resource and the Load Balancer Rule.
      * 
      */
     public Optional<Output<List<String>>> loadBalancerBackendAddressPoolIds() {
@@ -86,7 +86,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
     /**
      * Is this the Primary IP Configuration for this Network Interface? Possible values are `true` and `false`. Defaults to `false`.
      * 
-     * &gt; **Note:** One `ip_configuration` block must be marked as Primary for each Network Interface.
+     * &gt; **Note:** One `ipConfiguration` block must be marked as Primary for each Network Interface.
      * 
      */
     @Import(name="primary")
@@ -95,7 +95,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
     /**
      * @return Is this the Primary IP Configuration for this Network Interface? Possible values are `true` and `false`. Defaults to `false`.
      * 
-     * &gt; **Note:** One `ip_configuration` block must be marked as Primary for each Network Interface.
+     * &gt; **Note:** One `ipConfiguration` block must be marked as Primary for each Network Interface.
      * 
      */
     public Optional<Output<Boolean>> primary() {
@@ -103,14 +103,14 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
     }
 
     /**
-     * A `public_ip_address` block as defined below.
+     * A `publicIpAddress` block as defined below.
      * 
      */
     @Import(name="publicIpAddresses")
     private @Nullable Output<List<OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs>> publicIpAddresses;
 
     /**
-     * @return A `public_ip_address` block as defined below.
+     * @return A `publicIpAddress` block as defined below.
      * 
      */
     public Optional<Output<List<OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs>>> publicIpAddresses() {
@@ -120,7 +120,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
     /**
      * The ID of the Subnet which this IP Configuration should be connected to.
      * 
-     * &gt; **Note:** `subnet_id` is required if version is set to `IPv4`.
+     * &gt; **Note:** `subnetId` is required if version is set to `IPv4`.
      * 
      */
     @Import(name="subnetId")
@@ -129,7 +129,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
     /**
      * @return The ID of the Subnet which this IP Configuration should be connected to.
      * 
-     * &gt; **Note:** `subnet_id` is required if version is set to `IPv4`.
+     * &gt; **Note:** `subnetId` is required if version is set to `IPv4`.
      * 
      */
     public Optional<Output<String>> subnetId() {
@@ -247,7 +247,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
         /**
          * @param loadBalancerBackendAddressPoolIds A list of Backend Address Pools IDs from a Load Balancer which this Virtual Machine Scale Set should be connected to.
          * 
-         * &gt; **Note:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a depends_on between this resource and the Load Balancer Rule.
+         * &gt; **Note:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a dependsOn between this resource and the Load Balancer Rule.
          * 
          * @return builder
          * 
@@ -260,7 +260,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
         /**
          * @param loadBalancerBackendAddressPoolIds A list of Backend Address Pools IDs from a Load Balancer which this Virtual Machine Scale Set should be connected to.
          * 
-         * &gt; **Note:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a depends_on between this resource and the Load Balancer Rule.
+         * &gt; **Note:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a dependsOn between this resource and the Load Balancer Rule.
          * 
          * @return builder
          * 
@@ -272,7 +272,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
         /**
          * @param loadBalancerBackendAddressPoolIds A list of Backend Address Pools IDs from a Load Balancer which this Virtual Machine Scale Set should be connected to.
          * 
-         * &gt; **Note:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a depends_on between this resource and the Load Balancer Rule.
+         * &gt; **Note:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a dependsOn between this resource and the Load Balancer Rule.
          * 
          * @return builder
          * 
@@ -305,7 +305,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
         /**
          * @param primary Is this the Primary IP Configuration for this Network Interface? Possible values are `true` and `false`. Defaults to `false`.
          * 
-         * &gt; **Note:** One `ip_configuration` block must be marked as Primary for each Network Interface.
+         * &gt; **Note:** One `ipConfiguration` block must be marked as Primary for each Network Interface.
          * 
          * @return builder
          * 
@@ -318,7 +318,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
         /**
          * @param primary Is this the Primary IP Configuration for this Network Interface? Possible values are `true` and `false`. Defaults to `false`.
          * 
-         * &gt; **Note:** One `ip_configuration` block must be marked as Primary for each Network Interface.
+         * &gt; **Note:** One `ipConfiguration` block must be marked as Primary for each Network Interface.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
         }
 
         /**
-         * @param publicIpAddresses A `public_ip_address` block as defined below.
+         * @param publicIpAddresses A `publicIpAddress` block as defined below.
          * 
          * @return builder
          * 
@@ -339,7 +339,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
         }
 
         /**
-         * @param publicIpAddresses A `public_ip_address` block as defined below.
+         * @param publicIpAddresses A `publicIpAddress` block as defined below.
          * 
          * @return builder
          * 
@@ -349,7 +349,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
         }
 
         /**
-         * @param publicIpAddresses A `public_ip_address` block as defined below.
+         * @param publicIpAddresses A `publicIpAddress` block as defined below.
          * 
          * @return builder
          * 
@@ -361,7 +361,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
         /**
          * @param subnetId The ID of the Subnet which this IP Configuration should be connected to.
          * 
-         * &gt; **Note:** `subnet_id` is required if version is set to `IPv4`.
+         * &gt; **Note:** `subnetId` is required if version is set to `IPv4`.
          * 
          * @return builder
          * 
@@ -374,7 +374,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
         /**
          * @param subnetId The ID of the Subnet which this IP Configuration should be connected to.
          * 
-         * &gt; **Note:** `subnet_id` is required if version is set to `IPv4`.
+         * &gt; **Note:** `subnetId` is required if version is set to `IPv4`.
          * 
          * @return builder
          * 

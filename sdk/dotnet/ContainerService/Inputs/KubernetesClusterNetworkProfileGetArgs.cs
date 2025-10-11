@@ -13,7 +13,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
     public sealed class KubernetesClusterNetworkProfileGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `advanced_networking` block as defined below. This can only be specified when `network_plugin` is set to `azure` and `network_data_plane` is set to `cilium`.
+        /// An `AdvancedNetworking` block as defined below. This can only be specified when `NetworkPlugin` is set to `Azure` and `NetworkDataPlane` is set to `Cilium`.
         /// </summary>
         [Input("advancedNetworking")]
         public Input<Inputs.KubernetesClusterNetworkProfileAdvancedNetworkingGetArgs>? AdvancedNetworking { get; set; }
@@ -30,7 +30,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         /// <summary>
         /// Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
         /// 
-        /// -&gt;**Note:** To configure dual-stack networking `ip_versions` should be set to `["IPv4", "IPv6"]`.
+        /// -&gt;**Note:** To configure dual-stack networking `IpVersions` should be set to `["IPv4", "IPv6"]`.
         /// 
         /// -&gt;**Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
         /// </summary>
@@ -41,79 +41,79 @@ namespace Pulumi.Azure.ContainerService.Inputs
         }
 
         /// <summary>
-        /// A `load_balancer_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard`. Changing this forces a new resource to be created.
+        /// A `LoadBalancerProfile` block as defined below. This can only be specified when `LoadBalancerSku` is set to `Standard`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("loadBalancerProfile")]
         public Input<Inputs.KubernetesClusterNetworkProfileLoadBalancerProfileGetArgs>? LoadBalancerProfile { get; set; }
 
         /// <summary>
-        /// Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`. Changing this forces a new resource to be created.
+        /// Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("loadBalancerSku")]
         public Input<string>? LoadBalancerSku { get; set; }
 
         /// <summary>
-        /// A `nat_gateway_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`. Changing this forces a new resource to be created.
+        /// A `NatGatewayProfile` block as defined below. This can only be specified when `LoadBalancerSku` is set to `Standard` and `OutboundType` is set to `managedNATGateway` or `userAssignedNATGateway`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("natGatewayProfile")]
         public Input<Inputs.KubernetesClusterNetworkProfileNatGatewayProfileGetArgs>? NatGatewayProfile { get; set; }
 
         /// <summary>
-        /// Specifies the data plane used for building the Kubernetes network. Possible values are `azure` and `cilium`. Defaults to `azure`. Disabling this forces a new resource to be created.
+        /// Specifies the data plane used for building the Kubernetes network. Possible values are `Azure` and `Cilium`. Defaults to `Azure`. Disabling this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** When `network_data_plane` is set to `cilium`, the `network_plugin` field can only be set to `azure`.
+        /// &gt; **Note:** When `NetworkDataPlane` is set to `Cilium`, the `NetworkPlugin` field can only be set to `Azure`.
         /// 
-        /// &gt; **Note:** When `network_data_plane` is set to `cilium`, one of either `network_plugin_mode = "overlay"` or `pod_subnet_id` must be specified.
+        /// &gt; **Note:** When `NetworkDataPlane` is set to `Cilium`, one of either `NetworkPluginMode = "overlay"` or `PodSubnetId` must be specified.
         /// </summary>
         [Input("networkDataPlane")]
         public Input<string>? NetworkDataPlane { get; set; }
 
         /// <summary>
-        /// Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
+        /// Network mode to be used with Azure CNI. Possible values are `Bridge` and `Transparent`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** `network_mode` can only be set to `bridge` for existing Kubernetes Clusters and cannot be used to provision new Clusters - this will be removed by Azure in the future.
+        /// &gt; **Note:** `NetworkMode` can only be set to `Bridge` for existing Kubernetes Clusters and cannot be used to provision new Clusters - this will be removed by Azure in the future.
         /// 
-        /// &gt; **Note:** This property can only be set when `network_plugin` is set to `azure`.
+        /// &gt; **Note:** This property can only be set when `NetworkPlugin` is set to `Azure`.
         /// </summary>
         [Input("networkMode")]
         public Input<string>? NetworkMode { get; set; }
 
         /// <summary>
-        /// Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
+        /// Network plugin to use for networking. Currently supported values are `Azure`, `Kubenet` and `None`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** When `network_plugin` is set to `azure` - the `pod_cidr` field must not be set, unless specifying `network_plugin_mode` to `overlay`.
+        /// &gt; **Note:** When `NetworkPlugin` is set to `Azure` - the `PodCidr` field must not be set, unless specifying `NetworkPluginMode` to `Overlay`.
         /// </summary>
         [Input("networkPlugin", required: true)]
         public Input<string> NetworkPlugin { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`.
+        /// Specifies the network plugin mode used for building the Kubernetes network. Possible value is `Overlay`.
         /// 
-        /// &gt; **Note:** When `network_plugin_mode` is set to `overlay`, the `network_plugin` field can only be set to `azure`. When upgrading from Azure CNI without overlay, `pod_subnet_id` must be specified.
+        /// &gt; **Note:** When `NetworkPluginMode` is set to `Overlay`, the `NetworkPlugin` field can only be set to `Azure`. When upgrading from Azure CNI without overlay, `PodSubnetId` must be specified.
         /// </summary>
         [Input("networkPluginMode")]
         public Input<string>? NetworkPluginMode { get; set; }
 
         /// <summary>
-        /// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico`, `azure` and `cilium`.
+        /// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `Calico`, `Azure` and `Cilium`.
         /// 
-        /// &gt; **Note:** When `network_policy` is set to `azure`, the `network_plugin` field can only be set to `azure`.
+        /// &gt; **Note:** When `NetworkPolicy` is set to `Azure`, the `NetworkPlugin` field can only be set to `Azure`.
         /// 
-        /// &gt; **Note:** When `network_policy` is set to `cilium`, the `network_data_plane` field must be set to `cilium`.
+        /// &gt; **Note:** When `NetworkPolicy` is set to `Cilium`, the `NetworkDataPlane` field must be set to `Cilium`.
         /// </summary>
         [Input("networkPolicy")]
         public Input<string>? NetworkPolicy { get; set; }
 
         /// <summary>
-        /// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway`, `userAssignedNATGateway` and `none`. Defaults to `loadBalancer`.
+        /// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway`, `userAssignedNATGateway` and `None`. Defaults to `loadBalancer`.
         /// 
-        /// &gt; **Note:** For more information on supported `outbound_type` migration paths please see the product [documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
+        /// &gt; **Note:** For more information on supported `OutboundType` migration paths please see the product [documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
         /// </summary>
         [Input("outboundType")]
         public Input<string>? OutboundType { get; set; }
 
         /// <summary>
-        /// The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet` or `network_plugin_mode` is set to `overlay`. Changing this forces a new resource to be created.
+        /// The CIDR to use for pod IP addresses. This field can only be set when `NetworkPlugin` is set to `Kubenet` or `NetworkPluginMode` is set to `Overlay`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("podCidr")]
         public Input<string>? PodCidr { get; set; }
@@ -142,7 +142,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         /// <summary>
         /// A list of CIDRs to use for Kubernetes services. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** This range should not be used by any network element on or connected to this VNet. Service address CIDR must be smaller than /12. `docker_bridge_cidr`, `dns_service_ip` and `service_cidr` should all be empty or all should be set.
+        /// &gt; **Note:** This range should not be used by any network element on or connected to this VNet. Service address CIDR must be smaller than /12. `DockerBridgeCidr`, `DnsServiceIp` and `ServiceCidr` should all be empty or all should be set.
         /// </summary>
         public InputList<string> ServiceCidrs
         {

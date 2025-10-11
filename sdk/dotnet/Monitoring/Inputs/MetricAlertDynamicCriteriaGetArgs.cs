@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         private InputList<Inputs.MetricAlertDynamicCriteriaDimensionGetArgs>? _dimensions;
 
         /// <summary>
-        /// One or more `dimension` blocks as defined below.
+        /// One or more `Dimension` blocks as defined below.
         /// </summary>
         public InputList<Inputs.MetricAlertDynamicCriteriaDimensionGetArgs> Dimensions
         {
@@ -37,13 +37,13 @@ namespace Pulumi.Azure.Monitoring.Inputs
         }
 
         /// <summary>
-        /// The number of violations to trigger an alert. Should be smaller or equal to `evaluation_total_count`. Defaults to `4`.
+        /// The number of violations to trigger an alert. Should be smaller or equal to `EvaluationTotalCount`. Defaults to `4`.
         /// </summary>
         [Input("evaluationFailureCount")]
         public Input<int>? EvaluationFailureCount { get; set; }
 
         /// <summary>
-        /// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`window_size`) and the selected number of aggregated points. Defaults to `4`.
+        /// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`WindowSize`) and the selected number of aggregated points. Defaults to `4`.
         /// </summary>
         [Input("evaluationTotalCount")]
         public Input<int>? EvaluationTotalCount { get; set; }

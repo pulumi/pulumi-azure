@@ -139,14 +139,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:machinelearning/datastoreFileshare:DatastoreFileshare")
 public class DatastoreFileshare extends com.pulumi.resources.CustomResource {
     /**
-     * The access key of the Storage Account. Conflicts with `shared_access_signature`.
+     * The access key of the Storage Account. Conflicts with `sharedAccessSignature`.
      * 
      */
     @Export(name="accountKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accountKey;
 
     /**
-     * @return The access key of the Storage Account. Conflicts with `shared_access_signature`.
+     * @return The access key of the Storage Account. Conflicts with `sharedAccessSignature`.
      * 
      */
     public Output<Optional<String>> accountKey() {
@@ -209,14 +209,14 @@ public class DatastoreFileshare extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.serviceDataIdentity);
     }
     /**
-     * The Shared Access Signature of the Storage Account. Conflicts with `account_key`.
+     * The Shared Access Signature of the Storage Account. Conflicts with `accountKey`.
      * 
      */
     @Export(name="sharedAccessSignature", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sharedAccessSignature;
 
     /**
-     * @return The Shared Access Signature of the Storage Account. Conflicts with `account_key`.
+     * @return The Shared Access Signature of the Storage Account. Conflicts with `accountKey`.
      * 
      */
     public Output<Optional<String>> sharedAccessSignature() {

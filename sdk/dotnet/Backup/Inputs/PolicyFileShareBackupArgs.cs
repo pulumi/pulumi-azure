@@ -21,7 +21,7 @@ namespace Pulumi.Azure.Backup.Inputs
         public Input<string> Frequency { get; set; } = null!;
 
         /// <summary>
-        /// A `hourly` block defined as below. This is required when `frequency` is set to `Hourly`.
+        /// A `Hourly` block defined as below. This is required when `Frequency` is set to `Hourly`.
         /// </summary>
         [Input("hourly")]
         public Input<Inputs.PolicyFileShareBackupHourlyArgs>? Hourly { get; set; }
@@ -29,7 +29,7 @@ namespace Pulumi.Azure.Backup.Inputs
         /// <summary>
         /// The time of day to perform the backup in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
         /// 
-        /// &gt; **Note:** `time` is required when `frequency` is set to `Daily`.
+        /// &gt; **Note:** `Time` is required when `Frequency` is set to `Daily`.
         /// </summary>
         [Input("time")]
         public Input<string>? Time { get; set; }

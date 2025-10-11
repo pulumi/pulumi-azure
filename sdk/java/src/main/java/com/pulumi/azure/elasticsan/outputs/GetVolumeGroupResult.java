@@ -37,7 +37,7 @@ public final class GetVolumeGroupResult {
     private List<GetVolumeGroupIdentity> identities;
     private String name;
     /**
-     * @return One or more `network_rule` blocks as defined below.
+     * @return One or more `networkRule` blocks as defined below.
      * 
      */
     private List<GetVolumeGroupNetworkRule> networkRules;
@@ -83,7 +83,7 @@ public final class GetVolumeGroupResult {
         return this.name;
     }
     /**
-     * @return One or more `network_rule` blocks as defined below.
+     * @return One or more `networkRule` blocks as defined below.
      * 
      */
     public List<GetVolumeGroupNetworkRule> networkRules() {

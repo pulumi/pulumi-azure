@@ -37,7 +37,7 @@ public final class AccountActiveDirectory {
     /**
      * @return kdc server IP addresses for the active directory machine.
      * 
-     * &gt; **Note:** If you plan on using **Kerberos** volumes, both `ad_name` and `kdc_ip` are required in order to create the volume.
+     * &gt; **Note:** If you plan on using **Kerberos** volumes, both `adName` and `kdcIp` are required in order to create the volume.
      * 
      */
     private @Nullable String kerberosKdcIp;
@@ -67,7 +67,7 @@ public final class AccountActiveDirectory {
      */
     private String password;
     /**
-     * @return When LDAP over SSL/TLS is enabled, the LDAP client is required to have a *base64 encoded Active Directory Certificate Service&#39;s self-signed root CA certificate*, this optional parameter is used only for dual protocol with LDAP user-mapping volumes. Required if `ldap_over_tls_enabled` is set to `true`.
+     * @return When LDAP over SSL/TLS is enabled, the LDAP client is required to have a *base64 encoded Active Directory Certificate Service&#39;s self-signed root CA certificate*, this optional parameter is used only for dual protocol with LDAP user-mapping volumes. Required if `ldapOverTlsEnabled` is set to `true`.
      * 
      */
     private @Nullable String serverRootCaCertificate;
@@ -119,7 +119,7 @@ public final class AccountActiveDirectory {
     /**
      * @return kdc server IP addresses for the active directory machine.
      * 
-     * &gt; **Note:** If you plan on using **Kerberos** volumes, both `ad_name` and `kdc_ip` are required in order to create the volume.
+     * &gt; **Note:** If you plan on using **Kerberos** volumes, both `adName` and `kdcIp` are required in order to create the volume.
      * 
      */
     public Optional<String> kerberosKdcIp() {
@@ -161,7 +161,7 @@ public final class AccountActiveDirectory {
         return this.password;
     }
     /**
-     * @return When LDAP over SSL/TLS is enabled, the LDAP client is required to have a *base64 encoded Active Directory Certificate Service&#39;s self-signed root CA certificate*, this optional parameter is used only for dual protocol with LDAP user-mapping volumes. Required if `ldap_over_tls_enabled` is set to `true`.
+     * @return When LDAP over SSL/TLS is enabled, the LDAP client is required to have a *base64 encoded Active Directory Certificate Service&#39;s self-signed root CA certificate*, this optional parameter is used only for dual protocol with LDAP user-mapping volumes. Required if `ldapOverTlsEnabled` is set to `true`.
      * 
      */
     public Optional<String> serverRootCaCertificate() {

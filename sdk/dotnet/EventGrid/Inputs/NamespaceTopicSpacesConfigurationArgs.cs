@@ -28,7 +28,7 @@ namespace Pulumi.Azure.EventGrid.Inputs
         private InputList<Inputs.NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArgs>? _dynamicRoutingEnrichments;
 
         /// <summary>
-        /// One or more `dynamic_routing_enrichment` blocks as defined below.
+        /// One or more `DynamicRoutingEnrichment` blocks as defined below.
         /// </summary>
         public InputList<Inputs.NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArgs> DynamicRoutingEnrichments
         {
@@ -58,7 +58,7 @@ namespace Pulumi.Azure.EventGrid.Inputs
         private InputList<Inputs.NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArgs>? _staticRoutingEnrichments;
 
         /// <summary>
-        /// One or more `static_routing_enrichment` blocks as defined below.
+        /// One or more `StaticRoutingEnrichment` blocks as defined below.
         /// </summary>
         public InputList<Inputs.NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArgs> StaticRoutingEnrichments
         {

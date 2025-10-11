@@ -122,14 +122,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:privatedns/resolverInboundEndpoint:ResolverInboundEndpoint")
 public class ResolverInboundEndpoint extends com.pulumi.resources.CustomResource {
     /**
-     * One `ip_configurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+     * One `ipConfigurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
      * 
      */
     @Export(name="ipConfigurations", refs={ResolverInboundEndpointIpConfigurations.class}, tree="[0]")
     private Output<ResolverInboundEndpointIpConfigurations> ipConfigurations;
 
     /**
-     * @return One `ip_configurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+     * @return One `ipConfigurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
      * 
      */
     public Output<ResolverInboundEndpointIpConfigurations> ipConfigurations() {

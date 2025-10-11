@@ -185,7 +185,7 @@ namespace Pulumi.Azure.ChaosStudio
     public partial class Experiment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A `identity` block as defined below.
+        /// A `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ExperimentIdentity?> Identity { get; private set; } = null!;
@@ -209,13 +209,13 @@ namespace Pulumi.Azure.ChaosStudio
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `selectors` blocks as defined below.
+        /// One or more `Selectors` blocks as defined below.
         /// </summary>
         [Output("selectors")]
         public Output<ImmutableArray<Outputs.ExperimentSelector>> Selectors { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `steps` blocks as defined below.
+        /// One or more `Steps` blocks as defined below.
         /// </summary>
         [Output("steps")]
         public Output<ImmutableArray<Outputs.ExperimentStep>> Steps { get; private set; } = null!;
@@ -267,7 +267,7 @@ namespace Pulumi.Azure.ChaosStudio
     public sealed class ExperimentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `identity` block as defined below.
+        /// A `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ExperimentIdentityArgs>? Identity { get; set; }
@@ -294,7 +294,7 @@ namespace Pulumi.Azure.ChaosStudio
         private InputList<Inputs.ExperimentSelectorArgs>? _selectors;
 
         /// <summary>
-        /// One or more `selectors` blocks as defined below.
+        /// One or more `Selectors` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ExperimentSelectorArgs> Selectors
         {
@@ -306,7 +306,7 @@ namespace Pulumi.Azure.ChaosStudio
         private InputList<Inputs.ExperimentStepArgs>? _steps;
 
         /// <summary>
-        /// One or more `steps` blocks as defined below.
+        /// One or more `Steps` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ExperimentStepArgs> Steps
         {
@@ -323,7 +323,7 @@ namespace Pulumi.Azure.ChaosStudio
     public sealed class ExperimentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `identity` block as defined below.
+        /// A `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ExperimentIdentityGetArgs>? Identity { get; set; }
@@ -350,7 +350,7 @@ namespace Pulumi.Azure.ChaosStudio
         private InputList<Inputs.ExperimentSelectorGetArgs>? _selectors;
 
         /// <summary>
-        /// One or more `selectors` blocks as defined below.
+        /// One or more `Selectors` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ExperimentSelectorGetArgs> Selectors
         {
@@ -362,7 +362,7 @@ namespace Pulumi.Azure.ChaosStudio
         private InputList<Inputs.ExperimentStepGetArgs>? _steps;
 
         /// <summary>
-        /// One or more `steps` blocks as defined below.
+        /// One or more `Steps` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ExperimentStepGetArgs> Steps
         {

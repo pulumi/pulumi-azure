@@ -19,7 +19,7 @@ public final class ProtectionContainerMappingAutomaticUpdateArgs extends com.pul
     /**
      * The authentication type used for automation account. Possible values are `RunAsAccount` and `SystemAssignedIdentity`. Defaults to `SystemAssignedIdentity`.
      * 
-     * &gt; **Note:** `RunAsAccount` of `authentication_type` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/en-us/azure/automation/whats-new#support-for-run-as-accounts).
+     * &gt; **Note:** `RunAsAccount` of `authenticationType` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/en-us/azure/automation/whats-new#support-for-run-as-accounts).
      * 
      */
     @Import(name="authenticationType")
@@ -28,7 +28,7 @@ public final class ProtectionContainerMappingAutomaticUpdateArgs extends com.pul
     /**
      * @return The authentication type used for automation account. Possible values are `RunAsAccount` and `SystemAssignedIdentity`. Defaults to `SystemAssignedIdentity`.
      * 
-     * &gt; **Note:** `RunAsAccount` of `authentication_type` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/en-us/azure/automation/whats-new#support-for-run-as-accounts).
+     * &gt; **Note:** `RunAsAccount` of `authenticationType` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/en-us/azure/automation/whats-new#support-for-run-as-accounts).
      * 
      */
     public Optional<Output<String>> authenticationType() {
@@ -38,7 +38,7 @@ public final class ProtectionContainerMappingAutomaticUpdateArgs extends com.pul
     /**
      * The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
      * 
-     * &gt; **Note:** `automation_account_id` is required when `enabled` is specified.
+     * &gt; **Note:** `automationAccountId` is required when `enabled` is specified.
      * 
      */
     @Import(name="automationAccountId")
@@ -47,7 +47,7 @@ public final class ProtectionContainerMappingAutomaticUpdateArgs extends com.pul
     /**
      * @return The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
      * 
-     * &gt; **Note:** `automation_account_id` is required when `enabled` is specified.
+     * &gt; **Note:** `automationAccountId` is required when `enabled` is specified.
      * 
      */
     public Optional<Output<String>> automationAccountId() {
@@ -102,7 +102,7 @@ public final class ProtectionContainerMappingAutomaticUpdateArgs extends com.pul
         /**
          * @param authenticationType The authentication type used for automation account. Possible values are `RunAsAccount` and `SystemAssignedIdentity`. Defaults to `SystemAssignedIdentity`.
          * 
-         * &gt; **Note:** `RunAsAccount` of `authentication_type` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/en-us/azure/automation/whats-new#support-for-run-as-accounts).
+         * &gt; **Note:** `RunAsAccount` of `authenticationType` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/en-us/azure/automation/whats-new#support-for-run-as-accounts).
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class ProtectionContainerMappingAutomaticUpdateArgs extends com.pul
         /**
          * @param authenticationType The authentication type used for automation account. Possible values are `RunAsAccount` and `SystemAssignedIdentity`. Defaults to `SystemAssignedIdentity`.
          * 
-         * &gt; **Note:** `RunAsAccount` of `authentication_type` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/en-us/azure/automation/whats-new#support-for-run-as-accounts).
+         * &gt; **Note:** `RunAsAccount` of `authenticationType` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/en-us/azure/automation/whats-new#support-for-run-as-accounts).
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class ProtectionContainerMappingAutomaticUpdateArgs extends com.pul
         /**
          * @param automationAccountId The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
          * 
-         * &gt; **Note:** `automation_account_id` is required when `enabled` is specified.
+         * &gt; **Note:** `automationAccountId` is required when `enabled` is specified.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class ProtectionContainerMappingAutomaticUpdateArgs extends com.pul
         /**
          * @param automationAccountId The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
          * 
-         * &gt; **Note:** `automation_account_id` is required when `enabled` is specified.
+         * &gt; **Note:** `automationAccountId` is required when `enabled` is specified.
          * 
          * @return builder
          * 

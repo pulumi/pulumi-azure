@@ -100,14 +100,14 @@ public class Account extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.cors);
     }
     /**
-     * One or more `data_store` blocks as defined below.
+     * One or more `dataStore` blocks as defined below.
      * 
      */
     @Export(name="dataStores", refs={List.class,AccountDataStore.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AccountDataStore>> dataStores;
 
     /**
-     * @return One or more `data_store` blocks as defined below.
+     * @return One or more `dataStore` blocks as defined below.
      * 
      */
     public Output<Optional<List<AccountDataStore>>> dataStores() {

@@ -51,14 +51,14 @@ public final class VirtualNetworkGatewayBgpSettingsPeeringAddressArgs extends co
     }
 
     /**
-     * The name of the IP configuration of this Virtual Network Gateway. In case there are multiple `ip_configuration` blocks defined, this property is **required** to specify.
+     * The name of the IP configuration of this Virtual Network Gateway. In case there are multiple `ipConfiguration` blocks defined, this property is **required** to specify.
      * 
      */
     @Import(name="ipConfigurationName")
     private @Nullable Output<String> ipConfigurationName;
 
     /**
-     * @return The name of the IP configuration of this Virtual Network Gateway. In case there are multiple `ip_configuration` blocks defined, this property is **required** to specify.
+     * @return The name of the IP configuration of this Virtual Network Gateway. In case there are multiple `ipConfiguration` blocks defined, this property is **required** to specify.
      * 
      */
     public Optional<Output<String>> ipConfigurationName() {
@@ -176,7 +176,7 @@ public final class VirtualNetworkGatewayBgpSettingsPeeringAddressArgs extends co
         }
 
         /**
-         * @param ipConfigurationName The name of the IP configuration of this Virtual Network Gateway. In case there are multiple `ip_configuration` blocks defined, this property is **required** to specify.
+         * @param ipConfigurationName The name of the IP configuration of this Virtual Network Gateway. In case there are multiple `ipConfiguration` blocks defined, this property is **required** to specify.
          * 
          * @return builder
          * 
@@ -187,7 +187,7 @@ public final class VirtualNetworkGatewayBgpSettingsPeeringAddressArgs extends co
         }
 
         /**
-         * @param ipConfigurationName The name of the IP configuration of this Virtual Network Gateway. In case there are multiple `ip_configuration` blocks defined, this property is **required** to specify.
+         * @param ipConfigurationName The name of the IP configuration of this Virtual Network Gateway. In case there are multiple `ipConfiguration` blocks defined, this property is **required** to specify.
          * 
          * @return builder
          * 

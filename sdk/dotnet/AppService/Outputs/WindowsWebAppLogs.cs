@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class WindowsWebAppLogs
     {
         /// <summary>
-        /// A `application_logs` block as defined above.
+        /// A `ApplicationLogs` block as defined above.
         /// </summary>
         public readonly Outputs.WindowsWebAppLogsApplicationLogs? ApplicationLogs;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool? FailedRequestTracing;
         /// <summary>
-        /// A `http_logs` block as defined above.
+        /// A `HttpLogs` block as defined above.
         /// </summary>
         public readonly Outputs.WindowsWebAppLogsHttpLogs? HttpLogs;
 

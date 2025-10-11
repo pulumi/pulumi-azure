@@ -35,14 +35,14 @@ public final class AppIngress {
      */
     private @Nullable AppIngressCors cors;
     /**
-     * @return One or more `custom_domain` block as detailed below.
+     * @return One or more `customDomain` block as detailed below.
      * 
      */
     private @Nullable List<AppIngressCustomDomain> customDomains;
     /**
      * @return The exposed port on the container for the Ingress traffic.
      * 
-     * &gt; **Note:** `exposed_port` can only be specified when `transport` is set to `tcp`.
+     * &gt; **Note:** `exposedPort` can only be specified when `transport` is set to `tcp`.
      * 
      */
     private @Nullable Integer exposedPort;
@@ -57,7 +57,7 @@ public final class AppIngress {
      */
     private @Nullable String fqdn;
     /**
-     * @return One or more `ip_security_restriction` blocks for IP-filtering rules as defined below.
+     * @return One or more `ipSecurityRestriction` blocks for IP-filtering rules as defined below.
      * 
      */
     private @Nullable List<AppIngressIpSecurityRestriction> ipSecurityRestrictions;
@@ -67,14 +67,14 @@ public final class AppIngress {
      */
     private Integer targetPort;
     /**
-     * @return One or more `traffic_weight` blocks as detailed below.
+     * @return One or more `trafficWeight` blocks as detailed below.
      * 
      */
     private List<AppIngressTrafficWeight> trafficWeights;
     /**
      * @return The transport method for the Ingress. Possible values are `auto`, `http`, `http2` and `tcp`. Defaults to `auto`.
      * 
-     * &gt; **Note:** if `transport` is set to `tcp`, `exposed_port` and `target_port` should be set at the same time.
+     * &gt; **Note:** if `transport` is set to `tcp`, `exposedPort` and `targetPort` should be set at the same time.
      * 
      */
     private @Nullable String transport;
@@ -102,7 +102,7 @@ public final class AppIngress {
         return Optional.ofNullable(this.cors);
     }
     /**
-     * @return One or more `custom_domain` block as detailed below.
+     * @return One or more `customDomain` block as detailed below.
      * 
      */
     public List<AppIngressCustomDomain> customDomains() {
@@ -111,7 +111,7 @@ public final class AppIngress {
     /**
      * @return The exposed port on the container for the Ingress traffic.
      * 
-     * &gt; **Note:** `exposed_port` can only be specified when `transport` is set to `tcp`.
+     * &gt; **Note:** `exposedPort` can only be specified when `transport` is set to `tcp`.
      * 
      */
     public Optional<Integer> exposedPort() {
@@ -132,7 +132,7 @@ public final class AppIngress {
         return Optional.ofNullable(this.fqdn);
     }
     /**
-     * @return One or more `ip_security_restriction` blocks for IP-filtering rules as defined below.
+     * @return One or more `ipSecurityRestriction` blocks for IP-filtering rules as defined below.
      * 
      */
     public List<AppIngressIpSecurityRestriction> ipSecurityRestrictions() {
@@ -146,7 +146,7 @@ public final class AppIngress {
         return this.targetPort;
     }
     /**
-     * @return One or more `traffic_weight` blocks as detailed below.
+     * @return One or more `trafficWeight` blocks as detailed below.
      * 
      */
     public List<AppIngressTrafficWeight> trafficWeights() {
@@ -155,7 +155,7 @@ public final class AppIngress {
     /**
      * @return The transport method for the Ingress. Possible values are `auto`, `http`, `http2` and `tcp`. Defaults to `auto`.
      * 
-     * &gt; **Note:** if `transport` is set to `tcp`, `exposed_port` and `target_port` should be set at the same time.
+     * &gt; **Note:** if `transport` is set to `tcp`, `exposedPort` and `targetPort` should be set at the same time.
      * 
      */
     public Optional<String> transport() {

@@ -58,7 +58,7 @@ namespace Pulumi.Azure.Bot
         /// <summary>
         /// The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
         /// 
-        /// &gt; **Note:** It has to add the Key Vault Access Policy for the `Bot Service CMEK Prod` Service Principal and the `soft_delete_enabled` and the `purge_protection_enabled` is enabled on the `azure.keyvault.KeyVault` resource while using `cmk_key_vault_url`.
+        /// &gt; **Note:** It has to add the Key Vault Access Policy for the `Bot Service CMEK Prod` Service Principal and the `SoftDeleteEnabled` and the `PurgeProtectionEnabled` is enabled on the `azure.keyvault.KeyVault` resource while using `CmkKeyVaultUrl`.
         /// 
         /// &gt; **Note:** It has to turn off the CMK feature before revoking Key Vault Access Policy. For more information, please refer to [Revoke access to customer-managed keys](https://docs.microsoft.com/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0&amp;WT.mc_id=Portal-Microsoft_Azure_BotService#revoke-access-to-customer-managed-keys).
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.Azure.Bot
         public Output<string?> DeveloperAppInsightsKey { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified.
+        /// The name of the Bot Channels Registration will be displayed as. This defaults to `Name` if not specified.
         /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
@@ -144,7 +144,7 @@ namespace Pulumi.Azure.Bot
         public Output<string> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// Is the streaming endpoint enabled for the Bot Channels Registration. Defaults to `false`.
+        /// Is the streaming endpoint enabled for the Bot Channels Registration. Defaults to `False`.
         /// </summary>
         [Output("streamingEndpointEnabled")]
         public Output<bool?> StreamingEndpointEnabled { get; private set; } = null!;
@@ -208,7 +208,7 @@ namespace Pulumi.Azure.Bot
         /// <summary>
         /// The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
         /// 
-        /// &gt; **Note:** It has to add the Key Vault Access Policy for the `Bot Service CMEK Prod` Service Principal and the `soft_delete_enabled` and the `purge_protection_enabled` is enabled on the `azure.keyvault.KeyVault` resource while using `cmk_key_vault_url`.
+        /// &gt; **Note:** It has to add the Key Vault Access Policy for the `Bot Service CMEK Prod` Service Principal and the `SoftDeleteEnabled` and the `PurgeProtectionEnabled` is enabled on the `azure.keyvault.KeyVault` resource while using `CmkKeyVaultUrl`.
         /// 
         /// &gt; **Note:** It has to turn off the CMK feature before revoking Key Vault Access Policy. For more information, please refer to [Revoke access to customer-managed keys](https://docs.microsoft.com/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0&amp;WT.mc_id=Portal-Microsoft_Azure_BotService#revoke-access-to-customer-managed-keys).
         /// </summary>
@@ -250,7 +250,7 @@ namespace Pulumi.Azure.Bot
         public Input<string>? DeveloperAppInsightsKey { get; set; }
 
         /// <summary>
-        /// The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified.
+        /// The name of the Bot Channels Registration will be displayed as. This defaults to `Name` if not specified.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
@@ -304,7 +304,7 @@ namespace Pulumi.Azure.Bot
         public Input<string> Sku { get; set; } = null!;
 
         /// <summary>
-        /// Is the streaming endpoint enabled for the Bot Channels Registration. Defaults to `false`.
+        /// Is the streaming endpoint enabled for the Bot Channels Registration. Defaults to `False`.
         /// </summary>
         [Input("streamingEndpointEnabled")]
         public Input<bool>? StreamingEndpointEnabled { get; set; }
@@ -332,7 +332,7 @@ namespace Pulumi.Azure.Bot
         /// <summary>
         /// The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
         /// 
-        /// &gt; **Note:** It has to add the Key Vault Access Policy for the `Bot Service CMEK Prod` Service Principal and the `soft_delete_enabled` and the `purge_protection_enabled` is enabled on the `azure.keyvault.KeyVault` resource while using `cmk_key_vault_url`.
+        /// &gt; **Note:** It has to add the Key Vault Access Policy for the `Bot Service CMEK Prod` Service Principal and the `SoftDeleteEnabled` and the `PurgeProtectionEnabled` is enabled on the `azure.keyvault.KeyVault` resource while using `CmkKeyVaultUrl`.
         /// 
         /// &gt; **Note:** It has to turn off the CMK feature before revoking Key Vault Access Policy. For more information, please refer to [Revoke access to customer-managed keys](https://docs.microsoft.com/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0&amp;WT.mc_id=Portal-Microsoft_Azure_BotService#revoke-access-to-customer-managed-keys).
         /// </summary>
@@ -374,7 +374,7 @@ namespace Pulumi.Azure.Bot
         public Input<string>? DeveloperAppInsightsKey { get; set; }
 
         /// <summary>
-        /// The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified.
+        /// The name of the Bot Channels Registration will be displayed as. This defaults to `Name` if not specified.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
@@ -428,7 +428,7 @@ namespace Pulumi.Azure.Bot
         public Input<string>? Sku { get; set; }
 
         /// <summary>
-        /// Is the streaming endpoint enabled for the Bot Channels Registration. Defaults to `false`.
+        /// Is the streaming endpoint enabled for the Bot Channels Registration. Defaults to `False`.
         /// </summary>
         [Input("streamingEndpointEnabled")]
         public Input<bool>? StreamingEndpointEnabled { get; set; }

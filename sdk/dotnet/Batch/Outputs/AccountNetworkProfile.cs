@@ -14,13 +14,13 @@ namespace Pulumi.Azure.Batch.Outputs
     public sealed class AccountNetworkProfile
     {
         /// <summary>
-        /// An `account_access` block as defined below.
+        /// An `AccountAccess` block as defined below.
         /// </summary>
         public readonly Outputs.AccountNetworkProfileAccountAccess? AccountAccess;
         /// <summary>
-        /// A `node_management_access` block as defined below.
+        /// A `NodeManagementAccess` block as defined below.
         /// 
-        /// &gt; **NOTE:** At least one of `account_access` or `node_management_access` must be specified.
+        /// &gt; **NOTE:** At least one of `AccountAccess` or `NodeManagementAccess` must be specified.
         /// </summary>
         public readonly Outputs.AccountNetworkProfileNodeManagementAccess? NodeManagementAccess;
 

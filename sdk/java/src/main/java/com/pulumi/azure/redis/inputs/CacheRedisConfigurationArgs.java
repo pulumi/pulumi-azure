@@ -35,7 +35,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
     /**
      * Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
      * 
-     * &gt; **NOTE:** `aof_backup_enabled` can only be set when SKU is `Premium`.
+     * &gt; **NOTE:** `aofBackupEnabled` can only be set when SKU is `Premium`.
      * 
      */
     @Import(name="aofBackupEnabled")
@@ -44,7 +44,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
     /**
      * @return Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
      * 
-     * &gt; **NOTE:** `aof_backup_enabled` can only be set when SKU is `Premium`.
+     * &gt; **NOTE:** `aofBackupEnabled` can only be set when SKU is `Premium`.
      * 
      */
     public Optional<Output<Boolean>> aofBackupEnabled() {
@@ -88,7 +88,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
     /**
      * If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
      * 
-     * &gt; **NOTE:** `authentication_enabled` can only be set to `false` if a `subnet_id` is specified; and only works if there aren&#39;t existing instances within the subnet with `authentication_enabled` set to `true`.
+     * &gt; **NOTE:** `authenticationEnabled` can only be set to `false` if a `subnetId` is specified; and only works if there aren&#39;t existing instances within the subnet with `authenticationEnabled` set to `true`.
      * 
      */
     @Import(name="authenticationEnabled")
@@ -97,7 +97,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
     /**
      * @return If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
      * 
-     * &gt; **NOTE:** `authentication_enabled` can only be set to `false` if a `subnet_id` is specified; and only works if there aren&#39;t existing instances within the subnet with `authentication_enabled` set to `true`.
+     * &gt; **NOTE:** `authenticationEnabled` can only be set to `false` if a `subnetId` is specified; and only works if there aren&#39;t existing instances within the subnet with `authenticationEnabled` set to `true`.
      * 
      */
     public Optional<Output<Boolean>> authenticationEnabled() {
@@ -212,7 +212,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
     /**
      * Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
      * 
-     * &gt; **NOTE:** If `rdb_backup_enabled` set to `true`, `rdb_storage_connection_string` must also be set.
+     * &gt; **NOTE:** If `rdbBackupEnabled` set to `true`, `rdbStorageConnectionString` must also be set.
      * 
      */
     @Import(name="rdbBackupEnabled")
@@ -221,7 +221,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
     /**
      * @return Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
      * 
-     * &gt; **NOTE:** If `rdb_backup_enabled` set to `true`, `rdb_storage_connection_string` must also be set.
+     * &gt; **NOTE:** If `rdbBackupEnabled` set to `true`, `rdbStorageConnectionString` must also be set.
      * 
      */
     public Optional<Output<Boolean>> rdbBackupEnabled() {
@@ -356,7 +356,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
         /**
          * @param aofBackupEnabled Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
          * 
-         * &gt; **NOTE:** `aof_backup_enabled` can only be set when SKU is `Premium`.
+         * &gt; **NOTE:** `aofBackupEnabled` can only be set when SKU is `Premium`.
          * 
          * @return builder
          * 
@@ -369,7 +369,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
         /**
          * @param aofBackupEnabled Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
          * 
-         * &gt; **NOTE:** `aof_backup_enabled` can only be set when SKU is `Premium`.
+         * &gt; **NOTE:** `aofBackupEnabled` can only be set when SKU is `Premium`.
          * 
          * @return builder
          * 
@@ -427,7 +427,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
         /**
          * @param authenticationEnabled If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
          * 
-         * &gt; **NOTE:** `authentication_enabled` can only be set to `false` if a `subnet_id` is specified; and only works if there aren&#39;t existing instances within the subnet with `authentication_enabled` set to `true`.
+         * &gt; **NOTE:** `authenticationEnabled` can only be set to `false` if a `subnetId` is specified; and only works if there aren&#39;t existing instances within the subnet with `authenticationEnabled` set to `true`.
          * 
          * @return builder
          * 
@@ -440,7 +440,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
         /**
          * @param authenticationEnabled If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
          * 
-         * &gt; **NOTE:** `authentication_enabled` can only be set to `false` if a `subnet_id` is specified; and only works if there aren&#39;t existing instances within the subnet with `authentication_enabled` set to `true`.
+         * &gt; **NOTE:** `authenticationEnabled` can only be set to `false` if a `subnetId` is specified; and only works if there aren&#39;t existing instances within the subnet with `authenticationEnabled` set to `true`.
          * 
          * @return builder
          * 
@@ -599,7 +599,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
         /**
          * @param rdbBackupEnabled Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
          * 
-         * &gt; **NOTE:** If `rdb_backup_enabled` set to `true`, `rdb_storage_connection_string` must also be set.
+         * &gt; **NOTE:** If `rdbBackupEnabled` set to `true`, `rdbStorageConnectionString` must also be set.
          * 
          * @return builder
          * 
@@ -612,7 +612,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
         /**
          * @param rdbBackupEnabled Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
          * 
-         * &gt; **NOTE:** If `rdb_backup_enabled` set to `true`, `rdb_storage_connection_string` must also be set.
+         * &gt; **NOTE:** If `rdbBackupEnabled` set to `true`, `rdbStorageConnectionString` must also be set.
          * 
          * @return builder
          * 

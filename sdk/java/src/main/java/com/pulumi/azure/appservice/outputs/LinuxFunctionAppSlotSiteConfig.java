@@ -45,7 +45,7 @@ public final class LinuxFunctionAppSlotSiteConfig {
      */
     private @Nullable Integer appScaleLimit;
     /**
-     * @return an `app_service_logs` block as detailed below.
+     * @return an `appServiceLogs` block as detailed below.
      * 
      */
     private @Nullable LinuxFunctionAppSlotSiteConfigAppServiceLogs appServiceLogs;
@@ -60,7 +60,7 @@ public final class LinuxFunctionAppSlotSiteConfig {
      */
     private @Nullable String applicationInsightsKey;
     /**
-     * @return an `application_stack` block as detailed below.
+     * @return an `applicationStack` block as detailed below.
      * 
      */
     private @Nullable LinuxFunctionAppSlotSiteConfigApplicationStack applicationStack;
@@ -105,7 +105,7 @@ public final class LinuxFunctionAppSlotSiteConfig {
      */
     private @Nullable String ftpsState;
     /**
-     * @return The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `0`. Only valid in conjunction with `health_check_path`.
+     * @return The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `0`. Only valid in conjunction with `healthCheckPath`.
      * 
      */
     private @Nullable Integer healthCheckEvictionTimeInMin;
@@ -120,12 +120,12 @@ public final class LinuxFunctionAppSlotSiteConfig {
      */
     private @Nullable Boolean http2Enabled;
     /**
-     * @return The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+     * @return The Default action for traffic that does not match any `ipRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
      * 
      */
     private @Nullable String ipRestrictionDefaultAction;
     /**
-     * @return an `ip_restriction` block as detailed below.
+     * @return an `ipRestriction` block as detailed below.
      * 
      */
     private @Nullable List<LinuxFunctionAppSlotSiteConfigIpRestriction> ipRestrictions;
@@ -172,12 +172,12 @@ public final class LinuxFunctionAppSlotSiteConfig {
      */
     private @Nullable Boolean runtimeScaleMonitoringEnabled;
     /**
-     * @return The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+     * @return The Default action for traffic that does not match any `scmIpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
      * 
      */
     private @Nullable String scmIpRestrictionDefaultAction;
     /**
-     * @return a `scm_ip_restriction` block as detailed below.
+     * @return a `scmIpRestriction` block as detailed below.
      * 
      */
     private @Nullable List<LinuxFunctionAppSlotSiteConfigScmIpRestriction> scmIpRestrictions;
@@ -192,7 +192,7 @@ public final class LinuxFunctionAppSlotSiteConfig {
      */
     private @Nullable String scmType;
     /**
-     * @return Should the Linux Function App `ip_restriction` configuration be used for the SCM also.
+     * @return Should the Linux Function App `ipRestriction` configuration be used for the SCM also.
      * 
      */
     private @Nullable Boolean scmUseMainIpRestriction;
@@ -254,7 +254,7 @@ public final class LinuxFunctionAppSlotSiteConfig {
         return Optional.ofNullable(this.appScaleLimit);
     }
     /**
-     * @return an `app_service_logs` block as detailed below.
+     * @return an `appServiceLogs` block as detailed below.
      * 
      */
     public Optional<LinuxFunctionAppSlotSiteConfigAppServiceLogs> appServiceLogs() {
@@ -275,7 +275,7 @@ public final class LinuxFunctionAppSlotSiteConfig {
         return Optional.ofNullable(this.applicationInsightsKey);
     }
     /**
-     * @return an `application_stack` block as detailed below.
+     * @return an `applicationStack` block as detailed below.
      * 
      */
     public Optional<LinuxFunctionAppSlotSiteConfigApplicationStack> applicationStack() {
@@ -338,7 +338,7 @@ public final class LinuxFunctionAppSlotSiteConfig {
         return Optional.ofNullable(this.ftpsState);
     }
     /**
-     * @return The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `0`. Only valid in conjunction with `health_check_path`.
+     * @return The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `0`. Only valid in conjunction with `healthCheckPath`.
      * 
      */
     public Optional<Integer> healthCheckEvictionTimeInMin() {
@@ -359,14 +359,14 @@ public final class LinuxFunctionAppSlotSiteConfig {
         return Optional.ofNullable(this.http2Enabled);
     }
     /**
-     * @return The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+     * @return The Default action for traffic that does not match any `ipRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
      * 
      */
     public Optional<String> ipRestrictionDefaultAction() {
         return Optional.ofNullable(this.ipRestrictionDefaultAction);
     }
     /**
-     * @return an `ip_restriction` block as detailed below.
+     * @return an `ipRestriction` block as detailed below.
      * 
      */
     public List<LinuxFunctionAppSlotSiteConfigIpRestriction> ipRestrictions() {
@@ -431,14 +431,14 @@ public final class LinuxFunctionAppSlotSiteConfig {
         return Optional.ofNullable(this.runtimeScaleMonitoringEnabled);
     }
     /**
-     * @return The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+     * @return The Default action for traffic that does not match any `scmIpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
      * 
      */
     public Optional<String> scmIpRestrictionDefaultAction() {
         return Optional.ofNullable(this.scmIpRestrictionDefaultAction);
     }
     /**
-     * @return a `scm_ip_restriction` block as detailed below.
+     * @return a `scmIpRestriction` block as detailed below.
      * 
      */
     public List<LinuxFunctionAppSlotSiteConfigScmIpRestriction> scmIpRestrictions() {
@@ -459,7 +459,7 @@ public final class LinuxFunctionAppSlotSiteConfig {
         return Optional.ofNullable(this.scmType);
     }
     /**
-     * @return Should the Linux Function App `ip_restriction` configuration be used for the SCM also.
+     * @return Should the Linux Function App `ipRestriction` configuration be used for the SCM also.
      * 
      */
     public Optional<Boolean> scmUseMainIpRestriction() {

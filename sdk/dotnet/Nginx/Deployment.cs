@@ -126,13 +126,13 @@ namespace Pulumi.Azure.Nginx
     public partial class Deployment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An `auto_scale_profile` block as defined below.
+        /// An `AutoScaleProfile` block as defined below.
         /// </summary>
         [Output("autoScaleProfiles")]
         public Output<ImmutableArray<Outputs.DeploymentAutoScaleProfile>> AutoScaleProfiles { get; private set; } = null!;
 
         /// <summary>
-        /// Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
+        /// Specify the automatic upgrade channel for the NGINX deployment. Defaults to `Stable`. The possible values are `Stable` and `Preview`.
         /// </summary>
         [Output("automaticUpgradeChannel")]
         public Output<string?> AutomaticUpgradeChannel { get; private set; } = null!;
@@ -164,19 +164,19 @@ namespace Pulumi.Azure.Nginx
         public Output<string?> Email { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `frontend_private` blocks as defined below.
+        /// One or more `FrontendPrivate` blocks as defined below.
         /// </summary>
         [Output("frontendPrivates")]
         public Output<ImmutableArray<Outputs.DeploymentFrontendPrivate>> FrontendPrivates { get; private set; } = null!;
 
         /// <summary>
-        /// A `frontend_public` block as defined below.
+        /// A `FrontendPublic` block as defined below.
         /// </summary>
         [Output("frontendPublic")]
         public Output<Outputs.DeploymentFrontendPublic?> FrontendPublic { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.DeploymentIdentity?> Identity { get; private set; } = null!;
@@ -206,7 +206,7 @@ namespace Pulumi.Azure.Nginx
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `network_interface` blocks as defined below.
+        /// One or more `NetworkInterface` blocks as defined below.
         /// </summary>
         [Output("networkInterfaces")]
         public Output<ImmutableArray<Outputs.DeploymentNetworkInterface>> NetworkInterfaces { get; private set; } = null!;
@@ -233,7 +233,7 @@ namespace Pulumi.Azure.Nginx
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A `web_application_firewall` blocks as defined below.
+        /// A `WebApplicationFirewall` blocks as defined below.
         /// </summary>
         [Output("webApplicationFirewall")]
         public Output<Outputs.DeploymentWebApplicationFirewall?> WebApplicationFirewall { get; private set; } = null!;
@@ -288,7 +288,7 @@ namespace Pulumi.Azure.Nginx
         private InputList<Inputs.DeploymentAutoScaleProfileArgs>? _autoScaleProfiles;
 
         /// <summary>
-        /// An `auto_scale_profile` block as defined below.
+        /// An `AutoScaleProfile` block as defined below.
         /// </summary>
         public InputList<Inputs.DeploymentAutoScaleProfileArgs> AutoScaleProfiles
         {
@@ -297,7 +297,7 @@ namespace Pulumi.Azure.Nginx
         }
 
         /// <summary>
-        /// Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
+        /// Specify the automatic upgrade channel for the NGINX deployment. Defaults to `Stable`. The possible values are `Stable` and `Preview`.
         /// </summary>
         [Input("automaticUpgradeChannel")]
         public Input<string>? AutomaticUpgradeChannel { get; set; }
@@ -326,7 +326,7 @@ namespace Pulumi.Azure.Nginx
         private InputList<Inputs.DeploymentFrontendPrivateArgs>? _frontendPrivates;
 
         /// <summary>
-        /// One or more `frontend_private` blocks as defined below.
+        /// One or more `FrontendPrivate` blocks as defined below.
         /// </summary>
         public InputList<Inputs.DeploymentFrontendPrivateArgs> FrontendPrivates
         {
@@ -335,13 +335,13 @@ namespace Pulumi.Azure.Nginx
         }
 
         /// <summary>
-        /// A `frontend_public` block as defined below.
+        /// A `FrontendPublic` block as defined below.
         /// </summary>
         [Input("frontendPublic")]
         public Input<Inputs.DeploymentFrontendPublicArgs>? FrontendPublic { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.DeploymentIdentityArgs>? Identity { get; set; }
@@ -354,7 +354,7 @@ namespace Pulumi.Azure.Nginx
 
         [Input("loggingStorageAccounts")]
         private InputList<Inputs.DeploymentLoggingStorageAccountArgs>? _loggingStorageAccounts;
-        [Obsolete(@"The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.")]
+        [Obsolete(@"The `LoggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.")]
         public InputList<Inputs.DeploymentLoggingStorageAccountArgs> LoggingStorageAccounts
         {
             get => _loggingStorageAccounts ?? (_loggingStorageAccounts = new InputList<Inputs.DeploymentLoggingStorageAccountArgs>());
@@ -374,7 +374,7 @@ namespace Pulumi.Azure.Nginx
         private InputList<Inputs.DeploymentNetworkInterfaceArgs>? _networkInterfaces;
 
         /// <summary>
-        /// One or more `network_interface` blocks as defined below.
+        /// One or more `NetworkInterface` blocks as defined below.
         /// </summary>
         public InputList<Inputs.DeploymentNetworkInterfaceArgs> NetworkInterfaces
         {
@@ -404,7 +404,7 @@ namespace Pulumi.Azure.Nginx
         }
 
         /// <summary>
-        /// A `web_application_firewall` blocks as defined below.
+        /// A `WebApplicationFirewall` blocks as defined below.
         /// </summary>
         [Input("webApplicationFirewall")]
         public Input<Inputs.DeploymentWebApplicationFirewallArgs>? WebApplicationFirewall { get; set; }
@@ -421,7 +421,7 @@ namespace Pulumi.Azure.Nginx
         private InputList<Inputs.DeploymentAutoScaleProfileGetArgs>? _autoScaleProfiles;
 
         /// <summary>
-        /// An `auto_scale_profile` block as defined below.
+        /// An `AutoScaleProfile` block as defined below.
         /// </summary>
         public InputList<Inputs.DeploymentAutoScaleProfileGetArgs> AutoScaleProfiles
         {
@@ -430,7 +430,7 @@ namespace Pulumi.Azure.Nginx
         }
 
         /// <summary>
-        /// Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
+        /// Specify the automatic upgrade channel for the NGINX deployment. Defaults to `Stable`. The possible values are `Stable` and `Preview`.
         /// </summary>
         [Input("automaticUpgradeChannel")]
         public Input<string>? AutomaticUpgradeChannel { get; set; }
@@ -465,7 +465,7 @@ namespace Pulumi.Azure.Nginx
         private InputList<Inputs.DeploymentFrontendPrivateGetArgs>? _frontendPrivates;
 
         /// <summary>
-        /// One or more `frontend_private` blocks as defined below.
+        /// One or more `FrontendPrivate` blocks as defined below.
         /// </summary>
         public InputList<Inputs.DeploymentFrontendPrivateGetArgs> FrontendPrivates
         {
@@ -474,13 +474,13 @@ namespace Pulumi.Azure.Nginx
         }
 
         /// <summary>
-        /// A `frontend_public` block as defined below.
+        /// A `FrontendPublic` block as defined below.
         /// </summary>
         [Input("frontendPublic")]
         public Input<Inputs.DeploymentFrontendPublicGetArgs>? FrontendPublic { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.DeploymentIdentityGetArgs>? Identity { get; set; }
@@ -499,7 +499,7 @@ namespace Pulumi.Azure.Nginx
 
         [Input("loggingStorageAccounts")]
         private InputList<Inputs.DeploymentLoggingStorageAccountGetArgs>? _loggingStorageAccounts;
-        [Obsolete(@"The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.")]
+        [Obsolete(@"The `LoggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.")]
         public InputList<Inputs.DeploymentLoggingStorageAccountGetArgs> LoggingStorageAccounts
         {
             get => _loggingStorageAccounts ?? (_loggingStorageAccounts = new InputList<Inputs.DeploymentLoggingStorageAccountGetArgs>());
@@ -519,7 +519,7 @@ namespace Pulumi.Azure.Nginx
         private InputList<Inputs.DeploymentNetworkInterfaceGetArgs>? _networkInterfaces;
 
         /// <summary>
-        /// One or more `network_interface` blocks as defined below.
+        /// One or more `NetworkInterface` blocks as defined below.
         /// </summary>
         public InputList<Inputs.DeploymentNetworkInterfaceGetArgs> NetworkInterfaces
         {
@@ -555,7 +555,7 @@ namespace Pulumi.Azure.Nginx
         }
 
         /// <summary>
-        /// A `web_application_firewall` blocks as defined below.
+        /// A `WebApplicationFirewall` blocks as defined below.
         /// </summary>
         [Input("webApplicationFirewall")]
         public Input<Inputs.DeploymentWebApplicationFirewallGetArgs>? WebApplicationFirewall { get; set; }

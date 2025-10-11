@@ -13,7 +13,7 @@ namespace Pulumi.Azure.MSSql.Inputs
     public sealed class VirtualMachineSqlInstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies if the SQL Server is optimized for adhoc workloads. Possible values are `true` and `false`. Defaults to `false`.
+        /// Specifies if the SQL Server is optimized for adhoc workloads. Possible values are `True` and `False`. Defaults to `False`.
         /// </summary>
         [Input("adhocWorkloadsOptimizationEnabled")]
         public Input<bool>? AdhocWorkloadsOptimizationEnabled { get; set; }
@@ -25,13 +25,13 @@ namespace Pulumi.Azure.MSSql.Inputs
         public Input<string>? Collation { get; set; }
 
         /// <summary>
-        /// Specifies if Instant File Initialization is enabled for the SQL Server. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Specifies if Instant File Initialization is enabled for the SQL Server. Possible values are `True` and `False`. Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("instantFileInitializationEnabled")]
         public Input<bool>? InstantFileInitializationEnabled { get; set; }
 
         /// <summary>
-        /// Specifies if Lock Pages in Memory is enabled for the SQL Server. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Specifies if Lock Pages in Memory is enabled for the SQL Server. Possible values are `True` and `False`. Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("lockPagesInMemoryEnabled")]
         public Input<bool>? LockPagesInMemoryEnabled { get; set; }
@@ -51,7 +51,7 @@ namespace Pulumi.Azure.MSSql.Inputs
         /// <summary>
         /// Minimum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between `0` and `2147483647` Defaults to `0`.
         /// 
-        /// &gt; **Note:** `max_server_memory_mb` must be greater than or equal to `min_server_memory_mb`
+        /// &gt; **Note:** `MaxServerMemoryMb` must be greater than or equal to `MinServerMemoryMb`
         /// </summary>
         [Input("minServerMemoryMb")]
         public Input<int>? MinServerMemoryMb { get; set; }

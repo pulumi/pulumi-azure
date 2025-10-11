@@ -28,7 +28,7 @@ namespace Pulumi.Azure.PaloAlto.Outputs
         /// </summary>
         public readonly ImmutableArray<string> TrustedAddressRanges;
         /// <summary>
-        /// A `vnet_configuration` block as defined below.
+        /// A `VnetConfiguration` block as defined below.
         /// </summary>
         public readonly Outputs.NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfiguration VnetConfiguration;
 

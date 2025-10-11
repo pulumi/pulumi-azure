@@ -84,7 +84,7 @@ namespace Pulumi.Azure.AppInsights
     public partial class Workbook : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Workbook category, as defined by the user at creation time. There may be additional category types beyond the following: `workbook`, `sentinel`. Defaults to `workbook`.
+        /// Workbook category, as defined by the user at creation time. There may be additional category types beyond the following: `Workbook`, `Sentinel`. Defaults to `Workbook`.
         /// </summary>
         [Output("category")]
         public Output<string?> Category { get; private set; } = null!;
@@ -108,7 +108,7 @@ namespace Pulumi.Azure.AppInsights
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new Workbook to be created.
+        /// An `Identity` block as defined below. Changing this forces a new Workbook to be created.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.WorkbookIdentity?> Identity { get; private set; } = null!;
@@ -140,7 +140,7 @@ namespace Pulumi.Azure.AppInsights
         /// <summary>
         /// Specifies the Resource Manager ID of the Storage Container when bring your own storage is used. Changing this forces a new Workbook to be created.
         /// 
-        /// &gt; **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `resource_manager_id`.
+        /// &gt; **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `ResourceManagerId`.
         /// </summary>
         [Output("storageContainerId")]
         public Output<string?> StorageContainerId { get; private set; } = null!;
@@ -198,7 +198,7 @@ namespace Pulumi.Azure.AppInsights
     public sealed class WorkbookArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Workbook category, as defined by the user at creation time. There may be additional category types beyond the following: `workbook`, `sentinel`. Defaults to `workbook`.
+        /// Workbook category, as defined by the user at creation time. There may be additional category types beyond the following: `Workbook`, `Sentinel`. Defaults to `Workbook`.
         /// </summary>
         [Input("category")]
         public Input<string>? Category { get; set; }
@@ -222,7 +222,7 @@ namespace Pulumi.Azure.AppInsights
         public Input<string> DisplayName { get; set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new Workbook to be created.
+        /// An `Identity` block as defined below. Changing this forces a new Workbook to be created.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.WorkbookIdentityArgs>? Identity { get; set; }
@@ -254,7 +254,7 @@ namespace Pulumi.Azure.AppInsights
         /// <summary>
         /// Specifies the Resource Manager ID of the Storage Container when bring your own storage is used. Changing this forces a new Workbook to be created.
         /// 
-        /// &gt; **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `resource_manager_id`.
+        /// &gt; **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `ResourceManagerId`.
         /// </summary>
         [Input("storageContainerId")]
         public Input<string>? StorageContainerId { get; set; }
@@ -280,7 +280,7 @@ namespace Pulumi.Azure.AppInsights
     public sealed class WorkbookState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Workbook category, as defined by the user at creation time. There may be additional category types beyond the following: `workbook`, `sentinel`. Defaults to `workbook`.
+        /// Workbook category, as defined by the user at creation time. There may be additional category types beyond the following: `Workbook`, `Sentinel`. Defaults to `Workbook`.
         /// </summary>
         [Input("category")]
         public Input<string>? Category { get; set; }
@@ -304,7 +304,7 @@ namespace Pulumi.Azure.AppInsights
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new Workbook to be created.
+        /// An `Identity` block as defined below. Changing this forces a new Workbook to be created.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.WorkbookIdentityGetArgs>? Identity { get; set; }
@@ -336,7 +336,7 @@ namespace Pulumi.Azure.AppInsights
         /// <summary>
         /// Specifies the Resource Manager ID of the Storage Container when bring your own storage is used. Changing this forces a new Workbook to be created.
         /// 
-        /// &gt; **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `resource_manager_id`.
+        /// &gt; **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `ResourceManagerId`.
         /// </summary>
         [Input("storageContainerId")]
         public Input<string>? StorageContainerId { get; set; }

@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 /**
  * Manages a Linked Service (connection) between a Database and Azure Data Factory through OData protocol.
  * 
- * &gt; **Note:** All arguments including the connection_string will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+ * &gt; **Note:** All arguments including the connectionString will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
  * 
  * ## Example Usage
  * 
@@ -123,14 +123,14 @@ public class LinkedServiceOdata extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.annotations);
     }
     /**
-     * A `basic_authentication` block as defined below.
+     * A `basicAuthentication` block as defined below.
      * 
      */
     @Export(name="basicAuthentication", refs={LinkedServiceOdataBasicAuthentication.class}, tree="[0]")
     private Output</* @Nullable */ LinkedServiceOdataBasicAuthentication> basicAuthentication;
 
     /**
-     * @return A `basic_authentication` block as defined below.
+     * @return A `basicAuthentication` block as defined below.
      * 
      */
     public Output<Optional<LinkedServiceOdataBasicAuthentication>> basicAuthentication() {

@@ -194,25 +194,25 @@ namespace Pulumi.Azure.FrontDoor
     public partial class FirewallPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// If a `custom_rule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
+        /// If a `CustomRule` block's action type is `Block`, this is the response body. The body must be specified in base64 encoding.
         /// </summary>
         [Output("customBlockResponseBody")]
         public Output<string?> CustomBlockResponseBody { get; private set; } = null!;
 
         /// <summary>
-        /// If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
+        /// If a `CustomRule` block's action type is `Block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
         /// </summary>
         [Output("customBlockResponseStatusCode")]
         public Output<int?> CustomBlockResponseStatusCode { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `custom_rule` blocks as defined below.
+        /// One or more `CustomRule` blocks as defined below.
         /// </summary>
         [Output("customRules")]
         public Output<ImmutableArray<Outputs.FirewallPolicyCustomRule>> CustomRules { get; private set; } = null!;
 
         /// <summary>
-        /// Is the policy a enabled state or disabled state. Defaults to `true`.
+        /// Is the policy a enabled state or disabled state. Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -230,7 +230,7 @@ namespace Pulumi.Azure.FrontDoor
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `managed_rule` blocks as defined below.
+        /// One or more `ManagedRule` blocks as defined below.
         /// </summary>
         [Output("managedRules")]
         public Output<ImmutableArray<Outputs.FirewallPolicyManagedRule>> ManagedRules { get; private set; } = null!;
@@ -312,13 +312,13 @@ namespace Pulumi.Azure.FrontDoor
     public sealed class FirewallPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If a `custom_rule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
+        /// If a `CustomRule` block's action type is `Block`, this is the response body. The body must be specified in base64 encoding.
         /// </summary>
         [Input("customBlockResponseBody")]
         public Input<string>? CustomBlockResponseBody { get; set; }
 
         /// <summary>
-        /// If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
+        /// If a `CustomRule` block's action type is `Block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
         /// </summary>
         [Input("customBlockResponseStatusCode")]
         public Input<int>? CustomBlockResponseStatusCode { get; set; }
@@ -327,7 +327,7 @@ namespace Pulumi.Azure.FrontDoor
         private InputList<Inputs.FirewallPolicyCustomRuleArgs>? _customRules;
 
         /// <summary>
-        /// One or more `custom_rule` blocks as defined below.
+        /// One or more `CustomRule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.FirewallPolicyCustomRuleArgs> CustomRules
         {
@@ -336,7 +336,7 @@ namespace Pulumi.Azure.FrontDoor
         }
 
         /// <summary>
-        /// Is the policy a enabled state or disabled state. Defaults to `true`.
+        /// Is the policy a enabled state or disabled state. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -345,7 +345,7 @@ namespace Pulumi.Azure.FrontDoor
         private InputList<Inputs.FirewallPolicyManagedRuleArgs>? _managedRules;
 
         /// <summary>
-        /// One or more `managed_rule` blocks as defined below.
+        /// One or more `ManagedRule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.FirewallPolicyManagedRuleArgs> ManagedRules
         {
@@ -398,13 +398,13 @@ namespace Pulumi.Azure.FrontDoor
     public sealed class FirewallPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If a `custom_rule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
+        /// If a `CustomRule` block's action type is `Block`, this is the response body. The body must be specified in base64 encoding.
         /// </summary>
         [Input("customBlockResponseBody")]
         public Input<string>? CustomBlockResponseBody { get; set; }
 
         /// <summary>
-        /// If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
+        /// If a `CustomRule` block's action type is `Block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
         /// </summary>
         [Input("customBlockResponseStatusCode")]
         public Input<int>? CustomBlockResponseStatusCode { get; set; }
@@ -413,7 +413,7 @@ namespace Pulumi.Azure.FrontDoor
         private InputList<Inputs.FirewallPolicyCustomRuleGetArgs>? _customRules;
 
         /// <summary>
-        /// One or more `custom_rule` blocks as defined below.
+        /// One or more `CustomRule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.FirewallPolicyCustomRuleGetArgs> CustomRules
         {
@@ -422,7 +422,7 @@ namespace Pulumi.Azure.FrontDoor
         }
 
         /// <summary>
-        /// Is the policy a enabled state or disabled state. Defaults to `true`.
+        /// Is the policy a enabled state or disabled state. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -449,7 +449,7 @@ namespace Pulumi.Azure.FrontDoor
         private InputList<Inputs.FirewallPolicyManagedRuleGetArgs>? _managedRules;
 
         /// <summary>
-        /// One or more `managed_rule` blocks as defined below.
+        /// One or more `ManagedRule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.FirewallPolicyManagedRuleGetArgs> ManagedRules
         {

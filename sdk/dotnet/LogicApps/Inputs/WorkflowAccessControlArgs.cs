@@ -13,25 +13,25 @@ namespace Pulumi.Azure.LogicApps.Inputs
     public sealed class WorkflowAccessControlArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `action` block as defined below.
+        /// A `Action` block as defined below.
         /// </summary>
         [Input("action")]
         public Input<Inputs.WorkflowAccessControlActionArgs>? Action { get; set; }
 
         /// <summary>
-        /// A `content` block as defined below.
+        /// A `Content` block as defined below.
         /// </summary>
         [Input("content")]
         public Input<Inputs.WorkflowAccessControlContentArgs>? Content { get; set; }
 
         /// <summary>
-        /// A `trigger` block as defined below.
+        /// A `Trigger` block as defined below.
         /// </summary>
         [Input("trigger")]
         public Input<Inputs.WorkflowAccessControlTriggerArgs>? Trigger { get; set; }
 
         /// <summary>
-        /// A `workflow_management` block as defined below.
+        /// A `WorkflowManagement` block as defined below.
         /// </summary>
         [Input("workflowManagement")]
         public Input<Inputs.WorkflowAccessControlWorkflowManagementArgs>? WorkflowManagement { get; set; }

@@ -341,7 +341,7 @@ namespace Pulumi.Azure.NetApp
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `volume` blocks as defined below.
+        /// One or more `Volume` blocks as defined below.
         /// </summary>
         [Output("volumes")]
         public Output<ImmutableArray<Outputs.VolumeGroupSapHanaVolume>> Volumes { get; private set; } = null!;
@@ -432,7 +432,7 @@ namespace Pulumi.Azure.NetApp
         private InputList<Inputs.VolumeGroupSapHanaVolumeArgs>? _volumes;
 
         /// <summary>
-        /// One or more `volume` blocks as defined below.
+        /// One or more `Volume` blocks as defined below.
         /// </summary>
         public InputList<Inputs.VolumeGroupSapHanaVolumeArgs> Volumes
         {
@@ -488,7 +488,7 @@ namespace Pulumi.Azure.NetApp
         private InputList<Inputs.VolumeGroupSapHanaVolumeGetArgs>? _volumes;
 
         /// <summary>
-        /// One or more `volume` blocks as defined below.
+        /// One or more `Volume` blocks as defined below.
         /// </summary>
         public InputList<Inputs.VolumeGroupSapHanaVolumeGetArgs> Volumes
         {

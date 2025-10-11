@@ -33,12 +33,12 @@ public final class AccountBlobProperties {
      */
     private @Nullable Integer changeFeedRetentionInDays;
     /**
-     * @return A `container_delete_retention_policy` block as defined below.
+     * @return A `containerDeleteRetentionPolicy` block as defined below.
      * 
      */
     private @Nullable AccountBlobPropertiesContainerDeleteRetentionPolicy containerDeleteRetentionPolicy;
     /**
-     * @return A `cors_rule` block as defined below.
+     * @return A `corsRule` block as defined below.
      * 
      */
     private @Nullable List<AccountBlobPropertiesCorsRule> corsRules;
@@ -48,7 +48,7 @@ public final class AccountBlobProperties {
      */
     private @Nullable String defaultServiceVersion;
     /**
-     * @return A `delete_retention_policy` block as defined below.
+     * @return A `deleteRetentionPolicy` block as defined below.
      * 
      */
     private @Nullable AccountBlobPropertiesDeleteRetentionPolicy deleteRetentionPolicy;
@@ -60,11 +60,11 @@ public final class AccountBlobProperties {
      */
     private @Nullable Boolean lastAccessTimeEnabled;
     /**
-     * @return A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set, `versioning_enabled` and `change_feed_enabled` set to `true`.
+     * @return A `restorePolicy` block as defined below. This must be used together with `deleteRetentionPolicy` set, `versioningEnabled` and `changeFeedEnabled` set to `true`.
      * 
      * &gt; **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
      * 
-     * &gt; **Note:** `restore_policy` can not be configured when `dns_endpoint_type` is `AzureDnsZone`.
+     * &gt; **Note:** `restorePolicy` can not be configured when `dnsEndpointType` is `AzureDnsZone`.
      * 
      */
     private @Nullable AccountBlobPropertiesRestorePolicy restorePolicy;
@@ -96,14 +96,14 @@ public final class AccountBlobProperties {
         return Optional.ofNullable(this.changeFeedRetentionInDays);
     }
     /**
-     * @return A `container_delete_retention_policy` block as defined below.
+     * @return A `containerDeleteRetentionPolicy` block as defined below.
      * 
      */
     public Optional<AccountBlobPropertiesContainerDeleteRetentionPolicy> containerDeleteRetentionPolicy() {
         return Optional.ofNullable(this.containerDeleteRetentionPolicy);
     }
     /**
-     * @return A `cors_rule` block as defined below.
+     * @return A `corsRule` block as defined below.
      * 
      */
     public List<AccountBlobPropertiesCorsRule> corsRules() {
@@ -117,7 +117,7 @@ public final class AccountBlobProperties {
         return Optional.ofNullable(this.defaultServiceVersion);
     }
     /**
-     * @return A `delete_retention_policy` block as defined below.
+     * @return A `deleteRetentionPolicy` block as defined below.
      * 
      */
     public Optional<AccountBlobPropertiesDeleteRetentionPolicy> deleteRetentionPolicy() {
@@ -133,11 +133,11 @@ public final class AccountBlobProperties {
         return Optional.ofNullable(this.lastAccessTimeEnabled);
     }
     /**
-     * @return A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set, `versioning_enabled` and `change_feed_enabled` set to `true`.
+     * @return A `restorePolicy` block as defined below. This must be used together with `deleteRetentionPolicy` set, `versioningEnabled` and `changeFeedEnabled` set to `true`.
      * 
      * &gt; **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
      * 
-     * &gt; **Note:** `restore_policy` can not be configured when `dns_endpoint_type` is `AzureDnsZone`.
+     * &gt; **Note:** `restorePolicy` can not be configured when `dnsEndpointType` is `AzureDnsZone`.
      * 
      */
     public Optional<AccountBlobPropertiesRestorePolicy> restorePolicy() {

@@ -109,14 +109,14 @@ public final class VirtualMachineGroupArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * A `wsfc_domain_profile` block as defined below.
+     * A `wsfcDomainProfile` block as defined below.
      * 
      */
     @Import(name="wsfcDomainProfile", required=true)
     private Output<VirtualMachineGroupWsfcDomainProfileArgs> wsfcDomainProfile;
 
     /**
-     * @return A `wsfc_domain_profile` block as defined below.
+     * @return A `wsfcDomainProfile` block as defined below.
      * 
      */
     public Output<VirtualMachineGroupWsfcDomainProfileArgs> wsfcDomainProfile() {
@@ -280,7 +280,7 @@ public final class VirtualMachineGroupArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param wsfcDomainProfile A `wsfc_domain_profile` block as defined below.
+         * @param wsfcDomainProfile A `wsfcDomainProfile` block as defined below.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class VirtualMachineGroupArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param wsfcDomainProfile A `wsfc_domain_profile` block as defined below.
+         * @param wsfcDomainProfile A `wsfcDomainProfile` block as defined below.
          * 
          * @return builder
          * 

@@ -13,17 +13,17 @@ namespace Pulumi.Azure.Monitoring.Inputs
     public sealed class ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the number of violations to trigger an alert. Should be smaller or equal to `number_of_evaluation_periods`. Possible value is integer between 1 and 6.
+        /// Specifies the number of violations to trigger an alert. Should be smaller or equal to `NumberOfEvaluationPeriods`. Possible value is integer between 1 and 6.
         /// </summary>
         [Input("minimumFailingPeriodsToTriggerAlert", required: true)]
         public Input<int> MinimumFailingPeriodsToTriggerAlert { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the number of aggregated look-back points. The look-back time window is calculated based on the aggregation granularity `window_duration` and the selected number of aggregated points. Possible value is integer between 1 and 6.
+        /// Specifies the number of aggregated look-back points. The look-back time window is calculated based on the aggregation granularity `WindowDuration` and the selected number of aggregated points. Possible value is integer between 1 and 6.
         /// 
-        /// &gt; **Note:** The query look back which is `window_duration`*`number_of_evaluation_periods` cannot exceed 48 hours.
+        /// &gt; **Note:** The query look back which is `WindowDuration`*`NumberOfEvaluationPeriods` cannot exceed 48 hours.
         /// 
-        /// &gt; **Note:** `number_of_evaluation_periods` must be `1` for queries that do not project timestamp column
+        /// &gt; **Note:** `NumberOfEvaluationPeriods` must be `1` for queries that do not project timestamp column
         /// </summary>
         [Input("numberOfEvaluationPeriods", required: true)]
         public Input<int> NumberOfEvaluationPeriods { get; set; } = null!;

@@ -188,7 +188,7 @@ namespace Pulumi.Azure.NotificationHub
         public readonly string ResourceGroupName;
         public readonly string ServicebusEndpoint;
         /// <summary>
-        /// A `sku` block as defined below.
+        /// A `Sku` block as defined below.
         /// </summary>
         public readonly Outputs.GetNamespaceSkuResult Sku;
         /// <summary>

@@ -37,7 +37,7 @@ namespace Pulumi.Azure.Network.Inputs
         }
 
         /// <summary>
-        /// A `filter` block as defined below.
+        /// A `Filter` block as defined below.
         /// </summary>
         [Input("filter")]
         public Input<Inputs.NetworkConnectionMonitorEndpointFilterGetArgs>? Filter { get; set; }

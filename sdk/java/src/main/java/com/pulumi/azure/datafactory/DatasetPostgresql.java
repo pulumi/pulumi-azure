@@ -202,14 +202,14 @@ public class DatasetPostgresql extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.parameters);
     }
     /**
-     * A `schema_column` block as defined below.
+     * A `schemaColumn` block as defined below.
      * 
      */
     @Export(name="schemaColumns", refs={List.class,DatasetPostgresqlSchemaColumn.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DatasetPostgresqlSchemaColumn>> schemaColumns;
 
     /**
-     * @return A `schema_column` block as defined below.
+     * @return A `schemaColumn` block as defined below.
      * 
      */
     public Output<Optional<List<DatasetPostgresqlSchemaColumn>>> schemaColumns() {

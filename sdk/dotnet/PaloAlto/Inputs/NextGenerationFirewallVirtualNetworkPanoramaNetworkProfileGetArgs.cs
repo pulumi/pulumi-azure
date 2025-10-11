@@ -65,7 +65,7 @@ namespace Pulumi.Azure.PaloAlto.Inputs
         }
 
         /// <summary>
-        /// A `vnet_configuration` block as defined below.
+        /// A `VnetConfiguration` block as defined below.
         /// </summary>
         [Input("vnetConfiguration", required: true)]
         public Input<Inputs.NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationGetArgs> VnetConfiguration { get; set; } = null!;

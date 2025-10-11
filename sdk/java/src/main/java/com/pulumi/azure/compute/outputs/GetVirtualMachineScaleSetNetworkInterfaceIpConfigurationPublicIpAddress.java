@@ -24,7 +24,7 @@ public final class GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPubli
      */
     private Integer idleTimeoutInMinutes;
     /**
-     * @return A list of `ip_tag` blocks as defined below.
+     * @return A list of `ipTag` blocks as defined below.
      * 
      */
     private List<GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag> ipTags;
@@ -60,7 +60,7 @@ public final class GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPubli
         return this.idleTimeoutInMinutes;
     }
     /**
-     * @return A list of `ip_tag` blocks as defined below.
+     * @return A list of `ipTag` blocks as defined below.
      * 
      */
     public List<GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag> ipTags() {

@@ -22,7 +22,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string AppSecret;
         /// <summary>
-        /// The app setting name that contains the `app_secret` value used for Facebook Login.
+        /// The app setting name that contains the `AppSecret` value used for Facebook Login.
         /// </summary>
         public readonly string AppSecretSettingName;
         /// <summary>

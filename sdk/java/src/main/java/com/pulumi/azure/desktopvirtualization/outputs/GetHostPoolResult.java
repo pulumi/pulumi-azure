@@ -63,7 +63,7 @@ public final class GetHostPoolResult {
     private String preferredAppGroupType;
     private String resourceGroupName;
     /**
-     * @return A `scheduled_agent_updates` block as defined below.
+     * @return A `scheduledAgentUpdates` block as defined below.
      * 
      */
     private List<GetHostPoolScheduledAgentUpdate> scheduledAgentUpdates;
@@ -159,7 +159,7 @@ public final class GetHostPoolResult {
         return this.resourceGroupName;
     }
     /**
-     * @return A `scheduled_agent_updates` block as defined below.
+     * @return A `scheduledAgentUpdates` block as defined below.
      * 
      */
     public List<GetHostPoolScheduledAgentUpdate> scheduledAgentUpdates() {

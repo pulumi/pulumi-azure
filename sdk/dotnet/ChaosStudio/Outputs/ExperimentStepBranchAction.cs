@@ -14,23 +14,23 @@ namespace Pulumi.Azure.ChaosStudio.Outputs
     public sealed class ExperimentStepBranchAction
     {
         /// <summary>
-        /// The type of action that should be added to the experiment. Possible values are `continuous`, `delay` and `discrete`.
+        /// The type of action that should be added to the experiment. Possible values are `Continuous`, `Delay` and `Discrete`.
         /// </summary>
         public readonly string ActionType;
         /// <summary>
-        /// An ISO8601 formatted string specifying the duration for a `delay` or `continuous` action.
+        /// An ISO8601 formatted string specifying the duration for a `Delay` or `Continuous` action.
         /// </summary>
         public readonly string? Duration;
         /// <summary>
-        /// A key-value map of additional parameters to configure the action. The values that are accepted by this depend on the `urn` i.e. the capability/fault that is applied. Possible parameter values can be found in this [documentation](https://learn.microsoft.com/azure/chaos-studio/chaos-studio-fault-library)
+        /// A key-value map of additional parameters to configure the action. The values that are accepted by this depend on the `Urn` i.e. the capability/fault that is applied. Possible parameter values can be found in this [documentation](https://learn.microsoft.com/azure/chaos-studio/chaos-studio-fault-library)
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Parameters;
         /// <summary>
-        /// The name of the Selector to which this action should apply to. This must be specified if the `action_type` is `continuous` or `discrete`.
+        /// The name of the Selector to which this action should apply to. This must be specified if the `ActionType` is `Continuous` or `Discrete`.
         /// </summary>
         public readonly string? SelectorName;
         /// <summary>
-        /// The Unique Resource Name of the action, this value is provided by the `azure.chaosstudio.Capability` resource e.g. `azurerm_chaos_studio_capability.example.urn`. This must be specified if the `action_type` is `continuous` or `discrete`.
+        /// The Unique Resource Name of the action, this value is provided by the `azure.chaosstudio.Capability` resource e.g. `azurerm_chaos_studio_capability.example.urn`. This must be specified if the `ActionType` is `Continuous` or `Discrete`.
         /// </summary>
         public readonly string? Urn;
 

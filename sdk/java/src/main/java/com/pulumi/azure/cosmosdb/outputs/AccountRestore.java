@@ -20,7 +20,7 @@ public final class AccountRestore {
      */
     private @Nullable List<AccountRestoreDatabase> databases;
     /**
-     * @return One or more `gremlin_database` blocks as defined below. Changing this forces a new resource to be created.
+     * @return One or more `gremlinDatabase` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable List<AccountRestoreGremlinDatabase> gremlinDatabases;
@@ -51,7 +51,7 @@ public final class AccountRestore {
         return this.databases == null ? List.of() : this.databases;
     }
     /**
-     * @return One or more `gremlin_database` blocks as defined below. Changing this forces a new resource to be created.
+     * @return One or more `gremlinDatabase` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public List<AccountRestoreGremlinDatabase> gremlinDatabases() {

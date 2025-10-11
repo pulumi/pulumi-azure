@@ -41,7 +41,7 @@ public final class KubernetesClusterMaintenanceWindowAutoUpgrade {
      */
     private Integer interval;
     /**
-     * @return One or more `not_allowed` block as defined below.
+     * @return One or more `notAllowed` block as defined below.
      * 
      */
     private @Nullable List<KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowed> notAlloweds;
@@ -51,7 +51,7 @@ public final class KubernetesClusterMaintenanceWindowAutoUpgrade {
      */
     private @Nullable String startDate;
     /**
-     * @return The time for maintenance to begin, based on the timezone determined by `utc_offset`. Format is `HH:mm`.
+     * @return The time for maintenance to begin, based on the timezone determined by `utcOffset`. Format is `HH:mm`.
      * 
      */
     private @Nullable String startTime;
@@ -61,7 +61,7 @@ public final class KubernetesClusterMaintenanceWindowAutoUpgrade {
      */
     private @Nullable String utcOffset;
     /**
-     * @return Specifies on which instance of the allowed days specified in `day_of_week` the maintenance occurs. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
+     * @return Specifies on which instance of the allowed days specified in `dayOfWeek` the maintenance occurs. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
      * Required in combination with relative monthly frequency.
      * 
      */
@@ -104,7 +104,7 @@ public final class KubernetesClusterMaintenanceWindowAutoUpgrade {
         return this.interval;
     }
     /**
-     * @return One or more `not_allowed` block as defined below.
+     * @return One or more `notAllowed` block as defined below.
      * 
      */
     public List<KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowed> notAlloweds() {
@@ -118,7 +118,7 @@ public final class KubernetesClusterMaintenanceWindowAutoUpgrade {
         return Optional.ofNullable(this.startDate);
     }
     /**
-     * @return The time for maintenance to begin, based on the timezone determined by `utc_offset`. Format is `HH:mm`.
+     * @return The time for maintenance to begin, based on the timezone determined by `utcOffset`. Format is `HH:mm`.
      * 
      */
     public Optional<String> startTime() {
@@ -132,7 +132,7 @@ public final class KubernetesClusterMaintenanceWindowAutoUpgrade {
         return Optional.ofNullable(this.utcOffset);
     }
     /**
-     * @return Specifies on which instance of the allowed days specified in `day_of_week` the maintenance occurs. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
+     * @return Specifies on which instance of the allowed days specified in `dayOfWeek` the maintenance occurs. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
      * Required in combination with relative monthly frequency.
      * 
      */

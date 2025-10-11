@@ -20,7 +20,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// <summary>
         /// The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
         /// 
-        /// &gt; **Note:** If a percentage is provided, the number of surge nodes is calculated from the `node_count` value on the current cluster. Node surge can allow a cluster to have more nodes than `max_count` during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade.
+        /// &gt; **Note:** If a percentage is provided, the number of surge nodes is calculated from the `NodeCount` value on the current cluster. Node surge can allow a cluster to have more nodes than `MaxCount` during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade.
         /// </summary>
         public readonly string MaxSurge;
         /// <summary>

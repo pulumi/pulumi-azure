@@ -25,19 +25,19 @@ public final class WorkspaceCustomParameters {
     /**
      * @return Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `true`.
      * 
-     * &gt; **Note:** Updating `no_public_ip` parameter is only allowed if the value is changing from `false` to `true` and only for VNet-injected workspaces.
+     * &gt; **Note:** Updating `noPublicIp` parameter is only allowed if the value is changing from `false` to `true` and only for VNet-injected workspaces.
      * 
-     * &gt; **Note:** In `v3.104.0` and higher of the provider the `no_public_ip` parameter will now default to `true` instead of `false`.
+     * &gt; **Note:** In `v3.104.0` and higher of the provider the `noPublicIp` parameter will now default to `true` instead of `false`.
      * 
      */
     private @Nullable Boolean noPublicIp;
     /**
-     * @return The name of the Private Subnet within the Virtual Network. Required if `virtual_network_id` is set. Changing this forces a new resource to be created.
+     * @return The name of the Private Subnet within the Virtual Network. Required if `virtualNetworkId` is set. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String privateSubnetName;
     /**
-     * @return The resource ID of the `azure.network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `private_subnet_name` field. This is the same as the ID of the subnet referred to by the `private_subnet_name` field. Required if `virtual_network_id` is set.
+     * @return The resource ID of the `azure.network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `privateSubnetName` field. This is the same as the ID of the subnet referred to by the `privateSubnetName` field. Required if `virtualNetworkId` is set.
      * 
      */
     private @Nullable String privateSubnetNetworkSecurityGroupAssociationId;
@@ -47,12 +47,12 @@ public final class WorkspaceCustomParameters {
      */
     private @Nullable String publicIpName;
     /**
-     * @return The name of the Public Subnet within the Virtual Network. Required if `virtual_network_id` is set. Changing this forces a new resource to be created.
+     * @return The name of the Public Subnet within the Virtual Network. Required if `virtualNetworkId` is set. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String publicSubnetName;
     /**
-     * @return The resource ID of the `azure.network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `public_subnet_name` field. This is the same as the ID of the subnet referred to by the `public_subnet_name` field. Required if `virtual_network_id` is set.
+     * @return The resource ID of the `azure.network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `publicSubnetName` field. This is the same as the ID of the subnet referred to by the `publicSubnetName` field. Required if `virtualNetworkId` is set.
      * 
      */
     private @Nullable String publicSubnetNetworkSecurityGroupAssociationId;
@@ -74,7 +74,7 @@ public final class WorkspaceCustomParameters {
     /**
      * @return Address prefix for Managed virtual network. Defaults to `10.139`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Databricks requires that a network security group is associated with the `public` and `private` subnets when a `virtual_network_id` has been defined. Both `public` and `private` subnets must be delegated to `Microsoft.Databricks/workspaces`. For more information about subnet delegation see the [product documentation](https://docs.microsoft.com/azure/virtual-network/subnet-delegation-overview).
+     * &gt; **Note:** Databricks requires that a network security group is associated with the `public` and `private` subnets when a `virtualNetworkId` has been defined. Both `public` and `private` subnets must be delegated to `Microsoft.Databricks/workspaces`. For more information about subnet delegation see the [product documentation](https://docs.microsoft.com/azure/virtual-network/subnet-delegation-overview).
      * 
      */
     private @Nullable String vnetAddressPrefix;
@@ -97,23 +97,23 @@ public final class WorkspaceCustomParameters {
     /**
      * @return Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `true`.
      * 
-     * &gt; **Note:** Updating `no_public_ip` parameter is only allowed if the value is changing from `false` to `true` and only for VNet-injected workspaces.
+     * &gt; **Note:** Updating `noPublicIp` parameter is only allowed if the value is changing from `false` to `true` and only for VNet-injected workspaces.
      * 
-     * &gt; **Note:** In `v3.104.0` and higher of the provider the `no_public_ip` parameter will now default to `true` instead of `false`.
+     * &gt; **Note:** In `v3.104.0` and higher of the provider the `noPublicIp` parameter will now default to `true` instead of `false`.
      * 
      */
     public Optional<Boolean> noPublicIp() {
         return Optional.ofNullable(this.noPublicIp);
     }
     /**
-     * @return The name of the Private Subnet within the Virtual Network. Required if `virtual_network_id` is set. Changing this forces a new resource to be created.
+     * @return The name of the Private Subnet within the Virtual Network. Required if `virtualNetworkId` is set. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> privateSubnetName() {
         return Optional.ofNullable(this.privateSubnetName);
     }
     /**
-     * @return The resource ID of the `azure.network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `private_subnet_name` field. This is the same as the ID of the subnet referred to by the `private_subnet_name` field. Required if `virtual_network_id` is set.
+     * @return The resource ID of the `azure.network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `privateSubnetName` field. This is the same as the ID of the subnet referred to by the `privateSubnetName` field. Required if `virtualNetworkId` is set.
      * 
      */
     public Optional<String> privateSubnetNetworkSecurityGroupAssociationId() {
@@ -127,14 +127,14 @@ public final class WorkspaceCustomParameters {
         return Optional.ofNullable(this.publicIpName);
     }
     /**
-     * @return The name of the Public Subnet within the Virtual Network. Required if `virtual_network_id` is set. Changing this forces a new resource to be created.
+     * @return The name of the Public Subnet within the Virtual Network. Required if `virtualNetworkId` is set. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> publicSubnetName() {
         return Optional.ofNullable(this.publicSubnetName);
     }
     /**
-     * @return The resource ID of the `azure.network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `public_subnet_name` field. This is the same as the ID of the subnet referred to by the `public_subnet_name` field. Required if `virtual_network_id` is set.
+     * @return The resource ID of the `azure.network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `publicSubnetName` field. This is the same as the ID of the subnet referred to by the `publicSubnetName` field. Required if `virtualNetworkId` is set.
      * 
      */
     public Optional<String> publicSubnetNetworkSecurityGroupAssociationId() {
@@ -164,7 +164,7 @@ public final class WorkspaceCustomParameters {
     /**
      * @return Address prefix for Managed virtual network. Defaults to `10.139`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Databricks requires that a network security group is associated with the `public` and `private` subnets when a `virtual_network_id` has been defined. Both `public` and `private` subnets must be delegated to `Microsoft.Databricks/workspaces`. For more information about subnet delegation see the [product documentation](https://docs.microsoft.com/azure/virtual-network/subnet-delegation-overview).
+     * &gt; **Note:** Databricks requires that a network security group is associated with the `public` and `private` subnets when a `virtualNetworkId` has been defined. Both `public` and `private` subnets must be delegated to `Microsoft.Databricks/workspaces`. For more information about subnet delegation see the [product documentation](https://docs.microsoft.com/azure/virtual-network/subnet-delegation-overview).
      * 
      */
     public Optional<String> vnetAddressPrefix() {

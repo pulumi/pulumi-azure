@@ -131,14 +131,14 @@ public final class SubscriptionPolicyAssignmentState extends com.pulumi.resource
     }
 
     /**
-     * One or more `non_compliance_message` blocks as defined below.
+     * One or more `nonComplianceMessage` blocks as defined below.
      * 
      */
     @Import(name="nonComplianceMessages")
     private @Nullable Output<List<SubscriptionPolicyAssignmentNonComplianceMessageArgs>> nonComplianceMessages;
 
     /**
-     * @return One or more `non_compliance_message` blocks as defined below.
+     * @return One or more `nonComplianceMessage` blocks as defined below.
      * 
      */
     public Optional<Output<List<SubscriptionPolicyAssignmentNonComplianceMessageArgs>>> nonComplianceMessages() {
@@ -161,14 +161,14 @@ public final class SubscriptionPolicyAssignmentState extends com.pulumi.resource
     }
 
     /**
-     * One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
+     * One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
      * 
      */
     @Import(name="overrides")
     private @Nullable Output<List<SubscriptionPolicyAssignmentOverrideArgs>> overrides;
 
     /**
-     * @return One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
+     * @return One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
      * 
      */
     public Optional<Output<List<SubscriptionPolicyAssignmentOverrideArgs>>> overrides() {
@@ -206,14 +206,14 @@ public final class SubscriptionPolicyAssignmentState extends com.pulumi.resource
     }
 
     /**
-     * One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
+     * One or more `resourceSelectors` blocks as defined below to filter polices by resource properties.
      * 
      */
     @Import(name="resourceSelectors")
     private @Nullable Output<List<SubscriptionPolicyAssignmentResourceSelectorArgs>> resourceSelectors;
 
     /**
-     * @return One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
+     * @return One or more `resourceSelectors` blocks as defined below to filter polices by resource properties.
      * 
      */
     public Optional<Output<List<SubscriptionPolicyAssignmentResourceSelectorArgs>>> resourceSelectors() {
@@ -424,7 +424,7 @@ public final class SubscriptionPolicyAssignmentState extends com.pulumi.resource
         }
 
         /**
-         * @param nonComplianceMessages One or more `non_compliance_message` blocks as defined below.
+         * @param nonComplianceMessages One or more `nonComplianceMessage` blocks as defined below.
          * 
          * @return builder
          * 
@@ -435,7 +435,7 @@ public final class SubscriptionPolicyAssignmentState extends com.pulumi.resource
         }
 
         /**
-         * @param nonComplianceMessages One or more `non_compliance_message` blocks as defined below.
+         * @param nonComplianceMessages One or more `nonComplianceMessage` blocks as defined below.
          * 
          * @return builder
          * 
@@ -445,7 +445,7 @@ public final class SubscriptionPolicyAssignmentState extends com.pulumi.resource
         }
 
         /**
-         * @param nonComplianceMessages One or more `non_compliance_message` blocks as defined below.
+         * @param nonComplianceMessages One or more `nonComplianceMessage` blocks as defined below.
          * 
          * @return builder
          * 
@@ -486,7 +486,7 @@ public final class SubscriptionPolicyAssignmentState extends com.pulumi.resource
         }
 
         /**
-         * @param overrides One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
+         * @param overrides One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
          * 
          * @return builder
          * 
@@ -497,7 +497,7 @@ public final class SubscriptionPolicyAssignmentState extends com.pulumi.resource
         }
 
         /**
-         * @param overrides One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
+         * @param overrides One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
          * 
          * @return builder
          * 
@@ -507,7 +507,7 @@ public final class SubscriptionPolicyAssignmentState extends com.pulumi.resource
         }
 
         /**
-         * @param overrides One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
+         * @param overrides One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
          * 
          * @return builder
          * 
@@ -559,7 +559,7 @@ public final class SubscriptionPolicyAssignmentState extends com.pulumi.resource
         }
 
         /**
-         * @param resourceSelectors One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
+         * @param resourceSelectors One or more `resourceSelectors` blocks as defined below to filter polices by resource properties.
          * 
          * @return builder
          * 
@@ -570,7 +570,7 @@ public final class SubscriptionPolicyAssignmentState extends com.pulumi.resource
         }
 
         /**
-         * @param resourceSelectors One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
+         * @param resourceSelectors One or more `resourceSelectors` blocks as defined below to filter polices by resource properties.
          * 
          * @return builder
          * 
@@ -580,7 +580,7 @@ public final class SubscriptionPolicyAssignmentState extends com.pulumi.resource
         }
 
         /**
-         * @param resourceSelectors One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
+         * @param resourceSelectors One or more `resourceSelectors` blocks as defined below to filter polices by resource properties.
          * 
          * @return builder
          * 

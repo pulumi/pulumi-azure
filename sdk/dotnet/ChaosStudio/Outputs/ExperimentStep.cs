@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ChaosStudio.Outputs
     public sealed class ExperimentStep
     {
         /// <summary>
-        /// One or more `branch` blocks as defined above.
+        /// One or more `Branch` blocks as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.ExperimentStepBranch> Branches;
         /// <summary>

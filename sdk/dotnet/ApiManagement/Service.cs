@@ -58,13 +58,13 @@ namespace Pulumi.Azure.ApiManagement
     public partial class Service : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// One or more `additional_location` blocks as defined below.
+        /// One or more `AdditionalLocation` blocks as defined below.
         /// </summary>
         [Output("additionalLocations")]
         public Output<ImmutableArray<Outputs.ServiceAdditionalLocation>> AdditionalLocations { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `certificate` blocks (up to 10) as defined below.
+        /// One or more `Certificate` blocks (up to 10) as defined below.
         /// </summary>
         [Output("certificates")]
         public Output<ImmutableArray<Outputs.ServiceCertificate>> Certificates { get; private set; } = null!;
@@ -76,7 +76,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<bool?> ClientCertificateEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A `delegation` block as defined below.
+        /// A `Delegation` block as defined below.
         /// </summary>
         [Output("delegation")]
         public Output<Outputs.ServiceDelegation> Delegation { get; private set; } = null!;
@@ -88,7 +88,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> DeveloperPortalUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Disable the gateway in main region? This is only supported when `additional_location` is set.
+        /// Disable the gateway in main region? This is only supported when `AdditionalLocation` is set.
         /// </summary>
         [Output("gatewayDisabled")]
         public Output<bool?> GatewayDisabled { get; private set; } = null!;
@@ -106,13 +106,13 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> GatewayUrl { get; private set; } = null!;
 
         /// <summary>
-        /// A `hostname_configuration` block as defined below.
+        /// A `HostnameConfiguration` block as defined below.
         /// </summary>
         [Output("hostnameConfiguration")]
         public Output<Outputs.ServiceHostnameConfiguration> HostnameConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ServiceIdentity?> Identity { get; private set; } = null!;
@@ -160,7 +160,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<ImmutableArray<string>> PrivateIpAddresses { get; private set; } = null!;
 
         /// <summary>
-        /// A `protocols` block as defined below.
+        /// A `Protocols` block as defined below.
         /// </summary>
         [Output("protocols")]
         public Output<Outputs.ServiceProtocols> Protocols { get; private set; } = null!;
@@ -180,9 +180,9 @@ namespace Pulumi.Azure.ApiManagement
         public Output<ImmutableArray<string>> PublicIpAddresses { get; private set; } = null!;
 
         /// <summary>
-        /// Is public access to the service allowed? Defaults to `true`.
+        /// Is public access to the service allowed? Defaults to `True`.
         /// 
-        /// &gt; **Note:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `true` on the creation.
+        /// &gt; **Note:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `True` on the creation.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
@@ -212,25 +212,25 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> ScmUrl { get; private set; } = null!;
 
         /// <summary>
-        /// A `security` block as defined below.
+        /// A `Security` block as defined below.
         /// </summary>
         [Output("security")]
         public Output<Outputs.ServiceSecurity> Security { get; private set; } = null!;
 
         /// <summary>
-        /// A `sign_in` block as defined below.
+        /// A `SignIn` block as defined below.
         /// </summary>
         [Output("signIn")]
         public Output<Outputs.ServiceSignIn> SignIn { get; private set; } = null!;
 
         /// <summary>
-        /// A `sign_up` block as defined below.
+        /// A `SignUp` block as defined below.
         /// </summary>
         [Output("signUp")]
         public Output<Outputs.ServiceSignUp> SignUp { get; private set; } = null!;
 
         /// <summary>
-        /// `sku_name` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `BasicV2`, `Standard`, `StandardV2`, `Premium` and `PremiumV2`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+        /// `SkuName` is a string consisting of two parts separated by an underscore(\_). The first part is the `Name`, valid values include: `Consumption`, `Developer`, `Basic`, `BasicV2`, `Standard`, `StandardV2`, `Premium` and `PremiumV2`. The second part is the `Capacity` (e.g. the number of deployed units of the `Sku`), which must be a positive `Integer` (e.g. `Developer_1`).
         /// 
         /// &gt; **Note:** Premium SKUs are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
         /// 
@@ -246,13 +246,13 @@ namespace Pulumi.Azure.ApiManagement
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A `tenant_access` block as defined below.
+        /// A `TenantAccess` block as defined below.
         /// </summary>
         [Output("tenantAccess")]
         public Output<Outputs.ServiceTenantAccess> TenantAccess { get; private set; } = null!;
 
         /// <summary>
-        /// A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
+        /// A `VirtualNetworkConfiguration` block as defined below. Required when `VirtualNetworkType` is `External` or `Internal`.
         /// </summary>
         [Output("virtualNetworkConfiguration")]
         public Output<Outputs.ServiceVirtualNetworkConfiguration?> VirtualNetworkConfiguration { get; private set; } = null!;
@@ -260,7 +260,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. Defaults to `None`.
         /// 
-        /// &gt; **Note:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. Additionally, please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
+        /// &gt; **Note:** Please ensure that in the subnet, inbound port 3443 is open when `VirtualNetworkType` is `Internal` or `External`. Additionally, please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
         /// </summary>
         [Output("virtualNetworkType")]
         public Output<string?> VirtualNetworkType { get; private set; } = null!;
@@ -323,7 +323,7 @@ namespace Pulumi.Azure.ApiManagement
         private InputList<Inputs.ServiceAdditionalLocationArgs>? _additionalLocations;
 
         /// <summary>
-        /// One or more `additional_location` blocks as defined below.
+        /// One or more `AdditionalLocation` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ServiceAdditionalLocationArgs> AdditionalLocations
         {
@@ -335,7 +335,7 @@ namespace Pulumi.Azure.ApiManagement
         private InputList<Inputs.ServiceCertificateArgs>? _certificates;
 
         /// <summary>
-        /// One or more `certificate` blocks (up to 10) as defined below.
+        /// One or more `Certificate` blocks (up to 10) as defined below.
         /// </summary>
         public InputList<Inputs.ServiceCertificateArgs> Certificates
         {
@@ -350,25 +350,25 @@ namespace Pulumi.Azure.ApiManagement
         public Input<bool>? ClientCertificateEnabled { get; set; }
 
         /// <summary>
-        /// A `delegation` block as defined below.
+        /// A `Delegation` block as defined below.
         /// </summary>
         [Input("delegation")]
         public Input<Inputs.ServiceDelegationArgs>? Delegation { get; set; }
 
         /// <summary>
-        /// Disable the gateway in main region? This is only supported when `additional_location` is set.
+        /// Disable the gateway in main region? This is only supported when `AdditionalLocation` is set.
         /// </summary>
         [Input("gatewayDisabled")]
         public Input<bool>? GatewayDisabled { get; set; }
 
         /// <summary>
-        /// A `hostname_configuration` block as defined below.
+        /// A `HostnameConfiguration` block as defined below.
         /// </summary>
         [Input("hostnameConfiguration")]
         public Input<Inputs.ServiceHostnameConfigurationArgs>? HostnameConfiguration { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ServiceIdentityArgs>? Identity { get; set; }
@@ -398,7 +398,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? NotificationSenderEmail { get; set; }
 
         /// <summary>
-        /// A `protocols` block as defined below.
+        /// A `Protocols` block as defined below.
         /// </summary>
         [Input("protocols")]
         public Input<Inputs.ServiceProtocolsArgs>? Protocols { get; set; }
@@ -412,9 +412,9 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? PublicIpAddressId { get; set; }
 
         /// <summary>
-        /// Is public access to the service allowed? Defaults to `true`.
+        /// Is public access to the service allowed? Defaults to `True`.
         /// 
-        /// &gt; **Note:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `true` on the creation.
+        /// &gt; **Note:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `True` on the creation.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -438,25 +438,25 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `security` block as defined below.
+        /// A `Security` block as defined below.
         /// </summary>
         [Input("security")]
         public Input<Inputs.ServiceSecurityArgs>? Security { get; set; }
 
         /// <summary>
-        /// A `sign_in` block as defined below.
+        /// A `SignIn` block as defined below.
         /// </summary>
         [Input("signIn")]
         public Input<Inputs.ServiceSignInArgs>? SignIn { get; set; }
 
         /// <summary>
-        /// A `sign_up` block as defined below.
+        /// A `SignUp` block as defined below.
         /// </summary>
         [Input("signUp")]
         public Input<Inputs.ServiceSignUpArgs>? SignUp { get; set; }
 
         /// <summary>
-        /// `sku_name` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `BasicV2`, `Standard`, `StandardV2`, `Premium` and `PremiumV2`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+        /// `SkuName` is a string consisting of two parts separated by an underscore(\_). The first part is the `Name`, valid values include: `Consumption`, `Developer`, `Basic`, `BasicV2`, `Standard`, `StandardV2`, `Premium` and `PremiumV2`. The second part is the `Capacity` (e.g. the number of deployed units of the `Sku`), which must be a positive `Integer` (e.g. `Developer_1`).
         /// 
         /// &gt; **Note:** Premium SKUs are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
         /// 
@@ -478,13 +478,13 @@ namespace Pulumi.Azure.ApiManagement
         }
 
         /// <summary>
-        /// A `tenant_access` block as defined below.
+        /// A `TenantAccess` block as defined below.
         /// </summary>
         [Input("tenantAccess")]
         public Input<Inputs.ServiceTenantAccessArgs>? TenantAccess { get; set; }
 
         /// <summary>
-        /// A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
+        /// A `VirtualNetworkConfiguration` block as defined below. Required when `VirtualNetworkType` is `External` or `Internal`.
         /// </summary>
         [Input("virtualNetworkConfiguration")]
         public Input<Inputs.ServiceVirtualNetworkConfigurationArgs>? VirtualNetworkConfiguration { get; set; }
@@ -492,7 +492,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. Defaults to `None`.
         /// 
-        /// &gt; **Note:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. Additionally, please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
+        /// &gt; **Note:** Please ensure that in the subnet, inbound port 3443 is open when `VirtualNetworkType` is `Internal` or `External`. Additionally, please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
         /// </summary>
         [Input("virtualNetworkType")]
         public Input<string>? VirtualNetworkType { get; set; }
@@ -523,7 +523,7 @@ namespace Pulumi.Azure.ApiManagement
         private InputList<Inputs.ServiceAdditionalLocationGetArgs>? _additionalLocations;
 
         /// <summary>
-        /// One or more `additional_location` blocks as defined below.
+        /// One or more `AdditionalLocation` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ServiceAdditionalLocationGetArgs> AdditionalLocations
         {
@@ -535,7 +535,7 @@ namespace Pulumi.Azure.ApiManagement
         private InputList<Inputs.ServiceCertificateGetArgs>? _certificates;
 
         /// <summary>
-        /// One or more `certificate` blocks (up to 10) as defined below.
+        /// One or more `Certificate` blocks (up to 10) as defined below.
         /// </summary>
         public InputList<Inputs.ServiceCertificateGetArgs> Certificates
         {
@@ -550,7 +550,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<bool>? ClientCertificateEnabled { get; set; }
 
         /// <summary>
-        /// A `delegation` block as defined below.
+        /// A `Delegation` block as defined below.
         /// </summary>
         [Input("delegation")]
         public Input<Inputs.ServiceDelegationGetArgs>? Delegation { get; set; }
@@ -562,7 +562,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? DeveloperPortalUrl { get; set; }
 
         /// <summary>
-        /// Disable the gateway in main region? This is only supported when `additional_location` is set.
+        /// Disable the gateway in main region? This is only supported when `AdditionalLocation` is set.
         /// </summary>
         [Input("gatewayDisabled")]
         public Input<bool>? GatewayDisabled { get; set; }
@@ -580,13 +580,13 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? GatewayUrl { get; set; }
 
         /// <summary>
-        /// A `hostname_configuration` block as defined below.
+        /// A `HostnameConfiguration` block as defined below.
         /// </summary>
         [Input("hostnameConfiguration")]
         public Input<Inputs.ServiceHostnameConfigurationGetArgs>? HostnameConfiguration { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ServiceIdentityGetArgs>? Identity { get; set; }
@@ -640,7 +640,7 @@ namespace Pulumi.Azure.ApiManagement
         }
 
         /// <summary>
-        /// A `protocols` block as defined below.
+        /// A `Protocols` block as defined below.
         /// </summary>
         [Input("protocols")]
         public Input<Inputs.ServiceProtocolsGetArgs>? Protocols { get; set; }
@@ -666,9 +666,9 @@ namespace Pulumi.Azure.ApiManagement
         }
 
         /// <summary>
-        /// Is public access to the service allowed? Defaults to `true`.
+        /// Is public access to the service allowed? Defaults to `True`.
         /// 
-        /// &gt; **Note:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `true` on the creation.
+        /// &gt; **Note:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `True` on the creation.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -698,25 +698,25 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? ScmUrl { get; set; }
 
         /// <summary>
-        /// A `security` block as defined below.
+        /// A `Security` block as defined below.
         /// </summary>
         [Input("security")]
         public Input<Inputs.ServiceSecurityGetArgs>? Security { get; set; }
 
         /// <summary>
-        /// A `sign_in` block as defined below.
+        /// A `SignIn` block as defined below.
         /// </summary>
         [Input("signIn")]
         public Input<Inputs.ServiceSignInGetArgs>? SignIn { get; set; }
 
         /// <summary>
-        /// A `sign_up` block as defined below.
+        /// A `SignUp` block as defined below.
         /// </summary>
         [Input("signUp")]
         public Input<Inputs.ServiceSignUpGetArgs>? SignUp { get; set; }
 
         /// <summary>
-        /// `sku_name` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `BasicV2`, `Standard`, `StandardV2`, `Premium` and `PremiumV2`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+        /// `SkuName` is a string consisting of two parts separated by an underscore(\_). The first part is the `Name`, valid values include: `Consumption`, `Developer`, `Basic`, `BasicV2`, `Standard`, `StandardV2`, `Premium` and `PremiumV2`. The second part is the `Capacity` (e.g. the number of deployed units of the `Sku`), which must be a positive `Integer` (e.g. `Developer_1`).
         /// 
         /// &gt; **Note:** Premium SKUs are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
         /// 
@@ -738,13 +738,13 @@ namespace Pulumi.Azure.ApiManagement
         }
 
         /// <summary>
-        /// A `tenant_access` block as defined below.
+        /// A `TenantAccess` block as defined below.
         /// </summary>
         [Input("tenantAccess")]
         public Input<Inputs.ServiceTenantAccessGetArgs>? TenantAccess { get; set; }
 
         /// <summary>
-        /// A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
+        /// A `VirtualNetworkConfiguration` block as defined below. Required when `VirtualNetworkType` is `External` or `Internal`.
         /// </summary>
         [Input("virtualNetworkConfiguration")]
         public Input<Inputs.ServiceVirtualNetworkConfigurationGetArgs>? VirtualNetworkConfiguration { get; set; }
@@ -752,7 +752,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. Defaults to `None`.
         /// 
-        /// &gt; **Note:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. Additionally, please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
+        /// &gt; **Note:** Please ensure that in the subnet, inbound port 3443 is open when `VirtualNetworkType` is `Internal` or `External`. Additionally, please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
         /// </summary>
         [Input("virtualNetworkType")]
         public Input<string>? VirtualNetworkType { get; set; }

@@ -19,7 +19,7 @@ public final class GetResolverInboundEndpointResult {
      */
     private String id;
     /**
-     * @return A list of `ip_configurations` block as defined below.
+     * @return A list of `ipConfigurations` block as defined below.
      * 
      */
     private List<GetResolverInboundEndpointIpConfiguration> ipConfigurations;
@@ -45,7 +45,7 @@ public final class GetResolverInboundEndpointResult {
         return this.id;
     }
     /**
-     * @return A list of `ip_configurations` block as defined below.
+     * @return A list of `ipConfigurations` block as defined below.
      * 
      */
     public List<GetResolverInboundEndpointIpConfiguration> ipConfigurations() {

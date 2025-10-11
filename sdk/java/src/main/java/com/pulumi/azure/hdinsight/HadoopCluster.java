@@ -164,42 +164,42 @@ public class HadoopCluster extends com.pulumi.resources.CustomResource {
         return this.clusterVersion;
     }
     /**
-     * A `component_version` block as defined below.
+     * A `componentVersion` block as defined below.
      * 
      */
     @Export(name="componentVersion", refs={HadoopClusterComponentVersion.class}, tree="[0]")
     private Output<HadoopClusterComponentVersion> componentVersion;
 
     /**
-     * @return A `component_version` block as defined below.
+     * @return A `componentVersion` block as defined below.
      * 
      */
     public Output<HadoopClusterComponentVersion> componentVersion() {
         return this.componentVersion;
     }
     /**
-     * A `compute_isolation` block as defined below.
+     * A `computeIsolation` block as defined below.
      * 
      */
     @Export(name="computeIsolation", refs={HadoopClusterComputeIsolation.class}, tree="[0]")
     private Output</* @Nullable */ HadoopClusterComputeIsolation> computeIsolation;
 
     /**
-     * @return A `compute_isolation` block as defined below.
+     * @return A `computeIsolation` block as defined below.
      * 
      */
     public Output<Optional<HadoopClusterComputeIsolation>> computeIsolation() {
         return Codegen.optional(this.computeIsolation);
     }
     /**
-     * One or more `disk_encryption` block as defined below.
+     * One or more `diskEncryption` block as defined below.
      * 
      */
     @Export(name="diskEncryptions", refs={List.class,HadoopClusterDiskEncryption.class}, tree="[0,1]")
     private Output</* @Nullable */ List<HadoopClusterDiskEncryption>> diskEncryptions;
 
     /**
-     * @return One or more `disk_encryption` block as defined below.
+     * @return One or more `diskEncryption` block as defined below.
      * 
      */
     public Output<Optional<List<HadoopClusterDiskEncryption>>> diskEncryptions() {
@@ -318,14 +318,14 @@ public class HadoopCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.network);
     }
     /**
-     * A `private_link_configuration` block as defined below.
+     * A `privateLinkConfiguration` block as defined below.
      * 
      */
     @Export(name="privateLinkConfiguration", refs={HadoopClusterPrivateLinkConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ HadoopClusterPrivateLinkConfiguration> privateLinkConfiguration;
 
     /**
-     * @return A `private_link_configuration` block as defined below.
+     * @return A `privateLinkConfiguration` block as defined below.
      * 
      */
     public Output<Optional<HadoopClusterPrivateLinkConfiguration>> privateLinkConfiguration() {
@@ -360,14 +360,14 @@ public class HadoopCluster extends com.pulumi.resources.CustomResource {
         return this.roles;
     }
     /**
-     * A `security_profile` block as defined below. Changing this forces a new resource to be created.
+     * A `securityProfile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="securityProfile", refs={HadoopClusterSecurityProfile.class}, tree="[0]")
     private Output</* @Nullable */ HadoopClusterSecurityProfile> securityProfile;
 
     /**
-     * @return A `security_profile` block as defined below. Changing this forces a new resource to be created.
+     * @return A `securityProfile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<HadoopClusterSecurityProfile>> securityProfile() {
@@ -388,28 +388,28 @@ public class HadoopCluster extends com.pulumi.resources.CustomResource {
         return this.sshEndpoint;
     }
     /**
-     * A `storage_account_gen2` block as defined below.
+     * A `storageAccountGen2` block as defined below.
      * 
      */
     @Export(name="storageAccountGen2", refs={HadoopClusterStorageAccountGen2.class}, tree="[0]")
     private Output</* @Nullable */ HadoopClusterStorageAccountGen2> storageAccountGen2;
 
     /**
-     * @return A `storage_account_gen2` block as defined below.
+     * @return A `storageAccountGen2` block as defined below.
      * 
      */
     public Output<Optional<HadoopClusterStorageAccountGen2>> storageAccountGen2() {
         return Codegen.optional(this.storageAccountGen2);
     }
     /**
-     * One or more `storage_account` block as defined below.
+     * One or more `storageAccount` block as defined below.
      * 
      */
     @Export(name="storageAccounts", refs={List.class,HadoopClusterStorageAccount.class}, tree="[0,1]")
     private Output</* @Nullable */ List<HadoopClusterStorageAccount>> storageAccounts;
 
     /**
-     * @return One or more `storage_account` block as defined below.
+     * @return One or more `storageAccount` block as defined below.
      * 
      */
     public Output<Optional<List<HadoopClusterStorageAccount>>> storageAccounts() {

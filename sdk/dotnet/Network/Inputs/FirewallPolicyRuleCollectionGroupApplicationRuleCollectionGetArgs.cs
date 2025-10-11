@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<Inputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleGetArgs>? _rules;
 
         /// <summary>
-        /// One or more `application_rule` blocks as defined below.
+        /// One or more `ApplicationRule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleGetArgs> Rules
         {

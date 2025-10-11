@@ -31,14 +31,14 @@ public final class ServiceSignUpArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `terms_of_service` block as defined below.
+     * A `termsOfService` block as defined below.
      * 
      */
     @Import(name="termsOfService", required=true)
     private Output<ServiceSignUpTermsOfServiceArgs> termsOfService;
 
     /**
-     * @return A `terms_of_service` block as defined below.
+     * @return A `termsOfService` block as defined below.
      * 
      */
     public Output<ServiceSignUpTermsOfServiceArgs> termsOfService() {
@@ -92,7 +92,7 @@ public final class ServiceSignUpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param termsOfService A `terms_of_service` block as defined below.
+         * @param termsOfService A `termsOfService` block as defined below.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class ServiceSignUpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param termsOfService A `terms_of_service` block as defined below.
+         * @param termsOfService A `termsOfService` block as defined below.
          * 
          * @return builder
          * 

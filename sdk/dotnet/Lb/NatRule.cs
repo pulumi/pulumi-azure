@@ -128,7 +128,7 @@ namespace Pulumi.Azure.Lb
         public Output<bool> EnableTcpReset { get; private set; } = null!;
 
         /// <summary>
-        /// Are the Floating IPs enabled for this Load Balancer Rule? A "floating" IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+        /// Are the Floating IPs enabled for this Load Balancer Rule? A "floating" IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `False`.
         /// </summary>
         [Output("floatingIpEnabled")]
         public Output<bool> FloatingIpEnabled { get; private set; } = null!;
@@ -261,7 +261,7 @@ namespace Pulumi.Azure.Lb
         public Input<bool>? EnableTcpReset { get; set; }
 
         /// <summary>
-        /// Are the Floating IPs enabled for this Load Balancer Rule? A "floating" IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+        /// Are the Floating IPs enabled for this Load Balancer Rule? A "floating" IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `False`.
         /// </summary>
         [Input("floatingIpEnabled")]
         public Input<bool>? FloatingIpEnabled { get; set; }
@@ -356,7 +356,7 @@ namespace Pulumi.Azure.Lb
         public Input<bool>? EnableTcpReset { get; set; }
 
         /// <summary>
-        /// Are the Floating IPs enabled for this Load Balancer Rule? A "floating" IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+        /// Are the Floating IPs enabled for this Load Balancer Rule? A "floating" IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `False`.
         /// </summary>
         [Input("floatingIpEnabled")]
         public Input<bool>? FloatingIpEnabled { get; set; }

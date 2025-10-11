@@ -108,14 +108,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:sentinel/alertRuleNrt:AlertRuleNrt")
 public class AlertRuleNrt extends com.pulumi.resources.CustomResource {
     /**
-     * An `alert_details_override` block as defined below.
+     * An `alertDetailsOverride` block as defined below.
      * 
      */
     @Export(name="alertDetailsOverrides", refs={List.class,AlertRuleNrtAlertDetailsOverride.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AlertRuleNrtAlertDetailsOverride>> alertDetailsOverrides;
 
     /**
-     * @return An `alert_details_override` block as defined below.
+     * @return An `alertDetailsOverride` block as defined below.
      * 
      */
     public Output<Optional<List<AlertRuleNrtAlertDetailsOverride>>> alertDetailsOverrides() {
@@ -206,28 +206,28 @@ public class AlertRuleNrt extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enabled);
     }
     /**
-     * A list of `entity_mapping` blocks as defined below.
+     * A list of `entityMapping` blocks as defined below.
      * 
      */
     @Export(name="entityMappings", refs={List.class,AlertRuleNrtEntityMapping.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AlertRuleNrtEntityMapping>> entityMappings;
 
     /**
-     * @return A list of `entity_mapping` blocks as defined below.
+     * @return A list of `entityMapping` blocks as defined below.
      * 
      */
     public Output<Optional<List<AlertRuleNrtEntityMapping>>> entityMappings() {
         return Codegen.optional(this.entityMappings);
     }
     /**
-     * A `event_grouping` block as defined below.
+     * A `eventGrouping` block as defined below.
      * 
      */
     @Export(name="eventGrouping", refs={AlertRuleNrtEventGrouping.class}, tree="[0]")
     private Output<AlertRuleNrtEventGrouping> eventGrouping;
 
     /**
-     * @return A `event_grouping` block as defined below.
+     * @return A `eventGrouping` block as defined below.
      * 
      */
     public Output<AlertRuleNrtEventGrouping> eventGrouping() {
@@ -290,18 +290,18 @@ public class AlertRuleNrt extends com.pulumi.resources.CustomResource {
         return this.query;
     }
     /**
-     * A list of `sentinel_entity_mapping` blocks as defined below.
+     * A list of `sentinelEntityMapping` blocks as defined below.
      * 
-     * &gt; **Note:** `entity_mapping` and `sentinel_entity_mapping` together can&#39;t exceed 5.
+     * &gt; **Note:** `entityMapping` and `sentinelEntityMapping` together can&#39;t exceed 5.
      * 
      */
     @Export(name="sentinelEntityMappings", refs={List.class,AlertRuleNrtSentinelEntityMapping.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AlertRuleNrtSentinelEntityMapping>> sentinelEntityMappings;
 
     /**
-     * @return A list of `sentinel_entity_mapping` blocks as defined below.
+     * @return A list of `sentinelEntityMapping` blocks as defined below.
      * 
-     * &gt; **Note:** `entity_mapping` and `sentinel_entity_mapping` together can&#39;t exceed 5.
+     * &gt; **Note:** `entityMapping` and `sentinelEntityMapping` together can&#39;t exceed 5.
      * 
      */
     public Output<Optional<List<AlertRuleNrtSentinelEntityMapping>>> sentinelEntityMappings() {
@@ -322,14 +322,14 @@ public class AlertRuleNrt extends com.pulumi.resources.CustomResource {
         return this.severity;
     }
     /**
-     * If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
+     * If `suppressionEnabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
      * 
      */
     @Export(name="suppressionDuration", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> suppressionDuration;
 
     /**
-     * @return If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
+     * @return If `suppressionEnabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
      * 
      */
     public Output<Optional<String>> suppressionDuration() {

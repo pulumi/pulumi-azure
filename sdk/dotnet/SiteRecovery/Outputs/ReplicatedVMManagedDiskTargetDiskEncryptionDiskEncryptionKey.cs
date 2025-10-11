@@ -14,11 +14,11 @@ namespace Pulumi.Azure.SiteRecovery.Outputs
     public sealed class ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey
     {
         /// <summary>
-        /// The URL to the Key Vault Secret used as the Disk Encryption Key that the Managed Disk will be associated with. This can be found as `id` on the `azure.keyvault.Secret` resource. Changing this forces a new resource to be created.
+        /// The URL to the Key Vault Secret used as the Disk Encryption Key that the Managed Disk will be associated with. This can be found as `Id` on the `azure.keyvault.Secret` resource. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string SecretUrl;
         /// <summary>
-        /// The ID of the Key Vault. This can be found as `id` on the `azure.keyvault.KeyVault` resource. Changing this forces a new resource to be created.
+        /// The ID of the Key Vault. This can be found as `Id` on the `azure.keyvault.KeyVault` resource. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string VaultId;
 

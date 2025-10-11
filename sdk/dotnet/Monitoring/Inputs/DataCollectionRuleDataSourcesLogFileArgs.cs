@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         }
 
         /// <summary>
-        /// The data format of the log files. Possible values are `text` and `json`.
+        /// The data format of the log files. Possible values are `Text` and `Json`.
         /// </summary>
         [Input("format", required: true)]
         public Input<string> Format { get; set; } = null!;
@@ -37,7 +37,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// A `settings` block as defined below.
+        /// A `Settings` block as defined below.
         /// </summary>
         [Input("settings")]
         public Input<Inputs.DataCollectionRuleDataSourcesLogFileSettingsArgs>? Settings { get; set; }

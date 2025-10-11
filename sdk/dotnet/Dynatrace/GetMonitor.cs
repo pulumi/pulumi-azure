@@ -159,7 +159,7 @@ namespace Pulumi.Azure.Dynatrace
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The kind of managed identity assigned to this resource.  A `identity` block as defined below.
+        /// The kind of managed identity assigned to this resource.  A `Identity` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetMonitorIdentityResult> Identities;
         /// <summary>
@@ -185,7 +185,7 @@ namespace Pulumi.Azure.Dynatrace
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// User's information. A `user` block as defined below.
+        /// User's information. A `User` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetMonitorUserResult> Users;
 

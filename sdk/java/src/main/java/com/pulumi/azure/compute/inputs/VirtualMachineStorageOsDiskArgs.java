@@ -64,14 +64,14 @@ public final class VirtualMachineStorageOsDiskArgs extends com.pulumi.resources.
     }
 
     /**
-     * Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD URI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `os_type` field must be set.
+     * Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD URI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `osType` field must be set.
      * 
      */
     @Import(name="imageUri")
     private @Nullable Output<String> imageUri;
 
     /**
-     * @return Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD URI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `os_type` field must be set.
+     * @return Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD URI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `osType` field must be set.
      * 
      */
     public Optional<Output<String>> imageUri() {
@@ -79,14 +79,14 @@ public final class VirtualMachineStorageOsDiskArgs extends com.pulumi.resources.
     }
 
     /**
-     * Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `create_option` must be set to `Attach`. Changing this forces a new resource to be created.
+     * Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `createOption` must be set to `Attach`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="managedDiskId")
     private @Nullable Output<String> managedDiskId;
 
     /**
-     * @return Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `create_option` must be set to `Attach`. Changing this forces a new resource to be created.
+     * @return Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `createOption` must be set to `Attach`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> managedDiskId() {
@@ -273,7 +273,7 @@ public final class VirtualMachineStorageOsDiskArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param imageUri Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD URI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `os_type` field must be set.
+         * @param imageUri Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD URI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `osType` field must be set.
          * 
          * @return builder
          * 
@@ -284,7 +284,7 @@ public final class VirtualMachineStorageOsDiskArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param imageUri Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD URI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `os_type` field must be set.
+         * @param imageUri Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD URI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `osType` field must be set.
          * 
          * @return builder
          * 
@@ -294,7 +294,7 @@ public final class VirtualMachineStorageOsDiskArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param managedDiskId Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `create_option` must be set to `Attach`. Changing this forces a new resource to be created.
+         * @param managedDiskId Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `createOption` must be set to `Attach`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -305,7 +305,7 @@ public final class VirtualMachineStorageOsDiskArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param managedDiskId Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `create_option` must be set to `Attach`. Changing this forces a new resource to be created.
+         * @param managedDiskId Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `createOption` must be set to `Attach`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -17,7 +17,7 @@ public final class GetNetworkAttachedDataNetworkNetworkAddressPortTranslation {
     private Integer icmpPinholeTimeoutInSeconds;
     private @Nullable Integer pinholeMaximumNumber;
     /**
-     * @return A `port_range` block as defined below.
+     * @return A `portRange` block as defined below.
      * 
      */
     private List<GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange> portRanges;
@@ -42,7 +42,7 @@ public final class GetNetworkAttachedDataNetworkNetworkAddressPortTranslation {
         return Optional.ofNullable(this.pinholeMaximumNumber);
     }
     /**
-     * @return A `port_range` block as defined below.
+     * @return A `portRange` block as defined below.
      * 
      */
     public List<GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange> portRanges() {

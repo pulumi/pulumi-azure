@@ -126,14 +126,14 @@ public final class NetworkConnectionMonitorState extends com.pulumi.resources.Re
     }
 
     /**
-     * A `test_configuration` block as defined below.
+     * A `testConfiguration` block as defined below.
      * 
      */
     @Import(name="testConfigurations")
     private @Nullable Output<List<NetworkConnectionMonitorTestConfigurationArgs>> testConfigurations;
 
     /**
-     * @return A `test_configuration` block as defined below.
+     * @return A `testConfiguration` block as defined below.
      * 
      */
     public Optional<Output<List<NetworkConnectionMonitorTestConfigurationArgs>>> testConfigurations() {
@@ -141,14 +141,14 @@ public final class NetworkConnectionMonitorState extends com.pulumi.resources.Re
     }
 
     /**
-     * A `test_group` block as defined below.
+     * A `testGroup` block as defined below.
      * 
      */
     @Import(name="testGroups")
     private @Nullable Output<List<NetworkConnectionMonitorTestGroupArgs>> testGroups;
 
     /**
-     * @return A `test_group` block as defined below.
+     * @return A `testGroup` block as defined below.
      * 
      */
     public Optional<Output<List<NetworkConnectionMonitorTestGroupArgs>>> testGroups() {
@@ -355,7 +355,7 @@ public final class NetworkConnectionMonitorState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param testConfigurations A `test_configuration` block as defined below.
+         * @param testConfigurations A `testConfiguration` block as defined below.
          * 
          * @return builder
          * 
@@ -366,7 +366,7 @@ public final class NetworkConnectionMonitorState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param testConfigurations A `test_configuration` block as defined below.
+         * @param testConfigurations A `testConfiguration` block as defined below.
          * 
          * @return builder
          * 
@@ -376,7 +376,7 @@ public final class NetworkConnectionMonitorState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param testConfigurations A `test_configuration` block as defined below.
+         * @param testConfigurations A `testConfiguration` block as defined below.
          * 
          * @return builder
          * 
@@ -386,7 +386,7 @@ public final class NetworkConnectionMonitorState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param testGroups A `test_group` block as defined below.
+         * @param testGroups A `testGroup` block as defined below.
          * 
          * @return builder
          * 
@@ -397,7 +397,7 @@ public final class NetworkConnectionMonitorState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param testGroups A `test_group` block as defined below.
+         * @param testGroups A `testGroup` block as defined below.
          * 
          * @return builder
          * 
@@ -407,7 +407,7 @@ public final class NetworkConnectionMonitorState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param testGroups A `test_group` block as defined below.
+         * @param testGroups A `testGroup` block as defined below.
          * 
          * @return builder
          * 

@@ -65,7 +65,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** If the `policy_signing_certificate_data` argument contains more than one valid X.509 certificate only the first certificate will be used.
+     * &gt; **Note:** If the `policySigningCertificateData` argument contains more than one valid X.509 certificate only the first certificate will be used.
      * 
      */
     @Import(name="policySigningCertificateData")
@@ -74,7 +74,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** If the `policy_signing_certificate_data` argument contains more than one valid X.509 certificate only the first certificate will be used.
+     * &gt; **Note:** If the `policySigningCertificateData` argument contains more than one valid X.509 certificate only the first certificate will be used.
      * 
      */
     public Optional<Output<String>> policySigningCertificateData() {
@@ -258,7 +258,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param policySigningCertificateData A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** If the `policy_signing_certificate_data` argument contains more than one valid X.509 certificate only the first certificate will be used.
+         * &gt; **Note:** If the `policySigningCertificateData` argument contains more than one valid X.509 certificate only the first certificate will be used.
          * 
          * @return builder
          * 
@@ -271,7 +271,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param policySigningCertificateData A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** If the `policy_signing_certificate_data` argument contains more than one valid X.509 certificate only the first certificate will be used.
+         * &gt; **Note:** If the `policySigningCertificateData` argument contains more than one valid X.509 certificate only the first certificate will be used.
          * 
          * @return builder
          * 

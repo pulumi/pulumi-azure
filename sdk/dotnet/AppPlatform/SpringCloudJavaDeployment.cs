@@ -108,7 +108,7 @@ namespace Pulumi.Azure.AppPlatform
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `quota` block as defined below.
+        /// A `Quota` block as defined below.
         /// </summary>
         [Output("quota")]
         public Output<Outputs.SpringCloudJavaDeploymentQuota> Quota { get; private set; } = null!;
@@ -202,7 +202,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `quota` block as defined below.
+        /// A `Quota` block as defined below.
         /// </summary>
         [Input("quota")]
         public Input<Inputs.SpringCloudJavaDeploymentQuotaArgs>? Quota { get; set; }
@@ -258,7 +258,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `quota` block as defined below.
+        /// A `Quota` block as defined below.
         /// </summary>
         [Input("quota")]
         public Input<Inputs.SpringCloudJavaDeploymentQuotaGetArgs>? Quota { get; set; }

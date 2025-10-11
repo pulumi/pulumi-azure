@@ -19,7 +19,7 @@ public final class WorkspaceServerlessComputeArgs extends com.pulumi.resources.R
     /**
      * Should serverless compute nodes deployed in a custom Virtual Network have public IP addresses enabled for a workspace with private endpoint? Defaults to `false`.
      * 
-     * &gt; **Note:** `public_ip_enabled` cannot be updated from `true` to `false` when `subnet_id` is not set. `public_ip_enabled` must be set to `true` if `subnet_id` is not set and when `public_network_access_enabled` is `false`.
+     * &gt; **Note:** `publicIpEnabled` cannot be updated from `true` to `false` when `subnetId` is not set. `publicIpEnabled` must be set to `true` if `subnetId` is not set and when `publicNetworkAccessEnabled` is `false`.
      * 
      */
     @Import(name="publicIpEnabled")
@@ -28,7 +28,7 @@ public final class WorkspaceServerlessComputeArgs extends com.pulumi.resources.R
     /**
      * @return Should serverless compute nodes deployed in a custom Virtual Network have public IP addresses enabled for a workspace with private endpoint? Defaults to `false`.
      * 
-     * &gt; **Note:** `public_ip_enabled` cannot be updated from `true` to `false` when `subnet_id` is not set. `public_ip_enabled` must be set to `true` if `subnet_id` is not set and when `public_network_access_enabled` is `false`.
+     * &gt; **Note:** `publicIpEnabled` cannot be updated from `true` to `false` when `subnetId` is not set. `publicIpEnabled` must be set to `true` if `subnetId` is not set and when `publicNetworkAccessEnabled` is `false`.
      * 
      */
     public Optional<Output<Boolean>> publicIpEnabled() {
@@ -78,7 +78,7 @@ public final class WorkspaceServerlessComputeArgs extends com.pulumi.resources.R
         /**
          * @param publicIpEnabled Should serverless compute nodes deployed in a custom Virtual Network have public IP addresses enabled for a workspace with private endpoint? Defaults to `false`.
          * 
-         * &gt; **Note:** `public_ip_enabled` cannot be updated from `true` to `false` when `subnet_id` is not set. `public_ip_enabled` must be set to `true` if `subnet_id` is not set and when `public_network_access_enabled` is `false`.
+         * &gt; **Note:** `publicIpEnabled` cannot be updated from `true` to `false` when `subnetId` is not set. `publicIpEnabled` must be set to `true` if `subnetId` is not set and when `publicNetworkAccessEnabled` is `false`.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class WorkspaceServerlessComputeArgs extends com.pulumi.resources.R
         /**
          * @param publicIpEnabled Should serverless compute nodes deployed in a custom Virtual Network have public IP addresses enabled for a workspace with private endpoint? Defaults to `false`.
          * 
-         * &gt; **Note:** `public_ip_enabled` cannot be updated from `true` to `false` when `subnet_id` is not set. `public_ip_enabled` must be set to `true` if `subnet_id` is not set and when `public_network_access_enabled` is `false`.
+         * &gt; **Note:** `publicIpEnabled` cannot be updated from `true` to `false` when `subnetId` is not set. `publicIpEnabled` must be set to `true` if `subnetId` is not set and when `publicNetworkAccessEnabled` is `false`.
          * 
          * @return builder
          * 

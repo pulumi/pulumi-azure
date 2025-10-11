@@ -13,13 +13,13 @@ namespace Pulumi.Azure.Compute.Inputs
     public sealed class SnapshotEncryptionSettingsDiskEncryptionKeyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as `id` on the `azure.keyvault.Secret` resource.
+        /// The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as `Id` on the `azure.keyvault.Secret` resource.
         /// </summary>
         [Input("secretUrl", required: true)]
         public Input<string> SecretUrl { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the source Key Vault. This can be found as `id` on the `azure.keyvault.KeyVault` resource.
+        /// The ID of the source Key Vault. This can be found as `Id` on the `azure.keyvault.KeyVault` resource.
         /// </summary>
         [Input("sourceVaultId", required: true)]
         public Input<string> SourceVaultId { get; set; } = null!;

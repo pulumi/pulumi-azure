@@ -13,31 +13,31 @@ namespace Pulumi.Azure.Storage.Inputs
     public sealed class LocalUserPermissionScopePermissionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies if the Local User has the create permission for this scope. Defaults to `false`.
+        /// Specifies if the Local User has the create permission for this scope. Defaults to `False`.
         /// </summary>
         [Input("create")]
         public Input<bool>? Create { get; set; }
 
         /// <summary>
-        /// Specifies if the Local User has the delete permission for this scope. Defaults to `false`.
+        /// Specifies if the Local User has the delete permission for this scope. Defaults to `False`.
         /// </summary>
         [Input("delete")]
         public Input<bool>? Delete { get; set; }
 
         /// <summary>
-        /// Specifies if the Local User has the list permission for this scope. Defaults to `false`.
+        /// Specifies if the Local User has the list permission for this scope. Defaults to `False`.
         /// </summary>
         [Input("list")]
         public Input<bool>? List { get; set; }
 
         /// <summary>
-        /// Specifies if the Local User has the read permission for this scope. Defaults to `false`.
+        /// Specifies if the Local User has the read permission for this scope. Defaults to `False`.
         /// </summary>
         [Input("read")]
         public Input<bool>? Read { get; set; }
 
         /// <summary>
-        /// Specifies if the Local User has the write permission for this scope. Defaults to `false`.
+        /// Specifies if the Local User has the write permission for this scope. Defaults to `False`.
         /// </summary>
         [Input("write")]
         public Input<bool>? Write { get; set; }

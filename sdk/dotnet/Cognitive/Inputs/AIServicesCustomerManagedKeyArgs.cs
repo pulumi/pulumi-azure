@@ -19,13 +19,13 @@ namespace Pulumi.Azure.Cognitive.Inputs
         public Input<string>? IdentityClientId { get; set; }
 
         /// <summary>
-        /// The ID of the Key Vault Key which should be used to encrypt the data in this AI Services Account. Exactly one of `key_vault_key_id`, `managed_hsm_key_id` must be specified.
+        /// The ID of the Key Vault Key which should be used to encrypt the data in this AI Services Account. Exactly one of `KeyVaultKeyId`, `ManagedHsmKeyId` must be specified.
         /// </summary>
         [Input("keyVaultKeyId")]
         public Input<string>? KeyVaultKeyId { get; set; }
 
         /// <summary>
-        /// The ID of the managed HSM Key which should be used to encrypt the data in this AI Services Account. Exactly one of `key_vault_key_id`, `managed_hsm_key_id` must be specified.
+        /// The ID of the managed HSM Key which should be used to encrypt the data in this AI Services Account. Exactly one of `KeyVaultKeyId`, `ManagedHsmKeyId` must be specified.
         /// </summary>
         [Input("managedHsmKeyId")]
         public Input<string>? ManagedHsmKeyId { get; set; }

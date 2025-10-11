@@ -49,14 +49,14 @@ public final class NamespaceNetworkRuleSetArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * One or more `network_rules` blocks as defined below.
+     * One or more `networkRules` blocks as defined below.
      * 
      */
     @Import(name="networkRules")
     private @Nullable Output<List<NamespaceNetworkRuleSetNetworkRuleArgs>> networkRules;
 
     /**
-     * @return One or more `network_rules` blocks as defined below.
+     * @return One or more `networkRules` blocks as defined below.
      * 
      */
     public Optional<Output<List<NamespaceNetworkRuleSetNetworkRuleArgs>>> networkRules() {
@@ -66,7 +66,7 @@ public final class NamespaceNetworkRuleSetArgs extends com.pulumi.resources.Reso
     /**
      * Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
      * 
-     * &gt; **Note:** To disable public network access, you must also configure the property `public_network_access_enabled`.
+     * &gt; **Note:** To disable public network access, you must also configure the property `publicNetworkAccessEnabled`.
      * 
      */
     @Import(name="publicNetworkAccessEnabled")
@@ -75,7 +75,7 @@ public final class NamespaceNetworkRuleSetArgs extends com.pulumi.resources.Reso
     /**
      * @return Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
      * 
-     * &gt; **Note:** To disable public network access, you must also configure the property `public_network_access_enabled`.
+     * &gt; **Note:** To disable public network access, you must also configure the property `publicNetworkAccessEnabled`.
      * 
      */
     public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
@@ -178,7 +178,7 @@ public final class NamespaceNetworkRuleSetArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param networkRules One or more `network_rules` blocks as defined below.
+         * @param networkRules One or more `networkRules` blocks as defined below.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class NamespaceNetworkRuleSetArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param networkRules One or more `network_rules` blocks as defined below.
+         * @param networkRules One or more `networkRules` blocks as defined below.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class NamespaceNetworkRuleSetArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param networkRules One or more `network_rules` blocks as defined below.
+         * @param networkRules One or more `networkRules` blocks as defined below.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class NamespaceNetworkRuleSetArgs extends com.pulumi.resources.Reso
         /**
          * @param publicNetworkAccessEnabled Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
          * 
-         * &gt; **Note:** To disable public network access, you must also configure the property `public_network_access_enabled`.
+         * &gt; **Note:** To disable public network access, you must also configure the property `publicNetworkAccessEnabled`.
          * 
          * @return builder
          * 
@@ -224,7 +224,7 @@ public final class NamespaceNetworkRuleSetArgs extends com.pulumi.resources.Reso
         /**
          * @param publicNetworkAccessEnabled Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
          * 
-         * &gt; **Note:** To disable public network access, you must also configure the property `public_network_access_enabled`.
+         * &gt; **Note:** To disable public network access, you must also configure the property `publicNetworkAccessEnabled`.
          * 
          * @return builder
          * 

@@ -96,13 +96,13 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> IntegrationRuntimeName { get; private set; } = null!;
 
         /// <summary>
-        /// The system key of the Azure Function. Exactly one of either `key` or `key_vault_key` is required
+        /// The system key of the Azure Function. Exactly one of either `Key` or `KeyVaultKey` is required
         /// </summary>
         [Output("key")]
         public Output<string?> Key { get; private set; } = null!;
 
         /// <summary>
-        /// A `key_vault_key` block as defined below. Use this Argument to store the system key of the Azure Function in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `key` or `key_vault_key` is required.
+        /// A `KeyVaultKey` block as defined below. Use this Argument to store the system key of the Azure Function in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `Key` or `KeyVaultKey` is required.
         /// </summary>
         [Output("keyVaultKey")]
         public Output<Outputs.LinkedServiceAzureFunctionKeyVaultKey?> KeyVaultKey { get; private set; } = null!;
@@ -223,7 +223,7 @@ namespace Pulumi.Azure.DataFactory
         private Input<string>? _key;
 
         /// <summary>
-        /// The system key of the Azure Function. Exactly one of either `key` or `key_vault_key` is required
+        /// The system key of the Azure Function. Exactly one of either `Key` or `KeyVaultKey` is required
         /// </summary>
         public Input<string>? Key
         {
@@ -236,7 +236,7 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// A `key_vault_key` block as defined below. Use this Argument to store the system key of the Azure Function in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `key` or `key_vault_key` is required.
+        /// A `KeyVaultKey` block as defined below. Use this Argument to store the system key of the Azure Function in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `Key` or `KeyVaultKey` is required.
         /// </summary>
         [Input("keyVaultKey")]
         public Input<Inputs.LinkedServiceAzureFunctionKeyVaultKeyArgs>? KeyVaultKey { get; set; }
@@ -321,7 +321,7 @@ namespace Pulumi.Azure.DataFactory
         private Input<string>? _key;
 
         /// <summary>
-        /// The system key of the Azure Function. Exactly one of either `key` or `key_vault_key` is required
+        /// The system key of the Azure Function. Exactly one of either `Key` or `KeyVaultKey` is required
         /// </summary>
         public Input<string>? Key
         {
@@ -334,7 +334,7 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// A `key_vault_key` block as defined below. Use this Argument to store the system key of the Azure Function in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `key` or `key_vault_key` is required.
+        /// A `KeyVaultKey` block as defined below. Use this Argument to store the system key of the Azure Function in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `Key` or `KeyVaultKey` is required.
         /// </summary>
         [Input("keyVaultKey")]
         public Input<Inputs.LinkedServiceAzureFunctionKeyVaultKeyGetArgs>? KeyVaultKey { get; set; }

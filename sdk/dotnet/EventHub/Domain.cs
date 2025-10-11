@@ -62,13 +62,13 @@ namespace Pulumi.Azure.EventHub
     public partial class Domain : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Whether to create the domain topic when the first event subscription at the scope of the domain topic is created. Defaults to `true`.
+        /// Whether to create the domain topic when the first event subscription at the scope of the domain topic is created. Defaults to `True`.
         /// </summary>
         [Output("autoCreateTopicWithFirstSubscription")]
         public Output<bool?> AutoCreateTopicWithFirstSubscription { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to delete the domain topic when the last event subscription at the scope of the domain topic is deleted. Defaults to `true`.
+        /// Whether to delete the domain topic when the last event subscription at the scope of the domain topic is deleted. Defaults to `True`.
         /// </summary>
         [Output("autoDeleteTopicWithLastSubscription")]
         public Output<bool?> AutoDeleteTopicWithLastSubscription { get; private set; } = null!;
@@ -80,25 +80,25 @@ namespace Pulumi.Azure.EventHub
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.DomainIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `inbound_ip_rule` blocks as defined below.
+        /// One or more `InboundIpRule` blocks as defined below.
         /// </summary>
         [Output("inboundIpRules")]
         public Output<ImmutableArray<Outputs.DomainInboundIpRule>> InboundIpRules { get; private set; } = null!;
 
         /// <summary>
-        /// A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
+        /// A `InputMappingDefaultValues` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("inputMappingDefaultValues")]
         public Output<Outputs.DomainInputMappingDefaultValues?> InputMappingDefaultValues { get; private set; } = null!;
 
         /// <summary>
-        /// A `input_mapping_fields` block as defined below. Changing this forces a new resource to be created.
+        /// A `InputMappingFields` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("inputMappingFields")]
         public Output<Outputs.DomainInputMappingFields?> InputMappingFields { get; private set; } = null!;
@@ -110,7 +110,7 @@ namespace Pulumi.Azure.EventHub
         public Output<string?> InputSchema { get; private set; } = null!;
 
         /// <summary>
-        /// Whether local authentication methods is enabled for the EventGrid Domain. Defaults to `true`.
+        /// Whether local authentication methods is enabled for the EventGrid Domain. Defaults to `True`.
         /// </summary>
         [Output("localAuthEnabled")]
         public Output<bool?> LocalAuthEnabled { get; private set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.Azure.EventHub
         public Output<string> PrimaryAccessKey { get; private set; } = null!;
 
         /// <summary>
-        /// Whether or not public network access is allowed for this server. Defaults to `true`.
+        /// Whether or not public network access is allowed for this server. Defaults to `True`.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
@@ -209,19 +209,19 @@ namespace Pulumi.Azure.EventHub
     public sealed class DomainArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to create the domain topic when the first event subscription at the scope of the domain topic is created. Defaults to `true`.
+        /// Whether to create the domain topic when the first event subscription at the scope of the domain topic is created. Defaults to `True`.
         /// </summary>
         [Input("autoCreateTopicWithFirstSubscription")]
         public Input<bool>? AutoCreateTopicWithFirstSubscription { get; set; }
 
         /// <summary>
-        /// Whether to delete the domain topic when the last event subscription at the scope of the domain topic is deleted. Defaults to `true`.
+        /// Whether to delete the domain topic when the last event subscription at the scope of the domain topic is deleted. Defaults to `True`.
         /// </summary>
         [Input("autoDeleteTopicWithLastSubscription")]
         public Input<bool>? AutoDeleteTopicWithLastSubscription { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.DomainIdentityArgs>? Identity { get; set; }
@@ -230,7 +230,7 @@ namespace Pulumi.Azure.EventHub
         private InputList<Inputs.DomainInboundIpRuleArgs>? _inboundIpRules;
 
         /// <summary>
-        /// One or more `inbound_ip_rule` blocks as defined below.
+        /// One or more `InboundIpRule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.DomainInboundIpRuleArgs> InboundIpRules
         {
@@ -239,13 +239,13 @@ namespace Pulumi.Azure.EventHub
         }
 
         /// <summary>
-        /// A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
+        /// A `InputMappingDefaultValues` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("inputMappingDefaultValues")]
         public Input<Inputs.DomainInputMappingDefaultValuesArgs>? InputMappingDefaultValues { get; set; }
 
         /// <summary>
-        /// A `input_mapping_fields` block as defined below. Changing this forces a new resource to be created.
+        /// A `InputMappingFields` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("inputMappingFields")]
         public Input<Inputs.DomainInputMappingFieldsArgs>? InputMappingFields { get; set; }
@@ -257,7 +257,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? InputSchema { get; set; }
 
         /// <summary>
-        /// Whether local authentication methods is enabled for the EventGrid Domain. Defaults to `true`.
+        /// Whether local authentication methods is enabled for the EventGrid Domain. Defaults to `True`.
         /// </summary>
         [Input("localAuthEnabled")]
         public Input<bool>? LocalAuthEnabled { get; set; }
@@ -275,7 +275,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether or not public network access is allowed for this server. Defaults to `true`.
+        /// Whether or not public network access is allowed for this server. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -307,13 +307,13 @@ namespace Pulumi.Azure.EventHub
     public sealed class DomainState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to create the domain topic when the first event subscription at the scope of the domain topic is created. Defaults to `true`.
+        /// Whether to create the domain topic when the first event subscription at the scope of the domain topic is created. Defaults to `True`.
         /// </summary>
         [Input("autoCreateTopicWithFirstSubscription")]
         public Input<bool>? AutoCreateTopicWithFirstSubscription { get; set; }
 
         /// <summary>
-        /// Whether to delete the domain topic when the last event subscription at the scope of the domain topic is deleted. Defaults to `true`.
+        /// Whether to delete the domain topic when the last event subscription at the scope of the domain topic is deleted. Defaults to `True`.
         /// </summary>
         [Input("autoDeleteTopicWithLastSubscription")]
         public Input<bool>? AutoDeleteTopicWithLastSubscription { get; set; }
@@ -325,7 +325,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? Endpoint { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.DomainIdentityGetArgs>? Identity { get; set; }
@@ -334,7 +334,7 @@ namespace Pulumi.Azure.EventHub
         private InputList<Inputs.DomainInboundIpRuleGetArgs>? _inboundIpRules;
 
         /// <summary>
-        /// One or more `inbound_ip_rule` blocks as defined below.
+        /// One or more `InboundIpRule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.DomainInboundIpRuleGetArgs> InboundIpRules
         {
@@ -343,13 +343,13 @@ namespace Pulumi.Azure.EventHub
         }
 
         /// <summary>
-        /// A `input_mapping_default_values` block as defined below. Changing this forces a new resource to be created.
+        /// A `InputMappingDefaultValues` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("inputMappingDefaultValues")]
         public Input<Inputs.DomainInputMappingDefaultValuesGetArgs>? InputMappingDefaultValues { get; set; }
 
         /// <summary>
-        /// A `input_mapping_fields` block as defined below. Changing this forces a new resource to be created.
+        /// A `InputMappingFields` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("inputMappingFields")]
         public Input<Inputs.DomainInputMappingFieldsGetArgs>? InputMappingFields { get; set; }
@@ -361,7 +361,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? InputSchema { get; set; }
 
         /// <summary>
-        /// Whether local authentication methods is enabled for the EventGrid Domain. Defaults to `true`.
+        /// Whether local authentication methods is enabled for the EventGrid Domain. Defaults to `True`.
         /// </summary>
         [Input("localAuthEnabled")]
         public Input<bool>? LocalAuthEnabled { get; set; }
@@ -395,7 +395,7 @@ namespace Pulumi.Azure.EventHub
         }
 
         /// <summary>
-        /// Whether or not public network access is allowed for this server. Defaults to `true`.
+        /// Whether or not public network access is allowed for this server. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }

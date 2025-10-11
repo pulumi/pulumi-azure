@@ -568,7 +568,7 @@ namespace Pulumi.Azure.Monitoring
     public partial class AutoscaleSetting : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies whether automatic scaling is enabled for the target resource. Defaults to `true`.
+        /// Specifies whether automatic scaling is enabled for the target resource. Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -586,19 +586,19 @@ namespace Pulumi.Azure.Monitoring
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a `notification` block as defined below.
+        /// Specifies a `Notification` block as defined below.
         /// </summary>
         [Output("notification")]
         public Output<Outputs.AutoscaleSettingNotification?> Notification { get; private set; } = null!;
 
         /// <summary>
-        /// A `predictive` block as defined below.
+        /// A `Predictive` block as defined below.
         /// </summary>
         [Output("predictive")]
         public Output<Outputs.AutoscaleSettingPredictive?> Predictive { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies one or more (up to 20) `profile` blocks as defined below.
+        /// Specifies one or more (up to 20) `Profile` blocks as defined below.
         /// </summary>
         [Output("profiles")]
         public Output<ImmutableArray<Outputs.AutoscaleSettingProfile>> Profiles { get; private set; } = null!;
@@ -668,7 +668,7 @@ namespace Pulumi.Azure.Monitoring
     public sealed class AutoscaleSettingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether automatic scaling is enabled for the target resource. Defaults to `true`.
+        /// Specifies whether automatic scaling is enabled for the target resource. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -686,13 +686,13 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies a `notification` block as defined below.
+        /// Specifies a `Notification` block as defined below.
         /// </summary>
         [Input("notification")]
         public Input<Inputs.AutoscaleSettingNotificationArgs>? Notification { get; set; }
 
         /// <summary>
-        /// A `predictive` block as defined below.
+        /// A `Predictive` block as defined below.
         /// </summary>
         [Input("predictive")]
         public Input<Inputs.AutoscaleSettingPredictiveArgs>? Predictive { get; set; }
@@ -701,7 +701,7 @@ namespace Pulumi.Azure.Monitoring
         private InputList<Inputs.AutoscaleSettingProfileArgs>? _profiles;
 
         /// <summary>
-        /// Specifies one or more (up to 20) `profile` blocks as defined below.
+        /// Specifies one or more (up to 20) `Profile` blocks as defined below.
         /// </summary>
         public InputList<Inputs.AutoscaleSettingProfileArgs> Profiles
         {
@@ -742,7 +742,7 @@ namespace Pulumi.Azure.Monitoring
     public sealed class AutoscaleSettingState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether automatic scaling is enabled for the target resource. Defaults to `true`.
+        /// Specifies whether automatic scaling is enabled for the target resource. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -760,13 +760,13 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies a `notification` block as defined below.
+        /// Specifies a `Notification` block as defined below.
         /// </summary>
         [Input("notification")]
         public Input<Inputs.AutoscaleSettingNotificationGetArgs>? Notification { get; set; }
 
         /// <summary>
-        /// A `predictive` block as defined below.
+        /// A `Predictive` block as defined below.
         /// </summary>
         [Input("predictive")]
         public Input<Inputs.AutoscaleSettingPredictiveGetArgs>? Predictive { get; set; }
@@ -775,7 +775,7 @@ namespace Pulumi.Azure.Monitoring
         private InputList<Inputs.AutoscaleSettingProfileGetArgs>? _profiles;
 
         /// <summary>
-        /// Specifies one or more (up to 20) `profile` blocks as defined below.
+        /// Specifies one or more (up to 20) `Profile` blocks as defined below.
         /// </summary>
         public InputList<Inputs.AutoscaleSettingProfileGetArgs> Profiles
         {

@@ -38,14 +38,14 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `data_store` blocks as defined below.
+     * One or more `dataStore` blocks as defined below.
      * 
      */
     @Import(name="dataStores")
     private @Nullable Output<List<AccountDataStoreArgs>> dataStores;
 
     /**
-     * @return One or more `data_store` blocks as defined below.
+     * @return One or more `dataStore` blocks as defined below.
      * 
      */
     public Optional<Output<List<AccountDataStoreArgs>>> dataStores() {
@@ -215,7 +215,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataStores One or more `data_store` blocks as defined below.
+         * @param dataStores One or more `dataStore` blocks as defined below.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataStores One or more `data_store` blocks as defined below.
+         * @param dataStores One or more `dataStore` blocks as defined below.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataStores One or more `data_store` blocks as defined below.
+         * @param dataStores One or more `dataStore` blocks as defined below.
          * 
          * @return builder
          * 

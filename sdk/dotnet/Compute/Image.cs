@@ -60,9 +60,9 @@ namespace Pulumi.Azure.Compute
     public partial class Image : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// One or more `data_disk` blocks as defined below.
+        /// One or more `DataDisk` blocks as defined below.
         /// 
-        /// &gt; **Note:** `data_disk` cannot be set together with `source_virtual_machine_id`.
+        /// &gt; **Note:** `DataDisk` cannot be set together with `SourceVirtualMachineId`.
         /// </summary>
         [Output("dataDisks")]
         public Output<ImmutableArray<Outputs.ImageDataDisk>> DataDisks { get; private set; } = null!;
@@ -86,9 +86,9 @@ namespace Pulumi.Azure.Compute
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `os_disk` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `OsDisk` blocks as defined below. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** `os_disk` cannot be set together with `source_virtual_machine_id`.
+        /// &gt; **Note:** `OsDisk` cannot be set together with `SourceVirtualMachineId`.
         /// </summary>
         [Output("osDisk")]
         public Output<Outputs.ImageOsDisk?> OsDisk { get; private set; } = null!;
@@ -112,11 +112,11 @@ namespace Pulumi.Azure.Compute
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
+        /// Is zone resiliency enabled? Defaults to `False`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+        /// &gt; **Note:** `ZoneResilient` can only be set to `True` if the image is stored in a region that supports availability zones.
         /// 
-        /// &gt; **Note:** `zone_resilient` cannot be set together with `source_virtual_machine_id`.
+        /// &gt; **Note:** `ZoneResilient` cannot be set together with `SourceVirtualMachineId`.
         /// </summary>
         [Output("zoneResilient")]
         public Output<bool?> ZoneResilient { get; private set; } = null!;
@@ -171,9 +171,9 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.ImageDataDiskArgs>? _dataDisks;
 
         /// <summary>
-        /// One or more `data_disk` blocks as defined below.
+        /// One or more `DataDisk` blocks as defined below.
         /// 
-        /// &gt; **Note:** `data_disk` cannot be set together with `source_virtual_machine_id`.
+        /// &gt; **Note:** `DataDisk` cannot be set together with `SourceVirtualMachineId`.
         /// </summary>
         public InputList<Inputs.ImageDataDiskArgs> DataDisks
         {
@@ -200,9 +200,9 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// One or more `os_disk` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `OsDisk` blocks as defined below. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** `os_disk` cannot be set together with `source_virtual_machine_id`.
+        /// &gt; **Note:** `OsDisk` cannot be set together with `SourceVirtualMachineId`.
         /// </summary>
         [Input("osDisk")]
         public Input<Inputs.ImageOsDiskArgs>? OsDisk { get; set; }
@@ -232,11 +232,11 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
+        /// Is zone resiliency enabled? Defaults to `False`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+        /// &gt; **Note:** `ZoneResilient` can only be set to `True` if the image is stored in a region that supports availability zones.
         /// 
-        /// &gt; **Note:** `zone_resilient` cannot be set together with `source_virtual_machine_id`.
+        /// &gt; **Note:** `ZoneResilient` cannot be set together with `SourceVirtualMachineId`.
         /// </summary>
         [Input("zoneResilient")]
         public Input<bool>? ZoneResilient { get; set; }
@@ -253,9 +253,9 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.ImageDataDiskGetArgs>? _dataDisks;
 
         /// <summary>
-        /// One or more `data_disk` blocks as defined below.
+        /// One or more `DataDisk` blocks as defined below.
         /// 
-        /// &gt; **Note:** `data_disk` cannot be set together with `source_virtual_machine_id`.
+        /// &gt; **Note:** `DataDisk` cannot be set together with `SourceVirtualMachineId`.
         /// </summary>
         public InputList<Inputs.ImageDataDiskGetArgs> DataDisks
         {
@@ -282,9 +282,9 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// One or more `os_disk` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `OsDisk` blocks as defined below. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** `os_disk` cannot be set together with `source_virtual_machine_id`.
+        /// &gt; **Note:** `OsDisk` cannot be set together with `SourceVirtualMachineId`.
         /// </summary>
         [Input("osDisk")]
         public Input<Inputs.ImageOsDiskGetArgs>? OsDisk { get; set; }
@@ -314,11 +314,11 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
+        /// Is zone resiliency enabled? Defaults to `False`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+        /// &gt; **Note:** `ZoneResilient` can only be set to `True` if the image is stored in a region that supports availability zones.
         /// 
-        /// &gt; **Note:** `zone_resilient` cannot be set together with `source_virtual_machine_id`.
+        /// &gt; **Note:** `ZoneResilient` cannot be set together with `SourceVirtualMachineId`.
         /// </summary>
         [Input("zoneResilient")]
         public Input<bool>? ZoneResilient { get; set; }

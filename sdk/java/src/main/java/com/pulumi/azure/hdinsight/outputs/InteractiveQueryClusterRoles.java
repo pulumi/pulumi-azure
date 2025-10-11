@@ -13,38 +13,38 @@ import java.util.Objects;
 @CustomType
 public final class InteractiveQueryClusterRoles {
     /**
-     * @return A `head_node` block as defined above.
+     * @return A `headNode` block as defined above.
      * 
      */
     private InteractiveQueryClusterRolesHeadNode headNode;
     /**
-     * @return A `worker_node` block as defined below.
+     * @return A `workerNode` block as defined below.
      * 
      */
     private InteractiveQueryClusterRolesWorkerNode workerNode;
     /**
-     * @return A `zookeeper_node` block as defined below.
+     * @return A `zookeeperNode` block as defined below.
      * 
      */
     private InteractiveQueryClusterRolesZookeeperNode zookeeperNode;
 
     private InteractiveQueryClusterRoles() {}
     /**
-     * @return A `head_node` block as defined above.
+     * @return A `headNode` block as defined above.
      * 
      */
     public InteractiveQueryClusterRolesHeadNode headNode() {
         return this.headNode;
     }
     /**
-     * @return A `worker_node` block as defined below.
+     * @return A `workerNode` block as defined below.
      * 
      */
     public InteractiveQueryClusterRolesWorkerNode workerNode() {
         return this.workerNode;
     }
     /**
-     * @return A `zookeeper_node` block as defined below.
+     * @return A `zookeeperNode` block as defined below.
      * 
      */
     public InteractiveQueryClusterRolesZookeeperNode zookeeperNode() {

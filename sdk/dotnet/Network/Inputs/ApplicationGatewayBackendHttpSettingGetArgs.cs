@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<Inputs.ApplicationGatewayBackendHttpSettingAuthenticationCertificateGetArgs>? _authenticationCertificates;
 
         /// <summary>
-        /// One or more `authentication_certificate_backend` blocks as defined below.
+        /// One or more `AuthenticationCertificateBackend` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayBackendHttpSettingAuthenticationCertificateGetArgs> AuthenticationCertificates
         {
@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Network.Inputs
         }
 
         /// <summary>
-        /// A `connection_draining` block as defined below.
+        /// A `ConnectionDraining` block as defined below.
         /// </summary>
         [Input("connectionDraining")]
         public Input<Inputs.ApplicationGatewayBackendHttpSettingConnectionDrainingGetArgs>? ConnectionDraining { get; set; }
@@ -43,7 +43,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string> CookieBasedAffinity { get; set; } = null!;
 
         /// <summary>
-        /// Host header to be sent to the backend servers. Cannot be set if `pick_host_name_from_backend_address` is set to `true`.
+        /// Host header to be sent to the backend servers. Cannot be set if `PickHostNameFromBackendAddress` is set to `True`.
         /// </summary>
         [Input("hostName")]
         public Input<string>? HostName { get; set; }
@@ -67,7 +67,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string>? Path { get; set; }
 
         /// <summary>
-        /// Whether host header should be picked from the host name of the backend server. Defaults to `false`.
+        /// Whether host header should be picked from the host name of the backend server. Defaults to `False`.
         /// </summary>
         [Input("pickHostNameFromBackendAddress")]
         public Input<bool>? PickHostNameFromBackendAddress { get; set; }
@@ -106,7 +106,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<string>? _trustedRootCertificateNames;
 
         /// <summary>
-        /// A list of `trusted_root_certificate` names.
+        /// A list of `TrustedRootCertificate` names.
         /// </summary>
         public InputList<string> TrustedRootCertificateNames
         {

@@ -14,11 +14,11 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class WindowsWebAppStickySettings
     {
         /// <summary>
-        /// A list of `app_setting` names that the Windows Web App will not swap between Slots when a swap operation is triggered.
+        /// A list of `AppSetting` names that the Windows Web App will not swap between Slots when a swap operation is triggered.
         /// </summary>
         public readonly ImmutableArray<string> AppSettingNames;
         /// <summary>
-        /// A list of `connection_string` names that the Windows Web App will not swap between Slots when a swap operation is triggered.
+        /// A list of `ConnectionString` names that the Windows Web App will not swap between Slots when a swap operation is triggered.
         /// </summary>
         public readonly ImmutableArray<string> ConnectionStringNames;
 

@@ -30,14 +30,14 @@ public final class VirtualMachineState extends com.pulumi.resources.ResourceArgs
     public static final VirtualMachineState Empty = new VirtualMachineState();
 
     /**
-     * An `additional_capabilities` block as defined below.
+     * An `additionalCapabilities` block as defined below.
      * 
      */
     @Import(name="additionalCapabilities")
     private @Nullable Output<VirtualMachineAdditionalCapabilitiesArgs> additionalCapabilities;
 
     /**
-     * @return An `additional_capabilities` block as defined below.
+     * @return An `additionalCapabilities` block as defined below.
      * 
      */
     public Optional<Output<VirtualMachineAdditionalCapabilitiesArgs>> additionalCapabilities() {
@@ -60,14 +60,14 @@ public final class VirtualMachineState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A `boot_diagnostics` block as defined below.
+     * A `bootDiagnostics` block as defined below.
      * 
      */
     @Import(name="bootDiagnostics")
     private @Nullable Output<VirtualMachineBootDiagnosticsArgs> bootDiagnostics;
 
     /**
-     * @return A `boot_diagnostics` block as defined below.
+     * @return A `bootDiagnostics` block as defined below.
      * 
      */
     public Optional<Output<VirtualMachineBootDiagnosticsArgs>> bootDiagnostics() {
@@ -188,14 +188,14 @@ public final class VirtualMachineState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * An `os_profile` block as defined below. Required when `create_option` in the `storage_os_disk` block is set to `FromImage`.
+     * An `osProfile` block as defined below. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
      * 
      */
     @Import(name="osProfile")
     private @Nullable Output<VirtualMachineOsProfileArgs> osProfile;
 
     /**
-     * @return An `os_profile` block as defined below. Required when `create_option` in the `storage_os_disk` block is set to `FromImage`.
+     * @return An `osProfile` block as defined below. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
      * 
      */
     public Optional<Output<VirtualMachineOsProfileArgs>> osProfile() {
@@ -203,14 +203,14 @@ public final class VirtualMachineState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * (Required, when a Linux machine) An `os_profile_linux_config` block as defined below.
+     * (Required, when a Linux machine) An `osProfileLinuxConfig` block as defined below.
      * 
      */
     @Import(name="osProfileLinuxConfig")
     private @Nullable Output<VirtualMachineOsProfileLinuxConfigArgs> osProfileLinuxConfig;
 
     /**
-     * @return (Required, when a Linux machine) An `os_profile_linux_config` block as defined below.
+     * @return (Required, when a Linux machine) An `osProfileLinuxConfig` block as defined below.
      * 
      */
     public Optional<Output<VirtualMachineOsProfileLinuxConfigArgs>> osProfileLinuxConfig() {
@@ -218,14 +218,14 @@ public final class VirtualMachineState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * One or more `os_profile_secrets` blocks as defined below.
+     * One or more `osProfileSecrets` blocks as defined below.
      * 
      */
     @Import(name="osProfileSecrets")
     private @Nullable Output<List<VirtualMachineOsProfileSecretArgs>> osProfileSecrets;
 
     /**
-     * @return One or more `os_profile_secrets` blocks as defined below.
+     * @return One or more `osProfileSecrets` blocks as defined below.
      * 
      */
     public Optional<Output<List<VirtualMachineOsProfileSecretArgs>>> osProfileSecrets() {
@@ -233,14 +233,14 @@ public final class VirtualMachineState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * (Required, when a Windows machine) An `os_profile_windows_config` block as defined below.
+     * (Required, when a Windows machine) An `osProfileWindowsConfig` block as defined below.
      * 
      */
     @Import(name="osProfileWindowsConfig")
     private @Nullable Output<VirtualMachineOsProfileWindowsConfigArgs> osProfileWindowsConfig;
 
     /**
-     * @return (Required, when a Windows machine) An `os_profile_windows_config` block as defined below.
+     * @return (Required, when a Windows machine) An `osProfileWindowsConfig` block as defined below.
      * 
      */
     public Optional<Output<VirtualMachineOsProfileWindowsConfigArgs>> osProfileWindowsConfig() {
@@ -308,7 +308,7 @@ public final class VirtualMachineState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * One or more `storage_data_disk` blocks as defined below.
+     * One or more `storageDataDisk` blocks as defined below.
      * 
      * &gt; **Please Note:** Data Disks can also be attached either using this block or the `azure.compute.DataDiskAttachment` resource - but not both.
      * 
@@ -317,7 +317,7 @@ public final class VirtualMachineState extends com.pulumi.resources.ResourceArgs
     private @Nullable Output<List<VirtualMachineStorageDataDiskArgs>> storageDataDisks;
 
     /**
-     * @return One or more `storage_data_disk` blocks as defined below.
+     * @return One or more `storageDataDisk` blocks as defined below.
      * 
      * &gt; **Please Note:** Data Disks can also be attached either using this block or the `azure.compute.DataDiskAttachment` resource - but not both.
      * 
@@ -327,14 +327,14 @@ public final class VirtualMachineState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A `storage_image_reference` block as defined below. Changing this forces a new resource to be created.
+     * A `storageImageReference` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="storageImageReference")
     private @Nullable Output<VirtualMachineStorageImageReferenceArgs> storageImageReference;
 
     /**
-     * @return A `storage_image_reference` block as defined below. Changing this forces a new resource to be created.
+     * @return A `storageImageReference` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<VirtualMachineStorageImageReferenceArgs>> storageImageReference() {
@@ -342,14 +342,14 @@ public final class VirtualMachineState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A `storage_os_disk` block as defined below.
+     * A `storageOsDisk` block as defined below.
      * 
      */
     @Import(name="storageOsDisk")
     private @Nullable Output<VirtualMachineStorageOsDiskArgs> storageOsDisk;
 
     /**
-     * @return A `storage_os_disk` block as defined below.
+     * @return A `storageOsDisk` block as defined below.
      * 
      */
     public Optional<Output<VirtualMachineStorageOsDiskArgs>> storageOsDisk() {
@@ -457,7 +457,7 @@ public final class VirtualMachineState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param additionalCapabilities An `additional_capabilities` block as defined below.
+         * @param additionalCapabilities An `additionalCapabilities` block as defined below.
          * 
          * @return builder
          * 
@@ -468,7 +468,7 @@ public final class VirtualMachineState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param additionalCapabilities An `additional_capabilities` block as defined below.
+         * @param additionalCapabilities An `additionalCapabilities` block as defined below.
          * 
          * @return builder
          * 
@@ -499,7 +499,7 @@ public final class VirtualMachineState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param bootDiagnostics A `boot_diagnostics` block as defined below.
+         * @param bootDiagnostics A `bootDiagnostics` block as defined below.
          * 
          * @return builder
          * 
@@ -510,7 +510,7 @@ public final class VirtualMachineState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param bootDiagnostics A `boot_diagnostics` block as defined below.
+         * @param bootDiagnostics A `bootDiagnostics` block as defined below.
          * 
          * @return builder
          * 
@@ -685,7 +685,7 @@ public final class VirtualMachineState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param osProfile An `os_profile` block as defined below. Required when `create_option` in the `storage_os_disk` block is set to `FromImage`.
+         * @param osProfile An `osProfile` block as defined below. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
          * 
          * @return builder
          * 
@@ -696,7 +696,7 @@ public final class VirtualMachineState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param osProfile An `os_profile` block as defined below. Required when `create_option` in the `storage_os_disk` block is set to `FromImage`.
+         * @param osProfile An `osProfile` block as defined below. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
          * 
          * @return builder
          * 
@@ -706,7 +706,7 @@ public final class VirtualMachineState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param osProfileLinuxConfig (Required, when a Linux machine) An `os_profile_linux_config` block as defined below.
+         * @param osProfileLinuxConfig (Required, when a Linux machine) An `osProfileLinuxConfig` block as defined below.
          * 
          * @return builder
          * 
@@ -717,7 +717,7 @@ public final class VirtualMachineState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param osProfileLinuxConfig (Required, when a Linux machine) An `os_profile_linux_config` block as defined below.
+         * @param osProfileLinuxConfig (Required, when a Linux machine) An `osProfileLinuxConfig` block as defined below.
          * 
          * @return builder
          * 
@@ -727,7 +727,7 @@ public final class VirtualMachineState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param osProfileSecrets One or more `os_profile_secrets` blocks as defined below.
+         * @param osProfileSecrets One or more `osProfileSecrets` blocks as defined below.
          * 
          * @return builder
          * 
@@ -738,7 +738,7 @@ public final class VirtualMachineState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param osProfileSecrets One or more `os_profile_secrets` blocks as defined below.
+         * @param osProfileSecrets One or more `osProfileSecrets` blocks as defined below.
          * 
          * @return builder
          * 
@@ -748,7 +748,7 @@ public final class VirtualMachineState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param osProfileSecrets One or more `os_profile_secrets` blocks as defined below.
+         * @param osProfileSecrets One or more `osProfileSecrets` blocks as defined below.
          * 
          * @return builder
          * 
@@ -758,7 +758,7 @@ public final class VirtualMachineState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param osProfileWindowsConfig (Required, when a Windows machine) An `os_profile_windows_config` block as defined below.
+         * @param osProfileWindowsConfig (Required, when a Windows machine) An `osProfileWindowsConfig` block as defined below.
          * 
          * @return builder
          * 
@@ -769,7 +769,7 @@ public final class VirtualMachineState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param osProfileWindowsConfig (Required, when a Windows machine) An `os_profile_windows_config` block as defined below.
+         * @param osProfileWindowsConfig (Required, when a Windows machine) An `osProfileWindowsConfig` block as defined below.
          * 
          * @return builder
          * 
@@ -863,7 +863,7 @@ public final class VirtualMachineState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param storageDataDisks One or more `storage_data_disk` blocks as defined below.
+         * @param storageDataDisks One or more `storageDataDisk` blocks as defined below.
          * 
          * &gt; **Please Note:** Data Disks can also be attached either using this block or the `azure.compute.DataDiskAttachment` resource - but not both.
          * 
@@ -876,7 +876,7 @@ public final class VirtualMachineState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param storageDataDisks One or more `storage_data_disk` blocks as defined below.
+         * @param storageDataDisks One or more `storageDataDisk` blocks as defined below.
          * 
          * &gt; **Please Note:** Data Disks can also be attached either using this block or the `azure.compute.DataDiskAttachment` resource - but not both.
          * 
@@ -888,7 +888,7 @@ public final class VirtualMachineState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param storageDataDisks One or more `storage_data_disk` blocks as defined below.
+         * @param storageDataDisks One or more `storageDataDisk` blocks as defined below.
          * 
          * &gt; **Please Note:** Data Disks can also be attached either using this block or the `azure.compute.DataDiskAttachment` resource - but not both.
          * 
@@ -900,7 +900,7 @@ public final class VirtualMachineState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param storageImageReference A `storage_image_reference` block as defined below. Changing this forces a new resource to be created.
+         * @param storageImageReference A `storageImageReference` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -911,7 +911,7 @@ public final class VirtualMachineState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param storageImageReference A `storage_image_reference` block as defined below. Changing this forces a new resource to be created.
+         * @param storageImageReference A `storageImageReference` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -921,7 +921,7 @@ public final class VirtualMachineState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param storageOsDisk A `storage_os_disk` block as defined below.
+         * @param storageOsDisk A `storageOsDisk` block as defined below.
          * 
          * @return builder
          * 
@@ -932,7 +932,7 @@ public final class VirtualMachineState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param storageOsDisk A `storage_os_disk` block as defined below.
+         * @param storageOsDisk A `storageOsDisk` block as defined below.
          * 
          * @return builder
          * 

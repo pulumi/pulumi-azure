@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
     public sealed class AutoscaleSettingNotificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `email` block as defined below.
+        /// A `Email` block as defined below.
         /// </summary>
         [Input("email")]
         public Input<Inputs.AutoscaleSettingNotificationEmailArgs>? Email { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         private InputList<Inputs.AutoscaleSettingNotificationWebhookArgs>? _webhooks;
 
         /// <summary>
-        /// One or more `webhook` blocks as defined below.
+        /// One or more `Webhook` blocks as defined below.
         /// </summary>
         public InputList<Inputs.AutoscaleSettingNotificationWebhookArgs> Webhooks
         {

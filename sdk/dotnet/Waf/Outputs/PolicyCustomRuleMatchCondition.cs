@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Waf.Outputs
     public sealed class PolicyCustomRuleMatchCondition
     {
         /// <summary>
-        /// A list of match values. This is **Required** when the `operator` is not `Any`.
+        /// A list of match values. This is **Required** when the `Operator` is not `Any`.
         /// </summary>
         public readonly ImmutableArray<string> MatchValues;
         /// <summary>
-        /// One or more `match_variables` blocks as defined below.
+        /// One or more `MatchVariables` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.PolicyCustomRuleMatchConditionMatchVariable> MatchVariables;
         /// <summary>

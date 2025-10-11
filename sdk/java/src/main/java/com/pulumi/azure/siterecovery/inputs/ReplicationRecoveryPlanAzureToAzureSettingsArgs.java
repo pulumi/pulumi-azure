@@ -48,7 +48,7 @@ public final class ReplicationRecoveryPlanAzureToAzureSettingsArgs extends com.p
     /**
      * The Edge Zone within the Azure Region where the VM is recovered. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
      * 
-     * &gt; **Note:** `primary_edge_zone` and `recovery_edge_zone` must be specified together.
+     * &gt; **Note:** `primaryEdgeZone` and `recoveryEdgeZone` must be specified together.
      * 
      */
     @Import(name="recoveryEdgeZone")
@@ -57,7 +57,7 @@ public final class ReplicationRecoveryPlanAzureToAzureSettingsArgs extends com.p
     /**
      * @return The Edge Zone within the Azure Region where the VM is recovered. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
      * 
-     * &gt; **Note:** `primary_edge_zone` and `recovery_edge_zone` must be specified together.
+     * &gt; **Note:** `primaryEdgeZone` and `recoveryEdgeZone` must be specified together.
      * 
      */
     public Optional<Output<String>> recoveryEdgeZone() {
@@ -67,7 +67,7 @@ public final class ReplicationRecoveryPlanAzureToAzureSettingsArgs extends com.p
     /**
      * The Availability Zone in which the VM is recovered. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
      * 
-     * &gt; **Note:** `primary_zone` and `recovery_zone` must be specified together.
+     * &gt; **Note:** `primaryZone` and `recoveryZone` must be specified together.
      * 
      */
     @Import(name="recoveryZone")
@@ -76,7 +76,7 @@ public final class ReplicationRecoveryPlanAzureToAzureSettingsArgs extends com.p
     /**
      * @return The Availability Zone in which the VM is recovered. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
      * 
-     * &gt; **Note:** `primary_zone` and `recovery_zone` must be specified together.
+     * &gt; **Note:** `primaryZone` and `recoveryZone` must be specified together.
      * 
      */
     public Optional<Output<String>> recoveryZone() {
@@ -155,7 +155,7 @@ public final class ReplicationRecoveryPlanAzureToAzureSettingsArgs extends com.p
         /**
          * @param recoveryEdgeZone The Edge Zone within the Azure Region where the VM is recovered. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
          * 
-         * &gt; **Note:** `primary_edge_zone` and `recovery_edge_zone` must be specified together.
+         * &gt; **Note:** `primaryEdgeZone` and `recoveryEdgeZone` must be specified together.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class ReplicationRecoveryPlanAzureToAzureSettingsArgs extends com.p
         /**
          * @param recoveryEdgeZone The Edge Zone within the Azure Region where the VM is recovered. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
          * 
-         * &gt; **Note:** `primary_edge_zone` and `recovery_edge_zone` must be specified together.
+         * &gt; **Note:** `primaryEdgeZone` and `recoveryEdgeZone` must be specified together.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class ReplicationRecoveryPlanAzureToAzureSettingsArgs extends com.p
         /**
          * @param recoveryZone The Availability Zone in which the VM is recovered. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
          * 
-         * &gt; **Note:** `primary_zone` and `recovery_zone` must be specified together.
+         * &gt; **Note:** `primaryZone` and `recoveryZone` must be specified together.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class ReplicationRecoveryPlanAzureToAzureSettingsArgs extends com.p
         /**
          * @param recoveryZone The Availability Zone in which the VM is recovered. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
          * 
-         * &gt; **Note:** `primary_zone` and `recovery_zone` must be specified together.
+         * &gt; **Note:** `primaryZone` and `recoveryZone` must be specified together.
          * 
          * @return builder
          * 

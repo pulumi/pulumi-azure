@@ -170,11 +170,11 @@ namespace Pulumi.Azure.Automation
     {
         public readonly string AutomationAccountId;
         /// <summary>
-        /// One or more `variable` blocks as defined below for each boolean variable.
+        /// One or more `Variable` blocks as defined below for each boolean variable.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVariablesBoolResult> Bools;
         /// <summary>
-        /// One or more `variable` blocks as defined below for each datetime variable.
+        /// One or more `Variable` blocks as defined below for each datetime variable.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVariablesDatetimeResult> Datetimes;
         /// <summary>
@@ -186,16 +186,16 @@ namespace Pulumi.Azure.Automation
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// One or more `variable` blocks as defined below for each int variable.
+        /// One or more `Variable` blocks as defined below for each int variable.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVariablesIntResult> Ints;
         /// <summary>
-        /// One or more `variable` blocks as defined below for each null variable.
+        /// One or more `Variable` blocks as defined below for each null variable.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVariablesNullResult> Nulls;
         public readonly ImmutableArray<Outputs.GetVariablesObjectResult> Objects;
         /// <summary>
-        /// One or more `variable` blocks as defined below for each string variable.
+        /// One or more `Variable` blocks as defined below for each string variable.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVariablesStringResult> Strings;
 

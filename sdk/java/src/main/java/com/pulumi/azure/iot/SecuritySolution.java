@@ -91,14 +91,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:iot/securitySolution:SecuritySolution")
 public class SecuritySolution extends com.pulumi.resources.CustomResource {
     /**
-     * A `additional_workspace` block as defined below.
+     * A `additionalWorkspace` block as defined below.
      * 
      */
     @Export(name="additionalWorkspaces", refs={List.class,SecuritySolutionAdditionalWorkspace.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SecuritySolutionAdditionalWorkspace>> additionalWorkspaces;
 
     /**
-     * @return A `additional_workspace` block as defined below.
+     * @return A `additionalWorkspace` block as defined below.
      * 
      */
     public Output<Optional<List<SecuritySolutionAdditionalWorkspace>>> additionalWorkspaces() {
@@ -259,14 +259,14 @@ public class SecuritySolution extends com.pulumi.resources.CustomResource {
         return this.querySubscriptionIds;
     }
     /**
-     * A `recommendations_enabled` block of options to enable or disable as defined below.
+     * A `recommendationsEnabled` block of options to enable or disable as defined below.
      * 
      */
     @Export(name="recommendationsEnabled", refs={SecuritySolutionRecommendationsEnabled.class}, tree="[0]")
     private Output<SecuritySolutionRecommendationsEnabled> recommendationsEnabled;
 
     /**
-     * @return A `recommendations_enabled` block of options to enable or disable as defined below.
+     * @return A `recommendationsEnabled` block of options to enable or disable as defined below.
      * 
      */
     public Output<SecuritySolutionRecommendationsEnabled> recommendationsEnabled() {

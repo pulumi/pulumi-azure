@@ -16,14 +16,14 @@ public final class AccountEncryptionState extends com.pulumi.resources.ResourceA
     public static final AccountEncryptionState Empty = new AccountEncryptionState();
 
     /**
-     * The full resource ID of the cross-tenant key vault. This is recommended when using `federated_client_id` for cross-tenant scenarios to ensure proper validation by Azure APIs.
+     * The full resource ID of the cross-tenant key vault. This is recommended when using `federatedClientId` for cross-tenant scenarios to ensure proper validation by Azure APIs.
      * 
      */
     @Import(name="crossTenantKeyVaultResourceId")
     private @Nullable Output<String> crossTenantKeyVaultResourceId;
 
     /**
-     * @return The full resource ID of the cross-tenant key vault. This is recommended when using `federated_client_id` for cross-tenant scenarios to ensure proper validation by Azure APIs.
+     * @return The full resource ID of the cross-tenant key vault. This is recommended when using `federatedClientId` for cross-tenant scenarios to ensure proper validation by Azure APIs.
      * 
      */
     public Optional<Output<String>> crossTenantKeyVaultResourceId() {
@@ -76,14 +76,14 @@ public final class AccountEncryptionState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The ID of the System Assigned Manged Identity. Conflicts with `user_assigned_identity_id`.
+     * The ID of the System Assigned Manged Identity. Conflicts with `userAssignedIdentityId`.
      * 
      */
     @Import(name="systemAssignedIdentityPrincipalId")
     private @Nullable Output<String> systemAssignedIdentityPrincipalId;
 
     /**
-     * @return The ID of the System Assigned Manged Identity. Conflicts with `user_assigned_identity_id`.
+     * @return The ID of the System Assigned Manged Identity. Conflicts with `userAssignedIdentityId`.
      * 
      */
     public Optional<Output<String>> systemAssignedIdentityPrincipalId() {
@@ -91,14 +91,14 @@ public final class AccountEncryptionState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The ID of the User Assigned Managed Identity. Conflicts with `system_assigned_identity_principal_id`.
+     * The ID of the User Assigned Managed Identity. Conflicts with `systemAssignedIdentityPrincipalId`.
      * 
      */
     @Import(name="userAssignedIdentityId")
     private @Nullable Output<String> userAssignedIdentityId;
 
     /**
-     * @return The ID of the User Assigned Managed Identity. Conflicts with `system_assigned_identity_principal_id`.
+     * @return The ID of the User Assigned Managed Identity. Conflicts with `systemAssignedIdentityPrincipalId`.
      * 
      */
     public Optional<Output<String>> userAssignedIdentityId() {
@@ -135,7 +135,7 @@ public final class AccountEncryptionState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param crossTenantKeyVaultResourceId The full resource ID of the cross-tenant key vault. This is recommended when using `federated_client_id` for cross-tenant scenarios to ensure proper validation by Azure APIs.
+         * @param crossTenantKeyVaultResourceId The full resource ID of the cross-tenant key vault. This is recommended when using `federatedClientId` for cross-tenant scenarios to ensure proper validation by Azure APIs.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class AccountEncryptionState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param crossTenantKeyVaultResourceId The full resource ID of the cross-tenant key vault. This is recommended when using `federated_client_id` for cross-tenant scenarios to ensure proper validation by Azure APIs.
+         * @param crossTenantKeyVaultResourceId The full resource ID of the cross-tenant key vault. This is recommended when using `federatedClientId` for cross-tenant scenarios to ensure proper validation by Azure APIs.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class AccountEncryptionState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param systemAssignedIdentityPrincipalId The ID of the System Assigned Manged Identity. Conflicts with `user_assigned_identity_id`.
+         * @param systemAssignedIdentityPrincipalId The ID of the System Assigned Manged Identity. Conflicts with `userAssignedIdentityId`.
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class AccountEncryptionState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param systemAssignedIdentityPrincipalId The ID of the System Assigned Manged Identity. Conflicts with `user_assigned_identity_id`.
+         * @param systemAssignedIdentityPrincipalId The ID of the System Assigned Manged Identity. Conflicts with `userAssignedIdentityId`.
          * 
          * @return builder
          * 
@@ -240,7 +240,7 @@ public final class AccountEncryptionState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param userAssignedIdentityId The ID of the User Assigned Managed Identity. Conflicts with `system_assigned_identity_principal_id`.
+         * @param userAssignedIdentityId The ID of the User Assigned Managed Identity. Conflicts with `systemAssignedIdentityPrincipalId`.
          * 
          * @return builder
          * 
@@ -251,7 +251,7 @@ public final class AccountEncryptionState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param userAssignedIdentityId The ID of the User Assigned Managed Identity. Conflicts with `system_assigned_identity_principal_id`.
+         * @param userAssignedIdentityId The ID of the User Assigned Managed Identity. Conflicts with `systemAssignedIdentityPrincipalId`.
          * 
          * @return builder
          * 

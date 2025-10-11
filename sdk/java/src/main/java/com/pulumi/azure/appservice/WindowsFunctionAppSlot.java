@@ -140,28 +140,28 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.appSettings);
     }
     /**
-     * an `auth_settings` block as detailed below.
+     * an `authSettings` block as detailed below.
      * 
      */
     @Export(name="authSettings", refs={WindowsFunctionAppSlotAuthSettings.class}, tree="[0]")
     private Output</* @Nullable */ WindowsFunctionAppSlotAuthSettings> authSettings;
 
     /**
-     * @return an `auth_settings` block as detailed below.
+     * @return an `authSettings` block as detailed below.
      * 
      */
     public Output<Optional<WindowsFunctionAppSlotAuthSettings>> authSettings() {
         return Codegen.optional(this.authSettings);
     }
     /**
-     * an `auth_settings_v2` block as detailed below.
+     * an `authSettingsV2` block as detailed below.
      * 
      */
     @Export(name="authSettingsV2", refs={WindowsFunctionAppSlotAuthSettingsV2.class}, tree="[0]")
     private Output</* @Nullable */ WindowsFunctionAppSlotAuthSettingsV2> authSettingsV2;
 
     /**
-     * @return an `auth_settings_v2` block as detailed below.
+     * @return an `authSettingsV2` block as detailed below.
      * 
      */
     public Output<Optional<WindowsFunctionAppSlotAuthSettingsV2>> authSettingsV2() {
@@ -238,14 +238,14 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.clientCertificateMode);
     }
     /**
-     * a `connection_string` block as detailed below.
+     * a `connectionString` block as detailed below.
      * 
      */
     @Export(name="connectionStrings", refs={List.class,WindowsFunctionAppSlotConnectionString.class}, tree="[0,1]")
     private Output</* @Nullable */ List<WindowsFunctionAppSlotConnectionString>> connectionStrings;
 
     /**
-     * @return a `connection_string` block as detailed below.
+     * @return a `connectionString` block as detailed below.
      * 
      */
     public Output<Optional<List<WindowsFunctionAppSlotConnectionString>>> connectionStrings() {
@@ -476,28 +476,28 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
         return this.outboundIpAddresses;
     }
     /**
-     * A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
+     * A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outboundIpAddressList`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
      * 
      */
     @Export(name="possibleOutboundIpAddressLists", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> possibleOutboundIpAddressLists;
 
     /**
-     * @return A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
+     * @return A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outboundIpAddressList`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
      * 
      */
     public Output<List<String>> possibleOutboundIpAddressLists() {
         return this.possibleOutboundIpAddressLists;
     }
     /**
-     * A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;,&#34;52.143.43.17&#34;]`.
+     * A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;,&#34;52.143.43.17&#34;]`.
      * 
      */
     @Export(name="possibleOutboundIpAddresses", refs={String.class}, tree="[0]")
     private Output<String> possibleOutboundIpAddresses;
 
     /**
-     * @return A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;,&#34;52.143.43.17&#34;]`.
+     * @return A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;,&#34;52.143.43.17&#34;]`.
      * 
      */
     public Output<String> possibleOutboundIpAddresses() {
@@ -532,28 +532,28 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.servicePlanId);
     }
     /**
-     * a `site_config` block as detailed below.
+     * a `siteConfig` block as detailed below.
      * 
      */
     @Export(name="siteConfig", refs={WindowsFunctionAppSlotSiteConfig.class}, tree="[0]")
     private Output<WindowsFunctionAppSlotSiteConfig> siteConfig;
 
     /**
-     * @return a `site_config` block as detailed below.
+     * @return a `siteConfig` block as detailed below.
      * 
      */
     public Output<WindowsFunctionAppSlotSiteConfig> siteConfig() {
         return this.siteConfig;
     }
     /**
-     * A `site_credential` block as defined below.
+     * A `siteCredential` block as defined below.
      * 
      */
     @Export(name="siteCredentials", refs={List.class,WindowsFunctionAppSlotSiteCredential.class}, tree="[0,1]")
     private Output<List<WindowsFunctionAppSlotSiteCredential>> siteCredentials;
 
     /**
-     * @return A `site_credential` block as defined below.
+     * @return A `siteCredential` block as defined below.
      * 
      */
     public Output<List<WindowsFunctionAppSlotSiteCredential>> siteCredentials() {
@@ -588,14 +588,14 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.storageAccountName);
     }
     /**
-     * One or more `storage_account` blocks as defined below.
+     * One or more `storageAccount` blocks as defined below.
      * 
      */
     @Export(name="storageAccounts", refs={List.class,WindowsFunctionAppSlotStorageAccount.class}, tree="[0,1]")
     private Output</* @Nullable */ List<WindowsFunctionAppSlotStorageAccount>> storageAccounts;
 
     /**
-     * @return One or more `storage_account` blocks as defined below.
+     * @return One or more `storageAccount` blocks as defined below.
      * 
      */
     public Output<Optional<List<WindowsFunctionAppSlotStorageAccount>>> storageAccounts() {
@@ -604,9 +604,9 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
     /**
      * The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App Slot.
      * 
-     * &gt; **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+     * &gt; **Note:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
      * 
-     * &gt; **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+     * &gt; **Note:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
      * 
      */
     @Export(name="storageKeyVaultSecretId", refs={String.class}, tree="[0]")
@@ -615,9 +615,9 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
     /**
      * @return The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App Slot.
      * 
-     * &gt; **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+     * &gt; **Note:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
      * 
-     * &gt; **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+     * &gt; **Note:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
      * 
      */
     public Output<Optional<String>> storageKeyVaultSecretId() {
@@ -626,7 +626,7 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
     /**
      * Should the Function App Slot use its Managed Identity to access storage.
      * 
-     * &gt; **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+     * &gt; **Note:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
      * 
      */
     @Export(name="storageUsesManagedIdentity", refs={Boolean.class}, tree="[0]")
@@ -635,7 +635,7 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
     /**
      * @return Should the Function App Slot use its Managed Identity to access storage.
      * 
-     * &gt; **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+     * &gt; **Note:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
      * 
      */
     public Output<Optional<Boolean>> storageUsesManagedIdentity() {

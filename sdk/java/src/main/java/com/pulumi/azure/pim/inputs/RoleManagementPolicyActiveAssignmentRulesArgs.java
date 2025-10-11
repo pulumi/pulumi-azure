@@ -79,7 +79,7 @@ public final class RoleManagementPolicyActiveAssignmentRulesArgs extends com.pul
     /**
      * Is ticket information required to create new assignments.
      * 
-     * One of `expiration_required` or `expire_after` must be provided.
+     * One of `expirationRequired` or `expireAfter` must be provided.
      * 
      */
     @Import(name="requireTicketInfo")
@@ -88,7 +88,7 @@ public final class RoleManagementPolicyActiveAssignmentRulesArgs extends com.pul
     /**
      * @return Is ticket information required to create new assignments.
      * 
-     * One of `expiration_required` or `expire_after` must be provided.
+     * One of `expirationRequired` or `expireAfter` must be provided.
      * 
      */
     public Optional<Output<Boolean>> requireTicketInfo() {
@@ -210,7 +210,7 @@ public final class RoleManagementPolicyActiveAssignmentRulesArgs extends com.pul
         /**
          * @param requireTicketInfo Is ticket information required to create new assignments.
          * 
-         * One of `expiration_required` or `expire_after` must be provided.
+         * One of `expirationRequired` or `expireAfter` must be provided.
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class RoleManagementPolicyActiveAssignmentRulesArgs extends com.pul
         /**
          * @param requireTicketInfo Is ticket information required to create new assignments.
          * 
-         * One of `expiration_required` or `expire_after` must be provided.
+         * One of `expirationRequired` or `expireAfter` must be provided.
          * 
          * @return builder
          * 

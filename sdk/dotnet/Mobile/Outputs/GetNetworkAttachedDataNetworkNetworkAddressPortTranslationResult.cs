@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Mobile.Outputs
         public readonly int IcmpPinholeTimeoutInSeconds;
         public readonly int? PinholeMaximumNumber;
         /// <summary>
-        /// A `port_range` block as defined below.
+        /// A `PortRange` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeResult> PortRanges;
         public readonly int TcpPinholeTimeoutInSeconds;

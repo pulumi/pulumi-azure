@@ -78,13 +78,13 @@ namespace Pulumi.Azure.EventHub
     public partial class TopicAuthorizationRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Grants listen access to this this Authorization Rule. Defaults to `false`.
+        /// Grants listen access to this this Authorization Rule. Defaults to `False`.
         /// </summary>
         [Output("listen")]
         public Output<bool?> Listen { get; private set; } = null!;
 
         /// <summary>
-        /// Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+        /// Grants manage access to this this Authorization Rule. When this property is `True` - both `Listen` and `Send` must be too. Defaults to `False`.
         /// </summary>
         [Output("manage")]
         public Output<bool?> Manage { get; private set; } = null!;
@@ -132,7 +132,7 @@ namespace Pulumi.Azure.EventHub
         public Output<string> SecondaryKey { get; private set; } = null!;
 
         /// <summary>
-        /// Grants send access to this this Authorization Rule. Defaults to `false`.
+        /// Grants send access to this this Authorization Rule. Defaults to `False`.
         /// </summary>
         [Output("send")]
         public Output<bool?> Send { get; private set; } = null!;
@@ -201,13 +201,13 @@ namespace Pulumi.Azure.EventHub
     public sealed class TopicAuthorizationRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Grants listen access to this this Authorization Rule. Defaults to `false`.
+        /// Grants listen access to this this Authorization Rule. Defaults to `False`.
         /// </summary>
         [Input("listen")]
         public Input<bool>? Listen { get; set; }
 
         /// <summary>
-        /// Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+        /// Grants manage access to this this Authorization Rule. When this property is `True` - both `Listen` and `Send` must be too. Defaults to `False`.
         /// </summary>
         [Input("manage")]
         public Input<bool>? Manage { get; set; }
@@ -219,7 +219,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Grants send access to this this Authorization Rule. Defaults to `false`.
+        /// Grants send access to this this Authorization Rule. Defaults to `False`.
         /// </summary>
         [Input("send")]
         public Input<bool>? Send { get; set; }
@@ -241,13 +241,13 @@ namespace Pulumi.Azure.EventHub
     public sealed class TopicAuthorizationRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Grants listen access to this this Authorization Rule. Defaults to `false`.
+        /// Grants listen access to this this Authorization Rule. Defaults to `False`.
         /// </summary>
         [Input("listen")]
         public Input<bool>? Listen { get; set; }
 
         /// <summary>
-        /// Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+        /// Grants manage access to this this Authorization Rule. When this property is `True` - both `Listen` and `Send` must be too. Defaults to `False`.
         /// </summary>
         [Input("manage")]
         public Input<bool>? Manage { get; set; }
@@ -355,7 +355,7 @@ namespace Pulumi.Azure.EventHub
         }
 
         /// <summary>
-        /// Grants send access to this this Authorization Rule. Defaults to `false`.
+        /// Grants send access to this this Authorization Rule. Defaults to `False`.
         /// </summary>
         [Input("send")]
         public Input<bool>? Send { get; set; }

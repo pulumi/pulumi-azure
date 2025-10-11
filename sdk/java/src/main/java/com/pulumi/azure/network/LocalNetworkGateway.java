@@ -97,14 +97,14 @@ public class LocalNetworkGateway extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.addressSpaces);
     }
     /**
-     * A `bgp_settings` block as defined below containing the Local Network Gateway&#39;s BGP speaker settings.
+     * A `bgpSettings` block as defined below containing the Local Network Gateway&#39;s BGP speaker settings.
      * 
      */
     @Export(name="bgpSettings", refs={LocalNetworkGatewayBgpSettings.class}, tree="[0]")
     private Output</* @Nullable */ LocalNetworkGatewayBgpSettings> bgpSettings;
 
     /**
-     * @return A `bgp_settings` block as defined below containing the Local Network Gateway&#39;s BGP speaker settings.
+     * @return A `bgpSettings` block as defined below containing the Local Network Gateway&#39;s BGP speaker settings.
      * 
      */
     public Output<Optional<LocalNetworkGatewayBgpSettings>> bgpSettings() {
@@ -127,7 +127,7 @@ public class LocalNetworkGateway extends com.pulumi.resources.CustomResource {
     /**
      * The gateway FQDN to connect with.
      * 
-     * &gt; **Note:** Either `gateway_address` or `gateway_fqdn` should be specified.
+     * &gt; **Note:** Either `gatewayAddress` or `gatewayFqdn` should be specified.
      * 
      */
     @Export(name="gatewayFqdn", refs={String.class}, tree="[0]")
@@ -136,7 +136,7 @@ public class LocalNetworkGateway extends com.pulumi.resources.CustomResource {
     /**
      * @return The gateway FQDN to connect with.
      * 
-     * &gt; **Note:** Either `gateway_address` or `gateway_fqdn` should be specified.
+     * &gt; **Note:** Either `gatewayAddress` or `gatewayFqdn` should be specified.
      * 
      */
     public Output<Optional<String>> gatewayFqdn() {

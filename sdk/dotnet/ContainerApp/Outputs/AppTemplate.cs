@@ -14,23 +14,23 @@ namespace Pulumi.Azure.ContainerApp.Outputs
     public sealed class AppTemplate
     {
         /// <summary>
-        /// One or more `azure_queue_scale_rule` blocks as defined below.
+        /// One or more `AzureQueueScaleRule` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AppTemplateAzureQueueScaleRule> AzureQueueScaleRules;
         /// <summary>
-        /// One or more `container` blocks as detailed below.
+        /// One or more `Container` blocks as detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AppTemplateContainer> Containers;
         /// <summary>
-        /// One or more `custom_scale_rule` blocks as defined below.
+        /// One or more `CustomScaleRule` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AppTemplateCustomScaleRule> CustomScaleRules;
         /// <summary>
-        /// One or more `http_scale_rule` blocks as defined below.
+        /// One or more `HttpScaleRule` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AppTemplateHttpScaleRule> HttpScaleRules;
         /// <summary>
-        /// The definition of an init container that is part of the group as documented in the `init_container` block below.
+        /// The definition of an init container that is part of the group as documented in the `InitContainer` block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AppTemplateInitContainer> InitContainers;
         /// <summary>
@@ -46,7 +46,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly string? RevisionSuffix;
         /// <summary>
-        /// One or more `tcp_scale_rule` blocks as defined below.
+        /// One or more `TcpScaleRule` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AppTemplateTcpScaleRule> TcpScaleRules;
         /// <summary>
@@ -54,7 +54,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly int? TerminationGracePeriodSeconds;
         /// <summary>
-        /// A `volume` block as detailed below.
+        /// A `Volume` block as detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AppTemplateVolume> Volumes;
 

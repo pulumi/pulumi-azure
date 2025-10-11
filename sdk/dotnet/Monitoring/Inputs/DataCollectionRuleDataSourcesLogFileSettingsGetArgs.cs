@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
     public sealed class DataCollectionRuleDataSourcesLogFileSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `text` block as defined below.
+        /// A `Text` block as defined below.
         /// </summary>
         [Input("text", required: true)]
         public Input<Inputs.DataCollectionRuleDataSourcesLogFileSettingsTextGetArgs> Text { get; set; } = null!;

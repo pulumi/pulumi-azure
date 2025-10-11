@@ -206,50 +206,50 @@ public class LinkedServiceSftp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.integrationRuntimeName);
     }
     /**
-     * A `key_vault_password` block as defined below.
+     * A `keyVaultPassword` block as defined below.
      * 
-     * &gt; **Note:** Either `password` or `key_vault_password` is required when `authentication_type` is set to `Basic`.
+     * &gt; **Note:** Either `password` or `keyVaultPassword` is required when `authenticationType` is set to `Basic`.
      * 
      */
     @Export(name="keyVaultPasswords", refs={List.class,LinkedServiceSftpKeyVaultPassword.class}, tree="[0,1]")
     private Output</* @Nullable */ List<LinkedServiceSftpKeyVaultPassword>> keyVaultPasswords;
 
     /**
-     * @return A `key_vault_password` block as defined below.
+     * @return A `keyVaultPassword` block as defined below.
      * 
-     * &gt; **Note:** Either `password` or `key_vault_password` is required when `authentication_type` is set to `Basic`.
+     * &gt; **Note:** Either `password` or `keyVaultPassword` is required when `authenticationType` is set to `Basic`.
      * 
      */
     public Output<Optional<List<LinkedServiceSftpKeyVaultPassword>>> keyVaultPasswords() {
         return Codegen.optional(this.keyVaultPasswords);
     }
     /**
-     * A `key_vault_private_key_content_base64` block as defined below.
+     * A `keyVaultPrivateKeyContentBase64` block as defined below.
      * 
      */
     @Export(name="keyVaultPrivateKeyContentBase64", refs={LinkedServiceSftpKeyVaultPrivateKeyContentBase64.class}, tree="[0]")
     private Output</* @Nullable */ LinkedServiceSftpKeyVaultPrivateKeyContentBase64> keyVaultPrivateKeyContentBase64;
 
     /**
-     * @return A `key_vault_private_key_content_base64` block as defined below.
+     * @return A `keyVaultPrivateKeyContentBase64` block as defined below.
      * 
      */
     public Output<Optional<LinkedServiceSftpKeyVaultPrivateKeyContentBase64>> keyVaultPrivateKeyContentBase64() {
         return Codegen.optional(this.keyVaultPrivateKeyContentBase64);
     }
     /**
-     * A `key_vault_private_key_passphrase` block as defined below.
+     * A `keyVaultPrivateKeyPassphrase` block as defined below.
      * 
-     * &gt; **Note:** One of `private_key_content_base64` or `private_key_path` (or their Key Vault equivalent) is required when `authentication_type` is set to `SshPublicKey`.
+     * &gt; **Note:** One of `privateKeyContentBase64` or `privateKeyPath` (or their Key Vault equivalent) is required when `authenticationType` is set to `SshPublicKey`.
      * 
      */
     @Export(name="keyVaultPrivateKeyPassphrase", refs={LinkedServiceSftpKeyVaultPrivateKeyPassphrase.class}, tree="[0]")
     private Output</* @Nullable */ LinkedServiceSftpKeyVaultPrivateKeyPassphrase> keyVaultPrivateKeyPassphrase;
 
     /**
-     * @return A `key_vault_private_key_passphrase` block as defined below.
+     * @return A `keyVaultPrivateKeyPassphrase` block as defined below.
      * 
-     * &gt; **Note:** One of `private_key_content_base64` or `private_key_path` (or their Key Vault equivalent) is required when `authentication_type` is set to `SshPublicKey`.
+     * &gt; **Note:** One of `privateKeyContentBase64` or `privateKeyPath` (or their Key Vault equivalent) is required when `authenticationType` is set to `SshPublicKey`.
      * 
      */
     public Output<Optional<LinkedServiceSftpKeyVaultPrivateKeyPassphrase>> keyVaultPrivateKeyPassphrase() {
@@ -342,7 +342,7 @@ public class LinkedServiceSftp extends com.pulumi.resources.CustomResource {
     /**
      * The absolute path to the private key file that the self-hosted integration runtime can access.
      * 
-     * &gt; **Note:** `private_key_path` only applies when using a self-hosted integration runtime (instead of the default Azure provided runtime), as indicated by supplying a value for `integration_runtime_name`.
+     * &gt; **Note:** `privateKeyPath` only applies when using a self-hosted integration runtime (instead of the default Azure provided runtime), as indicated by supplying a value for `integrationRuntimeName`.
      * 
      */
     @Export(name="privateKeyPath", refs={String.class}, tree="[0]")
@@ -351,21 +351,21 @@ public class LinkedServiceSftp extends com.pulumi.resources.CustomResource {
     /**
      * @return The absolute path to the private key file that the self-hosted integration runtime can access.
      * 
-     * &gt; **Note:** `private_key_path` only applies when using a self-hosted integration runtime (instead of the default Azure provided runtime), as indicated by supplying a value for `integration_runtime_name`.
+     * &gt; **Note:** `privateKeyPath` only applies when using a self-hosted integration runtime (instead of the default Azure provided runtime), as indicated by supplying a value for `integrationRuntimeName`.
      * 
      */
     public Output<Optional<String>> privateKeyPath() {
         return Codegen.optional(this.privateKeyPath);
     }
     /**
-     * Whether to validate host key fingerprint while connecting. If set to `false`, `host_key_fingerprint` must also be set.
+     * Whether to validate host key fingerprint while connecting. If set to `false`, `hostKeyFingerprint` must also be set.
      * 
      */
     @Export(name="skipHostKeyValidation", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> skipHostKeyValidation;
 
     /**
-     * @return Whether to validate host key fingerprint while connecting. If set to `false`, `host_key_fingerprint` must also be set.
+     * @return Whether to validate host key fingerprint while connecting. If set to `false`, `hostKeyFingerprint` must also be set.
      * 
      */
     public Output<Optional<Boolean>> skipHostKeyValidation() {

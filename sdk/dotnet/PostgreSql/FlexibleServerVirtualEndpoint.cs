@@ -69,7 +69,7 @@ namespace Pulumi.Azure.PostgreSql
     /// });
     /// ```
     /// 
-    /// &gt; **Note:** If creating multiple replicas, an error can occur if virtual endpoints are created before all replicas have been completed. To avoid this error, use a `depends_on` property on `azure.postgresql.FlexibleServerVirtualEndpoint` that references all Postgres Flexible Server Replicas.
+    /// &gt; **Note:** If creating multiple replicas, an error can occur if virtual endpoints are created before all replicas have been completed. To avoid this error, use a `DependsOn` property on `azure.postgresql.FlexibleServerVirtualEndpoint` that references all Postgres Flexible Server Replicas.
     /// 
     /// ## API Providers
     /// 
@@ -98,7 +98,7 @@ namespace Pulumi.Azure.PostgreSql
         /// <summary>
         /// The Resource ID of the *Replica* Postgres Flexible Server this should be associated with
         /// 
-        /// &gt; **Note:** If a fail-over has occurred, you will be unable to update `replica_server_id`. You can remove the resource from state and reimport it back in with `source_server_id` and `replica_server_id` flipped and then update `replica_server_id`.
+        /// &gt; **Note:** If a fail-over has occurred, you will be unable to update `ReplicaServerId`. You can remove the resource from state and reimport it back in with `SourceServerId` and `ReplicaServerId` flipped and then update `ReplicaServerId`.
         /// </summary>
         [Output("replicaServerId")]
         public Output<string> ReplicaServerId { get; private set; } = null!;
@@ -170,7 +170,7 @@ namespace Pulumi.Azure.PostgreSql
         /// <summary>
         /// The Resource ID of the *Replica* Postgres Flexible Server this should be associated with
         /// 
-        /// &gt; **Note:** If a fail-over has occurred, you will be unable to update `replica_server_id`. You can remove the resource from state and reimport it back in with `source_server_id` and `replica_server_id` flipped and then update `replica_server_id`.
+        /// &gt; **Note:** If a fail-over has occurred, you will be unable to update `ReplicaServerId`. You can remove the resource from state and reimport it back in with `SourceServerId` and `ReplicaServerId` flipped and then update `ReplicaServerId`.
         /// </summary>
         [Input("replicaServerId", required: true)]
         public Input<string> ReplicaServerId { get; set; } = null!;
@@ -204,7 +204,7 @@ namespace Pulumi.Azure.PostgreSql
         /// <summary>
         /// The Resource ID of the *Replica* Postgres Flexible Server this should be associated with
         /// 
-        /// &gt; **Note:** If a fail-over has occurred, you will be unable to update `replica_server_id`. You can remove the resource from state and reimport it back in with `source_server_id` and `replica_server_id` flipped and then update `replica_server_id`.
+        /// &gt; **Note:** If a fail-over has occurred, you will be unable to update `ReplicaServerId`. You can remove the resource from state and reimport it back in with `SourceServerId` and `ReplicaServerId` flipped and then update `ReplicaServerId`.
         /// </summary>
         [Input("replicaServerId")]
         public Input<string>? ReplicaServerId { get; set; }

@@ -141,14 +141,14 @@ public final class NetworkSimPolicyState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A `user_equipment_aggregate_maximum_bit_rate` block as defined below.
+     * A `userEquipmentAggregateMaximumBitRate` block as defined below.
      * 
      */
     @Import(name="userEquipmentAggregateMaximumBitRate")
     private @Nullable Output<NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs> userEquipmentAggregateMaximumBitRate;
 
     /**
-     * @return A `user_equipment_aggregate_maximum_bit_rate` block as defined below.
+     * @return A `userEquipmentAggregateMaximumBitRate` block as defined below.
      * 
      */
     public Optional<Output<NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs>> userEquipmentAggregateMaximumBitRate() {
@@ -366,7 +366,7 @@ public final class NetworkSimPolicyState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param userEquipmentAggregateMaximumBitRate A `user_equipment_aggregate_maximum_bit_rate` block as defined below.
+         * @param userEquipmentAggregateMaximumBitRate A `userEquipmentAggregateMaximumBitRate` block as defined below.
          * 
          * @return builder
          * 
@@ -377,7 +377,7 @@ public final class NetworkSimPolicyState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param userEquipmentAggregateMaximumBitRate A `user_equipment_aggregate_maximum_bit_rate` block as defined below.
+         * @param userEquipmentAggregateMaximumBitRate A `userEquipmentAggregateMaximumBitRate` block as defined below.
          * 
          * @return builder
          * 

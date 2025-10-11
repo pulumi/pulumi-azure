@@ -107,14 +107,14 @@ public final class DatasetBlobStorageState extends com.pulumi.resources.Resource
     }
 
     /**
-     * A `storage_account` block as defined below. Changing this forces a new resource to be created.
+     * A `storageAccount` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="storageAccount")
     private @Nullable Output<DatasetBlobStorageStorageAccountArgs> storageAccount;
 
     /**
-     * @return A `storage_account` block as defined below. Changing this forces a new resource to be created.
+     * @return A `storageAccount` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<DatasetBlobStorageStorageAccountArgs>> storageAccount() {
@@ -278,7 +278,7 @@ public final class DatasetBlobStorageState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param storageAccount A `storage_account` block as defined below. Changing this forces a new resource to be created.
+         * @param storageAccount A `storageAccount` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -289,7 +289,7 @@ public final class DatasetBlobStorageState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param storageAccount A `storage_account` block as defined below. Changing this forces a new resource to be created.
+         * @param storageAccount A `storageAccount` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

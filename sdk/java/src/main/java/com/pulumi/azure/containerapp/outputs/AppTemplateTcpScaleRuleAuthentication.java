@@ -18,7 +18,7 @@ public final class AppTemplateTcpScaleRuleAuthentication {
      */
     private String secretName;
     /**
-     * @return The Trigger Parameter name to use the supply the value retrieved from the `secret_name`.
+     * @return The Trigger Parameter name to use the supply the value retrieved from the `secretName`.
      * 
      */
     private @Nullable String triggerParameter;
@@ -32,7 +32,7 @@ public final class AppTemplateTcpScaleRuleAuthentication {
         return this.secretName;
     }
     /**
-     * @return The Trigger Parameter name to use the supply the value retrieved from the `secret_name`.
+     * @return The Trigger Parameter name to use the supply the value retrieved from the `secretName`.
      * 
      */
     public Optional<String> triggerParameter() {

@@ -22,7 +22,7 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
     /**
      * Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
      * 
-     * &gt; **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
+     * &gt; **Note:** One of `sourceUri`, `sourceResourceId` or `storageAccountId` must be specified.
      * 
      */
     @Import(name="createOption")
@@ -31,7 +31,7 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
      * 
-     * &gt; **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
+     * &gt; **Note:** One of `sourceUri`, `sourceResourceId` or `storageAccountId` must be specified.
      * 
      */
     public Optional<Output<String>> createOption() {
@@ -39,14 +39,14 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `network_access_policy` to `AllowPrivate`.
+     * Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `networkAccessPolicy` to `AllowPrivate`.
      * 
      */
     @Import(name="diskAccessId")
     private @Nullable Output<String> diskAccessId;
 
     /**
-     * @return Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `network_access_policy` to `AllowPrivate`.
+     * @return Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `networkAccessPolicy` to `AllowPrivate`.
      * 
      */
     public Optional<Output<String>> diskAccessId() {
@@ -69,18 +69,18 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `encryption_settings` block as defined below.
+     * A `encryptionSettings` block as defined below.
      * 
-     * &gt; **Note:** Removing `encryption_settings` forces a new resource to be created.
+     * &gt; **Note:** Removing `encryptionSettings` forces a new resource to be created.
      * 
      */
     @Import(name="encryptionSettings")
     private @Nullable Output<SnapshotEncryptionSettingsArgs> encryptionSettings;
 
     /**
-     * @return A `encryption_settings` block as defined below.
+     * @return A `encryptionSettings` block as defined below.
      * 
-     * &gt; **Note:** Removing `encryption_settings` forces a new resource to be created.
+     * &gt; **Note:** Removing `encryptionSettings` forces a new resource to be created.
      * 
      */
     public Optional<Output<SnapshotEncryptionSettingsArgs>> encryptionSettings() {
@@ -178,14 +178,14 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies a reference to an existing snapshot, when `create_option` is `Copy`. Changing this forces a new resource to be created.
+     * Specifies a reference to an existing snapshot, when `createOption` is `Copy`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="sourceResourceId")
     private @Nullable Output<String> sourceResourceId;
 
     /**
-     * @return Specifies a reference to an existing snapshot, when `create_option` is `Copy`. Changing this forces a new resource to be created.
+     * @return Specifies a reference to an existing snapshot, when `createOption` is `Copy`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> sourceResourceId() {
@@ -208,14 +208,14 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the ID of an storage account. Used with `source_uri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
+     * Specifies the ID of an storage account. Used with `sourceUri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="storageAccountId")
     private @Nullable Output<String> storageAccountId;
 
     /**
-     * @return Specifies the ID of an storage account. Used with `source_uri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
+     * @return Specifies the ID of an storage account. Used with `sourceUri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> storageAccountId() {
@@ -293,7 +293,7 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param createOption Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
          * 
-         * &gt; **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
+         * &gt; **Note:** One of `sourceUri`, `sourceResourceId` or `storageAccountId` must be specified.
          * 
          * @return builder
          * 
@@ -306,7 +306,7 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param createOption Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
          * 
-         * &gt; **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
+         * &gt; **Note:** One of `sourceUri`, `sourceResourceId` or `storageAccountId` must be specified.
          * 
          * @return builder
          * 
@@ -316,7 +316,7 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param diskAccessId Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `network_access_policy` to `AllowPrivate`.
+         * @param diskAccessId Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `networkAccessPolicy` to `AllowPrivate`.
          * 
          * @return builder
          * 
@@ -327,7 +327,7 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param diskAccessId Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `network_access_policy` to `AllowPrivate`.
+         * @param diskAccessId Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `networkAccessPolicy` to `AllowPrivate`.
          * 
          * @return builder
          * 
@@ -358,9 +358,9 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryptionSettings A `encryption_settings` block as defined below.
+         * @param encryptionSettings A `encryptionSettings` block as defined below.
          * 
-         * &gt; **Note:** Removing `encryption_settings` forces a new resource to be created.
+         * &gt; **Note:** Removing `encryptionSettings` forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -371,9 +371,9 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryptionSettings A `encryption_settings` block as defined below.
+         * @param encryptionSettings A `encryptionSettings` block as defined below.
          * 
-         * &gt; **Note:** Removing `encryption_settings` forces a new resource to be created.
+         * &gt; **Note:** Removing `encryptionSettings` forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -509,7 +509,7 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceResourceId Specifies a reference to an existing snapshot, when `create_option` is `Copy`. Changing this forces a new resource to be created.
+         * @param sourceResourceId Specifies a reference to an existing snapshot, when `createOption` is `Copy`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -520,7 +520,7 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceResourceId Specifies a reference to an existing snapshot, when `create_option` is `Copy`. Changing this forces a new resource to be created.
+         * @param sourceResourceId Specifies a reference to an existing snapshot, when `createOption` is `Copy`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -551,7 +551,7 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccountId Specifies the ID of an storage account. Used with `source_uri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
+         * @param storageAccountId Specifies the ID of an storage account. Used with `sourceUri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -562,7 +562,7 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccountId Specifies the ID of an storage account. Used with `source_uri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
+         * @param storageAccountId Specifies the ID of an storage account. Used with `sourceUri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

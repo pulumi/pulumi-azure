@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GroupPolicyAssignmentOverride {
     /**
-     * @return One or more `override_selector` block as defined below.
+     * @return One or more `overrideSelector` block as defined below.
      * 
      */
     private @Nullable List<GroupPolicyAssignmentOverrideSelector> selectors;
@@ -26,7 +26,7 @@ public final class GroupPolicyAssignmentOverride {
 
     private GroupPolicyAssignmentOverride() {}
     /**
-     * @return One or more `override_selector` block as defined below.
+     * @return One or more `overrideSelector` block as defined below.
      * 
      */
     public List<GroupPolicyAssignmentOverrideSelector> selectors() {

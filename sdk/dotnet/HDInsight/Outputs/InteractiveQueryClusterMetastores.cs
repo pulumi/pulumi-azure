@@ -14,15 +14,15 @@ namespace Pulumi.Azure.HDInsight.Outputs
     public sealed class InteractiveQueryClusterMetastores
     {
         /// <summary>
-        /// An `ambari` block as defined below.
+        /// An `Ambari` block as defined below.
         /// </summary>
         public readonly Outputs.InteractiveQueryClusterMetastoresAmbari? Ambari;
         /// <summary>
-        /// A `hive` block as defined below.
+        /// A `Hive` block as defined below.
         /// </summary>
         public readonly Outputs.InteractiveQueryClusterMetastoresHive? Hive;
         /// <summary>
-        /// An `oozie` block as defined below.
+        /// An `Oozie` block as defined below.
         /// </summary>
         public readonly Outputs.InteractiveQueryClusterMetastoresOozie? Oozie;
 

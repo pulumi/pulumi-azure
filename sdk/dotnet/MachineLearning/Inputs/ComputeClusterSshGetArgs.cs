@@ -27,7 +27,7 @@ namespace Pulumi.Azure.MachineLearning.Inputs
         /// <summary>
         /// SSH public key of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
         /// 
-        /// &gt; **Note:** At least one of `admin_password` and `key_value` shoud be specified.
+        /// &gt; **Note:** At least one of `AdminPassword` and `KeyValue` shoud be specified.
         /// </summary>
         [Input("keyValue")]
         public Input<string>? KeyValue { get; set; }

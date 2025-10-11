@@ -113,7 +113,7 @@ namespace Pulumi.Azure.DevCenter
         public Output<string> DevCenterProjectId { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ProjectEnvironmentTypeIdentity> Identity { get; private set; } = null!;
@@ -137,7 +137,7 @@ namespace Pulumi.Azure.DevCenter
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A `user_role_assignment` block as defined below.
+        /// A `UserRoleAssignment` block as defined below.
         /// </summary>
         [Output("userRoleAssignments")]
         public Output<ImmutableArray<Outputs.ProjectEnvironmentTypeUserRoleAssignment>> UserRoleAssignments { get; private set; } = null!;
@@ -213,7 +213,7 @@ namespace Pulumi.Azure.DevCenter
         public Input<string> DevCenterProjectId { get; set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity", required: true)]
         public Input<Inputs.ProjectEnvironmentTypeIdentityArgs> Identity { get; set; } = null!;
@@ -246,7 +246,7 @@ namespace Pulumi.Azure.DevCenter
         private InputList<Inputs.ProjectEnvironmentTypeUserRoleAssignmentArgs>? _userRoleAssignments;
 
         /// <summary>
-        /// A `user_role_assignment` block as defined below.
+        /// A `UserRoleAssignment` block as defined below.
         /// </summary>
         public InputList<Inputs.ProjectEnvironmentTypeUserRoleAssignmentArgs> UserRoleAssignments
         {
@@ -287,7 +287,7 @@ namespace Pulumi.Azure.DevCenter
         public Input<string>? DevCenterProjectId { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ProjectEnvironmentTypeIdentityGetArgs>? Identity { get; set; }
@@ -320,7 +320,7 @@ namespace Pulumi.Azure.DevCenter
         private InputList<Inputs.ProjectEnvironmentTypeUserRoleAssignmentGetArgs>? _userRoleAssignments;
 
         /// <summary>
-        /// A `user_role_assignment` block as defined below.
+        /// A `UserRoleAssignment` block as defined below.
         /// </summary>
         public InputList<Inputs.ProjectEnvironmentTypeUserRoleAssignmentGetArgs> UserRoleAssignments
         {

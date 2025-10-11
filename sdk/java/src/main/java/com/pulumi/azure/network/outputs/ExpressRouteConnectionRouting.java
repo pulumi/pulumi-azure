@@ -28,7 +28,7 @@ public final class ExpressRouteConnectionRouting {
      */
     private @Nullable String outboundRouteMapId;
     /**
-     * @return A `propagated_route_table` block as defined below.
+     * @return A `propagatedRouteTable` block as defined below.
      * 
      */
     private @Nullable ExpressRouteConnectionRoutingPropagatedRouteTable propagatedRouteTable;
@@ -56,7 +56,7 @@ public final class ExpressRouteConnectionRouting {
         return Optional.ofNullable(this.outboundRouteMapId);
     }
     /**
-     * @return A `propagated_route_table` block as defined below.
+     * @return A `propagatedRouteTable` block as defined below.
      * 
      */
     public Optional<ExpressRouteConnectionRoutingPropagatedRouteTable> propagatedRouteTable() {

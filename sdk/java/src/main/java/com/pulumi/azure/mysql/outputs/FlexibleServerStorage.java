@@ -35,7 +35,7 @@ public final class FlexibleServerStorage {
     /**
      * @return The max storage allowed for the MySQL Flexible Server. Possible values are between `20` and `16384`.
      * 
-     * &gt; **Note:** Decreasing `size_gb` forces a new resource to be created.
+     * &gt; **Note:** Decreasing `sizeGb` forces a new resource to be created.
      * 
      */
     private @Nullable Integer sizeGb;
@@ -72,7 +72,7 @@ public final class FlexibleServerStorage {
     /**
      * @return The max storage allowed for the MySQL Flexible Server. Possible values are between `20` and `16384`.
      * 
-     * &gt; **Note:** Decreasing `size_gb` forces a new resource to be created.
+     * &gt; **Note:** Decreasing `sizeGb` forces a new resource to be created.
      * 
      */
     public Optional<Integer> sizeGb() {

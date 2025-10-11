@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<Inputs.ApplicationGatewayRewriteRuleSetRewriteRuleArgs>? _rewriteRules;
 
         /// <summary>
-        /// One or more `rewrite_rule` blocks as defined below.
+        /// One or more `RewriteRule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayRewriteRuleSetRewriteRuleArgs> RewriteRules
         {

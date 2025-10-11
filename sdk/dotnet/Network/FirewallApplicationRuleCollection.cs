@@ -161,7 +161,7 @@ namespace Pulumi.Azure.Network
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `rule` blocks as defined below.
+        /// One or more `Rule` blocks as defined below.
         /// </summary>
         [Output("rules")]
         public Output<ImmutableArray<Outputs.FirewallApplicationRuleCollectionRule>> Rules { get; private set; } = null!;
@@ -246,7 +246,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.FirewallApplicationRuleCollectionRuleArgs>? _rules;
 
         /// <summary>
-        /// One or more `rule` blocks as defined below.
+        /// One or more `Rule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.FirewallApplicationRuleCollectionRuleArgs> Rules
         {
@@ -296,7 +296,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.FirewallApplicationRuleCollectionRuleGetArgs>? _rules;
 
         /// <summary>
-        /// One or more `rule` blocks as defined below.
+        /// One or more `Rule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.FirewallApplicationRuleCollectionRuleGetArgs> Rules
         {

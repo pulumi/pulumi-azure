@@ -18,7 +18,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly string AppId;
         /// <summary>
-        /// The port which the application is listening on. This is the same as the `ingress` port.
+        /// The port which the application is listening on. This is the same as the `Ingress` port.
         /// </summary>
         public readonly int AppPort;
         /// <summary>

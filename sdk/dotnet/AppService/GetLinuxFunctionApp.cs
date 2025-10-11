@@ -170,11 +170,11 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly ImmutableDictionary<string, string> AppSettings;
         /// <summary>
-        /// A `auth_settings` block as defined below.
+        /// A `AuthSettings` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxFunctionAppAuthSettingResult> AuthSettings;
         /// <summary>
-        /// A `auth_settings_v2` block as defined below.
+        /// A `AuthSettingsV2` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxFunctionAppAuthSettingsV2Result> AuthSettingsV2s;
         /// <summary>
@@ -182,7 +182,7 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly string Availability;
         /// <summary>
-        /// A `backup` block as defined below.
+        /// A `Backup` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxFunctionAppBackupResult> Backups;
         /// <summary>
@@ -202,7 +202,7 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly string ClientCertificateMode;
         /// <summary>
-        /// A `connection_string` blocks as defined below.
+        /// A `ConnectionString` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxFunctionAppConnectionStringResult> ConnectionStrings;
         /// <summary>
@@ -246,7 +246,7 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A `identity` block as defined below.
+        /// A `Identity` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxFunctionAppIdentityResult> Identities;
         /// <summary>
@@ -270,11 +270,11 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly string OutboundIpAddresses;
         /// <summary>
-        /// A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `["52.23.25.3", "52.143.43.12"]`.
+        /// A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `OutboundIpAddressList`. For example `["52.23.25.3", "52.143.43.12"]`.
         /// </summary>
         public readonly ImmutableArray<string> PossibleOutboundIpAddressLists;
         /// <summary>
-        /// A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`.
+        /// A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `OutboundIpAddresses`.
         /// </summary>
         public readonly string PossibleOutboundIpAddresses;
         /// <summary>
@@ -287,15 +287,15 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly string ServicePlanId;
         /// <summary>
-        /// A `site_config` block as defined below.
+        /// A `SiteConfig` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxFunctionAppSiteConfigResult> SiteConfigs;
         /// <summary>
-        /// A `site_credential` block as defined below.
+        /// A `SiteCredential` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxFunctionAppSiteCredentialResult> SiteCredentials;
         /// <summary>
-        /// A `sticky_settings` block as defined below.
+        /// A `StickySettings` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxFunctionAppStickySettingResult> StickySettings;
         /// <summary>

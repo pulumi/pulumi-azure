@@ -153,7 +153,7 @@ namespace Pulumi.Azure.DataShare
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `storage_account` block as defined below. Changing this forces a new resource to be created.
+        /// A `StorageAccount` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("storageAccount")]
         public Output<Outputs.DatasetBlobStorageStorageAccount> StorageAccount { get; private set; } = null!;
@@ -235,7 +235,7 @@ namespace Pulumi.Azure.DataShare
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `storage_account` block as defined below. Changing this forces a new resource to be created.
+        /// A `StorageAccount` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageAccount", required: true)]
         public Input<Inputs.DatasetBlobStorageStorageAccountArgs> StorageAccount { get; set; } = null!;
@@ -285,7 +285,7 @@ namespace Pulumi.Azure.DataShare
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `storage_account` block as defined below. Changing this forces a new resource to be created.
+        /// A `StorageAccount` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageAccount")]
         public Input<Inputs.DatasetBlobStorageStorageAccountGetArgs>? StorageAccount { get; set; }

@@ -26,7 +26,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly double Cpu;
         /// <summary>
-        /// One or more `env` blocks as detailed below.
+        /// One or more `Env` blocks as detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAppTemplateInitContainerEnvResult> Envs;
         /// <summary>
@@ -46,7 +46,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// A `volume_mounts` block as detailed below.
+        /// A `VolumeMounts` block as detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAppTemplateInitContainerVolumeMountResult> VolumeMounts;
 

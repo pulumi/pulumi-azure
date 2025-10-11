@@ -19,7 +19,7 @@ public final class WindowsFunctionAppSlotBackupScheduleArgs extends com.pulumi.r
     public static final WindowsFunctionAppSlotBackupScheduleArgs Empty = new WindowsFunctionAppSlotBackupScheduleArgs();
 
     /**
-     * How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
+     * How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequencyUnit` should be set to `Day`).
      * 
      * &gt; **Note:** Not all intervals are supported on all SKUs. Please refer to the official documentation for appropriate values.
      * 
@@ -28,7 +28,7 @@ public final class WindowsFunctionAppSlotBackupScheduleArgs extends com.pulumi.r
     private Output<Integer> frequencyInterval;
 
     /**
-     * @return How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
+     * @return How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequencyUnit` should be set to `Day`).
      * 
      * &gt; **Note:** Not all intervals are supported on all SKUs. Please refer to the official documentation for appropriate values.
      * 
@@ -142,7 +142,7 @@ public final class WindowsFunctionAppSlotBackupScheduleArgs extends com.pulumi.r
         }
 
         /**
-         * @param frequencyInterval How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
+         * @param frequencyInterval How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequencyUnit` should be set to `Day`).
          * 
          * &gt; **Note:** Not all intervals are supported on all SKUs. Please refer to the official documentation for appropriate values.
          * 
@@ -155,7 +155,7 @@ public final class WindowsFunctionAppSlotBackupScheduleArgs extends com.pulumi.r
         }
 
         /**
-         * @param frequencyInterval How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
+         * @param frequencyInterval How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequencyUnit` should be set to `Day`).
          * 
          * &gt; **Note:** Not all intervals are supported on all SKUs. Please refer to the official documentation for appropriate values.
          * 

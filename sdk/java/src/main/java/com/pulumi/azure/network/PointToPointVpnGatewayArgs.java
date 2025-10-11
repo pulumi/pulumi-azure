@@ -22,14 +22,14 @@ public final class PointToPointVpnGatewayArgs extends com.pulumi.resources.Resou
     public static final PointToPointVpnGatewayArgs Empty = new PointToPointVpnGatewayArgs();
 
     /**
-     * A `connection_configuration` block as defined below.
+     * A `connectionConfiguration` block as defined below.
      * 
      */
     @Import(name="connectionConfigurations", required=true)
     private Output<List<PointToPointVpnGatewayConnectionConfigurationArgs>> connectionConfigurations;
 
     /**
-     * @return A `connection_configuration` block as defined below.
+     * @return A `connectionConfiguration` block as defined below.
      * 
      */
     public Output<List<PointToPointVpnGatewayConnectionConfigurationArgs>> connectionConfigurations() {
@@ -205,7 +205,7 @@ public final class PointToPointVpnGatewayArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param connectionConfigurations A `connection_configuration` block as defined below.
+         * @param connectionConfigurations A `connectionConfiguration` block as defined below.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class PointToPointVpnGatewayArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param connectionConfigurations A `connection_configuration` block as defined below.
+         * @param connectionConfigurations A `connectionConfiguration` block as defined below.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class PointToPointVpnGatewayArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param connectionConfigurations A `connection_configuration` block as defined below.
+         * @param connectionConfigurations A `connectionConfiguration` block as defined below.
          * 
          * @return builder
          * 

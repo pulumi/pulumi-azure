@@ -68,7 +68,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         private InputList<Inputs.GroupInitContainerSecurityArgs>? _securities;
 
         /// <summary>
-        /// The definition of the security context for this container as documented in the `security` block below. Changing this forces a new resource to be created.
+        /// The definition of the security context for this container as documented in the `Security` block below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.GroupInitContainerSecurityArgs> Securities
         {
@@ -80,7 +80,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         private InputList<Inputs.GroupInitContainerVolumeArgs>? _volumes;
 
         /// <summary>
-        /// The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
+        /// The definition of a volume mount for this container as documented in the `Volume` block below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.GroupInitContainerVolumeArgs> Volumes
         {

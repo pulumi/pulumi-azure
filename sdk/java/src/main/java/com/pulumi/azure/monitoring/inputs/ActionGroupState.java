@@ -30,14 +30,14 @@ public final class ActionGroupState extends com.pulumi.resources.ResourceArgs {
     public static final ActionGroupState Empty = new ActionGroupState();
 
     /**
-     * One or more `arm_role_receiver` blocks as defined below.
+     * One or more `armRoleReceiver` blocks as defined below.
      * 
      */
     @Import(name="armRoleReceivers")
     private @Nullable Output<List<ActionGroupArmRoleReceiverArgs>> armRoleReceivers;
 
     /**
-     * @return One or more `arm_role_receiver` blocks as defined below.
+     * @return One or more `armRoleReceiver` blocks as defined below.
      * 
      */
     public Optional<Output<List<ActionGroupArmRoleReceiverArgs>>> armRoleReceivers() {
@@ -45,14 +45,14 @@ public final class ActionGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `automation_runbook_receiver` blocks as defined below.
+     * One or more `automationRunbookReceiver` blocks as defined below.
      * 
      */
     @Import(name="automationRunbookReceivers")
     private @Nullable Output<List<ActionGroupAutomationRunbookReceiverArgs>> automationRunbookReceivers;
 
     /**
-     * @return One or more `automation_runbook_receiver` blocks as defined below.
+     * @return One or more `automationRunbookReceiver` blocks as defined below.
      * 
      */
     public Optional<Output<List<ActionGroupAutomationRunbookReceiverArgs>>> automationRunbookReceivers() {
@@ -60,14 +60,14 @@ public final class ActionGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `azure_app_push_receiver` blocks as defined below.
+     * One or more `azureAppPushReceiver` blocks as defined below.
      * 
      */
     @Import(name="azureAppPushReceivers")
     private @Nullable Output<List<ActionGroupAzureAppPushReceiverArgs>> azureAppPushReceivers;
 
     /**
-     * @return One or more `azure_app_push_receiver` blocks as defined below.
+     * @return One or more `azureAppPushReceiver` blocks as defined below.
      * 
      */
     public Optional<Output<List<ActionGroupAzureAppPushReceiverArgs>>> azureAppPushReceivers() {
@@ -75,14 +75,14 @@ public final class ActionGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `azure_function_receiver` blocks as defined below.
+     * One or more `azureFunctionReceiver` blocks as defined below.
      * 
      */
     @Import(name="azureFunctionReceivers")
     private @Nullable Output<List<ActionGroupAzureFunctionReceiverArgs>> azureFunctionReceivers;
 
     /**
-     * @return One or more `azure_function_receiver` blocks as defined below.
+     * @return One or more `azureFunctionReceiver` blocks as defined below.
      * 
      */
     public Optional<Output<List<ActionGroupAzureFunctionReceiverArgs>>> azureFunctionReceivers() {
@@ -90,14 +90,14 @@ public final class ActionGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `email_receiver` blocks as defined below.
+     * One or more `emailReceiver` blocks as defined below.
      * 
      */
     @Import(name="emailReceivers")
     private @Nullable Output<List<ActionGroupEmailReceiverArgs>> emailReceivers;
 
     /**
-     * @return One or more `email_receiver` blocks as defined below.
+     * @return One or more `emailReceiver` blocks as defined below.
      * 
      */
     public Optional<Output<List<ActionGroupEmailReceiverArgs>>> emailReceivers() {
@@ -120,14 +120,14 @@ public final class ActionGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `event_hub_receiver` blocks as defined below.
+     * One or more `eventHubReceiver` blocks as defined below.
      * 
      */
     @Import(name="eventHubReceivers")
     private @Nullable Output<List<ActionGroupEventHubReceiverArgs>> eventHubReceivers;
 
     /**
-     * @return One or more `event_hub_receiver` blocks as defined below.
+     * @return One or more `eventHubReceiver` blocks as defined below.
      * 
      */
     public Optional<Output<List<ActionGroupEventHubReceiverArgs>>> eventHubReceivers() {
@@ -135,14 +135,14 @@ public final class ActionGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `itsm_receiver` blocks as defined below.
+     * One or more `itsmReceiver` blocks as defined below.
      * 
      */
     @Import(name="itsmReceivers")
     private @Nullable Output<List<ActionGroupItsmReceiverArgs>> itsmReceivers;
 
     /**
-     * @return One or more `itsm_receiver` blocks as defined below.
+     * @return One or more `itsmReceiver` blocks as defined below.
      * 
      */
     public Optional<Output<List<ActionGroupItsmReceiverArgs>>> itsmReceivers() {
@@ -165,14 +165,14 @@ public final class ActionGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `logic_app_receiver` blocks as defined below.
+     * One or more `logicAppReceiver` blocks as defined below.
      * 
      */
     @Import(name="logicAppReceivers")
     private @Nullable Output<List<ActionGroupLogicAppReceiverArgs>> logicAppReceivers;
 
     /**
-     * @return One or more `logic_app_receiver` blocks as defined below.
+     * @return One or more `logicAppReceiver` blocks as defined below.
      * 
      */
     public Optional<Output<List<ActionGroupLogicAppReceiverArgs>>> logicAppReceivers() {
@@ -225,14 +225,14 @@ public final class ActionGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `sms_receiver` blocks as defined below.
+     * One or more `smsReceiver` blocks as defined below.
      * 
      */
     @Import(name="smsReceivers")
     private @Nullable Output<List<ActionGroupSmsReceiverArgs>> smsReceivers;
 
     /**
-     * @return One or more `sms_receiver` blocks as defined below.
+     * @return One or more `smsReceiver` blocks as defined below.
      * 
      */
     public Optional<Output<List<ActionGroupSmsReceiverArgs>>> smsReceivers() {
@@ -255,14 +255,14 @@ public final class ActionGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `voice_receiver` blocks as defined below.
+     * One or more `voiceReceiver` blocks as defined below.
      * 
      */
     @Import(name="voiceReceivers")
     private @Nullable Output<List<ActionGroupVoiceReceiverArgs>> voiceReceivers;
 
     /**
-     * @return One or more `voice_receiver` blocks as defined below.
+     * @return One or more `voiceReceiver` blocks as defined below.
      * 
      */
     public Optional<Output<List<ActionGroupVoiceReceiverArgs>>> voiceReceivers() {
@@ -270,14 +270,14 @@ public final class ActionGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `webhook_receiver` blocks as defined below.
+     * One or more `webhookReceiver` blocks as defined below.
      * 
      */
     @Import(name="webhookReceivers")
     private @Nullable Output<List<ActionGroupWebhookReceiverArgs>> webhookReceivers;
 
     /**
-     * @return One or more `webhook_receiver` blocks as defined below.
+     * @return One or more `webhookReceiver` blocks as defined below.
      * 
      */
     public Optional<Output<List<ActionGroupWebhookReceiverArgs>>> webhookReceivers() {
@@ -325,7 +325,7 @@ public final class ActionGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param armRoleReceivers One or more `arm_role_receiver` blocks as defined below.
+         * @param armRoleReceivers One or more `armRoleReceiver` blocks as defined below.
          * 
          * @return builder
          * 
@@ -336,7 +336,7 @@ public final class ActionGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param armRoleReceivers One or more `arm_role_receiver` blocks as defined below.
+         * @param armRoleReceivers One or more `armRoleReceiver` blocks as defined below.
          * 
          * @return builder
          * 
@@ -346,7 +346,7 @@ public final class ActionGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param armRoleReceivers One or more `arm_role_receiver` blocks as defined below.
+         * @param armRoleReceivers One or more `armRoleReceiver` blocks as defined below.
          * 
          * @return builder
          * 
@@ -356,7 +356,7 @@ public final class ActionGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param automationRunbookReceivers One or more `automation_runbook_receiver` blocks as defined below.
+         * @param automationRunbookReceivers One or more `automationRunbookReceiver` blocks as defined below.
          * 
          * @return builder
          * 
@@ -367,7 +367,7 @@ public final class ActionGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param automationRunbookReceivers One or more `automation_runbook_receiver` blocks as defined below.
+         * @param automationRunbookReceivers One or more `automationRunbookReceiver` blocks as defined below.
          * 
          * @return builder
          * 
@@ -377,7 +377,7 @@ public final class ActionGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param automationRunbookReceivers One or more `automation_runbook_receiver` blocks as defined below.
+         * @param automationRunbookReceivers One or more `automationRunbookReceiver` blocks as defined below.
          * 
          * @return builder
          * 
@@ -387,7 +387,7 @@ public final class ActionGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param azureAppPushReceivers One or more `azure_app_push_receiver` blocks as defined below.
+         * @param azureAppPushReceivers One or more `azureAppPushReceiver` blocks as defined below.
          * 
          * @return builder
          * 
@@ -398,7 +398,7 @@ public final class ActionGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param azureAppPushReceivers One or more `azure_app_push_receiver` blocks as defined below.
+         * @param azureAppPushReceivers One or more `azureAppPushReceiver` blocks as defined below.
          * 
          * @return builder
          * 
@@ -408,7 +408,7 @@ public final class ActionGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param azureAppPushReceivers One or more `azure_app_push_receiver` blocks as defined below.
+         * @param azureAppPushReceivers One or more `azureAppPushReceiver` blocks as defined below.
          * 
          * @return builder
          * 
@@ -418,7 +418,7 @@ public final class ActionGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param azureFunctionReceivers One or more `azure_function_receiver` blocks as defined below.
+         * @param azureFunctionReceivers One or more `azureFunctionReceiver` blocks as defined below.
          * 
          * @return builder
          * 
@@ -429,7 +429,7 @@ public final class ActionGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param azureFunctionReceivers One or more `azure_function_receiver` blocks as defined below.
+         * @param azureFunctionReceivers One or more `azureFunctionReceiver` blocks as defined below.
          * 
          * @return builder
          * 
@@ -439,7 +439,7 @@ public final class ActionGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param azureFunctionReceivers One or more `azure_function_receiver` blocks as defined below.
+         * @param azureFunctionReceivers One or more `azureFunctionReceiver` blocks as defined below.
          * 
          * @return builder
          * 
@@ -449,7 +449,7 @@ public final class ActionGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param emailReceivers One or more `email_receiver` blocks as defined below.
+         * @param emailReceivers One or more `emailReceiver` blocks as defined below.
          * 
          * @return builder
          * 
@@ -460,7 +460,7 @@ public final class ActionGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param emailReceivers One or more `email_receiver` blocks as defined below.
+         * @param emailReceivers One or more `emailReceiver` blocks as defined below.
          * 
          * @return builder
          * 
@@ -470,7 +470,7 @@ public final class ActionGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param emailReceivers One or more `email_receiver` blocks as defined below.
+         * @param emailReceivers One or more `emailReceiver` blocks as defined below.
          * 
          * @return builder
          * 
@@ -501,7 +501,7 @@ public final class ActionGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventHubReceivers One or more `event_hub_receiver` blocks as defined below.
+         * @param eventHubReceivers One or more `eventHubReceiver` blocks as defined below.
          * 
          * @return builder
          * 
@@ -512,7 +512,7 @@ public final class ActionGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventHubReceivers One or more `event_hub_receiver` blocks as defined below.
+         * @param eventHubReceivers One or more `eventHubReceiver` blocks as defined below.
          * 
          * @return builder
          * 
@@ -522,7 +522,7 @@ public final class ActionGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventHubReceivers One or more `event_hub_receiver` blocks as defined below.
+         * @param eventHubReceivers One or more `eventHubReceiver` blocks as defined below.
          * 
          * @return builder
          * 
@@ -532,7 +532,7 @@ public final class ActionGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param itsmReceivers One or more `itsm_receiver` blocks as defined below.
+         * @param itsmReceivers One or more `itsmReceiver` blocks as defined below.
          * 
          * @return builder
          * 
@@ -543,7 +543,7 @@ public final class ActionGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param itsmReceivers One or more `itsm_receiver` blocks as defined below.
+         * @param itsmReceivers One or more `itsmReceiver` blocks as defined below.
          * 
          * @return builder
          * 
@@ -553,7 +553,7 @@ public final class ActionGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param itsmReceivers One or more `itsm_receiver` blocks as defined below.
+         * @param itsmReceivers One or more `itsmReceiver` blocks as defined below.
          * 
          * @return builder
          * 
@@ -584,7 +584,7 @@ public final class ActionGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logicAppReceivers One or more `logic_app_receiver` blocks as defined below.
+         * @param logicAppReceivers One or more `logicAppReceiver` blocks as defined below.
          * 
          * @return builder
          * 
@@ -595,7 +595,7 @@ public final class ActionGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logicAppReceivers One or more `logic_app_receiver` blocks as defined below.
+         * @param logicAppReceivers One or more `logicAppReceiver` blocks as defined below.
          * 
          * @return builder
          * 
@@ -605,7 +605,7 @@ public final class ActionGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logicAppReceivers One or more `logic_app_receiver` blocks as defined below.
+         * @param logicAppReceivers One or more `logicAppReceiver` blocks as defined below.
          * 
          * @return builder
          * 
@@ -678,7 +678,7 @@ public final class ActionGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param smsReceivers One or more `sms_receiver` blocks as defined below.
+         * @param smsReceivers One or more `smsReceiver` blocks as defined below.
          * 
          * @return builder
          * 
@@ -689,7 +689,7 @@ public final class ActionGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param smsReceivers One or more `sms_receiver` blocks as defined below.
+         * @param smsReceivers One or more `smsReceiver` blocks as defined below.
          * 
          * @return builder
          * 
@@ -699,7 +699,7 @@ public final class ActionGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param smsReceivers One or more `sms_receiver` blocks as defined below.
+         * @param smsReceivers One or more `smsReceiver` blocks as defined below.
          * 
          * @return builder
          * 
@@ -730,7 +730,7 @@ public final class ActionGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param voiceReceivers One or more `voice_receiver` blocks as defined below.
+         * @param voiceReceivers One or more `voiceReceiver` blocks as defined below.
          * 
          * @return builder
          * 
@@ -741,7 +741,7 @@ public final class ActionGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param voiceReceivers One or more `voice_receiver` blocks as defined below.
+         * @param voiceReceivers One or more `voiceReceiver` blocks as defined below.
          * 
          * @return builder
          * 
@@ -751,7 +751,7 @@ public final class ActionGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param voiceReceivers One or more `voice_receiver` blocks as defined below.
+         * @param voiceReceivers One or more `voiceReceiver` blocks as defined below.
          * 
          * @return builder
          * 
@@ -761,7 +761,7 @@ public final class ActionGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param webhookReceivers One or more `webhook_receiver` blocks as defined below.
+         * @param webhookReceivers One or more `webhookReceiver` blocks as defined below.
          * 
          * @return builder
          * 
@@ -772,7 +772,7 @@ public final class ActionGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param webhookReceivers One or more `webhook_receiver` blocks as defined below.
+         * @param webhookReceivers One or more `webhookReceiver` blocks as defined below.
          * 
          * @return builder
          * 
@@ -782,7 +782,7 @@ public final class ActionGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param webhookReceivers One or more `webhook_receiver` blocks as defined below.
+         * @param webhookReceivers One or more `webhookReceiver` blocks as defined below.
          * 
          * @return builder
          * 

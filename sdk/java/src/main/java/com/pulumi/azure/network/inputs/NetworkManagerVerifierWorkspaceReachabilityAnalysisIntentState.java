@@ -47,14 +47,14 @@ public final class NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentStat
     }
 
     /**
-     * An `ip_traffic` block as defined below. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+     * An `ipTraffic` block as defined below. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
      * 
      */
     @Import(name="ipTraffic")
     private @Nullable Output<NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgs> ipTraffic;
 
     /**
-     * @return An `ip_traffic` block as defined below. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+     * @return An `ipTraffic` block as defined below. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
      * 
      */
     public Optional<Output<NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgs>> ipTraffic() {
@@ -178,7 +178,7 @@ public final class NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentStat
         }
 
         /**
-         * @param ipTraffic An `ip_traffic` block as defined below. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+         * @param ipTraffic An `ipTraffic` block as defined below. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentStat
         }
 
         /**
-         * @param ipTraffic An `ip_traffic` block as defined below. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+         * @param ipTraffic An `ipTraffic` block as defined below. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
          * 
          * @return builder
          * 

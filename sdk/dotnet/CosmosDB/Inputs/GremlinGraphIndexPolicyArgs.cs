@@ -13,7 +13,7 @@ namespace Pulumi.Azure.CosmosDB.Inputs
     public sealed class GremlinGraphIndexPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates if the indexing policy is automatic. Defaults to `true`.
+        /// Indicates if the indexing policy is automatic. Defaults to `True`.
         /// </summary>
         [Input("automatic")]
         public Input<bool>? Automatic { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         private InputList<Inputs.GremlinGraphIndexPolicyCompositeIndexArgs>? _compositeIndices;
 
         /// <summary>
-        /// One or more `composite_index` blocks as defined below.
+        /// One or more `CompositeIndex` blocks as defined below.
         /// </summary>
         public InputList<Inputs.GremlinGraphIndexPolicyCompositeIndexArgs> CompositeIndices
         {
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         private InputList<string>? _excludedPaths;
 
         /// <summary>
-        /// List of paths to exclude from indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
+        /// List of paths to exclude from indexing. Required if `IndexingMode` is `Consistent` or `Lazy`.
         /// </summary>
         public InputList<string> ExcludedPaths
         {
@@ -46,7 +46,7 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         private InputList<string>? _includedPaths;
 
         /// <summary>
-        /// List of paths to include in the indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
+        /// List of paths to include in the indexing. Required if `IndexingMode` is `Consistent` or `Lazy`.
         /// </summary>
         public InputList<string> IncludedPaths
         {
@@ -64,7 +64,7 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         private InputList<Inputs.GremlinGraphIndexPolicySpatialIndexArgs>? _spatialIndices;
 
         /// <summary>
-        /// One or more `spatial_index` blocks as defined below.
+        /// One or more `SpatialIndex` blocks as defined below.
         /// </summary>
         public InputList<Inputs.GremlinGraphIndexPolicySpatialIndexArgs> SpatialIndices
         {

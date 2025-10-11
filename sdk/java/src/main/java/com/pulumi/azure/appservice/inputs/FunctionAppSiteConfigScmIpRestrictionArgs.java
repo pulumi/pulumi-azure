@@ -33,14 +33,14 @@ public final class FunctionAppSiteConfigScmIpRestrictionArgs extends com.pulumi.
     }
 
     /**
-     * The `headers` block for this specific `scm_ip_restriction` as defined below.
+     * The `headers` block for this specific `scmIpRestriction` as defined below.
      * 
      */
     @Import(name="headers")
     private @Nullable Output<FunctionAppSiteConfigScmIpRestrictionHeadersArgs> headers;
 
     /**
-     * @return The `headers` block for this specific `scm_ip_restriction` as defined below.
+     * @return The `headers` block for this specific `scmIpRestriction` as defined below.
      * 
      */
     public Optional<Output<FunctionAppSiteConfigScmIpRestrictionHeadersArgs>> headers() {
@@ -110,7 +110,7 @@ public final class FunctionAppSiteConfigScmIpRestrictionArgs extends com.pulumi.
     /**
      * The Virtual Network Subnet ID used for this IP Restriction.
      * 
-     * &gt; **NOTE:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
+     * &gt; **NOTE:** One of either `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified
      * 
      */
     @Import(name="virtualNetworkSubnetId")
@@ -119,7 +119,7 @@ public final class FunctionAppSiteConfigScmIpRestrictionArgs extends com.pulumi.
     /**
      * @return The Virtual Network Subnet ID used for this IP Restriction.
      * 
-     * &gt; **NOTE:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
+     * &gt; **NOTE:** One of either `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified
      * 
      */
     public Optional<Output<String>> virtualNetworkSubnetId() {
@@ -178,7 +178,7 @@ public final class FunctionAppSiteConfigScmIpRestrictionArgs extends com.pulumi.
         }
 
         /**
-         * @param headers The `headers` block for this specific `scm_ip_restriction` as defined below.
+         * @param headers The `headers` block for this specific `scmIpRestriction` as defined below.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class FunctionAppSiteConfigScmIpRestrictionArgs extends com.pulumi.
         }
 
         /**
-         * @param headers The `headers` block for this specific `scm_ip_restriction` as defined below.
+         * @param headers The `headers` block for this specific `scmIpRestriction` as defined below.
          * 
          * @return builder
          * 
@@ -285,7 +285,7 @@ public final class FunctionAppSiteConfigScmIpRestrictionArgs extends com.pulumi.
         /**
          * @param virtualNetworkSubnetId The Virtual Network Subnet ID used for this IP Restriction.
          * 
-         * &gt; **NOTE:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
+         * &gt; **NOTE:** One of either `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified
          * 
          * @return builder
          * 
@@ -298,7 +298,7 @@ public final class FunctionAppSiteConfigScmIpRestrictionArgs extends com.pulumi.
         /**
          * @param virtualNetworkSubnetId The Virtual Network Subnet ID used for this IP Restriction.
          * 
-         * &gt; **NOTE:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
+         * &gt; **NOTE:** One of either `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified
          * 
          * @return builder
          * 

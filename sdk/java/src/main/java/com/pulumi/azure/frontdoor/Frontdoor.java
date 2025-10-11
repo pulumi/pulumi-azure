@@ -117,14 +117,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:frontdoor/frontdoor:Frontdoor")
 public class Frontdoor extends com.pulumi.resources.CustomResource {
     /**
-     * A `backend_pool_health_probe` block as defined below.
+     * A `backendPoolHealthProbe` block as defined below.
      * 
      */
     @Export(name="backendPoolHealthProbes", refs={List.class,FrontdoorBackendPoolHealthProbe.class}, tree="[0,1]")
     private Output<List<FrontdoorBackendPoolHealthProbe>> backendPoolHealthProbes;
 
     /**
-     * @return A `backend_pool_health_probe` block as defined below.
+     * @return A `backendPoolHealthProbe` block as defined below.
      * 
      */
     public Output<List<FrontdoorBackendPoolHealthProbe>> backendPoolHealthProbes() {
@@ -159,35 +159,35 @@ public class Frontdoor extends com.pulumi.resources.CustomResource {
         return this.backendPoolLoadBalancingSettingsMap;
     }
     /**
-     * A `backend_pool_load_balancing` block as defined below.
+     * A `backendPoolLoadBalancing` block as defined below.
      * 
      */
     @Export(name="backendPoolLoadBalancings", refs={List.class,FrontdoorBackendPoolLoadBalancing.class}, tree="[0,1]")
     private Output<List<FrontdoorBackendPoolLoadBalancing>> backendPoolLoadBalancings;
 
     /**
-     * @return A `backend_pool_load_balancing` block as defined below.
+     * @return A `backendPoolLoadBalancing` block as defined below.
      * 
      */
     public Output<List<FrontdoorBackendPoolLoadBalancing>> backendPoolLoadBalancings() {
         return this.backendPoolLoadBalancings;
     }
     /**
-     * A `backend_pool_settings` block as defined below.
+     * A `backendPoolSettings` block as defined below.
      * 
      */
     @Export(name="backendPoolSettings", refs={List.class,FrontdoorBackendPoolSetting.class}, tree="[0,1]")
     private Output<List<FrontdoorBackendPoolSetting>> backendPoolSettings;
 
     /**
-     * @return A `backend_pool_settings` block as defined below.
+     * @return A `backendPoolSettings` block as defined below.
      * 
      */
     public Output<List<FrontdoorBackendPoolSetting>> backendPoolSettings() {
         return this.backendPoolSettings;
     }
     /**
-     * A `backend_pool` block as defined below.
+     * A `backendPool` block as defined below.
      * 
      * &gt; Azure by default allows specifying up to 50 Backend Pools - but this quota can be increased via Microsoft Support.
      * 
@@ -196,7 +196,7 @@ public class Frontdoor extends com.pulumi.resources.CustomResource {
     private Output<List<FrontdoorBackendPool>> backendPools;
 
     /**
-     * @return A `backend_pool` block as defined below.
+     * @return A `backendPool` block as defined below.
      * 
      * &gt; Azure by default allows specifying up to 50 Backend Pools - but this quota can be increased via Microsoft Support.
      * 
@@ -253,14 +253,14 @@ public class Frontdoor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.friendlyName);
     }
     /**
-     * A `frontend_endpoint` block as defined below.
+     * A `frontendEndpoint` block as defined below.
      * 
      */
     @Export(name="frontendEndpoints", refs={List.class,FrontdoorFrontendEndpoint.class}, tree="[0,1]")
     private Output<List<FrontdoorFrontendEndpoint>> frontendEndpoints;
 
     /**
-     * @return A `frontend_endpoint` block as defined below.
+     * @return A `frontendEndpoint` block as defined below.
      * 
      */
     public Output<List<FrontdoorFrontendEndpoint>> frontendEndpoints() {
@@ -337,14 +337,14 @@ public class Frontdoor extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * A `routing_rule` block as defined below.
+     * A `routingRule` block as defined below.
      * 
      */
     @Export(name="routingRules", refs={List.class,FrontdoorRoutingRule.class}, tree="[0,1]")
     private Output<List<FrontdoorRoutingRule>> routingRules;
 
     /**
-     * @return A `routing_rule` block as defined below.
+     * @return A `routingRule` block as defined below.
      * 
      */
     public Output<List<FrontdoorRoutingRule>> routingRules() {

@@ -105,7 +105,7 @@ namespace Pulumi.Azure.Backup
         /// <summary>
         /// Specifies Protection state of the backup. Possible values are `Protected`, `BackupsSuspended`, and `ProtectionStopped`.
         /// 
-        /// &gt; **Note:** `protection_state` cannot be set to `BackupsSuspended` unless the `azure.recoveryservices.Vault` has `immutability` set to `Unlocked` or `Locked`.
+        /// &gt; **Note:** `ProtectionState` cannot be set to `BackupsSuspended` unless the `azure.recoveryservices.Vault` has `Immutability` set to `Unlocked` or `Locked`.
         /// </summary>
         [Output("protectionState")]
         public Output<string> ProtectionState { get; private set; } = null!;
@@ -125,7 +125,7 @@ namespace Pulumi.Azure.Backup
         /// <summary>
         /// Specifies the ID of the virtual machine to back up. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource. This allows the source virtual machine to be deleted without having to remove the backup.
+        /// &gt; **Note:** After creation, the `SourceVmId` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource. This allows the source virtual machine to be deleted without having to remove the backup.
         /// </summary>
         [Output("sourceVmId")]
         public Output<string> SourceVmId { get; private set; } = null!;
@@ -206,7 +206,7 @@ namespace Pulumi.Azure.Backup
         /// <summary>
         /// Specifies Protection state of the backup. Possible values are `Protected`, `BackupsSuspended`, and `ProtectionStopped`.
         /// 
-        /// &gt; **Note:** `protection_state` cannot be set to `BackupsSuspended` unless the `azure.recoveryservices.Vault` has `immutability` set to `Unlocked` or `Locked`.
+        /// &gt; **Note:** `ProtectionState` cannot be set to `BackupsSuspended` unless the `azure.recoveryservices.Vault` has `Immutability` set to `Unlocked` or `Locked`.
         /// </summary>
         [Input("protectionState")]
         public Input<string>? ProtectionState { get; set; }
@@ -226,7 +226,7 @@ namespace Pulumi.Azure.Backup
         /// <summary>
         /// Specifies the ID of the virtual machine to back up. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource. This allows the source virtual machine to be deleted without having to remove the backup.
+        /// &gt; **Note:** After creation, the `SourceVmId` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource. This allows the source virtual machine to be deleted without having to remove the backup.
         /// </summary>
         [Input("sourceVmId")]
         public Input<string>? SourceVmId { get; set; }
@@ -269,7 +269,7 @@ namespace Pulumi.Azure.Backup
         /// <summary>
         /// Specifies Protection state of the backup. Possible values are `Protected`, `BackupsSuspended`, and `ProtectionStopped`.
         /// 
-        /// &gt; **Note:** `protection_state` cannot be set to `BackupsSuspended` unless the `azure.recoveryservices.Vault` has `immutability` set to `Unlocked` or `Locked`.
+        /// &gt; **Note:** `ProtectionState` cannot be set to `BackupsSuspended` unless the `azure.recoveryservices.Vault` has `Immutability` set to `Unlocked` or `Locked`.
         /// </summary>
         [Input("protectionState")]
         public Input<string>? ProtectionState { get; set; }
@@ -289,7 +289,7 @@ namespace Pulumi.Azure.Backup
         /// <summary>
         /// Specifies the ID of the virtual machine to back up. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource. This allows the source virtual machine to be deleted without having to remove the backup.
+        /// &gt; **Note:** After creation, the `SourceVmId` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource. This allows the source virtual machine to be deleted without having to remove the backup.
         /// </summary>
         [Input("sourceVmId")]
         public Input<string>? SourceVmId { get; set; }

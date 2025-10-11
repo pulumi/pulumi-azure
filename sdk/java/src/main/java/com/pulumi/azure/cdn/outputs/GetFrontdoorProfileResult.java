@@ -26,7 +26,7 @@ public final class GetFrontdoorProfileResult {
      */
     private GetFrontdoorProfileIdentity identity;
     /**
-     * @return One or more `log_scrubbing_rule` blocks as defined below.
+     * @return One or more `logScrubbingRule` blocks as defined below.
      * 
      */
     private List<GetFrontdoorProfileLogScrubbingRule> logScrubbingRules;
@@ -69,7 +69,7 @@ public final class GetFrontdoorProfileResult {
         return this.identity;
     }
     /**
-     * @return One or more `log_scrubbing_rule` blocks as defined below.
+     * @return One or more `logScrubbingRule` blocks as defined below.
      * 
      */
     public List<GetFrontdoorProfileLogScrubbingRule> logScrubbingRules() {

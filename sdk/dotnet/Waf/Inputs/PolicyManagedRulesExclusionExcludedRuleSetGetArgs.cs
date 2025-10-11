@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Waf.Inputs
         private InputList<Inputs.PolicyManagedRulesExclusionExcludedRuleSetRuleGroupGetArgs>? _ruleGroups;
 
         /// <summary>
-        /// One or more `rule_group` block defined below.
+        /// One or more `RuleGroup` block defined below.
         /// </summary>
         public InputList<Inputs.PolicyManagedRulesExclusionExcludedRuleSetRuleGroupGetArgs> RuleGroups
         {

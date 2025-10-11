@@ -26,7 +26,7 @@ public final class AlertRuleFusionSource {
      */
     private String name;
     /**
-     * @return One or more `sub_type` blocks as defined below.
+     * @return One or more `subType` blocks as defined below.
      * 
      */
     private @Nullable List<AlertRuleFusionSourceSubType> subTypes;
@@ -47,7 +47,7 @@ public final class AlertRuleFusionSource {
         return this.name;
     }
     /**
-     * @return One or more `sub_type` blocks as defined below.
+     * @return One or more `subType` blocks as defined below.
      * 
      */
     public List<AlertRuleFusionSourceSubType> subTypes() {

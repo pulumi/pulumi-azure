@@ -23,7 +23,7 @@ public final class GetApplicationGatewayRewriteRuleSet {
      */
     private String name;
     /**
-     * @return One or more `rewrite_rule` blocks as defined below.
+     * @return One or more `rewriteRule` blocks as defined below.
      * 
      */
     private List<GetApplicationGatewayRewriteRuleSetRewriteRule> rewriteRules;
@@ -44,7 +44,7 @@ public final class GetApplicationGatewayRewriteRuleSet {
         return this.name;
     }
     /**
-     * @return One or more `rewrite_rule` blocks as defined below.
+     * @return One or more `rewriteRule` blocks as defined below.
      * 
      */
     public List<GetApplicationGatewayRewriteRuleSetRewriteRule> rewriteRules() {

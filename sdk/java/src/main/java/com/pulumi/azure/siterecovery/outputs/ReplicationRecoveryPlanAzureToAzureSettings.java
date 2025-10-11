@@ -24,14 +24,14 @@ public final class ReplicationRecoveryPlanAzureToAzureSettings {
     /**
      * @return The Edge Zone within the Azure Region where the VM is recovered. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
      * 
-     * &gt; **Note:** `primary_edge_zone` and `recovery_edge_zone` must be specified together.
+     * &gt; **Note:** `primaryEdgeZone` and `recoveryEdgeZone` must be specified together.
      * 
      */
     private @Nullable String recoveryEdgeZone;
     /**
      * @return The Availability Zone in which the VM is recovered. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
      * 
-     * &gt; **Note:** `primary_zone` and `recovery_zone` must be specified together.
+     * &gt; **Note:** `primaryZone` and `recoveryZone` must be specified together.
      * 
      */
     private @Nullable String recoveryZone;
@@ -54,7 +54,7 @@ public final class ReplicationRecoveryPlanAzureToAzureSettings {
     /**
      * @return The Edge Zone within the Azure Region where the VM is recovered. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
      * 
-     * &gt; **Note:** `primary_edge_zone` and `recovery_edge_zone` must be specified together.
+     * &gt; **Note:** `primaryEdgeZone` and `recoveryEdgeZone` must be specified together.
      * 
      */
     public Optional<String> recoveryEdgeZone() {
@@ -63,7 +63,7 @@ public final class ReplicationRecoveryPlanAzureToAzureSettings {
     /**
      * @return The Availability Zone in which the VM is recovered. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
      * 
-     * &gt; **Note:** `primary_zone` and `recovery_zone` must be specified together.
+     * &gt; **Note:** `primaryZone` and `recoveryZone` must be specified together.
      * 
      */
     public Optional<String> recoveryZone() {

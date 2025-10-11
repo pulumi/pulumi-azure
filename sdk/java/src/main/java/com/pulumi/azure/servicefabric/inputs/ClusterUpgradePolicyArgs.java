@@ -19,14 +19,14 @@ public final class ClusterUpgradePolicyArgs extends com.pulumi.resources.Resourc
     public static final ClusterUpgradePolicyArgs Empty = new ClusterUpgradePolicyArgs();
 
     /**
-     * A `delta_health_policy` block as defined below
+     * A `deltaHealthPolicy` block as defined below
      * 
      */
     @Import(name="deltaHealthPolicy")
     private @Nullable Output<ClusterUpgradePolicyDeltaHealthPolicyArgs> deltaHealthPolicy;
 
     /**
-     * @return A `delta_health_policy` block as defined below
+     * @return A `deltaHealthPolicy` block as defined below
      * 
      */
     public Optional<Output<ClusterUpgradePolicyDeltaHealthPolicyArgs>> deltaHealthPolicy() {
@@ -94,14 +94,14 @@ public final class ClusterUpgradePolicyArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A `health_policy` block as defined below
+     * A `healthPolicy` block as defined below
      * 
      */
     @Import(name="healthPolicy")
     private @Nullable Output<ClusterUpgradePolicyHealthPolicyArgs> healthPolicy;
 
     /**
-     * @return A `health_policy` block as defined below
+     * @return A `healthPolicy` block as defined below
      * 
      */
     public Optional<Output<ClusterUpgradePolicyHealthPolicyArgs>> healthPolicy() {
@@ -186,7 +186,7 @@ public final class ClusterUpgradePolicyArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param deltaHealthPolicy A `delta_health_policy` block as defined below
+         * @param deltaHealthPolicy A `deltaHealthPolicy` block as defined below
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class ClusterUpgradePolicyArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param deltaHealthPolicy A `delta_health_policy` block as defined below
+         * @param deltaHealthPolicy A `deltaHealthPolicy` block as defined below
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class ClusterUpgradePolicyArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param healthPolicy A `health_policy` block as defined below
+         * @param healthPolicy A `healthPolicy` block as defined below
          * 
          * @return builder
          * 
@@ -302,7 +302,7 @@ public final class ClusterUpgradePolicyArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param healthPolicy A `health_policy` block as defined below
+         * @param healthPolicy A `healthPolicy` block as defined below
          * 
          * @return builder
          * 

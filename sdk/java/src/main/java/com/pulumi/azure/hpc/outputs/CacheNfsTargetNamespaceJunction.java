@@ -28,7 +28,7 @@ public final class CacheNfsTargetNamespaceJunction {
      */
     private String nfsExport;
     /**
-     * @return The relative subdirectory path from the `nfs_export` to map to the `namespace_path`. Defaults to `&#34;&#34;`, in which case the whole `nfs_export` is exported.
+     * @return The relative subdirectory path from the `nfsExport` to map to the `namespacePath`. Defaults to `&#34;&#34;`, in which case the whole `nfsExport` is exported.
      * 
      */
     private @Nullable String targetPath;
@@ -56,7 +56,7 @@ public final class CacheNfsTargetNamespaceJunction {
         return this.nfsExport;
     }
     /**
-     * @return The relative subdirectory path from the `nfs_export` to map to the `namespace_path`. Defaults to `&#34;&#34;`, in which case the whole `nfs_export` is exported.
+     * @return The relative subdirectory path from the `nfsExport` to map to the `namespacePath`. Defaults to `&#34;&#34;`, in which case the whole `nfsExport` is exported.
      * 
      */
     public Optional<String> targetPath() {

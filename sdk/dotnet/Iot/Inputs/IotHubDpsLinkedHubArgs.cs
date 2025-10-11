@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Iot.Inputs
         public Input<int>? AllocationWeight { get; set; }
 
         /// <summary>
-        /// Determines whether to apply allocation policies to the IoT Hub. Defaults to `true`.
+        /// Determines whether to apply allocation policies to the IoT Hub. Defaults to `True`.
         /// </summary>
         [Input("applyAllocationPolicy")]
         public Input<bool>? ApplyAllocationPolicy { get; set; }

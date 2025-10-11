@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class WindowsWebAppSlotSiteConfigApplicationStack
     {
         /// <summary>
-        /// The Application Stack for the Windows Web App. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
+        /// The Application Stack for the Windows Web App. Possible values include `Dotnet`, `Dotnetcore`, `Node`, `Python`, `Php`, and `Java`.
         /// 
         /// &gt; **Note:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
         /// </summary>
@@ -26,11 +26,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// <summary>
         /// The User Name to use for authentication against the registry to pull the image.
         /// 
-        /// &gt; **Note:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+        /// &gt; **Note:** `DockerRegistryUrl`, `DockerRegistryUsername`, and `DockerRegistryPassword` replace the use of the `AppSettings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `AppSettings` map.
         /// </summary>
         public readonly string? DockerRegistryPassword;
         /// <summary>
-        /// The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
+        /// The URL of the container registry where the `DockerImageName` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `DockerImageName`.
         /// </summary>
         public readonly string? DockerRegistryUrl;
         /// <summary>
@@ -38,11 +38,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? DockerRegistryUsername;
         /// <summary>
-        /// The version of .NET to use when `current_stack` is set to `dotnetcore`. Possible values include `v4.0`.
+        /// The version of .NET to use when `CurrentStack` is set to `Dotnetcore`. Possible values include `v4.0`.
         /// </summary>
         public readonly string? DotnetCoreVersion;
         /// <summary>
-        /// The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0` and `v9.0`.
+        /// The version of .NET to use when `CurrentStack` is set to `Dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0`, `v8.0` and `v9.0`.
         /// </summary>
         public readonly string? DotnetVersion;
         public readonly string? JavaContainer;
@@ -52,25 +52,25 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool? JavaEmbeddedServerEnabled;
         /// <summary>
-        /// The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `java_container` and `java_container_version`.
+        /// The version of Java to use when `CurrentStack` is set to `Java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `JavaContainer` and `JavaContainerVersion`.
         /// 
-        /// &gt; **Note:** For compatible combinations of `java_version`, `java_container` and `java_container_version` users can use `az webapp list-runtimes` from command line.
+        /// &gt; **Note:** For compatible combinations of `JavaVersion`, `JavaContainer` and `JavaContainerVersion` users can use `az webapp list-runtimes` from command line.
         /// </summary>
         public readonly string? JavaVersion;
         /// <summary>
-        /// The version of node to use when `current_stack` is set to `node`. Possible values include `~12`, `~14`, `~16`, `~18`, `~20` and `~22`.
+        /// The version of node to use when `CurrentStack` is set to `Node`. Possible values include `~12`, `~14`, `~16`, `~18`, `~20` and `~22`.
         /// 
-        /// &gt; **Note:** This property conflicts with `java_version`.
+        /// &gt; **Note:** This property conflicts with `JavaVersion`.
         /// </summary>
         public readonly string? NodeVersion;
         /// <summary>
-        /// The version of PHP to use when `current_stack` is set to `php`. Possible values are `7.1`, `7.4` and `Off`.
+        /// The version of PHP to use when `CurrentStack` is set to `Php`. Possible values are `7.1`, `7.4` and `Off`.
         /// 
         /// &gt; **Note:** The value `Off` is used to signify latest supported by the service.
         /// </summary>
         public readonly string? PhpVersion;
         /// <summary>
-        /// The app is a Python app. Defaults to `false`.
+        /// The app is a Python app. Defaults to `False`.
         /// </summary>
         public readonly bool? Python;
         /// <summary>

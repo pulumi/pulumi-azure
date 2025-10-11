@@ -25,13 +25,13 @@ namespace Pulumi.Azure.Automanage.Inputs
         public Input<string>? PolicyName { get; set; }
 
         /// <summary>
-        /// A `retention_policy` block as defined below.
+        /// A `RetentionPolicy` block as defined below.
         /// </summary>
         [Input("retentionPolicy")]
         public Input<Inputs.ConfigurationBackupRetentionPolicyGetArgs>? RetentionPolicy { get; set; }
 
         /// <summary>
-        /// A `schedule_policy` block as defined below.
+        /// A `SchedulePolicy` block as defined below.
         /// </summary>
         [Input("schedulePolicy")]
         public Input<Inputs.ConfigurationBackupSchedulePolicyGetArgs>? SchedulePolicy { get; set; }

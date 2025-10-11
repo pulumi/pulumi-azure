@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetImageResult {
     /**
-     * @return a collection of `data_disk` blocks as defined below.
+     * @return a collection of `dataDisk` blocks as defined below.
      * 
      */
     private List<GetImageDataDisk> dataDisks;
@@ -39,7 +39,7 @@ public final class GetImageResult {
     private @Nullable String name;
     private @Nullable String nameRegex;
     /**
-     * @return a `os_disk` block as defined below.
+     * @return a `osDisk` block as defined below.
      * 
      */
     private List<GetImageOsDisk> osDisks;
@@ -58,7 +58,7 @@ public final class GetImageResult {
 
     private GetImageResult() {}
     /**
-     * @return a collection of `data_disk` blocks as defined below.
+     * @return a collection of `dataDisk` blocks as defined below.
      * 
      */
     public List<GetImageDataDisk> dataDisks() {
@@ -89,7 +89,7 @@ public final class GetImageResult {
         return Optional.ofNullable(this.nameRegex);
     }
     /**
-     * @return a `os_disk` block as defined below.
+     * @return a `osDisk` block as defined below.
      * 
      */
     public List<GetImageOsDisk> osDisks() {

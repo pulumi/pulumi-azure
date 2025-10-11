@@ -21,14 +21,14 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
     public static final WorkflowArgs Empty = new WorkflowArgs();
 
     /**
-     * A `access_control` block as defined below.
+     * A `accessControl` block as defined below.
      * 
      */
     @Import(name="accessControl")
     private @Nullable Output<WorkflowAccessControlArgs> accessControl;
 
     /**
-     * @return A `access_control` block as defined below.
+     * @return A `accessControl` block as defined below.
      * 
      */
     public Optional<Output<WorkflowAccessControlArgs>> accessControl() {
@@ -128,7 +128,7 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A map of Key-Value pairs.
      * 
-     * &gt; **Note:** Any parameters specified must exist in the Schema defined in `workflow_parameters`.
+     * &gt; **Note:** Any parameters specified must exist in the Schema defined in `workflowParameters`.
      * 
      */
     @Import(name="parameters")
@@ -137,7 +137,7 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return A map of Key-Value pairs.
      * 
-     * &gt; **Note:** Any parameters specified must exist in the Schema defined in `workflow_parameters`.
+     * &gt; **Note:** Any parameters specified must exist in the Schema defined in `workflowParameters`.
      * 
      */
     public Optional<Output<Map<String,String>>> parameters() {
@@ -256,7 +256,7 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessControl A `access_control` block as defined below.
+         * @param accessControl A `accessControl` block as defined below.
          * 
          * @return builder
          * 
@@ -267,7 +267,7 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessControl A `access_control` block as defined below.
+         * @param accessControl A `accessControl` block as defined below.
          * 
          * @return builder
          * 
@@ -405,7 +405,7 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param parameters A map of Key-Value pairs.
          * 
-         * &gt; **Note:** Any parameters specified must exist in the Schema defined in `workflow_parameters`.
+         * &gt; **Note:** Any parameters specified must exist in the Schema defined in `workflowParameters`.
          * 
          * @return builder
          * 
@@ -418,7 +418,7 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param parameters A map of Key-Value pairs.
          * 
-         * &gt; **Note:** Any parameters specified must exist in the Schema defined in `workflow_parameters`.
+         * &gt; **Note:** Any parameters specified must exist in the Schema defined in `workflowParameters`.
          * 
          * @return builder
          * 

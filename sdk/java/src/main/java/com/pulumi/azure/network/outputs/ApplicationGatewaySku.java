@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ApplicationGatewaySku {
     /**
-     * @return The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between `1` and `32`, and `1` to `125` for a V2 SKU. When using a `Basic` SKU this property must be between `1` and `2`. This property is optional if `autoscale_configuration` is set.
+     * @return The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between `1` and `32`, and `1` to `125` for a V2 SKU. When using a `Basic` SKU this property must be between `1` and `2`. This property is optional if `autoscaleConfiguration` is set.
      * 
      */
     private @Nullable Integer capacity;
@@ -31,7 +31,7 @@ public final class ApplicationGatewaySku {
 
     private ApplicationGatewaySku() {}
     /**
-     * @return The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between `1` and `32`, and `1` to `125` for a V2 SKU. When using a `Basic` SKU this property must be between `1` and `2`. This property is optional if `autoscale_configuration` is set.
+     * @return The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between `1` and `32`, and `1` to `125` for a V2 SKU. When using a `Basic` SKU this property must be between `1` and `2`. This property is optional if `autoscaleConfiguration` is set.
      * 
      */
     public Optional<Integer> capacity() {

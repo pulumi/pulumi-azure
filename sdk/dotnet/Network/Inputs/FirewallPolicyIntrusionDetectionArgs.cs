@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<Inputs.FirewallPolicyIntrusionDetectionSignatureOverrideArgs>? _signatureOverrides;
 
         /// <summary>
-        /// One or more `signature_overrides` blocks as defined below.
+        /// One or more `SignatureOverrides` blocks as defined below.
         /// </summary>
         public InputList<Inputs.FirewallPolicyIntrusionDetectionSignatureOverrideArgs> SignatureOverrides
         {
@@ -46,7 +46,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<Inputs.FirewallPolicyIntrusionDetectionTrafficBypassArgs>? _trafficBypasses;
 
         /// <summary>
-        /// One or more `traffic_bypass` blocks as defined below.
+        /// One or more `TrafficBypass` blocks as defined below.
         /// </summary>
         public InputList<Inputs.FirewallPolicyIntrusionDetectionTrafficBypassArgs> TrafficBypasses
         {

@@ -40,7 +40,7 @@ public final class GremlinGraphArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire.
      * 
-     * &gt; **Note:** Disabling `analytical_storage_ttl` will force a new resource to be created since it can&#39;t be disabled once it&#39;s enabled.
+     * &gt; **Note:** Disabling `analyticalStorageTtl` will force a new resource to be created since it can&#39;t be disabled once it&#39;s enabled.
      * 
      */
     @Import(name="analyticalStorageTtl")
@@ -49,7 +49,7 @@ public final class GremlinGraphArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire.
      * 
-     * &gt; **Note:** Disabling `analytical_storage_ttl` will force a new resource to be created since it can&#39;t be disabled once it&#39;s enabled.
+     * &gt; **Note:** Disabling `analyticalStorageTtl` will force a new resource to be created since it can&#39;t be disabled once it&#39;s enabled.
      * 
      */
     public Optional<Output<Integer>> analyticalStorageTtl() {
@@ -64,14 +64,14 @@ public final class GremlinGraphArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
+     * A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="conflictResolutionPolicy")
     private @Nullable Output<GremlinGraphConflictResolutionPolicyArgs> conflictResolutionPolicy;
 
     /**
-     * @return A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
+     * @return A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<GremlinGraphConflictResolutionPolicyArgs>> conflictResolutionPolicy() {
@@ -109,14 +109,14 @@ public final class GremlinGraphArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The configuration of the indexing policy. One or more `index_policy` blocks as defined below.
+     * The configuration of the indexing policy. One or more `indexPolicy` blocks as defined below.
      * 
      */
     @Import(name="indexPolicy")
     private @Nullable Output<GremlinGraphIndexPolicyArgs> indexPolicy;
 
     /**
-     * @return The configuration of the indexing policy. One or more `index_policy` blocks as defined below.
+     * @return The configuration of the indexing policy. One or more `indexPolicy` blocks as defined below.
      * 
      */
     public Optional<Output<GremlinGraphIndexPolicyArgs>> indexPolicy() {
@@ -199,14 +199,14 @@ public final class GremlinGraphArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
+     * One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="uniqueKeys")
     private @Nullable Output<List<GremlinGraphUniqueKeyArgs>> uniqueKeys;
 
     /**
-     * @return One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
+     * @return One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<GremlinGraphUniqueKeyArgs>>> uniqueKeys() {
@@ -273,7 +273,7 @@ public final class GremlinGraphArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param analyticalStorageTtl The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire.
          * 
-         * &gt; **Note:** Disabling `analytical_storage_ttl` will force a new resource to be created since it can&#39;t be disabled once it&#39;s enabled.
+         * &gt; **Note:** Disabling `analyticalStorageTtl` will force a new resource to be created since it can&#39;t be disabled once it&#39;s enabled.
          * 
          * @return builder
          * 
@@ -286,7 +286,7 @@ public final class GremlinGraphArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param analyticalStorageTtl The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire.
          * 
-         * &gt; **Note:** Disabling `analytical_storage_ttl` will force a new resource to be created since it can&#39;t be disabled once it&#39;s enabled.
+         * &gt; **Note:** Disabling `analyticalStorageTtl` will force a new resource to be created since it can&#39;t be disabled once it&#39;s enabled.
          * 
          * @return builder
          * 
@@ -305,7 +305,7 @@ public final class GremlinGraphArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param conflictResolutionPolicy A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
+         * @param conflictResolutionPolicy A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -316,7 +316,7 @@ public final class GremlinGraphArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param conflictResolutionPolicy A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
+         * @param conflictResolutionPolicy A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -368,7 +368,7 @@ public final class GremlinGraphArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param indexPolicy The configuration of the indexing policy. One or more `index_policy` blocks as defined below.
+         * @param indexPolicy The configuration of the indexing policy. One or more `indexPolicy` blocks as defined below.
          * 
          * @return builder
          * 
@@ -379,7 +379,7 @@ public final class GremlinGraphArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param indexPolicy The configuration of the indexing policy. One or more `index_policy` blocks as defined below.
+         * @param indexPolicy The configuration of the indexing policy. One or more `indexPolicy` blocks as defined below.
          * 
          * @return builder
          * 
@@ -494,7 +494,7 @@ public final class GremlinGraphArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param uniqueKeys One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
+         * @param uniqueKeys One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -505,7 +505,7 @@ public final class GremlinGraphArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param uniqueKeys One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
+         * @param uniqueKeys One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -515,7 +515,7 @@ public final class GremlinGraphArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param uniqueKeys One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
+         * @param uniqueKeys One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

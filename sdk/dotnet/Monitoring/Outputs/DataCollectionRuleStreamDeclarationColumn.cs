@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The type of the column data. Possible values are `string`, `int`, `long`, `real`, `boolean`, `datetime`,and `dynamic`.
+        /// The type of the column data. Possible values are `String`, `Int`, `Long`, `Real`, `Boolean`, `Datetime`,and `Dynamic`.
         /// </summary>
         public readonly string Type;
 

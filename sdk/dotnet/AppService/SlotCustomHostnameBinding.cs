@@ -100,7 +100,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The SSL certificate thumbprint. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** `thumbprint` must be specified when `ssl_state` is set.
+        /// &gt; **Note:** `Thumbprint` must be specified when `SslState` is set.
         /// </summary>
         [Output("thumbprint")]
         public Output<string> Thumbprint { get; private set; } = null!;
@@ -180,7 +180,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The SSL certificate thumbprint. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** `thumbprint` must be specified when `ssl_state` is set.
+        /// &gt; **Note:** `Thumbprint` must be specified when `SslState` is set.
         /// </summary>
         [Input("thumbprint")]
         public Input<string>? Thumbprint { get; set; }
@@ -216,7 +216,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The SSL certificate thumbprint. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** `thumbprint` must be specified when `ssl_state` is set.
+        /// &gt; **Note:** `Thumbprint` must be specified when `SslState` is set.
         /// </summary>
         [Input("thumbprint")]
         public Input<string>? Thumbprint { get; set; }

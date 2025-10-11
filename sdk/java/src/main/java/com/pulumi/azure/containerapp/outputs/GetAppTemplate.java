@@ -29,7 +29,7 @@ public final class GetAppTemplate {
     private @Nullable List<GetAppTemplateCustomScaleRule> customScaleRules;
     private List<GetAppTemplateHttpScaleRule> httpScaleRules;
     /**
-     * @return One or more `init_container` blocks as detailed below.
+     * @return One or more `initContainer` blocks as detailed below.
      * 
      */
     private List<GetAppTemplateInitContainer> initContainers;
@@ -44,7 +44,7 @@ public final class GetAppTemplate {
      */
     private Integer minReplicas;
     /**
-     * @return The suffix string to which this `traffic_weight` applies.
+     * @return The suffix string to which this `trafficWeight` applies.
      * 
      */
     private String revisionSuffix;
@@ -78,7 +78,7 @@ public final class GetAppTemplate {
         return this.httpScaleRules;
     }
     /**
-     * @return One or more `init_container` blocks as detailed below.
+     * @return One or more `initContainer` blocks as detailed below.
      * 
      */
     public List<GetAppTemplateInitContainer> initContainers() {
@@ -99,7 +99,7 @@ public final class GetAppTemplate {
         return this.minReplicas;
     }
     /**
-     * @return The suffix string to which this `traffic_weight` applies.
+     * @return The suffix string to which this `trafficWeight` applies.
      * 
      */
     public String revisionSuffix() {

@@ -275,6 +275,15 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
             storage_account_access_key=example_account.primary_access_key)
         ```
 
+        ### With Storage Account Behind VNet And Firewall
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Sql` - 2023-08-01-preview
+
         ## Import
 
         MS SQL Server Microsoft Support Auditing Policies can be imported using the `resource id`, e.g.
@@ -330,6 +339,15 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
             blob_storage_endpoint=example_account.primary_blob_endpoint,
             storage_account_access_key=example_account.primary_access_key)
         ```
+
+        ### With Storage Account Behind VNet And Firewall
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Sql` - 2023-08-01-preview
 
         ## Import
 

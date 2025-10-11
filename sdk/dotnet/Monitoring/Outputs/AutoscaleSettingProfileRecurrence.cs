@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly int Minutes;
         /// <summary>
-        /// The Time Zone used for the `hours` field. A list of possible values can be found here). Defaults to `UTC`.
+        /// The Time Zone used for the `Hours` field. A list of possible values can be found here). Defaults to `UTC`.
         /// </summary>
         public readonly string? Timezone;
 

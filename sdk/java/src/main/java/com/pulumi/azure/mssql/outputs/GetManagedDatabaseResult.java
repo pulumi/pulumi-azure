@@ -20,7 +20,7 @@ public final class GetManagedDatabaseResult {
      */
     private String id;
     /**
-     * @return A `long_term_retention_policy` block as defined below.
+     * @return A `longTermRetentionPolicy` block as defined below.
      * 
      */
     private List<GetManagedDatabaseLongTermRetentionPolicy> longTermRetentionPolicies;
@@ -32,7 +32,7 @@ public final class GetManagedDatabaseResult {
     private String managedInstanceName;
     private String name;
     /**
-     * @return A `point_in_time_restore` block as defined below.
+     * @return A `pointInTimeRestore` block as defined below.
      * 
      */
     private List<GetManagedDatabasePointInTimeRestore> pointInTimeRestores;
@@ -56,7 +56,7 @@ public final class GetManagedDatabaseResult {
         return this.id;
     }
     /**
-     * @return A `long_term_retention_policy` block as defined below.
+     * @return A `longTermRetentionPolicy` block as defined below.
      * 
      */
     public List<GetManagedDatabaseLongTermRetentionPolicy> longTermRetentionPolicies() {
@@ -76,7 +76,7 @@ public final class GetManagedDatabaseResult {
         return this.name;
     }
     /**
-     * @return A `point_in_time_restore` block as defined below.
+     * @return A `pointInTimeRestore` block as defined below.
      * 
      */
     public List<GetManagedDatabasePointInTimeRestore> pointInTimeRestores() {

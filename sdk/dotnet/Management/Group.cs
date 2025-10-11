@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Management
     /// <summary>
     /// Manages a Management Group.
     /// 
-    /// !&gt; **Note:** Configuring `subscription_ids` is not supported when using the `azure.management.GroupSubscriptionAssociation` resource, results will be unpredictable.
+    /// !&gt; **Note:** Configuring `SubscriptionIds` is not supported when using the `azure.management.GroupSubscriptionAssociation` resource, results will be unpredictable.
     /// 
     /// ## Example Usage
     /// 
@@ -67,7 +67,7 @@ namespace Pulumi.Azure.Management
     public partial class Group : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A friendly name for this Management Group. If not specified, this will be the same as the `name`.
+        /// A friendly name for this Management Group. If not specified, this will be the same as the `Name`.
         /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
@@ -87,7 +87,7 @@ namespace Pulumi.Azure.Management
         /// <summary>
         /// A list of Subscription GUIDs which should be assigned to the Management Group.
         /// 
-        /// &gt; **Note:** To clear all Subscriptions from the Management Group set `subscription_ids` to an empty list
+        /// &gt; **Note:** To clear all Subscriptions from the Management Group set `SubscriptionIds` to an empty list
         /// </summary>
         [Output("subscriptionIds")]
         public Output<ImmutableArray<string>> SubscriptionIds { get; private set; } = null!;
@@ -149,7 +149,7 @@ namespace Pulumi.Azure.Management
     public sealed class GroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A friendly name for this Management Group. If not specified, this will be the same as the `name`.
+        /// A friendly name for this Management Group. If not specified, this will be the same as the `Name`.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
@@ -172,7 +172,7 @@ namespace Pulumi.Azure.Management
         /// <summary>
         /// A list of Subscription GUIDs which should be assigned to the Management Group.
         /// 
-        /// &gt; **Note:** To clear all Subscriptions from the Management Group set `subscription_ids` to an empty list
+        /// &gt; **Note:** To clear all Subscriptions from the Management Group set `SubscriptionIds` to an empty list
         /// </summary>
         public InputList<string> SubscriptionIds
         {
@@ -189,7 +189,7 @@ namespace Pulumi.Azure.Management
     public sealed class GroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A friendly name for this Management Group. If not specified, this will be the same as the `name`.
+        /// A friendly name for this Management Group. If not specified, this will be the same as the `Name`.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
@@ -212,7 +212,7 @@ namespace Pulumi.Azure.Management
         /// <summary>
         /// A list of Subscription GUIDs which should be assigned to the Management Group.
         /// 
-        /// &gt; **Note:** To clear all Subscriptions from the Management Group set `subscription_ids` to an empty list
+        /// &gt; **Note:** To clear all Subscriptions from the Management Group set `SubscriptionIds` to an empty list
         /// </summary>
         public InputList<string> SubscriptionIds
         {

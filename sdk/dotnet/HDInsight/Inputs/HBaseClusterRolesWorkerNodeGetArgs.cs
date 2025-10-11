@@ -13,7 +13,7 @@ namespace Pulumi.Azure.HDInsight.Inputs
     public sealed class HBaseClusterRolesWorkerNodeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `autoscale` block as defined below.
+        /// A `Autoscale` block as defined below.
         /// </summary>
         [Input("autoscale")]
         public Input<Inputs.HBaseClusterRolesWorkerNodeAutoscaleGetArgs>? Autoscale { get; set; }
@@ -40,7 +40,7 @@ namespace Pulumi.Azure.HDInsight.Inputs
         private InputList<Inputs.HBaseClusterRolesWorkerNodeScriptActionGetArgs>? _scriptActions;
 
         /// <summary>
-        /// The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
+        /// The script action which will run on the cluster. One or more `ScriptActions` blocks as defined above. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.HBaseClusterRolesWorkerNodeScriptActionGetArgs> ScriptActions
         {
@@ -54,7 +54,7 @@ namespace Pulumi.Azure.HDInsight.Inputs
         /// <summary>
         /// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
+        /// &gt; **Note:** Either a `Password` or one or more `SshKeys` must be specified - but not both.
         /// </summary>
         public InputList<string> SshKeys
         {

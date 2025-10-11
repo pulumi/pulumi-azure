@@ -18,14 +18,14 @@ public final class ResolverInboundEndpointState extends com.pulumi.resources.Res
     public static final ResolverInboundEndpointState Empty = new ResolverInboundEndpointState();
 
     /**
-     * One `ip_configurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+     * One `ipConfigurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
      * 
      */
     @Import(name="ipConfigurations")
     private @Nullable Output<ResolverInboundEndpointIpConfigurationsArgs> ipConfigurations;
 
     /**
-     * @return One `ip_configurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+     * @return One `ipConfigurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
      * 
      */
     public Optional<Output<ResolverInboundEndpointIpConfigurationsArgs>> ipConfigurations() {
@@ -121,7 +121,7 @@ public final class ResolverInboundEndpointState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param ipConfigurations One `ip_configurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+         * @param ipConfigurations One `ipConfigurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class ResolverInboundEndpointState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param ipConfigurations One `ip_configurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
+         * @param ipConfigurations One `ipConfigurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
          * 
          * @return builder
          * 

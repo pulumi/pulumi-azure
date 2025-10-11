@@ -26,7 +26,7 @@ namespace Pulumi.Azure.DataFactory.Outputs
         /// </summary>
         public readonly string ProjectName;
         /// <summary>
-        /// Is automated publishing enabled? Defaults to `true`.
+        /// Is automated publishing enabled? Defaults to `True`.
         /// </summary>
         public readonly bool? PublishingEnabled;
         /// <summary>

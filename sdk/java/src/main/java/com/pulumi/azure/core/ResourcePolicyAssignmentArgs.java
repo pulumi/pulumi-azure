@@ -132,14 +132,14 @@ public final class ResourcePolicyAssignmentArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * One or more `non_compliance_message` blocks as defined below.
+     * One or more `nonComplianceMessage` blocks as defined below.
      * 
      */
     @Import(name="nonComplianceMessages")
     private @Nullable Output<List<ResourcePolicyAssignmentNonComplianceMessageArgs>> nonComplianceMessages;
 
     /**
-     * @return One or more `non_compliance_message` blocks as defined below.
+     * @return One or more `nonComplianceMessage` blocks as defined below.
      * 
      */
     public Optional<Output<List<ResourcePolicyAssignmentNonComplianceMessageArgs>>> nonComplianceMessages() {
@@ -162,14 +162,14 @@ public final class ResourcePolicyAssignmentArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
+     * One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
      * 
      */
     @Import(name="overrides")
     private @Nullable Output<List<ResourcePolicyAssignmentOverrideArgs>> overrides;
 
     /**
-     * @return One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
+     * @return One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
      * 
      */
     public Optional<Output<List<ResourcePolicyAssignmentOverrideArgs>>> overrides() {
@@ -226,14 +226,14 @@ public final class ResourcePolicyAssignmentArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
+     * One or more `resourceSelectors` blocks as defined below to filter polices by resource properties.
      * 
      */
     @Import(name="resourceSelectors")
     private @Nullable Output<List<ResourcePolicyAssignmentResourceSelectorArgs>> resourceSelectors;
 
     /**
-     * @return One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
+     * @return One or more `resourceSelectors` blocks as defined below to filter polices by resource properties.
      * 
      */
     public Optional<Output<List<ResourcePolicyAssignmentResourceSelectorArgs>>> resourceSelectors() {
@@ -429,7 +429,7 @@ public final class ResourcePolicyAssignmentArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param nonComplianceMessages One or more `non_compliance_message` blocks as defined below.
+         * @param nonComplianceMessages One or more `nonComplianceMessage` blocks as defined below.
          * 
          * @return builder
          * 
@@ -440,7 +440,7 @@ public final class ResourcePolicyAssignmentArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param nonComplianceMessages One or more `non_compliance_message` blocks as defined below.
+         * @param nonComplianceMessages One or more `nonComplianceMessage` blocks as defined below.
          * 
          * @return builder
          * 
@@ -450,7 +450,7 @@ public final class ResourcePolicyAssignmentArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param nonComplianceMessages One or more `non_compliance_message` blocks as defined below.
+         * @param nonComplianceMessages One or more `nonComplianceMessage` blocks as defined below.
          * 
          * @return builder
          * 
@@ -491,7 +491,7 @@ public final class ResourcePolicyAssignmentArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param overrides One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
+         * @param overrides One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
          * 
          * @return builder
          * 
@@ -502,7 +502,7 @@ public final class ResourcePolicyAssignmentArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param overrides One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
+         * @param overrides One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
          * 
          * @return builder
          * 
@@ -512,7 +512,7 @@ public final class ResourcePolicyAssignmentArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param overrides One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
+         * @param overrides One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
          * 
          * @return builder
          * 
@@ -589,7 +589,7 @@ public final class ResourcePolicyAssignmentArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param resourceSelectors One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
+         * @param resourceSelectors One or more `resourceSelectors` blocks as defined below to filter polices by resource properties.
          * 
          * @return builder
          * 
@@ -600,7 +600,7 @@ public final class ResourcePolicyAssignmentArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param resourceSelectors One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
+         * @param resourceSelectors One or more `resourceSelectors` blocks as defined below to filter polices by resource properties.
          * 
          * @return builder
          * 
@@ -610,7 +610,7 @@ public final class ResourcePolicyAssignmentArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param resourceSelectors One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
+         * @param resourceSelectors One or more `resourceSelectors` blocks as defined below to filter polices by resource properties.
          * 
          * @return builder
          * 

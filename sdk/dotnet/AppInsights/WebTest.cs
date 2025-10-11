@@ -122,7 +122,7 @@ namespace Pulumi.Azure.AppInsights
         public Output<ImmutableArray<string>> GeoLocations { get; private set; } = null!;
 
         /// <summary>
-        /// The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
+        /// The kind of web test that this web test watches. Choices are `Ping` and `Multistep`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("kind")]
         public Output<string> Kind { get; private set; } = null!;
@@ -257,7 +257,7 @@ namespace Pulumi.Azure.AppInsights
         }
 
         /// <summary>
-        /// The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
+        /// The kind of web test that this web test watches. Choices are `Ping` and `Multistep`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("kind", required: true)]
         public Input<string> Kind { get; set; } = null!;
@@ -357,7 +357,7 @@ namespace Pulumi.Azure.AppInsights
         }
 
         /// <summary>
-        /// The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
+        /// The kind of web test that this web test watches. Choices are `Ping` and `Multistep`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }

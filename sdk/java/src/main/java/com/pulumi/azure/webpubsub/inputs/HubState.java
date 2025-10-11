@@ -37,18 +37,18 @@ public final class HubState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `event_handler` block as defined below.
+     * An `eventHandler` block as defined below.
      * 
-     * &gt; **Note:** User can change the order of `event_handler` to change the priority accordingly.
+     * &gt; **Note:** User can change the order of `eventHandler` to change the priority accordingly.
      * 
      */
     @Import(name="eventHandlers")
     private @Nullable Output<List<HubEventHandlerArgs>> eventHandlers;
 
     /**
-     * @return An `event_handler` block as defined below.
+     * @return An `eventHandler` block as defined below.
      * 
-     * &gt; **Note:** User can change the order of `event_handler` to change the priority accordingly.
+     * &gt; **Note:** User can change the order of `eventHandler` to change the priority accordingly.
      * 
      */
     public Optional<Output<List<HubEventHandlerArgs>>> eventHandlers() {
@@ -56,7 +56,7 @@ public final class HubState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `event_listener` block as defined below.
+     * An `eventListener` block as defined below.
      * 
      * &gt; **Note:** The managed identity of Web PubSub service must be enabled and the identity must have the &#34;Azure Event Hubs Data sender&#34; role to access the Event Hub.
      * 
@@ -65,7 +65,7 @@ public final class HubState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<List<HubEventListenerArgs>> eventListeners;
 
     /**
-     * @return An `event_listener` block as defined below.
+     * @return An `eventListener` block as defined below.
      * 
      * &gt; **Note:** The managed identity of Web PubSub service must be enabled and the identity must have the &#34;Azure Event Hubs Data sender&#34; role to access the Event Hub.
      * 
@@ -156,9 +156,9 @@ public final class HubState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventHandlers An `event_handler` block as defined below.
+         * @param eventHandlers An `eventHandler` block as defined below.
          * 
-         * &gt; **Note:** User can change the order of `event_handler` to change the priority accordingly.
+         * &gt; **Note:** User can change the order of `eventHandler` to change the priority accordingly.
          * 
          * @return builder
          * 
@@ -169,9 +169,9 @@ public final class HubState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventHandlers An `event_handler` block as defined below.
+         * @param eventHandlers An `eventHandler` block as defined below.
          * 
-         * &gt; **Note:** User can change the order of `event_handler` to change the priority accordingly.
+         * &gt; **Note:** User can change the order of `eventHandler` to change the priority accordingly.
          * 
          * @return builder
          * 
@@ -181,9 +181,9 @@ public final class HubState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventHandlers An `event_handler` block as defined below.
+         * @param eventHandlers An `eventHandler` block as defined below.
          * 
-         * &gt; **Note:** User can change the order of `event_handler` to change the priority accordingly.
+         * &gt; **Note:** User can change the order of `eventHandler` to change the priority accordingly.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class HubState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventListeners An `event_listener` block as defined below.
+         * @param eventListeners An `eventListener` block as defined below.
          * 
          * &gt; **Note:** The managed identity of Web PubSub service must be enabled and the identity must have the &#34;Azure Event Hubs Data sender&#34; role to access the Event Hub.
          * 
@@ -206,7 +206,7 @@ public final class HubState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventListeners An `event_listener` block as defined below.
+         * @param eventListeners An `eventListener` block as defined below.
          * 
          * &gt; **Note:** The managed identity of Web PubSub service must be enabled and the identity must have the &#34;Azure Event Hubs Data sender&#34; role to access the Event Hub.
          * 
@@ -218,7 +218,7 @@ public final class HubState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventListeners An `event_listener` block as defined below.
+         * @param eventListeners An `eventListener` block as defined below.
          * 
          * &gt; **Note:** The managed identity of Web PubSub service must be enabled and the identity must have the &#34;Azure Event Hubs Data sender&#34; role to access the Event Hub.
          * 

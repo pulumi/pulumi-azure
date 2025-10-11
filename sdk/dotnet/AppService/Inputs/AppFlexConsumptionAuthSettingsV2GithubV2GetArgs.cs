@@ -19,9 +19,9 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string> ClientId { get; set; } = null!;
 
         /// <summary>
-        /// The app setting name that contains the `client_secret` value used for GitHub Login.
+        /// The app setting name that contains the `ClientSecret` value used for GitHub Login.
         /// 
-        /// !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
+        /// !&gt; **Note:** A setting with this name must exist in `AppSettings` to function correctly.
         /// </summary>
         [Input("clientSecretSettingName", required: true)]
         public Input<string> ClientSecretSettingName { get; set; } = null!;

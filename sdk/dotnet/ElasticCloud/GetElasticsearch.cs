@@ -130,7 +130,7 @@ namespace Pulumi.Azure.ElasticCloud
         private List<Inputs.GetElasticsearchLogArgs>? _logs;
 
         /// <summary>
-        /// A `logs` block as defined below.
+        /// A `Logs` block as defined below.
         /// </summary>
         public List<Inputs.GetElasticsearchLogArgs> Logs
         {
@@ -162,7 +162,7 @@ namespace Pulumi.Azure.ElasticCloud
         private InputList<Inputs.GetElasticsearchLogInputArgs>? _logs;
 
         /// <summary>
-        /// A `logs` block as defined below.
+        /// A `Logs` block as defined below.
         /// </summary>
         public InputList<Inputs.GetElasticsearchLogInputArgs> Logs
         {
@@ -229,7 +229,7 @@ namespace Pulumi.Azure.ElasticCloud
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// A `logs` block as defined below.
+        /// A `Logs` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetElasticsearchLogResult> Logs;
         /// <summary>

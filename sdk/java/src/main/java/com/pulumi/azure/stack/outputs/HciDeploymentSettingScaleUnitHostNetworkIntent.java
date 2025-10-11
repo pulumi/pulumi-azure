@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class HciDeploymentSettingScaleUnitHostNetworkIntent {
     /**
-     * @return A `adapter_property_override` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+     * @return A `adapterPropertyOverride` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
      * 
      */
     private @Nullable HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverride adapterPropertyOverride;
@@ -38,7 +38,7 @@ public final class HciDeploymentSettingScaleUnitHostNetworkIntent {
      */
     private String name;
     /**
-     * @return A `qos_policy_override` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+     * @return A `qosPolicyOverride` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
      * 
      */
     private @Nullable HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverride qosPolicyOverride;
@@ -53,7 +53,7 @@ public final class HciDeploymentSettingScaleUnitHostNetworkIntent {
      */
     private List<String> trafficTypes;
     /**
-     * @return A `virtual_switch_configuration_override` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+     * @return A `virtualSwitchConfigurationOverride` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
      * 
      */
     private @Nullable HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverride virtualSwitchConfigurationOverride;
@@ -65,7 +65,7 @@ public final class HciDeploymentSettingScaleUnitHostNetworkIntent {
 
     private HciDeploymentSettingScaleUnitHostNetworkIntent() {}
     /**
-     * @return A `adapter_property_override` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
+     * @return A `adapterPropertyOverride` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
      * 
      */
     public Optional<HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverride> adapterPropertyOverride() {
@@ -93,7 +93,7 @@ public final class HciDeploymentSettingScaleUnitHostNetworkIntent {
         return this.name;
     }
     /**
-     * @return A `qos_policy_override` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+     * @return A `qosPolicyOverride` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
      * 
      */
     public Optional<HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverride> qosPolicyOverride() {
@@ -114,7 +114,7 @@ public final class HciDeploymentSettingScaleUnitHostNetworkIntent {
         return this.trafficTypes;
     }
     /**
-     * @return A `virtual_switch_configuration_override` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+     * @return A `virtualSwitchConfigurationOverride` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
      * 
      */
     public Optional<HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverride> virtualSwitchConfigurationOverride() {

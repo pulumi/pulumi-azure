@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Management.Outputs
     public sealed class GroupPolicyAssignmentOverride
     {
         /// <summary>
-        /// One or more `override_selector` block as defined below.
+        /// One or more `OverrideSelector` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GroupPolicyAssignmentOverrideSelector> Selectors;
         /// <summary>

@@ -100,9 +100,9 @@ namespace Pulumi.Azure.Policy
     public sealed class GetPolicySetDefinitionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specifies the display name of the Policy Set Definition. Conflicts with `name`.
+        /// Specifies the display name of the Policy Set Definition. Conflicts with `Name`.
         /// 
-        /// **NOTE** As `display_name` is not unique errors may occur when there are multiple policy set definitions with same display name.
+        /// **NOTE** As `DisplayName` is not unique errors may occur when there are multiple policy set definitions with same display name.
         /// </summary>
         [Input("displayName")]
         public string? DisplayName { get; set; }
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.Policy
         public string? ManagementGroupName { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Policy Set Definition. Conflicts with `display_name`.
+        /// Specifies the name of the Policy Set Definition. Conflicts with `DisplayName`.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -128,9 +128,9 @@ namespace Pulumi.Azure.Policy
     public sealed class GetPolicySetDefinitionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specifies the display name of the Policy Set Definition. Conflicts with `name`.
+        /// Specifies the display name of the Policy Set Definition. Conflicts with `Name`.
         /// 
-        /// **NOTE** As `display_name` is not unique errors may occur when there are multiple policy set definitions with same display name.
+        /// **NOTE** As `DisplayName` is not unique errors may occur when there are multiple policy set definitions with same display name.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
@@ -142,7 +142,7 @@ namespace Pulumi.Azure.Policy
         public Input<string>? ManagementGroupName { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Policy Set Definition. Conflicts with `display_name`.
+        /// Specifies the name of the Policy Set Definition. Conflicts with `DisplayName`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -183,11 +183,11 @@ namespace Pulumi.Azure.Policy
         /// </summary>
         public readonly string Parameters;
         /// <summary>
-        /// One or more `policy_definition_group` blocks as defined below.
+        /// One or more `PolicyDefinitionGroup` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPolicySetDefinitionPolicyDefinitionGroupResult> PolicyDefinitionGroups;
         /// <summary>
-        /// One or more `policy_definition_reference` blocks as defined below.
+        /// One or more `PolicyDefinitionReference` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPolicySetDefinitionPolicyDefinitionReferenceResult> PolicyDefinitionReferences;
         /// <summary>

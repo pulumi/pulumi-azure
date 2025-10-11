@@ -96,14 +96,14 @@ public final class ResolverForwardingRuleArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Can be specified multiple times to define multiple target DNS servers. Each `target_dns_servers` block as defined below.
+     * Can be specified multiple times to define multiple target DNS servers. Each `targetDnsServers` block as defined below.
      * 
      */
     @Import(name="targetDnsServers", required=true)
     private Output<List<ResolverForwardingRuleTargetDnsServerArgs>> targetDnsServers;
 
     /**
-     * @return Can be specified multiple times to define multiple target DNS servers. Each `target_dns_servers` block as defined below.
+     * @return Can be specified multiple times to define multiple target DNS servers. Each `targetDnsServers` block as defined below.
      * 
      */
     public Output<List<ResolverForwardingRuleTargetDnsServerArgs>> targetDnsServers() {
@@ -245,7 +245,7 @@ public final class ResolverForwardingRuleArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param targetDnsServers Can be specified multiple times to define multiple target DNS servers. Each `target_dns_servers` block as defined below.
+         * @param targetDnsServers Can be specified multiple times to define multiple target DNS servers. Each `targetDnsServers` block as defined below.
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class ResolverForwardingRuleArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param targetDnsServers Can be specified multiple times to define multiple target DNS servers. Each `target_dns_servers` block as defined below.
+         * @param targetDnsServers Can be specified multiple times to define multiple target DNS servers. Each `targetDnsServers` block as defined below.
          * 
          * @return builder
          * 
@@ -266,7 +266,7 @@ public final class ResolverForwardingRuleArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param targetDnsServers Can be specified multiple times to define multiple target DNS servers. Each `target_dns_servers` block as defined below.
+         * @param targetDnsServers Can be specified multiple times to define multiple target DNS servers. Each `targetDnsServers` block as defined below.
          * 
          * @return builder
          * 

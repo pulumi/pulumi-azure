@@ -34,7 +34,7 @@ public final class RoleManagementPolicyEligibleAssignmentRulesArgs extends com.p
     /**
      * The maximum length of time an assignment can be valid, as an ISO8601 duration. Permitted values: `P15D`, `P30D`, `P90D`, `P180D`, or `P365D`.
      * 
-     * One of `expiration_required` or `expire_after` must be provided.
+     * One of `expirationRequired` or `expireAfter` must be provided.
      * 
      */
     @Import(name="expireAfter")
@@ -43,7 +43,7 @@ public final class RoleManagementPolicyEligibleAssignmentRulesArgs extends com.p
     /**
      * @return The maximum length of time an assignment can be valid, as an ISO8601 duration. Permitted values: `P15D`, `P30D`, `P90D`, `P180D`, or `P365D`.
      * 
-     * One of `expiration_required` or `expire_after` must be provided.
+     * One of `expirationRequired` or `expireAfter` must be provided.
      * 
      */
     public Optional<Output<String>> expireAfter() {
@@ -99,7 +99,7 @@ public final class RoleManagementPolicyEligibleAssignmentRulesArgs extends com.p
         /**
          * @param expireAfter The maximum length of time an assignment can be valid, as an ISO8601 duration. Permitted values: `P15D`, `P30D`, `P90D`, `P180D`, or `P365D`.
          * 
-         * One of `expiration_required` or `expire_after` must be provided.
+         * One of `expirationRequired` or `expireAfter` must be provided.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class RoleManagementPolicyEligibleAssignmentRulesArgs extends com.p
         /**
          * @param expireAfter The maximum length of time an assignment can be valid, as an ISO8601 duration. Permitted values: `P15D`, `P30D`, `P90D`, `P180D`, or `P365D`.
          * 
-         * One of `expiration_required` or `expire_after` must be provided.
+         * One of `expirationRequired` or `expireAfter` must be provided.
          * 
          * @return builder
          * 

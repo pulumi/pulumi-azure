@@ -22,7 +22,7 @@ namespace Pulumi.Azure.AppService.Inputs
         private Input<string>? _clientSecret;
 
         /// <summary>
-        /// The client secret associated with the Google web application. Cannot be specified with `client_secret_setting_name`.
+        /// The client secret associated with the Google web application. Cannot be specified with `ClientSecretSettingName`.
         /// </summary>
         public Input<string>? ClientSecret
         {
@@ -35,7 +35,7 @@ namespace Pulumi.Azure.AppService.Inputs
         }
 
         /// <summary>
-        /// The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
+        /// The app setting name that contains the `ClientSecret` value used for Google login. Cannot be specified with `ClientSecret`.
         /// </summary>
         [Input("clientSecretSettingName")]
         public Input<string>? ClientSecretSettingName { get; set; }
@@ -44,7 +44,7 @@ namespace Pulumi.Azure.AppService.Inputs
         private InputList<string>? _oauthScopes;
 
         /// <summary>
-        /// Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, `openid`, `profile`, and `email` are used as default scopes.
+        /// Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, `Openid`, `Profile`, and `Email` are used as default scopes.
         /// </summary>
         public InputList<string> OauthScopes
         {

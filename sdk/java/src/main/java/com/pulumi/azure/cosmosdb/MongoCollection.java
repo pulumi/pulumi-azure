@@ -211,14 +211,14 @@ public class MongoCollection extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.shardKey);
     }
     /**
-     * One or more `system_indexes` blocks as defined below.
+     * One or more `systemIndexes` blocks as defined below.
      * 
      */
     @Export(name="systemIndexes", refs={List.class,MongoCollectionSystemIndex.class}, tree="[0,1]")
     private Output<List<MongoCollectionSystemIndex>> systemIndexes;
 
     /**
-     * @return One or more `system_indexes` blocks as defined below.
+     * @return One or more `systemIndexes` blocks as defined below.
      * 
      */
     public Output<List<MongoCollectionSystemIndex>> systemIndexes() {

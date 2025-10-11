@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SoftwareUpdateConfigurationTarget {
     /**
-     * @return One or more `azure_query` blocks as defined above.
+     * @return One or more `azureQuery` blocks as defined above.
      * 
      */
     private @Nullable List<SoftwareUpdateConfigurationTargetAzureQuery> azureQueries;
     /**
-     * @return One or more `non_azure_query` blocks as defined above.
+     * @return One or more `nonAzureQuery` blocks as defined above.
      * 
      */
     private @Nullable List<SoftwareUpdateConfigurationTargetNonAzureQuery> nonAzureQueries;
 
     private SoftwareUpdateConfigurationTarget() {}
     /**
-     * @return One or more `azure_query` blocks as defined above.
+     * @return One or more `azureQuery` blocks as defined above.
      * 
      */
     public List<SoftwareUpdateConfigurationTargetAzureQuery> azureQueries() {
         return this.azureQueries == null ? List.of() : this.azureQueries;
     }
     /**
-     * @return One or more `non_azure_query` blocks as defined above.
+     * @return One or more `nonAzureQuery` blocks as defined above.
      * 
      */
     public List<SoftwareUpdateConfigurationTargetNonAzureQuery> nonAzureQueries() {

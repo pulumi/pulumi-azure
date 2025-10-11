@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Batch.Inputs
     public sealed class PoolWindowArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether automatic updates are enabled on the virtual machine. Defaults to `true`.
+        /// Whether automatic updates are enabled on the virtual machine. Defaults to `True`.
         /// </summary>
         [Input("enableAutomaticUpdates")]
         public Input<bool>? EnableAutomaticUpdates { get; set; }

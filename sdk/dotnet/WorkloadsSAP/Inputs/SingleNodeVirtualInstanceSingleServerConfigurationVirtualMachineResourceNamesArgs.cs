@@ -16,7 +16,7 @@ namespace Pulumi.Azure.WorkloadsSAP.Inputs
         private InputList<Inputs.SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesDataDiskArgs>? _dataDisks;
 
         /// <summary>
-        /// (Optional) One or more `data_disk` blocks as defined below. Changing this forces a new resource to be created.
+        /// (Optional) One or more `DataDisk` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesDataDiskArgs> DataDisks
         {

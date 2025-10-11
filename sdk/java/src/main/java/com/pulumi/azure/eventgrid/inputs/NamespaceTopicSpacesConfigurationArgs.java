@@ -35,14 +35,14 @@ public final class NamespaceTopicSpacesConfigurationArgs extends com.pulumi.reso
     }
 
     /**
-     * One or more `dynamic_routing_enrichment` blocks as defined below.
+     * One or more `dynamicRoutingEnrichment` blocks as defined below.
      * 
      */
     @Import(name="dynamicRoutingEnrichments")
     private @Nullable Output<List<NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArgs>> dynamicRoutingEnrichments;
 
     /**
-     * @return One or more `dynamic_routing_enrichment` blocks as defined below.
+     * @return One or more `dynamicRoutingEnrichment` blocks as defined below.
      * 
      */
     public Optional<Output<List<NamespaceTopicSpacesConfigurationDynamicRoutingEnrichmentArgs>>> dynamicRoutingEnrichments() {
@@ -95,14 +95,14 @@ public final class NamespaceTopicSpacesConfigurationArgs extends com.pulumi.reso
     }
 
     /**
-     * One or more `static_routing_enrichment` blocks as defined below.
+     * One or more `staticRoutingEnrichment` blocks as defined below.
      * 
      */
     @Import(name="staticRoutingEnrichments")
     private @Nullable Output<List<NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArgs>> staticRoutingEnrichments;
 
     /**
-     * @return One or more `static_routing_enrichment` blocks as defined below.
+     * @return One or more `staticRoutingEnrichment` blocks as defined below.
      * 
      */
     public Optional<Output<List<NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArgs>>> staticRoutingEnrichments() {
@@ -170,7 +170,7 @@ public final class NamespaceTopicSpacesConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param dynamicRoutingEnrichments One or more `dynamic_routing_enrichment` blocks as defined below.
+         * @param dynamicRoutingEnrichments One or more `dynamicRoutingEnrichment` blocks as defined below.
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class NamespaceTopicSpacesConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param dynamicRoutingEnrichments One or more `dynamic_routing_enrichment` blocks as defined below.
+         * @param dynamicRoutingEnrichments One or more `dynamicRoutingEnrichment` blocks as defined below.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class NamespaceTopicSpacesConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param dynamicRoutingEnrichments One or more `dynamic_routing_enrichment` blocks as defined below.
+         * @param dynamicRoutingEnrichments One or more `dynamicRoutingEnrichment` blocks as defined below.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class NamespaceTopicSpacesConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param staticRoutingEnrichments One or more `static_routing_enrichment` blocks as defined below.
+         * @param staticRoutingEnrichments One or more `staticRoutingEnrichment` blocks as defined below.
          * 
          * @return builder
          * 
@@ -275,7 +275,7 @@ public final class NamespaceTopicSpacesConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param staticRoutingEnrichments One or more `static_routing_enrichment` blocks as defined below.
+         * @param staticRoutingEnrichments One or more `staticRoutingEnrichment` blocks as defined below.
          * 
          * @return builder
          * 
@@ -285,7 +285,7 @@ public final class NamespaceTopicSpacesConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param staticRoutingEnrichments One or more `static_routing_enrichment` blocks as defined below.
+         * @param staticRoutingEnrichments One or more `staticRoutingEnrichment` blocks as defined below.
          * 
          * @return builder
          * 

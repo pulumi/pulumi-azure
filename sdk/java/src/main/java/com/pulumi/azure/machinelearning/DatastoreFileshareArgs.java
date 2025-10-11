@@ -18,14 +18,14 @@ public final class DatastoreFileshareArgs extends com.pulumi.resources.ResourceA
     public static final DatastoreFileshareArgs Empty = new DatastoreFileshareArgs();
 
     /**
-     * The access key of the Storage Account. Conflicts with `shared_access_signature`.
+     * The access key of the Storage Account. Conflicts with `sharedAccessSignature`.
      * 
      */
     @Import(name="accountKey")
     private @Nullable Output<String> accountKey;
 
     /**
-     * @return The access key of the Storage Account. Conflicts with `shared_access_signature`.
+     * @return The access key of the Storage Account. Conflicts with `sharedAccessSignature`.
      * 
      */
     public Optional<Output<String>> accountKey() {
@@ -78,14 +78,14 @@ public final class DatastoreFileshareArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The Shared Access Signature of the Storage Account. Conflicts with `account_key`.
+     * The Shared Access Signature of the Storage Account. Conflicts with `accountKey`.
      * 
      */
     @Import(name="sharedAccessSignature")
     private @Nullable Output<String> sharedAccessSignature;
 
     /**
-     * @return The Shared Access Signature of the Storage Account. Conflicts with `account_key`.
+     * @return The Shared Access Signature of the Storage Account. Conflicts with `accountKey`.
      * 
      */
     public Optional<Output<String>> sharedAccessSignature() {
@@ -169,7 +169,7 @@ public final class DatastoreFileshareArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param accountKey The access key of the Storage Account. Conflicts with `shared_access_signature`.
+         * @param accountKey The access key of the Storage Account. Conflicts with `sharedAccessSignature`.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class DatastoreFileshareArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param accountKey The access key of the Storage Account. Conflicts with `shared_access_signature`.
+         * @param accountKey The access key of the Storage Account. Conflicts with `sharedAccessSignature`.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class DatastoreFileshareArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param sharedAccessSignature The Shared Access Signature of the Storage Account. Conflicts with `account_key`.
+         * @param sharedAccessSignature The Shared Access Signature of the Storage Account. Conflicts with `accountKey`.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class DatastoreFileshareArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param sharedAccessSignature The Shared Access Signature of the Storage Account. Conflicts with `account_key`.
+         * @param sharedAccessSignature The Shared Access Signature of the Storage Account. Conflicts with `accountKey`.
          * 
          * @return builder
          * 

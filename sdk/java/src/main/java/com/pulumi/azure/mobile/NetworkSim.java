@@ -257,14 +257,14 @@ public class NetworkSim extends com.pulumi.resources.CustomResource {
         return this.simState;
     }
     /**
-     * A `static_ip_configuration` block as defined below.
+     * A `staticIpConfiguration` block as defined below.
      * 
      */
     @Export(name="staticIpConfigurations", refs={List.class,NetworkSimStaticIpConfiguration.class}, tree="[0,1]")
     private Output</* @Nullable */ List<NetworkSimStaticIpConfiguration>> staticIpConfigurations;
 
     /**
-     * @return A `static_ip_configuration` block as defined below.
+     * @return A `staticIpConfiguration` block as defined below.
      * 
      */
     public Output<Optional<List<NetworkSimStaticIpConfiguration>>> staticIpConfigurations() {

@@ -26,14 +26,14 @@ public final class AppServiceAuthSettingsArgs extends com.pulumi.resources.Resou
     public static final AppServiceAuthSettingsArgs Empty = new AppServiceAuthSettingsArgs();
 
     /**
-     * A `active_directory` block as defined below.
+     * A `activeDirectory` block as defined below.
      * 
      */
     @Import(name="activeDirectory")
     private @Nullable Output<AppServiceAuthSettingsActiveDirectoryArgs> activeDirectory;
 
     /**
-     * @return A `active_directory` block as defined below.
+     * @return A `activeDirectory` block as defined below.
      * 
      */
     public Optional<Output<AppServiceAuthSettingsActiveDirectoryArgs>> activeDirectory() {
@@ -73,7 +73,7 @@ public final class AppServiceAuthSettingsArgs extends com.pulumi.resources.Resou
     /**
      * The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
      * 
-     * &gt; **NOTE:** When using multiple providers, the default provider must be set for settings like `unauthenticated_client_action` to work.
+     * &gt; **NOTE:** When using multiple providers, the default provider must be set for settings like `unauthenticatedClientAction` to work.
      * 
      */
     @Import(name="defaultProvider")
@@ -82,7 +82,7 @@ public final class AppServiceAuthSettingsArgs extends com.pulumi.resources.Resou
     /**
      * @return The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
      * 
-     * &gt; **NOTE:** When using multiple providers, the default provider must be set for settings like `unauthenticated_client_action` to work.
+     * &gt; **NOTE:** When using multiple providers, the default provider must be set for settings like `unauthenticatedClientAction` to work.
      * 
      */
     public Optional<Output<String>> defaultProvider() {
@@ -277,7 +277,7 @@ public final class AppServiceAuthSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param activeDirectory A `active_directory` block as defined below.
+         * @param activeDirectory A `activeDirectory` block as defined below.
          * 
          * @return builder
          * 
@@ -288,7 +288,7 @@ public final class AppServiceAuthSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param activeDirectory A `active_directory` block as defined below.
+         * @param activeDirectory A `activeDirectory` block as defined below.
          * 
          * @return builder
          * 
@@ -352,7 +352,7 @@ public final class AppServiceAuthSettingsArgs extends com.pulumi.resources.Resou
         /**
          * @param defaultProvider The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
          * 
-         * &gt; **NOTE:** When using multiple providers, the default provider must be set for settings like `unauthenticated_client_action` to work.
+         * &gt; **NOTE:** When using multiple providers, the default provider must be set for settings like `unauthenticatedClientAction` to work.
          * 
          * @return builder
          * 
@@ -365,7 +365,7 @@ public final class AppServiceAuthSettingsArgs extends com.pulumi.resources.Resou
         /**
          * @param defaultProvider The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
          * 
-         * &gt; **NOTE:** When using multiple providers, the default provider must be set for settings like `unauthenticated_client_action` to work.
+         * &gt; **NOTE:** When using multiple providers, the default provider must be set for settings like `unauthenticatedClientAction` to work.
          * 
          * @return builder
          * 

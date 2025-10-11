@@ -132,21 +132,21 @@ public class DatasetParquet extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.annotations);
     }
     /**
-     * A `azure_blob_fs_location` block as defined below.
+     * A `azureBlobFsLocation` block as defined below.
      * 
      */
     @Export(name="azureBlobFsLocation", refs={DatasetParquetAzureBlobFsLocation.class}, tree="[0]")
     private Output</* @Nullable */ DatasetParquetAzureBlobFsLocation> azureBlobFsLocation;
 
     /**
-     * @return A `azure_blob_fs_location` block as defined below.
+     * @return A `azureBlobFsLocation` block as defined below.
      * 
      */
     public Output<Optional<DatasetParquetAzureBlobFsLocation>> azureBlobFsLocation() {
         return Codegen.optional(this.azureBlobFsLocation);
     }
     /**
-     * A `azure_blob_storage_location` block as defined below.
+     * A `azureBlobStorageLocation` block as defined below.
      * 
      * The following supported arguments are specific to Parquet Dataset:
      * 
@@ -155,7 +155,7 @@ public class DatasetParquet extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ DatasetParquetAzureBlobStorageLocation> azureBlobStorageLocation;
 
     /**
-     * @return A `azure_blob_storage_location` block as defined below.
+     * @return A `azureBlobStorageLocation` block as defined below.
      * 
      * The following supported arguments are specific to Parquet Dataset:
      * 
@@ -234,14 +234,14 @@ public class DatasetParquet extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.folder);
     }
     /**
-     * A `http_server_location` block as defined below.
+     * A `httpServerLocation` block as defined below.
      * 
      */
     @Export(name="httpServerLocation", refs={DatasetParquetHttpServerLocation.class}, tree="[0]")
     private Output</* @Nullable */ DatasetParquetHttpServerLocation> httpServerLocation;
 
     /**
-     * @return A `http_server_location` block as defined below.
+     * @return A `httpServerLocation` block as defined below.
      * 
      */
     public Output<Optional<DatasetParquetHttpServerLocation>> httpServerLocation() {
@@ -290,14 +290,14 @@ public class DatasetParquet extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.parameters);
     }
     /**
-     * A `schema_column` block as defined below.
+     * A `schemaColumn` block as defined below.
      * 
      */
     @Export(name="schemaColumns", refs={List.class,DatasetParquetSchemaColumn.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DatasetParquetSchemaColumn>> schemaColumns;
 
     /**
-     * @return A `schema_column` block as defined below.
+     * @return A `schemaColumn` block as defined below.
      * 
      */
     public Output<Optional<List<DatasetParquetSchemaColumn>>> schemaColumns() {

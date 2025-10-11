@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetElasticsearchLog {
     /**
-     * @return A list of `filtering_tag` blocks as defined above.
+     * @return A list of `filteringTag` blocks as defined above.
      * 
      */
     private List<GetElasticsearchLogFilteringTag> filteringTags;
@@ -35,7 +35,7 @@ public final class GetElasticsearchLog {
 
     private GetElasticsearchLog() {}
     /**
-     * @return A list of `filtering_tag` blocks as defined above.
+     * @return A list of `filteringTag` blocks as defined above.
      * 
      */
     public List<GetElasticsearchLogFilteringTag> filteringTags() {

@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
     public sealed class DataCollectionRuleDataSourcesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `data_import` block as defined above.
+        /// A `DataImport` block as defined above.
         /// </summary>
         [Input("dataImport")]
         public Input<Inputs.DataCollectionRuleDataSourcesDataImportArgs>? DataImport { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         private InputList<Inputs.DataCollectionRuleDataSourcesExtensionArgs>? _extensions;
 
         /// <summary>
-        /// One or more `extension` blocks as defined below.
+        /// One or more `Extension` blocks as defined below.
         /// </summary>
         public InputList<Inputs.DataCollectionRuleDataSourcesExtensionArgs> Extensions
         {
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         private InputList<Inputs.DataCollectionRuleDataSourcesIisLogArgs>? _iisLogs;
 
         /// <summary>
-        /// One or more `iis_log` blocks as defined below.
+        /// One or more `IisLog` blocks as defined below.
         /// </summary>
         public InputList<Inputs.DataCollectionRuleDataSourcesIisLogArgs> IisLogs
         {
@@ -46,7 +46,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         private InputList<Inputs.DataCollectionRuleDataSourcesLogFileArgs>? _logFiles;
 
         /// <summary>
-        /// One or more `log_file` blocks as defined below.
+        /// One or more `LogFile` blocks as defined below.
         /// </summary>
         public InputList<Inputs.DataCollectionRuleDataSourcesLogFileArgs> LogFiles
         {
@@ -58,7 +58,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         private InputList<Inputs.DataCollectionRuleDataSourcesPerformanceCounterArgs>? _performanceCounters;
 
         /// <summary>
-        /// One or more `performance_counter` blocks as defined below.
+        /// One or more `PerformanceCounter` blocks as defined below.
         /// </summary>
         public InputList<Inputs.DataCollectionRuleDataSourcesPerformanceCounterArgs> PerformanceCounters
         {
@@ -70,7 +70,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         private InputList<Inputs.DataCollectionRuleDataSourcesPlatformTelemetryArgs>? _platformTelemetries;
 
         /// <summary>
-        /// One or more `platform_telemetry` blocks as defined below.
+        /// One or more `PlatformTelemetry` blocks as defined below.
         /// </summary>
         public InputList<Inputs.DataCollectionRuleDataSourcesPlatformTelemetryArgs> PlatformTelemetries
         {
@@ -82,7 +82,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         private InputList<Inputs.DataCollectionRuleDataSourcesPrometheusForwarderArgs>? _prometheusForwarders;
 
         /// <summary>
-        /// One or more `prometheus_forwarder` blocks as defined below.
+        /// One or more `PrometheusForwarder` blocks as defined below.
         /// </summary>
         public InputList<Inputs.DataCollectionRuleDataSourcesPrometheusForwarderArgs> PrometheusForwarders
         {
@@ -94,7 +94,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         private InputList<Inputs.DataCollectionRuleDataSourcesSyslogArgs>? _syslogs;
 
         /// <summary>
-        /// One or more `syslog` blocks as defined below.
+        /// One or more `Syslog` blocks as defined below.
         /// </summary>
         public InputList<Inputs.DataCollectionRuleDataSourcesSyslogArgs> Syslogs
         {
@@ -106,7 +106,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         private InputList<Inputs.DataCollectionRuleDataSourcesWindowsEventLogArgs>? _windowsEventLogs;
 
         /// <summary>
-        /// One or more `windows_event_log` blocks as defined below.
+        /// One or more `WindowsEventLog` blocks as defined below.
         /// </summary>
         public InputList<Inputs.DataCollectionRuleDataSourcesWindowsEventLogArgs> WindowsEventLogs
         {
@@ -118,7 +118,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         private InputList<Inputs.DataCollectionRuleDataSourcesWindowsFirewallLogArgs>? _windowsFirewallLogs;
 
         /// <summary>
-        /// One or more `windows_firewall_log` blocks as defined below.
+        /// One or more `WindowsFirewallLog` blocks as defined below.
         /// </summary>
         public InputList<Inputs.DataCollectionRuleDataSourcesWindowsFirewallLogArgs> WindowsFirewallLogs
         {

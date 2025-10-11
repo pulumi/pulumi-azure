@@ -39,12 +39,12 @@ public final class GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
      */
     private String name;
     /**
-     * @return If this ip_configuration is the primary one.
+     * @return If this ipConfiguration is the primary one.
      * 
      */
     private Boolean primary;
     /**
-     * @return A `public_ip_address` block as defined below.
+     * @return A `publicIpAddress` block as defined below.
      * 
      */
     private List<GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress> publicIpAddresses;
@@ -96,14 +96,14 @@ public final class GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
         return this.name;
     }
     /**
-     * @return If this ip_configuration is the primary one.
+     * @return If this ipConfiguration is the primary one.
      * 
      */
     public Boolean primary() {
         return this.primary;
     }
     /**
-     * @return A `public_ip_address` block as defined below.
+     * @return A `publicIpAddress` block as defined below.
      * 
      */
     public List<GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress> publicIpAddresses() {

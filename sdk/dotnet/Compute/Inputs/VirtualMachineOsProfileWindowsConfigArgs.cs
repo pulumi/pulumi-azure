@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Compute.Inputs
         private InputList<Inputs.VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArgs>? _additionalUnattendConfigs;
 
         /// <summary>
-        /// An `additional_unattend_config` block as defined below.
+        /// An `AdditionalUnattendConfig` block as defined below.
         /// </summary>
         public InputList<Inputs.VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArgs> AdditionalUnattendConfigs
         {
@@ -25,13 +25,13 @@ namespace Pulumi.Azure.Compute.Inputs
         }
 
         /// <summary>
-        /// Are automatic updates enabled on this Virtual Machine? Defaults to `false`.
+        /// Are automatic updates enabled on this Virtual Machine? Defaults to `False`.
         /// </summary>
         [Input("enableAutomaticUpgrades")]
         public Input<bool>? EnableAutomaticUpgrades { get; set; }
 
         /// <summary>
-        /// Should the Azure Virtual Machine Guest Agent be installed on this Virtual Machine? Defaults to `false`.
+        /// Should the Azure Virtual Machine Guest Agent be installed on this Virtual Machine? Defaults to `False`.
         /// 
         /// &gt; **NOTE:** This is different from the Default value used for this field within Azure.
         /// </summary>
@@ -48,7 +48,7 @@ namespace Pulumi.Azure.Compute.Inputs
         private InputList<Inputs.VirtualMachineOsProfileWindowsConfigWinrmArgs>? _winrms;
 
         /// <summary>
-        /// One or more `winrm` blocks as defined below.
+        /// One or more `Winrm` blocks as defined below.
         /// </summary>
         public InputList<Inputs.VirtualMachineOsProfileWindowsConfigWinrmArgs> Winrms
         {

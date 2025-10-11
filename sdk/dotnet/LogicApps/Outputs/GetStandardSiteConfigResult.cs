@@ -26,7 +26,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// </summary>
         public readonly string AutoSwapSlotName;
         /// <summary>
-        /// A `cors` block as defined below.
+        /// A `Cors` block as defined below.
         /// </summary>
         public readonly Outputs.GetStandardSiteConfigCorsResult Cors;
         /// <summary>
@@ -50,7 +50,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// </summary>
         public readonly bool Http2Enabled;
         /// <summary>
-        /// A list of `ip_restriction` objects representing IP restrictions as defined below.
+        /// A list of `IpRestriction` objects representing IP restrictions as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetStandardSiteConfigIpRestrictionResult> IpRestrictions;
         /// <summary>
@@ -71,7 +71,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// </summary>
         public readonly bool? RuntimeScaleMonitoringEnabled;
         /// <summary>
-        /// A list of `scm_ip_restriction` objects representing SCM IP restrictions as defined below.
+        /// A list of `ScmIpRestriction` objects representing SCM IP restrictions as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetStandardSiteConfigScmIpRestrictionResult> ScmIpRestrictions;
         /// <summary>
@@ -83,7 +83,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// </summary>
         public readonly string ScmType;
         /// <summary>
-        /// Should the Logic App `ip_restriction` configuration be used for the SCM too.
+        /// Should the Logic App `IpRestriction` configuration be used for the SCM too.
         /// </summary>
         public readonly bool? ScmUseMainIpRestriction;
         /// <summary>

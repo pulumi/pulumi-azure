@@ -104,7 +104,7 @@ public class DataConnectorMicrosoftCloudAppSecurity extends com.pulumi.resources
     /**
      * Should the Discovery Logs be enabled? Defaults to `true`.
      * 
-     * &gt; **Note:** One of either `alerts_enabled` or `discovery_logs_enabled` has to be specified.
+     * &gt; **Note:** One of either `alertsEnabled` or `discoveryLogsEnabled` has to be specified.
      * 
      */
     @Export(name="discoveryLogsEnabled", refs={Boolean.class}, tree="[0]")
@@ -113,7 +113,7 @@ public class DataConnectorMicrosoftCloudAppSecurity extends com.pulumi.resources
     /**
      * @return Should the Discovery Logs be enabled? Defaults to `true`.
      * 
-     * &gt; **Note:** One of either `alerts_enabled` or `discovery_logs_enabled` has to be specified.
+     * &gt; **Note:** One of either `alertsEnabled` or `discoveryLogsEnabled` has to be specified.
      * 
      */
     public Output<Optional<Boolean>> discoveryLogsEnabled() {

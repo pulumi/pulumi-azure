@@ -159,14 +159,14 @@ public class SqlPoolWorkloadClassifier extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.endTime);
     }
     /**
-     * The workload classifier importance. The allowed values are `low`, `below_normal`, `normal`, `above_normal` and `high`.
+     * The workload classifier importance. The allowed values are `low`, `belowNormal`, `normal`, `aboveNormal` and `high`.
      * 
      */
     @Export(name="importance", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> importance;
 
     /**
-     * @return The workload classifier importance. The allowed values are `low`, `below_normal`, `normal`, `above_normal` and `high`.
+     * @return The workload classifier importance. The allowed values are `low`, `belowNormal`, `normal`, `aboveNormal` and `high`.
      * 
      */
     public Output<Optional<String>> importance() {

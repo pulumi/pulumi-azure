@@ -81,7 +81,7 @@ namespace Pulumi.Azure.ServiceFabric
     public partial class ManagedCluster : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Controls how connections to the cluster are authenticated. A `authentication` block as defined below.
+        /// Controls how connections to the cluster are authenticated. A `Authentication` block as defined below.
         /// </summary>
         [Output("authentication")]
         public Output<Outputs.ManagedClusterAuthentication?> Authentication { get; private set; } = null!;
@@ -99,7 +99,7 @@ namespace Pulumi.Azure.ServiceFabric
         public Output<int> ClientConnectionPort { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `custom_fabric_setting` blocks as defined below.
+        /// One or more `CustomFabricSetting` blocks as defined below.
         /// </summary>
         [Output("customFabricSettings")]
         public Output<ImmutableArray<Outputs.ManagedClusterCustomFabricSetting>> CustomFabricSettings { get; private set; } = null!;
@@ -123,7 +123,7 @@ namespace Pulumi.Azure.ServiceFabric
         public Output<int> HttpGatewayPort { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `lb_rule` blocks as defined below.
+        /// One or more `LbRule` blocks as defined below.
         /// </summary>
         [Output("lbRules")]
         public Output<ImmutableArray<Outputs.ManagedClusterLbRule>> LbRules { get; private set; } = null!;
@@ -141,7 +141,7 @@ namespace Pulumi.Azure.ServiceFabric
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `node_type` blocks as defined below.
+        /// One or more `NodeType` blocks as defined below.
         /// </summary>
         [Output("nodeTypes")]
         public Output<ImmutableArray<Outputs.ManagedClusterNodeType>> NodeTypes { get; private set; } = null!;
@@ -239,7 +239,7 @@ namespace Pulumi.Azure.ServiceFabric
     public sealed class ManagedClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Controls how connections to the cluster are authenticated. A `authentication` block as defined below.
+        /// Controls how connections to the cluster are authenticated. A `Authentication` block as defined below.
         /// </summary>
         [Input("authentication")]
         public Input<Inputs.ManagedClusterAuthenticationArgs>? Authentication { get; set; }
@@ -260,7 +260,7 @@ namespace Pulumi.Azure.ServiceFabric
         private InputList<Inputs.ManagedClusterCustomFabricSettingArgs>? _customFabricSettings;
 
         /// <summary>
-        /// One or more `custom_fabric_setting` blocks as defined below.
+        /// One or more `CustomFabricSetting` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ManagedClusterCustomFabricSettingArgs> CustomFabricSettings
         {
@@ -290,7 +290,7 @@ namespace Pulumi.Azure.ServiceFabric
         private InputList<Inputs.ManagedClusterLbRuleArgs>? _lbRules;
 
         /// <summary>
-        /// One or more `lb_rule` blocks as defined below.
+        /// One or more `LbRule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ManagedClusterLbRuleArgs> LbRules
         {
@@ -314,7 +314,7 @@ namespace Pulumi.Azure.ServiceFabric
         private InputList<Inputs.ManagedClusterNodeTypeArgs>? _nodeTypes;
 
         /// <summary>
-        /// One or more `node_type` blocks as defined below.
+        /// One or more `NodeType` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ManagedClusterNodeTypeArgs> NodeTypes
         {
@@ -389,7 +389,7 @@ namespace Pulumi.Azure.ServiceFabric
     public sealed class ManagedClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Controls how connections to the cluster are authenticated. A `authentication` block as defined below.
+        /// Controls how connections to the cluster are authenticated. A `Authentication` block as defined below.
         /// </summary>
         [Input("authentication")]
         public Input<Inputs.ManagedClusterAuthenticationGetArgs>? Authentication { get; set; }
@@ -410,7 +410,7 @@ namespace Pulumi.Azure.ServiceFabric
         private InputList<Inputs.ManagedClusterCustomFabricSettingGetArgs>? _customFabricSettings;
 
         /// <summary>
-        /// One or more `custom_fabric_setting` blocks as defined below.
+        /// One or more `CustomFabricSetting` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ManagedClusterCustomFabricSettingGetArgs> CustomFabricSettings
         {
@@ -440,7 +440,7 @@ namespace Pulumi.Azure.ServiceFabric
         private InputList<Inputs.ManagedClusterLbRuleGetArgs>? _lbRules;
 
         /// <summary>
-        /// One or more `lb_rule` blocks as defined below.
+        /// One or more `LbRule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ManagedClusterLbRuleGetArgs> LbRules
         {
@@ -464,7 +464,7 @@ namespace Pulumi.Azure.ServiceFabric
         private InputList<Inputs.ManagedClusterNodeTypeGetArgs>? _nodeTypes;
 
         /// <summary>
-        /// One or more `node_type` blocks as defined below.
+        /// One or more `NodeType` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ManagedClusterNodeTypeGetArgs> NodeTypes
         {

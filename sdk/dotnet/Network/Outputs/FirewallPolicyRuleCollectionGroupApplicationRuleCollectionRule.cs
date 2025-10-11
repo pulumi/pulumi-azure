@@ -21,11 +21,11 @@ namespace Pulumi.Azure.Network.Outputs
         public readonly ImmutableArray<string> DestinationFqdnTags;
         public readonly ImmutableArray<string> DestinationFqdns;
         /// <summary>
-        /// Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destination_fqdns`.
+        /// Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `DestinationFqdns`.
         /// </summary>
         public readonly ImmutableArray<string> DestinationUrls;
         /// <summary>
-        /// Specifies a list of HTTP/HTTPS headers to insert. One or more `http_headers` blocks as defined below.
+        /// Specifies a list of HTTP/HTTPS headers to insert. One or more `HttpHeaders` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeader> HttpHeaders;
         /// <summary>
@@ -36,11 +36,11 @@ namespace Pulumi.Azure.Network.Outputs
         public readonly ImmutableArray<string> SourceAddresses;
         public readonly ImmutableArray<string> SourceIpGroups;
         /// <summary>
-        /// Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
+        /// Boolean specifying if TLS shall be terminated (true) or not (false). Must be `True` when using `DestinationUrls`. Needs Premium SKU for Firewall Policy.
         /// </summary>
         public readonly bool? TerminateTls;
         /// <summary>
-        /// Specifies a list of web categories to which access is denied or allowed depending on the value of `action` above. Needs Premium SKU for Firewall Policy.
+        /// Specifies a list of web categories to which access is denied or allowed depending on the value of `Action` above. Needs Premium SKU for Firewall Policy.
         /// </summary>
         public readonly ImmutableArray<string> WebCategories;
 

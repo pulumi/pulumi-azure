@@ -283,19 +283,19 @@ namespace Pulumi.Azure.DataFactory
         public Output<ImmutableArray<string>> ScriptLines { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `sink` blocks as defined below.
+        /// One or more `Sink` blocks as defined below.
         /// </summary>
         [Output("sinks")]
         public Output<ImmutableArray<Outputs.DataFlowSink>> Sinks { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `source` blocks as defined below.
+        /// One or more `Source` blocks as defined below.
         /// </summary>
         [Output("sources")]
         public Output<ImmutableArray<Outputs.DataFlowSource>> Sources { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `transformation` blocks as defined below.
+        /// One or more `Transformation` blocks as defined below.
         /// </summary>
         [Output("transformations")]
         public Output<ImmutableArray<Outputs.DataFlowTransformation>> Transformations { get; private set; } = null!;
@@ -404,7 +404,7 @@ namespace Pulumi.Azure.DataFactory
         private InputList<Inputs.DataFlowSinkArgs>? _sinks;
 
         /// <summary>
-        /// One or more `sink` blocks as defined below.
+        /// One or more `Sink` blocks as defined below.
         /// </summary>
         public InputList<Inputs.DataFlowSinkArgs> Sinks
         {
@@ -416,7 +416,7 @@ namespace Pulumi.Azure.DataFactory
         private InputList<Inputs.DataFlowSourceArgs>? _sources;
 
         /// <summary>
-        /// One or more `source` blocks as defined below.
+        /// One or more `Source` blocks as defined below.
         /// </summary>
         public InputList<Inputs.DataFlowSourceArgs> Sources
         {
@@ -428,7 +428,7 @@ namespace Pulumi.Azure.DataFactory
         private InputList<Inputs.DataFlowTransformationArgs>? _transformations;
 
         /// <summary>
-        /// One or more `transformation` blocks as defined below.
+        /// One or more `Transformation` blocks as defined below.
         /// </summary>
         public InputList<Inputs.DataFlowTransformationArgs> Transformations
         {
@@ -502,7 +502,7 @@ namespace Pulumi.Azure.DataFactory
         private InputList<Inputs.DataFlowSinkGetArgs>? _sinks;
 
         /// <summary>
-        /// One or more `sink` blocks as defined below.
+        /// One or more `Sink` blocks as defined below.
         /// </summary>
         public InputList<Inputs.DataFlowSinkGetArgs> Sinks
         {
@@ -514,7 +514,7 @@ namespace Pulumi.Azure.DataFactory
         private InputList<Inputs.DataFlowSourceGetArgs>? _sources;
 
         /// <summary>
-        /// One or more `source` blocks as defined below.
+        /// One or more `Source` blocks as defined below.
         /// </summary>
         public InputList<Inputs.DataFlowSourceGetArgs> Sources
         {
@@ -526,7 +526,7 @@ namespace Pulumi.Azure.DataFactory
         private InputList<Inputs.DataFlowTransformationGetArgs>? _transformations;
 
         /// <summary>
-        /// One or more `transformation` blocks as defined below.
+        /// One or more `Transformation` blocks as defined below.
         /// </summary>
         public InputList<Inputs.DataFlowTransformationGetArgs> Transformations
         {

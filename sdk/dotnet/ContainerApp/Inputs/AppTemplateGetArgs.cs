@@ -16,7 +16,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         private InputList<Inputs.AppTemplateAzureQueueScaleRuleGetArgs>? _azureQueueScaleRules;
 
         /// <summary>
-        /// One or more `azure_queue_scale_rule` blocks as defined below.
+        /// One or more `AzureQueueScaleRule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.AppTemplateAzureQueueScaleRuleGetArgs> AzureQueueScaleRules
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         private InputList<Inputs.AppTemplateContainerGetArgs>? _containers;
 
         /// <summary>
-        /// One or more `container` blocks as detailed below.
+        /// One or more `Container` blocks as detailed below.
         /// </summary>
         public InputList<Inputs.AppTemplateContainerGetArgs> Containers
         {
@@ -40,7 +40,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         private InputList<Inputs.AppTemplateCustomScaleRuleGetArgs>? _customScaleRules;
 
         /// <summary>
-        /// One or more `custom_scale_rule` blocks as defined below.
+        /// One or more `CustomScaleRule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.AppTemplateCustomScaleRuleGetArgs> CustomScaleRules
         {
@@ -52,7 +52,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         private InputList<Inputs.AppTemplateHttpScaleRuleGetArgs>? _httpScaleRules;
 
         /// <summary>
-        /// One or more `http_scale_rule` blocks as defined below.
+        /// One or more `HttpScaleRule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.AppTemplateHttpScaleRuleGetArgs> HttpScaleRules
         {
@@ -64,7 +64,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         private InputList<Inputs.AppTemplateInitContainerGetArgs>? _initContainers;
 
         /// <summary>
-        /// The definition of an init container that is part of the group as documented in the `init_container` block below.
+        /// The definition of an init container that is part of the group as documented in the `InitContainer` block below.
         /// </summary>
         public InputList<Inputs.AppTemplateInitContainerGetArgs> InitContainers
         {
@@ -94,7 +94,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         private InputList<Inputs.AppTemplateTcpScaleRuleGetArgs>? _tcpScaleRules;
 
         /// <summary>
-        /// One or more `tcp_scale_rule` blocks as defined below.
+        /// One or more `TcpScaleRule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.AppTemplateTcpScaleRuleGetArgs> TcpScaleRules
         {
@@ -112,7 +112,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         private InputList<Inputs.AppTemplateVolumeGetArgs>? _volumes;
 
         /// <summary>
-        /// A `volume` block as detailed below.
+        /// A `Volume` block as detailed below.
         /// </summary>
         public InputList<Inputs.AppTemplateVolumeGetArgs> Volumes
         {

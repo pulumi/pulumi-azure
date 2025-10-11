@@ -18,11 +18,11 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly int? FailureCountThreshold;
         /// <summary>
-        /// A `header` block as detailed below.
+        /// A `Header` block as detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AppTemplateContainerReadinessProbeHeader> Headers;
         /// <summary>
-        /// The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+        /// The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `Headers` can be used to override this for `HTTP` and `HTTPS` type probes.
         /// </summary>
         public readonly string? Host;
         /// <summary>

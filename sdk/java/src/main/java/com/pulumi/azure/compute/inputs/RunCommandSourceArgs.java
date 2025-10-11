@@ -38,14 +38,14 @@ public final class RunCommandSourceArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A `script_uri_managed_identity` block as defined above.
+     * A `scriptUriManagedIdentity` block as defined above.
      * 
      */
     @Import(name="scriptUriManagedIdentity")
     private @Nullable Output<RunCommandSourceScriptUriManagedIdentityArgs> scriptUriManagedIdentity;
 
     /**
-     * @return A `script_uri_managed_identity` block as defined above.
+     * @return A `scriptUriManagedIdentity` block as defined above.
      * 
      */
     public Optional<Output<RunCommandSourceScriptUriManagedIdentityArgs>> scriptUriManagedIdentity() {
@@ -107,7 +107,7 @@ public final class RunCommandSourceArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param scriptUriManagedIdentity A `script_uri_managed_identity` block as defined above.
+         * @param scriptUriManagedIdentity A `scriptUriManagedIdentity` block as defined above.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class RunCommandSourceArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param scriptUriManagedIdentity A `script_uri_managed_identity` block as defined above.
+         * @param scriptUriManagedIdentity A `scriptUriManagedIdentity` block as defined above.
          * 
          * @return builder
          * 

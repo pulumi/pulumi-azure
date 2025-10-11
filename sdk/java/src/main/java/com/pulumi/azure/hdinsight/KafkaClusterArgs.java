@@ -49,14 +49,14 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `component_version` block as defined below.
+     * A `componentVersion` block as defined below.
      * 
      */
     @Import(name="componentVersion", required=true)
     private Output<KafkaClusterComponentVersionArgs> componentVersion;
 
     /**
-     * @return A `component_version` block as defined below.
+     * @return A `componentVersion` block as defined below.
      * 
      */
     public Output<KafkaClusterComponentVersionArgs> componentVersion() {
@@ -64,14 +64,14 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `compute_isolation` block as defined below.
+     * A `computeIsolation` block as defined below.
      * 
      */
     @Import(name="computeIsolation")
     private @Nullable Output<KafkaClusterComputeIsolationArgs> computeIsolation;
 
     /**
-     * @return A `compute_isolation` block as defined below.
+     * @return A `computeIsolation` block as defined below.
      * 
      */
     public Optional<Output<KafkaClusterComputeIsolationArgs>> computeIsolation() {
@@ -79,7 +79,7 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `disk_encryption` block as defined below.
+     * One or more `diskEncryption` block as defined below.
      * 
      * &gt; **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
      * 
@@ -88,7 +88,7 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<List<KafkaClusterDiskEncryptionArgs>> diskEncryptions;
 
     /**
-     * @return One or more `disk_encryption` block as defined below.
+     * @return One or more `diskEncryption` block as defined below.
      * 
      * &gt; **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
      * 
@@ -218,14 +218,14 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `private_link_configuration` block as defined below.
+     * A `privateLinkConfiguration` block as defined below.
      * 
      */
     @Import(name="privateLinkConfiguration")
     private @Nullable Output<KafkaClusterPrivateLinkConfigurationArgs> privateLinkConfiguration;
 
     /**
-     * @return A `private_link_configuration` block as defined below.
+     * @return A `privateLinkConfiguration` block as defined below.
      * 
      */
     public Optional<Output<KafkaClusterPrivateLinkConfigurationArgs>> privateLinkConfiguration() {
@@ -248,14 +248,14 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `rest_proxy` block as defined below.
+     * A `restProxy` block as defined below.
      * 
      */
     @Import(name="restProxy")
     private @Nullable Output<KafkaClusterRestProxyArgs> restProxy;
 
     /**
-     * @return A `rest_proxy` block as defined below.
+     * @return A `restProxy` block as defined below.
      * 
      */
     public Optional<Output<KafkaClusterRestProxyArgs>> restProxy() {
@@ -278,14 +278,14 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `security_profile` block as defined below. Changing this forces a new resource to be created.
+     * A `securityProfile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="securityProfile")
     private @Nullable Output<KafkaClusterSecurityProfileArgs> securityProfile;
 
     /**
-     * @return A `security_profile` block as defined below. Changing this forces a new resource to be created.
+     * @return A `securityProfile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<KafkaClusterSecurityProfileArgs>> securityProfile() {
@@ -293,14 +293,14 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `storage_account_gen2` block as defined below.
+     * A `storageAccountGen2` block as defined below.
      * 
      */
     @Import(name="storageAccountGen2")
     private @Nullable Output<KafkaClusterStorageAccountGen2Args> storageAccountGen2;
 
     /**
-     * @return A `storage_account_gen2` block as defined below.
+     * @return A `storageAccountGen2` block as defined below.
      * 
      */
     public Optional<Output<KafkaClusterStorageAccountGen2Args>> storageAccountGen2() {
@@ -308,14 +308,14 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `storage_account` block as defined below.
+     * One or more `storageAccount` block as defined below.
      * 
      */
     @Import(name="storageAccounts")
     private @Nullable Output<List<KafkaClusterStorageAccountArgs>> storageAccounts;
 
     /**
-     * @return One or more `storage_account` block as defined below.
+     * @return One or more `storageAccount` block as defined below.
      * 
      */
     public Optional<Output<List<KafkaClusterStorageAccountArgs>>> storageAccounts() {
@@ -434,7 +434,7 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param componentVersion A `component_version` block as defined below.
+         * @param componentVersion A `componentVersion` block as defined below.
          * 
          * @return builder
          * 
@@ -445,7 +445,7 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param componentVersion A `component_version` block as defined below.
+         * @param componentVersion A `componentVersion` block as defined below.
          * 
          * @return builder
          * 
@@ -455,7 +455,7 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param computeIsolation A `compute_isolation` block as defined below.
+         * @param computeIsolation A `computeIsolation` block as defined below.
          * 
          * @return builder
          * 
@@ -466,7 +466,7 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param computeIsolation A `compute_isolation` block as defined below.
+         * @param computeIsolation A `computeIsolation` block as defined below.
          * 
          * @return builder
          * 
@@ -476,7 +476,7 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param diskEncryptions One or more `disk_encryption` block as defined below.
+         * @param diskEncryptions One or more `diskEncryption` block as defined below.
          * 
          * &gt; **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
          * 
@@ -489,7 +489,7 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param diskEncryptions One or more `disk_encryption` block as defined below.
+         * @param diskEncryptions One or more `diskEncryption` block as defined below.
          * 
          * &gt; **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
          * 
@@ -501,7 +501,7 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param diskEncryptions One or more `disk_encryption` block as defined below.
+         * @param diskEncryptions One or more `diskEncryption` block as defined below.
          * 
          * &gt; **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
          * 
@@ -681,7 +681,7 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateLinkConfiguration A `private_link_configuration` block as defined below.
+         * @param privateLinkConfiguration A `privateLinkConfiguration` block as defined below.
          * 
          * @return builder
          * 
@@ -692,7 +692,7 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateLinkConfiguration A `private_link_configuration` block as defined below.
+         * @param privateLinkConfiguration A `privateLinkConfiguration` block as defined below.
          * 
          * @return builder
          * 
@@ -723,7 +723,7 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param restProxy A `rest_proxy` block as defined below.
+         * @param restProxy A `restProxy` block as defined below.
          * 
          * @return builder
          * 
@@ -734,7 +734,7 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param restProxy A `rest_proxy` block as defined below.
+         * @param restProxy A `restProxy` block as defined below.
          * 
          * @return builder
          * 
@@ -765,7 +765,7 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityProfile A `security_profile` block as defined below. Changing this forces a new resource to be created.
+         * @param securityProfile A `securityProfile` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -776,7 +776,7 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityProfile A `security_profile` block as defined below. Changing this forces a new resource to be created.
+         * @param securityProfile A `securityProfile` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -786,7 +786,7 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccountGen2 A `storage_account_gen2` block as defined below.
+         * @param storageAccountGen2 A `storageAccountGen2` block as defined below.
          * 
          * @return builder
          * 
@@ -797,7 +797,7 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccountGen2 A `storage_account_gen2` block as defined below.
+         * @param storageAccountGen2 A `storageAccountGen2` block as defined below.
          * 
          * @return builder
          * 
@@ -807,7 +807,7 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccounts One or more `storage_account` block as defined below.
+         * @param storageAccounts One or more `storageAccount` block as defined below.
          * 
          * @return builder
          * 
@@ -818,7 +818,7 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccounts One or more `storage_account` block as defined below.
+         * @param storageAccounts One or more `storageAccount` block as defined below.
          * 
          * @return builder
          * 
@@ -828,7 +828,7 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccounts One or more `storage_account` block as defined below.
+         * @param storageAccounts One or more `storageAccount` block as defined below.
          * 
          * @return builder
          * 

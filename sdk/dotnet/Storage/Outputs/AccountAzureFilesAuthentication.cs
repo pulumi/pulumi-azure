@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Storage.Outputs
     public sealed class AccountAzureFilesAuthentication
     {
         /// <summary>
-        /// A `active_directory` block as defined below. Required when `directory_type` is `AD`.
+        /// A `ActiveDirectory` block as defined below. Required when `DirectoryType` is `AD`.
         /// </summary>
         public readonly Outputs.AccountAzureFilesAuthenticationActiveDirectory? ActiveDirectory;
         /// <summary>

@@ -34,14 +34,14 @@ public final class ExpressRouteCircuitPeeringIpv6Args extends com.pulumi.resourc
     }
 
     /**
-     * A `microsoft_peering` block as defined below.
+     * A `microsoftPeering` block as defined below.
      * 
      */
     @Import(name="microsoftPeering")
     private @Nullable Output<ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs> microsoftPeering;
 
     /**
-     * @return A `microsoft_peering` block as defined below.
+     * @return A `microsoftPeering` block as defined below.
      * 
      */
     public Optional<Output<ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs>> microsoftPeering() {
@@ -64,18 +64,18 @@ public final class ExpressRouteCircuitPeeringIpv6Args extends com.pulumi.resourc
     }
 
     /**
-     * The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+     * The ID of the Route Filter. Only available when `peeringType` is set to `MicrosoftPeering`.
      * 
-     * &gt; **Note:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
+     * &gt; **Note:** `ipv6` can be specified when `peeringType` is `MicrosoftPeering` or `AzurePrivatePeering`
      * 
      */
     @Import(name="routeFilterId")
     private @Nullable Output<String> routeFilterId;
 
     /**
-     * @return The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+     * @return The ID of the Route Filter. Only available when `peeringType` is set to `MicrosoftPeering`.
      * 
-     * &gt; **Note:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
+     * &gt; **Note:** `ipv6` can be specified when `peeringType` is `MicrosoftPeering` or `AzurePrivatePeering`
      * 
      */
     public Optional<Output<String>> routeFilterId() {
@@ -147,7 +147,7 @@ public final class ExpressRouteCircuitPeeringIpv6Args extends com.pulumi.resourc
         }
 
         /**
-         * @param microsoftPeering A `microsoft_peering` block as defined below.
+         * @param microsoftPeering A `microsoftPeering` block as defined below.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class ExpressRouteCircuitPeeringIpv6Args extends com.pulumi.resourc
         }
 
         /**
-         * @param microsoftPeering A `microsoft_peering` block as defined below.
+         * @param microsoftPeering A `microsoftPeering` block as defined below.
          * 
          * @return builder
          * 
@@ -189,9 +189,9 @@ public final class ExpressRouteCircuitPeeringIpv6Args extends com.pulumi.resourc
         }
 
         /**
-         * @param routeFilterId The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+         * @param routeFilterId The ID of the Route Filter. Only available when `peeringType` is set to `MicrosoftPeering`.
          * 
-         * &gt; **Note:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
+         * &gt; **Note:** `ipv6` can be specified when `peeringType` is `MicrosoftPeering` or `AzurePrivatePeering`
          * 
          * @return builder
          * 
@@ -202,9 +202,9 @@ public final class ExpressRouteCircuitPeeringIpv6Args extends com.pulumi.resourc
         }
 
         /**
-         * @param routeFilterId The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+         * @param routeFilterId The ID of the Route Filter. Only available when `peeringType` is set to `MicrosoftPeering`.
          * 
-         * &gt; **Note:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
+         * &gt; **Note:** `ipv6` can be specified when `peeringType` is `MicrosoftPeering` or `AzurePrivatePeering`
          * 
          * @return builder
          * 

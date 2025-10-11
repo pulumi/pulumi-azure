@@ -19,7 +19,7 @@ public final class GetLocalNetworkGatewayResult {
      */
     private List<String> addressSpaces;
     /**
-     * @return A `bgp_settings` block as defined below containing the Local Network Gateway&#39;s BGP speaker settings.
+     * @return A `bgpSettings` block as defined below containing the Local Network Gateway&#39;s BGP speaker settings.
      * 
      */
     private List<GetLocalNetworkGatewayBgpSetting> bgpSettings;
@@ -60,7 +60,7 @@ public final class GetLocalNetworkGatewayResult {
         return this.addressSpaces;
     }
     /**
-     * @return A `bgp_settings` block as defined below containing the Local Network Gateway&#39;s BGP speaker settings.
+     * @return A `bgpSettings` block as defined below containing the Local Network Gateway&#39;s BGP speaker settings.
      * 
      */
     public List<GetLocalNetworkGatewayBgpSetting> bgpSettings() {

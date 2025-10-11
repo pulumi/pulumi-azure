@@ -176,19 +176,19 @@ namespace Pulumi.Azure.Network
         public Output<string> GatewayManagerEtag { get; private set; } = null!;
 
         /// <summary>
-        /// A boolean value indicating whether the IPv4 peering is enabled. Defaults to `true`.
+        /// A boolean value indicating whether the IPv4 peering is enabled. Defaults to `True`.
         /// </summary>
         [Output("ipv4Enabled")]
         public Output<bool?> Ipv4Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// A `ipv6` block as defined below.
+        /// A `Ipv6` block as defined below.
         /// </summary>
         [Output("ipv6")]
         public Output<Outputs.ExpressRouteCircuitPeeringIpv6?> Ipv6 { get; private set; } = null!;
 
         /// <summary>
-        /// A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering` and config for IPv4.
+        /// A `MicrosoftPeeringConfig` block as defined below. Required when `PeeringType` is set to `MicrosoftPeering` and config for IPv4.
         /// </summary>
         [Output("microsoftPeeringConfig")]
         public Output<Outputs.ExpressRouteCircuitPeeringMicrosoftPeeringConfig?> MicrosoftPeeringConfig { get; private set; } = null!;
@@ -226,9 +226,9 @@ namespace Pulumi.Azure.Network
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+        /// The ID of the Route Filter. Only available when `PeeringType` is set to `MicrosoftPeering`.
         /// 
-        /// &gt; **Note:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
+        /// &gt; **Note:** `Ipv6` can be specified when `PeeringType` is `MicrosoftPeering` or `AzurePrivatePeering`
         /// </summary>
         [Output("routeFilterId")]
         public Output<string?> RouteFilterId { get; private set; } = null!;
@@ -314,19 +314,19 @@ namespace Pulumi.Azure.Network
         public Input<string> ExpressRouteCircuitName { get; set; } = null!;
 
         /// <summary>
-        /// A boolean value indicating whether the IPv4 peering is enabled. Defaults to `true`.
+        /// A boolean value indicating whether the IPv4 peering is enabled. Defaults to `True`.
         /// </summary>
         [Input("ipv4Enabled")]
         public Input<bool>? Ipv4Enabled { get; set; }
 
         /// <summary>
-        /// A `ipv6` block as defined below.
+        /// A `Ipv6` block as defined below.
         /// </summary>
         [Input("ipv6")]
         public Input<Inputs.ExpressRouteCircuitPeeringIpv6Args>? Ipv6 { get; set; }
 
         /// <summary>
-        /// A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering` and config for IPv4.
+        /// A `MicrosoftPeeringConfig` block as defined below. Required when `PeeringType` is set to `MicrosoftPeering` and config for IPv4.
         /// </summary>
         [Input("microsoftPeeringConfig")]
         public Input<Inputs.ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs>? MicrosoftPeeringConfig { get; set; }
@@ -358,9 +358,9 @@ namespace Pulumi.Azure.Network
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+        /// The ID of the Route Filter. Only available when `PeeringType` is set to `MicrosoftPeering`.
         /// 
-        /// &gt; **Note:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
+        /// &gt; **Note:** `Ipv6` can be specified when `PeeringType` is `MicrosoftPeering` or `AzurePrivatePeering`
         /// </summary>
         [Input("routeFilterId")]
         public Input<string>? RouteFilterId { get; set; }
@@ -417,19 +417,19 @@ namespace Pulumi.Azure.Network
         public Input<string>? GatewayManagerEtag { get; set; }
 
         /// <summary>
-        /// A boolean value indicating whether the IPv4 peering is enabled. Defaults to `true`.
+        /// A boolean value indicating whether the IPv4 peering is enabled. Defaults to `True`.
         /// </summary>
         [Input("ipv4Enabled")]
         public Input<bool>? Ipv4Enabled { get; set; }
 
         /// <summary>
-        /// A `ipv6` block as defined below.
+        /// A `Ipv6` block as defined below.
         /// </summary>
         [Input("ipv6")]
         public Input<Inputs.ExpressRouteCircuitPeeringIpv6GetArgs>? Ipv6 { get; set; }
 
         /// <summary>
-        /// A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering` and config for IPv4.
+        /// A `MicrosoftPeeringConfig` block as defined below. Required when `PeeringType` is set to `MicrosoftPeering` and config for IPv4.
         /// </summary>
         [Input("microsoftPeeringConfig")]
         public Input<Inputs.ExpressRouteCircuitPeeringMicrosoftPeeringConfigGetArgs>? MicrosoftPeeringConfig { get; set; }
@@ -467,9 +467,9 @@ namespace Pulumi.Azure.Network
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+        /// The ID of the Route Filter. Only available when `PeeringType` is set to `MicrosoftPeering`.
         /// 
-        /// &gt; **Note:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
+        /// &gt; **Note:** `Ipv6` can be specified when `PeeringType` is `MicrosoftPeering` or `AzurePrivatePeering`
         /// </summary>
         [Input("routeFilterId")]
         public Input<string>? RouteFilterId { get; set; }

@@ -863,12 +863,30 @@ public final class MssqlFunctions {
     /**
      * Use this data source to access information about an existing Azure SQL Azure Managed Database.
      * 
+     * ## Example Usage
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Sql` - 2023-08-01-preview
+     * 
      */
     public static Output<GetManagedDatabaseResult> getManagedDatabase(GetManagedDatabaseArgs args) {
         return getManagedDatabase(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Azure SQL Azure Managed Database.
+     * 
+     * ## Example Usage
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Sql` - 2023-08-01-preview
      * 
      */
     public static CompletableFuture<GetManagedDatabaseResult> getManagedDatabasePlain(GetManagedDatabasePlainArgs args) {
@@ -877,6 +895,15 @@ public final class MssqlFunctions {
     /**
      * Use this data source to access information about an existing Azure SQL Azure Managed Database.
      * 
+     * ## Example Usage
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Sql` - 2023-08-01-preview
+     * 
      */
     public static Output<GetManagedDatabaseResult> getManagedDatabase(GetManagedDatabaseArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:mssql/getManagedDatabase:getManagedDatabase", TypeShape.of(GetManagedDatabaseResult.class), args, Utilities.withVersion(options));
@@ -884,12 +911,30 @@ public final class MssqlFunctions {
     /**
      * Use this data source to access information about an existing Azure SQL Azure Managed Database.
      * 
+     * ## Example Usage
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Sql` - 2023-08-01-preview
+     * 
      */
     public static Output<GetManagedDatabaseResult> getManagedDatabase(GetManagedDatabaseArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:mssql/getManagedDatabase:getManagedDatabase", TypeShape.of(GetManagedDatabaseResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Azure SQL Azure Managed Database.
+     * 
+     * ## Example Usage
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Sql` - 2023-08-01-preview
      * 
      */
     public static CompletableFuture<GetManagedDatabaseResult> getManagedDatabasePlain(GetManagedDatabasePlainArgs args, InvokeOptions options) {

@@ -18,14 +18,14 @@ public final class ConfigurationBackupRetentionPolicyWeeklyScheduleArgs extends 
     public static final ConfigurationBackupRetentionPolicyWeeklyScheduleArgs Empty = new ConfigurationBackupRetentionPolicyWeeklyScheduleArgs();
 
     /**
-     * A `retention_duration` block as defined below.
+     * A `retentionDuration` block as defined below.
      * 
      */
     @Import(name="retentionDuration")
     private @Nullable Output<ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArgs> retentionDuration;
 
     /**
-     * @return A `retention_duration` block as defined below.
+     * @return A `retentionDuration` block as defined below.
      * 
      */
     public Optional<Output<ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArgs>> retentionDuration() {
@@ -73,7 +73,7 @@ public final class ConfigurationBackupRetentionPolicyWeeklyScheduleArgs extends 
         }
 
         /**
-         * @param retentionDuration A `retention_duration` block as defined below.
+         * @param retentionDuration A `retentionDuration` block as defined below.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class ConfigurationBackupRetentionPolicyWeeklyScheduleArgs extends 
         }
 
         /**
-         * @param retentionDuration A `retention_duration` block as defined below.
+         * @param retentionDuration A `retentionDuration` block as defined below.
          * 
          * @return builder
          * 

@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Mobile.Inputs
     public sealed class NetworkServicePccRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the name of the rule. This must be unique within the parent service. You must not use any of the following reserved strings - `default`, `requested` or `service`.
+        /// Specifies the name of the rule. This must be unique within the parent service. You must not use any of the following reserved strings - `Default`, `Requested` or `Service`.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Mobile.Inputs
         public Input<int> Precedence { get; set; } = null!;
 
         /// <summary>
-        /// A `qos_policy` block as defined below. The QoS policy to use for packets matching this rule. If this field is not specified then the Service will define the QoS settings.
+        /// A `QosPolicy` block as defined below. The QoS policy to use for packets matching this rule. If this field is not specified then the Service will define the QoS settings.
         /// </summary>
         [Input("qosPolicy")]
         public Input<Inputs.NetworkServicePccRuleQosPolicyGetArgs>? QosPolicy { get; set; }
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Mobile.Inputs
         private InputList<Inputs.NetworkServicePccRuleServiceDataFlowTemplateGetArgs>? _serviceDataFlowTemplates;
 
         /// <summary>
-        /// A `service_data_flow_template` block as defined below. The set of service data flow templates to use for this PCC rule.
+        /// A `ServiceDataFlowTemplate` block as defined below. The set of service data flow templates to use for this PCC rule.
         /// </summary>
         public InputList<Inputs.NetworkServicePccRuleServiceDataFlowTemplateGetArgs> ServiceDataFlowTemplates
         {
@@ -43,7 +43,7 @@ namespace Pulumi.Azure.Mobile.Inputs
         }
 
         /// <summary>
-        /// Determines whether flows that match this data flow policy rule are permitted. Defaults to `true`.
+        /// Determines whether flows that match this data flow policy rule are permitted. Defaults to `True`.
         /// </summary>
         [Input("trafficControlEnabled")]
         public Input<bool>? TrafficControlEnabled { get; set; }

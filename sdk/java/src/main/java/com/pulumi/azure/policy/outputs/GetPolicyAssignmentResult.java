@@ -51,12 +51,12 @@ public final class GetPolicyAssignmentResult {
     private String metadata;
     private String name;
     /**
-     * @return A `non_compliance_message` block as defined below.
+     * @return A `nonComplianceMessage` block as defined below.
      * 
      */
     private List<GetPolicyAssignmentNonComplianceMessage> nonComplianceMessages;
     /**
-     * @return A `not_scopes` block as defined below.
+     * @return A `notScopes` block as defined below.
      * 
      */
     private List<String> notScopes;
@@ -126,14 +126,14 @@ public final class GetPolicyAssignmentResult {
         return this.name;
     }
     /**
-     * @return A `non_compliance_message` block as defined below.
+     * @return A `nonComplianceMessage` block as defined below.
      * 
      */
     public List<GetPolicyAssignmentNonComplianceMessage> nonComplianceMessages() {
         return this.nonComplianceMessages;
     }
     /**
-     * @return A `not_scopes` block as defined below.
+     * @return A `notScopes` block as defined below.
      * 
      */
     public List<String> notScopes() {

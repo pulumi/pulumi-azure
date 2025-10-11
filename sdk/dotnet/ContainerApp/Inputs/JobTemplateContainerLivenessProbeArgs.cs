@@ -22,7 +22,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         private InputList<Inputs.JobTemplateContainerLivenessProbeHeaderArgs>? _headers;
 
         /// <summary>
-        /// A `header` block as detailed below.
+        /// A `Header` block as detailed below.
         /// </summary>
         public InputList<Inputs.JobTemplateContainerLivenessProbeHeaderArgs> Headers
         {
@@ -31,7 +31,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         }
 
         /// <summary>
-        /// The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+        /// The probe hostname. Defaults to the pod IP address. Setting a value for `Host` in `Headers` can be used to override this for `HTTP` and `HTTPS` type probes.
         /// </summary>
         [Input("host")]
         public Input<string>? Host { get; set; }
@@ -49,7 +49,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         public Input<int>? IntervalSeconds { get; set; }
 
         /// <summary>
-        /// The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
+        /// The URI to use with the `Host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
         /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }

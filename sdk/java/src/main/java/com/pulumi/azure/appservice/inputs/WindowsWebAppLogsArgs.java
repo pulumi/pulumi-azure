@@ -18,14 +18,14 @@ public final class WindowsWebAppLogsArgs extends com.pulumi.resources.ResourceAr
     public static final WindowsWebAppLogsArgs Empty = new WindowsWebAppLogsArgs();
 
     /**
-     * A `application_logs` block as defined above.
+     * A `applicationLogs` block as defined above.
      * 
      */
     @Import(name="applicationLogs")
     private @Nullable Output<WindowsWebAppLogsApplicationLogsArgs> applicationLogs;
 
     /**
-     * @return A `application_logs` block as defined above.
+     * @return A `applicationLogs` block as defined above.
      * 
      */
     public Optional<Output<WindowsWebAppLogsApplicationLogsArgs>> applicationLogs() {
@@ -63,14 +63,14 @@ public final class WindowsWebAppLogsArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A `http_logs` block as defined above.
+     * A `httpLogs` block as defined above.
      * 
      */
     @Import(name="httpLogs")
     private @Nullable Output<WindowsWebAppLogsHttpLogsArgs> httpLogs;
 
     /**
-     * @return A `http_logs` block as defined above.
+     * @return A `httpLogs` block as defined above.
      * 
      */
     public Optional<Output<WindowsWebAppLogsHttpLogsArgs>> httpLogs() {
@@ -105,7 +105,7 @@ public final class WindowsWebAppLogsArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param applicationLogs A `application_logs` block as defined above.
+         * @param applicationLogs A `applicationLogs` block as defined above.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class WindowsWebAppLogsArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param applicationLogs A `application_logs` block as defined above.
+         * @param applicationLogs A `applicationLogs` block as defined above.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class WindowsWebAppLogsArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param httpLogs A `http_logs` block as defined above.
+         * @param httpLogs A `httpLogs` block as defined above.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class WindowsWebAppLogsArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param httpLogs A `http_logs` block as defined above.
+         * @param httpLogs A `httpLogs` block as defined above.
          * 
          * @return builder
          * 

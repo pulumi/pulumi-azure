@@ -113,7 +113,7 @@ namespace Pulumi.Azure.AppInsights
         public Output<string> AppId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
+        /// Specifies the type of Application Insights to create. Valid values are `Ios` for _iOS_, `Java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `Other` for _General_, `Phone` for _Windows Phone_, `Store` for _Windows Store_ and `Web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
         /// </summary>
         [Output("applicationType")]
         public Output<string> ApplicationType { get; private set; } = null!;
@@ -131,19 +131,19 @@ namespace Pulumi.Azure.AppInsights
         public Output<double?> DailyDataCapInGb { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if a notification email will be sent when the daily data volume cap is met. Defaults to `false`.
+        /// Specifies if a notification email will be sent when the daily data volume cap is met. Defaults to `False`.
         /// </summary>
         [Output("dailyDataCapNotificationsDisabled")]
         public Output<bool?> DailyDataCapNotificationsDisabled { get; private set; } = null!;
 
         /// <summary>
-        /// By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
+        /// By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `False`.
         /// </summary>
         [Output("disableIpMasking")]
         public Output<bool?> DisableIpMasking { get; private set; } = null!;
 
         /// <summary>
-        /// Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
+        /// Should the Application Insights component force users to create their own storage account for profiling? Defaults to `False`.
         /// </summary>
         [Output("forceCustomerStorageForProfiler")]
         public Output<bool?> ForceCustomerStorageForProfiler { get; private set; } = null!;
@@ -155,19 +155,19 @@ namespace Pulumi.Azure.AppInsights
         public Output<string> InstrumentationKey { get; private set; } = null!;
 
         /// <summary>
-        /// Should the Application Insights component support ingestion over the Public Internet? Defaults to `true`.
+        /// Should the Application Insights component support ingestion over the Public Internet? Defaults to `True`.
         /// </summary>
         [Output("internetIngestionEnabled")]
         public Output<bool?> InternetIngestionEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Should the Application Insights component support querying over the Public Internet? Defaults to `true`.
+        /// Should the Application Insights component support querying over the Public Internet? Defaults to `True`.
         /// </summary>
         [Output("internetQueryEnabled")]
         public Output<bool?> InternetQueryEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Disable Non-Azure AD based Auth. Defaults to `false`.
+        /// Disable Non-Azure AD based Auth. Defaults to `False`.
         /// </summary>
         [Output("localAuthenticationDisabled")]
         public Output<bool?> LocalAuthenticationDisabled { get; private set; } = null!;
@@ -211,7 +211,7 @@ namespace Pulumi.Azure.AppInsights
         /// <summary>
         /// Specifies the id of a log analytics workspace resource.
         /// 
-        /// &gt; **Note:** `workspace_id` cannot be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process). If `workspace_id` is not specified but you encounter a diff, this might indicate a Microsoft initiated automatic migration from classic resources to workspace-based resources. If this is the case, please update `workspace_id` in the config file to the new value.
+        /// &gt; **Note:** `WorkspaceId` cannot be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process). If `WorkspaceId` is not specified but you encounter a diff, this might indicate a Microsoft initiated automatic migration from classic resources to workspace-based resources. If this is the case, please update `WorkspaceId` in the config file to the new value.
         /// </summary>
         [Output("workspaceId")]
         public Output<string> WorkspaceId { get; private set; } = null!;
@@ -268,7 +268,7 @@ namespace Pulumi.Azure.AppInsights
     public sealed class InsightsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
+        /// Specifies the type of Application Insights to create. Valid values are `Ios` for _iOS_, `Java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `Other` for _General_, `Phone` for _Windows Phone_, `Store` for _Windows Store_ and `Web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
         /// </summary>
         [Input("applicationType", required: true)]
         public Input<string> ApplicationType { get; set; } = null!;
@@ -280,37 +280,37 @@ namespace Pulumi.Azure.AppInsights
         public Input<double>? DailyDataCapInGb { get; set; }
 
         /// <summary>
-        /// Specifies if a notification email will be sent when the daily data volume cap is met. Defaults to `false`.
+        /// Specifies if a notification email will be sent when the daily data volume cap is met. Defaults to `False`.
         /// </summary>
         [Input("dailyDataCapNotificationsDisabled")]
         public Input<bool>? DailyDataCapNotificationsDisabled { get; set; }
 
         /// <summary>
-        /// By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
+        /// By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `False`.
         /// </summary>
         [Input("disableIpMasking")]
         public Input<bool>? DisableIpMasking { get; set; }
 
         /// <summary>
-        /// Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
+        /// Should the Application Insights component force users to create their own storage account for profiling? Defaults to `False`.
         /// </summary>
         [Input("forceCustomerStorageForProfiler")]
         public Input<bool>? ForceCustomerStorageForProfiler { get; set; }
 
         /// <summary>
-        /// Should the Application Insights component support ingestion over the Public Internet? Defaults to `true`.
+        /// Should the Application Insights component support ingestion over the Public Internet? Defaults to `True`.
         /// </summary>
         [Input("internetIngestionEnabled")]
         public Input<bool>? InternetIngestionEnabled { get; set; }
 
         /// <summary>
-        /// Should the Application Insights component support querying over the Public Internet? Defaults to `true`.
+        /// Should the Application Insights component support querying over the Public Internet? Defaults to `True`.
         /// </summary>
         [Input("internetQueryEnabled")]
         public Input<bool>? InternetQueryEnabled { get; set; }
 
         /// <summary>
-        /// Disable Non-Azure AD based Auth. Defaults to `false`.
+        /// Disable Non-Azure AD based Auth. Defaults to `False`.
         /// </summary>
         [Input("localAuthenticationDisabled")]
         public Input<bool>? LocalAuthenticationDisabled { get; set; }
@@ -360,7 +360,7 @@ namespace Pulumi.Azure.AppInsights
         /// <summary>
         /// Specifies the id of a log analytics workspace resource.
         /// 
-        /// &gt; **Note:** `workspace_id` cannot be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process). If `workspace_id` is not specified but you encounter a diff, this might indicate a Microsoft initiated automatic migration from classic resources to workspace-based resources. If this is the case, please update `workspace_id` in the config file to the new value.
+        /// &gt; **Note:** `WorkspaceId` cannot be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process). If `WorkspaceId` is not specified but you encounter a diff, this might indicate a Microsoft initiated automatic migration from classic resources to workspace-based resources. If this is the case, please update `WorkspaceId` in the config file to the new value.
         /// </summary>
         [Input("workspaceId")]
         public Input<string>? WorkspaceId { get; set; }
@@ -380,7 +380,7 @@ namespace Pulumi.Azure.AppInsights
         public Input<string>? AppId { get; set; }
 
         /// <summary>
-        /// Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
+        /// Specifies the type of Application Insights to create. Valid values are `Ios` for _iOS_, `Java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `Other` for _General_, `Phone` for _Windows Phone_, `Store` for _Windows Store_ and `Web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
         /// </summary>
         [Input("applicationType")]
         public Input<string>? ApplicationType { get; set; }
@@ -408,19 +408,19 @@ namespace Pulumi.Azure.AppInsights
         public Input<double>? DailyDataCapInGb { get; set; }
 
         /// <summary>
-        /// Specifies if a notification email will be sent when the daily data volume cap is met. Defaults to `false`.
+        /// Specifies if a notification email will be sent when the daily data volume cap is met. Defaults to `False`.
         /// </summary>
         [Input("dailyDataCapNotificationsDisabled")]
         public Input<bool>? DailyDataCapNotificationsDisabled { get; set; }
 
         /// <summary>
-        /// By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
+        /// By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `False`.
         /// </summary>
         [Input("disableIpMasking")]
         public Input<bool>? DisableIpMasking { get; set; }
 
         /// <summary>
-        /// Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
+        /// Should the Application Insights component force users to create their own storage account for profiling? Defaults to `False`.
         /// </summary>
         [Input("forceCustomerStorageForProfiler")]
         public Input<bool>? ForceCustomerStorageForProfiler { get; set; }
@@ -442,19 +442,19 @@ namespace Pulumi.Azure.AppInsights
         }
 
         /// <summary>
-        /// Should the Application Insights component support ingestion over the Public Internet? Defaults to `true`.
+        /// Should the Application Insights component support ingestion over the Public Internet? Defaults to `True`.
         /// </summary>
         [Input("internetIngestionEnabled")]
         public Input<bool>? InternetIngestionEnabled { get; set; }
 
         /// <summary>
-        /// Should the Application Insights component support querying over the Public Internet? Defaults to `true`.
+        /// Should the Application Insights component support querying over the Public Internet? Defaults to `True`.
         /// </summary>
         [Input("internetQueryEnabled")]
         public Input<bool>? InternetQueryEnabled { get; set; }
 
         /// <summary>
-        /// Disable Non-Azure AD based Auth. Defaults to `false`.
+        /// Disable Non-Azure AD based Auth. Defaults to `False`.
         /// </summary>
         [Input("localAuthenticationDisabled")]
         public Input<bool>? LocalAuthenticationDisabled { get; set; }
@@ -504,7 +504,7 @@ namespace Pulumi.Azure.AppInsights
         /// <summary>
         /// Specifies the id of a log analytics workspace resource.
         /// 
-        /// &gt; **Note:** `workspace_id` cannot be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process). If `workspace_id` is not specified but you encounter a diff, this might indicate a Microsoft initiated automatic migration from classic resources to workspace-based resources. If this is the case, please update `workspace_id` in the config file to the new value.
+        /// &gt; **Note:** `WorkspaceId` cannot be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process). If `WorkspaceId` is not specified but you encounter a diff, this might indicate a Microsoft initiated automatic migration from classic resources to workspace-based resources. If this is the case, please update `WorkspaceId` in the config file to the new value.
         /// </summary>
         [Input("workspaceId")]
         public Input<string>? WorkspaceId { get; set; }

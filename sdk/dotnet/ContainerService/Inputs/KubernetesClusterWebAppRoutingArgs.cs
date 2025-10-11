@@ -34,7 +34,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         private InputList<Inputs.KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs>? _webAppRoutingIdentities;
 
         /// <summary>
-        /// A `web_app_routing_identity` block is exported. The exported attributes are defined below.
+        /// A `WebAppRoutingIdentity` block is exported. The exported attributes are defined below.
         /// </summary>
         public InputList<Inputs.KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs> WebAppRoutingIdentities
         {

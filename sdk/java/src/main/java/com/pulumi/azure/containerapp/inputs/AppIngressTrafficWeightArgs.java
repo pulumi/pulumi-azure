@@ -34,14 +34,14 @@ public final class AppIngressTrafficWeightArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * This traffic Weight applies to the latest stable Container Revision. At most only one `traffic_weight` block can have the `latest_revision` set to `true`.
+     * This traffic Weight applies to the latest stable Container Revision. At most only one `trafficWeight` block can have the `latestRevision` set to `true`.
      * 
      */
     @Import(name="latestRevision")
     private @Nullable Output<Boolean> latestRevision;
 
     /**
-     * @return This traffic Weight applies to the latest stable Container Revision. At most only one `traffic_weight` block can have the `latest_revision` set to `true`.
+     * @return This traffic Weight applies to the latest stable Container Revision. At most only one `trafficWeight` block can have the `latestRevision` set to `true`.
      * 
      */
     public Optional<Output<Boolean>> latestRevision() {
@@ -68,18 +68,18 @@ public final class AppIngressTrafficWeightArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The suffix string to which this `traffic_weight` applies.
+     * The suffix string to which this `trafficWeight` applies.
      * 
-     * &gt; **Note:** If `latest_revision` is `false`, the `revision_suffix` shall be specified.
+     * &gt; **Note:** If `latestRevision` is `false`, the `revisionSuffix` shall be specified.
      * 
      */
     @Import(name="revisionSuffix")
     private @Nullable Output<String> revisionSuffix;
 
     /**
-     * @return The suffix string to which this `traffic_weight` applies.
+     * @return The suffix string to which this `trafficWeight` applies.
      * 
-     * &gt; **Note:** If `latest_revision` is `false`, the `revision_suffix` shall be specified.
+     * &gt; **Note:** If `latestRevision` is `false`, the `revisionSuffix` shall be specified.
      * 
      */
     public Optional<Output<String>> revisionSuffix() {
@@ -135,7 +135,7 @@ public final class AppIngressTrafficWeightArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param latestRevision This traffic Weight applies to the latest stable Container Revision. At most only one `traffic_weight` block can have the `latest_revision` set to `true`.
+         * @param latestRevision This traffic Weight applies to the latest stable Container Revision. At most only one `trafficWeight` block can have the `latestRevision` set to `true`.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class AppIngressTrafficWeightArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param latestRevision This traffic Weight applies to the latest stable Container Revision. At most only one `traffic_weight` block can have the `latest_revision` set to `true`.
+         * @param latestRevision This traffic Weight applies to the latest stable Container Revision. At most only one `trafficWeight` block can have the `latestRevision` set to `true`.
          * 
          * @return builder
          * 
@@ -181,9 +181,9 @@ public final class AppIngressTrafficWeightArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param revisionSuffix The suffix string to which this `traffic_weight` applies.
+         * @param revisionSuffix The suffix string to which this `trafficWeight` applies.
          * 
-         * &gt; **Note:** If `latest_revision` is `false`, the `revision_suffix` shall be specified.
+         * &gt; **Note:** If `latestRevision` is `false`, the `revisionSuffix` shall be specified.
          * 
          * @return builder
          * 
@@ -194,9 +194,9 @@ public final class AppIngressTrafficWeightArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param revisionSuffix The suffix string to which this `traffic_weight` applies.
+         * @param revisionSuffix The suffix string to which this `trafficWeight` applies.
          * 
-         * &gt; **Note:** If `latest_revision` is `false`, the `revision_suffix` shall be specified.
+         * &gt; **Note:** If `latestRevision` is `false`, the `revisionSuffix` shall be specified.
          * 
          * @return builder
          * 

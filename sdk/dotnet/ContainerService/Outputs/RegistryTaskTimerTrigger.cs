@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class RegistryTaskTimerTrigger
     {
         /// <summary>
-        /// Should the trigger be enabled? Defaults to `true`.
+        /// Should the trigger be enabled? Defaults to `True`.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>

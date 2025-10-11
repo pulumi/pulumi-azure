@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetManagedDatabasePointInTimeRestore {
     /**
-     * @return The point in time for the restore from `source_database_id`.
+     * @return The point in time for the restore from `sourceDatabaseId`.
      * 
      */
     private String restorePointInTime;
@@ -23,7 +23,7 @@ public final class GetManagedDatabasePointInTimeRestore {
 
     private GetManagedDatabasePointInTimeRestore() {}
     /**
-     * @return The point in time for the restore from `source_database_id`.
+     * @return The point in time for the restore from `sourceDatabaseId`.
      * 
      */
     public String restorePointInTime() {

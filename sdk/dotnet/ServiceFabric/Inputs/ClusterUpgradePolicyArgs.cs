@@ -13,7 +13,7 @@ namespace Pulumi.Azure.ServiceFabric.Inputs
     public sealed class ClusterUpgradePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `delta_health_policy` block as defined below
+        /// A `DeltaHealthPolicy` block as defined below
         /// </summary>
         [Input("deltaHealthPolicy")]
         public Input<Inputs.ClusterUpgradePolicyDeltaHealthPolicyArgs>? DeltaHealthPolicy { get; set; }
@@ -43,7 +43,7 @@ namespace Pulumi.Azure.ServiceFabric.Inputs
         public Input<string>? HealthCheckWaitDuration { get; set; }
 
         /// <summary>
-        /// A `health_policy` block as defined below
+        /// A `HealthPolicy` block as defined below
         /// </summary>
         [Input("healthPolicy")]
         public Input<Inputs.ClusterUpgradePolicyHealthPolicyArgs>? HealthPolicy { get; set; }

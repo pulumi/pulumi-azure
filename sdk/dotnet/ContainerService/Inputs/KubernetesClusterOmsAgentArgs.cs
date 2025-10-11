@@ -28,7 +28,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         private InputList<Inputs.KubernetesClusterOmsAgentOmsAgentIdentityArgs>? _omsAgentIdentities;
 
         /// <summary>
-        /// An `oms_agent_identity` block is exported. The exported attributes are defined below.
+        /// An `OmsAgentIdentity` block is exported. The exported attributes are defined below.
         /// </summary>
         public InputList<Inputs.KubernetesClusterOmsAgentOmsAgentIdentityArgs> OmsAgentIdentities
         {

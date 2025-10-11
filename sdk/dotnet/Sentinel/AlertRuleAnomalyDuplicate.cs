@@ -140,7 +140,7 @@ namespace Pulumi.Azure.Sentinel
         public Output<string> Mode { get; private set; } = null!;
 
         /// <summary>
-        /// A list of `multi_select_observation` blocks as defined below.
+        /// A list of `MultiSelectObservation` blocks as defined below.
         /// </summary>
         [Output("multiSelectObservations")]
         public Output<ImmutableArray<Outputs.AlertRuleAnomalyDuplicateMultiSelectObservation>> MultiSelectObservations { get; private set; } = null!;
@@ -149,13 +149,13 @@ namespace Pulumi.Azure.Sentinel
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A list of `prioritized_exclude_observation` blocks as defined below.
+        /// A list of `PrioritizedExcludeObservation` blocks as defined below.
         /// </summary>
         [Output("prioritizedExcludeObservations")]
         public Output<ImmutableArray<Outputs.AlertRuleAnomalyDuplicatePrioritizedExcludeObservation>> PrioritizedExcludeObservations { get; private set; } = null!;
 
         /// <summary>
-        /// A `required_data_connector` block as defined below.
+        /// A `RequiredDataConnector` block as defined below.
         /// </summary>
         [Output("requiredDataConnectors")]
         public Output<ImmutableArray<Outputs.AlertRuleAnomalyDuplicateRequiredDataConnector>> RequiredDataConnectors { get; private set; } = null!;
@@ -167,7 +167,7 @@ namespace Pulumi.Azure.Sentinel
         public Output<string> SettingsDefinitionId { get; private set; } = null!;
 
         /// <summary>
-        /// A list of `single_select_observation` blocks as defined below.
+        /// A list of `SingleSelectObservation` blocks as defined below.
         /// </summary>
         [Output("singleSelectObservations")]
         public Output<ImmutableArray<Outputs.AlertRuleAnomalyDuplicateSingleSelectObservation>> SingleSelectObservations { get; private set; } = null!;
@@ -185,9 +185,9 @@ namespace Pulumi.Azure.Sentinel
         public Output<ImmutableArray<string>> Techniques { get; private set; } = null!;
 
         /// <summary>
-        /// A list of `threshold_observation` blocks as defined below.
+        /// A list of `ThresholdObservation` blocks as defined below.
         /// 
-        /// &gt; **Note:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
+        /// &gt; **Note:** un-specified `MultiSelectObservation`, `SingleSelectObservation`, `PrioritizedExcludeObservation` and `ThresholdObservation` will be inherited from the built-in Anomaly Alert Rule.
         /// </summary>
         [Output("thresholdObservations")]
         public Output<ImmutableArray<Outputs.AlertRuleAnomalyDuplicateThresholdObservation>> ThresholdObservations { get; private set; } = null!;
@@ -272,7 +272,7 @@ namespace Pulumi.Azure.Sentinel
         private InputList<Inputs.AlertRuleAnomalyDuplicateMultiSelectObservationArgs>? _multiSelectObservations;
 
         /// <summary>
-        /// A list of `multi_select_observation` blocks as defined below.
+        /// A list of `MultiSelectObservation` blocks as defined below.
         /// </summary>
         public InputList<Inputs.AlertRuleAnomalyDuplicateMultiSelectObservationArgs> MultiSelectObservations
         {
@@ -284,7 +284,7 @@ namespace Pulumi.Azure.Sentinel
         private InputList<Inputs.AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgs>? _prioritizedExcludeObservations;
 
         /// <summary>
-        /// A list of `prioritized_exclude_observation` blocks as defined below.
+        /// A list of `PrioritizedExcludeObservation` blocks as defined below.
         /// </summary>
         public InputList<Inputs.AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgs> PrioritizedExcludeObservations
         {
@@ -296,7 +296,7 @@ namespace Pulumi.Azure.Sentinel
         private InputList<Inputs.AlertRuleAnomalyDuplicateSingleSelectObservationArgs>? _singleSelectObservations;
 
         /// <summary>
-        /// A list of `single_select_observation` blocks as defined below.
+        /// A list of `SingleSelectObservation` blocks as defined below.
         /// </summary>
         public InputList<Inputs.AlertRuleAnomalyDuplicateSingleSelectObservationArgs> SingleSelectObservations
         {
@@ -308,9 +308,9 @@ namespace Pulumi.Azure.Sentinel
         private InputList<Inputs.AlertRuleAnomalyDuplicateThresholdObservationArgs>? _thresholdObservations;
 
         /// <summary>
-        /// A list of `threshold_observation` blocks as defined below.
+        /// A list of `ThresholdObservation` blocks as defined below.
         /// 
-        /// &gt; **Note:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
+        /// &gt; **Note:** un-specified `MultiSelectObservation`, `SingleSelectObservation`, `PrioritizedExcludeObservation` and `ThresholdObservation` will be inherited from the built-in Anomaly Alert Rule.
         /// </summary>
         public InputList<Inputs.AlertRuleAnomalyDuplicateThresholdObservationArgs> ThresholdObservations
         {
@@ -390,7 +390,7 @@ namespace Pulumi.Azure.Sentinel
         private InputList<Inputs.AlertRuleAnomalyDuplicateMultiSelectObservationGetArgs>? _multiSelectObservations;
 
         /// <summary>
-        /// A list of `multi_select_observation` blocks as defined below.
+        /// A list of `MultiSelectObservation` blocks as defined below.
         /// </summary>
         public InputList<Inputs.AlertRuleAnomalyDuplicateMultiSelectObservationGetArgs> MultiSelectObservations
         {
@@ -405,7 +405,7 @@ namespace Pulumi.Azure.Sentinel
         private InputList<Inputs.AlertRuleAnomalyDuplicatePrioritizedExcludeObservationGetArgs>? _prioritizedExcludeObservations;
 
         /// <summary>
-        /// A list of `prioritized_exclude_observation` blocks as defined below.
+        /// A list of `PrioritizedExcludeObservation` blocks as defined below.
         /// </summary>
         public InputList<Inputs.AlertRuleAnomalyDuplicatePrioritizedExcludeObservationGetArgs> PrioritizedExcludeObservations
         {
@@ -417,7 +417,7 @@ namespace Pulumi.Azure.Sentinel
         private InputList<Inputs.AlertRuleAnomalyDuplicateRequiredDataConnectorGetArgs>? _requiredDataConnectors;
 
         /// <summary>
-        /// A `required_data_connector` block as defined below.
+        /// A `RequiredDataConnector` block as defined below.
         /// </summary>
         public InputList<Inputs.AlertRuleAnomalyDuplicateRequiredDataConnectorGetArgs> RequiredDataConnectors
         {
@@ -435,7 +435,7 @@ namespace Pulumi.Azure.Sentinel
         private InputList<Inputs.AlertRuleAnomalyDuplicateSingleSelectObservationGetArgs>? _singleSelectObservations;
 
         /// <summary>
-        /// A list of `single_select_observation` blocks as defined below.
+        /// A list of `SingleSelectObservation` blocks as defined below.
         /// </summary>
         public InputList<Inputs.AlertRuleAnomalyDuplicateSingleSelectObservationGetArgs> SingleSelectObservations
         {
@@ -471,9 +471,9 @@ namespace Pulumi.Azure.Sentinel
         private InputList<Inputs.AlertRuleAnomalyDuplicateThresholdObservationGetArgs>? _thresholdObservations;
 
         /// <summary>
-        /// A list of `threshold_observation` blocks as defined below.
+        /// A list of `ThresholdObservation` blocks as defined below.
         /// 
-        /// &gt; **Note:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
+        /// &gt; **Note:** un-specified `MultiSelectObservation`, `SingleSelectObservation`, `PrioritizedExcludeObservation` and `ThresholdObservation` will be inherited from the built-in Anomaly Alert Rule.
         /// </summary>
         public InputList<Inputs.AlertRuleAnomalyDuplicateThresholdObservationGetArgs> ThresholdObservations
         {

@@ -82,13 +82,13 @@ namespace Pulumi.Azure.LoadTest
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// An `encryption` block as defined below. Changing this forces a new Load Test to be created.
+        /// An `Encryption` block as defined below. Changing this forces a new Load Test to be created.
         /// </summary>
         [Output("encryption")]
         public Output<Outputs.LoadTestEncryption?> Encryption { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
+        /// An `Identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.LoadTestIdentity?> Identity { get; private set; } = null!;
@@ -170,13 +170,13 @@ namespace Pulumi.Azure.LoadTest
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// An `encryption` block as defined below. Changing this forces a new Load Test to be created.
+        /// An `Encryption` block as defined below. Changing this forces a new Load Test to be created.
         /// </summary>
         [Input("encryption")]
         public Input<Inputs.LoadTestEncryptionArgs>? Encryption { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
+        /// An `Identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.LoadTestIdentityArgs>? Identity { get; set; }
@@ -232,13 +232,13 @@ namespace Pulumi.Azure.LoadTest
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// An `encryption` block as defined below. Changing this forces a new Load Test to be created.
+        /// An `Encryption` block as defined below. Changing this forces a new Load Test to be created.
         /// </summary>
         [Input("encryption")]
         public Input<Inputs.LoadTestEncryptionGetArgs>? Encryption { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
+        /// An `Identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.LoadTestIdentityGetArgs>? Identity { get; set; }

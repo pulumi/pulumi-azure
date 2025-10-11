@@ -65,13 +65,13 @@ namespace Pulumi.Azure.DataFactory
     public partial class LinkedServiceCosmosDb : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The endpoint of the Azure CosmosDB account. Required if `connection_string` is unspecified.
+        /// The endpoint of the Azure CosmosDB account. Required if `ConnectionString` is unspecified.
         /// </summary>
         [Output("accountEndpoint")]
         public Output<string?> AccountEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// The account key of the Azure Cosmos DB account. Required if `connection_string` is unspecified.
+        /// The account key of the Azure Cosmos DB account. Required if `ConnectionString` is unspecified.
         /// </summary>
         [Output("accountKey")]
         public Output<string?> AccountKey { get; private set; } = null!;
@@ -91,7 +91,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<ImmutableArray<string>> Annotations { get; private set; } = null!;
 
         /// <summary>
-        /// The connection string. Required if `account_endpoint`, `account_key`, and `database` are unspecified.
+        /// The connection string. Required if `AccountEndpoint`, `AccountKey`, and `Database` are unspecified.
         /// </summary>
         [Output("connectionString")]
         public Output<string?> ConnectionString { get; private set; } = null!;
@@ -103,7 +103,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string> DataFactoryId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the database. Required if `connection_string` is unspecified.
+        /// The name of the database. Required if `ConnectionString` is unspecified.
         /// </summary>
         [Output("database")]
         public Output<string?> Database { get; private set; } = null!;
@@ -184,7 +184,7 @@ namespace Pulumi.Azure.DataFactory
     public sealed class LinkedServiceCosmosDbArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The endpoint of the Azure CosmosDB account. Required if `connection_string` is unspecified.
+        /// The endpoint of the Azure CosmosDB account. Required if `ConnectionString` is unspecified.
         /// </summary>
         [Input("accountEndpoint")]
         public Input<string>? AccountEndpoint { get; set; }
@@ -193,7 +193,7 @@ namespace Pulumi.Azure.DataFactory
         private Input<string>? _accountKey;
 
         /// <summary>
-        /// The account key of the Azure Cosmos DB account. Required if `connection_string` is unspecified.
+        /// The account key of the Azure Cosmos DB account. Required if `ConnectionString` is unspecified.
         /// </summary>
         public Input<string>? AccountKey
         {
@@ -235,7 +235,7 @@ namespace Pulumi.Azure.DataFactory
         private Input<string>? _connectionString;
 
         /// <summary>
-        /// The connection string. Required if `account_endpoint`, `account_key`, and `database` are unspecified.
+        /// The connection string. Required if `AccountEndpoint`, `AccountKey`, and `Database` are unspecified.
         /// </summary>
         public Input<string>? ConnectionString
         {
@@ -254,7 +254,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string> DataFactoryId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the database. Required if `connection_string` is unspecified.
+        /// The name of the database. Required if `ConnectionString` is unspecified.
         /// </summary>
         [Input("database")]
         public Input<string>? Database { get; set; }
@@ -298,7 +298,7 @@ namespace Pulumi.Azure.DataFactory
     public sealed class LinkedServiceCosmosDbState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The endpoint of the Azure CosmosDB account. Required if `connection_string` is unspecified.
+        /// The endpoint of the Azure CosmosDB account. Required if `ConnectionString` is unspecified.
         /// </summary>
         [Input("accountEndpoint")]
         public Input<string>? AccountEndpoint { get; set; }
@@ -307,7 +307,7 @@ namespace Pulumi.Azure.DataFactory
         private Input<string>? _accountKey;
 
         /// <summary>
-        /// The account key of the Azure Cosmos DB account. Required if `connection_string` is unspecified.
+        /// The account key of the Azure Cosmos DB account. Required if `ConnectionString` is unspecified.
         /// </summary>
         public Input<string>? AccountKey
         {
@@ -349,7 +349,7 @@ namespace Pulumi.Azure.DataFactory
         private Input<string>? _connectionString;
 
         /// <summary>
-        /// The connection string. Required if `account_endpoint`, `account_key`, and `database` are unspecified.
+        /// The connection string. Required if `AccountEndpoint`, `AccountKey`, and `Database` are unspecified.
         /// </summary>
         public Input<string>? ConnectionString
         {
@@ -368,7 +368,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? DataFactoryId { get; set; }
 
         /// <summary>
-        /// The name of the database. Required if `connection_string` is unspecified.
+        /// The name of the database. Required if `ConnectionString` is unspecified.
         /// </summary>
         [Input("database")]
         public Input<string>? Database { get; set; }

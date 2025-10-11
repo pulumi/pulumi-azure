@@ -87,7 +87,7 @@ namespace Pulumi.Azure.Bot
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
+        /// A site represents a client application that you want to connect to your bot. One or more `Site` blocks as defined below.
         /// </summary>
         [Output("sites")]
         public Output<ImmutableArray<Outputs.ChannelDirectLineSite>> Sites { get; private set; } = null!;
@@ -160,7 +160,7 @@ namespace Pulumi.Azure.Bot
         private InputList<Inputs.ChannelDirectLineSiteArgs>? _sites;
 
         /// <summary>
-        /// A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
+        /// A site represents a client application that you want to connect to your bot. One or more `Site` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ChannelDirectLineSiteArgs> Sites
         {
@@ -198,7 +198,7 @@ namespace Pulumi.Azure.Bot
         private InputList<Inputs.ChannelDirectLineSiteGetArgs>? _sites;
 
         /// <summary>
-        /// A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
+        /// A site represents a client application that you want to connect to your bot. One or more `Site` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ChannelDirectLineSiteGetArgs> Sites
         {

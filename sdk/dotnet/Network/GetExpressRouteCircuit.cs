@@ -178,7 +178,7 @@ namespace Pulumi.Azure.Network
         public readonly string Location;
         public readonly string Name;
         /// <summary>
-        /// A `peerings` block for the ExpressRoute circuit as documented below
+        /// A `Peerings` block for the ExpressRoute circuit as documented below
         /// </summary>
         public readonly ImmutableArray<Outputs.GetExpressRouteCircuitPeeringResult> Peerings;
         public readonly string ResourceGroupName;
@@ -187,7 +187,7 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly string ServiceKey;
         /// <summary>
-        /// A `service_provider_properties` block for the ExpressRoute circuit as documented below
+        /// A `ServiceProviderProperties` block for the ExpressRoute circuit as documented below
         /// </summary>
         public readonly ImmutableArray<Outputs.GetExpressRouteCircuitServiceProviderPropertyResult> ServiceProviderProperties;
         /// <summary>
@@ -195,7 +195,7 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly string ServiceProviderProvisioningState;
         /// <summary>
-        /// A `sku` block for the ExpressRoute circuit as documented below.
+        /// A `Sku` block for the ExpressRoute circuit as documented below.
         /// </summary>
         public readonly Outputs.GetExpressRouteCircuitSkuResult Sku;
 

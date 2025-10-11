@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The type of the column data. Possible values are `string`, `int`, `long`, `real`, `boolean`, `datetime`,and `dynamic`.
+        /// The type of the column data. Possible values are `String`, `Int`, `Long`, `Real`, `Boolean`, `Datetime`,and `Dynamic`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

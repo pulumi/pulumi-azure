@@ -25,7 +25,7 @@ public final class AppTemplateContainerEnv {
     /**
      * @return The value for this environment variable.
      * 
-     * &gt; **Note:** This value is ignored if `secret_name` is used
+     * &gt; **Note:** This value is ignored if `secretName` is used
      * 
      */
     private @Nullable String value;
@@ -48,7 +48,7 @@ public final class AppTemplateContainerEnv {
     /**
      * @return The value for this environment variable.
      * 
-     * &gt; **Note:** This value is ignored if `secret_name` is used
+     * &gt; **Note:** This value is ignored if `secretName` is used
      * 
      */
     public Optional<String> value() {

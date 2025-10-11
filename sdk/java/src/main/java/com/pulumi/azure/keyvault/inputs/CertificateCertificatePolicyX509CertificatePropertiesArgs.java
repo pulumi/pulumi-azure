@@ -65,14 +65,14 @@ public final class CertificateCertificatePolicyX509CertificatePropertiesArgs ext
     }
 
     /**
-     * A `subject_alternative_names` block as defined below.
+     * A `subjectAlternativeNames` block as defined below.
      * 
      */
     @Import(name="subjectAlternativeNames")
     private @Nullable Output<CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs> subjectAlternativeNames;
 
     /**
-     * @return A `subject_alternative_names` block as defined below.
+     * @return A `subjectAlternativeNames` block as defined below.
      * 
      */
     public Optional<Output<CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs>> subjectAlternativeNames() {
@@ -206,7 +206,7 @@ public final class CertificateCertificatePolicyX509CertificatePropertiesArgs ext
         }
 
         /**
-         * @param subjectAlternativeNames A `subject_alternative_names` block as defined below.
+         * @param subjectAlternativeNames A `subjectAlternativeNames` block as defined below.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class CertificateCertificatePolicyX509CertificatePropertiesArgs ext
         }
 
         /**
-         * @param subjectAlternativeNames A `subject_alternative_names` block as defined below.
+         * @param subjectAlternativeNames A `subjectAlternativeNames` block as defined below.
          * 
          * @return builder
          * 

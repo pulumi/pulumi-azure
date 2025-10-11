@@ -16,7 +16,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         private InputList<Inputs.AppTemplateCustomScaleRuleAuthenticationGetArgs>? _authentications;
 
         /// <summary>
-        /// Zero or more `authentication` blocks as defined below.
+        /// Zero or more `Authentication` blocks as defined below.
         /// </summary>
         public InputList<Inputs.AppTemplateCustomScaleRuleAuthenticationGetArgs> Authentications
         {
@@ -25,7 +25,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         }
 
         /// <summary>
-        /// The Custom rule type. Possible values include: `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`,`solace-event-queue`, and `github-runner`.
+        /// The Custom rule type. Possible values include: `Activemq`, `artemis-queue`, `Kafka`, `Pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `Cassandra`, `Cpu`, `Cron`, `Datadog`, `Elasticsearch`, `External`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `Graphite`, `Http`, `huawei-cloudeye`, `Ibmmq`, `Influxdb`, `kubernetes-workload`, `Liiklus`, `Memory`, `metrics-api`, `Mongodb`, `Mssql`, `Mysql`, `nats-jetstream`, `Stan`, `Tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `Postgresql`, `Predictkube`, `Prometheus`, `Rabbitmq`, `Redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`,`solace-event-queue`, and `github-runner`.
         /// </summary>
         [Input("customRuleType", required: true)]
         public Input<string> CustomRuleType { get; set; } = null!;

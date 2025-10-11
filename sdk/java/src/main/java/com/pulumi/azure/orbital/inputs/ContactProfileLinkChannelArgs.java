@@ -65,14 +65,14 @@ public final class ContactProfileLinkChannelArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Customer End point to store/retrieve data during a contact. An `end_point` block as defined below.
+     * Customer End point to store/retrieve data during a contact. An `endPoint` block as defined below.
      * 
      */
     @Import(name="endPoints", required=true)
     private Output<List<ContactProfileLinkChannelEndPointArgs>> endPoints;
 
     /**
-     * @return Customer End point to store/retrieve data during a contact. An `end_point` block as defined below.
+     * @return Customer End point to store/retrieve data during a contact. An `endPoint` block as defined below.
      * 
      */
     public Output<List<ContactProfileLinkChannelEndPointArgs>> endPoints() {
@@ -202,7 +202,7 @@ public final class ContactProfileLinkChannelArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param endPoints Customer End point to store/retrieve data during a contact. An `end_point` block as defined below.
+         * @param endPoints Customer End point to store/retrieve data during a contact. An `endPoint` block as defined below.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class ContactProfileLinkChannelArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param endPoints Customer End point to store/retrieve data during a contact. An `end_point` block as defined below.
+         * @param endPoints Customer End point to store/retrieve data during a contact. An `endPoint` block as defined below.
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class ContactProfileLinkChannelArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param endPoints Customer End point to store/retrieve data during a contact. An `end_point` block as defined below.
+         * @param endPoints Customer End point to store/retrieve data during a contact. An `endPoint` block as defined below.
          * 
          * @return builder
          * 

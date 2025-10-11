@@ -24,17 +24,17 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// <summary>
         /// The amount of vCPU to allocate to the container.
         /// 
-        /// &gt; **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
+        /// &gt; **Note:** When using a Consumption plan, the `Cpu` and `Memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
         /// </summary>
         public readonly double Cpu;
         /// <summary>
-        /// One or more `env` blocks as detailed below.
+        /// One or more `Env` blocks as detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AppTemplateContainerEnv> Envs;
         /// <summary>
         /// The amount of ephemeral storage available to the Container App.
         /// 
-        /// &gt; **Note:** `ephemeral_storage` is currently in preview and not configurable at this time.
+        /// &gt; **Note:** `EphemeralStorage` is currently in preview and not configurable at this time.
         /// </summary>
         public readonly string? EphemeralStorage;
         /// <summary>
@@ -42,13 +42,13 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly string Image;
         /// <summary>
-        /// A `liveness_probe` block as detailed below.
+        /// A `LivenessProbe` block as detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AppTemplateContainerLivenessProbe> LivenessProbes;
         /// <summary>
         /// The amount of memory to allocate to the container.
         /// 
-        /// &gt; **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
+        /// &gt; **Note:** When using a Consumption plan, the `Cpu` and `Memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
         /// </summary>
         public readonly string Memory;
         /// <summary>
@@ -56,15 +56,15 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// A `readiness_probe` block as detailed below.
+        /// A `ReadinessProbe` block as detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AppTemplateContainerReadinessProbe> ReadinessProbes;
         /// <summary>
-        /// A `startup_probe` block as detailed below.
+        /// A `StartupProbe` block as detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AppTemplateContainerStartupProbe> StartupProbes;
         /// <summary>
-        /// A `volume_mounts` block as detailed below.
+        /// A `VolumeMounts` block as detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AppTemplateContainerVolumeMount> VolumeMounts;
 

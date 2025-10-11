@@ -13,12 +13,12 @@ import java.util.Objects;
 @CustomType
 public final class NetworkSimPolicySlice {
     /**
-     * @return An array of `data_network` block as defined below.
+     * @return An array of `dataNetwork` block as defined below.
      * 
      */
     private List<NetworkSimPolicySliceDataNetwork> dataNetworks;
     /**
-     * @return The ID of default data network to use if the user equipment does not explicitly specify it. Configuration for this object must exist in the `data_network` block.
+     * @return The ID of default data network to use if the user equipment does not explicitly specify it. Configuration for this object must exist in the `dataNetwork` block.
      * 
      */
     private String defaultDataNetworkId;
@@ -30,14 +30,14 @@ public final class NetworkSimPolicySlice {
 
     private NetworkSimPolicySlice() {}
     /**
-     * @return An array of `data_network` block as defined below.
+     * @return An array of `dataNetwork` block as defined below.
      * 
      */
     public List<NetworkSimPolicySliceDataNetwork> dataNetworks() {
         return this.dataNetworks;
     }
     /**
-     * @return The ID of default data network to use if the user equipment does not explicitly specify it. Configuration for this object must exist in the `data_network` block.
+     * @return The ID of default data network to use if the user equipment does not explicitly specify it. Configuration for this object must exist in the `dataNetwork` block.
      * 
      */
     public String defaultDataNetworkId() {

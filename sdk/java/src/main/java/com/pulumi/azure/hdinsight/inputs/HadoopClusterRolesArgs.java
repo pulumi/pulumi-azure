@@ -20,14 +20,14 @@ public final class HadoopClusterRolesArgs extends com.pulumi.resources.ResourceA
     public static final HadoopClusterRolesArgs Empty = new HadoopClusterRolesArgs();
 
     /**
-     * A `edge_node` block as defined below.
+     * A `edgeNode` block as defined below.
      * 
      */
     @Import(name="edgeNode")
     private @Nullable Output<HadoopClusterRolesEdgeNodeArgs> edgeNode;
 
     /**
-     * @return A `edge_node` block as defined below.
+     * @return A `edgeNode` block as defined below.
      * 
      */
     public Optional<Output<HadoopClusterRolesEdgeNodeArgs>> edgeNode() {
@@ -35,14 +35,14 @@ public final class HadoopClusterRolesArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A `head_node` block as defined above.
+     * A `headNode` block as defined above.
      * 
      */
     @Import(name="headNode", required=true)
     private Output<HadoopClusterRolesHeadNodeArgs> headNode;
 
     /**
-     * @return A `head_node` block as defined above.
+     * @return A `headNode` block as defined above.
      * 
      */
     public Output<HadoopClusterRolesHeadNodeArgs> headNode() {
@@ -50,14 +50,14 @@ public final class HadoopClusterRolesArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A `worker_node` block as defined below.
+     * A `workerNode` block as defined below.
      * 
      */
     @Import(name="workerNode", required=true)
     private Output<HadoopClusterRolesWorkerNodeArgs> workerNode;
 
     /**
-     * @return A `worker_node` block as defined below.
+     * @return A `workerNode` block as defined below.
      * 
      */
     public Output<HadoopClusterRolesWorkerNodeArgs> workerNode() {
@@ -65,14 +65,14 @@ public final class HadoopClusterRolesArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A `zookeeper_node` block as defined below.
+     * A `zookeeperNode` block as defined below.
      * 
      */
     @Import(name="zookeeperNode", required=true)
     private Output<HadoopClusterRolesZookeeperNodeArgs> zookeeperNode;
 
     /**
-     * @return A `zookeeper_node` block as defined below.
+     * @return A `zookeeperNode` block as defined below.
      * 
      */
     public Output<HadoopClusterRolesZookeeperNodeArgs> zookeeperNode() {
@@ -107,7 +107,7 @@ public final class HadoopClusterRolesArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param edgeNode A `edge_node` block as defined below.
+         * @param edgeNode A `edgeNode` block as defined below.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class HadoopClusterRolesArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param edgeNode A `edge_node` block as defined below.
+         * @param edgeNode A `edgeNode` block as defined below.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class HadoopClusterRolesArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param headNode A `head_node` block as defined above.
+         * @param headNode A `headNode` block as defined above.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class HadoopClusterRolesArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param headNode A `head_node` block as defined above.
+         * @param headNode A `headNode` block as defined above.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class HadoopClusterRolesArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param workerNode A `worker_node` block as defined below.
+         * @param workerNode A `workerNode` block as defined below.
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class HadoopClusterRolesArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param workerNode A `worker_node` block as defined below.
+         * @param workerNode A `workerNode` block as defined below.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class HadoopClusterRolesArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param zookeeperNode A `zookeeper_node` block as defined below.
+         * @param zookeeperNode A `zookeeperNode` block as defined below.
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class HadoopClusterRolesArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param zookeeperNode A `zookeeper_node` block as defined below.
+         * @param zookeeperNode A `zookeeperNode` block as defined below.
          * 
          * @return builder
          * 

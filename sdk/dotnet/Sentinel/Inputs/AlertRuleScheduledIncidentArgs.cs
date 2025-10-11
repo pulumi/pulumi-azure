@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Sentinel.Inputs
         public Input<bool> CreateIncidentEnabled { get; set; } = null!;
 
         /// <summary>
-        /// A `grouping` block as defined below.
+        /// A `Grouping` block as defined below.
         /// </summary>
         [Input("grouping", required: true)]
         public Input<Inputs.AlertRuleScheduledIncidentGroupingArgs> Grouping { get; set; } = null!;

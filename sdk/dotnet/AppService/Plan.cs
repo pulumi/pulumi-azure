@@ -171,9 +171,9 @@ namespace Pulumi.Azure.AppService
         public Output<bool?> IsXenon { get; private set; } = null!;
 
         /// <summary>
-        /// The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption), `xenon` and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
+        /// The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `Elastic` (for Premium Consumption), `Xenon` and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** When creating a `Linux` App Service Plan, the `reserved` field must be set to `true`, and when creating a `Windows`/`app` App Service Plan the `reserved` field must be set to `false`.
+        /// &gt; **NOTE:** When creating a `Linux` App Service Plan, the `Reserved` field must be set to `True`, and when creating a `Windows`/`App` App Service Plan the `Reserved` field must be set to `False`.
         /// </summary>
         [Output("kind")]
         public Output<string?> Kind { get; private set; } = null!;
@@ -203,7 +203,7 @@ namespace Pulumi.Azure.AppService
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.
+        /// Can Apps assigned to this App Service Plan be scaled independently? If set to `False` apps assigned to this plan will scale to all instances of the plan.
         /// </summary>
         [Output("perSiteScaling")]
         public Output<bool?> PerSiteScaling { get; private set; } = null!;
@@ -221,7 +221,7 @@ namespace Pulumi.Azure.AppService
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `sku` block as documented below.
+        /// A `Sku` block as documented below.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.PlanSku> Sku { get; private set; } = null!;
@@ -301,9 +301,9 @@ namespace Pulumi.Azure.AppService
         public Input<bool>? IsXenon { get; set; }
 
         /// <summary>
-        /// The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption), `xenon` and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
+        /// The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `Elastic` (for Premium Consumption), `Xenon` and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** When creating a `Linux` App Service Plan, the `reserved` field must be set to `true`, and when creating a `Windows`/`app` App Service Plan the `reserved` field must be set to `false`.
+        /// &gt; **NOTE:** When creating a `Linux` App Service Plan, the `Reserved` field must be set to `True`, and when creating a `Windows`/`App` App Service Plan the `Reserved` field must be set to `False`.
         /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }
@@ -327,7 +327,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.
+        /// Can Apps assigned to this App Service Plan be scaled independently? If set to `False` apps assigned to this plan will scale to all instances of the plan.
         /// </summary>
         [Input("perSiteScaling")]
         public Input<bool>? PerSiteScaling { get; set; }
@@ -345,7 +345,7 @@ namespace Pulumi.Azure.AppService
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `sku` block as documented below.
+        /// A `Sku` block as documented below.
         /// </summary>
         [Input("sku", required: true)]
         public Input<Inputs.PlanSkuArgs> Sku { get; set; } = null!;
@@ -393,9 +393,9 @@ namespace Pulumi.Azure.AppService
         public Input<bool>? IsXenon { get; set; }
 
         /// <summary>
-        /// The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption), `xenon` and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
+        /// The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `Elastic` (for Premium Consumption), `Xenon` and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** When creating a `Linux` App Service Plan, the `reserved` field must be set to `true`, and when creating a `Windows`/`app` App Service Plan the `reserved` field must be set to `false`.
+        /// &gt; **NOTE:** When creating a `Linux` App Service Plan, the `Reserved` field must be set to `True`, and when creating a `Windows`/`App` App Service Plan the `Reserved` field must be set to `False`.
         /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }
@@ -425,7 +425,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.
+        /// Can Apps assigned to this App Service Plan be scaled independently? If set to `False` apps assigned to this plan will scale to all instances of the plan.
         /// </summary>
         [Input("perSiteScaling")]
         public Input<bool>? PerSiteScaling { get; set; }
@@ -443,7 +443,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// A `sku` block as documented below.
+        /// A `Sku` block as documented below.
         /// </summary>
         [Input("sku")]
         public Input<Inputs.PlanSkuGetArgs>? Sku { get; set; }

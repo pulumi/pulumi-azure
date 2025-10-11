@@ -115,14 +115,14 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.contentTypesToCompresses);
     }
     /**
-     * Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `delivery_rule` blocks as defined below.
+     * Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `deliveryRule` blocks as defined below.
      * 
      */
     @Export(name="deliveryRules", refs={List.class,EndpointDeliveryRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<EndpointDeliveryRule>> deliveryRules;
 
     /**
-     * @return Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `delivery_rule` blocks as defined below.
+     * @return Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `deliveryRule` blocks as defined below.
      * 
      */
     public Output<Optional<List<EndpointDeliveryRule>>> deliveryRules() {
@@ -143,28 +143,28 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
         return this.fqdn;
     }
     /**
-     * A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
+     * A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
      * 
      */
     @Export(name="geoFilters", refs={List.class,EndpointGeoFilter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<EndpointGeoFilter>> geoFilters;
 
     /**
-     * @return A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
+     * @return A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
      * 
      */
     public Output<Optional<List<EndpointGeoFilter>>> geoFilters() {
         return Codegen.optional(this.geoFilters);
     }
     /**
-     * Actions that are valid for all resources regardless of any conditions. A `global_delivery_rule` block as defined below.
+     * Actions that are valid for all resources regardless of any conditions. A `globalDeliveryRule` block as defined below.
      * 
      */
     @Export(name="globalDeliveryRule", refs={EndpointGlobalDeliveryRule.class}, tree="[0]")
     private Output</* @Nullable */ EndpointGlobalDeliveryRule> globalDeliveryRule;
 
     /**
-     * @return Actions that are valid for all resources regardless of any conditions. A `global_delivery_rule` block as defined below.
+     * @return Actions that are valid for all resources regardless of any conditions. A `globalDeliveryRule` block as defined below.
      * 
      */
     public Output<Optional<EndpointGlobalDeliveryRule>> globalDeliveryRule() {
@@ -297,18 +297,18 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
         return this.origins;
     }
     /**
-     * the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
+     * the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `originPath`.
      * 
-     * &gt; **Note:** `global_delivery_rule` and `delivery_rule` are currently only available for `Microsoft_Standard` CDN profiles.
+     * &gt; **Note:** `globalDeliveryRule` and `deliveryRule` are currently only available for `Microsoft_Standard` CDN profiles.
      * 
      */
     @Export(name="probePath", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> probePath;
 
     /**
-     * @return the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
+     * @return the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `originPath`.
      * 
-     * &gt; **Note:** `global_delivery_rule` and `delivery_rule` are currently only available for `Microsoft_Standard` CDN profiles.
+     * &gt; **Note:** `globalDeliveryRule` and `deliveryRule` are currently only available for `Microsoft_Standard` CDN profiles.
      * 
      */
     public Output<Optional<String>> probePath() {

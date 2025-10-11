@@ -22,14 +22,14 @@ public final class EndpointGlobalDeliveryRuleArgs extends com.pulumi.resources.R
     public static final EndpointGlobalDeliveryRuleArgs Empty = new EndpointGlobalDeliveryRuleArgs();
 
     /**
-     * A `cache_expiration_action` block as defined above.
+     * A `cacheExpirationAction` block as defined above.
      * 
      */
     @Import(name="cacheExpirationAction")
     private @Nullable Output<EndpointGlobalDeliveryRuleCacheExpirationActionArgs> cacheExpirationAction;
 
     /**
-     * @return A `cache_expiration_action` block as defined above.
+     * @return A `cacheExpirationAction` block as defined above.
      * 
      */
     public Optional<Output<EndpointGlobalDeliveryRuleCacheExpirationActionArgs>> cacheExpirationAction() {
@@ -37,14 +37,14 @@ public final class EndpointGlobalDeliveryRuleArgs extends com.pulumi.resources.R
     }
 
     /**
-     * A `cache_key_query_string_action` block as defined above.
+     * A `cacheKeyQueryStringAction` block as defined above.
      * 
      */
     @Import(name="cacheKeyQueryStringAction")
     private @Nullable Output<EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArgs> cacheKeyQueryStringAction;
 
     /**
-     * @return A `cache_key_query_string_action` block as defined above.
+     * @return A `cacheKeyQueryStringAction` block as defined above.
      * 
      */
     public Optional<Output<EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArgs>> cacheKeyQueryStringAction() {
@@ -52,14 +52,14 @@ public final class EndpointGlobalDeliveryRuleArgs extends com.pulumi.resources.R
     }
 
     /**
-     * A `modify_request_header_action` block as defined below.
+     * A `modifyRequestHeaderAction` block as defined below.
      * 
      */
     @Import(name="modifyRequestHeaderActions")
     private @Nullable Output<List<EndpointGlobalDeliveryRuleModifyRequestHeaderActionArgs>> modifyRequestHeaderActions;
 
     /**
-     * @return A `modify_request_header_action` block as defined below.
+     * @return A `modifyRequestHeaderAction` block as defined below.
      * 
      */
     public Optional<Output<List<EndpointGlobalDeliveryRuleModifyRequestHeaderActionArgs>>> modifyRequestHeaderActions() {
@@ -67,14 +67,14 @@ public final class EndpointGlobalDeliveryRuleArgs extends com.pulumi.resources.R
     }
 
     /**
-     * A `modify_response_header_action` block as defined below.
+     * A `modifyResponseHeaderAction` block as defined below.
      * 
      */
     @Import(name="modifyResponseHeaderActions")
     private @Nullable Output<List<EndpointGlobalDeliveryRuleModifyResponseHeaderActionArgs>> modifyResponseHeaderActions;
 
     /**
-     * @return A `modify_response_header_action` block as defined below.
+     * @return A `modifyResponseHeaderAction` block as defined below.
      * 
      */
     public Optional<Output<List<EndpointGlobalDeliveryRuleModifyResponseHeaderActionArgs>>> modifyResponseHeaderActions() {
@@ -82,14 +82,14 @@ public final class EndpointGlobalDeliveryRuleArgs extends com.pulumi.resources.R
     }
 
     /**
-     * A `url_redirect_action` block as defined below.
+     * A `urlRedirectAction` block as defined below.
      * 
      */
     @Import(name="urlRedirectAction")
     private @Nullable Output<EndpointGlobalDeliveryRuleUrlRedirectActionArgs> urlRedirectAction;
 
     /**
-     * @return A `url_redirect_action` block as defined below.
+     * @return A `urlRedirectAction` block as defined below.
      * 
      */
     public Optional<Output<EndpointGlobalDeliveryRuleUrlRedirectActionArgs>> urlRedirectAction() {
@@ -97,14 +97,14 @@ public final class EndpointGlobalDeliveryRuleArgs extends com.pulumi.resources.R
     }
 
     /**
-     * A `url_rewrite_action` block as defined below.
+     * A `urlRewriteAction` block as defined below.
      * 
      */
     @Import(name="urlRewriteAction")
     private @Nullable Output<EndpointGlobalDeliveryRuleUrlRewriteActionArgs> urlRewriteAction;
 
     /**
-     * @return A `url_rewrite_action` block as defined below.
+     * @return A `urlRewriteAction` block as defined below.
      * 
      */
     public Optional<Output<EndpointGlobalDeliveryRuleUrlRewriteActionArgs>> urlRewriteAction() {
@@ -141,7 +141,7 @@ public final class EndpointGlobalDeliveryRuleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param cacheExpirationAction A `cache_expiration_action` block as defined above.
+         * @param cacheExpirationAction A `cacheExpirationAction` block as defined above.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class EndpointGlobalDeliveryRuleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param cacheExpirationAction A `cache_expiration_action` block as defined above.
+         * @param cacheExpirationAction A `cacheExpirationAction` block as defined above.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class EndpointGlobalDeliveryRuleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param cacheKeyQueryStringAction A `cache_key_query_string_action` block as defined above.
+         * @param cacheKeyQueryStringAction A `cacheKeyQueryStringAction` block as defined above.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class EndpointGlobalDeliveryRuleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param cacheKeyQueryStringAction A `cache_key_query_string_action` block as defined above.
+         * @param cacheKeyQueryStringAction A `cacheKeyQueryStringAction` block as defined above.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class EndpointGlobalDeliveryRuleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param modifyRequestHeaderActions A `modify_request_header_action` block as defined below.
+         * @param modifyRequestHeaderActions A `modifyRequestHeaderAction` block as defined below.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class EndpointGlobalDeliveryRuleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param modifyRequestHeaderActions A `modify_request_header_action` block as defined below.
+         * @param modifyRequestHeaderActions A `modifyRequestHeaderAction` block as defined below.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class EndpointGlobalDeliveryRuleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param modifyRequestHeaderActions A `modify_request_header_action` block as defined below.
+         * @param modifyRequestHeaderActions A `modifyRequestHeaderAction` block as defined below.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class EndpointGlobalDeliveryRuleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param modifyResponseHeaderActions A `modify_response_header_action` block as defined below.
+         * @param modifyResponseHeaderActions A `modifyResponseHeaderAction` block as defined below.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class EndpointGlobalDeliveryRuleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param modifyResponseHeaderActions A `modify_response_header_action` block as defined below.
+         * @param modifyResponseHeaderActions A `modifyResponseHeaderAction` block as defined below.
          * 
          * @return builder
          * 
@@ -235,7 +235,7 @@ public final class EndpointGlobalDeliveryRuleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param modifyResponseHeaderActions A `modify_response_header_action` block as defined below.
+         * @param modifyResponseHeaderActions A `modifyResponseHeaderAction` block as defined below.
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class EndpointGlobalDeliveryRuleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param urlRedirectAction A `url_redirect_action` block as defined below.
+         * @param urlRedirectAction A `urlRedirectAction` block as defined below.
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class EndpointGlobalDeliveryRuleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param urlRedirectAction A `url_redirect_action` block as defined below.
+         * @param urlRedirectAction A `urlRedirectAction` block as defined below.
          * 
          * @return builder
          * 
@@ -266,7 +266,7 @@ public final class EndpointGlobalDeliveryRuleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param urlRewriteAction A `url_rewrite_action` block as defined below.
+         * @param urlRewriteAction A `urlRewriteAction` block as defined below.
          * 
          * @return builder
          * 
@@ -277,7 +277,7 @@ public final class EndpointGlobalDeliveryRuleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param urlRewriteAction A `url_rewrite_action` block as defined below.
+         * @param urlRewriteAction A `urlRewriteAction` block as defined below.
          * 
          * @return builder
          * 

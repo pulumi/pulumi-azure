@@ -59,21 +59,21 @@ namespace Pulumi.Azure.RecoveryServices
     public partial class Vault : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Whether to enable the Classic experience for VMware replication. If set to `false` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
+        /// Whether to enable the Classic experience for VMware replication. If set to `False` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
         /// </summary>
         [Output("classicVmwareReplicationEnabled")]
         public Output<bool?> ClassicVmwareReplicationEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
+        /// Is cross region restore enabled for this Vault? Only can be `True`, when `StorageModeType` is `GeoRedundant`. Defaults to `False`.
         /// 
-        /// &gt; **Note:** Once `cross_region_restore_enabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
+        /// &gt; **Note:** Once `CrossRegionRestoreEnabled` is set to `True`, changing it back to `False` forces a new Recovery Service Vault to be created.
         /// </summary>
         [Output("crossRegionRestoreEnabled")]
         public Output<bool?> CrossRegionRestoreEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// An `encryption` block as defined below. Required with `identity`.
+        /// An `Encryption` block as defined below. Required with `Identity`.
         /// 
         /// !&gt; **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
         /// </summary>
@@ -81,7 +81,7 @@ namespace Pulumi.Azure.RecoveryServices
         public Output<Outputs.VaultEncryption?> Encryption { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.VaultIdentity?> Identity { get; private set; } = null!;
@@ -89,7 +89,7 @@ namespace Pulumi.Azure.RecoveryServices
         /// <summary>
         /// Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
         /// 
-        /// &gt; **Note:** Once `immutability` is set to `Locked`, changing it to other values forces a new Recovery Services Vault to be created.
+        /// &gt; **Note:** Once `Immutability` is set to `Locked`, changing it to other values forces a new Recovery Services Vault to be created.
         /// </summary>
         [Output("immutability")]
         public Output<string> Immutability { get; private set; } = null!;
@@ -101,7 +101,7 @@ namespace Pulumi.Azure.RecoveryServices
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// A `monitoring` block as defined below.
+        /// A `Monitoring` block as defined below.
         /// </summary>
         [Output("monitoring")]
         public Output<Outputs.VaultMonitoring?> Monitoring { get; private set; } = null!;
@@ -113,7 +113,7 @@ namespace Pulumi.Azure.RecoveryServices
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Is it enabled to access the vault from public networks. Defaults to `true`.
+        /// Is it enabled to access the vault from public networks. Defaults to `True`.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
@@ -131,7 +131,7 @@ namespace Pulumi.Azure.RecoveryServices
         public Output<string> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// Is soft delete enable for this Vault? Defaults to `true`.
+        /// Is soft delete enable for this Vault? Defaults to `True`.
         /// </summary>
         [Output("softDeleteEnabled")]
         public Output<bool?> SoftDeleteEnabled { get; private set; } = null!;
@@ -195,21 +195,21 @@ namespace Pulumi.Azure.RecoveryServices
     public sealed class VaultArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to enable the Classic experience for VMware replication. If set to `false` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
+        /// Whether to enable the Classic experience for VMware replication. If set to `False` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
         /// </summary>
         [Input("classicVmwareReplicationEnabled")]
         public Input<bool>? ClassicVmwareReplicationEnabled { get; set; }
 
         /// <summary>
-        /// Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
+        /// Is cross region restore enabled for this Vault? Only can be `True`, when `StorageModeType` is `GeoRedundant`. Defaults to `False`.
         /// 
-        /// &gt; **Note:** Once `cross_region_restore_enabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
+        /// &gt; **Note:** Once `CrossRegionRestoreEnabled` is set to `True`, changing it back to `False` forces a new Recovery Service Vault to be created.
         /// </summary>
         [Input("crossRegionRestoreEnabled")]
         public Input<bool>? CrossRegionRestoreEnabled { get; set; }
 
         /// <summary>
-        /// An `encryption` block as defined below. Required with `identity`.
+        /// An `Encryption` block as defined below. Required with `Identity`.
         /// 
         /// !&gt; **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
         /// </summary>
@@ -217,7 +217,7 @@ namespace Pulumi.Azure.RecoveryServices
         public Input<Inputs.VaultEncryptionArgs>? Encryption { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.VaultIdentityArgs>? Identity { get; set; }
@@ -225,7 +225,7 @@ namespace Pulumi.Azure.RecoveryServices
         /// <summary>
         /// Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
         /// 
-        /// &gt; **Note:** Once `immutability` is set to `Locked`, changing it to other values forces a new Recovery Services Vault to be created.
+        /// &gt; **Note:** Once `Immutability` is set to `Locked`, changing it to other values forces a new Recovery Services Vault to be created.
         /// </summary>
         [Input("immutability")]
         public Input<string>? Immutability { get; set; }
@@ -237,7 +237,7 @@ namespace Pulumi.Azure.RecoveryServices
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A `monitoring` block as defined below.
+        /// A `Monitoring` block as defined below.
         /// </summary>
         [Input("monitoring")]
         public Input<Inputs.VaultMonitoringArgs>? Monitoring { get; set; }
@@ -249,7 +249,7 @@ namespace Pulumi.Azure.RecoveryServices
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Is it enabled to access the vault from public networks. Defaults to `true`.
+        /// Is it enabled to access the vault from public networks. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -267,7 +267,7 @@ namespace Pulumi.Azure.RecoveryServices
         public Input<string> Sku { get; set; } = null!;
 
         /// <summary>
-        /// Is soft delete enable for this Vault? Defaults to `true`.
+        /// Is soft delete enable for this Vault? Defaults to `True`.
         /// </summary>
         [Input("softDeleteEnabled")]
         public Input<bool>? SoftDeleteEnabled { get; set; }
@@ -299,21 +299,21 @@ namespace Pulumi.Azure.RecoveryServices
     public sealed class VaultState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to enable the Classic experience for VMware replication. If set to `false` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
+        /// Whether to enable the Classic experience for VMware replication. If set to `False` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
         /// </summary>
         [Input("classicVmwareReplicationEnabled")]
         public Input<bool>? ClassicVmwareReplicationEnabled { get; set; }
 
         /// <summary>
-        /// Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
+        /// Is cross region restore enabled for this Vault? Only can be `True`, when `StorageModeType` is `GeoRedundant`. Defaults to `False`.
         /// 
-        /// &gt; **Note:** Once `cross_region_restore_enabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
+        /// &gt; **Note:** Once `CrossRegionRestoreEnabled` is set to `True`, changing it back to `False` forces a new Recovery Service Vault to be created.
         /// </summary>
         [Input("crossRegionRestoreEnabled")]
         public Input<bool>? CrossRegionRestoreEnabled { get; set; }
 
         /// <summary>
-        /// An `encryption` block as defined below. Required with `identity`.
+        /// An `Encryption` block as defined below. Required with `Identity`.
         /// 
         /// !&gt; **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
         /// </summary>
@@ -321,7 +321,7 @@ namespace Pulumi.Azure.RecoveryServices
         public Input<Inputs.VaultEncryptionGetArgs>? Encryption { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.VaultIdentityGetArgs>? Identity { get; set; }
@@ -329,7 +329,7 @@ namespace Pulumi.Azure.RecoveryServices
         /// <summary>
         /// Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
         /// 
-        /// &gt; **Note:** Once `immutability` is set to `Locked`, changing it to other values forces a new Recovery Services Vault to be created.
+        /// &gt; **Note:** Once `Immutability` is set to `Locked`, changing it to other values forces a new Recovery Services Vault to be created.
         /// </summary>
         [Input("immutability")]
         public Input<string>? Immutability { get; set; }
@@ -341,7 +341,7 @@ namespace Pulumi.Azure.RecoveryServices
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// A `monitoring` block as defined below.
+        /// A `Monitoring` block as defined below.
         /// </summary>
         [Input("monitoring")]
         public Input<Inputs.VaultMonitoringGetArgs>? Monitoring { get; set; }
@@ -353,7 +353,7 @@ namespace Pulumi.Azure.RecoveryServices
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Is it enabled to access the vault from public networks. Defaults to `true`.
+        /// Is it enabled to access the vault from public networks. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -371,7 +371,7 @@ namespace Pulumi.Azure.RecoveryServices
         public Input<string>? Sku { get; set; }
 
         /// <summary>
-        /// Is soft delete enable for this Vault? Defaults to `true`.
+        /// Is soft delete enable for this Vault? Defaults to `True`.
         /// </summary>
         [Input("softDeleteEnabled")]
         public Input<bool>? SoftDeleteEnabled { get; set; }

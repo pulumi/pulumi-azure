@@ -98,13 +98,13 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+        /// Is the `Filename` using dynamic expression, function or system variables? Defaults to `False`.
         /// </summary>
         [Output("dynamicFilenameEnabled")]
         public Output<bool?> DynamicFilenameEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        /// Is the `Path` using dynamic expression, function or system variables? Defaults to `False`.
         /// </summary>
         [Output("dynamicPathEnabled")]
         public Output<bool?> DynamicPathEnabled { get; private set; } = null!;
@@ -146,7 +146,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> Path { get; private set; } = null!;
 
         /// <summary>
-        /// A `schema_column` block as defined below.
+        /// A `SchemaColumn` block as defined below.
         /// </summary>
         [Output("schemaColumns")]
         public Output<ImmutableArray<Outputs.DatasetAzureBlobSchemaColumn>> SchemaColumns { get; private set; } = null!;
@@ -236,13 +236,13 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+        /// Is the `Filename` using dynamic expression, function or system variables? Defaults to `False`.
         /// </summary>
         [Input("dynamicFilenameEnabled")]
         public Input<bool>? DynamicFilenameEnabled { get; set; }
 
         /// <summary>
-        /// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        /// Is the `Path` using dynamic expression, function or system variables? Defaults to `False`.
         /// </summary>
         [Input("dynamicPathEnabled")]
         public Input<bool>? DynamicPathEnabled { get; set; }
@@ -293,7 +293,7 @@ namespace Pulumi.Azure.DataFactory
         private InputList<Inputs.DatasetAzureBlobSchemaColumnArgs>? _schemaColumns;
 
         /// <summary>
-        /// A `schema_column` block as defined below.
+        /// A `SchemaColumn` block as defined below.
         /// </summary>
         public InputList<Inputs.DatasetAzureBlobSchemaColumnArgs> SchemaColumns
         {
@@ -348,13 +348,13 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+        /// Is the `Filename` using dynamic expression, function or system variables? Defaults to `False`.
         /// </summary>
         [Input("dynamicFilenameEnabled")]
         public Input<bool>? DynamicFilenameEnabled { get; set; }
 
         /// <summary>
-        /// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        /// Is the `Path` using dynamic expression, function or system variables? Defaults to `False`.
         /// </summary>
         [Input("dynamicPathEnabled")]
         public Input<bool>? DynamicPathEnabled { get; set; }
@@ -405,7 +405,7 @@ namespace Pulumi.Azure.DataFactory
         private InputList<Inputs.DatasetAzureBlobSchemaColumnGetArgs>? _schemaColumns;
 
         /// <summary>
-        /// A `schema_column` block as defined below.
+        /// A `SchemaColumn` block as defined below.
         /// </summary>
         public InputList<Inputs.DatasetAzureBlobSchemaColumnGetArgs> SchemaColumns
         {

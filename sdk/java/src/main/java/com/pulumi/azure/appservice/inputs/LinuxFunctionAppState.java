@@ -44,14 +44,14 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A `auth_settings` block as defined below.
+     * A `authSettings` block as defined below.
      * 
      */
     @Import(name="authSettings")
     private @Nullable Output<LinuxFunctionAppAuthSettingsArgs> authSettings;
 
     /**
-     * @return A `auth_settings` block as defined below.
+     * @return A `authSettings` block as defined below.
      * 
      */
     public Optional<Output<LinuxFunctionAppAuthSettingsArgs>> authSettings() {
@@ -59,14 +59,14 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * An `auth_settings_v2` block as defined below.
+     * An `authSettingsV2` block as defined below.
      * 
      */
     @Import(name="authSettingsV2")
     private @Nullable Output<LinuxFunctionAppAuthSettingsV2Args> authSettingsV2;
 
     /**
-     * @return An `auth_settings_v2` block as defined below.
+     * @return An `authSettingsV2` block as defined below.
      * 
      */
     public Optional<Output<LinuxFunctionAppAuthSettingsV2Args>> authSettingsV2() {
@@ -91,7 +91,7 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
     /**
      * Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
      * 
-     * &gt; **Note:** `builtin_logging_enabled` is only supported for function app whose function runtime is running on version 1.x.
+     * &gt; **Note:** `builtinLoggingEnabled` is only supported for function app whose function runtime is running on version 1.x.
      * 
      */
     @Import(name="builtinLoggingEnabled")
@@ -100,7 +100,7 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
     /**
      * @return Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
      * 
-     * &gt; **Note:** `builtin_logging_enabled` is only supported for function app whose function runtime is running on version 1.x.
+     * &gt; **Note:** `builtinLoggingEnabled` is only supported for function app whose function runtime is running on version 1.x.
      * 
      */
     public Optional<Output<Boolean>> builtinLoggingEnabled() {
@@ -153,14 +153,14 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * One or more `connection_string` blocks as defined below.
+     * One or more `connectionString` blocks as defined below.
      * 
      */
     @Import(name="connectionStrings")
     private @Nullable Output<List<LinuxFunctionAppConnectionStringArgs>> connectionStrings;
 
     /**
-     * @return One or more `connection_string` blocks as defined below.
+     * @return One or more `connectionString` blocks as defined below.
      * 
      */
     public Optional<Output<List<LinuxFunctionAppConnectionStringArgs>>> connectionStrings() {
@@ -408,14 +408,14 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
+     * A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outboundIpAddressList`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
      * 
      */
     @Import(name="possibleOutboundIpAddressLists")
     private @Nullable Output<List<String>> possibleOutboundIpAddressLists;
 
     /**
-     * @return A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
+     * @return A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outboundIpAddressList`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
      * 
      */
     public Optional<Output<List<String>>> possibleOutboundIpAddressLists() {
@@ -423,14 +423,14 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`.
+     * A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`.
      * 
      */
     @Import(name="possibleOutboundIpAddresses")
     private @Nullable Output<String> possibleOutboundIpAddresses;
 
     /**
-     * @return A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`.
+     * @return A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`.
      * 
      */
     public Optional<Output<String>> possibleOutboundIpAddresses() {
@@ -483,14 +483,14 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A `site_config` block as defined below.
+     * A `siteConfig` block as defined below.
      * 
      */
     @Import(name="siteConfig")
     private @Nullable Output<LinuxFunctionAppSiteConfigArgs> siteConfig;
 
     /**
-     * @return A `site_config` block as defined below.
+     * @return A `siteConfig` block as defined below.
      * 
      */
     public Optional<Output<LinuxFunctionAppSiteConfigArgs>> siteConfig() {
@@ -498,14 +498,14 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A `site_credential` block as defined below.
+     * A `siteCredential` block as defined below.
      * 
      */
     @Import(name="siteCredentials")
     private @Nullable Output<List<LinuxFunctionAppSiteCredentialArgs>> siteCredentials;
 
     /**
-     * @return A `site_credential` block as defined below.
+     * @return A `siteCredential` block as defined below.
      * 
      */
     public Optional<Output<List<LinuxFunctionAppSiteCredentialArgs>>> siteCredentials() {
@@ -513,14 +513,14 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A `sticky_settings` block as defined below.
+     * A `stickySettings` block as defined below.
      * 
      */
     @Import(name="stickySettings")
     private @Nullable Output<LinuxFunctionAppStickySettingsArgs> stickySettings;
 
     /**
-     * @return A `sticky_settings` block as defined below.
+     * @return A `stickySettings` block as defined below.
      * 
      */
     public Optional<Output<LinuxFunctionAppStickySettingsArgs>> stickySettings() {
@@ -528,14 +528,14 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The access key which will be used to access the backend storage account for the Function App. Conflicts with `storage_uses_managed_identity`.
+     * The access key which will be used to access the backend storage account for the Function App. Conflicts with `storageUsesManagedIdentity`.
      * 
      */
     @Import(name="storageAccountAccessKey")
     private @Nullable Output<String> storageAccountAccessKey;
 
     /**
-     * @return The access key which will be used to access the backend storage account for the Function App. Conflicts with `storage_uses_managed_identity`.
+     * @return The access key which will be used to access the backend storage account for the Function App. Conflicts with `storageUsesManagedIdentity`.
      * 
      */
     public Optional<Output<String>> storageAccountAccessKey() {
@@ -558,14 +558,14 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * One or more `storage_account` blocks as defined below.
+     * One or more `storageAccount` blocks as defined below.
      * 
      */
     @Import(name="storageAccounts")
     private @Nullable Output<List<LinuxFunctionAppStorageAccountArgs>> storageAccounts;
 
     /**
-     * @return One or more `storage_account` blocks as defined below.
+     * @return One or more `storageAccount` blocks as defined below.
      * 
      */
     public Optional<Output<List<LinuxFunctionAppStorageAccountArgs>>> storageAccounts() {
@@ -575,9 +575,9 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
     /**
      * The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
      * 
-     * &gt; **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+     * &gt; **Note:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
      * 
-     * &gt; **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+     * &gt; **Note:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
      * 
      */
     @Import(name="storageKeyVaultSecretId")
@@ -586,9 +586,9 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
     /**
      * @return The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
      * 
-     * &gt; **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+     * &gt; **Note:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
      * 
-     * &gt; **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+     * &gt; **Note:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
      * 
      */
     public Optional<Output<String>> storageKeyVaultSecretId() {
@@ -596,18 +596,18 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
+     * Should the Function App use Managed Identity to access the storage account. Conflicts with `storageAccountAccessKey`.
      * 
-     * &gt; **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+     * &gt; **Note:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
      * 
      */
     @Import(name="storageUsesManagedIdentity")
     private @Nullable Output<Boolean> storageUsesManagedIdentity;
 
     /**
-     * @return Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
+     * @return Should the Function App use Managed Identity to access the storage account. Conflicts with `storageAccountAccessKey`.
      * 
-     * &gt; **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+     * &gt; **Note:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
      * 
      */
     public Optional<Output<Boolean>> storageUsesManagedIdentity() {
@@ -673,7 +673,7 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
     /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      * 
-     * &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+     * &gt; **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
      * 
      */
     @Import(name="webdeployPublishBasicAuthenticationEnabled")
@@ -682,7 +682,7 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
     /**
      * @return Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      * 
-     * &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+     * &gt; **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
      * 
      */
     public Optional<Output<Boolean>> webdeployPublishBasicAuthenticationEnabled() {
@@ -692,7 +692,7 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
     /**
      * The local path and filename of the Zip packaged application to deploy to this Linux Function App.
      * 
-     * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
+     * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
      * 
      */
     @Import(name="zipDeployFile")
@@ -701,7 +701,7 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
     /**
      * @return The local path and filename of the Zip packaged application to deploy to this Linux Function App.
      * 
-     * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
+     * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
      * 
      */
     public Optional<Output<String>> zipDeployFile() {
@@ -797,7 +797,7 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param authSettings A `auth_settings` block as defined below.
+         * @param authSettings A `authSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -808,7 +808,7 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param authSettings A `auth_settings` block as defined below.
+         * @param authSettings A `authSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -818,7 +818,7 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param authSettingsV2 An `auth_settings_v2` block as defined below.
+         * @param authSettingsV2 An `authSettingsV2` block as defined below.
          * 
          * @return builder
          * 
@@ -829,7 +829,7 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param authSettingsV2 An `auth_settings_v2` block as defined below.
+         * @param authSettingsV2 An `authSettingsV2` block as defined below.
          * 
          * @return builder
          * 
@@ -862,7 +862,7 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
         /**
          * @param builtinLoggingEnabled Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
          * 
-         * &gt; **Note:** `builtin_logging_enabled` is only supported for function app whose function runtime is running on version 1.x.
+         * &gt; **Note:** `builtinLoggingEnabled` is only supported for function app whose function runtime is running on version 1.x.
          * 
          * @return builder
          * 
@@ -875,7 +875,7 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
         /**
          * @param builtinLoggingEnabled Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
          * 
-         * &gt; **Note:** `builtin_logging_enabled` is only supported for function app whose function runtime is running on version 1.x.
+         * &gt; **Note:** `builtinLoggingEnabled` is only supported for function app whose function runtime is running on version 1.x.
          * 
          * @return builder
          * 
@@ -948,7 +948,7 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param connectionStrings One or more `connection_string` blocks as defined below.
+         * @param connectionStrings One or more `connectionString` blocks as defined below.
          * 
          * @return builder
          * 
@@ -959,7 +959,7 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param connectionStrings One or more `connection_string` blocks as defined below.
+         * @param connectionStrings One or more `connectionString` blocks as defined below.
          * 
          * @return builder
          * 
@@ -969,7 +969,7 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param connectionStrings One or more `connection_string` blocks as defined below.
+         * @param connectionStrings One or more `connectionString` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1325,7 +1325,7 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param possibleOutboundIpAddressLists A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
+         * @param possibleOutboundIpAddressLists A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outboundIpAddressList`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
          * 
          * @return builder
          * 
@@ -1336,7 +1336,7 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param possibleOutboundIpAddressLists A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
+         * @param possibleOutboundIpAddressLists A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outboundIpAddressList`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
          * 
          * @return builder
          * 
@@ -1346,7 +1346,7 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param possibleOutboundIpAddressLists A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
+         * @param possibleOutboundIpAddressLists A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outboundIpAddressList`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
          * 
          * @return builder
          * 
@@ -1356,7 +1356,7 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param possibleOutboundIpAddresses A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`.
+         * @param possibleOutboundIpAddresses A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`.
          * 
          * @return builder
          * 
@@ -1367,7 +1367,7 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param possibleOutboundIpAddresses A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`.
+         * @param possibleOutboundIpAddresses A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`.
          * 
          * @return builder
          * 
@@ -1440,7 +1440,7 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param siteConfig A `site_config` block as defined below.
+         * @param siteConfig A `siteConfig` block as defined below.
          * 
          * @return builder
          * 
@@ -1451,7 +1451,7 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param siteConfig A `site_config` block as defined below.
+         * @param siteConfig A `siteConfig` block as defined below.
          * 
          * @return builder
          * 
@@ -1461,7 +1461,7 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param siteCredentials A `site_credential` block as defined below.
+         * @param siteCredentials A `siteCredential` block as defined below.
          * 
          * @return builder
          * 
@@ -1472,7 +1472,7 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param siteCredentials A `site_credential` block as defined below.
+         * @param siteCredentials A `siteCredential` block as defined below.
          * 
          * @return builder
          * 
@@ -1482,7 +1482,7 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param siteCredentials A `site_credential` block as defined below.
+         * @param siteCredentials A `siteCredential` block as defined below.
          * 
          * @return builder
          * 
@@ -1492,7 +1492,7 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param stickySettings A `sticky_settings` block as defined below.
+         * @param stickySettings A `stickySettings` block as defined below.
          * 
          * @return builder
          * 
@@ -1503,7 +1503,7 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param stickySettings A `sticky_settings` block as defined below.
+         * @param stickySettings A `stickySettings` block as defined below.
          * 
          * @return builder
          * 
@@ -1513,7 +1513,7 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param storageAccountAccessKey The access key which will be used to access the backend storage account for the Function App. Conflicts with `storage_uses_managed_identity`.
+         * @param storageAccountAccessKey The access key which will be used to access the backend storage account for the Function App. Conflicts with `storageUsesManagedIdentity`.
          * 
          * @return builder
          * 
@@ -1524,7 +1524,7 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param storageAccountAccessKey The access key which will be used to access the backend storage account for the Function App. Conflicts with `storage_uses_managed_identity`.
+         * @param storageAccountAccessKey The access key which will be used to access the backend storage account for the Function App. Conflicts with `storageUsesManagedIdentity`.
          * 
          * @return builder
          * 
@@ -1555,7 +1555,7 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param storageAccounts One or more `storage_account` blocks as defined below.
+         * @param storageAccounts One or more `storageAccount` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1566,7 +1566,7 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param storageAccounts One or more `storage_account` blocks as defined below.
+         * @param storageAccounts One or more `storageAccount` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1576,7 +1576,7 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param storageAccounts One or more `storage_account` blocks as defined below.
+         * @param storageAccounts One or more `storageAccount` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1588,9 +1588,9 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
         /**
          * @param storageKeyVaultSecretId The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
          * 
-         * &gt; **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+         * &gt; **Note:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
          * 
-         * &gt; **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+         * &gt; **Note:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
          * 
          * @return builder
          * 
@@ -1603,9 +1603,9 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
         /**
          * @param storageKeyVaultSecretId The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
          * 
-         * &gt; **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+         * &gt; **Note:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
          * 
-         * &gt; **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+         * &gt; **Note:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
          * 
          * @return builder
          * 
@@ -1615,9 +1615,9 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param storageUsesManagedIdentity Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
+         * @param storageUsesManagedIdentity Should the Function App use Managed Identity to access the storage account. Conflicts with `storageAccountAccessKey`.
          * 
-         * &gt; **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+         * &gt; **Note:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
          * 
          * @return builder
          * 
@@ -1628,9 +1628,9 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param storageUsesManagedIdentity Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
+         * @param storageUsesManagedIdentity Should the Function App use Managed Identity to access the storage account. Conflicts with `storageAccountAccessKey`.
          * 
-         * &gt; **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+         * &gt; **Note:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
          * 
          * @return builder
          * 
@@ -1718,7 +1718,7 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
         /**
          * @param webdeployPublishBasicAuthenticationEnabled Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
          * 
-         * &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+         * &gt; **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
          * 
          * @return builder
          * 
@@ -1731,7 +1731,7 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
         /**
          * @param webdeployPublishBasicAuthenticationEnabled Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
          * 
-         * &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+         * &gt; **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
          * 
          * @return builder
          * 
@@ -1743,7 +1743,7 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
         /**
          * @param zipDeployFile The local path and filename of the Zip packaged application to deploy to this Linux Function App.
          * 
-         * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
+         * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
          * 
          * @return builder
          * 
@@ -1756,7 +1756,7 @@ public final class LinuxFunctionAppState extends com.pulumi.resources.ResourceAr
         /**
          * @param zipDeployFile The local path and filename of the Zip packaged application to deploy to this Linux Function App.
          * 
-         * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
+         * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
          * 
          * @return builder
          * 

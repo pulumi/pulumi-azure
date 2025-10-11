@@ -133,14 +133,14 @@ namespace Pulumi.Azure.MachineLearning
         public Output<bool?> SparkEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`,`amlworkspace`,`blob`,`table`,`queue`,`file`,`web`,`dfs`, `redisCache`. Changing this forces a new resource to be created.
+        /// Specifies the Sub Resource of the service resource to connect to. Possible values are `Vault`,`Amlworkspace`,`Blob`,`Table`,`Queue`,`File`,`Web`,`Dfs`, `redisCache`. Changing this forces a new resource to be created.
         /// 
         /// | Service                    | Sub Resource Type                         |
         /// |----------------------------|-------------------------------------------|
-        /// | Machine Learning Workspace | `amlworkspace`                            |
+        /// | Machine Learning Workspace | `Amlworkspace`                            |
         /// | Redis                      | `redisCache`                              |
-        /// | Storage Account            | `blob`,`table`,`queue`,`file`,`web`,`dfs` |
-        /// | Key Vault                  | `vault`                                   |
+        /// | Storage Account            | `Blob`,`Table`,`Queue`,`File`,`Web`,`Dfs` |
+        /// | Key Vault                  | `Vault`                                   |
         /// </summary>
         [Output("subResourceTarget")]
         public Output<string> SubResourceTarget { get; private set; } = null!;
@@ -218,14 +218,14 @@ namespace Pulumi.Azure.MachineLearning
         public Input<bool>? SparkEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`,`amlworkspace`,`blob`,`table`,`queue`,`file`,`web`,`dfs`, `redisCache`. Changing this forces a new resource to be created.
+        /// Specifies the Sub Resource of the service resource to connect to. Possible values are `Vault`,`Amlworkspace`,`Blob`,`Table`,`Queue`,`File`,`Web`,`Dfs`, `redisCache`. Changing this forces a new resource to be created.
         /// 
         /// | Service                    | Sub Resource Type                         |
         /// |----------------------------|-------------------------------------------|
-        /// | Machine Learning Workspace | `amlworkspace`                            |
+        /// | Machine Learning Workspace | `Amlworkspace`                            |
         /// | Redis                      | `redisCache`                              |
-        /// | Storage Account            | `blob`,`table`,`queue`,`file`,`web`,`dfs` |
-        /// | Key Vault                  | `vault`                                   |
+        /// | Storage Account            | `Blob`,`Table`,`Queue`,`File`,`Web`,`Dfs` |
+        /// | Key Vault                  | `Vault`                                   |
         /// </summary>
         [Input("subResourceTarget", required: true)]
         public Input<string> SubResourceTarget { get; set; } = null!;
@@ -265,14 +265,14 @@ namespace Pulumi.Azure.MachineLearning
         public Input<bool>? SparkEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`,`amlworkspace`,`blob`,`table`,`queue`,`file`,`web`,`dfs`, `redisCache`. Changing this forces a new resource to be created.
+        /// Specifies the Sub Resource of the service resource to connect to. Possible values are `Vault`,`Amlworkspace`,`Blob`,`Table`,`Queue`,`File`,`Web`,`Dfs`, `redisCache`. Changing this forces a new resource to be created.
         /// 
         /// | Service                    | Sub Resource Type                         |
         /// |----------------------------|-------------------------------------------|
-        /// | Machine Learning Workspace | `amlworkspace`                            |
+        /// | Machine Learning Workspace | `Amlworkspace`                            |
         /// | Redis                      | `redisCache`                              |
-        /// | Storage Account            | `blob`,`table`,`queue`,`file`,`web`,`dfs` |
-        /// | Key Vault                  | `vault`                                   |
+        /// | Storage Account            | `Blob`,`Table`,`Queue`,`File`,`Web`,`Dfs` |
+        /// | Key Vault                  | `Vault`                                   |
         /// </summary>
         [Input("subResourceTarget")]
         public Input<string>? SubResourceTarget { get; set; }

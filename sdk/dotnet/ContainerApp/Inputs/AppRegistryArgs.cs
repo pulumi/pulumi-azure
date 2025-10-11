@@ -15,13 +15,13 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         /// <summary>
         /// Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
         /// 
-        /// &gt; **Note:** The Resource ID must be of a User Assigned Managed identity defined in an `identity` block.
+        /// &gt; **Note:** The Resource ID must be of a User Assigned Managed identity defined in an `Identity` block.
         /// </summary>
         [Input("identity")]
         public Input<string>? Identity { get; set; }
 
         /// <summary>
-        /// The name of the Secret Reference containing the password value for this user on the Container Registry, `username` must also be supplied.
+        /// The name of the Secret Reference containing the password value for this user on the Container Registry, `Username` must also be supplied.
         /// </summary>
         [Input("passwordSecretName")]
         public Input<string>? PasswordSecretName { get; set; }
@@ -29,13 +29,13 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         /// <summary>
         /// The hostname for the Container Registry.
         /// 
-        /// The authentication details must also be supplied, `identity` and `username`/`password_secret_name` are mutually exclusive.
+        /// The authentication details must also be supplied, `Identity` and `Username`/`PasswordSecretName` are mutually exclusive.
         /// </summary>
         [Input("server", required: true)]
         public Input<string> Server { get; set; } = null!;
 
         /// <summary>
-        /// The username to use for this Container Registry, `password_secret_name` must also be supplied..
+        /// The username to use for this Container Registry, `PasswordSecretName` must also be supplied..
         /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }

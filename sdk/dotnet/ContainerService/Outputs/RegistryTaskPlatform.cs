@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class RegistryTaskPlatform
     {
         /// <summary>
-        /// The OS architecture. Possible values are `amd64`, `x86`, `386`, `arm` and `arm64`.
+        /// The OS architecture. Possible values are `Amd64`, `X86`, `386`, `Arm` and `Arm64`.
         /// </summary>
         public readonly string? Architecture;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string Os;
         /// <summary>
-        /// The variant of the CPU. Possible values are `v6`, `v7`, `v8`.
+        /// The variant of the CPU. Possible values are `V6`, `V7`, `V8`.
         /// </summary>
         public readonly string? Variant;
 

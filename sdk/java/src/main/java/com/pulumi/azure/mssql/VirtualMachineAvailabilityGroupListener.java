@@ -48,32 +48,32 @@ public class VirtualMachineAvailabilityGroupListener extends com.pulumi.resource
         return Codegen.optional(this.availabilityGroupName);
     }
     /**
-     * A `load_balancer_configuration` block as defined below. Changing this forces a new resource to be created.
+     * A `loadBalancerConfiguration` block as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Either one of `load_balancer_configuration` or `multi_subnet_ip_configuration` must be specified.
+     * &gt; **Note:** Either one of `loadBalancerConfiguration` or `multiSubnetIpConfiguration` must be specified.
      * 
      */
     @Export(name="loadBalancerConfiguration", refs={VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration> loadBalancerConfiguration;
 
     /**
-     * @return A `load_balancer_configuration` block as defined below. Changing this forces a new resource to be created.
+     * @return A `loadBalancerConfiguration` block as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Either one of `load_balancer_configuration` or `multi_subnet_ip_configuration` must be specified.
+     * &gt; **Note:** Either one of `loadBalancerConfiguration` or `multiSubnetIpConfiguration` must be specified.
      * 
      */
     public Output<Optional<VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration>> loadBalancerConfiguration() {
         return Codegen.optional(this.loadBalancerConfiguration);
     }
     /**
-     * One or more `multi_subnet_ip_configuration` blocks as defined below. Changing this forces a new resource to be created.
+     * One or more `multiSubnetIpConfiguration` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="multiSubnetIpConfigurations", refs={List.class,VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration.class}, tree="[0,1]")
     private Output</* @Nullable */ List<VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration>> multiSubnetIpConfigurations;
 
     /**
-     * @return One or more `multi_subnet_ip_configuration` blocks as defined below. Changing this forces a new resource to be created.
+     * @return One or more `multiSubnetIpConfiguration` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<List<VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration>>> multiSubnetIpConfigurations() {

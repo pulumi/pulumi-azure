@@ -50,14 +50,14 @@ public final class CacheNfsTargetArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Can be specified multiple times to define multiple `namespace_junction`. Each `namespace_junction` block supports fields documented below.
+     * Can be specified multiple times to define multiple `namespaceJunction`. Each `namespaceJunction` block supports fields documented below.
      * 
      */
     @Import(name="namespaceJunctions", required=true)
     private Output<List<CacheNfsTargetNamespaceJunctionArgs>> namespaceJunctions;
 
     /**
-     * @return Can be specified multiple times to define multiple `namespace_junction`. Each `namespace_junction` block supports fields documented below.
+     * @return Can be specified multiple times to define multiple `namespaceJunction`. Each `namespaceJunction` block supports fields documented below.
      * 
      */
     public Output<List<CacheNfsTargetNamespaceJunctionArgs>> namespaceJunctions() {
@@ -213,7 +213,7 @@ public final class CacheNfsTargetArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param namespaceJunctions Can be specified multiple times to define multiple `namespace_junction`. Each `namespace_junction` block supports fields documented below.
+         * @param namespaceJunctions Can be specified multiple times to define multiple `namespaceJunction`. Each `namespaceJunction` block supports fields documented below.
          * 
          * @return builder
          * 
@@ -224,7 +224,7 @@ public final class CacheNfsTargetArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param namespaceJunctions Can be specified multiple times to define multiple `namespace_junction`. Each `namespace_junction` block supports fields documented below.
+         * @param namespaceJunctions Can be specified multiple times to define multiple `namespaceJunction`. Each `namespaceJunction` block supports fields documented below.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class CacheNfsTargetArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param namespaceJunctions Can be specified multiple times to define multiple `namespace_junction`. Each `namespace_junction` block supports fields documented below.
+         * @param namespaceJunctions Can be specified multiple times to define multiple `namespaceJunction`. Each `namespaceJunction` block supports fields documented below.
          * 
          * @return builder
          * 

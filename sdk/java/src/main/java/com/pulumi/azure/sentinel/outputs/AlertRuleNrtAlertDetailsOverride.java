@@ -24,7 +24,7 @@ public final class AlertRuleNrtAlertDetailsOverride {
      */
     private @Nullable String displayNameFormat;
     /**
-     * @return A list of `dynamic_property` blocks as defined below.
+     * @return A list of `dynamicProperty` blocks as defined below.
      * 
      */
     private @Nullable List<AlertRuleNrtAlertDetailsOverrideDynamicProperty> dynamicProperties;
@@ -55,7 +55,7 @@ public final class AlertRuleNrtAlertDetailsOverride {
         return Optional.ofNullable(this.displayNameFormat);
     }
     /**
-     * @return A list of `dynamic_property` blocks as defined below.
+     * @return A list of `dynamicProperty` blocks as defined below.
      * 
      */
     public List<AlertRuleNrtAlertDetailsOverrideDynamicProperty> dynamicProperties() {

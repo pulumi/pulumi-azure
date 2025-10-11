@@ -19,7 +19,7 @@ public final class PolicyPolicySettingsLogScrubbing {
      */
     private @Nullable Boolean enabled;
     /**
-     * @return One or more `scrubbing_rule` blocks as define below.
+     * @return One or more `scrubbingRule` blocks as define below.
      * 
      */
     private @Nullable List<PolicyPolicySettingsLogScrubbingRule> rules;
@@ -33,7 +33,7 @@ public final class PolicyPolicySettingsLogScrubbing {
         return Optional.ofNullable(this.enabled);
     }
     /**
-     * @return One or more `scrubbing_rule` blocks as define below.
+     * @return One or more `scrubbingRule` blocks as define below.
      * 
      */
     public List<PolicyPolicySettingsLogScrubbingRule> rules() {

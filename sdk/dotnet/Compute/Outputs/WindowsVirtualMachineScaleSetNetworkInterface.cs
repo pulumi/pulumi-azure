@@ -16,13 +16,13 @@ namespace Pulumi.Azure.Compute.Outputs
         /// <summary>
         /// Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
         /// 
-        /// &gt; **Note:** `auxiliary_mode` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+        /// &gt; **Note:** `AuxiliaryMode` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
         /// </summary>
         public readonly string? AuxiliaryMode;
         /// <summary>
         /// Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
         /// 
-        /// &gt; **Note:** `auxiliary_sku` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+        /// &gt; **Note:** `AuxiliarySku` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
         /// </summary>
         public readonly string? AuxiliarySku;
         /// <summary>
@@ -30,15 +30,15 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly ImmutableArray<string> DnsServers;
         /// <summary>
-        /// Does this Network Interface support Accelerated Networking? Defaults to `false`.
+        /// Does this Network Interface support Accelerated Networking? Defaults to `False`.
         /// </summary>
         public readonly bool? EnableAcceleratedNetworking;
         /// <summary>
-        /// Does this Network Interface support IP Forwarding? Defaults to `false`.
+        /// Does this Network Interface support IP Forwarding? Defaults to `False`.
         /// </summary>
         public readonly bool? EnableIpForwarding;
         /// <summary>
-        /// One or more `ip_configuration` blocks as defined above.
+        /// One or more `IpConfiguration` blocks as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration> IpConfigurations;
         /// <summary>
@@ -52,7 +52,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// <summary>
         /// Is this the Primary IP Configuration?
         /// 
-        /// &gt; **Note:** If multiple `network_interface` blocks are specified, one must be set to `primary`.
+        /// &gt; **Note:** If multiple `NetworkInterface` blocks are specified, one must be set to `Primary`.
         /// </summary>
         public readonly bool? Primary;
 

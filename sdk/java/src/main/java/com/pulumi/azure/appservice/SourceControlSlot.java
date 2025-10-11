@@ -126,14 +126,14 @@ public class SourceControlSlot extends com.pulumi.resources.CustomResource {
         return this.branch;
     }
     /**
-     * A `github_action_configuration` block as detailed below. Changing this forces a new resource to be created.
+     * A `githubActionConfiguration` block as detailed below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="githubActionConfiguration", refs={SourceControlSlotGithubActionConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ SourceControlSlotGithubActionConfiguration> githubActionConfiguration;
 
     /**
-     * @return A `github_action_configuration` block as detailed below. Changing this forces a new resource to be created.
+     * @return A `githubActionConfiguration` block as detailed below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<SourceControlSlotGithubActionConfiguration>> githubActionConfiguration() {

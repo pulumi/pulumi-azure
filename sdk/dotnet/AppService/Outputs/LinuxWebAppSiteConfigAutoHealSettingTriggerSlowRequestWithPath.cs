@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPath
     {
         /// <summary>
-        /// The number of Slow Requests in the time `interval` to trigger this rule.
+        /// The number of Slow Requests in the time `Interval` to trigger this rule.
         /// </summary>
         public readonly int Count;
         /// <summary>

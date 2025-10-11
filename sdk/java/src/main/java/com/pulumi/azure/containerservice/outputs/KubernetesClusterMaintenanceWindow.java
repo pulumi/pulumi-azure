@@ -18,7 +18,7 @@ public final class KubernetesClusterMaintenanceWindow {
      */
     private @Nullable List<KubernetesClusterMaintenanceWindowAllowed> alloweds;
     /**
-     * @return One or more `not_allowed` block as defined below.
+     * @return One or more `notAllowed` block as defined below.
      * 
      */
     private @Nullable List<KubernetesClusterMaintenanceWindowNotAllowed> notAlloweds;
@@ -32,7 +32,7 @@ public final class KubernetesClusterMaintenanceWindow {
         return this.alloweds == null ? List.of() : this.alloweds;
     }
     /**
-     * @return One or more `not_allowed` block as defined below.
+     * @return One or more `notAllowed` block as defined below.
      * 
      */
     public List<KubernetesClusterMaintenanceWindowNotAllowed> notAlloweds() {

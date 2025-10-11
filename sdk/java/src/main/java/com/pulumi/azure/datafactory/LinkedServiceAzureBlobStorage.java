@@ -123,32 +123,32 @@ public class LinkedServiceAzureBlobStorage extends com.pulumi.resources.CustomRe
         return Codegen.optional(this.annotations);
     }
     /**
-     * The connection string. Conflicts with `connection_string_insecure`, `sas_uri` and `service_endpoint`.
+     * The connection string. Conflicts with `connectionStringInsecure`, `sasUri` and `serviceEndpoint`.
      * 
      */
     @Export(name="connectionString", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> connectionString;
 
     /**
-     * @return The connection string. Conflicts with `connection_string_insecure`, `sas_uri` and `service_endpoint`.
+     * @return The connection string. Conflicts with `connectionStringInsecure`, `sasUri` and `serviceEndpoint`.
      * 
      */
     public Output<Optional<String>> connectionString() {
         return Codegen.optional(this.connectionString);
     }
     /**
-     * The connection string sent insecurely. Conflicts with `connection_string`, `sas_uri` and `service_endpoint`.
+     * The connection string sent insecurely. Conflicts with `connectionString`, `sasUri` and `serviceEndpoint`.
      * 
-     * &gt; **Note:** `connection_string` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connection_string_insecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connection_string` property in the portal will show as `******` whilst `connection_string_insecure` will be viewable in the portal.
+     * &gt; **Note:** `connectionString` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connectionStringInsecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connectionString` property in the portal will show as `******` whilst `connectionStringInsecure` will be viewable in the portal.
      * 
      */
     @Export(name="connectionStringInsecure", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> connectionStringInsecure;
 
     /**
-     * @return The connection string sent insecurely. Conflicts with `connection_string`, `sas_uri` and `service_endpoint`.
+     * @return The connection string sent insecurely. Conflicts with `connectionString`, `sasUri` and `serviceEndpoint`.
      * 
-     * &gt; **Note:** `connection_string` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connection_string_insecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connection_string` property in the portal will show as `******` whilst `connection_string_insecure` will be viewable in the portal.
+     * &gt; **Note:** `connectionString` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connectionStringInsecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connectionString` property in the portal will show as `******` whilst `connectionStringInsecure` will be viewable in the portal.
      * 
      */
     public Output<Optional<String>> connectionStringInsecure() {
@@ -197,14 +197,14 @@ public class LinkedServiceAzureBlobStorage extends com.pulumi.resources.CustomRe
         return Codegen.optional(this.integrationRuntimeName);
     }
     /**
-     * A `key_vault_sas_token` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required.
+     * A `keyVaultSasToken` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sasUri` is required.
      * 
      */
     @Export(name="keyVaultSasToken", refs={LinkedServiceAzureBlobStorageKeyVaultSasToken.class}, tree="[0]")
     private Output</* @Nullable */ LinkedServiceAzureBlobStorageKeyVaultSasToken> keyVaultSasToken;
 
     /**
-     * @return A `key_vault_sas_token` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required.
+     * @return A `keyVaultSasToken` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sasUri` is required.
      * 
      */
     public Output<Optional<LinkedServiceAzureBlobStorageKeyVaultSasToken>> keyVaultSasToken() {
@@ -239,14 +239,14 @@ public class LinkedServiceAzureBlobStorage extends com.pulumi.resources.CustomRe
         return Codegen.optional(this.parameters);
     }
     /**
-     * The SAS URI. Conflicts with `connection_string_insecure`, `connection_string` and `service_endpoint`.
+     * The SAS URI. Conflicts with `connectionStringInsecure`, `connectionString` and `serviceEndpoint`.
      * 
      */
     @Export(name="sasUri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sasUri;
 
     /**
-     * @return The SAS URI. Conflicts with `connection_string_insecure`, `connection_string` and `service_endpoint`.
+     * @return The SAS URI. Conflicts with `connectionStringInsecure`, `connectionString` and `serviceEndpoint`.
      * 
      */
     public Output<Optional<String>> sasUri() {

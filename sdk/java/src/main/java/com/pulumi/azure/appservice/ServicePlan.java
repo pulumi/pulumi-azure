@@ -129,14 +129,14 @@ public class ServicePlan extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * The maximum number of workers to use in an Elastic SKU Plan or Premium Plan that have `premium_plan_auto_scale_enabled` set to `true`. Cannot be set unless using an Elastic or Premium SKU.
+     * The maximum number of workers to use in an Elastic SKU Plan or Premium Plan that have `premiumPlanAutoScaleEnabled` set to `true`. Cannot be set unless using an Elastic or Premium SKU.
      * 
      */
     @Export(name="maximumElasticWorkerCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> maximumElasticWorkerCount;
 
     /**
-     * @return The maximum number of workers to use in an Elastic SKU Plan or Premium Plan that have `premium_plan_auto_scale_enabled` set to `true`. Cannot be set unless using an Elastic or Premium SKU.
+     * @return The maximum number of workers to use in an Elastic SKU Plan or Premium Plan that have `premiumPlanAutoScaleEnabled` set to `true`. Cannot be set unless using an Elastic or Premium SKU.
      * 
      */
     public Output<Integer> maximumElasticWorkerCount() {
@@ -199,14 +199,14 @@ public class ServicePlan extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.premiumPlanAutoScaleEnabled);
     }
     /**
-     * Whether this is a reserved Service Plan Type. `true` if `os_type` is `Linux`, otherwise `false`.
+     * Whether this is a reserved Service Plan Type. `true` if `osType` is `Linux`, otherwise `false`.
      * 
      */
     @Export(name="reserved", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> reserved;
 
     /**
-     * @return Whether this is a reserved Service Plan Type. `true` if `os_type` is `Linux`, otherwise `false`.
+     * @return Whether this is a reserved Service Plan Type. `true` if `osType` is `Linux`, otherwise `false`.
      * 
      */
     public Output<Boolean> reserved() {
@@ -279,9 +279,9 @@ public class ServicePlan extends com.pulumi.resources.CustomResource {
     /**
      * Should the Service Plan balance across Availability Zones in the region.
      * 
-     * &gt; **Note:** If this setting is set to `true` and the `worker_count` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
+     * &gt; **Note:** If this setting is set to `true` and the `workerCount` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
      * 
-     * &gt; **Note:** `zone_balancing_enabled` can only be set to `true` on Consumption, Premium, Isolated, or Workflow SKUs. It can be disabled. To enable it, the `worker_count` must be greater than `1`, and the Service Plan must support more than one availability zone. In all other cases, changing this forces a new resource to be created. For more information, please see the [Availability Zone Support](https://learn.microsoft.com/en-us/azure/reliability/reliability-app-service?tabs=azurecli&amp;pivots=free-shared-basic#availability-zone-support).
+     * &gt; **Note:** `zoneBalancingEnabled` can only be set to `true` on Consumption, Premium, Isolated, or Workflow SKUs. It can be disabled. To enable it, the `workerCount` must be greater than `1`, and the Service Plan must support more than one availability zone. In all other cases, changing this forces a new resource to be created. For more information, please see the [Availability Zone Support](https://learn.microsoft.com/en-us/azure/reliability/reliability-app-service?tabs=azurecli&amp;pivots=free-shared-basic#availability-zone-support).
      * 
      */
     @Export(name="zoneBalancingEnabled", refs={Boolean.class}, tree="[0]")
@@ -290,9 +290,9 @@ public class ServicePlan extends com.pulumi.resources.CustomResource {
     /**
      * @return Should the Service Plan balance across Availability Zones in the region.
      * 
-     * &gt; **Note:** If this setting is set to `true` and the `worker_count` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
+     * &gt; **Note:** If this setting is set to `true` and the `workerCount` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
      * 
-     * &gt; **Note:** `zone_balancing_enabled` can only be set to `true` on Consumption, Premium, Isolated, or Workflow SKUs. It can be disabled. To enable it, the `worker_count` must be greater than `1`, and the Service Plan must support more than one availability zone. In all other cases, changing this forces a new resource to be created. For more information, please see the [Availability Zone Support](https://learn.microsoft.com/en-us/azure/reliability/reliability-app-service?tabs=azurecli&amp;pivots=free-shared-basic#availability-zone-support).
+     * &gt; **Note:** `zoneBalancingEnabled` can only be set to `true` on Consumption, Premium, Isolated, or Workflow SKUs. It can be disabled. To enable it, the `workerCount` must be greater than `1`, and the Service Plan must support more than one availability zone. In all other cases, changing this forces a new resource to be created. For more information, please see the [Availability Zone Support](https://learn.microsoft.com/en-us/azure/reliability/reliability-app-service?tabs=azurecli&amp;pivots=free-shared-basic#availability-zone-support).
      * 
      */
     public Output<Optional<Boolean>> zoneBalancingEnabled() {

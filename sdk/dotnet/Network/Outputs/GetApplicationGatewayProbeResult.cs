@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly int Interval;
         /// <summary>
-        /// A `match` block as defined above.
+        /// A `Match` block as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationGatewayProbeMatchResult> Matches;
         /// <summary>

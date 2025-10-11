@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Consumption.Inputs
         private InputList<Inputs.BudgetSubscriptionFilterDimensionGetArgs>? _dimensions;
 
         /// <summary>
-        /// One or more `dimension` blocks as defined below to filter the budget on.
+        /// One or more `Dimension` blocks as defined below to filter the budget on.
         /// </summary>
         public InputList<Inputs.BudgetSubscriptionFilterDimensionGetArgs> Dimensions
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Consumption.Inputs
         private InputList<Inputs.BudgetSubscriptionFilterTagGetArgs>? _tags;
 
         /// <summary>
-        /// One or more `tag` blocks as defined below to filter the budget on.
+        /// One or more `Tag` blocks as defined below to filter the budget on.
         /// </summary>
         public InputList<Inputs.BudgetSubscriptionFilterTagGetArgs> Tags
         {

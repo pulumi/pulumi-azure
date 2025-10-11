@@ -25,7 +25,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A `headers` block as defined above.
+        /// A `Headers` block as defined above.
         /// </summary>
         [Input("headers")]
         public Input<Inputs.WindowsWebAppSiteConfigScmIpRestrictionHeadersGetArgs>? Headers { get; set; }
@@ -37,13 +37,13 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? IpAddress { get; set; }
 
         /// <summary>
-        /// The name which should be used for this `ip_restriction`.
+        /// The name which should be used for this `IpRestriction`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The priority value of this `ip_restriction`. Defaults to `65000`.
+        /// The priority value of this `IpRestriction`. Defaults to `65000`.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
@@ -57,7 +57,7 @@ namespace Pulumi.Azure.AppService.Inputs
         /// <summary>
         /// The Virtual Network Subnet ID used for this IP Restriction.
         /// 
-        /// &gt; **Note:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+        /// &gt; **Note:** One and only one of `IpAddress`, `ServiceTag` or `VirtualNetworkSubnetId` must be specified.
         /// </summary>
         [Input("virtualNetworkSubnetId")]
         public Input<string>? VirtualNetworkSubnetId { get; set; }

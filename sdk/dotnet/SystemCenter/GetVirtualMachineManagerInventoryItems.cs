@@ -158,7 +158,7 @@ namespace Pulumi.Azure.SystemCenter
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// One or more `inventory_items` blocks as defined below.
+        /// One or more `InventoryItems` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualMachineManagerInventoryItemsInventoryItemResult> InventoryItems;
         public readonly string InventoryType;

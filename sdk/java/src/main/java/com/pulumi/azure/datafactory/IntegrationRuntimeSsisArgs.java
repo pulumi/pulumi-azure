@@ -28,14 +28,14 @@ public final class IntegrationRuntimeSsisArgs extends com.pulumi.resources.Resou
     public static final IntegrationRuntimeSsisArgs Empty = new IntegrationRuntimeSsisArgs();
 
     /**
-     * A `catalog_info` block as defined below.
+     * A `catalogInfo` block as defined below.
      * 
      */
     @Import(name="catalogInfo")
     private @Nullable Output<IntegrationRuntimeSsisCatalogInfoArgs> catalogInfo;
 
     /**
-     * @return A `catalog_info` block as defined below.
+     * @return A `catalogInfo` block as defined below.
      * 
      */
     public Optional<Output<IntegrationRuntimeSsisCatalogInfoArgs>> catalogInfo() {
@@ -43,14 +43,14 @@ public final class IntegrationRuntimeSsisArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * One `copy_compute_scale` block as defined below.
+     * One `copyComputeScale` block as defined below.
      * 
      */
     @Import(name="copyComputeScale")
     private @Nullable Output<IntegrationRuntimeSsisCopyComputeScaleArgs> copyComputeScale;
 
     /**
-     * @return One `copy_compute_scale` block as defined below.
+     * @return One `copyComputeScale` block as defined below.
      * 
      */
     public Optional<Output<IntegrationRuntimeSsisCopyComputeScaleArgs>> copyComputeScale() {
@@ -60,7 +60,7 @@ public final class IntegrationRuntimeSsisArgs extends com.pulumi.resources.Resou
     /**
      * The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `azure.datafactory.CredentialUserManagedIdentity`
      * 
-     * &gt; **Note:** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
+     * &gt; **Note:** If `credentialName` is omitted, the integration runtime will use the Data Factory assigned identity.
      * 
      */
     @Import(name="credentialName")
@@ -69,7 +69,7 @@ public final class IntegrationRuntimeSsisArgs extends com.pulumi.resources.Resou
     /**
      * @return The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `azure.datafactory.CredentialUserManagedIdentity`
      * 
-     * &gt; **Note:** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
+     * &gt; **Note:** If `credentialName` is omitted, the integration runtime will use the Data Factory assigned identity.
      * 
      */
     public Optional<Output<String>> credentialName() {
@@ -77,14 +77,14 @@ public final class IntegrationRuntimeSsisArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * A `custom_setup_script` block as defined below.
+     * A `customSetupScript` block as defined below.
      * 
      */
     @Import(name="customSetupScript")
     private @Nullable Output<IntegrationRuntimeSsisCustomSetupScriptArgs> customSetupScript;
 
     /**
-     * @return A `custom_setup_script` block as defined below.
+     * @return A `customSetupScript` block as defined below.
      * 
      */
     public Optional<Output<IntegrationRuntimeSsisCustomSetupScriptArgs>> customSetupScript() {
@@ -137,14 +137,14 @@ public final class IntegrationRuntimeSsisArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * An `express_custom_setup` block as defined below.
+     * An `expressCustomSetup` block as defined below.
      * 
      */
     @Import(name="expressCustomSetup")
     private @Nullable Output<IntegrationRuntimeSsisExpressCustomSetupArgs> expressCustomSetup;
 
     /**
-     * @return An `express_custom_setup` block as defined below.
+     * @return An `expressCustomSetup` block as defined below.
      * 
      */
     public Optional<Output<IntegrationRuntimeSsisExpressCustomSetupArgs>> expressCustomSetup() {
@@ -152,14 +152,14 @@ public final class IntegrationRuntimeSsisArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * A `express_vnet_integration` block as defined below.
+     * A `expressVnetIntegration` block as defined below.
      * 
      */
     @Import(name="expressVnetIntegration")
     private @Nullable Output<IntegrationRuntimeSsisExpressVnetIntegrationArgs> expressVnetIntegration;
 
     /**
-     * @return A `express_vnet_integration` block as defined below.
+     * @return A `expressVnetIntegration` block as defined below.
      * 
      */
     public Optional<Output<IntegrationRuntimeSsisExpressVnetIntegrationArgs>> expressVnetIntegration() {
@@ -257,14 +257,14 @@ public final class IntegrationRuntimeSsisArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * One or more `package_store` block as defined below.
+     * One or more `packageStore` block as defined below.
      * 
      */
     @Import(name="packageStores")
     private @Nullable Output<List<IntegrationRuntimeSsisPackageStoreArgs>> packageStores;
 
     /**
-     * @return One or more `package_store` block as defined below.
+     * @return One or more `packageStore` block as defined below.
      * 
      */
     public Optional<Output<List<IntegrationRuntimeSsisPackageStoreArgs>>> packageStores() {
@@ -272,14 +272,14 @@ public final class IntegrationRuntimeSsisArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * One `pipeline_external_compute_scale` block as defined below.
+     * One `pipelineExternalComputeScale` block as defined below.
      * 
      */
     @Import(name="pipelineExternalComputeScale")
     private @Nullable Output<IntegrationRuntimeSsisPipelineExternalComputeScaleArgs> pipelineExternalComputeScale;
 
     /**
-     * @return One `pipeline_external_compute_scale` block as defined below.
+     * @return One `pipelineExternalComputeScale` block as defined below.
      * 
      */
     public Optional<Output<IntegrationRuntimeSsisPipelineExternalComputeScaleArgs>> pipelineExternalComputeScale() {
@@ -302,14 +302,14 @@ public final class IntegrationRuntimeSsisArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * A `vnet_integration` block as defined below.
+     * A `vnetIntegration` block as defined below.
      * 
      */
     @Import(name="vnetIntegration")
     private @Nullable Output<IntegrationRuntimeSsisVnetIntegrationArgs> vnetIntegration;
 
     /**
-     * @return A `vnet_integration` block as defined below.
+     * @return A `vnetIntegration` block as defined below.
      * 
      */
     public Optional<Output<IntegrationRuntimeSsisVnetIntegrationArgs>> vnetIntegration() {
@@ -359,7 +359,7 @@ public final class IntegrationRuntimeSsisArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param catalogInfo A `catalog_info` block as defined below.
+         * @param catalogInfo A `catalogInfo` block as defined below.
          * 
          * @return builder
          * 
@@ -370,7 +370,7 @@ public final class IntegrationRuntimeSsisArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param catalogInfo A `catalog_info` block as defined below.
+         * @param catalogInfo A `catalogInfo` block as defined below.
          * 
          * @return builder
          * 
@@ -380,7 +380,7 @@ public final class IntegrationRuntimeSsisArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param copyComputeScale One `copy_compute_scale` block as defined below.
+         * @param copyComputeScale One `copyComputeScale` block as defined below.
          * 
          * @return builder
          * 
@@ -391,7 +391,7 @@ public final class IntegrationRuntimeSsisArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param copyComputeScale One `copy_compute_scale` block as defined below.
+         * @param copyComputeScale One `copyComputeScale` block as defined below.
          * 
          * @return builder
          * 
@@ -403,7 +403,7 @@ public final class IntegrationRuntimeSsisArgs extends com.pulumi.resources.Resou
         /**
          * @param credentialName The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `azure.datafactory.CredentialUserManagedIdentity`
          * 
-         * &gt; **Note:** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
+         * &gt; **Note:** If `credentialName` is omitted, the integration runtime will use the Data Factory assigned identity.
          * 
          * @return builder
          * 
@@ -416,7 +416,7 @@ public final class IntegrationRuntimeSsisArgs extends com.pulumi.resources.Resou
         /**
          * @param credentialName The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `azure.datafactory.CredentialUserManagedIdentity`
          * 
-         * &gt; **Note:** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
+         * &gt; **Note:** If `credentialName` is omitted, the integration runtime will use the Data Factory assigned identity.
          * 
          * @return builder
          * 
@@ -426,7 +426,7 @@ public final class IntegrationRuntimeSsisArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param customSetupScript A `custom_setup_script` block as defined below.
+         * @param customSetupScript A `customSetupScript` block as defined below.
          * 
          * @return builder
          * 
@@ -437,7 +437,7 @@ public final class IntegrationRuntimeSsisArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param customSetupScript A `custom_setup_script` block as defined below.
+         * @param customSetupScript A `customSetupScript` block as defined below.
          * 
          * @return builder
          * 
@@ -510,7 +510,7 @@ public final class IntegrationRuntimeSsisArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param expressCustomSetup An `express_custom_setup` block as defined below.
+         * @param expressCustomSetup An `expressCustomSetup` block as defined below.
          * 
          * @return builder
          * 
@@ -521,7 +521,7 @@ public final class IntegrationRuntimeSsisArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param expressCustomSetup An `express_custom_setup` block as defined below.
+         * @param expressCustomSetup An `expressCustomSetup` block as defined below.
          * 
          * @return builder
          * 
@@ -531,7 +531,7 @@ public final class IntegrationRuntimeSsisArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param expressVnetIntegration A `express_vnet_integration` block as defined below.
+         * @param expressVnetIntegration A `expressVnetIntegration` block as defined below.
          * 
          * @return builder
          * 
@@ -542,7 +542,7 @@ public final class IntegrationRuntimeSsisArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param expressVnetIntegration A `express_vnet_integration` block as defined below.
+         * @param expressVnetIntegration A `expressVnetIntegration` block as defined below.
          * 
          * @return builder
          * 
@@ -678,7 +678,7 @@ public final class IntegrationRuntimeSsisArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param packageStores One or more `package_store` block as defined below.
+         * @param packageStores One or more `packageStore` block as defined below.
          * 
          * @return builder
          * 
@@ -689,7 +689,7 @@ public final class IntegrationRuntimeSsisArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param packageStores One or more `package_store` block as defined below.
+         * @param packageStores One or more `packageStore` block as defined below.
          * 
          * @return builder
          * 
@@ -699,7 +699,7 @@ public final class IntegrationRuntimeSsisArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param packageStores One or more `package_store` block as defined below.
+         * @param packageStores One or more `packageStore` block as defined below.
          * 
          * @return builder
          * 
@@ -709,7 +709,7 @@ public final class IntegrationRuntimeSsisArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param pipelineExternalComputeScale One `pipeline_external_compute_scale` block as defined below.
+         * @param pipelineExternalComputeScale One `pipelineExternalComputeScale` block as defined below.
          * 
          * @return builder
          * 
@@ -720,7 +720,7 @@ public final class IntegrationRuntimeSsisArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param pipelineExternalComputeScale One `pipeline_external_compute_scale` block as defined below.
+         * @param pipelineExternalComputeScale One `pipelineExternalComputeScale` block as defined below.
          * 
          * @return builder
          * 
@@ -751,7 +751,7 @@ public final class IntegrationRuntimeSsisArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param vnetIntegration A `vnet_integration` block as defined below.
+         * @param vnetIntegration A `vnetIntegration` block as defined below.
          * 
          * @return builder
          * 
@@ -762,7 +762,7 @@ public final class IntegrationRuntimeSsisArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param vnetIntegration A `vnet_integration` block as defined below.
+         * @param vnetIntegration A `vnetIntegration` block as defined below.
          * 
          * @return builder
          * 

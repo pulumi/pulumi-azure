@@ -166,15 +166,15 @@ namespace Pulumi.Azure.Network
     public sealed class GetVpnServerConfigurationResult
     {
         /// <summary>
-        /// A `azure_active_directory_authentication` block as defined below.
+        /// A `AzureActiveDirectoryAuthentication` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVpnServerConfigurationAzureActiveDirectoryAuthenticationResult> AzureActiveDirectoryAuthentications;
         /// <summary>
-        /// One or more `client_revoked_certificate` blocks as defined below.
+        /// One or more `ClientRevokedCertificate` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVpnServerConfigurationClientRevokedCertificateResult> ClientRevokedCertificates;
         /// <summary>
-        /// One or more `client_root_certificate` blocks as defined below.
+        /// One or more `ClientRootCertificate` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVpnServerConfigurationClientRootCertificateResult> ClientRootCertificates;
         /// <summary>
@@ -182,7 +182,7 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The `bgp_settings` block as defined below.
+        /// The `BgpSettings` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVpnServerConfigurationIpsecPolicyResult> IpsecPolicies;
         /// <summary>
@@ -194,7 +194,7 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// A `radius` block as defined below.
+        /// A `Radius` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVpnServerConfigurationRadiusResult> Radii;
         public readonly string ResourceGroupName;

@@ -111,14 +111,14 @@ public final class PacketCaptureArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `storage_location` block as defined below. Changing this forces a new resource to be created.
+     * A `storageLocation` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="storageLocation", required=true)
     private Output<PacketCaptureStorageLocationArgs> storageLocation;
 
     /**
-     * @return A `storage_location` block as defined below. Changing this forces a new resource to be created.
+     * @return A `storageLocation` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<PacketCaptureStorageLocationArgs> storageLocation() {
@@ -308,7 +308,7 @@ public final class PacketCaptureArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageLocation A `storage_location` block as defined below. Changing this forces a new resource to be created.
+         * @param storageLocation A `storageLocation` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -319,7 +319,7 @@ public final class PacketCaptureArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageLocation A `storage_location` block as defined below. Changing this forces a new resource to be created.
+         * @param storageLocation A `storageLocation` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

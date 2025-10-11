@@ -165,42 +165,42 @@ public class InteractiveQueryCluster extends com.pulumi.resources.CustomResource
         return this.clusterVersion;
     }
     /**
-     * A `component_version` block as defined below.
+     * A `componentVersion` block as defined below.
      * 
      */
     @Export(name="componentVersion", refs={InteractiveQueryClusterComponentVersion.class}, tree="[0]")
     private Output<InteractiveQueryClusterComponentVersion> componentVersion;
 
     /**
-     * @return A `component_version` block as defined below.
+     * @return A `componentVersion` block as defined below.
      * 
      */
     public Output<InteractiveQueryClusterComponentVersion> componentVersion() {
         return this.componentVersion;
     }
     /**
-     * A `compute_isolation` block as defined below.
+     * A `computeIsolation` block as defined below.
      * 
      */
     @Export(name="computeIsolation", refs={InteractiveQueryClusterComputeIsolation.class}, tree="[0]")
     private Output</* @Nullable */ InteractiveQueryClusterComputeIsolation> computeIsolation;
 
     /**
-     * @return A `compute_isolation` block as defined below.
+     * @return A `computeIsolation` block as defined below.
      * 
      */
     public Output<Optional<InteractiveQueryClusterComputeIsolation>> computeIsolation() {
         return Codegen.optional(this.computeIsolation);
     }
     /**
-     * A `disk_encryption` block as defined below.
+     * A `diskEncryption` block as defined below.
      * 
      */
     @Export(name="diskEncryptions", refs={List.class,InteractiveQueryClusterDiskEncryption.class}, tree="[0,1]")
     private Output</* @Nullable */ List<InteractiveQueryClusterDiskEncryption>> diskEncryptions;
 
     /**
-     * @return A `disk_encryption` block as defined below.
+     * @return A `diskEncryption` block as defined below.
      * 
      */
     public Output<Optional<List<InteractiveQueryClusterDiskEncryption>>> diskEncryptions() {
@@ -333,14 +333,14 @@ public class InteractiveQueryCluster extends com.pulumi.resources.CustomResource
         return Codegen.optional(this.network);
     }
     /**
-     * A `private_link_configuration` block as defined below.
+     * A `privateLinkConfiguration` block as defined below.
      * 
      */
     @Export(name="privateLinkConfiguration", refs={InteractiveQueryClusterPrivateLinkConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ InteractiveQueryClusterPrivateLinkConfiguration> privateLinkConfiguration;
 
     /**
-     * @return A `private_link_configuration` block as defined below.
+     * @return A `privateLinkConfiguration` block as defined below.
      * 
      */
     public Output<Optional<InteractiveQueryClusterPrivateLinkConfiguration>> privateLinkConfiguration() {
@@ -375,14 +375,14 @@ public class InteractiveQueryCluster extends com.pulumi.resources.CustomResource
         return this.roles;
     }
     /**
-     * A `security_profile` block as defined below. Changing this forces a new resource to be created.
+     * A `securityProfile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="securityProfile", refs={InteractiveQueryClusterSecurityProfile.class}, tree="[0]")
     private Output</* @Nullable */ InteractiveQueryClusterSecurityProfile> securityProfile;
 
     /**
-     * @return A `security_profile` block as defined below. Changing this forces a new resource to be created.
+     * @return A `securityProfile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<InteractiveQueryClusterSecurityProfile>> securityProfile() {
@@ -403,28 +403,28 @@ public class InteractiveQueryCluster extends com.pulumi.resources.CustomResource
         return this.sshEndpoint;
     }
     /**
-     * A `storage_account_gen2` block as defined below.
+     * A `storageAccountGen2` block as defined below.
      * 
      */
     @Export(name="storageAccountGen2", refs={InteractiveQueryClusterStorageAccountGen2.class}, tree="[0]")
     private Output</* @Nullable */ InteractiveQueryClusterStorageAccountGen2> storageAccountGen2;
 
     /**
-     * @return A `storage_account_gen2` block as defined below.
+     * @return A `storageAccountGen2` block as defined below.
      * 
      */
     public Output<Optional<InteractiveQueryClusterStorageAccountGen2>> storageAccountGen2() {
         return Codegen.optional(this.storageAccountGen2);
     }
     /**
-     * One or more `storage_account` block as defined below.
+     * One or more `storageAccount` block as defined below.
      * 
      */
     @Export(name="storageAccounts", refs={List.class,InteractiveQueryClusterStorageAccount.class}, tree="[0,1]")
     private Output</* @Nullable */ List<InteractiveQueryClusterStorageAccount>> storageAccounts;
 
     /**
-     * @return One or more `storage_account` block as defined below.
+     * @return One or more `storageAccount` block as defined below.
      * 
      */
     public Output<Optional<List<InteractiveQueryClusterStorageAccount>>> storageAccounts() {

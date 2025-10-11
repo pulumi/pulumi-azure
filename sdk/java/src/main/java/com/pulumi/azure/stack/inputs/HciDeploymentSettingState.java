@@ -33,14 +33,14 @@ public final class HciDeploymentSettingState extends com.pulumi.resources.Resour
     }
 
     /**
-     * One or more `scale_unit` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+     * One or more `scaleUnit` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
      * 
      */
     @Import(name="scaleUnits")
     private @Nullable Output<List<HciDeploymentSettingScaleUnitArgs>> scaleUnits;
 
     /**
-     * @return One or more `scale_unit` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+     * @return One or more `scaleUnit` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
      * 
      */
     public Optional<Output<List<HciDeploymentSettingScaleUnitArgs>>> scaleUnits() {
@@ -136,7 +136,7 @@ public final class HciDeploymentSettingState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param scaleUnits One or more `scale_unit` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+         * @param scaleUnits One or more `scaleUnit` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class HciDeploymentSettingState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param scaleUnits One or more `scale_unit` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+         * @param scaleUnits One or more `scaleUnit` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class HciDeploymentSettingState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param scaleUnits One or more `scale_unit` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+         * @param scaleUnits One or more `scaleUnit` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
          * 
          * @return builder
          * 

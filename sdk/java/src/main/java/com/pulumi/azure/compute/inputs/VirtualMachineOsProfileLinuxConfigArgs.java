@@ -19,14 +19,14 @@ public final class VirtualMachineOsProfileLinuxConfigArgs extends com.pulumi.res
     public static final VirtualMachineOsProfileLinuxConfigArgs Empty = new VirtualMachineOsProfileLinuxConfigArgs();
 
     /**
-     * Specifies whether password authentication should be disabled. If set to `false`, an `admin_password` must be specified.
+     * Specifies whether password authentication should be disabled. If set to `false`, an `adminPassword` must be specified.
      * 
      */
     @Import(name="disablePasswordAuthentication", required=true)
     private Output<Boolean> disablePasswordAuthentication;
 
     /**
-     * @return Specifies whether password authentication should be disabled. If set to `false`, an `admin_password` must be specified.
+     * @return Specifies whether password authentication should be disabled. If set to `false`, an `adminPassword` must be specified.
      * 
      */
     public Output<Boolean> disablePasswordAuthentication() {
@@ -34,14 +34,14 @@ public final class VirtualMachineOsProfileLinuxConfigArgs extends com.pulumi.res
     }
 
     /**
-     * One or more `ssh_keys` blocks as defined below. This field is required if `disable_password_authentication` is set to `true`.
+     * One or more `sshKeys` blocks as defined below. This field is required if `disablePasswordAuthentication` is set to `true`.
      * 
      */
     @Import(name="sshKeys")
     private @Nullable Output<List<VirtualMachineOsProfileLinuxConfigSshKeyArgs>> sshKeys;
 
     /**
-     * @return One or more `ssh_keys` blocks as defined below. This field is required if `disable_password_authentication` is set to `true`.
+     * @return One or more `sshKeys` blocks as defined below. This field is required if `disablePasswordAuthentication` is set to `true`.
      * 
      */
     public Optional<Output<List<VirtualMachineOsProfileLinuxConfigSshKeyArgs>>> sshKeys() {
@@ -74,7 +74,7 @@ public final class VirtualMachineOsProfileLinuxConfigArgs extends com.pulumi.res
         }
 
         /**
-         * @param disablePasswordAuthentication Specifies whether password authentication should be disabled. If set to `false`, an `admin_password` must be specified.
+         * @param disablePasswordAuthentication Specifies whether password authentication should be disabled. If set to `false`, an `adminPassword` must be specified.
          * 
          * @return builder
          * 
@@ -85,7 +85,7 @@ public final class VirtualMachineOsProfileLinuxConfigArgs extends com.pulumi.res
         }
 
         /**
-         * @param disablePasswordAuthentication Specifies whether password authentication should be disabled. If set to `false`, an `admin_password` must be specified.
+         * @param disablePasswordAuthentication Specifies whether password authentication should be disabled. If set to `false`, an `adminPassword` must be specified.
          * 
          * @return builder
          * 
@@ -95,7 +95,7 @@ public final class VirtualMachineOsProfileLinuxConfigArgs extends com.pulumi.res
         }
 
         /**
-         * @param sshKeys One or more `ssh_keys` blocks as defined below. This field is required if `disable_password_authentication` is set to `true`.
+         * @param sshKeys One or more `sshKeys` blocks as defined below. This field is required if `disablePasswordAuthentication` is set to `true`.
          * 
          * @return builder
          * 
@@ -106,7 +106,7 @@ public final class VirtualMachineOsProfileLinuxConfigArgs extends com.pulumi.res
         }
 
         /**
-         * @param sshKeys One or more `ssh_keys` blocks as defined below. This field is required if `disable_password_authentication` is set to `true`.
+         * @param sshKeys One or more `sshKeys` blocks as defined below. This field is required if `disablePasswordAuthentication` is set to `true`.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class VirtualMachineOsProfileLinuxConfigArgs extends com.pulumi.res
         }
 
         /**
-         * @param sshKeys One or more `ssh_keys` blocks as defined below. This field is required if `disable_password_authentication` is set to `true`.
+         * @param sshKeys One or more `sshKeys` blocks as defined below. This field is required if `disablePasswordAuthentication` is set to `true`.
          * 
          * @return builder
          * 

@@ -141,7 +141,7 @@ namespace Pulumi.Azure.DevTest
         public Output<string> DailyRecurrenceTime { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to enable the schedule. Possible values are `true` and `false`. Defaults to `true`.
+        /// Whether to enable the schedule. Possible values are `True` and `False`. Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -153,7 +153,7 @@ namespace Pulumi.Azure.DevTest
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The notification setting of a schedule. A `notification_settings` block as defined below.
+        /// The notification setting of a schedule. A `NotificationSettings` block as defined below.
         /// </summary>
         [Output("notificationSettings")]
         public Output<Outputs.GlobalVMShutdownScheduleNotificationSettings> NotificationSettings { get; private set; } = null!;
@@ -229,7 +229,7 @@ namespace Pulumi.Azure.DevTest
         public Input<string> DailyRecurrenceTime { get; set; } = null!;
 
         /// <summary>
-        /// Whether to enable the schedule. Possible values are `true` and `false`. Defaults to `true`.
+        /// Whether to enable the schedule. Possible values are `True` and `False`. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -241,7 +241,7 @@ namespace Pulumi.Azure.DevTest
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The notification setting of a schedule. A `notification_settings` block as defined below.
+        /// The notification setting of a schedule. A `NotificationSettings` block as defined below.
         /// </summary>
         [Input("notificationSettings", required: true)]
         public Input<Inputs.GlobalVMShutdownScheduleNotificationSettingsArgs> NotificationSettings { get; set; } = null!;
@@ -285,7 +285,7 @@ namespace Pulumi.Azure.DevTest
         public Input<string>? DailyRecurrenceTime { get; set; }
 
         /// <summary>
-        /// Whether to enable the schedule. Possible values are `true` and `false`. Defaults to `true`.
+        /// Whether to enable the schedule. Possible values are `True` and `False`. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -297,7 +297,7 @@ namespace Pulumi.Azure.DevTest
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The notification setting of a schedule. A `notification_settings` block as defined below.
+        /// The notification setting of a schedule. A `NotificationSettings` block as defined below.
         /// </summary>
         [Input("notificationSettings")]
         public Input<Inputs.GlobalVMShutdownScheduleNotificationSettingsGetArgs>? NotificationSettings { get; set; }

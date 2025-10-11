@@ -167,9 +167,9 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ## `scrubbing_rule` Examples:
+ * ## `scrubbingRule` Examples:
  * 
- * The following table shows examples of `scrubbing_rule`&#39;s that can be used to protect sensitive data:
+ * The following table shows examples of `scrubbingRule`&#39;s that can be used to protect sensitive data:
  * 
  * | Match Variable               | Operator       | Selector      | What Gets Scrubbed                                                            |
  * | :--------------------------- | :------------- | :------------ | :---------------------------------------------------------------------------- |
@@ -201,42 +201,42 @@ public class FrontdoorFirewallPolicy extends com.pulumi.resources.CustomResource
         return this.captchaCookieExpirationInMinutes;
     }
     /**
-     * If a `custom_rule` block&#39;s action type is `block`, this is the response body. The body must be specified in base64 encoding.
+     * If a `customRule` block&#39;s action type is `block`, this is the response body. The body must be specified in base64 encoding.
      * 
      */
     @Export(name="customBlockResponseBody", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customBlockResponseBody;
 
     /**
-     * @return If a `custom_rule` block&#39;s action type is `block`, this is the response body. The body must be specified in base64 encoding.
+     * @return If a `customRule` block&#39;s action type is `block`, this is the response body. The body must be specified in base64 encoding.
      * 
      */
     public Output<Optional<String>> customBlockResponseBody() {
         return Codegen.optional(this.customBlockResponseBody);
     }
     /**
-     * If a `custom_rule` block&#39;s action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
+     * If a `customRule` block&#39;s action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
      * 
      */
     @Export(name="customBlockResponseStatusCode", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> customBlockResponseStatusCode;
 
     /**
-     * @return If a `custom_rule` block&#39;s action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
+     * @return If a `customRule` block&#39;s action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
      * 
      */
     public Output<Optional<Integer>> customBlockResponseStatusCode() {
         return Codegen.optional(this.customBlockResponseStatusCode);
     }
     /**
-     * One or more `custom_rule` blocks as defined below.
+     * One or more `customRule` blocks as defined below.
      * 
      */
     @Export(name="customRules", refs={List.class,FrontdoorFirewallPolicyCustomRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<FrontdoorFirewallPolicyCustomRule>> customRules;
 
     /**
-     * @return One or more `custom_rule` blocks as defined below.
+     * @return One or more `customRule` blocks as defined below.
      * 
      */
     public Output<Optional<List<FrontdoorFirewallPolicyCustomRule>>> customRules() {
@@ -277,32 +277,32 @@ public class FrontdoorFirewallPolicy extends com.pulumi.resources.CustomResource
         return this.jsChallengeCookieExpirationInMinutes;
     }
     /**
-     * A `log_scrubbing` block as defined below.
+     * A `logScrubbing` block as defined below.
      * 
-     * !&gt; **Note:** Setting the`log_scrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+     * !&gt; **Note:** Setting the`logScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
      * 
      */
     @Export(name="logScrubbing", refs={FrontdoorFirewallPolicyLogScrubbing.class}, tree="[0]")
     private Output</* @Nullable */ FrontdoorFirewallPolicyLogScrubbing> logScrubbing;
 
     /**
-     * @return A `log_scrubbing` block as defined below.
+     * @return A `logScrubbing` block as defined below.
      * 
-     * !&gt; **Note:** Setting the`log_scrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+     * !&gt; **Note:** Setting the`logScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
      * 
      */
     public Output<Optional<FrontdoorFirewallPolicyLogScrubbing>> logScrubbing() {
         return Codegen.optional(this.logScrubbing);
     }
     /**
-     * One or more `managed_rule` blocks as defined below.
+     * One or more `managedRule` blocks as defined below.
      * 
      */
     @Export(name="managedRules", refs={List.class,FrontdoorFirewallPolicyManagedRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<FrontdoorFirewallPolicyManagedRule>> managedRules;
 
     /**
-     * @return One or more `managed_rule` blocks as defined below.
+     * @return One or more `managedRule` blocks as defined below.
      * 
      */
     public Output<Optional<List<FrontdoorFirewallPolicyManagedRule>>> managedRules() {

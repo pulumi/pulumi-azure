@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Batch.Inputs
         private InputList<Inputs.PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs>? _networkSecurityGroupRules;
 
         /// <summary>
-        /// A list of `network_security_group_rules` blocks as defined below that will be applied to the endpoint. The maximum number of rules that can be specified across all the endpoints on a Batch pool is `25`. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. Set as documented in the network_security_group_rules block below. Changing this forces a new resource to be created.
+        /// A list of `NetworkSecurityGroupRules` blocks as defined below that will be applied to the endpoint. The maximum number of rules that can be specified across all the endpoints on a Batch pool is `25`. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. Set as documented in the NetworkSecurityGroupRules block below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs> NetworkSecurityGroupRules
         {

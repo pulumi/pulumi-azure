@@ -34,7 +34,7 @@ public final class ApplicationGatewayPrivateLinkConfigurationArgs extends com.pu
     }
 
     /**
-     * One or more `ip_configuration` blocks as defined below.
+     * One or more `ipConfiguration` blocks as defined below.
      * 
      * &gt; **Note:** The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
      * 
@@ -43,7 +43,7 @@ public final class ApplicationGatewayPrivateLinkConfigurationArgs extends com.pu
     private Output<List<ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs>> ipConfigurations;
 
     /**
-     * @return One or more `ip_configuration` blocks as defined below.
+     * @return One or more `ipConfiguration` blocks as defined below.
      * 
      * &gt; **Note:** The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
      * 
@@ -115,7 +115,7 @@ public final class ApplicationGatewayPrivateLinkConfigurationArgs extends com.pu
         }
 
         /**
-         * @param ipConfigurations One or more `ip_configuration` blocks as defined below.
+         * @param ipConfigurations One or more `ipConfiguration` blocks as defined below.
          * 
          * &gt; **Note:** The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
          * 
@@ -128,7 +128,7 @@ public final class ApplicationGatewayPrivateLinkConfigurationArgs extends com.pu
         }
 
         /**
-         * @param ipConfigurations One or more `ip_configuration` blocks as defined below.
+         * @param ipConfigurations One or more `ipConfiguration` blocks as defined below.
          * 
          * &gt; **Note:** The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
          * 
@@ -140,7 +140,7 @@ public final class ApplicationGatewayPrivateLinkConfigurationArgs extends com.pu
         }
 
         /**
-         * @param ipConfigurations One or more `ip_configuration` blocks as defined below.
+         * @param ipConfigurations One or more `ipConfiguration` blocks as defined below.
          * 
          * &gt; **Note:** The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
          * 

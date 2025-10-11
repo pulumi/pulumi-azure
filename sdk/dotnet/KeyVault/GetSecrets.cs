@@ -77,7 +77,7 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         public readonly ImmutableArray<string> Names;
         /// <summary>
-        /// One or more `secrets` blocks as defined below.
+        /// One or more `Secrets` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetSecretsSecretResult> Secrets;
 

@@ -13,13 +13,13 @@ namespace Pulumi.Azure.Network.Inputs
     public sealed class NetworkConnectionMonitorTestConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `http_configuration` block as defined below.
+        /// A `HttpConfiguration` block as defined below.
         /// </summary>
         [Input("httpConfiguration")]
         public Input<Inputs.NetworkConnectionMonitorTestConfigurationHttpConfigurationGetArgs>? HttpConfiguration { get; set; }
 
         /// <summary>
-        /// A `icmp_configuration` block as defined below.
+        /// A `IcmpConfiguration` block as defined below.
         /// </summary>
         [Input("icmpConfiguration")]
         public Input<Inputs.NetworkConnectionMonitorTestConfigurationIcmpConfigurationGetArgs>? IcmpConfiguration { get; set; }
@@ -43,13 +43,13 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string> Protocol { get; set; } = null!;
 
         /// <summary>
-        /// A `success_threshold` block as defined below.
+        /// A `SuccessThreshold` block as defined below.
         /// </summary>
         [Input("successThreshold")]
         public Input<Inputs.NetworkConnectionMonitorTestConfigurationSuccessThresholdGetArgs>? SuccessThreshold { get; set; }
 
         /// <summary>
-        /// A `tcp_configuration` block as defined below.
+        /// A `TcpConfiguration` block as defined below.
         /// </summary>
         [Input("tcpConfiguration")]
         public Input<Inputs.NetworkConnectionMonitorTestConfigurationTcpConfigurationGetArgs>? TcpConfiguration { get; set; }

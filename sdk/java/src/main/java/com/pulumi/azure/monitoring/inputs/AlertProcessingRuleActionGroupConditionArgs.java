@@ -26,14 +26,14 @@ public final class AlertProcessingRuleActionGroupConditionArgs extends com.pulum
     public static final AlertProcessingRuleActionGroupConditionArgs Empty = new AlertProcessingRuleActionGroupConditionArgs();
 
     /**
-     * A `alert_context` block as defined above.
+     * A `alertContext` block as defined above.
      * 
      */
     @Import(name="alertContext")
     private @Nullable Output<AlertProcessingRuleActionGroupConditionAlertContextArgs> alertContext;
 
     /**
-     * @return A `alert_context` block as defined above.
+     * @return A `alertContext` block as defined above.
      * 
      */
     public Optional<Output<AlertProcessingRuleActionGroupConditionAlertContextArgs>> alertContext() {
@@ -41,14 +41,14 @@ public final class AlertProcessingRuleActionGroupConditionArgs extends com.pulum
     }
 
     /**
-     * A `alert_rule_id` block as defined above.
+     * A `alertRuleId` block as defined above.
      * 
      */
     @Import(name="alertRuleId")
     private @Nullable Output<AlertProcessingRuleActionGroupConditionAlertRuleIdArgs> alertRuleId;
 
     /**
-     * @return A `alert_rule_id` block as defined above.
+     * @return A `alertRuleId` block as defined above.
      * 
      */
     public Optional<Output<AlertProcessingRuleActionGroupConditionAlertRuleIdArgs>> alertRuleId() {
@@ -56,14 +56,14 @@ public final class AlertProcessingRuleActionGroupConditionArgs extends com.pulum
     }
 
     /**
-     * A `alert_rule_name` block as defined above.
+     * A `alertRuleName` block as defined above.
      * 
      */
     @Import(name="alertRuleName")
     private @Nullable Output<AlertProcessingRuleActionGroupConditionAlertRuleNameArgs> alertRuleName;
 
     /**
-     * @return A `alert_rule_name` block as defined above.
+     * @return A `alertRuleName` block as defined above.
      * 
      */
     public Optional<Output<AlertProcessingRuleActionGroupConditionAlertRuleNameArgs>> alertRuleName() {
@@ -86,14 +86,14 @@ public final class AlertProcessingRuleActionGroupConditionArgs extends com.pulum
     }
 
     /**
-     * A `monitor_condition` block as defined below.
+     * A `monitorCondition` block as defined below.
      * 
      */
     @Import(name="monitorCondition")
     private @Nullable Output<AlertProcessingRuleActionGroupConditionMonitorConditionArgs> monitorCondition;
 
     /**
-     * @return A `monitor_condition` block as defined below.
+     * @return A `monitorCondition` block as defined below.
      * 
      */
     public Optional<Output<AlertProcessingRuleActionGroupConditionMonitorConditionArgs>> monitorCondition() {
@@ -101,14 +101,14 @@ public final class AlertProcessingRuleActionGroupConditionArgs extends com.pulum
     }
 
     /**
-     * A `monitor_service` block as defined below.
+     * A `monitorService` block as defined below.
      * 
      */
     @Import(name="monitorService")
     private @Nullable Output<AlertProcessingRuleActionGroupConditionMonitorServiceArgs> monitorService;
 
     /**
-     * @return A `monitor_service` block as defined below.
+     * @return A `monitorService` block as defined below.
      * 
      */
     public Optional<Output<AlertProcessingRuleActionGroupConditionMonitorServiceArgs>> monitorService() {
@@ -131,14 +131,14 @@ public final class AlertProcessingRuleActionGroupConditionArgs extends com.pulum
     }
 
     /**
-     * A `signal_type` block as defined below.
+     * A `signalType` block as defined below.
      * 
      */
     @Import(name="signalType")
     private @Nullable Output<AlertProcessingRuleActionGroupConditionSignalTypeArgs> signalType;
 
     /**
-     * @return A `signal_type` block as defined below.
+     * @return A `signalType` block as defined below.
      * 
      */
     public Optional<Output<AlertProcessingRuleActionGroupConditionSignalTypeArgs>> signalType() {
@@ -146,14 +146,14 @@ public final class AlertProcessingRuleActionGroupConditionArgs extends com.pulum
     }
 
     /**
-     * A `target_resource` block as defined below.
+     * A `targetResource` block as defined below.
      * 
      */
     @Import(name="targetResource")
     private @Nullable Output<AlertProcessingRuleActionGroupConditionTargetResourceArgs> targetResource;
 
     /**
-     * @return A `target_resource` block as defined below.
+     * @return A `targetResource` block as defined below.
      * 
      */
     public Optional<Output<AlertProcessingRuleActionGroupConditionTargetResourceArgs>> targetResource() {
@@ -161,14 +161,14 @@ public final class AlertProcessingRuleActionGroupConditionArgs extends com.pulum
     }
 
     /**
-     * A `target_resource_group` block as defined below.
+     * A `targetResourceGroup` block as defined below.
      * 
      */
     @Import(name="targetResourceGroup")
     private @Nullable Output<AlertProcessingRuleActionGroupConditionTargetResourceGroupArgs> targetResourceGroup;
 
     /**
-     * @return A `target_resource_group` block as defined below.
+     * @return A `targetResourceGroup` block as defined below.
      * 
      */
     public Optional<Output<AlertProcessingRuleActionGroupConditionTargetResourceGroupArgs>> targetResourceGroup() {
@@ -176,18 +176,18 @@ public final class AlertProcessingRuleActionGroupConditionArgs extends com.pulum
     }
 
     /**
-     * A `target_resource_type` block as defined below.
+     * A `targetResourceType` block as defined below.
      * 
-     * &gt; **Note:** At least one of the `alert_context`, `alert_rule_id`, `alert_rule_name`, `description`, `monitor_condition`, `monitor_service`, `severity`, `signal_type`, `target_resource`, `target_resource_group`, `target_resource_type` must be specified.
+     * &gt; **Note:** At least one of the `alertContext`, `alertRuleId`, `alertRuleName`, `description`, `monitorCondition`, `monitorService`, `severity`, `signalType`, `targetResource`, `targetResourceGroup`, `targetResourceType` must be specified.
      * 
      */
     @Import(name="targetResourceType")
     private @Nullable Output<AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs> targetResourceType;
 
     /**
-     * @return A `target_resource_type` block as defined below.
+     * @return A `targetResourceType` block as defined below.
      * 
-     * &gt; **Note:** At least one of the `alert_context`, `alert_rule_id`, `alert_rule_name`, `description`, `monitor_condition`, `monitor_service`, `severity`, `signal_type`, `target_resource`, `target_resource_group`, `target_resource_type` must be specified.
+     * &gt; **Note:** At least one of the `alertContext`, `alertRuleId`, `alertRuleName`, `description`, `monitorCondition`, `monitorService`, `severity`, `signalType`, `targetResource`, `targetResourceGroup`, `targetResourceType` must be specified.
      * 
      */
     public Optional<Output<AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs>> targetResourceType() {
@@ -229,7 +229,7 @@ public final class AlertProcessingRuleActionGroupConditionArgs extends com.pulum
         }
 
         /**
-         * @param alertContext A `alert_context` block as defined above.
+         * @param alertContext A `alertContext` block as defined above.
          * 
          * @return builder
          * 
@@ -240,7 +240,7 @@ public final class AlertProcessingRuleActionGroupConditionArgs extends com.pulum
         }
 
         /**
-         * @param alertContext A `alert_context` block as defined above.
+         * @param alertContext A `alertContext` block as defined above.
          * 
          * @return builder
          * 
@@ -250,7 +250,7 @@ public final class AlertProcessingRuleActionGroupConditionArgs extends com.pulum
         }
 
         /**
-         * @param alertRuleId A `alert_rule_id` block as defined above.
+         * @param alertRuleId A `alertRuleId` block as defined above.
          * 
          * @return builder
          * 
@@ -261,7 +261,7 @@ public final class AlertProcessingRuleActionGroupConditionArgs extends com.pulum
         }
 
         /**
-         * @param alertRuleId A `alert_rule_id` block as defined above.
+         * @param alertRuleId A `alertRuleId` block as defined above.
          * 
          * @return builder
          * 
@@ -271,7 +271,7 @@ public final class AlertProcessingRuleActionGroupConditionArgs extends com.pulum
         }
 
         /**
-         * @param alertRuleName A `alert_rule_name` block as defined above.
+         * @param alertRuleName A `alertRuleName` block as defined above.
          * 
          * @return builder
          * 
@@ -282,7 +282,7 @@ public final class AlertProcessingRuleActionGroupConditionArgs extends com.pulum
         }
 
         /**
-         * @param alertRuleName A `alert_rule_name` block as defined above.
+         * @param alertRuleName A `alertRuleName` block as defined above.
          * 
          * @return builder
          * 
@@ -313,7 +313,7 @@ public final class AlertProcessingRuleActionGroupConditionArgs extends com.pulum
         }
 
         /**
-         * @param monitorCondition A `monitor_condition` block as defined below.
+         * @param monitorCondition A `monitorCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -324,7 +324,7 @@ public final class AlertProcessingRuleActionGroupConditionArgs extends com.pulum
         }
 
         /**
-         * @param monitorCondition A `monitor_condition` block as defined below.
+         * @param monitorCondition A `monitorCondition` block as defined below.
          * 
          * @return builder
          * 
@@ -334,7 +334,7 @@ public final class AlertProcessingRuleActionGroupConditionArgs extends com.pulum
         }
 
         /**
-         * @param monitorService A `monitor_service` block as defined below.
+         * @param monitorService A `monitorService` block as defined below.
          * 
          * @return builder
          * 
@@ -345,7 +345,7 @@ public final class AlertProcessingRuleActionGroupConditionArgs extends com.pulum
         }
 
         /**
-         * @param monitorService A `monitor_service` block as defined below.
+         * @param monitorService A `monitorService` block as defined below.
          * 
          * @return builder
          * 
@@ -376,7 +376,7 @@ public final class AlertProcessingRuleActionGroupConditionArgs extends com.pulum
         }
 
         /**
-         * @param signalType A `signal_type` block as defined below.
+         * @param signalType A `signalType` block as defined below.
          * 
          * @return builder
          * 
@@ -387,7 +387,7 @@ public final class AlertProcessingRuleActionGroupConditionArgs extends com.pulum
         }
 
         /**
-         * @param signalType A `signal_type` block as defined below.
+         * @param signalType A `signalType` block as defined below.
          * 
          * @return builder
          * 
@@ -397,7 +397,7 @@ public final class AlertProcessingRuleActionGroupConditionArgs extends com.pulum
         }
 
         /**
-         * @param targetResource A `target_resource` block as defined below.
+         * @param targetResource A `targetResource` block as defined below.
          * 
          * @return builder
          * 
@@ -408,7 +408,7 @@ public final class AlertProcessingRuleActionGroupConditionArgs extends com.pulum
         }
 
         /**
-         * @param targetResource A `target_resource` block as defined below.
+         * @param targetResource A `targetResource` block as defined below.
          * 
          * @return builder
          * 
@@ -418,7 +418,7 @@ public final class AlertProcessingRuleActionGroupConditionArgs extends com.pulum
         }
 
         /**
-         * @param targetResourceGroup A `target_resource_group` block as defined below.
+         * @param targetResourceGroup A `targetResourceGroup` block as defined below.
          * 
          * @return builder
          * 
@@ -429,7 +429,7 @@ public final class AlertProcessingRuleActionGroupConditionArgs extends com.pulum
         }
 
         /**
-         * @param targetResourceGroup A `target_resource_group` block as defined below.
+         * @param targetResourceGroup A `targetResourceGroup` block as defined below.
          * 
          * @return builder
          * 
@@ -439,9 +439,9 @@ public final class AlertProcessingRuleActionGroupConditionArgs extends com.pulum
         }
 
         /**
-         * @param targetResourceType A `target_resource_type` block as defined below.
+         * @param targetResourceType A `targetResourceType` block as defined below.
          * 
-         * &gt; **Note:** At least one of the `alert_context`, `alert_rule_id`, `alert_rule_name`, `description`, `monitor_condition`, `monitor_service`, `severity`, `signal_type`, `target_resource`, `target_resource_group`, `target_resource_type` must be specified.
+         * &gt; **Note:** At least one of the `alertContext`, `alertRuleId`, `alertRuleName`, `description`, `monitorCondition`, `monitorService`, `severity`, `signalType`, `targetResource`, `targetResourceGroup`, `targetResourceType` must be specified.
          * 
          * @return builder
          * 
@@ -452,9 +452,9 @@ public final class AlertProcessingRuleActionGroupConditionArgs extends com.pulum
         }
 
         /**
-         * @param targetResourceType A `target_resource_type` block as defined below.
+         * @param targetResourceType A `targetResourceType` block as defined below.
          * 
-         * &gt; **Note:** At least one of the `alert_context`, `alert_rule_id`, `alert_rule_name`, `description`, `monitor_condition`, `monitor_service`, `severity`, `signal_type`, `target_resource`, `target_resource_group`, `target_resource_type` must be specified.
+         * &gt; **Note:** At least one of the `alertContext`, `alertRuleId`, `alertRuleName`, `description`, `monitorCondition`, `monitorService`, `severity`, `signalType`, `targetResource`, `targetResourceGroup`, `targetResourceType` must be specified.
          * 
          * @return builder
          * 

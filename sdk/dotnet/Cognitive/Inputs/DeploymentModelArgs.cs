@@ -15,7 +15,7 @@ namespace Pulumi.Azure.Cognitive.Inputs
         /// <summary>
         /// The format of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** Possible values of `format` can be found by running the command `az cognitiveservices account list-models`. The available values may vary by region or due to quota limitations. These could include models from `AI21 Labs`, `Black Forest Labs`, `Cohere`, `Core42`, `DeepSeek`, `Meta`, `Microsoft`, `Mistral AI`, `OpenAI`, and `xAI`.
+        /// &gt; **Note:** Possible values of `Format` can be found by running the command `az cognitiveservices account list-models`. The available values may vary by region or due to quota limitations. These could include models from `AI21 Labs`, `Black Forest Labs`, `Cohere`, `Core42`, `DeepSeek`, `Meta`, `Microsoft`, `Mistral AI`, `OpenAI`, and `xAI`.
         /// </summary>
         [Input("format", required: true)]
         public Input<string> Format { get; set; } = null!;
@@ -27,7 +27,7 @@ namespace Pulumi.Azure.Cognitive.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The version of Cognitive Services Account Deployment model. If `version` is not specified, the default version of the model at the time will be assigned.
+        /// The version of Cognitive Services Account Deployment model. If `Version` is not specified, the default version of the model at the time will be assigned.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

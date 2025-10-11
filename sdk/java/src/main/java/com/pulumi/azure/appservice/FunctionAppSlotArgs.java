@@ -44,9 +44,9 @@ public final class FunctionAppSlotArgs extends com.pulumi.resources.ResourceArgs
      * 
      * &gt; **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of the application code for function app to be successfully deployed. `Important Default key pairs`: (`&#34;WEBSITE_RUN_FROM_PACKAGE&#34; = &#34;&#34;`, `&#34;FUNCTIONS_WORKER_RUNTIME&#34; = &#34;node&#34;` (or python, etc), `&#34;WEBSITE_NODE_DEFAULT_VERSION&#34; = &#34;10.14.1&#34;`, `&#34;APPINSIGHTS_INSTRUMENTATIONKEY&#34; = &#34;&#34;`).
      * 
-     * &gt; **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn&#39;t be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
+     * &gt; **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn&#39;t be configured separately. `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
      * 
-     * &gt; **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+     * &gt; **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
      * 
      */
     @Import(name="appSettings")
@@ -57,9 +57,9 @@ public final class FunctionAppSlotArgs extends com.pulumi.resources.ResourceArgs
      * 
      * &gt; **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of the application code for function app to be successfully deployed. `Important Default key pairs`: (`&#34;WEBSITE_RUN_FROM_PACKAGE&#34; = &#34;&#34;`, `&#34;FUNCTIONS_WORKER_RUNTIME&#34; = &#34;node&#34;` (or python, etc), `&#34;WEBSITE_NODE_DEFAULT_VERSION&#34; = &#34;10.14.1&#34;`, `&#34;APPINSIGHTS_INSTRUMENTATIONKEY&#34; = &#34;&#34;`).
      * 
-     * &gt; **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn&#39;t be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
+     * &gt; **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn&#39;t be configured separately. `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
      * 
-     * &gt; **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+     * &gt; **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
      * 
      */
     public Optional<Output<Map<String,String>>> appSettings() {
@@ -67,14 +67,14 @@ public final class FunctionAppSlotArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * An `auth_settings` block as defined below.
+     * An `authSettings` block as defined below.
      * 
      */
     @Import(name="authSettings")
     private @Nullable Output<FunctionAppSlotAuthSettingsArgs> authSettings;
 
     /**
-     * @return An `auth_settings` block as defined below.
+     * @return An `authSettings` block as defined below.
      * 
      */
     public Optional<Output<FunctionAppSlotAuthSettingsArgs>> authSettings() {
@@ -82,14 +82,14 @@ public final class FunctionAppSlotArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A `connection_string` block as defined below.
+     * A `connectionString` block as defined below.
      * 
      */
     @Import(name="connectionStrings")
     private @Nullable Output<List<FunctionAppSlotConnectionStringArgs>> connectionStrings;
 
     /**
-     * @return A `connection_string` block as defined below.
+     * @return A `connectionString` block as defined below.
      * 
      */
     public Optional<Output<List<FunctionAppSlotConnectionStringArgs>>> connectionStrings() {
@@ -251,14 +251,14 @@ public final class FunctionAppSlotArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A `site_config` object as defined below.
+     * A `siteConfig` object as defined below.
      * 
      */
     @Import(name="siteConfig")
     private @Nullable Output<FunctionAppSlotSiteConfigArgs> siteConfig;
 
     /**
-     * @return A `site_config` object as defined below.
+     * @return A `siteConfig` object as defined below.
      * 
      */
     public Optional<Output<FunctionAppSlotSiteConfigArgs>> siteConfig() {
@@ -393,9 +393,9 @@ public final class FunctionAppSlotArgs extends com.pulumi.resources.ResourceArgs
          * 
          * &gt; **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of the application code for function app to be successfully deployed. `Important Default key pairs`: (`&#34;WEBSITE_RUN_FROM_PACKAGE&#34; = &#34;&#34;`, `&#34;FUNCTIONS_WORKER_RUNTIME&#34; = &#34;node&#34;` (or python, etc), `&#34;WEBSITE_NODE_DEFAULT_VERSION&#34; = &#34;10.14.1&#34;`, `&#34;APPINSIGHTS_INSTRUMENTATIONKEY&#34; = &#34;&#34;`).
          * 
-         * &gt; **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn&#39;t be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
+         * &gt; **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn&#39;t be configured separately. `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
          * 
-         * &gt; **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+         * &gt; **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
          * 
          * @return builder
          * 
@@ -410,9 +410,9 @@ public final class FunctionAppSlotArgs extends com.pulumi.resources.ResourceArgs
          * 
          * &gt; **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of the application code for function app to be successfully deployed. `Important Default key pairs`: (`&#34;WEBSITE_RUN_FROM_PACKAGE&#34; = &#34;&#34;`, `&#34;FUNCTIONS_WORKER_RUNTIME&#34; = &#34;node&#34;` (or python, etc), `&#34;WEBSITE_NODE_DEFAULT_VERSION&#34; = &#34;10.14.1&#34;`, `&#34;APPINSIGHTS_INSTRUMENTATIONKEY&#34; = &#34;&#34;`).
          * 
-         * &gt; **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn&#39;t be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
+         * &gt; **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn&#39;t be configured separately. `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
          * 
-         * &gt; **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+         * &gt; **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
          * 
          * @return builder
          * 
@@ -422,7 +422,7 @@ public final class FunctionAppSlotArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param authSettings An `auth_settings` block as defined below.
+         * @param authSettings An `authSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -433,7 +433,7 @@ public final class FunctionAppSlotArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param authSettings An `auth_settings` block as defined below.
+         * @param authSettings An `authSettings` block as defined below.
          * 
          * @return builder
          * 
@@ -443,7 +443,7 @@ public final class FunctionAppSlotArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param connectionStrings A `connection_string` block as defined below.
+         * @param connectionStrings A `connectionString` block as defined below.
          * 
          * @return builder
          * 
@@ -454,7 +454,7 @@ public final class FunctionAppSlotArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param connectionStrings A `connection_string` block as defined below.
+         * @param connectionStrings A `connectionString` block as defined below.
          * 
          * @return builder
          * 
@@ -464,7 +464,7 @@ public final class FunctionAppSlotArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param connectionStrings A `connection_string` block as defined below.
+         * @param connectionStrings A `connectionString` block as defined below.
          * 
          * @return builder
          * 
@@ -688,7 +688,7 @@ public final class FunctionAppSlotArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param siteConfig A `site_config` object as defined below.
+         * @param siteConfig A `siteConfig` object as defined below.
          * 
          * @return builder
          * 
@@ -699,7 +699,7 @@ public final class FunctionAppSlotArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param siteConfig A `site_config` object as defined below.
+         * @param siteConfig A `siteConfig` object as defined below.
          * 
          * @return builder
          * 

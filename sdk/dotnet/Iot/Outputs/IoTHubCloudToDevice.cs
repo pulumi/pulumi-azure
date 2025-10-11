@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Iot.Outputs
         /// </summary>
         public readonly string? DefaultTtl;
         /// <summary>
-        /// A `feedback` block as defined below.
+        /// A `Feedback` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.IoTHubCloudToDeviceFeedback> Feedbacks;
         /// <summary>

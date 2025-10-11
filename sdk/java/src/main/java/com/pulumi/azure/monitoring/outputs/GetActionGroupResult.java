@@ -24,27 +24,27 @@ import java.util.Objects;
 @CustomType
 public final class GetActionGroupResult {
     /**
-     * @return One or more `arm_role_receiver` blocks as defined below.
+     * @return One or more `armRoleReceiver` blocks as defined below.
      * 
      */
     private List<GetActionGroupArmRoleReceiver> armRoleReceivers;
     /**
-     * @return One or more `automation_runbook_receiver` blocks as defined below.
+     * @return One or more `automationRunbookReceiver` blocks as defined below.
      * 
      */
     private List<GetActionGroupAutomationRunbookReceiver> automationRunbookReceivers;
     /**
-     * @return One or more `azure_app_push_receiver` blocks as defined below.
+     * @return One or more `azureAppPushReceiver` blocks as defined below.
      * 
      */
     private List<GetActionGroupAzureAppPushReceiver> azureAppPushReceivers;
     /**
-     * @return One or more `azure_function_receiver` blocks as defined below.
+     * @return One or more `azureFunctionReceiver` blocks as defined below.
      * 
      */
     private List<GetActionGroupAzureFunctionReceiver> azureFunctionReceivers;
     /**
-     * @return One or more `email_receiver` blocks as defined below.
+     * @return One or more `emailReceiver` blocks as defined below.
      * 
      */
     private List<GetActionGroupEmailReceiver> emailReceivers;
@@ -54,7 +54,7 @@ public final class GetActionGroupResult {
      */
     private Boolean enabled;
     /**
-     * @return One or more `event_hub_receiver` blocks as defined below.
+     * @return One or more `eventHubReceiver` blocks as defined below.
      * 
      */
     private List<GetActionGroupEventHubReceiver> eventHubReceivers;
@@ -64,12 +64,12 @@ public final class GetActionGroupResult {
      */
     private String id;
     /**
-     * @return One or more `itsm_receiver` blocks as defined below.
+     * @return One or more `itsmReceiver` blocks as defined below.
      * 
      */
     private List<GetActionGroupItsmReceiver> itsmReceivers;
     /**
-     * @return One or more `logic_app_receiver` blocks as defined below.
+     * @return One or more `logicAppReceiver` blocks as defined below.
      * 
      */
     private List<GetActionGroupLogicAppReceiver> logicAppReceivers;
@@ -85,52 +85,52 @@ public final class GetActionGroupResult {
      */
     private String shortName;
     /**
-     * @return One or more `sms_receiver` blocks as defined below.
+     * @return One or more `smsReceiver` blocks as defined below.
      * 
      */
     private List<GetActionGroupSmsReceiver> smsReceivers;
     /**
-     * @return One or more `voice_receiver` blocks as defined below.
+     * @return One or more `voiceReceiver` blocks as defined below.
      * 
      */
     private List<GetActionGroupVoiceReceiver> voiceReceivers;
     /**
-     * @return One or more `webhook_receiver` blocks as defined below.
+     * @return One or more `webhookReceiver` blocks as defined below.
      * 
      */
     private List<GetActionGroupWebhookReceiver> webhookReceivers;
 
     private GetActionGroupResult() {}
     /**
-     * @return One or more `arm_role_receiver` blocks as defined below.
+     * @return One or more `armRoleReceiver` blocks as defined below.
      * 
      */
     public List<GetActionGroupArmRoleReceiver> armRoleReceivers() {
         return this.armRoleReceivers;
     }
     /**
-     * @return One or more `automation_runbook_receiver` blocks as defined below.
+     * @return One or more `automationRunbookReceiver` blocks as defined below.
      * 
      */
     public List<GetActionGroupAutomationRunbookReceiver> automationRunbookReceivers() {
         return this.automationRunbookReceivers;
     }
     /**
-     * @return One or more `azure_app_push_receiver` blocks as defined below.
+     * @return One or more `azureAppPushReceiver` blocks as defined below.
      * 
      */
     public List<GetActionGroupAzureAppPushReceiver> azureAppPushReceivers() {
         return this.azureAppPushReceivers;
     }
     /**
-     * @return One or more `azure_function_receiver` blocks as defined below.
+     * @return One or more `azureFunctionReceiver` blocks as defined below.
      * 
      */
     public List<GetActionGroupAzureFunctionReceiver> azureFunctionReceivers() {
         return this.azureFunctionReceivers;
     }
     /**
-     * @return One or more `email_receiver` blocks as defined below.
+     * @return One or more `emailReceiver` blocks as defined below.
      * 
      */
     public List<GetActionGroupEmailReceiver> emailReceivers() {
@@ -144,7 +144,7 @@ public final class GetActionGroupResult {
         return this.enabled;
     }
     /**
-     * @return One or more `event_hub_receiver` blocks as defined below.
+     * @return One or more `eventHubReceiver` blocks as defined below.
      * 
      */
     public List<GetActionGroupEventHubReceiver> eventHubReceivers() {
@@ -158,14 +158,14 @@ public final class GetActionGroupResult {
         return this.id;
     }
     /**
-     * @return One or more `itsm_receiver` blocks as defined below.
+     * @return One or more `itsmReceiver` blocks as defined below.
      * 
      */
     public List<GetActionGroupItsmReceiver> itsmReceivers() {
         return this.itsmReceivers;
     }
     /**
-     * @return One or more `logic_app_receiver` blocks as defined below.
+     * @return One or more `logicAppReceiver` blocks as defined below.
      * 
      */
     public List<GetActionGroupLogicAppReceiver> logicAppReceivers() {
@@ -189,21 +189,21 @@ public final class GetActionGroupResult {
         return this.shortName;
     }
     /**
-     * @return One or more `sms_receiver` blocks as defined below.
+     * @return One or more `smsReceiver` blocks as defined below.
      * 
      */
     public List<GetActionGroupSmsReceiver> smsReceivers() {
         return this.smsReceivers;
     }
     /**
-     * @return One or more `voice_receiver` blocks as defined below.
+     * @return One or more `voiceReceiver` blocks as defined below.
      * 
      */
     public List<GetActionGroupVoiceReceiver> voiceReceivers() {
         return this.voiceReceivers;
     }
     /**
-     * @return One or more `webhook_receiver` blocks as defined below.
+     * @return One or more `webhookReceiver` blocks as defined below.
      * 
      */
     public List<GetActionGroupWebhookReceiver> webhookReceivers() {

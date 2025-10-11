@@ -24,7 +24,7 @@ public final class NetworkInterfaceIpConfiguration {
      */
     private String name;
     /**
-     * @return Is this the Primary IP Configuration? Must be `true` for the first `ip_configuration` when multiple are specified. Defaults to `false`.
+     * @return Is this the Primary IP Configuration? Must be `true` for the first `ipConfiguration` when multiple are specified. Defaults to `false`.
      * 
      */
     private @Nullable Boolean primary;
@@ -53,7 +53,7 @@ public final class NetworkInterfaceIpConfiguration {
     /**
      * @return The ID of the Subnet where this Network Interface should be located in.
      * 
-     * &gt; **Note:** This is required when `private_ip_address_version` is set to `IPv4`.
+     * &gt; **Note:** This is required when `privateIpAddressVersion` is set to `IPv4`.
      * 
      */
     private @Nullable String subnetId;
@@ -74,7 +74,7 @@ public final class NetworkInterfaceIpConfiguration {
         return this.name;
     }
     /**
-     * @return Is this the Primary IP Configuration? Must be `true` for the first `ip_configuration` when multiple are specified. Defaults to `false`.
+     * @return Is this the Primary IP Configuration? Must be `true` for the first `ipConfiguration` when multiple are specified. Defaults to `false`.
      * 
      */
     public Optional<Boolean> primary() {
@@ -113,7 +113,7 @@ public final class NetworkInterfaceIpConfiguration {
     /**
      * @return The ID of the Subnet where this Network Interface should be located in.
      * 
-     * &gt; **Note:** This is required when `private_ip_address_version` is set to `IPv4`.
+     * &gt; **Note:** This is required when `privateIpAddressVersion` is set to `IPv4`.
      * 
      */
     public Optional<String> subnetId() {

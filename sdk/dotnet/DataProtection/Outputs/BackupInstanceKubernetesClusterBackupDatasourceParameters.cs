@@ -14,7 +14,7 @@ namespace Pulumi.Azure.DataProtection.Outputs
     public sealed class BackupInstanceKubernetesClusterBackupDatasourceParameters
     {
         /// <summary>
-        /// Whether to include cluster scope resources during backup. Default to `false`. Changing this forces a new resource to be created.
+        /// Whether to include cluster scope resources during backup. Default to `False`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly bool? ClusterScopedResourcesEnabled;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Azure.DataProtection.Outputs
         /// </summary>
         public readonly ImmutableArray<string> LabelSelectors;
         /// <summary>
-        /// Whether to take volume snapshots during backup. Default to `false`. Changing this forces a new resource to be created.
+        /// Whether to take volume snapshots during backup. Default to `False`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly bool? VolumeSnapshotEnabled;
 

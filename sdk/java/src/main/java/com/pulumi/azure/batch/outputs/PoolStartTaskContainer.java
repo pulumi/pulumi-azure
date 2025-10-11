@@ -20,7 +20,7 @@ public final class PoolStartTaskContainer {
      */
     private String imageName;
     /**
-     * @return The `container_registries` block defined as below.
+     * @return The `containerRegistries` block defined as below.
      * 
      */
     private @Nullable List<PoolStartTaskContainerRegistry> registries;
@@ -44,7 +44,7 @@ public final class PoolStartTaskContainer {
         return this.imageName;
     }
     /**
-     * @return The `container_registries` block defined as below.
+     * @return The `containerRegistries` block defined as below.
      * 
      */
     public List<PoolStartTaskContainerRegistry> registries() {

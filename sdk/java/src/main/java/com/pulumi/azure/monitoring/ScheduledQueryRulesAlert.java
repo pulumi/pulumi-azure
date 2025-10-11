@@ -66,7 +66,7 @@ public class ScheduledQueryRulesAlert extends com.pulumi.resources.CustomResourc
     }
     /**
      * Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
-     * &gt; **Note:** `auto_mitigation_enabled` and `throttling` are mutually exclusive and cannot both be set.
+     * &gt; **Note:** `autoMitigationEnabled` and `throttling` are mutually exclusive and cannot both be set.
      * 
      */
     @Export(name="autoMitigationEnabled", refs={Boolean.class}, tree="[0]")
@@ -74,7 +74,7 @@ public class ScheduledQueryRulesAlert extends com.pulumi.resources.CustomResourc
 
     /**
      * @return Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
-     * &gt; **Note:** `auto_mitigation_enabled` and `throttling` are mutually exclusive and cannot both be set.
+     * &gt; **Note:** `autoMitigationEnabled` and `throttling` are mutually exclusive and cannot both be set.
      * 
      */
     public Output<Optional<Boolean>> autoMitigationEnabled() {

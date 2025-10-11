@@ -147,7 +147,7 @@ namespace Pulumi.Azure.Compute
     public partial class Extension : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies if the platform deploys the latest minor version update to the `type_handler_version` specified.
+        /// Specifies if the platform deploys the latest minor version update to the `TypeHandlerVersion` specified.
         /// </summary>
         [Output("autoUpgradeMinorVersion")]
         public Output<bool?> AutoUpgradeMinorVersion { get; private set; } = null!;
@@ -159,9 +159,9 @@ namespace Pulumi.Azure.Compute
         public Output<bool?> AutomaticUpgradeEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+        /// Should failures from the extension be suppressed? Possible values are `True` or `False`. Defaults to `False`.
         /// 
-        /// &gt; **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
+        /// &gt; **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `FailureSuppressionEnabled` value.
         /// </summary>
         [Output("failureSuppressionEnabled")]
         public Output<bool?> FailureSuppressionEnabled { get; private set; } = null!;
@@ -173,17 +173,17 @@ namespace Pulumi.Azure.Compute
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
+        /// The ProtectedSettings passed to the extension, like settings, these are specified as a JSON object in a string.
         /// 
-        /// &gt; **Note:** Certain VM Extensions require that the keys in the `protected_settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
+        /// &gt; **Note:** Certain VM Extensions require that the keys in the `ProtectedSettings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
         /// </summary>
         [Output("protectedSettings")]
         public Output<string?> ProtectedSettings { get; private set; } = null!;
 
         /// <summary>
-        /// A `protected_settings_from_key_vault` block as defined below.
+        /// A `ProtectedSettingsFromKeyVault` block as defined below.
         /// 
-        /// &gt; **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
+        /// &gt; **Note:** `ProtectedSettingsFromKeyVault` cannot be used with `ProtectedSettings`
         /// </summary>
         [Output("protectedSettingsFromKeyVault")]
         public Output<Outputs.ExtensionProtectedSettingsFromKeyVault?> ProtectedSettingsFromKeyVault { get; private set; } = null!;
@@ -203,7 +203,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The settings passed to the extension, these are specified as a JSON object in a string.
         /// 
-        /// &gt; **Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
+        /// &gt; **Note:** Certain VM Extensions require that the keys in the `Settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
         /// </summary>
         [Output("settings")]
         public Output<string?> Settings { get; private set; } = null!;
@@ -289,7 +289,7 @@ namespace Pulumi.Azure.Compute
     public sealed class ExtensionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies if the platform deploys the latest minor version update to the `type_handler_version` specified.
+        /// Specifies if the platform deploys the latest minor version update to the `TypeHandlerVersion` specified.
         /// </summary>
         [Input("autoUpgradeMinorVersion")]
         public Input<bool>? AutoUpgradeMinorVersion { get; set; }
@@ -301,9 +301,9 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? AutomaticUpgradeEnabled { get; set; }
 
         /// <summary>
-        /// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+        /// Should failures from the extension be suppressed? Possible values are `True` or `False`. Defaults to `False`.
         /// 
-        /// &gt; **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
+        /// &gt; **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `FailureSuppressionEnabled` value.
         /// </summary>
         [Input("failureSuppressionEnabled")]
         public Input<bool>? FailureSuppressionEnabled { get; set; }
@@ -318,9 +318,9 @@ namespace Pulumi.Azure.Compute
         private Input<string>? _protectedSettings;
 
         /// <summary>
-        /// The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
+        /// The ProtectedSettings passed to the extension, like settings, these are specified as a JSON object in a string.
         /// 
-        /// &gt; **Note:** Certain VM Extensions require that the keys in the `protected_settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
+        /// &gt; **Note:** Certain VM Extensions require that the keys in the `ProtectedSettings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
         /// </summary>
         public Input<string>? ProtectedSettings
         {
@@ -333,9 +333,9 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// A `protected_settings_from_key_vault` block as defined below.
+        /// A `ProtectedSettingsFromKeyVault` block as defined below.
         /// 
-        /// &gt; **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
+        /// &gt; **Note:** `ProtectedSettingsFromKeyVault` cannot be used with `ProtectedSettings`
         /// </summary>
         [Input("protectedSettingsFromKeyVault")]
         public Input<Inputs.ExtensionProtectedSettingsFromKeyVaultArgs>? ProtectedSettingsFromKeyVault { get; set; }
@@ -361,7 +361,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The settings passed to the extension, these are specified as a JSON object in a string.
         /// 
-        /// &gt; **Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
+        /// &gt; **Note:** Certain VM Extensions require that the keys in the `Settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
         /// </summary>
         [Input("settings")]
         public Input<string>? Settings { get; set; }
@@ -411,7 +411,7 @@ namespace Pulumi.Azure.Compute
     public sealed class ExtensionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies if the platform deploys the latest minor version update to the `type_handler_version` specified.
+        /// Specifies if the platform deploys the latest minor version update to the `TypeHandlerVersion` specified.
         /// </summary>
         [Input("autoUpgradeMinorVersion")]
         public Input<bool>? AutoUpgradeMinorVersion { get; set; }
@@ -423,9 +423,9 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? AutomaticUpgradeEnabled { get; set; }
 
         /// <summary>
-        /// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+        /// Should failures from the extension be suppressed? Possible values are `True` or `False`. Defaults to `False`.
         /// 
-        /// &gt; **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
+        /// &gt; **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `FailureSuppressionEnabled` value.
         /// </summary>
         [Input("failureSuppressionEnabled")]
         public Input<bool>? FailureSuppressionEnabled { get; set; }
@@ -440,9 +440,9 @@ namespace Pulumi.Azure.Compute
         private Input<string>? _protectedSettings;
 
         /// <summary>
-        /// The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
+        /// The ProtectedSettings passed to the extension, like settings, these are specified as a JSON object in a string.
         /// 
-        /// &gt; **Note:** Certain VM Extensions require that the keys in the `protected_settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
+        /// &gt; **Note:** Certain VM Extensions require that the keys in the `ProtectedSettings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
         /// </summary>
         public Input<string>? ProtectedSettings
         {
@@ -455,9 +455,9 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// A `protected_settings_from_key_vault` block as defined below.
+        /// A `ProtectedSettingsFromKeyVault` block as defined below.
         /// 
-        /// &gt; **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
+        /// &gt; **Note:** `ProtectedSettingsFromKeyVault` cannot be used with `ProtectedSettings`
         /// </summary>
         [Input("protectedSettingsFromKeyVault")]
         public Input<Inputs.ExtensionProtectedSettingsFromKeyVaultGetArgs>? ProtectedSettingsFromKeyVault { get; set; }
@@ -483,7 +483,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The settings passed to the extension, these are specified as a JSON object in a string.
         /// 
-        /// &gt; **Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
+        /// &gt; **Note:** Certain VM Extensions require that the keys in the `Settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
         /// </summary>
         [Input("settings")]
         public Input<string>? Settings { get; set; }

@@ -113,7 +113,7 @@ public final class HubState extends com.pulumi.resources.ResourceArgs {
     /**
      * Whether High Business Impact (HBI) should be enabled or not. Enabling this setting will reduce diagnostic data collected by the service. Changing this forces a new AI Foundry Hub to be created. Defaults to `false`.
      * 
-     * &gt; **Note:** `high_business_impact_enabled` will be enabled by default when creating an AI Foundry Hub with `encryption` enabled.
+     * &gt; **Note:** `highBusinessImpactEnabled` will be enabled by default when creating an AI Foundry Hub with `encryption` enabled.
      * 
      */
     @Import(name="highBusinessImpactEnabled")
@@ -122,7 +122,7 @@ public final class HubState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Whether High Business Impact (HBI) should be enabled or not. Enabling this setting will reduce diagnostic data collected by the service. Changing this forces a new AI Foundry Hub to be created. Defaults to `false`.
      * 
-     * &gt; **Note:** `high_business_impact_enabled` will be enabled by default when creating an AI Foundry Hub with `encryption` enabled.
+     * &gt; **Note:** `highBusinessImpactEnabled` will be enabled by default when creating an AI Foundry Hub with `encryption` enabled.
      * 
      */
     public Optional<Output<Boolean>> highBusinessImpactEnabled() {
@@ -175,14 +175,14 @@ public final class HubState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `managed_network` block as defined below.
+     * A `managedNetwork` block as defined below.
      * 
      */
     @Import(name="managedNetwork")
     private @Nullable Output<HubManagedNetworkArgs> managedNetwork;
 
     /**
-     * @return A `managed_network` block as defined below.
+     * @return A `managedNetwork` block as defined below.
      * 
      */
     public Optional<Output<HubManagedNetworkArgs>> managedNetwork() {
@@ -464,7 +464,7 @@ public final class HubState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param highBusinessImpactEnabled Whether High Business Impact (HBI) should be enabled or not. Enabling this setting will reduce diagnostic data collected by the service. Changing this forces a new AI Foundry Hub to be created. Defaults to `false`.
          * 
-         * &gt; **Note:** `high_business_impact_enabled` will be enabled by default when creating an AI Foundry Hub with `encryption` enabled.
+         * &gt; **Note:** `highBusinessImpactEnabled` will be enabled by default when creating an AI Foundry Hub with `encryption` enabled.
          * 
          * @return builder
          * 
@@ -477,7 +477,7 @@ public final class HubState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param highBusinessImpactEnabled Whether High Business Impact (HBI) should be enabled or not. Enabling this setting will reduce diagnostic data collected by the service. Changing this forces a new AI Foundry Hub to be created. Defaults to `false`.
          * 
-         * &gt; **Note:** `high_business_impact_enabled` will be enabled by default when creating an AI Foundry Hub with `encryption` enabled.
+         * &gt; **Note:** `highBusinessImpactEnabled` will be enabled by default when creating an AI Foundry Hub with `encryption` enabled.
          * 
          * @return builder
          * 
@@ -550,7 +550,7 @@ public final class HubState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managedNetwork A `managed_network` block as defined below.
+         * @param managedNetwork A `managedNetwork` block as defined below.
          * 
          * @return builder
          * 
@@ -561,7 +561,7 @@ public final class HubState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managedNetwork A `managed_network` block as defined below.
+         * @param managedNetwork A `managedNetwork` block as defined below.
          * 
          * @return builder
          * 

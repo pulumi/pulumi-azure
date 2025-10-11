@@ -17,14 +17,14 @@ public final class DatasetParquetAzureBlobFsLocationArgs extends com.pulumi.reso
     public static final DatasetParquetAzureBlobFsLocationArgs Empty = new DatasetParquetAzureBlobFsLocationArgs();
 
     /**
-     * Is the `file_system` using dynamic expression, function or system variables? Defaults to `false`.
+     * Is the `fileSystem` using dynamic expression, function or system variables? Defaults to `false`.
      * 
      */
     @Import(name="dynamicFileSystemEnabled")
     private @Nullable Output<Boolean> dynamicFileSystemEnabled;
 
     /**
-     * @return Is the `file_system` using dynamic expression, function or system variables? Defaults to `false`.
+     * @return Is the `fileSystem` using dynamic expression, function or system variables? Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> dynamicFileSystemEnabled() {
@@ -136,7 +136,7 @@ public final class DatasetParquetAzureBlobFsLocationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param dynamicFileSystemEnabled Is the `file_system` using dynamic expression, function or system variables? Defaults to `false`.
+         * @param dynamicFileSystemEnabled Is the `fileSystem` using dynamic expression, function or system variables? Defaults to `false`.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class DatasetParquetAzureBlobFsLocationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param dynamicFileSystemEnabled Is the `file_system` using dynamic expression, function or system variables? Defaults to `false`.
+         * @param dynamicFileSystemEnabled Is the `fileSystem` using dynamic expression, function or system variables? Defaults to `false`.
          * 
          * @return builder
          * 

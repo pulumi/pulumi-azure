@@ -95,7 +95,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Output<string> Database { get; private set; } = null!;
 
         /// <summary>
-        /// The query used to retrieve incremental changes in the reference data from the MS SQL database. Cannot be set when `refresh_type` is `Static`.
+        /// The query used to retrieve incremental changes in the reference data from the MS SQL database. Cannot be set when `RefreshType` is `Static`.
         /// </summary>
         [Output("deltaSnapshotQuery")]
         public Output<string?> DeltaSnapshotQuery { get; private set; } = null!;
@@ -119,7 +119,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Output<string> Password { get; private set; } = null!;
 
         /// <summary>
-        /// The frequency in `hh:mm:ss` with which the reference data should be retrieved from the MS SQL database e.g. `00:20:00` for every 20 minutes. Must be set when `refresh_type` is `RefreshPeriodicallyWithFull` or `RefreshPeriodicallyWithDelta`.
+        /// The frequency in `hh:mm:ss` with which the reference data should be retrieved from the MS SQL database e.g. `00:20:00` for every 20 minutes. Must be set when `RefreshType` is `RefreshPeriodicallyWithFull` or `RefreshPeriodicallyWithDelta`.
         /// </summary>
         [Output("refreshIntervalDuration")]
         public Output<string?> RefreshIntervalDuration { get; private set; } = null!;
@@ -217,7 +217,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string> Database { get; set; } = null!;
 
         /// <summary>
-        /// The query used to retrieve incremental changes in the reference data from the MS SQL database. Cannot be set when `refresh_type` is `Static`.
+        /// The query used to retrieve incremental changes in the reference data from the MS SQL database. Cannot be set when `RefreshType` is `Static`.
         /// </summary>
         [Input("deltaSnapshotQuery")]
         public Input<string>? DeltaSnapshotQuery { get; set; }
@@ -251,7 +251,7 @@ namespace Pulumi.Azure.StreamAnalytics
         }
 
         /// <summary>
-        /// The frequency in `hh:mm:ss` with which the reference data should be retrieved from the MS SQL database e.g. `00:20:00` for every 20 minutes. Must be set when `refresh_type` is `RefreshPeriodicallyWithFull` or `RefreshPeriodicallyWithDelta`.
+        /// The frequency in `hh:mm:ss` with which the reference data should be retrieved from the MS SQL database e.g. `00:20:00` for every 20 minutes. Must be set when `RefreshType` is `RefreshPeriodicallyWithFull` or `RefreshPeriodicallyWithDelta`.
         /// </summary>
         [Input("refreshIntervalDuration")]
         public Input<string>? RefreshIntervalDuration { get; set; }
@@ -307,7 +307,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string>? Database { get; set; }
 
         /// <summary>
-        /// The query used to retrieve incremental changes in the reference data from the MS SQL database. Cannot be set when `refresh_type` is `Static`.
+        /// The query used to retrieve incremental changes in the reference data from the MS SQL database. Cannot be set when `RefreshType` is `Static`.
         /// </summary>
         [Input("deltaSnapshotQuery")]
         public Input<string>? DeltaSnapshotQuery { get; set; }
@@ -341,7 +341,7 @@ namespace Pulumi.Azure.StreamAnalytics
         }
 
         /// <summary>
-        /// The frequency in `hh:mm:ss` with which the reference data should be retrieved from the MS SQL database e.g. `00:20:00` for every 20 minutes. Must be set when `refresh_type` is `RefreshPeriodicallyWithFull` or `RefreshPeriodicallyWithDelta`.
+        /// The frequency in `hh:mm:ss` with which the reference data should be retrieved from the MS SQL database e.g. `00:20:00` for every 20 minutes. Must be set when `RefreshType` is `RefreshPeriodicallyWithFull` or `RefreshPeriodicallyWithDelta`.
         /// </summary>
         [Input("refreshIntervalDuration")]
         public Input<string>? RefreshIntervalDuration { get; set; }

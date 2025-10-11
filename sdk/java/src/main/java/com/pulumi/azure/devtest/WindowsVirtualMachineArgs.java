@@ -52,14 +52,14 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * A `gallery_image_reference` block as defined below.
+     * A `galleryImageReference` block as defined below.
      * 
      */
     @Import(name="galleryImageReference", required=true)
     private Output<WindowsVirtualMachineGalleryImageReferenceArgs> galleryImageReference;
 
     /**
-     * @return A `gallery_image_reference` block as defined below.
+     * @return A `galleryImageReference` block as defined below.
      * 
      */
     public Output<WindowsVirtualMachineGalleryImageReferenceArgs> galleryImageReference() {
@@ -67,18 +67,18 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
+     * One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
+     * &gt; **Note:** If any `inboundNatRule` blocks are specified then `disallowPublicIpAddress` must be set to `true`.
      * 
      */
     @Import(name="inboundNatRules")
     private @Nullable Output<List<WindowsVirtualMachineInboundNatRuleArgs>> inboundNatRules;
 
     /**
-     * @return One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
+     * @return One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
+     * &gt; **Note:** If any `inboundNatRule` blocks are specified then `disallowPublicIpAddress` must be set to `true`.
      * 
      */
     public Optional<Output<List<WindowsVirtualMachineInboundNatRuleArgs>>> inboundNatRules() {
@@ -148,7 +148,7 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
     /**
      * Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** The validation requirements for the Name change based on the `os_type` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
+     * &gt; **Note:** The validation requirements for the Name change based on the `osType` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
      * 
      */
     @Import(name="name")
@@ -157,7 +157,7 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
     /**
      * @return Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** The validation requirements for the Name change based on the `os_type` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
+     * &gt; **Note:** The validation requirements for the Name change based on the `osType` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
      * 
      */
     public Optional<Output<String>> name() {
@@ -351,7 +351,7 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param galleryImageReference A `gallery_image_reference` block as defined below.
+         * @param galleryImageReference A `galleryImageReference` block as defined below.
          * 
          * @return builder
          * 
@@ -362,7 +362,7 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param galleryImageReference A `gallery_image_reference` block as defined below.
+         * @param galleryImageReference A `galleryImageReference` block as defined below.
          * 
          * @return builder
          * 
@@ -372,9 +372,9 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param inboundNatRules One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
+         * @param inboundNatRules One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
+         * &gt; **Note:** If any `inboundNatRule` blocks are specified then `disallowPublicIpAddress` must be set to `true`.
          * 
          * @return builder
          * 
@@ -385,9 +385,9 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param inboundNatRules One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
+         * @param inboundNatRules One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
+         * &gt; **Note:** If any `inboundNatRule` blocks are specified then `disallowPublicIpAddress` must be set to `true`.
          * 
          * @return builder
          * 
@@ -397,9 +397,9 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param inboundNatRules One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
+         * @param inboundNatRules One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
+         * &gt; **Note:** If any `inboundNatRule` blocks are specified then `disallowPublicIpAddress` must be set to `true`.
          * 
          * @return builder
          * 
@@ -495,7 +495,7 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
         /**
          * @param name Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** The validation requirements for the Name change based on the `os_type` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
+         * &gt; **Note:** The validation requirements for the Name change based on the `osType` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
          * 
          * @return builder
          * 
@@ -508,7 +508,7 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
         /**
          * @param name Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** The validation requirements for the Name change based on the `os_type` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
+         * &gt; **Note:** The validation requirements for the Name change based on the `osType` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
          * 
          * @return builder
          * 

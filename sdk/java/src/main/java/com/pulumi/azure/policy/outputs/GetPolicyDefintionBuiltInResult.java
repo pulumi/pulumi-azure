@@ -52,7 +52,7 @@ public final class GetPolicyDefintionBuiltInResult {
      */
     private String policyType;
     /**
-     * @return A list of role definition id extracted from `policy_rule` required for remediation.
+     * @return A list of role definition id extracted from `policyRule` required for remediation.
      * 
      */
     private List<String> roleDefinitionIds;
@@ -122,7 +122,7 @@ public final class GetPolicyDefintionBuiltInResult {
         return this.policyType;
     }
     /**
-     * @return A list of role definition id extracted from `policy_rule` required for remediation.
+     * @return A list of role definition id extracted from `policyRule` required for remediation.
      * 
      */
     public List<String> roleDefinitionIds() {

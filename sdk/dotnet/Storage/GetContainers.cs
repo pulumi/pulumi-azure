@@ -100,7 +100,7 @@ namespace Pulumi.Azure.Storage
     public sealed class GetContainersArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// A prefix match used for the Storage Container `name` field.
+        /// A prefix match used for the Storage Container `Name` field.
         /// </summary>
         [Input("namePrefix")]
         public string? NamePrefix { get; set; }
@@ -120,7 +120,7 @@ namespace Pulumi.Azure.Storage
     public sealed class GetContainersInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// A prefix match used for the Storage Container `name` field.
+        /// A prefix match used for the Storage Container `Name` field.
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
@@ -142,7 +142,7 @@ namespace Pulumi.Azure.Storage
     public sealed class GetContainersResult
     {
         /// <summary>
-        /// A `containers` block as defined below.
+        /// A `Containers` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetContainersContainerResult> Containers;
         /// <summary>

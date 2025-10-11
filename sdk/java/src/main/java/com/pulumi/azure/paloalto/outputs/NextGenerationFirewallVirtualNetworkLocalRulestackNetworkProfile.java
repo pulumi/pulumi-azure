@@ -31,7 +31,7 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProf
      */
     private @Nullable List<String> trustedAddressRanges;
     /**
-     * @return A `vnet_configuration` block as defined below.
+     * @return A `vnetConfiguration` block as defined below.
      * 
      */
     private NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfiguration vnetConfiguration;
@@ -65,7 +65,7 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProf
         return this.trustedAddressRanges == null ? List.of() : this.trustedAddressRanges;
     }
     /**
-     * @return A `vnet_configuration` block as defined below.
+     * @return A `vnetConfiguration` block as defined below.
      * 
      */
     public NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfiguration vnetConfiguration() {

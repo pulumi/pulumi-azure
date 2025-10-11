@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class LinuxWebAppAuthSettings
     {
         /// <summary>
-        /// An `active_directory` block as defined above.
+        /// An `ActiveDirectory` block as defined above.
         /// </summary>
         public readonly Outputs.LinuxWebAppAuthSettingsActiveDirectory? ActiveDirectory;
         /// <summary>
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// <summary>
         /// The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
         /// 
-        /// &gt; **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+        /// &gt; **Note:** This setting is only needed if multiple providers are configured, and the `UnauthenticatedClientAction` is set to "RedirectToLoginPage".
         /// </summary>
         public readonly string? DefaultProvider;
         /// <summary>
@@ -36,15 +36,15 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
-        /// A `facebook` block as defined below.
+        /// A `Facebook` block as defined below.
         /// </summary>
         public readonly Outputs.LinuxWebAppAuthSettingsFacebook? Facebook;
         /// <summary>
-        /// A `github` block as defined below.
+        /// A `Github` block as defined below.
         /// </summary>
         public readonly Outputs.LinuxWebAppAuthSettingsGithub? Github;
         /// <summary>
-        /// A `google` block as defined below.
+        /// A `Google` block as defined below.
         /// </summary>
         public readonly Outputs.LinuxWebAppAuthSettingsGoogle? Google;
         /// <summary>
@@ -54,7 +54,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? Issuer;
         /// <summary>
-        /// A `microsoft` block as defined below.
+        /// A `Microsoft` block as defined below.
         /// </summary>
         public readonly Outputs.LinuxWebAppAuthSettingsMicrosoft? Microsoft;
         /// <summary>
@@ -66,11 +66,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly double? TokenRefreshExtensionHours;
         /// <summary>
-        /// Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
+        /// Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `False`.
         /// </summary>
         public readonly bool? TokenStoreEnabled;
         /// <summary>
-        /// A `twitter` block as defined below.
+        /// A `Twitter` block as defined below.
         /// </summary>
         public readonly Outputs.LinuxWebAppAuthSettingsTwitter? Twitter;
         /// <summary>

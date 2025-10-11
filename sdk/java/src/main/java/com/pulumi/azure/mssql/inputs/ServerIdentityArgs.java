@@ -22,7 +22,7 @@ public final class ServerIdentityArgs extends com.pulumi.resources.ResourceArgs 
      * 
      * &gt; **Note:** This is required when `type` is set to `UserAssigned`
      * 
-     * &gt; **Note:** When `type` is set to `SystemAssigned`, the assigned `principal_id` and `tenant_id` can be retrieved after the Microsoft SQL Server has been created. More details are available below.
+     * &gt; **Note:** When `type` is set to `SystemAssigned`, the assigned `principalId` and `tenantId` can be retrieved after the Microsoft SQL Server has been created. More details are available below.
      * 
      */
     @Import(name="identityIds")
@@ -33,7 +33,7 @@ public final class ServerIdentityArgs extends com.pulumi.resources.ResourceArgs 
      * 
      * &gt; **Note:** This is required when `type` is set to `UserAssigned`
      * 
-     * &gt; **Note:** When `type` is set to `SystemAssigned`, the assigned `principal_id` and `tenant_id` can be retrieved after the Microsoft SQL Server has been created. More details are available below.
+     * &gt; **Note:** When `type` is set to `SystemAssigned`, the assigned `principalId` and `tenantId` can be retrieved after the Microsoft SQL Server has been created. More details are available below.
      * 
      */
     public Optional<Output<List<String>>> identityIds() {
@@ -117,7 +117,7 @@ public final class ServerIdentityArgs extends com.pulumi.resources.ResourceArgs 
          * 
          * &gt; **Note:** This is required when `type` is set to `UserAssigned`
          * 
-         * &gt; **Note:** When `type` is set to `SystemAssigned`, the assigned `principal_id` and `tenant_id` can be retrieved after the Microsoft SQL Server has been created. More details are available below.
+         * &gt; **Note:** When `type` is set to `SystemAssigned`, the assigned `principalId` and `tenantId` can be retrieved after the Microsoft SQL Server has been created. More details are available below.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class ServerIdentityArgs extends com.pulumi.resources.ResourceArgs 
          * 
          * &gt; **Note:** This is required when `type` is set to `UserAssigned`
          * 
-         * &gt; **Note:** When `type` is set to `SystemAssigned`, the assigned `principal_id` and `tenant_id` can be retrieved after the Microsoft SQL Server has been created. More details are available below.
+         * &gt; **Note:** When `type` is set to `SystemAssigned`, the assigned `principalId` and `tenantId` can be retrieved after the Microsoft SQL Server has been created. More details are available below.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class ServerIdentityArgs extends com.pulumi.resources.ResourceArgs 
          * 
          * &gt; **Note:** This is required when `type` is set to `UserAssigned`
          * 
-         * &gt; **Note:** When `type` is set to `SystemAssigned`, the assigned `principal_id` and `tenant_id` can be retrieved after the Microsoft SQL Server has been created. More details are available below.
+         * &gt; **Note:** When `type` is set to `SystemAssigned`, the assigned `principalId` and `tenantId` can be retrieved after the Microsoft SQL Server has been created. More details are available below.
          * 
          * @return builder
          * 

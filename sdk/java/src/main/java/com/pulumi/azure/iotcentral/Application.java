@@ -86,18 +86,18 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:iotcentral/application:Application")
 public class Application extends com.pulumi.resources.CustomResource {
     /**
-     * A `display_name` name. Custom display name for the IoT Central application. Default is resource name.
+     * A `displayName` name. Custom display name for the IoT Central application. Default is resource name.
      * 
-     * &gt; **Note:** Due to a bug in the provider, the default value of `display_name` of a newly created IoT Central App will be the Resource Group Name, it will be fixed and use resource name in 4.0. For an existing IoT Central App, this could be fixed by specifying the `display_name` explicitly.
+     * &gt; **Note:** Due to a bug in the provider, the default value of `displayName` of a newly created IoT Central App will be the Resource Group Name, it will be fixed and use resource name in 4.0. For an existing IoT Central App, this could be fixed by specifying the `displayName` explicitly.
      * 
      */
     @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
-     * @return A `display_name` name. Custom display name for the IoT Central application. Default is resource name.
+     * @return A `displayName` name. Custom display name for the IoT Central application. Default is resource name.
      * 
-     * &gt; **Note:** Due to a bug in the provider, the default value of `display_name` of a newly created IoT Central App will be the Resource Group Name, it will be fixed and use resource name in 4.0. For an existing IoT Central App, this could be fixed by specifying the `display_name` explicitly.
+     * &gt; **Note:** Due to a bug in the provider, the default value of `displayName` of a newly created IoT Central App will be the Resource Group Name, it will be fixed and use resource name in 4.0. For an existing IoT Central App, this could be fixed by specifying the `displayName` explicitly.
      * 
      */
     public Output<String> displayName() {
@@ -188,14 +188,14 @@ public class Application extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.sku);
     }
     /**
-     * A `sub_domain` name. Subdomain for the IoT Central URL. Each application must have a unique subdomain.
+     * A `subDomain` name. Subdomain for the IoT Central URL. Each application must have a unique subdomain.
      * 
      */
     @Export(name="subDomain", refs={String.class}, tree="[0]")
     private Output<String> subDomain;
 
     /**
-     * @return A `sub_domain` name. Subdomain for the IoT Central URL. Each application must have a unique subdomain.
+     * @return A `subDomain` name. Subdomain for the IoT Central URL. Each application must have a unique subdomain.
      * 
      */
     public Output<String> subDomain() {

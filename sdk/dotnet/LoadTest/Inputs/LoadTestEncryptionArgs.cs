@@ -13,7 +13,7 @@ namespace Pulumi.Azure.LoadTest.Inputs
     public sealed class LoadTestEncryptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new Load Test to be created.
+        /// An `Identity` block as defined below. Changing this forces a new Load Test to be created.
         /// </summary>
         [Input("identity", required: true)]
         public Input<Inputs.LoadTestEncryptionIdentityArgs> Identity { get; set; } = null!;

@@ -106,6 +106,15 @@ class ApplicationSecurityGroupAssociation(pulumi.CustomResource):
         """
         Manages an association between Private Endpoint and Application Security Group.
 
+        ## Example Usage
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network` - 2024-05-01
+
         ## Import
 
         Associations between Private Endpoint and Application Security Group can be imported using the `resource id`, e.g.
@@ -127,6 +136,15 @@ class ApplicationSecurityGroupAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an association between Private Endpoint and Application Security Group.
+
+        ## Example Usage
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network` - 2024-05-01
 
         ## Import
 

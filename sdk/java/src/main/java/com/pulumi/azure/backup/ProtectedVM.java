@@ -150,7 +150,7 @@ public class ProtectedVM extends com.pulumi.resources.CustomResource {
     /**
      * Specifies Protection state of the backup. Possible values are `Protected`, `BackupsSuspended`, and `ProtectionStopped`.
      * 
-     * &gt; **Note:** `protection_state` cannot be set to `BackupsSuspended` unless the `azure.recoveryservices.Vault` has `immutability` set to `Unlocked` or `Locked`.
+     * &gt; **Note:** `protectionState` cannot be set to `BackupsSuspended` unless the `azure.recoveryservices.Vault` has `immutability` set to `Unlocked` or `Locked`.
      * 
      */
     @Export(name="protectionState", refs={String.class}, tree="[0]")
@@ -159,7 +159,7 @@ public class ProtectedVM extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies Protection state of the backup. Possible values are `Protected`, `BackupsSuspended`, and `ProtectionStopped`.
      * 
-     * &gt; **Note:** `protection_state` cannot be set to `BackupsSuspended` unless the `azure.recoveryservices.Vault` has `immutability` set to `Unlocked` or `Locked`.
+     * &gt; **Note:** `protectionState` cannot be set to `BackupsSuspended` unless the `azure.recoveryservices.Vault` has `immutability` set to `Unlocked` or `Locked`.
      * 
      */
     public Output<String> protectionState() {
@@ -196,7 +196,7 @@ public class ProtectedVM extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the ID of the virtual machine to back up. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource. This allows the source virtual machine to be deleted without having to remove the backup.
+     * &gt; **Note:** After creation, the `sourceVmId` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource. This allows the source virtual machine to be deleted without having to remove the backup.
      * 
      */
     @Export(name="sourceVmId", refs={String.class}, tree="[0]")
@@ -205,7 +205,7 @@ public class ProtectedVM extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies the ID of the virtual machine to back up. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource. This allows the source virtual machine to be deleted without having to remove the backup.
+     * &gt; **Note:** After creation, the `sourceVmId` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource. This allows the source virtual machine to be deleted without having to remove the backup.
      * 
      */
     public Output<String> sourceVmId() {

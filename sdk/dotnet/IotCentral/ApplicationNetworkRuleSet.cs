@@ -82,7 +82,7 @@ namespace Pulumi.Azure.IotCentral
     public partial class ApplicationNetworkRuleSet : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Whether these IP Rules apply for device connectivity to IoT Hub and Device Provisioning Service associated with this IoT Central Application. Possible values are `true`, `false`. Defaults to `true`
+        /// Whether these IP Rules apply for device connectivity to IoT Hub and Device Provisioning Service associated with this IoT Central Application. Possible values are `True`, `False`. Defaults to `True`
         /// </summary>
         [Output("applyToDevice")]
         public Output<bool?> ApplyToDevice { get; private set; } = null!;
@@ -100,7 +100,7 @@ namespace Pulumi.Azure.IotCentral
         public Output<string> IotcentralApplicationId { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `ip_rule` blocks as defined below.
+        /// One or more `IpRule` blocks as defined below.
         /// </summary>
         [Output("ipRules")]
         public Output<ImmutableArray<Outputs.ApplicationNetworkRuleSetIpRule>> IpRules { get; private set; } = null!;
@@ -152,7 +152,7 @@ namespace Pulumi.Azure.IotCentral
     public sealed class ApplicationNetworkRuleSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether these IP Rules apply for device connectivity to IoT Hub and Device Provisioning Service associated with this IoT Central Application. Possible values are `true`, `false`. Defaults to `true`
+        /// Whether these IP Rules apply for device connectivity to IoT Hub and Device Provisioning Service associated with this IoT Central Application. Possible values are `True`, `False`. Defaults to `True`
         /// </summary>
         [Input("applyToDevice")]
         public Input<bool>? ApplyToDevice { get; set; }
@@ -173,7 +173,7 @@ namespace Pulumi.Azure.IotCentral
         private InputList<Inputs.ApplicationNetworkRuleSetIpRuleArgs>? _ipRules;
 
         /// <summary>
-        /// One or more `ip_rule` blocks as defined below.
+        /// One or more `IpRule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationNetworkRuleSetIpRuleArgs> IpRules
         {
@@ -190,7 +190,7 @@ namespace Pulumi.Azure.IotCentral
     public sealed class ApplicationNetworkRuleSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether these IP Rules apply for device connectivity to IoT Hub and Device Provisioning Service associated with this IoT Central Application. Possible values are `true`, `false`. Defaults to `true`
+        /// Whether these IP Rules apply for device connectivity to IoT Hub and Device Provisioning Service associated with this IoT Central Application. Possible values are `True`, `False`. Defaults to `True`
         /// </summary>
         [Input("applyToDevice")]
         public Input<bool>? ApplyToDevice { get; set; }
@@ -211,7 +211,7 @@ namespace Pulumi.Azure.IotCentral
         private InputList<Inputs.ApplicationNetworkRuleSetIpRuleGetArgs>? _ipRules;
 
         /// <summary>
-        /// One or more `ip_rule` blocks as defined below.
+        /// One or more `IpRule` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationNetworkRuleSetIpRuleGetArgs> IpRules
         {

@@ -254,14 +254,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:synapse/workspace:Workspace")
 public class Workspace extends com.pulumi.resources.CustomResource {
     /**
-     * An `azure_devops_repo` block as defined below.
+     * An `azureDevopsRepo` block as defined below.
      * 
      */
     @Export(name="azureDevopsRepo", refs={WorkspaceAzureDevopsRepo.class}, tree="[0]")
     private Output</* @Nullable */ WorkspaceAzureDevopsRepo> azureDevopsRepo;
 
     /**
-     * @return An `azure_devops_repo` block as defined below.
+     * @return An `azureDevopsRepo` block as defined below.
      * 
      */
     public Output<Optional<WorkspaceAzureDevopsRepo>> azureDevopsRepo() {
@@ -310,42 +310,42 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return this.connectivityEndpoints;
     }
     /**
-     * A `customer_managed_key` block as defined below.
+     * A `customerManagedKey` block as defined below.
      * 
      */
     @Export(name="customerManagedKey", refs={WorkspaceCustomerManagedKey.class}, tree="[0]")
     private Output</* @Nullable */ WorkspaceCustomerManagedKey> customerManagedKey;
 
     /**
-     * @return A `customer_managed_key` block as defined below.
+     * @return A `customerManagedKey` block as defined below.
      * 
      */
     public Output<Optional<WorkspaceCustomerManagedKey>> customerManagedKey() {
         return Codegen.optional(this.customerManagedKey);
     }
     /**
-     * Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
+     * Is data exfiltration protection enabled in this workspace? If set to `true`, `managedVirtualNetworkEnabled` must also be set to `true`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="dataExfiltrationProtectionEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> dataExfiltrationProtectionEnabled;
 
     /**
-     * @return Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
+     * @return Is data exfiltration protection enabled in this workspace? If set to `true`, `managedVirtualNetworkEnabled` must also be set to `true`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Boolean>> dataExfiltrationProtectionEnabled() {
         return Codegen.optional(this.dataExfiltrationProtectionEnabled);
     }
     /**
-     * A `github_repo` block as defined below.
+     * A `githubRepo` block as defined below.
      * 
      */
     @Export(name="githubRepo", refs={WorkspaceGithubRepo.class}, tree="[0]")
     private Output</* @Nullable */ WorkspaceGithubRepo> githubRepo;
 
     /**
-     * @return A `github_repo` block as defined below.
+     * @return A `githubRepo` block as defined below.
      * 
      */
     public Output<Optional<WorkspaceGithubRepo>> githubRepo() {
@@ -478,28 +478,28 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `customer_managed_key` must be provided.
+     * Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `customerManagedKey` must be provided.
      * 
      */
     @Export(name="sqlAdministratorLogin", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sqlAdministratorLogin;
 
     /**
-     * @return Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `customer_managed_key` must be provided.
+     * @return Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `customerManagedKey` must be provided.
      * 
      */
     public Output<Optional<String>> sqlAdministratorLogin() {
         return Codegen.optional(this.sqlAdministratorLogin);
     }
     /**
-     * The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `customer_managed_key` must be provided.
+     * The Password associated with the `sqlAdministratorLogin` for the SQL administrator. If this is not provided `customerManagedKey` must be provided.
      * 
      */
     @Export(name="sqlAdministratorLoginPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sqlAdministratorLoginPassword;
 
     /**
-     * @return The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `customer_managed_key` must be provided.
+     * @return The Password associated with the `sqlAdministratorLogin` for the SQL administrator. If this is not provided `customerManagedKey` must be provided.
      * 
      */
     public Output<Optional<String>> sqlAdministratorLoginPassword() {

@@ -34,14 +34,14 @@ public final class CacheDefaultAccessPolicyAccessRuleArgs extends com.pulumi.res
     }
 
     /**
-     * The anonymous GID used when `root_squash_enabled` is `true`.
+     * The anonymous GID used when `rootSquashEnabled` is `true`.
      * 
      */
     @Import(name="anonymousGid")
     private @Nullable Output<Integer> anonymousGid;
 
     /**
-     * @return The anonymous GID used when `root_squash_enabled` is `true`.
+     * @return The anonymous GID used when `rootSquashEnabled` is `true`.
      * 
      */
     public Optional<Output<Integer>> anonymousGid() {
@@ -49,14 +49,14 @@ public final class CacheDefaultAccessPolicyAccessRuleArgs extends com.pulumi.res
     }
 
     /**
-     * The anonymous UID used when `root_squash_enabled` is `true`.
+     * The anonymous UID used when `rootSquashEnabled` is `true`.
      * 
      */
     @Import(name="anonymousUid")
     private @Nullable Output<Integer> anonymousUid;
 
     /**
-     * @return The anonymous UID used when `root_squash_enabled` is `true`.
+     * @return The anonymous UID used when `rootSquashEnabled` is `true`.
      * 
      */
     public Optional<Output<Integer>> anonymousUid() {
@@ -96,7 +96,7 @@ public final class CacheDefaultAccessPolicyAccessRuleArgs extends com.pulumi.res
     /**
      * The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
      * 
-     * &gt; **Note:** Each `access_rule` should set a unique `scope`.
+     * &gt; **Note:** Each `accessRule` should set a unique `scope`.
      * 
      */
     @Import(name="scope", required=true)
@@ -105,7 +105,7 @@ public final class CacheDefaultAccessPolicyAccessRuleArgs extends com.pulumi.res
     /**
      * @return The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
      * 
-     * &gt; **Note:** Each `access_rule` should set a unique `scope`.
+     * &gt; **Note:** Each `accessRule` should set a unique `scope`.
      * 
      */
     public Output<String> scope() {
@@ -195,7 +195,7 @@ public final class CacheDefaultAccessPolicyAccessRuleArgs extends com.pulumi.res
         }
 
         /**
-         * @param anonymousGid The anonymous GID used when `root_squash_enabled` is `true`.
+         * @param anonymousGid The anonymous GID used when `rootSquashEnabled` is `true`.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class CacheDefaultAccessPolicyAccessRuleArgs extends com.pulumi.res
         }
 
         /**
-         * @param anonymousGid The anonymous GID used when `root_squash_enabled` is `true`.
+         * @param anonymousGid The anonymous GID used when `rootSquashEnabled` is `true`.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class CacheDefaultAccessPolicyAccessRuleArgs extends com.pulumi.res
         }
 
         /**
-         * @param anonymousUid The anonymous UID used when `root_squash_enabled` is `true`.
+         * @param anonymousUid The anonymous UID used when `rootSquashEnabled` is `true`.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class CacheDefaultAccessPolicyAccessRuleArgs extends com.pulumi.res
         }
 
         /**
-         * @param anonymousUid The anonymous UID used when `root_squash_enabled` is `true`.
+         * @param anonymousUid The anonymous UID used when `rootSquashEnabled` is `true`.
          * 
          * @return builder
          * 
@@ -281,7 +281,7 @@ public final class CacheDefaultAccessPolicyAccessRuleArgs extends com.pulumi.res
         /**
          * @param scope The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
          * 
-         * &gt; **Note:** Each `access_rule` should set a unique `scope`.
+         * &gt; **Note:** Each `accessRule` should set a unique `scope`.
          * 
          * @return builder
          * 
@@ -294,7 +294,7 @@ public final class CacheDefaultAccessPolicyAccessRuleArgs extends com.pulumi.res
         /**
          * @param scope The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
          * 
-         * &gt; **Note:** Each `access_rule` should set a unique `scope`.
+         * &gt; **Note:** Each `accessRule` should set a unique `scope`.
          * 
          * @return builder
          * 

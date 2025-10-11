@@ -49,14 +49,14 @@ public final class GroupContainerReadinessProbeArgs extends com.pulumi.resources
     }
 
     /**
-     * The definition of the http_get for this container as documented in the `http_get` block below. Changing this forces a new resource to be created.
+     * The definition of the httpGet for this container as documented in the `httpGet` block below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="httpGets")
     private @Nullable Output<List<GroupContainerReadinessProbeHttpGetArgs>> httpGets;
 
     /**
-     * @return The definition of the http_get for this container as documented in the `http_get` block below. Changing this forces a new resource to be created.
+     * @return The definition of the httpGet for this container as documented in the `httpGet` block below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<GroupContainerReadinessProbeHttpGetArgs>>> httpGets() {
@@ -206,7 +206,7 @@ public final class GroupContainerReadinessProbeArgs extends com.pulumi.resources
         }
 
         /**
-         * @param httpGets The definition of the http_get for this container as documented in the `http_get` block below. Changing this forces a new resource to be created.
+         * @param httpGets The definition of the httpGet for this container as documented in the `httpGet` block below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class GroupContainerReadinessProbeArgs extends com.pulumi.resources
         }
 
         /**
-         * @param httpGets The definition of the http_get for this container as documented in the `http_get` block below. Changing this forces a new resource to be created.
+         * @param httpGets The definition of the httpGet for this container as documented in the `httpGet` block below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class GroupContainerReadinessProbeArgs extends com.pulumi.resources
         }
 
         /**
-         * @param httpGets The definition of the http_get for this container as documented in the `http_get` block below. Changing this forces a new resource to be created.
+         * @param httpGets The definition of the httpGet for this container as documented in the `httpGet` block below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

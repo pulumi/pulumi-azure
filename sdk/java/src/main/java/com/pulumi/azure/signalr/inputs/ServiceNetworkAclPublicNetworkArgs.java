@@ -19,7 +19,7 @@ public final class ServiceNetworkAclPublicNetworkArgs extends com.pulumi.resourc
     /**
      * The allowed request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
      * 
-     * &gt; **Note:** When `default_action` is `Allow`, `allowed_request_types`cannot be set.
+     * &gt; **Note:** When `defaultAction` is `Allow`, `allowedRequestTypes`cannot be set.
      * 
      */
     @Import(name="allowedRequestTypes")
@@ -28,7 +28,7 @@ public final class ServiceNetworkAclPublicNetworkArgs extends com.pulumi.resourc
     /**
      * @return The allowed request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
      * 
-     * &gt; **Note:** When `default_action` is `Allow`, `allowed_request_types`cannot be set.
+     * &gt; **Note:** When `defaultAction` is `Allow`, `allowedRequestTypes`cannot be set.
      * 
      */
     public Optional<Output<List<String>>> allowedRequestTypes() {
@@ -38,9 +38,9 @@ public final class ServiceNetworkAclPublicNetworkArgs extends com.pulumi.resourc
     /**
      * The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
      * 
-     * &gt; **Note:** When `default_action` is `Deny`, `denied_request_types`cannot be set.
+     * &gt; **Note:** When `defaultAction` is `Deny`, `deniedRequestTypes`cannot be set.
      * 
-     * &gt; **Note:** `allowed_request_types` - (Optional) and `denied_request_types` cannot be set together.
+     * &gt; **Note:** `allowedRequestTypes` - (Optional) and `deniedRequestTypes` cannot be set together.
      * 
      */
     @Import(name="deniedRequestTypes")
@@ -49,9 +49,9 @@ public final class ServiceNetworkAclPublicNetworkArgs extends com.pulumi.resourc
     /**
      * @return The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
      * 
-     * &gt; **Note:** When `default_action` is `Deny`, `denied_request_types`cannot be set.
+     * &gt; **Note:** When `defaultAction` is `Deny`, `deniedRequestTypes`cannot be set.
      * 
-     * &gt; **Note:** `allowed_request_types` - (Optional) and `denied_request_types` cannot be set together.
+     * &gt; **Note:** `allowedRequestTypes` - (Optional) and `deniedRequestTypes` cannot be set together.
      * 
      */
     public Optional<Output<List<String>>> deniedRequestTypes() {
@@ -86,7 +86,7 @@ public final class ServiceNetworkAclPublicNetworkArgs extends com.pulumi.resourc
         /**
          * @param allowedRequestTypes The allowed request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
          * 
-         * &gt; **Note:** When `default_action` is `Allow`, `allowed_request_types`cannot be set.
+         * &gt; **Note:** When `defaultAction` is `Allow`, `allowedRequestTypes`cannot be set.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class ServiceNetworkAclPublicNetworkArgs extends com.pulumi.resourc
         /**
          * @param allowedRequestTypes The allowed request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
          * 
-         * &gt; **Note:** When `default_action` is `Allow`, `allowed_request_types`cannot be set.
+         * &gt; **Note:** When `defaultAction` is `Allow`, `allowedRequestTypes`cannot be set.
          * 
          * @return builder
          * 
@@ -111,7 +111,7 @@ public final class ServiceNetworkAclPublicNetworkArgs extends com.pulumi.resourc
         /**
          * @param allowedRequestTypes The allowed request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
          * 
-         * &gt; **Note:** When `default_action` is `Allow`, `allowed_request_types`cannot be set.
+         * &gt; **Note:** When `defaultAction` is `Allow`, `allowedRequestTypes`cannot be set.
          * 
          * @return builder
          * 
@@ -123,9 +123,9 @@ public final class ServiceNetworkAclPublicNetworkArgs extends com.pulumi.resourc
         /**
          * @param deniedRequestTypes The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
          * 
-         * &gt; **Note:** When `default_action` is `Deny`, `denied_request_types`cannot be set.
+         * &gt; **Note:** When `defaultAction` is `Deny`, `deniedRequestTypes`cannot be set.
          * 
-         * &gt; **Note:** `allowed_request_types` - (Optional) and `denied_request_types` cannot be set together.
+         * &gt; **Note:** `allowedRequestTypes` - (Optional) and `deniedRequestTypes` cannot be set together.
          * 
          * @return builder
          * 
@@ -138,9 +138,9 @@ public final class ServiceNetworkAclPublicNetworkArgs extends com.pulumi.resourc
         /**
          * @param deniedRequestTypes The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
          * 
-         * &gt; **Note:** When `default_action` is `Deny`, `denied_request_types`cannot be set.
+         * &gt; **Note:** When `defaultAction` is `Deny`, `deniedRequestTypes`cannot be set.
          * 
-         * &gt; **Note:** `allowed_request_types` - (Optional) and `denied_request_types` cannot be set together.
+         * &gt; **Note:** `allowedRequestTypes` - (Optional) and `deniedRequestTypes` cannot be set together.
          * 
          * @return builder
          * 
@@ -152,9 +152,9 @@ public final class ServiceNetworkAclPublicNetworkArgs extends com.pulumi.resourc
         /**
          * @param deniedRequestTypes The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
          * 
-         * &gt; **Note:** When `default_action` is `Deny`, `denied_request_types`cannot be set.
+         * &gt; **Note:** When `defaultAction` is `Deny`, `deniedRequestTypes`cannot be set.
          * 
-         * &gt; **Note:** `allowed_request_types` - (Optional) and `denied_request_types` cannot be set together.
+         * &gt; **Note:** `allowedRequestTypes` - (Optional) and `deniedRequestTypes` cannot be set together.
          * 
          * @return builder
          * 

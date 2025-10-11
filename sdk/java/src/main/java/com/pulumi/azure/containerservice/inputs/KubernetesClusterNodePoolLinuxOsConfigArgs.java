@@ -33,14 +33,14 @@ public final class KubernetesClusterNodePoolLinuxOsConfigArgs extends com.pulumi
     }
 
     /**
-     * A `sysctl_config` block as defined below.
+     * A `sysctlConfig` block as defined below.
      * 
      */
     @Import(name="sysctlConfig")
     private @Nullable Output<KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs> sysctlConfig;
 
     /**
-     * @return A `sysctl_config` block as defined below.
+     * @return A `sysctlConfig` block as defined below.
      * 
      */
     public Optional<Output<KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs>> sysctlConfig() {
@@ -79,19 +79,19 @@ public final class KubernetesClusterNodePoolLinuxOsConfigArgs extends com.pulumi
 
     /**
      * @deprecated
-     * this property has been deprecated in favour of `transparent_huge_page` and will be removed in version 5.0 of the Provider.
+     * this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider.
      * 
      */
-    @Deprecated /* this property has been deprecated in favour of `transparent_huge_page` and will be removed in version 5.0 of the Provider. */
+    @Deprecated /* this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider. */
     @Import(name="transparentHugePageEnabled")
     private @Nullable Output<String> transparentHugePageEnabled;
 
     /**
      * @deprecated
-     * this property has been deprecated in favour of `transparent_huge_page` and will be removed in version 5.0 of the Provider.
+     * this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider.
      * 
      */
-    @Deprecated /* this property has been deprecated in favour of `transparent_huge_page` and will be removed in version 5.0 of the Provider. */
+    @Deprecated /* this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider. */
     public Optional<Output<String>> transparentHugePageEnabled() {
         return Optional.ofNullable(this.transparentHugePageEnabled);
     }
@@ -146,7 +146,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigArgs extends com.pulumi
         }
 
         /**
-         * @param sysctlConfig A `sysctl_config` block as defined below.
+         * @param sysctlConfig A `sysctlConfig` block as defined below.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigArgs extends com.pulumi
         }
 
         /**
-         * @param sysctlConfig A `sysctl_config` block as defined below.
+         * @param sysctlConfig A `sysctlConfig` block as defined below.
          * 
          * @return builder
          * 
@@ -212,10 +212,10 @@ public final class KubernetesClusterNodePoolLinuxOsConfigArgs extends com.pulumi
          * @return builder
          * 
          * @deprecated
-         * this property has been deprecated in favour of `transparent_huge_page` and will be removed in version 5.0 of the Provider.
+         * this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider.
          * 
          */
-        @Deprecated /* this property has been deprecated in favour of `transparent_huge_page` and will be removed in version 5.0 of the Provider. */
+        @Deprecated /* this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider. */
         public Builder transparentHugePageEnabled(@Nullable Output<String> transparentHugePageEnabled) {
             $.transparentHugePageEnabled = transparentHugePageEnabled;
             return this;
@@ -225,10 +225,10 @@ public final class KubernetesClusterNodePoolLinuxOsConfigArgs extends com.pulumi
          * @return builder
          * 
          * @deprecated
-         * this property has been deprecated in favour of `transparent_huge_page` and will be removed in version 5.0 of the Provider.
+         * this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider.
          * 
          */
-        @Deprecated /* this property has been deprecated in favour of `transparent_huge_page` and will be removed in version 5.0 of the Provider. */
+        @Deprecated /* this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider. */
         public Builder transparentHugePageEnabled(String transparentHugePageEnabled) {
             return transparentHugePageEnabled(Output.of(transparentHugePageEnabled));
         }

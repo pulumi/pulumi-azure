@@ -22,14 +22,14 @@ public final class NetworkConnectionMonitorTestConfigurationArgs extends com.pul
     public static final NetworkConnectionMonitorTestConfigurationArgs Empty = new NetworkConnectionMonitorTestConfigurationArgs();
 
     /**
-     * A `http_configuration` block as defined below.
+     * A `httpConfiguration` block as defined below.
      * 
      */
     @Import(name="httpConfiguration")
     private @Nullable Output<NetworkConnectionMonitorTestConfigurationHttpConfigurationArgs> httpConfiguration;
 
     /**
-     * @return A `http_configuration` block as defined below.
+     * @return A `httpConfiguration` block as defined below.
      * 
      */
     public Optional<Output<NetworkConnectionMonitorTestConfigurationHttpConfigurationArgs>> httpConfiguration() {
@@ -37,14 +37,14 @@ public final class NetworkConnectionMonitorTestConfigurationArgs extends com.pul
     }
 
     /**
-     * A `icmp_configuration` block as defined below.
+     * A `icmpConfiguration` block as defined below.
      * 
      */
     @Import(name="icmpConfiguration")
     private @Nullable Output<NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgs> icmpConfiguration;
 
     /**
-     * @return A `icmp_configuration` block as defined below.
+     * @return A `icmpConfiguration` block as defined below.
      * 
      */
     public Optional<Output<NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgs>> icmpConfiguration() {
@@ -97,14 +97,14 @@ public final class NetworkConnectionMonitorTestConfigurationArgs extends com.pul
     }
 
     /**
-     * A `success_threshold` block as defined below.
+     * A `successThreshold` block as defined below.
      * 
      */
     @Import(name="successThreshold")
     private @Nullable Output<NetworkConnectionMonitorTestConfigurationSuccessThresholdArgs> successThreshold;
 
     /**
-     * @return A `success_threshold` block as defined below.
+     * @return A `successThreshold` block as defined below.
      * 
      */
     public Optional<Output<NetworkConnectionMonitorTestConfigurationSuccessThresholdArgs>> successThreshold() {
@@ -112,14 +112,14 @@ public final class NetworkConnectionMonitorTestConfigurationArgs extends com.pul
     }
 
     /**
-     * A `tcp_configuration` block as defined below.
+     * A `tcpConfiguration` block as defined below.
      * 
      */
     @Import(name="tcpConfiguration")
     private @Nullable Output<NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs> tcpConfiguration;
 
     /**
-     * @return A `tcp_configuration` block as defined below.
+     * @return A `tcpConfiguration` block as defined below.
      * 
      */
     public Optional<Output<NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs>> tcpConfiguration() {
@@ -173,7 +173,7 @@ public final class NetworkConnectionMonitorTestConfigurationArgs extends com.pul
         }
 
         /**
-         * @param httpConfiguration A `http_configuration` block as defined below.
+         * @param httpConfiguration A `httpConfiguration` block as defined below.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class NetworkConnectionMonitorTestConfigurationArgs extends com.pul
         }
 
         /**
-         * @param httpConfiguration A `http_configuration` block as defined below.
+         * @param httpConfiguration A `httpConfiguration` block as defined below.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class NetworkConnectionMonitorTestConfigurationArgs extends com.pul
         }
 
         /**
-         * @param icmpConfiguration A `icmp_configuration` block as defined below.
+         * @param icmpConfiguration A `icmpConfiguration` block as defined below.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class NetworkConnectionMonitorTestConfigurationArgs extends com.pul
         }
 
         /**
-         * @param icmpConfiguration A `icmp_configuration` block as defined below.
+         * @param icmpConfiguration A `icmpConfiguration` block as defined below.
          * 
          * @return builder
          * 
@@ -278,7 +278,7 @@ public final class NetworkConnectionMonitorTestConfigurationArgs extends com.pul
         }
 
         /**
-         * @param successThreshold A `success_threshold` block as defined below.
+         * @param successThreshold A `successThreshold` block as defined below.
          * 
          * @return builder
          * 
@@ -289,7 +289,7 @@ public final class NetworkConnectionMonitorTestConfigurationArgs extends com.pul
         }
 
         /**
-         * @param successThreshold A `success_threshold` block as defined below.
+         * @param successThreshold A `successThreshold` block as defined below.
          * 
          * @return builder
          * 
@@ -299,7 +299,7 @@ public final class NetworkConnectionMonitorTestConfigurationArgs extends com.pul
         }
 
         /**
-         * @param tcpConfiguration A `tcp_configuration` block as defined below.
+         * @param tcpConfiguration A `tcpConfiguration` block as defined below.
          * 
          * @return builder
          * 
@@ -310,7 +310,7 @@ public final class NetworkConnectionMonitorTestConfigurationArgs extends com.pul
         }
 
         /**
-         * @param tcpConfiguration A `tcp_configuration` block as defined below.
+         * @param tcpConfiguration A `tcpConfiguration` block as defined below.
          * 
          * @return builder
          * 

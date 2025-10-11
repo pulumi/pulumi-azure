@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Monitoring
     public partial class ScheduledQueryRulesAlert : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An `action` block as defined below.
+        /// An `Action` block as defined below.
         /// </summary>
         [Output("action")]
         public Output<Outputs.ScheduledQueryRulesAlertAction> Action { get; private set; } = null!;
@@ -38,8 +38,8 @@ namespace Pulumi.Azure.Monitoring
         public Output<ImmutableArray<string>> AuthorizedResourceIds { get; private set; } = null!;
 
         /// <summary>
-        /// Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
-        /// &gt; **Note:** `auto_mitigation_enabled` and `throttling` are mutually exclusive and cannot both be set.
+        /// Should the alerts in this Metric Alert be auto resolved? Defaults to `False`.
+        /// &gt; **Note:** `AutoMitigationEnabled` and `Throttling` are mutually exclusive and cannot both be set.
         /// </summary>
         [Output("autoMitigationEnabled")]
         public Output<bool?> AutoMitigationEnabled { get; private set; } = null!;
@@ -57,7 +57,7 @@ namespace Pulumi.Azure.Monitoring
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Whether this scheduled query rule is enabled. Default is `true`.
+        /// Whether this scheduled query rule is enabled. Default is `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -87,7 +87,7 @@ namespace Pulumi.Azure.Monitoring
         public Output<string> Query { get; private set; } = null!;
 
         /// <summary>
-        /// The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`. If set to `ResultCount`, `query` must include an `AggregatedValue` column of a numeric type, for example, `Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)`.
+        /// The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`. If set to `ResultCount`, `Query` must include an `AggregatedValue` column of a numeric type, for example, `Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)`.
         /// </summary>
         [Output("queryType")]
         public Output<string?> QueryType { get; private set; } = null!;
@@ -117,13 +117,13 @@ namespace Pulumi.Azure.Monitoring
         public Output<int?> Throttling { get; private set; } = null!;
 
         /// <summary>
-        /// Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`). Values must be between 5 and 2880 (inclusive).
+        /// Time window for which data needs to be fetched for query (must be greater than or equal to `Frequency`). Values must be between 5 and 2880 (inclusive).
         /// </summary>
         [Output("timeWindow")]
         public Output<int> TimeWindow { get; private set; } = null!;
 
         /// <summary>
-        /// A `trigger` block as defined below.
+        /// A `Trigger` block as defined below.
         /// </summary>
         [Output("trigger")]
         public Output<Outputs.ScheduledQueryRulesAlertTrigger> Trigger { get; private set; } = null!;
@@ -175,7 +175,7 @@ namespace Pulumi.Azure.Monitoring
     public sealed class ScheduledQueryRulesAlertArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `action` block as defined below.
+        /// An `Action` block as defined below.
         /// </summary>
         [Input("action", required: true)]
         public Input<Inputs.ScheduledQueryRulesAlertActionArgs> Action { get; set; } = null!;
@@ -193,8 +193,8 @@ namespace Pulumi.Azure.Monitoring
         }
 
         /// <summary>
-        /// Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
-        /// &gt; **Note:** `auto_mitigation_enabled` and `throttling` are mutually exclusive and cannot both be set.
+        /// Should the alerts in this Metric Alert be auto resolved? Defaults to `False`.
+        /// &gt; **Note:** `AutoMitigationEnabled` and `Throttling` are mutually exclusive and cannot both be set.
         /// </summary>
         [Input("autoMitigationEnabled")]
         public Input<bool>? AutoMitigationEnabled { get; set; }
@@ -212,7 +212,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Whether this scheduled query rule is enabled. Default is `true`.
+        /// Whether this scheduled query rule is enabled. Default is `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -242,7 +242,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string> Query { get; set; } = null!;
 
         /// <summary>
-        /// The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`. If set to `ResultCount`, `query` must include an `AggregatedValue` column of a numeric type, for example, `Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)`.
+        /// The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`. If set to `ResultCount`, `Query` must include an `AggregatedValue` column of a numeric type, for example, `Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)`.
         /// </summary>
         [Input("queryType")]
         public Input<string>? QueryType { get; set; }
@@ -278,13 +278,13 @@ namespace Pulumi.Azure.Monitoring
         public Input<int>? Throttling { get; set; }
 
         /// <summary>
-        /// Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`). Values must be between 5 and 2880 (inclusive).
+        /// Time window for which data needs to be fetched for query (must be greater than or equal to `Frequency`). Values must be between 5 and 2880 (inclusive).
         /// </summary>
         [Input("timeWindow", required: true)]
         public Input<int> TimeWindow { get; set; } = null!;
 
         /// <summary>
-        /// A `trigger` block as defined below.
+        /// A `Trigger` block as defined below.
         /// </summary>
         [Input("trigger", required: true)]
         public Input<Inputs.ScheduledQueryRulesAlertTriggerArgs> Trigger { get; set; } = null!;
@@ -298,7 +298,7 @@ namespace Pulumi.Azure.Monitoring
     public sealed class ScheduledQueryRulesAlertState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `action` block as defined below.
+        /// An `Action` block as defined below.
         /// </summary>
         [Input("action")]
         public Input<Inputs.ScheduledQueryRulesAlertActionGetArgs>? Action { get; set; }
@@ -316,8 +316,8 @@ namespace Pulumi.Azure.Monitoring
         }
 
         /// <summary>
-        /// Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
-        /// &gt; **Note:** `auto_mitigation_enabled` and `throttling` are mutually exclusive and cannot both be set.
+        /// Should the alerts in this Metric Alert be auto resolved? Defaults to `False`.
+        /// &gt; **Note:** `AutoMitigationEnabled` and `Throttling` are mutually exclusive and cannot both be set.
         /// </summary>
         [Input("autoMitigationEnabled")]
         public Input<bool>? AutoMitigationEnabled { get; set; }
@@ -335,7 +335,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Whether this scheduled query rule is enabled. Default is `true`.
+        /// Whether this scheduled query rule is enabled. Default is `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -365,7 +365,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? Query { get; set; }
 
         /// <summary>
-        /// The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`. If set to `ResultCount`, `query` must include an `AggregatedValue` column of a numeric type, for example, `Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)`.
+        /// The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`. If set to `ResultCount`, `Query` must include an `AggregatedValue` column of a numeric type, for example, `Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)`.
         /// </summary>
         [Input("queryType")]
         public Input<string>? QueryType { get; set; }
@@ -401,13 +401,13 @@ namespace Pulumi.Azure.Monitoring
         public Input<int>? Throttling { get; set; }
 
         /// <summary>
-        /// Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`). Values must be between 5 and 2880 (inclusive).
+        /// Time window for which data needs to be fetched for query (must be greater than or equal to `Frequency`). Values must be between 5 and 2880 (inclusive).
         /// </summary>
         [Input("timeWindow")]
         public Input<int>? TimeWindow { get; set; }
 
         /// <summary>
-        /// A `trigger` block as defined below.
+        /// A `Trigger` block as defined below.
         /// </summary>
         [Input("trigger")]
         public Input<Inputs.ScheduledQueryRulesAlertTriggerGetArgs>? Trigger { get; set; }

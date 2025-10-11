@@ -18,17 +18,17 @@ import java.util.Objects;
 @CustomType
 public final class GetVpnServerConfigurationResult {
     /**
-     * @return A `azure_active_directory_authentication` block as defined below.
+     * @return A `azureActiveDirectoryAuthentication` block as defined below.
      * 
      */
     private List<GetVpnServerConfigurationAzureActiveDirectoryAuthentication> azureActiveDirectoryAuthentications;
     /**
-     * @return One or more `client_revoked_certificate` blocks as defined below.
+     * @return One or more `clientRevokedCertificate` blocks as defined below.
      * 
      */
     private List<GetVpnServerConfigurationClientRevokedCertificate> clientRevokedCertificates;
     /**
-     * @return One or more `client_root_certificate` blocks as defined below.
+     * @return One or more `clientRootCertificate` blocks as defined below.
      * 
      */
     private List<GetVpnServerConfigurationClientRootCertificate> clientRootCertificates;
@@ -38,7 +38,7 @@ public final class GetVpnServerConfigurationResult {
      */
     private String id;
     /**
-     * @return The `bgp_settings` block as defined below.
+     * @return The `bgpSettings` block as defined below.
      * 
      */
     private List<GetVpnServerConfigurationIpsecPolicy> ipsecPolicies;
@@ -76,21 +76,21 @@ public final class GetVpnServerConfigurationResult {
 
     private GetVpnServerConfigurationResult() {}
     /**
-     * @return A `azure_active_directory_authentication` block as defined below.
+     * @return A `azureActiveDirectoryAuthentication` block as defined below.
      * 
      */
     public List<GetVpnServerConfigurationAzureActiveDirectoryAuthentication> azureActiveDirectoryAuthentications() {
         return this.azureActiveDirectoryAuthentications;
     }
     /**
-     * @return One or more `client_revoked_certificate` blocks as defined below.
+     * @return One or more `clientRevokedCertificate` blocks as defined below.
      * 
      */
     public List<GetVpnServerConfigurationClientRevokedCertificate> clientRevokedCertificates() {
         return this.clientRevokedCertificates;
     }
     /**
-     * @return One or more `client_root_certificate` blocks as defined below.
+     * @return One or more `clientRootCertificate` blocks as defined below.
      * 
      */
     public List<GetVpnServerConfigurationClientRootCertificate> clientRootCertificates() {
@@ -104,7 +104,7 @@ public final class GetVpnServerConfigurationResult {
         return this.id;
     }
     /**
-     * @return The `bgp_settings` block as defined below.
+     * @return The `bgpSettings` block as defined below.
      * 
      */
     public List<GetVpnServerConfigurationIpsecPolicy> ipsecPolicies() {

@@ -22,7 +22,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly int? ReplicaCompletionCount;
         /// <summary>
-        /// A `scale` block as defined below.
+        /// A `Scale` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.JobEventTriggerConfigScale> Scales;
 

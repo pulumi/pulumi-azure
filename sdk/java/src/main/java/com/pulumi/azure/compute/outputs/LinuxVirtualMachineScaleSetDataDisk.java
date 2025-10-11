@@ -51,24 +51,24 @@ public final class LinuxVirtualMachineScaleSetDataDisk {
     /**
      * @return The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
      * 
-     * &gt; **Note:** `UltraSSD_LRS` is only supported when `ultra_ssd_enabled` within the `additional_capabilities` block is enabled.
+     * &gt; **Note:** `UltraSSD_LRS` is only supported when `ultraSsdEnabled` within the `additionalCapabilities` block is enabled.
      * 
      */
     private String storageAccountType;
     /**
-     * @return Specifies the Read-Write IOPS for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+     * @return Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
      * 
      */
     private @Nullable Integer ultraSsdDiskIopsReadWrite;
     /**
-     * @return Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+     * @return Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
      * 
      */
     private @Nullable Integer ultraSsdDiskMbpsReadWrite;
     /**
      * @return Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
      * 
-     * &gt; **Note:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
+     * &gt; **Note:** This requires that the `storageAccountType` is set to `Premium_LRS` and that `caching` is set to `None`.
      * 
      */
     private @Nullable Boolean writeAcceleratorEnabled;
@@ -123,21 +123,21 @@ public final class LinuxVirtualMachineScaleSetDataDisk {
     /**
      * @return The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
      * 
-     * &gt; **Note:** `UltraSSD_LRS` is only supported when `ultra_ssd_enabled` within the `additional_capabilities` block is enabled.
+     * &gt; **Note:** `UltraSSD_LRS` is only supported when `ultraSsdEnabled` within the `additionalCapabilities` block is enabled.
      * 
      */
     public String storageAccountType() {
         return this.storageAccountType;
     }
     /**
-     * @return Specifies the Read-Write IOPS for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+     * @return Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
      * 
      */
     public Optional<Integer> ultraSsdDiskIopsReadWrite() {
         return Optional.ofNullable(this.ultraSsdDiskIopsReadWrite);
     }
     /**
-     * @return Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+     * @return Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
      * 
      */
     public Optional<Integer> ultraSsdDiskMbpsReadWrite() {
@@ -146,7 +146,7 @@ public final class LinuxVirtualMachineScaleSetDataDisk {
     /**
      * @return Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
      * 
-     * &gt; **Note:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
+     * &gt; **Note:** This requires that the `storageAccountType` is set to `Premium_LRS` and that `caching` is set to `None`.
      * 
      */
     public Optional<Boolean> writeAcceleratorEnabled() {

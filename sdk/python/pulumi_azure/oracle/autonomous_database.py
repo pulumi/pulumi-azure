@@ -788,6 +788,40 @@ class AutonomousDatabase(pulumi.CustomResource):
         """
         Manages an Autonomous Database.
 
+        ## Example Usage
+
+        ## > **Note:** `allowed_ips`  cannot be updated after provisioning the resource with an empty list (i.e., a publicly accessible Autonomous Database)
+
+                      size: the maximum number of Ips provided shouldn't exceed 1024. At this time we only support IpV4.
+        ***
+
+        * `customer_contacts` - (Optional) Specifies a list of customer contacts as email addresses. Changing this forces a new Autonomous Database to be created.
+
+        * `tags` - (Optional) A mapping of tags which should be assigned to the Autonomous Database.
+
+        * `long_term_backup_schedule` - (Optional) A `long_term_backup_schedule` block as defined below.
+
+        > **Note:** for more information see [Create Long-Term Backups on Autonomous Database](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adbsb/backup-long-term.html#GUID-BD76E02E-AEB0-4450-A6AB-5C9EB1F4EAD0)
+
+        ***
+
+        A `long_term_backup_schedule` blocks supports the following:
+
+        * `repeat_cadence` - (Required)  Specifies the schedule for automated long-term backups. Possible values are `Weekly`, `Monthly`, `Yearly`, or `OneTime` (does not repeat) . For example, if the Backup date and Time is `Jan 24, 2025 00:09:00 UTC` and this is a Tuesday, and Weekly is selected, the long-term backup will happen every Tuesday.
+
+        * `time_of_backup` - (Required) The date and time in which the backup should be taken in ISO8601 Date Time format.
+
+        * `retention_period_in_days` - (Required) The retention period in days for the Autonomous Database Backup. Possible values range from `90` to `2558` days (7 years).
+
+        * `enabled` - (Required) A boolean value that indicates whether the long term backup schedule is enabled.
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Oracle.Database` - 2025-03-01
+
         ## Import
 
         Autonomous Databases can be imported using the `resource id`, e.g.
@@ -833,6 +867,40 @@ class AutonomousDatabase(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Autonomous Database.
+
+        ## Example Usage
+
+        ## > **Note:** `allowed_ips`  cannot be updated after provisioning the resource with an empty list (i.e., a publicly accessible Autonomous Database)
+
+                      size: the maximum number of Ips provided shouldn't exceed 1024. At this time we only support IpV4.
+        ***
+
+        * `customer_contacts` - (Optional) Specifies a list of customer contacts as email addresses. Changing this forces a new Autonomous Database to be created.
+
+        * `tags` - (Optional) A mapping of tags which should be assigned to the Autonomous Database.
+
+        * `long_term_backup_schedule` - (Optional) A `long_term_backup_schedule` block as defined below.
+
+        > **Note:** for more information see [Create Long-Term Backups on Autonomous Database](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adbsb/backup-long-term.html#GUID-BD76E02E-AEB0-4450-A6AB-5C9EB1F4EAD0)
+
+        ***
+
+        A `long_term_backup_schedule` blocks supports the following:
+
+        * `repeat_cadence` - (Required)  Specifies the schedule for automated long-term backups. Possible values are `Weekly`, `Monthly`, `Yearly`, or `OneTime` (does not repeat) . For example, if the Backup date and Time is `Jan 24, 2025 00:09:00 UTC` and this is a Tuesday, and Weekly is selected, the long-term backup will happen every Tuesday.
+
+        * `time_of_backup` - (Required) The date and time in which the backup should be taken in ISO8601 Date Time format.
+
+        * `retention_period_in_days` - (Required) The retention period in days for the Autonomous Database Backup. Possible values range from `90` to `2558` days (7 years).
+
+        * `enabled` - (Required) A boolean value that indicates whether the long term backup schedule is enabled.
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Oracle.Database` - 2025-03-01
 
         ## Import
 

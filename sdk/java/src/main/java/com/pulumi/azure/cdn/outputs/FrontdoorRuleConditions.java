@@ -30,230 +30,230 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FrontdoorRuleConditions {
     /**
-     * @return A `client_port_condition` block as defined below.
+     * @return A `clientPortCondition` block as defined below.
      * 
      */
     private @Nullable List<FrontdoorRuleConditionsClientPortCondition> clientPortConditions;
     /**
-     * @return A `cookies_condition` block as defined below.
+     * @return A `cookiesCondition` block as defined below.
      * 
      */
     private @Nullable List<FrontdoorRuleConditionsCookiesCondition> cookiesConditions;
     /**
-     * @return A `host_name_condition` block as defined below.
+     * @return A `hostNameCondition` block as defined below.
      * 
      */
     private @Nullable List<FrontdoorRuleConditionsHostNameCondition> hostNameConditions;
     /**
-     * @return A `http_version_condition` block as defined below.
+     * @return A `httpVersionCondition` block as defined below.
      * 
      */
     private @Nullable List<FrontdoorRuleConditionsHttpVersionCondition> httpVersionConditions;
     /**
-     * @return A `is_device_condition` block as defined below.
+     * @return A `isDeviceCondition` block as defined below.
      * 
      */
     private @Nullable List<FrontdoorRuleConditionsIsDeviceCondition> isDeviceConditions;
     /**
-     * @return A `post_args_condition` block as defined below.
+     * @return A `postArgsCondition` block as defined below.
      * 
      */
     private @Nullable List<FrontdoorRuleConditionsPostArgsCondition> postArgsConditions;
     /**
-     * @return A `query_string_condition` block as defined below.
+     * @return A `queryStringCondition` block as defined below.
      * 
      */
     private @Nullable List<FrontdoorRuleConditionsQueryStringCondition> queryStringConditions;
     /**
-     * @return A `remote_address_condition` block as defined below.
+     * @return A `remoteAddressCondition` block as defined below.
      * 
      */
     private @Nullable List<FrontdoorRuleConditionsRemoteAddressCondition> remoteAddressConditions;
     /**
-     * @return A `request_body_condition` block as defined below.
+     * @return A `requestBodyCondition` block as defined below.
      * 
      */
     private @Nullable List<FrontdoorRuleConditionsRequestBodyCondition> requestBodyConditions;
     /**
-     * @return A `request_header_condition` block as defined below.
+     * @return A `requestHeaderCondition` block as defined below.
      * 
      */
     private @Nullable List<FrontdoorRuleConditionsRequestHeaderCondition> requestHeaderConditions;
     /**
-     * @return A `request_method_condition` block as defined below.
+     * @return A `requestMethodCondition` block as defined below.
      * 
      */
     private @Nullable List<FrontdoorRuleConditionsRequestMethodCondition> requestMethodConditions;
     /**
-     * @return A `request_scheme_condition` block as defined below.
+     * @return A `requestSchemeCondition` block as defined below.
      * 
      */
     private @Nullable List<FrontdoorRuleConditionsRequestSchemeCondition> requestSchemeConditions;
     /**
-     * @return A `request_uri_condition` block as defined below.
+     * @return A `requestUriCondition` block as defined below.
      * 
      */
     private @Nullable List<FrontdoorRuleConditionsRequestUriCondition> requestUriConditions;
     /**
-     * @return A `server_port_condition` block as defined below.
+     * @return A `serverPortCondition` block as defined below.
      * 
      */
     private @Nullable List<FrontdoorRuleConditionsServerPortCondition> serverPortConditions;
     /**
-     * @return A `socket_address_condition` block as defined below.
+     * @return A `socketAddressCondition` block as defined below.
      * 
      */
     private @Nullable List<FrontdoorRuleConditionsSocketAddressCondition> socketAddressConditions;
     /**
-     * @return A `ssl_protocol_condition` block as defined below.
+     * @return A `sslProtocolCondition` block as defined below.
      * 
      */
     private @Nullable List<FrontdoorRuleConditionsSslProtocolCondition> sslProtocolConditions;
     /**
-     * @return A `url_file_extension_condition` block as defined below.
+     * @return A `urlFileExtensionCondition` block as defined below.
      * 
      */
     private @Nullable List<FrontdoorRuleConditionsUrlFileExtensionCondition> urlFileExtensionConditions;
     /**
-     * @return A `url_filename_condition` block as defined below.
+     * @return A `urlFilenameCondition` block as defined below.
      * 
      */
     private @Nullable List<FrontdoorRuleConditionsUrlFilenameCondition> urlFilenameConditions;
     /**
-     * @return A `url_path_condition` block as defined below.
+     * @return A `urlPathCondition` block as defined below.
      * 
      */
     private @Nullable List<FrontdoorRuleConditionsUrlPathCondition> urlPathConditions;
 
     private FrontdoorRuleConditions() {}
     /**
-     * @return A `client_port_condition` block as defined below.
+     * @return A `clientPortCondition` block as defined below.
      * 
      */
     public List<FrontdoorRuleConditionsClientPortCondition> clientPortConditions() {
         return this.clientPortConditions == null ? List.of() : this.clientPortConditions;
     }
     /**
-     * @return A `cookies_condition` block as defined below.
+     * @return A `cookiesCondition` block as defined below.
      * 
      */
     public List<FrontdoorRuleConditionsCookiesCondition> cookiesConditions() {
         return this.cookiesConditions == null ? List.of() : this.cookiesConditions;
     }
     /**
-     * @return A `host_name_condition` block as defined below.
+     * @return A `hostNameCondition` block as defined below.
      * 
      */
     public List<FrontdoorRuleConditionsHostNameCondition> hostNameConditions() {
         return this.hostNameConditions == null ? List.of() : this.hostNameConditions;
     }
     /**
-     * @return A `http_version_condition` block as defined below.
+     * @return A `httpVersionCondition` block as defined below.
      * 
      */
     public List<FrontdoorRuleConditionsHttpVersionCondition> httpVersionConditions() {
         return this.httpVersionConditions == null ? List.of() : this.httpVersionConditions;
     }
     /**
-     * @return A `is_device_condition` block as defined below.
+     * @return A `isDeviceCondition` block as defined below.
      * 
      */
     public List<FrontdoorRuleConditionsIsDeviceCondition> isDeviceConditions() {
         return this.isDeviceConditions == null ? List.of() : this.isDeviceConditions;
     }
     /**
-     * @return A `post_args_condition` block as defined below.
+     * @return A `postArgsCondition` block as defined below.
      * 
      */
     public List<FrontdoorRuleConditionsPostArgsCondition> postArgsConditions() {
         return this.postArgsConditions == null ? List.of() : this.postArgsConditions;
     }
     /**
-     * @return A `query_string_condition` block as defined below.
+     * @return A `queryStringCondition` block as defined below.
      * 
      */
     public List<FrontdoorRuleConditionsQueryStringCondition> queryStringConditions() {
         return this.queryStringConditions == null ? List.of() : this.queryStringConditions;
     }
     /**
-     * @return A `remote_address_condition` block as defined below.
+     * @return A `remoteAddressCondition` block as defined below.
      * 
      */
     public List<FrontdoorRuleConditionsRemoteAddressCondition> remoteAddressConditions() {
         return this.remoteAddressConditions == null ? List.of() : this.remoteAddressConditions;
     }
     /**
-     * @return A `request_body_condition` block as defined below.
+     * @return A `requestBodyCondition` block as defined below.
      * 
      */
     public List<FrontdoorRuleConditionsRequestBodyCondition> requestBodyConditions() {
         return this.requestBodyConditions == null ? List.of() : this.requestBodyConditions;
     }
     /**
-     * @return A `request_header_condition` block as defined below.
+     * @return A `requestHeaderCondition` block as defined below.
      * 
      */
     public List<FrontdoorRuleConditionsRequestHeaderCondition> requestHeaderConditions() {
         return this.requestHeaderConditions == null ? List.of() : this.requestHeaderConditions;
     }
     /**
-     * @return A `request_method_condition` block as defined below.
+     * @return A `requestMethodCondition` block as defined below.
      * 
      */
     public List<FrontdoorRuleConditionsRequestMethodCondition> requestMethodConditions() {
         return this.requestMethodConditions == null ? List.of() : this.requestMethodConditions;
     }
     /**
-     * @return A `request_scheme_condition` block as defined below.
+     * @return A `requestSchemeCondition` block as defined below.
      * 
      */
     public List<FrontdoorRuleConditionsRequestSchemeCondition> requestSchemeConditions() {
         return this.requestSchemeConditions == null ? List.of() : this.requestSchemeConditions;
     }
     /**
-     * @return A `request_uri_condition` block as defined below.
+     * @return A `requestUriCondition` block as defined below.
      * 
      */
     public List<FrontdoorRuleConditionsRequestUriCondition> requestUriConditions() {
         return this.requestUriConditions == null ? List.of() : this.requestUriConditions;
     }
     /**
-     * @return A `server_port_condition` block as defined below.
+     * @return A `serverPortCondition` block as defined below.
      * 
      */
     public List<FrontdoorRuleConditionsServerPortCondition> serverPortConditions() {
         return this.serverPortConditions == null ? List.of() : this.serverPortConditions;
     }
     /**
-     * @return A `socket_address_condition` block as defined below.
+     * @return A `socketAddressCondition` block as defined below.
      * 
      */
     public List<FrontdoorRuleConditionsSocketAddressCondition> socketAddressConditions() {
         return this.socketAddressConditions == null ? List.of() : this.socketAddressConditions;
     }
     /**
-     * @return A `ssl_protocol_condition` block as defined below.
+     * @return A `sslProtocolCondition` block as defined below.
      * 
      */
     public List<FrontdoorRuleConditionsSslProtocolCondition> sslProtocolConditions() {
         return this.sslProtocolConditions == null ? List.of() : this.sslProtocolConditions;
     }
     /**
-     * @return A `url_file_extension_condition` block as defined below.
+     * @return A `urlFileExtensionCondition` block as defined below.
      * 
      */
     public List<FrontdoorRuleConditionsUrlFileExtensionCondition> urlFileExtensionConditions() {
         return this.urlFileExtensionConditions == null ? List.of() : this.urlFileExtensionConditions;
     }
     /**
-     * @return A `url_filename_condition` block as defined below.
+     * @return A `urlFilenameCondition` block as defined below.
      * 
      */
     public List<FrontdoorRuleConditionsUrlFilenameCondition> urlFilenameConditions() {
         return this.urlFilenameConditions == null ? List.of() : this.urlFilenameConditions;
     }
     /**
-     * @return A `url_path_condition` block as defined below.
+     * @return A `urlPathCondition` block as defined below.
      * 
      */
     public List<FrontdoorRuleConditionsUrlPathCondition> urlPathConditions() {

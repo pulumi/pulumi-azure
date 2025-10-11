@@ -26,7 +26,7 @@ public final class KeyVaultArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A list of up to 1024 objects describing access policies, as described below.
      * 
-     * &gt; **Note:** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+     * &gt; **Note:** Since `accessPolicy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      * 
      */
     @Import(name="accessPolicies")
@@ -35,7 +35,7 @@ public final class KeyVaultArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return A list of up to 1024 objects describing access policies, as described below.
      * 
-     * &gt; **Note:** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+     * &gt; **Note:** Since `accessPolicy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      * 
      */
     public Optional<Output<List<KeyVaultAccessPolicyArgs>>> accessPolicies() {
@@ -63,19 +63,19 @@ public final class KeyVaultArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @deprecated
-     * This property has been renamed to `rbac_authorization_enabled` and will be removed in v5.0 of the provider
+     * This property has been renamed to `rbacAuthorizationEnabled` and will be removed in v5.0 of the provider
      * 
      */
-    @Deprecated /* This property has been renamed to `rbac_authorization_enabled` and will be removed in v5.0 of the provider */
+    @Deprecated /* This property has been renamed to `rbacAuthorizationEnabled` and will be removed in v5.0 of the provider */
     @Import(name="enableRbacAuthorization")
     private @Nullable Output<Boolean> enableRbacAuthorization;
 
     /**
      * @deprecated
-     * This property has been renamed to `rbac_authorization_enabled` and will be removed in v5.0 of the provider
+     * This property has been renamed to `rbacAuthorizationEnabled` and will be removed in v5.0 of the provider
      * 
      */
-    @Deprecated /* This property has been renamed to `rbac_authorization_enabled` and will be removed in v5.0 of the provider */
+    @Deprecated /* This property has been renamed to `rbacAuthorizationEnabled` and will be removed in v5.0 of the provider */
     public Optional<Output<Boolean>> enableRbacAuthorization() {
         return Optional.ofNullable(this.enableRbacAuthorization);
     }
@@ -156,14 +156,14 @@ public final class KeyVaultArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `network_acls` block as defined below.
+     * A `networkAcls` block as defined below.
      * 
      */
     @Import(name="networkAcls")
     private @Nullable Output<KeyVaultNetworkAclsArgs> networkAcls;
 
     /**
-     * @return A `network_acls` block as defined below.
+     * @return A `networkAcls` block as defined below.
      * 
      */
     public Optional<Output<KeyVaultNetworkAclsArgs>> networkAcls() {
@@ -345,7 +345,7 @@ public final class KeyVaultArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param accessPolicies A list of up to 1024 objects describing access policies, as described below.
          * 
-         * &gt; **Note:** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+         * &gt; **Note:** Since `accessPolicy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -358,7 +358,7 @@ public final class KeyVaultArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param accessPolicies A list of up to 1024 objects describing access policies, as described below.
          * 
-         * &gt; **Note:** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+         * &gt; **Note:** Since `accessPolicy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -370,7 +370,7 @@ public final class KeyVaultArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param accessPolicies A list of up to 1024 objects describing access policies, as described below.
          * 
-         * &gt; **Note:** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+         * &gt; **Note:** Since `accessPolicy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -420,10 +420,10 @@ public final class KeyVaultArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * This property has been renamed to `rbac_authorization_enabled` and will be removed in v5.0 of the provider
+         * This property has been renamed to `rbacAuthorizationEnabled` and will be removed in v5.0 of the provider
          * 
          */
-        @Deprecated /* This property has been renamed to `rbac_authorization_enabled` and will be removed in v5.0 of the provider */
+        @Deprecated /* This property has been renamed to `rbacAuthorizationEnabled` and will be removed in v5.0 of the provider */
         public Builder enableRbacAuthorization(@Nullable Output<Boolean> enableRbacAuthorization) {
             $.enableRbacAuthorization = enableRbacAuthorization;
             return this;
@@ -433,10 +433,10 @@ public final class KeyVaultArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * This property has been renamed to `rbac_authorization_enabled` and will be removed in v5.0 of the provider
+         * This property has been renamed to `rbacAuthorizationEnabled` and will be removed in v5.0 of the provider
          * 
          */
-        @Deprecated /* This property has been renamed to `rbac_authorization_enabled` and will be removed in v5.0 of the provider */
+        @Deprecated /* This property has been renamed to `rbacAuthorizationEnabled` and will be removed in v5.0 of the provider */
         public Builder enableRbacAuthorization(Boolean enableRbacAuthorization) {
             return enableRbacAuthorization(Output.of(enableRbacAuthorization));
         }
@@ -547,7 +547,7 @@ public final class KeyVaultArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkAcls A `network_acls` block as defined below.
+         * @param networkAcls A `networkAcls` block as defined below.
          * 
          * @return builder
          * 
@@ -558,7 +558,7 @@ public final class KeyVaultArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkAcls A `network_acls` block as defined below.
+         * @param networkAcls A `networkAcls` block as defined below.
          * 
          * @return builder
          * 

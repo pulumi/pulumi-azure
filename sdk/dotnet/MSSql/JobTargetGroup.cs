@@ -103,7 +103,7 @@ namespace Pulumi.Azure.MSSql
         public Output<string> JobAgentId { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `job_target` blocks as defined below.
+        /// One or more `JobTarget` blocks as defined below.
         /// </summary>
         [Output("jobTargets")]
         public Output<ImmutableArray<Outputs.JobTargetGroupJobTarget>> JobTargets { get; private set; } = null!;
@@ -170,7 +170,7 @@ namespace Pulumi.Azure.MSSql
         private InputList<Inputs.JobTargetGroupJobTargetArgs>? _jobTargets;
 
         /// <summary>
-        /// One or more `job_target` blocks as defined below.
+        /// One or more `JobTarget` blocks as defined below.
         /// </summary>
         public InputList<Inputs.JobTargetGroupJobTargetArgs> JobTargets
         {
@@ -202,7 +202,7 @@ namespace Pulumi.Azure.MSSql
         private InputList<Inputs.JobTargetGroupJobTargetGetArgs>? _jobTargets;
 
         /// <summary>
-        /// One or more `job_target` blocks as defined below.
+        /// One or more `JobTarget` blocks as defined below.
         /// </summary>
         public InputList<Inputs.JobTargetGroupJobTargetGetArgs> JobTargets
         {

@@ -31,7 +31,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The priority value of this `ip_restriction`.
+        /// The priority value of this `IpRestriction`.
         /// </summary>
         public readonly int Priority;
         /// <summary>

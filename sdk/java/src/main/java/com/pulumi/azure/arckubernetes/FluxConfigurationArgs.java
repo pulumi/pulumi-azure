@@ -23,14 +23,14 @@ public final class FluxConfigurationArgs extends com.pulumi.resources.ResourceAr
     public static final FluxConfigurationArgs Empty = new FluxConfigurationArgs();
 
     /**
-     * An `blob_storage` block as defined below.
+     * An `blobStorage` block as defined below.
      * 
      */
     @Import(name="blobStorage")
     private @Nullable Output<FluxConfigurationBlobStorageArgs> blobStorage;
 
     /**
-     * @return An `blob_storage` block as defined below.
+     * @return An `blobStorage` block as defined below.
      * 
      */
     public Optional<Output<FluxConfigurationBlobStorageArgs>> blobStorage() {
@@ -83,14 +83,14 @@ public final class FluxConfigurationArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A `git_repository` block as defined below.
+     * A `gitRepository` block as defined below.
      * 
      */
     @Import(name="gitRepository")
     private @Nullable Output<FluxConfigurationGitRepositoryArgs> gitRepository;
 
     /**
-     * @return A `git_repository` block as defined below.
+     * @return A `gitRepository` block as defined below.
      * 
      */
     public Optional<Output<FluxConfigurationGitRepositoryArgs>> gitRepository() {
@@ -190,7 +190,7 @@ public final class FluxConfigurationArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param blobStorage An `blob_storage` block as defined below.
+         * @param blobStorage An `blobStorage` block as defined below.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class FluxConfigurationArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param blobStorage An `blob_storage` block as defined below.
+         * @param blobStorage An `blobStorage` block as defined below.
          * 
          * @return builder
          * 
@@ -274,7 +274,7 @@ public final class FluxConfigurationArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param gitRepository A `git_repository` block as defined below.
+         * @param gitRepository A `gitRepository` block as defined below.
          * 
          * @return builder
          * 
@@ -285,7 +285,7 @@ public final class FluxConfigurationArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param gitRepository A `git_repository` block as defined below.
+         * @param gitRepository A `gitRepository` block as defined below.
          * 
          * @return builder
          * 

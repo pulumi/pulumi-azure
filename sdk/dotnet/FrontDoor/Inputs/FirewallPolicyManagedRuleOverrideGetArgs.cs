@@ -16,7 +16,7 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         private InputList<Inputs.FirewallPolicyManagedRuleOverrideExclusionGetArgs>? _exclusions;
 
         /// <summary>
-        /// One or more `exclusion` blocks as defined below.
+        /// One or more `Exclusion` blocks as defined below.
         /// </summary>
         public InputList<Inputs.FirewallPolicyManagedRuleOverrideExclusionGetArgs> Exclusions
         {
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         private InputList<Inputs.FirewallPolicyManagedRuleOverrideRuleGetArgs>? _rules;
 
         /// <summary>
-        /// One or more `rule` blocks as defined below. If none are specified, all of the rules in the group will be disabled.
+        /// One or more `Rule` blocks as defined below. If none are specified, all of the rules in the group will be disabled.
         /// </summary>
         public InputList<Inputs.FirewallPolicyManagedRuleOverrideRuleGetArgs> Rules
         {

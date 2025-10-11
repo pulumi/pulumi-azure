@@ -203,7 +203,7 @@ namespace Pulumi.Azure.NetApp
         public readonly string Name;
         public readonly string ResourceGroupName;
         /// <summary>
-        /// A `volume` block as defined below.
+        /// A `Volume` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVolumeGroupSapHanaVolumeResult> Volumes;
 

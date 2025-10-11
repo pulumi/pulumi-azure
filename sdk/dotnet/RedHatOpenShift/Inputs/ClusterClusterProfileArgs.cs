@@ -19,7 +19,7 @@ namespace Pulumi.Azure.RedHatOpenShift.Inputs
         public Input<string> Domain { get; set; } = null!;
 
         /// <summary>
-        /// Whether Federal Information Processing Standard (FIPS) validated cryptographic modules are used. Defaults to `false`. Changing this forces a new resource to be created.
+        /// Whether Federal Information Processing Standard (FIPS) validated cryptographic modules are used. Defaults to `False`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("fipsEnabled")]
         public Input<bool>? FipsEnabled { get; set; }

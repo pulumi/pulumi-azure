@@ -18,14 +18,14 @@ public final class IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs extend
     public static final IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs Empty = new IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs();
 
     /**
-     * A `key_vault_secret_reference` block as defined below.
+     * A `keyVaultSecretReference` block as defined below.
      * 
      */
     @Import(name="keyVaultPassword")
     private @Nullable Output<IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs> keyVaultPassword;
 
     /**
-     * @return A `key_vault_secret_reference` block as defined below.
+     * @return A `keyVaultSecretReference` block as defined below.
      * 
      */
     public Optional<Output<IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs>> keyVaultPassword() {
@@ -105,7 +105,7 @@ public final class IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs extend
         }
 
         /**
-         * @param keyVaultPassword A `key_vault_secret_reference` block as defined below.
+         * @param keyVaultPassword A `keyVaultSecretReference` block as defined below.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs extend
         }
 
         /**
-         * @param keyVaultPassword A `key_vault_secret_reference` block as defined below.
+         * @param keyVaultPassword A `keyVaultSecretReference` block as defined below.
          * 
          * @return builder
          * 

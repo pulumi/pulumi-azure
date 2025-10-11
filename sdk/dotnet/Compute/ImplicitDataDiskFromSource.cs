@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Compute
     /// <summary>
     /// Manages an implicit Data Disk of a Virtual Machine.
     /// 
-    /// &gt; **Note:** The Implicit Data Disk will be deleted instantly after this resource is destroyed. If you want to detach this disk only, you may set `detach_implicit_data_disk_on_deletion` field to `true` within the `virtual_machine` block in the provider `features` block.
+    /// &gt; **Note:** The Implicit Data Disk will be deleted instantly after this resource is destroyed. If you want to detach this disk only, you may set `DetachImplicitDataDiskOnDeletion` field to `True` within the `VirtualMachine` block in the provider `Features` block.
     /// 
     /// ## Example Usage
     /// 
@@ -199,7 +199,7 @@ namespace Pulumi.Azure.Compute
         public Output<string> VirtualMachineId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
+        /// Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `False`.
         /// </summary>
         [Output("writeAcceleratorEnabled")]
         public Output<bool?> WriteAcceleratorEnabled { get; private set; } = null!;
@@ -290,7 +290,7 @@ namespace Pulumi.Azure.Compute
         public Input<string> VirtualMachineId { get; set; } = null!;
 
         /// <summary>
-        /// Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
+        /// Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `False`.
         /// </summary>
         [Input("writeAcceleratorEnabled")]
         public Input<bool>? WriteAcceleratorEnabled { get; set; }
@@ -343,7 +343,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? VirtualMachineId { get; set; }
 
         /// <summary>
-        /// Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
+        /// Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `False`.
         /// </summary>
         [Input("writeAcceleratorEnabled")]
         public Input<bool>? WriteAcceleratorEnabled { get; set; }

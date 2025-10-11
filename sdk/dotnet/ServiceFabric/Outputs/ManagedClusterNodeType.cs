@@ -30,7 +30,7 @@ namespace Pulumi.Azure.ServiceFabric.Outputs
         /// </summary>
         public readonly string? DataDiskType;
         /// <summary>
-        /// Sets the port range available for the OS. Format is `&lt;from_port&gt;-&lt;to_port&gt;`, for example `10000-20000`. There has to be at least 255 ports available and cannot overlap with `application_port_range`..
+        /// Sets the port range available for the OS. Format is `&lt;from_port&gt;-&lt;to_port&gt;`, for example `10000-20000`. There has to be at least 255 ports available and cannot overlap with `ApplicationPortRange`..
         /// </summary>
         public readonly string EphemeralPortRange;
         /// <summary>
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.ServiceFabric.Outputs
         /// </summary>
         public readonly int VmInstanceCount;
         /// <summary>
-        /// One or more `vm_secrets` blocks as defined below.
+        /// One or more `VmSecrets` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.ManagedClusterNodeTypeVmSecret> VmSecrets;
         /// <summary>

@@ -15,13 +15,13 @@ namespace Pulumi.Azure.Waf.Inputs
         /// <summary>
         /// Type of action. Possible values are `Allow`, `Block`, `JSChallenge` and `Log`.
         /// 
-        /// &gt; **Note:** If the `rule_type` is specified as `RateLimitRule`, the `Allow` is not supported.
+        /// &gt; **Note:** If the `RuleType` is specified as `RateLimitRule`, the `Allow` is not supported.
         /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
 
         /// <summary>
-        /// Describes if the policy is in enabled state or disabled state. Defaults to `true`.
+        /// Describes if the policy is in enabled state or disabled state. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -36,7 +36,7 @@ namespace Pulumi.Azure.Waf.Inputs
         private InputList<Inputs.PolicyCustomRuleMatchConditionArgs>? _matchConditions;
 
         /// <summary>
-        /// One or more `match_conditions` blocks as defined below.
+        /// One or more `MatchConditions` blocks as defined below.
         /// </summary>
         public InputList<Inputs.PolicyCustomRuleMatchConditionArgs> MatchConditions
         {

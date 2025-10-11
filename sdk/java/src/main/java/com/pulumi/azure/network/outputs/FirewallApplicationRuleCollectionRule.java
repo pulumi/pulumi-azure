@@ -42,7 +42,7 @@ public final class FirewallApplicationRuleCollectionRule {
     /**
      * @return A list of source IP Group IDs for the rule.
      * 
-     * &gt; **Note:** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
+     * &gt; **Note:** At least one of `sourceAddresses` and `sourceIpGroups` must be specified for a rule.
      * 
      */
     private @Nullable List<String> sourceIpGroups;
@@ -91,7 +91,7 @@ public final class FirewallApplicationRuleCollectionRule {
     /**
      * @return A list of source IP Group IDs for the rule.
      * 
-     * &gt; **Note:** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
+     * &gt; **Note:** At least one of `sourceAddresses` and `sourceIpGroups` must be specified for a rule.
      * 
      */
     public List<String> sourceIpGroups() {

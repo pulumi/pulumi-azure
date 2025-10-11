@@ -14,7 +14,7 @@ import java.util.Objects;
 @CustomType
 public final class GetTrafficManagerProfileMonitorConfig {
     /**
-     * @return One or more `custom_header` blocks as defined below.
+     * @return One or more `customHeader` blocks as defined below.
      * 
      */
     private List<GetTrafficManagerProfileMonitorConfigCustomHeader> customHeaders;
@@ -56,7 +56,7 @@ public final class GetTrafficManagerProfileMonitorConfig {
 
     private GetTrafficManagerProfileMonitorConfig() {}
     /**
-     * @return One or more `custom_header` blocks as defined below.
+     * @return One or more `customHeader` blocks as defined below.
      * 
      */
     public List<GetTrafficManagerProfileMonitorConfigCustomHeader> customHeaders() {

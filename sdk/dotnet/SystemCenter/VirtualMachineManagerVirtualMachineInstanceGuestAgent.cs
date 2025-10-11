@@ -141,7 +141,7 @@ namespace Pulumi.Azure.SystemCenter
         public Output<string> Password { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning action that is used to define the different types of operations for the System Center Virtual Machine Manager Virtual Machine Instance Guest Agent. Possible values are `install`, `repair` and `uninstall`. Defaults to `install`. Changing this forces a new resource to be created.
+        /// The provisioning action that is used to define the different types of operations for the System Center Virtual Machine Manager Virtual Machine Instance Guest Agent. Possible values are `Install`, `Repair` and `Uninstall`. Defaults to `Install`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("provisioningAction")]
         public Output<string?> ProvisioningAction { get; private set; } = null!;
@@ -225,7 +225,7 @@ namespace Pulumi.Azure.SystemCenter
         }
 
         /// <summary>
-        /// The provisioning action that is used to define the different types of operations for the System Center Virtual Machine Manager Virtual Machine Instance Guest Agent. Possible values are `install`, `repair` and `uninstall`. Defaults to `install`. Changing this forces a new resource to be created.
+        /// The provisioning action that is used to define the different types of operations for the System Center Virtual Machine Manager Virtual Machine Instance Guest Agent. Possible values are `Install`, `Repair` and `Uninstall`. Defaults to `Install`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("provisioningAction")]
         public Input<string>? ProvisioningAction { get; set; }
@@ -267,7 +267,7 @@ namespace Pulumi.Azure.SystemCenter
         }
 
         /// <summary>
-        /// The provisioning action that is used to define the different types of operations for the System Center Virtual Machine Manager Virtual Machine Instance Guest Agent. Possible values are `install`, `repair` and `uninstall`. Defaults to `install`. Changing this forces a new resource to be created.
+        /// The provisioning action that is used to define the different types of operations for the System Center Virtual Machine Manager Virtual Machine Instance Guest Agent. Possible values are `Install`, `Repair` and `Uninstall`. Defaults to `Install`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("provisioningAction")]
         public Input<string>? ProvisioningAction { get; set; }

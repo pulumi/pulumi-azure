@@ -74,7 +74,7 @@ namespace Pulumi.Azure.Automation
         public Output<string> AutomationAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// A `module_link` block as defined below.
+        /// A `ModuleLink` block as defined below.
         /// </summary>
         [Output("moduleLink")]
         public Output<Outputs.Powershell72ModuleModuleLink> ModuleLink { get; private set; } = null!;
@@ -144,7 +144,7 @@ namespace Pulumi.Azure.Automation
         public Input<string> AutomationAccountId { get; set; } = null!;
 
         /// <summary>
-        /// A `module_link` block as defined below.
+        /// A `ModuleLink` block as defined below.
         /// </summary>
         [Input("moduleLink", required: true)]
         public Input<Inputs.Powershell72ModuleModuleLinkArgs> ModuleLink { get; set; } = null!;
@@ -182,7 +182,7 @@ namespace Pulumi.Azure.Automation
         public Input<string>? AutomationAccountId { get; set; }
 
         /// <summary>
-        /// A `module_link` block as defined below.
+        /// A `ModuleLink` block as defined below.
         /// </summary>
         [Input("moduleLink")]
         public Input<Inputs.Powershell72ModuleModuleLinkGetArgs>? ModuleLink { get; set; }

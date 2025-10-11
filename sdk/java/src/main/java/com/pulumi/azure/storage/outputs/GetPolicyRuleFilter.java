@@ -18,7 +18,7 @@ public final class GetPolicyRuleFilter {
      */
     private List<String> blobTypes;
     /**
-     * @return A `match_blob_index_tag` block as defined below. The block defines the blob index tag based filtering for blob objects.
+     * @return A `matchBlobIndexTag` block as defined below. The block defines the blob index tag based filtering for blob objects.
      * 
      */
     private List<GetPolicyRuleFilterMatchBlobIndexTag> matchBlobIndexTags;
@@ -37,7 +37,7 @@ public final class GetPolicyRuleFilter {
         return this.blobTypes;
     }
     /**
-     * @return A `match_blob_index_tag` block as defined below. The block defines the blob index tag based filtering for blob objects.
+     * @return A `matchBlobIndexTag` block as defined below. The block defines the blob index tag based filtering for blob objects.
      * 
      */
     public List<GetPolicyRuleFilterMatchBlobIndexTag> matchBlobIndexTags() {

@@ -13,7 +13,7 @@ namespace Pulumi.Azure.AppService.Inputs
     public sealed class LinuxFunctionAppSlotAuthSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// an `active_directory` block as detailed below.
+        /// an `ActiveDirectory` block as detailed below.
         /// </summary>
         [Input("activeDirectory")]
         public Input<Inputs.LinuxFunctionAppSlotAuthSettingsActiveDirectoryGetArgs>? ActiveDirectory { get; set; }
@@ -45,7 +45,7 @@ namespace Pulumi.Azure.AppService.Inputs
         /// <summary>
         /// The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
         /// 
-        /// &gt; **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+        /// &gt; **Note:** This setting is only needed if multiple providers are configured, and the `UnauthenticatedClientAction` is set to "RedirectToLoginPage".
         /// </summary>
         [Input("defaultProvider")]
         public Input<string>? DefaultProvider { get; set; }
@@ -57,19 +57,19 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<bool> Enabled { get; set; } = null!;
 
         /// <summary>
-        /// a `facebook` block as detailed below.
+        /// a `Facebook` block as detailed below.
         /// </summary>
         [Input("facebook")]
         public Input<Inputs.LinuxFunctionAppSlotAuthSettingsFacebookGetArgs>? Facebook { get; set; }
 
         /// <summary>
-        /// a `github` block as detailed below.
+        /// a `Github` block as detailed below.
         /// </summary>
         [Input("github")]
         public Input<Inputs.LinuxFunctionAppSlotAuthSettingsGithubGetArgs>? Github { get; set; }
 
         /// <summary>
-        /// a `google` block as detailed below.
+        /// a `Google` block as detailed below.
         /// </summary>
         [Input("google")]
         public Input<Inputs.LinuxFunctionAppSlotAuthSettingsGoogleGetArgs>? Google { get; set; }
@@ -83,7 +83,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? Issuer { get; set; }
 
         /// <summary>
-        /// a `microsoft` block as detailed below.
+        /// a `Microsoft` block as detailed below.
         /// </summary>
         [Input("microsoft")]
         public Input<Inputs.LinuxFunctionAppSlotAuthSettingsMicrosoftGetArgs>? Microsoft { get; set; }
@@ -101,13 +101,13 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<double>? TokenRefreshExtensionHours { get; set; }
 
         /// <summary>
-        /// Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
+        /// Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `False`.
         /// </summary>
         [Input("tokenStoreEnabled")]
         public Input<bool>? TokenStoreEnabled { get; set; }
 
         /// <summary>
-        /// a `twitter` block as detailed below.
+        /// a `Twitter` block as detailed below.
         /// </summary>
         [Input("twitter")]
         public Input<Inputs.LinuxFunctionAppSlotAuthSettingsTwitterGetArgs>? Twitter { get; set; }

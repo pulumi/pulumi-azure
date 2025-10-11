@@ -14,23 +14,23 @@ namespace Pulumi.Azure.Cdn.Outputs
     public sealed class FrontdoorRuleActions
     {
         /// <summary>
-        /// A `request_header_action` block as defined below.
+        /// A `RequestHeaderAction` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FrontdoorRuleActionsRequestHeaderAction> RequestHeaderActions;
         /// <summary>
-        /// A `response_header_action` block as defined below.
+        /// A `ResponseHeaderAction` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FrontdoorRuleActionsResponseHeaderAction> ResponseHeaderActions;
         /// <summary>
-        /// A `route_configuration_override_action` block as defined below.
+        /// A `RouteConfigurationOverrideAction` block as defined below.
         /// </summary>
         public readonly Outputs.FrontdoorRuleActionsRouteConfigurationOverrideAction? RouteConfigurationOverrideAction;
         /// <summary>
-        /// A `url_redirect_action` block as defined below. You may **not** have a `url_redirect_action` **and** a `url_rewrite_action` defined in the same `actions` block.
+        /// A `UrlRedirectAction` block as defined below. You may **not** have a `UrlRedirectAction` **and** a `UrlRewriteAction` defined in the same `Actions` block.
         /// </summary>
         public readonly Outputs.FrontdoorRuleActionsUrlRedirectAction? UrlRedirectAction;
         /// <summary>
-        /// A `url_rewrite_action` block as defined below. You may **not** have a `url_rewrite_action` **and** a `url_redirect_action` defined in the same `actions` block.
+        /// A `UrlRewriteAction` block as defined below. You may **not** have a `UrlRewriteAction` **and** a `UrlRedirectAction` defined in the same `Actions` block.
         /// </summary>
         public readonly Outputs.FrontdoorRuleActionsUrlRewriteAction? UrlRewriteAction;
 

@@ -92,13 +92,13 @@ namespace Pulumi.Azure.DataFactory
         public Output<ImmutableArray<string>> Annotations { get; private set; } = null!;
 
         /// <summary>
-        /// An `azure_blob_fs_location` block as defined below.
+        /// An `AzureBlobFsLocation` block as defined below.
         /// </summary>
         [Output("azureBlobFsLocation")]
         public Output<Outputs.DatasetDelimitedTextAzureBlobFsLocation?> AzureBlobFsLocation { get; private set; } = null!;
 
         /// <summary>
-        /// An `azure_blob_storage_location` block as defined below.
+        /// An `AzureBlobStorageLocation` block as defined below.
         /// </summary>
         [Output("azureBlobStorageLocation")]
         public Output<Outputs.DatasetDelimitedTextAzureBlobStorageLocation?> AzureBlobStorageLocation { get; private set; } = null!;
@@ -110,7 +110,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> ColumnDelimiter { get; private set; } = null!;
 
         /// <summary>
-        /// The compression codec used to read/write text files. Valid values are `None`, `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy` and `lz4`. Please note these values are case sensitive.
+        /// The compression codec used to read/write text files. Valid values are `None`, `Bzip2`, `Gzip`, `Deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `Snappy` and `Lz4`. Please note these values are case sensitive.
         /// </summary>
         [Output("compressionCodec")]
         public Output<string?> CompressionCodec { get; private set; } = null!;
@@ -146,7 +146,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> EscapeCharacter { get; private set; } = null!;
 
         /// <summary>
-        /// When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data. Defaults to `false`.
+        /// When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data. Defaults to `False`.
         /// </summary>
         [Output("firstRowAsHeader")]
         public Output<bool?> FirstRowAsHeader { get; private set; } = null!;
@@ -158,7 +158,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> Folder { get; private set; } = null!;
 
         /// <summary>
-        /// A `http_server_location` block as defined below.
+        /// A `HttpServerLocation` block as defined below.
         /// 
         /// The following supported arguments are specific to Delimited Text Dataset:
         /// </summary>
@@ -202,7 +202,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> RowDelimiter { get; private set; } = null!;
 
         /// <summary>
-        /// A `schema_column` block as defined below.
+        /// A `SchemaColumn` block as defined below.
         /// </summary>
         [Output("schemaColumns")]
         public Output<ImmutableArray<Outputs.DatasetDelimitedTextSchemaColumn>> SchemaColumns { get; private set; } = null!;
@@ -280,13 +280,13 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// An `azure_blob_fs_location` block as defined below.
+        /// An `AzureBlobFsLocation` block as defined below.
         /// </summary>
         [Input("azureBlobFsLocation")]
         public Input<Inputs.DatasetDelimitedTextAzureBlobFsLocationArgs>? AzureBlobFsLocation { get; set; }
 
         /// <summary>
-        /// An `azure_blob_storage_location` block as defined below.
+        /// An `AzureBlobStorageLocation` block as defined below.
         /// </summary>
         [Input("azureBlobStorageLocation")]
         public Input<Inputs.DatasetDelimitedTextAzureBlobStorageLocationArgs>? AzureBlobStorageLocation { get; set; }
@@ -298,7 +298,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? ColumnDelimiter { get; set; }
 
         /// <summary>
-        /// The compression codec used to read/write text files. Valid values are `None`, `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy` and `lz4`. Please note these values are case sensitive.
+        /// The compression codec used to read/write text files. Valid values are `None`, `Bzip2`, `Gzip`, `Deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `Snappy` and `Lz4`. Please note these values are case sensitive.
         /// </summary>
         [Input("compressionCodec")]
         public Input<string>? CompressionCodec { get; set; }
@@ -334,7 +334,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? EscapeCharacter { get; set; }
 
         /// <summary>
-        /// When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data. Defaults to `false`.
+        /// When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data. Defaults to `False`.
         /// </summary>
         [Input("firstRowAsHeader")]
         public Input<bool>? FirstRowAsHeader { get; set; }
@@ -346,7 +346,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Folder { get; set; }
 
         /// <summary>
-        /// A `http_server_location` block as defined below.
+        /// A `HttpServerLocation` block as defined below.
         /// 
         /// The following supported arguments are specific to Delimited Text Dataset:
         /// </summary>
@@ -399,7 +399,7 @@ namespace Pulumi.Azure.DataFactory
         private InputList<Inputs.DatasetDelimitedTextSchemaColumnArgs>? _schemaColumns;
 
         /// <summary>
-        /// A `schema_column` block as defined below.
+        /// A `SchemaColumn` block as defined below.
         /// </summary>
         public InputList<Inputs.DatasetDelimitedTextSchemaColumnArgs> SchemaColumns
         {
@@ -442,13 +442,13 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// An `azure_blob_fs_location` block as defined below.
+        /// An `AzureBlobFsLocation` block as defined below.
         /// </summary>
         [Input("azureBlobFsLocation")]
         public Input<Inputs.DatasetDelimitedTextAzureBlobFsLocationGetArgs>? AzureBlobFsLocation { get; set; }
 
         /// <summary>
-        /// An `azure_blob_storage_location` block as defined below.
+        /// An `AzureBlobStorageLocation` block as defined below.
         /// </summary>
         [Input("azureBlobStorageLocation")]
         public Input<Inputs.DatasetDelimitedTextAzureBlobStorageLocationGetArgs>? AzureBlobStorageLocation { get; set; }
@@ -460,7 +460,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? ColumnDelimiter { get; set; }
 
         /// <summary>
-        /// The compression codec used to read/write text files. Valid values are `None`, `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy` and `lz4`. Please note these values are case sensitive.
+        /// The compression codec used to read/write text files. Valid values are `None`, `Bzip2`, `Gzip`, `Deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `Snappy` and `Lz4`. Please note these values are case sensitive.
         /// </summary>
         [Input("compressionCodec")]
         public Input<string>? CompressionCodec { get; set; }
@@ -496,7 +496,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? EscapeCharacter { get; set; }
 
         /// <summary>
-        /// When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data. Defaults to `false`.
+        /// When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data. Defaults to `False`.
         /// </summary>
         [Input("firstRowAsHeader")]
         public Input<bool>? FirstRowAsHeader { get; set; }
@@ -508,7 +508,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Folder { get; set; }
 
         /// <summary>
-        /// A `http_server_location` block as defined below.
+        /// A `HttpServerLocation` block as defined below.
         /// 
         /// The following supported arguments are specific to Delimited Text Dataset:
         /// </summary>
@@ -561,7 +561,7 @@ namespace Pulumi.Azure.DataFactory
         private InputList<Inputs.DatasetDelimitedTextSchemaColumnGetArgs>? _schemaColumns;
 
         /// <summary>
-        /// A `schema_column` block as defined below.
+        /// A `SchemaColumn` block as defined below.
         /// </summary>
         public InputList<Inputs.DatasetDelimitedTextSchemaColumnGetArgs> SchemaColumns
         {

@@ -20,14 +20,14 @@ public final class SpringCloudServiceConfigServerGitSettingRepositoryArgs extend
     public static final SpringCloudServiceConfigServerGitSettingRepositoryArgs Empty = new SpringCloudServiceConfigServerGitSettingRepositoryArgs();
 
     /**
-     * A `http_basic_auth` block as defined below.
+     * A `httpBasicAuth` block as defined below.
      * 
      */
     @Import(name="httpBasicAuth")
     private @Nullable Output<SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs> httpBasicAuth;
 
     /**
-     * @return A `http_basic_auth` block as defined below.
+     * @return A `httpBasicAuth` block as defined below.
      * 
      */
     public Optional<Output<SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs>> httpBasicAuth() {
@@ -95,14 +95,14 @@ public final class SpringCloudServiceConfigServerGitSettingRepositoryArgs extend
     }
 
     /**
-     * A `ssh_auth` block as defined below.
+     * A `sshAuth` block as defined below.
      * 
      */
     @Import(name="sshAuth")
     private @Nullable Output<SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs> sshAuth;
 
     /**
-     * @return A `ssh_auth` block as defined below.
+     * @return A `sshAuth` block as defined below.
      * 
      */
     public Optional<Output<SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs>> sshAuth() {
@@ -155,7 +155,7 @@ public final class SpringCloudServiceConfigServerGitSettingRepositoryArgs extend
         }
 
         /**
-         * @param httpBasicAuth A `http_basic_auth` block as defined below.
+         * @param httpBasicAuth A `httpBasicAuth` block as defined below.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class SpringCloudServiceConfigServerGitSettingRepositoryArgs extend
         }
 
         /**
-         * @param httpBasicAuth A `http_basic_auth` block as defined below.
+         * @param httpBasicAuth A `httpBasicAuth` block as defined below.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class SpringCloudServiceConfigServerGitSettingRepositoryArgs extend
         }
 
         /**
-         * @param sshAuth A `ssh_auth` block as defined below.
+         * @param sshAuth A `sshAuth` block as defined below.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class SpringCloudServiceConfigServerGitSettingRepositoryArgs extend
         }
 
         /**
-         * @param sshAuth A `ssh_auth` block as defined below.
+         * @param sshAuth A `sshAuth` block as defined below.
          * 
          * @return builder
          * 

@@ -18,74 +18,74 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EndpointGlobalDeliveryRule {
     /**
-     * @return A `cache_expiration_action` block as defined above.
+     * @return A `cacheExpirationAction` block as defined above.
      * 
      */
     private @Nullable EndpointGlobalDeliveryRuleCacheExpirationAction cacheExpirationAction;
     /**
-     * @return A `cache_key_query_string_action` block as defined above.
+     * @return A `cacheKeyQueryStringAction` block as defined above.
      * 
      */
     private @Nullable EndpointGlobalDeliveryRuleCacheKeyQueryStringAction cacheKeyQueryStringAction;
     /**
-     * @return A `modify_request_header_action` block as defined below.
+     * @return A `modifyRequestHeaderAction` block as defined below.
      * 
      */
     private @Nullable List<EndpointGlobalDeliveryRuleModifyRequestHeaderAction> modifyRequestHeaderActions;
     /**
-     * @return A `modify_response_header_action` block as defined below.
+     * @return A `modifyResponseHeaderAction` block as defined below.
      * 
      */
     private @Nullable List<EndpointGlobalDeliveryRuleModifyResponseHeaderAction> modifyResponseHeaderActions;
     /**
-     * @return A `url_redirect_action` block as defined below.
+     * @return A `urlRedirectAction` block as defined below.
      * 
      */
     private @Nullable EndpointGlobalDeliveryRuleUrlRedirectAction urlRedirectAction;
     /**
-     * @return A `url_rewrite_action` block as defined below.
+     * @return A `urlRewriteAction` block as defined below.
      * 
      */
     private @Nullable EndpointGlobalDeliveryRuleUrlRewriteAction urlRewriteAction;
 
     private EndpointGlobalDeliveryRule() {}
     /**
-     * @return A `cache_expiration_action` block as defined above.
+     * @return A `cacheExpirationAction` block as defined above.
      * 
      */
     public Optional<EndpointGlobalDeliveryRuleCacheExpirationAction> cacheExpirationAction() {
         return Optional.ofNullable(this.cacheExpirationAction);
     }
     /**
-     * @return A `cache_key_query_string_action` block as defined above.
+     * @return A `cacheKeyQueryStringAction` block as defined above.
      * 
      */
     public Optional<EndpointGlobalDeliveryRuleCacheKeyQueryStringAction> cacheKeyQueryStringAction() {
         return Optional.ofNullable(this.cacheKeyQueryStringAction);
     }
     /**
-     * @return A `modify_request_header_action` block as defined below.
+     * @return A `modifyRequestHeaderAction` block as defined below.
      * 
      */
     public List<EndpointGlobalDeliveryRuleModifyRequestHeaderAction> modifyRequestHeaderActions() {
         return this.modifyRequestHeaderActions == null ? List.of() : this.modifyRequestHeaderActions;
     }
     /**
-     * @return A `modify_response_header_action` block as defined below.
+     * @return A `modifyResponseHeaderAction` block as defined below.
      * 
      */
     public List<EndpointGlobalDeliveryRuleModifyResponseHeaderAction> modifyResponseHeaderActions() {
         return this.modifyResponseHeaderActions == null ? List.of() : this.modifyResponseHeaderActions;
     }
     /**
-     * @return A `url_redirect_action` block as defined below.
+     * @return A `urlRedirectAction` block as defined below.
      * 
      */
     public Optional<EndpointGlobalDeliveryRuleUrlRedirectAction> urlRedirectAction() {
         return Optional.ofNullable(this.urlRedirectAction);
     }
     /**
-     * @return A `url_rewrite_action` block as defined below.
+     * @return A `urlRewriteAction` block as defined below.
      * 
      */
     public Optional<EndpointGlobalDeliveryRuleUrlRewriteAction> urlRewriteAction() {

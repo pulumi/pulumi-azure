@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Dashboard.Outputs
     public sealed class GrafanaSmtp
     {
         /// <summary>
-        /// Whether to enable the smtp setting of the Grafana instance. Defaults to `false`.
+        /// Whether to enable the smtp setting of the Grafana instance. Defaults to `False`.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Dashboard.Outputs
         /// </summary>
         public readonly string User;
         /// <summary>
-        /// Whether verify SSL for SMTP server. Defaults to `false`.
+        /// Whether verify SSL for SMTP server. Defaults to `False`.
         /// </summary>
         public readonly bool? VerificationSkipEnabled;
 

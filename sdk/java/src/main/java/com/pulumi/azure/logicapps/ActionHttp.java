@@ -171,14 +171,14 @@ public class ActionHttp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.queries);
     }
     /**
-     * Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `run_after` block is as defined below.
+     * Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `runAfter` block is as defined below.
      * 
      */
     @Export(name="runAfters", refs={List.class,ActionHttpRunAfter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ActionHttpRunAfter>> runAfters;
 
     /**
-     * @return Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `run_after` block is as defined below.
+     * @return Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `runAfter` block is as defined below.
      * 
      */
     public Output<Optional<List<ActionHttpRunAfter>>> runAfters() {

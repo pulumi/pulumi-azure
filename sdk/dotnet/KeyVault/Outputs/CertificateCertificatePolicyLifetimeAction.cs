@@ -14,11 +14,11 @@ namespace Pulumi.Azure.KeyVault.Outputs
     public sealed class CertificateCertificatePolicyLifetimeAction
     {
         /// <summary>
-        /// A `action` block as defined below.
+        /// A `Action` block as defined below.
         /// </summary>
         public readonly Outputs.CertificateCertificatePolicyLifetimeActionAction Action;
         /// <summary>
-        /// A `trigger` block as defined below.
+        /// A `Trigger` block as defined below.
         /// </summary>
         public readonly Outputs.CertificateCertificatePolicyLifetimeActionTrigger Trigger;
 

@@ -91,7 +91,7 @@ namespace Pulumi.Azure.Purview
         public Output<string> GuardianEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.AccountIdentity> Identity { get; private set; } = null!;
@@ -103,9 +103,9 @@ namespace Pulumi.Azure.Purview
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the Purview Account should create a managed Event Hub Namespace. Defaults to `true`.
+        /// Whether the Purview Account should create a managed Event Hub Namespace. Defaults to `True`.
         /// 
-        /// &gt; **Note:** `managed_event_hub_enabled` must be `false` in order to use a Kafka Configuration with the Purview Account.
+        /// &gt; **Note:** `ManagedEventHubEnabled` must be `False` in order to use a Kafka Configuration with the Purview Account.
         /// </summary>
         [Output("managedEventHubEnabled")]
         public Output<bool?> ManagedEventHubEnabled { get; private set; } = null!;
@@ -113,13 +113,13 @@ namespace Pulumi.Azure.Purview
         /// <summary>
         /// The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
         /// 
-        /// &gt; **Note:** `managed_resource_group_name` must be a new Resource Group.
+        /// &gt; **Note:** `ManagedResourceGroupName` must be a new Resource Group.
         /// </summary>
         [Output("managedResourceGroupName")]
         public Output<string> ManagedResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `managed_resources` block as defined below.
+        /// A `ManagedResources` block as defined below.
         /// </summary>
         [Output("managedResources")]
         public Output<ImmutableArray<Outputs.AccountManagedResource>> ManagedResources { get; private set; } = null!;
@@ -131,7 +131,7 @@ namespace Pulumi.Azure.Purview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Should the Purview Account be visible to the public network? Defaults to `true`.
+        /// Should the Purview Account be visible to the public network? Defaults to `True`.
         /// </summary>
         [Output("publicNetworkEnabled")]
         public Output<bool?> PublicNetworkEnabled { get; private set; } = null!;
@@ -206,7 +206,7 @@ namespace Pulumi.Azure.Purview
     public sealed class AccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity", required: true)]
         public Input<Inputs.AccountIdentityArgs> Identity { get; set; } = null!;
@@ -218,9 +218,9 @@ namespace Pulumi.Azure.Purview
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Whether the Purview Account should create a managed Event Hub Namespace. Defaults to `true`.
+        /// Whether the Purview Account should create a managed Event Hub Namespace. Defaults to `True`.
         /// 
-        /// &gt; **Note:** `managed_event_hub_enabled` must be `false` in order to use a Kafka Configuration with the Purview Account.
+        /// &gt; **Note:** `ManagedEventHubEnabled` must be `False` in order to use a Kafka Configuration with the Purview Account.
         /// </summary>
         [Input("managedEventHubEnabled")]
         public Input<bool>? ManagedEventHubEnabled { get; set; }
@@ -228,7 +228,7 @@ namespace Pulumi.Azure.Purview
         /// <summary>
         /// The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
         /// 
-        /// &gt; **Note:** `managed_resource_group_name` must be a new Resource Group.
+        /// &gt; **Note:** `ManagedResourceGroupName` must be a new Resource Group.
         /// </summary>
         [Input("managedResourceGroupName")]
         public Input<string>? ManagedResourceGroupName { get; set; }
@@ -240,7 +240,7 @@ namespace Pulumi.Azure.Purview
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Should the Purview Account be visible to the public network? Defaults to `true`.
+        /// Should the Purview Account be visible to the public network? Defaults to `True`.
         /// </summary>
         [Input("publicNetworkEnabled")]
         public Input<bool>? PublicNetworkEnabled { get; set; }
@@ -322,7 +322,7 @@ namespace Pulumi.Azure.Purview
         public Input<string>? GuardianEndpoint { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.AccountIdentityGetArgs>? Identity { get; set; }
@@ -334,9 +334,9 @@ namespace Pulumi.Azure.Purview
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Whether the Purview Account should create a managed Event Hub Namespace. Defaults to `true`.
+        /// Whether the Purview Account should create a managed Event Hub Namespace. Defaults to `True`.
         /// 
-        /// &gt; **Note:** `managed_event_hub_enabled` must be `false` in order to use a Kafka Configuration with the Purview Account.
+        /// &gt; **Note:** `ManagedEventHubEnabled` must be `False` in order to use a Kafka Configuration with the Purview Account.
         /// </summary>
         [Input("managedEventHubEnabled")]
         public Input<bool>? ManagedEventHubEnabled { get; set; }
@@ -344,7 +344,7 @@ namespace Pulumi.Azure.Purview
         /// <summary>
         /// The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
         /// 
-        /// &gt; **Note:** `managed_resource_group_name` must be a new Resource Group.
+        /// &gt; **Note:** `ManagedResourceGroupName` must be a new Resource Group.
         /// </summary>
         [Input("managedResourceGroupName")]
         public Input<string>? ManagedResourceGroupName { get; set; }
@@ -353,7 +353,7 @@ namespace Pulumi.Azure.Purview
         private InputList<Inputs.AccountManagedResourceGetArgs>? _managedResources;
 
         /// <summary>
-        /// A `managed_resources` block as defined below.
+        /// A `ManagedResources` block as defined below.
         /// </summary>
         public InputList<Inputs.AccountManagedResourceGetArgs> ManagedResources
         {
@@ -368,7 +368,7 @@ namespace Pulumi.Azure.Purview
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Should the Purview Account be visible to the public network? Defaults to `true`.
+        /// Should the Purview Account be visible to the public network? Defaults to `True`.
         /// </summary>
         [Input("publicNetworkEnabled")]
         public Input<bool>? PublicNetworkEnabled { get; set; }

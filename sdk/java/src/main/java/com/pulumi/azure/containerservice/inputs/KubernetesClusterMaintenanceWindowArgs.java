@@ -33,14 +33,14 @@ public final class KubernetesClusterMaintenanceWindowArgs extends com.pulumi.res
     }
 
     /**
-     * One or more `not_allowed` block as defined below.
+     * One or more `notAllowed` block as defined below.
      * 
      */
     @Import(name="notAlloweds")
     private @Nullable Output<List<KubernetesClusterMaintenanceWindowNotAllowedArgs>> notAlloweds;
 
     /**
-     * @return One or more `not_allowed` block as defined below.
+     * @return One or more `notAllowed` block as defined below.
      * 
      */
     public Optional<Output<List<KubernetesClusterMaintenanceWindowNotAllowedArgs>>> notAlloweds() {
@@ -104,7 +104,7 @@ public final class KubernetesClusterMaintenanceWindowArgs extends com.pulumi.res
         }
 
         /**
-         * @param notAlloweds One or more `not_allowed` block as defined below.
+         * @param notAlloweds One or more `notAllowed` block as defined below.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class KubernetesClusterMaintenanceWindowArgs extends com.pulumi.res
         }
 
         /**
-         * @param notAlloweds One or more `not_allowed` block as defined below.
+         * @param notAlloweds One or more `notAllowed` block as defined below.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class KubernetesClusterMaintenanceWindowArgs extends com.pulumi.res
         }
 
         /**
-         * @param notAlloweds One or more `not_allowed` block as defined below.
+         * @param notAlloweds One or more `notAllowed` block as defined below.
          * 
          * @return builder
          * 

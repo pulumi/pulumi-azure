@@ -287,7 +287,7 @@ namespace Pulumi.Azure.DataProtection
     public partial class BackupInstanceKubernetesCluster : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A `backup_datasource_parameters` block as defined below.
+        /// A `BackupDatasourceParameters` block as defined below.
         /// </summary>
         [Output("backupDatasourceParameters")]
         public Output<Outputs.BackupInstanceKubernetesClusterBackupDatasourceParameters?> BackupDatasourceParameters { get; private set; } = null!;
@@ -375,7 +375,7 @@ namespace Pulumi.Azure.DataProtection
     public sealed class BackupInstanceKubernetesClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `backup_datasource_parameters` block as defined below.
+        /// A `BackupDatasourceParameters` block as defined below.
         /// </summary>
         [Input("backupDatasourceParameters")]
         public Input<Inputs.BackupInstanceKubernetesClusterBackupDatasourceParametersArgs>? BackupDatasourceParameters { get; set; }
@@ -425,7 +425,7 @@ namespace Pulumi.Azure.DataProtection
     public sealed class BackupInstanceKubernetesClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `backup_datasource_parameters` block as defined below.
+        /// A `BackupDatasourceParameters` block as defined below.
         /// </summary>
         [Input("backupDatasourceParameters")]
         public Input<Inputs.BackupInstanceKubernetesClusterBackupDatasourceParametersGetArgs>? BackupDatasourceParameters { get; set; }

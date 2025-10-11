@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequestResult
     {
         /// <summary>
-        /// The number of occurrences of the defined `status_code` in the specified `interval` on which to trigger this rule.
+        /// The number of occurrences of the defined `StatusCode` in the specified `Interval` on which to trigger this rule.
         /// </summary>
         public readonly int Count;
         /// <summary>

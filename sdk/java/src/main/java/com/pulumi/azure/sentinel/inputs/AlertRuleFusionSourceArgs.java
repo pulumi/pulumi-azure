@@ -50,14 +50,14 @@ public final class AlertRuleFusionSourceArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * One or more `sub_type` blocks as defined below.
+     * One or more `subType` blocks as defined below.
      * 
      */
     @Import(name="subTypes")
     private @Nullable Output<List<AlertRuleFusionSourceSubTypeArgs>> subTypes;
 
     /**
-     * @return One or more `sub_type` blocks as defined below.
+     * @return One or more `subType` blocks as defined below.
      * 
      */
     public Optional<Output<List<AlertRuleFusionSourceSubTypeArgs>>> subTypes() {
@@ -133,7 +133,7 @@ public final class AlertRuleFusionSourceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param subTypes One or more `sub_type` blocks as defined below.
+         * @param subTypes One or more `subType` blocks as defined below.
          * 
          * @return builder
          * 
@@ -144,7 +144,7 @@ public final class AlertRuleFusionSourceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param subTypes One or more `sub_type` blocks as defined below.
+         * @param subTypes One or more `subType` blocks as defined below.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class AlertRuleFusionSourceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param subTypes One or more `sub_type` blocks as defined below.
+         * @param subTypes One or more `subType` blocks as defined below.
          * 
          * @return builder
          * 

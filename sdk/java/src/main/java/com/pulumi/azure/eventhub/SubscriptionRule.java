@@ -21,6 +21,17 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### SQL Filter)
+ * 
+ * ### Correlation Filter)
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.ServiceBus` - 2024-01-01
+ * 
  * ## Import
  * 
  * Service Bus Subscription Rule can be imported using the `resource id`, e.g.
@@ -51,14 +62,14 @@ public class SubscriptionRule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.action);
     }
     /**
-     * A `correlation_filter` block as documented below to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `CorrelationFilter`.
+     * A `correlationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
      * 
      */
     @Export(name="correlationFilter", refs={SubscriptionRuleCorrelationFilter.class}, tree="[0]")
     private Output</* @Nullable */ SubscriptionRuleCorrelationFilter> correlationFilter;
 
     /**
-     * @return A `correlation_filter` block as documented below to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `CorrelationFilter`.
+     * @return A `correlationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
      * 
      */
     public Output<Optional<SubscriptionRuleCorrelationFilter>> correlationFilter() {
@@ -93,14 +104,14 @@ public class SubscriptionRule extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `SqlFilter`.
+     * Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filterType` is set to `SqlFilter`.
      * 
      */
     @Export(name="sqlFilter", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sqlFilter;
 
     /**
-     * @return Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `SqlFilter`.
+     * @return Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filterType` is set to `SqlFilter`.
      * 
      */
     public Output<Optional<String>> sqlFilter() {

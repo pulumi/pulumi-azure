@@ -18,14 +18,14 @@ public final class SoftwareUpdateConfigurationTargetArgs extends com.pulumi.reso
     public static final SoftwareUpdateConfigurationTargetArgs Empty = new SoftwareUpdateConfigurationTargetArgs();
 
     /**
-     * One or more `azure_query` blocks as defined above.
+     * One or more `azureQuery` blocks as defined above.
      * 
      */
     @Import(name="azureQueries")
     private @Nullable Output<List<SoftwareUpdateConfigurationTargetAzureQueryArgs>> azureQueries;
 
     /**
-     * @return One or more `azure_query` blocks as defined above.
+     * @return One or more `azureQuery` blocks as defined above.
      * 
      */
     public Optional<Output<List<SoftwareUpdateConfigurationTargetAzureQueryArgs>>> azureQueries() {
@@ -33,14 +33,14 @@ public final class SoftwareUpdateConfigurationTargetArgs extends com.pulumi.reso
     }
 
     /**
-     * One or more `non_azure_query` blocks as defined above.
+     * One or more `nonAzureQuery` blocks as defined above.
      * 
      */
     @Import(name="nonAzureQueries")
     private @Nullable Output<List<SoftwareUpdateConfigurationTargetNonAzureQueryArgs>> nonAzureQueries;
 
     /**
-     * @return One or more `non_azure_query` blocks as defined above.
+     * @return One or more `nonAzureQuery` blocks as defined above.
      * 
      */
     public Optional<Output<List<SoftwareUpdateConfigurationTargetNonAzureQueryArgs>>> nonAzureQueries() {
@@ -73,7 +73,7 @@ public final class SoftwareUpdateConfigurationTargetArgs extends com.pulumi.reso
         }
 
         /**
-         * @param azureQueries One or more `azure_query` blocks as defined above.
+         * @param azureQueries One or more `azureQuery` blocks as defined above.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class SoftwareUpdateConfigurationTargetArgs extends com.pulumi.reso
         }
 
         /**
-         * @param azureQueries One or more `azure_query` blocks as defined above.
+         * @param azureQueries One or more `azureQuery` blocks as defined above.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class SoftwareUpdateConfigurationTargetArgs extends com.pulumi.reso
         }
 
         /**
-         * @param azureQueries One or more `azure_query` blocks as defined above.
+         * @param azureQueries One or more `azureQuery` blocks as defined above.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class SoftwareUpdateConfigurationTargetArgs extends com.pulumi.reso
         }
 
         /**
-         * @param nonAzureQueries One or more `non_azure_query` blocks as defined above.
+         * @param nonAzureQueries One or more `nonAzureQuery` blocks as defined above.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class SoftwareUpdateConfigurationTargetArgs extends com.pulumi.reso
         }
 
         /**
-         * @param nonAzureQueries One or more `non_azure_query` blocks as defined above.
+         * @param nonAzureQueries One or more `nonAzureQuery` blocks as defined above.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class SoftwareUpdateConfigurationTargetArgs extends com.pulumi.reso
         }
 
         /**
-         * @param nonAzureQueries One or more `non_azure_query` blocks as defined above.
+         * @param nonAzureQueries One or more `nonAzureQuery` blocks as defined above.
          * 
          * @return builder
          * 

@@ -13,13 +13,13 @@ namespace Pulumi.Azure.Network.Inputs
     public sealed class VirtualNetworkGatewayConnectionCustomBgpAddressesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// single IP address that is part of the `azure.network.VirtualNetworkGateway` ip_configuration (first one)
+        /// single IP address that is part of the `azure.network.VirtualNetworkGateway` IpConfiguration (first one)
         /// </summary>
         [Input("primary", required: true)]
         public Input<string> Primary { get; set; } = null!;
 
         /// <summary>
-        /// single IP address that is part of the `azure.network.VirtualNetworkGateway` ip_configuration (second one)
+        /// single IP address that is part of the `azure.network.VirtualNetworkGateway` IpConfiguration (second one)
         /// </summary>
         [Input("secondary")]
         public Input<string>? Secondary { get; set; }

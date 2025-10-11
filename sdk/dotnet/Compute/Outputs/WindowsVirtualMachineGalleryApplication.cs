@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class WindowsVirtualMachineGalleryApplication
     {
         /// <summary>
-        /// Specifies whether the version will be automatically updated for the VM when a new Gallery Application version is available in PIR/SIG. Defaults to `false`.
+        /// Specifies whether the version will be automatically updated for the VM when a new Gallery Application version is available in PIR/SIG. Defaults to `False`.
         /// </summary>
         public readonly bool? AutomaticUpgradeEnabled;
         /// <summary>
@@ -26,11 +26,11 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly int? Order;
         /// <summary>
-        /// Specifies a passthrough value for more generic context. This field can be any valid `string` value.
+        /// Specifies a passthrough value for more generic context. This field can be any valid `String` value.
         /// </summary>
         public readonly string? Tag;
         /// <summary>
-        /// Specifies whether any failure for any operation in the VmApplication will fail the deployment of the VM. Defaults to `false`.
+        /// Specifies whether any failure for any operation in the VmApplication will fail the deployment of the VM. Defaults to `False`.
         /// </summary>
         public readonly bool? TreatFailureAsDeploymentFailureEnabled;
         /// <summary>

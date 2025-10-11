@@ -124,7 +124,7 @@ namespace Pulumi.Azure.Network
         public string? AttachmentStatus { get; set; }
 
         /// <summary>
-        /// A prefix match used for the IP Addresses `name` field, case sensitive.
+        /// A prefix match used for the IP Addresses `Name` field, case sensitive.
         /// </summary>
         [Input("namePrefix")]
         public string? NamePrefix { get; set; }
@@ -156,7 +156,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? AttachmentStatus { get; set; }
 
         /// <summary>
-        /// A prefix match used for the IP Addresses `name` field, case sensitive.
+        /// A prefix match used for the IP Addresses `Name` field, case sensitive.
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
@@ -185,7 +185,7 @@ namespace Pulumi.Azure.Network
         public readonly string Id;
         public readonly string? NamePrefix;
         /// <summary>
-        /// A List of `public_ips` blocks as defined below filtered by the criteria above.
+        /// A List of `PublicIps` blocks as defined below filtered by the criteria above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPublicIPsPublicIpResult> PublicIps;
         public readonly string ResourceGroupName;

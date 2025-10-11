@@ -175,7 +175,7 @@ namespace Pulumi.Azure.Lb
         public readonly string BackendAddressPoolId;
         public readonly bool EnableTcpReset;
         /// <summary>
-        /// A `frontend_ip_configuration` block as defined below.
+        /// A `FrontendIpConfiguration` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLBOutboundRuleFrontendIpConfigurationResult> FrontendIpConfigurations;
         /// <summary>

@@ -37,14 +37,14 @@ public final class TrafficManagerExternalEndpointArgs extends com.pulumi.resourc
     }
 
     /**
-     * One or more `custom_header` blocks as defined below.
+     * One or more `customHeader` blocks as defined below.
      * 
      */
     @Import(name="customHeaders")
     private @Nullable Output<List<TrafficManagerExternalEndpointCustomHeaderArgs>> customHeaders;
 
     /**
-     * @return One or more `custom_header` blocks as defined below.
+     * @return One or more `customHeader` blocks as defined below.
      * 
      */
     public Optional<Output<List<TrafficManagerExternalEndpointCustomHeaderArgs>>> customHeaders() {
@@ -242,7 +242,7 @@ public final class TrafficManagerExternalEndpointArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param customHeaders One or more `custom_header` blocks as defined below.
+         * @param customHeaders One or more `customHeader` blocks as defined below.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class TrafficManagerExternalEndpointArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param customHeaders One or more `custom_header` blocks as defined below.
+         * @param customHeaders One or more `customHeader` blocks as defined below.
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class TrafficManagerExternalEndpointArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param customHeaders One or more `custom_header` blocks as defined below.
+         * @param customHeaders One or more `customHeader` blocks as defined below.
          * 
          * @return builder
          * 

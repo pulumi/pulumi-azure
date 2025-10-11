@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class RouteMapRuleAction
     {
         /// <summary>
-        /// A `parameter` block as defined below. Required if `type` is anything other than `Drop`.
+        /// A `Parameter` block as defined below. Required if `Type` is anything other than `Drop`.
         /// </summary>
         public readonly ImmutableArray<Outputs.RouteMapRuleActionParameter> Parameters;
         /// <summary>

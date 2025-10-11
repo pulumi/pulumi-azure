@@ -35,14 +35,14 @@ public final class PolicyCustomRuleMatchConditionArgs extends com.pulumi.resourc
     }
 
     /**
-     * One or more `match_variables` blocks as defined below.
+     * One or more `matchVariables` blocks as defined below.
      * 
      */
     @Import(name="matchVariables", required=true)
     private Output<List<PolicyCustomRuleMatchConditionMatchVariableArgs>> matchVariables;
 
     /**
-     * @return One or more `match_variables` blocks as defined below.
+     * @return One or more `matchVariables` blocks as defined below.
      * 
      */
     public Output<List<PolicyCustomRuleMatchConditionMatchVariableArgs>> matchVariables() {
@@ -154,7 +154,7 @@ public final class PolicyCustomRuleMatchConditionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param matchVariables One or more `match_variables` blocks as defined below.
+         * @param matchVariables One or more `matchVariables` blocks as defined below.
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class PolicyCustomRuleMatchConditionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param matchVariables One or more `match_variables` blocks as defined below.
+         * @param matchVariables One or more `matchVariables` blocks as defined below.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class PolicyCustomRuleMatchConditionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param matchVariables One or more `match_variables` blocks as defined below.
+         * @param matchVariables One or more `matchVariables` blocks as defined below.
          * 
          * @return builder
          * 

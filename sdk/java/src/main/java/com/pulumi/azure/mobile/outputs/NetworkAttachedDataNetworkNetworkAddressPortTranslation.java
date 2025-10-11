@@ -23,7 +23,7 @@ public final class NetworkAttachedDataNetworkNetworkAddressPortTranslation {
      */
     private @Nullable Integer pinholeMaximumNumber;
     /**
-     * @return A `port_range` block as defined below.
+     * @return A `portRange` block as defined below.
      * 
      */
     private @Nullable NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange portRange;
@@ -64,7 +64,7 @@ public final class NetworkAttachedDataNetworkNetworkAddressPortTranslation {
         return Optional.ofNullable(this.pinholeMaximumNumber);
     }
     /**
-     * @return A `port_range` block as defined below.
+     * @return A `portRange` block as defined below.
      * 
      */
     public Optional<NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange> portRange() {

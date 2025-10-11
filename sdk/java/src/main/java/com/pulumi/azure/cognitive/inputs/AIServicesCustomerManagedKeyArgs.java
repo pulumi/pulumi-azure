@@ -31,14 +31,14 @@ public final class AIServicesCustomerManagedKeyArgs extends com.pulumi.resources
     }
 
     /**
-     * The ID of the Key Vault Key which should be used to encrypt the data in this AI Services Account. Exactly one of `key_vault_key_id`, `managed_hsm_key_id` must be specified.
+     * The ID of the Key Vault Key which should be used to encrypt the data in this AI Services Account. Exactly one of `keyVaultKeyId`, `managedHsmKeyId` must be specified.
      * 
      */
     @Import(name="keyVaultKeyId")
     private @Nullable Output<String> keyVaultKeyId;
 
     /**
-     * @return The ID of the Key Vault Key which should be used to encrypt the data in this AI Services Account. Exactly one of `key_vault_key_id`, `managed_hsm_key_id` must be specified.
+     * @return The ID of the Key Vault Key which should be used to encrypt the data in this AI Services Account. Exactly one of `keyVaultKeyId`, `managedHsmKeyId` must be specified.
      * 
      */
     public Optional<Output<String>> keyVaultKeyId() {
@@ -46,14 +46,14 @@ public final class AIServicesCustomerManagedKeyArgs extends com.pulumi.resources
     }
 
     /**
-     * The ID of the managed HSM Key which should be used to encrypt the data in this AI Services Account. Exactly one of `key_vault_key_id`, `managed_hsm_key_id` must be specified.
+     * The ID of the managed HSM Key which should be used to encrypt the data in this AI Services Account. Exactly one of `keyVaultKeyId`, `managedHsmKeyId` must be specified.
      * 
      */
     @Import(name="managedHsmKeyId")
     private @Nullable Output<String> managedHsmKeyId;
 
     /**
-     * @return The ID of the managed HSM Key which should be used to encrypt the data in this AI Services Account. Exactly one of `key_vault_key_id`, `managed_hsm_key_id` must be specified.
+     * @return The ID of the managed HSM Key which should be used to encrypt the data in this AI Services Account. Exactly one of `keyVaultKeyId`, `managedHsmKeyId` must be specified.
      * 
      */
     public Optional<Output<String>> managedHsmKeyId() {
@@ -108,7 +108,7 @@ public final class AIServicesCustomerManagedKeyArgs extends com.pulumi.resources
         }
 
         /**
-         * @param keyVaultKeyId The ID of the Key Vault Key which should be used to encrypt the data in this AI Services Account. Exactly one of `key_vault_key_id`, `managed_hsm_key_id` must be specified.
+         * @param keyVaultKeyId The ID of the Key Vault Key which should be used to encrypt the data in this AI Services Account. Exactly one of `keyVaultKeyId`, `managedHsmKeyId` must be specified.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class AIServicesCustomerManagedKeyArgs extends com.pulumi.resources
         }
 
         /**
-         * @param keyVaultKeyId The ID of the Key Vault Key which should be used to encrypt the data in this AI Services Account. Exactly one of `key_vault_key_id`, `managed_hsm_key_id` must be specified.
+         * @param keyVaultKeyId The ID of the Key Vault Key which should be used to encrypt the data in this AI Services Account. Exactly one of `keyVaultKeyId`, `managedHsmKeyId` must be specified.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class AIServicesCustomerManagedKeyArgs extends com.pulumi.resources
         }
 
         /**
-         * @param managedHsmKeyId The ID of the managed HSM Key which should be used to encrypt the data in this AI Services Account. Exactly one of `key_vault_key_id`, `managed_hsm_key_id` must be specified.
+         * @param managedHsmKeyId The ID of the managed HSM Key which should be used to encrypt the data in this AI Services Account. Exactly one of `keyVaultKeyId`, `managedHsmKeyId` must be specified.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class AIServicesCustomerManagedKeyArgs extends com.pulumi.resources
         }
 
         /**
-         * @param managedHsmKeyId The ID of the managed HSM Key which should be used to encrypt the data in this AI Services Account. Exactly one of `key_vault_key_id`, `managed_hsm_key_id` must be specified.
+         * @param managedHsmKeyId The ID of the managed HSM Key which should be used to encrypt the data in this AI Services Account. Exactly one of `keyVaultKeyId`, `managedHsmKeyId` must be specified.
          * 
          * @return builder
          * 

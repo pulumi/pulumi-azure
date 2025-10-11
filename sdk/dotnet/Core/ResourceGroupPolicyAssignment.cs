@@ -98,15 +98,15 @@ namespace Pulumi.Azure.Core
         public Output<string?> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if this Policy should be enforced or not? Defaults to `true`.
+        /// Specifies if this Policy should be enforced or not? Defaults to `True`.
         /// </summary>
         [Output("enforce")]
         public Output<bool?> Enforce { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// 
-        /// &gt; **Note:** The `location` field must also be specified when `identity` is specified.
+        /// &gt; **Note:** The `Location` field must also be specified when `Identity` is specified.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ResourceGroupPolicyAssignmentIdentity?> Identity { get; private set; } = null!;
@@ -130,7 +130,7 @@ namespace Pulumi.Azure.Core
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `non_compliance_message` blocks as defined below.
+        /// One or more `NonComplianceMessage` blocks as defined below.
         /// </summary>
         [Output("nonComplianceMessages")]
         public Output<ImmutableArray<Outputs.ResourceGroupPolicyAssignmentNonComplianceMessage>> NonComplianceMessages { get; private set; } = null!;
@@ -142,7 +142,7 @@ namespace Pulumi.Azure.Core
         public Output<ImmutableArray<string>> NotScopes { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
+        /// One or more `Overrides` blocks as defined below. More detail about `Overrides` and `ResourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
         /// </summary>
         [Output("overrides")]
         public Output<ImmutableArray<Outputs.ResourceGroupPolicyAssignmentOverride>> Overrides { get; private set; } = null!;
@@ -166,7 +166,7 @@ namespace Pulumi.Azure.Core
         public Output<string> ResourceGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
+        /// One or more `ResourceSelectors` blocks as defined below to filter polices by resource properties.
         /// </summary>
         [Output("resourceSelectors")]
         public Output<ImmutableArray<Outputs.ResourceGroupPolicyAssignmentResourceSelector>> ResourceSelectors { get; private set; } = null!;
@@ -230,15 +230,15 @@ namespace Pulumi.Azure.Core
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// Specifies if this Policy should be enforced or not? Defaults to `true`.
+        /// Specifies if this Policy should be enforced or not? Defaults to `True`.
         /// </summary>
         [Input("enforce")]
         public Input<bool>? Enforce { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// 
-        /// &gt; **Note:** The `location` field must also be specified when `identity` is specified.
+        /// &gt; **Note:** The `Location` field must also be specified when `Identity` is specified.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ResourceGroupPolicyAssignmentIdentityArgs>? Identity { get; set; }
@@ -265,7 +265,7 @@ namespace Pulumi.Azure.Core
         private InputList<Inputs.ResourceGroupPolicyAssignmentNonComplianceMessageArgs>? _nonComplianceMessages;
 
         /// <summary>
-        /// One or more `non_compliance_message` blocks as defined below.
+        /// One or more `NonComplianceMessage` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ResourceGroupPolicyAssignmentNonComplianceMessageArgs> NonComplianceMessages
         {
@@ -289,7 +289,7 @@ namespace Pulumi.Azure.Core
         private InputList<Inputs.ResourceGroupPolicyAssignmentOverrideArgs>? _overrides;
 
         /// <summary>
-        /// One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
+        /// One or more `Overrides` blocks as defined below. More detail about `Overrides` and `ResourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
         /// </summary>
         public InputList<Inputs.ResourceGroupPolicyAssignmentOverrideArgs> Overrides
         {
@@ -319,7 +319,7 @@ namespace Pulumi.Azure.Core
         private InputList<Inputs.ResourceGroupPolicyAssignmentResourceSelectorArgs>? _resourceSelectors;
 
         /// <summary>
-        /// One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
+        /// One or more `ResourceSelectors` blocks as defined below to filter polices by resource properties.
         /// </summary>
         public InputList<Inputs.ResourceGroupPolicyAssignmentResourceSelectorArgs> ResourceSelectors
         {
@@ -348,15 +348,15 @@ namespace Pulumi.Azure.Core
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// Specifies if this Policy should be enforced or not? Defaults to `true`.
+        /// Specifies if this Policy should be enforced or not? Defaults to `True`.
         /// </summary>
         [Input("enforce")]
         public Input<bool>? Enforce { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// 
-        /// &gt; **Note:** The `location` field must also be specified when `identity` is specified.
+        /// &gt; **Note:** The `Location` field must also be specified when `Identity` is specified.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ResourceGroupPolicyAssignmentIdentityGetArgs>? Identity { get; set; }
@@ -383,7 +383,7 @@ namespace Pulumi.Azure.Core
         private InputList<Inputs.ResourceGroupPolicyAssignmentNonComplianceMessageGetArgs>? _nonComplianceMessages;
 
         /// <summary>
-        /// One or more `non_compliance_message` blocks as defined below.
+        /// One or more `NonComplianceMessage` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ResourceGroupPolicyAssignmentNonComplianceMessageGetArgs> NonComplianceMessages
         {
@@ -407,7 +407,7 @@ namespace Pulumi.Azure.Core
         private InputList<Inputs.ResourceGroupPolicyAssignmentOverrideGetArgs>? _overrides;
 
         /// <summary>
-        /// One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
+        /// One or more `Overrides` blocks as defined below. More detail about `Overrides` and `ResourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
         /// </summary>
         public InputList<Inputs.ResourceGroupPolicyAssignmentOverrideGetArgs> Overrides
         {
@@ -437,7 +437,7 @@ namespace Pulumi.Azure.Core
         private InputList<Inputs.ResourceGroupPolicyAssignmentResourceSelectorGetArgs>? _resourceSelectors;
 
         /// <summary>
-        /// One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
+        /// One or more `ResourceSelectors` blocks as defined below to filter polices by resource properties.
         /// </summary>
         public InputList<Inputs.ResourceGroupPolicyAssignmentResourceSelectorGetArgs> ResourceSelectors
         {

@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FleetUpdateRunManagedClusterUpdate {
     /**
-     * @return A `node_image_selection` block as defined below.
+     * @return A `nodeImageSelection` block as defined below.
      * 
      */
     private @Nullable FleetUpdateRunManagedClusterUpdateNodeImageSelection nodeImageSelection;
@@ -26,7 +26,7 @@ public final class FleetUpdateRunManagedClusterUpdate {
 
     private FleetUpdateRunManagedClusterUpdate() {}
     /**
-     * @return A `node_image_selection` block as defined below.
+     * @return A `nodeImageSelection` block as defined below.
      * 
      */
     public Optional<FleetUpdateRunManagedClusterUpdateNodeImageSelection> nodeImageSelection() {

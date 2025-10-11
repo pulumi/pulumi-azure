@@ -18,7 +18,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
-        /// A `terms_of_service` block as defined below.
+        /// A `TermsOfService` block as defined below.
         /// </summary>
         public readonly Outputs.ServiceSignUpTermsOfService TermsOfService;
 

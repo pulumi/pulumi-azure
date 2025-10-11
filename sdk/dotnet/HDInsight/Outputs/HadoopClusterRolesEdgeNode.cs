@@ -14,11 +14,11 @@ namespace Pulumi.Azure.HDInsight.Outputs
     public sealed class HadoopClusterRolesEdgeNode
     {
         /// <summary>
-        /// The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster. One or more `https_endpoints` blocks as defined below.
+        /// The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster. One or more `HttpsEndpoints` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.HadoopClusterRolesEdgeNodeHttpsEndpoint> HttpsEndpoints;
         /// <summary>
-        /// A `install_script_action` block as defined below.
+        /// A `InstallScriptAction` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.HadoopClusterRolesEdgeNodeInstallScriptAction> InstallScriptActions;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Azure.HDInsight.Outputs
         /// </summary>
         public readonly int TargetInstanceCount;
         /// <summary>
-        /// A `uninstall_script_actions` block as defined below. Changing this forces a new resource to be created.
+        /// A `UninstallScriptActions` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableArray<Outputs.HadoopClusterRolesEdgeNodeUninstallScriptAction> UninstallScriptActions;
         /// <summary>

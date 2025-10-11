@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class GetLinuxFunctionAppAuthSettingResult
     {
         /// <summary>
-        /// An `active_directory` block as defined above.
+        /// An `ActiveDirectory` block as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxFunctionAppAuthSettingActiveDirectoryResult> ActiveDirectories;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly ImmutableArray<string> AllowedExternalRedirectUrls;
         /// <summary>
-        /// The Default Authentication Provider used when more than one Authentication Provider is configured and the `unauthenticated_action` is set to `RedirectToLoginPage`.
+        /// The Default Authentication Provider used when more than one Authentication Provider is configured and the `UnauthenticatedAction` is set to `RedirectToLoginPage`.
         /// </summary>
         public readonly string DefaultProvider;
         /// <summary>
@@ -34,15 +34,15 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
-        /// A `facebook` block as defined below.
+        /// A `Facebook` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxFunctionAppAuthSettingFacebookResult> Facebooks;
         /// <summary>
-        /// A `github` block as defined below.
+        /// A `Github` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxFunctionAppAuthSettingGithubResult> Githubs;
         /// <summary>
-        /// A `google` block as defined below.
+        /// A `Google` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxFunctionAppAuthSettingGoogleResult> Googles;
         /// <summary>
@@ -50,7 +50,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string Issuer;
         /// <summary>
-        /// A `microsoft` block as defined below.
+        /// A `Microsoft` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxFunctionAppAuthSettingMicrosoftResult> Microsofts;
         /// <summary>
@@ -66,7 +66,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool TokenStoreEnabled;
         /// <summary>
-        /// A `twitter` block as defined below.
+        /// A `Twitter` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetLinuxFunctionAppAuthSettingTwitterResult> Twitters;
         /// <summary>

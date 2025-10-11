@@ -159,14 +159,14 @@ public class WorkspaceExtendedAuditingPolicy extends com.pulumi.resources.Custom
         return Codegen.optional(this.storageAccountAccessKey);
     }
     /**
-     * Is `storage_account_access_key` value the storage&#39;s secondary key?
+     * Is `storageAccountAccessKey` value the storage&#39;s secondary key?
      * 
      */
     @Export(name="storageAccountAccessKeyIsSecondary", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> storageAccountAccessKeyIsSecondary;
 
     /**
-     * @return Is `storage_account_access_key` value the storage&#39;s secondary key?
+     * @return Is `storageAccountAccessKey` value the storage&#39;s secondary key?
      * 
      */
     public Output<Optional<Boolean>> storageAccountAccessKeyIsSecondary() {

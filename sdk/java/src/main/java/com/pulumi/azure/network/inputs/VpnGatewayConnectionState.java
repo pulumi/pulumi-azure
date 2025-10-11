@@ -81,14 +81,14 @@ public final class VpnGatewayConnectionState extends com.pulumi.resources.Resour
     }
 
     /**
-     * One or more `traffic_selector_policy` blocks as defined below.
+     * One or more `trafficSelectorPolicy` blocks as defined below.
      * 
      */
     @Import(name="trafficSelectorPolicies")
     private @Nullable Output<List<VpnGatewayConnectionTrafficSelectorPolicyArgs>> trafficSelectorPolicies;
 
     /**
-     * @return One or more `traffic_selector_policy` blocks as defined below.
+     * @return One or more `trafficSelectorPolicy` blocks as defined below.
      * 
      */
     public Optional<Output<List<VpnGatewayConnectionTrafficSelectorPolicyArgs>>> trafficSelectorPolicies() {
@@ -111,14 +111,14 @@ public final class VpnGatewayConnectionState extends com.pulumi.resources.Resour
     }
 
     /**
-     * One or more `vpn_link` blocks as defined below.
+     * One or more `vpnLink` blocks as defined below.
      * 
      */
     @Import(name="vpnLinks")
     private @Nullable Output<List<VpnGatewayConnectionVpnLinkArgs>> vpnLinks;
 
     /**
-     * @return One or more `vpn_link` blocks as defined below.
+     * @return One or more `vpnLink` blocks as defined below.
      * 
      */
     public Optional<Output<List<VpnGatewayConnectionVpnLinkArgs>>> vpnLinks() {
@@ -240,7 +240,7 @@ public final class VpnGatewayConnectionState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param trafficSelectorPolicies One or more `traffic_selector_policy` blocks as defined below.
+         * @param trafficSelectorPolicies One or more `trafficSelectorPolicy` blocks as defined below.
          * 
          * @return builder
          * 
@@ -251,7 +251,7 @@ public final class VpnGatewayConnectionState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param trafficSelectorPolicies One or more `traffic_selector_policy` blocks as defined below.
+         * @param trafficSelectorPolicies One or more `trafficSelectorPolicy` blocks as defined below.
          * 
          * @return builder
          * 
@@ -261,7 +261,7 @@ public final class VpnGatewayConnectionState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param trafficSelectorPolicies One or more `traffic_selector_policy` blocks as defined below.
+         * @param trafficSelectorPolicies One or more `trafficSelectorPolicy` blocks as defined below.
          * 
          * @return builder
          * 
@@ -292,7 +292,7 @@ public final class VpnGatewayConnectionState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param vpnLinks One or more `vpn_link` blocks as defined below.
+         * @param vpnLinks One or more `vpnLink` blocks as defined below.
          * 
          * @return builder
          * 
@@ -303,7 +303,7 @@ public final class VpnGatewayConnectionState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param vpnLinks One or more `vpn_link` blocks as defined below.
+         * @param vpnLinks One or more `vpnLink` blocks as defined below.
          * 
          * @return builder
          * 
@@ -313,7 +313,7 @@ public final class VpnGatewayConnectionState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param vpnLinks One or more `vpn_link` blocks as defined below.
+         * @param vpnLinks One or more `vpnLink` blocks as defined below.
          * 
          * @return builder
          * 

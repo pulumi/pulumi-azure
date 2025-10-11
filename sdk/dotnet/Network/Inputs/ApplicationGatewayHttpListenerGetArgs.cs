@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<Inputs.ApplicationGatewayHttpListenerCustomErrorConfigurationGetArgs>? _customErrorConfigurations;
 
         /// <summary>
-        /// One or more `custom_error_configuration` blocks as defined below.
+        /// One or more `CustomErrorConfiguration` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayHttpListenerCustomErrorConfigurationGetArgs> CustomErrorConfigurations
         {
@@ -66,7 +66,7 @@ namespace Pulumi.Azure.Network.Inputs
         /// <summary>
         /// A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
         /// 
-        /// &gt; **Note:** The `host_names` and `host_name` are mutually exclusive and cannot both be set.
+        /// &gt; **Note:** The `HostNames` and `HostName` are mutually exclusive and cannot both be set.
         /// </summary>
         public InputList<string> HostNames
         {
@@ -93,7 +93,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string> Protocol { get; set; } = null!;
 
         /// <summary>
-        /// Should Server Name Indication be Required? Defaults to `false`.
+        /// Should Server Name Indication be Required? Defaults to `False`.
         /// </summary>
         [Input("requireSni")]
         public Input<bool>? RequireSni { get; set; }

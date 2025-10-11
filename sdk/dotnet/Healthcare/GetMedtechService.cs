@@ -186,7 +186,7 @@ namespace Pulumi.Azure.Healthcare
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The `identity` block as defined below.
+        /// The `Identity` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetMedtechServiceIdentityResult> Identities;
         public readonly string Name;

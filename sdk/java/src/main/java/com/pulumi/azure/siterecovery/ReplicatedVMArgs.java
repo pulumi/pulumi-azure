@@ -21,14 +21,14 @@ public final class ReplicatedVMArgs extends com.pulumi.resources.ResourceArgs {
     public static final ReplicatedVMArgs Empty = new ReplicatedVMArgs();
 
     /**
-     * One or more `managed_disk` block as defined below. Changing this forces a new resource to be created.
+     * One or more `managedDisk` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="managedDisks")
     private @Nullable Output<List<ReplicatedVMManagedDiskArgs>> managedDisks;
 
     /**
-     * @return One or more `managed_disk` block as defined below. Changing this forces a new resource to be created.
+     * @return One or more `managedDisk` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<ReplicatedVMManagedDiskArgs>>> managedDisks() {
@@ -66,14 +66,14 @@ public final class ReplicatedVMArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `network_interface` block as defined below.
+     * One or more `networkInterface` block as defined below.
      * 
      */
     @Import(name="networkInterfaces")
     private @Nullable Output<List<ReplicatedVMNetworkInterfaceArgs>> networkInterfaces;
 
     /**
-     * @return One or more `network_interface` block as defined below.
+     * @return One or more `networkInterface` block as defined below.
      * 
      */
     public Optional<Output<List<ReplicatedVMNetworkInterfaceArgs>>> networkInterfaces() {
@@ -231,14 +231,14 @@ public final class ReplicatedVMArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Network to use when a failover is done (recommended to set if any network_interface is configured for failover).
+     * Network to use when a failover is done (recommended to set if any networkInterface is configured for failover).
      * 
      */
     @Import(name="targetNetworkId")
     private @Nullable Output<String> targetNetworkId;
 
     /**
-     * @return Network to use when a failover is done (recommended to set if any network_interface is configured for failover).
+     * @return Network to use when a failover is done (recommended to set if any networkInterface is configured for failover).
      * 
      */
     public Optional<Output<String>> targetNetworkId() {
@@ -366,14 +366,14 @@ public final class ReplicatedVMArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `unmanaged_disk` block as defined below. Changing this forces a new resource to be created.
+     * One or more `unmanagedDisk` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="unmanagedDisks")
     private @Nullable Output<List<ReplicatedVMUnmanagedDiskArgs>> unmanagedDisks;
 
     /**
-     * @return One or more `unmanaged_disk` block as defined below. Changing this forces a new resource to be created.
+     * @return One or more `unmanagedDisk` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<ReplicatedVMUnmanagedDiskArgs>>> unmanagedDisks() {
@@ -428,7 +428,7 @@ public final class ReplicatedVMArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managedDisks One or more `managed_disk` block as defined below. Changing this forces a new resource to be created.
+         * @param managedDisks One or more `managedDisk` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -439,7 +439,7 @@ public final class ReplicatedVMArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managedDisks One or more `managed_disk` block as defined below. Changing this forces a new resource to be created.
+         * @param managedDisks One or more `managedDisk` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -449,7 +449,7 @@ public final class ReplicatedVMArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managedDisks One or more `managed_disk` block as defined below. Changing this forces a new resource to be created.
+         * @param managedDisks One or more `managedDisk` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -501,7 +501,7 @@ public final class ReplicatedVMArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkInterfaces One or more `network_interface` block as defined below.
+         * @param networkInterfaces One or more `networkInterface` block as defined below.
          * 
          * @return builder
          * 
@@ -512,7 +512,7 @@ public final class ReplicatedVMArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkInterfaces One or more `network_interface` block as defined below.
+         * @param networkInterfaces One or more `networkInterface` block as defined below.
          * 
          * @return builder
          * 
@@ -522,7 +522,7 @@ public final class ReplicatedVMArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkInterfaces One or more `network_interface` block as defined below.
+         * @param networkInterfaces One or more `networkInterface` block as defined below.
          * 
          * @return builder
          * 
@@ -742,7 +742,7 @@ public final class ReplicatedVMArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetNetworkId Network to use when a failover is done (recommended to set if any network_interface is configured for failover).
+         * @param targetNetworkId Network to use when a failover is done (recommended to set if any networkInterface is configured for failover).
          * 
          * @return builder
          * 
@@ -753,7 +753,7 @@ public final class ReplicatedVMArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetNetworkId Network to use when a failover is done (recommended to set if any network_interface is configured for failover).
+         * @param targetNetworkId Network to use when a failover is done (recommended to set if any networkInterface is configured for failover).
          * 
          * @return builder
          * 
@@ -931,7 +931,7 @@ public final class ReplicatedVMArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param unmanagedDisks One or more `unmanaged_disk` block as defined below. Changing this forces a new resource to be created.
+         * @param unmanagedDisks One or more `unmanagedDisk` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -942,7 +942,7 @@ public final class ReplicatedVMArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param unmanagedDisks One or more `unmanaged_disk` block as defined below. Changing this forces a new resource to be created.
+         * @param unmanagedDisks One or more `unmanagedDisk` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -952,7 +952,7 @@ public final class ReplicatedVMArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param unmanagedDisks One or more `unmanaged_disk` block as defined below. Changing this forces a new resource to be created.
+         * @param unmanagedDisks One or more `unmanagedDisk` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

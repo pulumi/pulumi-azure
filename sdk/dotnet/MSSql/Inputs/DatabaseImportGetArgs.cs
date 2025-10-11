@@ -41,7 +41,7 @@ namespace Pulumi.Azure.MSSql.Inputs
         public Input<string> AuthenticationType { get; set; } = null!;
 
         /// <summary>
-        /// The resource id for the storage account used to store BACPAC file. If set, private endpoint connection will be created for the storage account. Must match storage account used for storage_uri parameter.
+        /// The resource id for the storage account used to store BACPAC file. If set, private endpoint connection will be created for the storage account. Must match storage account used for StorageUri parameter.
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }

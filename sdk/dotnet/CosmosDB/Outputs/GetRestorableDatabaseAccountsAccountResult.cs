@@ -30,7 +30,7 @@ namespace Pulumi.Azure.CosmosDB.Outputs
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// One or more `restorable_locations` blocks as defined below.
+        /// One or more `RestorableLocations` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRestorableDatabaseAccountsAccountRestorableLocationResult> RestorableLocations;
 

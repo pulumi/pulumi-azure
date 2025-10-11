@@ -63,7 +63,7 @@ namespace Pulumi.Azure.AppPlatform
     public partial class SpringCloudApplicationLiveView : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name which should be used for this Spring Cloud Application Live View. Changing this forces a new Spring Cloud Application Live View to be created. The only possible value is `default`.
+        /// The name which should be used for this Spring Cloud Application Live View. Changing this forces a new Spring Cloud Application Live View to be created. The only possible value is `Default`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -121,7 +121,7 @@ namespace Pulumi.Azure.AppPlatform
     public sealed class SpringCloudApplicationLiveViewArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name which should be used for this Spring Cloud Application Live View. Changing this forces a new Spring Cloud Application Live View to be created. The only possible value is `default`.
+        /// The name which should be used for this Spring Cloud Application Live View. Changing this forces a new Spring Cloud Application Live View to be created. The only possible value is `Default`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -141,7 +141,7 @@ namespace Pulumi.Azure.AppPlatform
     public sealed class SpringCloudApplicationLiveViewState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name which should be used for this Spring Cloud Application Live View. Changing this forces a new Spring Cloud Application Live View to be created. The only possible value is `default`.
+        /// The name which should be used for this Spring Cloud Application Live View. Changing this forces a new Spring Cloud Application Live View to be created. The only possible value is `Default`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

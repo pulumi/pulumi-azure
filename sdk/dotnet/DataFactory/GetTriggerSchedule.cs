@@ -179,7 +179,7 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         public readonly string PipelineName;
         /// <summary>
-        /// A `schedule` block as described below, which further specifies the recurrence schedule for the trigger.
+        /// A `Schedule` block as described below, which further specifies the recurrence schedule for the trigger.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetTriggerScheduleScheduleResult> Schedules;
         /// <summary>

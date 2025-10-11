@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ElasticsearchLogs {
     /**
-     * @return A list of `filtering_tag` blocks as defined above.
+     * @return A list of `filteringTag` blocks as defined above.
      * 
      */
     private @Nullable List<ElasticsearchLogsFilteringTag> filteringTags;
@@ -36,7 +36,7 @@ public final class ElasticsearchLogs {
 
     private ElasticsearchLogs() {}
     /**
-     * @return A list of `filtering_tag` blocks as defined above.
+     * @return A list of `filteringTag` blocks as defined above.
      * 
      */
     public List<ElasticsearchLogsFilteringTag> filteringTags() {

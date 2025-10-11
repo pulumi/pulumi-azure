@@ -40,12 +40,12 @@ public final class ApplicationGatewayRedirectConfiguration {
     private String redirectType;
     private @Nullable String targetListenerId;
     /**
-     * @return The name of the listener to redirect to. Cannot be set if `target_url` is set.
+     * @return The name of the listener to redirect to. Cannot be set if `targetUrl` is set.
      * 
      */
     private @Nullable String targetListenerName;
     /**
-     * @return The URL to redirect the request to. Cannot be set if `target_listener_name` is set.
+     * @return The URL to redirect the request to. Cannot be set if `targetListenerName` is set.
      * 
      */
     private @Nullable String targetUrl;
@@ -90,14 +90,14 @@ public final class ApplicationGatewayRedirectConfiguration {
         return Optional.ofNullable(this.targetListenerId);
     }
     /**
-     * @return The name of the listener to redirect to. Cannot be set if `target_url` is set.
+     * @return The name of the listener to redirect to. Cannot be set if `targetUrl` is set.
      * 
      */
     public Optional<String> targetListenerName() {
         return Optional.ofNullable(this.targetListenerName);
     }
     /**
-     * @return The URL to redirect the request to. Cannot be set if `target_listener_name` is set.
+     * @return The URL to redirect the request to. Cannot be set if `targetListenerName` is set.
      * 
      */
     public Optional<String> targetUrl() {

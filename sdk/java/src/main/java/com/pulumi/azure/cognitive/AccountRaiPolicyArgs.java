@@ -50,14 +50,14 @@ public final class AccountRaiPolicyArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A `content_filter` block as defined below.
+     * A `contentFilter` block as defined below.
      * 
      */
     @Import(name="contentFilters", required=true)
     private Output<List<AccountRaiPolicyContentFilterArgs>> contentFilters;
 
     /**
-     * @return A `content_filter` block as defined below.
+     * @return A `contentFilter` block as defined below.
      * 
      */
     public Output<List<AccountRaiPolicyContentFilterArgs>> contentFilters() {
@@ -181,7 +181,7 @@ public final class AccountRaiPolicyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param contentFilters A `content_filter` block as defined below.
+         * @param contentFilters A `contentFilter` block as defined below.
          * 
          * @return builder
          * 
@@ -192,7 +192,7 @@ public final class AccountRaiPolicyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param contentFilters A `content_filter` block as defined below.
+         * @param contentFilters A `contentFilter` block as defined below.
          * 
          * @return builder
          * 
@@ -202,7 +202,7 @@ public final class AccountRaiPolicyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param contentFilters A `content_filter` block as defined below.
+         * @param contentFilters A `contentFilter` block as defined below.
          * 
          * @return builder
          * 

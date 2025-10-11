@@ -139,7 +139,7 @@ namespace Pulumi.Azure.Oracle
     public sealed class GetAutonomousDatabaseBackupsResult
     {
         /// <summary>
-        /// An `autonomous_database_backups` block as defined below.
+        /// An `AutonomousDatabaseBackups` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAutonomousDatabaseBackupsAutonomousDatabaseBackupResult> AutonomousDatabaseBackups;
         public readonly string AutonomousDatabaseId;

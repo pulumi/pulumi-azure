@@ -14,15 +14,15 @@ namespace Pulumi.Azure.CosmosDB.Outputs
     public sealed class CassandraTableSchema
     {
         /// <summary>
-        /// One or more `cluster_key` blocks as defined below.
+        /// One or more `ClusterKey` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.CassandraTableSchemaClusterKey> ClusterKeys;
         /// <summary>
-        /// One or more `column` blocks as defined below.
+        /// One or more `Column` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.CassandraTableSchemaColumn> Columns;
         /// <summary>
-        /// One or more `partition_key` blocks as defined below.
+        /// One or more `PartitionKey` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.CassandraTableSchemaPartitionKey> PartitionKeys;
 

@@ -19,14 +19,14 @@ public final class IntegrationAccountPartnerArgs extends com.pulumi.resources.Re
     public static final IntegrationAccountPartnerArgs Empty = new IntegrationAccountPartnerArgs();
 
     /**
-     * A `business_identity` block as documented below.
+     * A `businessIdentity` block as documented below.
      * 
      */
     @Import(name="businessIdentities", required=true)
     private Output<List<IntegrationAccountPartnerBusinessIdentityArgs>> businessIdentities;
 
     /**
-     * @return A `business_identity` block as documented below.
+     * @return A `businessIdentity` block as documented below.
      * 
      */
     public Output<List<IntegrationAccountPartnerBusinessIdentityArgs>> businessIdentities() {
@@ -122,7 +122,7 @@ public final class IntegrationAccountPartnerArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param businessIdentities A `business_identity` block as documented below.
+         * @param businessIdentities A `businessIdentity` block as documented below.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class IntegrationAccountPartnerArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param businessIdentities A `business_identity` block as documented below.
+         * @param businessIdentities A `businessIdentity` block as documented below.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class IntegrationAccountPartnerArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param businessIdentities A `business_identity` block as documented below.
+         * @param businessIdentities A `businessIdentity` block as documented below.
          * 
          * @return builder
          * 

@@ -20,14 +20,14 @@ public final class PoolMountArgs extends com.pulumi.resources.ResourceArgs {
     public static final PoolMountArgs Empty = new PoolMountArgs();
 
     /**
-     * A `azure_blob_file_system` block defined as below.
+     * A `azureBlobFileSystem` block defined as below.
      * 
      */
     @Import(name="azureBlobFileSystem")
     private @Nullable Output<PoolMountAzureBlobFileSystemArgs> azureBlobFileSystem;
 
     /**
-     * @return A `azure_blob_file_system` block defined as below.
+     * @return A `azureBlobFileSystem` block defined as below.
      * 
      */
     public Optional<Output<PoolMountAzureBlobFileSystemArgs>> azureBlobFileSystem() {
@@ -35,14 +35,14 @@ public final class PoolMountArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `azure_file_share` block defined as below.
+     * A `azureFileShare` block defined as below.
      * 
      */
     @Import(name="azureFileShares")
     private @Nullable Output<List<PoolMountAzureFileShareArgs>> azureFileShares;
 
     /**
-     * @return A `azure_file_share` block defined as below.
+     * @return A `azureFileShare` block defined as below.
      * 
      */
     public Optional<Output<List<PoolMountAzureFileShareArgs>>> azureFileShares() {
@@ -50,14 +50,14 @@ public final class PoolMountArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `cifs_mount` block defined as below.
+     * A `cifsMount` block defined as below.
      * 
      */
     @Import(name="cifsMounts")
     private @Nullable Output<List<PoolMountCifsMountArgs>> cifsMounts;
 
     /**
-     * @return A `cifs_mount` block defined as below.
+     * @return A `cifsMount` block defined as below.
      * 
      */
     public Optional<Output<List<PoolMountCifsMountArgs>>> cifsMounts() {
@@ -65,14 +65,14 @@ public final class PoolMountArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `nfs_mount` block defined as below.
+     * A `nfsMount` block defined as below.
      * 
      */
     @Import(name="nfsMounts")
     private @Nullable Output<List<PoolMountNfsMountArgs>> nfsMounts;
 
     /**
-     * @return A `nfs_mount` block defined as below.
+     * @return A `nfsMount` block defined as below.
      * 
      */
     public Optional<Output<List<PoolMountNfsMountArgs>>> nfsMounts() {
@@ -107,7 +107,7 @@ public final class PoolMountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param azureBlobFileSystem A `azure_blob_file_system` block defined as below.
+         * @param azureBlobFileSystem A `azureBlobFileSystem` block defined as below.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class PoolMountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param azureBlobFileSystem A `azure_blob_file_system` block defined as below.
+         * @param azureBlobFileSystem A `azureBlobFileSystem` block defined as below.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class PoolMountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param azureFileShares A `azure_file_share` block defined as below.
+         * @param azureFileShares A `azureFileShare` block defined as below.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class PoolMountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param azureFileShares A `azure_file_share` block defined as below.
+         * @param azureFileShares A `azureFileShare` block defined as below.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class PoolMountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param azureFileShares A `azure_file_share` block defined as below.
+         * @param azureFileShares A `azureFileShare` block defined as below.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class PoolMountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cifsMounts A `cifs_mount` block defined as below.
+         * @param cifsMounts A `cifsMount` block defined as below.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class PoolMountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cifsMounts A `cifs_mount` block defined as below.
+         * @param cifsMounts A `cifsMount` block defined as below.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class PoolMountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cifsMounts A `cifs_mount` block defined as below.
+         * @param cifsMounts A `cifsMount` block defined as below.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class PoolMountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nfsMounts A `nfs_mount` block defined as below.
+         * @param nfsMounts A `nfsMount` block defined as below.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class PoolMountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nfsMounts A `nfs_mount` block defined as below.
+         * @param nfsMounts A `nfsMount` block defined as below.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class PoolMountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nfsMounts A `nfs_mount` block defined as below.
+         * @param nfsMounts A `nfsMount` block defined as below.
          * 
          * @return builder
          * 

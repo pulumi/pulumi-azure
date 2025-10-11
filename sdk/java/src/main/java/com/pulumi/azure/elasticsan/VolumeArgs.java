@@ -19,14 +19,14 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
     public static final VolumeArgs Empty = new VolumeArgs();
 
     /**
-     * A `create_source` block as defined below.
+     * A `createSource` block as defined below.
      * 
      */
     @Import(name="createSource")
     private @Nullable Output<VolumeCreateSourceArgs> createSource;
 
     /**
-     * @return A `create_source` block as defined below.
+     * @return A `createSource` block as defined below.
      * 
      */
     public Optional<Output<VolumeCreateSourceArgs>> createSource() {
@@ -51,7 +51,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
      * 
-     * &gt; **Note:** The size can only be increased. If `create_source` is specified, then the size must be equal to or greater than the source&#39;s size.
+     * &gt; **Note:** The size can only be increased. If `createSource` is specified, then the size must be equal to or greater than the source&#39;s size.
      * 
      */
     @Import(name="sizeInGib", required=true)
@@ -60,7 +60,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
      * 
-     * &gt; **Note:** The size can only be increased. If `create_source` is specified, then the size must be equal to or greater than the source&#39;s size.
+     * &gt; **Note:** The size can only be increased. If `createSource` is specified, then the size must be equal to or greater than the source&#39;s size.
      * 
      */
     public Output<Integer> sizeInGib() {
@@ -110,7 +110,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createSource A `create_source` block as defined below.
+         * @param createSource A `createSource` block as defined below.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createSource A `create_source` block as defined below.
+         * @param createSource A `createSource` block as defined below.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param sizeInGib Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
          * 
-         * &gt; **Note:** The size can only be increased. If `create_source` is specified, then the size must be equal to or greater than the source&#39;s size.
+         * &gt; **Note:** The size can only be increased. If `createSource` is specified, then the size must be equal to or greater than the source&#39;s size.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param sizeInGib Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
          * 
-         * &gt; **Note:** The size can only be increased. If `create_source` is specified, then the size must be equal to or greater than the source&#39;s size.
+         * &gt; **Note:** The size can only be increased. If `createSource` is specified, then the size must be equal to or greater than the source&#39;s size.
          * 
          * @return builder
          * 

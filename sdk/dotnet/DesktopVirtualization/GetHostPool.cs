@@ -192,11 +192,11 @@ namespace Pulumi.Azure.DesktopVirtualization
         public readonly string PreferredAppGroupType;
         public readonly string ResourceGroupName;
         /// <summary>
-        /// A `scheduled_agent_updates` block as defined below.
+        /// A `ScheduledAgentUpdates` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetHostPoolScheduledAgentUpdateResult> ScheduledAgentUpdates;
         /// <summary>
-        /// Returns `true` if the Start VM on Connection Feature is enabled.
+        /// Returns `True` if the Start VM on Connection Feature is enabled.
         /// </summary>
         public readonly bool StartVmOnConnect;
         /// <summary>
@@ -208,7 +208,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Returns `true` if the Host Pool is in Validation mode.
+        /// Returns `True` if the Host Pool is in Validation mode.
         /// </summary>
         public readonly bool ValidateEnvironment;
 

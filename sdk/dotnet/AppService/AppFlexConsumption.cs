@@ -97,7 +97,7 @@ namespace Pulumi.Azure.AppService
     public partial class AppFlexConsumption : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// One or more `always_ready` blocks as defined below.
+        /// One or more `AlwaysReady` blocks as defined below.
         /// </summary>
         [Output("alwaysReadies")]
         public Output<ImmutableArray<Outputs.AppFlexConsumptionAlwaysReady>> AlwaysReadies { get; private set; } = null!;
@@ -109,13 +109,13 @@ namespace Pulumi.Azure.AppService
         public Output<ImmutableDictionary<string, string>?> AppSettings { get; private set; } = null!;
 
         /// <summary>
-        /// A `auth_settings` block as defined below.
+        /// A `AuthSettings` block as defined below.
         /// </summary>
         [Output("authSettings")]
         public Output<Outputs.AppFlexConsumptionAuthSettings?> AuthSettings { get; private set; } = null!;
 
         /// <summary>
-        /// An `auth_settings_v2` block as defined below.
+        /// An `AuthSettingsV2` block as defined below.
         /// </summary>
         [Output("authSettingsV2")]
         public Output<Outputs.AppFlexConsumptionAuthSettingsV2?> AuthSettingsV2 { get; private set; } = null!;
@@ -139,7 +139,7 @@ namespace Pulumi.Azure.AppService
         public Output<string?> ClientCertificateMode { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `connection_string` blocks as defined below.
+        /// One or more `ConnectionString` blocks as defined below.
         /// </summary>
         [Output("connectionStrings")]
         public Output<ImmutableArray<Outputs.AppFlexConsumptionConnectionString>> ConnectionStrings { get; private set; } = null!;
@@ -157,7 +157,7 @@ namespace Pulumi.Azure.AppService
         public Output<string> DefaultHostname { get; private set; } = null!;
 
         /// <summary>
-        /// Is the Function App enabled? Defaults to `true`.
+        /// Is the Function App enabled? Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -171,19 +171,19 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The Http concurrency of the instances on which your app runs. The supported value are from `1` to `1000`.
         /// 
-        /// &gt; **Note:** A value will be assigned by the system if `http_concurrency` is not specified.
+        /// &gt; **Note:** A value will be assigned by the system if `HttpConcurrency` is not specified.
         /// </summary>
         [Output("httpConcurrency")]
         public Output<int?> HttpConcurrency { get; private set; } = null!;
 
         /// <summary>
-        /// Is Https Connection enforced to the function app. Defaults to `false`
+        /// Is Https Connection enforced to the function app. Defaults to `False`
         /// </summary>
         [Output("httpsOnly")]
         public Output<bool?> HttpsOnly { get; private set; } = null!;
 
         /// <summary>
-        /// A `identity` block as defined below.
+        /// A `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.AppFlexConsumptionIdentity?> Identity { get; private set; } = null!;
@@ -231,19 +231,19 @@ namespace Pulumi.Azure.AppService
         public Output<string> OutboundIpAddresses { get; private set; } = null!;
 
         /// <summary>
-        /// A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `["52.23.25.3", "52.143.43.12"]`.
+        /// A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `OutboundIpAddressList`. For example `["52.23.25.3", "52.143.43.12"]`.
         /// </summary>
         [Output("possibleOutboundIpAddressLists")]
         public Output<ImmutableArray<string>> PossibleOutboundIpAddressLists { get; private set; } = null!;
 
         /// <summary>
-        /// A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`.
+        /// A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `OutboundIpAddresses`.
         /// </summary>
         [Output("possibleOutboundIpAddresses")]
         public Output<string> PossibleOutboundIpAddresses { get; private set; } = null!;
 
         /// <summary>
-        /// Should public network access be enabled for the Function App. Defaults to `true`.
+        /// Should public network access be enabled for the Function App. Defaults to `True`.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
@@ -255,13 +255,13 @@ namespace Pulumi.Azure.AppService
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java` and `custom`.
+        /// The Runtime of the Linux Function App. Possible values are `Node`, `dotnet-isolated`, `Powershell`, `Python`, `Java` and `Custom`.
         /// </summary>
         [Output("runtimeName")]
         public Output<string> RuntimeName { get; private set; } = null!;
 
         /// <summary>
-        /// The Runtime version of the Linux Function App. The values are diff from different runtime version. The supported values are `8.0`, `9.0` for `dotnet-isolated`, `20` for `node`, `3.10`, `3.11` for `python`, `11`, `17` for `java`, `7.4` for `powershell`.
+        /// The Runtime version of the Linux Function App. The values are diff from different runtime version. The supported values are `8.0`, `9.0` for `dotnet-isolated`, `20` for `Node`, `3.10`, `3.11` for `Python`, `11`, `17` for `Java`, `7.4` for `Powershell`.
         /// </summary>
         [Output("runtimeVersion")]
         public Output<string> RuntimeVersion { get; private set; } = null!;
@@ -273,19 +273,19 @@ namespace Pulumi.Azure.AppService
         public Output<string> ServicePlanId { get; private set; } = null!;
 
         /// <summary>
-        /// A `site_config` block as defined below.
+        /// A `SiteConfig` block as defined below.
         /// </summary>
         [Output("siteConfig")]
         public Output<Outputs.AppFlexConsumptionSiteConfig> SiteConfig { get; private set; } = null!;
 
         /// <summary>
-        /// A `site_credential` block as defined below.
+        /// A `SiteCredential` block as defined below.
         /// </summary>
         [Output("siteCredentials")]
         public Output<ImmutableArray<Outputs.AppFlexConsumptionSiteCredential>> SiteCredentials { get; private set; } = null!;
 
         /// <summary>
-        /// A `sticky_settings` block as defined below.
+        /// A `StickySettings` block as defined below.
         /// </summary>
         [Output("stickySettings")]
         public Output<Outputs.AppFlexConsumptionStickySettings?> StickySettings { get; private set; } = null!;
@@ -293,7 +293,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The access key which will be used to access the backend storage account for the Function App.
         /// 
-        /// &gt; **Note:** The `storage_access_key` must be specified when `storage_authentication_type` is set to `StorageAccountConnectionString`.
+        /// &gt; **Note:** The `StorageAccessKey` must be specified when `StorageAuthenticationType` is set to `StorageAccountConnectionString`.
         /// </summary>
         [Output("storageAccessKey")]
         public Output<string?> StorageAccessKey { get; private set; } = null!;
@@ -317,9 +317,9 @@ namespace Pulumi.Azure.AppService
         public Output<string> StorageContainerType { get; private set; } = null!;
 
         /// <summary>
-        /// The user assigned Managed Identity to access the storage account. Conflicts with `storage_access_key`.
+        /// The user assigned Managed Identity to access the storage account. Conflicts with `StorageAccessKey`.
         /// 
-        /// &gt; **Note:** The `storage_user_assigned_identity_id` must be specified when `storage_authentication_type` is set to `UserAssignedIdentity`.
+        /// &gt; **Note:** The `StorageUserAssignedIdentityId` must be specified when `StorageAuthenticationType` is set to `UserAssignedIdentity`.
         /// </summary>
         [Output("storageUserAssignedIdentityId")]
         public Output<string?> StorageUserAssignedIdentityId { get; private set; } = null!;
@@ -334,9 +334,9 @@ namespace Pulumi.Azure.AppService
         public Output<string?> VirtualNetworkSubnetId { get; private set; } = null!;
 
         /// <summary>
-        /// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
+        /// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `True`.
         /// 
-        /// &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+        /// &gt; **Note:** Setting this value to true will disable the ability to use `ZipDeployFile` which currently relies on the default publishing profile.
         /// </summary>
         [Output("webdeployPublishBasicAuthenticationEnabled")]
         public Output<bool?> WebdeployPublishBasicAuthenticationEnabled { get; private set; } = null!;
@@ -344,7 +344,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The local path and filename of the Zip packaged application to deploy to this Linux Function App.
         /// 
-        /// &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
+        /// &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `AppSettings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
         /// </summary>
         [Output("zipDeployFile")]
         public Output<string> ZipDeployFile { get; private set; } = null!;
@@ -404,7 +404,7 @@ namespace Pulumi.Azure.AppService
         private InputList<Inputs.AppFlexConsumptionAlwaysReadyArgs>? _alwaysReadies;
 
         /// <summary>
-        /// One or more `always_ready` blocks as defined below.
+        /// One or more `AlwaysReady` blocks as defined below.
         /// </summary>
         public InputList<Inputs.AppFlexConsumptionAlwaysReadyArgs> AlwaysReadies
         {
@@ -425,13 +425,13 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// A `auth_settings` block as defined below.
+        /// A `AuthSettings` block as defined below.
         /// </summary>
         [Input("authSettings")]
         public Input<Inputs.AppFlexConsumptionAuthSettingsArgs>? AuthSettings { get; set; }
 
         /// <summary>
-        /// An `auth_settings_v2` block as defined below.
+        /// An `AuthSettingsV2` block as defined below.
         /// </summary>
         [Input("authSettingsV2")]
         public Input<Inputs.AppFlexConsumptionAuthSettingsV2Args>? AuthSettingsV2 { get; set; }
@@ -458,7 +458,7 @@ namespace Pulumi.Azure.AppService
         private InputList<Inputs.AppFlexConsumptionConnectionStringArgs>? _connectionStrings;
 
         /// <summary>
-        /// One or more `connection_string` blocks as defined below.
+        /// One or more `ConnectionString` blocks as defined below.
         /// </summary>
         public InputList<Inputs.AppFlexConsumptionConnectionStringArgs> ConnectionStrings
         {
@@ -467,7 +467,7 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// Is the Function App enabled? Defaults to `true`.
+        /// Is the Function App enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -475,19 +475,19 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The Http concurrency of the instances on which your app runs. The supported value are from `1` to `1000`.
         /// 
-        /// &gt; **Note:** A value will be assigned by the system if `http_concurrency` is not specified.
+        /// &gt; **Note:** A value will be assigned by the system if `HttpConcurrency` is not specified.
         /// </summary>
         [Input("httpConcurrency")]
         public Input<int>? HttpConcurrency { get; set; }
 
         /// <summary>
-        /// Is Https Connection enforced to the function app. Defaults to `false`
+        /// Is Https Connection enforced to the function app. Defaults to `False`
         /// </summary>
         [Input("httpsOnly")]
         public Input<bool>? HttpsOnly { get; set; }
 
         /// <summary>
-        /// A `identity` block as defined below.
+        /// A `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.AppFlexConsumptionIdentityArgs>? Identity { get; set; }
@@ -517,7 +517,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Should public network access be enabled for the Function App. Defaults to `true`.
+        /// Should public network access be enabled for the Function App. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -529,13 +529,13 @@ namespace Pulumi.Azure.AppService
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java` and `custom`.
+        /// The Runtime of the Linux Function App. Possible values are `Node`, `dotnet-isolated`, `Powershell`, `Python`, `Java` and `Custom`.
         /// </summary>
         [Input("runtimeName", required: true)]
         public Input<string> RuntimeName { get; set; } = null!;
 
         /// <summary>
-        /// The Runtime version of the Linux Function App. The values are diff from different runtime version. The supported values are `8.0`, `9.0` for `dotnet-isolated`, `20` for `node`, `3.10`, `3.11` for `python`, `11`, `17` for `java`, `7.4` for `powershell`.
+        /// The Runtime version of the Linux Function App. The values are diff from different runtime version. The supported values are `8.0`, `9.0` for `dotnet-isolated`, `20` for `Node`, `3.10`, `3.11` for `Python`, `11`, `17` for `Java`, `7.4` for `Powershell`.
         /// </summary>
         [Input("runtimeVersion", required: true)]
         public Input<string> RuntimeVersion { get; set; } = null!;
@@ -547,13 +547,13 @@ namespace Pulumi.Azure.AppService
         public Input<string> ServicePlanId { get; set; } = null!;
 
         /// <summary>
-        /// A `site_config` block as defined below.
+        /// A `SiteConfig` block as defined below.
         /// </summary>
         [Input("siteConfig", required: true)]
         public Input<Inputs.AppFlexConsumptionSiteConfigArgs> SiteConfig { get; set; } = null!;
 
         /// <summary>
-        /// A `sticky_settings` block as defined below.
+        /// A `StickySettings` block as defined below.
         /// </summary>
         [Input("stickySettings")]
         public Input<Inputs.AppFlexConsumptionStickySettingsArgs>? StickySettings { get; set; }
@@ -561,7 +561,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The access key which will be used to access the backend storage account for the Function App.
         /// 
-        /// &gt; **Note:** The `storage_access_key` must be specified when `storage_authentication_type` is set to `StorageAccountConnectionString`.
+        /// &gt; **Note:** The `StorageAccessKey` must be specified when `StorageAuthenticationType` is set to `StorageAccountConnectionString`.
         /// </summary>
         [Input("storageAccessKey")]
         public Input<string>? StorageAccessKey { get; set; }
@@ -585,9 +585,9 @@ namespace Pulumi.Azure.AppService
         public Input<string> StorageContainerType { get; set; } = null!;
 
         /// <summary>
-        /// The user assigned Managed Identity to access the storage account. Conflicts with `storage_access_key`.
+        /// The user assigned Managed Identity to access the storage account. Conflicts with `StorageAccessKey`.
         /// 
-        /// &gt; **Note:** The `storage_user_assigned_identity_id` must be specified when `storage_authentication_type` is set to `UserAssignedIdentity`.
+        /// &gt; **Note:** The `StorageUserAssignedIdentityId` must be specified when `StorageAuthenticationType` is set to `UserAssignedIdentity`.
         /// </summary>
         [Input("storageUserAssignedIdentityId")]
         public Input<string>? StorageUserAssignedIdentityId { get; set; }
@@ -608,9 +608,9 @@ namespace Pulumi.Azure.AppService
         public Input<string>? VirtualNetworkSubnetId { get; set; }
 
         /// <summary>
-        /// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
+        /// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `True`.
         /// 
-        /// &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+        /// &gt; **Note:** Setting this value to true will disable the ability to use `ZipDeployFile` which currently relies on the default publishing profile.
         /// </summary>
         [Input("webdeployPublishBasicAuthenticationEnabled")]
         public Input<bool>? WebdeployPublishBasicAuthenticationEnabled { get; set; }
@@ -618,7 +618,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The local path and filename of the Zip packaged application to deploy to this Linux Function App.
         /// 
-        /// &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
+        /// &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `AppSettings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
         /// </summary>
         [Input("zipDeployFile")]
         public Input<string>? ZipDeployFile { get; set; }
@@ -635,7 +635,7 @@ namespace Pulumi.Azure.AppService
         private InputList<Inputs.AppFlexConsumptionAlwaysReadyGetArgs>? _alwaysReadies;
 
         /// <summary>
-        /// One or more `always_ready` blocks as defined below.
+        /// One or more `AlwaysReady` blocks as defined below.
         /// </summary>
         public InputList<Inputs.AppFlexConsumptionAlwaysReadyGetArgs> AlwaysReadies
         {
@@ -656,13 +656,13 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// A `auth_settings` block as defined below.
+        /// A `AuthSettings` block as defined below.
         /// </summary>
         [Input("authSettings")]
         public Input<Inputs.AppFlexConsumptionAuthSettingsGetArgs>? AuthSettings { get; set; }
 
         /// <summary>
-        /// An `auth_settings_v2` block as defined below.
+        /// An `AuthSettingsV2` block as defined below.
         /// </summary>
         [Input("authSettingsV2")]
         public Input<Inputs.AppFlexConsumptionAuthSettingsV2GetArgs>? AuthSettingsV2 { get; set; }
@@ -689,7 +689,7 @@ namespace Pulumi.Azure.AppService
         private InputList<Inputs.AppFlexConsumptionConnectionStringGetArgs>? _connectionStrings;
 
         /// <summary>
-        /// One or more `connection_string` blocks as defined below.
+        /// One or more `ConnectionString` blocks as defined below.
         /// </summary>
         public InputList<Inputs.AppFlexConsumptionConnectionStringGetArgs> ConnectionStrings
         {
@@ -720,7 +720,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? DefaultHostname { get; set; }
 
         /// <summary>
-        /// Is the Function App enabled? Defaults to `true`.
+        /// Is the Function App enabled? Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -734,19 +734,19 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The Http concurrency of the instances on which your app runs. The supported value are from `1` to `1000`.
         /// 
-        /// &gt; **Note:** A value will be assigned by the system if `http_concurrency` is not specified.
+        /// &gt; **Note:** A value will be assigned by the system if `HttpConcurrency` is not specified.
         /// </summary>
         [Input("httpConcurrency")]
         public Input<int>? HttpConcurrency { get; set; }
 
         /// <summary>
-        /// Is Https Connection enforced to the function app. Defaults to `false`
+        /// Is Https Connection enforced to the function app. Defaults to `False`
         /// </summary>
         [Input("httpsOnly")]
         public Input<bool>? HttpsOnly { get; set; }
 
         /// <summary>
-        /// A `identity` block as defined below.
+        /// A `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.AppFlexConsumptionIdentityGetArgs>? Identity { get; set; }
@@ -803,7 +803,7 @@ namespace Pulumi.Azure.AppService
         private InputList<string>? _possibleOutboundIpAddressLists;
 
         /// <summary>
-        /// A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `["52.23.25.3", "52.143.43.12"]`.
+        /// A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `OutboundIpAddressList`. For example `["52.23.25.3", "52.143.43.12"]`.
         /// </summary>
         public InputList<string> PossibleOutboundIpAddressLists
         {
@@ -812,13 +812,13 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`.
+        /// A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `OutboundIpAddresses`.
         /// </summary>
         [Input("possibleOutboundIpAddresses")]
         public Input<string>? PossibleOutboundIpAddresses { get; set; }
 
         /// <summary>
-        /// Should public network access be enabled for the Function App. Defaults to `true`.
+        /// Should public network access be enabled for the Function App. Defaults to `True`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -830,13 +830,13 @@ namespace Pulumi.Azure.AppService
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java` and `custom`.
+        /// The Runtime of the Linux Function App. Possible values are `Node`, `dotnet-isolated`, `Powershell`, `Python`, `Java` and `Custom`.
         /// </summary>
         [Input("runtimeName")]
         public Input<string>? RuntimeName { get; set; }
 
         /// <summary>
-        /// The Runtime version of the Linux Function App. The values are diff from different runtime version. The supported values are `8.0`, `9.0` for `dotnet-isolated`, `20` for `node`, `3.10`, `3.11` for `python`, `11`, `17` for `java`, `7.4` for `powershell`.
+        /// The Runtime version of the Linux Function App. The values are diff from different runtime version. The supported values are `8.0`, `9.0` for `dotnet-isolated`, `20` for `Node`, `3.10`, `3.11` for `Python`, `11`, `17` for `Java`, `7.4` for `Powershell`.
         /// </summary>
         [Input("runtimeVersion")]
         public Input<string>? RuntimeVersion { get; set; }
@@ -848,7 +848,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? ServicePlanId { get; set; }
 
         /// <summary>
-        /// A `site_config` block as defined below.
+        /// A `SiteConfig` block as defined below.
         /// </summary>
         [Input("siteConfig")]
         public Input<Inputs.AppFlexConsumptionSiteConfigGetArgs>? SiteConfig { get; set; }
@@ -857,7 +857,7 @@ namespace Pulumi.Azure.AppService
         private InputList<Inputs.AppFlexConsumptionSiteCredentialGetArgs>? _siteCredentials;
 
         /// <summary>
-        /// A `site_credential` block as defined below.
+        /// A `SiteCredential` block as defined below.
         /// </summary>
         public InputList<Inputs.AppFlexConsumptionSiteCredentialGetArgs> SiteCredentials
         {
@@ -870,7 +870,7 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// A `sticky_settings` block as defined below.
+        /// A `StickySettings` block as defined below.
         /// </summary>
         [Input("stickySettings")]
         public Input<Inputs.AppFlexConsumptionStickySettingsGetArgs>? StickySettings { get; set; }
@@ -878,7 +878,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The access key which will be used to access the backend storage account for the Function App.
         /// 
-        /// &gt; **Note:** The `storage_access_key` must be specified when `storage_authentication_type` is set to `StorageAccountConnectionString`.
+        /// &gt; **Note:** The `StorageAccessKey` must be specified when `StorageAuthenticationType` is set to `StorageAccountConnectionString`.
         /// </summary>
         [Input("storageAccessKey")]
         public Input<string>? StorageAccessKey { get; set; }
@@ -902,9 +902,9 @@ namespace Pulumi.Azure.AppService
         public Input<string>? StorageContainerType { get; set; }
 
         /// <summary>
-        /// The user assigned Managed Identity to access the storage account. Conflicts with `storage_access_key`.
+        /// The user assigned Managed Identity to access the storage account. Conflicts with `StorageAccessKey`.
         /// 
-        /// &gt; **Note:** The `storage_user_assigned_identity_id` must be specified when `storage_authentication_type` is set to `UserAssignedIdentity`.
+        /// &gt; **Note:** The `StorageUserAssignedIdentityId` must be specified when `StorageAuthenticationType` is set to `UserAssignedIdentity`.
         /// </summary>
         [Input("storageUserAssignedIdentityId")]
         public Input<string>? StorageUserAssignedIdentityId { get; set; }
@@ -925,9 +925,9 @@ namespace Pulumi.Azure.AppService
         public Input<string>? VirtualNetworkSubnetId { get; set; }
 
         /// <summary>
-        /// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
+        /// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `True`.
         /// 
-        /// &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+        /// &gt; **Note:** Setting this value to true will disable the ability to use `ZipDeployFile` which currently relies on the default publishing profile.
         /// </summary>
         [Input("webdeployPublishBasicAuthenticationEnabled")]
         public Input<bool>? WebdeployPublishBasicAuthenticationEnabled { get; set; }
@@ -935,7 +935,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The local path and filename of the Zip packaged application to deploy to this Linux Function App.
         /// 
-        /// &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
+        /// &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `AppSettings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
         /// </summary>
         [Input("zipDeployFile")]
         public Input<string>? ZipDeployFile { get; set; }

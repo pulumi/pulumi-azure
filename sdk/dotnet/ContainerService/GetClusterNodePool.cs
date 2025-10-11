@@ -185,7 +185,7 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         public readonly bool AutoScalingEnabled;
         /// <summary>
-        /// The eviction policy used for Virtual Machines in the Virtual Machine Scale Set, when `priority` is set to `Spot`.
+        /// The eviction policy used for Virtual Machines in the Virtual Machine Scale Set, when `Priority` is set to `Spot`.
         /// </summary>
         public readonly string EvictionPolicy;
         public readonly string GpuDriver;
@@ -265,7 +265,7 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// A `upgrade_settings` block as documented below.
+        /// A `UpgradeSettings` block as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetClusterNodePoolUpgradeSettingResult> UpgradeSettings;
         /// <summary>

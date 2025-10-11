@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Backup.Outputs
     public sealed class PolicyVMWorkloadProtectionPolicy
     {
         /// <summary>
-        /// A `backup` block as defined below.
+        /// A `Backup` block as defined below.
         /// </summary>
         public readonly Outputs.PolicyVMWorkloadProtectionPolicyBackup Backup;
         /// <summary>
@@ -22,23 +22,23 @@ namespace Pulumi.Azure.Backup.Outputs
         /// </summary>
         public readonly string PolicyType;
         /// <summary>
-        /// A `retention_daily` block as defined below.
+        /// A `RetentionDaily` block as defined below.
         /// </summary>
         public readonly Outputs.PolicyVMWorkloadProtectionPolicyRetentionDaily? RetentionDaily;
         /// <summary>
-        /// A `retention_monthly` block as defined below.
+        /// A `RetentionMonthly` block as defined below.
         /// </summary>
         public readonly Outputs.PolicyVMWorkloadProtectionPolicyRetentionMonthly? RetentionMonthly;
         /// <summary>
-        /// A `retention_weekly` block as defined below.
+        /// A `RetentionWeekly` block as defined below.
         /// </summary>
         public readonly Outputs.PolicyVMWorkloadProtectionPolicyRetentionWeekly? RetentionWeekly;
         /// <summary>
-        /// A `retention_yearly` block as defined below.
+        /// A `RetentionYearly` block as defined below.
         /// </summary>
         public readonly Outputs.PolicyVMWorkloadProtectionPolicyRetentionYearly? RetentionYearly;
         /// <summary>
-        /// A `simple_retention` block as defined below.
+        /// A `SimpleRetention` block as defined below.
         /// </summary>
         public readonly Outputs.PolicyVMWorkloadProtectionPolicySimpleRetention? SimpleRetention;
 

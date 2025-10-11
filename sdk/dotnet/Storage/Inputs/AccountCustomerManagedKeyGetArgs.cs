@@ -13,13 +13,13 @@ namespace Pulumi.Azure.Storage.Inputs
     public sealed class AccountCustomerManagedKeyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. Exactly one of `key_vault_key_id` and `managed_hsm_key_id` may be specified.
+        /// The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. Exactly one of `KeyVaultKeyId` and `ManagedHsmKeyId` may be specified.
         /// </summary>
         [Input("keyVaultKeyId")]
         public Input<string>? KeyVaultKeyId { get; set; }
 
         /// <summary>
-        /// The ID of the managed HSM Key. Exactly one of `key_vault_key_id` and `managed_hsm_key_id` may be specified.
+        /// The ID of the managed HSM Key. Exactly one of `KeyVaultKeyId` and `ManagedHsmKeyId` may be specified.
         /// </summary>
         [Input("managedHsmKeyId")]
         public Input<string>? ManagedHsmKeyId { get; set; }
@@ -27,7 +27,7 @@ namespace Pulumi.Azure.Storage.Inputs
         /// <summary>
         /// The ID of a user assigned identity.
         /// 
-        /// &gt; **Note:** `customer_managed_key` can only be set when the `account_kind` is set to `StorageV2` or `account_tier` set to `Premium`, and the identity type is `UserAssigned`.
+        /// &gt; **Note:** `CustomerManagedKey` can only be set when the `AccountKind` is set to `StorageV2` or `AccountTier` set to `Premium`, and the identity type is `UserAssigned`.
         /// </summary>
         [Input("userAssignedIdentityId", required: true)]
         public Input<string> UserAssignedIdentityId { get; set; } = null!;

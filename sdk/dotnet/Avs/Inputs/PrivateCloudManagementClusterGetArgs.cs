@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Avs.Inputs
         public Input<int>? Id { get; set; }
 
         /// <summary>
-        /// The size of the management cluster. This field can not updated with `internet_connection_enabled` together.
+        /// The size of the management cluster. This field can not updated with `InternetConnectionEnabled` together.
         /// </summary>
         [Input("size", required: true)]
         public Input<int> Size { get; set; } = null!;

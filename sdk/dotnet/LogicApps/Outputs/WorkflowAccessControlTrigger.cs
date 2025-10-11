@@ -18,7 +18,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// </summary>
         public readonly ImmutableArray<string> AllowedCallerIpAddressRanges;
         /// <summary>
-        /// A `open_authentication_policy` block as defined below.
+        /// A `OpenAuthenticationPolicy` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.WorkflowAccessControlTriggerOpenAuthenticationPolicy> OpenAuthenticationPolicies;
 

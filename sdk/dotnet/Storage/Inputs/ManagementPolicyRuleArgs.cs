@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Storage.Inputs
     public sealed class ManagementPolicyRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `actions` block as documented below.
+        /// An `Actions` block as documented below.
         /// </summary>
         [Input("actions", required: true)]
         public Input<Inputs.ManagementPolicyRuleActionsArgs> Actions { get; set; } = null!;
@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Storage.Inputs
         public Input<bool> Enabled { get; set; } = null!;
 
         /// <summary>
-        /// A `filters` block as documented below.
+        /// A `Filters` block as documented below.
         /// </summary>
         [Input("filters", required: true)]
         public Input<Inputs.ManagementPolicyRuleFiltersArgs> Filters { get; set; } = null!;

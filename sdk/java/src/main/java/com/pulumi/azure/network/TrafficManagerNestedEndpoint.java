@@ -134,14 +134,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:network/trafficManagerNestedEndpoint:TrafficManagerNestedEndpoint")
 public class TrafficManagerNestedEndpoint extends com.pulumi.resources.CustomResource {
     /**
-     * One or more `custom_header` blocks as defined below.
+     * One or more `customHeader` blocks as defined below.
      * 
      */
     @Export(name="customHeaders", refs={List.class,TrafficManagerNestedEndpointCustomHeader.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TrafficManagerNestedEndpointCustomHeader>> customHeaders;
 
     /**
-     * @return One or more `custom_header` blocks as defined below.
+     * @return One or more `customHeader` blocks as defined below.
      * 
      */
     public Output<Optional<List<TrafficManagerNestedEndpointCustomHeader>>> customHeaders() {
@@ -192,7 +192,7 @@ public class TrafficManagerNestedEndpoint extends com.pulumi.resources.CustomRes
     /**
      * This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
      * 
-     * &gt; **Note:** If `min_child_endpoints` is less than either `minimum_required_child_endpoints_ipv4` or `minimum_required_child_endpoints_ipv6`, then it won&#39;t have any effect.
+     * &gt; **Note:** If `minChildEndpoints` is less than either `minimumRequiredChildEndpointsIpv4` or `minimumRequiredChildEndpointsIpv6`, then it won&#39;t have any effect.
      * 
      */
     @Export(name="minimumChildEndpoints", refs={Integer.class}, tree="[0]")
@@ -201,7 +201,7 @@ public class TrafficManagerNestedEndpoint extends com.pulumi.resources.CustomRes
     /**
      * @return This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
      * 
-     * &gt; **Note:** If `min_child_endpoints` is less than either `minimum_required_child_endpoints_ipv4` or `minimum_required_child_endpoints_ipv6`, then it won&#39;t have any effect.
+     * &gt; **Note:** If `minChildEndpoints` is less than either `minimumRequiredChildEndpointsIpv4` or `minimumRequiredChildEndpointsIpv6`, then it won&#39;t have any effect.
      * 
      */
     public Output<Integer> minimumChildEndpoints() {

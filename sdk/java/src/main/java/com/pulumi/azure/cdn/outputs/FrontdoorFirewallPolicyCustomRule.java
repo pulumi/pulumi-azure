@@ -29,7 +29,7 @@ public final class FrontdoorFirewallPolicyCustomRule {
      */
     private @Nullable Boolean enabled;
     /**
-     * @return One or more `match_condition` block defined below. Can support up to `10` `match_condition` blocks.
+     * @return One or more `matchCondition` block defined below. Can support up to `10` `matchCondition` blocks.
      * 
      */
     private @Nullable List<FrontdoorFirewallPolicyCustomRuleMatchCondition> matchConditions;
@@ -77,7 +77,7 @@ public final class FrontdoorFirewallPolicyCustomRule {
         return Optional.ofNullable(this.enabled);
     }
     /**
-     * @return One or more `match_condition` block defined below. Can support up to `10` `match_condition` blocks.
+     * @return One or more `matchCondition` block defined below. Can support up to `10` `matchCondition` blocks.
      * 
      */
     public List<FrontdoorFirewallPolicyCustomRuleMatchCondition> matchConditions() {

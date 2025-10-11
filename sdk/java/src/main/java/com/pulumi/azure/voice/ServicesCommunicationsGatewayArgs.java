@@ -201,14 +201,14 @@ public final class ServicesCommunicationsGatewayArgs extends com.pulumi.resource
     }
 
     /**
-     * A `service_location` block as defined below.
+     * A `serviceLocation` block as defined below.
      * 
      */
     @Import(name="serviceLocations", required=true)
     private Output<List<ServicesCommunicationsGatewayServiceLocationArgs>> serviceLocations;
 
     /**
-     * @return A `service_location` block as defined below.
+     * @return A `serviceLocation` block as defined below.
      * 
      */
     public Output<List<ServicesCommunicationsGatewayServiceLocationArgs>> serviceLocations() {
@@ -540,7 +540,7 @@ public final class ServicesCommunicationsGatewayArgs extends com.pulumi.resource
         }
 
         /**
-         * @param serviceLocations A `service_location` block as defined below.
+         * @param serviceLocations A `serviceLocation` block as defined below.
          * 
          * @return builder
          * 
@@ -551,7 +551,7 @@ public final class ServicesCommunicationsGatewayArgs extends com.pulumi.resource
         }
 
         /**
-         * @param serviceLocations A `service_location` block as defined below.
+         * @param serviceLocations A `serviceLocation` block as defined below.
          * 
          * @return builder
          * 
@@ -561,7 +561,7 @@ public final class ServicesCommunicationsGatewayArgs extends com.pulumi.resource
         }
 
         /**
-         * @param serviceLocations A `service_location` block as defined below.
+         * @param serviceLocations A `serviceLocation` block as defined below.
          * 
          * @return builder
          * 

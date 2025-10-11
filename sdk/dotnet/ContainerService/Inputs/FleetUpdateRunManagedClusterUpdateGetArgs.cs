@@ -13,13 +13,13 @@ namespace Pulumi.Azure.ContainerService.Inputs
     public sealed class FleetUpdateRunManagedClusterUpdateGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `node_image_selection` block as defined below.
+        /// A `NodeImageSelection` block as defined below.
         /// </summary>
         [Input("nodeImageSelection")]
         public Input<Inputs.FleetUpdateRunManagedClusterUpdateNodeImageSelectionGetArgs>? NodeImageSelection { get; set; }
 
         /// <summary>
-        /// A `upgrade` block as defined below.
+        /// A `Upgrade` block as defined below.
         /// </summary>
         [Input("upgrade", required: true)]
         public Input<Inputs.FleetUpdateRunManagedClusterUpdateUpgradeGetArgs> Upgrade { get; set; } = null!;

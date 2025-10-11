@@ -29,7 +29,7 @@ public final class SpringCloudServiceConfigServerGitSettingRepositorySshAuth {
      */
     private String privateKey;
     /**
-     * @return Indicates whether the Config Server instance will fail to start if the host_key does not match. Defaults to `true`.
+     * @return Indicates whether the Config Server instance will fail to start if the hostKey does not match. Defaults to `true`.
      * 
      */
     private @Nullable Boolean strictHostKeyCheckingEnabled;
@@ -57,7 +57,7 @@ public final class SpringCloudServiceConfigServerGitSettingRepositorySshAuth {
         return this.privateKey;
     }
     /**
-     * @return Indicates whether the Config Server instance will fail to start if the host_key does not match. Defaults to `true`.
+     * @return Indicates whether the Config Server instance will fail to start if the hostKey does not match. Defaults to `true`.
      * 
      */
     public Optional<Boolean> strictHostKeyCheckingEnabled() {

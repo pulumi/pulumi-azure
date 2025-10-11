@@ -115,28 +115,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:network/vnpGatewayNatRule:VnpGatewayNatRule")
 public class VnpGatewayNatRule extends com.pulumi.resources.CustomResource {
     /**
-     * One of more `external_mapping` blocks as defined below.
+     * One of more `externalMapping` blocks as defined below.
      * 
      */
     @Export(name="externalMappings", refs={List.class,VnpGatewayNatRuleExternalMapping.class}, tree="[0,1]")
     private Output</* @Nullable */ List<VnpGatewayNatRuleExternalMapping>> externalMappings;
 
     /**
-     * @return One of more `external_mapping` blocks as defined below.
+     * @return One of more `externalMapping` blocks as defined below.
      * 
      */
     public Output<Optional<List<VnpGatewayNatRuleExternalMapping>>> externalMappings() {
         return Codegen.optional(this.externalMappings);
     }
     /**
-     * One of more `internal_mapping` blocks as defined below.
+     * One of more `internalMapping` blocks as defined below.
      * 
      */
     @Export(name="internalMappings", refs={List.class,VnpGatewayNatRuleInternalMapping.class}, tree="[0,1]")
     private Output</* @Nullable */ List<VnpGatewayNatRuleInternalMapping>> internalMappings;
 
     /**
-     * @return One of more `internal_mapping` blocks as defined below.
+     * @return One of more `internalMapping` blocks as defined below.
      * 
      */
     public Output<Optional<List<VnpGatewayNatRuleInternalMapping>>> internalMappings() {

@@ -35,7 +35,7 @@ public final class AlertPrometheusRuleGroupRuleActionArgs extends com.pulumi.res
     /**
      * Specifies the properties of an action group object.
      * 
-     * &gt; **Note:** `action_properties` can only be configured for IcM Connector Action Groups for now. Other public features will be supported in the future.
+     * &gt; **Note:** `actionProperties` can only be configured for IcM Connector Action Groups for now. Other public features will be supported in the future.
      * 
      */
     @Import(name="actionProperties")
@@ -44,7 +44,7 @@ public final class AlertPrometheusRuleGroupRuleActionArgs extends com.pulumi.res
     /**
      * @return Specifies the properties of an action group object.
      * 
-     * &gt; **Note:** `action_properties` can only be configured for IcM Connector Action Groups for now. Other public features will be supported in the future.
+     * &gt; **Note:** `actionProperties` can only be configured for IcM Connector Action Groups for now. Other public features will be supported in the future.
      * 
      */
     public Optional<Output<Map<String,String>>> actionProperties() {
@@ -100,7 +100,7 @@ public final class AlertPrometheusRuleGroupRuleActionArgs extends com.pulumi.res
         /**
          * @param actionProperties Specifies the properties of an action group object.
          * 
-         * &gt; **Note:** `action_properties` can only be configured for IcM Connector Action Groups for now. Other public features will be supported in the future.
+         * &gt; **Note:** `actionProperties` can only be configured for IcM Connector Action Groups for now. Other public features will be supported in the future.
          * 
          * @return builder
          * 
@@ -113,7 +113,7 @@ public final class AlertPrometheusRuleGroupRuleActionArgs extends com.pulumi.res
         /**
          * @param actionProperties Specifies the properties of an action group object.
          * 
-         * &gt; **Note:** `action_properties` can only be configured for IcM Connector Action Groups for now. Other public features will be supported in the future.
+         * &gt; **Note:** `actionProperties` can only be configured for IcM Connector Action Groups for now. Other public features will be supported in the future.
          * 
          * @return builder
          * 

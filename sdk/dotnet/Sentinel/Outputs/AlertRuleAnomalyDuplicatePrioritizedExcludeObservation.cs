@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Sentinel.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The excluded value per `description`.
+        /// The excluded value per `Description`.
         /// </summary>
         public readonly string? Exclude;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Sentinel.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The prioritized value per `description`.
+        /// The prioritized value per `Description`.
         /// </summary>
         public readonly string? Prioritize;
 

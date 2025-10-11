@@ -15,7 +15,7 @@ public final class AutomationAction {
     /**
      * @return A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
      * 
-     * &gt; **Note:** `connection_string` is required when `type` is `EventHub`.
+     * &gt; **Note:** `connectionString` is required when `type` is `EventHub`.
      * 
      */
     private @Nullable String connectionString;
@@ -27,7 +27,7 @@ public final class AutomationAction {
     /**
      * @return The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under &#34;See trigger history&#34;
      * 
-     * &gt; **Note:** `trigger_url` is required when `type` is `LogicApp`.
+     * &gt; **Note:** `triggerUrl` is required when `type` is `LogicApp`.
      * 
      */
     private @Nullable String triggerUrl;
@@ -41,7 +41,7 @@ public final class AutomationAction {
     /**
      * @return A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
      * 
-     * &gt; **Note:** `connection_string` is required when `type` is `EventHub`.
+     * &gt; **Note:** `connectionString` is required when `type` is `EventHub`.
      * 
      */
     public Optional<String> connectionString() {
@@ -57,7 +57,7 @@ public final class AutomationAction {
     /**
      * @return The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under &#34;See trigger history&#34;
      * 
-     * &gt; **Note:** `trigger_url` is required when `type` is `LogicApp`.
+     * &gt; **Note:** `triggerUrl` is required when `type` is `LogicApp`.
      * 
      */
     public Optional<String> triggerUrl() {

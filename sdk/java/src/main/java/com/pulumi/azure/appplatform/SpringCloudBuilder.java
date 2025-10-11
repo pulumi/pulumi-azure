@@ -95,14 +95,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:appplatform/springCloudBuilder:SpringCloudBuilder")
 public class SpringCloudBuilder extends com.pulumi.resources.CustomResource {
     /**
-     * One or more `build_pack_group` blocks as defined below.
+     * One or more `buildPackGroup` blocks as defined below.
      * 
      */
     @Export(name="buildPackGroups", refs={List.class,SpringCloudBuilderBuildPackGroup.class}, tree="[0,1]")
     private Output<List<SpringCloudBuilderBuildPackGroup>> buildPackGroups;
 
     /**
-     * @return One or more `build_pack_group` blocks as defined below.
+     * @return One or more `buildPackGroup` blocks as defined below.
      * 
      */
     public Output<List<SpringCloudBuilderBuildPackGroup>> buildPackGroups() {

@@ -144,7 +144,7 @@ public class DataConnectorOffice365 extends com.pulumi.resources.CustomResource 
     /**
      * Should the Microsoft Teams data connector be enabled? Defaults to `true`.
      * 
-     * &gt; **Note:** At least one of `exchange_enabled`, `sharedpoint_enabled` and `teams_enabled` has to be specified.
+     * &gt; **Note:** At least one of `exchangeEnabled`, `sharedpointEnabled` and `teamsEnabled` has to be specified.
      * 
      */
     @Export(name="teamsEnabled", refs={Boolean.class}, tree="[0]")
@@ -153,7 +153,7 @@ public class DataConnectorOffice365 extends com.pulumi.resources.CustomResource 
     /**
      * @return Should the Microsoft Teams data connector be enabled? Defaults to `true`.
      * 
-     * &gt; **Note:** At least one of `exchange_enabled`, `sharedpoint_enabled` and `teams_enabled` has to be specified.
+     * &gt; **Note:** At least one of `exchangeEnabled`, `sharedpointEnabled` and `teamsEnabled` has to be specified.
      * 
      */
     public Output<Optional<Boolean>> teamsEnabled() {

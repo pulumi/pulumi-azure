@@ -33,14 +33,14 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
     public static final ScaleSetState Empty = new ScaleSetState();
 
     /**
-     * Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgrade_policy_mode` is set to `Rolling`. Defaults to `false`.
+     * Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgradePolicyMode` is set to `Rolling`. Defaults to `false`.
      * 
      */
     @Import(name="automaticOsUpgrade")
     private @Nullable Output<Boolean> automaticOsUpgrade;
 
     /**
-     * @return Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgrade_policy_mode` is set to `Rolling`. Defaults to `false`.
+     * @return Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgradePolicyMode` is set to `Rolling`. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> automaticOsUpgrade() {
@@ -48,14 +48,14 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `boot_diagnostics` block as referenced below.
+     * A `bootDiagnostics` block as referenced below.
      * 
      */
     @Import(name="bootDiagnostics")
     private @Nullable Output<ScaleSetBootDiagnosticsArgs> bootDiagnostics;
 
     /**
-     * @return A `boot_diagnostics` block as referenced below.
+     * @return A `bootDiagnostics` block as referenced below.
      * 
      */
     public Optional<Output<ScaleSetBootDiagnosticsArgs>> bootDiagnostics() {
@@ -65,7 +65,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `eviction_policy` can only be set when `priority` is set to `Low`.
+     * &gt; **NOTE:** `evictionPolicy` can only be set when `priority` is set to `Low`.
      * 
      */
     @Import(name="evictionPolicy")
@@ -74,7 +74,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `eviction_policy` can only be set when `priority` is set to `Low`.
+     * &gt; **NOTE:** `evictionPolicy` can only be set when `priority` is set to `Low`.
      * 
      */
     public Optional<Output<String>> evictionPolicy() {
@@ -97,14 +97,14 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgrade_policy_mode`.
+     * Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgradePolicyMode`.
      * 
      */
     @Import(name="healthProbeId")
     private @Nullable Output<String> healthProbeId;
 
     /**
-     * @return Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgrade_policy_mode`.
+     * @return Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgradePolicyMode`.
      * 
      */
     public Optional<Output<String>> healthProbeId() {
@@ -172,14 +172,14 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A collection of `network_profile` blocks as documented below.
+     * A collection of `networkProfile` blocks as documented below.
      * 
      */
     @Import(name="networkProfiles")
     private @Nullable Output<List<ScaleSetNetworkProfileArgs>> networkProfiles;
 
     /**
-     * @return A collection of `network_profile` blocks as documented below.
+     * @return A collection of `networkProfile` blocks as documented below.
      * 
      */
     public Optional<Output<List<ScaleSetNetworkProfileArgs>>> networkProfiles() {
@@ -187,14 +187,14 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `os_profile` block as documented below.
+     * A `osProfile` block as documented below.
      * 
      */
     @Import(name="osProfile")
     private @Nullable Output<ScaleSetOsProfileArgs> osProfile;
 
     /**
-     * @return A `os_profile` block as documented below.
+     * @return A `osProfile` block as documented below.
      * 
      */
     public Optional<Output<ScaleSetOsProfileArgs>> osProfile() {
@@ -202,14 +202,14 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `os_profile_linux_config` block as documented below.
+     * A `osProfileLinuxConfig` block as documented below.
      * 
      */
     @Import(name="osProfileLinuxConfig")
     private @Nullable Output<ScaleSetOsProfileLinuxConfigArgs> osProfileLinuxConfig;
 
     /**
-     * @return A `os_profile_linux_config` block as documented below.
+     * @return A `osProfileLinuxConfig` block as documented below.
      * 
      */
     public Optional<Output<ScaleSetOsProfileLinuxConfigArgs>> osProfileLinuxConfig() {
@@ -217,14 +217,14 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A collection of `os_profile_secrets` blocks as documented below.
+     * A collection of `osProfileSecrets` blocks as documented below.
      * 
      */
     @Import(name="osProfileSecrets")
     private @Nullable Output<List<ScaleSetOsProfileSecretArgs>> osProfileSecrets;
 
     /**
-     * @return A collection of `os_profile_secrets` blocks as documented below.
+     * @return A collection of `osProfileSecrets` blocks as documented below.
      * 
      */
     public Optional<Output<List<ScaleSetOsProfileSecretArgs>>> osProfileSecrets() {
@@ -232,14 +232,14 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `os_profile_windows_config` block as documented below.
+     * A `osProfileWindowsConfig` block as documented below.
      * 
      */
     @Import(name="osProfileWindowsConfig")
     private @Nullable Output<ScaleSetOsProfileWindowsConfigArgs> osProfileWindowsConfig;
 
     /**
-     * @return A `os_profile_windows_config` block as documented below.
+     * @return A `osProfileWindowsConfig` block as documented below.
      * 
      */
     public Optional<Output<ScaleSetOsProfileWindowsConfigArgs>> osProfileWindowsConfig() {
@@ -322,14 +322,14 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `rolling_upgrade_policy` block as defined below. This is only applicable when the `upgrade_policy_mode` is `Rolling`.
+     * A `rollingUpgradePolicy` block as defined below. This is only applicable when the `upgradePolicyMode` is `Rolling`.
      * 
      */
     @Import(name="rollingUpgradePolicy")
     private @Nullable Output<ScaleSetRollingUpgradePolicyArgs> rollingUpgradePolicy;
 
     /**
-     * @return A `rolling_upgrade_policy` block as defined below. This is only applicable when the `upgrade_policy_mode` is `Rolling`.
+     * @return A `rollingUpgradePolicy` block as defined below. This is only applicable when the `upgradePolicyMode` is `Rolling`.
      * 
      */
     public Optional<Output<ScaleSetRollingUpgradePolicyArgs>> rollingUpgradePolicy() {
@@ -367,14 +367,14 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `storage_profile_data_disk` block as documented below.
+     * A `storageProfileDataDisk` block as documented below.
      * 
      */
     @Import(name="storageProfileDataDisks")
     private @Nullable Output<List<ScaleSetStorageProfileDataDiskArgs>> storageProfileDataDisks;
 
     /**
-     * @return A `storage_profile_data_disk` block as documented below.
+     * @return A `storageProfileDataDisk` block as documented below.
      * 
      */
     public Optional<Output<List<ScaleSetStorageProfileDataDiskArgs>>> storageProfileDataDisks() {
@@ -382,14 +382,14 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `storage_profile_image_reference` block as documented below.
+     * A `storageProfileImageReference` block as documented below.
      * 
      */
     @Import(name="storageProfileImageReference")
     private @Nullable Output<ScaleSetStorageProfileImageReferenceArgs> storageProfileImageReference;
 
     /**
-     * @return A `storage_profile_image_reference` block as documented below.
+     * @return A `storageProfileImageReference` block as documented below.
      * 
      */
     public Optional<Output<ScaleSetStorageProfileImageReferenceArgs>> storageProfileImageReference() {
@@ -397,14 +397,14 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `storage_profile_os_disk` block as documented below.
+     * A `storageProfileOsDisk` block as documented below.
      * 
      */
     @Import(name="storageProfileOsDisk")
     private @Nullable Output<ScaleSetStorageProfileOsDiskArgs> storageProfileOsDisk;
 
     /**
-     * @return A `storage_profile_os_disk` block as documented below.
+     * @return A `storageProfileOsDisk` block as documented below.
      * 
      */
     public Optional<Output<ScaleSetStorageProfileOsDiskArgs>> storageProfileOsDisk() {
@@ -512,7 +512,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param automaticOsUpgrade Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgrade_policy_mode` is set to `Rolling`. Defaults to `false`.
+         * @param automaticOsUpgrade Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgradePolicyMode` is set to `Rolling`. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -523,7 +523,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param automaticOsUpgrade Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgrade_policy_mode` is set to `Rolling`. Defaults to `false`.
+         * @param automaticOsUpgrade Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgradePolicyMode` is set to `Rolling`. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -533,7 +533,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bootDiagnostics A `boot_diagnostics` block as referenced below.
+         * @param bootDiagnostics A `bootDiagnostics` block as referenced below.
          * 
          * @return builder
          * 
@@ -544,7 +544,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bootDiagnostics A `boot_diagnostics` block as referenced below.
+         * @param bootDiagnostics A `bootDiagnostics` block as referenced below.
          * 
          * @return builder
          * 
@@ -556,7 +556,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param evictionPolicy Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** `eviction_policy` can only be set when `priority` is set to `Low`.
+         * &gt; **NOTE:** `evictionPolicy` can only be set when `priority` is set to `Low`.
          * 
          * @return builder
          * 
@@ -569,7 +569,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param evictionPolicy Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** `eviction_policy` can only be set when `priority` is set to `Low`.
+         * &gt; **NOTE:** `evictionPolicy` can only be set when `priority` is set to `Low`.
          * 
          * @return builder
          * 
@@ -610,7 +610,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param healthProbeId Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgrade_policy_mode`.
+         * @param healthProbeId Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgradePolicyMode`.
          * 
          * @return builder
          * 
@@ -621,7 +621,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param healthProbeId Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgrade_policy_mode`.
+         * @param healthProbeId Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgradePolicyMode`.
          * 
          * @return builder
          * 
@@ -715,7 +715,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkProfiles A collection of `network_profile` blocks as documented below.
+         * @param networkProfiles A collection of `networkProfile` blocks as documented below.
          * 
          * @return builder
          * 
@@ -726,7 +726,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkProfiles A collection of `network_profile` blocks as documented below.
+         * @param networkProfiles A collection of `networkProfile` blocks as documented below.
          * 
          * @return builder
          * 
@@ -736,7 +736,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkProfiles A collection of `network_profile` blocks as documented below.
+         * @param networkProfiles A collection of `networkProfile` blocks as documented below.
          * 
          * @return builder
          * 
@@ -746,7 +746,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param osProfile A `os_profile` block as documented below.
+         * @param osProfile A `osProfile` block as documented below.
          * 
          * @return builder
          * 
@@ -757,7 +757,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param osProfile A `os_profile` block as documented below.
+         * @param osProfile A `osProfile` block as documented below.
          * 
          * @return builder
          * 
@@ -767,7 +767,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param osProfileLinuxConfig A `os_profile_linux_config` block as documented below.
+         * @param osProfileLinuxConfig A `osProfileLinuxConfig` block as documented below.
          * 
          * @return builder
          * 
@@ -778,7 +778,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param osProfileLinuxConfig A `os_profile_linux_config` block as documented below.
+         * @param osProfileLinuxConfig A `osProfileLinuxConfig` block as documented below.
          * 
          * @return builder
          * 
@@ -788,7 +788,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param osProfileSecrets A collection of `os_profile_secrets` blocks as documented below.
+         * @param osProfileSecrets A collection of `osProfileSecrets` blocks as documented below.
          * 
          * @return builder
          * 
@@ -799,7 +799,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param osProfileSecrets A collection of `os_profile_secrets` blocks as documented below.
+         * @param osProfileSecrets A collection of `osProfileSecrets` blocks as documented below.
          * 
          * @return builder
          * 
@@ -809,7 +809,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param osProfileSecrets A collection of `os_profile_secrets` blocks as documented below.
+         * @param osProfileSecrets A collection of `osProfileSecrets` blocks as documented below.
          * 
          * @return builder
          * 
@@ -819,7 +819,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param osProfileWindowsConfig A `os_profile_windows_config` block as documented below.
+         * @param osProfileWindowsConfig A `osProfileWindowsConfig` block as documented below.
          * 
          * @return builder
          * 
@@ -830,7 +830,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param osProfileWindowsConfig A `os_profile_windows_config` block as documented below.
+         * @param osProfileWindowsConfig A `osProfileWindowsConfig` block as documented below.
          * 
          * @return builder
          * 
@@ -945,7 +945,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rollingUpgradePolicy A `rolling_upgrade_policy` block as defined below. This is only applicable when the `upgrade_policy_mode` is `Rolling`.
+         * @param rollingUpgradePolicy A `rollingUpgradePolicy` block as defined below. This is only applicable when the `upgradePolicyMode` is `Rolling`.
          * 
          * @return builder
          * 
@@ -956,7 +956,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rollingUpgradePolicy A `rolling_upgrade_policy` block as defined below. This is only applicable when the `upgrade_policy_mode` is `Rolling`.
+         * @param rollingUpgradePolicy A `rollingUpgradePolicy` block as defined below. This is only applicable when the `upgradePolicyMode` is `Rolling`.
          * 
          * @return builder
          * 
@@ -1008,7 +1008,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageProfileDataDisks A `storage_profile_data_disk` block as documented below.
+         * @param storageProfileDataDisks A `storageProfileDataDisk` block as documented below.
          * 
          * @return builder
          * 
@@ -1019,7 +1019,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageProfileDataDisks A `storage_profile_data_disk` block as documented below.
+         * @param storageProfileDataDisks A `storageProfileDataDisk` block as documented below.
          * 
          * @return builder
          * 
@@ -1029,7 +1029,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageProfileDataDisks A `storage_profile_data_disk` block as documented below.
+         * @param storageProfileDataDisks A `storageProfileDataDisk` block as documented below.
          * 
          * @return builder
          * 
@@ -1039,7 +1039,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageProfileImageReference A `storage_profile_image_reference` block as documented below.
+         * @param storageProfileImageReference A `storageProfileImageReference` block as documented below.
          * 
          * @return builder
          * 
@@ -1050,7 +1050,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageProfileImageReference A `storage_profile_image_reference` block as documented below.
+         * @param storageProfileImageReference A `storageProfileImageReference` block as documented below.
          * 
          * @return builder
          * 
@@ -1060,7 +1060,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageProfileOsDisk A `storage_profile_os_disk` block as documented below.
+         * @param storageProfileOsDisk A `storageProfileOsDisk` block as documented below.
          * 
          * @return builder
          * 
@@ -1071,7 +1071,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageProfileOsDisk A `storage_profile_os_disk` block as documented below.
+         * @param storageProfileOsDisk A `storageProfileOsDisk` block as documented below.
          * 
          * @return builder
          * 

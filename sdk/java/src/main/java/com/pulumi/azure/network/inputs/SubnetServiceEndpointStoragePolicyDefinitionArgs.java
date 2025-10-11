@@ -48,14 +48,14 @@ public final class SubnetServiceEndpointStoragePolicyDefinitionArgs extends com.
     }
 
     /**
-     * The type of service resources. Valid values are `Microsoft.Storage` or `Global`. When the `service_resources` property contains resource IDs, this property must be `Microsoft.Storage`. When the `service_resources` property contains Aliases, this property must be `Global`. Defaults to `Microsoft.Storage`.
+     * The type of service resources. Valid values are `Microsoft.Storage` or `Global`. When the `serviceResources` property contains resource IDs, this property must be `Microsoft.Storage`. When the `serviceResources` property contains Aliases, this property must be `Global`. Defaults to `Microsoft.Storage`.
      * 
      */
     @Import(name="service")
     private @Nullable Output<String> service;
 
     /**
-     * @return The type of service resources. Valid values are `Microsoft.Storage` or `Global`. When the `service_resources` property contains resource IDs, this property must be `Microsoft.Storage`. When the `service_resources` property contains Aliases, this property must be `Global`. Defaults to `Microsoft.Storage`.
+     * @return The type of service resources. Valid values are `Microsoft.Storage` or `Global`. When the `serviceResources` property contains resource IDs, this property must be `Microsoft.Storage`. When the `serviceResources` property contains Aliases, this property must be `Global`. Defaults to `Microsoft.Storage`.
      * 
      */
     public Optional<Output<String>> service() {
@@ -65,7 +65,7 @@ public final class SubnetServiceEndpointStoragePolicyDefinitionArgs extends com.
     /**
      * Specifies a list of resources or aliases that this Subnet Service Endpoint Storage Policy Definition applies to.
      * 
-     * &gt; **Note:** The `service_resources` property must contain either Aliases or Resource IDs, but not both.
+     * &gt; **Note:** The `serviceResources` property must contain either Aliases or Resource IDs, but not both.
      * 
      */
     @Import(name="serviceResources", required=true)
@@ -74,7 +74,7 @@ public final class SubnetServiceEndpointStoragePolicyDefinitionArgs extends com.
     /**
      * @return Specifies a list of resources or aliases that this Subnet Service Endpoint Storage Policy Definition applies to.
      * 
-     * &gt; **Note:** The `service_resources` property must contain either Aliases or Resource IDs, but not both.
+     * &gt; **Note:** The `serviceResources` property must contain either Aliases or Resource IDs, but not both.
      * 
      */
     public Output<List<String>> serviceResources() {
@@ -151,7 +151,7 @@ public final class SubnetServiceEndpointStoragePolicyDefinitionArgs extends com.
         }
 
         /**
-         * @param service The type of service resources. Valid values are `Microsoft.Storage` or `Global`. When the `service_resources` property contains resource IDs, this property must be `Microsoft.Storage`. When the `service_resources` property contains Aliases, this property must be `Global`. Defaults to `Microsoft.Storage`.
+         * @param service The type of service resources. Valid values are `Microsoft.Storage` or `Global`. When the `serviceResources` property contains resource IDs, this property must be `Microsoft.Storage`. When the `serviceResources` property contains Aliases, this property must be `Global`. Defaults to `Microsoft.Storage`.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class SubnetServiceEndpointStoragePolicyDefinitionArgs extends com.
         }
 
         /**
-         * @param service The type of service resources. Valid values are `Microsoft.Storage` or `Global`. When the `service_resources` property contains resource IDs, this property must be `Microsoft.Storage`. When the `service_resources` property contains Aliases, this property must be `Global`. Defaults to `Microsoft.Storage`.
+         * @param service The type of service resources. Valid values are `Microsoft.Storage` or `Global`. When the `serviceResources` property contains resource IDs, this property must be `Microsoft.Storage`. When the `serviceResources` property contains Aliases, this property must be `Global`. Defaults to `Microsoft.Storage`.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class SubnetServiceEndpointStoragePolicyDefinitionArgs extends com.
         /**
          * @param serviceResources Specifies a list of resources or aliases that this Subnet Service Endpoint Storage Policy Definition applies to.
          * 
-         * &gt; **Note:** The `service_resources` property must contain either Aliases or Resource IDs, but not both.
+         * &gt; **Note:** The `serviceResources` property must contain either Aliases or Resource IDs, but not both.
          * 
          * @return builder
          * 
@@ -187,7 +187,7 @@ public final class SubnetServiceEndpointStoragePolicyDefinitionArgs extends com.
         /**
          * @param serviceResources Specifies a list of resources or aliases that this Subnet Service Endpoint Storage Policy Definition applies to.
          * 
-         * &gt; **Note:** The `service_resources` property must contain either Aliases or Resource IDs, but not both.
+         * &gt; **Note:** The `serviceResources` property must contain either Aliases or Resource IDs, but not both.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class SubnetServiceEndpointStoragePolicyDefinitionArgs extends com.
         /**
          * @param serviceResources Specifies a list of resources or aliases that this Subnet Service Endpoint Storage Policy Definition applies to.
          * 
-         * &gt; **Note:** The `service_resources` property must contain either Aliases or Resource IDs, but not both.
+         * &gt; **Note:** The `serviceResources` property must contain either Aliases or Resource IDs, but not both.
          * 
          * @return builder
          * 

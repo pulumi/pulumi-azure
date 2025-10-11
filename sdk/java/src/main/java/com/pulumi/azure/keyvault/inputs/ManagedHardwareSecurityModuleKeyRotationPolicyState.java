@@ -46,14 +46,14 @@ public final class ManagedHardwareSecurityModuleKeyRotationPolicyState extends c
     }
 
     /**
-     * Rotate automatically at a duration after key creation as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `time_after_creation` or `time_before_expiry` should be specified.
+     * Rotate automatically at a duration after key creation as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `timeAfterCreation` or `timeBeforeExpiry` should be specified.
      * 
      */
     @Import(name="timeAfterCreation")
     private @Nullable Output<String> timeAfterCreation;
 
     /**
-     * @return Rotate automatically at a duration after key creation as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `time_after_creation` or `time_before_expiry` should be specified.
+     * @return Rotate automatically at a duration after key creation as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `timeAfterCreation` or `timeBeforeExpiry` should be specified.
      * 
      */
     public Optional<Output<String>> timeAfterCreation() {
@@ -61,14 +61,14 @@ public final class ManagedHardwareSecurityModuleKeyRotationPolicyState extends c
     }
 
     /**
-     * Rotate automatically at a duration before key expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `time_after_creation` or `time_before_expiry` should be specified.
+     * Rotate automatically at a duration before key expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `timeAfterCreation` or `timeBeforeExpiry` should be specified.
      * 
      */
     @Import(name="timeBeforeExpiry")
     private @Nullable Output<String> timeBeforeExpiry;
 
     /**
-     * @return Rotate automatically at a duration before key expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `time_after_creation` or `time_before_expiry` should be specified.
+     * @return Rotate automatically at a duration before key expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `timeAfterCreation` or `timeBeforeExpiry` should be specified.
      * 
      */
     public Optional<Output<String>> timeBeforeExpiry() {
@@ -145,7 +145,7 @@ public final class ManagedHardwareSecurityModuleKeyRotationPolicyState extends c
         }
 
         /**
-         * @param timeAfterCreation Rotate automatically at a duration after key creation as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `time_after_creation` or `time_before_expiry` should be specified.
+         * @param timeAfterCreation Rotate automatically at a duration after key creation as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `timeAfterCreation` or `timeBeforeExpiry` should be specified.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class ManagedHardwareSecurityModuleKeyRotationPolicyState extends c
         }
 
         /**
-         * @param timeAfterCreation Rotate automatically at a duration after key creation as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `time_after_creation` or `time_before_expiry` should be specified.
+         * @param timeAfterCreation Rotate automatically at a duration after key creation as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `timeAfterCreation` or `timeBeforeExpiry` should be specified.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class ManagedHardwareSecurityModuleKeyRotationPolicyState extends c
         }
 
         /**
-         * @param timeBeforeExpiry Rotate automatically at a duration before key expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `time_after_creation` or `time_before_expiry` should be specified.
+         * @param timeBeforeExpiry Rotate automatically at a duration before key expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `timeAfterCreation` or `timeBeforeExpiry` should be specified.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class ManagedHardwareSecurityModuleKeyRotationPolicyState extends c
         }
 
         /**
-         * @param timeBeforeExpiry Rotate automatically at a duration before key expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `time_after_creation` or `time_before_expiry` should be specified.
+         * @param timeBeforeExpiry Rotate automatically at a duration before key expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `timeAfterCreation` or `timeBeforeExpiry` should be specified.
          * 
          * @return builder
          * 

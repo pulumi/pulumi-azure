@@ -130,14 +130,14 @@ public class ReferenceInputBlob extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.authenticationMode);
     }
     /**
-     * The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
+     * The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
      * 
      */
     @Export(name="dateFormat", refs={String.class}, tree="[0]")
     private Output<String> dateFormat;
 
     /**
-     * @return The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
+     * @return The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
      * 
      */
     public Output<String> dateFormat() {
@@ -200,14 +200,14 @@ public class ReferenceInputBlob extends com.pulumi.resources.CustomResource {
         return this.serialization;
     }
     /**
-     * The Access Key which should be used to connect to this Storage Account. Required if `authentication_mode` is `ConnectionString`.
+     * The Access Key which should be used to connect to this Storage Account. Required if `authenticationMode` is `ConnectionString`.
      * 
      */
     @Export(name="storageAccountKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageAccountKey;
 
     /**
-     * @return The Access Key which should be used to connect to this Storage Account. Required if `authentication_mode` is `ConnectionString`.
+     * @return The Access Key which should be used to connect to this Storage Account. Required if `authenticationMode` is `ConnectionString`.
      * 
      */
     public Output<Optional<String>> storageAccountKey() {
@@ -256,14 +256,14 @@ public class ReferenceInputBlob extends com.pulumi.resources.CustomResource {
         return this.streamAnalyticsJobName;
     }
     /**
-     * The time format. Wherever `{time}` appears in `path_pattern`, the value of this property is used as the time format instead.
+     * The time format. Wherever `{time}` appears in `pathPattern`, the value of this property is used as the time format instead.
      * 
      */
     @Export(name="timeFormat", refs={String.class}, tree="[0]")
     private Output<String> timeFormat;
 
     /**
-     * @return The time format. Wherever `{time}` appears in `path_pattern`, the value of this property is used as the time format instead.
+     * @return The time format. Wherever `{time}` appears in `pathPattern`, the value of this property is used as the time format instead.
      * 
      */
     public Output<String> timeFormat() {

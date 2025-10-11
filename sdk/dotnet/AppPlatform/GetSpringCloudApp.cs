@@ -178,7 +178,7 @@ namespace Pulumi.Azure.AppPlatform
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetSpringCloudAppIdentityResult> Identities;
         /// <summary>
@@ -187,7 +187,7 @@ namespace Pulumi.Azure.AppPlatform
         public readonly bool IsPublic;
         public readonly string Name;
         /// <summary>
-        /// A `persistent_disk` block as defined below.
+        /// A `PersistentDisk` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetSpringCloudAppPersistentDiskResult> PersistentDisks;
         public readonly string ResourceGroupName;

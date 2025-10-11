@@ -12,6 +12,15 @@ namespace Pulumi.Azure.Stack
     /// <summary>
     /// Manages an Azure Stack HCI Logical Network.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.AzureStackHCI` - 2024-01-01
+    /// 
     /// ## Import
     /// 
     /// Azure Stack HCI Logical Networks can be imported using the `resource id`, e.g.
@@ -54,7 +63,7 @@ namespace Pulumi.Azure.Stack
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `subnet` block as defined below. Changing this forces a new resource to be created.
+        /// A `Subnet` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("subnet")]
         public Output<Outputs.HciLogicalNetworkSubnet> Subnet { get; private set; } = null!;
@@ -154,7 +163,7 @@ namespace Pulumi.Azure.Stack
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `subnet` block as defined below. Changing this forces a new resource to be created.
+        /// A `Subnet` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("subnet", required: true)]
         public Input<Inputs.HciLogicalNetworkSubnetArgs> Subnet { get; set; } = null!;
@@ -222,7 +231,7 @@ namespace Pulumi.Azure.Stack
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// A `subnet` block as defined below. Changing this forces a new resource to be created.
+        /// A `Subnet` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("subnet")]
         public Input<Inputs.HciLogicalNetworkSubnetGetArgs>? Subnet { get; set; }

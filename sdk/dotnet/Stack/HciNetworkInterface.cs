@@ -12,6 +12,15 @@ namespace Pulumi.Azure.Stack
     /// <summary>
     /// Manages an Azure Stack HCI Network Interface.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.AzureStackHCI` - 2024-01-01
+    /// 
     /// ## Import
     /// 
     /// Azure Stack HCI Network Interfaces can be imported using the `resource id`, e.g.
@@ -36,7 +45,7 @@ namespace Pulumi.Azure.Stack
         public Output<ImmutableArray<string>> DnsServers { get; private set; } = null!;
 
         /// <summary>
-        /// An `ip_configuration` block as defined below. Changing this forces a new resource to be created.
+        /// An `IpConfiguration` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("ipConfiguration")]
         public Output<Outputs.HciNetworkInterfaceIpConfiguration> IpConfiguration { get; private set; } = null!;
@@ -50,7 +59,7 @@ namespace Pulumi.Azure.Stack
         /// <summary>
         /// The MAC address of the Network Interface. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** If `mac_address` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignore_changes`.
+        /// &gt; **Note:** If `MacAddress` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `IgnoreChanges`.
         /// </summary>
         [Output("macAddress")]
         public Output<string?> MacAddress { get; private set; } = null!;
@@ -138,7 +147,7 @@ namespace Pulumi.Azure.Stack
         }
 
         /// <summary>
-        /// An `ip_configuration` block as defined below. Changing this forces a new resource to be created.
+        /// An `IpConfiguration` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("ipConfiguration", required: true)]
         public Input<Inputs.HciNetworkInterfaceIpConfigurationArgs> IpConfiguration { get; set; } = null!;
@@ -152,7 +161,7 @@ namespace Pulumi.Azure.Stack
         /// <summary>
         /// The MAC address of the Network Interface. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** If `mac_address` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignore_changes`.
+        /// &gt; **Note:** If `MacAddress` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `IgnoreChanges`.
         /// </summary>
         [Input("macAddress")]
         public Input<string>? MacAddress { get; set; }
@@ -208,7 +217,7 @@ namespace Pulumi.Azure.Stack
         }
 
         /// <summary>
-        /// An `ip_configuration` block as defined below. Changing this forces a new resource to be created.
+        /// An `IpConfiguration` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("ipConfiguration")]
         public Input<Inputs.HciNetworkInterfaceIpConfigurationGetArgs>? IpConfiguration { get; set; }
@@ -222,7 +231,7 @@ namespace Pulumi.Azure.Stack
         /// <summary>
         /// The MAC address of the Network Interface. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** If `mac_address` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignore_changes`.
+        /// &gt; **Note:** If `MacAddress` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `IgnoreChanges`.
         /// </summary>
         [Input("macAddress")]
         public Input<string>? MacAddress { get; set; }

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ApiManagement
     /// 
     /// ## Disclaimers
     /// 
-    /// &gt; **Note:** It's possible to define Custom Domains both within the `azure.apimanagement.Service` resource via the `hostname_configurations` block and by using this resource. However it's not possible to use both methods to manage Custom Domains within an API Management Service, since there will be conflicts.
+    /// &gt; **Note:** It's possible to define Custom Domains both within the `azure.apimanagement.Service` resource via the `HostnameConfigurations` block and by using this resource. However it's not possible to use both methods to manage Custom Domains within an API Management Service, since there will be conflicts.
     /// 
     /// ## Example Usage
     /// 
@@ -157,31 +157,31 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> ApiManagementId { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `developer_portal` blocks as defined below.
+        /// One or more `DeveloperPortal` blocks as defined below.
         /// </summary>
         [Output("developerPortals")]
         public Output<ImmutableArray<Outputs.CustomDomainDeveloperPortal>> DeveloperPortals { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `gateway` blocks as defined below.
+        /// One or more `Gateway` blocks as defined below.
         /// </summary>
         [Output("gateways")]
         public Output<ImmutableArray<Outputs.CustomDomainGateway>> Gateways { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `management` blocks as defined below.
+        /// One or more `Management` blocks as defined below.
         /// </summary>
         [Output("managements")]
         public Output<ImmutableArray<Outputs.CustomDomainManagement>> Managements { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `portal` blocks as defined below.
+        /// One or more `Portal` blocks as defined below.
         /// </summary>
         [Output("portals")]
         public Output<ImmutableArray<Outputs.CustomDomainPortal>> Portals { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `scm` blocks as defined below.
+        /// One or more `Scm` blocks as defined below.
         /// </summary>
         [Output("scms")]
         public Output<ImmutableArray<Outputs.CustomDomainScm>> Scms { get; private set; } = null!;
@@ -242,7 +242,7 @@ namespace Pulumi.Azure.ApiManagement
         private InputList<Inputs.CustomDomainDeveloperPortalArgs>? _developerPortals;
 
         /// <summary>
-        /// One or more `developer_portal` blocks as defined below.
+        /// One or more `DeveloperPortal` blocks as defined below.
         /// </summary>
         public InputList<Inputs.CustomDomainDeveloperPortalArgs> DeveloperPortals
         {
@@ -254,7 +254,7 @@ namespace Pulumi.Azure.ApiManagement
         private InputList<Inputs.CustomDomainGatewayArgs>? _gateways;
 
         /// <summary>
-        /// One or more `gateway` blocks as defined below.
+        /// One or more `Gateway` blocks as defined below.
         /// </summary>
         public InputList<Inputs.CustomDomainGatewayArgs> Gateways
         {
@@ -266,7 +266,7 @@ namespace Pulumi.Azure.ApiManagement
         private InputList<Inputs.CustomDomainManagementArgs>? _managements;
 
         /// <summary>
-        /// One or more `management` blocks as defined below.
+        /// One or more `Management` blocks as defined below.
         /// </summary>
         public InputList<Inputs.CustomDomainManagementArgs> Managements
         {
@@ -278,7 +278,7 @@ namespace Pulumi.Azure.ApiManagement
         private InputList<Inputs.CustomDomainPortalArgs>? _portals;
 
         /// <summary>
-        /// One or more `portal` blocks as defined below.
+        /// One or more `Portal` blocks as defined below.
         /// </summary>
         public InputList<Inputs.CustomDomainPortalArgs> Portals
         {
@@ -290,7 +290,7 @@ namespace Pulumi.Azure.ApiManagement
         private InputList<Inputs.CustomDomainScmArgs>? _scms;
 
         /// <summary>
-        /// One or more `scm` blocks as defined below.
+        /// One or more `Scm` blocks as defined below.
         /// </summary>
         public InputList<Inputs.CustomDomainScmArgs> Scms
         {
@@ -316,7 +316,7 @@ namespace Pulumi.Azure.ApiManagement
         private InputList<Inputs.CustomDomainDeveloperPortalGetArgs>? _developerPortals;
 
         /// <summary>
-        /// One or more `developer_portal` blocks as defined below.
+        /// One or more `DeveloperPortal` blocks as defined below.
         /// </summary>
         public InputList<Inputs.CustomDomainDeveloperPortalGetArgs> DeveloperPortals
         {
@@ -328,7 +328,7 @@ namespace Pulumi.Azure.ApiManagement
         private InputList<Inputs.CustomDomainGatewayGetArgs>? _gateways;
 
         /// <summary>
-        /// One or more `gateway` blocks as defined below.
+        /// One or more `Gateway` blocks as defined below.
         /// </summary>
         public InputList<Inputs.CustomDomainGatewayGetArgs> Gateways
         {
@@ -340,7 +340,7 @@ namespace Pulumi.Azure.ApiManagement
         private InputList<Inputs.CustomDomainManagementGetArgs>? _managements;
 
         /// <summary>
-        /// One or more `management` blocks as defined below.
+        /// One or more `Management` blocks as defined below.
         /// </summary>
         public InputList<Inputs.CustomDomainManagementGetArgs> Managements
         {
@@ -352,7 +352,7 @@ namespace Pulumi.Azure.ApiManagement
         private InputList<Inputs.CustomDomainPortalGetArgs>? _portals;
 
         /// <summary>
-        /// One or more `portal` blocks as defined below.
+        /// One or more `Portal` blocks as defined below.
         /// </summary>
         public InputList<Inputs.CustomDomainPortalGetArgs> Portals
         {
@@ -364,7 +364,7 @@ namespace Pulumi.Azure.ApiManagement
         private InputList<Inputs.CustomDomainScmGetArgs>? _scms;
 
         /// <summary>
-        /// One or more `scm` blocks as defined below.
+        /// One or more `Scm` blocks as defined below.
         /// </summary>
         public InputList<Inputs.CustomDomainScmGetArgs> Scms
         {

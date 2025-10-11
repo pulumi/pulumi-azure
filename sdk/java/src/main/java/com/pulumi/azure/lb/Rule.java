@@ -110,7 +110,7 @@ public class Rule extends com.pulumi.resources.CustomResource {
     /**
      * A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
      * 
-     * &gt; **Note:** In most cases users can only set one Backend Address Pool ID in the `backend_address_pool_ids`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backend_address_pool_ids`.
+     * &gt; **Note:** In most cases users can only set one Backend Address Pool ID in the `backendAddressPoolIds`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backendAddressPoolIds`.
      * 
      */
     @Export(name="backendAddressPoolIds", refs={List.class,String.class}, tree="[0,1]")
@@ -119,7 +119,7 @@ public class Rule extends com.pulumi.resources.CustomResource {
     /**
      * @return A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
      * 
-     * &gt; **Note:** In most cases users can only set one Backend Address Pool ID in the `backend_address_pool_ids`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backend_address_pool_ids`.
+     * &gt; **Note:** In most cases users can only set one Backend Address Pool ID in the `backendAddressPoolIds`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backendAddressPoolIds`.
      * 
      */
     public Output<Optional<List<String>>> backendAddressPoolIds() {
@@ -155,10 +155,10 @@ public class Rule extends com.pulumi.resources.CustomResource {
     }
     /**
      * @deprecated
-     * This field is deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider.
+     * This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider.
      * 
      */
-    @Deprecated /* This field is deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider. */
+    @Deprecated /* This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider. */
     @Export(name="enableFloatingIp", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enableFloatingIp;
 
@@ -167,10 +167,10 @@ public class Rule extends com.pulumi.resources.CustomResource {
     }
     /**
      * @deprecated
-     * This field is deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider.
+     * This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
      * 
      */
-    @Deprecated /* This field is deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider. */
+    @Deprecated /* This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider. */
     @Export(name="enableTcpReset", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enableTcpReset;
 

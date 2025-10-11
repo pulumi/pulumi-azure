@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetGroupResult {
     /**
-     * @return The FQDN of the Container Group instance derived from `dns_name_label`.
+     * @return The FQDN of the Container Group instance derived from `dnsNameLabel`.
      * 
      */
     private String fqdn;
@@ -59,7 +59,7 @@ public final class GetGroupResult {
 
     private GetGroupResult() {}
     /**
-     * @return The FQDN of the Container Group instance derived from `dns_name_label`.
+     * @return The FQDN of the Container Group instance derived from `dnsNameLabel`.
      * 
      */
     public String fqdn() {

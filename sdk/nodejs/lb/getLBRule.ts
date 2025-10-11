@@ -6,6 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Load Balancer Rule.
+ *
+ * ## Example Usage
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Network` - 2023-09-01
  */
 export function getLBRule(args: GetLBRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetLBRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -92,6 +101,15 @@ export interface GetLBRuleResult {
 }
 /**
  * Use this data source to access information about an existing Load Balancer Rule.
+ *
+ * ## Example Usage
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Network` - 2023-09-01
  */
 export function getLBRuleOutput(args: GetLBRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLBRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

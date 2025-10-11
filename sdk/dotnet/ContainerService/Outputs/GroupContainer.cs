@@ -34,7 +34,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string Image;
         /// <summary>
-        /// The definition of a readiness probe for this container as documented in the `liveness_probe` block below. Changing this forces a new resource to be created.
+        /// The definition of a readiness probe for this container as documented in the `LivenessProbe` block below. Changing this forces a new resource to be created.
         /// </summary>
         public readonly Outputs.GroupContainerLivenessProbe? LivenessProbe;
         /// <summary>
@@ -50,11 +50,11 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// A set of public ports for the container. Changing this forces a new resource to be created. Set as documented in the `ports` block below.
+        /// A set of public ports for the container. Changing this forces a new resource to be created. Set as documented in the `Ports` block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GroupContainerPort> Ports;
         /// <summary>
-        /// The definition of a readiness probe for this container as documented in the `readiness_probe` block below. Changing this forces a new resource to be created.
+        /// The definition of a readiness probe for this container as documented in the `ReadinessProbe` block below. Changing this forces a new resource to be created.
         /// </summary>
         public readonly Outputs.GroupContainerReadinessProbe? ReadinessProbe;
         /// <summary>
@@ -62,11 +62,11 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? SecureEnvironmentVariables;
         /// <summary>
-        /// The definition of the security context for this container as documented in the `security` block below. Changing this forces a new resource to be created.
+        /// The definition of the security context for this container as documented in the `Security` block below. Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableArray<Outputs.GroupContainerSecurity> Securities;
         /// <summary>
-        /// The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
+        /// The definition of a volume mount for this container as documented in the `Volume` block below. Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableArray<Outputs.GroupContainerVolume> Volumes;
 

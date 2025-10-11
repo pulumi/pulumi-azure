@@ -432,6 +432,15 @@ class FileSystem(pulumi.CustomResource):
         """
         Manages an Azure Native Qumulo Scalable File System.
 
+        ## Example Usage
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Qumulo.Storage` - 2024-06-19
+
         ## Import
 
         An existing File System can be imported into Pulumi using the `resource id`, e.g.
@@ -463,6 +472,15 @@ class FileSystem(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Native Qumulo Scalable File System.
+
+        ## Example Usage
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Qumulo.Storage` - 2024-06-19
 
         ## Import
 

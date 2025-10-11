@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<string>? CertificateStore { get; set; }
 
         /// <summary>
-        /// It is the Base64 encoding of a JSON Object that which is encoded in UTF-8 of which the contents need to be `data`, `dataType` and `password`.
+        /// It is the Base64 encoding of a JSON Object that which is encoded in UTF-8 of which the contents need to be `Data`, `dataType` and `Password`.
         /// </summary>
         [Input("certificateUrl", required: true)]
         public Input<string> CertificateUrl { get; set; } = null!;

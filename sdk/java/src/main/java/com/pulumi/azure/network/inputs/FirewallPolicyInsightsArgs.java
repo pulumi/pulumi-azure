@@ -21,14 +21,14 @@ public final class FirewallPolicyInsightsArgs extends com.pulumi.resources.Resou
     public static final FirewallPolicyInsightsArgs Empty = new FirewallPolicyInsightsArgs();
 
     /**
-     * The ID of the default Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to, when there is no location matches in the `log_analytics_workspace`.
+     * The ID of the default Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to, when there is no location matches in the `logAnalyticsWorkspace`.
      * 
      */
     @Import(name="defaultLogAnalyticsWorkspaceId", required=true)
     private Output<String> defaultLogAnalyticsWorkspaceId;
 
     /**
-     * @return The ID of the default Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to, when there is no location matches in the `log_analytics_workspace`.
+     * @return The ID of the default Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to, when there is no location matches in the `logAnalyticsWorkspace`.
      * 
      */
     public Output<String> defaultLogAnalyticsWorkspaceId() {
@@ -51,14 +51,14 @@ public final class FirewallPolicyInsightsArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * A list of `log_analytics_workspace` block as defined below.
+     * A list of `logAnalyticsWorkspace` block as defined below.
      * 
      */
     @Import(name="logAnalyticsWorkspaces")
     private @Nullable Output<List<FirewallPolicyInsightsLogAnalyticsWorkspaceArgs>> logAnalyticsWorkspaces;
 
     /**
-     * @return A list of `log_analytics_workspace` block as defined below.
+     * @return A list of `logAnalyticsWorkspace` block as defined below.
      * 
      */
     public Optional<Output<List<FirewallPolicyInsightsLogAnalyticsWorkspaceArgs>>> logAnalyticsWorkspaces() {
@@ -108,7 +108,7 @@ public final class FirewallPolicyInsightsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param defaultLogAnalyticsWorkspaceId The ID of the default Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to, when there is no location matches in the `log_analytics_workspace`.
+         * @param defaultLogAnalyticsWorkspaceId The ID of the default Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to, when there is no location matches in the `logAnalyticsWorkspace`.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class FirewallPolicyInsightsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param defaultLogAnalyticsWorkspaceId The ID of the default Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to, when there is no location matches in the `log_analytics_workspace`.
+         * @param defaultLogAnalyticsWorkspaceId The ID of the default Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to, when there is no location matches in the `logAnalyticsWorkspace`.
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class FirewallPolicyInsightsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param logAnalyticsWorkspaces A list of `log_analytics_workspace` block as defined below.
+         * @param logAnalyticsWorkspaces A list of `logAnalyticsWorkspace` block as defined below.
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class FirewallPolicyInsightsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param logAnalyticsWorkspaces A list of `log_analytics_workspace` block as defined below.
+         * @param logAnalyticsWorkspaces A list of `logAnalyticsWorkspace` block as defined below.
          * 
          * @return builder
          * 
@@ -171,7 +171,7 @@ public final class FirewallPolicyInsightsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param logAnalyticsWorkspaces A list of `log_analytics_workspace` block as defined below.
+         * @param logAnalyticsWorkspaces A list of `logAnalyticsWorkspace` block as defined below.
          * 
          * @return builder
          * 

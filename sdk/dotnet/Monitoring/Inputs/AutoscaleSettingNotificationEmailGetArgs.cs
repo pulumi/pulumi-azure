@@ -25,13 +25,13 @@ namespace Pulumi.Azure.Monitoring.Inputs
         }
 
         /// <summary>
-        /// Should email notifications be sent to the subscription administrator? Defaults to `false`.
+        /// Should email notifications be sent to the subscription administrator? Defaults to `False`.
         /// </summary>
         [Input("sendToSubscriptionAdministrator")]
         public Input<bool>? SendToSubscriptionAdministrator { get; set; }
 
         /// <summary>
-        /// Should email notifications be sent to the subscription co-administrator? Defaults to `false`.
+        /// Should email notifications be sent to the subscription co-administrator? Defaults to `False`.
         /// </summary>
         [Input("sendToSubscriptionCoAdministrator")]
         public Input<bool>? SendToSubscriptionCoAdministrator { get; set; }

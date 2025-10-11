@@ -79,7 +79,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site.
         /// 
-        /// &gt; **Note:** The `address_cidrs` has to be set when the `link.bgp` isn't specified.
+        /// &gt; **Note:** The `AddressCidrs` has to be set when the `link.bgp` isn't specified.
         /// </summary>
         [Output("addressCidrs")]
         public Output<ImmutableArray<string>> AddressCidrs { get; private set; } = null!;
@@ -97,7 +97,7 @@ namespace Pulumi.Azure.Network
         public Output<string?> DeviceVendor { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `link` blocks as defined below.
+        /// One or more `Link` blocks as defined below.
         /// </summary>
         [Output("links")]
         public Output<ImmutableArray<Outputs.VpnSiteLink>> Links { get; private set; } = null!;
@@ -115,7 +115,7 @@ namespace Pulumi.Azure.Network
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// An `o365_policy` block as defined below.
+        /// An `O365Policy` block as defined below.
         /// </summary>
         [Output("o365Policy")]
         public Output<Outputs.VpnSiteO365Policy> O365Policy { get; private set; } = null!;
@@ -190,7 +190,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site.
         /// 
-        /// &gt; **Note:** The `address_cidrs` has to be set when the `link.bgp` isn't specified.
+        /// &gt; **Note:** The `AddressCidrs` has to be set when the `link.bgp` isn't specified.
         /// </summary>
         public InputList<string> AddressCidrs
         {
@@ -214,7 +214,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.VpnSiteLinkArgs>? _links;
 
         /// <summary>
-        /// One or more `link` blocks as defined below.
+        /// One or more `Link` blocks as defined below.
         /// </summary>
         public InputList<Inputs.VpnSiteLinkArgs> Links
         {
@@ -235,7 +235,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// An `o365_policy` block as defined below.
+        /// An `O365Policy` block as defined below.
         /// </summary>
         [Input("o365Policy")]
         public Input<Inputs.VpnSiteO365PolicyArgs>? O365Policy { get; set; }
@@ -278,7 +278,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site.
         /// 
-        /// &gt; **Note:** The `address_cidrs` has to be set when the `link.bgp` isn't specified.
+        /// &gt; **Note:** The `AddressCidrs` has to be set when the `link.bgp` isn't specified.
         /// </summary>
         public InputList<string> AddressCidrs
         {
@@ -302,7 +302,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.VpnSiteLinkGetArgs>? _links;
 
         /// <summary>
-        /// One or more `link` blocks as defined below.
+        /// One or more `Link` blocks as defined below.
         /// </summary>
         public InputList<Inputs.VpnSiteLinkGetArgs> Links
         {
@@ -323,7 +323,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// An `o365_policy` block as defined below.
+        /// An `O365Policy` block as defined below.
         /// </summary>
         [Input("o365Policy")]
         public Input<Inputs.VpnSiteO365PolicyGetArgs>? O365Policy { get; set; }

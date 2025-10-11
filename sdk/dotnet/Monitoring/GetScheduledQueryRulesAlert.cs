@@ -221,7 +221,7 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         public readonly int TimeWindow;
         /// <summary>
-        /// A `trigger` block as defined below.
+        /// A `Trigger` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetScheduledQueryRulesAlertTriggerResult> Triggers;
 

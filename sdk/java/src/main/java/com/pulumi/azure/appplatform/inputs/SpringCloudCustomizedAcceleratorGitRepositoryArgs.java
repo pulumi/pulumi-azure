@@ -20,14 +20,14 @@ public final class SpringCloudCustomizedAcceleratorGitRepositoryArgs extends com
     public static final SpringCloudCustomizedAcceleratorGitRepositoryArgs Empty = new SpringCloudCustomizedAcceleratorGitRepositoryArgs();
 
     /**
-     * A `basic_auth` block as defined below. Conflicts with `git_repository[0].ssh_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
+     * A `basicAuth` block as defined below. Conflicts with `git_repository[0].ssh_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
      * 
      */
     @Import(name="basicAuth")
     private @Nullable Output<SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgs> basicAuth;
 
     /**
-     * @return A `basic_auth` block as defined below. Conflicts with `git_repository[0].ssh_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
+     * @return A `basicAuth` block as defined below. Conflicts with `git_repository[0].ssh_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
      * 
      */
     public Optional<Output<SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgs>> basicAuth() {
@@ -110,14 +110,14 @@ public final class SpringCloudCustomizedAcceleratorGitRepositoryArgs extends com
     }
 
     /**
-     * Specifies the path under the git repository to be treated as the root directory of the accelerator or the fragment (depending on `accelerator_type`).
+     * Specifies the path under the git repository to be treated as the root directory of the accelerator or the fragment (depending on `acceleratorType`).
      * 
      */
     @Import(name="path")
     private @Nullable Output<String> path;
 
     /**
-     * @return Specifies the path under the git repository to be treated as the root directory of the accelerator or the fragment (depending on `accelerator_type`).
+     * @return Specifies the path under the git repository to be treated as the root directory of the accelerator or the fragment (depending on `acceleratorType`).
      * 
      */
     public Optional<Output<String>> path() {
@@ -125,14 +125,14 @@ public final class SpringCloudCustomizedAcceleratorGitRepositoryArgs extends com
     }
 
     /**
-     * A `ssh_auth` block as defined below. Conflicts with `git_repository[0].basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
+     * A `sshAuth` block as defined below. Conflicts with `git_repository[0].basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
      * 
      */
     @Import(name="sshAuth")
     private @Nullable Output<SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs> sshAuth;
 
     /**
-     * @return A `ssh_auth` block as defined below. Conflicts with `git_repository[0].basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
+     * @return A `sshAuth` block as defined below. Conflicts with `git_repository[0].basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
      * 
      */
     public Optional<Output<SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs>> sshAuth() {
@@ -187,7 +187,7 @@ public final class SpringCloudCustomizedAcceleratorGitRepositoryArgs extends com
         }
 
         /**
-         * @param basicAuth A `basic_auth` block as defined below. Conflicts with `git_repository[0].ssh_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
+         * @param basicAuth A `basicAuth` block as defined below. Conflicts with `git_repository[0].ssh_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class SpringCloudCustomizedAcceleratorGitRepositoryArgs extends com
         }
 
         /**
-         * @param basicAuth A `basic_auth` block as defined below. Conflicts with `git_repository[0].ssh_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
+         * @param basicAuth A `basicAuth` block as defined below. Conflicts with `git_repository[0].ssh_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
          * 
          * @return builder
          * 
@@ -313,7 +313,7 @@ public final class SpringCloudCustomizedAcceleratorGitRepositoryArgs extends com
         }
 
         /**
-         * @param path Specifies the path under the git repository to be treated as the root directory of the accelerator or the fragment (depending on `accelerator_type`).
+         * @param path Specifies the path under the git repository to be treated as the root directory of the accelerator or the fragment (depending on `acceleratorType`).
          * 
          * @return builder
          * 
@@ -324,7 +324,7 @@ public final class SpringCloudCustomizedAcceleratorGitRepositoryArgs extends com
         }
 
         /**
-         * @param path Specifies the path under the git repository to be treated as the root directory of the accelerator or the fragment (depending on `accelerator_type`).
+         * @param path Specifies the path under the git repository to be treated as the root directory of the accelerator or the fragment (depending on `acceleratorType`).
          * 
          * @return builder
          * 
@@ -334,7 +334,7 @@ public final class SpringCloudCustomizedAcceleratorGitRepositoryArgs extends com
         }
 
         /**
-         * @param sshAuth A `ssh_auth` block as defined below. Conflicts with `git_repository[0].basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
+         * @param sshAuth A `sshAuth` block as defined below. Conflicts with `git_repository[0].basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
          * 
          * @return builder
          * 
@@ -345,7 +345,7 @@ public final class SpringCloudCustomizedAcceleratorGitRepositoryArgs extends com
         }
 
         /**
-         * @param sshAuth A `ssh_auth` block as defined below. Conflicts with `git_repository[0].basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
+         * @param sshAuth A `sshAuth` block as defined below. Conflicts with `git_repository[0].basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
          * 
          * @return builder
          * 

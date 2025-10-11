@@ -223,28 +223,28 @@ public class ThreatIntelligenceIndicator extends com.pulumi.resources.CustomReso
         return this.externalLastUpdatedTimeUtc;
     }
     /**
-     * One or more `external_reference` blocks as defined below.
+     * One or more `externalReference` blocks as defined below.
      * 
      */
     @Export(name="externalReferences", refs={List.class,ThreatIntelligenceIndicatorExternalReference.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ThreatIntelligenceIndicatorExternalReference>> externalReferences;
 
     /**
-     * @return One or more `external_reference` blocks as defined below.
+     * @return One or more `externalReference` blocks as defined below.
      * 
      */
     public Output<Optional<List<ThreatIntelligenceIndicatorExternalReference>>> externalReferences() {
         return Codegen.optional(this.externalReferences);
     }
     /**
-     * One or more `granular_marking` blocks as defined below.
+     * One or more `granularMarking` blocks as defined below.
      * 
      */
     @Export(name="granularMarkings", refs={List.class,ThreatIntelligenceIndicatorGranularMarking.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ThreatIntelligenceIndicatorGranularMarking>> granularMarkings;
 
     /**
-     * @return One or more `granular_marking` blocks as defined below.
+     * @return One or more `granularMarking` blocks as defined below.
      * 
      */
     public Output<Optional<List<ThreatIntelligenceIndicatorGranularMarking>>> granularMarkings() {
@@ -279,14 +279,14 @@ public class ThreatIntelligenceIndicator extends com.pulumi.resources.CustomReso
         return this.indicatorTypes;
     }
     /**
-     * One or more `kill_chain_phase` blocks as defined below.
+     * One or more `killChainPhase` blocks as defined below.
      * 
      */
     @Export(name="killChainPhases", refs={List.class,ThreatIntelligenceIndicatorKillChainPhase.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ThreatIntelligenceIndicatorKillChainPhase>> killChainPhases;
 
     /**
-     * @return One or more `kill_chain_phase` blocks as defined below.
+     * @return One or more `killChainPhase` blocks as defined below.
      * 
      */
     public Output<Optional<List<ThreatIntelligenceIndicatorKillChainPhase>>> killChainPhases() {
@@ -335,28 +335,28 @@ public class ThreatIntelligenceIndicator extends com.pulumi.resources.CustomReso
         return Codegen.optional(this.objectMarkingRefs);
     }
     /**
-     * A `parsed_pattern` block as defined below.
+     * A `parsedPattern` block as defined below.
      * 
      */
     @Export(name="parsedPatterns", refs={List.class,ThreatIntelligenceIndicatorParsedPattern.class}, tree="[0,1]")
     private Output<List<ThreatIntelligenceIndicatorParsedPattern>> parsedPatterns;
 
     /**
-     * @return A `parsed_pattern` block as defined below.
+     * @return A `parsedPattern` block as defined below.
      * 
      */
     public Output<List<ThreatIntelligenceIndicatorParsedPattern>> parsedPatterns() {
         return this.parsedPatterns;
     }
     /**
-     * The pattern used by the Threat Intelligence Indicator. When `pattern_type` set to `file`, `pattern` must be specified with `&lt;HashName&gt;:&lt;Value&gt;` format, such as `MD5:78ecc5c05cd8b79af480df2f8fba0b9d`.
+     * The pattern used by the Threat Intelligence Indicator. When `patternType` set to `file`, `pattern` must be specified with `&lt;HashName&gt;:&lt;Value&gt;` format, such as `MD5:78ecc5c05cd8b79af480df2f8fba0b9d`.
      * 
      */
     @Export(name="pattern", refs={String.class}, tree="[0]")
     private Output<String> pattern;
 
     /**
-     * @return The pattern used by the Threat Intelligence Indicator. When `pattern_type` set to `file`, `pattern` must be specified with `&lt;HashName&gt;:&lt;Value&gt;` format, such as `MD5:78ecc5c05cd8b79af480df2f8fba0b9d`.
+     * @return The pattern used by the Threat Intelligence Indicator. When `patternType` set to `file`, `pattern` must be specified with `&lt;HashName&gt;:&lt;Value&gt;` format, such as `MD5:78ecc5c05cd8b79af480df2f8fba0b9d`.
      * 
      */
     public Output<String> pattern() {

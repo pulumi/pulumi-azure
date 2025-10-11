@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<Inputs.RouteMapRuleActionParameterArgs>? _parameters;
 
         /// <summary>
-        /// A `parameter` block as defined below. Required if `type` is anything other than `Drop`.
+        /// A `Parameter` block as defined below. Required if `Type` is anything other than `Drop`.
         /// </summary>
         public InputList<Inputs.RouteMapRuleActionParameterArgs> Parameters
         {

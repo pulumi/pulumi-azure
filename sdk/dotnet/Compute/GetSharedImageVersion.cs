@@ -132,9 +132,9 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The name of the Image Version.
         /// 
-        /// &gt; **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
+        /// &gt; **Note:** You may specify `Latest` to obtain the latest version or `Recent` to obtain the most recently updated version.
         /// 
-        /// &gt; **Note:** In 3.0, `latest` may return an image version with `exclude_from_latest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `exlude_from_latest` set to `true`.
+        /// &gt; **Note:** In 3.0, `Latest` may return an image version with `ExcludeFromLatest` set to `True`. Starting from 4.0 onwards `Latest` will not return image versions with `ExludeFromLatest` set to `True`.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -146,7 +146,7 @@ namespace Pulumi.Azure.Compute
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Sort available versions taking SemVer versioning scheme into account. Defaults to `false`.
+        /// Sort available versions taking SemVer versioning scheme into account. Defaults to `False`.
         /// </summary>
         [Input("sortVersionsBySemver")]
         public bool? SortVersionsBySemver { get; set; }
@@ -186,9 +186,9 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The name of the Image Version.
         /// 
-        /// &gt; **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
+        /// &gt; **Note:** You may specify `Latest` to obtain the latest version or `Recent` to obtain the most recently updated version.
         /// 
-        /// &gt; **Note:** In 3.0, `latest` may return an image version with `exclude_from_latest` set to `true`. Starting from 4.0 onwards `latest` will not return image versions with `exlude_from_latest` set to `true`.
+        /// &gt; **Note:** In 3.0, `Latest` may return an image version with `ExcludeFromLatest` set to `True`. Starting from 4.0 onwards `Latest` will not return image versions with `ExludeFromLatest` set to `True`.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -200,7 +200,7 @@ namespace Pulumi.Azure.Compute
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Sort available versions taking SemVer versioning scheme into account. Defaults to `false`.
+        /// Sort available versions taking SemVer versioning scheme into account. Defaults to `False`.
         /// </summary>
         [Input("sortVersionsBySemver")]
         public Input<bool>? SortVersionsBySemver { get; set; }
@@ -228,7 +228,7 @@ namespace Pulumi.Azure.Compute
     public sealed class GetSharedImageVersionResult
     {
         /// <summary>
-        /// Is this Image Version excluded from the `latest` filter?
+        /// Is this Image Version excluded from the `Latest` filter?
         /// </summary>
         public readonly bool ExcludeFromLatest;
         public readonly string GalleryName;
@@ -264,7 +264,7 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// One or more `target_region` blocks as documented below.
+        /// One or more `TargetRegion` blocks as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetSharedImageVersionTargetRegionResult> TargetRegions;
 

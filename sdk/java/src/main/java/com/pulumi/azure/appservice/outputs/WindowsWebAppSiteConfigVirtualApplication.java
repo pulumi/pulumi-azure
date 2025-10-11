@@ -25,7 +25,7 @@ public final class WindowsWebAppSiteConfigVirtualApplication {
      */
     private Boolean preload;
     /**
-     * @return One or more `virtual_directory` blocks as defined below.
+     * @return One or more `virtualDirectory` blocks as defined below.
      * 
      */
     private @Nullable List<WindowsWebAppSiteConfigVirtualApplicationVirtualDirectory> virtualDirectories;
@@ -51,7 +51,7 @@ public final class WindowsWebAppSiteConfigVirtualApplication {
         return this.preload;
     }
     /**
-     * @return One or more `virtual_directory` blocks as defined below.
+     * @return One or more `virtualDirectory` blocks as defined below.
      * 
      */
     public List<WindowsWebAppSiteConfigVirtualApplicationVirtualDirectory> virtualDirectories() {

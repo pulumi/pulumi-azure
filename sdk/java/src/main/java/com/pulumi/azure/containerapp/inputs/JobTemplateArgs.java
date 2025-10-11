@@ -35,14 +35,14 @@ public final class JobTemplateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `init_container` block as defined below.
+     * A `initContainer` block as defined below.
      * 
      */
     @Import(name="initContainers")
     private @Nullable Output<List<JobTemplateInitContainerArgs>> initContainers;
 
     /**
-     * @return A `init_container` block as defined below.
+     * @return A `initContainer` block as defined below.
      * 
      */
     public Optional<Output<List<JobTemplateInitContainerArgs>>> initContainers() {
@@ -122,7 +122,7 @@ public final class JobTemplateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param initContainers A `init_container` block as defined below.
+         * @param initContainers A `initContainer` block as defined below.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class JobTemplateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param initContainers A `init_container` block as defined below.
+         * @param initContainers A `initContainer` block as defined below.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class JobTemplateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param initContainers A `init_container` block as defined below.
+         * @param initContainers A `initContainer` block as defined below.
          * 
          * @return builder
          * 

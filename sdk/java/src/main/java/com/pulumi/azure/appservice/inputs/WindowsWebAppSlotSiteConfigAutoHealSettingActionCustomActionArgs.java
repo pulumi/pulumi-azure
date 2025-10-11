@@ -17,14 +17,14 @@ public final class WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomActionA
     public static final WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomActionArgs Empty = new WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomActionArgs();
 
     /**
-     * The executable to run for the `custom_action`.
+     * The executable to run for the `customAction`.
      * 
      */
     @Import(name="executable", required=true)
     private Output<String> executable;
 
     /**
-     * @return The executable to run for the `custom_action`.
+     * @return The executable to run for the `customAction`.
      * 
      */
     public Output<String> executable() {
@@ -72,7 +72,7 @@ public final class WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomActionA
         }
 
         /**
-         * @param executable The executable to run for the `custom_action`.
+         * @param executable The executable to run for the `customAction`.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomActionA
         }
 
         /**
-         * @param executable The executable to run for the `custom_action`.
+         * @param executable The executable to run for the `customAction`.
          * 
          * @return builder
          * 

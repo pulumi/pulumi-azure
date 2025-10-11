@@ -26,7 +26,7 @@ public final class GetPoolStartTaskResourceFile {
      */
     private String fileMode;
     /**
-     * @return The location on the compute node to which to download the file, relative to the task&#39;s working directory. If the `http_url` property is specified, the `file_path` is required and describes the path which the file will be downloaded to, including the filename. Otherwise, if the `auto_storage_container_name` or `storage_container_url` property is specified.
+     * @return The location on the compute node to which to download the file, relative to the task&#39;s working directory. If the `httpUrl` property is specified, the `filePath` is required and describes the path which the file will be downloaded to, including the filename. Otherwise, if the `autoStorageContainerName` or `storageContainerUrl` property is specified.
      * 
      */
     private String filePath;
@@ -69,7 +69,7 @@ public final class GetPoolStartTaskResourceFile {
         return this.fileMode;
     }
     /**
-     * @return The location on the compute node to which to download the file, relative to the task&#39;s working directory. If the `http_url` property is specified, the `file_path` is required and describes the path which the file will be downloaded to, including the filename. Otherwise, if the `auto_storage_container_name` or `storage_container_url` property is specified.
+     * @return The location on the compute node to which to download the file, relative to the task&#39;s working directory. If the `httpUrl` property is specified, the `filePath` is required and describes the path which the file will be downloaded to, including the filename. Otherwise, if the `autoStorageContainerName` or `storageContainerUrl` property is specified.
      * 
      */
     public String filePath() {

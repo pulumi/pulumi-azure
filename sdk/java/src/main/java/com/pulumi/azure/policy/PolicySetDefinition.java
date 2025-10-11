@@ -129,10 +129,10 @@ public class PolicySetDefinition extends com.pulumi.resources.CustomResource {
     }
     /**
      * @deprecated
-     * `management_group_id` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.
+     * `managementGroupId` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* `management_group_id` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider. */
+    @Deprecated /* `managementGroupId` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider. */
     @Export(name="managementGroupId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> managementGroupId;
 
@@ -182,28 +182,28 @@ public class PolicySetDefinition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.parameters);
     }
     /**
-     * One or more `policy_definition_group` blocks as defined below.
+     * One or more `policyDefinitionGroup` blocks as defined below.
      * 
      */
     @Export(name="policyDefinitionGroups", refs={List.class,PolicySetDefinitionPolicyDefinitionGroup.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PolicySetDefinitionPolicyDefinitionGroup>> policyDefinitionGroups;
 
     /**
-     * @return One or more `policy_definition_group` blocks as defined below.
+     * @return One or more `policyDefinitionGroup` blocks as defined below.
      * 
      */
     public Output<Optional<List<PolicySetDefinitionPolicyDefinitionGroup>>> policyDefinitionGroups() {
         return Codegen.optional(this.policyDefinitionGroups);
     }
     /**
-     * One or more `policy_definition_reference` blocks as defined below.
+     * One or more `policyDefinitionReference` blocks as defined below.
      * 
      */
     @Export(name="policyDefinitionReferences", refs={List.class,PolicySetDefinitionPolicyDefinitionReference.class}, tree="[0,1]")
     private Output<List<PolicySetDefinitionPolicyDefinitionReference>> policyDefinitionReferences;
 
     /**
-     * @return One or more `policy_definition_reference` blocks as defined below.
+     * @return One or more `policyDefinitionReference` blocks as defined below.
      * 
      */
     public Output<List<PolicySetDefinitionPolicyDefinitionReference>> policyDefinitionReferences() {

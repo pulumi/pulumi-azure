@@ -19,7 +19,7 @@ public final class NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFro
     /**
      * @return The ID of the Public IP Address on which to receive traffic.
      * 
-     * &gt; **Note:** This must be an Azure Public IP address ID also specified in the `public_ip_address_ids` list.
+     * &gt; **Note:** This must be an Azure Public IP address ID also specified in the `publicIpAddressIds` list.
      * 
      */
     private String publicIpAddressId;
@@ -35,7 +35,7 @@ public final class NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFro
     /**
      * @return The ID of the Public IP Address on which to receive traffic.
      * 
-     * &gt; **Note:** This must be an Azure Public IP address ID also specified in the `public_ip_address_ids` list.
+     * &gt; **Note:** This must be an Azure Public IP address ID also specified in the `publicIpAddressIds` list.
      * 
      */
     public String publicIpAddressId() {

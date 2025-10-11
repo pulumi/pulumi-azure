@@ -13,13 +13,13 @@ namespace Pulumi.Azure.AppService.Inputs
     public sealed class LinuxWebAppSiteConfigAutoHealSettingTriggerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `requests` block as defined above.
+        /// A `Requests` block as defined above.
         /// </summary>
         [Input("requests")]
         public Input<Inputs.LinuxWebAppSiteConfigAutoHealSettingTriggerRequestsArgs>? Requests { get; set; }
 
         /// <summary>
-        /// A `slow_request` blocks as defined above.
+        /// A `SlowRequest` blocks as defined above.
         /// </summary>
         [Input("slowRequest")]
         public Input<Inputs.LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs>? SlowRequest { get; set; }
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.AppService.Inputs
         private InputList<Inputs.LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs>? _slowRequestWithPaths;
 
         /// <summary>
-        /// One or more `slow_request_with_path` blocks as defined above.
+        /// One or more `SlowRequestWithPath` blocks as defined above.
         /// </summary>
         public InputList<Inputs.LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs> SlowRequestWithPaths
         {
@@ -40,7 +40,7 @@ namespace Pulumi.Azure.AppService.Inputs
         private InputList<Inputs.LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs>? _statusCodes;
 
         /// <summary>
-        /// One or more `status_code` blocks as defined above.
+        /// One or more `StatusCode` blocks as defined above.
         /// </summary>
         public InputList<Inputs.LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs> StatusCodes
         {

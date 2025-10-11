@@ -23,7 +23,7 @@ public final class VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigura
     /**
      * @return The ID of the Subnet to create the listener. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** `sql_virtual_machine_id` should match with the SQL Virtual Machines specified in `replica`.
+     * &gt; **Note:** `sqlVirtualMachineId` should match with the SQL Virtual Machines specified in `replica`.
      * 
      */
     private String subnetId;
@@ -46,7 +46,7 @@ public final class VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigura
     /**
      * @return The ID of the Subnet to create the listener. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** `sql_virtual_machine_id` should match with the SQL Virtual Machines specified in `replica`.
+     * &gt; **Note:** `sqlVirtualMachineId` should match with the SQL Virtual Machines specified in `replica`.
      * 
      */
     public String subnetId() {

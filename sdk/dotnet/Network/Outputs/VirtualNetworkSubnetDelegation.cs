@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// A `service_delegation` block as defined below.
+        /// A `ServiceDelegation` block as defined below.
         /// </summary>
         public readonly Outputs.VirtualNetworkSubnetDelegationServiceDelegation ServiceDelegation;
 

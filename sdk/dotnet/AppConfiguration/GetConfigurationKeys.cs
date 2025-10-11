@@ -165,7 +165,7 @@ namespace Pulumi.Azure.AppConfiguration
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A list of `items` blocks as defined below.
+        /// A list of `Items` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetConfigurationKeysItemResult> Items;
         /// <summary>

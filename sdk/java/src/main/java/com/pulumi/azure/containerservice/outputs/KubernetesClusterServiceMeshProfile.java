@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class KubernetesClusterServiceMeshProfile {
     /**
-     * @return A `certificate_authority` block as defined below. When this property is specified, `key_vault_secrets_provider` is also required to be set. This configuration allows you to bring your own root certificate and keys for Istio CA in the Istio-based service mesh add-on for Azure Kubernetes Service.
+     * @return A `certificateAuthority` block as defined below. When this property is specified, `keyVaultSecretsProvider` is also required to be set. This configuration allows you to bring your own root certificate and keys for Istio CA in the Istio-based service mesh add-on for Azure Kubernetes Service.
      * 
      */
     private @Nullable KubernetesClusterServiceMeshProfileCertificateAuthority certificateAuthority;
@@ -47,7 +47,7 @@ public final class KubernetesClusterServiceMeshProfile {
 
     private KubernetesClusterServiceMeshProfile() {}
     /**
-     * @return A `certificate_authority` block as defined below. When this property is specified, `key_vault_secrets_provider` is also required to be set. This configuration allows you to bring your own root certificate and keys for Istio CA in the Istio-based service mesh add-on for Azure Kubernetes Service.
+     * @return A `certificateAuthority` block as defined below. When this property is specified, `keyVaultSecretsProvider` is also required to be set. This configuration allows you to bring your own root certificate and keys for Istio CA in the Istio-based service mesh add-on for Azure Kubernetes Service.
      * 
      */
     public Optional<KubernetesClusterServiceMeshProfileCertificateAuthority> certificateAuthority() {

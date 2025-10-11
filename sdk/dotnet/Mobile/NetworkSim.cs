@@ -170,7 +170,7 @@ namespace Pulumi.Azure.Mobile
         public Output<string> SimState { get; private set; } = null!;
 
         /// <summary>
-        /// A `static_ip_configuration` block as defined below.
+        /// A `StaticIpConfiguration` block as defined below.
         /// </summary>
         [Output("staticIpConfigurations")]
         public Output<ImmutableArray<Outputs.NetworkSimStaticIpConfiguration>> StaticIpConfigurations { get; private set; } = null!;
@@ -310,7 +310,7 @@ namespace Pulumi.Azure.Mobile
         private InputList<Inputs.NetworkSimStaticIpConfigurationArgs>? _staticIpConfigurations;
 
         /// <summary>
-        /// A `static_ip_configuration` block as defined below.
+        /// A `StaticIpConfiguration` block as defined below.
         /// </summary>
         public InputList<Inputs.NetworkSimStaticIpConfigurationArgs> StaticIpConfigurations
         {
@@ -404,7 +404,7 @@ namespace Pulumi.Azure.Mobile
         private InputList<Inputs.NetworkSimStaticIpConfigurationGetArgs>? _staticIpConfigurations;
 
         /// <summary>
-        /// A `static_ip_configuration` block as defined below.
+        /// A `StaticIpConfiguration` block as defined below.
         /// </summary>
         public InputList<Inputs.NetworkSimStaticIpConfigurationGetArgs> StaticIpConfigurations
         {

@@ -123,7 +123,7 @@ namespace Pulumi.Azure.Network
     public partial class NetworkManagerConnectivityConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// One or more `applies_to_group` blocks as defined below.
+        /// One or more `AppliesToGroup` blocks as defined below.
         /// </summary>
         [Output("appliesToGroups")]
         public Output<ImmutableArray<Outputs.NetworkManagerConnectivityConfigurationAppliesToGroup>> AppliesToGroups { get; private set; } = null!;
@@ -135,7 +135,7 @@ namespace Pulumi.Azure.Network
         public Output<string> ConnectivityTopology { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether to remove current existing Virtual Network Peering in the Connectivity Configuration affected scope. Possible values are `true` and `false`.
+        /// Indicates whether to remove current existing Virtual Network Peering in the Connectivity Configuration affected scope. Possible values are `True` and `False`.
         /// </summary>
         [Output("deleteExistingPeeringEnabled")]
         public Output<bool?> DeleteExistingPeeringEnabled { get; private set; } = null!;
@@ -147,13 +147,13 @@ namespace Pulumi.Azure.Network
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether to global mesh is supported. Possible values are `true` and `false`.
+        /// Indicates whether to global mesh is supported. Possible values are `True` and `False`.
         /// </summary>
         [Output("globalMeshEnabled")]
         public Output<bool?> GlobalMeshEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A `hub` block as defined below.
+        /// A `Hub` block as defined below.
         /// </summary>
         [Output("hub")]
         public Output<Outputs.NetworkManagerConnectivityConfigurationHub?> Hub { get; private set; } = null!;
@@ -220,7 +220,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.NetworkManagerConnectivityConfigurationAppliesToGroupArgs>? _appliesToGroups;
 
         /// <summary>
-        /// One or more `applies_to_group` blocks as defined below.
+        /// One or more `AppliesToGroup` blocks as defined below.
         /// </summary>
         public InputList<Inputs.NetworkManagerConnectivityConfigurationAppliesToGroupArgs> AppliesToGroups
         {
@@ -235,7 +235,7 @@ namespace Pulumi.Azure.Network
         public Input<string> ConnectivityTopology { get; set; } = null!;
 
         /// <summary>
-        /// Indicates whether to remove current existing Virtual Network Peering in the Connectivity Configuration affected scope. Possible values are `true` and `false`.
+        /// Indicates whether to remove current existing Virtual Network Peering in the Connectivity Configuration affected scope. Possible values are `True` and `False`.
         /// </summary>
         [Input("deleteExistingPeeringEnabled")]
         public Input<bool>? DeleteExistingPeeringEnabled { get; set; }
@@ -247,13 +247,13 @@ namespace Pulumi.Azure.Network
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Indicates whether to global mesh is supported. Possible values are `true` and `false`.
+        /// Indicates whether to global mesh is supported. Possible values are `True` and `False`.
         /// </summary>
         [Input("globalMeshEnabled")]
         public Input<bool>? GlobalMeshEnabled { get; set; }
 
         /// <summary>
-        /// A `hub` block as defined below.
+        /// A `Hub` block as defined below.
         /// </summary>
         [Input("hub")]
         public Input<Inputs.NetworkManagerConnectivityConfigurationHubArgs>? Hub { get; set; }
@@ -282,7 +282,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.NetworkManagerConnectivityConfigurationAppliesToGroupGetArgs>? _appliesToGroups;
 
         /// <summary>
-        /// One or more `applies_to_group` blocks as defined below.
+        /// One or more `AppliesToGroup` blocks as defined below.
         /// </summary>
         public InputList<Inputs.NetworkManagerConnectivityConfigurationAppliesToGroupGetArgs> AppliesToGroups
         {
@@ -297,7 +297,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? ConnectivityTopology { get; set; }
 
         /// <summary>
-        /// Indicates whether to remove current existing Virtual Network Peering in the Connectivity Configuration affected scope. Possible values are `true` and `false`.
+        /// Indicates whether to remove current existing Virtual Network Peering in the Connectivity Configuration affected scope. Possible values are `True` and `False`.
         /// </summary>
         [Input("deleteExistingPeeringEnabled")]
         public Input<bool>? DeleteExistingPeeringEnabled { get; set; }
@@ -309,13 +309,13 @@ namespace Pulumi.Azure.Network
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Indicates whether to global mesh is supported. Possible values are `true` and `false`.
+        /// Indicates whether to global mesh is supported. Possible values are `True` and `False`.
         /// </summary>
         [Input("globalMeshEnabled")]
         public Input<bool>? GlobalMeshEnabled { get; set; }
 
         /// <summary>
-        /// A `hub` block as defined below.
+        /// A `Hub` block as defined below.
         /// </summary>
         [Input("hub")]
         public Input<Inputs.NetworkManagerConnectivityConfigurationHubGetArgs>? Hub { get; set; }

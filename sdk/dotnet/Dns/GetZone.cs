@@ -132,7 +132,7 @@ namespace Pulumi.Azure.Dns
         /// <summary>
         /// The Name of the Resource Group where the DNS Zone exists.
         /// If the Name of the Resource Group is not provided, the first DNS Zone from the list of DNS Zones
-        /// in your subscription that matches `name` will be returned.
+        /// in your subscription that matches `Name` will be returned.
         /// </summary>
         [Input("resourceGroupName")]
         public string? ResourceGroupName { get; set; }
@@ -154,7 +154,7 @@ namespace Pulumi.Azure.Dns
         /// <summary>
         /// The Name of the Resource Group where the DNS Zone exists.
         /// If the Name of the Resource Group is not provided, the first DNS Zone from the list of DNS Zones
-        /// in your subscription that matches `name` will be returned.
+        /// in your subscription that matches `Name` will be returned.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

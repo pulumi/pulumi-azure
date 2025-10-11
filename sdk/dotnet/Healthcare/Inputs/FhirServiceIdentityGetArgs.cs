@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Healthcare.Inputs
         private InputList<string>? _identityIds;
 
         /// <summary>
-        /// A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+        /// A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `Type` is set to `UserAssigned`.
         /// </summary>
         public InputList<string> IdentityIds
         {

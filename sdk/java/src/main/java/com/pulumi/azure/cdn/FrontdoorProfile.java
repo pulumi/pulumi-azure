@@ -116,18 +116,18 @@ public class FrontdoorProfile extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.identity);
     }
     /**
-     * One or more `log_scrubbing_rule` blocks as defined below.
+     * One or more `logScrubbingRule` blocks as defined below.
      * 
-     * &gt; **Note:** When no `log_scrubbing_rule` blocks are defined, log scrubbing will be automatically `disabled`. When one or more `log_scrubbing_rule` blocks are present, log scrubbing will be `enabled`.
+     * &gt; **Note:** When no `logScrubbingRule` blocks are defined, log scrubbing will be automatically `disabled`. When one or more `logScrubbingRule` blocks are present, log scrubbing will be `enabled`.
      * 
      */
     @Export(name="logScrubbingRules", refs={List.class,FrontdoorProfileLogScrubbingRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<FrontdoorProfileLogScrubbingRule>> logScrubbingRules;
 
     /**
-     * @return One or more `log_scrubbing_rule` blocks as defined below.
+     * @return One or more `logScrubbingRule` blocks as defined below.
      * 
-     * &gt; **Note:** When no `log_scrubbing_rule` blocks are defined, log scrubbing will be automatically `disabled`. When one or more `log_scrubbing_rule` blocks are present, log scrubbing will be `enabled`.
+     * &gt; **Note:** When no `logScrubbingRule` blocks are defined, log scrubbing will be automatically `disabled`. When one or more `logScrubbingRule` blocks are present, log scrubbing will be `enabled`.
      * 
      */
     public Output<Optional<List<FrontdoorProfileLogScrubbingRule>>> logScrubbingRules() {

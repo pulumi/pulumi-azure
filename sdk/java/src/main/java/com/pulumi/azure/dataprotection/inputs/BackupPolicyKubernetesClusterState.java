@@ -34,14 +34,14 @@ public final class BackupPolicyKubernetesClusterState extends com.pulumi.resourc
     }
 
     /**
-     * A `default_retention_rule` block as defined below. Changing this forces a new resource to be created.
+     * A `defaultRetentionRule` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="defaultRetentionRule")
     private @Nullable Output<BackupPolicyKubernetesClusterDefaultRetentionRuleArgs> defaultRetentionRule;
 
     /**
-     * @return A `default_retention_rule` block as defined below. Changing this forces a new resource to be created.
+     * @return A `defaultRetentionRule` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<BackupPolicyKubernetesClusterDefaultRetentionRuleArgs>> defaultRetentionRule() {
@@ -79,14 +79,14 @@ public final class BackupPolicyKubernetesClusterState extends com.pulumi.resourc
     }
 
     /**
-     * One or more `retention_rule` blocks as defined below. Changing this forces a new resource to be created.
+     * One or more `retentionRule` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="retentionRules")
     private @Nullable Output<List<BackupPolicyKubernetesClusterRetentionRuleArgs>> retentionRules;
 
     /**
-     * @return One or more `retention_rule` blocks as defined below. Changing this forces a new resource to be created.
+     * @return One or more `retentionRule` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<BackupPolicyKubernetesClusterRetentionRuleArgs>>> retentionRules() {
@@ -185,7 +185,7 @@ public final class BackupPolicyKubernetesClusterState extends com.pulumi.resourc
         }
 
         /**
-         * @param defaultRetentionRule A `default_retention_rule` block as defined below. Changing this forces a new resource to be created.
+         * @param defaultRetentionRule A `defaultRetentionRule` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class BackupPolicyKubernetesClusterState extends com.pulumi.resourc
         }
 
         /**
-         * @param defaultRetentionRule A `default_retention_rule` block as defined below. Changing this forces a new resource to be created.
+         * @param defaultRetentionRule A `defaultRetentionRule` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class BackupPolicyKubernetesClusterState extends com.pulumi.resourc
         }
 
         /**
-         * @param retentionRules One or more `retention_rule` blocks as defined below. Changing this forces a new resource to be created.
+         * @param retentionRules One or more `retentionRule` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class BackupPolicyKubernetesClusterState extends com.pulumi.resourc
         }
 
         /**
-         * @param retentionRules One or more `retention_rule` blocks as defined below. Changing this forces a new resource to be created.
+         * @param retentionRules One or more `retentionRule` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class BackupPolicyKubernetesClusterState extends com.pulumi.resourc
         }
 
         /**
-         * @param retentionRules One or more `retention_rule` blocks as defined below. Changing this forces a new resource to be created.
+         * @param retentionRules One or more `retentionRule` blocks as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -99,14 +99,14 @@ public final class WindowsFunctionAppSlotSiteConfigArgs extends com.pulumi.resou
     }
 
     /**
-     * an `app_service_logs` block as detailed below.
+     * an `appServiceLogs` block as detailed below.
      * 
      */
     @Import(name="appServiceLogs")
     private @Nullable Output<WindowsFunctionAppSlotSiteConfigAppServiceLogsArgs> appServiceLogs;
 
     /**
-     * @return an `app_service_logs` block as detailed below.
+     * @return an `appServiceLogs` block as detailed below.
      * 
      */
     public Optional<Output<WindowsFunctionAppSlotSiteConfigAppServiceLogsArgs>> appServiceLogs() {
@@ -144,14 +144,14 @@ public final class WindowsFunctionAppSlotSiteConfigArgs extends com.pulumi.resou
     }
 
     /**
-     * an `application_stack` block as detailed below.
+     * an `applicationStack` block as detailed below.
      * 
      */
     @Import(name="applicationStack")
     private @Nullable Output<WindowsFunctionAppSlotSiteConfigApplicationStackArgs> applicationStack;
 
     /**
-     * @return an `application_stack` block as detailed below.
+     * @return an `applicationStack` block as detailed below.
      * 
      */
     public Optional<Output<WindowsFunctionAppSlotSiteConfigApplicationStackArgs>> applicationStack() {
@@ -249,14 +249,14 @@ public final class WindowsFunctionAppSlotSiteConfigArgs extends com.pulumi.resou
     }
 
     /**
-     * The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `0`. Only valid in conjunction with `health_check_path`.
+     * The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `0`. Only valid in conjunction with `healthCheckPath`.
      * 
      */
     @Import(name="healthCheckEvictionTimeInMin")
     private @Nullable Output<Integer> healthCheckEvictionTimeInMin;
 
     /**
-     * @return The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `0`. Only valid in conjunction with `health_check_path`.
+     * @return The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `0`. Only valid in conjunction with `healthCheckPath`.
      * 
      */
     public Optional<Output<Integer>> healthCheckEvictionTimeInMin() {
@@ -294,14 +294,14 @@ public final class WindowsFunctionAppSlotSiteConfigArgs extends com.pulumi.resou
     }
 
     /**
-     * The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+     * The Default action for traffic that does not match any `ipRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
      * 
      */
     @Import(name="ipRestrictionDefaultAction")
     private @Nullable Output<String> ipRestrictionDefaultAction;
 
     /**
-     * @return The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+     * @return The Default action for traffic that does not match any `ipRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
      * 
      */
     public Optional<Output<String>> ipRestrictionDefaultAction() {
@@ -309,14 +309,14 @@ public final class WindowsFunctionAppSlotSiteConfigArgs extends com.pulumi.resou
     }
 
     /**
-     * an `ip_restriction` block as detailed below.
+     * an `ipRestriction` block as detailed below.
      * 
      */
     @Import(name="ipRestrictions")
     private @Nullable Output<List<WindowsFunctionAppSlotSiteConfigIpRestrictionArgs>> ipRestrictions;
 
     /**
-     * @return an `ip_restriction` block as detailed below.
+     * @return an `ipRestriction` block as detailed below.
      * 
      */
     public Optional<Output<List<WindowsFunctionAppSlotSiteConfigIpRestrictionArgs>>> ipRestrictions() {
@@ -433,14 +433,14 @@ public final class WindowsFunctionAppSlotSiteConfigArgs extends com.pulumi.resou
     }
 
     /**
-     * The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+     * The Default action for traffic that does not match any `scmIpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
      * 
      */
     @Import(name="scmIpRestrictionDefaultAction")
     private @Nullable Output<String> scmIpRestrictionDefaultAction;
 
     /**
-     * @return The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+     * @return The Default action for traffic that does not match any `scmIpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
      * 
      */
     public Optional<Output<String>> scmIpRestrictionDefaultAction() {
@@ -448,14 +448,14 @@ public final class WindowsFunctionAppSlotSiteConfigArgs extends com.pulumi.resou
     }
 
     /**
-     * a `scm_ip_restriction` block as detailed below.
+     * a `scmIpRestriction` block as detailed below.
      * 
      */
     @Import(name="scmIpRestrictions")
     private @Nullable Output<List<WindowsFunctionAppSlotSiteConfigScmIpRestrictionArgs>> scmIpRestrictions;
 
     /**
-     * @return a `scm_ip_restriction` block as detailed below.
+     * @return a `scmIpRestriction` block as detailed below.
      * 
      */
     public Optional<Output<List<WindowsFunctionAppSlotSiteConfigScmIpRestrictionArgs>>> scmIpRestrictions() {
@@ -493,14 +493,14 @@ public final class WindowsFunctionAppSlotSiteConfigArgs extends com.pulumi.resou
     }
 
     /**
-     * Should the Windows Function App `ip_restriction` configuration be used for the SCM also.
+     * Should the Windows Function App `ipRestriction` configuration be used for the SCM also.
      * 
      */
     @Import(name="scmUseMainIpRestriction")
     private @Nullable Output<Boolean> scmUseMainIpRestriction;
 
     /**
-     * @return Should the Windows Function App `ip_restriction` configuration be used for the SCM also.
+     * @return Should the Windows Function App `ipRestriction` configuration be used for the SCM also.
      * 
      */
     public Optional<Output<Boolean>> scmUseMainIpRestriction() {
@@ -748,7 +748,7 @@ public final class WindowsFunctionAppSlotSiteConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param appServiceLogs an `app_service_logs` block as detailed below.
+         * @param appServiceLogs an `appServiceLogs` block as detailed below.
          * 
          * @return builder
          * 
@@ -759,7 +759,7 @@ public final class WindowsFunctionAppSlotSiteConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param appServiceLogs an `app_service_logs` block as detailed below.
+         * @param appServiceLogs an `appServiceLogs` block as detailed below.
          * 
          * @return builder
          * 
@@ -811,7 +811,7 @@ public final class WindowsFunctionAppSlotSiteConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param applicationStack an `application_stack` block as detailed below.
+         * @param applicationStack an `applicationStack` block as detailed below.
          * 
          * @return builder
          * 
@@ -822,7 +822,7 @@ public final class WindowsFunctionAppSlotSiteConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param applicationStack an `application_stack` block as detailed below.
+         * @param applicationStack an `applicationStack` block as detailed below.
          * 
          * @return builder
          * 
@@ -968,7 +968,7 @@ public final class WindowsFunctionAppSlotSiteConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param healthCheckEvictionTimeInMin The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `0`. Only valid in conjunction with `health_check_path`.
+         * @param healthCheckEvictionTimeInMin The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `0`. Only valid in conjunction with `healthCheckPath`.
          * 
          * @return builder
          * 
@@ -979,7 +979,7 @@ public final class WindowsFunctionAppSlotSiteConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param healthCheckEvictionTimeInMin The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `0`. Only valid in conjunction with `health_check_path`.
+         * @param healthCheckEvictionTimeInMin The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `0`. Only valid in conjunction with `healthCheckPath`.
          * 
          * @return builder
          * 
@@ -1031,7 +1031,7 @@ public final class WindowsFunctionAppSlotSiteConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param ipRestrictionDefaultAction The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         * @param ipRestrictionDefaultAction The Default action for traffic that does not match any `ipRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
          * 
          * @return builder
          * 
@@ -1042,7 +1042,7 @@ public final class WindowsFunctionAppSlotSiteConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param ipRestrictionDefaultAction The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         * @param ipRestrictionDefaultAction The Default action for traffic that does not match any `ipRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
          * 
          * @return builder
          * 
@@ -1052,7 +1052,7 @@ public final class WindowsFunctionAppSlotSiteConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param ipRestrictions an `ip_restriction` block as detailed below.
+         * @param ipRestrictions an `ipRestriction` block as detailed below.
          * 
          * @return builder
          * 
@@ -1063,7 +1063,7 @@ public final class WindowsFunctionAppSlotSiteConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param ipRestrictions an `ip_restriction` block as detailed below.
+         * @param ipRestrictions an `ipRestriction` block as detailed below.
          * 
          * @return builder
          * 
@@ -1073,7 +1073,7 @@ public final class WindowsFunctionAppSlotSiteConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param ipRestrictions an `ip_restriction` block as detailed below.
+         * @param ipRestrictions an `ipRestriction` block as detailed below.
          * 
          * @return builder
          * 
@@ -1234,7 +1234,7 @@ public final class WindowsFunctionAppSlotSiteConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param scmIpRestrictionDefaultAction The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         * @param scmIpRestrictionDefaultAction The Default action for traffic that does not match any `scmIpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
          * 
          * @return builder
          * 
@@ -1245,7 +1245,7 @@ public final class WindowsFunctionAppSlotSiteConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param scmIpRestrictionDefaultAction The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+         * @param scmIpRestrictionDefaultAction The Default action for traffic that does not match any `scmIpRestriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
          * 
          * @return builder
          * 
@@ -1255,7 +1255,7 @@ public final class WindowsFunctionAppSlotSiteConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param scmIpRestrictions a `scm_ip_restriction` block as detailed below.
+         * @param scmIpRestrictions a `scmIpRestriction` block as detailed below.
          * 
          * @return builder
          * 
@@ -1266,7 +1266,7 @@ public final class WindowsFunctionAppSlotSiteConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param scmIpRestrictions a `scm_ip_restriction` block as detailed below.
+         * @param scmIpRestrictions a `scmIpRestriction` block as detailed below.
          * 
          * @return builder
          * 
@@ -1276,7 +1276,7 @@ public final class WindowsFunctionAppSlotSiteConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param scmIpRestrictions a `scm_ip_restriction` block as detailed below.
+         * @param scmIpRestrictions a `scmIpRestriction` block as detailed below.
          * 
          * @return builder
          * 
@@ -1328,7 +1328,7 @@ public final class WindowsFunctionAppSlotSiteConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param scmUseMainIpRestriction Should the Windows Function App `ip_restriction` configuration be used for the SCM also.
+         * @param scmUseMainIpRestriction Should the Windows Function App `ipRestriction` configuration be used for the SCM also.
          * 
          * @return builder
          * 
@@ -1339,7 +1339,7 @@ public final class WindowsFunctionAppSlotSiteConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param scmUseMainIpRestriction Should the Windows Function App `ip_restriction` configuration be used for the SCM also.
+         * @param scmUseMainIpRestriction Should the Windows Function App `ipRestriction` configuration be used for the SCM also.
          * 
          * @return builder
          * 

@@ -121,42 +121,42 @@ public class SpringCloudService extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.buildAgentPoolSize);
     }
     /**
-     * A `config_server_git_setting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
+     * A `configServerGitSetting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
      * 
      */
     @Export(name="configServerGitSetting", refs={SpringCloudServiceConfigServerGitSetting.class}, tree="[0]")
     private Output</* @Nullable */ SpringCloudServiceConfigServerGitSetting> configServerGitSetting;
 
     /**
-     * @return A `config_server_git_setting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
+     * @return A `configServerGitSetting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
      * 
      */
     public Output<Optional<SpringCloudServiceConfigServerGitSetting>> configServerGitSetting() {
         return Codegen.optional(this.configServerGitSetting);
     }
     /**
-     * One or more `container_registry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+     * One or more `containerRegistry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
      * 
      */
     @Export(name="containerRegistries", refs={List.class,SpringCloudServiceContainerRegistry.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SpringCloudServiceContainerRegistry>> containerRegistries;
 
     /**
-     * @return One or more `container_registry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+     * @return One or more `containerRegistry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
      * 
      */
     public Output<Optional<List<SpringCloudServiceContainerRegistry>>> containerRegistries() {
         return Codegen.optional(this.containerRegistries);
     }
     /**
-     * A `default_build_service` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+     * A `defaultBuildService` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
      * 
      */
     @Export(name="defaultBuildService", refs={SpringCloudServiceDefaultBuildService.class}, tree="[0]")
     private Output</* @Nullable */ SpringCloudServiceDefaultBuildService> defaultBuildService;
 
     /**
-     * @return A `default_build_service` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+     * @return A `defaultBuildService` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
      * 
      */
     public Output<Optional<SpringCloudServiceDefaultBuildService>> defaultBuildService() {
@@ -191,14 +191,14 @@ public class SpringCloudService extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.logStreamPublicEndpointEnabled);
     }
     /**
-     * The resource Id of the Managed Environment that the Spring Apps instance builds on. Can only be specified when `sku_tier` is set to `StandardGen2`.
+     * The resource Id of the Managed Environment that the Spring Apps instance builds on. Can only be specified when `skuTier` is set to `StandardGen2`.
      * 
      */
     @Export(name="managedEnvironmentId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> managedEnvironmentId;
 
     /**
-     * @return The resource Id of the Managed Environment that the Spring Apps instance builds on. Can only be specified when `sku_tier` is set to `StandardGen2`.
+     * @return The resource Id of the Managed Environment that the Spring Apps instance builds on. Can only be specified when `skuTier` is set to `StandardGen2`.
      * 
      */
     public Output<Optional<String>> managedEnvironmentId() {
@@ -261,14 +261,14 @@ public class SpringCloudService extends com.pulumi.resources.CustomResource {
         return this.outboundPublicIpAddresses;
     }
     /**
-     * A list of `required_network_traffic_rules` blocks as defined below.
+     * A list of `requiredNetworkTrafficRules` blocks as defined below.
      * 
      */
     @Export(name="requiredNetworkTrafficRules", refs={List.class,SpringCloudServiceRequiredNetworkTrafficRule.class}, tree="[0,1]")
     private Output<List<SpringCloudServiceRequiredNetworkTrafficRule>> requiredNetworkTrafficRules;
 
     /**
-     * @return A list of `required_network_traffic_rules` blocks as defined below.
+     * @return A list of `requiredNetworkTrafficRules` blocks as defined below.
      * 
      */
     public Output<List<SpringCloudServiceRequiredNetworkTrafficRule>> requiredNetworkTrafficRules() {
@@ -331,14 +331,14 @@ public class SpringCloudService extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.skuName);
     }
     /**
-     * Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managed_environment_id` is defined. Changing this forces a new resource to be created.
+     * Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managedEnvironmentId` is defined. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="skuTier", refs={String.class}, tree="[0]")
     private Output<String> skuTier;
 
     /**
-     * @return Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managed_environment_id` is defined. Changing this forces a new resource to be created.
+     * @return Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managedEnvironmentId` is defined. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> skuTier() {

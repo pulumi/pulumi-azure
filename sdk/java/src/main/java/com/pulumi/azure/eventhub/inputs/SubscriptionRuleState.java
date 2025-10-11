@@ -33,14 +33,14 @@ public final class SubscriptionRuleState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A `correlation_filter` block as documented below to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `CorrelationFilter`.
+     * A `correlationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
      * 
      */
     @Import(name="correlationFilter")
     private @Nullable Output<SubscriptionRuleCorrelationFilterArgs> correlationFilter;
 
     /**
-     * @return A `correlation_filter` block as documented below to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `CorrelationFilter`.
+     * @return A `correlationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
      * 
      */
     public Optional<Output<SubscriptionRuleCorrelationFilterArgs>> correlationFilter() {
@@ -78,14 +78,14 @@ public final class SubscriptionRuleState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `SqlFilter`.
+     * Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filterType` is set to `SqlFilter`.
      * 
      */
     @Import(name="sqlFilter")
     private @Nullable Output<String> sqlFilter;
 
     /**
-     * @return Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `SqlFilter`.
+     * @return Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filterType` is set to `SqlFilter`.
      * 
      */
     public Optional<Output<String>> sqlFilter() {
@@ -166,7 +166,7 @@ public final class SubscriptionRuleState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param correlationFilter A `correlation_filter` block as documented below to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `CorrelationFilter`.
+         * @param correlationFilter A `correlationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class SubscriptionRuleState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param correlationFilter A `correlation_filter` block as documented below to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `CorrelationFilter`.
+         * @param correlationFilter A `correlationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class SubscriptionRuleState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param sqlFilter Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `SqlFilter`.
+         * @param sqlFilter Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filterType` is set to `SqlFilter`.
          * 
          * @return builder
          * 
@@ -240,7 +240,7 @@ public final class SubscriptionRuleState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param sqlFilter Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `SqlFilter`.
+         * @param sqlFilter Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filterType` is set to `SqlFilter`.
          * 
          * @return builder
          * 

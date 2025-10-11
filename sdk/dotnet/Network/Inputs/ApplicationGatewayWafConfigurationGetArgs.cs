@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<Inputs.ApplicationGatewayWafConfigurationDisabledRuleGroupGetArgs>? _disabledRuleGroups;
 
         /// <summary>
-        /// One or more `disabled_rule_group` blocks as defined below.
+        /// One or more `DisabledRuleGroup` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayWafConfigurationDisabledRuleGroupGetArgs> DisabledRuleGroups
         {
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<Inputs.ApplicationGatewayWafConfigurationExclusionGetArgs>? _exclusions;
 
         /// <summary>
-        /// One or more `exclusion` blocks as defined below.
+        /// One or more `Exclusion` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayWafConfigurationExclusionGetArgs> Exclusions
         {
@@ -61,7 +61,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<int>? MaxRequestBodySizeKb { get; set; }
 
         /// <summary>
-        /// Is Request Body Inspection enabled? Defaults to `true`.
+        /// Is Request Body Inspection enabled? Defaults to `True`.
         /// </summary>
         [Input("requestBodyCheck")]
         public Input<bool>? RequestBodyCheck { get; set; }

@@ -107,28 +107,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:devcenter/catalog:Catalog")
 public class Catalog extends com.pulumi.resources.CustomResource {
     /**
-     * A `catalog_adogit` block as defined below.
+     * A `catalogAdogit` block as defined below.
      * 
      */
     @Export(name="catalogAdogit", refs={CatalogCatalogAdogit.class}, tree="[0]")
     private Output</* @Nullable */ CatalogCatalogAdogit> catalogAdogit;
 
     /**
-     * @return A `catalog_adogit` block as defined below.
+     * @return A `catalogAdogit` block as defined below.
      * 
      */
     public Output<Optional<CatalogCatalogAdogit>> catalogAdogit() {
         return Codegen.optional(this.catalogAdogit);
     }
     /**
-     * A `catalog_github` block as defined below.
+     * A `catalogGithub` block as defined below.
      * 
      */
     @Export(name="catalogGithub", refs={CatalogCatalogGithub.class}, tree="[0]")
     private Output</* @Nullable */ CatalogCatalogGithub> catalogGithub;
 
     /**
-     * @return A `catalog_github` block as defined below.
+     * @return A `catalogGithub` block as defined below.
      * 
      */
     public Output<Optional<CatalogCatalogGithub>> catalogGithub() {

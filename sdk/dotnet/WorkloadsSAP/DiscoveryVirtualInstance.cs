@@ -83,7 +83,7 @@ namespace Pulumi.Azure.WorkloadsSAP
         public Output<string> Environment { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.DiscoveryVirtualInstanceIdentity?> Identity { get; private set; } = null!;
@@ -195,7 +195,7 @@ namespace Pulumi.Azure.WorkloadsSAP
         public Input<string> Environment { get; set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.DiscoveryVirtualInstanceIdentityArgs>? Identity { get; set; }
@@ -275,7 +275,7 @@ namespace Pulumi.Azure.WorkloadsSAP
         public Input<string>? Environment { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below.
+        /// An `Identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.DiscoveryVirtualInstanceIdentityGetArgs>? Identity { get; set; }

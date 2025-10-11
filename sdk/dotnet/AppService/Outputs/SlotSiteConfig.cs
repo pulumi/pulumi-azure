@@ -24,9 +24,9 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? AcrUserManagedIdentityClientId;
         /// <summary>
-        /// Should the slot be loaded at all times? Defaults to `false`.
+        /// Should the slot be loaded at all times? Defaults to `False`.
         /// 
-        /// &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `always_on` must be set to `false`.
+        /// &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `AlwaysOn` must be set to `False`.
         /// </summary>
         public readonly bool? AlwaysOn;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? AutoSwapSlotName;
         /// <summary>
-        /// A `cors` block as defined below.
+        /// A `Cors` block as defined below.
         /// </summary>
         public readonly Outputs.SlotSiteConfigCors? Cors;
         /// <summary>
@@ -58,25 +58,25 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? HealthCheckPath;
         /// <summary>
-        /// Is HTTP2 Enabled on this App Service? Defaults to `false`.
+        /// Is HTTP2 Enabled on this App Service? Defaults to `False`.
         /// </summary>
         public readonly bool? Http2Enabled;
         /// <summary>
         /// A list of objects representing ip restrictions as defined below.
         /// 
-        /// &gt; **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+        /// &gt; **NOTE** User has to explicitly set `IpRestriction` to empty slice (`[]`) to remove it.
         /// </summary>
         public readonly ImmutableArray<Outputs.SlotSiteConfigIpRestriction> IpRestrictions;
         /// <summary>
-        /// The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
+        /// The Java Container to use. If specified `JavaVersion` and `JavaContainerVersion` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
         /// </summary>
         public readonly string? JavaContainer;
         /// <summary>
-        /// The version of the Java Container to use. If specified `java_version` and `java_container` must also be specified.
+        /// The version of the Java Container to use. If specified `JavaVersion` and `JavaContainer` must also be specified.
         /// </summary>
         public readonly string? JavaContainerVersion;
         /// <summary>
-        /// The version of Java to use. If specified `java_container` and `java_container_version` must also be specified. Possible values are `1.7`, `1.8`, and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
+        /// The version of Java to use. If specified `JavaContainer` and `JavaContainerVersion` must also be specified. Possible values are `1.7`, `1.8`, and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
         /// </summary>
         public readonly string? JavaVersion;
         /// <summary>
@@ -100,7 +100,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? MinTlsVersion;
         /// <summary>
-        /// The scaled number of workers (for per site scaling) of this App Service Slot. Requires that `per_site_scaling` is enabled on the `azure.appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/azure/app-service/manage-scale-per-app).
+        /// The scaled number of workers (for per site scaling) of this App Service Slot. Requires that `PerSiteScaling` is enabled on the `azure.appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/azure/app-service/manage-scale-per-app).
         /// </summary>
         public readonly int? NumberOfWorkers;
         /// <summary>
@@ -112,7 +112,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? PythonVersion;
         /// <summary>
-        /// Is Remote Debugging Enabled? Defaults to `false`.
+        /// Is Remote Debugging Enabled? Defaults to `False`.
         /// </summary>
         public readonly bool? RemoteDebuggingEnabled;
         /// <summary>
@@ -120,9 +120,9 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? RemoteDebuggingVersion;
         /// <summary>
-        /// A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
+        /// A list of `ScmIpRestriction` objects representing IP restrictions as defined below.
         /// 
-        /// &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+        /// &gt; **NOTE** User has to explicitly set `ScmIpRestriction` to empty slice (`[]`) to remove it.
         /// </summary>
         public readonly ImmutableArray<Outputs.SlotSiteConfigScmIpRestriction> ScmIpRestrictions;
         /// <summary>
@@ -130,15 +130,15 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? ScmType;
         /// <summary>
-        /// IP security restrictions for scm to use main. Defaults to `false`. 
+        /// IP security restrictions for scm to use main. Defaults to `False`. 
         /// 
-        /// &gt; **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
+        /// &gt; **NOTE** Any `ScmIpRestriction` blocks configured are ignored by the service when `ScmUseMainIpRestriction` is set to `True`. Any scm restrictions will become active if this is subsequently set to `False` or removed.
         /// </summary>
         public readonly bool? ScmUseMainIpRestriction;
         /// <summary>
         /// Should the App Service Slot run in 32 bit mode, rather than 64 bit mode?
         /// 
-        /// &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+        /// &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `Use32BitWorkerProcess` must be set to `True`.
         /// </summary>
         public readonly bool? Use32BitWorkerProcess;
         public readonly bool? VnetRouteAllEnabled;

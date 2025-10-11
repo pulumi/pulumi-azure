@@ -93,50 +93,50 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:notificationhub/hub:Hub")
 public class Hub extends com.pulumi.resources.CustomResource {
     /**
-     * A `apns_credential` block as defined below.
+     * A `apnsCredential` block as defined below.
      * 
-     * &gt; **Note:** Removing the `apns_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we&#39;ll remove this limitation when the SDK bug is fixed.
+     * &gt; **Note:** Removing the `apnsCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we&#39;ll remove this limitation when the SDK bug is fixed.
      * 
      */
     @Export(name="apnsCredential", refs={HubApnsCredential.class}, tree="[0]")
     private Output</* @Nullable */ HubApnsCredential> apnsCredential;
 
     /**
-     * @return A `apns_credential` block as defined below.
+     * @return A `apnsCredential` block as defined below.
      * 
-     * &gt; **Note:** Removing the `apns_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we&#39;ll remove this limitation when the SDK bug is fixed.
+     * &gt; **Note:** Removing the `apnsCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we&#39;ll remove this limitation when the SDK bug is fixed.
      * 
      */
     public Output<Optional<HubApnsCredential>> apnsCredential() {
         return Codegen.optional(this.apnsCredential);
     }
     /**
-     * A `browser_credential` block as defined below.
+     * A `browserCredential` block as defined below.
      * 
      */
     @Export(name="browserCredential", refs={HubBrowserCredential.class}, tree="[0]")
     private Output</* @Nullable */ HubBrowserCredential> browserCredential;
 
     /**
-     * @return A `browser_credential` block as defined below.
+     * @return A `browserCredential` block as defined below.
      * 
      */
     public Output<Optional<HubBrowserCredential>> browserCredential() {
         return Codegen.optional(this.browserCredential);
     }
     /**
-     * A `gcm_credential` block as defined below.
+     * A `gcmCredential` block as defined below.
      * 
-     * &gt; **Note:** Removing the `gcm_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we&#39;ll remove this limitation when the SDK bug is fixed.
+     * &gt; **Note:** Removing the `gcmCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we&#39;ll remove this limitation when the SDK bug is fixed.
      * 
      */
     @Export(name="gcmCredential", refs={HubGcmCredential.class}, tree="[0]")
     private Output</* @Nullable */ HubGcmCredential> gcmCredential;
 
     /**
-     * @return A `gcm_credential` block as defined below.
+     * @return A `gcmCredential` block as defined below.
      * 
-     * &gt; **Note:** Removing the `gcm_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we&#39;ll remove this limitation when the SDK bug is fixed.
+     * &gt; **Note:** Removing the `gcmCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we&#39;ll remove this limitation when the SDK bug is fixed.
      * 
      */
     public Output<Optional<HubGcmCredential>> gcmCredential() {

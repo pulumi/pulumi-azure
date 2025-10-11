@@ -1613,12 +1613,30 @@ public final class MobileFunctions {
     /**
      * Get information about a Mobile Network Sim.
      * 
+     * ## Example Usage
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork` - 2022-11-01
+     * 
      */
     public static Output<GetNetworkSimResult> getNetworkSim(GetNetworkSimArgs args) {
         return getNetworkSim(args, InvokeOptions.Empty);
     }
     /**
      * Get information about a Mobile Network Sim.
+     * 
+     * ## Example Usage
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static CompletableFuture<GetNetworkSimResult> getNetworkSimPlain(GetNetworkSimPlainArgs args) {
@@ -1627,6 +1645,15 @@ public final class MobileFunctions {
     /**
      * Get information about a Mobile Network Sim.
      * 
+     * ## Example Usage
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork` - 2022-11-01
+     * 
      */
     public static Output<GetNetworkSimResult> getNetworkSim(GetNetworkSimArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:mobile/getNetworkSim:getNetworkSim", TypeShape.of(GetNetworkSimResult.class), args, Utilities.withVersion(options));
@@ -1634,12 +1661,30 @@ public final class MobileFunctions {
     /**
      * Get information about a Mobile Network Sim.
      * 
+     * ## Example Usage
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork` - 2022-11-01
+     * 
      */
     public static Output<GetNetworkSimResult> getNetworkSim(GetNetworkSimArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:mobile/getNetworkSim:getNetworkSim", TypeShape.of(GetNetworkSimResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get information about a Mobile Network Sim.
+     * 
+     * ## Example Usage
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static CompletableFuture<GetNetworkSimResult> getNetworkSimPlain(GetNetworkSimPlainArgs args, InvokeOptions options) {

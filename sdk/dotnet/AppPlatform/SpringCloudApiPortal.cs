@@ -116,7 +116,7 @@ namespace Pulumi.Azure.AppPlatform
         public Output<int?> InstanceCount { get; private set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created. The only possible value is `default`.
+        /// The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created. The only possible value is `Default`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.Azure.AppPlatform
         public Output<string> SpringCloudServiceId { get; private set; } = null!;
 
         /// <summary>
-        /// A `sso` block as defined below.
+        /// A `Sso` block as defined below.
         /// </summary>
         [Output("sso")]
         public Output<Outputs.SpringCloudApiPortalSso?> Sso { get; private set; } = null!;
@@ -222,7 +222,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<int>? InstanceCount { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created. The only possible value is `default`.
+        /// The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created. The only possible value is `Default`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -240,7 +240,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string> SpringCloudServiceId { get; set; } = null!;
 
         /// <summary>
-        /// A `sso` block as defined below.
+        /// A `Sso` block as defined below.
         /// </summary>
         [Input("sso")]
         public Input<Inputs.SpringCloudApiPortalSsoArgs>? Sso { get; set; }
@@ -284,7 +284,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<int>? InstanceCount { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created. The only possible value is `default`.
+        /// The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created. The only possible value is `Default`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -302,7 +302,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string>? SpringCloudServiceId { get; set; }
 
         /// <summary>
-        /// A `sso` block as defined below.
+        /// A `Sso` block as defined below.
         /// </summary>
         [Input("sso")]
         public Input<Inputs.SpringCloudApiPortalSsoGetArgs>? Sso { get; set; }

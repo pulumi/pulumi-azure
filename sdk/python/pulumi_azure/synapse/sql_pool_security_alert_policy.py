@@ -304,6 +304,8 @@ class SqlPoolSecurityAlertPolicy(pulumi.CustomResource):
         """
         Manages a Security Alert Policy for a Synapse SQL Pool.
 
+        ## Example Usage
+
         ## Import
 
         Synapse SQL Pool Security Alert Policies can be imported using the `resource id`, e.g.
@@ -331,6 +333,8 @@ class SqlPoolSecurityAlertPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Security Alert Policy for a Synapse SQL Pool.
+
+        ## Example Usage
 
         ## Import
 

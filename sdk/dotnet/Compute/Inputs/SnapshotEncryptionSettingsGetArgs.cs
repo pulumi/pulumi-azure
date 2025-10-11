@@ -13,13 +13,13 @@ namespace Pulumi.Azure.Compute.Inputs
     public sealed class SnapshotEncryptionSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `disk_encryption_key` block as defined below.
+        /// A `DiskEncryptionKey` block as defined below.
         /// </summary>
         [Input("diskEncryptionKey", required: true)]
         public Input<Inputs.SnapshotEncryptionSettingsDiskEncryptionKeyGetArgs> DiskEncryptionKey { get; set; } = null!;
 
         /// <summary>
-        /// A `key_encryption_key` block as defined below.
+        /// A `KeyEncryptionKey` block as defined below.
         /// </summary>
         [Input("keyEncryptionKey")]
         public Input<Inputs.SnapshotEncryptionSettingsKeyEncryptionKeyGetArgs>? KeyEncryptionKey { get; set; }

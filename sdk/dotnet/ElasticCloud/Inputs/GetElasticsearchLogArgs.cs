@@ -16,7 +16,7 @@ namespace Pulumi.Azure.ElasticCloud.Inputs
         private InputList<Inputs.GetElasticsearchLogFilteringTagInputArgs>? _filteringTags;
 
         /// <summary>
-        /// A list of `filtering_tag` blocks as defined above.
+        /// A list of `FilteringTag` blocks as defined above.
         /// </summary>
         public InputList<Inputs.GetElasticsearchLogFilteringTagInputArgs> FilteringTags
         {

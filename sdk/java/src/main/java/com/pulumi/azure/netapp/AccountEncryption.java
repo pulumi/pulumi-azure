@@ -196,14 +196,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:netapp/accountEncryption:AccountEncryption")
 public class AccountEncryption extends com.pulumi.resources.CustomResource {
     /**
-     * The full resource ID of the cross-tenant key vault. This is recommended when using `federated_client_id` for cross-tenant scenarios to ensure proper validation by Azure APIs.
+     * The full resource ID of the cross-tenant key vault. This is recommended when using `federatedClientId` for cross-tenant scenarios to ensure proper validation by Azure APIs.
      * 
      */
     @Export(name="crossTenantKeyVaultResourceId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> crossTenantKeyVaultResourceId;
 
     /**
-     * @return The full resource ID of the cross-tenant key vault. This is recommended when using `federated_client_id` for cross-tenant scenarios to ensure proper validation by Azure APIs.
+     * @return The full resource ID of the cross-tenant key vault. This is recommended when using `federatedClientId` for cross-tenant scenarios to ensure proper validation by Azure APIs.
      * 
      */
     public Output<Optional<String>> crossTenantKeyVaultResourceId() {
@@ -252,28 +252,28 @@ public class AccountEncryption extends com.pulumi.resources.CustomResource {
         return this.netappAccountId;
     }
     /**
-     * The ID of the System Assigned Manged Identity. Conflicts with `user_assigned_identity_id`.
+     * The ID of the System Assigned Manged Identity. Conflicts with `userAssignedIdentityId`.
      * 
      */
     @Export(name="systemAssignedIdentityPrincipalId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> systemAssignedIdentityPrincipalId;
 
     /**
-     * @return The ID of the System Assigned Manged Identity. Conflicts with `user_assigned_identity_id`.
+     * @return The ID of the System Assigned Manged Identity. Conflicts with `userAssignedIdentityId`.
      * 
      */
     public Output<Optional<String>> systemAssignedIdentityPrincipalId() {
         return Codegen.optional(this.systemAssignedIdentityPrincipalId);
     }
     /**
-     * The ID of the User Assigned Managed Identity. Conflicts with `system_assigned_identity_principal_id`.
+     * The ID of the User Assigned Managed Identity. Conflicts with `systemAssignedIdentityPrincipalId`.
      * 
      */
     @Export(name="userAssignedIdentityId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userAssignedIdentityId;
 
     /**
-     * @return The ID of the User Assigned Managed Identity. Conflicts with `system_assigned_identity_principal_id`.
+     * @return The ID of the User Assigned Managed Identity. Conflicts with `systemAssignedIdentityPrincipalId`.
      * 
      */
     public Output<Optional<String>> userAssignedIdentityId() {

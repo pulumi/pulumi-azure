@@ -22,7 +22,7 @@ namespace Pulumi.Azure.WorkloadsSAP.Outputs
         /// </summary>
         public readonly string SubnetId;
         /// <summary>
-        /// A `virtual_machine_configuration` block as defined below. Changing this forces a new resource to be created.
+        /// A `VirtualMachineConfiguration` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public readonly Outputs.ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfiguration VirtualMachineConfiguration;
 

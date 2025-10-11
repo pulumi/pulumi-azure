@@ -18,12 +18,12 @@ public final class LinuxWebAppAuthSettingsTwitter {
      */
     private String consumerKey;
     /**
-     * @return The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret_setting_name`.
+     * @return The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecretSettingName`.
      * 
      */
     private @Nullable String consumerSecret;
     /**
-     * @return The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret`.
+     * @return The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecret`.
      * 
      */
     private @Nullable String consumerSecretSettingName;
@@ -37,14 +37,14 @@ public final class LinuxWebAppAuthSettingsTwitter {
         return this.consumerKey;
     }
     /**
-     * @return The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret_setting_name`.
+     * @return The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecretSettingName`.
      * 
      */
     public Optional<String> consumerSecret() {
         return Optional.ofNullable(this.consumerSecret);
     }
     /**
-     * @return The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret`.
+     * @return The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumerSecret`.
      * 
      */
     public Optional<String> consumerSecretSettingName() {

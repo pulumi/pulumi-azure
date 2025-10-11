@@ -58,13 +58,13 @@ namespace Pulumi.Azure.AppService
         public Output<ImmutableArray<string>> AppServiceCertificateNotRenewableReasons { get; private set; } = null!;
 
         /// <summary>
-        /// true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `true`.
+        /// true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `True`.
         /// </summary>
         [Output("autoRenew")]
         public Output<bool?> AutoRenew { get; private set; } = null!;
 
         /// <summary>
-        /// State of the Key Vault secret. A `certificates` block as defined below.
+        /// State of the Key Vault secret. A `Certificates` block as defined below.
         /// </summary>
         [Output("certificates")]
         public Output<ImmutableArray<Outputs.CertificateOrderCertificate>> Certificates { get; private set; } = null!;
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The Distinguished Name for the App Service Certificate Order.
         /// 
-        /// &gt; **Note:** Either `csr` or `distinguished_name` must be set - but not both.
+        /// &gt; **Note:** Either `Csr` or `DistinguishedName` must be set - but not both.
         /// </summary>
         [Output("distinguishedName")]
         public Output<string> DistinguishedName { get; private set; } = null!;
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.AppService
         public Output<int?> KeySize { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
+        /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `Global`.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -214,7 +214,7 @@ namespace Pulumi.Azure.AppService
     public sealed class CertificateOrderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `true`.
+        /// true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `True`.
         /// </summary>
         [Input("autoRenew")]
         public Input<bool>? AutoRenew { get; set; }
@@ -228,7 +228,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The Distinguished Name for the App Service Certificate Order.
         /// 
-        /// &gt; **Note:** Either `csr` or `distinguished_name` must be set - but not both.
+        /// &gt; **Note:** Either `Csr` or `DistinguishedName` must be set - but not both.
         /// </summary>
         [Input("distinguishedName")]
         public Input<string>? DistinguishedName { get; set; }
@@ -240,7 +240,7 @@ namespace Pulumi.Azure.AppService
         public Input<int>? KeySize { get; set; }
 
         /// <summary>
-        /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
+        /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `Global`.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -302,7 +302,7 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `true`.
+        /// true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `True`.
         /// </summary>
         [Input("autoRenew")]
         public Input<bool>? AutoRenew { get; set; }
@@ -311,7 +311,7 @@ namespace Pulumi.Azure.AppService
         private InputList<Inputs.CertificateOrderCertificateGetArgs>? _certificates;
 
         /// <summary>
-        /// State of the Key Vault secret. A `certificates` block as defined below.
+        /// State of the Key Vault secret. A `Certificates` block as defined below.
         /// </summary>
         public InputList<Inputs.CertificateOrderCertificateGetArgs> Certificates
         {
@@ -328,7 +328,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The Distinguished Name for the App Service Certificate Order.
         /// 
-        /// &gt; **Note:** Either `csr` or `distinguished_name` must be set - but not both.
+        /// &gt; **Note:** Either `Csr` or `DistinguishedName` must be set - but not both.
         /// </summary>
         [Input("distinguishedName")]
         public Input<string>? DistinguishedName { get; set; }
@@ -364,7 +364,7 @@ namespace Pulumi.Azure.AppService
         public Input<int>? KeySize { get; set; }
 
         /// <summary>
-        /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
+        /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `Global`.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }

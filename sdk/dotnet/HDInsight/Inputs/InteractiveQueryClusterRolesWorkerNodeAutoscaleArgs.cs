@@ -13,7 +13,7 @@ namespace Pulumi.Azure.HDInsight.Inputs
     public sealed class InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `recurrence` block as defined below.
+        /// A `Recurrence` block as defined below.
         /// </summary>
         [Input("recurrence")]
         public Input<Inputs.InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs>? Recurrence { get; set; }

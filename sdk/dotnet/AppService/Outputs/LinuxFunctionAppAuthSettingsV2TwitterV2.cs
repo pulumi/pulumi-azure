@@ -20,7 +20,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// <summary>
         /// The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
         /// 
-        /// !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
+        /// !&gt; **Note:** A setting with this name must exist in `AppSettings` to function correctly.
         /// </summary>
         public readonly string ConsumerSecretSettingName;
 

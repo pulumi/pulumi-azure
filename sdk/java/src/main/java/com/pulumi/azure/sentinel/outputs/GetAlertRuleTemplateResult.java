@@ -23,17 +23,17 @@ public final class GetAlertRuleTemplateResult {
     private String logAnalyticsWorkspaceId;
     private String name;
     /**
-     * @return A `nrt_template` block as defined below. This only applies to Sentinel NRT Alert Rule Template.
+     * @return A `nrtTemplate` block as defined below. This only applies to Sentinel NRT Alert Rule Template.
      * 
      */
     private List<GetAlertRuleTemplateNrtTemplate> nrtTemplates;
     /**
-     * @return A `scheduled_template` block as defined below. This only applies to Sentinel Scheduled Alert Rule Template.
+     * @return A `scheduledTemplate` block as defined below. This only applies to Sentinel Scheduled Alert Rule Template.
      * 
      */
     private List<GetAlertRuleTemplateScheduledTemplate> scheduledTemplates;
     /**
-     * @return A `security_incident_template` block as defined below. This only applies to Sentinel MS Security Incident Alert Rule Template.
+     * @return A `securityIncidentTemplate` block as defined below. This only applies to Sentinel MS Security Incident Alert Rule Template.
      * 
      */
     private List<GetAlertRuleTemplateSecurityIncidentTemplate> securityIncidentTemplates;
@@ -56,21 +56,21 @@ public final class GetAlertRuleTemplateResult {
         return this.name;
     }
     /**
-     * @return A `nrt_template` block as defined below. This only applies to Sentinel NRT Alert Rule Template.
+     * @return A `nrtTemplate` block as defined below. This only applies to Sentinel NRT Alert Rule Template.
      * 
      */
     public List<GetAlertRuleTemplateNrtTemplate> nrtTemplates() {
         return this.nrtTemplates;
     }
     /**
-     * @return A `scheduled_template` block as defined below. This only applies to Sentinel Scheduled Alert Rule Template.
+     * @return A `scheduledTemplate` block as defined below. This only applies to Sentinel Scheduled Alert Rule Template.
      * 
      */
     public List<GetAlertRuleTemplateScheduledTemplate> scheduledTemplates() {
         return this.scheduledTemplates;
     }
     /**
-     * @return A `security_incident_template` block as defined below. This only applies to Sentinel MS Security Incident Alert Rule Template.
+     * @return A `securityIncidentTemplate` block as defined below. This only applies to Sentinel MS Security Incident Alert Rule Template.
      * 
      */
     public List<GetAlertRuleTemplateSecurityIncidentTemplate> securityIncidentTemplates() {
